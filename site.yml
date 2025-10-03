@@ -21,12 +21,12 @@ site:
       children:
       - title: Forum
         url: https://nucleus.discourse.group/
-      - title: Zulip
-        url: https://nucleus-engineering.zulipchat.com/#narrow/channel/525991-Zulip
+      - title: FAQs
+        url: /docs/about/faqs
   options:
-    logo: /resources/logo-v1.png
+    logo: assets/logo-v1.png
     logo_url: https://bnext.bio/nucleus
-    style: /resources/style-sheet.css
+    style: assets/style-sheet.css
     folders: true
     # favicon: favicon.ico
     # favicon: https://raw.githubusercontent.com/jupyter-book/jupyter-book/refs/heads/next/docs/media/images/favicon.ico

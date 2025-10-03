@@ -4,21 +4,35 @@ title: Modules
 
 # Overview
 
-Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
+A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications contains the following information:
 
-:::{note}
-At some point this will likely need to be a full fledged database, that will have to come in a future release and might require some custom dev
-:::
+- brief description
+- Where to access the materials
+- design file of genetic components, if applicable
+- schematic describing basic use
+- List of reference implementations
 
-## Module Contribution Standards
+## Module contribution standards
 
 - Cytosol Module Standard
 
-## List of Modules
+## Modules validated in cytosols
 
-:::{aside}
-**Question**: Do we represent modules by the output (say a protein or small molecule) or by genetic component? My sense is the former since we care about functional units and many plasmids might correspond to the production of a single small molecule.
-::: 
+- [Module Template](https://antonrmolina.github.io/nucleus-distribution-pages/docs/modules/module-template/specification-module-template)
+- [Reporter: plamGFP](https://antonrmolina.github.io/nucleus-distribution-pages/docs/modules/module-plamgfp/specification-module-plamgfp)
+- Reporter: deGFP
+- Reporter: mScarlett
+- Detector: aTc
+- Emitter: IVHSL
+- Energy: PPK2
 
-- [My first module](./mod-list/module-template/specification.md)
-- [plamGFP](./mod-list/mod-plamGFP/specification.md)
+## Modules validated in cells
+
+- Membrane: POPC
+- Membrane: POPC/Chol
+- Membrane: EggPC
+
+- Transporter: aHL
+- Transporter: Cx43
+
+- Chaperone: SecYEG

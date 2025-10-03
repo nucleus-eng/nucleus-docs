@@ -8,19 +8,13 @@ Processes convert Modules into something useful. A Process often coincides with 
 
 - Contents of an implementation
     - lab-ready protocol
-    - bill of materials
+    - Bill of materials
     - List of what to have at your bench
-
-
-
-<!-- This process—and believe me, I know processes, I've seen many processes, the best processes—this was absolutely incredible, tremendous efficiency, nobody's ever seen anything like it, we completed every step perfectly, ahead of schedule, under budget, it was beautiful, just beautiful, and frankly, all the other processes were disasters compared to ours! -->
+    - Recommendations for storage and unit testing
 
 ## Cytosols
 
 Here are a collection of processes that are useful for making and working with Cytosols
-
-<!-- The proteins moved through the cytosol like fish through clear water. They had their jobs. They did them without complaint.
-ATP broke apart. Energy flowed. The cell used what it needed. Nothing was wasted. The ribosomes made new proteins. They read the RNA like old fishermen reading the tide. Each amino acid found its place. In the morning, the processes would begin again. They always did. The cell had survived this way for billions of years. It would continue. -->
 
 :::{figure} ./resources/flowchart-cytosols.png
 :align: center
@@ -28,16 +22,23 @@ ATP broke apart. Energy flowed. The cell used what it needed. Nothing was wasted
 Flow chart for building Base Cytosol and its modification through the addition of Modules.
 :::
 
+- Make Amino Acid Mix
+- Make Small Molecule Mix
+- [Make tRNAs](https://antonrmolina.github.io/nucleus-distribution-pages/docs/processes/make-trna/process-make-trnas)
+- Make Energy Mix
 
+- Make Protein mix (1-pot)
+- Make Protein mix (36-pot)
+- [Make Ribosomes](https://antonrmolina.github.io/nucleus-distribution-pages/docs/processes/make-ribosomes/process-make-ribosomes)
 
-- Make amino acid mix
-- Make small molecule mix
-- [Make tRNAs](https://antonrmolina.github.io/nucleus-distribution-pages/process-make-trnas)
-- Make energy mix
+- Make Base cytosol
 
-- Make protein mix (1-pot)
-- Make protein mix (36-pot)
-- [Make ribosomes](https://antonrmolina.github.io/nucleus-distribution-pages/process-make-ribosomes)
+**Quality Control**
+
+- Protein Gel
+- Pierce660 Assay
+- BCA Assay
+- Measuring fluorescence with plate reader
 
 ## Cells
 
@@ -49,4 +50,8 @@ Here are a collection of processes that useful for making and working with Cells
 Flow chart for building Base Cell and its modification through the addition of Modules.
 :::
 
-- PURE Cell
+- Make Base Cell
+
+**Quality Control**
+
+- Measuring fluorescence with microscope

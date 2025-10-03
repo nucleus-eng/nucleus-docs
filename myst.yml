@@ -18,7 +18,8 @@ project:
         - file: ./docs/guides/getting-started.md
         - file: ./docs/guides/roadmap.md
         - file: ./docs/guides/contribute.md
-        - file: .docs/guides/open-science.md
+        - file: ./docs/guides/first-guide.md
+
     - title: Docs
       children:
         - file: ./docs/modules/modules-main.md
@@ -28,15 +29,17 @@ project:
       children:
         - file: ./docs/guides/developer-handbook.md
         - file: ./docs/guides/contribution-guide.md
-        - file: ./docs/guides/nucleus-hub/nucleus-hub.md
-        - file: ./docs/guides/developer-notes/developer-notes.md
+        - file: ./docs/guides/tutorials.md
+        # - file: ./docs/guides/nucleus-hub/nucleus-hub.md
+        # - file: ./docs/guides/developer-notes/developer-notes.md
     - title: About
       children:
+        - file: ./docs/guides/open-science.md
+        - file: ./docs/guides/license.md
+        - file: ./docs/about/faqs.md
         - file: ./docs/about/release-notes.md
           children:
            - file: ./docs/about/release-notes/release-notes-v-0-4-0.md
-        - file: ./docs/guides/license.md
-        - file: ./docs/about/faqs.md
   resources:
     - docs/**/*
 
