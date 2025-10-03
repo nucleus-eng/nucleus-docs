@@ -24,9 +24,10 @@ site:
       - title: Zulip
         url: https://nucleus-engineering.zulipchat.com/#narrow/channel/525991-Zulip
   options:
-    logo: ./logo-v1.png
+    logo: /resources/logo-v1.png
     logo_url: https://bnext.bio/nucleus
-    style: style-sheet.css
+    style: /resources/style-sheet.css
     folders: true
+    # favicon: favicon.ico
     # favicon: https://raw.githubusercontent.com/jupyter-book/jupyter-book/refs/heads/next/docs/media/images/favicon.ico
     # logo_dark: https://raw.githubusercontent.com/jupyter-book/jupyter-book/refs/heads/next/docs/media/images/logo-dark.svg
