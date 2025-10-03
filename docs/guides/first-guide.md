@@ -18,7 +18,7 @@ If you follow the steps on that page, you shoud find yourself with some data in 
 
 Nucleus Hub is an interactive computing platform built on Jupyter Hub. Like it or not, we have to interact with software to get our work done and share it with others. Nucleus Hub provides a way of accessing software tools that just work. No installs, no compiling, no environmental management. Of course if you want to modify your own environments and build code, that's supported as well. The Nucleus CDK lives on GitHub, but the Hub is preconfigured to get you up and running without any additional work. And there's templates. 
 
-- Getting Up with Nucleus Hub
+- Getting Started with Nucleus Hub
 
 If you followed the steps on that page, you should not find yourself with a Nucleus Hub account and some nice looking plots. Let's tell the Nucleus Community what you've been up to and write up a DevNote.
 
