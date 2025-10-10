@@ -21,6 +21,7 @@ project:
         - file: ./start/first-guide.md
     - title: Docs
       children:
+        - file: ./docs/dna-distro.md
         - file: ./docs/modules/modules-main.md
           children:
            - file: ./docs/modules/module-plamGFP/specification-Module_plamGFP.md

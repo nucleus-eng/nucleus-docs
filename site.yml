@@ -4,25 +4,24 @@ project:
   license:
     content: CC-BY-4.0
     code: cern-ohl-p
-
 site:
   template: book-theme
   nav: 
-    - title: Docs
+    - title: Distribution
       # url: https://github.com/ProjectPythia/pythia-foundations/blob/main/myst.yml
-      url: /docs/guides/getting-started
-    - title: Developer Notes
-      url: https://devnotes.bnext.bio/
+      url: /start/getting-started
     - title: Hub
       url: https://bnext.bio/hub
-    - title: Ecosystem
-      url: https://bnext.bio/nucleus
-    - title: Help
-      children:
-      - title: Forum
-        url: https://nucleus.discourse.group/
-      - title: FAQs
-        url: /docs/about/faqs
+    - title: Developer Notes
+      url: https://devnotes.bnext.bio/
+    - title: Forum
+      url: https://nucleus.discourse.group/
+    # - title: Help
+    #   children:
+    #   - title: Forum
+    #     url: https://nucleus.discourse.group/
+    #   - title: FAQs
+    #     url: /docs/about/faqs
   options:
     logo: assets/logo-v1.png
     logo_url: https://bnext.bio/nucleus

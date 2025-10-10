@@ -5,7 +5,90 @@ site:
   hide_toc: true
 ---
 
+# TODO list
 
+## Getting started
+
+- Introduction
+  - copy editing
+
+- Roadmap page
+  - copy editing
+  - figure: whitespace chart?
+  - figure: universal chassis?
+
+- Nucleus Workflow -> we can likely hide this one if pressed for time and stick with just Zero to DevNote...
+  - copy editing
+  - define minimal set of guides
+
+- Zero to DevNote
+  - Minnimal set of guides
+    - Make base cytosol from kit
+    - Getting started with Nucleus Hub
+    - Writing your first DevNote
+    - Navigating the forum
+    - Contribution guides
+
+## Docs
+
+- how to handle bill of materials?
+- template platemap and composition spec sheet
+
+### DNA Distribution
+
+- copy edits
+- [ACJS/JEC] need to think about how to upgrade this as well as ops for pushing DNA into distribution
+
+### Modules
+
+- plamGFP module
+- POPC/chol module
+
+### Processes
+
+- [migrate] Make amino acid + unit test experiment
+- [migrate] Make SM mix
+- [SY] OnePot Pure
+- [JEC] 36Pot PURE
+- [JEC] Assemble Base Cytosol from Kit
+- [migrate YH/SY] Base Cell
+
+### Implementations
+
+- [SY] Detector cell
+- [SY] Responder cell
+- [SY] Emitter cell
+- [YH/SY] Cx43
+- [YH] PPK cell
+
+## Guides
+
+- How to make base cytosol
+- How to make base cell
+- How to Forum
+- How to Nucleus Hub
+- How to DevNotes
+
+## About
+
+- copy writing open science
+- copy writing license
+- update FAQs
+- Release notes v0.4.0>
+
+
+## Scripting
+- scripts for all rendered PDFs
+- 
+
+## Site
+- Revamp Nucleus Logo?
+- Finalize NavBar link outs and synchronize across all websites
+- Handle darkmode; either disable or include darkmode logo
+- Add favicon
+- fix typst template
+
+<!-- 
 The Nucleus Distribution is an open source package for synthetic cell builders maintained by b.next. The Distribution includes integrated digital tools, biological materials, documentation, and validated protocols for the full process of cell building, including cytosol construction, DNA content engineering, and membrane encapsulation. 
 
 Join the mailing list and contact us at build@bnext.bio.
@@ -17,9 +100,9 @@ The sixth stable release of the Nucleus Distribution (v0.4.0) is now available. 
 :link: docs/guides/getting-started.md
 
 Learn how to navigate this documentation and build your first cytosols and cells.
-:::
+::: -->
 
-::::{grid} 1 1 2 3
+<!-- ::::{grid} 1 1 2 3 -->
 
 <!-- :::{card}
 :header: Collections
