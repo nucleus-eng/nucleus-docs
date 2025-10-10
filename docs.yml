@@ -1,0 +1,15 @@
+version: 1
+project:
+  # id: 42209306-ce58-4005-9c73-983816b73d3c
+  # title: Nucleus Distribution
+  # description:
+  # keywords: []
+  # authors: []
+  # github:
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  toc:
+    - title: Docs2
+      children:
+        - file: ./docs_2/modules/modules-main.md
+        - file: ./docs_2/processes/processes-main.md
+        - file: ./docs_2/implementations/implementations-main.md
