@@ -22,7 +22,9 @@ Here are a collection of processes that are useful for making and working with C
 Flow chart for building Base Cytosol and its modification through the addition of Modules.
 :::
 
-- Make Amino Acid Mix
+- [Process Template](./process-template/process-Make_template.md)
+
+- [Make Amino Acid Mix](./make-amino-acid-mix/process-Make_Amino_Acid_Mix.md)
 - [Make Small Molecule Mix](./make-small-molecule-mix/process-Make_Small_Molecule_Mix.md)
 <!-- - [Make tRNAs](https://antonrmolina.github.io/nucleus-distribution-pages/docs/processes/make-trna/process-make-trnas) -->
 - [Make tRNAs](./make-trna/process-Make_tRNAs.md)

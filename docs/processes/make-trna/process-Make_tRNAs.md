@@ -1,23 +1,97 @@
 ---
-title: make tRNAs
+title: Make tRNAs
 ---
 
 # Overview
 
 Transfer RNAs (tRNAs) are small RNA molecules (76 - 90) nt that carry amino acids to ribosomes during protein synthesis. They are essential for translation and can be easily purified following this protocol, which covers bacterial growth, purification, dialysis, and quality assurance. You can use these tRNAs in Make Energy Mix.
 
-:::{tip} Note: we purify ribosomes from *E. coli* A19 biomass
+::::::{card}
+:header: **Important Information**
+
+Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
+
+:::{note} Notes
 :class: dropdown
-We purify RNAs and Riboproteins from *E. coli* A19 biomass ([CGSC 5997](https://ecgrc.net/index.php/product/a19/)), a strain with a mutation in RNase I that improves RNA yields. You can use other RNase deficient strains with this protocol, but you may need to optimize this protocol to achieve high yield and purity.
+
+- We purify RNAs and Riboproteins from *E. coli* A19 biomass ([CGSC 5997](https://ecgrc.net/index.php/product/a19/)), a strain with a mutation in RNase I that improves RNA yields. You can use other RNase deficient strains with this protocol, but you may need to optimize this protocol to achieve high yield and purity.
+
+- ‼️All reagents and materials must be prepared RNase-free. Use RNaseZap or 10% bleach to decontaminate plastic and glassware and rinse with nuclease-free water. We find ultrapure water (18.2 MOhm) is often sufficient for RNase-free work.
+
 :::
 
-:::{caution} Caution: work under RNAse-free conditions
-:class: dropdown
-‼️All reagents and materials must be prepared RNase-free. Use RNaseZap or 10% bleach to decontaminate plastic and glassware and rinse with nuclease-free water. We find ultrapure water (18.2 MOhm) is often sufficient for RNase-free work.
+:::::{card}
+:header: **Resources**
+::::{grid} 1 1 1 3
+
+:::{card}
+:header: **TODO: Lab-ready Protocol**
+:algin: center
+
+{button}`download <protocol-make_trnas.pdf>`
 :::
 
-:::{danger} Danger: hazardous materials
+:::{card}
+:header: **Assembly Worksheet**
+{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
+:::
+
+:::{card}
+:header: **TODO: Bill of Materials**
+{button}`download <protocol-Make_tRNAs.pdf>`
+:::
+
+::::
+:::::
+
+:::::{tip} Composition
 :class: dropdown
+
+::::{card}
+:header: **Composition of tRNAs**
+:::{table} 
+:label: tbl:composition-table
+:align: center
+
+TODO
+<!-- | **Reagent** | **Concentration in Energy Mix (mM)** | **Concentration in Final Reaction (mM)** | -->
+
+:::
+::::
+:::::
+
+:::{seealso} Prerequisite Documentation
+:class: dropdown
+- None
+
+:::
+
+::::{important} Critical Materials
+:class: dropdown
+
+:::{table}
+:label: tbl:critical-materials
+:align: center
+
+TODO
+
+<!-- | Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
+| --- | --- | --- | --- | --- | --- | --- |
+| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
+| Low Bind Protein Tubes | X | X | X | X | X | X | -->
+
+::::
+
+::::{important} Genetically Encoded Components
+:class: dropdown
+
+- None
+
+::::
+
+::::{danger} Hazardous Materials
+:class: dropdown
+
 - **Acid Phenol**
     - Corrosive, toxic, rapidly absorbed through skin, & respiratory irritant
     - Use in fume hood, wear neoprene gloves, & PPE
@@ -33,40 +107,17 @@ We purify RNAs and Riboproteins from *E. coli* A19 biomass ([CGSC 5997](https://
 - **Ethanol**
     - Highly flammable, toxic, and irritant
     - Wear PPE, use in well-ventilated areas, and keep away from open flames
-:::
 
-
-
-# Resurces
-
-::::{grid} 1 1 2 2
-
-:::{card}
-:header: **Lab-ready Protocol**
-:algin: center
-
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-:::{card}
-:header: **Buffer Recipes**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-:::{card}
-:header: **Platemap**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
 ::::
 
-## Bill of Materials
+::::{note} References
+:class: dropdown
 
-TODO: add drop down
+- None
+
+::::
+
+::::::
 
 # Protocol
 

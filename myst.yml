@@ -30,6 +30,10 @@ project:
              hidden: true
         - file: ./docs/processes/processes-main.md
           children:
+           - file: ./docs/processes/process-template/process-Make_template.md
+             hidden: true
+           - file: ./docs/processes/make-amino-acid-mix/process-Make_Amino_Acid_Mix.md
+             hidden: true
            - file: ./docs/processes/make-small-molecule-mix/process-Make_Small_Molecule_Mix.md
              hidden: true
            - file: ./docs/processes/make-ribosomes/process-Make_ribosomes.md

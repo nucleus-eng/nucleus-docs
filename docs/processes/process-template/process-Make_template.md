@@ -1,14 +1,163 @@
 ---
-title: Make tRNAs
-exports:
-  - format: typst
-    template: https://github.com/antonrmolina/nucleus-typst-test/archive/refs/heads/main.zip
-    output: protocol-Make_tRNAs.pdf
+title: Make Template
 ---
+
+# Overview
+
+Transfer RNAs (tRNAs) are small RNA molecules (76 - 90) nt that carry amino acids to ribosomes during protein synthesis. They are essential for translation and can be easily purified following this protocol, which covers bacterial growth, purification, dialysis, and quality assurance. You can use these tRNAs in Make Energy Mix.
+
+<!-- The important imformation card begins here -->
+<!-- The important imformation card begins here -->
+<!-- The important imformation card begins here -->
+<!-- The important imformation card begins here -->
+<!-- The important imformation card begins here -->
+
+::::::{card}
+:header: **Important Information**
+
+Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
+
+:::{note} Notes
+:class: dropdown
+
+- ‼️All reagents and materials must be prepared RNase-free. Use RNaseZap or 10% bleach to decontaminate plastic and glassware and rinse with nuclease-free water. We find ultrapure water (18.2 MOhm) is often sufficient for RNase-free work.
+
+:::
+
+:::::{card}
+:header: **Resources**
+::::{grid} 1 1 1 3
+
+:::{card}
+:header: **TODO: Lab-ready Protocol**
+:algin: center
+
+{button}`download <protocol-make_template.pdf>`
+:::
+
+:::{card}
+:header: **Assembly Worksheet**
+{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
+:::
+
+:::{card}
+:header: **TODO: Bill of Materials**
+{button}`download <protocol-Make_tRNAs.pdf>`
+:::
+
+::::
+:::::
+
+:::::{tip} Composition
+:class: dropdown
+
+::::{card}
+:header: **Composition of Small Molecule Mix**
+:::{table} 
+:label: tbl:composition-table
+:align: center
+
+| **Reagent** | **Concentration in Energy Mix (mM)** | **Concentration in Final Reaction (mM)** |
+| --- | --- | --- |
+| HEPES-KOH (pH 7.6) | 125 | 50 |
+| Potassium glutamate | 250 | 100 |
+| Magnesium acetate | 18.75 | 7.5 |
+| rATP  | 5 | 2 |
+| rGTP | 5 | 2 |
+| rCTP | 2.5 | 1 |
+| rUTP | 2.5 | 1 |
+| Amino Acids (each) | 0.75 | 0.3 |
+| Creatine phosphate | 50 | 20 |
+| Folinic acid | 0.05 | 0.02 |
+| Spermidine | 5 | 2 |
+| TCEP | 2.5 | 1 |
+
+:::
+::::
+:::::
+
+:::{seealso} Prerequisite Documentation
+:class: dropdown
+- None
+
+:::
+
+::::{important} Critical Materials
+:class: dropdown
+
+:::{table}
+:label: tbl:critical-materials
+:align: center
+
+| Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
+| --- | --- | --- | --- | --- | --- | --- |
+| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
+| Low Bind Protein Tubes | X | X | X | X | X | X |
+
+::::
+
+::::{important} Genetically Encoded Components
+:class: dropdown
+
+:::{table}
+:label: tbl:critical-materials
+:align: center
+
+| Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
+| --- | --- | --- | --- | --- | --- | --- |
+| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
+| Low Bind Protein Tubes | X | X | X | X | X | X |
+
+::::
+
+::::{danger} Hazardous Materials
+:class: dropdown
+
+- **Acid Phenol**
+    - Corrosive, toxic, rapidly absorbed through skin, & respiratory irritant
+    - Use in fume hood, wear neoprene gloves, & PPE
+
+- **Acetic Acid**
+    - Corrosive to skin and eyes
+    - Use appropriate PPE and handle under fume-hood
+
+- **Chloroform**
+    - Irritant, possible carcinogen
+    - Work in fume hood & appropriate gloves
+
+- **Ethanol**
+    - Highly flammable, toxic, and irritant
+    - Wear PPE, use in well-ventilated areas, and keep away from open flames
+
+::::
+
+::::{note} References
+:class: dropdown
+
+- None
+
+::::
+
+::::::
+
+<!-- The important imformation card ends here -->
+<!-- The important imformation card ends here -->
+<!-- The important imformation card ends here -->
+<!-- The important imformation card ends here -->
+<!-- The important imformation card ends here -->
 
 # Protocol
 
 ## Cell culture
+
+:::{hint} Note: you can work from glycerol stocks OR colonies.
+:class: dropdown
+We first need to prepare bacterial cultures. We will work from 6 mL overnight cultures of our expression strains and backdilute them the next day. In order to prepare these overnight cultures, we need stocks of bacteria.
+
+We worked from 100 uL aliquots of our glycerol stocks, frozen in PCR strip tubes. When seeding our overnights with bacteria, we poked one glycerol aliquot with a pipette tip and ejected the tip into culture tubes (more details below).
+
+Optionally, you can work from individual colonies by streaking out your bacterial stocks. Working from colonies assures that your bulk outgrowth will have come from a single colony forming unit.
+:::
 
 - **Prepare overnight cultures.**
     - [ ]  Add 6 mL Luria Broth (LB) under sterile conditions to two (2) 14 mL culture tubes. 6 mL is enough to innoculate 4 x 900 mL bulk outgrowths.
@@ -93,10 +242,22 @@ exports:
     - [ ]  Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4C / 45 min. We do this by putting our beaker in a bucket of ice on a stir plate.
     - [ ]  Change the dialysis buffer and dialyze for another 45 minutes.
 
+:::{hint} Note: you can dialyze overnight.
+:class: dropdown
+Dialysis can be done overnight after changing the dialysis buffer at least once. The manufacturer of Slide-A-Lyzer chips recommends dialyzing for 2 hours, then changing the buffer and dialyzing for another two hours. We have found 2 x 45 min sufficient. 
+
+For more detailed instructions on using the Slide-A-Lyzer, please look at manufacturer’s [manual](https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0027985-SAL-G3-Cassettes-UG-EN.pdf).
+:::
+
 ## Concentrate
 
 - [ ]  Pipette dialyzed tRNAs to the upper chamber of an Amicon® Ultra-0.5 mL Centrifugal Filter, 3 kDa MWCO.
 - [ ]  Centrifuge at 14 000 rcf / 10 min and check the remaining volume in the upper chamber. Repeat until you hit your target volume.
+
+:::{hint} Note: estimate your target volume at 100 uL per 1 g biomass.
+:class: dropdown
+From our experience, a good rule of thumb is to target a final volume around 100 uL per 1g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 uL (~40 ug/uL tRNAs)).
+:::
 
 ## Quality control
 
@@ -105,6 +266,17 @@ exports:
     - [ ]  Measure absorbance at 260 nm, 280 nm, and 230 nm.
     - [ ]  Estimate your yield by A260 ([tRNA] = A260 * 40 mg/mL). Typical yield of tRNA is ~ (4-20) mg per gram of cell mass.
     - [ ] Estimate your purity by A260/A230 and A260/A280 (both should be ≥1.8).
+
+:::{hint} Note: [tRNA] = A260 * 40 mg / mL
+:class: dropdown
+A260 units (*a.k.a.* “absorbance units”, or “OD260”) are defined as the amount of light (wavelength = 260 nm) absorbed by a sample resuspended in 1 mL of water as said light passes through 1 cm of said sample. 
+
+Typically, this value is measured by diluting a sample until it’s absorbance is in the linear range (0.5 is acceptable), then multiplying the measured absorbance by the dilution factor.
+
+These units are annoying to design experiments around, but easy to measure. If you want to report mass concentration of your samples instead, you can approximate as ~40 mg/mL per A260 unit of tRNA.
+
+NEB has a great [tool](https://nebiocalculator.neb.com/#!/od260) for converting absorbance units to concentrations. Make sure to select “ssRNA”
+:::
 
 - **Visualize purity by TBE-Urea 10% Gel.**
     - [ ]  (optional) Prepare TBE-Urea 10% Gel
@@ -120,6 +292,13 @@ exports:
     - [ ]  Meanwhile, prepare SYBR-Green stain (4 uL in 40 mL water) to stain gel.
     - [ ]  Soak gel in SYBR-Green stain and visualize gel using UV or blue-light transilluminator. You should see multiple distinct bands around 75-90 nt.
 
+:::{hint} Note: RNases digesting your tRNA → smear on gel
+:class: dropdown
+If your sample is contaminated with RNases, your sample quality will decrease as the RNases degrade the tRNAs. A clear sign of tRNA degradation are poorly defined, smeared bands. A clean tRNA prep should have distinct bands.
+
+If your samples appear as a smear on your gel, consider testing your input buffers and final prep for RNase activity (see below).
+:::
+
 - **(Optional) Measure RNase contamination using Ambion RNaseAlert Lab Test Kit.**
     - [ ] We recommend diluting your tRNAs by adding 2 uL to 40 uL of provided sample buffer. 
 
@@ -129,4 +308,5 @@ exports:
 
 ## Storage
 
-- [] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
+- [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
+

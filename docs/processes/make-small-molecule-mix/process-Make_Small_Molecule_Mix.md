@@ -4,9 +4,46 @@ title: Make Small Molecule Mix
 
 # Overview
 
-Small Molecule Mix is a combination of thirty-one (31) small molecules (*e.g.*, rNTPs, amino acids, buffering salts, etc.) needed to fuel transcription and translation.
+Small Molecule Mix is a combination of thirty-one (31) small molecules (*e.g.*, rNTPs, amino acids, buffering salts, etc.) needed to fuel transcription and translation. Here, we describe the components of Small Molecule Mix, how to make it, and how to store it properly.
 
-Here, we describe the components of Small Molecule Mix, how to make it, and how to store it properly.
+::::::{card}
+:header: **Important Information**
+
+Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
+
+:::{note} Notes
+:class: dropdown
+
+- TODO
+
+:::
+
+:::::{card}
+:header: **Resources**
+::::{grid} 1 1 1 3
+
+:::{card}
+:header: **TODO: Lab-ready Protocol**
+:algin: center
+
+{button}`download <protocol-make_small_molecule_mix.pdf>`
+:::
+
+:::{card}
+:header: **Assembly Worksheet**
+{button}`download <Nucleus_v0.3.0_EMix-worksheet.xlsx>`
+:::
+
+:::{card}
+:header: **TODO: Bill of Materials**
+{button}`download <protocol-Make_tRNAs.pdf>`
+:::
+
+::::
+:::::
+
+:::::{tip} Composition
+:class: dropdown
 
 ::::{card}
 :header: **Composition of Small Molecule Mix**
@@ -14,7 +51,7 @@ Here, we describe the components of Small Molecule Mix, how to make it, and how 
 :label: tbl:composition-table
 :align: center
 
-| **Reagent** | **Concentration in Energy Mix (mM)** | **Concentration in Final Reaction (mM)** |
+| **Reagent** | **Concentration in Small Molecule Mix (mM)** | **Concentration in Final Reaction (mM)** |
 | --- | --- | --- |
 | HEPES-KOH (pH 7.6) | 125 | 50 |
 | Potassium glutamate | 250 | 100 |
@@ -31,40 +68,22 @@ Here, we describe the components of Small Molecule Mix, how to make it, and how 
 
 :::
 ::::
+:::::
 
-# Resources
+:::{seealso} Prerequisite Documentation
+:class: dropdown
 
-::::{grid} 1 1 1 3
+- [Make Amino Acid Mix (3.25 mM)](../make-amino-acid-mix/process-Make_Amino_Acid_Mix.md)
 
-:::{card}
-:header: **TODO: Lab-ready Protocol**
-:algin: center
-
-{button}`download <protocol-Make_tRNAs.pdf>`
 :::
 
-:::{card}
-:header: **Assembly Worksheet**
-{button}`download <Nucleus_v0.3.0_EMix-worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **TODO: Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-::::
-
-<!-- ## Critical Reagents -->
-
-::::{card }
-:header: **Critical Reagents**
+::::{important} Critical Materials
+:class: dropdown
 
 :::{table}
-:label: tbl:critical-reagents
+:label: tbl:critical-materials
 :align: center
 
-:::{dropdown}
 | **Reagent** | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
 | --- | --- | --- | --- | --- | --- | --- |
 | Folinic acid | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4C to 30C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)] |
@@ -72,20 +91,41 @@ Here, we describe the components of Small Molecule Mix, how to make it, and how 
 :::
 ::::
 
-:::{card} **Prerequsite Protocols**
+::::{important} Genetically Encoded Components
+:class: dropdown
 
-- [Make Amino Acid Mix (3.25 mM)](../make-amino-acid-mix/process-Make_Amino_Acid_Mix.md)
+- None
 
-:::
+::::
+
+::::{danger} Hazardous Materials
+:class: dropdown
+
+- None
+
+::::
+
+::::{note} References
+:class: dropdown
+
+- None
+
+::::
+
+::::::
+
+<!-- protocol starts after this line -->
 
 # Protocol
+
+## Make Small Molecule Stock Solutions
 
 **Prepare Folinic Acid Stock (5 mM).**
 - [ ]  Weigh 12.5 mg folinic acid.
 - [ ]  Dissolve to a final volume of 4.89 mL.
 - [ ]  Aliquot and freeze at -20C.
 
-**Make Stock Solutions.**
+**Make All Other Stock Solutions.**
 - [ ] Use the table below to prepare the specified stock solutions:
 
 :::{table}
@@ -105,14 +145,15 @@ Here, we describe the components of Small Molecule Mix, how to make it, and how 
 
 :::
 
-**Combine Small Molecule Mix components.**
+<!-- **Assemble Small Molecule Mix Components.** -->
+## Assemble Small Molecule Mix.
 - [ ] Use the table below to combine the previously prepared stock solutions into Small Molecule Mix:
 
 :::{table}
 :label: tlb:assembly
 :align: center
 
-| **Reagent** | **Stock Concentration (mM)** | **Concentration in Energy Mix (mM)** | **Volume to Add (uL)** |
+| **Reagent** | **Stock Concentration (mM)** | **Concentration in Small Molecule Mix (mM)** | **Volume to Add (uL)** |
 | --- | --- | --- | --- |
 | HEPES-KOH (pH 7.6) | 1000 | 125 | 62.5 |
 | Potassium glutamate | 2500 | 250 | 50.0 |
@@ -131,7 +172,8 @@ Here, we describe the components of Small Molecule Mix, how to make it, and how 
 
 :::
 
-**Storage.**
-- [ ]  Aliquot Energy Mix into 1.5 mL microfuge tubes (between 50 uL and 100 uL per aliquot) and store at -80C.
+<!-- **Storage.** -->
+## Storage
+- [ ]  Aliquot Small Molecule Mix into 1.5 mL microfuge tubes (between 50 uL and 100 uL per aliquot) and store at -80C.
 
 

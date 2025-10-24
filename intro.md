@@ -27,7 +27,7 @@ site:
     - Getting started with Nucleus Hub
     - Writing your first DevNote
     - Navigating the forum
-    - Contribution guides
+    - [In progress] Contribution guides
 
 ## Docs
 
@@ -46,8 +46,8 @@ site:
 
 ### Processes
 
-- [migrate] Make amino acid + unit test experiment
-- [migrate] Make SM mix
+- [migrate - in progress] Make amino acid + unit test experiment
+- [migrate - in progress] Make SM mix
 - [SY] OnePot Pure
 - [JEC] 36Pot PURE
 - [JEC] Assemble Base Cytosol from Kit
