@@ -48,6 +48,8 @@ project:
              hidden: true
         - file: ./docs/implementations/implementations-main.md
           children:
+           - file: ./docs/implementations/responder-atc-ivhsl/main.md
+             hidden: true
            - file: ./docs/implementations/implementation-first/implementation-first.md
              hidden: true
            - file: ./docs/implementations/implementation-template/implementation-template.md

@@ -31,7 +31,7 @@ Implementations typically progress from cytosol-level to cell-level functionalit
 - plamGFP
 - Detector Cell
 - Emitter Cell
-- Responder Cell
+- [Responder Cell](./responder-atc-ivhsl/main.md)
 - PPK Cell
 - PPK + ClpXP Cell
 - SecYEG Cell
