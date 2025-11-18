@@ -45,7 +45,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 :::{card}
-:header: **TODO: Bill of Materials**
+:header: **Bill of Materials**
 {button}`download <protocol-Make_tRNAs.pdf>`
 :::
 
@@ -205,7 +205,7 @@ Please read this section carefully. It contains important notes, resources, and 
 <!-- The important imformation card ends here -->
 <!-- The important imformation card ends here -->
 
-:::{hint} Note: you can work from glycerol stocks OR colonies.
+<!-- :::{hint} Note: you can work from glycerol stocks OR colonies.
 :class: dropdown
 We first need to prepare bacterial cultures. We will work from 6 mL overnight cultures of our expression strains and backdilute them the next day. In order to prepare these overnight cultures, we need stocks of bacteria.
 
@@ -364,4 +364,4 @@ If your samples appear as a smear on your gel, consider testing your input buffe
 ## Storage
 
 - [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
-
+ -->

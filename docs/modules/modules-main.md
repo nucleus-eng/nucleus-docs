@@ -4,28 +4,59 @@ title: Modules
 
 # Overview
 
-A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications contains the following information:
+A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "what is it?" and 2) "What should I expect when I implement it?".
 
-- brief description
+:::{figure} ./resources/flowchart.png
+:width: 50%
+Modules can be combined with Process/Protocol to create Integrations.
+:::
+
+Module Specifications contain the following information:
+
+- Brief description
+- Expected behavior
 - Where to access the materials
 - design file of genetic components, if applicable
 - schematic describing basic use
 - List of reference implementations
 
+
+
+## List of Modules
+
+:::{table}
+
+| Module Class | Module Implementation | Base Module | Status |
+| --- | --- | --- | --- |
+| Reporter | plamGFP | PURExpress Cell | [Distribution](./module-plamGFP/specification-Module_plamGFP.md) |
+|  | deGFP | **Nucleus Cytosol;** PURExpress Cell | Distribution |
+| Membrane | POPC | PURExpress Cell | Distribution |
+|  | POPC/Chol | PURExpress Cell | Distribution |
+|  | EggPC | PURExpress Cell | Distribution |
+| Membrane Pore | alpha-Hemolysin | PURExpress Cell  | Distribution |
+|  | Cx43 | PURExpress Cell | DevNote |
+| Detector | tetR-aTc | PURExpress Cell | Distribution |
+| Emitter | IV-HSL | PURExpress Cell | Distribution |
+| Energy | PPK2 | PURExpress Cell | DevNote |
+| Control | ClpXP | PURExpress Cytosol | DevNote* |
+| Chaperone | SecYEG | - | Planned |
+
+:::
+
 ## Module contribution standards
 
 - Cytosol Module Standard
 
-## Modules validated in cytosols
+<!-- ## Modules validated in cytosols -->
 
 <!-- - [Module Template](https://antonrmolina.github.io/nucleus-distribution-pages/docs/modules/module-template/specification-module-template) -->
-- [Module Template](./module-template/specification-Module_Template.md)
-- Control: ClpXP
+<!-- - [Module Template](./module-template/specification-Module_Template.md)
+- Control: ClpXP -->
 
-## Modules validated in cells
+<!-- ## Modules validated in cells -->
 
 <!-- - [Reporter: plamGFP](https://antonrmolina.github.io/nucleus-distribution-pages/docs/modules/module-plamgfp/specification-module-plamgfp) -->
-- [Reporter: plamGFP](./module-plamGFP/specification-Module_plamGFP.md)
+<!-- - [Reporter: plamGFP](./module-plamGFP/specification-Module_plamGFP.md)
 - Reporter: deGFP
 - Reporter: mScarlett
 - Detector: aTc
@@ -40,4 +71,4 @@ A Module is a useful biochemical formulation, often incorporating a genetically 
 - Transporter: aHL
 - Transporter: Cx43
 
-- Chaperone: SecYEG
+- Chaperone: SecYEG -->

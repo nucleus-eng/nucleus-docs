@@ -25,7 +25,7 @@ Please read this section carefully. It contains important notes, resources, and 
 ::::{grid} 1 1 1 3
 
 :::{card}
-:header: **TODO: Lab-ready Protocol**
+:header: **Lab-ready Protocol**
 :algin: center
 
 {button}`download <protocol-make_trnas.pdf>`
@@ -37,7 +37,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 :::{card}
-:header: **TODO: Bill of Materials**
+:header: **Bill of Materials**
 {button}`download <protocol-Make_tRNAs.pdf>`
 :::
 

@@ -19,6 +19,20 @@ Implementations are examples of combinations of useful Processes and Modules. Ea
 
 Implementations typically progress from cytosol-level to cell-level functionality. Consequently, a specific capacity may initially be deployed as a cytosol-level implementation before being upgraded to cell-level. When this upgrade occurs, the cell-level implementation builds upon the cytosol-level version.
 
+- [deGFP Cell]()
+- [Detector Cell]()
+- [Emitter Cell](./emitter-ivhsl/main.md)
+- [Responder Cell](./responder-atc-ivhsl/main.md)
+- [PPK Cell]()
+- [ClpXP Cell]()
+- [Cx43 Cell]()
+
+
+
+<!-- ## Sense and respond
+
+## Metab
+
 ## Cytosols
 
 - [Implementation Template](./implementation-template/implementation-template.md)
@@ -38,4 +52,4 @@ Implementations typically progress from cytosol-level to cell-level functionalit
 - PPK + SecYEG Cell
 - PPK + ClpXP + SecYEG Cell = DevCell (v1.0)
 
-## Assemblies
+## Assemblies -->
