@@ -1,12 +1,15 @@
 ---
-title: Implementations
+title: Integrations
 ---
 
 # Overview
 
-Implementations are examples of combinations of useful Processes and Modules. Each implementation will contain the following information:
+Integrations are combinations of useful Processes and Modules. This section is intended to capture where multiple modules have been operated together or characterized in a diversity of operating conditions. 
 
-- Contents of an implementation
+
+Each implementation will contain the following information:
+
+<!-- - Contents of an implementation
     - Brief description
     - Lab-ready protocol
     - Bill of materials
@@ -15,9 +18,9 @@ Implementations are examples of combinations of useful Processes and Modules. Ea
         - for cytosols this requirement might be upgraded to include a “discovery plate sweep”
         - for cells this requirement might be upgraded to include an “environment plate sweep” - like a discovery plate but for outer solutions.
     - List of supporting DevNotes
-    - List of modules and processes used
+    - List of modules and processes used -->
 
-Implementations typically progress from cytosol-level to cell-level functionality. Consequently, a specific capacity may initially be deployed as a cytosol-level implementation before being upgraded to cell-level. When this upgrade occurs, the cell-level implementation builds upon the cytosol-level version.
+<!-- Implementations typically progress from cytosol-level to cell-level functionality. Consequently, a specific capacity may initially be deployed as a cytosol-level implementation before being upgraded to cell-level. When this upgrade occurs, the cell-level implementation builds upon the cytosol-level version.
 
 - [deGFP Cell]()
 - [Detector Cell]()
@@ -25,7 +28,7 @@ Implementations typically progress from cytosol-level to cell-level functionalit
 - [Responder Cell](./responder-atc-ivhsl/main.md)
 - [PPK Cell]()
 - [ClpXP Cell]()
-- [Cx43 Cell]()
+- [Cx43 Cell]() -->
 
 
 
