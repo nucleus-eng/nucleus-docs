@@ -1,5 +1,6 @@
 ---
-title: "Module Specification (Module Name)"
+title: "Module Specification"
+subtitle: "Membrane Pore: Cx43"
 site:
     hide-toc: true
     numbered_references: false
@@ -7,7 +8,19 @@ site:
 
 ## Overview
 
-Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
+The PPK energy Module generates ATP and  GTP from AMP and GDP, respectively, using inoranic polyphosphate (100mer) as a phosphate donor. This module complements the default energy module in Nucleus Cytosol.
+
+The Cx43 membrane pore module produces a self-inserting that permits the passage of molecules < ~1000 kDa and has the ability to form [gap junctions](https://en.wikipedia.org/wiki/Gap_junction) with neighboring cells.
+
+:::{attention}
+
+This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found in the following DevNotes:
+
+- [Cx43 Module Validation in Cells](https://doi.org/10.63765/xvxu3274)
+
+:::
+
+<!-- Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
 
 ### Schematic
 
@@ -99,4 +112,4 @@ For GFP the distinction between process and instances feels overwrought or at le
 
 I want to figure out how to hide the list of references from being auto generated at the bottom.
 :::
-::::
+:::: -->

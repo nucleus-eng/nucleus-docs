@@ -1,5 +1,6 @@
 ---
-title: "Module Specification (Module Name)"
+title: "Module Specification"
+subtitle: "Energy: PPK"
 site:
     hide-toc: true
     numbered_references: false
@@ -7,9 +8,20 @@ site:
 
 ## Overview
 
-Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
+The PPK energy Module generates ATP and  GTP from AMP and GDP, respectively, using inoranic polyphosphate (100mer) as a phosphate donor. This module complements the default energy module in Nucleus Cytosol.
 
-### Schematic
+:::{attention}
+
+This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found in the following DevNotes:
+
+- [PPK Module Validation in Cells](https://doi.org/10.63765/mwur3749)
+- [PPK Module Validation in Cytosol](https://doi.org/10.63765/djnv7772)
+
+:::
+
+<!-- Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur. -->
+
+<!-- ### Schematic
 
 ::::{aside}
 :::{dropdown} TODO
@@ -99,4 +111,4 @@ For GFP the distinction between process and instances feels overwrought or at le
 
 I want to figure out how to hide the list of references from being auto generated at the bottom.
 :::
-::::
+:::: -->

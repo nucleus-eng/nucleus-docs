@@ -31,21 +31,6 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 
 ::::{tab-item} Cytosol
 :::{table} This composition was evaluated in the DevNote by [](https://doi.org/10.63765/fppr8928)
-:label: RC
-:align: center
-| **Component** | **Stock Concentration** | **Final Concentration in Reaction** | 
-| --- | --- | --- |
-| PMix | 15 mg/mL | 1.8 mg/mL
-| SMix | 4X | 1X |
-| Ribosomes | 10 $\mu$M | 1.8 $\mu$M |
-| tRNA | *varies* | 3.5 mg/mL |
-| pOpen-deGFP | *varies* | 3 nM |
-| Magnesium acetate | 200 mM | *varies* |
-:::
-::::
-
-::::{tab-item} Cytosol2
-:::{table} This composition was evaluated in the DevNote by [](https://doi.org/10.63765/fppr8928)
 ![](xref:devnote-01#rc)
 :::
 ::::

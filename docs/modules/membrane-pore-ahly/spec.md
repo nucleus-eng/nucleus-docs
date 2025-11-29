@@ -1,11 +1,22 @@
 ---
-title: "Module Specification (Module Name)"
+title: "Module Specification"
+subtitle: "Membrane Pore: α-Hemolysin"
 site:
     hide-toc: true
     numbered_references: false
 ---
 
 ## Overview
+
+The $\alpha$-hemolysin membrane pore module produces a self-inserting membrane pore with diameter ~ 3 nm, permitting the passage of molecules < ~3000 kDa.
+
+:::{attention}
+
+This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on the legacy site [here](https://nucleus.bnext.bio/Emitter-Cells-144ae616eb518077aeb2d9d6768dd2f5). 
+
+:::
+
+<!-- ## Overview
 
 Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
 
@@ -99,4 +110,4 @@ For GFP the distinction between process and instances feels overwrought or at le
 
 I want to figure out how to hide the list of references from being auto generated at the bottom.
 :::
-::::
+:::: -->
