@@ -91,6 +91,7 @@ project:
   references:
     devnote-01: https://devnotes.bnext.bio/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
     devnote-02: https://devnotes.bnext.bio/articles/ppk-module-test
+    devnote-cx43: https://devnotes.bnext.bio/articles/019a7496-0498-7d89-bebb-58cdc15caf54
   resources:
     - docs/**/*
 

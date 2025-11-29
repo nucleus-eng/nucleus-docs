@@ -8,8 +8,6 @@ site:
 
 ## Overview
 
-The PPK energy Module generates ATP and  GTP from AMP and GDP, respectively, using inoranic polyphosphate (100mer) as a phosphate donor. This module complements the default energy module in Nucleus Cytosol.
-
 The Cx43 membrane pore module produces a self-inserting that permits the passage of molecules < ~1000 kDa and has the ability to form [gap junctions](https://en.wikipedia.org/wiki/Gap_junction) with neighboring cells.
 
 :::{attention}
@@ -19,6 +17,13 @@ This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation 
 - [Cx43 Module Validation in Cells](https://doi.org/10.63765/xvxu3274)
 
 :::
+
+### Schematic
+
+:::{figure} xref:devnote-cx43#fig:scheme
+Depiction of connexin and its relationship to a connexon: (left)Connexins are tetra-membrane-spanning proteins whose N- and C-termini are located in the cytoplasm; (right) six connexins oligomerize to form a connexon. Figure by Totland et al. used under CC-BY-4.0 / cropped from original.
+:::
+
 
 <!-- Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
 
