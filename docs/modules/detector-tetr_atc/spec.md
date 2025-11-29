@@ -12,7 +12,7 @@ The TetR inducible expression module is a set of two genetic constructs that enc
 
 :::{attention}
 
-This Instance has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on the legacy site [here](https://nucleus.bnext.bio/TetR-Inducible-Module-6017996fbe48465ea29aee31e8fe7101). 
+This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on the legacy site [here](https://nucleus.bnext.bio/TetR-Inducible-Module-6017996fbe48465ea29aee31e8fe7101). 
 
 :::
 
