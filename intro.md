@@ -2,10 +2,69 @@
 title: Nucleus Distribution
 site:
   hide_outline: true
-  hide_toc: true
+  # hide_toc: true
 ---
 
-# TODO list
+# Overview
+
+The Nucleus Distribution is an open source, integrated platform for synthetic cell builders maintained by b.next. It provides validated protocols, genetic constructs, software tools, datasets, and biological materials—everything needed to build synthetic cells using the PURE system. The Distribution is designed for interoperability, enabling researchers to build on shared components and scale their work from concept to production.
+
+The Nucleus Distribution is part of the broader Nucleus Ecosystem, which also includes Nucleus Hub (a collaborative workspace for data sharing and analysis) and Nucleus Developer Notes (a platform for rapidly sharing research contributions that feed back into the Distribution).
+
+The seventh release of the Nucleus Distribution (v0.5.0) is now available. Check the [release notes](../about/release-notes.md) to learn about the latest updates. The Distribution is supported by the Astera Institute, Sloan Foundation, and Caltech.
+
+# Structure of the Documentation
+
+## Get started
+
+If you're new to Nucleus, checkout [From Zero to DevNote](). That guide will walk you through the documentation.
+
+## Protocols
+
+:::::{card}
+:footer: We are migrating protocols from our legacy site as modules are validated in Nucleus Cytosol v0.5
+
+::::{grid} 1 1 2 2
+
+:::{card}
+:header: 🧬 **DNA Distribution**
+:link: docs/dna-distro.md
+
+Physical materials that are used to implement Processes and Modules.
+:::
+
+:::{card}
+:header: ⚙️ **Processes**
+:link: docs/processes/processes-main.md
+Processes are core protocols for implementing base cytosol and cells.
+:::
+
+:::{card}
+:header: 🧱 **Modules**
+:link: docs/modules/modules-main.md
+Modules extend the functionality of base cytosol and cells.
+:::
+
+:::{card}
+:header: 🏗️ **Implementations**
+:link: docs/implementations/implementations-main.md
+Implementations are useful combinations of Modules and Processes.
+:::
+
+::::
+:::::
+
+## Guides
+
+<!-- ## Get started
+
+If you're new to Nucleus, checkout [From Zero to DevNote](). That guide will walk you through the documentation. -->
+
+## Get in touch
+
+Join the [mailing list](link-to-signup) or [contact us](mailto:build@bnext.bio) to request access to materials, get involved with the community, or ask questions.
+
+<!-- # TODO list
 
 This is a bad TODO list
 
@@ -88,7 +147,7 @@ This is a bad TODO list
 - Finalize NavBar link outs and synchronize across all websites
 - Handle darkmode; either disable or include darkmode logo
 - Add favicon
-- fix typst template
+- fix typst template -->
 
 <!-- 
 The Nucleus Distribution is an open source package for synthetic cell builders maintained by b.next. The Distribution includes integrated digital tools, biological materials, documentation, and validated protocols for the full process of cell building, including cytosol construction, DNA content engineering, and membrane encapsulation. 
