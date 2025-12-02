@@ -38,8 +38,6 @@ If you do not have these things please see the [Tutorial: getting started with N
   - [ ] Create a [split screen](fig:splitscreen) by dragging the "Preview" tab to the right corner of the screen.
   - [ ] Make an edit, say to the level 1 heading, e.g. `#Background - edited`. The preview window should automatically refresh and you should now be able to preview any updates to your DevNote in realtime.
 
-
-
 :::::{tab-set}
 
 ::::{tab-item} Error message
