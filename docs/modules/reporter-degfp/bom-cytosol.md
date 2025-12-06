@@ -1,10 +1,10 @@
 ---
 title: "Bill of Materials"
-subtitle: "Reporter: deGFP"
+subtitle: "Reporter: deGFP (Cytosols)"
 exports:
   - format: typst
     template: https://github.com/antonrmolina/nucleus-typst-test/archive/refs/heads/main.zip
-    output: module-bom-reporter-degfp.pdf
+    output: module-bom-reporter-cytosols-degfp.pdf
 ---
 
 | **Name** | **Product** | **Manufacturer** | Storage Conditions |
