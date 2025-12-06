@@ -96,7 +96,7 @@ Coming soon!
 :header: **Materials**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 :align: center
-{button}`Download <module-bom-cells-degfp.pdf>`
+{button}`Download <module-bom-reporter-cells-degfp.pdf>`
 :::
 
 ::::
