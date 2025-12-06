@@ -35,9 +35,9 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 
 ### Reference Composition
 
-:::{table} This composition was evaluated in the DevNote by [](https://doi.org/10.63765/fppr8928)
+<!-- :::{table} This composition was evaluated in the DevNote by [](https://doi.org/10.63765/fppr8928)
 ![](xref:devnote-01#rc)
-:::
+::: -->
 
 ### Expected Behavior
 
