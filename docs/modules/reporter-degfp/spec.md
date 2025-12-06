@@ -64,7 +64,6 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 :::{card}
 :header: **Materials**
 :footer: *Implemented using Nucleus Cytosol v0.5*
-:align: center
 {button}`Download <module-bom-reporter-degfp.pdf>`
 :::
 
@@ -93,7 +92,6 @@ Coming soon!
 :::{card}
 :header: **Materials**
 :footer: *Implemented using Nucleus Cytosol v0.5*
-:align: center
 {button}`Download <module-bom-reporter-cells-degfp.pdf>`
 :::
 
