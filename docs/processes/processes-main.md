@@ -6,6 +6,38 @@ title: Processes
 
 Processes represent the core protocols. They tell you how to transform physical materials into minimal cytosols and cells. Modules extend the functionality of these basic cytosols and cells. 
 
+## Base Cytosol Processes
+
+:::{figure} ./resources/flowchart-cytosols.png
+:align: center
+:label: fig:figure1
+Flow chart for building Base Cytosol and its modification through the addition of Modules.
+:::
+
+
+### Modify Base Cytosol
+
+- [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
+- [Energy: Base Cytosol + PPK]()
+
+### Make Base Cytosol
+
+The base cytosol module implements transcription and translation powered by creatine phosphate/creatine kinase energy (CP/CK) system.
+
+- [Make Amino Acid Mix](./make-amino-acid-mix/process-make_amino_acid_mix.md)
+- [Make Small Molecule Mix](./make-small-molecule-mix/process-make_small_molecule_mix.md)
+- [Make tRNAs](./make-trna/process-make_trnas.md)
+- [Make Ribosomes](./make-ribosomes/process-make_ribosomes.md)
+- [Make PMix - 1 Pot]()
+- [Make PMix - 36 Pot]()
+
+
+### Quality Control Processes
+
+- [Protein Gel]()
+- [Pierce660 Assay]()
+- [BCA Assay]()
+
 ## Base Cell Processes
 
 :::::{tab-set}
@@ -37,39 +69,6 @@ Flow chart for building Base Cell and its modification through the addition of M
 
 ### Make Base Cell
 
-
-
-## Base Cytosol Processes
-
-:::{figure} ./resources/flowchart-cytosols.png
-:align: center
-:label: fig:figure1
-Flow chart for building Base Cytosol and its modification through the addition of Modules.
-:::
-
-
-### Modify Base Cytosol
-
-- [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
-- [Energy: Base Cytosol + PPK]()
-
-### Make Base Cytosol
-
-The base cytosol module implements transcription and translation powered by creatine phosphate/creatine kinase energy (CP/CK) system.
-
-- [Make Amino Acid Mix](./make-amino-acid-mix/process-make_amino_acid_mix.md)
-- [Make Small Molecule Mix](./make-small-molecule-mix/process-make_small_molecule_mix.md)
-- [Make tRNAs](./make-trna/process-make_trnas.md)
-- [Make Ribosomes](./make-ribosomes/process-make_ribosomes.md)
-- [Make PMix - 1 Pot]()
-- [Make PMix - 36 Pot]()
-
-
-## Quality Control Processes
-
-- [Protein Gel]()
-- [Pierce660 Assay]()
-- [BCA Assay]()
 
 <!-- # Overview
 

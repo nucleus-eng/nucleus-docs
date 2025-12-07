@@ -9,11 +9,9 @@ exports:
 
 # Overview
 
-This protocol shows you how to assemble Base Cytosol from the following components: small molecule mix (SMix), tRNA, protein mix (PMix), ribosomes. To test the functionality of the assembled Cytosol we use the Reporter Module deGFP. 
+This protocol show you how to validate the functionality of the Reporter Module `pOpen-deGFP`.
 
-# Protocol
-
-### Cytosol Reaction Setup
+## Cytosol Reaction Setup
 
 :::{table} Reaction Setup.
 :name: rxn-setup
@@ -30,6 +28,11 @@ This protocol shows you how to assemble Base Cytosol from the following componen
 | Total master mix volume [µL] | 35 | 35 |
 
 :::
+
+
+# Protocol
+
+<!-- ### Prepare Stock Solutions -->
 
 ### Assemble Cytosol Reactions
 - [ ]  Remove all components listed in the Reaction Setup table above from appropriate cold storage.

@@ -1,5 +1,6 @@
 ---
-title: Assemble Cytosol From Kit
+title: "Process"
+subtitle: "Assemble Base Cytosol"
 ---
 
 # Overview
@@ -25,7 +26,8 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 :class: dropdown
 
-- None
+- Base Cytosol components can be made from scratch by following the relevant documentation in the Distribution
+- Base Cytosol components can be acquired as a premade reagent kit from b.next
 
 :::
 
@@ -60,7 +62,15 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: simple
 :icon: false
 :class: dropdown
-- None
+
+- If you are making Base Cytosol from scratch:
+  - [Make Small Molecule Mix](../make-small-molecule-mix/process-make_small_molecule_mix.md)
+  - [Make tRNAs](../make-trna/process-make_trnas.md)
+  - Make Protein Mix
+    - [1Pot Protein Mix]()
+    - [36Pot Protein Mix]()
+  - [Make Ribosomes](../make-ribosomes/)
+<!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
 
 :::
 
@@ -101,21 +111,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 :class: dropdown
 
-- **Acid Phenol**
-    - Corrosive, toxic, rapidly absorbed through skin, & respiratory irritant
-    - Use in fume hood, wear neoprene gloves, & PPE
-
-- **Acetic Acid**
-    - Corrosive to skin and eyes
-    - Use appropriate PPE and handle under fume-hood
-
-- **Chloroform**
-    - Irritant, possible carcinogen
-    - Work in fume hood & appropriate gloves
-
-- **Ethanol**
-    - Highly flammable, toxic, and irritant
-    - Wear PPE, use in well-ventilated areas, and keep away from open flames
+- None
 
 ::::
 
@@ -124,7 +120,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 :class: dropdown
 
-- None
+- Yadav, S. First Nucleus Cytosol Testing. *Nucleus Developer Notes.* (2025) doi:10.63765/fppr8928.
 
 ::::
 
@@ -156,9 +152,9 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::: -->
 
-## Protocol
+# Protocol
 
-### Cytosol Reaction Setup
+## Cytosol Reaction Setup
 
 :::{table} Reaction Setup.
 :name: rxn-setup
@@ -176,7 +172,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::
 
-### Assemble Cytosol Reactions
+## Assemble Cytosol Reactions
 - [ ]  Remove all components listed in the Reaction Setup table above from appropriate cold storage.
 - [ ]  Thaw reagents on ice.
 - [ ]  Prepare a PCR tube, on ice, to assemble reactions into.
@@ -209,7 +205,7 @@ Set the P20 pipette to 10.1 µL to draw the master mix, then dispense into the p
 
 - [ ]  Measure deGFP fluorescence in the plate reader while incubating at 37°C.
   
-### Return reagents to their appropriate storage locations
+## Return reagents to their appropriate storage locations
 - [ ]  Add a black dot to the lid of each of Cytosol component. The number of dots indicates freeze–thaw cycles.
 
 # Downloads
