@@ -28,10 +28,7 @@ Now that we're more oriented in the documentation let's navigate to the protocol
 
 If you follow the steps on that page, you should find yourself with some data in hand ready to be analyzed. Rather than firing up Excel or opening a Google Sheet, we're going to sign into Nucleus Hub. 
 
-
-## Analyzing Data with Nucleus Hub
-
-
+<!-- TODO: talk about platemaps -->
 
 <!-- In contrast, Modules extend the functionality of fundamental processes.  -->
 
@@ -47,13 +44,13 @@ This tutorial assumes that you have the necessary components of Base Cytosol: sm
 
 <!-- This distribution includes documentation for making it yourself from scratch. An open-formulation version can also be obtained from b.next. Since the goal of this guide is provide detailed introduction to the whole Nucleus Workflow, we'll start with the Base Cytosol Kit.  -->
 
-- [Assemble Base Cytosol]()
+<!-- - [Assemble Base Cytosol]() -->
 
-If you follow the steps on that page, you shoud find yourself with some data in hand ready to be analyzed. Rather firing up Excel or opening a Google Sheet, we're going to sign into Nucleus Hub. 
+<!-- If you follow the steps on that page, you shoud find yourself with some data in hand ready to be analyzed. Rather firing up Excel or opening a Google Sheet, we're going to sign into Nucleus Hub.  -->
 
 ## Analyzing Data with Nucleus Hub
 
-Nucleus Hub is an interactive computing platform built on Jupyter Hub. Like it or not, we have to interact with software to get our work done and share it with others. Nucleus Hub provides a way of accessing software tools that just work. No installs, no compiling, no environmental management. Of course if you want to modify your own environments and build code, that's supported as well. The Nucleus CDK lives on GitHub, but the Hub is preconfigured to get you up and running without any additional work. And there's templates. 
+Nucleus Hub is an interactive computing platform built on Jupyter Hub. Software tools are essential for getting are work done and sharing results. Nucleus Hub provides a way of accessing software tools that just work. No installs, no compiling, no environmental management. Of course if you want to modify your own environments and build code, that's supported as well. The Nucleus CDK lives on [GitHub](), but the Hub is preconfigured to get you up and running without any additional work. And there's templates. 
 
 - Getting Started with Nucleus Hub
 

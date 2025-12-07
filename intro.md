@@ -1,5 +1,5 @@
 ---
-title: Nucleus Distribution
+title: Nucleus Documentation
 site:
   hide_outline: true
   # hide_toc: true
@@ -11,8 +11,8 @@ The Nucleus Distribution allows you to implement an open standard for constructi
 
 The Distribution includes validated protocols, genetic constructs, software tools, datasets, and biological materials that are designed to work, and work together. All components of the Distribution are open source, allowing anyone to use and modify the components. As an open source project, the Distribution enabling the collaborative development of synthetic cells of increasing complexity. 
 
-:::{figure} ./flowchart-3.png
-**The Nucleus Development Cycle.** All components of the Nucleus platform work together to support the collaborative development of increasingly reliable and sophisticated synthetic cells. The **Distribution** (this site) is a knowledge base that contains protocols and  documentation for implementing validated synthetic cell modules. The **Hub** provides a resource for data sharing, analysis using standard digital tools. Useful results can be shared with the community as **DevNotes**. DevNotes can be viewed on the **Developer Note** website. Periodically, contributions made as Devnotes are integrated into the Distribution as validated protocols for others to use and build upon. All components of the platform can be discussed at the **Forum**, come say hello!
+:::{figure} ./flowchart-4.png
+**The Nucleus Development Cycle.** All components of the Nucleus platform work together to support the collaborative development of increasingly reliable and sophisticated synthetic cells. The **Documentation** (this site) is a knowledge base that contains protocols and  documentation for implementing validated synthetic cell modules. The **Hub** provides a resource for data sharing, analysis using standard digital tools. Useful results can be shared with the community as **DevNotes**. DevNotes can be viewed on the **Developer Note** website. Periodically, contributions made as Devnotes are integrated into the Distribution as validated protocols for others to use and build upon. All components of the platform can be discussed at the **Forum**, come say hello!
 :::
 
 <!-- is an open source, integrated platform for synthetic cell builders maintained by b.next. -->
