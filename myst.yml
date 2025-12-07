@@ -70,9 +70,9 @@ project:
              hidden: true
     - title: Guides
       children:
-        - file: ./guides/developer-handbook.md
-        - file: ./guides/contribution-guide.md
+        # - file: ./guides/developer-handbook.md
         - file: ./guides/tutorials.md
+        - file: ./guides/contribution-guide.md
           children:
            - file: ./guides/nucleus-hub/nucleus-hub.md
              hidden: true
@@ -84,7 +84,7 @@ project:
              hidden: true
     - title: About
       children:
-        - file: ./about/open-science.md
+        # - file: ./about/open-science.md
         - file: ./about/license.md
         - file: ./about/faqs.md
         - file: ./about/release-notes.md
