@@ -1,6 +1,6 @@
 ---
-title: "Beginner's Tutorial" 
-subtitle: "From Zero to DevNote: a Beginner's Tutorial to the Nucleus Technology Stack"
+title: "Beginner's Guide" 
+subtitle: "From Zero to DevNote: a Beginner's Guide to the Nucleus Technology Stack"
 ---
 
 # Overview

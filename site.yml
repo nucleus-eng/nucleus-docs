@@ -7,9 +7,9 @@ project:
 site:
   template: book-theme
   nav: 
-    - title: Distribution
+    - title: Documentation
       # url: https://github.com/ProjectPythia/pythia-foundations/blob/main/myst.yml
-      url: /start/getting-started
+      url: https://docs.bnext.bio/
     - title: Hub
       url: https://bnext.bio/hub
     - title: Developer Notes

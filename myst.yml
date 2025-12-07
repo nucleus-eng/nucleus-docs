@@ -4,7 +4,7 @@ extends:
   - ./site.yml
 project:
   id: 42209306-ce58-4005-9c73-983816b73d3c
-  title: Nucleus Distribution
+  title: Nucleus Documentation
   # description:
   # keywords: []
   # authors: []
