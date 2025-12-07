@@ -41,15 +41,19 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 
 ### Expected Behavior
 
-::::{tab-set}
-:::{tab-item} Kinetics
+:::::{tab-set}
+::::{tab-item} Kinetics
+:::{figure}
 ![](xref:devnote-01#fig:kinetics-exp1)
 :::
+::::
 
-:::{tab-item} Endpoint
+::::{tab-item} Endpoint
+:::{figure}
 ![](xref:devnote-01#fig:endpoint-exp1)
 :::
 ::::
+:::::
 
 ### Protocols
 
