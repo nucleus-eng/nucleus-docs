@@ -11,7 +11,7 @@ site:
 
 The deGFP Reporter Module produced deGFP, a green fluorescent protein.
 
-:::::{tab-set}
+<!-- :::::{tab-set}
 
 ::::{tab-item} Schematic
 :::{figure} schematic.png
@@ -29,7 +29,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 | `pOpen-pT7-deGFP` | 2500 | [path-to-design-01.gb](https://github.com/bnext-bio/nucleus/blob/main/components/modules/detector/lacI.gb#L56-L66) |
 :::
 ::::
-:::::
+::::: -->
 
 ## Cytosols
 
@@ -41,7 +41,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 
 ### Expected Behavior
 
-::::{tab-set}
+<!-- ::::{tab-set}
 :::{tab-item} Kinetics
 ![](xref:devnote-01#fig:kinetics-exp1)
 :::
@@ -49,7 +49,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 :::{tab-item} Endpoint
 ![](xref:devnote-01#fig:endpoint-exp1)
 :::
-::::
+:::: -->
 
 ### Protocols
 
