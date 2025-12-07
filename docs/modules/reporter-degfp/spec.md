@@ -1,7 +1,7 @@
 ---
 title: "Module Specification"
 subtitle: "Reporter: deGFP"
-# thumbnail: schematic.png
+thumbnail: schematic.png
 site:
     hide-toc: true
     numbered_references: false
