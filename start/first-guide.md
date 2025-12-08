@@ -85,15 +85,20 @@ If you followed the steps on that page, you should have successfully posted a De
 
 Once a DevNote goes live, a thread is opened on the Forum for others to discuss. People might ask you how to replicate what you did, tell you that you made an incredible mistake, or just say "hi". These "Hello, World!" DevNotes go into a special channel and provide a place for people to introduce themselves.
 
-- Navigating the Nucleus Forum
+- [Nucleus Forum](https://forum.bnext.bio/)
 
-## Am I a Developer Now?
 
-Well, not quite. To be a proper Nucleus Developer, you should probably have developed something. But don't fret, you're well on your way. You are now in command of a growing collection of validated Modules that you can build ontop of and equipped with the tools to analyze and share them. If you Develop something useful or something on the Nucleus Roadmap you should keep in mind the Nucleus Contribution Standards, they are the things you should keep in mind as you go about your work so that it'll end up as part of the distribution. 
+## What's next?
 
-- Nucleus Distribution Standards
+<!-- Well, not quite. To be a proper Nucleus Developer, you should probably have developed something. But don't fret, you're well on your way.  -->
 
-Once it's in the Distribution, you can safely call yourself a Developer. 
+You are now in command of a growing collection of validated Modules that you can build ontop of and equipped with the tools to analyze and share them. If you Develop something useful or something on the Nucleus Roadmap you should keep in mind the Nucleus Contribution Standards, they are the things you should keep in mind as you go about your work so that it'll end up as part of the distribution. 
+
+- [Nucleus Distribution Contribution Guide](/guides/contribution-guide.md)
+
+We look forward to hearing from you!
+
+<!-- Once it's in the Distribution, you can safely call yourself a Developer.  -->
 
 <!-- Getting Started with Nucleus
 This guide walks you through the complete Nucleus workflow: from preparing base cytosol to analyzing results and sharing them with the community. By the end, you'll understand how the pieces fit together and be ready to contribute your own work.
