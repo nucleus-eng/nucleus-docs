@@ -2,21 +2,22 @@
 title: Tutorials
 ---
 
-Tutorials are a type of Guide that tie together documentation into useful groups and add a bit more narrative exposition.
+Tutorials are a type of Guide that tie together documentation into useful groups and include more narrative exposition.
 
 ## In the Lab
 
-- From Zero to DevNote
-- Assembling Base Cytosol
-- Assembling Base Cell
+- [Beginner's Guide](../start/first-guide.md)
+<!-- - Assembling Base Cytosol
+- Assembling Base Cell -->
 
 ## Nucleus Hub
 
 <!-- - [Nucleus Hub](https://antonrmolina.github.io/nucleus-distribution-pages/docs/tutorials/hub/nucleus-hub) -->
 - [Nucleus Hub](./nucleus-hub/nucleus-hub.md)
-- Getting Started with Nucleus Hub
+<!-- - Getting Started with Nucleus Hub
 - Understanding the CDK
 - Workbook Templates
+- [Tutorial: analyzing platereader data with the CDK](./platereader_tutorial.ipynb) -->
 
 ## Developer Notes
 

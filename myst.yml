@@ -82,6 +82,7 @@ project:
              hidden: true
            - file: ./guides/developer-note-syntax.md
              hidden: true
+           - file: ./guides/platereader_tutorial.ipynb
     - title: About
       children:
         # - file: ./about/open-science.md
