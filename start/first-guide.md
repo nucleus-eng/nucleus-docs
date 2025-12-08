@@ -13,6 +13,13 @@ This tutorial assumes that you have the necessary components of Base Cytosol: sm
 
 If you are looking to get started quickly, we recommend acquiring a kit from b.next. If you prefer more control over the cytosolic system, the distribution contains materials, protocols, and documentation for making your own components from scratch. 
 
+:::{note} Prerequisite
+:class: simple
+:icon: false
+
+This tutorial assumes access to Nucleus Hub, which requires admin approval. Please reach out to build@bnext.bio.
+:::
+
 <!-- The purpose of this page is to guide a newcomer through the complete Nucleus technology stack and workflows, from assembling Base Cytosol and characterizing its performance using the Cell Development Kit (CDK) on Nucleus Hub, to finally posting a Developer Note (DevNote) that reports on its performance. -->
 
 
@@ -24,7 +31,7 @@ The Distribution contains numerous validated protocols and other documentation o
 
 Now that we're more oriented in the documentation let's navigate to the protocol we'd like to implement:
 
-- [Assemble Base Cytosol]()
+- [Assemble Base Cytosol](../docs/processes/assemble-base-cytosol/main.md)
 
 If you follow the steps on that page, you should find yourself with some data in hand ready to be analyzed. Rather than firing up Excel or opening a Google Sheet, we're going to sign into Nucleus Hub. 
 
@@ -52,7 +59,11 @@ This tutorial assumes that you have the necessary components of Base Cytosol: sm
 
 Nucleus Hub is an interactive computing platform built on Jupyter Hub. Software tools are essential for getting are work done and sharing results. Nucleus Hub provides a way of accessing software tools that just work. No installs, no compiling, no environmental management. Of course if you want to modify your own environments and build code, that's supported as well. The Nucleus CDK lives on [GitHub](), but the Hub is preconfigured to get you up and running without any additional work. And there's templates. 
 
-- Getting Started with Nucleus Hub
+Documentation for Nucleus Hub can be found in Guides. Guides the place to find tutorials that walk you through different aspects of the documentation. This page is an example of one such tutorial. We recommend exploring the Guides pages to get a sense for how the documentation is organized.
+
+
+
+- [Getting Started with Nucleus Hub](../guides/nucleus-hub/nucleus-hub.md)
 
 If you followed the steps on that page, you should not find yourself with a Nucleus Hub account and some nice looking plots. Let's tell the Nucleus Community what you've been up to and write up a DevNote.
 
