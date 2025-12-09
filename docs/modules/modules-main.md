@@ -6,7 +6,7 @@ title: Modules
 
 A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "what is it?" and 2) "What should I expect when I implement it?".
 
-:::{figure} ./resources/flowchart.png
+:::{figure} ./resources/flowchart-2.png
 :width: 50%
 Modules can be combined with Process/Protocol to create Integrations.
 :::
