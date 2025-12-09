@@ -73,7 +73,7 @@ Implementations are useful combinations of Modules and Processes.
 
 ## Guides
 
-TODO
+Guides contain tutorials, how-tos, and other reference material that support the use of Protocols and navigating the Nucleus Development Cycle
 
 <!-- ## Get started
 
