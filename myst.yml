@@ -34,7 +34,7 @@ project:
              hidden: true
            - file: ./docs/processes/make-ribosomes/process-make_ribosomes.md
              hidden: true
-           - file: ./docs/processes/make-trna/process-make_trnas.md
+           - file: ./docs/processes/make-trna/main.md
              hidden: true 
            - file: ./docs/processes/assemble-base-cytosol/main.md
              hidden: true 
