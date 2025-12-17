@@ -92,7 +92,7 @@ Once a DevNote goes live, a thread is opened on the Forum for others to discuss.
 
 <!-- Well, not quite. To be a proper Nucleus Developer, you should probably have developed something. But don't fret, you're well on your way.  -->
 
-You are now in command of a growing collection of validated Modules that you can build on top of and equipped with the tools to analyze and share them. If you Develop something useful or something on the Nucleus Roadmap you should keep in mind the Nucleus Contribution Standards, they are the things you should keep in mind as you go about your work so that it'll end up as part of the distribution. 
+You are now in command of a growing collection of validated Modules that you can build on top of and equipped with the tools to analyze and share them. If you develop something useful or on the Nucleus Roadmap, you should keep in mind the Nucleus Contribution Standards so that your work can be shared on the distribution. 
 
 - [Nucleus Distribution Contribution Guide](/guides/contribution-guide.md)
 

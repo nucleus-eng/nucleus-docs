@@ -12,7 +12,7 @@ Presented here is our technical roadmap. These are modules that are either being
 :::{admonition} Get involved!
 :class: tip
 :icon: false
-We are actively developing modules to extend the functionality of synthetic cells for different applications. If you’re interested in contributing a module or building with the three synthetic cells, please reach out!
+We are actively developing modules to extend the functionality of synthetic cells for different applications. If you’re interested in contributing a module or building with existing modules, please reach out!
 :::
 
 ## Molecular sensing and response
@@ -24,7 +24,7 @@ Synthetic cells offer a defined context for developing sensors and responses int
 With Nucleus $v \ge 0.5$ we are planning to port over the key modules associated with molecular sensing and response into Nucleus Cytosol and Cells.
 
 :::{figure} ./resources/detector-emitter-responder.png
-The Detector, Emitter, and Responder cells. We are building ...
+The Detector, Emitter, and Responder cells.
 :::
 
 ## Developer cells
