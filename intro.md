@@ -17,7 +17,7 @@ The Nucleus Distribution allows you to implement an open standard for constructi
 
 The Distribution includes validated protocols, genetic constructs, software tools, datasets, and biological materials that are designed to work, and work together. All components of the Distribution are open source, allowing anyone to use and modify the components. The Documentation serves as a knowledge base for enabling collaborative development of synthetic cells of increasing complexity.
 
-:::{figure} ./flowchart-4.png
+:::{figure} ./flowchart.png
 **The Nucleus Development Cycle.** All components of the Nucleus platform work together to support the collaborative development of increasingly reliable and sophisticated synthetic cells contained within the Distribution. The **Documentation** (this site) is a knowledge base that contains protocols and  documentation for implementing validated synthetic cell modules. The **Hub** provides a resource for data sharing, analysis using standard digital tools. Useful results can be shared with the community as **DevNotes**. DevNotes can be viewed on the **Developer Note** website. Periodically, contributions made as Devnotes are integrated into the Distribution as validated protocols for others to use and build upon. All components of the platform can be discussed at the **Forum**, come say hello!
 :::
 
