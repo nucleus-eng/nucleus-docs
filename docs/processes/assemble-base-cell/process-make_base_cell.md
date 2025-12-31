@@ -1,5 +1,6 @@
 ---
-title: Assemble Base Cell
+title: Process
+subtitle: Assemble Base Cell
 ---
 
 # Overview
@@ -34,7 +35,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::{card}
 :header: **Lab-ready Protocol**
-:algin: center
+:align: center
 
 {button}`download <protocol-make_template.pdf>`
 :::
@@ -159,7 +160,7 @@ Please read this section carefully. It contains important notes, resources, and 
   - [ ]  Clean glass syringes.
       - [ ]  Pour a small amount of 95% ethanol into a glass container ****(e.g. a 10 mL beaker).
       - [ ]  Assemble the glass syringe and prime it by drawing ethanol into the glass syringe, then empty into a waste bottle.
-  - [ ]  Weight 2.67 g (or pipette 3.25mL) mineral oil into a glass test tube or beaker
+  - [ ]  Weigh 2.67 g (or pipette 3.25mL) mineral oil into a glass test tube or beaker
   - [ ]  Add the lipids to the mineral oil using the appropriate glass syringe:
       - [ ]  Add 480 uL 25 mg/mL POPC.
       - [ ]  *Rinse the syringe with ethanol.*

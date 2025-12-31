@@ -1,0 +1,12 @@
+./docs/processes/assemble-base-cell/process-make_base_cell.md
+./docs/processes/process-template/process-make_template.md
+./docs/processes/make-amino-acid-mix/process-make_amino_acid_mix.md
+./docs/processes/make-small-molecule-mix/process-make_small_molecule_mix.md
+./docs/processes/make-ribosomes/process-make_ribosomes.md
+./docs/processes/make-trna/main.md
+./docs/processes/make-36pot/main.md
+./docs/processes/make-1pot/main.md
+./docs/processes/assemble-base-cytosol/main.md
+./docs/processes/make-test/process-make_test.md
+./docs/processes/protein-gel/main.md
+./docs/processes/pierce660/main.md
