@@ -11,7 +11,7 @@ site:
 This site is under heavy development and things may be incomplete, contain errors, or otherwise not work as expected.
 :::
 
-# Overview
+<!-- # Overview
 
 The Nucleus Distribution allows you to implement an open standard for constructing synthetic cells based on Nucleus Cytosol, an open forumulation version of the PURE system. 
 
@@ -19,7 +19,7 @@ The Distribution includes validated protocols, genetic constructs, software tool
 
 :::{figure} ./flowchart.png
 **The Nucleus Development Cycle.** All components of the Nucleus platform work together to support the collaborative development of increasingly reliable and sophisticated synthetic cells contained within the Distribution. The **Documentation** (this site) is a knowledge base that contains protocols and  documentation for implementing validated synthetic cell modules. The **Hub** provides a resource for data sharing, analysis using standard digital tools. Useful results can be shared with the community as **DevNotes**. DevNotes can be viewed on the **Developer Note** website. Periodically, contributions made as Devnotes are integrated into the Distribution as validated protocols for others to use and build upon. All components of the platform can be discussed at the **Forum**, come say hello!
-:::
+::: -->
 
 <!-- is an open source, integrated platform for synthetic cell builders maintained by b.next. -->
 

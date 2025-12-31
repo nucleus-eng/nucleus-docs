@@ -7,6 +7,10 @@ subtitle: "From Zero to DevNote: a Beginner's Guide to the Nucleus Technology St
 
 The purpose of this tutorial is to guide a newcomer through the complete Nucleus technology stack and supporting workflows. 
 
+:::{figure} ./resources/flowchart.png
+**The Nucleus Development Cycle.** All components of the Nucleus platform work together to support the collaborative development of increasingly reliable and sophisticated synthetic cells contained within the Distribution. The **Documentation** (this site) is a knowledge base that contains protocols and  documentation for implementing validated synthetic cell modules. The **Hub** provides a resource for data sharing, analysis using standard digital tools. Useful results can be shared with the community as **DevNotes**. DevNotes can be viewed on the **Developer Note** website. Periodically, contributions made as Devnotes are integrated into the Distribution as validated protocols for others to use and build upon. All components of the platform can be discussed at the **Forum**, come say hello!
+:::
+
 At the end of this tutorial you will have used the Protocols in the Distribution to assemble Base Cytosol, characterize its performance using the Cell Development Kit (CDK) on Nucleus Hub, and finally post a Developer Note (DevNote) that reports on its performance. 
 
 This tutorial assumes that you have the necessary components of Base Cytosol: small molecule mix, tRNA, protein mix, ribosomes, and a suitable reporter plasmid such as `pOpen-deGFP`. The components of Base Cytosol can be obtained in two ways: you can make them yourself from scratch, or you can acquire a premade reagent kit from b.next. 

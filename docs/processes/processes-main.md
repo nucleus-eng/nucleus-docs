@@ -15,11 +15,18 @@ Processes represent the core protocols. They tell you how to transform physical 
 
 ## Base Cytosol Processes
 
+::::{tip} Schematic of Base Cell Processes
+:class: simple
+:class: dropdown
+:icon: false
+
 :::{figure} ./resources/flowchart-cytosols.png
 :align: center
 :label: fig:figure1
 Flow chart for building Base Cytosol and its modification through the addition of Modules.
 :::
+
+::::
 
 
 ### Modify Base Cytosol
@@ -45,6 +52,11 @@ The base cytosol module implements transcription and translation powered by crea
 
 ## Base Cell Processes
 
+::::::{tip} Schematic of Base Cell Processes
+:class: simple
+:class: dropdown
+:icon: false
+
 :::::{tab-set}
 
 ::::{tab-item} Base Cell
@@ -64,6 +76,7 @@ Flow chart for building Base Cell and its modification through the addition of M
 ::::
 
 :::::
+::::::
 
 - [Base Cell](./assemble-base-cell/process-make_base_cell.md)
 
