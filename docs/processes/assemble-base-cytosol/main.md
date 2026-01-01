@@ -10,35 +10,72 @@ This protocol shows you how to assemble Base Cytosol from the following componen
 
 **Protocols and other resources are available for download at the bottom of this page.**
 
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-
-::::::{card}
+:::::::{card}
 :header: **Important Information**
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-:::{note} Notes
+::::::{note} Notes
 :class: dropdown
 :icon: false
-
 
 - Base Cytosol components can be made from scratch by following the relevant documentation in the Distribution
 - Base Cytosol components can be acquired as a premade reagent kit from b.next
 
+::::::
+
+::::::{seealso} Prerequisite Documentation
+:class: dropdown
+:icon: false
+
+- If you are making Base Cytosol from scratch:
+  - [Make Small Molecule Mix](../make-small-molecule-mix/process-make_small_molecule_mix.md)
+  - [Make tRNAs](../make-trna/process-make_trnas.md)
+  - Make Protein Mix
+    - [1Pot Protein Mix]()
+    - [36Pot Protein Mix]()
+  - [Make Ribosomes](../make-ribosomes/)
+<!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
+
+::::::
+
+::::::{danger} Hazardous Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Critical Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Genetically Encoded Components
+:class: dropdown
+:icon: false
+
+:::{table}
+:label: tbl:critical-materials
+:align: center
+
+| Name | Type | Specification |
+| --- | --- | --- |
+| `pT7-plamGFP` | Reporter | [pT7-plamGFP](https://github.com/bnext-bio/nucleus/blob/main/dna-distribution/v0.1.0-001/plamGFP-PURE.gb) |
 :::
 
-:::::{tip} Composition
-:icon: false
-:class: dropdown
+::::::
 
-::::{card}
-:header: **Composition of Small Molecule Mix**
+::::::{note} Composition
+:class: dropdown
+:icon: false
+
 :::{table} 
-:label: tbl:composition-table
+:label: tbl:comp-cytosol
 :align: center
 
 | **Component** | **Volume per Reaction ($\mu$L)** |
@@ -54,106 +91,26 @@ Please read this section carefully. It contains important notes, resources, and 
 | Total | 10 |
 
 :::
-::::
-:::::
-
-:::{seealso} Prerequisite Documentation
-:icon: false
-:class: dropdown
-
-- If you are making Base Cytosol from scratch:
-  - [Make Small Molecule Mix](../make-small-molecule-mix/process-make_small_molecule_mix.md)
-  - [Make tRNAs](../make-trna/process-make_trnas.md)
-  - Make Protein Mix
-    - [1Pot Protein Mix]()
-    - [36Pot Protein Mix]()
-  - [Make Ribosomes](../make-ribosomes/)
-<!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
-
-:::
-
-::::{important} Critical Materials
-:icon: false
-:class: dropdown
-
-:::{table}
-:label: tbl:critical-materials
-:align: center
-
-- None
-<!-- | Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
-| --- | --- | --- | --- | --- | --- | --- |
-| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
-| Low Bind Protein Tubes | X | X | X | X | X | X | -->
-
-::::
-
-::::{admonition} Genetically Encoded Components
-:icon: false
-:class: dropdown
-
-:::{table}
-:label: tbl:critical-materials
-:align: center
-
-| Name | Type | Specification |
-| --- | --- | --- |
-| `pT7-plamGFP` | Reporter | [pT7-plamGFP](https://github.com/bnext-bio/nucleus/blob/main/dna-distribution/v0.1.0-001/plamGFP-PURE.gb) |
-
-::::
-
-::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-
-- None
-
-::::
-
-::::{note} References
-:class: dropdown
-:icon: false
-
-
-- Yadav, S. First Nucleus Cytosol Testing. *Nucleus Developer Notes.* (2025) doi:10.63765/fppr8928.
-
-::::
 
 ::::::
 
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
+::::::{note} References
+:class: dropdown
+:icon: false
 
+- Yadav, S. First Nucleus Cytosol Testing. *Nucleus Developer Notes.* (2025) doi:10.63765/fppr8928.
 
+::::::
 
-<!-- ## Stock Solutions
+:::::::
 
-:::{table} Reaction Setup.
-:name: rxn-setup
-
-| **Component** | **Cytosol + deGFP DNA [µL]** | **Cytosol - deGFP DNA [µL]** |
-| --- | --- | --- |
-| SMix | 10.5 | 10.5 |
-| tRNA | 3.5 | 3.5 |
-| PMix | 4.2 | 4.2 |
-| Ribosomes | 6.3 | 6.3 |
-| RNAse Inhibitor | 1.75 | 1.75 |
-| `pOpen-deGFP` DNA template | 0.85 | 0 |
-| Water | 7.9 | 8.75 |
-| Total master mix volume [µL] | 35 | 35 |
-
-::: -->
 
 # Protocol
 
 ## Cytosol Reaction Setup
 
 :::{table} Reaction Setup.
-:name: rxn-setup
+:label: rxn-setup
 
 | **Component** | **Cytosol + deGFP DNA [µL]** | **Cytosol - deGFP DNA [µL]** |
 | --- | --- | --- |
@@ -190,9 +147,6 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 - [ ]  Hold assembled reactions on ice until ready for measurement.
 - [ ]  Array 10 µL into each of three assigned wells of a black 384-well optical plate and take note of your plate map.
 
-<br>
-<br>
-
 :::{hint} Tip
 :class: simple
 :icon: false
@@ -212,15 +166,9 @@ Set the P20 pipette to 10.1 µL to draw the master mix, then dispense into the p
 
 :::{card}
 :header: **Lab-ready Protocol**
-:algin: center
-
 {button}`download <module-protocol-cytosol-degfp.pdf>`
 :::
 
-<!-- :::{card}
-:header: **Assembly Worksheet**
-{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
-::: -->
 
 :::{card}
 :header: **Bill of Materials**
