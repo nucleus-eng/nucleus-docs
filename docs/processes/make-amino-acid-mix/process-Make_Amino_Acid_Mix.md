@@ -1,71 +1,44 @@
 ---
-title: Make Amino Acid Mix
+title: Process
+subtitle: Make Amino Acid Mix
 ---
 
 # Overview
 
 Amino Acid Mix is an equimolar (3.25 mM) master mix of the 20 canonical amino acids. Here, we make stock solutions for each amino acid and assemble them into Amino Acid Mix for use in downstream protocols.
 
-::::::{card}
+:::::::{card}
 :header: **Important Information**
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-:::{note} Notes
+::::::{note} Notes
 :class: dropdown
+:icon: false
 
-- TODO
-
-:::
-
-:::::{card}
-:header: **Resources**
-::::{grid} 1 1 1 3
-
-:::{card}
-:header: **Lab-ready Protocol**
-:algin: center
-
-{button}`download <protocol-make_amino_acid_mix.pdf>`
-:::
-
-:::{card}
-:header: **Assembly Worksheet**
-{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **TODO: Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-::::
-:::::
-
-:::::{tip} Composition
-:class: dropdown
-
-::::{card}
-:header: **Composition of Amino Acid Mix**
-:::{table} 
-:label: tbl:composition-table
-:align: center
-
-TODO
-<!-- | **Reagent** | **Concentration in Energy Mix (mM)** | **Concentration in Final Reaction (mM)** | -->
-
-:::
-::::
-:::::
-
-:::{seealso} Prerequisite Documentation
-:class: dropdown
 - None
 
-:::
+::::::
 
-::::{important} Critical Materials
+::::::{seealso} Prerequisite Documentation
 :class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{danger} Hazardous Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Critical Materials
+:class: dropdown
+:icon: false
 
 :::{table}
 :label: tbl:critical-materials
@@ -74,33 +47,37 @@ TODO
 | Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
 | --- | --- | --- | --- | --- | --- | --- |
 | Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
-| Low Bind Protein Tubes | X | X | X | X | X | X |
+| Low Bind Protein Tubes |  |  |  |  |  |  |
 
-::::
-
-::::{important} Genetically Encoded Components
-:class: dropdown
-
-- None
-
-::::
-
-::::{danger} Hazardous Materials
-:class: dropdown
-
-- None
-
-::::
-
-::::{note} References
-:class: dropdown
-
-- None
-
-::::
+:::
 
 ::::::
 
+::::::{attention} Genetically Encoded Components
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{note} Composition
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{note} References
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+:::::::
 
 # Protocol
 
@@ -138,4 +115,27 @@ TODO
 - [ ]  Aliquot and store at -20C
 
 
+# Downloads
 
+::::{grid} 1 1 1 3
+
+:::{card}
+:header: **Lab-ready Protocol**
+:align: center
+
+{button}`download <protocol-make_amino_acid_mix.pdf>`
+:::
+
+:::{card}
+:header: **Assembly Worksheet**
+:align: center
+
+{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+{button}`download <module-bom-reporter-cells-degfp.pdf>`
+:::
+
+::::

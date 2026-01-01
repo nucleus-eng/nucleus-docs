@@ -6,68 +6,68 @@ title: Make Template
 
 Transfer RNAs (tRNAs) are small RNA molecules (76 - 90) nt that carry amino acids to ribosomes during protein synthesis. They are essential for translation and can be easily purified following this protocol, which covers bacterial growth, purification, dialysis, and quality assurance. You can use these tRNAs in Make Energy Mix.
 
-:::::{card}
+:::::::{card}
 :header: **Important Information**
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-::::{note} Notes
+::::::{note} Notes
 :class: dropdown
 :icon: false
 
 - None
 
-::::
+::::::
 
-::::{seealso} Prerequisite Documentation
+::::::{seealso} Prerequisite Documentation
 :class: dropdown
 :icon: false
 
 - None
 
-::::
+::::::
 
-::::{danger} Hazardous Materials
+::::::{danger} Hazardous Materials
 :class: dropdown
 :icon: false
 
 - None
 
-::::
+::::::
 
-::::{attention} Critical Materials
+::::::{attention} Critical Materials
 :class: dropdown
 :icon: false
 
 - None
 
-::::
+::::::
 
-::::{attention} Genetically Encoded Components
+::::::{attention} Genetically Encoded Components
 :class: dropdown
 :icon: false
 
 - None
 
-::::
+::::::
 
-::::{note} Composition
+::::::{note} Composition
 :class: dropdown
 :icon: false
 
 - None
 
-::::
+::::::
 
-::::{note} References
+::::::{note} References
 :class: dropdown
 :icon: false
 
 - None
 
-::::
+::::::
 
-:::::
+:::::::
 
 # Protocol
 
@@ -233,3 +233,20 @@ If your samples appear as a smear on your gel, consider testing your input buffe
 
 - [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
 
+# Downloads
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+:align: center
+
+{button}`download <module-protocol-cells-degfp.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+{button}`download <module-bom-reporter-cells-degfp.pdf>`
+:::
+
+::::
