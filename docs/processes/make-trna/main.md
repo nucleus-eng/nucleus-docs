@@ -16,7 +16,9 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- We purify RNAs and Riboproteins from *E. coli* A19 biomass ([CGSC 5997](https://ecgrc.net/index.php/product/a19/)), a strain with a mutation in RNase I that improves RNA yields. You can use other RNase deficient strains with this protocol, but you may need to optimize this protocol to achieve high yield and purity.
+
+- ‼️All reagents and materials must be prepared RNase-free. Use RNaseZap or 10% bleach to decontaminate plastic and glassware and rinse with nuclease-free water. We find ultrapure water (18.2 MOhm) is often sufficient for RNase-free work.
 
 ::::::
 
@@ -32,7 +34,21 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- **Acid Phenol**
+    - Corrosive, toxic, rapidly absorbed through skin, & respiratory irritant
+    - Use in fume hood, wear neoprene gloves, & PPE
+
+- **Acetic Acid**
+    - Corrosive to skin and eyes
+    - Use appropriate PPE and handle under fume-hood
+
+- **Chloroform**
+    - Irritant, possible carcinogen
+    - Work in fume hood & appropriate gloves
+
+- **Ethanol**
+    - Highly flammable, toxic, and irritant
+    - Wear PPE, use in well-ventilated areas, and keep away from open flames
 
 ::::::
 
@@ -56,7 +72,15 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+:::{table} 
+:label: tbl:composition-table
+:align: center
+
+| **Component** | **Stock Concentration** | **Reaction Concentration** |
+| --- | --- | --- |
+| tRNA | 35 $\mu$g/$\mu$L (10x) | 3.5 $\mu$g/$\mu$L |
+
+:::
 
 ::::::
 
@@ -69,120 +93,6 @@ Please read this section carefully. It contains important notes, resources, and 
 ::::::
 
 :::::::
-
-::::::{card}
-:header: **Important Information**
-
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
-
-:::{note} Notes
-:class: dropdown
-
-- We purify RNAs and Riboproteins from *E. coli* A19 biomass ([CGSC 5997](https://ecgrc.net/index.php/product/a19/)), a strain with a mutation in RNase I that improves RNA yields. You can use other RNase deficient strains with this protocol, but you may need to optimize this protocol to achieve high yield and purity.
-
-- ‼️All reagents and materials must be prepared RNase-free. Use RNaseZap or 10% bleach to decontaminate plastic and glassware and rinse with nuclease-free water. We find ultrapure water (18.2 MOhm) is often sufficient for RNase-free work.
-
-:::
-
-:::::{card}
-:header: **Resources**
-::::{grid} 1 1 1 3
-
-:::{card}
-:header: **Lab-ready Protocol**
-:algin: center
-
-{button}`download <protocol-make_trnas.pdf>`
-:::
-
-:::{card}
-:header: **Assembly Worksheet**
-{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-::::
-:::::
-
-:::::{tip} Composition
-:class: dropdown
-
-::::{card}
-:header: **Composition of tRNAs**
-:::{table} 
-:label: tbl:composition-table
-:align: center
-
-| **Component** | **Stock Concentration** | **Reaction Concentation** |
-| --- | --- | --- |
-| tRNA | 35 $\mu$g/$\mu$L (10x) | 3.5 $\mu$g/$\mu$L |
-
-:::
-::::
-:::::
-
-:::{seealso} Prerequisite Documentation
-:class: dropdown
-- None
-
-:::
-
-::::{important} Critical Materials
-:class: dropdown
-
-:::{table}
-:label: tbl:critical-materials
-:align: center
-
-TODO
-
-<!-- | Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
-| --- | --- | --- | --- | --- | --- | --- |
-| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
-| Low Bind Protein Tubes | X | X | X | X | X | X | -->
-
-::::
-
-::::{important} Genetically Encoded Components
-:class: dropdown
-
-- None
-
-::::
-
-::::{danger} Hazardous Materials
-:class: dropdown
-
-- **Acid Phenol**
-    - Corrosive, toxic, rapidly absorbed through skin, & respiratory irritant
-    - Use in fume hood, wear neoprene gloves, & PPE
-
-- **Acetic Acid**
-    - Corrosive to skin and eyes
-    - Use appropriate PPE and handle under fume-hood
-
-- **Chloroform**
-    - Irritant, possible carcinogen
-    - Work in fume hood & appropriate gloves
-
-- **Ethanol**
-    - Highly flammable, toxic, and irritant
-    - Wear PPE, use in well-ventilated areas, and keep away from open flames
-
-::::
-
-::::{note} References
-:class: dropdown
-
-- None
-
-::::
-
-::::::
 
 # Protocol
 
@@ -348,3 +258,21 @@ If your samples appear as a smear on your gel, consider testing your input buffe
 
 - [] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
 
+# Downloads
+
+:::::{card}
+:header: **Resources**
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+{button}`download <protocol-make_trnas.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+{button}`download <protocol-Make_tRNAs.pdf>`
+:::
+
+::::
+:::::
