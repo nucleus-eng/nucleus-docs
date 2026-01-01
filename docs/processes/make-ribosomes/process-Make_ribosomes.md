@@ -6,103 +6,78 @@ title: Make Ribosomes
 
 Ribosomes are large complexes of RNA and proteins (MW ~2.7 MDa) that are the sites of protein synthesis. Ribosomes coordinate the decoding of mRNA transcripts by tRNA and catalyze the formation of each peptide bond in new proteins, making ribosomes a key component of any protein synthesis system. Ribosomes can be purified from E. coli biomass by a variety of methods (e.g., His-tagged ribosomes can be purified by Ni-His chromatography), but we recommend a two step process: (1) initial, tag-free purification by hydrophobic interaction chromatography (HIC) and (2) size-selective precipitation by ultracentrifugation. This protocol will show you how to grow E. coli A19 biomass and purify ribosomes by HIC followed by ultracentrifugation.
 
-::::::{card}
+:::::::{card}
 :header: **Important Information**
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-:::{note} Notes
-:icon: false
-:class: simple
+::::::{note} Notes
 :class: dropdown
+:icon: false
 
 - We purify RNAs and Riboproteins from *E. coli* A19 biomass ([CGSC 5997](https://ecgrc.net/index.php/product/a19/)), a strain with a mutation in RNase I that improves RNA yields. You can use other RNase deficient strains with this protocol, but you may need to optimize this protocol to achieve high yield and purity.
+
 - ‼️All reagents and materials must be prepared RNase-free. Use RNaseZap or 10% bleach to decontaminate plastic and glassware and rinse with nuclease-free water. We find ultrapure water (18.2 MOhm) is often sufficient for RNase-free work.
-:::
 
-:::::{card}
-:header: **Resources**
-::::{grid} 1 1 1 1
+::::::
 
-:::{card}
-:header: **Lab-ready Protocol**
-:algin: center
-
-{button}`download <protocol-make_ribosomes.pdf>`
-:::
-
-:::{card}
-:header: **Assembly Worksheet**
-{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-::::
-:::::
-
-:::::{tip} Composition
-:icon: false
-:class: simple
+::::::{seealso} Prerequisite Documentation
 :class: dropdown
+:icon: false
 
-::::{card}
-:header: **Composition of Ribosomes**
+- None
+
+::::::
+
+::::::{danger} Hazardous Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Critical Materials
+:class: dropdown
+:icon: false
+
+- A19 *E. coli*
+
+::::::
+
+::::::{attention} Genetically Encoded Components
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{note} Composition
+:class: dropdown
+:icon: false
+
 :::{table} 
-:label: tbl:composition-table
+:label: tbl:comp-ribo
 :align: center
 
-| **Component** | **Stock Concentration** | **Reaction Concentation** |
+| **Component** | **Stock Concentration** | **Reaction Concentration** |
 | --- | --- | --- |
 | Ribosomes | 10 $\mu$M (5.55x) | 1.8 $\mu$M |
 
 :::
-::::
-:::::
-
-:::{seealso} Prerequesite Documentation
-:icon: false
-:class: simple
-:class: dropdown
-- None
-
-:::
-
-::::{important} Critical Materials
-:icon: false
-:class: simple
-:class: dropdown
-
-:::{table}
-:label: tbl:critical-materials
-:align: center
-
-- A19 *e. coli*
-
-::::
-
-::::{important} Genetically Encoded Components
-:icon: false
-:class: simple
-:class: dropdown
-
-- None
-
-::::
-
-::::{danger} Hazardous Materials
-:icon: false
-:class: simple
-:class: dropdown
-
-- None
-
-::::
 
 ::::::
+
+::::::{note} References
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+:::::::
 
 # Protocol
 
@@ -160,11 +135,11 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 :::
 ::::
 
-- **Set-up.**
+- **Set-up**
     - [ ]  Connect the two Butyl column (5 mL) in tandem, totaling a column volume (CV) of 10 mL.
     - [ ]  Place A1 in Ribosome Wash Buffer and B1 in Ribosome Elution Buffer. Place sample line in A2. Set the default flow rate to 4 mL / min (except for pump washes: 10 mL/min).
 
-- **Equilibrate HIC column.**
+- **Equilibrate HIC column**
     - [ ]  Perform a pump wash with Ribosome Wash Buffer (without TCEP) and equilibrate the column with 4 CV of Ribosome Wash Buffer(without TCEP).
     - [ ]  Once you've equilibrated your columns, add TCEP to Ribosome Wash and Elution Buffer.
     - [ ]  Load your fraction collector with 15 mL conical tubes and set the fraction volume to 5 mL.
@@ -179,7 +154,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 
 - **Clean columns**
     - [ ]  Place inlet into a NaOH (0.5 M) and perform pump wash. Wash the column with 3 CV NaOH (0.5M).
-    - [ ]  Place the inlet into water, perform pump wash, and then was column in 2 CV filtered Ultrapure water.
+    - [ ]  Place the inlet into water, perform pump wash, and then wash column in 2 CV filtered Ultrapure water.
     - [ ]  Place the inlet into AcOH (0.1 M), perform pump wash, and subsequently wash column with 3 CV AcOH (0.1 M).
     - [ ]  Pump wash with water and wash column with 2 CV filtered MilliQ water.
     - [ ]  Place all inlets into EtOH (20% v/v). Perform a pump wash, then wash columns with 3 CV EtOH (20% v/v). Store columns at 4C in EtOH (20% v/v) until ready for use.
@@ -192,8 +167,9 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ]  Discard the supernatant. Carefully, wash each pellet with 0.5 mL cold ribosome buffer. Repeat this step twice.
 
 ::::{hint} Note: Don’t disturb the ribosome pellet during washing.
-:icon: false
 :class: dropdown
+:icon: false
+
 The ribosome pellet is fairly compact and stable, but some ribosomes can get resuspended during washing and be lost in the process. Be careful! 
 
 First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffer down the sides of the tube, allowing the buffer to run over the pellet. Tilt the ultracentrifuge bottle gently so that the buffer falls away from the pellet, aspirate the buffer, add fresh buffer as before, and repeat.
@@ -212,3 +188,21 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 
 - [ ] Aliquot your ribosomes to reduce freeze / thaw cycles and store at -80C.
 
+# Downloads
+
+:::::{card}
+:header: **Resources**
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+{button}`download <protocol-make_ribosomes.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+{button}`download <protocol-Make_tRNAs.pdf>`
+:::
+
+::::
+:::::

@@ -6,6 +6,70 @@ title: Make tRNAs
 
 Transfer RNAs (tRNAs) are small RNA molecules (76 - 90) nt that carry amino acids to ribosomes during protein synthesis. They are essential for translation and can be easily purified following this protocol, which covers bacterial growth, purification, dialysis, and quality assurance. You can use these tRNAs in Make Energy Mix.
 
+
+:::::::{card}
+:header: **Important Information**
+
+Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
+
+::::::{note} Notes
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{seealso} Prerequisite Documentation
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{danger} Hazardous Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Critical Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Genetically Encoded Components
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{note} Composition
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{note} References
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+:::::::
+
 ::::::{card}
 :header: **Important Information**
 
