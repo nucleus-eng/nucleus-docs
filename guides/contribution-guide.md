@@ -14,13 +14,13 @@ To clarify this distinction, we define several phrases:
 
 * **Where possible.** This phrase means that including something may prove technically challenging and situation dependent. Use good judgment, and post on the Forum if you need guidance on feasibility.
 
-> **Note:** Before reading the following guidelines, we highly recommend reading the document titled *From Zero to DevNote* which describes how to prepare your first Developer Note for inclusion into the Distribution. It provides a concrete description of the key components of a submission.
+> **Note:** Before reading the following guidelines, we highly recommend reading the document titled [*From Zero to DevNote*](../start/first-guide.md) which describes how to prepare your first Developer Note for inclusion into the Distribution. It provides a concrete description of the key components of a submission.
 
-## General Consideration
+## General Considerations
 
 ### General
 
-* Must include Author(s) orcid ID
+* Should include Author(s) ORCID
 
 * Should include a schematic of the contribution
 
