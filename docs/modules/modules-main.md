@@ -4,11 +4,11 @@ title: Modules
 
 # Overview
 
-A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "what is it?" and 2) "What should I expect when I implement it?".
+A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
 
 :::{figure} ./resources/flowchart-2.png
 :width: 50%
-Modules can be combined with Process/Protocol to create Integrations.
+Modules can be combined with Process Protocols to create Integrations.
 :::
 
 Module Specifications contain the following information:
@@ -28,8 +28,7 @@ Module Specifications contain the following information:
 
 | Module Class | Module Implementation | Base Module | Status |
 | --- | --- | --- | --- |
-| Reporter | [plamGFP](./reporter-plamgfp/spec.md) | PURExpress Cell | Distribution |
-|  | [deGFP](./reporter-degfp/spec.md) | **Nucleus Cytosol;** PURExpress Cell | Distribution |
+| Reporter | [deGFP](./reporter-degfp/spec.md) | **Nucleus Cytosol;** PURExpress Cell | Distribution |
 | Membrane | POPC/Chol | PURExpress Cell | Distribution |
 | Membrane Pore | [alpha-Hemolysin](./membrane-pore-ahly/spec.md) | PURExpress Cell  | Distribution |
 |  | [Cx43](./membrane-pore-cx43/spec.md) | PURExpress Cell | DevNote |
@@ -45,28 +44,3 @@ Module Specifications contain the following information:
 
 - Cytosol Module Standard
 
-<!-- ## Modules validated in cytosols -->
-
-<!-- - [Module Template](https://antonrmolina.github.io/nucleus-distribution-pages/docs/modules/module-template/specification-module-template) -->
-<!-- - [Module Template](./module-template/specification-Module_Template.md)
-- Control: ClpXP -->
-
-<!-- ## Modules validated in cells -->
-
-<!-- - [Reporter: plamGFP](https://antonrmolina.github.io/nucleus-distribution-pages/docs/modules/module-plamgfp/specification-module-plamgfp) -->
-<!-- - [Reporter: plamGFP](./module-plamGFP/specification-Module_plamGFP.md)
-- Reporter: deGFP
-- Reporter: mScarlett
-- Detector: aTc
-- Emitter: IVHSL
-
-- Energy: PPK2
-
-- Membrane: POPC
-- Membrane: POPC/Chol
-- Membrane: EggPC
-
-- Transporter: aHL
-- Transporter: Cx43
-
-- Chaperone: SecYEG -->

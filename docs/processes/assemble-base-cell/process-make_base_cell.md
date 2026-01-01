@@ -11,12 +11,6 @@ In this protocol, you will make the necessary precursors to creating liposomes, 
 
 Successfully built PURE liposomes will start dark and then increase in green fluorescence over time as GFP is produced.
 
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-<!-- The important imformation card begins here -->
-
 ::::::{card}
 :header: **Important Information**
 
@@ -145,12 +139,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::::
 
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
-<!-- The important imformation card ends here -->
-
 # Protocol
 
 ## Prepare Stock Buffers and Lipids
@@ -158,7 +146,7 @@ Please read this section carefully. It contains important notes, resources, and 
 - **Prepare lipids in mineral oil**
 
   - [ ]  Clean glass syringes.
-      - [ ]  Pour a small amount of 95% ethanol into a glass container ****(e.g. a 10 mL beaker).
+      - [ ]  Pour a small amount of 95% ethanol into a glass container (e.g. a 10 mL beaker).
       - [ ]  Assemble the glass syringe and prime it by drawing ethanol into the glass syringe, then empty into a waste bottle.
   - [ ]  Weigh 2.67 g (or pipette 3.25mL) mineral oil into a glass test tube or beaker
   - [ ]  Add the lipids to the mineral oil using the appropriate glass syringe:

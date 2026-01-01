@@ -22,9 +22,9 @@ This protocol shows you how to assemble Base Cytosol from the following componen
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
 :::{note} Notes
-:class: simple
-:icon: false
 :class: dropdown
+:icon: false
+
 
 - Base Cytosol components can be made from scratch by following the relevant documentation in the Distribution
 - Base Cytosol components can be acquired as a premade reagent kit from b.next
@@ -32,7 +32,6 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 :::::{tip} Composition
-:class: simple
 :icon: false
 :class: dropdown
 
@@ -59,7 +58,6 @@ Please read this section carefully. It contains important notes, resources, and 
 :::::
 
 :::{seealso} Prerequisite Documentation
-:class: simple
 :icon: false
 :class: dropdown
 
@@ -75,7 +73,6 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 ::::{important} Critical Materials
-:class: simple
 :icon: false
 :class: dropdown
 
@@ -92,7 +89,6 @@ Please read this section carefully. It contains important notes, resources, and 
 ::::
 
 ::::{admonition} Genetically Encoded Components
-:class: simple
 :icon: false
 :class: dropdown
 
@@ -107,18 +103,18 @@ Please read this section carefully. It contains important notes, resources, and 
 ::::
 
 ::::{danger} Hazardous Materials
-:class: simple
-:icon: false
 :class: dropdown
+:icon: false
+
 
 - None
 
 ::::
 
 ::::{note} References
-:class: simple
-:icon: false
 :class: dropdown
+:icon: false
+
 
 - Yadav, S. First Nucleus Cytosol Testing. *Nucleus Developer Notes.* (2025) doi:10.63765/fppr8928.
 

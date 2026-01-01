@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The deGFP Reporter Module produced deGFP, a green fluorescent protein.
+The deGFP Reporter Module produces deGFP, a green fluorescent protein.
 
 :::::{tab-set}
 
@@ -139,7 +139,19 @@ Final protein yields of the reactions measured at steady state. Data from [](htt
 
 ### Expected Behavior
 
-Coming soon!
+:::::{tab-set}
+::::{tab-item} Image 1
+:::{figure} cell-image1.png
+Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t = 0) corresponds to 30 minutes after preparation of the inner solution, reflecting the time required to prepare liposomes.
+:::
+::::
+
+::::{tab-item} Image 2
+:::{figure} cell-image2.png
+Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t = 0) corresponds to 30 minutes after preparation of the inner solution, reflecting the time required to prepare liposomes.
+:::
+::::
+:::::
 
 ### Protocols
 
@@ -158,68 +170,3 @@ Coming soon!
 :::
 
 ::::
-
-
-
-<!-- ### Compatible processes
-
-My reference table (this is on same page): {ref}`spec01:tbl-36pot-formulation`
-My reference table (this is on different page): [ref](xref#this-tbl-36pot-formulation)
-
-::::{aside}
-:::{dropdown} TODO
-
-For GFP the distinction between process and instances feels overwrought or at least hard to distinguish
-:::
-::::
-
-- [b.next PURE](./docs/02-collections/cytosols.md)
-- [OnePot PURE]()
-
-::::{dropdown} [36Pot PURE]()
-
-**Formulation**. This module can be implemented in [my-process] by implementing the following formulation in the base process. TODO: can I reference a table from another page? [my rerefence](#this-tbl-36pot-formulation)
-
-
-:::{table}
-:name: spec01:tbl-36pot-formulation
-
-| Component | Experiment (uL) |
-| --- | --- |
-| NEB Sol B -Ribos |  |
-| Workshop Protein Mix( ___ ug/uL) | 3 |
-| NEB Ribosomes | 4.5 |
-| NEB Sol A | 10 |
-| NEB Sol B |  |
-| RNse Inhibitor | 1.25 |
-| pT7-my-custom-plasmid (120 ng/uL) | 1.25 |
-| Ultrapure water | 5 |
-| **Total** | **25** |
-:::
-
-**Process** The following steps should be REMOVED, ADDED, or MODIFIED to implement the Module in the Process. 
-
-- ADD. Preparation of PPK stock solution
-
-::::
-
-### Usage
-
-**Collections**
-
-- [Collection-1](/docs/collections/cytosols/instance-template/instance)
-
-**DevNotes**
-
-- [DevNote-3](https://doi.org/10.63765/djnv7772)
-
-**Literature**
-
-- [Wang *et al.* 2019](https://doi.org/10.1021/acssynbio.9b00456)
-
-::::{aside}
-:::{dropdown} TODO
-
-I want to figure out how to hide the list of references from being auto generated at the bottom.
-:::
-:::: -->

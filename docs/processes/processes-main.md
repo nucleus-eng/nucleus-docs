@@ -13,16 +13,44 @@ Warning this page is still under heavy development and things may not work as ex
 
 Processes represent the core protocols. They tell you how to transform physical materials into minimal cytosols and cells. Modules extend the functionality of these basic cytosols and cells. 
 
+## Base Cell Processes
+
+::::::{tip} Schematic of Base Cell Processes
+:class: simple dropdown
+:icon: false
+
+:::::{tab-set}
+
+::::{tab-item} Base Cell
+:::{figure} ./resources/flowchart-cells-dye.png
+:align: center
+:label: fig:figure1-1
+Flow chart for building Base Cell and its modification through the addition of Modules.
+:::
+::::
+
+::::{tab-item} Base Cell + Cytosol
+:::{figure} ./resources/flowchart-cells.png
+:align: center
+:label: fig:1-2
+Flow chart for building Base Cell and its modification through the addition of Modules.
+:::
+::::
+
+:::::
+::::::
+
+- [Base Cell](./assemble-base-cell/process-make_base_cell.md)
+
 ## Base Cytosol Processes
 
-::::{tip} Schematic of Base Cell Processes
-:class: simple
-:class: dropdown
+::::{tip} Schematic of Base Cytosol Processes
+:class: simple dropdown
 :icon: false
 
 :::{figure} ./resources/flowchart-cytosols.png
 :align: center
-:label: fig:figure1
+:label: fig:figure2
 Flow chart for building Base Cytosol and its modification through the addition of Modules.
 :::
 
@@ -50,91 +78,3 @@ The base cytosol module implements transcription and translation powered by crea
 - [Protein Gel](./protein-gel/main.md)
 - [Pierce660 Assay](./pierce660/main.md)
 
-## Base Cell Processes
-
-::::::{tip} Schematic of Base Cell Processes
-:class: simple
-:class: dropdown
-:icon: false
-
-:::::{tab-set}
-
-::::{tab-item} Base Cell
-:::{figure} ./resources/flowchart-cells-dye.png
-:align: center
-:label: fig:figure2
-Flow chart for building Base Cell and its modification through the addition of Modules.
-:::
-::::
-
-::::{tab-item} Base Cell + Cytosol
-:::{figure} ./resources/flowchart-cells.png
-:align: center
-:label: fig:figure2
-Flow chart for building Base Cell and its modification through the addition of Modules.
-:::
-::::
-
-:::::
-::::::
-
-- [Base Cell](./assemble-base-cell/process-make_base_cell.md)
-
-
-<!-- # Overview
-
-Processes convert Modules into something useful. A Process often coincides with the simplest possible Implementation, typyically using the plamGFP Reporter Module. For this reason, we often refer to these as ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) implementations. Alternatively, a process will include a quality control and [unit tests](10.1109/MAHC.1983.10102) A Process will contain the following information:
-
-- Contents of an implementation
-    - lab-ready protocol
-    - Bill of materials
-    - List of what to have at your bench
-    - Recommendations for storage and unit testing -->
-
-<!-- ## Cytosols -->
-
-<!-- Here are a collection of processes that are useful for making and working with Cytosols -->
-
-<!-- :::{figure} ./resources/flowchart-cytosols.png
-:align: center
-:label: fig:figure1
-Flow chart for building Base Cytosol and its modification through the addition of Modules.
-::: -->
-
-<!-- - [Process Template](./process-template/process-make_template.md)
-
-- [Make Amino Acid Mix](./make-amino-acid-mix/process-make_amino_acid_mix.md)
-- [Make Small Molecule Mix](./make-small-molecule-mix/process-make_small_molecule_mix.md) -->
-<!-- - [Make tRNAs](https://antonrmolina.github.io/nucleus-distribution-pages/docs/processes/make-trna/process-make-trnas) -->
-<!-- - [Make tRNAs](./make-trna/process-make_trnas.md)
-- Make Energy Mix
-
-- Make Protein mix (1-pot)
-- Make Protein mix (36-pot) -->
-<!-- - [Make Ribosomes](https://antonrmolina.github.io/nucleus-distribution-pages/docs/processes/make-ribosomes/process-make-ribosomes) -->
-<!-- - [Make Ribosomes](./make-ribosomes/process-make_ribosomes.md)
-
-- [Assemble Base Cytosol from Kit](./assemble-cytosol-from-kit/process-assemble_cytosol_from_kit.md) -->
-
-<!-- **Quality Control**
-
-- Protein Gel
-- Pierce660 Assay
-- BCA Assay
-- Measuring fluorescence with plate reader [](../) -->
-
-<!-- ## Cells -->
-
-<!-- Here are a collection of processes that useful for making and working with Cells -->
-
-<!-- :::{figure} ./resources/flowchart-cells.png
-:align: center
-:label: fig:figure2
-Flow chart for building Base Cell and its modification through the addition of Modules.
-::: -->
-
-<!-- - [Make Base Cell](./assemble-base-cell/process-make_base_cell.md) -->
-
-<!-- **Quality Control**
-
-- Measuring fluorescence with microscope -->

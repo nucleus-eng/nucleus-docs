@@ -1,30 +1,10 @@
 import anthropic
 import json
+import sys
 from pathlib import Path
 from datetime import datetime
 
 client = anthropic.Anthropic()
-
-def load_reviewed_status():
-    """Load which files have been reviewed."""
-    if Path("scripts/reviewed_status.json").exists():
-        with open("scripts/reviewed_status.json", "r") as f:
-            return json.load(f)
-    return {}
-
-def save_reviewed_status(status):
-    """Save reviewed status."""
-    with open("scripts/reviewed_status.json", "w") as f:
-        json.dump(status, f, indent=2)
-
-def mark_as_reviewed(filepath):
-    """Mark a file as reviewed."""
-    status = load_reviewed_status()
-    status[filepath] = {
-        "reviewed": True,
-        "timestamp": str(datetime.now())
-    }
-    save_reviewed_status(status)
 
 def get_issues(doc_content: str, style_rules: str) -> str:
     """Get list of issues from Claude."""
@@ -43,7 +23,9 @@ DOCUMENT TO REVIEW:
 {doc_content}
 
 Please list each issue on a separate line in this format:
-[TYPE] Line X: Description of issue"""
+[TYPE] Exact quoted text from document: Description of issue
+
+Do NOT use line numbers. Instead, quote the exact text being flagged."""
             }
         ]
     )
@@ -105,8 +87,8 @@ def parse_issues(issues_text: str) -> list[str]:
               if line.strip().startswith("[")]
     return issues
 
-def interactive_review(doc_path: str, style_rules: str):
-    """Interactively review and fix a document."""
+def review_single_file(doc_path: str, style_rules_path: str = "scripts/style_guide.md"):
+    """Review a single file and offer interactive fixes."""
     
     print(f"\n{'='*60}")
     print(f"Reviewing: {doc_path}")
@@ -115,6 +97,9 @@ def interactive_review(doc_path: str, style_rules: str):
     try:
         with open(doc_path, "r") as f:
             doc_content = f.read()
+        
+        with open(style_rules_path, "r") as f:
+            style_rules = f.read()
         
         # Get full review for overview
         print("\nAnalyzing document...")
@@ -130,12 +115,12 @@ def interactive_review(doc_path: str, style_rules: str):
         
         # Ask user whether to enter interactive mode or skip
         while True:
-            choice = input("\n[i]nteractive mode / [s]kip this document: ").lower().strip()
+            choice = input("\n[i]nteractive mode / [s]kip: ").lower().strip()
             
             if choice == "i":
                 break
             elif choice == "s":
-                print("Skipping this document.")
+                print("Skipping.")
                 return doc_content  # Return unmodified content
             else:
                 print("Invalid choice. Try again.")
@@ -192,37 +177,28 @@ def interactive_review(doc_path: str, style_rules: str):
         
         return modified_content
     
-    except FileNotFoundError:
-        print(f"Error: File not found - {doc_path}")
+    except FileNotFoundError as e:
+        print(f"Error: File not found - {e}")
         return None
 
 # Main
-with open("scripts/files_to_review.txt", "r") as f:
-    files_to_check = [line.strip() for line in f if line.strip()]
+if len(sys.argv) < 2:
+    print("Usage: python my-script.py <path-to-file.md>")
+    sys.exit(1)
 
-with open("scripts/style_guide.md", "r") as f:
-    style_rules = f.read()
+file_path = sys.argv[1]
+modified_content = review_single_file(file_path)
 
-reviewed_status = load_reviewed_status()
-
-for doc_path in files_to_check:
-    if reviewed_status.get(doc_path, {}).get("reviewed"):
-        print(f"\nSKIPPED (already reviewed): {doc_path}")
-        continue
-    
-    modified_content = interactive_review(doc_path, style_rules)
-    
-    if modified_content:
-        # Ask if user wants to save
-        save_choice = input(f"\nSave changes to {doc_path}? [y/n]: ").lower().strip()
-        if save_choice == "y":
-            with open(doc_path, "w") as f:
-                f.write(modified_content)
-            print("File saved.")
-            mark_as_reviewed(doc_path)
-        else:
-            print("Changes discarded.")
+if modified_content:
+    # Ask if user wants to save
+    save_choice = input(f"\nSave changes to {file_path}? [y/n]: ").lower().strip()
+    if save_choice == "y":
+        with open(file_path, "w") as f:
+            f.write(modified_content)
+        print("File saved.")
+    else:
+        print("Changes discarded.")
 
 print("\n" + "="*60)
-print("Review session complete")
+print("Review complete")
 print("="*60)
