@@ -16,7 +16,7 @@ Currently, access to Nucleus Hub is available by request to build@bnext.bio.
 
 ## Orientation
 
-Upon entering Nucleus Hub you should the following screen:
+Upon entering Nucleus Hub you should see the following screen:
 
 :::{figure} nucleus-hub-image-01.png
 :::

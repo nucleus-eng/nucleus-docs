@@ -12,11 +12,11 @@ This tutorial will walk you through the entire workflow for submitting a DevNote
 
 This tutorial assumes the following:
 
-- It assumes that you have access to Nucleus Hub and are familiar with its basic features. 
-- Have a Curvenote account.
-- Have an ORCiD.
+- It assumes that you have access to Nucleus Hub and are familiar with its basic features.
+- Have a Curvenote account
+- Have an ORCID
 
-If you do not have these things please see the [Tutorial: getting started with Nucleus Hub]().
+If you do not have these things please see the [Tutorial: getting started with Nucleus Hub](../guides/nucleus-hub/nucleus-hub.md).
 
 # Creating project from template
 
@@ -25,7 +25,7 @@ If you do not have these things please see the [Tutorial: getting started with N
   - [ ] Project title: `My first project`
   - [ ] Subtitle: `My first subtitle`
   - [ ] Description: `My first Description`
-  - [ ] Add author(s): `[YOUR ORCiD]`
+  - [ ] Add author(s): `[YOUR ORCID]`
   - [ ] Keywords: Hit `[Enter]` to skip
   - [ ] Would you like to start a local server now? `n`
   - [ ] Exit the terminal and return to the Launcher Window
@@ -43,14 +43,12 @@ If you do not have these things please see the [Tutorial: getting started with N
 ::::{tab-item} Error message
 :::{figure} ./developer-notes/res-tutorial/error-loading-preview.png
 :name: fig:error
-Figure: This is my caption
 :::
 ::::
 
 ::::{tab-item} Splitscreen
 :::{figure} ./developer-notes/res-tutorial/splitscreen.png
 :name: fig:splitscreen
-Figure: This is my caption
 :::
 ::::
 
@@ -62,7 +60,7 @@ The DevNote template contains documentation describing how to author your first 
 
 # Review and submission
 
-When you're DevNote is ready for submission, you can preview how it will look on the Developer Notes site:
+When your DevNote is ready for submission, you can preview how it will look on the Developer Notes site:
 
 - [ ] Preview DevNote on deployment server
   - [ ] While you're in the `devnotes/template` directory, click the button "Preview" in the "Developer Notes" toolbar of the Launcher window.

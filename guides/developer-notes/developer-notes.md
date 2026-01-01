@@ -4,7 +4,7 @@ title: Developer Notes
 
 ## Overview
 
-This guide will introduce you to Developer Notes (DevNotes) as a way to quickly share ideas and results with the developer community. This guide assumes that you have familiarized yourself with Nucleus Hub Nucleus Hub..
+This guide will introduce you to Developer Notes (DevNotes) as a way to quickly share ideas and results with the developer community. This guide assumes that you have familiarized yourself with Nucleus Hub.
 
 ## Using Curvenote Preview to view a DevNote
 
@@ -14,7 +14,7 @@ This guide will introduce you to Developer Notes (DevNotes) as a way to quickly 
 - [ ]  Create a new blank project and click ‘NEXT’
 - [ ]  Go to personal settings ({ref}`fig:03`):
 - [ ]  Select ‘API Access’ and click ‘Generate New Token’.
-    - [ ]  Give the token a useful descrption and select Expiry for the maximum time allowed.
+    - [ ]  Give the token a useful description and select Expiry for the maximum time allowed.
     - [ ]  Open a terminal window from the Launcher window and run the command `curvenote token set [my-token]`
     - [ ]  You should see a message that says: Token set for "[curvenote-username]" <curvenote-email-account> at https://api.curvenote.com/login”
 - [ ]  You should now be able to view a DevNote by clicking Curvenote Preview from the Launcher window. Note: it may take up to a minute to populate the following viewer window if this is the first time you using the Preview feature.
@@ -24,28 +24,28 @@ This guide will introduce you to Developer Notes (DevNotes) as a way to quickly 
 
 :::::{tab-set}
 
-::::{tab-item} Tab Title 1
+::::{tab-item} Curvenote API Prompt
 :sync: tab1-1
 :::{figure} devnotes-figure-01.png
 :label: fig:01
 :::
 ::::
 
-::::{tab-item} Tab Title 2
+::::{tab-item} Curvenote Login
 :sync: tab1-2
 :::{figure} devnotes-figure-02.png
 :label: fig:02
 :::
 ::::
 
-::::{tab-item} Tab Title 3
+::::{tab-item} Curvenote Personal Settings
 :sync: tab1-3
 :::{figure} devnotes-figure-03.png
 :label: fig:03
 :::
 ::::
 
-::::{tab-item} Tab Title 4
+::::{tab-item} DevNote Example
 :sync: tab1-4
 :::{figure} devnotes-figure-04.png
 :label: fig:04
@@ -77,7 +77,7 @@ This guide will introduce you to Developer Notes (DevNotes) as a way to quickly 
         - b.next
 ```
 
-### **Connecting a Jupyer Notebook to a DevNote**
+### **Connecting a Jupyter Notebook to a DevNote**
 
 - [ ]  Navigate to your DevNote’s experimental directory `devnotes/my-devnote/experiments/`
 - [ ]  In your current directory, open a Launcher Window by creating a new tab (”+” button) from the main panel. Click the Template icon, select `/analysis/platereader.ipynb`, and click GO. Note: there is a working analysis notebook already in the directory to serve as a reference: `20250220-analysis.ipynb`.
@@ -98,7 +98,7 @@ This guide will introduce you to Developer Notes (DevNotes) as a way to quickly 
     - [ ]  Option 1: save the output of a cell to the `/analysis/` directory by adding the following code to the end of the cell:
     
     ```python
-    plt.savefig(./analysis/my-fig.png)
+    plt.savefig("./analysis/my-fig.png")
     ```
     
     - [ ]  Option 2: label the cell by adding the following syntax to the top of the cell:
@@ -146,7 +146,7 @@ This guide will introduce you to Developer Notes (DevNotes) as a way to quickly 
     :::
     ```
     
-    - [ ]  Multiple figures can be handled elegently by using tabs:
+    - [ ]  Multiple figures can be handled elegantly by using tabs:
     
     ```markdown
     :::::{tab-set}
