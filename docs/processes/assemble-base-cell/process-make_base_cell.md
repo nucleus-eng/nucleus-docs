@@ -11,133 +11,68 @@ In this protocol, you will make the necessary precursors to creating liposomes, 
 
 Successfully built PURE liposomes will start dark and then increase in green fluorescence over time as GFP is produced.
 
-::::::{card}
+:::::{card}
 :header: **Important Information**
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-:::{note} Notes
+::::{note} Notes
 :class: dropdown
+:icon: false
 
-- ‼️All reagents and materials must be prepared RNase-free. Use RNaseZap or 10% bleach to decontaminate plastic and glassware and rinse with nuclease-free water. We find ultrapure water (18.2 MOhm) is often sufficient for RNase-free work.
-
-:::
-
-:::::{card}
-:header: **Resources**
-::::{grid} 1 1 1 3
-
-:::{card}
-:header: **Lab-ready Protocol**
-:align: center
-
-{button}`download <protocol-make_template.pdf>`
-:::
-
-:::{card}
-:header: **Assembly Worksheet**
-{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
-:::
-
-::::
-:::::
-
-:::::{tip} Composition
-:class: dropdown
-
-::::{card}
-:header: **Composition of Small Molecule Mix**
-:::{table} 
-:label: tbl:composition-table
-:align: center
-
-| **Reagent** | **Concentration in Energy Mix (mM)** | **Concentration in Final Reaction (mM)** |
-| --- | --- | --- |
-| HEPES-KOH (pH 7.6) | 125 | 50 |
-| Potassium glutamate | 250 | 100 |
-| Magnesium acetate | 18.75 | 7.5 |
-| rATP  | 5 | 2 |
-| rGTP | 5 | 2 |
-| rCTP | 2.5 | 1 |
-| rUTP | 2.5 | 1 |
-| Amino Acids (each) | 0.75 | 0.3 |
-| Creatine phosphate | 50 | 20 |
-| Folinic acid | 0.05 | 0.02 |
-| Spermidine | 5 | 2 |
-| TCEP | 2.5 | 1 |
-
-:::
-::::
-:::::
-
-:::{seealso} Prerequisite Documentation
-:class: dropdown
 - None
 
-:::
-
-::::{important} Critical Materials
-:class: dropdown
-
-:::{table}
-:label: tbl:critical-materials
-:align: center
-
-| Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
-| --- | --- | --- | --- | --- | --- | --- |
-| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
-| Low Bind Protein Tubes | X | X | X | X | X | X |
-
 ::::
 
-::::{important} Genetically Encoded Components
+::::{seealso} Prerequisite Documentation
 :class: dropdown
+:icon: false
 
-:::{table}
-:label: tbl:critical-materials
-:align: center
-
-| Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
-| --- | --- | --- | --- | --- | --- | --- |
-| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
-| Low Bind Protein Tubes | X | X | X | X | X | X |
+- None
 
 ::::
 
 ::::{danger} Hazardous Materials
 :class: dropdown
-
-- **Acid Phenol**
-    - Corrosive, toxic, rapidly absorbed through skin, & respiratory irritant
-    - Use in fume hood, wear neoprene gloves, & PPE
-
-- **Acetic Acid**
-    - Corrosive to skin and eyes
-    - Use appropriate PPE and handle under fume-hood
-
-- **Chloroform**
-    - Irritant, possible carcinogen
-    - Work in fume hood & appropriate gloves
-
-- **Ethanol**
-    - Highly flammable, toxic, and irritant
-    - Wear PPE, use in well-ventilated areas, and keep away from open flames
-
-::::
-
-::::{note} References
-:class: dropdown
+:icon: false
 
 - None
 
 ::::
 
-::::::
+::::{attention} Critical Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::
+
+::::{attention} Genetically Encoded Components
+:class: dropdown
+:icon: false
+
+- None
+
+::::
+
+::::{note} Composition
+:class: dropdown
+:icon: false
+
+- None
+
+::::
+
+::::{note} References
+:class: dropdown
+:icon: false
+
+- None
+
+::::
+
+:::::
 
 # Protocol
 
@@ -190,3 +125,25 @@ Please read this section carefully. It contains important notes, resources, and 
       - [ ]  Add ddH2O water to a final volume of 3 mL.
       - [ ]  Vortex vigorously to mix.
 
+# Downlaods
+
+::::{grid} 1 1 1 3
+
+:::{card}
+:header: **Lab-ready Protocol**
+:align: center
+
+{button}`download <protocol-make_template.pdf>`
+:::
+
+:::{card}
+:header: **Assembly Worksheet**
+{button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+{button}`download <protocol-Make_tRNAs.pdf>`
+:::
+
+::::
