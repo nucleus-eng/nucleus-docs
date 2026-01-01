@@ -10,3 +10,88 @@ Making PURE requires making Protein Mix, which contains the thirty-six (36) prot
 :::{attention}
 This Process has not yet been migrated onto Nucleus Documentation. The protocol can be found on our legacy site [here](https://nucleus.bnext.bio/Make-OnePot-Protein-Mix-234ae616eb5180c0b84cf5046d63a803).
 :::
+
+:::::::{card}
+:header: **Important Information**
+
+Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
+
+::::::{note} Notes
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{seealso} Prerequisite Documentation
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{danger} Hazardous Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Critical Materials
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{attention} Genetically Encoded Components
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{note} Composition
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+::::::{note} References
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+
+:::::::
+
+# Protocol
+
+*Under Construction*
+
+# Downloads
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+:align: center
+
+{button}`download <temp.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+{button}`download <temp.pdf>`
+:::
+
+::::
