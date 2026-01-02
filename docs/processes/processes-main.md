@@ -40,7 +40,7 @@ Flow chart for building Base Cell and its modification through the addition of M
 :::::
 ::::::
 
-- [Base Cell](./assemble-base-cell/process-make_base_cell.md)
+- [Base Cell](./assemble-base-cell/main.md)
 
 ## Base Cytosol Processes
 
@@ -65,10 +65,10 @@ Flow chart for building Base Cytosol and its modification through the addition o
 
 The base cytosol module implements transcription and translation powered by creatine phosphate/creatine kinase energy (CP/CK) system.
 
-- [Make Amino Acid Mix](./make-amino-acid-mix/process-make_amino_acid_mix.md)
-- [Make Small Molecule Mix](./make-small-molecule-mix/process-make_small_molecule_mix.md)
+- [Make Amino Acid Mix](./make-amino-acid-mix/main.md)
+- [Make Small Molecule Mix](./make-small-molecule-mix/main.md)
 - [Make tRNAs](./make-trna/main.md)
-- [Make Ribosomes](./make-ribosomes/process-make_ribosomes.md)
+- [Make Ribosomes](./make-ribosomes/main.md)
 - [Make PMix - 1 Pot](./make-1pot/main.md)
 - [Make PMix - 36 Pot](./make-36pot/main.md)
 

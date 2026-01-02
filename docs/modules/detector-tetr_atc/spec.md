@@ -1,6 +1,6 @@
 ---
-title: "Module Specification"
-subtitle: "Detector: tetR-aTc"
+title: "Detector: tetR-aTc"
+subtitle: "Module Specification"
 site:
     hide-toc: true
     numbered_references: false

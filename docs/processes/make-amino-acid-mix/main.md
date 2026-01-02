@@ -1,6 +1,6 @@
 ---
-title: Process
-subtitle: Make Amino Acid Mix
+title: Make Amino Acid Mix
+subtitle: Process
 ---
 
 # Overview

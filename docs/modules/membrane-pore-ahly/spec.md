@@ -1,6 +1,6 @@
 ---
-title: "Module Specification"
-subtitle: "Membrane Pore: α-Hemolysin"
+title: "Membrane Pore: α-Hemolysin"
+subtitle: "Module Specification"
 site:
     hide-toc: true
     numbered_references: false

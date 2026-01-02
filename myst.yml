@@ -24,15 +24,13 @@ project:
         - file: ./docs/dna-distro.md
         - file: ./docs/processes/processes-main.md
           children:
-           - file: ./docs/processes/assemble-base-cell/process-make_base_cell.md
+           - file: ./docs/processes/assemble-base-cell/main.md
              hidden: true
-           - file: ./docs/processes/process-template/process-make_template.md
+           - file: ./docs/processes/make-amino-acid-mix/main.md
              hidden: true
-           - file: ./docs/processes/make-amino-acid-mix/process-make_amino_acid_mix.md
+           - file: ./docs/processes/make-small-molecule-mix/main.md
              hidden: true
-           - file: ./docs/processes/make-small-molecule-mix/process-make_small_molecule_mix.md
-             hidden: true
-           - file: ./docs/processes/make-ribosomes/process-make_ribosomes.md
+           - file: ./docs/processes/make-ribosomes/main.md
              hidden: true
            - file: ./docs/processes/make-trna/main.md
              hidden: true
@@ -42,8 +40,6 @@ project:
              hidden: true
            - file: ./docs/processes/assemble-base-cytosol/main.md
              hidden: true 
-           - file: ./docs/processes/make-test/process-make_test.md
-             hidden: true
            - file: ./docs/processes/protein-gel/main.md
              hidden: true
            - file: ./docs/processes/pierce660/main.md
@@ -58,25 +54,15 @@ project:
              hidden: true
            - file: ./docs/modules/membrane-pore-ahly/spec.md
              hidden: true
-           - file: ./docs/modules/reporter-plamgfp/spec.md
-             hidden: true
            - file: ./docs/modules/reporter-degfp/spec.md
              hidden: true
            - file: ./docs/modules/detector-tetr_atc/spec.md
              hidden: true
            - file: ./docs/modules/emitter-ivhsl/spec.md
              hidden: true
-           - file: ./docs/modules/module-template/spec.md
-             hidden: true
         - file: ./docs/implementations/implementations-main.md
           children:
            - file: ./docs/implementations/responder-atc-ivhsl/main.md
-             hidden: true
-           - file: ./docs/implementations/emitter-ivhsl/main.md
-             hidden: true
-           - file: ./docs/implementations/implementation-first/implementation-first.md
-             hidden: true
-           - file: ./docs/implementations/implementation-template/implementation-template.md
              hidden: true
     - title: Guides
       children:
@@ -102,8 +88,6 @@ project:
         - file: ./about/release-notes.md
           children:
            - file: ./about/release-notes/v050.md
-             hidden: true
-           - file: ./about/release-notes/release-notes-v-0-4-0.md
              hidden: true
   references:
     devnote-01: https://devnotes.bnext.bio/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2

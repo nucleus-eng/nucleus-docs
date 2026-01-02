@@ -1,6 +1,6 @@
 ---
-title: "Process"
-subtitle: "Protein Gel"
+title: "Protein Gel"
+subtitle: "Process"
 ---
 
 # Overview

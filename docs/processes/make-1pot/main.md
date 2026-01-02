@@ -1,6 +1,6 @@
 ---
-title: "Process"
-subtitle: "Make 1 Pot Protein Mix"
+title: "Make 1 Pot Protein Mix"
+subtitle: "Process"
 ---
 
 # Overview

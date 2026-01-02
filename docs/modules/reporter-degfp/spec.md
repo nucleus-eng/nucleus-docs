@@ -1,6 +1,6 @@
 ---
-title: "Module Specification"
-subtitle: "Reporter: deGFP"
+title: "Reporter: deGFP"
+subtitle: "Module Specification"
 thumbnail: schematic.png
 site:
     hide-toc: true

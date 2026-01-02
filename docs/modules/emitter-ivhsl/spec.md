@@ -1,6 +1,6 @@
 ---
-title: "Module Specification"
-subtitle: "Emitter: IV-HSL"
+title: "Emitter: IV-HSL"
+subtitle: "Module Specification"
 site:
     hide-toc: true
     numbered_references: false

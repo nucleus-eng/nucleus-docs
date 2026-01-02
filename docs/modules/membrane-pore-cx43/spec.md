@@ -1,6 +1,6 @@
 ---
-title: "Module Specification"
-subtitle: "Membrane Pore: Cx43"
+title: "Membrane Pore: Cx43"
+subtitle: "Module Specification"
 site:
     hide-toc: true
     numbered_references: false

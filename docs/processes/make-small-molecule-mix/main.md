@@ -1,6 +1,6 @@
 ---
-title: Process
-subtitle: Make Small Molecule Mix
+title: "Make Small Molecule Mix"
+subtitle: "Process"
 ---
 
 # Overview
@@ -25,7 +25,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- [Make Amino Acid Mix (3.25 mM)](../make-amino-acid-mix/process-Make_Amino_Acid_Mix.md)
+- [Make Amino Acid Mix (3.25 mM)](../make-amino-acid-mix/main.md)
 
 ::::::
 

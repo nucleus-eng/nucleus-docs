@@ -1,12 +1,12 @@
 ---
-title: "Process"
-subtitle: "Assemble Base Cytosol"
+title: "Assemble Base Cytosol"
+subtitle: "Process"
 ---
 
 # Overview
 
 
-This protocol shows you how to assemble Base Cytosol from the following components: small molecule mix (SMix), tRNA, protein mix (PMix), ribosomes. To test the functionality of the assembled Cytosol we use the [Reporter Module deGFP](/docs/modules/reporter-degfp/spec). 
+This protocol shows you how to assemble Base Cytosol from the following components: small molecule mix (SMix), tRNA, protein mix (PMix), ribosomes. To test the functionality of the assembled Cytosol we use the [Reporter Module deGFP](/docs/modules/reporter-degfp/spec.md). 
 
 **Protocols and other resources are available for download at the bottom of this page.**
 
@@ -29,12 +29,12 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - If you are making Base Cytosol from scratch:
-  - [Make Small Molecule Mix](../make-small-molecule-mix/process-make_small_molecule_mix.md)
-  - [Make tRNAs](../make-trna/process-make_trnas.md)
+  - [Make Small Molecule Mix](../make-small-molecule-mix/main.md)
+  - [Make tRNAs](../make-trna/main.md)
   - Make Protein Mix
-    - [1Pot Protein Mix]()
-    - [36Pot Protein Mix]()
-  - [Make Ribosomes](../make-ribosomes/)
+    - [1Pot Protein Mix](../make-1pot/main.md)
+    - [36Pot Protein Mix](../make-36pot/main.md)
+  - [Make Ribosomes](../make-ribosomes/main.md)
 <!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
 
 ::::::

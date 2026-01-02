@@ -1,6 +1,6 @@
 ---
-title: "Module Specification"
-subtitle: "Control: ClpXP"
+title: "Control: ClpXP"
+subtitle: "Module Specification"
 site:
     hide-toc: true
     numbered_references: false

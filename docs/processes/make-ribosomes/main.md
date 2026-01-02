@@ -1,6 +1,6 @@
 ---
-title: Process
-subtitle: Make Ribosomes
+title: Make Ribosomes
+subtitle: Process
 ---
 
 # Overview

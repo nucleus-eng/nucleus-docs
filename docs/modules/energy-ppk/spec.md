@@ -1,6 +1,6 @@
 ---
-title: "Module Specification"
-subtitle: "Energy: PPK"
+title: "Energy: PPK"
+subtitle: "Module Specification"
 site:
     hide-toc: true
     numbered_references: false
