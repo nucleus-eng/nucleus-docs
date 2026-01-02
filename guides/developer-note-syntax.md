@@ -1,10 +1,10 @@
 ---
-title: "Reference: useful syntax patterns for DevNote"
+title: "Reference: useful syntax patterns for DevNotes"
 ---
 
 ## Overview
 
-Developer Notes (DevNotes) are written using MyST markdown, a flavor of markdown designed specifically for technical communication. The complete MyST markdown documentation can be found [here](https://mystmd.org/spec). 
+Developer Notes (DevNotes) are written using MyST markdown, a flavor of markdown designed specifically for technical communication. The complete MyST markdown documentation can be found [here](https://mystmd.org/guide/quickstart-myst-markdown). 
 
 The purpose of this document is to share some common MyST syntax patterns that we've found useful when writing DevNotes and gather them in one place. This document was prepared by looking at examples of previous DevNotes. We recommend exploring the markdown files of existing DevNotes to see these syntax patterns used in practice. See here for how to explore a DevNote. 
 
@@ -180,7 +180,6 @@ In general, generating tables in markdown is somewhat clumsy. We often generate 
 
 The key advantage of using the colon fence is that it allows you to add labels and otherwise specify additional options to modify the formatting of your table. 
 
-### Referencing Figures and Tables within a document
 
 <!-- ### Referencing Figures and Tables within a document
 

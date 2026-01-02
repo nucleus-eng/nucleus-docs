@@ -101,7 +101,10 @@ project:
         - file: ./about/faqs.md
         - file: ./about/release-notes.md
           children:
-           - file: ./docs/about/release-notes/release-notes-v-0-4-0.md
+           - file: ./about/release-notes/v050.md
+             hidden: true
+           - file: ./about/release-notes/release-notes-v-0-4-0.md
+             hidden: true
   references:
     devnote-01: https://devnotes.bnext.bio/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
     devnote-02: https://devnotes.bnext.bio/articles/ppk-module-test
