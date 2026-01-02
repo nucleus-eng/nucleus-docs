@@ -1,13 +1,7 @@
 ---
-title: Processes
+title: "Processes"
 ---
 
-:::{warning}
-:class: simple
-
-Warning this page is still under heavy development and things may not work as expected!
-
-:::
 
 # Overview
 
