@@ -65,7 +65,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | Name | Type | Specification |
 | --- | --- | --- |
-| `pT7-plamGFP` | Reporter | [pT7-plamGFP](https://github.com/bnext-bio/nucleus/blob/main/dna-distribution/v0.1.0-001/plamGFP-PURE.gb) |
+| `pT7-deGFP` | Reporter | [pT7-GFP]() |
 :::
 
 ::::::
@@ -85,7 +85,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Protein Mix | 1.2 |
 | Ribosomes | 1.8 |
 | RNase Inhibitor | 0.5 |
-| `pT7-plamGFP` | 0.5 |
+| `pT7-deGFP` | 0.5 |
 | User Additives | X |
 | Nuclease Free Water | 2.0 - X |
 | Total | 10 |
