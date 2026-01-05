@@ -112,7 +112,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :::{table} Reaction Setup.
 :label: rxn-setup
 
-| **Component** | **Cytosol + deGFP DNA [µL]** | **Cytosol - deGFP DNA [µL]** |
+| **Component** | **Cytosol +deGFP DNA [µL]** | **Cytosol -deGFP DNA [µL]** |
 | --- | --- | --- |
 | SMix | 10.5 | 10.5 |
 | tRNA | 3.5 | 3.5 |
