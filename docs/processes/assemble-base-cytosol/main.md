@@ -65,7 +65,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | Name | Type | Specification |
 | --- | --- | --- |
-| `pT7-deGFP` | Reporter | [pT7-GFP]() |
+| `pOpen-deGFP` | Reporter | [pOpen-GFP]() |
 :::
 
 ::::::
@@ -85,7 +85,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Protein Mix | 1.2 |
 | Ribosomes | 1.8 |
 | RNase Inhibitor | 0.5 |
-| `pT7-deGFP` | 0.5 |
+| `pOpen-deGFP` | 0.5 |
 | User Additives | X |
 | Nuclease Free Water | 2.0 - X |
 | Total | 10 |
