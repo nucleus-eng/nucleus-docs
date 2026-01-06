@@ -18,7 +18,7 @@ project:
         # - file: ./start/getting-started.md
         - file: ./start/first-guide.md
         # - file: ./start/contribute.md
-        - file: ./start/roadmap.md
+        # - file: ./start/roadmap.md
     - title: Protocols
       children:
         - file: ./docs/dna-distro.md
