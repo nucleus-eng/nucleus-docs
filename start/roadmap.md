@@ -1,5 +1,5 @@
 ---
-title: Technical Roadmap
+title: Projects
 numbering:
   figure:
     start: 2
@@ -7,12 +7,14 @@ numbering:
 
 ## Overview
 
-Presented here is our technical roadmap. These are modules that are either being actively worked on or planned for the near future. 
+This page provides an overview of projects that are using Nucleus to advance compositional biology, exemplified by synthetic cells with well-defined compositions. 
 
 :::{admonition} Get involved!
 :class: tip
 :icon: false
-We are actively developing modules to extend the functionality of synthetic cells for different applications. If you’re interested in contributing a module or building with existing modules, please reach out!
+
+These are active projects that are growing the number of interoperable modules available to the community. If you're interested in getting involved, please reach out to build@bnext.bio or on the [Forum](https://forum.nucleus.engineering/)!
+
 :::
 
 ## Molecular sensing and response
@@ -41,7 +43,7 @@ The Developer Cell. We are building an integrated chassis for synthetic cell eng
 
 ## Long term vision
 
-The long term goal for synthetic cells is to enable predictable engineering of complex "biomachines", where a biomachine is an engineered system that makes use of biomolecules to carry out a useful function. See the [SynCell Wiki](https://syncellwiki.org/wiki/index.php/Main_Page) for more information
+One long term goal for synthetic cells is to enable predictable engineering of complex "biomachines", where a biomachine is an engineered system that makes use of biomolecules to carry out a useful function. See the [SynCell Wiki](https://syncellwiki.org/wiki/index.php/Main_Page) for more information
 
 :::{figure} ./resources/whitespace-chart.png
 "White space" chart, showing a possible path to engineering biology at scale using synthetic cells. Figure by [Richard Murray](https://syncellwiki.org/wiki/index.php/Main_Page) used under CC-BY-4.0 / unmodified from original.
