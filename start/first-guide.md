@@ -7,7 +7,7 @@ subtitle: "From Zero to DevNote: a Beginner's Guide to the Nucleus Technology St
 
 The purpose of this tutorial is to guide a newcomer through the complete Nucleus technology stack and supporting workflows. 
 
-At the end of this tutorial you will have used the Protocols in the Distribution to assemble Base Cytosol, characterize its performance using the Cell Development Kit (CDK) on Nucleus Hub, and finally post a Developer Note (DevNote) that reports on its performance. 
+At the end of this tutorial you will have used the Protocols in the Distribution to assemble Base Cytosol, characterized its performance using the Cell Development Kit (CDK) on Nucleus Hub, and finally posted a Developer Note (DevNote) that reports on its performance. 
 
 :::{figure} ./resources/flowchart.png
 **The Nucleus Development Cycle.** All components of the Nucleus platform work together to support the collaborative development of increasingly reliable and sophisticated synthetic cells contained within the Distribution. The **Documentation** (this site) is a knowledge base that contains protocols and  documentation for implementing validated synthetic cell modules. The **Hub** provides a resource for data sharing, analysis using standard digital tools. Useful results can be shared with the community as **DevNotes**. DevNotes can be viewed on the **Developer Note** website. Periodically, contributions made as Devnotes are integrated into the Distribution as validated protocols for others to use and build upon. All components of the platform can be discussed at the **Forum**, come say hello!
@@ -40,7 +40,7 @@ If you follow the steps on that page, you should find yourself with some data in
 This remainder tutorial assumes access to Nucleus Hub, which requires admin approval. Please reach out to build@bnext.bio.
 :::
 
-Nucleus Hub is an interactive computing platform built on JupyterHub. Software tools are essential for getting work done and sharing results. Nucleus Hub provides a way of accessing software tools that just work. No installs, no compiling, no environmental management. Of course if you want to modify your own environments and build code, that's supported as well. The Nucleus CDK lives on [GitHub](https://github.com/bnext-bio/nucleus/tree/main/cdk), but the Hub is preconfigured to get you up and running without any additional work. And there's templates. 
+Nucleus Hub is an interactive computing platform built on JupyterHub. Software tools are essential for getting work done and sharing results. Nucleus Hub provides a way of accessing software tools that just work. No installs, no compiling, no environmental management. Of course, if you want to modify your own environments and build code, that's supported as well. The Nucleus CDK lives on [GitHub](https://github.com/bnext-bio/nucleus/tree/main/cdk), but the Hub is preconfigured to get you up and running without any additional work. And there's templates. 
 
 Documentation for Nucleus Hub can be found in Guides. Guides is the place to find tutorials and how-tos that walk you through different aspects of the documentation. This page is an example of a tutorial. We recommend exploring the Guides pages to get a sense for how the documentation is organized.
 
