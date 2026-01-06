@@ -6,6 +6,6 @@ The Nucleus DNA Distribution consists of open source genetic constructs that can
 
 :::{attention}
 
-The documentation for DNA Distribution the can be found on the legacy site [here](https://nucleus.bnext.bio/DNA-Distribution-6d3e45ae88b84a038828b815ed54e8bc). 
+The documentation for DNA Distribution can be found on the legacy site [here](https://nucleus.bnext.bio/DNA-Distribution-6d3e45ae88b84a038828b815ed54e8bc). 
 
 :::
