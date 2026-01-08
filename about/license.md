@@ -2,9 +2,9 @@
 title: License
 --- 
 
-The Nucleus Distribution is licensed under the [CERN-OHL-P-2.0](https://spdx.org/licenses/CERN-OHL-P-2.0.html)
+The Nucleus Distribution is licensed under the [CERN-OHL-P-2.0](https://github.com/nucleus-eng/nucleus-docs/blob/main/LICENSE.md). Physical materials described in the Documentation is made available upon request to build@bnext.bio under the [OpenMTA](https://www.openplant.org/openmta).
 
-# OpenMTA
+<!-- # OpenMTA
 
 This Open Material Transfer Agreement (the “OpenMTA”) and the attached Implementing Letter (the “Implementing Letter” and, together with the OpenMTA, the “Agreement”) is entered into between the Provider and the Recipient (or the “Parties”, as further identified in the Implementing Letter) and governs the exchange and use of certain materials specified in this Agreement between the Parties. The provisions of this OpenMTA shall be given precedence in interpretation in the event of any conflict between this OpenMTA and the Implementing Letter.
 
@@ -52,4 +52,4 @@ III. ADDITIONAL TERMS
 
 1. Recipient agrees to provide appropriate acknowledgement of the source of the Material in all publications.
 
-2. Recipient agrees to notify the Provider upon redistribution of the Material to third parties.
+2. Recipient agrees to notify the Provider upon redistribution of the Material to third parties. -->
