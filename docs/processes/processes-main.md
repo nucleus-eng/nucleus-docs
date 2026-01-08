@@ -20,7 +20,7 @@ Flow chart for building Base Cell and its modification through the addition of M
 
 ::::::
 
-- [Base Cell](./assemble-base-cell/main.md)
+- [Assemble Base Cell](./assemble-base-cell/main.md)
 
 ## Base Cytosol Processes
 
@@ -36,12 +36,9 @@ Flow chart for building Base Cytosol and its modification through the addition o
 
 ::::
 
-
-### Modify Base Cytosol
-
 - [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
 
-### Make Base Cytosol
+### Make Base Cytosol Components
 
 The Base Cytosol implements transcription and translation powered by creatine phosphate/creatine kinase energy (CP/CK) system.
 

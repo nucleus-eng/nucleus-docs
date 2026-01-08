@@ -4,7 +4,7 @@ project:
   license:
     content: CC-BY-4.0
   abbreviations:
-    Base Cytosol: Open-formulation PURE that is extensible by Nucleus Modules. 
+    PURE: protein synthesis using recombinant elements
 site:
   template: book-theme
   nav: 

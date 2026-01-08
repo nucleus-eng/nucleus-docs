@@ -8,7 +8,7 @@ site:
 
 # Overview
 
-The deGFP Reporter Module produces deGFP, a green fluorescent protein.
+A molecular system with a defined set of components including T7 RNA Polymerase, ribosomes, and tRNA capable of transcription and translation. Base Cytosol builds on the [PURE system](https://doi.org/10.1038/90802), and is optimized for integration and extension. The Base Cell is formed by encapsulating Base Cytosol in a liposome.  
 
 :::::{tab-set}
 
