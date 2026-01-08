@@ -11,7 +11,7 @@ site:
     - title: Documentation
       url: https://docs.nucleus.engineering/
     - title: Hub
-      url: https://beta-hub.nucleus.engineering/hub/login?next=%2Fhub%2F
+      url: https://hub.nucleus.engineering/
     - title: Developer Notes
       url: https://devnotes.nucleus.engineering/
     - title: Forum
@@ -24,7 +24,7 @@ site:
     #     url: /docs/about/faqs
   options:
     logo: assets/logo-v1.png
-    logo_url: https://bnext.bio/nucleus
+    logo_url: https://nucleus.engineering/
     style: assets/style-sheet.css
     folders: true
     favicon: favicon.ico
