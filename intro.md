@@ -4,19 +4,11 @@ site:
   hide_outline: true
 ---
 
-:::{warning}
-:class: simple
+# Get started
 
-This site is under heavy development and things may be incomplete, contain errors, or otherwise not work as expected.
-:::
+If you're new to Nucleus, check out [From Zero to DevNote](./start/first-guide.md). This Guide will walk you through the documentation while introducing you to the specific Nucleus tools. 
 
-# Structure of the Documentation
-
-## Get started
-
-If you're new to Nucleus, check out [From Zero to DevNote](./start/first-guide.md). That guide will walk you through the documentation.
-
-## Protocols
+# Protocols
 
 :::::{card}
 :footer: We are migrating protocols from our legacy site as modules are validated in Nucleus Cytosol v0.5
@@ -51,10 +43,10 @@ Implementations are useful combinations of Modules and Processes.
 ::::
 :::::
 
-## Guides
+# Guides
 
 Guides contain tutorials, how-tos, and other reference material that support the use of Protocols and navigating the Nucleus Development Cycle.
 
-## Get in touch
+# Get in touch
 
 Join the [mailing list](https://bnextbio.typeform.com/nucleus-signup) or [contact us](mailto:build@bnext.bio) to request access to materials, get involved with the community, or ask questions.

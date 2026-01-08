@@ -134,5 +134,5 @@ exports:
 
 ## Storage
 
-- [] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
+- [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
 
