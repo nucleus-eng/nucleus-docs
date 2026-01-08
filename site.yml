@@ -1,19 +1,17 @@
 version: 1
 project:
-  open_access: true
+  # open_access: true
   license:
     content: CC-BY-4.0
-    code: cern-ohl-p
 site:
   template: book-theme
   nav: 
     - title: Documentation
-      # url: https://github.com/ProjectPythia/pythia-foundations/blob/main/myst.yml
-      url: https://docs.bnext.bio/
+      url: https://docs.nucleus.engineering/
     - title: Hub
-      url: https://bnext.bio/hub
+      url: https://beta-hub.nucleus.engineering/hub/login?next=%2Fhub%2F
     - title: Developer Notes
-      url: https://devnotes.bnext.bio/
+      url: https://devnotes.nucleus.engineering/
     - title: Forum
       url: https://forum.nucleus.engineering/
     # - title: Help
