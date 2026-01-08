@@ -8,6 +8,8 @@ Processes represent the core protocols. They tell you how to transform physical 
 
 ## Base Cell Processes
 
+The Base Cell is formed by encapsulating Base Cytosol (see below) in a liposome.
+
 ::::::{tip} Schematic of Base Cell Processes
 :class: simple dropdown
 :icon: false
@@ -23,6 +25,8 @@ Flow chart for building Base Cell and its modification through the addition of M
 - [Assemble Base Cell](./assemble-base-cell/main.md)
 
 ## Base Cytosol Processes
+
+Base Cytosol is a molecular system with a defined set of components including T7 RNA Polymerase, ribosomes, and tRNA capable of transcription and translation. Base Cytosol builds on the [PURE system](https://doi.org/10.1038/90802), and is optimized for integration and extension.
 
 ::::{tip} Schematic of Base Cytosol Processes
 :class: simple dropdown
