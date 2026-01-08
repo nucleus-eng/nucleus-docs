@@ -4,7 +4,7 @@ title: "Processes"
 
 # Overview
 
-Processes represent the core protocols. They tell you how to transform physical materials into Base Cytosol and Cell. Modules extend the functionality of Base cytosol and Cell. 
+Processes represent the core protocols. They tell you how to transform physical materials into Base Cytosol and Cell. Modules extend the functionality of Base Cytosol and Cell. 
 
 ## Base Cell Processes
 

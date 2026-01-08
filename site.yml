@@ -3,6 +3,8 @@ project:
   # open_access: true
   license:
     content: CC-BY-4.0
+  abbreviations:
+    Base Cytosol: Open-formulation PURE that is extensible by Nucleus Modules. 
 site:
   template: book-theme
   nav: 
