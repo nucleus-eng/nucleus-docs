@@ -44,8 +44,6 @@ Flow chart for building Base Cytosol and its modification through the addition o
 
 ### Make Base Cytosol Components
 
-The Base Cytosol implements transcription and translation powered by creatine phosphate/creatine kinase energy (CP/CK) system.
-
 - [Make Amino Acid Mix](./make-amino-acid-mix/main.md)
 - [Make Small Molecule Mix](./make-small-molecule-mix/main.md)
 - [Make tRNAs](./make-trna/main.md)
