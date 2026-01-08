@@ -4,19 +4,19 @@ title: "Reference: useful syntax patterns for DevNotes"
 
 ## Overview
 
-Developer Notes (DevNotes) are written using MyST markdown, a flavor of markdown designed specifically for technical communication. The complete MyST markdown documentation can be found [here](https://mystmd.org/guide/quickstart-myst-markdown). 
+Developer Notes (DevNotes) are written using MyST Markdown, a flavor of Markdown designed specifically for technical communication. The complete MyST Markdown documentation can be found [here](https://mystmd.org/guide/quickstart-myst-markdown). 
 
-The purpose of this document is to share some common MyST syntax patterns that we've found useful when writing DevNotes and gather them in one place. This document was prepared by looking at examples of previous DevNotes. We recommend exploring the markdown files of existing DevNotes to see these syntax patterns used in practice. See here for how to explore a DevNote. 
+The purpose of this document is to share some common MyST syntax patterns that we've found useful when writing DevNotes and gather them in one place. This document was prepared by looking at examples of previous DevNotes. We recommend exploring the Markdown files of existing DevNotes to see these syntax patterns used in practice. See here for how to explore a DevNote. 
 
 ## Basic syntax
 
 ### Typography
 
-MyST markdown make use of standard markdown typography for things like section headers, italicization, lists, and so on. See the MyST docs [here](https://mystmd.org/guide/typography) for more information.
+MyST Markdown make use of standard Markdown typography for things like section headers, italicization, lists, and so on. See the MyST docs [here](https://mystmd.org/guide/typography) for more information.
 
 ### Figures
 
-Figures are the building blocks of nearly any DevNote. They can be constructed using "colon fence" syntax. This type of syntax is very common in MyST markdown. Options to modify the behavior of the figure are included inside the colon fence. For example: 
+Figures are the building blocks of nearly any DevNote. They can be constructed using "colon fence" syntax. This type of syntax is very common in MyST Markdown. Options to modify the behavior of the figure are included inside the colon fence. For example: 
 
 ```
 # Colon fence syntax
@@ -108,7 +108,7 @@ Tables follow the same basic patterns as figures:
 This is my figure caption
 :::
 
-In general, generating tables in markdown is somewhat clumsy. We often generate tables in other applications like Notion and they can be copied and pasted directly into your DevNote file and will be properly formatted. It's worth noting that tables can embedded directly in your document without placing it within a colon fence. Let's look at some specific example:
+In general, generating tables in Markdown is somewhat clumsy. We often generate tables in other applications like Notion and they can be copied and pasted directly into your DevNote file and will be properly formatted. It's worth noting that tables can embedded directly in your document without placing it within a colon fence. Let's look at some specific example:
 
 :::::{tab-set}
 
@@ -268,4 +268,4 @@ Here are the basic features of a table
 
 ### Tables to complement figures
 
-### Creating a table from a Jupyter Notebook --> -->
+### Creating a table from a Jupyter Notebook --> 
