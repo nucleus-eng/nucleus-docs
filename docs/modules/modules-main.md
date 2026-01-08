@@ -12,15 +12,13 @@ A Module is a useful biochemical formulation, often incorporating a genetically 
 | --- | --- | --- | --- |
 | Base | [Cytosol](./base-cytosol/spec.md) | - | Specification |
 | Reporter | [deGFP](./reporter-degfp/spec.md) | Base Cytosol | Specification |
-| Membrane | POPC/Chol | PURExpress | Specification |
-| Membrane Pore | [α-Hemolysin](./membrane-pore-ahly/spec.md) | PURExpress  | Specification |
-|  | [Cx43](./membrane-pore-cx43/spec.md) | PURExpress | DevNote |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | Base Cytosol, PURExpress | Specification |
 | Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | PURExpress | Specification |
 | Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | PURExpress | Specification |
 | Energy | [PPK](./energy-ppk/spec.md) | PURExpress | Specification |
 | Control | [ClpXP](./control-clpxp/spec.md) | PURExpress | Specification |
-| Chaperone | SecYEG | - | Planned |
-
+| Membrane Pore | [α-Hemolysin](./membrane-pore-ahly/spec.md) | PURExpress  | Specification |
+|  | [Cx43](./membrane-pore-cx43/spec.md) | PURExpress | DevNote |
 :::
 
 # Contributing a Module
