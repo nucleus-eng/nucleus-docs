@@ -5,11 +5,11 @@ subtitle: "Process"
 
 # Overview
 
-PURE liposomes are the basis of a synthetic cell that can perform the fundamental operations of biology: transcription, and translation.
+Base Cells are liposome-based synthetic cells that can perform transcription and translation.
 
-In this protocol, you will make the necessary precursors to creating liposomes, assemble a PURE cell-free reaction that will express Green Fluorescent Protein (GFP), and encapsulate it within a liposome. For the outer solution, you will use the same simple sugar solution that was used in Buffer-in-Buffer Liposomes.
+In this protocol, you will make the necessary precursors for liposome encapsulation, and then assemble and encapsulate Cytosol that expresses Green Fluorescent Protein (GFP). The Base Cell is deployed in a gluocose outer solution.
 
-Successfully built PURE liposomes will start dark and then increase in green fluorescence over time as GFP is produced.
+Successfully built Base Cells will start dark and then increase in green fluorescence over time as GFP is produced.
 
 
 :::::::{card}

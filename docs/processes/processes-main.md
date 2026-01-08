@@ -4,7 +4,7 @@ title: "Processes"
 
 # Overview
 
-Processes represent the core protocols. They tell you how to transform physical materials into minimal cytosols and cells. Modules extend the functionality of these basic cytosols and cells. 
+Processes represent the core protocols. They tell you how to transform physical materials into Base Cytosol and Cell. Modules extend the functionality of Base cytosol and Cell. 
 
 ## Base Cell Processes
 
@@ -12,25 +12,12 @@ Processes represent the core protocols. They tell you how to transform physical 
 :class: simple dropdown
 :icon: false
 
-:::::{tab-set}
-
-::::{tab-item} Base Cell
-:::{figure} ./resources/flowchart-cells-dye.png
-:align: center
-:label: fig:figure1-1
-Flow chart for building Base Cell and its modification through the addition of Modules.
-:::
-::::
-
-::::{tab-item} Base Cell + Cytosol
 :::{figure} ./resources/flowchart-cells.png
 :align: center
 :label: fig:1-2
 Flow chart for building Base Cell and its modification through the addition of Modules.
 :::
-::::
 
-:::::
 ::::::
 
 - [Base Cell](./assemble-base-cell/main.md)
@@ -56,7 +43,7 @@ Flow chart for building Base Cytosol and its modification through the addition o
 
 ### Make Base Cytosol
 
-The base cytosol module implements transcription and translation powered by creatine phosphate/creatine kinase energy (CP/CK) system.
+The Base Cytosol implements transcription and translation powered by creatine phosphate/creatine kinase energy (CP/CK) system.
 
 - [Make Amino Acid Mix](./make-amino-acid-mix/main.md)
 - [Make Small Molecule Mix](./make-small-molecule-mix/main.md)

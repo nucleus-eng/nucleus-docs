@@ -2,7 +2,7 @@
 title: DNA Distribution
 ---
 
-The Nucleus DNA Distribution consists of open source genetic constructs that can be used to engineer synthetic cells. 
+The Nucleus DNA Distribution consists of OpenMTA genetic constructs that can be used to engineer synthetic cells. 
 
 :::{attention}
 

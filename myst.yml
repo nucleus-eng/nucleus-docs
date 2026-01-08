@@ -46,6 +46,8 @@ project:
              hidden: true
         - file: ./docs/modules/modules-main.md
           children:
+           - file: ./docs/modules/base-cytosol/spec.md
+             hidden: true
            - file: ./docs/modules/control-clpxp/spec.md
              hidden: true
            - file: ./docs/modules/membrane-pore-cx43/spec.md
