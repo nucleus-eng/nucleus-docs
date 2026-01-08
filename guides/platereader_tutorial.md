@@ -1,6 +1,8 @@
-# PURE Kinetics Analysis Tutorial
+# Cytosol Kinetics Analysis Tutorial
 
-This tutorial guides you through analyzing time-series fluorescence data from PURE (Protein synthesis Using Recombinant Elements) cell-free expression experiments. We'll cover data loading, normalization, visualization, kinetic parameter fitting, and summary statistics.
+## Overview
+
+This tutorial guides you through analyzing time-series fluorescence data from Cytosol cell-free expression experiments. We'll cover data loading, normalization, visualization, kinetic parameter fitting, and summary statistics.
 
 <!-- --- -->
 
