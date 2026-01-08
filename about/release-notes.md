@@ -4,7 +4,7 @@ title: Release Notes
 
 # Current release
 
-- [🎊 What’s new in v0.5.0](./release-notes/v050.md) (*Release: January 6, 2026*)
+- [🎊 What’s new in v0.5.0](./release-notes/v050.md) (*Release: January 8, 2026*)
 
 # Past releases
 
