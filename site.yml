@@ -1,4 +1,7 @@
 version: 1
+config:
+    html_context:
+      default_mode: light
 project:
   # open_access: true
   license:
