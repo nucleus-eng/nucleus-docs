@@ -26,7 +26,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 :::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pOpen-pT7-deGFP` | 2500 | [path-to-design-01.gb](https://github.com/bnext-bio/nucleus/blob/main/components/modules/detector/lacI.gb#L56-L66) |
+| `pOpen-deGFP` | 2500 | [pOpen-deGFP.gb](https://doi.org/10.63765/fppr8928) |
 :::
 ::::
 :::::
