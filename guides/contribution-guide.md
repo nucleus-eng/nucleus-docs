@@ -40,11 +40,9 @@ To clarify this distinction, we define several phrases:
 
 * Must include a statement attesting to sequence validity.
 
-* Must include a table containing names of sequences used and links to files in the project. The table should have the following form:
+* Must include a table containing names of sequences used and links to files in the project.
 
 * Should be in pOpen backbone
-
-<!-- > **TODO:** provide an example of a formatted table -->
 
 * Should include sequence verification data.
 
