@@ -4,6 +4,8 @@ config:
       default_mode: light
 project:
   # open_access: true
+  numbering:
+    figure: true
   license:
     content: CC-BY-4.0
   abbreviations:

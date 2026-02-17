@@ -16,7 +16,7 @@ Currently, access to Nucleus Hub is available by request. If you are a Nucleus C
 
 # Orientation
 
-Upon entering Nucleus Hub you should see the the Nucleus Hub landing page {ref}`hub-landing`. This section will describe a few key interfaces that are frequently used in common workflows. Since Nucleus Hub builds on JupyterLab, an exhaustive description of the interface can be found in the [JupyterLab Docs](https://jupyterlab.readthedocs.io/en/stable/user/interface.html#main-area).
+Upon entering Nucleus Hub you should see the the Nucleus Hub landing page  {ref}`Figure 1 <hub-landing>`. This section will describe a few key interfaces that are frequently used in common workflows. Since Nucleus Hub builds on JupyterLab, an exhaustive description of the interface can be found in the [JupyterLab Docs](https://jupyterlab.readthedocs.io/en/stable/user/interface.html#main-area).
 
 :::::{tab-set}
 
@@ -45,7 +45,7 @@ The Launcher allows you quickly start a new activity such as creating a new temp
 
 ## File Browser
 
-Nucleus Hub allows you with a home directory that allows you to save files. To learn more about your home directory and your filesystem, please refer to this documentation [page](https://2i2c.org/community-showcase/user/topics/data/filesystem.html) from 2i2c. The File Browser {ref}`hub-file-browser` is the main interface for managing notebooks, scripts, datasets, and other file types. A few directories exist by default:
+Nucleus Hub allows you with a home directory that allows you to save files. To learn more about your home directory and your filesystem, please refer to this documentation [page](https://2i2c.org/community-showcase/user/topics/data/filesystem.html) from 2i2c. The File Browser {numref}`Figure 2 <hub-file-browser>` is the main interface for managing notebooks, scripts, datasets, and other file types. A few directories exist by default:
 
 :::{table}
 
@@ -64,7 +64,7 @@ Nucleus Hub allows you with a home directory that allows you to save files. To l
 
 ## Launcher
 
-Common Nucleus Hub workflows can be initiated from the Launcher {ref}`hub-launcher`. The button on the Launcher window are organized into the following categories:
+Common Nucleus Hub workflows can be initiated from the Launcher {numref}`Figure 3 <hub-launcher>`. The button on the Launcher window are organized into the following categories:
 
 :::{table}
 
