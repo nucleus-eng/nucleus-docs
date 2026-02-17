@@ -4,7 +4,7 @@ title: "Tutorial: Getting Started with Nucleus Hub"
 
 # Overview
 
-This guide will introduce you to Nucleus Hub for accessing the Cell Development Kit (CDK) and collaborating with other Nucleus Developers. If you are looking for information to get started with Developer Notes (DevNotes), please refer to [Getting Started: Developer Notes](../devnote-tutorial.md)
+This guide will introduce you to Nucleus Hub for accessing the Cell Development Kit (CDK) and collaborating with other Nucleus Developers. If you are looking for information to get started with Developer Notes (DevNotes), please refer to [Getting Started: Developer Notes](../developer-notes/developer-notes.md)
 
 # Nucleus Hub Registration
 
@@ -59,8 +59,6 @@ Nucleus Hub allows you with a home directory that allows you to save files. To l
 
 :::
 
-### Projects
-
 
 ## Launcher
 
@@ -73,20 +71,11 @@ Common Nucleus Hub workflows can be initiated from the Launcher {numref}`Figure 
 | Notebook | Create new blank or template notebooks associated with a specific kernel. |
 | Console | Initiate an interactive console session associated with a specific kernel. |
 | Other | Miscellaneous tools including the ability to initiate a terminal session. |
-| Developer Notes | Tools for working with DevNotes. |
+| Developer Notes | Tools for working with DevNotes. Some features will require setting API access, see [Getting Started: Developer Notes](../developer-notes/developer-notes.md) for more details. |
 | Nucleus | Links to other Nucleus resources. |
 
 :::
 
-
-
-1. File directory.
-2. Launcher window.
-3. Make a new empty Jupyter Notebook.
-4. Make a new template Jupyter Notebook.
-5. Preview a Developer Note.
-6. Open a terminal window.
-7. View a draft of a Developer Note. 
 
 # Accessing the Cell Development Kit
 
@@ -94,7 +83,7 @@ Nucleus Hub makes it easy to access the CDK to design and analyze experiments. T
 
 - [ ]  From the Launcher, click the Template button and select `/analysis/platereader_tutorial.ipynb`, and click GO.
 - [ ]  Run the first cell to import the `platereader` library from the CDK.
-- [ ]  Modify the variables `data_path` and `platemap_path` in the second cell to reference the corresponding files in the `/sample-data/` directory and run the cell to load the data.
+- [ ]  If needed, modify the variables `data_path` and `platemap_path` in the second cell to reference the corresponding files in the `/sample-data/` directory and run the cell to load the data.
 - [ ]  Generate basic plots using the function `pr.plot_curves()`
 - [ ]  These plots can then be incorporated into a Developer Note. See [Developer Notes](../devnote-tutorial.md) for more information.
 

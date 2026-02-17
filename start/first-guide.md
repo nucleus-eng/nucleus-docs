@@ -58,7 +58,7 @@ After working through these tutorials, you'll have a Nucleus Hub account and a v
 
 Nucleus is an open platform that let's everyone to build together. DevNotes are the key way to contribute to the Nucleus Distribution. DevNotes are conveniently built on top of Jupyter Notebooks and MyST Markdown (a flavor of Markdown designed for technical communication). Since your analysis was done in a Jupyter Notebook, your work can be easily integrated into a DevNote since they make use of compatible file formats. 
 
-- [Writing your first DevNote](../guides/devnote-tutorial.md)
+- [Writing your first DevNote](../guides/developer-notes/developer-notes.md)
 
 If you followed the steps on that page, you should have successfully posted a DevNote. 
 
