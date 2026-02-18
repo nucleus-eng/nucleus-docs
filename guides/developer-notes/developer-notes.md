@@ -1,5 +1,6 @@
 ---
-title: Developer Notes
+title: "Getting Started with Developer Notes"
+subtitle: "Tutorial"
 ---
 
 # Overview
@@ -10,9 +11,9 @@ This guide will introduce you to Developer Notes (DevNotes) as a way to quickly 
 
 Most of the DevNote tools that appear in the Launcher require setting up API access to [Curvenote](https://editor.curvenote.com/) to work as expected. API access can be set up by following these steps:
 
-- [ ] Navigate to the Curvenote [website](https://editor.curvenote.com/) ({ref}`curvenote-login`) and create an account.
+- [ ] Navigate to the Curvenote [website](https://editor.curvenote.com/) and [create an account](curvenote-login).
 - [ ] Create a new blank project and click ‘NEXT’
-- [ ]  Go to personal settings ({ref}`curvenote-settings`)
+- [ ]  Go to [personal settings](curvenote-settings).
 - [ ]  Select ‘API Access’ and click ‘Generate New Token’.
   - [ ]  Give the token a useful description and select Expiry for the maximum time allowed.
 - [ ]  From Nucleus Hub, open a terminal window from the Launcher and run the command `curvenote token set [my-token]`

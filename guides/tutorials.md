@@ -16,5 +16,5 @@ Tutorials are a type of Guide that tie together documentation into useful groups
 ## Developer Notes
 
 <!-- - [Developer Notes](./developer-notes/developer-notes.md) -->
-- [Tutorial: Writing your first Developer Notes](./developer-notes/developer-notes.md)
+- [Tutorial: Getting started with Developer Notes](./developer-notes/developer-notes.md)
 - [Reference: useful syntax patterns for DevNotes](developer-note-syntax.md)
