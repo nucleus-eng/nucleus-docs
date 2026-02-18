@@ -11,10 +11,11 @@ Tutorials are a type of Guide that tie together documentation into useful groups
 ## Nucleus Hub
 
 - [Tutorial: Getting Started with Nucleus Hub](./nucleus-hub/nucleus-hub.md)
-- [Tutorial: analyzing platereader data with the CDK](./platereader_tutorial.md)
+- [Tutorial: Analyzing {latereader Data with the CDK](./platereader_tutorial.md)
 
 ## Developer Notes
 
 <!-- - [Developer Notes](./developer-notes/developer-notes.md) -->
-- [Tutorial: Getting started with Developer Notes](./developer-notes/developer-notes.md)
-- [Reference: useful syntax patterns for DevNotes](developer-note-syntax.md)
+- [Tutorial: Getting Started with Developer Notes](./developer-notes/developer-notes.md)
+- [Reference: Parts of a Developer Note](./developer-notes/developer-notes-parts.md)
+- [Reference: Useful Syntax Patterns for DevNotes](developer-note-syntax.md)

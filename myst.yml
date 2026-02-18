@@ -78,6 +78,8 @@ project:
              hidden: true
            - file: ./guides/developer-notes/developer-notes.md
              hidden: true
+           - file: ./guides/developer-notes/developer-notes-parts.md
+             hidden: true
            - file: ./guides/devnote-tutorial.md
              hidden: true
            - file: ./guides/developer-note-syntax.md

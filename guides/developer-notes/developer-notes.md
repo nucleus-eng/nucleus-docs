@@ -48,6 +48,8 @@ A new DevNote project can be created in Nucleus Hub from the Launcher. The new p
   - [ ] Find your new DevNote project by using the file browser to navigate to `devnotes/my-project`
   - [ ] Check to see if your author information was entered correctly by inspecting the file `curvenote.yml`.
 
+To learn more about the filestructure and component files in a typical DevNote project, please refer to the Docs page [Parts of a Developer Note](developer-notes-parts.md).
+
 **Notes**
 - You must be in the directory of the project you want to preview.
 - This tool can be used in any directory, not just `devnotes`.
