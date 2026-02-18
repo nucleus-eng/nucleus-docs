@@ -88,6 +88,10 @@ Nucleus Hub makes it easy to access the CDK to design and analyze experiments. T
 - [ ]  Generate basic plots using the function `pr.plot_curves()`
 - [ ]  These plots can then be incorporated into a Developer Note. See [Developer Notes](../devnote-tutorial.md) for more information.
 
+For a closer look into the workflows supported by the CDK, take a look at the following tutorials:
+
+- [Cytosol Kinetics Analysis Tutorial](../platereader_tutorial.md)
+
 If you are a newcomer to Python and Jupyter the following links may be helpful:
 
 - Beginner Python tutorial [[link](https://pythonspot.com/)].
