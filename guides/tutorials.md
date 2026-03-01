@@ -11,7 +11,7 @@ Tutorials are a type of Guide that tie together documentation into useful groups
 ## Nucleus Hub
 
 - [Tutorial: Getting Started with Nucleus Hub](./nucleus-hub/nucleus-hub.md)
-- [Tutorial: Analyzing {latereader Data with the CDK](./platereader_tutorial.md)
+- [Tutorial: Analyzing Platereader Data with the CDK](./platereader_tutorial.md)
 
 ## Developer Notes
 
