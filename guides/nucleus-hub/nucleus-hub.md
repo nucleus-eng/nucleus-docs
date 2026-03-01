@@ -86,7 +86,7 @@ Nucleus Hub makes it easy to access the CDK to design and analyze experiments. T
 - [ ]  Run the first cell to import the `platereader` library from the CDK.
 - [ ]  If needed, modify the variables `data_path` and `platemap_path` in the second cell to reference the corresponding files in the `/sample-data/` directory and run the cell to load the data.
 - [ ]  Generate basic plots using the function `pr.plot_curves()`
-- [ ]  These plots can then be incorporated into a Developer Note. See [Developer Notes](../devnote-tutorial.md) for more information.
+- [ ]  These plots can then be incorporated into a Developer Note. See [Developer Notes](../developer-notes/developer-notes.md) for more information.
 
 For a closer look into the workflows supported by the CDK, take a look at the following tutorials:
 
