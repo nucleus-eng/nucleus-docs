@@ -86,6 +86,8 @@ project:
              hidden: true
            - file: ./guides/platereader_tutorial.md
              hidden: true
+           - file: ./guides/platemap_tutorial.md
+             hidden: true
     - title: About
       children:
         # - file: ./about/open-science.md
