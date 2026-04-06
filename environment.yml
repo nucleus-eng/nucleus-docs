@@ -1,0 +1,11 @@
+name: nucleus-docs
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - nodejs=24
+  - pip
+  - python=3.13
+  - pip:
+    - jupyter-book>=2.1.4
+
