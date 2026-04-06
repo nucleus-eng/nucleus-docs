@@ -98,6 +98,15 @@ If you are a newcomer to Python and Jupyter the following links may be helpful:
 - Introduction to the Pandas library [[link](https://tutswiki.com/pandas-cookbook/chapter2/)].
 - Introduction to JupyterLab and Jupyter Notebooks [[link](https://jupyter.org/try-jupyter/notebooks/?path=notebooks/Intro.ipynb)].
 
+# Uploading data into the hub
+
+Small datasets (>25 MB) can be uploaded [directly](hub-upload) into the hub or by drag-and-drop directly into the file browser (e.g. typical plate reader datasets or individual PNGs). We recommend organizing your data by experiment in a directory in your home directory. For example: `/home/work/2026-04-02_my-experiment`.
+
+:::{figure} hub-upload-data.png
+:label: hub-upload
+Data can directly uploaded into the hub.
+:::
+
 <!-- # Collaboration options
 
 Currently, Nucleus Hub supports two options for collaborating with other developers:
