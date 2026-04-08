@@ -32,8 +32,8 @@ Please read this section carefully. It contains important notes, resources, and 
   - [Make Small Molecule Mix](../make-small-molecule-mix/main.md)
   - [Make tRNAs](../make-trna/main.md)
   - Make Protein Mix
-    - [1Pot Protein Mix](docs/processes/make-onepot-protein-mix/main.md)
-    - [36Pot Protein Mix](docs/processes/make-protein-mix/main.md)
+    - [Protein Mix](docs/processes/make-protein-mix/main.md)
+    - [OnePot Protein Mix](docs/processes/make-onepot-protein-mix/main.md)
   - [Make Ribosomes](../make-ribosomes/main.md)
 <!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
 
@@ -78,17 +78,17 @@ Please read this section carefully. It contains important notes, resources, and 
 :label: tbl:comp-cytosol
 :align: center
 
-| **Component** | **Volume per Reaction ($\mu$L)** |
-| --- | --- |
-| Small Molecule Mix | 3.0 |
-| tRNA | 1.0 |
-| Protein Mix | 1.2 |
-| Ribosomes | 1.8 |
-| RNase Inhibitor | 0.5 |
-| `pOpen-deGFP` | 0.5 |
-| User Additives | X |
-| Nuclease Free Water | 2.0 - X |
-| Total | 10 |
+| **Component**             | **Volume per Reaction ($\mu$L)** |
+| ------------------------- | -------------------------------- |
+| Small Molecule Mix (SMix) | 3.0                              |
+| tRNA                      | 1.0                              |
+| Protein Mix (PMix)        | 1.2                              |
+| Ribosomes                 | 1.8                              |
+| RNase Inhibitor           | 0.5                              |
+| `pOpen-deGFP`             | 0.5                              |
+| User Additives            | X                                |
+| Nuclease Free Water       | 2.0 - X                          |
+| Total                     | 10                               |
 
 :::
 
@@ -112,51 +112,49 @@ Please read this section carefully. It contains important notes, resources, and 
 :::{table} Reaction Setup.
 :label: rxn-setup
 
-| **Component** | **Cytosol +deGFP DNA [µL]** | **Cytosol -deGFP DNA [µL]** |
-| --- | --- | --- |
-| SMix | 10.5 | 10.5 |
-| tRNA | 3.5 | 3.5 |
-| PMix | 4.2 | 4.2 |
-| Ribosomes | 6.3 | 6.3 |
-| RNAse Inhibitor | 1.75 | 1.75 |
-| `pOpen-deGFP` DNA template | 0.85 | 0 |
-| Water | 7.9 | 8.75 |
-| Total master mix volume [µL] | 35 | 35 |
+| **Component**                | **Cytosol +deGFP DNA (µL)** | **Cytosol -deGFP DNA (µL)** |
+| ---------------------------- | --------------------------- | --------------------------- |
+| SMix                         | 10.5                        | 10.5                        |
+| Water                        | 7                           | 8.75                        |
+| RNAse Inhibitor              | 1.75                        | 1.75                        |
+| PMix                         | 4.2                         | 4.2                         |
+| tRNA                         | 3.5                         | 3.5                         |
+| Ribosomes                    | 6.3                         | 6.3                         |
+| `pOpen-deGFP` DNA template   | 1.75                        | 0                           |
+| Total master mix volume (µL) | 35                          | 35                          |
 
 :::
 
 ## Assemble Cytosol Reactions
-- [ ]  Remove all components listed in the Reaction Setup table above from appropriate cold storage.
-- [ ]  Thaw reagents on ice.
-- [ ]  Prepare a PCR tube, on ice, to assemble reactions into.
+- [ ] Thaw reagents above on ice.
+- [ ] Chill two (2) PCR tubes on ice to assemble reaction master mixes.
     
 :::{hint} Note
 :class: simple
 :icon: false
-Prepare the reaction on ice or a cold block to prevent protein expression from starting during assembly. This ensures the plate reader captures the complete fluorescence kinetics for deGFP expression.
+Prepare the reaction on ice or a cold block to prevent reactions from starting during your assembly. This reduces the affect of assembly time on your measured kinetics.
 :::
 
-- [ ] For a given reaction, assemble by adding the volume of reagents from the table in the order listed. Pay special attention to the handling of the Cytosol components:
-    - [ ]  Vortex SMix: Ensure thorough mixing; 10s vortex / 10s rest on ice; should be transparent with no visible precipitate; and add to the reaction tubes.
-    - [ ]  Vortex or pipette mix tRNA, and add to the reaction tubes.
-    - [ ]  Vortex or pipette mix PMix, and add to the reaction tubes.
-    - [ ]  **Do NOT vortex** ribosomes: *gently* pipette mix or flick the tube, and add to the reaction tubes.
-    - [ ]  Add remaining reactions in the order they appear.
-- [ ]  Mix the master mix thoroughly by pipetting up and down 10–15 times until it appears homogeneous and clear.
-- [ ]  Close lids on the PCR tubes and briefly spin down to eliminate bubbles.
-- [ ]  Hold assembled reactions on ice until ready for measurement.
-- [ ]  Array 10 µL into each of three assigned wells of a black 384-well optical plate and take note of your plate map.
+- [ ] Resuspend each component according to the following instructions: 
+    - [ ]  Vortex SMix aggressively until visibly clear. Alternate 10s vortex / 10s rest on ice to maintain cool temperature. SMix should be transparent with no visible precipitate when ready.
+    - [ ]  Vortex or pipette mix tRNA.
+    - [ ]  Pipette mix PMix.
+    - [ ]  **Do NOT vortex** ribosomes! *Gently* pipette mix or flick the tube.
+- [ ] For each reaction, assemble reaction master mix in a chilled PCR tube by adding each reagent in the order and volume listed in the table above. 
+- [ ] Mix the master mix thoroughly by pipette (6-10x) until visibly homogenous.
+- [ ] Hold assembled reactions on ice or at 4C until ready for measurement.
+- [ ] On a 384-well optical plate, array 10 µL of each reaction master mix into three (3) wells and note their locations.
 
 :::{hint} Tip
 :class: simple
 :icon: false
-Set the P20 pipette to 10.1 µL to draw the master mix, then dispense into the plate well by pushing the plunger to the first stop only—this prevents bubble generation in the reaction.
+To avoid introducing bubbles, use reverse pipetting to array your samples. With your p20 pipette set to "10" µL, push your plunger down past the second (blowout) stop, aspirate your sample, and dispense up to the first stop. Repeat for the remaining two (2) replicates.
 :::
 
-- [ ]  Measure deGFP fluorescence in the plate reader while incubating at 37°C.
+- [ ] In a plate reader set to 37°C, measure deGFP expression using the standard green fluorescence channel (ex: 485 nm, em: 515 nm).
   
 ## Return reagents to their appropriate storage locations
-- [ ]  Add a black dot to the lid of each of Cytosol component. The number of dots indicates freeze–thaw cycles.
+- [ ] Mark the lid of each Cytosol component that you used. The number of dots indicates how many freeze–thaw cycles each component has gone through.
 
 # Downloads
 
