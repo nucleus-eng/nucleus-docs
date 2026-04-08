@@ -19,7 +19,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- Base Cytosol components can be made from scratch by following the relevant documentation in the Distribution
+- You can make Base Cytosol components yourself by following the Base Cytsol Processes
 - Base Cytosol components can be acquired as a premade reagent kit from b.next
 
 ::::::
@@ -28,12 +28,12 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- If you are making Base Cytosol from scratch:
+- If you are preparing Base Cytosol components yourself, use the following protocols:
   - [Make Small Molecule Mix](../make-small-molecule-mix/main.md)
   - [Make tRNAs](../make-trna/main.md)
   - Make Protein Mix
-    - [1Pot Protein Mix](../make-1pot/main.md)
-    - [36Pot Protein Mix](../make-36pot/main.md)
+    - [1Pot Protein Mix](docs/processes/make-onepot-protein-mix/main.md)
+    - [36Pot Protein Mix](docs/processes/make-protein-mix/main.md)
   - [Make Ribosomes](../make-ribosomes/main.md)
 <!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
 

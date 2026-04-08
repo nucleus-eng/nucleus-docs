@@ -1,3 +1,7 @@
+# default ignore
+.DS_Store
+.obsidian/
+
 # MyST build outputs
 _build
 .vscode/

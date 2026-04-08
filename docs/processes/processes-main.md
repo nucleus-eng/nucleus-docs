@@ -48,8 +48,8 @@ Flow chart for building Base Cytosol and its modification through the addition o
 - [Make Small Molecule Mix](./make-small-molecule-mix/main.md)
 - [Make tRNAs](./make-trna/main.md)
 - [Make Ribosomes](./make-ribosomes/main.md)
-- [Make PMix - 1 Pot](./make-1pot/main.md)
-- [Make PMix - 36 Pot](./make-36pot/main.md)
+- [Make PMix - 1 Pot](docs/processes/make-onepot-protein-mix/main.md)
+- [Make PMix - 36 Pot](docs/processes/make-protein-mix/main.md)
 
 
 ### Quality Control Processes
