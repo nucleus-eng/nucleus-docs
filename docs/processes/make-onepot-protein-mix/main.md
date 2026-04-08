@@ -1,5 +1,5 @@
 ---
-title: "Make 1 Pot Protein Mix"
+title: "Make OnePot Protein Mix"
 subtitle: "Process"
 ---
 

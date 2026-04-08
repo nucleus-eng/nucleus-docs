@@ -34,9 +34,9 @@ project:
              hidden: true
            - file: ./docs/processes/make-trna/main.md
              hidden: true
-           - file: ./docs/processes/make-36pot/main.md
+           - file: ./docs/processes/make-protein-mix/main.md
              hidden: true
-           - file: ./docs/processes/make-1pot/main.md
+           - file: ./docs/processes/make-onepot-protein-mix/main.md
              hidden: true
            - file: ./docs/processes/assemble-base-cytosol/main.md
              hidden: true 
