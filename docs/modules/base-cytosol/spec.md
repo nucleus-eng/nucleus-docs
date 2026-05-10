@@ -36,7 +36,7 @@ Plasmid designs are included in the documentation of the [DNA Distribution](../.
 |----------|----------|----------------------|-------|
 | Buffers | HEPES-KOH | 50 | mM |
 | | Potassium Glutamate | 100 | mM |
-| | Magnesium Acetate | 7.5 | mM |
+| | Magnesium Acetate | 8 | mM |
 | Nucleotides | rATP | 2 | mM |
 | | rGTP | 2 | mM |
 | | rCTP | 1 | mM |
@@ -68,41 +68,41 @@ Plasmid designs are included in the documentation of the [DNA Distribution](../.
 | Ribonucleics | tRNA | 3.5 | μg/mL |
 | | Ribosomes | 1.8 | μM |
 | tRNA Synthetases | AlaRS | 139 | ng/μL |
-| | ArgRS | 3.87 | ng/μL |
-| | AsnRS | 43.7 | ng/μL |
-| | AspRS | 16.0 | ng/μL |
-| | CysRS | 2.32 | ng/μL |
-| | GlnRS | 7.49 | ng/μL |
-| | GluRS | 25.1 | ng/μL |
-| | GlyRS | 19.1 | ng/μL |
-| | HisRS | 1.55 | ng/μL |
-| | IleRS | 79.6 | ng/μL |
-| | LeuRS | 8.01 | ng/μL |
-| | LysRS | 12.7 | ng/μL |
-| | MetRS | 4.66 | ng/μL |
-| | PheRS | 33.9 | ng/μL |
-| | ProRS | 19.9 | ng/μL |
-| | SerRS | 3.87 | ng/μL |
-| | ThrRS | 12.4 | ng/μL |
-| | TrpRS | 12.4 | ng/μL |
-| | TyrRS | 1.29 | ng/μL |
-| | ValRS | 3.62 | ng/μL |
-| Initiation Factors | IF1 | 19.9 | ng/μL |
-| | IF2 | 79.6 | ng/μL |
-| | IF3 | 19.9 | ng/μL |
-| Elongation Factors | EF-G | 99.5 | ng/μL |
-| | EF-Tu | 994 | ng/μL |
-| | EF-Ts | 99.5 | ng/μL |
-| Release Factors | RF1 | 19.9 | ng/μL |
-| | RF2 | 19.9 | ng/μL |
-| | RF3 | 19.9 | ng/μL |
-| | RRF | 19.9 | ng/μL |
-| Metabolism | MTF | 39.8 | ng/μL |
-| | CK | 8.01 | ng/μL |
-| | MK | 5.94 | ng/μL |
-| | NDK | 2.07 | ng/μL |
-| | PPiase | 2.07 | ng/μL |
-| Transcription | T7RNAP | 19.9 | ng/μL |
+| | ArgRS | 130.3 | ng/μL |
+| | AsnRS | 3.6 | ng/μL |
+| | AspRS | 40.9 | ng/μL |
+| | CysRS | 2.2 | ng/μL |
+| | GlnRS | 7.0 | ng/μL |
+| | GluRS | 23.5 | ng/μL |
+| | GlyRS | 17.9 | ng/μL |
+| | HisRS | 1.5 | ng/μL |
+| | IleRS | 74.6 | ng/μL |
+| | LeuRS | 7.5 | ng/μL |
+| | LysRS | 11.9 | ng/μL |
+| | MetRS | 4.4 | ng/μL |
+| | PheRS | 31.7 | ng/μL |
+| | ProRS | 18.7 | ng/μL |
+| | SerRS | 3.6 | ng/μL |
+| | ThrRS | 11.6 | ng/μL |
+| | TrpRS | 11.6 | ng/μL |
+| | TyrRS | 1.2 | ng/μL |
+| | ValRS | 3.4 | ng/μL |
+| Initiation Factors | IF1 | 18.7 | ng/μL |
+| | IF2 | 74.6 | ng/μL |
+| | IF3 | 18.7 | ng/μL |
+| Elongation Factors | EF-G | 93.3 | ng/μL |
+| | EF-Tu | 932 | ng/μL |
+| | EF-Ts | 93.3 | ng/μL |
+| Release Factors | RF1 | 18.7 | ng/μL |
+| | RF2 | 18.7 ng/μL |
+| | RF3 | 18.7 ng/μL |
+| | RRF | 18.7 ng/μL |
+| Metabolism | MTF | 37.3 | ng/μL |
+| | CK | 7.5 | ng/μL |
+| | AK | 5.6 | ng/μL |
+| | NDK | 1.9 | ng/μL |
+| | PPiase | 1.9 | ng/μL |
+| Transcription | T7RNAP | 18.7 | ng/μL |
 
 :::
 
