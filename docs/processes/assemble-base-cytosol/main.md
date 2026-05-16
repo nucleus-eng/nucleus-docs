@@ -32,8 +32,8 @@ Please read this section carefully. It contains important notes, resources, and 
   - [Make Small Molecule Mix](../make-small-molecule-mix/main.md)
   - [Make tRNAs](../make-trna/main.md)
   - Make Protein Mix
-    - [Protein Mix](docs/processes/make-protein-mix/main.md)
-    - [OnePot Protein Mix](docs/processes/make-onepot-protein-mix/main.md)
+    - [Protein Mix](../make-36pot/main.md)
+    - [OnePot Protein Mix](../make-1pot/main.md)
   - [Make Ribosomes](../make-ribosomes/main.md)
 <!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
 
