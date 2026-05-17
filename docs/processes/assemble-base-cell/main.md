@@ -253,12 +253,12 @@ Do not transfer the entire solution. It is important to avoid transferring the t
 :header: **Lab-ready Protocol**
 :align: center
 
-{button}`download <module-protocol-cells-degfp.pdf>`
+{button}`download <../../modules/reporter-degfp/module-protocol-cells-degfp.pdf>`
 :::
 
 :::{card}
 :header: **Bill of Materials**
-{button}`download <module-bom-reporter-cells-degfp.pdf>`
+{button}`download <../../modules/reporter-degfp/module-bom-reporter-cells-degfp.pdf>`
 :::
 
 ::::
