@@ -94,9 +94,9 @@ Plasmid designs are included in the documentation of the [DNA Distribution](../.
 | | EF-Tu | 932 | ng/μL |
 | | EF-Ts | 93.3 | ng/μL |
 | Release Factors | RF1 | 18.7 | ng/μL |
-| | RF2 | 18.7 ng/μL |
-| | RF3 | 18.7 ng/μL |
-| | RRF | 18.7 ng/μL |
+| | RF2 | 18.7 | ng/μL |
+| | RF3 | 18.7 | ng/μL |
+| | RRF | 18.7 | ng/μL |
 | Metabolism | MTF | 37.3 | ng/μL |
 | | CK | 7.5 | ng/μL |
 | | AK | 5.6 | ng/μL |
