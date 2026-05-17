@@ -19,7 +19,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- You can make Base Cytosol components yourself by following the Base Cytsol Processes
+- You can make Base Cytosol components yourself by following the Base Cytosol Processes
 - Base Cytosol components can be acquired as a premade reagent kit from b.next
 
 ::::::
