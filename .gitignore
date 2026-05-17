@@ -1,6 +1,7 @@
 # default ignore
 .DS_Store
 .obsidian/
+chroma_db/
 
 # MyST build outputs
 _build
