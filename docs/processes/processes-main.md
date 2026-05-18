@@ -50,7 +50,7 @@ Flow chart for building Base Cytosol and its modification through the addition o
 - [Make Ribosomes](./make-ribosomes/main.md)
 - [Make PMix](./make-36pot/main.md)
 - [Make OnePot PMix](./make-1pot/main.md)
-
+- [Make Individual Proteins](./make-protein/make-protein-main.md)
 
 ### Quality Control Processes
 

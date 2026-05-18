@@ -1,0 +1,6 @@
+%%{init: {'theme':'neutral'}}%%
+flowchart TD
+    strain[Expression Strain] -->|Shake Flasks| biomass[Biomass]
+    biomass -->|Lysis by Sonication| lysate[Lysate]
+    lysate -->|"Ni²⁺ Gravity Column"| eluted[Eluted Protein]
+    eluted -->|Diafiltration| final[Final Protein]

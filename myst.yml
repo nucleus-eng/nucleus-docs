@@ -44,6 +44,14 @@ project:
              hidden: true
            - file: ./docs/processes/pierce660/main.md
              hidden: true
+           - file: ./docs/processes/make-protein/make-protein-main.md
+             hidden: true
+             children:
+             - file: ./docs/processes/make-protein/prep-consumables/main.md
+               hidden: true
+            #  - file: ./docs/processes/make-protein/prep-consumables/main.md
+            #    hidden: true
+             
         - file: ./docs/modules/modules-main.md
           children:
            - file: ./docs/modules/membrane-popc-chol/spec.md
