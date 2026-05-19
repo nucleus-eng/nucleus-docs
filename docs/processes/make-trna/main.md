@@ -157,23 +157,23 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ] Precipitate rRNA by centrifugation at 9500 rcf / 4C / 20 min.
 - [ ] Decant the supernatant to a new 50 mL centrifuge tube.
 
-- **Precipitate remaining DNA and tRNA nucleic acids:**
-	- [ ] Add 2 volumes (approximately 30 mL) of cold (-20C) EtOH (100%) to the supernatant and incubate at -20C / >30 min to precipitate remaining nucleic acids. You can perform this step overnight.
-    - [ ] Centrifuge at 14 500 rcf / 4C / 5 min.
-    - [ ] Wash the pellet with EtOH (70%) as above.
+**Precipitate remaining DNA and tRNA nucleic acids:** 
+- [ ] Add 2 volumes (approximately 30 mL) of cold (-20C) EtOH (100%) to the supernatant and incubate at -20C / >30 min to precipitate remaining nucleic acids. You can perform this step overnight. 
+- [ ] Centrifuge at 14 500 rcf / 4C / 5 min. 
+- [ ] Wash the pellet with EtOH (70%) as above.
 
-- **Remove DNA by precipitation:**
-    - [ ] Set centrifuge to 25C.
-    - [ ] Dissolve the pellet in 6 mL of NaOAc (300 mM, pH 5.0). As needed to ensure the pellet is fully dissolved, heat samples up to 60C, pipette mix, and/or vortex. If the pellet is visibly small, you can dissolve each pellet in 3 mL of NaOAc (0.3 M, pH 5.0) and pool them together, totaling 6 mL.
-    - [ ] Add 0.56 volumes of isopropanol (~3.4 mL) to each nucleic acid solution and incubate at room temperature for 10 min.
-    - [ ] Centrifuge at 14 500 rcf / 25C / 5 min. Decant the supernatant to a 15 mL centrifuge tube.
+**Remove DNA by precipitation:**
+- [ ] Set centrifuge to 25C.
+- [ ] Dissolve the pellet in 6 mL of NaOAc (300 mM, pH 5.0). As needed to ensure the pellet is fully dissolved, heat samples up to 60C, pipette mix, and/or vortex. If the pellet is visibly small, you can dissolve each pellet in 3 mL of NaOAc (0.3 M, pH 5.0) and pool them together, totaling 6 mL.
+- [ ] Add 0.56 volumes of isopropanol (~3.4 mL) to each nucleic acid solution and incubate at room temperature for 10 min.
+- [ ] Centrifuge at 14 500 rcf / 25C / 5 min. Decant the supernatant to a 15 mL centrifuge tube.
 
-- **Precipitate tRNAs:**
-    - [ ] Set the centrifuge to 4C.
-    - [ ] Add 2.3 mL of isopropanol to the supernatant (supernatant:isopropanol is 100:95) and incubate at -20C / >30 min. This step can be performed overnight.
-    - [ ] Centrifuge the suspension at 14 500 rcf / 4C / 15 min.
-    - [ ] Wash the pellet with EtOH (70%) as above.
-    - [ ] Resuspend the tRNA pellet in 1.5 mL of nuclease-free water and keep on ice.
+**Precipitate tRNAs:**
+- [ ] Set the centrifuge to 4C.
+- [ ] Add 2.3 mL of isopropanol to the supernatant (supernatant:isopropanol is 100:95) and incubate at -20C / >30 min. This step can be performed overnight.
+- [ ] Centrifuge the suspension at 14 500 rcf / 4C / 15 min.
+- [ ] Wash the pellet with EtOH (70%) as above.
+- [ ] Resuspend the tRNA pellet in 1.5 mL of nuclease-free water and keep on ice.
 
 ## Dialysis
 :::{tip} Note: we use dialysis cassettes
@@ -237,15 +237,11 @@ NEB has a great [tool](https://nebiocalculator.neb.com/#!/od260) for converting 
 :class: dropdown
 If your sample is contaminated with RNases, your sample quality will decrease as the RNases degrade the tRNAs. A clear sign of tRNA degradation are poorly defined, smeared bands. A clean tRNA prep should have distinct bands.
 
-If your samples appear as a smear on your gel, consider testing your input buffers and final prep for RNase activity (see below).
+If your samples appear as a smear on your gel, consider testing your input buffers and final prep for RNase activity. You can use the [Invitrogen RNaseAlert™ Lab Test Kit](https://www.thermofisher.com/order/catalog/product/AM1964) (Cat. No. AM1964). We recommend diluting your tRNAs by adding 2 uL to 40 uL of provided sample buffer. 
 :::
-
-**(Optional) Measure RNase contamination using Ambion RNaseAlert Lab Test Kit.**
-- [ ] We recommend diluting your tRNAs by adding 2 uL to 40 uL of provided sample buffer. 
-
 ## Formulation
 
-- [ ] Dilute your tRNA stocks in nuclease-free water to your working concentration, depending on your application. We recommend 50 ug / uL to use as a component in Energy Mix, or 35 ug / uL as a 10x stock for PUREΔtRNA reactions (add 1 uL to 10 uL reactions).
+- [ ] Dilute your tRNA stocks in nuclease-free water to 35 ug / uL, which is 10x working concentration for cytosol reactions. 
 
 ## Storage
 
