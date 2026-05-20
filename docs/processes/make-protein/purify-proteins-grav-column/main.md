@@ -4,7 +4,7 @@ title: Purify Proteins by Ni2+ Gravity Column
 
 # Overview
 
-You have a protein that you want to purify out of a complicated mixture. This protein has a 6xHis purification tag, which chelates Ni ions. You can use a Ni-His resin to bind proteins with 6xHis tags. This resin is a suspension of microscopic gel beads with Ni ions covalently linked. Bound proteins can then be washed to remove non-tagged proteins, then eluted in a buffer with high concentration (~ 500 mM) Imidazole. Imidazole competes with 6xHis to bind the Ni ions, ultimately displacing your target proteins and releasing them from the affinity resin.
+You have a protein that you want to purify out of a complicated mixture. This protein has a 6xHis purification tag, which chelates Ni2+ ions. You can use a Ni-His resin to bind proteins with 6xHis tags. This resin is a suspension of microscopic gel beads with Ni ions covalently linked. Bound proteins can then be washed to remove non-tagged proteins, then eluted in a buffer with high concentration (~ 500 mM) Imidazole. Imidazole competes with 6xHis to bind the Ni ions, ultimately displacing your target proteins and releasing them from the affinity resin.
 
 :::::::{card}
 :header: **Important Information**
@@ -91,20 +91,19 @@ Please read this section carefully. It contains important notes, resources, and 
 # Protocol
 
 - [ ] **Prepare buffers:** Prepare the following buffers; chill at 4C:
-  - [ ] 50 mL P1 buffer per sample.
-  - [ ] 6 mL P2 buffer per sample.
-  - [ ] 20 mL 4x P3 storage buffer per sample.
+  - [ ] 50 mL Wash Buffer per sample.
+  - [ ] 6 mL Elution Buffer per sample.
 - [ ] **Assemble columns:** Assemble one (1) gravity column (2 mL resin bed) per sample.
 - [ ] **Wash columns:** Wash each column with 5 CV of Ultrapure water. For this protocol, we will assume you are using a 2 mL resin bed.
 
 :::{hint} Note: "CV" = Column Volume
 :class: dropdown
 
-One "Column Volume" is equal to the volume of affinity resin in your column. For example, "wash with 5 CV of P1" means that for 2 mL of resin, wash with 10 mL of P1 Buffer. Specifying buffer volumes by CVs allows the user to increase or decrease the scale of the purification and still use the same protocol.
+One "Column Volume" is equal to the volume of affinity resin in your column. For example, "wash with 5 CV of Wash Buffer" means that for 2 mL of resin, wash with 10 mL of Wash Buffer. Specifying buffer volumes by CVs allows the user to increase or decrease the scale of the purification and still use the same protocol.
 
 :::
 
-- [ ] **Equilibrate columns:** Equilibrate each column with ≥ 5 CV (10 mL) cold P1 buffer.
+- [ ] **Equilibrate columns:** Equilibrate each column with ≥ 5 CV (10 mL) cold Wash Buffer.
 - [ ] **Load lysate:** Load up to 5 CV (10 mL) clarified lysate per column. Optionally capture flowthrough for later analysis.
 
 :::{hint} Note: if you have >10 mL lysate, load in tranches.
@@ -114,8 +113,8 @@ If you have more than 10 mL of clarified lysate, you can load your sample in tra
 
 :::
 
-- [ ] **Wash:** Wash column with ≥ 5 CV (10 mL) cold P1 buffer. Allow buffer to flow through. Optionally capture flowthrough for later analysis.
-- [ ] **Elute:** Elute sample with 3 CV (6 mL) cold P2 buffer. Capture flow through in 15 mL centrifuge tube.
+- [ ] **Wash:** Wash column with ≥ 5 CV (10 mL) cold Wash Buffer. Allow buffer to flow through. Optionally capture flowthrough for later analysis.
+- [ ] **Elute:** Elute sample with 3 CV (6 mL) cold Elution Buffer. Capture flow through in 15 mL centrifuge tube.
 
 # References
 

@@ -82,9 +82,8 @@ We use two different volume spin filters, depending on how much sample volume we
 
 # Protocol
 
-- [ ] Dilute your sample ~10x with your new buffer (e.g., add 54 mL P3 Exchange Buffer to 6 mL eluted protein).
+- [ ] Dilute your sample ~10x with your new buffer (e.g., add 54 mL Protein Buffer to 6 mL eluted protein).
 - [ ] Load your sample onto a centrifugal filter column.
-  - [ ] **Notes: use filter cutoffs 3x smaller than your sample.**
 
 :::{hint} Note: use filter cutoffs 3x smaller than your sample.
 :class: dropdown
@@ -120,7 +119,7 @@ f_{total} = \prod_n f_n = f_1 \times f_2 \times \dots \times f_n
 $$
 
 :::
-
+- [ ] Add an equal volume of Protein Buffer (60% glycerol) to your sample to bring the final glycerol concentration to 30%. Freeze samples at -80C for storage.
 - [ ] Store columns for later use.
   - [ ] Wash columns by loading with ddH2O and spinning.
   - [ ] Load columns with EtOH 20% (v/v) and store at room temp.
