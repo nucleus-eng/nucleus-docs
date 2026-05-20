@@ -99,6 +99,20 @@ Please read this section carefully. It contains important notes, resources, and 
 
 - [ ] Make or buy the following stock solutions. Use ultrapure water (18.2 MΩ, e.g., Milli-Q).
 
+| **Stocks**         | Final Concentration (mM) | MW (g/mol) | Mass to add (g) | Final Vol (mL) | Storage (degC) |
+| ------------------ | ------------------------ | ---------- | --------------- | -------------- | -------------- |
+| HEPES-KOH (pH 7.6) | 1000                     | 238.3      | 238.3           | 1000           | room temp      |
+| Ammonium Chloride  | 1000                     | 53.49      | 53.49           | 1000           | room temp      |
+| Sodium Chloride    | 5000                     | 58.44      | 58.44           | 1000           | room temp      |
+| Potassium Chloride | 1000                     | 74.55      | 74.55           | 1000           | room temp      |
+| Magnesium Chloride | 1000                     | 203.3      | 203.3           | 1000           | room temp      |
+| Imidazole-HCl      | 1000                     | 68.08      | 68.08           | 1000           | room temp      |
+| Lysozyme           | 30 mg/mL                 | -          | 0.3             | 10             | -20C           |
+| LB                 | 1x                       | -          | 25              | 1000           | room temp      |
+| Kanamycin          | 50 mg/mL (1000x)         | -          | 2.5             | 50             | -20C           |
+| IPTG               | 500                      | 238.3      | 238.3           | 50             | -20C           |
+- [ ] Adjust pH of HEPES and Imidazole with Potassium Hydroxide and Hydrochloric Acid, respectively.
+
 :::{hint} Note: prefer to use hydrated salts
 :class: dropdown
 Anhydrous Magnesium Chloride releases a *lot* of energy when dissolved in water, rapidly heating up the solution and causing violent bubbling and sputtering, which can burn you through gloves. Moreover, anhydrous salts can absorb water from the air, meaning that you have less salt than you'd expect in your final buffer.
@@ -120,7 +134,7 @@ First, resuspend HEPES or Imidazole in half the required volume of water. Next, 
 HEPES and Imidazole are light sensitive compounds! Keep stock solutions in the dark. Either wrap bottles in aluminum foil OR store bottles in a cabinet.
 :::
 
-## Step 2: Prepare Stable Buffers and Concentrates
+## Step 2: Prepare Stable Buffers
 
 Make the following buffers *in advance* and store at 4C. Add all components *except* TCEP, which you MUST add fresh the day of use.
 
@@ -180,23 +194,24 @@ The components of the PURE system are sensitive to the types and concentrations 
 Protein Buffer (with and without glycerol) use K+ as a cation instead of Na+ and have no Imidazole. 
 :::
 
+
 ## Step 3: Prepare Working Buffers
 
 Make the following buffers on the same day as use.
 
 - [ ] **Lysis Buffer** — used to resuspend bacterial pellets for lysis. Also enzymatically lyses cells with lysozyme (*G. gallus*). Contains protease inhibitor (cOmplete) to slow proteolysis.
 
-| Reagent | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
-| --- | --- | --- | --- |
-| HEPES-KOH (pH 7.6) | 50 | 1000 | 5 |
-| Ammonium Chloride | 100 | 1000 | 10 |
-| Sodium Chloride | 500 | 5000 | 10 |
-| Magnesium Chloride | 10 | 1000 | 1 |
-| Lysozyme | 0.3 mg/mL | 30 mg/mL | 1 |
-| cOmplete Protease Inhibitor | 1 tablet / 50 mL | n/a | 2 tablets |
-| TCEP | 1 | 500 | 0.2 |
-| Ultrapure water | — | — | 72.8 |
-| **Total** | | | **100** |
+| Reagent                     | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| --------------------------- | ------------------------ | ------------------------ | ------------------ |
+| HEPES-KOH (pH 7.6)          | 50                       | 1000                     | 5                  |
+| Ammonium Chloride           | 100                      | 1000                     | 10                 |
+| Sodium Chloride             | 500                      | 5000                     | 10                 |
+| Magnesium Chloride          | 10                       | 1000                     | 1                  |
+| Lysozyme                    | 0.3 mg/mL                | 30 mg/mL                 | 1                  |
+| cOmplete Protease Inhibitor | 1 tablet / 50 mL         | n/a                      | 2 tablets          |
+| TCEP                        | 1                        | 500                      | 0.2                |
+| Ultrapure water             | —                        | —                        | 72.8               |
+| **Total**                   |                          |                          | **100**            |
 
   :::{hint} Note: Lysis Buffer is unstable at 4C
   :class: dropdown

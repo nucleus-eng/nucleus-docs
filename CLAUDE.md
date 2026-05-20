@@ -57,6 +57,15 @@ Pages use MyST admonition nesting with `:::` fences. Process pages follow a cons
 
 Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes. Cross-references use MyST `{ref}` syntax for same-page targets and standard markdown links for cross-page references.
 
+### Notion migration gotchas
+
+When migrating content from Notion markdown exports:
+
+- **Table indentation**: Notion exports often produce tables with inconsistent indentation — the header row at 0 spaces and subsequent rows (including the separator) at 2 spaces, or all rows at 2 spaces. MyST requires all rows to be at the same indentation level. The correct pattern is **0 indentation throughout** (no leading spaces on any row), even when the table follows a `- [ ]` list item. Do not indent tables to nest them under list items — it breaks rendering.
+- **Materials/consumables lists**: Large materials tables should be kept as inline markdown tables. A copy can be maintained as `resources/materials.csv` for download purposes, but mystmd does not support the `{csv-table}` `:file:` option for rendering external CSVs — the table must be inlined in the `.md` file.
+- **Notion `<aside>` blocks**: Convert to the appropriate MyST admonition or section header depending on context (e.g., "Getting Started" asides → Overview prose, "Step X" asides → `##` section headers, "Resources" asides → `# References`).
+- **Notion toggles**: Convert to `:::{hint} Note: <title>` with `:class: dropdown`.
+
 ### External references
 
 `myst.yml` maintains a `references:` map of named keys (e.g., `devnote-01:`) pointing to external DevNote URLs. These can be cited throughout the docs without repeating URLs.
