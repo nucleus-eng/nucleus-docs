@@ -18,7 +18,7 @@ Flow chart for purifying His-tagged proteins from a stock of an expression strai
 ::::::
 
 - [Prepare Protein Purification Buffers and Media](prep-consumables/main.md)
-- [Grow Bacteria](grow-bacteria/main.md)
-- [Lysis by Sonication](lysis-sonication/main.md)
-- [Purify Proteins by Gravity Column](purify-proteins-grav-column/main.md)
-- [Buffer Exchange with Spin Filters](buff-ex-spin-filters/main.md)
+- [Grow and Induce Expression Strains](grow-bacteria/main.md)
+- [Lyse Bacteria by Sonication](lysis-sonication/main.md)
+- [Purify Proteins by Ni2+ Gravity Column](purify-proteins-grav-column/main.md)
+- [Exchange Buffers and Concentrate by Spin Filtration](buff-ex-spin-filters/main.md)

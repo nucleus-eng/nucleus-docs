@@ -65,6 +65,7 @@ When migrating content from Notion markdown exports:
 - **Materials/consumables lists**: Large materials tables should be kept as inline markdown tables. A copy can be maintained as `resources/materials.csv` for download purposes, but mystmd does not support the `{csv-table}` `:file:` option for rendering external CSVs — the table must be inlined in the `.md` file.
 - **Notion `<aside>` blocks**: Convert to the appropriate MyST admonition or section header depending on context (e.g., "Getting Started" asides → Overview prose, "Step X" asides → `##` section headers, "Resources" asides → `# References`).
 - **Notion toggles**: Convert to `:::{hint} Note: <title>` with `:class: dropdown`.
+- **Units in table column headers**: Use parentheses, not brackets (e.g., `MW (g/mol)` not `MW [g/mol]`).
 
 ### External references
 
