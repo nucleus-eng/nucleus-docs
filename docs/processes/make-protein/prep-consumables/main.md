@@ -177,15 +177,15 @@ Make the following buffers *in advance* and store at 4C. Add all components *exc
 
 - [ ] **Protein Buffer (60% glycerol)** — added to samples in Protein Buffer as a cryoprotectant for storage at -80C. Filter with a 0.22 µm syringe filter. To use, add an equal volume of 60% glycerol buffer to samples in Protein Buffer (1:1).
 
-  | Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
-  | ------------------ | ------------------------ | ------------------------ | ------------------ |
-  | HEPES-KOH (pH 7.6) | 50                       | 1000                     | 2.5                |
-  | Potassium Chloride | 100                      | 1000                     | 5                  |
-  | Magnesium Chloride | 10                       | 1000                     | 0.5                |
-  | TCEP               | 1                        | 500                      | 0.1                |
-  | glycerol           | 60%                      | 100%                     | 30                 |
-  | Ultrapure water    | —                        | —                        | 11.9               |
-  | **Total**          |                          |                          | **50**             |
+| Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| ------------------ | ------------------------ | ------------------------ | ------------------ |
+| HEPES-KOH (pH 7.6) | 50                       | 1000                     | 2.5                |
+| Potassium Chloride | 100                      | 1000                     | 5                  |
+| Magnesium Chloride | 10                       | 1000                     | 0.5                |
+| TCEP               | 1                        | 500                      | 0.1                |
+| glycerol           | 60%                      | 100%                     | 30                 |
+| ultrapure water    | —                        | —                        | 11.9               |
+| **Total**          |                          |                          | **50**             |
 
 :::{hint} Note: Protein Buffers are compatible with PURE reactions
 :class: dropdown
