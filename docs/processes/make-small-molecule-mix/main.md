@@ -13,27 +13,11 @@ Small Molecule Mix is a combination of thirty-one (31) small molecules (*e.g.*, 
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-::::::{note} Notes
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
 ::::::{seealso} Prerequisite Documentation
 :class: dropdown
 :icon: false
 
 - [Make Amino Acid Mix (3.25 mM)](../make-amino-acid-mix/main.md)
-
-::::::
-
-::::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 
@@ -50,14 +34,6 @@ Please read this section carefully. It contains important notes, resources, and 
 | Folinic acid | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4C to 30C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)] |
 
 :::
-
-::::::
-
-::::::{attention} Genetically Encoded Components
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 
@@ -85,14 +61,6 @@ Please read this section carefully. It contains important notes, resources, and 
 | TCEP | 2.5 | 1 |
 
 :::
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 

@@ -57,6 +57,24 @@ Pages use MyST admonition nesting with `:::` fences. Process pages follow a cons
 
 Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes. Cross-references use MyST `{ref}` syntax for same-page targets and standard markdown links for cross-page references.
 
+### Overview card dropdowns — empty dropdown policy
+
+The template includes all possible dropdown sections as a starting point. **When authoring or reviewing a process page, only keep dropdowns that have real content.** Delete any dropdown whose only content is `- None`.
+
+**When editing or reviewing a process page**, scan for empty dropdowns matching this pattern and flag them:
+
+```
+::::::{<type>} <Section Title>
+:class: dropdown
+:icon: false
+
+- None
+
+::::::
+```
+
+If you find one, flag it and ask the developer: **"The `<Section Title>` dropdown is empty — should it be deleted, or does it need content?"** Wait for confirmation before making any changes. Do not silently leave `- None` placeholders in committed files, but also do not silently delete them. The template file (`templates/process-template/process-make_template.md`) is the only file exempt from this rule.
+
 ### Notion migration gotchas
 
 When migrating content from Notion markdown exports:

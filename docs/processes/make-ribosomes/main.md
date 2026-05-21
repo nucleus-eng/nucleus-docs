@@ -22,35 +22,11 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::::
 
-::::::{seealso} Prerequisite Documentation
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
 ::::::{attention} Critical Materials
 :class: dropdown
 :icon: false
 
 - A19 *E. coli*
-
-::::::
-
-::::::{attention} Genetically Encoded Components
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 
@@ -67,14 +43,6 @@ Please read this section carefully. It contains important notes, resources, and 
 | Ribosomes | 10 $\mu$M (5.55x) | 1.8 $\mu$M |
 
 :::
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 

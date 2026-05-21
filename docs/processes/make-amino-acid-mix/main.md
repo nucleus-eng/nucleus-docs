@@ -12,30 +12,6 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-::::::{note} Notes
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{seealso} Prerequisite Documentation
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
 ::::::{attention} Critical Materials
 :class: dropdown
 :icon: false
@@ -50,30 +26,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 
 :::
-
-::::::
-
-::::::{attention} Genetically Encoded Components
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} Composition
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 

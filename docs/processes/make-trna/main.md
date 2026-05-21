@@ -23,14 +23,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::::
 
-::::::{seealso} Prerequisite Documentation
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
 ::::::{danger} Hazardous Materials
 :class: dropdown
 :icon: false
@@ -53,22 +45,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::::
 
-::::::{attention} Critical Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Genetically Encoded Components
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
 ::::::{note} Composition
 :class: dropdown
 :icon: false
@@ -82,14 +58,6 @@ Please read this section carefully. It contains important notes, resources, and 
 | tRNA | 35 $\mu$g/$\mu$L (10x) | 3.5 $\mu$g/$\mu$L |
 
 :::
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 
