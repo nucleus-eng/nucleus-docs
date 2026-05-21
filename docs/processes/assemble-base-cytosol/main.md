@@ -39,22 +39,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::::
 
-::::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Critical Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
 ::::::{attention} Genetically Encoded Components
 :class: dropdown
 :icon: false

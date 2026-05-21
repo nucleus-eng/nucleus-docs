@@ -11,14 +11,6 @@ You have a protein that you want to purify out of a complicated mixture. This pr
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-::::::{note} Notes
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
 ::::::{seealso} Prerequisite Documentation
 :class: dropdown
 :icon: false
@@ -26,46 +18,6 @@ Please read this section carefully. It contains important notes, resources, and 
 - [Prepare Protein Purification Buffers and Media](../prep-consumables/main.md)
 - Prepare Columns
 - [Lyse Bacteria by Sonication](../lysis-sonication/main.md)
-
-::::::
-
-::::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Critical Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Genetically Encoded Components
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} Composition
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- None
 
 ::::::
 

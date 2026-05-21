@@ -17,68 +17,6 @@ This protocol describes the Process for making the thirty-six component proteins
 This Process has not yet been migrated onto Nucleus Documentation. The protocol can be found on our legacy site [here](https://nucleus.bnext.bio/Make-Protein-Mix-78b432dd513d4f2e81a0bdf18e3c8de5).
 :::
 
-:::::::{card}
-:header: **Important Information**
-
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
-
-::::::{note} Notes
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{seealso} Prerequisite Documentation
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Critical Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Genetically Encoded Components
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} Composition
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-:::::::
 
 # Protocol
 

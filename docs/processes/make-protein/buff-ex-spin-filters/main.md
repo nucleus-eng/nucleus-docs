@@ -8,68 +8,6 @@ You have a sample of a biomolecule (e.g., T7RNAP, tRNA, ribosomes, plasmid, etc.
 
 You can use centrifugal spin filters to concentrate your sample and change its buffer. These filters allow buffer and small molecules to flow through them, retaining large molecules bigger than the filter's specified molecular weight.
 
-:::::::{card}
-:header: **Important Information**
-
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
-
-::::::{note} Notes
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{seealso} Prerequisite Documentation
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{danger} Hazardous Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Critical Materials
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{attention} Genetically Encoded Components
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} Composition
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- None
-
-::::::
-
-:::::::
 
 # Materials and Equipment
 
