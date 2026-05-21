@@ -49,9 +49,15 @@ project:
              children:
              - file: ./docs/processes/make-protein/prep-consumables/main.md
                hidden: true
-            #  - file: ./docs/processes/make-protein/prep-consumables/main.md
-            #    hidden: true
-             
+             - file: ./docs/processes/make-protein/grow-bacteria/main.md
+               hidden: true
+             - file: ./docs/processes/make-protein/lysis-sonication/main.md
+               hidden: true
+             - file: ./docs/processes/make-protein/purify-proteins-grav-column/main.md
+               hidden: true
+             - file: ./docs/processes/make-protein/buff-ex-spin-filters/main.md
+               hidden: true
+
         - file: ./docs/modules/modules-main.md
           children:
            - file: ./docs/modules/membrane-popc-chol/spec.md
