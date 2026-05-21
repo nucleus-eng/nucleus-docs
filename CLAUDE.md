@@ -75,6 +75,19 @@ The template includes all possible dropdown sections as a starting point. **When
 
 If you find one, flag it and ask the developer: **"The `<Section Title>` dropdown is empty — should it be deleted, or does it need content?"** Wait for confirmation before making any changes. Do not silently leave `- None` placeholders in committed files, but also do not silently delete them. The template file (`templates/process-template/process-make_template.md`) is the only file exempt from this rule.
 
+**If all dropdowns in the Important Information card are removed**, the containing card block should also be removed:
+
+```
+:::::::{card}
+:header: **Important Information**
+
+Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
+
+:::::::
+```
+
+Again, confirm with the developer before deleting the card.
+
 ### Notion migration gotchas
 
 When migrating content from Notion markdown exports:
