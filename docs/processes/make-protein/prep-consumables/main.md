@@ -6,12 +6,6 @@ title: Prepare Protein Purification Buffers and Media
 
 Here, we make media used to grow up an expression strain to use for subsequent protein purification. We also make buffers used to purify those proteins using nickel histidine affinity chromatography.
 
-:::::::{card}
-:header: **Important Information**
-
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
-
-:::::::
 
 # Materials and Equipment
 

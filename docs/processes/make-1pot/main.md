@@ -11,12 +11,6 @@ Making PURE requires making Protein Mix, which contains the thirty-six (36) prot
 This Process has not yet been migrated onto Nucleus Documentation. The protocol can be found on our legacy site [here](https://nucleus.bnext.bio/Make-OnePot-Protein-Mix-234ae616eb5180c0b84cf5046d63a803).
 :::
 
-:::::::{card}
-:header: **Important Information**
-
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
-
-:::::::
 
 # Protocol
 
