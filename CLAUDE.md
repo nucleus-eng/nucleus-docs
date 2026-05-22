@@ -121,6 +121,16 @@ Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit for
 - **False positive** — the token is a label, not a temperature. Leave it alone.
   - Signals: preceded by "Figure", "Fig.", "Step", "Lane", "Panel", "Tube", "Option", or a similar structural label word.
 
+**Applying fixes programmatically.** When using a script (e.g., perl/sed) to bulk-apply degrees-symbol fixes, always use a negative lookbehind for `%` to avoid corrupting URL-encoded sequences like `%2C` (comma):
+
+```perl
+# Safe — won't corrupt %2C, %3C, etc. in URLs
+s/(?<!%)(\d+)C\b/$1°C/g
+
+# Unsafe — will corrupt URL-encoded sequences
+s/(\d+)C\b/$1°C/g
+```
+
 Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
 
 ### Pull request workflow
