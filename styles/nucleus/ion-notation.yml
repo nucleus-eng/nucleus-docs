@@ -1,0 +1,5 @@
+extends: existence
+message: "Use 'Mg2+' instead of '%s' -- Mg2+ is the accepted notation for magnesium ions."
+level: error
+raw:
+  - 'Mg\+\+'

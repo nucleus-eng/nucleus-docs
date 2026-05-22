@@ -111,7 +111,7 @@ vale docs/          # lint all docs
 vale <file.md>      # lint a single file
 ```
 
-Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`).
+Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), and ion notation (`Mg2+`).
 
 **Interpreting `nucleus.degrees-symbol` errors.** This rule flags patterns like `37C` or `4 C` that are missing the degree symbol. However, it cannot distinguish temperatures from alphanumeric labels, so it produces false positives. When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
 
@@ -120,6 +120,10 @@ Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit for
   - **Table cells**: a bare value (e.g., `37C`) in a table column whose header indicates temperature (e.g., "Temperature", "Incubation temp", "Storage") is always a real error, even without surrounding signal words.
 - **False positive** — the token is a label, not a temperature. Leave it alone.
   - Signals: preceded by "Figure", "Fig.", "Step", "Lane", "Panel", "Tube", "Option", or a similar structural label word.
+
+**Interpreting `nucleus.ion-notation` errors.** This rule flags `Mg++` and should always be treated as a real error — replace with `Mg2+`. There are no known false positives.
+
+**Interpreting `nucleus.micro-symbol` errors.** This rule flags patterns like `10 uL`, `500 uM`, or `2 um` that use an ASCII `u` instead of the micro symbol `µ`. Always a real error — replace with `µL`, `µM`, or `µm` respectively.
 
 Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
 
