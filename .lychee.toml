@@ -1,0 +1,30 @@
+# .lychee.toml — lychee link checker configuration
+# Run locally: lychee docs/
+# See: https://lychee.cli.rs/
+
+# Accepted HTTP status codes.
+# Explicitly restates the lychee default (100..=103, 200..=299) plus 403.
+# 403 is expected for academic papers and some vendor pages behind paywalls —
+# a 403 on a DOI or journal link does not mean the link is broken.
+accept = ["100..=103", "200..=299", "403"]
+
+# Root directory for resolving root-relative links (e.g. /docs/modules/foo/spec.md).
+# MyST supports root-relative paths as valid cross-page links; without this,
+# lychee treats them as unresolvable and flags them as errors.
+# Run lychee from the repo root for this to work correctly.
+root_dir = "."
+
+# Vendor sites that block automated crawlers with HTTP/2 errors or
+# bot-detection responses. These URLs are valid; lychee just can't check them.
+exclude = [
+  'sigmaaldrich\.com',
+]
+
+# Request timeout in seconds
+timeout = 20
+
+# Maximum number of redirects to follow
+max_redirects = 10
+
+# Skip mailto: links
+include_mail = false
