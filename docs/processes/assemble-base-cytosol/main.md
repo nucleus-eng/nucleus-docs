@@ -47,9 +47,9 @@ Please read this section carefully. It contains important notes, resources, and 
 :label: tbl:critical-materials
 :align: center
 
-| Name | Type | Specification |
-| --- | --- | --- |
-| `pOpen-deGFP` | Reporter | [pOpen-GFP]() |
+| Name          | Type     | Specification                                       |
+| ------------- | -------- | --------------------------------------------------- |
+| `pOpen-deGFP` | Reporter | [pOpen-deGFP](/docs/modules/reporter-degfp/spec.md) |
 :::
 
 ::::::
