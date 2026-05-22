@@ -14,11 +14,9 @@ accept = ["100..=103", "200..=299", "403"]
 # Run lychee from the repo root for this to work correctly.
 root_dir = "."
 
-# Vendor sites that block automated crawlers with HTTP/2 errors or
-# bot-detection responses. These URLs are valid; lychee just can't check them.
-exclude = [
-  'sigmaaldrich\.com',
-]
+# Note: sigmaaldrich.com terminates HTTP/2 connections at the protocol level,
+# returning no HTTP status code. check-links.py filters these out specifically
+# so genuine dead Sigma links (DNS failure, 404, etc.) are still caught.
 
 # Request timeout in seconds
 timeout = 20
