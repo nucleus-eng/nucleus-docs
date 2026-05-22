@@ -36,6 +36,18 @@ The documentation organizes content into three parallel hierarchies under `docs/
 - **`docs/modules/`** — Modular components that extend base cytosol functionality. Each module has a `spec.md` describing its design, compatible processes, and usage.
 - **`docs/implementations/`** — Documented combinations of modules and processes that demonstrate a complete system behavior.
 
+**File placement rules.** All content files — `.md`, images, `.csv` resources — must live inside one of these three subdirectories. Never create content files or directories at the repo root or anywhere outside `docs/`.
+
+| Content type | Correct location |
+| --- | --- |
+| New module | `docs/modules/<module-name>/` |
+| New process | `docs/processes/<process-name>/` |
+| New implementation | `docs/implementations/<implementation-name>/` |
+| Process sub-resources (BOMs, images) | `docs/processes/<process-name>/resources/` |
+| Module images | `docs/modules/<module-name>/` |
+
+**Before creating or moving any file**, verify the target path matches this structure. If a file is about to land outside `docs/`, stop and flag it to the developer before proceeding.
+
 ### Table of contents management
 
 The site TOC is defined entirely in `myst.yml`. When adding a new page, you must add it to the `toc:` section. Child pages that should not appear directly in the sidebar use `hidden: true`. The file `site.yml` holds site-wide settings (license, nav links, theme) that `myst.yml` extends.
