@@ -71,7 +71,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 We first need to prepare bacterial cultures. We will work from 6 mL overnight cultures of our expression strains and backdilute them the next day. In order to prepare these overnight cultures, we need stocks of bacteria.
 
-We work with 100 uL aliquots of our glycerol stocks frozen in PCR strip tubes. When seeding our overnights with bacteria, we poked one glycerol aliquot with a pipette tip and ejected the tip into culture tubes (more details below).
+We work with 100 µL aliquots of our glycerol stocks frozen in PCR strip tubes. When seeding our overnights with bacteria, we poked one glycerol aliquot with a pipette tip and ejected the tip into culture tubes (more details below).
 
 Optionally, you can work from individual colonies by streaking out your bacterial stocks. Working from colonies assures that your bulk outgrowth will have come from a single colony forming unit.
 :::
@@ -80,66 +80,66 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ] Add 3 mL Luria Broth (LB) under sterile conditions to three (3) 14 mL culture tubes. Two (2) tubes will be used to prepare 6 mL of overnight culture and one (1) tube will be used as a negative control. 6 mL of overnight culture is enough to inoculate 4 x 450 mL of bulk outgrowths. 
 - [ ] Label two tubes “(+)” and seed with an A19 stock (colony or glycerol stock; see note above).
 - [ ] Label the other tube “(-)”. This will be your negative control, used to test your sterile technique.
-- [ ] Incubate all tubes overnight at 37C / (225 - 250) rpm / (10 - 16) hr.
+- [ ] Incubate all tubes overnight at 37°C / (225 - 250) rpm / (10 - 16) hr.
 
 **Perform bulk outgrowth.**
 - [ ] Check if (-) has growth. If not, continue.
-- [ ] Seed 4x 450 mL fresh media in 4x 2L baffled Erlenmeyer flasks with 1:500 overnight culture (e.g., 900 uL overnight into each flask with 450 mL media).
-- [ ] Incubate back diluted cultures at 37C / (225-250) rpm to mid-log phase (OD600 between 0.6 and 0.8). This took us ~3 hrs.
+- [ ] Seed 4x 450 mL fresh media in 4x 2L baffled Erlenmeyer flasks with 1:500 overnight culture (e.g., 900 µL overnight into each flask with 450 mL media).
+- [ ] Incubate back diluted cultures at 37°C / (225-250) rpm to mid-log phase (OD600 between 0.6 and 0.8). This took us ~3 hrs.
 
 **Pellet, wash, and store cells.**
-- [ ] Fill 500 mL centrifuge bottles with culture. Balance centrifuge bottles against each other and pellet cultures at 16 000 rcf / 4C / 10 min.
+- [ ] Fill 500 mL centrifuge bottles with culture. Balance centrifuge bottles against each other and pellet cultures at 16 000 rcf / 4°C / 10 min.
 - [ ] Decant supernatant, add fresh culture, and repeat centrifugation as above, working through the remaining culture. You should end up with large pellets at the bottom of each centrifuge bottle.
-- [ ] Wash the pellets by resuspending in 500 mL cold (4C) NaCl (0.9%) then pelleting again at 16 000 rcf / 4C / 10 min.
+- [ ] Wash the pellets by resuspending in 500 mL cold (4°C) NaCl (0.9%) then pelleting again at 16 000 rcf / 4°C / 10 min.
 - [ ] Transfer pellets by spatula into a tared bag weigh and record the mass.
-- [ ] Flash freeze pellet in liquid nitrogen and store at -80C.
+- [ ] Flash freeze pellet in liquid nitrogen and store at -80°C.
 
 ## Nucleus acid extraction by precipitation
 
 **First Nucleic Acid Extraction:**
-- [ ] Set centrifuge to 4C and set shaking incubator to 37C.
+- [ ] Set centrifuge to 4°C and set shaking incubator to 37°C.
 - [ ] Resuspend 2 g of biomass into 18 mL of Extraction Buffer: NaOAc (50 mM), Mg(OAc)2 (10 mM), pH 5.0 in a 50 mL centrifuge tube by vortexing.
 - [ ] In a fume hood and wearing the appropriate PPE, add 18 mL of Acid Phenol (pH 4.5) using a glass serological pipette.
 - [ ] Cap the 50 mL centrifuge tube and seal with parafilm to prevent your sample spilling.
-- [ ] Incubate at 37C / 225 rpm / 30 min in a shaking incubator. Tape tubes against the bottom plate of the shaking incubator horizontally so that samples are shaking laterally.
-- [ ] Centrifuge at 4000 rcf / 4C / 15 min. You should observe three (3) layers: the aqueous (top) fraction, the organic (lower) fraction, and a middle fraction of cell debris separating them.
+- [ ] Incubate at 37°C / 225 rpm / 30 min in a shaking incubator. Tape tubes against the bottom plate of the shaking incubator horizontally so that samples are shaking laterally.
+- [ ] Centrifuge at 4000 rcf / 4°C / 15 min. You should observe three (3) layers: the aqueous (top) fraction, the organic (lower) fraction, and a middle fraction of cell debris separating them.
 - [ ] Carefully collect the aqueous fraction by serological pipette, without disturbing the cell debris fraction, and transfer to a fresh 50 mL centrifuge tube.
 
 **Second Nucleic Acid Extraction:**
-- [ ] Add 14 mL of Extraction Buffer to Acid Phenol, seal the 50 mL centrifuge tube with parafilm, and incubate at 37C / 225 rpm / 15 min.
-- [ ] Centrifuge at 4000 rcf / 4C / 15 min.
+- [ ] Add 14 mL of Extraction Buffer to Acid Phenol, seal the 50 mL centrifuge tube with parafilm, and incubate at 37°C / 225 rpm / 15 min.
+- [ ] Centrifuge at 4000 rcf / 4°C / 15 min.
 - [ ] Collect the aqueous fraction and combine with the first nucleic acid extraction (total volume between 30 mL and 32 mL).
 
 **Precipitate Nucleic Acids (RNA & DNA):**
-- [ ] Set centrifuge to 25C.
+- [ ] Set centrifuge to 25°C.
 - [ ] Add NaCl (5 M) to the aqueous phase to a final concentration of 0.2 M (~1.5 mL). Mix by inversion and split evenly into 2x 50 mL centrifuge tubes.
 - [ ] Precipitate nucleic acids by adding one volume of isopropanol (~17 mL) to each tube and incubate at room temperature for 10 min. The mixture should turn visibly cloudy.
-- [ ] Pellet nucleic acid precipitate via centrifugation at 14 500 rcf / 25C / 15 min.
+- [ ] Pellet nucleic acid precipitate via centrifugation at 14 500 rcf / 25°C / 15 min.
 - [ ] Wash the pellet with EtOH (70%):
-	- [ ] Decant supernatant and wash nucleic acid pellet with 10 mL cold (-20C) EtOH (70%).
-    - [ ] Re-pellet nucleic acid pellet by centrifugation at 14 500 rcf / 25C / 5 min.
+	- [ ] Decant supernatant and wash nucleic acid pellet with 10 mL cold (-20°C) EtOH (70%).
+    - [ ] Re-pellet nucleic acid pellet by centrifugation at 14 500 rcf / 25°C / 5 min.
     - [ ] Decant the supernatant and allow the pellet to air dry for 10 minutes.
 
 **Remove rRNA by precipitation:**
-- [ ] Resuspend each pellet into 15 mL of cold (4C) NaCl (1 M) by vortexing or pipetting. Ensure the pellet is fully dissolved. Allow NaCl (1 M) solution to hydrate pellet for (10 - 15) min at room temperature to help the pellet dissolve.
-- [ ] Precipitate rRNA by centrifugation at 9500 rcf / 4C / 20 min.
+- [ ] Resuspend each pellet into 15 mL of cold (4°C) NaCl (1 M) by vortexing or pipetting. Ensure the pellet is fully dissolved. Allow NaCl (1 M) solution to hydrate pellet for (10 - 15) min at room temperature to help the pellet dissolve.
+- [ ] Precipitate rRNA by centrifugation at 9500 rcf / 4°C / 20 min.
 - [ ] Decant the supernatant to a new 50 mL centrifuge tube.
 
 **Precipitate remaining DNA and tRNA nucleic acids:** 
-- [ ] Add 2 volumes (approximately 30 mL) of cold (-20C) EtOH (100%) to the supernatant and incubate at -20C / >30 min to precipitate remaining nucleic acids. You can perform this step overnight. 
-- [ ] Centrifuge at 14 500 rcf / 4C / 5 min. 
+- [ ] Add 2 volumes (approximately 30 mL) of cold (-20°C) EtOH (100%) to the supernatant and incubate at -20°C / >30 min to precipitate remaining nucleic acids. You can perform this step overnight. 
+- [ ] Centrifuge at 14 500 rcf / 4°C / 5 min. 
 - [ ] Wash the pellet with EtOH (70%) as above.
 
 **Remove DNA by precipitation:**
-- [ ] Set centrifuge to 25C.
-- [ ] Dissolve the pellet in 6 mL of NaOAc (300 mM, pH 5.0). As needed to ensure the pellet is fully dissolved, heat samples up to 60C, pipette mix, and/or vortex. If the pellet is visibly small, you can dissolve each pellet in 3 mL of NaOAc (0.3 M, pH 5.0) and pool them together, totaling 6 mL.
+- [ ] Set centrifuge to 25°C.
+- [ ] Dissolve the pellet in 6 mL of NaOAc (300 mM, pH 5.0). As needed to ensure the pellet is fully dissolved, heat samples up to 60°C, pipette mix, and/or vortex. If the pellet is visibly small, you can dissolve each pellet in 3 mL of NaOAc (0.3 M, pH 5.0) and pool them together, totaling 6 mL.
 - [ ] Add 0.56 volumes of isopropanol (~3.4 mL) to each nucleic acid solution and incubate at room temperature for 10 min.
-- [ ] Centrifuge at 14 500 rcf / 25C / 5 min. Decant the supernatant to a 15 mL centrifuge tube.
+- [ ] Centrifuge at 14 500 rcf / 25°C / 5 min. Decant the supernatant to a 15 mL centrifuge tube.
 
 **Precipitate tRNAs:**
-- [ ] Set the centrifuge to 4C.
-- [ ] Add 2.3 mL of isopropanol to the supernatant (supernatant:isopropanol is 100:95) and incubate at -20C / >30 min. This step can be performed overnight.
-- [ ] Centrifuge the suspension at 14 500 rcf / 4C / 15 min.
+- [ ] Set the centrifuge to 4°C.
+- [ ] Add 2.3 mL of isopropanol to the supernatant (supernatant:isopropanol is 100:95) and incubate at -20°C / >30 min. This step can be performed overnight.
+- [ ] Centrifuge the suspension at 14 500 rcf / 4°C / 15 min.
 - [ ] Wash the pellet with EtOH (70%) as above.
 - [ ] Resuspend the tRNA pellet in 1.5 mL of nuclease-free water and keep on ice.
 
@@ -155,7 +155,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 	- [ ] Carefully pipette 1.5 mL of resuspended tRNAs into the cassette. Avoid puncturing the membrane!
 	- [ ] Remove the excess air in the cassette by simultaneously pressing the membrane gently on both sides and inserting the cap and locking it into place.
 - [ ] Dialyze Sample: 
-	- [ ] Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4C / 2 hrs. We do this by putting our beaker in a bucket of ice on a stir plate. 
+	- [ ] Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4°C / 2 hrs. We do this by putting our beaker in a bucket of ice on a stir plate. 
 	- [ ] Change the dialysis buffer and continue dialyzing overnight.
 
 ## Concentrate
@@ -163,9 +163,9 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 - [ ] Pipette dialyzed tRNAs to the upper chamber of an Amicon® Ultra-0.5 mL Centrifugal Filter, 3 kDa MWCO.
 - [ ] Centrifuge at 14 000 rcf / 10 min and check the remaining volume in the upper chamber. Repeat until you hit your target volume.
 
-:::{tip} Note: estimate your target volume at 100 uL per 1 g biomass.
+:::{tip} Note: estimate your target volume at 100 µL per 1 g biomass.
 :class: dropdown
-From our experience, a good rule of thumb is to target a final volume around 100 uL per 1g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 uL (~40 ug/uL tRNAs)).
+From our experience, a good rule of thumb is to target a final volume around 100 µL per 1g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 µL (~40 ug/uL tRNAs)).
 :::
 
 ## Quality control
@@ -194,18 +194,18 @@ NEB has a great [tool](https://nebiocalculator.neb.com/#!/od260) for converting 
     - [ ] Wash wells with running buffer by syringe. You should be able to see urea displaced from the well by change in refractive index.
 - [ ]  Prepare tRNA samples:
     - [ ] Dilute tRNAs to 40 ng / uL tRNA in nuclase-free water.
-    - [ ] Prepare 20 ng / uL sample by adding 10 uL of 40 ng / uL tRNA to 10 uL 2x TBE-Urea sample buffer.
-    - [ ] Prepare an ssRNA ladder. We use the NEB low range ssRNA (2 uL ladder + 2 uL 2x sample buffer).
-    - [ ] Incubate sample and and ladder at 65C / 3 min → 4C / hold using a thermal cycler.
-- [ ] Load 200 ng of tRNA (10 uL at 20 ng / uL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
-- [ ] Meanwhile, prepare SYBR-Green stain (4 uL in 40 mL water) to stain gel.
+    - [ ] Prepare 20 ng / uL sample by adding 10 µL of 40 ng / uL tRNA to 10 µL 2x TBE-Urea sample buffer.
+    - [ ] Prepare an ssRNA ladder. We use the NEB low range ssRNA (2 µL ladder + 2 µL 2x sample buffer).
+    - [ ] Incubate sample and and ladder at 65°C / 3 min → 4°C / hold using a thermal cycler.
+- [ ] Load 200 ng of tRNA (10 µL at 20 ng / uL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
+- [ ] Meanwhile, prepare SYBR-Green stain (4 µL in 40 mL water) to stain gel.
 - [ ] Soak gel in SYBR-Green stain and visualize gel using UV or blue-light transilluminator. You should see multiple distinct bands around 75-90 nt.
 
 :::{tip} Note: RNases digesting your tRNA → smear on gel
 :class: dropdown
 If your sample is contaminated with RNases, your sample quality will decrease as the RNases degrade the tRNAs. A clear sign of tRNA degradation are poorly defined, smeared bands. A clean tRNA prep should have distinct bands.
 
-If your samples appear as a smear on your gel, consider testing your input buffers and final prep for RNase activity. You can use the [Invitrogen RNaseAlert™ Lab Test Kit](https://www.thermofisher.com/order/catalog/product/AM1964) (Cat. No. AM1964). We recommend diluting your tRNAs by adding 2 uL to 40 uL of provided sample buffer. 
+If your samples appear as a smear on your gel, consider testing your input buffers and final prep for RNase activity. You can use the [Invitrogen RNaseAlert™ Lab Test Kit](https://www.thermofisher.com/order/catalog/product/AM1964) (Cat. No. AM1964). We recommend diluting your tRNAs by adding 2 µL to 40 µL of provided sample buffer. 
 :::
 ## Formulation
 
@@ -213,7 +213,7 @@ If your samples appear as a smear on your gel, consider testing your input buffe
 
 ## Storage
 
-- [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80C.
+- [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80°C.
 
 # Downloads
 
