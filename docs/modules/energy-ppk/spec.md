@@ -25,7 +25,7 @@ This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation 
 :width: 60%
 :::
 
-The PPK Energy module consists of a purified protein, the bifunctional polyphosphate kinase (PPK2), and it's substrate, the 25mer polyphosphate (PolyP). Here, bifunctionality refers to the modules ability to direct the synthesis of ATP and GTP from AMP and GDP, respectively
+The PPK Energy module consists of a purified protein, the bifunctional polyphosphate kinase (PPK2), and its substrate, the 100mer polyphosphate (PolyP). Here, bifunctionality refers to the module's ability to direct the synthesis of ATP and GTP from AMP and GDP, respectively
 
 When used alongside PURE's standard energy regeneration module based on creatine kinase and creatine phosphate (CP/CK), significant increases in protein expression yields can result.
 
@@ -36,7 +36,7 @@ When used alongside PURE's standard energy regeneration module based on creatine
 
 ## Usage
 
-The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. This module is highly sensitive to amount of Mg++ contained in Cytosol since PolyP acts as a magnesium chelator
+The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. This module is highly sensitive to amount of Mg2+ contained in Cytosol since PolyP acts as a magnesium chelator
 
 **DNA Parts**
 
@@ -54,52 +54,52 @@ The PPK energy module is implemented by preparing a custom energy mix and adding
 
 **Custom SMix.** The construction SMix without creatine phosphate (SMixΔCP) is as follow. Note that normal SMix contains all of the following plus 20 mM CP.
 
-| Component | Stock concentration (mM) | Concentration of components in reaction (mM) | Concentration in Energy solution  (mM) | Final volume to add (µL) |
-| --- | --- | --- | --- | --- |
-| HEPES | 1000 | 50 | 150 | 30.0 |
-| Potassium glutamate | 2500 | 100 | 300 | 24.0 |
-| Magnesium acetate | 1000 | 11.8 | 35.4 | 7.1 |
-| NTP | 100 | 2 | 6 | 12.0 |
-| tRNA (mg/mL) | 40 | 3.5 | 10.5 | 52.5 |
-| Creatine phosphate | 1000 | 0 | 0 | 0.0 |
-| TCEP | 500 | 1 | 3 | 1.2 |
-| Folinic acid | 5 | 0.02 | 0.06 | 2.4 |
-| Spermidine | 200 | 2 | 6 | 6.0 |
-| Amino acid solution | 3.25 | 0.3 | 0.9 | 55.4 |
-| Water |  |  |  | 9.4 |
-|  |  |  |  |  |
-| Energy solution total |  | Final concentration (fold) |  | Final volume |
-|  |  | 3 |  | 200 |
+| Component             | Stock concentration (mM) | Concentration of components in reaction (mM) | Concentration in Energy solution  (mM) | Final volume to add (µL) |
+| --------------------- | ------------------------ | -------------------------------------------- | -------------------------------------- | ------------------------ |
+| HEPES                 | 1000                     | 50                                           | 150                                    | 30.0                     |
+| Potassium glutamate   | 2500                     | 100                                          | 300                                    | 24.0                     |
+| Magnesium acetate     | 1000                     | 11.8                                         | 35.4                                   | 7.1                      |
+| NTP                   | 100                      | 2                                            | 6                                      | 12.0                     |
+| tRNA                  | 40 (mg/mL)               | 3.5 (mg/mL)                                  | 10.5 (mg/mL)                           | 52.5                     |
+| Creatine phosphate    | 1000                     | 0                                            | 0                                      | 0.0                      |
+| TCEP                  | 500                      | 1                                            | 3                                      | 1.2                      |
+| Folinic acid          | 5                        | 0.02                                         | 0.06                                   | 2.4                      |
+| Spermidine            | 200                      | 2                                            | 6                                      | 6.0                      |
+| Amino acid solution   | 3.25                     | 0.3                                          | 0.9                                    | 55.4                     |
+| Water                 |                          |                                              |                                        | 9.4                      |
+|                       |                          |                                              |                                        |                          |
+| Energy solution total |                          | Final concentration (fold)                   |                                        | Final volume             |
+|                       |                          | 3                                            |                                        | 200                      |
 
 The following reaction table is a self-contained experiment for evaluating the performance of the PPK energy module. Details about the stock solutions and detailed reaction descriptions are available in the toggle list below.
 
 :::{hint} Note: Concentration of Stock Solutions
 :class: dropdown
 
-| Component | Input concentration | Unit |
-| --- | --- | --- |
-| Sol A | 2.50 | x |
-| Energy solution-CP | 3.00 | × |
-| Sol B | 3.33 | x |
-| plam-GFP DNA | 120 | ng/µL |
-| Mg-Acetate | 200 | mM |
-| Creatine phosphate | 1000 | mM |
-| PEG4K 40% | 40 | % |
-| PolyP | 500 | mM |
-| PPK2 | 57.5 | uM |
+| Component          | Input concentration | Unit  |
+| ------------------ | ------------------- | ----- |
+| Sol A              | 2.50                | fold  |
+| Energy solution-CP | 3.00                | fold  |
+| Sol B              | 3.33                | fold  |
+| plam-GFP DNA       | 120                 | ng/µL |
+| Mg-Acetate         | 200                 | mM    |
+| Creatine phosphate | 1000                | mM    |
+| PEG4K 40%          | 40                  | %     |
+| PolyP              | 500                 | mM    |
+| PPK2               | 57.5                | uM    |
 
 :::
 
 :::{hint} Note: Description of Reactions
 :class: dropdown
 
-| Name in Reaction Table | Description |
-| --- | --- |
-| **CP/CK** | PURE with CP and 8 mM Mg2+ |
-| **PPK/PolyP** | PURE with PolyP, PPK and 18 mM Mg2+ |
-| **CP/CK + PPK/PolyP** | PURE with CP, PolyP, PPK and 18 mM Mg2+ |
-| **+ DNA Positive Control** | PURExpress Positive control (PC) reaction |
-| **-DNA Negative Control** | PURExpress Negative control (NC) reaction (without DNA template) |
+| Name in Reaction Table     | Description                                                      |
+| -------------------------- | ---------------------------------------------------------------- |
+| **CP/CK**                  | PURE with CP and 8 mM Mg2+                                       |
+| **PPK/PolyP**              | PURE with PolyP, PPK and 18 mM Mg2+                              |
+| **CP/CK + PPK/PolyP**      | PURE with CP, PolyP, PPK and 18 mM Mg2+                          |
+| **+ DNA Positive Control** | PURExpress Positive control (PC) reaction                        |
+| **- DNA Negative Control** | PURExpress Negative control (NC) reaction (without DNA template) |
 
 :::
 
@@ -134,7 +134,7 @@ Final protein yields of the reactions measured at steady state. The PPK2 module 
 
 ::::{tab-item} Mg Sensitivity
 :::{figure} mg-sensitivity.png
-The PPK energy module is highly sensitive to [Mg++]. Final protein yields of PPK2-powered PURE reactions at different Mg2+ concentrations. PPK2 enzyme and polyP were added at a final concetration of 2 µM and 30 mM, respectively.
+The PPK energy module is highly sensitive to [Mg2+]. Final protein yields of PPK2-powered PURE reactions at different Mg2+ concentrations. PPK2 enzyme and polyP were added at a final concentration of 2 µM and 30 mM, respectively.
 :::
 ::::
 
