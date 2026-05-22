@@ -165,7 +165,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 
 :::{tip} Note: estimate your target volume at 100 µL per 1 g biomass.
 :class: dropdown
-From our experience, a good rule of thumb is to target a final volume around 100 µL per 1g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 µL (~40 ug/uL tRNAs)).
+From our experience, a good rule of thumb is to target a final volume around 100 µL per 1g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 µL (~40 µg/µL tRNAs)).
 :::
 
 ## Quality control
@@ -193,11 +193,11 @@ NEB has a great [tool](https://nebiocalculator.neb.com/#!/od260) for converting 
     - [ ] Pre-run gels at 100 V / 30 min.
     - [ ] Wash wells with running buffer by syringe. You should be able to see urea displaced from the well by change in refractive index.
 - [ ]  Prepare tRNA samples:
-    - [ ] Dilute tRNAs to 40 ng / uL tRNA in nuclase-free water.
-    - [ ] Prepare 20 ng / uL sample by adding 10 µL of 40 ng / uL tRNA to 10 µL 2x TBE-Urea sample buffer.
+    - [ ] Dilute tRNAs to 40 ng / µL tRNA in nuclase-free water.
+    - [ ] Prepare 20 ng / µL sample by adding 10 µL of 40 ng / µL tRNA to 10 µL 2x TBE-Urea sample buffer.
     - [ ] Prepare an ssRNA ladder. We use the NEB low range ssRNA (2 µL ladder + 2 µL 2x sample buffer).
     - [ ] Incubate sample and and ladder at 65°C / 3 min → 4°C / hold using a thermal cycler.
-- [ ] Load 200 ng of tRNA (10 µL at 20 ng / uL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
+- [ ] Load 200 ng of tRNA (10 µL at 20 ng / µL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
 - [ ] Meanwhile, prepare SYBR-Green stain (4 µL in 40 mL water) to stain gel.
 - [ ] Soak gel in SYBR-Green stain and visualize gel using UV or blue-light transilluminator. You should see multiple distinct bands around 75-90 nt.
 
@@ -209,7 +209,7 @@ If your samples appear as a smear on your gel, consider testing your input buffe
 :::
 ## Formulation
 
-- [ ] Dilute your tRNA stocks in nuclease-free water to 35 ug / uL, which is 10x working concentration for cytosol reactions. 
+- [ ] Dilute your tRNA stocks in nuclease-free water to 35 µg / µL, which is 10x working concentration for cytosol reactions. 
 
 ## Storage
 
