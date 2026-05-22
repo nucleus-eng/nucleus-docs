@@ -1,0 +1,11 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: error
+swap:
+  degC: °C
+  deg C: °C
+  degrees C: °C
+  degrees Celsius: °C
+  degrees celsius: °C
+  deg. C: °C
+  degc: °C

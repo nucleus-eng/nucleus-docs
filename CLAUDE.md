@@ -102,6 +102,27 @@ When migrating content from Notion markdown exports:
 
 `myst.yml` maintains a `references:` map of named keys (e.g., `devnote-01:`) pointing to external DevNote URLs. These can be cited throughout the docs without repeating URLs.
 
+### Prose linting (Vale)
+
+Run Vale to check docs for style violations:
+
+```bash
+vale docs/          # lint all docs
+vale <file.md>      # lint a single file
+```
+
+Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`).
+
+**Interpreting `nucleus.degrees-symbol` errors.** This rule flags patterns like `37C` or `4 C` that are missing the degree symbol. However, it cannot distinguish temperatures from alphanumeric labels, so it produces false positives. When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
+
+- **Real error** — the token is a temperature value. Fix it by adding the degree symbol (e.g., `37C` → `37°C`, `4 C` → `4°C`).
+  - Signals: preceded by "at", "to", "of", or a verb like "incubate", "store", "heat"; followed by "for X minutes/hours"; in a reaction table or thermocycler step.
+  - **Table cells**: a bare value (e.g., `37C`) in a table column whose header indicates temperature (e.g., "Temperature", "Incubation temp", "Storage") is always a real error, even without surrounding signal words.
+- **False positive** — the token is a label, not a temperature. Leave it alone.
+  - Signals: preceded by "Figure", "Fig.", "Step", "Lane", "Panel", "Tube", "Option", or a similar structural label word.
+
+Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
+
 ### Pull request workflow
 
 When merging a PR via `gh pr merge`, never use `--admin` to bypass branch protection rules. If a merge fails due to branch policy, stop and ask the developer how to proceed — options are leaving the PR open for a reviewer, asking the developer to approve it themselves, or using `--auto` to merge once requirements are met.

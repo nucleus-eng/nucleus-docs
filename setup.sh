@@ -6,6 +6,11 @@ if [[ "$CONDA_DEFAULT_ENV" == "nucleus-docs" ]]; then
   exit 1
 fi
 
+# Install Vale if not already present
+if ! command -v vale &> /dev/null; then
+  brew install vale
+fi
+
 conda env remove -n nucleus-docs 2>/dev/null
 conda env create -f environment.yml
 echo ""
