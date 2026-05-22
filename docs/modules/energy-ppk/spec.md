@@ -140,10 +140,6 @@ The PPK energy module is highly sensitive to [Mg2+]. Final protein yields of PPK
 
 :::::
 
-## Resources and References
-
-- Yadav, S. (2025). PPK Module testing in PURE: PPK Module increases protein expression. *Nucleus Developer Notes.* [**10.63765/djnv7772**](https://doi.org/10.63765/djnv7772)
-
 ## Credits
 
 - Surendra Yadav
