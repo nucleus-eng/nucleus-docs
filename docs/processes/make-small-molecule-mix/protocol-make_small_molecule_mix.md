@@ -20,16 +20,16 @@ exports:
 :label: tbl:stock-solutions
 :align: center
 
-| Reagent                     | **MW (g/mol)** | **Amount (g)** | **Final Volume (mL)**                 | **Storage**     | **Needs pH adjustment?** | **Needs Sterilization?** |
-| --------------------------- | -------------- | -------------- | ------------------------------------- | --------------- | ------------------------ | ------------------------ |
-| Potassium Hydroxide (1 M)   | 56.11          | 14.0           | 250                                   | 4C to 30C       | no                       | no                       |
-| HEPES-KOH (pH 7.6, 1 M)     | 238.3          | 59.5           | 250                                   | 4C to 30C; dark | yes                      | no                       |
-| Potassium glutamate (2.5 M) | 203.23         | 21.8           | 50                                    | 4C to 30C       | no                       | no                       |
-| Magnesium acetate (1 M)     | 214.45         | 10.8           | 50                                    | 4C to 30C       | no                       | no                       |
-| Creatine phosphate (500 mM) | 327.14         | 1              | 9.43                                  | -25C to -15C    | no                       | no                       |
-| Folinic acid (5 mM)         | 511.50         | See above      |                                       | -25C to -15C    | no                       | no                       |
-| Spermidine (500 mM)         | 145.25         | 1              | 13.77                                 | -25C to -15C    | no                       | no                       |
-| Amino Acid Mix              |                |                | see [Make Amino Acid Mix](../main.md) | -85C to -15C    | yes                      | yes                      |
+| Reagent                     | **MW (g/mol)** | **Amount (g)** | **Final Volume (mL)**                                     | **Storage**     | **Needs pH adjustment?** | **Needs Sterilization?** |
+| --------------------------- | -------------- | -------------- | --------------------------------------------------------- | --------------- | ------------------------ | ------------------------ |
+| Potassium Hydroxide (1 M)   | 56.11          | 14.0           | 250                                                       | 4C to 30C       | no                       | no                       |
+| HEPES-KOH (pH 7.6, 1 M)     | 238.3          | 59.5           | 250                                                       | 4C to 30C; dark | yes                      | no                       |
+| Potassium glutamate (2.5 M) | 203.23         | 21.8           | 50                                                        | 4C to 30C       | no                       | no                       |
+| Magnesium acetate (1 M)     | 214.45         | 10.8           | 50                                                        | 4C to 30C       | no                       | no                       |
+| Creatine phosphate (500 mM) | 327.14         | 1              | 9.43                                                      | -25C to -15C    | no                       | no                       |
+| Folinic acid (5 mM)         | 511.50         | See above      |                                                           | -25C to -15C    | no                       | no                       |
+| Spermidine (500 mM)         | 145.25         | 1              | 13.77                                                     | -25C to -15C    | no                       | no                       |
+| Amino Acid Mix              |                |                | see [Make Amino Acid Mix](../make-amino-acid-mix/main.md) | -85C to -15C    | yes                      | yes                      |
 
 :::
 
