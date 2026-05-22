@@ -104,14 +104,14 @@ When migrating content from Notion markdown exports:
 
 ### Prose linting (Vale)
 
-Run Vale to check docs for style violations:
+**Run `vale docs/` before opening a PR or committing a content migration.** Vale lints both `.md` and `.csv` files under `docs/`.
 
 ```bash
 vale docs/          # lint all docs
 vale <file.md>      # lint a single file
 ```
 
-Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`).
+Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), and ion notation (`Mg2+`).
 
 **Interpreting `nucleus.degrees-symbol` errors.** This rule flags patterns like `37C` or `4 C` that are missing the degree symbol. However, it cannot distinguish temperatures from alphanumeric labels, so it produces false positives. When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
 
