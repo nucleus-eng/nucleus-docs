@@ -11,3 +11,9 @@ Hold at 72 C for extension.
 We use vitamin C in the buffer.
 See option C for details.
 The correct way: incubate at 37°C.
+
+## Known false positives (should NOT fire, but currently do)
+
+See Figure 2C for the gel image.
+Refer to Step 1C in the protocol.
+Lane 3C shows the control band.
