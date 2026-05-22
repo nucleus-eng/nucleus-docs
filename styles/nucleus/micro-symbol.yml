@@ -1,0 +1,5 @@
+extends: existence
+message: "Use the micro symbol (mu): '%s' should be written with 'µ' not 'u' (e.g., uL -> µL, uM -> µM, um -> µm)."
+level: error
+raw:
+  - '\d+\s*u[LMm]\b'
