@@ -18,6 +18,7 @@ Usage:
 """
 
 import json
+import shutil
 import subprocess
 import sys
 
@@ -40,6 +41,10 @@ def is_http2_false_positive(url: str, error_text: str) -> bool:
 
 
 def main():
+    if not shutil.which("lychee"):
+        print("ERROR: lychee is not installed. Run ./setup.sh or: brew install lychee")
+        sys.exit(1)
+
     args = sys.argv[1:] or ["docs/"]
 
     result = subprocess.run(
@@ -89,7 +94,8 @@ def main():
             print(f"  {filepath}")
             for entry in entries:
                 url = entry.get("url", "")
-                details = entry.get("status", {}).get("details", "")
+                status = entry.get("status", {})
+                details = status.get("details", "") or status.get("text", "")
                 line = entry.get("span", {}).get("line", "?")
                 print(f"    [{line}] {url} — {details}")
         sys.exit(1)
