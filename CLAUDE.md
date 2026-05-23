@@ -135,6 +135,19 @@ Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit for
 
 Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
 
+### Link checking (lychee)
+
+**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** This is slower than Vale and doesn't need to run on every commit — focus on PRs that touch links.
+
+```bash
+python3 scripts/check-links.py docs/       # check all docs
+python3 scripts/check-links.py <file.md>   # check a single file
+```
+
+The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
+
+**Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
+
 ### Pull request workflow
 
 When merging a PR via `gh pr merge`, never use `--admin` to bypass branch protection rules. If a merge fails due to branch policy, stop and ask the developer how to proceed — options are leaving the PR open for a reviewer, asking the developer to approve it themselves, or using `--auto` to merge once requirements are met.
