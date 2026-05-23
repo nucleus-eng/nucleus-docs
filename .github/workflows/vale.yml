@@ -7,12 +7,14 @@ on:
 jobs:
   vale:
     runs-on: ubuntu-latest
+    env:
+      VALE_VERSION: "3.14.2"
     steps:
       - uses: actions/checkout@v4
 
       - name: Install Vale
         run: |
-          VALE_VERSION=$(curl -sSL https://api.github.com/repos/vale-cli/vale/releases/latest | grep '"tag_name"' | cut -d'"' -f4 | tr -d 'v')
+          set -euo pipefail
           curl -sSL "https://github.com/vale-cli/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz" \
             | tar xz -C /usr/local/bin vale
 
