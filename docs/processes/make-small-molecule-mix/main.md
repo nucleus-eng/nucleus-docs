@@ -29,9 +29,9 @@ Please read this section carefully. It contains important notes, resources, and 
 :label: tbl:critical-materials
 :align: center
 
-| **Reagent**  | **Product Name**                  | **Manufacturer** | **Part #**  | **Price** | Storage Conditions | **Link**                                                        |
-| ------------ | --------------------------------- | ---------------- | ----------- | --------- | ------------------ | --------------------------------------------------------------- |
-| Folinic acid | Folinic acid calcium salt hydrate | Sigma-Aldrich    | F7878-100MG | $108      | 4°C to 30°C          | [[link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)] |
+| **Reagent** | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
+| --- | --- | --- | --- | --- | --- | --- |
+| Folinic acid | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4°C to 30°C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)] |
 
 :::
 

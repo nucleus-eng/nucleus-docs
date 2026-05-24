@@ -116,14 +116,14 @@ When migrating content from Notion markdown exports:
 
 ### Prose linting (Vale)
 
-Run Vale to check docs for style violations:
+**Run `vale docs/` before opening a PR or committing a content migration.** Vale lints both `.md` and `.csv` files under `docs/`.
 
 ```bash
 vale docs/          # lint all docs
 vale <file.md>      # lint a single file
 ```
 
-Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`).
+Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), and ion notation (`Mg2+`).
 
 **Interpreting `nucleus.degrees-symbol` errors.** This rule flags patterns like `37C` or `4 C` that are missing the degree symbol. However, it cannot distinguish temperatures from alphanumeric labels, so it produces false positives. When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
 
@@ -132,6 +132,18 @@ Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit for
   - **Table cells**: a bare value (e.g., `37C`) in a table column whose header indicates temperature (e.g., "Temperature", "Incubation temp", "Storage") is always a real error, even without surrounding signal words.
 - **False positive** — the token is a label, not a temperature. Leave it alone.
   - Signals: preceded by "Figure", "Fig.", "Step", "Lane", "Panel", "Tube", "Option", or a similar structural label word.
+
+**Vale `TokenIgnores` limitation on CSV files.** Vale's `TokenIgnores` setting (used to suppress URL matches) works for `.md` files but is silently ignored for `.csv` files. This means URL-encoded sequences like `%2C` in CSV cells can trigger rules even when URLs are listed in `TokenIgnores`. The workaround is to bake URL safety directly into the rule pattern (e.g., `(?<!%)\d+\s*C\b` instead of `\d+\s*C\b`).
+
+**Applying fixes programmatically.** When using a script (e.g., perl/sed) to bulk-apply degrees-symbol fixes, always use a negative lookbehind for `%` to avoid corrupting URL-encoded sequences like `%2C` (comma):
+
+```perl
+# Safe — won't corrupt %2C, %3C, etc. in URLs
+s/(?<!%)(\d+)C\b/$1°C/g
+
+# Unsafe — will corrupt URL-encoded sequences
+s/(\d+)C\b/$1°C/g
+```
 
 Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
 
