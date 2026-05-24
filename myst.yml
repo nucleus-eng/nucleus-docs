@@ -15,11 +15,24 @@ project:
     - file: intro.md
     - file: ./start/getting-started.md
       children:
-        - file: ./docs/dna-distro.md
         - file: ./start/first-guide.md
-        - file: ./guides/tutorials.md
         - file: ./guides/nucleus-hub/nucleus-hub.md
+        - file: ./docs/dna-distro.md
         - file: ./guides/contribution-guide.md
+    - file: ./guides/main.md
+      children:
+        - file: ./start/getting-started.md
+          hidden: true
+        - file: ./start/first-guide.md
+          hidden: true
+        - file: ./docs/dna-distro.md
+          hidden: true
+        - file: ./guides/tutorials.md
+          hidden: true
+        - file: ./guides/nucleus-hub/nucleus-hub.md
+          hidden: true
+        - file: ./guides/contribution-guide.md
+          hidden: true
         - file: ./guides/developer-notes/developer-notes.md
           hidden: true
         - file: ./guides/developer-notes/developer-notes-parts.md

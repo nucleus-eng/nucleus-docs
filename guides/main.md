@@ -1,0 +1,31 @@
+---
+title: Guides
+---
+
+# Overview
+
+Guides provide tutorials, how-tos, and reference documentation to help you get the most out of the Nucleus Distribution. They cover lab workflows, digital tools, and contribution processes.
+
+## Get Started
+
+- [Getting Started](../start/getting-started.md) — an overview of the Nucleus Distribution and where to begin
+- [Beginner's Guide](../start/first-guide.md) — a step-by-step walkthrough of the full Nucleus workflow, from cytosol assembly to posting a DevNote
+
+## Lab Guides
+
+- [DNA Distribution](../docs/dna-distro.md) — overview of the Nucleus DNA Distribution and companion GitHub repository
+- [Tutorials](tutorials.md) — tutorials covering lab and data analysis workflows
+- [Tutorial: Analyzing Platereader Data](platereader_tutorial.md) — analyze cytosol kinetics data using the Nucleus CDK
+- [Tutorial: Making a Nucleus Compatible Plate Map](platemap_tutorial.md) — format and submit platemaps for use with CDK tools
+
+## Digital Tools
+
+- [Getting Started with Nucleus Hub](nucleus-hub/nucleus-hub.md) — access the Cell Development Kit and collaborate with other developers on Nucleus Hub
+
+## Contributing
+
+- [Contribution Guidelines](contribution-guide.md) — requirements and recommendations for submitting a contribution to the Distribution
+- [Getting Started with Developer Notes](developer-notes/developer-notes.md) — set up and submit a DevNote from Nucleus Hub
+- [Parts of a Developer Note](developer-notes/developer-notes-parts.md) — reference documentation for DevNote file structure
+- [Tutorial: Submitting Your First DevNote](devnote-tutorial.md) — end-to-end walkthrough of the DevNote submission workflow
+- [Reference: Useful Syntax Patterns for DevNotes](developer-note-syntax.md) — common MyST Markdown patterns for writing DevNotes
