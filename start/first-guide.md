@@ -1,5 +1,5 @@
 ---
-title: "Beginner's Guide" 
+title: "Getting Started" 
 subtitle: "From Zero to DevNote: a Beginner's Guide to the Nucleus Technology Stack"
 ---
 
