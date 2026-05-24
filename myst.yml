@@ -19,31 +19,25 @@ project:
         - file: ./guides/nucleus-hub/nucleus-hub.md
         - file: ./docs/dna-distro.md
         - file: ./guides/contribution-guide.md
-    - file: ./guides/main.md
+    - file: ./docs/modules/modules-main.md
       children:
-        - file: ./start/getting-started.md
+        - file: ./docs/modules/membrane-popc-chol/spec.md
           hidden: true
-        - file: ./start/first-guide.md
+        - file: ./docs/modules/base-cytosol/spec.md
           hidden: true
-        - file: ./docs/dna-distro.md
+        - file: ./docs/modules/control-clpxp/spec.md
           hidden: true
-        - file: ./guides/tutorials.md
+        - file: ./docs/modules/membrane-pore-cx43/spec.md
           hidden: true
-        - file: ./guides/nucleus-hub/nucleus-hub.md
+        - file: ./docs/modules/energy-ppk/spec.md
           hidden: true
-        - file: ./guides/contribution-guide.md
+        - file: ./docs/modules/membrane-pore-ahly/spec.md
           hidden: true
-        - file: ./guides/developer-notes/developer-notes.md
+        - file: ./docs/modules/reporter-degfp/spec.md
           hidden: true
-        - file: ./guides/developer-notes/developer-notes-parts.md
+        - file: ./docs/modules/detector-tetr_atc/spec.md
           hidden: true
-        - file: ./guides/devnote-tutorial.md
-          hidden: true
-        - file: ./guides/developer-note-syntax.md
-          hidden: true
-        - file: ./guides/platereader_tutorial.md
-          hidden: true
-        - file: ./guides/platemap_tutorial.md
+        - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true
     - file: ./docs/processes/processes-main.md
       children:
@@ -80,29 +74,35 @@ project:
               hidden: true
             - file: ./docs/processes/make-protein/buff-ex-spin-filters/main.md
               hidden: true
-    - file: ./docs/modules/modules-main.md
-      children:
-        - file: ./docs/modules/membrane-popc-chol/spec.md
-          hidden: true
-        - file: ./docs/modules/base-cytosol/spec.md
-          hidden: true
-        - file: ./docs/modules/control-clpxp/spec.md
-          hidden: true
-        - file: ./docs/modules/membrane-pore-cx43/spec.md
-          hidden: true
-        - file: ./docs/modules/energy-ppk/spec.md
-          hidden: true
-        - file: ./docs/modules/membrane-pore-ahly/spec.md
-          hidden: true
-        - file: ./docs/modules/reporter-degfp/spec.md
-          hidden: true
-        - file: ./docs/modules/detector-tetr_atc/spec.md
-          hidden: true
-        - file: ./docs/modules/emitter-ivhsl/spec.md
-          hidden: true
     - file: ./docs/implementations/implementations-main.md
       children:
         - file: ./docs/implementations/responder-atc-ivhsl/main.md
+          hidden: true
+    - file: ./guides/main.md
+      children:
+        - file: ./start/getting-started.md
+          hidden: true
+        - file: ./start/first-guide.md
+          hidden: true
+        - file: ./docs/dna-distro.md
+          hidden: true
+        - file: ./guides/tutorials.md
+          hidden: true
+        - file: ./guides/nucleus-hub/nucleus-hub.md
+          hidden: true
+        - file: ./guides/contribution-guide.md
+          hidden: true
+        - file: ./guides/developer-notes/developer-notes.md
+          hidden: true
+        - file: ./guides/developer-notes/developer-notes-parts.md
+          hidden: true
+        - file: ./guides/devnote-tutorial.md
+          hidden: true
+        - file: ./guides/developer-note-syntax.md
+          hidden: true
+        - file: ./guides/platereader_tutorial.md
+          hidden: true
+        - file: ./guides/platemap_tutorial.md
           hidden: true
     - title: About
       children:
