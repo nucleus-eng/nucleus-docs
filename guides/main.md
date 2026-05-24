@@ -8,8 +8,7 @@ Guides provide tutorials, how-tos, and reference documentation to help you get t
 
 ## Get Started
 
-- [Getting Started](../start/getting-started.md) — an overview of the Nucleus Distribution and where to begin
-- [Beginner's Guide](../start/first-guide.md) — a step-by-step walkthrough of the full Nucleus workflow, from cytosol assembly to posting a DevNote
+- [Getting Started](../start/first-guide.md) — a step-by-step walkthrough of the full Nucleus workflow, from cytosol assembly to posting a DevNote
 
 ## Reference Documentation
 
