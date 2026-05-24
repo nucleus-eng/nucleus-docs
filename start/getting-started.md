@@ -1,5 +1,5 @@
 ---
-title: Nucleus Distribution
+title: Getting Started
 subtitle: Learn how to navigate this documentation and build your first cytosols and cells.
 ---
 
