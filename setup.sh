@@ -11,6 +11,11 @@ if ! command -v vale &> /dev/null; then
   brew install vale
 fi
 
+# Install lychee if not already present
+if ! command -v lychee &> /dev/null; then
+  brew install lychee
+fi
+
 conda env remove -n nucleus-docs 2>/dev/null
 conda env create -f environment.yml
 echo ""

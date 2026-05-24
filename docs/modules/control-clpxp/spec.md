@@ -14,7 +14,7 @@ The ClpXP control Module uses the ClpXP protease complex to enable the programma
 
 This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on our legacy site [here](https://nucleus.bnext.bio/ClpXP-Control-Module-2dcae616eb51805d882cea7a610ff38e) and in the following DevNotes:
 
-- [ClpXP Module Validation in Cells](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpxp-cells-01)
-- [ClpXP Module Validation in Cytosol](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpxp-cytosol-01)
+- [ClpXP Module Validation in Cells](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpxp-pure-cells-01)
+- [ClpXP Module Validation in PURE](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpx-in-pure-01)
 
 :::

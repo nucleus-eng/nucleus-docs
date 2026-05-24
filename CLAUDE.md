@@ -36,6 +36,18 @@ The documentation organizes content into three parallel hierarchies under `docs/
 - **`docs/modules/`** — Modular components that extend base cytosol functionality. Each module has a `spec.md` describing its design, compatible processes, and usage.
 - **`docs/implementations/`** — Documented combinations of modules and processes that demonstrate a complete system behavior.
 
+**File placement rules.** All content files — `.md`, images, `.csv` resources — must live inside one of these three subdirectories. Never create content files or directories at the repo root or anywhere outside `docs/`.
+
+| Content type | Correct location |
+| --- | --- |
+| New module | `docs/modules/<module-name>/` |
+| New process | `docs/processes/<process-name>/` |
+| New implementation | `docs/implementations/<implementation-name>/` |
+| Process sub-resources (BOMs, images) | `docs/processes/<process-name>/resources/` |
+| Module images | `docs/modules/<module-name>/` |
+
+**Before creating or moving any file**, verify the target path matches this structure. If a file is about to land outside `docs/`, stop and flag it to the developer before proceeding.
+
 ### Table of contents management
 
 The site TOC is defined entirely in `myst.yml`. When adding a new page, you must add it to the `toc:` section. Child pages that should not appear directly in the sidebar use `hidden: true`. The file `site.yml` holds site-wide settings (license, nav links, theme) that `myst.yml` extends.
@@ -134,6 +146,19 @@ s/(\d+)C\b/$1°C/g
 ```
 
 Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
+
+### Link checking (lychee)
+
+**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** This is slower than Vale and doesn't need to run on every commit — focus on PRs that touch links.
+
+```bash
+python3 scripts/check-links.py docs/       # check all docs
+python3 scripts/check-links.py <file.md>   # check a single file
+```
+
+The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
+
+**Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
 
 ### Pull request workflow
 
