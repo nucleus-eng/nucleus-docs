@@ -32,71 +32,65 @@ project:
           hidden: true
         - file: ./guides/platemap_tutorial.md
           hidden: true
-    - title: Processes
+    - file: ./docs/processes/processes-main.md
       children:
-        - file: ./docs/processes/processes-main.md
+        - file: ./docs/processes/assemble-base-cell/main.md
+          hidden: true
+        - file: ./docs/processes/make-amino-acid-mix/main.md
+          hidden: true
+        - file: ./docs/processes/make-small-molecule-mix/main.md
+          hidden: true
+        - file: ./docs/processes/make-ribosomes/main.md
+          hidden: true
+        - file: ./docs/processes/make-trna/main.md
+          hidden: true
+        - file: ./docs/processes/make-36pot/main.md
+          hidden: true
+        - file: ./docs/processes/make-1pot/main.md
+          hidden: true
+        - file: ./docs/processes/assemble-base-cytosol/main.md
+          hidden: true
+        - file: ./docs/processes/protein-gel/main.md
+          hidden: true
+        - file: ./docs/processes/pierce660/main.md
+          hidden: true
+        - file: ./docs/processes/make-protein/make-protein-main.md
+          hidden: true
           children:
-           - file: ./docs/processes/assemble-base-cell/main.md
-             hidden: true
-           - file: ./docs/processes/make-amino-acid-mix/main.md
-             hidden: true
-           - file: ./docs/processes/make-small-molecule-mix/main.md
-             hidden: true
-           - file: ./docs/processes/make-ribosomes/main.md
-             hidden: true
-           - file: ./docs/processes/make-trna/main.md
-             hidden: true
-           - file: ./docs/processes/make-36pot/main.md
-             hidden: true
-           - file: ./docs/processes/make-1pot/main.md
-             hidden: true
-           - file: ./docs/processes/assemble-base-cytosol/main.md
-             hidden: true
-           - file: ./docs/processes/protein-gel/main.md
-             hidden: true
-           - file: ./docs/processes/pierce660/main.md
-             hidden: true
-           - file: ./docs/processes/make-protein/make-protein-main.md
-             hidden: true
-             children:
-             - file: ./docs/processes/make-protein/prep-consumables/main.md
-               hidden: true
-             - file: ./docs/processes/make-protein/grow-bacteria/main.md
-               hidden: true
-             - file: ./docs/processes/make-protein/lysis-sonication/main.md
-               hidden: true
-             - file: ./docs/processes/make-protein/purify-proteins-grav-column/main.md
-               hidden: true
-             - file: ./docs/processes/make-protein/buff-ex-spin-filters/main.md
-               hidden: true
-    - title: Modules
+            - file: ./docs/processes/make-protein/prep-consumables/main.md
+              hidden: true
+            - file: ./docs/processes/make-protein/grow-bacteria/main.md
+              hidden: true
+            - file: ./docs/processes/make-protein/lysis-sonication/main.md
+              hidden: true
+            - file: ./docs/processes/make-protein/purify-proteins-grav-column/main.md
+              hidden: true
+            - file: ./docs/processes/make-protein/buff-ex-spin-filters/main.md
+              hidden: true
+    - file: ./docs/modules/modules-main.md
       children:
-        - file: ./docs/modules/modules-main.md
-          children:
-           - file: ./docs/modules/membrane-popc-chol/spec.md
-             hidden: true
-           - file: ./docs/modules/base-cytosol/spec.md
-             hidden: true
-           - file: ./docs/modules/control-clpxp/spec.md
-             hidden: true
-           - file: ./docs/modules/membrane-pore-cx43/spec.md
-             hidden: true
-           - file: ./docs/modules/energy-ppk/spec.md
-             hidden: true
-           - file: ./docs/modules/membrane-pore-ahly/spec.md
-             hidden: true
-           - file: ./docs/modules/reporter-degfp/spec.md
-             hidden: true
-           - file: ./docs/modules/detector-tetr_atc/spec.md
-             hidden: true
-           - file: ./docs/modules/emitter-ivhsl/spec.md
-             hidden: true
-    - title: Implementations
+        - file: ./docs/modules/membrane-popc-chol/spec.md
+          hidden: true
+        - file: ./docs/modules/base-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/control-clpxp/spec.md
+          hidden: true
+        - file: ./docs/modules/membrane-pore-cx43/spec.md
+          hidden: true
+        - file: ./docs/modules/energy-ppk/spec.md
+          hidden: true
+        - file: ./docs/modules/membrane-pore-ahly/spec.md
+          hidden: true
+        - file: ./docs/modules/reporter-degfp/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-tetr_atc/spec.md
+          hidden: true
+        - file: ./docs/modules/emitter-ivhsl/spec.md
+          hidden: true
+    - file: ./docs/implementations/implementations-main.md
       children:
-        - file: ./docs/implementations/implementations-main.md
-          children:
-           - file: ./docs/implementations/responder-atc-ivhsl/main.md
-             hidden: true
+        - file: ./docs/implementations/responder-atc-ivhsl/main.md
+          hidden: true
     - title: About
       children:
         # - file: ./about/open-science.md
@@ -104,8 +98,8 @@ project:
         - file: ./about/faqs.md
         - file: ./about/release-notes.md
           children:
-           - file: ./about/release-notes/v050.md
-             hidden: true
+            - file: ./about/release-notes/v050.md
+              hidden: true
   references:
     devnote-01: https://devnotes.bnext.bio/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
     devnote-02: https://devnotes.bnext.bio/articles/ppk-module-test
