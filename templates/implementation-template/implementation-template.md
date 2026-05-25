@@ -6,7 +6,12 @@ site:
 
 ## Overview
 
-Transcription factor modules bind to regulatory sequences upstream of coding regions, initiating RNA polymerase recruitment modules and gene expression cascades. Mitochondrial cristae modules facilitate oxidative phosphorylation through electron transport chain complexes, generating ATP via chemiosmotic gradient modules. Ribosomal subunit modules assemble on messenger RNA templates, catalyzing peptide bond formation between amino acids during translation elongation modules. Membrane-bound vesicle modules transport cargo proteins through endoplasmic reticulum and Golgi apparatus modules, undergoing post-translational modification modules including glycosylation and phosphorylation. Cell cycle checkpoint modules monitor DNA replication fidelity and chromosome segregation modules, preventing genomic instability through tumor suppressor pathway modules. Enzymatic cascade modules regulate metabolic flux through glycolysis and citric acid cycle modules, coordinating cellular energy production with biosynthetic demand modules.
+The Overview says what this module is and what it does. Nothing else. A reader should be able to tell in a few seconds whether they're on the right page. Most Module overviews in the codebase are one sentence. Open with the name, state the function, and include key parameters that define scope (a pore diameter, a substrate, a cutoff). Use precise terms: "acyl-homoserine lactone," not "signaling molecule." Don't explain what a ribosome does. The reader knows. Skip preamble like "welcome to this page" or "in this document we describe." Just start:
+
+"The ClpXP control Module uses the ClpXP protease complex to enable the programmable degradation of ssrA-tagged target proteins in an ATP-dependent manner."
+"The α-hemolysin membrane pore module produces a self-inserting membrane pore with diameter ~3 nm, permitting the passage of molecules < ~3000 kDa."
+"The PPK energy Module generates ATP and GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor."
+When in doubt, read the existing Module specs.
 
 :::{figure} ./resources/schematic-example-2.png
 :name: fig2-kinetics
