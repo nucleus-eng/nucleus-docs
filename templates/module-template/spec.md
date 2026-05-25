@@ -23,25 +23,21 @@ attention block below. Delete it if the module is fully validated. -->
 
 :::{attention}
 
-This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation
-can be found on our legacy site [TODO: update link]() and in the following DevNotes:
+This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on our legacy site [TODO: update link]() and in the following DevNotes:
 
 - [TODO: DevNote Title](https://doi.org/TODO)
 
 :::
 
-:::::{tab-set}
-
-::::{tab-item} Schematic
 :::{figure} schematic.png
-:width: 75%
+:name: fig-schematic
 :align: center
+:width: 75%
 
-TODO: One sentence describing what the schematic shows. If the figure is not original,
-credit the source and include the license (e.g. "Figure by Author et al. used under
-CC-BY-4.0 / cropped from original.").
+TODO: One sentence describing what the schematic shows. If the figure is not original, credit the source and include the license (e.g. "Figure by Author et al. used under CC-BY-4.0 / cropped from original.").
 :::
-::::
+
+:::::{tab-set}
 
 ::::{tab-item} Designs
 <!-- Two tables: one for DNA constructs, one for purified protein components.
@@ -68,15 +64,13 @@ Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
 
 :::::
 
-## Reference Composition
+# Reference Composition
 
 Describe how the module is implemented and in what context (e.g., synthetic cytosol, cells, etc.). Lead with any non-obvious preparation or formulation context. The table should give a reader enough information to implement the module without hunting elsewhere. Use a hint dropdown for stock solution details that would clutter the main table. For example:
 
-"The following table describes a self-contained experiment for evaluating the
-performance of the PPK energy module."
+"The following table describes a self-contained experiment for evaluating the performance of the PPK energy module."
 
-"The following table describes the composition of Base Membrane for a 40 µL cell
-reaction."
+"The following table describes the composition of Base Membrane for a 40 µL cell reaction."
 
 :::{hint} Note: TODO: Note title
 :class: dropdown
@@ -98,40 +92,41 @@ of reaction conditions. Delete this block if not needed. -->
 | Water | — | — | to volume |
 :::
 
-## Expected Behavior
-Describe the validation assay and what a passing result looks like. Name the readout
-(fluorescence endpoint, gel band, growth curve), the controls, and the acceptance
-criteria (if known). The figures below should be data from a real experiment — cite the DevNote in the caption. For example:
+# Expected Performance
 
-"The PPK energy module is validated by measuring final deGFP yield relative to a
-CP/CK positive control. A passing result shows ≥ 50% yield relative to CP/CK alone."
+Describe what a correctly implemented module should produce. Name the expected readout (fluorescence endpoint, gel band, growth curve), the conditions under which it was obtained, and acceptance criteria where known. The figures should show representative data from a validated experiment and cite the source DevNote. The goal is to give a reader a reference point so they can tell whether their own implementation is working correctly. For example:
 
-"The Base Membrane is characterized by encapsulating Base Cytosol and imaging
-liposomes by fluorescence microscopy. A passing result shows distinct GFP-positive
-liposomes with Liss-Rhod PE membrane staining."
+"A correctly implemented PPK energy module should show ≥ 50% deGFP yield relative to a CP/CK positive control when supplemented at the recommended concentration."
+
+"A correctly assembled Base Membrane should produce liposomes with distinct GFP-positive interiors and uniform Liss-Rhod PE membrane staining by fluorescence microscopy."
 
 :::::{tab-set}
 
 ::::{tab-item} Kinetics
+:sync: tab1-1
 :::{figure} kinetics.png
+:name: fig-kinetics
+:align: center
+:width: 75%
 
-TODO: Describe what is shown, including conditions, controls, and the key result.
-Cite the source DevNote or paper. Example: "Translation kinetics of PURE reactions
-using the PPK energy module with and without CP/CK. Data from [TODO: DevNote title](https://doi.org/TODO)."
+TODO: Describe what is shown, including conditions, controls, and the key result. Cite the source DevNote or paper. Example: "Translation kinetics of PURE reactions using the PPK energy module with and without CP/CK. Data from [TODO: DevNote title](https://doi.org/TODO)."
 :::
 ::::
 
 ::::{tab-item} Endpoint
+:sync: tab1-2
 :::{figure} endpoint.png
+:name: fig-endpoint
+:align: center
+:width: 75%
 
-TODO: Describe the endpoint metric and key result. Example: "Final deGFP yields
-measured at steady state across energy module conditions. Data from [TODO: DevNote title](https://doi.org/TODO)."
+TODO: Describe the endpoint metric and key result. Example: "Final deGFP yields measured at steady state across energy module conditions. Data from [TODO: DevNote title](https://doi.org/TODO)."
 :::
 ::::
 
 :::::
 
-## Protocols
+# Protocols
 
 <!-- Update filenames to match the actual PDFs for this module.
 PDF generation pipeline is tracked in issue #10. -->
@@ -152,7 +147,7 @@ PDF generation pipeline is tracked in issue #10. -->
 
 ::::
 
-## Credits
+# Credits
 
 <!-- List the people who developed or validated this module.
 Link to ORCID or personal pages where available. -->

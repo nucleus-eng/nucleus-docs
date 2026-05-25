@@ -59,6 +59,10 @@ The site TOC is defined entirely in `myst.yml`. When adding a new page, you must
 - `module-template/spec.md` — module spec structure with schematic, designs table, compatible processes, and usage references
 - `implementation-template/implementation-template.md` — combined implementation format
 
+### Prose formatting
+
+**Do not hard-wrap paragraph text.** Write prose paragraphs as a single line, regardless of length. Do not insert line breaks in the middle of a sentence or at an arbitrary column width. Hard wraps in `.md` files render as spaces in most contexts but create messy diffs and make future editing harder. This applies to instructional text in templates, overview sections, figure captions, and all other prose. The only intentional line breaks in paragraph content are blank lines between paragraphs.
+
 ### MyST syntax conventions
 
 Pages use MyST admonition nesting with `:::` fences. Process pages follow a consistent structure:
