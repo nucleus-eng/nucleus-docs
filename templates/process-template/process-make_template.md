@@ -4,14 +4,16 @@ title: TODO: Process Name
 
 # Overview
 
-One paragraph. State what the process produces, what method it uses, and what the output is used for. Lead with the process name and its function. Include key parameters that define scope (e.g., organism, scale, purification method). Use precise terms. Don't open with preamble. Just start with the thing:
+One paragraph. State what the process does and why one would want to do it. If this process makes an output, describe what it is used for. Include key parameters needed to execute the protocol. Use precise terms. Don't open with preamble. Just start with the thing:
 
 "Make tRNA purifies transfer RNAs from E. coli A19 by acid-phenol extraction and isopropanol precipitation, yielding a mixed tRNA preparation for use in cell-free translation reactions."
 
-"Make Ribosomes produces 70S ribosomes from E. coli A19 by sucrose cushion ultracentrifugation for use in PURE-based cell-free systems."
+"Make Ribosomes produces 70S ribosomes from E. coli A19 by Hydrophobic Interaction Chromatography (HIC) and sucrose cushion ultracentrifugation for use in PURE-based cell-free systems."
 
 When in doubt, read the existing Process pages.
 
+<!-- Delete any dropdown whose only content is "- None" before publishing.
+     If all dropdowns are removed, delete this entire card block. -->
 :::::::{card}
 :header: **Important Information**
 
@@ -91,7 +93,7 @@ TODO: Extended note or background information for this step. Delete this block i
     - [ ]  TODO: Substep 1 (e.g., "Back-dilute overnight 1:500 into fresh LB in baffled Erlenmeyer flasks.")
     - [ ]  TODO: Substep 2 (e.g., "Incubate at 37°C / 225 rpm to mid-log phase (OD600 0.6–0.8).")
 
-### TODO: Step 2 (e.g., "Extraction")
+### TODO: Step 2 (e.g., "Nucleic Acid Extraction")
 
 - [ ] **TODO: Top-level step (e.g., "First extraction.")**
     - [ ]  TODO: Substep 1 (e.g., "Resuspend 2 g biomass in 18 mL extraction buffer by vortexing.")
