@@ -1,102 +1,154 @@
 ---
-title: "Module Specification (Module Name)"
+title: "TODO: Category: Module Name"
+# Title format: "Category: Name" — e.g. "Reporter: deGFP", "Energy: PPK", "Base: Cytosol"
+subtitle: "Module Specification"
+thumbnail: schematic.png
 site:
     hide-toc: true
     numbered_references: false
 ---
 
-## Overview
+# Overview
 
-Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
+<!-- One concise paragraph describing what this module is, what it does, and what it
+adds to or modifies in Base Cytosol. Aim for 3–5 sentences. If this module has not
+been validated in Nucleus Cytosol ≥ v0.5, include the attention block below and link
+to legacy documentation and relevant DevNotes. Delete this block if the module is
+fully validated. -->
 
-### Schematic
+TODO: One concise paragraph describing what this module is, what it does, and what
+it adds to or modifies in Base Cytosol.
 
-::::{aside}
-:::{dropdown} TODO
+:::{attention}
 
-What are good guidelines for a schematic representations of different modules?
+This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation
+can be found on our legacy site [TODO: update link]() and in the following DevNotes:
+
+- [TODO: DevNote Title](https://doi.org/TODO)
+
 :::
-::::
 
+:::::{tab-set}
+
+::::{tab-item} Schematic
 :::{figure} schematic.png
+:width: 75%
+:align: center
 
-This is a schematic of the module.
-:::
-
-### Designs
-
-::::{aside}
-:::{dropdown} TODO
-
-What should belong in this table?
+TODO: Caption describing the schematic. Credit the figure source if it is not
+original (include license if applicable).
 :::
 ::::
 
-| **Name** | **Length (bp)** | **File** |
-| --- | --- | --- |
-| `pOpen-pT7-ClpP-CHis` | 2500 | [path-to-design-01.gb](https://github.com/bnext-bio/nucleus/blob/main/components/modules/detector/lacI.gb#L56-L66) |
-| `pOpen-pT7-ClpX-linker-CHis` | 1699 | path-to-design-01.gb |
-| `pET28a-ClpP-CHis` | 3145 | path-to-design-01.gb |
+::::{tab-item} Designs
+<!-- Two tables: one for DNA constructs, one for purified protein components.
+Delete whichever tables are not applicable and replace with "- None".
+DNA files link to .gb files in the nucleus GitHub repository.
+Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
 
-### Compatible processes
-
-My reference table (this is on same page): {ref}`spec01:tbl-36pot-formulation`
-My reference table (this is on different page): [ref](xref#this-tbl-36pot-formulation)
-
-::::{aside}
-:::{dropdown} TODO
-
-For GFP the distinction between process and instances feels overwrought or at least hard to distinguish
-:::
-::::
-
-- [b.next PURE](./docs/02-collections/cytosols.md)
-- [OnePot PURE]()
-
-::::{dropdown} [36Pot PURE]()
-
-**Formulation**. This module can be implemented in [my-process] by implementing the following formulation in the base process. TODO: can I reference a table from another page? [my rerefence](#this-tbl-36pot-formulation)
-
+**DNA**
 
 :::{table}
-:name: spec01:tbl-36pot-formulation
-
-| Component | Experiment (uL) |
-| --- | --- |
-| NEB Sol B -Ribos |  |
-| Workshop Protein Mix( ___ ug/uL) | 3 |
-| NEB Ribosomes | 4.5 |
-| NEB Sol A | 10 |
-| NEB Sol B |  |
-| RNse Inhibitor | 1.25 |
-| pT7-my-custom-plasmid (120 ng/uL) | 1.25 |
-| Ultrapure water | 5 |
-| **Total** | **25** |
+| **Name** | **Length (bp)** | **File** |
+| --- | --- | --- |
+| `TODO: pConstruct-Name` | TODO | [TODO: filename.gb](https://github.com/bnext-bio/nucleus/blob/main/TODO) |
 :::
 
-**Process** The following steps should be REMOVED, ADDED, or MODIFIED to implement the Module in the Process. 
+**Proteins**
 
-- ADD. Preparation of PPK stock solution
+:::{table}
+| **Name** | **MW (kDa)** | **File** |
+| --- | --- | --- |
+| `TODO: ProteinName-Tag` | TODO | [TODO: filename.fasta](https://github.com/bnext-bio/nucleus/blob/main/TODO) |
+:::
+::::
+
+:::::
+
+## Reference Composition
+
+<!-- Describe how the module is formulated or implemented in a reaction. Include
+any non-obvious preparation notes as a hint dropdown. -->
+
+TODO: One sentence describing the context of this composition table (e.g. reaction
+conditions, cytosol version used).
+
+:::{hint} Note: Stock solution concentrations
+:class: dropdown
+
+<!-- Optional: include stock solution concentrations and any preparation details
+that are too detailed for the main table. Delete this block if not needed. -->
+
+| Component | Stock concentration | Unit |
+| --- | --- | --- |
+| TODO: Component A | TODO | TODO |
+
+:::
+
+:::{table}
+| **Component** | **Stock concentration** | **Final concentration** | **Units** |
+| --- | --- | --- | --- |
+| TODO: Component A | TODO | TODO | TODO |
+| TODO: Component B | TODO | TODO | TODO |
+| Water | — | — | to volume |
+:::
+
+## Expected Behavior
+
+<!-- Describe what a correctly functioning module looks like. Reference the figures
+below. If behavior data is sourced from a DevNote, cite it in the figure caption. -->
+
+TODO: One sentence describing how this module is validated and what the expected
+result looks like (e.g. assay type, readout, pass/fail criteria).
+
+:::::{tab-set}
+
+::::{tab-item} Kinetics
+:::{figure} kinetics.png
+
+<!-- Caption: describe what is shown, including conditions and controls. Cite the
+DevNote or paper the data is sourced from. -->
+
+TODO: Caption describing the kinetics data shown. Data from [TODO: DevNote title](https://doi.org/TODO).
+:::
+::::
+
+::::{tab-item} Endpoint
+:::{figure} endpoint.png
+
+<!-- Caption: describe the endpoint metric shown (e.g. final yield, fold change). -->
+
+TODO: Caption describing the endpoint data shown. Data from [TODO: DevNote title](https://doi.org/TODO).
+:::
+::::
+
+:::::
+
+## Protocols
+
+<!-- Download cards for the lab-ready protocol and bill of materials. Update the
+filenames to match the actual PDFs for this module. PDF generation is tracked in
+issue #10. -->
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Step-by-Step Protocol**
+:footer: *Implemented using Nucleus Cytosol v0.5*
+{button}`Download <TODO: protocol.pdf>`
+:::
+
+:::{card}
+:header: **Materials**
+:footer: *Implemented using Nucleus Cytosol v0.5*
+{button}`Download <TODO: bom.pdf>`
+:::
 
 ::::
 
-### Usage
+## Credits
 
-**Collections**
+<!-- List the people who developed or validated this module. Link to ORCID or
+personal pages where available. -->
 
-- [Collection-1](/docs/collections/cytosols/instance-template/instance)
-
-**DevNotes**
-
-- [DevNote-3](https://doi.org/10.63765/djnv7772)
-
-**Literature**
-
-- [Wang *et al.* 2019](https://doi.org/10.1021/acssynbio.9b00456)
-
-::::{aside}
-:::{dropdown} TODO
-
-I want to figure out how to hide the list of references from being auto generated at the bottom.
-:::
-::::
+- [TODO: Name](https://orcid.org/TODO)
