@@ -10,14 +10,16 @@ site:
 
 # Overview
 
-<!-- One concise paragraph describing what this module is, what it does, and what it
-adds to or modifies in Base Cytosol. Aim for 3–5 sentences. If this module has not
-been validated in Nucleus Cytosol ≥ v0.5, include the attention block below and link
-to legacy documentation and relevant DevNotes. Delete this block if the module is
-fully validated. -->
+One paragraph. State what the module is, what it does, and what it adds to or modifies in Base Cytosol. Lead with the module name and its function. Include the key parameters that define its function (e.g., substrate, pore diameter, purification tag, excitation wavelength). Use precise terms. Don't open with preamble. Just start with the thing:
 
-TODO: One concise paragraph describing what this module is, what it does, and what
-it adds to or modifies in Base Cytosol.
+"The PPK energy Module generates ATP and GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor."
+
+"The ClpXP control Module uses the ClpXP protease complex to enable the programmable degradation of ssrA-tagged target proteins using ATP for energy."
+
+When in doubt, read the existing Module specs.
+
+<!-- If this module has not been validated in Nucleus Cytosol ≥ v0.5, include the
+attention block below. Delete it if the module is fully validated. -->
 
 :::{attention}
 
@@ -35,14 +37,15 @@ can be found on our legacy site [TODO: update link]() and in the following DevNo
 :width: 75%
 :align: center
 
-TODO: Caption describing the schematic. Credit the figure source if it is not
-original (include license if applicable).
+TODO: One sentence describing what the schematic shows. If the figure is not original,
+credit the source and include the license (e.g. "Figure by Author et al. used under
+CC-BY-4.0 / cropped from original.").
 :::
 ::::
 
 ::::{tab-item} Designs
 <!-- Two tables: one for DNA constructs, one for purified protein components.
-Delete whichever tables are not applicable and replace with "- None".
+Delete whichever is not applicable and replace with "- None".
 DNA files link to .gb files in the nucleus GitHub repository.
 Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
 
@@ -67,17 +70,19 @@ Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
 
 ## Reference Composition
 
-<!-- Describe how the module is formulated or implemented in a reaction. Include
-any non-obvious preparation notes as a hint dropdown. -->
+Describe how the module is implemented and in what context (e.g., synthetic cytosol, cells, etc.). Lead with any non-obvious preparation or formulation context. The table should give a reader enough information to implement the module without hunting elsewhere. Use a hint dropdown for stock solution details that would clutter the main table. For example:
 
-TODO: One sentence describing the context of this composition table (e.g. reaction
-conditions, cytosol version used).
+"The following table describes a self-contained experiment for evaluating the
+performance of the PPK energy module."
 
-:::{hint} Note: Stock solution concentrations
+"The following table describes the composition of Base Membrane for a 40 µL cell
+reaction."
+
+:::{hint} Note: TODO: Note title
 :class: dropdown
 
-<!-- Optional: include stock solution concentrations and any preparation details
-that are too detailed for the main table. Delete this block if not needed. -->
+<!-- Optional: stock solution concentrations, preparation details, or descriptions
+of reaction conditions. Delete this block if not needed. -->
 
 | Component | Stock concentration | Unit |
 | --- | --- | --- |
@@ -94,31 +99,33 @@ that are too detailed for the main table. Delete this block if not needed. -->
 :::
 
 ## Expected Behavior
+Describe the validation assay and what a passing result looks like. Name the readout
+(fluorescence endpoint, gel band, growth curve), the controls, and the acceptance
+criteria (if known). The figures below should be data from a real experiment — cite the DevNote in the caption. For example:
 
-<!-- Describe what a correctly functioning module looks like. Reference the figures
-below. If behavior data is sourced from a DevNote, cite it in the figure caption. -->
+"The PPK energy module is validated by measuring final deGFP yield relative to a
+CP/CK positive control. A passing result shows ≥ 50% yield relative to CP/CK alone."
 
-TODO: One sentence describing how this module is validated and what the expected
-result looks like (e.g. assay type, readout, pass/fail criteria).
+"The Base Membrane is characterized by encapsulating Base Cytosol and imaging
+liposomes by fluorescence microscopy. A passing result shows distinct GFP-positive
+liposomes with Liss-Rhod PE membrane staining."
 
 :::::{tab-set}
 
 ::::{tab-item} Kinetics
 :::{figure} kinetics.png
 
-<!-- Caption: describe what is shown, including conditions and controls. Cite the
-DevNote or paper the data is sourced from. -->
-
-TODO: Caption describing the kinetics data shown. Data from [TODO: DevNote title](https://doi.org/TODO).
+TODO: Describe what is shown, including conditions, controls, and the key result.
+Cite the source DevNote or paper. Example: "Translation kinetics of PURE reactions
+using the PPK energy module with and without CP/CK. Data from [TODO: DevNote title](https://doi.org/TODO)."
 :::
 ::::
 
 ::::{tab-item} Endpoint
 :::{figure} endpoint.png
 
-<!-- Caption: describe the endpoint metric shown (e.g. final yield, fold change). -->
-
-TODO: Caption describing the endpoint data shown. Data from [TODO: DevNote title](https://doi.org/TODO).
+TODO: Describe the endpoint metric and key result. Example: "Final deGFP yields
+measured at steady state across energy module conditions. Data from [TODO: DevNote title](https://doi.org/TODO)."
 :::
 ::::
 
@@ -126,9 +133,8 @@ TODO: Caption describing the endpoint data shown. Data from [TODO: DevNote title
 
 ## Protocols
 
-<!-- Download cards for the lab-ready protocol and bill of materials. Update the
-filenames to match the actual PDFs for this module. PDF generation is tracked in
-issue #10. -->
+<!-- Update filenames to match the actual PDFs for this module.
+PDF generation pipeline is tracked in issue #10. -->
 
 ::::{grid} 1 1 1 2
 
@@ -148,7 +154,7 @@ issue #10. -->
 
 ## Credits
 
-<!-- List the people who developed or validated this module. Link to ORCID or
-personal pages where available. -->
+<!-- List the people who developed or validated this module.
+Link to ORCID or personal pages where available. -->
 
 - [TODO: Name](https://orcid.org/TODO)
