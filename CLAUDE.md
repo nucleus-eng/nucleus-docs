@@ -28,6 +28,50 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 
 ## Architecture
 
+### Companion DNA repository
+
+Sequence files for every plasmid and construct referenced in these docs are maintained in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)** (local path: `~/src/nucleus-eng/DNA`). That repo stores GenBank (`.gb`) files organized by part type:
+
+```
+DNA/
+├── PURE/
+│   ├── cloning/      # pOpen entry vectors for all PURE system proteins
+│   └── expression/   # pET28a expression vectors for PURE system proteins
+├── assembly/         # MoClo backbone (pOpen-pOpenv3-MCL0)
+├── RBS/              # Ribosome binding site and UTR parts
+├── promoters/        # Level-matched T7 promoter library (PURET7-1 through -10)
+├── reporters/        # Fluorescent protein and chromoprotein reporters
+├── terminators/      # T7 terminator variants
+└── detectors/        # LacI/TetR circuits and quorum sensing components
+```
+
+**Checking the DNA repo's current state.** The DNA repo evolves independently — always verify its current state before writing or editing content that references specific constructs. Use a tiered approach:
+
+1. **Session start** — when beginning any work that involves DNA construct references, check recent activity in the DNA repo:
+   ```bash
+   git -C ~/src/nucleus-eng/DNA log --oneline -5
+   ```
+   Commit messages will tell you if the structure or contents have changed since you last worked with it.
+
+2. **Before naming a specific construct** — before writing a protocol step that references a construct by filename (e.g., `pOpen-PURET7-3`), confirm the file exists:
+   ```bash
+   ls ~/src/nucleus-eng/DNA/promoters/pOpen-PURET7-3.gb
+   ```
+   If the file is missing, flag it to the developer — do not invent construct names or create placeholder references.
+
+3. **If folder structure is uncertain** — if you are unsure which subdirectory a part type lives in, read the DNA repo's README:
+   ```bash
+   # or: Read ~/src/nucleus-eng/DNA/README.md
+   ```
+   The README is maintained as the canonical description of the repo structure.
+
+**Key rules when working across both repos:**
+
+- **Do not create or store `.gb` sequence files in nucleus-docs.** All DNA sequences belong in the DNA repo.
+- **Construct names in protocol pages must match actual filenames** in the DNA repo (e.g., a step that says "use `pOpen-PURET7-3`" corresponds to `promoters/pOpen-PURET7-3.gb`). Verify before writing.
+- **Cross-repo links** in doc pages should point to the GitHub URL of the `.gb` file in `nucleus-eng/DNA`, not to a local path.
+- **Changes to the DNA repo are out of scope for nucleus-docs PRs.** If a protocol requires a new construct that doesn't exist in the DNA repo yet, flag that to the developer rather than creating a placeholder.
+
 ### Content model
 
 The documentation organizes content into three parallel hierarchies under `docs/`:
