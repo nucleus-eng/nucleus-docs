@@ -4,7 +4,7 @@ Nucleus documentation is organized around three types of content. Each serves a 
 
 ## Module Specifications
 
-A Module spec describes a single biochemical component: a reporter protein, a membrane pore, an energy system. It covers what the component is, what it's made of (sequences, constructs), and its known properties. The data in a spec is typically sourced from existing databases or literature: an excitation/emission spectrum, a pore diameter, a substrate affinity. This is reference data intrinsic to the component, not empirical results from a particular experiment.
+A Module spec describes a single biological component: a reporter protein, a membrane pore, an energy system. It covers what the component is, what it's made of (sequences, constructs), and its known properties. The Reference Data specifies key aspects of the module and is typically sourced from existing databases or literature: an excitation/emission spectrum, a pore diameter, a substrate affinity. This Reference Data is intrinsic to the component, not empirical results from a particular experiment. The module specification should also contain Expected Performance of the module in whatever context it is meant to be used.
 
 ## Processes
 
@@ -12,7 +12,7 @@ A Process wraps a lab protocol: the step-by-step instructions someone follows at
 
 ## Implementations
 
-An Implementation inherits from a Process but pulls in specific Module specs. It documents what happens when you assemble particular modules following a particular protocol: which modules, which process, and how the resulting system performed. Performance data (expression levels, yields, dose-response curves) lives here because it depends on the specific combination of modules and conditions.
+An Implementation inherits from a Process but pulls in specific Module specs. It documents what happens when you assemble particular modules following a particular protocol: which modules, which process, and how the resulting system performed. Performance data (expression levels, yields, dose-response curves) lives here because it depends on the specific combination of modules and conditions. Performance data in particular implementations should match expected performance of the same module specs (they are related things, except one is a concrete implementation and the other is an abstract design).
 
 ## How they build on each other
 
