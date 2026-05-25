@@ -11,5 +11,5 @@ dep/
 # Notion export artifacts (raw exports, zips, staging dirs)
 **/resources/*.zip
 **/resources/notion_export/
-**/resources/Private & Shared/
+**/resources/Private & Shared*/
 **/resources/*-notion.md
