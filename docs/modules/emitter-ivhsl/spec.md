@@ -84,11 +84,11 @@ Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-G
 **Emitter Cell Endpoint Montage.** Single field of view at t = 8 hours. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(grey)** Brightfield. **(rgb)** Merged image.
 :::
 
-::::{hint} Note: Liposome exclusion of receiver cells
+::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL.
 :class: dropdown
 
 :::{figure} cell-liposome-exclusion.png
-Liposomes preferentially settle on the coverslip surface, occluding many *E. coli* cells from the bottom focal plane imaged during the timeseries. More activated *E. coli* cells become visible at longer focal distances higher in the liquid column of the well.
+**Emitter Cell Timeseries. (Positive)** Liposomes contain PURE and 100 nM IV-HSL. **(Negative)** Liposomes contain PURE supplemented with SAM and IV-HSL, but no DNA encoding BjaI. **(Emitter)** Liposomes contain PURE expressing BjaI from `pT7-bjaI`. Exposures are matched between wells. Each field of view is 167 µm wide.
 :::
 
 ::::
