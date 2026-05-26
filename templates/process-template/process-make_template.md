@@ -102,6 +102,22 @@ TODO: Extended note or background information for this step. Delete this block i
     - [ ]  TODO: Substep 1 (e.g., "Add isopropanol to one volume and incubate at RT / 10 min.")
     - [ ]  TODO: Substep 2 (e.g., "Pellet by centrifugation at 14 500 rcf / 25°C / 15 min.")
 
+# Quality Control
+
+Describe the QC checks that confirm the process produced a usable output. Name the assay, the acceptance criterion, and the instrument or method used. Include representative data (gel image, absorbance spectrum, concentration measurement) so a reader can judge their own result against a reference. For example:
+
+"Assess RNA integrity by denaturing PAGE. A single band at the expected size with no visible degradation products indicates acceptable quality. Typical yield is 2–5 mg/mL at OD260."
+
+"Confirm ribosome concentration by absorbance at OD260 (1 A260 unit = 23 pmol/mL 70S ribosomes). A correctly prepared batch should yield 5–15 µM 70S ribosomes."
+
+:::{figure} TODO: qc-gel.png
+:name: fig-qc
+:align: center
+:width: 75%
+
+TODO: Describe the QC result shown — assay type, lane contents, expected band or signal, and acceptance criterion. Example: "Denaturing PAGE of tRNA preparation. Lane 1: ladder; Lane 2: product. A single band at ~75 nt indicates acceptable integrity."
+:::
+
 # Downloads
 
 ::::{grid} 1 1 1 2
