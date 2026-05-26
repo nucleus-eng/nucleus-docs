@@ -71,6 +71,9 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
+<!-- List DevNotes and literature that informed this process.
+DevNotes are the primary source for protocol development history and QC data. -->
+
 - None
 
 ::::::
