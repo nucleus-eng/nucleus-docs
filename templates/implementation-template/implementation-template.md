@@ -33,18 +33,18 @@ The protocol section contains the step-by-step procedure for building this imple
 
 :::{card}
 :header: **Bill of Materials**
-{button}`Download BOM <./resources/BOM-template.pdf>`
+{button}`Download BOM <TODO: bom.pdf>`
 :::
 
 :::{card}
 :header: **Lab-Ready Protocol**
 :align: center
-{button}`Download Protocol <./resources/protocol_example.pdf>`
+{button}`Download Protocol <TODO: protocol.pdf>`
 :::
 
 :::{card}
 :header: **Platemap Template**
-{button}`Download Platemap <./resources/BOM-template.pdf>`
+{button}`Download Platemap <TODO: platemap.pdf>`
 :::
 ::::
 
