@@ -7,11 +7,11 @@ site:
 
 # Overview
 
-The Overview says what this implementation is and what it does. Nothing else. A reader should be able to tell in a few seconds whether they're on the right page. Most overviews are one sentence. Open with the name, state the function, and include key parameters that define scope (a pore diameter, a substrate, a cutoff). Use precise terms: "acyl-homoserine lactone," not "signaling molecule." Don't explain what a ribosome does. The reader knows. Skip preamble like "welcome to this page" or "in this document we describe." Just start:
+The Overview says what this implementation is and what it does. Nothing else. A reader should be able to tell in a few seconds whether they're on the right page. An implementation combines one or more Module specs with a Process — the overview should name both and state what the combination produces. Include key parameters that define scope. Use precise terms. Don't explain what a ribosome does. The reader knows. Skip preamble. Just start:
 
-"The ClpXP control Module uses the ClpXP protease complex to enable the programmable degradation of ssrA-tagged target proteins in an ATP-dependent manner."
-"The α-hemolysin membrane pore module produces a self-inserting membrane pore with diameter ~3 nm, permitting the passage of molecules < ~3000 kDa."
-"The PPK energy Module generates ATP and GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor."
+"The IV-HSL Emitter implementation combines the IV-HSL Emitter Module with the Assemble Base Cell process to produce synthetic cells that secrete N-(3-hydroxybutanoyl)-L-homoserine lactone (IV-HSL) and activate GFP expression in neighboring E. coli reporter cells."
+
+"The PPK energy implementation combines the PPK energy Module with the Assemble Base Cytosol process to produce a CP/CK-free cell-free transcription–translation system powered by inorganic polyphosphate regeneration."
 
 When in doubt, read the existing Implementation specs.
 
@@ -78,6 +78,12 @@ Final protein yields of the three reactions measured at steady state.
 ::::
 
 :::::
+
+# Process
+
+Link to the base Process this implementation follows. If this implementation deviates from the standard process (different volumes, modified steps, additional preparation), note that here.
+
+- [TODO: Process Name](../../processes/TODO/main.md)
 
 # Modules
 
