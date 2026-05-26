@@ -116,11 +116,11 @@ exports:
         - [ ]  Pre-run gels at 100 V / 30 min.
         - [ ]  Wash wells with running buffer by syringe. You should be able to see urea displaced from the well by change in refractive index.
     - [ ]  Prepare tRNA samples:
-        - [ ]  Dilute tRNAs to 40 ng / µL tRNA in nuclease-free water.
-        - [ ]  Prepare 20 ng / µL sample by adding 10 µL of 40 ng / µL tRNA to 10 µL 2x TBE-Urea sample buffer.
+        - [ ]  Dilute tRNAs to 40 ng/µL tRNA in nuclease-free water.
+        - [ ]  Prepare 20 ng/µL sample by adding 10 µL of 40 ng/µL tRNA to 10 µL 2x TBE-Urea sample buffer.
         - [ ]  Prepare an ssRNA ladder. We use the NEB low range ssRNA (2 µL ladder + 2 µL 2x sample buffer).
         - [ ]  Incubate sample and and ladder at 65°C / 3 min → 4°C / hold using a thermal cycler.
-    - [ ]  Load 200 ng of tRNA (10 µL at 20 ng / µL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
+    - [ ]  Load 200 ng of tRNA (10 µL at 20 ng/µL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
     - [ ]  Meanwhile, prepare SYBR-Green stain (4 µL in 40 mL water) to stain gel.
     - [ ]  Soak gel in SYBR-Green stain and visualize gel using UV or blue-light transilluminator. You should see multiple distinct bands around 75-90 nt.
 
@@ -130,7 +130,7 @@ exports:
 
 ## Formulation
 
-- [ ] Dilute your tRNA stocks in nuclease-free water to your working concentration, depending on your application. We recommend 50 µg / µL to use as a component in Energy Mix, or 35 µg / µL as a 10x stock for PUREΔtRNA reactions (add 1 µL to 10 µL reactions).
+- [ ] Dilute your tRNA stocks in nuclease-free water to your working concentration, depending on your application. We recommend 50 µg/µL to use as a component in Energy Mix, or 35 µg/µL as a 10x stock for PUREΔtRNA reactions (add 1 µL to 10 µL reactions).
 
 ## Storage
 
