@@ -1,102 +1,108 @@
 ---
-title: "Module Specification (Module Name)"
+title: "TODO: Category: Module Name"
+# Title format: "Category: Name" — e.g. "Reporter: deGFP", "Energy: PPK", "Base: Cytosol"
+subtitle: "Module Specification"
+thumbnail: schematic.png
 site:
     hide-toc: true
     numbered_references: false
 ---
 
-## Overview
+# Overview
 
-Mitochondria consectetur adipiscing phylum, sed do ribosomes tempor incididunt ut chlorophyll et dolore magna cytoplasm. Ut enim ad minim chromosome, quis nostrud photosynthesis ullamco laboris nisi ut enzyme aliquip ex ea commodo peptide. Duis aute nucleotide in reprehenderit in voluptate vesicle esse cillum genome fugiat nulla pariatur.
+One paragraph. State what the module is, what it does, and what it adds to or modifies in Base Cytosol. Lead with the module name and its function. Include the key parameters that define its function (e.g., substrate, pore diameter, purification tag, excitation wavelength). Use precise terms. Don't open with preamble. Just start with the thing:
 
-### Schematic
+"The PPK energy Module generates ATP and GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor."
 
-::::{aside}
-:::{dropdown} TODO
+"The ClpXP control Module uses the ClpXP protease complex to enable the programmable degradation of ssrA-tagged target proteins using ATP for energy."
 
-What are good guidelines for a schematic representations of different modules?
+When in doubt, read the existing Module specs.
+
+<!-- If this module has not been validated in Nucleus Cytosol ≥ v0.5, include the
+attention block below. Delete it if the module is fully validated. -->
+
+:::{attention}
+
+This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on our legacy site [TODO: update link]() and in the following DevNotes:
+
+- [TODO: DevNote Title](https://doi.org/TODO)
+
 :::
-::::
 
 :::{figure} schematic.png
+:name: fig-schematic
+:align: center
+:width: 75%
 
-This is a schematic of the module.
+TODO: One sentence describing what the schematic shows. If the figure is not original, credit the source and include the license (e.g. "Figure by Author et al. used under CC-BY-4.0 / cropped from original.").
 :::
 
-### Designs
+:::::{tab-set}
 
-::::{aside}
-:::{dropdown} TODO
+::::{tab-item} Designs
+<!-- Two tables: one for DNA constructs, one for purified protein components.
+Delete whichever is not applicable and replace with "- None".
+DNA files link to .gb files in the nucleus GitHub repository.
+Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
 
-What should belong in this table?
-:::
-::::
-
-| **Name** | **Length (bp)** | **File** |
-| --- | --- | --- |
-| `pOpen-pT7-ClpP-CHis` | 2500 | [path-to-design-01.gb](https://github.com/bnext-bio/nucleus/blob/main/components/modules/detector/lacI.gb#L56-L66) |
-| `pOpen-pT7-ClpX-linker-CHis` | 1699 | path-to-design-01.gb |
-| `pET28a-ClpP-CHis` | 3145 | path-to-design-01.gb |
-
-### Compatible processes
-
-My reference table (this is on same page): {ref}`spec01:tbl-36pot-formulation`
-My reference table (this is on different page): [ref](xref#this-tbl-36pot-formulation)
-
-::::{aside}
-:::{dropdown} TODO
-
-For GFP the distinction between process and instances feels overwrought or at least hard to distinguish
-:::
-::::
-
-- [b.next PURE](./docs/02-collections/cytosols.md)
-- [OnePot PURE]()
-
-::::{dropdown} [36Pot PURE]()
-
-**Formulation**. This module can be implemented in [my-process] by implementing the following formulation in the base process. TODO: can I reference a table from another page? [my rerefence](#this-tbl-36pot-formulation)
-
+**DNA**
 
 :::{table}
-:name: spec01:tbl-36pot-formulation
-
-| Component | Experiment (uL) |
-| --- | --- |
-| NEB Sol B -Ribos |  |
-| Workshop Protein Mix( ___ ug/uL) | 3 |
-| NEB Ribosomes | 4.5 |
-| NEB Sol A | 10 |
-| NEB Sol B |  |
-| RNse Inhibitor | 1.25 |
-| pT7-my-custom-plasmid (120 ng/uL) | 1.25 |
-| Ultrapure water | 5 |
-| **Total** | **25** |
+| **Name** | **Length (bp)** | **File** |
+| --- | --- | --- |
+| `TODO: pConstruct-Name` | TODO | [TODO: filename.gb](https://github.com/bnext-bio/nucleus/blob/main/TODO) |
 :::
 
-**Process** The following steps should be REMOVED, ADDED, or MODIFIED to implement the Module in the Process. 
+**Proteins**
 
-- ADD. Preparation of PPK stock solution
-
-::::
-
-### Usage
-
-**Collections**
-
-- [Collection-1](/docs/collections/cytosols/instance-template/instance)
-
-**DevNotes**
-
-- [DevNote-3](https://doi.org/10.63765/djnv7772)
-
-**Literature**
-
-- [Wang *et al.* 2019](https://doi.org/10.1021/acssynbio.9b00456)
-
-::::{aside}
-:::{dropdown} TODO
-
-I want to figure out how to hide the list of references from being auto generated at the bottom.
+:::{table}
+| **Name** | **MW (kDa)** | **File** |
+| --- | --- | --- |
+| `TODO: ProteinName-Tag` | TODO | [TODO: filename.fasta](https://github.com/bnext-bio/nucleus/blob/main/TODO) |
 :::
 ::::
+
+::::{tab-item} Maps
+<!-- Sequence maps for the constructs listed in the Designs tab.
+One figure per construct. Generated from .gb files using Benchling, SnapGene, or equivalent. -->
+
+:::{figure} TODO: map.png
+:name: fig-map
+:align: center
+:width: 75%
+
+TODO: `pConstruct-Name`. Brief description of key features (promoter, insert, selection marker). Generated from [TODO: filename.gb](https://github.com/bnext-bio/nucleus/blob/main/TODO).
+:::
+::::
+
+:::::
+
+# Properties
+
+Key intrinsic properties of this module sourced from databases, literature, or supplier datasheets. Include only values that are independent of experimental context — things you would find in a reference database or datasheet. For example:
+
+| Property | Value | Source |
+| --- | --- | --- |
+| TODO: Excitation max (nm) | TODO | TODO |
+| TODO: Emission max (nm) | TODO | TODO |
+| TODO: MW (kDa) | TODO | TODO |
+
+# Implementations
+
+List the Implementations that use this Module. Link each to its page.
+
+- [TODO: Implementation Name](../../implementations/TODO/implementation-template.md)
+
+# References
+
+<!-- Intrinsic properties cited in the Overview — database entries, primary literature, supplier datasheets.
+Use numbered references or inline links as appropriate. -->
+
+- TODO: Author et al. (YYYY). *Title*. Journal. [https://doi.org/TODO](https://doi.org/TODO)
+
+# Credits
+
+<!-- List the people who developed or validated this module.
+Link to ORCID or personal pages where available. -->
+
+- [TODO: Name](https://orcid.org/TODO)

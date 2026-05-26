@@ -1,52 +1,63 @@
 ---
-title: Instance (Instance Name)
+title: "TODO: Implementation Name"
+subtitle: Implementation
 site:
     hide-toc: true
 ---
 
-## Overview
+# Overview
 
-Transcription factor modules bind to regulatory sequences upstream of coding regions, initiating RNA polymerase recruitment modules and gene expression cascades. Mitochondrial cristae modules facilitate oxidative phosphorylation through electron transport chain complexes, generating ATP via chemiosmotic gradient modules. Ribosomal subunit modules assemble on messenger RNA templates, catalyzing peptide bond formation between amino acids during translation elongation modules. Membrane-bound vesicle modules transport cargo proteins through endoplasmic reticulum and Golgi apparatus modules, undergoing post-translational modification modules including glycosylation and phosphorylation. Cell cycle checkpoint modules monitor DNA replication fidelity and chromosome segregation modules, preventing genomic instability through tumor suppressor pathway modules. Enzymatic cascade modules regulate metabolic flux through glycolysis and citric acid cycle modules, coordinating cellular energy production with biosynthetic demand modules.
+The Overview says what this implementation is and what it does. Nothing else. A reader should be able to tell in a few seconds whether they're on the right page. An implementation combines one or more Module specs with a Process — the overview should name both and state what the combination produces. Include key parameters that define scope. Use precise terms. Don't explain what a ribosome does. The reader knows. Skip preamble. Just start:
+
+"The IV-HSL Emitter implementation combines the IV-HSL Emitter Module with the Assemble Base Cell process to produce synthetic cells that secrete N-(3-hydroxybutanoyl)-L-homoserine lactone (IV-HSL) and activate GFP expression in neighboring E. coli reporter cells."
+
+"The PPK energy implementation combines the PPK energy Module with the Assemble Base Cytosol process to produce a CP/CK-free cell-free transcription–translation system powered by inorganic polyphosphate regeneration."
+
+When in doubt, read the existing Implementation specs.
 
 :::{figure} ./resources/schematic-example-2.png
-:name: fig2-kinetics
+:name: fig-schematic
 :align: center
 :width: 75%
 
-This is a schematic of the module of the system.
+TODO: One sentence describing what the schematic shows. If the figure is not original, credit the source and include the license (e.g. "Figure by Author et al. used under CC-BY-4.0 / cropped from original.").
 :::
 
-## Resources
+# Protocol
+
+The protocol section contains the step-by-step procedure for building this implementation. Write it so someone can follow it at the bench. State volumes, concentrations, incubation times, and temperatures as concrete values, not ranges, unless the range is intentional. If a step depends on a Process documented elsewhere, link to it rather than repeating it. Include a composition table if the implementation requires assembling multiple components.
+
+*Under Construction*
 
 ::::{grid} 1 1 2 3
 
 :::{card}
 :header: **Bill of Materials**
-{button}`Download BOM <./resources/BOM-template.pdf>`
+{button}`Download BOM <TODO: bom.pdf>`
 :::
 
 :::{card}
 :header: **Lab-Ready Protocol**
 :align: center
-{button}`Download Protocol <./resources/protocol_example.pdf>`
+{button}`Download Protocol <TODO: protocol.pdf>`
 :::
 
 :::{card}
 :header: **Platemap Template**
-{button}`Download Platemap <./resources/BOM-template.pdf>`
+{button}`Download Platemap <TODO: platemap.pdf>`
 :::
 ::::
 
-## Expected Behavior
+# Performance
 
-The transcription factors moved to their promoter sites. They did this quietly, without ceremony. RNA polymerase followed. It always did. In the mitochondria, the cristae worked. They made ATP the way they had always made it. Through gradients. Through chemistry older than thought. The ribosomes assembled. They read the RNA like fishermen reading water. Each amino acid found its place. The chain grew longer. Vesicles carried their cargo through the cell's narrow passages. From the rough ER to the Golgi. Some proteins were marked. Others were not. The cell knew which ones mattered. The checkpoints watched over replication. DNA split and reformed. When something went wrong, the cell stopped. It had learned this lesson before.
+Show what this implementation actually did in practice. Include representative data: time series, endpoint measurements, dose-response curves, or whatever characterizes the system's behavior. Each figure should have a caption that states the experimental conditions and links to the source DevNote. If performance varies across conditions (temperature, concentration, cytosol batch), show that. The goal is to let a reader judge whether this implementation fits their use case without having to reproduce the experiment first.
 
 :::::{tab-set}
 
 ::::{tab-item} Time series
 :sync: tab1-1
 :::{figure} ./behavior/ppk-kinetics.png
-:name: fig2-kinetics
+:name: fig-kinetics
 :align: center
 :width: 75%
 
@@ -57,20 +68,33 @@ Translation kinetics of PURE reactions using the custom energy solution with or 
 ::::{tab-item} End point
 :sync: tab1-2
 :::{figure} ./behavior/ppk-endpoint.png
-:name: fig3-endpoint
+:name: fig-endpoint
 :align: center
 :width: 75%
 
-Final protein yields of the three reactions measured at steady state. [DevNote](https://devnotes.bnext.bio/articles/cytosol-module-mthfs).
+Final protein yields of the three reactions measured at steady state.
+[DevNote](https://devnotes.bnext.bio/articles/cytosol-module-mthfs).
 :::
 ::::
 
 :::::
 
-## Modules
+# Process
 
-This instance made use of the following modules.
+Link to the base Process this implementation follows. If this implementation deviates from the standard process (different volumes, modified steps, additional preparation), note that here.
 
-- [plamGFP](/docs/modules/mod-list/mod-plamGFP/specification)
-- [my-module](/docs/modules/mod-list/module-template/specification)
+- [TODO: Process Name](../../processes/TODO/main.md)
 
+# Modules
+
+List the modules used in this implementation. Link each to its spec page. If a module is used in a non-standard configuration (different concentration, modified construct), note that here.
+
+- [TODO: Module Name](../../modules/TODO/spec.md)
+- [TODO: Module Name](../../modules/TODO/spec.md)
+
+# Credits
+
+<!-- List the people who developed or validated this implementation.
+Link to ORCID or personal pages where available. -->
+
+- [TODO: Name](https://orcid.org/TODO)
