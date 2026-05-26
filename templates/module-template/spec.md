@@ -62,90 +62,33 @@ Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
 :::
 ::::
 
-:::::
+::::{tab-item} Maps
+<!-- Sequence maps for the constructs listed in the Designs tab.
+One figure per construct. Generated from .gb files using Benchling, SnapGene, or equivalent. -->
 
-# Reference Composition
-
-Describe how the module is implemented and in what context (e.g., synthetic cytosol, cells, etc.). Lead with any non-obvious preparation or formulation context. The table should give a reader enough information to implement the module without hunting elsewhere. Use a hint dropdown for stock solution details that would clutter the main table. For example:
-
-"The following table describes a self-contained experiment for evaluating the performance of the PPK energy module."
-
-"The following table describes the composition of Base Membrane for a 40 µL cell reaction."
-
-:::{hint} Note: TODO: Note title
-:class: dropdown
-
-<!-- Optional: stock solution concentrations, preparation details, or descriptions
-of reaction conditions. Delete this block if not needed. -->
-
-| Component | Stock concentration | Unit |
-| --- | --- | --- |
-| TODO: Component A | TODO | TODO |
-
-:::
-
-:::{table}
-| **Component** | **Stock concentration** | **Final concentration** | **Units** |
-| --- | --- | --- | --- |
-| TODO: Component A | TODO | TODO | TODO |
-| TODO: Component B | TODO | TODO | TODO |
-| Water | — | — | to volume |
-:::
-
-# Expected Performance
-
-Describe what a correctly implemented module should produce. Name the expected readout (fluorescence endpoint, gel band, growth curve), the conditions under which it was obtained, and acceptance criteria where known. The figures should show representative data from a validated experiment and cite the source DevNote. The goal is to give a reader a reference point so they can tell whether their own implementation is working correctly. For example:
-
-"A correctly implemented PPK energy module should show ≥ 50% deGFP yield relative to a CP/CK positive control when supplemented at the recommended concentration."
-
-"A correctly assembled Base Membrane should produce liposomes with distinct GFP-positive interiors and uniform Liss-Rhod PE membrane staining by fluorescence microscopy."
-
-:::::{tab-set}
-
-::::{tab-item} Kinetics
-:sync: tab1-1
-:::{figure} kinetics.png
-:name: fig-kinetics
+:::{figure} TODO: map.png
+:name: fig-map
 :align: center
 :width: 75%
 
-TODO: Describe what is shown, including conditions, controls, and the key result. Cite the source DevNote or paper. Example: "Translation kinetics of PURE reactions using the PPK energy module with and without CP/CK. Data from [TODO: DevNote title](https://doi.org/TODO)."
-:::
-::::
-
-::::{tab-item} Endpoint
-:sync: tab1-2
-:::{figure} endpoint.png
-:name: fig-endpoint
-:align: center
-:width: 75%
-
-TODO: Describe the endpoint metric and key result. Example: "Final deGFP yields measured at steady state across energy module conditions. Data from [TODO: DevNote title](https://doi.org/TODO)."
+TODO: `pConstruct-Name`. Brief description of key features (promoter, insert, selection marker). Generated from [TODO: filename.gb](https://github.com/bnext-bio/nucleus/blob/main/TODO).
 :::
 ::::
 
 :::::
 
-# Protocols
+# Implementations
 
-<!-- Update filenames to match the actual PDFs for this module.
-PDF generation pipeline is tracked in issue #10. -->
+List the Implementations that use this Module. Link each to its page.
 
-::::{grid} 1 1 1 2
+- [TODO: Implementation Name](../../implementations/TODO/implementation-template.md)
 
-:::{card}
-:header: **Step-by-Step Protocol**
-:footer: *Implemented using Nucleus Cytosol v0.5*
-{button}`Download <TODO: protocol.pdf>`
-:::
+# References
 
-:::{card}
-:header: **Materials**
-:footer: *Implemented using Nucleus Cytosol v0.5*
-{button}`Download <TODO: bom.pdf>`
-:::
+<!-- Intrinsic properties cited in the Overview — database entries, primary literature, supplier datasheets.
+Use numbered references or inline links as appropriate. -->
 
-::::
+- TODO: Author et al. (YYYY). *Title*. Journal. [https://doi.org/TODO](https://doi.org/TODO)
 
 # Credits
 
