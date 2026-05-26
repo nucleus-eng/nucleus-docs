@@ -77,6 +77,16 @@ TODO: `pConstruct-Name`. Brief description of key features (promoter, insert, se
 
 :::::
 
+# Properties
+
+Key intrinsic properties of this module sourced from databases, literature, or supplier datasheets. Include only values that are independent of experimental context — things you would find in a reference database or datasheet. For example:
+
+| Property | Value | Source |
+| --- | --- | --- |
+| TODO: Excitation max (nm) | TODO | TODO |
+| TODO: Emission max (nm) | TODO | TODO |
+| TODO: MW (kDa) | TODO | TODO |
+
 # Implementations
 
 List the Implementations that use this Module. Link each to its page.
