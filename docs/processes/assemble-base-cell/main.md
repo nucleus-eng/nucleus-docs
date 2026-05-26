@@ -36,7 +36,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | `pOpen-deGFP` DNA | 124 | nM | 3 | nM | 0.95 |
 | tRNA | 35 | mg/ml | 3.5 | mg/ml | 4 |
 | Magnesium acetate | 200 | mM | 8 | mM | 1.6 |
-| Optiprep | 1.32 | mg/uL | 0.043 | mg/uL | 1.33 |
+| Optiprep | 1.32 | mg/µL | 0.043 | mg/µL | 1.33 |
 | RNase Inhibitor | 40000 | U/mL | 2000 | U/mL | 2 |
 | Water |  |  |  |  | 6.12 |
 | Total volume [µL] |  |  |  |  | 40 |
@@ -160,8 +160,8 @@ Adjust the outer solution concentration so its osmolarity is 100–120 units low
 - [ ]  Set up a 1.5 mL tube rack with two 1.5 mL microcentrifuge tubes for each liposome encapsulation. Number the tubes according to the number of reactions assembled. Label the two tubes for each reaction:
     - [ ]  **T**—transfer
     - [ ]  **L**—liposomes
-- [ ]  Add 300 uL of the appropriate glucose outer solution to each of the tubes labelled **T**.
-- [ ]  Add 150 uL of the lipid-oil mixture (at room temperature) on top of each assembled Cytosol reaction.
+- [ ]  Add 300 µL of the appropriate glucose outer solution to each of the tubes labelled **T**.
+- [ ]  Add 150 µL of the lipid-oil mixture (at room temperature) on top of each assembled Cytosol reaction.
 - [ ]  Emulsify the lipid-oil and Cytosol reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Run it down 20–30 times until the solution forms a stable emulsion with an even milky color.
 
 :::{hint} Tip
@@ -180,9 +180,9 @@ Align the hinges of each T tube towards the outside of the centrifuge rotor, so 
 :::
 
 - [ ]  Extract the liposomes from each **T** tube:
-    - [ ]  Remove the oil layer and lipid debris from the top of each **T** tube by gently pipetting with a 1000 uL pipette set to 800 uL.
+    - [ ]  Remove the oil layer and lipid debris from the top of each **T** tube by gently pipetting with a 1000 µL pipette set to 800 µL.
     - [ ]  Gently pipette mix the pellet 10-15 times with the outer solution.
-    - [ ]  Extract liposomes by pipetting 50-100 uL of pellet and outer solution from **T** and transfer liposome sample to the respective liposome tube **L**.
+    - [ ]  Extract liposomes by pipetting 50-100 µL of pellet and outer solution from **T** and transfer liposome sample to the respective liposome tube **L**.
 
 :::{danger} Critical
 :class: simple

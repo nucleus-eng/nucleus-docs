@@ -19,9 +19,9 @@ exports:
     - [ ]  weigh mass.
     - NOTE: make sure mass stabilizes before recording
     - [ ]  check if resuspension volume will fit assigned tube. else, adjust mass
-  - [ ]  Filter ultrapure water with 0.22 um and add resuspension volume of filtered ultrapure water to each tube
+  - [ ]  Filter ultrapure water with 0.22 µm and add resuspension volume of filtered ultrapure water to each tube
   - [ ]  resuspend 19x amino acid stocks (excluding `Tyr`)
-      - [ ]  microfuge tubes on heater shaker set to 65C / 1400 rpm
+      - [ ]  microfuge tubes on heater shaker set to 65°C / 1400 rpm
       - [ ]  note incubation start time:
       - [ ]  check for complete resuspension every 30 min (should take ≤ 1 hr)
 
@@ -29,17 +29,17 @@ exports:
 <!-- ## Assemble Amino Acid Master Mix. -->
 
 - **Assemble Amino Acid Master Mix.**
-  - [ ]  Put `Tyr` 15 mL tubes in hot water bath sonicator set to 65C. Keep other 19x amino acid stocks on heater shaker at 65C.
-  - [ ]  For each amino acid stock other than `Tyr`, add the calculated volume to `Tyr` 15 mL tube. Keep the `Tyr` tube in 65C sonicator bath to maintain temperature and speed up resuspension.
+  - [ ]  Put `Tyr` 15 mL tubes in hot water bath sonicator set to 65°C. Keep other 19x amino acid stocks on heater shaker at 65°C.
+  - [ ]  For each amino acid stock other than `Tyr`, add the calculated volume to `Tyr` 15 mL tube. Keep the `Tyr` tube in 65°C sonicator bath to maintain temperature and speed up resuspension.
   - [ ]  Add filtered ultrapure water to final concentration as specified
-  - [ ]  Resuspend amino acid mix in hot water bath sonicator set to 65C with sonication
+  - [ ]  Resuspend amino acid mix in hot water bath sonicator set to 65°C with sonication
       - [ ]  Note incubation start time:
       - [ ]  Check for complete resuspension every 30 min (should take ~ 30 min)
-  - [ ]  Syringe filter using 0.22 um filter
+  - [ ]  Syringe filter using 0.22 µm filter
 
 <!-- **Storage.** -->
 ## Storage
-- [ ]  Aliquot and store at -20C
+- [ ]  Aliquot and store at -20°C
 
 
 

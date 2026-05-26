@@ -106,7 +106,7 @@ Final protein yields of the reactions measured at steady state. Data from [](htt
 | `pOpen-deGFP` DNA | 124 | nM | 3 | nM | 0.95 |
 | tRNA | 35 | mg/ml | 3.5 | mg/ml | 4 |
 | Magnesium acetate | 200 | mM | 8 | mM | 1.6 |
-| Optiprep | 1.32 | mg/uL | 0.043 | mg/uL | 1.33 |
+| Optiprep | 1.32 | mg/µL | 0.043 | mg/µL | 1.33 |
 | RNase Inhibitor | 40000 | U/mL | 2000 | U/mL | 2 |
 | Water |  |  |  |  | 6.12 |
 | Total volume [µL] |  |  |  |  | 40 |

@@ -31,7 +31,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | **Reagent** | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
 | --- | --- | --- | --- | --- | --- | --- |
-| Folinic acid | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4C to 30C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)] |
+| Folinic acid | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4°C to 30°C | [[link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)] |
 
 :::
 
@@ -71,7 +71,7 @@ Please read this section carefully. It contains important notes, resources, and 
 ## Prepare Folinic Acid Stock (5 mM).
 - [ ]  Weigh 12.5 mg folinic acid.
 - [ ]  Dissolve to a final volume of 4.89 mL.
-- [ ]  Aliquot and freeze at -20C.
+- [ ]  Aliquot and freeze at -20°C.
 
 ## Make All Other Stock Solutions.
 - [ ] Use the table below to prepare the specified stock solutions: 
@@ -80,16 +80,16 @@ Please read this section carefully. It contains important notes, resources, and 
 :label: tbl:stock-solutions
 :align: center
 
-| Reagent | **MW (g/mol)** | **Amount (g)** | **Final Volume (mL)** | **Storage** | **Needs pH adjustment?** | **Needs Sterilization?** |
-| --- | --- | --- | --- | --- | --- | --- |
-| Potassium Hydroxide (1 M) | 56.11 | 14.0 | 250 | 4C to 30C | no | no |
-| HEPES-KOH (pH 7.6, 1 M) | 238.3 | 59.5 | 250 | 4C to 30C; dark | yes | no |
-| Potassium glutamate (2.5 M) | 203.23 | 21.8 | 50 | 4C to 30C | no | no |
-| Magnesium acetate (1 M) | 214.45 | 10.8 | 50 | 4C to 30C | no | no |
-| Creatine phosphate (500 mM) | 327.14 | 1 | 9.43 | -25C to -15C | no | no |
-| Folinic acid (5 mM) | 511.50 | See above  |  | -25C to -15C | no | no |
-| Spermidine (500 mM) | 145.25 | 1 | 13.77 | -25C to -15C | no | no |
-| Amino Acid Mix |  |  | see [Make Amino Acid Mix](../make-amino-acid-mix/process-Make_Amino_Acid_Mix.md)  | -85C to -15C | yes | yes |
+| Reagent                     | **MW (g/mol)** | **Amount (g)** | **Final Volume (mL)**                                     | **Storage**     | **Needs pH adjustment?** | **Needs Sterilization?** |
+| --------------------------- | -------------- | -------------- | --------------------------------------------------------- | --------------- | ------------------------ | ------------------------ |
+| Potassium Hydroxide (1 M)   | 56.11          | 14.0           | 250                                                       | 4°C to 30°C       | no                       | no                       |
+| HEPES-KOH (pH 7.6, 1 M)     | 238.3          | 59.5           | 250                                                       | 4°C to 30°C; dark | yes                      | no                       |
+| Potassium glutamate (2.5 M) | 203.23         | 21.8           | 50                                                        | 4°C to 30°C       | no                       | no                       |
+| Magnesium acetate (1 M)     | 214.45         | 10.8           | 50                                                        | 4°C to 30°C       | no                       | no                       |
+| Creatine phosphate (500 mM) | 327.14         | 1              | 9.43                                                      | -25°C to -15°C    | no                       | no                       |
+| Folinic acid (5 mM)         | 511.50         | See above      |                                                           | -25°C to -15°C    | no                       | no                       |
+| Spermidine (500 mM)         | 145.25         | 1              | 13.77                                                     | -25°C to -15°C    | no                       | no                       |
+| Amino Acid Mix              |                |                | see [Make Amino Acid Mix](../make-amino-acid-mix/main.md) | -85°C to -15°C    | yes                      | yes                      |
 
 :::
 
@@ -120,7 +120,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 ## Storage
-- [ ]  Aliquot Small Molecule Mix into 1.5 mL microfuge tubes (between 50 uL and 100 uL per aliquot) and store at -80C.
+- [ ]  Aliquot Small Molecule Mix into 1.5 mL microfuge tubes (between 50 µL and 100 µL per aliquot) and store at -80°C.
 
 
 # Downloads
