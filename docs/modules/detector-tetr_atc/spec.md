@@ -24,8 +24,8 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 ::::{tab-item} Designs
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pT7-tetR` | N/A | Nucleus v0.1.0 Distribution Plate, well G1 |
-| `pT7-tetO-plamGFP` | N/A | Nucleus v0.1.0 Distribution Plate, well G3 |
+| `pT7-tetR` | 2877 | [pOpen-tetR.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-tetR.gb) |
+| `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
 ::::
 
 :::::
