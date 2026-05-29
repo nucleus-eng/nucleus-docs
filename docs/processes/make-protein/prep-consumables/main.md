@@ -9,6 +9,9 @@ Here, we make media used to grow up an expression strain to use for subsequent p
 
 # Materials and Equipment
 
+:::{table} Bill of Materials
+:label: bom-prep-consumables
+
 | **Name**                       | **Category** | **Product**                                                      | **Manufacturer**    | **Part #**   | **Price** | **Storage**  | **Link**                                                                                                                                                            |
 | ------------------------------ | ------------ | ---------------------------------------------------------------- | ------------------- | ------------ | --------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Potassium Hydroxide            | Salts        | Potassium hydroxide - ACS reagent, ≥85%, pellets                 | Sigma-Aldrich       | 221473-1KG   | $99.90    | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473)                                                                                                    |
@@ -30,6 +33,8 @@ Here, we make media used to grow up an expression strain to use for subsequent p
 | 10 mL Luer lock syringes       | Consumables  | Syringes with BD Luer-Lok® Tip, 10 mL                            | BD Industrial/Difco | 550-80620-PK | $102.40   | 4°C to 30°C    | [link](https://www.spectrumchemical.com/bd-8482-sterile-luer-lok-8482-tip-general-purpose-syringes-320054)                                                          |
 | 0.22 µm syringe filters        | Consumables  | PES Syringe Filter, 0.22µm, 30mm, Sterile                        | CELLTREAT           | 229747       | $84       | 4°C to 30°C    | [link](https://www.celltreat.com/product/229747/)                                                                                                                   |
 | 0.22 µm vacuum filters         | Consumables  | Corning® 500 mL Vacuum Filter, 0.22 µm PES Membrane, Sterile     | Corning             | 431097       | $187.14   | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Cell-Culture/Filtration/Vacuum-Filters/Vacuum-Filtration-Systems/p/431097)                              |
+
+:::
 
 # Protocol
 
