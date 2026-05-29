@@ -112,11 +112,11 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 :::{table} Preparation of outer solutions. These values are approximates and may vary based on the measured osmolarity of your inner solution.
 :name: os-prep
 
-| **Component** | **Cells + deGFP DNA [µL]** | **Cells - deGFP DNA [µL]** |
-| --- | --- | --- |
-| **Glucose (2 M)** | 570 | 570 |
-| **Water** | 430 | 430 |
-| **Total** | 1000 | 1000 |
+| **Component**     | **Cells + deGFP DNA (µL)** | **Cells - deGFP DNA (µL)** |
+| ----------------- | -------------------------- | -------------------------- |
+| **Glucose (2 M)** | 570                        | 570                        |
+| **Water**         | 430                        | 430                        |
+| **Total**         | 1000                       | 1000                       |
 
 :::
 
