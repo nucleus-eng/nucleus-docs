@@ -161,9 +161,8 @@ Washing the assembled mix before concentrating removes residual salts (Na+, Imid
 
 :::{card}
 :header: **Lab-ready Protocol**
-:align: center
 
-{button}`download <TODO: protocol.pdf>`
+{button}`download <generated/make-36pot-protocol.pdf>`
 :::
 
 :::{card}
