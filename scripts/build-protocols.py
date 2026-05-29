@@ -49,8 +49,8 @@ CHECKLIST_RE = re.compile(r"^\s*- \[[ xX]\]")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
 # Any directive fence (run of 3+ colons), possibly indented.
 FENCE_RE = re.compile(r"^\s*(:{3,})")
-# An admonition open fence, capturing the colon run and the title text.
-ADMONITION_OPEN_RE = re.compile(r"^\s*(:{3,})\{[^}]+\}\s*(.*?)\s*$")
+# A directive open fence: (colon run, directive name, trailing title text).
+ADMONITION_OPEN_RE = re.compile(r"^\s*(:{3,})\{([^}]+)\}\s*(.*?)\s*$")
 # A standalone directive option line (e.g. ":class: dropdown", ":label: ...").
 DIRECTIVE_OPTION_RE = re.compile(r"^\s*:[A-Za-z_][A-Za-z0-9_-]*:")
 # A markdown table row.
@@ -127,15 +127,23 @@ def strip_protocol_content(section_lines: List[str]) -> List[str]:
     for line in section_lines:
         stripped = line.rstrip("\n")
 
-        # Track admonition nesting (indent-tolerant) and drop their contents.
+        # Track directive nesting (indent-tolerant) and drop their contents —
+        # EXCEPT {table} directives, which we treat as transparent so their rows
+        # are kept (tables are part of the procedure). {figure} and all other
+        # admonitions (note/hint/danger/...) are stripped.
         fence = FENCE_RE.match(stripped)
         if fence:
             run = len(fence.group(1))
-            if ADMONITION_OPEN_RE.match(stripped):
-                admonition_stack.append(run)
+            m = ADMONITION_OPEN_RE.match(stripped)
+            if m:
+                directive = m.group(2).split()[0].lower()
+                # A {table} at top level stays transparent (don't strip its rows);
+                # one nested inside an already-stripped block is still dropped.
+                if not (directive == "table" and not admonition_stack):
+                    admonition_stack.append(run)
             elif admonition_stack and run == admonition_stack[-1]:
                 admonition_stack.pop()
-            # Either way, fence lines themselves are never emitted.
+            # Fence lines themselves are never emitted.
             continue
         if admonition_stack:
             continue
@@ -184,7 +192,7 @@ def extract_hazard_note(body: str) -> Optional[List[str]]:
     lines = body.splitlines()
     for i, line in enumerate(lines):
         m = ADMONITION_OPEN_RE.match(line)
-        if m and m.group(2).strip().lower() == "hazardous materials":
+        if m and m.group(3).strip().lower() == "hazardous materials":
             run = len(m.group(1))
             out = []
             for line2 in lines[i + 1:]:
