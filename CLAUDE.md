@@ -24,6 +24,13 @@ jupyter book start
 myst build --html
 ```
 
+**Generate lab-ready protocol PDFs / BOMs** (requires `myst` + `typst` on PATH):
+```bash
+python3 scripts/build-protocols.py            # all processes
+python3 scripts/build-protocols.py <dir>      # one process
+python3 scripts/build-protocols.py --extract-only   # skip PDF rendering
+```
+
 CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `mystmd` via npm and deploying to GitHub Pages.
 
 ## Architecture
@@ -102,6 +109,21 @@ The site TOC is defined entirely in `myst.yml`. When adding a new page, you must
 - `process-template/process-make_template.md` — full example of a process page including admonition blocks, protocol steps with checkboxes, and a Downloads section
 - `module-template/spec.md` — module spec structure with schematic, designs table, compatible processes, and usage references
 - `implementation-template/implementation-template.md` — combined implementation format
+- `typst/nucleus-protocols/` — the branded typst template used to render lab-ready protocol/BOM PDFs (vendored in-repo; pubmatter pinned to 0.2.2 — see its README)
+
+### Lab-ready protocol pipeline (issue #10)
+
+`scripts/build-protocols.py` generates downloadable artifacts from process pages — **derived files are never committed; they are rebuilt at deploy so they cannot drift from the source page.** For each `docs/processes/**/main.md` (or `*-main.md`) that has a `# Protocol` heading, it writes to a gitignored `generated/` dir beside the page:
+
+- `<slug>-protocol.pdf` — a pure bench checklist: page title + step headings + `- [ ]` items + a brief hazard note (if present). All prose, admonitions, and figures are stripped; **tables are kept** (recipes/reaction setups are part of the procedure). `<slug>` is the process's directory name.
+- `<slug>-bom.pdf` + `<slug>-materials.csv` — generated **only if** the page has a table labeled `bom-<slug>`.
+
+Markers the generator keys off: `# Protocol` heading (pages without one are skipped, as are stubs with no checklist items); frontmatter `title:`; an admonition titled `Hazardous Materials` for the hazard note; a `bom-<slug>` labeled table for the BOM/CSV. Cross-reference roles (`{ref}`, `{numref}`) in protocol steps are neutralized to a plain noun, since they often point at stripped sections.
+
+**Rules:**
+- `generated/` is gitignored (`**/generated/`) — never commit PDFs/CSVs. Treat `resources/` as source assets, `generated/` as derived.
+- Download buttons point at the relative generated path, e.g. `` {button}`download <generated/<slug>-protocol.pdf>` ``. MyST resolves these at build time, so **generation must run before `myst build`** (the deploy/CI ordering). Only include a BOM button if the page has a `bom-<slug>` table.
+- A page's materials/BOM table must be labeled `bom-<slug>` to be picked up (the slug must match the directory name).
 
 ### Prose formatting
 
@@ -153,7 +175,7 @@ Again, confirm with the developer before deleting the card.
 When migrating content from Notion markdown exports:
 
 - **Table indentation**: Notion exports often produce tables with inconsistent indentation — the header row at 0 spaces and subsequent rows (including the separator) at 2 spaces, or all rows at 2 spaces. MyST requires all rows to be at the same indentation level. The correct pattern is **0 indentation throughout** (no leading spaces on any row), even when the table follows a `- [ ]` list item. Do not indent tables to nest them under list items — it breaks rendering.
-- **Materials/consumables lists**: Large materials tables should be kept as inline markdown tables. A copy can be maintained as `resources/materials.csv` for download purposes, but mystmd does not support the `{csv-table}` `:file:` option for rendering external CSVs — the table must be inlined in the `.md` file.
+- **Materials/consumables lists**: Large materials tables should be kept as inline markdown tables (mystmd does not support the `{csv-table}` `:file:` option for rendering external CSVs — the table must be inlined). Do **not** hand-maintain a `resources/materials.csv` copy: the lab-ready pipeline generates `<slug>-materials.csv` from the page's `bom-<slug>` labeled table. See the lab-ready protocol pipeline section below.
 - **Notion `<aside>` blocks**: Convert to the appropriate MyST admonition or section header depending on context (e.g., "Getting Started" asides → Overview prose, "Step X" asides → `##` section headers, "Resources" asides → `# References`).
 - **Notion toggles**: Convert to `:::{hint} Note: <title>` with `:class: dropdown`.
 - **Units in table column headers**: Use parentheses, not brackets (e.g., `MW (g/mol)` not `MW [g/mol]`).
