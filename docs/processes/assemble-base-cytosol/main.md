@@ -140,21 +140,15 @@ To avoid introducing bubbles, use reverse pipetting to array your samples. With 
 ## Return reagents to their appropriate storage locations
 - [ ] Mark the lid of each Cytosol component that you used. The number of dots indicates how many freeze–thaw cycles each component has gone through.
 
-# Downloads sss
+# Downloads
 
 :::::{card}
 :header: **Resources**
-::::{grid} 1 1 1 2
+::::{grid} 1 1 1 1
 
 :::{card}
 :header: **Lab-ready Protocol**
-{button}`download <../../modules/reporter-degfp/module-protocol-cytosol-degfp.pdf>`
-:::
-
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <../../modules/reporter-degfp/module-bom-reporter-degfp.pdf>`
+{button}`download <generated/assemble-base-cytosol-protocol.pdf>`
 :::
 
 ::::
