@@ -1,0 +1,34 @@
+myst: v1
+kind: typst
+title: b.next Template
+description: Nucleus Developer Notes Template
+template: template.typ
+files:
+  - template.typ
+  - bnext.typ
+  - logo.png
+authors:
+  - name: Franklin Koch
+    github: fwkoch
+    affiliations:
+      - Curvenote
+version: 0.0.1
+license: MIT
+tags:
+  - preprint
+  - article
+  - paper
+thumbnail: ./thumbnail.png
+github: https://github.com/myst-templates/bnext
+doc:
+  - id: title
+    required: true
+  - id: authors
+    required: false
+  - id: subtitle
+  - id: short_title
+  - id: open_access
+  - id: keywords
+  - id: doi
+  - id: github
+  - id: first_page

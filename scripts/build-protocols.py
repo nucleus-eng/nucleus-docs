@@ -36,10 +36,10 @@ import sys
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-# Typst template used by MyST's `exports:` mechanism to render the PDFs.
-# TODO(#10): migrate off this personal repo into nucleus-eng (or in-repo
-# templates/) and pin to a tag before this pipeline goes to production.
-TYPST_TEMPLATE = "https://github.com/antonrmolina/nucleus-typst-test/archive/refs/heads/main.zip"
+# Branded in-repo typst template (owned + version-pinned; see its README). The
+# absolute path is written into each intermediate's `exports.template` so MyST
+# resolves it regardless of the intermediate's location.
+TYPST_TEMPLATE_DIR = Path("templates/typst/nucleus-protocols")
 
 PROCESSES_ROOT = Path("docs/processes")
 
@@ -246,7 +246,7 @@ def build_protocol_markdown(title: str, hazard: Optional[List[str]],
         f"title: {title}\n"
         "exports:\n"
         "  - format: typst\n"
-        f"    template: {TYPST_TEMPLATE}\n"
+        f"    template: {TYPST_TEMPLATE_DIR.resolve()}\n"
         f"    output: {slug}-protocol.pdf\n"
         "---\n\n"
     )
