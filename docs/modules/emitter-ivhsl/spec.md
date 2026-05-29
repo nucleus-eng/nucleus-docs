@@ -24,8 +24,8 @@ Design schematic of the IV-HSL Emitter module. `pT7-bjaI` expresses the BjaI enz
 ::::{tab-item} Designs
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pT7-bjaI` | N/A | Nucleus v0.3.0 Distribution Plate *(upcoming)* |
-| `bjaR-GFP-native` | N/A | Nucleus v0.3.0 Distribution Plate *(upcoming)* |
+| `pOpen-pT7-bjaI` | 2752 | [pOpen-pT7-bjaI.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/pOpen-pT7-bjaI.gb) |
+| `pOpen-bjaR-GFP-native` | 3877 | [pOpen-bjaR-GFP-native.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/pOpen-bjaR-GFP-native.gb) |
 ::::
 
 :::::
