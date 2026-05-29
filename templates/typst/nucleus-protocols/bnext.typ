@@ -112,9 +112,14 @@
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 1em)
 
-  // Configure lists.
+  // Configure lists. Lab-ready protocols are checklists: render every list
+  // marker as an empty checkbox so each step/substep can be ticked at the bench.
   set enum(indent: 10pt, body-indent: 9pt)
-  set list(indent: 10pt, body-indent: 9pt)
+  set list(
+    indent: 10pt,
+    body-indent: 9pt,
+    marker: box(width: 0.7em, height: 0.7em, stroke: 0.6pt + black, radius: 1pt, inset: 0pt),
+  )
 
   // Configure headings.
   set heading(numbering: heading-numbering)
