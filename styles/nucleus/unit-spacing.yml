@@ -1,0 +1,5 @@
+extends: existence
+message: "Remove spaces around '/' in compound unit expressions: '%s' should use no spaces (e.g., 'ng/µL', 'mg/mL')."
+level: error
+raw:
+  - '\b(?:n|µ|m|p|f|k)?[gLM]\s+/\s+(?:n|µ|m|p|f|k)?[gLM]\b'
