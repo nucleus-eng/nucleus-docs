@@ -226,6 +226,14 @@ def extract_bom_table(body: str, slug: str) -> Optional[List[str]]:
     return rows or None
 
 
+def _clean_cell(cell: str) -> str:
+    """Strip markdown markup from a table cell for clean CSV output:
+    bold (`**x**` -> `x`) and links (`[text](url)` -> `url`)."""
+    cell = re.sub(r"\[[^\]]*\]\(([^)]+)\)", r"\1", cell)  # link -> url
+    cell = re.sub(r"\*\*(.+?)\*\*", r"\1", cell)          # **bold** -> bold
+    return cell.strip()
+
+
 def table_to_csv(rows: List[str]) -> str:
     """Convert markdown table rows to CSV text, dropping the separator row."""
     buf = io.StringIO()
@@ -233,7 +241,7 @@ def table_to_csv(rows: List[str]) -> str:
     for row in rows:
         if TABLE_SEP_RE.match(row):
             continue
-        cells = [c.strip() for c in row.strip().strip("|").split("|")]
+        cells = [_clean_cell(c) for c in row.strip().strip("|").split("|")]
         writer.writerow(cells)
     return buf.getvalue()
 
@@ -257,6 +265,20 @@ def build_protocol_markdown(title: str, hazard: Optional[List[str]],
         parts.append(":::\n\n")
     parts.append("\n".join(checklist) + "\n")
     return "".join(parts)
+
+
+def build_bom_markdown(title: str, bom_rows: List[str], slug: str) -> str:
+    """Assemble the intermediate markdown that MyST renders to the BOM PDF."""
+    fm = (
+        "---\n"
+        f"title: {title} — Bill of Materials\n"
+        "exports:\n"
+        "  - format: typst\n"
+        f"    template: {TYPST_TEMPLATE_DIR.resolve()}\n"
+        f"    output: {slug}-bom.pdf\n"
+        "---\n\n"
+    )
+    return fm + "\n".join(bom_rows) + "\n"
 
 
 def find_process_pages(args: List[str]) -> List[Path]:
@@ -338,27 +360,36 @@ def main() -> int:
         gen_dir = page.parent / "generated"
         gen_dir.mkdir(exist_ok=True)
 
+        to_render = []  # intermediate .md files to render to PDF
+
         protocol_md = gen_dir / f"{slug}-protocol.md"
         protocol_md.write_text(
             build_protocol_markdown(title, hazard, checklist, slug),
             encoding="utf-8",
         )
+        to_render.append(protocol_md)
 
         bom_note = ""
         if bom_rows:
             (gen_dir / f"{slug}-materials.csv").write_text(
                 table_to_csv(bom_rows), encoding="utf-8"
             )
+            bom_md = gen_dir / f"{slug}-bom.md"
+            bom_md.write_text(
+                build_bom_markdown(title, bom_rows, slug), encoding="utf-8"
+            )
+            to_render.append(bom_md)
             bom_note = " + BOM/CSV"
 
         haz = " + hazard note" if hazard else ""
         print(f"✓ {page}  →  {slug}-protocol.md ({len(checklist)} lines){haz}{bom_note}")
 
         if render_available and not extract_only:
-            ok, msg = render_pdf(protocol_md)
-            print(f"    {'✓' if ok else '✗'} {msg}")
-            if not ok:
-                render_failures += 1
+            for md in to_render:
+                ok, msg = render_pdf(md)
+                print(f"    {'✓' if ok else '✗'} {msg}")
+                if not ok:
+                    render_failures += 1
 
     print(f"\nProcessed {len(pages)} process page(s).")
     if render_failures:
