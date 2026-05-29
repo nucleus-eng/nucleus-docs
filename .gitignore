@@ -8,6 +8,9 @@ _build
 .vscode/
 dep/
 
+# Generated lab-ready protocol artifacts (rebuilt at deploy; never committed) — see issue #10
+**/generated/
+
 # Notion export artifacts (raw exports, zips, staging dirs)
 **/resources/*.zip
 **/resources/notion_export/
