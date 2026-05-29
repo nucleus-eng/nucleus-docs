@@ -35,7 +35,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 <!-- ## Prepare Amino Acid Stock Solutions. -->
 
-**Prepare Amino Acid Stock Solutions.**
+## Prepare Amino Acid Stock Solutions.
 - [ ] Use the included Amino Acid Mix worksheet included as a resource for this protocol to calculate required masses and volumes.
 - [ ] Weigh `Tyr` into the cap of a 15 mL conical tube. Note mass and recalculate required final volume of AA mix to bring `Tyr` to 3.25 mM.
 - [ ] Label 19x microfuge tubes, one for each amino acid other than `Tyr`.
@@ -49,7 +49,7 @@ Please read this section carefully. It contains important notes, resources, and 
     - [ ] Check for complete resuspension every 30 min (should take ≤ 1 hr). Keep stocks at 65°C for next step.
 
 
-**Assemble Amino Acid Master Mix.**
+## Assemble Amino Acid Master Mix.
 - [ ] Put `Tyr` 15 mL tubes in hot water bath sonicator set to 65°C. Keep other 19x amino acid stocks on heater shaker at 65°C.
 - [ ] For each amino acid stock other than `Tyr`, add the calculated volume to `Tyr` 15 mL tube. Keep the `Tyr` tube in 65°C sonicator bath to maintain temperature and facilitate resuspension.
 - [ ]  Add filtered ultrapure water to final concentration as specified.
@@ -58,7 +58,6 @@ Please read this section carefully. It contains important notes, resources, and 
     - [ ]  Check for complete resuspension every 30 min (should take ~ 30 min).
 - [ ]  Syringe filter using 0.22 µm filter.
 
-<!-- **Storage.** -->
 ## Storage
 - [ ]  Aliquot and store at -20°C.
 
@@ -67,25 +66,18 @@ Assembly spreadsheet, with edits, from [OnePot PURE (2019)](https://doi.org/10.1
 
 # Downloads
 
-::::{grid} 1 1 1 3
+::::{grid} 1 1 1 2
 
 :::{card}
 :header: **Lab-ready Protocol**
-:align: center
 
-{button}`download <protocol-make_amino_acid_mix.pdf>`
+{button}`download <generated/make-amino-acid-mix-protocol.pdf>`
 :::
 
 :::{card}
 :header: **Assembly Worksheet**
-:align: center
 
 {button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <module-bom-reporter-cells-degfp.pdf>`
 :::
 
 ::::

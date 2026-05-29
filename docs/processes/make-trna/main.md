@@ -219,16 +219,11 @@ If your samples appear as a smear on your gel, consider testing your input buffe
 
 :::::{card}
 :header: **Resources**
-::::{grid} 1 1 1 2
+::::{grid} 1 1 1 1
 
 :::{card}
 :header: **Lab-ready Protocol**
-{button}`download <protocol-make_trnas.pdf>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
+{button}`download <generated/make-trna-protocol.pdf>`
 :::
 
 ::::

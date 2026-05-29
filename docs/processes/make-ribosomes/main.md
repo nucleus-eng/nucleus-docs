@@ -160,16 +160,11 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 
 :::::{card}
 :header: **Resources**
-::::{grid} 1 1 1 2
+::::{grid} 1 1 1 1
 
 :::{card}
 :header: **Lab-ready Protocol**
-{button}`download <protocol-make_ribosomes.pdf>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <protocol-Make_tRNAs.pdf>`
+{button}`download <generated/make-ribosomes-protocol.pdf>`
 :::
 
 ::::

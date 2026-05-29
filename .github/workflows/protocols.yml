@@ -1,0 +1,45 @@
+name: Build Protocols
+
+on:
+  pull_request:
+    branches: [main]
+
+# Build-only gate: render every lab-ready protocol/BOM PDF so a content edit
+# that breaks rendering is caught before merge (and before it could break the
+# deploy). Does not publish or commit — uploads the PDFs as an artifact for
+# reviewers. See issue #10.
+jobs:
+  check-bom-labels:
+    # Fast static check (no toolchain): bom-<slug> labels match their directory
+    # and BOM download buttons have a backing table. See scripts/check-bom-labels.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check BOM label conventions
+        run: python3 scripts/check-bom-labels.py
+
+  build-protocols:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Install MyST
+        run: npm install -g mystmd
+      - name: Install typst
+        run: |
+          set -euo pipefail
+          curl -sSL "https://github.com/typst/typst/releases/download/v0.14.2/typst-x86_64-unknown-linux-musl.tar.xz" | tar -xJ -C /tmp
+          sudo install /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+      - name: Install fonts
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-core
+      - name: Build lab-ready protocols
+        run: python3 scripts/build-protocols.py
+      - name: Upload generated PDFs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lab-ready-protocols
+          path: docs/processes/**/generated/*.pdf
+          if-no-files-found: warn
