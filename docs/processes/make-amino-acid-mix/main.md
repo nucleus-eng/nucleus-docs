@@ -67,25 +67,18 @@ Assembly spreadsheet, with edits, from [OnePot PURE (2019)](https://doi.org/10.1
 
 # Downloads
 
-::::{grid} 1 1 1 3
+::::{grid} 1 1 1 2
 
 :::{card}
 :header: **Lab-ready Protocol**
-:align: center
 
-{button}`download <protocol-make_amino_acid_mix.pdf>`
+{button}`download <generated/make-amino-acid-mix-protocol.pdf>`
 :::
 
 :::{card}
 :header: **Assembly Worksheet**
-:align: center
 
 {button}`download <Nucleus_v0.3.0_AA_worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <module-bom-reporter-cells-degfp.pdf>`
 :::
 
 ::::

@@ -127,21 +127,16 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::{card}
 :header: **Resources**
-::::{grid} 1 1 1 3
+::::{grid} 1 1 1 2
 
 :::{card}
 :header: **Lab-ready Protocol**
-{button}`download <protocol-make_small_molecule_mix.pdf>`
+{button}`download <generated/make-small-molecule-mix-protocol.pdf>`
 :::
 
 :::{card}
 :header: **Assembly Worksheet**
 {button}`download <Nucleus_v0.3.0_EMix-worksheet.xlsx>`
-:::
-
-:::{card}
-:header: **Bill of Materials**
-{button}`download <protocol-make_trnas.pdf>`
 :::
 
 ::::

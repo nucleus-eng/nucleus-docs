@@ -161,6 +161,24 @@ Make the following buffers on the same day as use.
   We've observed Lysis Buffer stored at 4°C becoming cloudy over the span of one week. We believe this is due to lysozyme aggregating in solution. We suspect this affects the activity of the lysozyme, so we recommend preparing Lysis Buffer fresh for use the same day.
   :::
 
+# Downloads
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+
+{button}`download <generated/prep-consumables-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+
+{button}`download <generated/prep-consumables-bom.pdf>`
+:::
+
+::::
+
 # References
 
 - [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
