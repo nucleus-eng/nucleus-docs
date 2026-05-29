@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 """
-check-bom-labels.py — enforce the lab-ready pipeline's BOM conventions on
-process pages (see issue #10).
+check-bom-labels.py — enforce the lab-ready pipeline's download/label
+conventions on process pages (see issue #10).
 
-The lab-ready pipeline (scripts/build-protocols.py) generates a Bill of
-Materials PDF + materials CSV from a table labeled ``bom-<slug>``, where
-``<slug>`` is the process's directory name. Download buttons point at the
-generated artifacts. Two things must hold or the build breaks / artifacts go
-missing:
+The lab-ready pipeline (scripts/build-protocols.py) generates a protocol PDF, a
+Bill of Materials PDF, and a materials CSV from each process page; download
+buttons point at the generated artifacts under ``generated/<slug>-*.pdf`` where
+``<slug>`` is the process's directory name. This check enforces:
 
   1. A ``bom-<...>`` table label must match its directory — ``bom-<dir-name>``.
      A renamed directory with a stale label silently stops generating the BOM.
   2. A page that links a generated BOM download (``generated/<slug>-bom.pdf``)
      must have a ``bom-<slug>`` table, or the download dangles / the build fails.
+  3. Any protocol-PDF download button must point at ``generated/<slug>-protocol.pdf``
+     — not a ``TODO``/placeholder path or some other page's PDF. (Catches the
+     stale-button class that slipped through the initial rollout: a page that
+     migrated from stub or template still pointing at the old target.)
 
 Reports violations as ``file:line`` and exits non-zero if any are found.
 
@@ -29,6 +32,8 @@ PROCESSES_ROOT = Path("docs/processes")
 
 BOM_LABEL_RE = re.compile(r"^\s*:label:\s*(bom-[A-Za-z0-9._-]+)\s*$")
 BOM_DOWNLOAD_RE = re.compile(r"download\s*<generated/([A-Za-z0-9._-]+)-bom\.pdf>")
+# Any `download <target>` reference, to inspect the target.
+DOWNLOAD_RE = re.compile(r"download\s*<([^>]+)>")
 
 
 def find_pages(args):
@@ -71,6 +76,19 @@ def check_page(path):
                 (i, f"links a BOM download but the page has no '{expected}' labeled table")
             )
 
+    # Rule 3: a protocol-PDF download button must point at the generated path.
+    expected_protocol = f"generated/{slug}-protocol.pdf"
+    for i, line in enumerate(lines, start=1):
+        for target in DOWNLOAD_RE.findall(line):
+            target = target.strip()
+            is_protocol_ref = "protocol" in target.lower() and (
+                target.lower().endswith(".pdf") or "todo" in target.lower()
+            )
+            if is_protocol_ref and target != expected_protocol:
+                violations.append(
+                    (i, f"protocol download '{target}' should be '{expected_protocol}'")
+                )
+
     return violations
 
 
@@ -88,7 +106,7 @@ def main():
             total += 1
 
     if total:
-        print(f"\n❌ {total} BOM-label violation(s) found.")
+        print(f"\n❌ {total} download/label convention violation(s) found.")
         return 1
     print(f"✅ {len(pages)} process page(s) OK.")
     return 0

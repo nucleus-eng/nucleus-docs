@@ -123,7 +123,7 @@ Markers the generator keys off: `# Protocol` heading (pages without one are skip
 **Rules:**
 - `generated/` is gitignored (`**/generated/`) — never commit PDFs/CSVs. Treat `resources/` as source assets, `generated/` as derived.
 - Download buttons point at the relative generated path, e.g. `` {button}`download <generated/<slug>-protocol.pdf>` ``. MyST resolves these at build time, so **generation must run before `myst build`** (the deploy/CI ordering). Only include a BOM button if the page has a `bom-<slug>` table.
-- A page's materials/BOM table must be labeled `bom-<slug>` to be picked up (the slug must match the directory name). `scripts/check-bom-labels.py` enforces this (label matches directory; BOM download buttons have a backing table) and runs on PRs via `.github/workflows/protocols.yml`.
+- A page's materials/BOM table must be labeled `bom-<slug>` to be picked up (the slug must match the directory name). `scripts/check-bom-labels.py` enforces the download/label conventions (bom label matches directory; BOM download buttons have a backing table; protocol download buttons point at `generated/<slug>-protocol.pdf`, not a placeholder or another page's PDF) and runs on PRs via `.github/workflows/protocols.yml`.
 
 ### Prose formatting
 
