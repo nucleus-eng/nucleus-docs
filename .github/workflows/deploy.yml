@@ -37,6 +37,18 @@ jobs:
           node-version: 18.x
       - name: Install MyST
         run: npm install -g mystmd
+      - name: Install typst
+        run: |
+          set -euo pipefail
+          curl -sSL "https://github.com/typst/typst/releases/download/v0.14.2/typst-x86_64-unknown-linux-musl.tar.xz" | tar -xJ -C /tmp
+          sudo install /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+          typst --version
+      - name: Install fonts
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-core
+      - name: Generate lab-ready protocol PDFs and BOMs
+        # Must run before `myst build` so the download buttons resolve the
+        # generated PDFs/CSVs (see scripts/build-protocols.py, issue #10).
+        run: python3 scripts/build-protocols.py
       - name: Build HTML Assets
         run: myst build --html
       - name: Upload artifact
