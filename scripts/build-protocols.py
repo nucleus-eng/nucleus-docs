@@ -246,6 +246,22 @@ def table_to_csv(rows: List[str]) -> str:
     return buf.getvalue()
 
 
+def strip_cross_references(text: str) -> str:
+    """Neutralize MyST cross-reference roles ({ref}`x`, {numref}`x`, {eq}`x`)
+    to a plain readable noun. Protocol steps often reference labels defined in
+    stripped page sections (e.g. {ref}`comp-cytosol` -> the Composition table);
+    standalone, those labels don't exist and typst errors. A lab-ready sheet
+    doesn't need clickable cross-refs, so render the target's type as a word."""
+    def repl(m):
+        label = m.group(2).lower()
+        if label.startswith("fig"):
+            return "figure"
+        if label.startswith(("tbl", "tab", "comp", "bom")):
+            return "table"
+        return "section"
+    return re.sub(r"\{(?:ref|numref|eq)\}`([^`<]*?<)?([^`>]+)>?`", repl, text)
+
+
 def build_protocol_markdown(title: str, hazard: Optional[List[str]],
                             checklist: List[str], slug: str) -> str:
     """Assemble the intermediate markdown that MyST renders to the protocol PDF."""
@@ -261,9 +277,9 @@ def build_protocol_markdown(title: str, hazard: Optional[List[str]],
     parts = [fm]
     if hazard:
         parts.append(":::{danger} Hazardous Materials\n")
-        parts.append("\n".join(hazard) + "\n")
+        parts.append(strip_cross_references("\n".join(hazard)) + "\n")
         parts.append(":::\n\n")
-    parts.append("\n".join(checklist) + "\n")
+    parts.append(strip_cross_references("\n".join(checklist)) + "\n")
     return "".join(parts)
 
 
