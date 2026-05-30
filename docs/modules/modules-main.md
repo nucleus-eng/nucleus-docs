@@ -6,19 +6,38 @@ title: Modules
 
 A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
 
+**Validation key:** ★★★★ validated in cells, frequently reused · ★★★ validated in cells · ★★ validated in vitro · ★ preliminary / DevNote only
+
+## PURExpress
+
+Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit).
+
 :::{table}
 
-| Module Class | Module Implementation | Base Module | Status |
-| --- | --- | --- | --- |
-| Base | [Cytosol](./base-cytosol/spec.md) | - | Specification |
-| Reporter | [deGFP](./reporter-degfp/spec.md) | Base Cytosol | Specification |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | Base Cytosol, PURExpress | Specification |
-| Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | PURExpress | Specification |
-| Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | PURExpress | Specification |
-| Energy | [PPK](./energy-ppk/spec.md) | PURExpress | Specification |
-| Control | [ClpXP](./control-clpxp/spec.md) | PURExpress | Specification |
-| Membrane Pore | [α-Hemolysin](./membrane-pore-ahly/spec.md) | PURExpress  | Specification |
-|  | [Cx43](./membrane-pore-cx43/spec.md) | PURExpress | DevNote |
+| Module Class | Specification | Validation |
+| --- | --- | --- |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★★ |
+| Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | ★★★ |
+| Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | ★★★ |
+| Energy | [PPK](./energy-ppk/spec.md) | ★★ |
+| Control | [ClpXP](./control-clpxp/spec.md) | ★★★ |
+| Membrane Pore | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★★ |
+| | [Cx43](./membrane-pore-cx43/spec.md) | ★ |
+
+:::
+
+## Nucleus Cytosol
+
+Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
+
+:::{table}
+
+| Module Class | Specification | Validation |
+| --- | --- | --- |
+| Base | [Cytosol](./base-cytosol/spec.md) | ★★★★ |
+| Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★★ |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★★ |
+
 :::
 
 # Contributing a Module
