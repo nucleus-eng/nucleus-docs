@@ -14,6 +14,7 @@ A Module is a useful biochemical formulation, often incorporating a genetically 
 | Reporter | [deGFP](./reporter-degfp/spec.md) | Base Cytosol | Specification |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | Base Cytosol, PURExpress | Specification |
 | Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | PURExpress | Specification |
+| | [LacI-IPTG](./detector-laci_iptg/spec.md) | PURExpress | Specification |
 | Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | PURExpress | Specification |
 | Energy | [PPK](./energy-ppk/spec.md) | PURExpress | Specification |
 | Control | [ClpXP](./control-clpxp/spec.md) | PURExpress | Specification |
