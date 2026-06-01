@@ -4,13 +4,12 @@ subtitle: Implementation
 site:
     hide-toc: true
 ---
-
 # Overview
 
-The aTc → IV-HSL Responder implementation combines the TetR-aTc Detector Module and the IV-HSL Emitter Module to produce a synthetic cell that generates isovaleryl-l-homoserine lactone (IV-HSL) in response to anhydrotetracycline (aTc). The module is implemented as a single genetic construct encoding the BjaI enzyme under control of the tet operator. A co-cultured *E. coli* receiver strain carrying `bjaR-GFP-native` reports IV-HSL production by expressing GFP.
+The aTc → IV-HSL Responder Implementation combines the TetR-aTc Detector Module and the IV-HSL Emitter Module to produce a synthetic cell that generates isovaleryl-l-homoserine lactone (IV-HSL) in response to anhydrotetracycline (aTc). The module is implemented as a single genetic construct encoding the BjaI enzyme under control of the tet operator. A co-cultured *E. coli* receiver strain carrying `bjaR-GFP-native` reports IV-HSL production by expressing GFP.
 
 :::{attention}
-This implementation has not been validated in Nucleus Cytosol ≥ v0.5. Documentation can be found on the legacy site [here](https://nucleus.bnext.bio/Responder-Cells-196ae616eb5180488db1f8b9e21473eb).
+This implementation has not been validated in Nucleus Cytosol ≥ v0.5.
 :::
 
 :::{figure} mechanism-schematic.png
@@ -29,20 +28,16 @@ The aTc → IV-HSL Responder in the Base Cell. aTc enters the cell and releases 
 
 # Protocol
 
-Three construct variants were evaluated: `pT7-tetO-bjaI` (single operator), `tetO-pT7-tetO-bjaI` (sandwich operator), and `pT7-tetO-tetO-bjaI` (train operator). `pT7-tetO-bjaI` has poor dynamic range — leaky expression in the off state produces sufficient IV-HSL to induce receiving *E. coli* cells. `tetO-pT7-tetO-bjaI` and `pT7-tetO-tetO-bjaI` resolve this by providing tight repression in the off state ([Lutz and Bujard, 1997](https://doi.org/10.1093/nar/25.6.1203)). `pT7-tetO-tetO-bjaI` was selected for the Responder Cell.
+Three construct variants were evaluated: `pT7-tetO-bjaI` (single operator), `tetO-pT7-tetO-bjaI` (sandwich operator), and `pT7-tetO-tetO-bjaI` (train operator). `pT7-tetO-bjaI` has poor dynamic range — leaky expression in the off state produces sufficient IV-HSL to induce receiving *E. coli* cells. `tetO-pT7-tetO-bjaI` and `pT7-tetO-tetO-bjaI` resolve this by providing tight repression in the off state ([Lutz and Bujard, 1997](https://doi.org/10.1093/nar/25.6.1203)). We chose to move forward with `pT7-tetO-tetO-bjaI`.
 
-:::{attention}
-**DNA construct gap.** The `pT7-tetO-tetO-bjaI` responder construct used in this implementation is not yet available in the [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) repository. The Notion source references the legacy `bnext-bio/nucleus` repository. Verify the construct location before use.
-:::
-
-The IV-HSL emitter module may be implemented by assembling the `pT7-tetO-tetO-bjaI` responder construct within a standard PURE reaction, following [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md). Add equimolar amounts of the substrates SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively.
+The IV-HSL Emitter Module may be implemented by assembling the `pT7-tetO-tetO-bjaI` responder construct within a standard PURE reaction, following [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md). Add equimolar amounts of the substrates SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively.
 
 **DNA Parts**
 
-| **Name** | **Length (bp)** | **File** |
-| --- | --- | --- |
-| `pT7-tetO-tetO-bjaI` | — | Not yet in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see attention block above |
-| `bjaR-GFP-native` | 3877 | [pOpen-bjaR-GFP-native.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/pOpen-bjaR-GFP-native.gb) |
+| **Name**             | **Length (bp)** | **File**                                                                                                                   |
+| -------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `pT7-tetO-tetO-bjaI` | 908             | [pT7-tetO-tetO-bjaI.gb (linear)](https://github.com/nucleus-eng/DNA/blob/main/emitters/pT7-tetO-tetO-bjaI-linear.gb)       |
+| `bjaR-GFP-native`    | 3877            | [pOpen-bjaR-GFP-native.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/pOpen-bjaR-GFP-native.gb) |
 
 **Protein Components**
 
@@ -58,11 +53,11 @@ The IV-HSL emitter module may be implemented by assembling the `pT7-tetO-tetO-bj
 
 **Primers and PCR**
 
-| **Name** | **Sequence** | **Tm full (°C)** | **Ta binding (°C)** |
-| --- | --- | --- | --- |
-| tetO-pT7-tetO F | gacggccagttccctatcagtgatagagagcatgagacggtctcag | 72 | 64 |
-| pT7-tetO-tetO F | aggagtaatacgactcactatagggtccctatcagtgatagagattgacaggtccctatc | 72 | 70 |
-| M13 Reverse | caggaaacagctatgaccatg | 63 | 63 |
+| **Name**        | **Sequence**                                                 | **Tm full (°C)** | **Ta binding (°C)** |
+| --------------- | ------------------------------------------------------------ | ---------------- | ------------------- |
+| tetO-pT7-tetO F | gacggccagttccctatcagtgatagagagcatgagacggtctcag               | 72               | 64                  |
+| pT7-tetO-tetO F | aggagtaatacgactcactatagggtccctatcagtgatagagattgacaggtccctatc | 72               | 70                  |
+| M13 Reverse     | caggaaacagctatgaccatg                                        | 63               | 63                  |
 
 | **Name** | **Vector** | **Primer F** | **Primer R** | **Anneal (°C)** | **Extension time (s)** |
 | --- | --- | --- | --- | --- | --- |
