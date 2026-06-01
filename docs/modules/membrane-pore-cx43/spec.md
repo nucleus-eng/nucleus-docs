@@ -6,12 +6,11 @@ site:
     numbered_references: false
 thumbnail: cell-insertion-sample.png
 ---
-
 # Overview
 
-The Cx43 Module expresses Connexin 43 (Cx43), a mammalian gap junction protein, within synthetic cells using the PURE cell-free expression system. Following expression, Cx43 spontaneously integrates into the liposome membrane and self-assembles into hexameric hemichannels (connexons) that permit the passage of molecules up to ~1 kDa. Cx43 provides a functionally distinct alternative to α-hemolysin: its status as a non-select agent makes it straightforward to distribute internationally, and its capacity to form gap junctions between neighboring cells opens a path toward tissue-like assemblies of synthetic cells.
+The Cx43 Module expresses connexin 43 (Cx43), a mammalian gap junction protein, that self-assembles into hexameric hemichannels (connexons) that spontaneously integrate into the membrane of synthetic cells and permit the passage of molecules up to ~1 kDa. Cx43 provides an alternative to α-hemolysin: its status as a non-select agent makes it easier to distribute, and its capacity to form gap junctions between neighboring cells represents a new function that opens a path toward tissue-like assemblies.
 
-This Module was contributed to the Nucleus Community by Ahmed Sihorwala (Belardi Lab, UT Austin), based on the construct design from the Stachowiak Lab and the publication [Bhatt et al., 2023](https://doi.org/10.1021/jacs.2c12491). Validation data is presented in the DevNote [Cx43 Cell: DNA Validation](https://doi.org/10.63765/xvxu3274) (Hsu et al., 2025).
+This Module was contributed to the Nucleus Community by Ahmed Sihorwala (Belardi Lab, UT Austin), based on the construct design from the Stachowiak Lab and the publication [Bhatt et al., 2023](https://doi.org/10.1021/jacs.2c12491). Validation data is presented in the DevNote [Cx43 Cell: DNA Validation](https://doi.org/10.63765/xvxu3274).
 
 :::{attention}
 This Module has not been validated in Nucleus Cytosol ≥ v0.5. Expected performance data below is from PURExpress cells.
@@ -22,7 +21,7 @@ This Module has not been validated in Nucleus Cytosol ≥ v0.5. Expected perform
 ::::{tab-item} Schematic
 
 :::{figure} xref:devnote-cx43#fig:scheme
-Depiction of connexin and its relationship to a connexon: (left) Connexins are tetra-membrane-spanning proteins whose N- and C-termini are located in the cytoplasm; (right) six connexins oligomerize to form a connexon. Figure by Totland et al. used under CC-BY-4.0 / cropped from original.
+Depiction of connexin and its relationship to a connexon: (left) Connexins are membrane-spanning proteins whose N- and C-termini are located in the cytoplasm; (right) connexons are complexes of six connexins. Figure by Totland *et al.* used under CC-BY-4.0 / cropped from original.
 :::
 
 ::::
@@ -30,13 +29,13 @@ Depiction of connexin and its relationship to a connexon: (left) Connexins are t
 ::::{tab-item} Designs
 
 :::{attention}
-The constructs below are not yet in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA). Design files are available as downloads from the [DevNote](https://doi.org/10.63765/xvxu3274).
+Design files for the constructs below are available [Nucleus DNA repository](https://github.com/nucleus-eng/DNA) and in the [DevNote](https://doi.org/10.63765/xvxu3274).
 :::
 
-| Construct | Size | Description |
-| --- | --- | --- |
-| `pOpen-pT7-Cx43` | 3320 bp | Expresses wild-type Cx43 under T7 promoter in pOpen backbone |
-| `pOpen-pT7-Cx43-eGFP` | 3996 bp | Expresses Cx43-eGFP fusion protein under T7 promoter in pOpen backbone |
+| Construct             | Size    | Description                                                            | **File**                                                                                 |
+| --------------------- | ------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `pOpen-pT7-Cx43`      | 3320 bp | Expresses wild-type Cx43 under T7 promoter in pOpen backbone           | [pOpen-Cx43.gb](https://github.com/nucleus-eng/DNA/blob/main/pores/pOpen-Cx43.gb)        |
+| `pOpen-pT7-Cx43-eGFP` | 3996 bp | Expresses Cx43-eGFP fusion protein under T7 promoter in pOpen backbone | [pOpen-Cx43-eGFP](https://github.com/nucleus-eng/DNA/blob/main/pores/pOpen-Cx43-eGFP.gb) |
 
 ::::
 
