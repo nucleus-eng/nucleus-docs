@@ -20,6 +20,10 @@ Guides provide tutorials, how-tos, and reference documentation to help you get t
 - [Tutorial: Analyzing Platereader Data](platereader_tutorial.md) — analyze cytosol kinetics data using the Nucleus CDK
 - [Tutorial: Making a Nucleus Compatible Plate Map](platemap_tutorial.md) — format and submit platemaps for use with CDK tools
 
+## Workshops
+
+- [Liposome Workshop](liposome-workshop/main.md) — two-day hands-on curriculum for building synthetic cells using the PURE Cell platform
+
 ## Contributing
 
 - [Contribution Guidelines](contribution-guide.md) — requirements and recommendations for submitting a contribution to the Distribution

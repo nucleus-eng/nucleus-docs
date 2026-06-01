@@ -103,6 +103,8 @@ project:
           hidden: true
         - file: ./guides/platemap_tutorial.md
           hidden: true
+        - file: ./guides/liposome-workshop/main.md
+          hidden: true
     - title: About
       children:
         # - file: ./about/open-science.md
