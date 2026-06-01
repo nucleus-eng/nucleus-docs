@@ -8,10 +8,7 @@ site:
 
 If you're new to Nucleus, check out [From Zero to DevNote](./start/first-guide.md). This Guide will walk you through the documentation while introducing you to the specific Nucleus tools. 
 
-# Protocols
-
 :::::{card}
-:footer: We are migrating protocols from our legacy site as modules are validated in Nucleus Cytosol v0.5
 
 ::::{grid} 1 1 2 2
 
@@ -40,12 +37,14 @@ Modules extend the functionality of Base Cytosol and Cells.
 Implementations are useful combinations of Modules and Processes.
 :::
 
+:::{card}
+:header: 📖 **Guides**
+:link: guides/main.md
+Tutorials, how-tos, and workshop materials for using the Nucleus Distribution and its digital tools.
+:::
+
 ::::
 :::::
-
-# Guides
-
-Guides contain tutorials, how-tos, and other reference material that support the use of Protocols and navigating the Nucleus Development Cycle.
 
 # Get in touch
 
