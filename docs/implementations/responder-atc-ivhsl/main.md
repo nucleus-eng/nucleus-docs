@@ -41,11 +41,7 @@ The IV-HSL Emitter Module may be implemented by assembling the `pT7-tetO-tetO-bj
 
 **Protein Components**
 
-:::{warning}
-**Concentration discrepancy — requires review.** The protein components list states TetR is resuspended to 10 µM, but the reaction table lists TetR stock as 30 µM. At 30 µM stock with 1.54 µL in 10 µL total, the calculated final concentration would be 4.62 µM. At 10 µM stock, the final concentration would be 1.54 µM. Please verify the correct stock concentration before use.
-:::
-
-- TetR purified protein — MedChemExpress HY-P71520, resuspended to 10 µM.
+- TetR purified protein — MedChemExpress HY-P71520, resuspended to 30 µM.
 
 **Cell Components**
 
