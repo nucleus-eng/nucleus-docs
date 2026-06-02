@@ -27,7 +27,7 @@ Pierce660 is a quick (5 min) colorimetric method for total protein quantitation.
 
 # Protocol
 
-- [ ] **Prepare a standard curve within the assay's working range (125 µg/mL to 2000 µg/mL). Remember to dilute the BSA stock in the same buffer used for your sample. The standards can be stored at −20°C for future assays.**
+- [ ] Prepare a standard curve within the assay's working range (125 µg/mL to 2000 µg/mL). Remember to dilute the BSA stock in the same buffer used for your sample. The standards can be stored at −20°C for future assays.
 
 :::{hint} Note: Standard curve dilution table
 :class: dropdown
@@ -54,21 +54,21 @@ We like to prepare eight (8) dilutions of our samples in a twofold (2x) dilution
 
 :::
 
-- [ ] **Mix Pierce660 Reagent well by inverting the bottle before use.**
-- [ ] **Array 150 µL of Pierce660 Reagent on a 96-well optical plate by reverse pipetting.**
-- [ ] **Add 10 µL of each sample (BSA standard series and sample concentration series) column-wise (e.g., BSA standard in Column 12, Sample 1 series in column 1, …) to the optical plate.**
+- [ ] Mix Pierce660 Reagent well by inverting the bottle before use.
+- [ ] Array 150 µL of Pierce660 Reagent on a 96-well optical plate by reverse pipetting.
+- [ ] Add 10 µL of each sample (BSA standard series and sample concentration series) column-wise (e.g., BSA standard in Column 12, Sample 1 series in column 1, …) to the optical plate.
 
-:::{hint} Note: Adjust your sample volume as needed
+:::{hint} Note: use a single channel pipette, or reverse pipette with a multichannel, to transfer samples.
 :class: dropdown
+Pierce660 is quite naturally sensitive to input volumes. Typically, multichannel pipetting volume is too high variance to reliably measure protein concentrations. One simple way to reduce pipetting volume is to use the same single channel pipette to transfer _every sample,_ including preparing the 2x dilution series in the first place. This takes time, but works. 
 
-You can assay adjust your sample volume as needed, as long as you adjust the volume of Pierce660 reagent you use to keep the ratio of Pierce660 reagent to sample at 15:1. We deviate from the manufacturer's protocol and use 75 µL of Pierce660 reagent and 5 µL of sample.
-
+An effective alternative is to _always_ reverse pipette your samples when using a multichannel pipette. Push your pipette plunger past the aspiration point to the blow-out point, as far as you can, and aspirate the full volume. You may see variance in the pipetted volume, but don't worry. When dispensing sample, dispense to the first point (aspiration) instead of all the way (blow-out). This ensures each sample is equally dispensed, in spite of variance in aspirated volume.
 :::
 
-- [ ] **Cover your plate with aluminum foil and mix on a plate shaker at medium speed for 1 minute.**
-- [ ] **Incubate your plate at 25°C / 5 min. Samples should turn from brown to green.**
-- [ ] **Using a plate reader, measure the absorbance of the samples at 660 nm.**
-- [ ] **Analyze results.**
+- [ ] Cover your plate with aluminum foil and mix on a plate shaker at medium speed for 1 minute.
+- [ ] Incubate your plate at 25°C / 5 min. Samples should turn from brown to green.
+- [ ] Using a plate reader, measure the absorbance of the samples at 660 nm.
+- [ ] Analyze results.
     - [ ] Subtract the absorbance of blank samples (i.e., BSA standard = 0 mg/µL) from all other samples ("background subtracted absorbance").
     - [ ] Plot the standard curve by plotting the background subtracted absorbance vs. concentration for each BSA standard. Fit a line to your standard curve.
     - [ ] For each sample dilution series, choose a well with a background subtracted absorbance in the linear range of the standard curve.
