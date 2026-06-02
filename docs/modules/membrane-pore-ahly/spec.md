@@ -6,10 +6,9 @@ site:
     numbered_references: false
 thumbnail: cell-gfp-quench.png
 ---
-
 # Overview
 
-The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that gates the transport of small molecules between the cytosol of a synthetic cell and its external environment. The pore is assembled from seven aHly monomers (33.2 kDa each, 293 amino acids), forming a structure with an outer diameter of 10 nm and an inner diameter of 1.6–4.6 nm — sufficient to pass molecules up to ~3 kDa. The 3 nm hydrophobic patch along the pore height matches the non-polar thickness of a typical phospholipid bilayer, making aHly a useful tool for confirming bilayer (as opposed to multilayer) formation in synthetic cells.
+The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that allows passive transport of small molecules between the cytosol of a synthetic cell and its external environment. The pore is assembled from seven monomers (33.2 kDa each, 293 amino acids) with an outer diameter of 10 nm and an inner diameter of (1.6–4.6) nm — sufficient for molecules up to ~3 kDa. The height of the 3 nm hydrophobic patch along the pore matches the thickness of the non-polar layer of a typical phospholipid membrane, making aHly a useful tool for confirming bilayer (as opposed to multilayer) formation in synthetic cells.
 
 aHly is a toxin derived from *Staphylococcus aureus* and requires BSL-2 handling. The [Cx43 Module](../membrane-pore-cx43/spec.md) provides a functionally comparable alternative that does not.
 
@@ -32,11 +31,11 @@ A schematic for this module is not yet available.
 ::::{tab-item} Designs
 
 :::{attention}
-`pT7-aHly` is not yet in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA).
+`pT7-aHly` is not in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA).
 :::
 
-| Construct | Description |
-| --- | --- |
+| Construct  | Description                                                 |
+| ---------- | ----------------------------------------------------------- |
 | `pT7-aHly` | Expresses α-hemolysin under T7 promoter for PURE expression |
 
 ::::
@@ -51,23 +50,23 @@ We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. 
 
 Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as a template. Reactions are assembled following the [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) protocol.
 
-| Component | Volume (µL) |
-| --- | --- |
-| Solution A | 4 |
-| Solution B | 3 |
-| RNase Inhibitor | 1 |
-| `pT7-aHly` (10 fmol/µL) | 1 |
-| Nucleus-Free Water | 1 |
-| **Total** | **10** |
+| Component          | Volume (µL) |
+| ------------------ | ----------- |
+| Solution A         | 4           |
+| Solution B         | 3           |
+| RNase Inhibitor    | 1           |
+| `pT7-aHly` (10 nM) | 1           |
+| Nucleus-Free Water | 1           |
+| **Total**          | **10**      |
 
 :::{hint} Note: aggregation at high concentrations
 :class: dropdown
-High concentrations of purified aHly (>100 nM) are associated with increased aggregation. Keep working concentrations below this threshold.
+High concentrations of purified aHly (>100 nM) are more likely to aggregate. Keep your working concentrations below this threshold.
 :::
 
 ### Expected Performance
 
-aHly expression in cytosol was validated by protein gel. Bands at ~33 kDa (red arrows) confirm successful expression of aHly monomer from `pT7-aHly` in PURE. Two loading volumes are shown (5 µL and 2.5 µL) alongside a no-template control (-).
+We validated aHly expression in cytosol by protein gel. Bands at ~33 kDa (red arrows) confirm successful expression of aHly monomer from `pT7-aHly` in PURE. Two loading volumes are shown (5 µL and 2.5 µL) alongside a no-template control (-).
 
 :::{figure} cytosol-protein-gel.png
 Protein gel showing aHly expression in PURE. Lanes labeled "hly" and "(-)" correspond to reactions with and without `pT7-aHly`. Red arrows indicate the aHly band at ~33 kDa. Left pair: 5 µL; right pair: 2.5 µL per lane.
@@ -77,11 +76,7 @@ Protein gel showing aHly expression in PURE. Lanes labeled "hly" and "(-)" corre
 
 ### Usage
 
-To demonstrate functional pore insertion, aHly is co-expressed with a reporter (`pT7-eGFP`) in synthetic cells. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production. The outer solution is an osmolarity-matched buffer (10 mM HEPES, 790 mM glucose).
-
-:::{note} Nomenclature review needed
-The source protocol uses non-standard shorthand (`[OS-T1T2-Cy]`, `B-aG-N`, `B-G-N`) that should be reconciled with Nucleus conventions before this section is finalized. Column headers below have been updated to `+aHly` / `−aHly` pending author review.
-:::
+To demonstrate functional pore insertion, co-express aHly is with a reporter (`pT7-eGFP`) in synthetic cells using an osmolarity-matched buffer without energy molecules (10 mM HEPES, 790 mM glucose) as the outer solution. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production. 
 
 Prepare master mix for 3 reactions to account for dead volume.
 
