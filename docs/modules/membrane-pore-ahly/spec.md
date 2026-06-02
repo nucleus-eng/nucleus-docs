@@ -118,4 +118,4 @@ Epifluorescence microscopy of synthetic cells. (Left) GFP+aHly: GFP production i
 
 # Credits
 
-Module developed by the [Devaraj Lab](https://devarajlab.ucsd.edu/).
+Module developed by the [Devaraj Lab](https://www.devarajgroup.com/).
