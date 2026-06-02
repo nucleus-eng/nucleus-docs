@@ -45,7 +45,7 @@ Pierce660 is a quick (5 min) colorimetric method for total protein quantitation.
 
 :::
 
-- [ ] **Prepare a dilution series of your samples in the same buffer.**
+- [ ] Prepare a dilution series of your samples in the same buffer.
 
 :::{hint} Note: We do 2x serial dilutions
 :class: dropdown
