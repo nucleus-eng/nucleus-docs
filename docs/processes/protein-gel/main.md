@@ -2,10 +2,10 @@
 title: "Protein Gel"
 subtitle: "Process"
 ---
-
 # Overview
+SDS PAGE gel electrophoresis separates components of a mixture roughly by molecular weight. Samples are pushed by an applied electric field through a polyacrylamide gel, wherein smaller molecules migrate faster than larger ones. The result is that molecules are separated by species into distinct "bands" whose molecular weights can be compared against a known standard. The presence or absence of bands can indicate the make up of a sample, and the visual sharpness of those bands can indicate the integrity of the corresponding component (e.g., RNA degradation causes smearing in tRNA gels).
 
-You have samples and you want to see (1) what proteins are in that sample and (2) how much of each protein there is. You can use this protocol to semi-quantitate protein sizes and concentrations in your samples. You can use this information to roughly measure protein purity.
+<!--You have samples and you want to see (1) what proteins are in that sample and (2) how much of each protein there is. You can use this protocol to semi-quantitate protein sizes and concentrations in your samples. You can use this information to roughly measure protein purity. -->
 
 # Materials and Equipment
 
@@ -16,23 +16,18 @@ You have samples and you want to see (1) what proteins are in that sample and (2
 :::{table} Bill of Materials
 :label: bom-protein-gel
 
-| **Name** | **Category** | **Product** | **Manufacturer** | **Part #** | **Price** | **Storage** | **Link** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Tris-Glycine 4%–20% gels | Consumable | 4–20% Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL | BioRad | 4561094 | $153.00 | 1°C to 4°C | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094) |
-| Laemmli Buffer (6x) | Reagent | Laemmli SDS-Sample Buffer (6X, Reducing) | Boston BioProducts | BP-111R | $42.00 | 4°C to 30°C | [link](https://www.bostonbioproducts.com/products/laemmli-sds-sample-buffer-6x-reducing-bp-111r) |
-| Rapid protein stain | Reagent | Pageblue™ Protein Staining Solution | Thermo Scientific | 24620 | $153.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/24620) |
-| Thermocycler | Equipment | SimpliAmp™ Thermal Cycler | Applied Biosystems | A24811 | $6,580.00 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/A24811) |
-| Gel Tank | Equipment | Criterion™ Cell | BioRad | 1656001 | $852.00 | 4°C to 30°C | [link](https://www.bio-rad.com/en-us/product/criterion-cell?ID=0d31b27f-e577-4e08-b552-8dc71e6105b7) |
-| Gel Power Supply | Equipment | PowerPac™ Basic Power Supply | BioRad | 1645050 | $530.00 | 4°C to 30°C | [link](https://www.bio-rad.com/en-us/product/powerpac-basic-power-supply?ID=bea5dea1-cef0-43ad-8af5-b2c0287f6e07) |
-| Gel Imager | Equipment | ChemiDoc™ Imaging System | BioRad | 12003153 | unlisted | 4°C to 30°C | [link](https://www.bio-rad.com/en-us/sku/12003153-chemidoc-imaging-system?ID=12003153) |
+| **Name**                            | **Category** | **Product**                                                   | **Manufacturer**   | **Part #** | **Price** | **Storage**    | **Link**                                                                                                                     |
+| ----------------------------------- | ------------ | ------------------------------------------------------------- | ------------------ | ---------- | --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Tris-Glycine 4%–20% gels            | Consumable   | 4–20% Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL | BioRad             | 4561094    | $153.00   | 1°C to 4°C     | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094)        |
+| 10x Tris/Glycine SDS running buffer | Reagent      | # 10x Tris/Glycine/SDS                                        | BioRad             | 1610732    | $41.00    | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/sku/1610732-10x-tris-glycine-sds?ID=1610732)                                            |
+| Protein Ladder                      | Reagent      | Precision Plus Protein™ Unstained Protein Standards           | BioRad             | 1610363EDU | $138.00   | -25°C to -15°C | [link](https://www.bio-rad.com/en-us/product/protein-electrophoresis-size-standards?ID=b0f59c37-d604-49b7-9167-eaf21a29c751) |
+| Laemmli Buffer (6x)                 | Reagent      | Laemmli SDS-Sample Buffer (6X, Reducing)                      | Boston BioProducts | BP-111R    | $42.00    | 4°C to 30°C    | [link](https://www.bostonbioproducts.com/products/laemmli-sds-sample-buffer-6x-reducing-bp-111r)                             |
+| Rapid protein stain                 | Reagent      | Pageblue™ Protein Staining Solution                           | Thermo Scientific  | 24620      | $153.65   | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/24620)                                                             |
+| Thermocycler                        | Equipment    | SimpliAmp™ Thermal Cycler                                     | Applied Biosystems | A24811     | $6,580.00 | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/A24811)                                                            |
+| Gel Tank                            | Equipment    | Criterion™ Cell                                               | BioRad             | 1656001    | $852.00   | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/product/criterion-cell?ID=0d31b27f-e577-4e08-b552-8dc71e6105b7)                         |
+| Gel Power Supply                    | Equipment    | PowerPac™ Basic Power Supply                                  | BioRad             | 1645050    | $530.00   | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/product/powerpac-basic-power-supply?ID=bea5dea1-cef0-43ad-8af5-b2c0287f6e07)            |
+| Gel Imager                          | Equipment    | ChemiDoc™ Imaging System                                      | BioRad             | 12003153   | unlisted  | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/sku/12003153-chemidoc-imaging-system?ID=12003153)                                       |
 
-:::
-
-:::{note}
-**Missing materials — requires review.** The following items are referenced in the protocol but are absent from the materials table above. Add entries with product details before publishing:
-
-- **Protein ladder** — referenced in the "Load protein ladder" step. Product and part number not specified in source.
-- **Running buffer (Tris-Gly)** — referenced in the "Set up a gel box" step. Product and part number not specified in source.
 :::
 
 # Protocol
@@ -48,8 +43,8 @@ You have samples and you want to see (1) what proteins are in that sample and (2
     - [ ] Pour running buffer into the back half of the reservoir.
     - [ ] Carefully, remove comb from top of gel.
 - [ ] **Load 10 µL protein ladder onto the outermost lanes.**
-- [ ] **Load each sample onto its own lane. Target between 1–2 µg purified protein and between 10 µL and 20 µL per lane.**
-- [ ] **Run the gel at 200 V / 40–50 min, or until the dye front touches the bottom of the gel.**
+- [ ] **Load each sample onto its own lane.** Target between 1–2 µg purified protein and between 10 µL and 20 µL per lane.
+- [ ] **Run the gel at 200 V / 40–50 min,** or until the dye front touches the bottom of the gel.
 - [ ] **Stain and destain the gel.**
     - [ ] Using a gel knife, crack open the plastic cassette holding the gel.
     - [ ] Remove the gel carefully into a waterproof container. We find this is easier if you cover the bottom of your container with Ultrapure water (≥ 3 mm).
@@ -64,7 +59,7 @@ Knot 2–3 Kimwipes together and add to waterproof container with the gel while 
 
 :::
 
-- [ ] **Observe gel. High purity protein preps should have distinct bands at the correct molecular weight, with no unexpected additional bands.**
+- [ ] **Observe gel**. High purity protein preps should have distinct bands at the correct molecular weight, with no unexpected additional bands.
 
 :::{hint} Note: You can use a gel imager to semi-quantitate your protein
 :class: dropdown
