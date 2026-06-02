@@ -36,6 +36,8 @@ project:
           hidden: true
         - file: ./docs/modules/detector-tetr_atc/spec.md
           hidden: true
+        - file: ./docs/modules/detector-laci_iptg/spec.md
+          hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true
     - file: ./docs/processes/processes-main.md

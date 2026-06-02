@@ -14,15 +14,15 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 
 :::{table}
 
-| Module Class | Specification | Validation |
-| --- | --- | --- |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★ |
-| Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | ★★ |
-| Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | ★★ |
-| Control | [ClpXP](./control-clpxp/spec.md) |★★ |
-| Energy | [PPK](./energy-ppk/spec.md) | ★ |
-| Membrane Pore | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★ |
-| | [Cx43](./membrane-pore-cx43/spec.md) | ★ |
+| Module Class    | Specification                               | Validation |
+| --------------- | ------------------------------------------- | ---------- |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        |
+| Detector        | [tetR-aTc](./detector-tetr_atc/spec.md)     | ★★         |
+| Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         |
+| Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
+| Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
+| Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
+|                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
 
 :::
 
@@ -37,7 +37,6 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cytosol (Base) | [Cytosol](./base-cytosol/spec.md) | ★★★ |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★ |
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
-
 :::
 
 # Contributing a Module
