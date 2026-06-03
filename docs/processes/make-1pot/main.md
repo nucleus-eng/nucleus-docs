@@ -116,14 +116,14 @@ Following are the working buffers required for PURE protein production:
 - [ ] Add 25 mL of filtered Stock 60 (without reducing agent).
 - [ ] Store at 4 °C, wrapped in foil to protect from light; suitable for multiple preparations.
 
-# Procedure
+## Procedure
 
 A single OnePot PURE system preparation requires processing 500 mL of liquid culture. It is recommended to process two 500 mL cultures simultaneously to generate two independent PURE batches in a single run. These can be quantified separately and combined if their activity levels are comparable.
 
 This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purified PURE proteins per batch. The final stock concentration is 15 mg/mL.
 
 
-## Day 1: Starter Culture
+### Day 1: Starter Culture
 
 - [ ] Starter culture incubation needs to begin at 6 pm. As such begin subsequent steps at 5 pm to allow sufficient time to start incubation at 6pm. 
 - [ ] Thaw a PURE Starter Plate on ice. This starter plate contains each of the 36 strains frozen in 25% glycerol at OD 0.5.
@@ -136,7 +136,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Start incubation at 6pm. Check OD₆₀₀ at 10 am the next day (16 hours incubation).
 - [ ] Place 1.5 L of sterile LB in 37°C static incubator to prewarm overnight.
 
-## Day 2: Main Growth
+### Day 2: Main Growth
 
 - [ ] The next day, measure the OD₆₀₀ of the starter plate using a 96 well plate by adding 30 µL of each starter  to the bottom of each well and 270 µL of LB+KAN on top (10X dilution). Measure EF-Tu culture density at this time too. Expected OD₆₀₀ with 10X dilution is 0.2 - 0.3.
 - [ ] After 16 hours of incubation, all strains should be at OD 2-3. If a strain is growing very slowly, remove the starter volume from the 96-deep well plate and place it into a 2 mL sterile tube, and shake at 260 RPM 37°C independently until desired OD is reached. The remaining starters can be left in the deep well plate on the bench. If a starter has overgrown above OD₆₀₀, dilute the starters to OD₆₀₀ = 3 using LB+KAN in a sterile tube.
@@ -167,7 +167,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Centrifuge Falcon tubes at 4°C, 2000g again for 2 minutes, remove residual supernatant by pipetting.
 - [ ] The pellets can be flash frozen in liquid nitrogen and stored at -80 °C for up to 3 days until protein purification.
 
-## Day 3: Protein Purification
+### Day 3: Protein Purification
 
 - [ ] Thaw cell pellets on ice.
 - [ ] Add 2 mL of fresh cOmplete resin to chromotography column. Wash column with 30 mL dH20 twice to remove ethanol.
@@ -188,7 +188,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Store eluted protein on ice.
 - [ ] Remove dialysis cassette from beaker and add 5 mL of eluted protein into the dialysis casssette. Remove as much air as possible from cassette before putting the lid back on. Dialyse according to protocol stated below to remove imidazole. 5 mL of eluted protein is dialysed against 1L of buffer HT (without TCEP) for 12 hours/overnight at 4°C. In instances when elutions can be combined, 10 mL of elution can be dialysed against 2L of buffer HT.
 
-## Day 4: Protein Concentration
+### Day 4: Protein Concentration
 
 - [ ] After dialysis is complete, remove dialysed sample from cassette and add to a 3K MWCO Amicon Ultra 15 and top up volume with 10 mL of fresh buffer HT+TCEP.
 - [ ] Spin at 3220 g for 60 mins at 4°C. The sample volume will reduce down to 1.5 mL.
