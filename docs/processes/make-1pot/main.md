@@ -138,7 +138,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 
 ## Day 2: Main Growth
 
-- [ ] The next day, measure the OD₆₀₀ of the starter plate using a 96 well plate by adding 30 uL of each starter  to the bottom of each well and 270 µL of LB+KAN on top (10X dilution). Measure EF-Tu culture density at this time too. Expected OD₆₀₀ with 10X dilution is 0.2 - 0.3.
+- [ ] The next day, measure the OD₆₀₀ of the starter plate using a 96 well plate by adding 30 µL of each starter  to the bottom of each well and 270 µL of LB+KAN on top (10X dilution). Measure EF-Tu culture density at this time too. Expected OD₆₀₀ with 10X dilution is 0.2 - 0.3.
 - [ ] After 16 hours of incubation, all strains should be at OD 2-3. If a strain is growing very slowly, remove the starter volume from the 96-deep well plate and place it into a 2 mL sterile tube, and shake at 260 RPM 37°C independently until desired OD is reached. The remaining starters can be left in the deep well plate on the bench. If a starter has overgrown above OD₆₀₀, dilute the starters to OD₆₀₀ = 3 using LB+KAN in a sterile tube.
 - [ ] Once all starter strains have been equilibrated to OD₆₀₀ 2-3, proceed to main growth by adding 500 mL of prewarmed LB+KAN into a 2.5 L baffled flask (2X flasks).
 - [ ] Into a sterile 5 mL tube add 55 µL of each starter culture (excluding EF-Tu), and 1675 µL of EF-Tu starter culture. Mix well by vortexing and add entire content to 500 mL of LB+KAN in 2.5 L baffled flask. Repeat for the second culture flask.
