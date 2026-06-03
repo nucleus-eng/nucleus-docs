@@ -70,18 +70,18 @@ Final protein yields of the reactions measured at steady state. Data from [DevNo
 :::::
 
 
-### Protocols
+### Cytosol Protocols
 
 ::::{grid} 1 1 1 2
 
 :::{card}
-:header: **Step-by-Step Protocol**
+:header: **Step-by-Step Cytosol Protocol**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-protocol-cytosol-degfp.pdf>`
 :::
 
 :::{card}
-:header: **Materials**
+:header: **Cytosol Materials**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-bom-reporter-degfp.pdf>`
 :::
@@ -158,13 +158,13 @@ Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t =
 ::::{grid} 1 1 1 2
 
 :::{card}
-:header: **Step-by-Step Protocol**
+:header: **Step-by-Step Cell Protocol**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-protocol-cells-degfp.pdf>`
 :::
 
 :::{card}
-:header: **Materials**
+:header: **Cell Materials**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-bom-reporter-cells-degfp.pdf>`
 :::
