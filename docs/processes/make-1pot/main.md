@@ -27,7 +27,7 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 
 ::::::
 
-# Preliminary Work
+# Protocol
 
 *E. coli* BL21(DE3) was used as the expression strain for all 36 PURE proteins in this protocol.
 
@@ -116,7 +116,7 @@ Following are the working buffers required for PURE protein production:
 - [ ] Add 25 mL of filtered Stock 60 (without reducing agent).
 - [ ] Store at 4 °C, wrapped in foil to protect from light; suitable for multiple preparations.
 
-# Protocol
+# Procedure
 
 A single OnePot PURE system preparation requires processing 500 mL of liquid culture. It is recommended to process two 500 mL cultures simultaneously to generate two independent PURE batches in a single run. These can be quantified separately and combined if their activity levels are comparable.
 
@@ -212,7 +212,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 
 :::{card}
 :header: **Bill of Materials**
-{button}`download <bom-onepot-protein-mix.pdf>`
+{button}`download <generated/bom-1onepot.pdf>`
 :::
 
 ::::
