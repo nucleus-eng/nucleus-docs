@@ -27,6 +27,7 @@ Usage:
     python3 scripts/build-protocols.py --extract-only   # skip PDF rendering
 """
 
+import csv
 import re
 import shutil
 import subprocess
@@ -38,6 +39,7 @@ from typing import List, Optional, Tuple
 # generator, the label checker, the enricher, and the materials reference.
 from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0])
     TABLE_ROW_RE,
+    csv_to_table_rows,
     extract_bom_table,
     table_to_csv,
 )
@@ -265,6 +267,36 @@ def build_bom_markdown(title: str, bom_rows: List[str], slug: str) -> str:
     return fm + "\n".join(bom_rows) + "\n"
 
 
+def resolve_bom_source(page: Path, body: str, slug: str) -> Tuple[Optional[List[str]], str]:
+    """Resolve a process page's BOM from either of two accepted inputs (#108):
+
+      - an inline table labeled ``bom-<slug>`` on the page, or
+      - an uploaded ``resources/<slug>-bom.csv`` beside the page.
+
+    Returns ``(table_rows, source)`` where source is ``"inline"``, ``"csv"``, or
+    ``"none"``. If both inputs exist the inline table wins for rendering (it's
+    what readers see on the page); enforcing that the two agree is the label
+    checker's job, not the generator's. A malformed/empty CSV warns on stderr
+    and yields no BOM rather than crashing the build."""
+    inline = extract_bom_table(body, slug)
+    csv_path = page.parent / "resources" / f"{slug}-bom.csv"
+    if inline is not None:
+        return inline, "inline"
+    if csv_path.is_file():
+        try:
+            rows = csv_to_table_rows(csv_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, csv.Error) as exc:
+            print(f"  ⚠️  {csv_path}: could not read BOM CSV ({exc}); skipping BOM.",
+                  file=sys.stderr)
+            return None, "none"
+        if not rows:
+            print(f"  ⚠️  {csv_path}: BOM CSV is empty; skipping BOM.",
+                  file=sys.stderr)
+            return None, "none"
+        return rows, "csv"
+    return None, "none"
+
+
 def find_process_pages(args: List[str]) -> List[Path]:
     targets = [Path(a) for a in args] if args else [PROCESSES_ROOT]
     pages: List[Path] = []
@@ -339,7 +371,7 @@ def main() -> int:
             continue
 
         hazard = extract_hazard_note(body)
-        bom_rows = extract_bom_table(body, slug)
+        bom_rows, bom_source = resolve_bom_source(page, body, slug)
 
         gen_dir = page.parent / "generated"
         gen_dir.mkdir(exist_ok=True)
@@ -363,7 +395,7 @@ def main() -> int:
                 build_bom_markdown(title, bom_rows, slug), encoding="utf-8"
             )
             to_render.append(bom_md)
-            bom_note = " + BOM/CSV"
+            bom_note = f" + BOM/CSV (from {bom_source})"
 
         haz = " + hazard note" if hazard else ""
         print(f"✓ {page}  →  {slug}-protocol.md ({len(checklist)} lines){haz}{bom_note}")
