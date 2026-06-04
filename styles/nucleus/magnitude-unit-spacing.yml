@@ -1,0 +1,5 @@
+extends: existence
+message: "Add a space between the magnitude and its unit: '%s' (e.g. '5000 g', '6 pm')."
+level: error
+raw:
+  - '\b\d+g\b|\b\d(?:am|pm)\b'
