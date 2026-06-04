@@ -26,13 +26,19 @@ To clarify this distinction, we define several phrases:
 
 ### Bill of Materials
 
-* Must have a section titled "Critical Reagents" that contains a table describing reagents that are critical for the experiment. The table Must have the following form:
+* Must include a Bill of Materials for the process, supplied in the form the lab-ready pipeline ingests (this is what generates the downloadable BOM PDF and materials CSV — see the lab-ready protocol pipeline notes in `CLAUDE.md`). Provide it as **either**:
+  * an inline markdown table on the process page, labeled `bom-<process-slug>` (where `<process-slug>` is the process's directory name), **or**
+  * an uploaded CSV at `resources/<process-slug>-bom.csv` beside the page.
 
-| Reagent | **Product Name** | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link** |
-|----|----|----|----|----|----|----|
-| Amino Acids | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1C to 4C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
+  If you provide both, they Must agree — continuous integration fails on any row-for-row difference. Use the standard eight-column schema:
 
-* Should have a complete reagent list. In most circumstances, submissions will be modifying Processes with existing reagent lists. You are encouraged to reuse and modify these lists as appropriate and exercise good judgement when reagent substitutions should be regarded as "Critical"
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+|----|----|----|----|----|----|----|----|
+| Amino Acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
+
+* Should reuse existing part numbers and vendors where a material already appears elsewhere in the Distribution, rather than introducing a near-duplicate. Consult the [Materials Reference](./materials-reference.md) — a generated, distribution-wide index of every catalogued material and the processes that use it — to find the canonical entry. The `scripts/enrich-bom.py` aid can fill a new table's columns from existing pages by part number.
+
+* Should have a complete reagent list. In most circumstances, submissions will be modifying Processes with existing reagent lists. You are encouraged to reuse and modify these lists as appropriate and exercise good judgement when reagent substitutions should be regarded as "Critical". A curated subset of reagents that are critical for the experiment may additionally be highlighted in a "Critical Materials" dropdown in the process page's Important Information card.
 
 ### DNA Sequence Maps
 
