@@ -40,9 +40,13 @@ The PPK energy module is implemented by preparing a custom energy mix and adding
 
 **DNA Parts**
 
-:::{attention} DNA construct not yet uploaded
-A PPK-encoding DNA construct exists but has not yet been added to the DNA repository. See [#116](https://github.com/nucleus-eng/nucleus-docs/issues/116) — this entry will be updated once the construct is available in `nucleus-eng/DNA`.
+:::{attention}
+Design files for the constructs below are available [Nucleus DNA repository](https://github.com/nucleus-eng/DNA).
 :::
+
+| Construct   | Size    | Description                                                | **File**                                                                                    |
+| ----------- | ------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `pOpen-PPK` | 2915 bp | Contains PPK2 in pOpen backbone. Does NOT have a promoter. | [pOpen-PPK-CHis.gb](https://github.com/nucleus-eng/DNA/blob/main/energy/pOpen-PPK-CHis.dna) |
 
 **Protein components**
 
