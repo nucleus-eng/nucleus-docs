@@ -72,6 +72,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::::
 
+# Materials and Equipment
+
+This is an assembly process: it encapsulates base cytosol within a lipid membrane, combining components produced by other Nucleus processes rather than introducing new reagents. Its materials are itemized in those component processes' Bills of Materials — see the consolidated [Materials Reference](../../../guides/materials-reference.md).
+
 # Protocol
 
 ## Prepare Stock Solutions

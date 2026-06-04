@@ -106,6 +106,10 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 
 :::::::
 
+# Materials and Equipment
+
+This process purifies the 36 PURE proteins using the Make Protein workflow rather than introducing new reagents; its materials are itemized in the Bills of Materials of the [Make Protein](../make-protein/make-protein-main.md) sub-processes (Prepare Consumables, Grow Bacteria, Lysis & Sonication, Purify Proteins, Buffer Exchange). See the consolidated [Materials Reference](../../../guides/materials-reference.md).
+
 # Protocol
 
 ## Step 1: Compute Mix Volumes
