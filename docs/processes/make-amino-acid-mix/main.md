@@ -7,29 +7,15 @@ subtitle: Process
 
 Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. Here, we make stock solutions for each amino acid and assemble them into Amino Acid Mix for use in downstream protocols.
 
-:::::::{card}
-:header: **Important Information**
+# Materials and Equipment
 
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
+:::{table} Bill of Materials
+:label: bom-make-amino-acid-mix
 
-::::::{attention} Critical Materials
-:class: dropdown
-:icon: false
-
-:::{table}
-:label: tbl:critical-materials
-:align: center
-
-| Reagent              | **Product Name**                   | **Manufacturer** | **Part #** | **Price** | Storage Conditions | **Link**                                                        |
-| -------------------- | ---------------------------------- | ---------------- | ---------- | --------- | ------------------ | --------------------------------------------------------------- |
-| Amino Acids          | L-Amino acids, analytical standard | Sigma-Aldrich    | LAA21-1KT  | $558      | 1°C to 4°C           | [[link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)] |
-
-
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Amino Acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
 :::
-
-::::::
-
-:::::::
 
 # Protocol
 
@@ -72,6 +58,12 @@ Assembly spreadsheet, with edits, from [OnePot PURE (2019)](https://doi.org/10.1
 :header: **Lab-ready Protocol**
 
 {button}`download <generated/make-amino-acid-mix-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+
+{button}`download <generated/make-amino-acid-mix-bom.pdf>`
 :::
 
 :::{card}
