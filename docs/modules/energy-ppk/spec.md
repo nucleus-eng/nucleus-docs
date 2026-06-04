@@ -40,7 +40,9 @@ The PPK energy module is implemented by preparing a custom energy mix and adding
 
 **DNA Parts**
 
-- None
+:::{attention} DNA construct not yet uploaded
+A PPK-encoding DNA construct exists but has not yet been added to the DNA repository. See [#116](https://github.com/nucleus-eng/nucleus-docs/issues/116) — this entry will be updated once the construct is available in `nucleus-eng/DNA`.
+:::
 
 **Protein components**
 
@@ -48,7 +50,7 @@ The PPK energy module is implemented by preparing a custom energy mix and adding
 
 **Cell components**
 
-- None
+This module is implemented using purified PPK2 protein; no additional cell components are required.
 
 ### Reaction Construction
 

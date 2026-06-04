@@ -22,11 +22,6 @@ Schematic of a POPC/Chol liposome.
 :::
 ::::
 
-::::{tab-item} Designs
-
-- None
-
-::::
 :::::
 
 ## Reference Composition

@@ -18,6 +18,11 @@ fi
 
 conda env remove -n nucleus-docs 2>/dev/null
 conda env create -f environment.yml
+
+echo ""
+echo "Installing pre-commit hooks..."
+conda run -n nucleus-docs pre-commit install
+
 echo ""
 echo "Done! To get started:"
 echo "  conda activate nucleus-docs"
