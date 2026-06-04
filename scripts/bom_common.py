@@ -177,6 +177,14 @@ _HEADER_ALIASES = {
 CANON_FIELDS = ["name", "category", "product", "manufacturer",
                 "part", "price", "storage", "link"]
 
+# Cell values that mean "not filled in" — treated as empty so a page's own TODO
+# placeholders never pollute the index (and so the reference omits them).
+PLACEHOLDERS = {"", "todo", "tbd", "n/a", "na", "—", "-", "–", "#"}
+
+
+def is_placeholder(value: str) -> bool:
+    return (value or "").strip().lower() in PLACEHOLDERS
+
 
 def _header_field(cell: str) -> Optional[str]:
     key = re.sub(r"\s+", " ", _clean_cell(cell).strip().lower())
@@ -225,9 +233,11 @@ def row_to_material(cells: List[str], cols: Dict[str, int]) -> Optional[dict]:
         return cells[idx]
 
     part = get("part")
-    if not part or part.lower() in ("todo", "n/a", "—", "-", ""):
+    if is_placeholder(part):
         return None
-    mat = {f: get(f) for f in CANON_FIELDS}
+    # Nullify placeholder cells so a page's TODOs don't shadow real values
+    # from other pages during indexing/enrichment.
+    mat = {f: ("" if is_placeholder(get(f)) else get(f)) for f in CANON_FIELDS}
     mat["link"] = clean_link(get_raw("link"))
     return mat
 
@@ -255,7 +265,9 @@ def iter_tables(text: str):
             i += 1
 
 
-def index_materials(docs_root: Path) -> Tuple[Dict[Tuple[str, str], dict], List[dict]]:
+def index_materials(docs_root: Path,
+                    exclude: Optional[Path] = None
+                    ) -> Tuple[Dict[Tuple[str, str], dict], List[dict]]:
     """Scan every ``.md`` file under ``docs_root`` for materials tables (any
     table with Manufacturer + Part # columns, whether ``bom-<slug>`` or a legacy
     ``tbl:critical-materials``-style table) and build an index keyed by
@@ -272,11 +284,14 @@ def index_materials(docs_root: Path) -> Tuple[Dict[Tuple[str, str], dict], List[
     """
     index: Dict[Tuple[str, str], dict] = {}
     conflicts: List[dict] = []
+    exclude_resolved = exclude.resolve() if exclude else None
 
     for path in sorted(docs_root.rglob("*.md")):
         # Skip gitignored derived intermediates (generated/<slug>-bom.md etc.) —
         # they would re-index the same materials under a bogus "generated" slug.
         if "generated" in path.parts:
+            continue
+        if exclude_resolved and path.resolve() == exclude_resolved:
             continue
         slug = path.parent.name
         try:

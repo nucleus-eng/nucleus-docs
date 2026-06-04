@@ -73,7 +73,9 @@ def enrich(page: Path, write: bool) -> int:
               f"header (needs Manufacturer + Part # columns).")
         return 1
 
-    index, _conflicts = index_materials(DOCS_ROOT)
+    # Exclude the target page so its own (mostly empty) row never matches itself
+    # and its attributions point at the donor pages.
+    index, _conflicts = index_materials(DOCS_ROOT, exclude=page)
 
     # Build a name -> [keys] map for near-match reporting.
     by_name = {}
