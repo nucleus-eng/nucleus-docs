@@ -23,6 +23,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Materials and Equipment
 
+
+:::{table} Bill of Materials
+:label: bom-grow-bacteria
+
 | **Name** | **Category** | **Product** | **Manufacturer** | **Part #** | **Price** | **Storage** | **Link** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | LB | Media | Luria Broth (Miller's LB Broth), Non-Sterile, pH 6.8-7.2, Molecular Biology Grade, Powder | Sigma-Aldrich | L3522-1KG | $221 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l3522) |
@@ -37,6 +41,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Bench centrifuge | Equipment | Sorvall X4R Pro-MD, IVD Certified | Sorvall | 75009521 | $18,270.00 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/75009521) |
 | -20°C Freezer | Equipment | TSX Series High-Performance -20°C Manual Defrost Freezers | Thermo Scientific | TSX2320FA | unlisted | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/TSX2320FA) |
 | -80°C Freezer | Equipment | TSX Series Ultra-Low Freezers | Thermo Scientific | TSX60086A | unlisted | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/TSX60086A) |
+:::
 
 # Protocol
 
@@ -81,6 +86,24 @@ Bacteria need breathing room! Oxygenation matters, plus shaking can spill overfi
 :class: dropdown
 Frozen bacterial pellets can be stored at -80°C for extended periods (up to at least 3 months). There is no need to rush directly into purifying proteins from these pellets. We find that a nice workflow for making PURE proteins is to take two weeks to make 36 bacterial pellets, then purify those pellets at a later point.
 :::
+
+# Downloads
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+
+{button}`download <generated/grow-bacteria-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+
+{button}`download <generated/grow-bacteria-bom.pdf>`
+:::
+
+::::
 
 # References
 

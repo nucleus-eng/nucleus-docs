@@ -25,6 +25,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Materials and Equipment
 
+
+:::{table} Bill of Materials
+:label: bom-purify-proteins-grav-column
+
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Columns | Columns | Empty Disposable PD-10 Columns | Cytiva | 17043501 | $258.30 | 4°C to 30°C | [link](https://www.cytivalifesciences.com/en/us/shop/chromatography/columns/empty-columns-for-lab-scale/empty-disposable-pd-10-columns-p-06217) |
@@ -39,6 +43,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Potassium Chloride | Buffers | Potassium Chloride, ACS reagent, 99.0-100.5% | Sigma-Aldrich | P3911-1KG | $146.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/p3911) |
 | Magnesium Chloride hexahydrate | Buffers | BioXtra Magnesium chloride, Hexahydrate, Powder or Crystals, ≥99.0% | Sigma-Aldrich | M2670-100G | $50.50 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
 | TCEP-HCl (0.5M; presuspended) | Buffers | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific | 77720 | $175.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
+:::
 
 # Protocol
 
@@ -67,6 +72,24 @@ If you have more than 10 mL of clarified lysate, you can load your sample in tra
 
 - [ ] **Wash:** Wash column with ≥ 5 CV (10 mL) cold Wash Buffer. Allow buffer to flow through. Optionally capture flowthrough for later analysis.
 - [ ] **Elute:** Elute sample with 3 CV (6 mL) cold Elution Buffer. Capture flow through in 15 mL centrifuge tube.
+
+# Downloads
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+
+{button}`download <generated/purify-proteins-grav-column-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+
+{button}`download <generated/purify-proteins-grav-column-bom.pdf>`
+:::
+
+::::
 
 # References
 
