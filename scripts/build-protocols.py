@@ -27,14 +27,20 @@ Usage:
     python3 scripts/build-protocols.py --extract-only   # skip PDF rendering
 """
 
-import csv
-import io
 import re
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 from typing import List, Optional, Tuple
+
+# Shared BOM helpers (parse/normalize/index) — one definition across the
+# generator, the label checker, the enricher, and the materials reference.
+from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0])
+    TABLE_ROW_RE,
+    extract_bom_table,
+    table_to_csv,
+)
 
 # Branded in-repo typst template (owned + version-pinned; see its README). The
 # absolute path is written into each intermediate's `exports.template` so MyST
@@ -53,10 +59,7 @@ FENCE_RE = re.compile(r"^\s*(:{3,})")
 ADMONITION_OPEN_RE = re.compile(r"^\s*(:{3,})\{([^}]+)\}\s*(.*?)\s*$")
 # A standalone directive option line (e.g. ":class: dropdown", ":label: ...").
 DIRECTIVE_OPTION_RE = re.compile(r"^\s*:[A-Za-z_][A-Za-z0-9_-]*:")
-# A markdown table row.
-TABLE_ROW_RE = re.compile(r"^\s*\|.*\|\s*$")
-# A markdown table separator row (e.g. "| --- | --- |").
-TABLE_SEP_RE = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
+# (TABLE_ROW_RE / TABLE_SEP_RE imported from bom_common.)
 
 
 def slug_from_page(path: Path) -> str:
@@ -209,49 +212,6 @@ def extract_hazard_note(body: str) -> Optional[List[str]]:
                 out.pop()
             return out
     return None
-
-
-def extract_bom_table(body: str, slug: str) -> Optional[List[str]]:
-    """Return the markdown table rows belonging to the table labeled
-    `bom-<slug>`, or None if absent."""
-    lines = body.splitlines()
-    label = f"bom-{slug}"
-    label_idx = None
-    for i, line in enumerate(lines):
-        if line.strip() == f":label: {label}":
-            label_idx = i
-            break
-    if label_idx is None:
-        return None
-    rows = []
-    started = False
-    for line in lines[label_idx + 1:]:
-        if TABLE_ROW_RE.match(line):
-            started = True
-            rows.append(line.strip())
-        elif started:
-            break
-    return rows or None
-
-
-def _clean_cell(cell: str) -> str:
-    """Strip markdown markup from a table cell for clean CSV output:
-    bold (`**x**` -> `x`) and links (`[text](url)` -> `url`)."""
-    cell = re.sub(r"\[[^\]]*\]\(([^)]+)\)", r"\1", cell)  # link -> url
-    cell = re.sub(r"\*\*(.+?)\*\*", r"\1", cell)          # **bold** -> bold
-    return cell.strip()
-
-
-def table_to_csv(rows: List[str]) -> str:
-    """Convert markdown table rows to CSV text, dropping the separator row."""
-    buf = io.StringIO()
-    writer = csv.writer(buf)
-    for row in rows:
-        if TABLE_SEP_RE.match(row):
-            continue
-        cells = [_clean_cell(c) for c in row.strip().strip("|").split("|")]
-        writer.writerow(cells)
-    return buf.getvalue()
 
 
 def strip_cross_references(text: str) -> str:
