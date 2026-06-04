@@ -49,6 +49,10 @@ jobs:
         # Must run before `myst build` so the download buttons resolve the
         # generated PDFs/CSVs (see scripts/build-protocols.py, issue #10).
         run: python3 scripts/build-protocols.py
+      - name: Generate distribution-wide materials reference
+        # Must run before `myst build` so guides/materials-reference.md can
+        # include the generated table partial (see scripts/build-materials-reference.py, #108).
+        run: python3 scripts/build-materials-reference.py
       - name: Build HTML Assets
         run: myst build --html
       - name: Upload artifact

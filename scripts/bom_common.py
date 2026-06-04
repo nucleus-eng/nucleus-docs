@@ -197,13 +197,16 @@ def parse_table_header(header_row: str) -> Optional[Dict[str, int]]:
     return None
 
 
-def _strip_link_brackets(value: str) -> str:
-    """A cleaned legacy link cell can look like ``[https://...]`` (from the
-    ``[[link](url)]`` pattern). Drop a single surrounding bracket pair."""
-    v = value.strip()
-    if v.startswith("[") and v.endswith("]"):
-        v = v[1:-1].strip()
-    return v
+def clean_link(raw_cell: str) -> str:
+    """Extract a bare URL from a link cell, robust to the markup variants in the
+    docs: ``[link](url)``, the legacy double-bracket ``[[link](url)]``, a bare
+    bracketed ``[url]``, or a plain URL. Returns "" for a placeholder."""
+    raw = (raw_cell or "").strip()
+    m = re.search(r"\]\(([^)]+)\)", raw)  # markdown link target
+    url = m.group(1).strip() if m else raw.strip("[] ").strip()
+    if url.lower() in ("", "todo", "tbd", "n/a", "#", "—", "-"):
+        return ""
+    return url
 
 
 def row_to_material(cells: List[str], cols: Dict[str, int]) -> Optional[dict]:
@@ -215,11 +218,17 @@ def row_to_material(cells: List[str], cols: Dict[str, int]) -> Optional[dict]:
             return ""
         return _clean_cell(cells[idx])
 
+    def get_raw(field: str) -> str:
+        idx = cols.get(field)
+        if idx is None or idx >= len(cells):
+            return ""
+        return cells[idx]
+
     part = get("part")
     if not part or part.lower() in ("todo", "n/a", "—", "-", ""):
         return None
     mat = {f: get(f) for f in CANON_FIELDS}
-    mat["link"] = _strip_link_brackets(mat["link"])
+    mat["link"] = clean_link(get_raw("link"))
     return mat
 
 

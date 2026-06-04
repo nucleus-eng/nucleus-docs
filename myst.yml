@@ -93,6 +93,8 @@ project:
           hidden: true
         - file: ./guides/contribution-guide.md
           hidden: true
+        - file: ./guides/materials-reference.md
+          hidden: true
         - file: ./guides/developer-notes/developer-notes.md
           hidden: true
         - file: ./guides/developer-notes/developer-notes-parts.md
