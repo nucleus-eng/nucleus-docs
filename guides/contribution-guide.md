@@ -6,13 +6,13 @@ title: Contribution Guidelines
 
 This document provides guidelines for making a contribution to the Distribution. Since technical contributions are made by submitting a Developer Note, these contribution guidelines include both minimal requirements for submitting a DevNote and suggestions for increasing the likelihood that your contribution will be onboarded into the Distribution.
 
-To clarify this distinction, we define several phrases:
+To clarify this distinction, we define several imperative phrases:
 
-* **Must.** This word means that something is an absolute requirement when submitting a Developer Note.
+* **MUST.** This word indicates a requirement. This means that something is an absolute requirement when submitting a Developer Note.
 
-* **Should.** This word means that including something will make it more likely that the submission will be onboarded into the Distribution by the Core Development Team.
+* **SHOULD.** This word indicates a best practice. This means that including something will make it more likely that the submission will be onboarded into the Distribution by the Core Development Team.
 
-* **Where possible.** This phrase means that including something may prove technically challenging and situation dependent. Use good judgment, and post on the Forum if you need guidance on feasibility.
+* **IF POSSIBLE.** This phrase indicates a preference. This means that including these items may prove technically challenging and situation dependent. Use good judgment, and post on the [Forum](https://forum.nucleus.engineering) if you need guidance on feasibility.
 
 > **Note:** Before reading the following guidelines, we highly recommend reading the document titled [*From Zero to DevNote*](../start/first-guide.md) which describes how to prepare your first Developer Note for inclusion into the Distribution. It provides a concrete description of the key components of a submission.
 
@@ -20,91 +20,87 @@ To clarify this distinction, we define several phrases:
 
 ### General
 
-* Should include Author(s) ORCID
+* SHOULD include Author(s) ORCID
 
-* Should include a schematic of the contribution
+* SHOULD include a schematic of the contribution
 
 ### Bill of Materials
 
-* Must include a Bill of Materials for the process, supplied in the form the lab-ready pipeline ingests (this is what generates the downloadable BOM PDF and materials CSV — see the lab-ready protocol pipeline notes in `CLAUDE.md`). Provide it as **either**:
-  * an inline markdown table on the process page, labeled `bom-<process-slug>` (where `<process-slug>` is the process's directory name), **or**
-  * an uploaded CSV at `resources/<process-slug>-bom.csv` beside the page.
+* MUST indicate critical materials used for your Process, Implementation, or Module. SHOULD include a formatted Bill of Materials listing these materials. Provide it as **either**:
+	* an inline markdown table on the Process page, labeled `bom-<process-slug>` (where `<process-slug>` is the process's directory name), **or**
+	* an uploaded CSV at `resources/<process-slug>-bom.csv` beside the page.
 
-  If you provide both, they Must agree — continuous integration fails on any row-for-row difference. Use the standard eight-column schema:
+| Name        | Category | Product                            | Manufacturer  | Part #    | Price | Storage    | Link                                                          |
+| ----------- | -------- | ---------------------------------- | ------------- | --------- | ----- | ---------- | ------------------------------------------------------------- |
+| Amino Acids | Reagent  | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558  | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
+* IF POSSIBLE, prefer using existing validated materials used elsewhere in the Distribution, rather than introducing new materials. Consult the [Materials Reference](./materials-reference.md) to see al materials in use in the Distribution.
 
-| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
-|----|----|----|----|----|----|----|----|
-| Amino Acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
-
-* Should reuse existing part numbers and vendors where a material already appears elsewhere in the Distribution, rather than introducing a near-duplicate. Consult the [Materials Reference](./materials-reference.md) — a generated, distribution-wide index of every catalogued material and the processes that use it — to find the canonical entry. The `scripts/enrich-bom.py` aid can fill a new table's columns from existing pages by part number.
-
-* Should have a complete reagent list. In most circumstances, submissions will be modifying Processes with existing reagent lists. You are encouraged to reuse and modify these lists as appropriate and exercise good judgement when reagent substitutions should be regarded as "Critical". A curated subset of reagents that are critical for the experiment may additionally be highlighted in a "Critical Materials" dropdown in the process page's Important Information card.
 
 ### DNA Sequence Maps
 
-* Must include linear or plasmid DNA sequence maps.
+* MUST include linear or plasmid DNA sequence maps.
 
-* Must include a statement attesting to sequence validity.
+* MUST include a statement attesting to sequence validity.
 
-* Must include a table containing names of sequences used and links to files in the project.
+* MUST include a table containing names of sequences used and links to files in the project.
 
-* Should be in pOpen backbone
+* SHOULD be in pOpen backbone.
 
-* Should include sequence verification data.
+* SHOULD include sequence verification data.
 
-* Should follow DNA Distribution design guidelines
+* SHOULD follow DNA Distribution design guidelines
 
 ### Lab Notebook Entry
 
-* Must include a document (format as .pdf or .txt) that describes reaction preparation in sufficient detail to allow for their reproduction. At a minimum this includes the composition of stock solutions and master mixes.
+* MUST include a document (format as .pdf or .txt) that describes reaction preparation in sufficient detail to allow for their reproduction. At a minimum this includes the composition of stock solutions and master mixes.
 
-* Should include notes on handling or preparation that are non-obvious. For example, "preparing an aqueous stock solution of FITC requires first suspending in DMSO at 100 mM concentration" or "use of modified amino acid mixture requires EXTENSIVE vortexing, do not use until solution is completely transparent".
+* SHOULD include notes on handling or preparation that are non-obvious. For example, "preparing an aqueous stock solution of FITC requires first suspending in DMSO at 100 mM concentration" or "use of modified amino acid mixture requires EXTENSIVE vortexing, do not use until solution is completely transparent".
 
-* Should include appropriate QC data on intermediate products like DNA, proteins, and so on...
+* SHOULD include appropriate QC data on intermediate products like DNA, proteins, and so on...
 
 ## Considerations for Cytosols
 
 ### Testing and Experimental Design
 
-* Must be tested in reference to the PURE system, either from a commercial vendor or self-prepared.
+* MUST be tested in reference to the PURE system, either from a commercial vendor or self-prepared.
 
-  * If using a self-prepared PURE system results Must be tested across at least 2 batches.
+	* If using a self-prepared PURE system results MUST be tested across at least 2 batches.
+	
+	* Data involving other systems such as lysates can be included but MUST be done in reference to the PURE system.
 
-  * Data involving other systems such as lysates can be included but Must be done in reference to the PURE system.
+* MUST include at least >3 technical replicates for each reaction condition.
 
-* Must include at least >3 technical replicates for each reaction condition.
+* MUST include an Appropriately Designed positive and negative control.
 
-* Must include an Appropriately Designed positive and negative control.
+* SHOULD be tested in reference to version-specified Cytosol, the open-formulation flavor of PURE described on the Distribution.
 
-* Should be tested in reference to version-specified Cytosol, the open-formulation flavor of PURE described on the Distribution.
-
-* Where Possible measurements are made as timeseries, not just endpoints.
+* IF POSSIBLE measurements are made as timeseries, not just endpoints.
 
 ### Data
 
-* Must include raw data in a format that can be ingested by the Nucleus CDK
+* MUST include raw data in a format that can be ingested by the Nucleus CDK
 
-* Must include a platemap in format that can be ingested by the Nucleus CDK
+* MUST include a platemap in format that can be ingested by the Nucleus CDK
 
-* Where possible data is analyzed using Nucleus CDK tools
+* IF POSSIBLE data is analyzed using Nucleus CDK tools
 
 ## Considerations for Cells
 
 ### Testing and Experimental Design
 
-* Must include appropriately designed controls
+* MUST include appropriately designed controls
 
-* Must include >2 biological replicates to support each result
+* MUST include >2 biological replicates to support each result
 
 ### Data
 
-* Must be possible to determine the size of liposomes
+* MUST be possible to determine the size of liposomes
 
-* Must analyze >100 liposomes to support conclusions
+* MUST analyze >100 liposomes to support conclusions
 
-* Where Possible, raw files of all images included in the DevNote should be included
+* IF POSSIBLE, raw files of all images included in the DevNote should be included
 
-* Where Possible, raw data files for all graphs in the DevNote should be included
+* IF POSSIBLE, raw data files for all graphs in the DevNote should be included
 
 
 
