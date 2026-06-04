@@ -161,6 +161,14 @@ Markers the generator keys off: `# Protocol` heading (pages without one are skip
 
 **Do not hard-wrap paragraph text.** Write prose paragraphs as a single line, regardless of length. Do not insert line breaks in the middle of a sentence or at an arbitrary column width. Hard wraps in `.md` files render as spaces in most contexts but create messy diffs and make future editing harder. This applies to instructional text in templates, overview sections, figure captions, and all other prose. The only intentional line breaks in paragraph content are blank lines between paragraphs.
 
+`scripts/check-formatting.py` detects hard-wrapped prose and runs as a **warning-only** CI check (never blocks a PR). Run it locally to surface violations before review:
+
+```bash
+python3 scripts/check-formatting.py          # check docs/ and templates/ (exits 0 always)
+python3 scripts/check-formatting.py --strict # exit 1 if findings found (for local enforcement)
+python3 scripts/check-formatting.py docs/    # check a specific directory
+```
+
 ### MyST syntax conventions
 
 Pages use MyST admonition nesting with `:::` fences. Process pages follow a consistent structure:
