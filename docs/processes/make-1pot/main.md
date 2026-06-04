@@ -40,26 +40,26 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 | Ammonium chloride | Salts | Ammonium chloride, ACS reagent, ≥99.5% | Sigma-Aldrich | 213330-500G | $73.50 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330) |
 | Potassium hydroxide | Salts | Potassium hydroxide - ACS reagent, ≥85%, pellets | Sigma-Aldrich | 221473-1KG | $99.90 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473) |
 | Imidazole | Salts | ReagentPlus® Imidazole, Crystalline, 99% | Sigma-Aldrich | I202-500G | $120 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/i202) |
-| Potassium glutamate | Salts | L-Glutamic acid potassium monohydrate | Sigma-Aldrich | G1501-100G | $74.80 | 4°C to 30°C | TODO |
-| Magnesium acetate | Salts | Magnesium acetate tetrahydrate | Sigma-Aldrich | M0631-100G | $34.80 | 4°C to 30°C | TODO |
+| Potassium glutamate | Salts | L-Glutamic acid potassium monohydrate | Sigma-Aldrich | G1501-100G | $74.80 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g1501) |
+| Magnesium acetate | Salts | Magnesium acetate tetrahydrate | Sigma-Aldrich | M0631-100G | $34.80 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631) |
 | EDTA | Salts | TODO | Sigma-Aldrich | 03609-250G | TODO | TODO | TODO |
 | Glycerol | Supplements | Glycerol, Molecular Biology Grade, Liquid, ≥99.0% | Sigma-Aldrich | G5516-1L | $157.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5516) |
 | TCEP | Reagent | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific | 77720 | $175.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
-| Creatine phosphate | Reagent | Sodium creatine phosphate dibasic tetrahydrate, ≥98.0%(NT) | Sigma-Aldrich | 27920-1G | $102 | -25°C to -15°C | TODO |
+| Creatine phosphate | Reagent | Sodium creatine phosphate dibasic tetrahydrate, ≥98.0%(NT) | Sigma-Aldrich | 27920-1G | $102 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/27920) |
 | Folinic acid | Reagent | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/f7878) |
-| Spermidine | Reagent | Spermidine, ≥99% (GC) | Sigma-Aldrich | S2626-5G | $176 | -25°C to -15°C | TODO |
+| Spermidine | Reagent | Spermidine, ≥99% (GC) | Sigma-Aldrich | S2626-5G | $176 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/s2626) |
 | Amino acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
 | IPTG | Media | Isopropyl β-D-thiogalactoside (IPTG), Powder, ≥99% (TLC), ≤0.1% Dioxane | Sigma-Aldrich | I6758-1G | $89.90 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/i6758) |
 | BL21(DE3) Competent Cells | Biologic | TODO | NEB | C2527H | TODO | TODO | TODO |
 | RNase Inhibitor, Murine | Reagent | TODO | NEB | M0314S | TODO | TODO | TODO |
 | PURExpress Kit | Reagent | TODO | NEB | E6800L | TODO | TODO | TODO |
-| Nucleus PURE DNA constructs | Biologic | Pooled PURE expression constructs (see Make 36-pot) | b.next | — | — | TODO | — |
-| pOpen-deGFP DNA template | Biologic | deGFP reporter template (see Reporter deGFP) | b.next | — | — | TODO | — |
-| *E. coli* Ribosomes | Biologic | Nucleus 70S ribosomes (see Make Ribosomes) | b.next | — | — | TODO | — |
-| *E. coli* tRNAs | Biologic | Nucleus Total tRNA (see Make tRNAs) | b.next | — | — | TODO | — |
+| Nucleus PURE DNA constructs | Biologic | Pooled PURE expression constructs (see Make 36-pot) | b.next | — | — | TODO | [DNA/PURE/expression](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression) |
+| pOpen-deGFP DNA template | Biologic | deGFP reporter template (see Reporter deGFP) | b.next | — | — | TODO | [pOpen-deGFP.gbk](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk) |
+| *E. coli* Ribosomes | Biologic | Nucleus 70S ribosomes (see Make Ribosomes) | b.next | — | — | -80°C | [Make Ribosomes](../make-ribosomes/main.md) |
+| *E. coli* tRNAs | Biologic | Nucleus Total tRNA (see Make tRNAs) | b.next | — | — | -80°C | [Make tRNAs](../make-trna/main.md) |
 | 96-well Polypropylene DeepWell Plates | Consumables | TODO | Nunc | 260251 | TODO | TODO | TODO |
-| Amicon Ultra 0.5 mL - 3 kDa | Consumables | TODO | Merck Millipore | UFC500324 | TODO | TODO | TODO |
-| Amicon Ultra 15 mL - 3 kDa | Consumables | TODO | Merck Millipore | UFC900324 | TODO | TODO | TODO |
+| Amicon Ultra 0.5 mL - 3 kDa | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO | Millipore Sigma | UFC5003 | $63 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc5003) |
+| Amicon Ultra 15 mL - 3 kDa | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO | Millipore Sigma | UFC9003 | $125 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc9003) |
 | Breathe-Easy sealing membrane | Consumables | TODO | Sigma-Aldrich | Z380059-1PAK | TODO | TODO | TODO |
 | Econo-Pac Chromatography Columns | Consumables | TODO | Bio-Rad Laboratories | 7321010 | TODO | TODO | TODO |
 | Rapid-Flow Sterile Single Use Vacuum Filter Units | Consumables | TODO | Thermo Scientific | 596-3320 | TODO | TODO | TODO |

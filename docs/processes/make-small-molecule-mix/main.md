@@ -76,18 +76,18 @@ Please read this section carefully. It contains important notes, resources, and 
 | Potassium Hydroxide | Salts | Potassium hydroxide - ACS reagent, ≥85%, pellets | Sigma-Aldrich | 221473-1KG | $99.90 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473) |
 | Hydrochloric acid (1 M) | Salts | Hydrochloric acid 1 N, Reagent Grade, 500 mL | VWR | E447-500L | $72.46 | 4°C to 30°C | [link](https://us.vwr.com/store/catalog/static_catalog.jsp?catalog_number=97064-756) |
 | HEPES | Salts | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
-| Potassium Glutamate | Salts | L-Glutamic acid potassium monohydrate | Sigma-Aldrich | G1501-100G | $74.80 | 4°C to 30°C | TODO |
-| Magnesium acetate | Salts | Magnesium acetate tetrahydrate | Sigma-Aldrich | M0631-100G | $34.80 | 4°C to 30°C | TODO |
-| rATP | NTP | Adenosine 5′-triphosphate disodium salt hydrate, BioXtra, ≥99% (HPLC) | Sigma-Aldrich | A7699-1G | $125.00 | -25°C to -15°C | TODO |
-| rGTP | NTP | Guanosine 5′-triphosphate sodium salt hydrate, ≥95% (HPLC), powder | Sigma-Aldrich | G8877-100MG | $155 | -25°C to -15°C | TODO |
-| rCTP | NTP | Cytidine 5′-triphosphate disodium salt, ≥95% | Sigma-Aldrich | C1506-100MG | $102.00 | -25°C to -15°C | TODO |
-| rUTP | NTP | Uridine 5′-triphosphate trisodium salt hydrate, Type IV, ≥93.0% (HPLC) | Sigma-Aldrich | U6750-100MG | $58.20 | -25°C to -15°C | TODO |
-| Creatine phosphate | Reagent | Sodium creatine phosphate dibasic tetrahydrate, ≥98.0%(NT) | Sigma-Aldrich | 27920-1G | $102 | -25°C to -15°C | TODO |
+| Potassium Glutamate | Salts | L-Glutamic acid potassium monohydrate | Sigma-Aldrich | G1501-100G | $74.80 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g1501) |
+| Magnesium acetate | Salts | Magnesium acetate tetrahydrate | Sigma-Aldrich | M0631-100G | $34.80 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631) |
+| rATP | NTP | Adenosine 5′-triphosphate disodium salt hydrate, BioXtra, ≥99% (HPLC) | Sigma-Aldrich | A7699-1G | $125.00 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/a7699) |
+| rGTP | NTP | Guanosine 5′-triphosphate sodium salt hydrate, ≥95% (HPLC), powder | Sigma-Aldrich | G8877-100MG | $155 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g8877) |
+| rCTP | NTP | Cytidine 5′-triphosphate disodium salt, ≥95% | Sigma-Aldrich | C1506-100MG | $102.00 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/c1506) |
+| rUTP | NTP | Uridine 5′-triphosphate trisodium salt hydrate, Type IV, ≥93.0% (HPLC) | Sigma-Aldrich | U6750-100MG | $58.20 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/u6750) |
+| Creatine phosphate | Reagent | Sodium creatine phosphate dibasic tetrahydrate, ≥98.0%(NT) | Sigma-Aldrich | 27920-1G | $102 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/27920) |
 | TCEP-HCl (500 mM) | Reagent | Bond-Breaker® TCEP Neutral Solution, MW 286.65, 5 mL | Thermo Scientific | 77720 | $175.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
 | Folinic acid | Reagent | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/f7878) |
-| BME | Reagent | 2-Mercaptoethanol | Sigma-Aldrich | M6250-100ML | $65.50 | 4°C to 30°C | TODO |
-| Spermidine | Reagent | Spermidine, ≥99% (GC) | Sigma-Aldrich | S2626-5G | $176 | -25°C to -15°C | TODO |
-| tRNA | Biologic | Nucleus Total tRNA (50 µg/µL; see Make tRNAs) | b.next | — | — | -25°C to -15°C | — |
+| BME | Reagent | 2-Mercaptoethanol | Sigma-Aldrich | M6250-100ML | $65.50 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/m6250) |
+| Spermidine | Reagent | Spermidine, ≥99% (GC) | Sigma-Aldrich | S2626-5G | $176 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/s2626) |
+| tRNA | Biologic | Nucleus Total tRNA (50 µg/µL; see Make tRNAs) | b.next | — | — | -25°C to -15°C | [Make tRNAs](../make-trna/main.md) |
 | Amino Acids | Biologic | Amino Acid Mix (3.25 mM; see Make Amino Acid Mix) | b.next | — | — | -80°C to -20°C | — |
 :::
 
