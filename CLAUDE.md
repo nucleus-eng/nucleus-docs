@@ -104,6 +104,7 @@ The documentation organizes content into three parallel hierarchies under `docs/
 | New implementation | `docs/implementations/<implementation-name>/` |
 | Process sub-resources (BOMs, images) | `docs/processes/<process-name>/resources/` |
 | Module images | `docs/modules/<module-name>/` |
+| Module raw assets (Notion/DevNote exports, source files) | `docs/modules/<module-name>/resources/` |
 
 **Before creating or moving any file**, verify the target path matches this structure. If a file is about to land outside `docs/`, stop and flag it to the developer before proceeding.
 
@@ -155,6 +156,10 @@ Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended not
 
 **Tab-set fence depth.** Tab-sets require a consistent three-level nesting: the outer `{tab-set}` uses `:::::`(5 colons), each `{tab-item}` inside uses `::::` (4 colons), and figures or admonitions inside a tab-item use `:::` (3 colons). Mismatched colon counts are a common source of rendering failures.
 
+**Secondary figures.** Within a section that has a primary figure (e.g. a performance plot), de-emphasize supplementary or supporting figures by wrapping them in a `::::{hint} <descriptive title>` block with `:class: dropdown`. The dropdown title should describe the finding, not just label the figure (e.g. `::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL`). This keeps the primary figure prominent while keeping supporting context one click away.
+
+**System-context figure placement (module specs).** A figure showing the module in the context of the Base Cell or Developer Cell belongs in the `## Cells` section, not `# Overview`. The Overview section should carry mechanism and schematic figures only.
+
 ### Overview card dropdowns — empty dropdown policy
 
 The template includes all possible dropdown sections as a starting point. **When authoring or reviewing a process page, only keep dropdowns that have real content.** Delete any dropdown whose only content is `- None`.
@@ -195,7 +200,7 @@ When migrating content from Notion markdown exports:
 - **Notion `<aside>` blocks**: Convert to the appropriate MyST admonition or section header depending on context (e.g., "Getting Started" asides → Overview prose, "Step X" asides → `##` section headers, "Resources" asides → `# References`).
 - **Notion toggles**: Convert to `:::{hint} Note: <title>` with `:class: dropdown`.
 - **Units in table column headers**: Use parentheses, not brackets (e.g., `MW (g/mol)` not `MW [g/mol]`).
-- **Concentration discrepancies**: Reaction tables in Notion sources sometimes list a stock concentration that does not match the stated final concentration. Before migrating a table, verify that `stock concentration × volume / total volume = stated final concentration` for every reagent row. If a discrepancy is found, do not silently copy the values — add a `:::{warning}` block flagging the specific row(s) for author review before the page is used at the bench.
+- **Data discrepancies (including concentrations)**: Source content sometimes carries internally inconsistent or unverified values — a value in the body text that conflicts with a figure caption, or a stock concentration that does not match the stated final concentration. Do not silently correct or copy these — add a `:::{warning}` block adjacent to the affected content that names the specific discrepancy, shows the conflicting values, states the most likely interpretation, and instructs the reviewer to verify before bench use. For reaction tables specifically, verify that `stock concentration × volume / total volume = stated final concentration` for every reagent row, and flag any row that fails.
 - **Scope boundary — spec vs. process**: Protocol steps, materials tables, and imaging conditions from a DevNote belong in a future Process page, not the module spec. The spec covers what the module is, its genetic designs, and expected performance. If protocol-level content appears in the DevNote, note it with a `<!-- TODO: move to process page -->` comment rather than migrating it into the spec.
 - **DevNote migration start — read `curvenote.yml` first**: `curvenote.yml` is the single best starting point for a DevNote migration. It contains the DOI, project ID, author list (with ORCIDs and affiliations), figure sources, and download files. Read it before `main.md` to orient to the content.
 - **DevNote figures — use static PNGs with `:name:` labels**: Computed figures (e.g. from Jupyter notebook outputs or `lorem.mjs`) cannot be copied as static images and cannot be cross-referenced from nucleus-docs. Key result figures in a module spec should be static PNG files with explicit `:name: fig:something` labels in `main.md`. Only figures with `:name:` labels are reachable via `xref:<devnote-key>#fig:something` in spec pages.
