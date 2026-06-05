@@ -19,7 +19,7 @@ jobs:
             | tar xz -C /usr/local/bin vale
 
       - name: Run Vale
-        run: vale docs/
+        run: git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale
 
   dropdowns:
     runs-on: ubuntu-latest

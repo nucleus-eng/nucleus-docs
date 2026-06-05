@@ -21,7 +21,7 @@ Complete all of the following before beginning this protocol. Each of the thirty
 - [Prepare Protein Purification Buffers and Media](../make-protein/prep-consumables/main.md)
 - [Grow and Induce Expression Strains](../make-protein/grow-bacteria/main.md)
 - [Lyse Bacteria by Sonication](../make-protein/lysis-sonication/main.md)
-- [Purify Proteins by Ni2+ Gravity Column](../make-protein/purify-proteins-grav-column/main.md)
+- [Purify Proteins by Ni²⁺ Gravity Column](../make-protein/purify-proteins-grav-column/main.md)
 - [Exchange Buffers and Concentrate by Spin Filtration](../make-protein/buff-ex-spin-filters/main.md)
 - [Pierce660 Assay](../pierce660/main.md) — for measuring individual protein concentrations before assembly and total Protein Mix concentration after assembly
 - [Protein Gel](../protein-gel/main.md) — for verifying purity of individual proteins before assembly
@@ -137,7 +137,7 @@ Combining components dilutes each one, thus your assembled PMix may be too dilut
 
 :::{hint} Note: washing reduces salt carry-over from purification buffers and removes glycerol.
 :class: dropdown
-Washing the assembled mix before concentrating removes residual salts (Na+, Imidazole) carried over from individual protein purifications, and removes glycerol, which makes the PMix easier to concentrate. Use a 3 kDa Amicon centrifugal filter for concentration. See [Exchange Buffers and Concentrate by Spin Filtration](../make-protein/buff-ex-spin-filters/main.md) for detailed spin-filtration instructions.
+Washing the assembled mix before concentrating removes residual salts (Na⁺, Imidazole) carried over from individual protein purifications, and removes glycerol, which makes the PMix easier to concentrate. Use a 3 kDa Amicon centrifugal filter for concentration. See [Exchange Buffers and Concentrate by Spin Filtration](../make-protein/buff-ex-spin-filters/main.md) for detailed spin-filtration instructions.
 :::
 
 - [ ] Concentrate using a 3 kDa Amicon centrifugal filter until the mix is at or above your target final concentration.

@@ -1,10 +1,10 @@
 ---
-title: Purify Proteins by Ni2+ Gravity Column
+title: Purify Proteins by Ni²⁺ Gravity Column
 ---
 
 # Overview
 
-You have a protein that you want to purify out of a complicated mixture. This protein has a 6xHis purification tag, which chelates Ni2+ ions. You can use a Ni-His resin to bind proteins with 6xHis tags. This resin is a suspension of microscopic gel beads with Ni ions covalently linked. Bound proteins can then be washed to remove non-tagged proteins, then eluted in a buffer with high concentration (~ 500 mM) Imidazole. Imidazole competes with 6xHis to bind the Ni ions, ultimately displacing your target proteins and releasing them from the affinity resin.
+You have a protein that you want to purify out of a complicated mixture. This protein has a 6xHis purification tag, which chelates Ni²⁺ ions. You can use a Ni-His resin to bind proteins with 6xHis tags. This resin is a suspension of microscopic gel beads with Ni ions covalently linked. Bound proteins can then be washed to remove non-tagged proteins, then eluted in a buffer with high concentration (~ 500 mM) Imidazole. Imidazole competes with 6xHis to bind the Ni ions, ultimately displacing your target proteins and releasing them from the affinity resin.
 
 :::::::{card}
 :header: **Important Information**

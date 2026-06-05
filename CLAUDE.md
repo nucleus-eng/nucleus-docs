@@ -208,14 +208,14 @@ When migrating content from Notion markdown exports:
 
 ### Prose linting (Vale)
 
-**Run `vale docs/` before opening a PR or committing a content migration.** Vale lints both `.md` and `.csv` files under `docs/`. Vale runs as part of the `qa` CI workflow (`.github/workflows/qa.yml`).
+**Run `git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale` before opening a PR or committing a content migration.** This command lints only committed source files (skipping gitignored `generated/` artifacts). Vale lints both `.md` and `.csv` files and runs as part of the `qa` CI workflow (`.github/workflows/qa.yml`).
 
 ```bash
-vale docs/          # lint all docs
-vale <file.md>      # lint a single file
+git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale   # lint all committed docs
+vale <file.md>                                              # lint a single file
 ```
 
-Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), and ion notation (`Mg2+`).
+Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), chemical notation (subscripts and ion superscripts), and unit spacing.
 
 **Interpreting `nucleus.degrees-symbol` errors.** This rule flags patterns like `37C` or `4 C` that are missing the degree symbol. However, it cannot distinguish temperatures from alphanumeric labels, so it produces false positives. When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
 
@@ -225,7 +225,9 @@ Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit for
 - **False positive** — the token is a label, not a temperature. Leave it alone.
   - Signals: preceded by "Figure", "Fig.", "Step", "Lane", "Panel", "Tube", "Option", or a similar structural label word.
 
-**Interpreting `nucleus.ion-notation` errors.** This rule flags `Mg++` and should always be treated as a real error — replace with `Mg2+`. There are no known false positives.
+**Interpreting `nucleus.chemical-notation` errors.** This rule flags molecular formulae and wavelength labels written with bare ASCII digits and suggests the correct Unicode subscript form. Always a real error — replace `OD600` → `OD₆₀₀`, `A260` → `A₂₆₀`, `H2O` → `H₂O`, `ddH2O` → `ddH₂O`, `MgSO4` → `MgSO₄`, etc. The rule is a substitution rule — the error message shows the exact correct form to use. There are no known false positives (the rule uses an explicit curated list of formulae rather than a generic pattern, so construct names like `pET28a` and labels like `A19` are unaffected).
+
+**Interpreting `nucleus.ion-charges` errors.** This rule flags ion charges written with inline numbers rather than Unicode superscripts. Always a real error — replace `Mg2+` → `Mg²⁺`, `Ni2+` → `Ni²⁺`, `Na+` → `Na⁺`, `K+` → `K⁺`, `Mg++` → `Mg²⁺`, etc. Superscript characters: ⁺ (U+207A), ² (U+00B2), ³ (U+00B3).
 
 **Interpreting `nucleus.micro-symbol` errors.** This rule flags patterns like `10 uL`, `500 uM`, or `2 um` that use an ASCII `u` instead of the micro symbol `µ`. Always a real error — replace with `µL`, `µM`, or `µm` respectively.
 

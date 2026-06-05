@@ -210,7 +210,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 ### Day 3: Protein Purification
 
 - [ ] Thaw cell pellets on ice.
-- [ ] Add 2 mL of fresh Ni2+ affinity resin to chromotography column. Wash column with 30 mL ddH20 twice to remove ethanol.
+- [ ] Add 2 mL of fresh Ni²⁺ affinity resin to chromotography column. Wash column with 30 mL ddH₂O twice to remove ethanol.
 - [ ] Add TCEP to Resuspension/Equilibration buffer to a final concentration of 1 mM (see {ref}`protein-buffers`).
 - [ ] Equilibrate column with 30 mL of Resuspension/Equilibration buffer + TCEP and close valve on the column with 5 mL of buffer remaining in the column.
 - [ ] Add 7.5 mL of Resuspension/Equilibration buffer + TCEP to each falcon tube containing cell pellet and resuspend thoroughly and store on ice.

@@ -10,7 +10,7 @@ The Nucleus DNA Distribution is a free to use library of DNA without patent or m
 
 Most sequences come in the `pOpen` plasmid (*E coli.* medium copy, ampicilin) and follow the naming pattern `pOpen-[part-name]`. `pOpen-pT7` constructs come with a T7 promoter and are appropriate DNA templates for reactions in [Nucleus Cytosol](./modules/base-cytosol/spec.md) and other PURE-derived systems. `pOpen` plasmids are NOT good expression vectors for protein production.
 
-Expression vectors specifically for protein expression use the `pET28a` backbone (*E. coli* medium copy, kanamycin) and follow the naming pattern `pET28a-[protein-name]`. Most genes included in `pET28a` include 6xHis tags, making them ready for [Ni2+ Affinity Purification](./processes/make-protein/purify-proteins-grav-column/main.md). 
+Expression vectors specifically for protein expression use the `pET28a` backbone (*E. coli* medium copy, kanamycin) and follow the naming pattern `pET28a-[protein-name]`. Most genes included in `pET28a` include 6xHis tags, making them ready for [Ni²⁺ Affinity Purification](./processes/make-protein/purify-proteins-grav-column/main.md). 
 
 # Where to find things
 

@@ -77,7 +77,7 @@ The IV-HSL Emitter Module may be implemented by assembling the `pT7-tetO-tetO-bj
 **Experimental Method**
 
 - [ ] Prepare M9 media containing cells and antibiotics:
-    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO4, 100 µM CaCl2 and 0.4% (wt/vol) glucose.
+    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 0.4% (wt/vol) glucose.
     - [ ] Use a pipette tip to scrape some of the frozen bacteria off of the top and inoculate a 1.5 mL eppendorf containing the M9 media with 100 µg/mL carbenicillin.
     - [ ] Gently mix the tube by inverting 5 times. The solution in the tube will be named **M9-cell solution** in the following part.
 - [ ] Incubate samples and controls containing PURE reactions at 37°C for 1.5 hrs.

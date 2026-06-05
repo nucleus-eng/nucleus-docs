@@ -85,7 +85,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 **Perform bulk outgrowth.**
 - [ ] Check if (-) has growth. If not, continue.
 - [ ] Seed 4x 450 mL fresh media in 4x 2L baffled Erlenmeyer flasks with 1:500 overnight culture (e.g., 900 µL overnight into each flask with 450 mL media).
-- [ ] Incubate back diluted cultures at 37°C / (225-250) rpm to mid-log phase (OD600 between 0.6 and 0.8). This took us ~3 hrs.
+- [ ] Incubate back diluted cultures at 37°C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8). This took us ~3 hrs.
 
 **Pellet, wash, and store cells.**
 - [ ] Fill 500 mL centrifuge bottles with culture. Balance centrifuge bottles against each other and pellet cultures at 16 000 rcf / 4°C / 10 min.
@@ -173,16 +173,16 @@ From our experience, a good rule of thumb is to target a final volume around 100
 **Estimate concentration by UV-Vis Spectroscopy (Nanodrop).**
 - [ ] Prepare a 1:1000 dilution of your tRNAs in water.
 - [ ] Measure absorbance at 260 nm, 280 nm, and 230 nm.
-- [ ] Estimate your yield by A260 ([tRNA] = A260 * 40 mg/mL). Typical yield of tRNA is typically between (4-20) mg per gram of cell mass.
-- [ ] Estimate your purity by A260/A230 and A260/A280 (both should be ≥1.8).
+- [ ] Estimate your yield by A₂₆₀ ([tRNA] = A₂₆₀ * 40 mg/mL). Typical yield of tRNA is typically between (4-20) mg per gram of cell mass.
+- [ ] Estimate your purity by A₂₆₀/A₂₃₀ and A₂₆₀/A₂₈₀ (both should be ≥1.8).
 
-:::{tip} Note: [tRNA] = A260 * 40 mg/mL
+:::{tip} Note: [tRNA] = A₂₆₀ * 40 mg/mL
 :class: dropdown
-A260 units (*a.k.a.* “absorbance units”, or “A260”) are defined as the amount of light (wavelength = 260 nm) absorbed as it passes through 1 cm of the sample being measured. 
+A₂₆₀ units (*a.k.a.* “absorbance units”, or “A₂₆₀”) are defined as the amount of light (wavelength = 260 nm) absorbed as it passes through 1 cm of the sample being measured. 
 
-This value is measured by diluting a sample by some factor such that the measured absorbance is in the linear range of your device (A260=0.5 is typically acceptable), then multiplying the measured absorbance by that dilution factor.
+This value is measured by diluting a sample by some factor such that the measured absorbance is in the linear range of your device (A₂₆₀=0.5 is typically acceptable), then multiplying the measured absorbance by that dilution factor.
 
-These units are difficult to think about, but easy to measure. If you want to report mass concentration of your samples instead, use the following approximate conversion: 40 mg/mL ~ A260 units.
+These units are difficult to think about, but easy to measure. If you want to report mass concentration of your samples instead, use the following approximate conversion: 40 mg/mL ~ A₂₆₀ units.
 
 NEB has a great [tool](https://nebiocalculator.neb.com/#!/od260) for converting absorbance units to concentrations. Make sure to select “ssRNA”.
 :::
