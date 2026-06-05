@@ -1,5 +1,7 @@
 # default ignore
 .DS_Store
+**/__pycache__/
+*.pyc
 .obsidian/
 chroma_db/
 
