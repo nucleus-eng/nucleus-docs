@@ -1,5 +1,8 @@
 # default ignore
 .DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
 .obsidian/
 chroma_db/
 
