@@ -16,6 +16,11 @@ if ! command -v lychee &> /dev/null; then
   brew install lychee
 fi
 
+# Install codespell if not already present
+if ! command -v codespell &> /dev/null; then
+  brew install codespell
+fi
+
 conda env remove -n nucleus-docs 2>/dev/null
 conda env create -f environment.yml
 echo ""

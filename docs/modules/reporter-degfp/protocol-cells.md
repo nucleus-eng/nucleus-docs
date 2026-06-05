@@ -68,7 +68,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 
 ### Assemble Outer Solutions
 
-- [ ]  Prepare 1.5 mL microcentrifuge tubes labelled with the appropriate reaction.
+- [ ]  Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
 - [ ]  Mix glucose stock solution and water according to the following table:
 
 :::{table} Preparation of outer solutions. These values are approximates and may vary based on the measured osmolarity of your inner solution.
@@ -125,7 +125,7 @@ Adjust the outer solution concentration so its osmolarity is 100–120 units low
 - [ ]  Set up a 1.5 mL tube rack with two 1.5 mL microcentrifuge tubes for each liposome encapsulation. Number the tubes according to the number of reactions assembled. Label the two tubes for each reaction:
     - [ ]  **T**—transfer
     - [ ]  **L**—liposomes
-- [ ]  Add 300 µL of the appropriate glucose outer solution to each of the tubes labelled **T**.
+- [ ]  Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**.
 - [ ]  Add 150 µL of the lipid-oil mixture (at room temperature) on top of each assembled Cytosol reaction.
 - [ ]  Emulsify the lipid-oil and Cytosol reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Run it down 20–30 times until the solution forms a stable emulsion with an even milky color.
 
