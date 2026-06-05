@@ -5,7 +5,7 @@ subtitle: "Tutorial"
 
 # Overview
 
-This tutorial shows you how to make a plate map that will be compatible with the Nucleus CDK. This is requirement for the [platereader analysis tutorial](platereader_tutorial.md). 
+This tutorial shows you how to make a plate map that will be compatible with the Nucleus CDK. This is requirement for the [platereader analysis tutorial](platereader_tutorial.md). See this [DevNote](https://devnotes.nucleus.engineering/articles/Bhasin-20260421) for more information.
 
 # What is a plate map?
 
