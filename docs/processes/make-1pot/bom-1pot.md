@@ -15,8 +15,8 @@ subtitle: "OnePot Protein Mix"
 | pOpen-deGFP DNA template | b.next |
 | RNAse Inhibitor, Murine | NEB (M0314S) |
 | 96-well Polypropylene DeepWell Plates | Nunc (260251) |
-| Amicon Ultra 0.5 mL - 3 KDa | Merck Millipore (UFC500324) |
-| Amicon Ultra 15 mL - 3 KDa | Merck Millipore (UFC900324) |
+| Amicon Ultra 0.5 mL - 3 kDa | Merck Millipore (UFC500324) |
+| Amicon Ultra 15 mL - 3 kDa | Merck Millipore (UFC900324) |
 | Amino acids | Biotech Rabbit (BR1401801) |
 | Ammonium chloride | Sigma-Aldrich (09718-1KG) |
 | Breathe-Easy sealing membrane | Sigma-Aldrich (Z380059-1PAK) |
