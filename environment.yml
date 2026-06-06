@@ -6,6 +6,7 @@ dependencies:
   - nodejs=24
   - pip
   - python=3.13
+  - typst=0.14.2
   - pip:
     - jupyter-book>=2.1.4
 
