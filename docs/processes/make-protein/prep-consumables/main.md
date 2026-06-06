@@ -38,7 +38,7 @@ Here, we make media used to grow up an expression strain to use for subsequent p
 
 # Protocol
 
-## Step 1: Prepare Stock Buffers and Media
+## Prepare Stock Buffers and Media
 
 - [ ] Make or buy the following stock solutions. Use ultrapure water (18.2 MΩ, e.g., Milli-Q).
 
@@ -77,7 +77,7 @@ First, resuspend HEPES or Imidazole in half the required volume of water. Next, 
 HEPES and Imidazole are light sensitive compounds! Keep stock solutions in the dark. Either wrap bottles in aluminum foil OR store bottles in a cabinet.
 :::
 
-## Step 2: Prepare Stable Buffers
+## Prepare Stable Buffers
 
 Make the following buffers *in advance* and store at 4°C. Add all components *except* TCEP, which you MUST add fresh the day of use.
 
@@ -138,7 +138,7 @@ Protein Buffer (with and without glycerol) use K+ as a cation instead of Na+ and
 :::
 
 
-## Step 3: Prepare Working Buffers
+## Prepare Working Buffers
 
 Make the following buffers on the same day as use.
 
