@@ -6,5 +6,6 @@ dependencies:
   - nodejs=24
   - pip
   - python=3.13
+  - typst=0.14.2
   - pip:
     - -r requirements.txt
