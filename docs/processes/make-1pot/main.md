@@ -180,7 +180,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 
 - [ ] The next day, measure the OD₆₀₀ of the starter plate using a 96 well plate by adding 30 µL of each starter  to the bottom of each well and 270 µL of  LB + Kan on top (10x dilution). Measure EF-Tu culture density at this time too. Expected OD₆₀₀ with 10x dilution is 0.2 - 0.3.
 - [ ] After 16 hr of incubation, all strains should be at OD₆₀₀ = 2-3. If a strain is growing very slowly, remove the starter volume from the 96-deep well plate and place it into a 2 mL sterile tube, and shake at 260 rpm / 37°C independently until desired OD is reached. The remaining starters can be left in the deep well plate on the bench. If a starter has overgrown above OD₆₀₀, dilute the starters to OD₆₀₀ = 3 using LB + Kan in a sterile tube.
-- [ ] Once all starter strains have been equilibrated to OD₆₀₀ 2-3, proceed to main growth by adding 500 mL of prewarmed  LB + Kan into a 2.5 L baffled flask (2X flasks).
+- [ ] Once all starter strains have been equilibrated to OD₆₀₀ 2-3, proceed to main growth by adding 500 mL of prewarmed  LB + Kan into a 2.5 L baffled flask (2x flasks).
 - [ ] Into a sterile 5 mL tube add 55 µL of each starter culture (excluding EF-Tu), and 1675 µL of EF-Tu starter culture. Mix well by vortexing and add entire content to 500 mL of  LB + Kan in 2.5 L baffled flask. Repeat for the second culture flask.
 - [ ] Incubate the cultures at 260 rpm / 37°C / (1.5 - 2) hr (until OD₆₀₀ reaches 0.2 - 0.3). Check OD₆₀₀  after 1 hr as baffled flask may cause cells to grow faster.
 - [ ] Once OD₆₀₀ of 0.2- 0.3 is reached, innoculate each culture flask with 500 µL of 100 mM IPTG to achieve a final induction concentration of 0.1 mM IPTG.
@@ -224,7 +224,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Add TCEP at a final concentration of 1 mM to wash and elution buffers (see {ref}`protein-buffers`) and store at 4°C until use.
 - [ ] Once the resin has settled into a bed at the bottom of the column, let the buffer run through and collect samples from the middle of the flow through into 15 mL falcon tube labelled 'flow through'.
 - [ ] Wash column with wash buffer + TCEP and collect flow through in 15 mL falcon tube labelled 'wash'.
-- [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labelled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDA dialysis cassette in buffer with magnetic stir in cold room/fridge.
+- [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labelled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDa dialysis cassette in buffer with magnetic stir in cold room/fridge.
 - [ ] Store eluted protein on ice.
 - [ ] Remove dialysis cassette from beaker and add 5 mL of eluted protein into the dialysis cassette. Remove as much air as possible from cassette before putting the lid back on. Dialyze according to protocol stated below to remove imidazole. 5 mL of eluted protein is dialyzed against 1L of buffer HT (without TCEP) at 4°C for 12 hr / overnight. In instances when elutions can be combined, 10 mL of elution can be dialyzed against 2 L of buffer HT.
 
@@ -237,7 +237,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Add TCEP to a 1 mL aliquot of Stock-60 to achieve a final concentration of 1 mM.
 - [ ] Add equal volume of Stock-60 + TCEP to collated sample. Proceed to determine protein concentration using [Pierce660 Assay](../pierce660/main.md) in triplicate with a calibration curve spanning (0 - 2) mg/mL.
 - [ ] Concentrate protein down using 0.5 mL 3 kDa Amicon columns and spin at 14 500 g / 4°C / 15 min at until desired volume is reached to obtain a final concentration of 15 mg/mL. 
-- [ ] Spin to pellet any precipitated proteins at 14 000g / 4°C / 10 min.
+- [ ] Spin to pellet any precipitated proteins at 14 000 g / 4°C / 10 min.
 - [ ] Determine final protein concentration using [Pierce660 Assay](../pierce660/main.md) and dilute samples with Stock 30 + TCEP as required to reach correct final concentration of 15 mg/mL.
 - [ ] Aliquot 50 µL into PCR tubes, snap freeze using liquid nitrogen, and store at -80°C.
 

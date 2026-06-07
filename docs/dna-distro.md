@@ -18,4 +18,4 @@ Expression vectors specifically for protein expression use the `pET28a` backbone
 | --------------------------------------- | -------------------------------------------------------- |
 | Sequence files for a specific construct | the [DNA repository](https://github.com/nucleus-eng/DNA) |
 | What a sequence does and how to use it  | [Modules](./modules/modules-main.md)                     |
-| Lab protocols that use these constructs | [Processes](./processes/processes-main.md)               |
+| Lab protocols to handle DNA             | [Processes](./processes/processes-main.md)               |

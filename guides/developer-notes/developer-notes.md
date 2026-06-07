@@ -55,9 +55,7 @@ To learn more about the filestructure and component files in a typical DevNote p
 - This tool can be used in any directory, not just `devnotes`.
 - The first time you preview a project may take 10-20 seconds before showing a preview.
 
-**Troubleshooting**
-
-- N/A
+**Troubleshooting:** No known issues.
 
 # Live Preview
 
@@ -116,8 +114,7 @@ When your DevNote is ready for submission, you can preview how it will look on t
   - Functional cross-referenced Jupyter cells.
   - All attachments and files are included.
 
-**Troubleshooting**
-- N/A
+**Troubleshooting:** No known issues.
 
 # Submit
 
@@ -127,11 +124,9 @@ If things look good after inspecting your DevNote using "Draft Submit", you can 
   - [ ] While you're in the `devnotes/template` directory, click the button "Publish" in the "Developer Notes" toolbar of the Launcher window.
   - [ ] Someone from the Nucleus Core development team will be in touch with you soon. 
 
-**Notes**
-- N/A
+**Notes:** None.
 
-**Troubleshooting**
-- N/A
+**Troubleshooting:** No known issues.
 
 <!-- # Using Curvenote Preview to view a DevNote
 
