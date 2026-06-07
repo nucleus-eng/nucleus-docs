@@ -28,13 +28,21 @@ Usage:
 """
 
 import csv
-import io
 import re
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 from typing import List, Optional, Tuple
+
+# Shared BOM helpers (parse/normalize/index) — one definition across the
+# generator, the label checker, the enricher, and the materials reference.
+from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0])
+    TABLE_ROW_RE,
+    csv_to_table_rows,
+    extract_bom_table,
+    table_to_csv,
+)
 
 # Branded in-repo typst template (owned + version-pinned; see its README). The
 # absolute path is written into each intermediate's `exports.template` so MyST
@@ -53,10 +61,7 @@ FENCE_RE = re.compile(r"^\s*(:{3,})")
 ADMONITION_OPEN_RE = re.compile(r"^\s*(:{3,})\{([^}]+)\}\s*(.*?)\s*$")
 # A standalone directive option line (e.g. ":class: dropdown", ":label: ...").
 DIRECTIVE_OPTION_RE = re.compile(r"^\s*:[A-Za-z_][A-Za-z0-9_-]*:")
-# A markdown table row.
-TABLE_ROW_RE = re.compile(r"^\s*\|.*\|\s*$")
-# A markdown table separator row (e.g. "| --- | --- |").
-TABLE_SEP_RE = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
+# (TABLE_ROW_RE / TABLE_SEP_RE imported from bom_common.)
 
 
 def slug_from_page(path: Path) -> str:
@@ -211,49 +216,6 @@ def extract_hazard_note(body: str) -> Optional[List[str]]:
     return None
 
 
-def extract_bom_table(body: str, slug: str) -> Optional[List[str]]:
-    """Return the markdown table rows belonging to the table labeled
-    `bom-<slug>`, or None if absent."""
-    lines = body.splitlines()
-    label = f"bom-{slug}"
-    label_idx = None
-    for i, line in enumerate(lines):
-        if line.strip() == f":label: {label}":
-            label_idx = i
-            break
-    if label_idx is None:
-        return None
-    rows = []
-    started = False
-    for line in lines[label_idx + 1:]:
-        if TABLE_ROW_RE.match(line):
-            started = True
-            rows.append(line.strip())
-        elif started:
-            break
-    return rows or None
-
-
-def _clean_cell(cell: str) -> str:
-    """Strip markdown markup from a table cell for clean CSV output:
-    bold (`**x**` -> `x`) and links (`[text](url)` -> `url`)."""
-    cell = re.sub(r"\[[^\]]*\]\(([^)]+)\)", r"\1", cell)  # link -> url
-    cell = re.sub(r"\*\*(.+?)\*\*", r"\1", cell)          # **bold** -> bold
-    return cell.strip()
-
-
-def table_to_csv(rows: List[str]) -> str:
-    """Convert markdown table rows to CSV text, dropping the separator row."""
-    buf = io.StringIO()
-    writer = csv.writer(buf)
-    for row in rows:
-        if TABLE_SEP_RE.match(row):
-            continue
-        cells = [_clean_cell(c) for c in row.strip().strip("|").split("|")]
-        writer.writerow(cells)
-    return buf.getvalue()
-
-
 def strip_cross_references(text: str) -> str:
     """Neutralize MyST cross-reference roles ({ref}`x`, {numref}`x`, {eq}`x`)
     to a plain readable noun. Protocol steps often reference labels defined in
@@ -303,6 +265,36 @@ def build_bom_markdown(title: str, bom_rows: List[str], slug: str) -> str:
         "---\n\n"
     )
     return fm + "\n".join(bom_rows) + "\n"
+
+
+def resolve_bom_source(page: Path, body: str, slug: str) -> Tuple[Optional[List[str]], str]:
+    """Resolve a process page's BOM from either of two accepted inputs (#108):
+
+      - an inline table labeled ``bom-<slug>`` on the page, or
+      - an uploaded ``resources/<slug>-bom.csv`` beside the page.
+
+    Returns ``(table_rows, source)`` where source is ``"inline"``, ``"csv"``, or
+    ``"none"``. If both inputs exist the inline table wins for rendering (it's
+    what readers see on the page); enforcing that the two agree is the label
+    checker's job, not the generator's. A malformed/empty CSV warns on stderr
+    and yields no BOM rather than crashing the build."""
+    inline = extract_bom_table(body, slug)
+    csv_path = page.parent / "resources" / f"{slug}-bom.csv"
+    if inline is not None:
+        return inline, "inline"
+    if csv_path.is_file():
+        try:
+            rows = csv_to_table_rows(csv_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, csv.Error) as exc:
+            print(f"  ⚠️  {csv_path}: could not read BOM CSV ({exc}); skipping BOM.",
+                  file=sys.stderr)
+            return None, "none"
+        if not rows:
+            print(f"  ⚠️  {csv_path}: BOM CSV is empty; skipping BOM.",
+                  file=sys.stderr)
+            return None, "none"
+        return rows, "csv"
+    return None, "none"
 
 
 def find_process_pages(args: List[str]) -> List[Path]:
@@ -379,7 +371,7 @@ def main() -> int:
             continue
 
         hazard = extract_hazard_note(body)
-        bom_rows = extract_bom_table(body, slug)
+        bom_rows, bom_source = resolve_bom_source(page, body, slug)
 
         gen_dir = page.parent / "generated"
         gen_dir.mkdir(exist_ok=True)
@@ -403,7 +395,7 @@ def main() -> int:
                 build_bom_markdown(title, bom_rows, slug), encoding="utf-8"
             )
             to_render.append(bom_md)
-            bom_note = " + BOM/CSV"
+            bom_note = f" + BOM/CSV (from {bom_source})"
 
         haz = " + hazard note" if hazard else ""
         print(f"✓ {page}  →  {slug}-protocol.md ({len(checklist)} lines){haz}{bom_note}")
