@@ -21,16 +21,23 @@ import json
 import shutil
 import subprocess
 import sys
-
-# Domains that kill HTTP/2 connections at the protocol level.
-# These are not dead links — they are valid URLs on servers that block crawlers.
-# Any other error type from these domains (404, DNS failure, etc.) will still
-# be reported as a genuine error.
-HTTP2_FALSE_POSITIVE_DOMAINS = [
-    "sigmaaldrich.com",
-]
+import tomllib
+from pathlib import Path
 
 HTTP2_ERROR_SUBSTRING = "HTTP/2 protocol error"
+
+_CONFIG_PATH = Path(__file__).with_name("link-false-positives.toml")
+
+def _load_false_positive_domains() -> list[str]:
+    try:
+        with _CONFIG_PATH.open("rb") as f:
+            data = tomllib.load(f)
+    except FileNotFoundError:
+        return []
+    return data.get("http2_false_positives", {}).get("domains", [])
+
+
+HTTP2_FALSE_POSITIVE_DOMAINS = _load_false_positive_domains()
 
 
 def is_http2_false_positive(url: str, error_text: str) -> bool:
