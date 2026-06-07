@@ -1,4 +1,6 @@
-jupyter-book>=2.0.0a0
+jupyter-book>=2.1.4
 cookiecutter
 pytest
 black
+pre-commit
+pyyaml
