@@ -5,7 +5,7 @@ subtitle: "From Zero to DevNote: a Beginner's Guide to the Nucleus Technology St
 
 # Overview
 
-The purpose of this tutorial is to guide newcomes through the complete Nucleus technology stack and supporting workflows. 
+The purpose of this tutorial is to guide newcomers through the complete Nucleus technology stack and supporting workflows. 
 
 At the end of this tutorial you will have used the Protocols in the Distribution to assemble Base Cytosol, characterized its performance using the Cell Development Kit (CDK) on Nucleus Hub, and finally posted a Developer Note (DevNote) that reports on its performance. 
 
@@ -19,9 +19,13 @@ If you are looking to get started quickly, we recommend acquiring a kit from b.n
 
 # Using the Distribution as a knowledge base
 
-The Distribution contains numerous validated protocols and other documentation organized across four different categories: DNA Distribution, Processes, Modules, and Implementations. Assembling Base Cytosol is regarded as a fundamental process in the Distribution, so protocols and documentation for its assembly can be found in the [Processes](../docs/processes/processes-main.md) section. We recommend exploring the four Protocol category pages to get a sense for how the documentation is organized.
+The Distribution contains useful documentation organized across four different categories:
+- [Modules](../docs/modules/modules-main.md) include specification pages for functional biological modules (see [Nucleus Cytosol](./base-cytosol/spec) as an example). 
+- [Processes](../docs/processes/processes-main.md) describe validated lab protocols that either help you implement modules or just generally do useful things (see [Assemble Protein Mix](../docs/processes/make-36pot/main.md) as an example). 
+- [Implementations](../docs/implementations/implementations-main.md) describe particular uses of Modules in a specific context and using specific Processes (see [Responder: aTc -> ivhsl](../docs/implementations/responder-atc-ivhsl/main.md) as an example). 
+- [Guides](../guides/main.md) are narrative documentation describing how to do something generally useful (this page is a guide, for instance). We recommend exploring the four document categories to get a sense for how this site is organized.
 
-Now that we're more oriented in the documentation let's navigate to the protocol we'd like to implement:
+Now that we're more oriented in the documentation let's navigate to the protocol we'd like to execute:
 
 - [Assemble Base Cytosol](../docs/processes/assemble-base-cytosol/main.md)
 

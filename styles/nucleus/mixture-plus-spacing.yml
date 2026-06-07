@@ -1,0 +1,5 @@
+extends: existence
+message: "Add spaces around '+' in mixtures: '%s' should be e.g. 'LB + Kan'."
+level: error
+raw:
+  - '\w+\+\w+'

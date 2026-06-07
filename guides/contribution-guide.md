@@ -6,13 +6,11 @@ title: Contribution Guidelines
 
 This document provides guidelines for making a contribution to the Distribution. Since technical contributions are made by submitting a Developer Note, these contribution guidelines include both minimal requirements for submitting a DevNote and suggestions for increasing the likelihood that your contribution will be onboarded into the Distribution.
 
-To clarify this distinction, we define several phrases:
+To clarify this distinction, we define several imperative phrases. See [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) for details.
 
-* **Must.** This word means that something is an absolute requirement when submitting a Developer Note.
-
-* **Should.** This word means that including something will make it more likely that the submission will be onboarded into the Distribution by the Core Development Team.
-
-* **Where possible.** This phrase means that including something may prove technically challenging and situation dependent. Use good judgment, and post on the Forum if you need guidance on feasibility.
+* **MUST:** inclusion is an absolute requirement when submitting a Developer Note. Similarly, **MUST NOT** implies that exclusion is an absolute requirement.
+* **SHOULD:** inclusion is considered best practice. Similarly, **SHOULD NOT** implies that exclusion is considered best practice. Inclusion may prove technically challenging in some situations, but will make your submission more likely to be onboarded into the Distribution by the Core Development Team. Use good judgment, and post on the Forum if you need guidance on feasibility.
+* **MAY.** This word means that something is optional and permissible. Inclusion or exclusion is fully at your discretion. 
 
 > **Note:** Before reading the following guidelines, we highly recommend reading the document titled [*From Zero to DevNote*](../start/first-guide.md) which describes how to prepare your first Developer Note for inclusion into the Distribution. It provides a concrete description of the key components of a submission.
 
@@ -20,9 +18,8 @@ To clarify this distinction, we define several phrases:
 
 ### General
 
-* Should include Author(s) ORCID
-
-* Should include a schematic of the contribution
+* SHOULD include Author(s) ORCID.
+* SHOULD include a schematic of the contribution.
 
 ### Bill of Materials
 
@@ -42,73 +39,55 @@ To clarify this distinction, we define several phrases:
 
 ### DNA Sequence Maps
 
-* Must include linear or plasmid DNA sequence maps.
-
-* Must include a statement attesting to sequence validity.
-
-* Must include a table containing names of sequences used and links to files in the project.
-
-* Should be in pOpen backbone
-
-* Should include sequence verification data.
-
-* Should follow DNA Distribution design guidelines
+* MUST include linear or plasmid DNA sequence maps.
+* MUST include a statement attesting to sequence validity.
+* MUST include a table containing names of sequences used and links to files in the project.
+* SHOULD be in pOpen backbone
+* SHOULD include sequence verification data.
+* SHOULD follow DNA Distribution design guidelines
 
 ### Lab Notebook Entry
 
-* Must include a document (format as .pdf or .txt) that describes reaction preparation in sufficient detail to allow for their reproduction. At a minimum this includes the composition of stock solutions and master mixes.
-
-* Should include notes on handling or preparation that are non-obvious. For example, "preparing an aqueous stock solution of FITC requires first suspending in DMSO at 100 mM concentration" or "use of modified amino acid mixture requires EXTENSIVE vortexing, do not use until solution is completely transparent".
-
-* Should include appropriate QC data on intermediate products like DNA, proteins, and so on...
+* MUST include a document (format as .pdf or .txt) that describes reaction preparation in sufficient detail to allow for their reproduction. At a minimum this includes the composition of stock solutions and master mixes.
+* SHOULD include notes on handling or preparation that are non-obvious. For example, "preparing an aqueous stock solution of FITC requires first suspending in DMSO at 100 mM concentration" or "use of modified amino acid mixture requires extensive vortexing; do not use until solution is completely transparent".
+* SHOULD include appropriate QC data on intermediate products (e.g., DNA and proteins).
 
 ## Considerations for Cytosols
 
 ### Testing and Experimental Design
 
-* Must be tested in reference to the PURE system, either from a commercial vendor or self-prepared.
-
-  * If using a self-prepared PURE system results Must be tested across at least 2 batches.
-
-  * Data involving other systems such as lysates can be included but Must be done in reference to the PURE system.
-
-* Must include at least >3 technical replicates for each reaction condition.
-
-* Must include an Appropriately Designed positive and negative control.
-
-* Should be tested in reference to version-specified Cytosol, the open-formulation flavor of PURE described on the Distribution.
-
-* Where Possible measurements are made as timeseries, not just endpoints.
+* MUST be tested in reference to the PURE system, either from a commercial vendor or self-prepared. 
+	* If using a self-prepared PURE system results MUST be tested across at least 2 batches. 
+	* Data involving other systems such as lysates MAY be included but MUST be done in reference to the PURE system.
+* MUST include at least >3 technical replicates for each reaction condition.
+* MUST include an appropriately designed positive and negative control.
+* SHOULD be tested in reference to version-specified Cytosol, the open-formulation flavor of PURE described on the Distribution.
+* SHOULD take measurements as timeseries, not just single measurements at endpoints.
 
 ### Data
 
-* Must include raw data in a format that can be ingested by the Nucleus CDK
-
-* Must include a platemap in format that can be ingested by the Nucleus CDK
-
-* Where possible data is analyzed using Nucleus CDK tools
+* MUST include raw data in a format that can be ingested by the Nucleus CDK.
+* MUST include a platemap in format that can be ingested by the Nucleus CDK.
+* SHOULD analyze data using Nucleus CDK tools.
 
 ## Considerations for Cells
 
 ### Testing and Experimental Design
 
-* Must include appropriately designed controls
-
-* Must include >2 biological replicates to support each result
+* MUST include appropriately designed controls.
+* MUST include >2 biological replicates to support each result.
 
 ### Data
 
-* Must be possible to determine the size of liposomes
-
-* Must analyze >100 liposomes to support conclusions
-
-* Where Possible, raw files of all images included in the DevNote should be included
-
-* Where Possible, raw data files for all graphs in the DevNote should be included
+* MUST be possible to determine the size of liposomes.
+* MUST analyze >100 liposomes to support conclusions.
+* SHOULD include raw files of all images included in the DevNote.
+* SHOULD include raw data files for all graphs in the DevNote.
 
 
+# Find a typo? Want a feature?
 
-
+If something is missing, lacking, or wrong on this site, [submit an issue!](https://github.com/nucleus-eng/nucleus-docs/issues/new) We use [GitHub](https://github.com/) to maintain our documentation and to track ongoing work. Just click the link above and describe what change you'd propose made to the site. If you are comfortable with git workflows, consider joining the core development team!
 
 <!-- ---
 title: Contribution Guidelines

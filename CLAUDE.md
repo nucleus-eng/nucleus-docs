@@ -33,6 +33,19 @@ python3 scripts/build-protocols.py --extract-only   # skip PDF rendering
 
 CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `mystmd` via npm and deploying to GitHub Pages.
 
+**QA checks** (run locally before opening a PR):
+```bash
+python3 scripts/check-dropdowns.py      # flag placeholder-only lists
+python3 scripts/check-file-placement.py # flag content files outside allowed dirs
+python3 scripts/check-toc.py            # validate myst.yml TOC entries
+```
+
+These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
+```bash
+pre-commit install        # installs hooks (done automatically by setup.sh)
+pre-commit run --all-files  # run all hooks manually
+```
+
 ## Architecture
 
 ### Companion DNA repository
@@ -145,7 +158,12 @@ Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended not
 
 ### Overview card dropdowns — empty dropdown policy
 
-The template includes all possible dropdown sections as a starting point. **When authoring or reviewing a process page, only keep dropdowns that have real content.** Delete any dropdown whose only content is `- None`.
+The template includes all possible dropdown sections as a starting point. **When authoring or reviewing a process page, only keep dropdowns that have real content.** Delete any dropdown whose only content is a placeholder (e.g. `- TODO`).
+
+The process template uses `- TODO` as the scaffold placeholder — this is intentional so contributors know which sections need to be filled in. **`check-dropdowns.py` (and CI) will fail if any `- TODO`, `- None`, `- N/A`, or `- TBD` placeholder-only list survives outside `templates/`.** Before opening a PR, run:
+```bash
+python3 scripts/check-dropdowns.py
+```
 
 **When editing or reviewing a process page**, scan for empty dropdowns matching this pattern and flag them:
 
@@ -154,12 +172,12 @@ The template includes all possible dropdown sections as a starting point. **When
 :class: dropdown
 :icon: false
 
-- None
+- TODO
 
 ::::::
 ```
 
-If you find one, flag it and ask the developer: **"The `<Section Title>` dropdown is empty — should it be deleted, or does it need content?"** Wait for confirmation before making any changes. Do not silently leave `- None` placeholders in committed files, but also do not silently delete them. The template file (`templates/process-template/process-make_template.md`) is the only file exempt from this rule.
+If you find one, flag it and ask the developer: **"The `<Section Title>` dropdown is empty — should it be deleted, or does it need content?"** Wait for confirmation before making any changes. Do not silently leave placeholder content in committed files, but also do not silently delete them. The template file (`templates/process-template/process-make_template.md`) is the only file exempt from this rule.
 
 **If all dropdowns in the Important Information card are removed**, the containing card block should also be removed:
 
@@ -190,7 +208,7 @@ When migrating content from Notion markdown exports:
 
 ### Prose linting (Vale)
 
-**Run `vale docs/` before opening a PR or committing a content migration.** Vale lints both `.md` and `.csv` files under `docs/`.
+**Run `vale docs/` before opening a PR or committing a content migration.** Vale lints both `.md` and `.csv` files under `docs/`. Vale runs as part of the `qa` CI workflow (`.github/workflows/qa.yml`).
 
 ```bash
 vale docs/          # lint all docs

@@ -165,7 +165,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 
 :::{tip} Note: estimate your target volume at 100 µL per 1 g biomass.
 :class: dropdown
-From our experience, a good rule of thumb is to target a final volume around 100 µL per 1g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 µL (~40 µg/µL tRNAs)).
+From our experience, a good rule of thumb is to target a final volume around 100 µL per 1 g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 µL (~40 µg/µL tRNAs)).
 :::
 
 ## Quality control

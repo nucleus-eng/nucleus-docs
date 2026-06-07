@@ -7,7 +7,7 @@ subtitle: "Process"
 
 Base Cells are liposome-based synthetic cells that can perform transcription and translation.
 
-In this protocol, you will make the necessary precursors for liposome encapsulation, and then assemble and encapsulate Cytosol that expresses Green Fluorescent Protein (GFP). The Base Cell is deployed in a gluocose outer solution.
+In this protocol, you will make the necessary precursors for liposome encapsulation, and then assemble and encapsulate Cytosol that expresses Green Fluorescent Protein (GFP). The Base Cell is deployed in a glucose outer solution.
 
 Successfully built Base Cells will start dark and then increase in green fluorescence over time as GFP is produced.
 
@@ -36,7 +36,6 @@ Please read this section carefully. It contains important notes, resources, and 
 | Ribosomes         | 10                  | µM    | 1.8                 | µM    | 7.2                          |
 | `pOpen-deGFP` DNA | 124                 | nM    | 3                   | nM    | 0.95                         |
 | tRNA              | 35                  | mg/ml | 3.5                 | mg/ml | 4                            |
-| Magnesium acetate | 200                 | mM    | 8                   | mM    | 1.6                          |
 | Optiprep          | 1.32                | mg/µL | 0.043               | mg/µL | 1.33                         |
 | RNase Inhibitor   | 40000               | U/mL  | 2000                | U/mL  | 2                            |
 | Water             |                     |       |                     |       | 6.12                         |
