@@ -13,6 +13,7 @@ Guides provide tutorials, how-tos, and reference documentation to help you get t
 ## Reference Documentation
 
 - [DNA Distribution](../docs/dna-distro.md) — overview of the Nucleus DNA Distribution and companion GitHub repository
+- [Materials Reference Table](materials-reference.md) — a table of all materials referenced in this distribution.
 
 ## Digital Tools
 

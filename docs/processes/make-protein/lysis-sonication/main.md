@@ -24,6 +24,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Materials and Equipment
 
+
+:::{table} Bill of Materials
+:label: bom-lysis-sonication
+
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Sonicator | Equipment | Q700 Sonicator | QSonica | Q700A-110 | $5500 | 4°C to 30°C | [link](https://www.sonicator.com/products/q700-sonicator?variant=36028875408) |
@@ -41,6 +45,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Lysozyme | Supplements (for Buffers) | Lysozyme from chicken egg white, protein ≥90%, ≥40 000 units/mg protein, lyophilized powder | Sigma-Aldrich | L6876-1G | $76.90 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876) |
 | TCEP-HCl (0.5M; presuspended) | Supplements (for Buffers) | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific | 77720 | $175.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
 | cOmplete Protease Inhibitor | Supplements (for Buffers) | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets | Roche | 11873580001 | $472 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro) |
+:::
 
 # Protocol
 
@@ -118,6 +123,24 @@ Please read this section carefully. It contains important notes, resources, and 
 
   Your target protein is not stable in clarified lysate, even if clarification reduces proteolytic activity. You should immediately proceed to purification. Your samples will only continue to degrade until they've been purified and stored at -80°C. Work smoothly and quickly from here on out!
   :::
+
+# Downloads
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+
+{button}`download <generated/lysis-sonication-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+
+{button}`download <generated/lysis-sonication-bom.pdf>`
+:::
+
+::::
 
 # References
 

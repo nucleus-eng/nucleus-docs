@@ -10,7 +10,7 @@ To clarify this distinction, we define several imperative phrases. See [RFC 2119
 
 * **MUST:** inclusion is an absolute requirement when submitting a Developer Note. Similarly, **MUST NOT** implies that exclusion is an absolute requirement.
 * **SHOULD:** inclusion is considered best practice. Similarly, **SHOULD NOT** implies that exclusion is considered best practice. Inclusion may prove technically challenging in some situations, but will make your submission more likely to be onboarded into the Distribution by the Core Development Team. Use good judgment, and post on the Forum if you need guidance on feasibility.
-* **MAY.** This word means that something is optional and permissible. Inclusion or exclusion is fully at your discretion. 
+* **MAY.** This word means that something is optional and permissible. Inclusion or exclusion is fully at your discretion.
 
 > **Note:** Before reading the following guidelines, we highly recommend reading the document titled [*From Zero to DevNote*](../start/first-guide.md) which describes how to prepare your first Developer Note for inclusion into the Distribution. It provides a concrete description of the key components of a submission.
 
@@ -23,26 +23,22 @@ To clarify this distinction, we define several imperative phrases. See [RFC 2119
 
 ### Bill of Materials
 
-* Must include a Bill of Materials for the process, supplied in the form the lab-ready pipeline ingests (this is what generates the downloadable BOM PDF and materials CSV — see the lab-ready protocol pipeline notes in `CLAUDE.md`). Provide it as **either**:
-  * an inline markdown table on the process page, labeled `bom-<process-slug>` (where `<process-slug>` is the process's directory name), **or**
-  * an uploaded CSV at `resources/<process-slug>-bom.csv` beside the page.
+* MUST indicate critical materials used for your Process, Implementation, or Module. SHOULD include a formatted Bill of Materials listing these materials. Provide it as **either**:
+	* an inline markdown table on the Process page, labeled `bom-<process-slug>` (where `<process-slug>` is the process's directory name), **or**
+	* an uploaded CSV at `resources/<process-slug>-bom.csv` beside the page.
 
-  If you provide both, they Must agree — continuous integration fails on any row-for-row difference. Use the standard eight-column schema:
+| Name        | Category | Product                            | Manufacturer  | Part #    | Price | Storage    | Link                                                          |
+| ----------- | -------- | ---------------------------------- | ------------- | --------- | ----- | ---------- | ------------------------------------------------------------- |
+| Amino Acids | Reagent  | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558  | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
+* IF POSSIBLE, prefer using existing validated materials used elsewhere in the Distribution, rather than introducing new materials. Consult the [Materials Reference](./materials-reference.md) to see al materials in use in the Distribution.
 
-| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
-|----|----|----|----|----|----|----|----|
-| Amino Acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
-
-* Should reuse existing part numbers and vendors where a material already appears elsewhere in the Distribution, rather than introducing a near-duplicate. Consult the [Materials Reference](./materials-reference.md) — a generated, distribution-wide index of every catalogued material and the processes that use it — to find the canonical entry. The `scripts/enrich-bom.py` aid can fill a new table's columns from existing pages by part number.
-
-* Should have a complete reagent list. In most circumstances, submissions will be modifying Processes with existing reagent lists. You are encouraged to reuse and modify these lists as appropriate and exercise good judgement when reagent substitutions should be regarded as "Critical". A curated subset of reagents that are critical for the experiment may additionally be highlighted in a "Critical Materials" dropdown in the process page's Important Information card.
 
 ### DNA Sequence Maps
 
 * MUST include linear or plasmid DNA sequence maps.
 * MUST include a statement attesting to sequence validity.
 * MUST include a table containing names of sequences used and links to files in the project.
-* SHOULD be in pOpen backbone
+* SHOULD be in pOpen backbone.
 * SHOULD include sequence verification data.
 * SHOULD follow DNA Distribution design guidelines
 
@@ -56,8 +52,8 @@ To clarify this distinction, we define several imperative phrases. See [RFC 2119
 
 ### Testing and Experimental Design
 
-* MUST be tested in reference to the PURE system, either from a commercial vendor or self-prepared. 
-	* If using a self-prepared PURE system results MUST be tested across at least 2 batches. 
+* MUST be tested in reference to the PURE system, either from a commercial vendor or self-prepared.
+	* If using a self-prepared PURE system results MUST be tested across at least 2 batches.
 	* Data involving other systems such as lysates MAY be included but MUST be done in reference to the PURE system.
 * MUST include at least >3 technical replicates for each reaction condition.
 * MUST include an appropriately designed positive and negative control.
