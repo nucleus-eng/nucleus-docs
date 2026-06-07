@@ -19,6 +19,7 @@ Usage:
     python3 scripts/check-toc.py myst.yml
 """
 
+import subprocess
 import sys
 from pathlib import Path
 
@@ -106,7 +107,17 @@ def main() -> int:
 
     # --- ADVISORY: every docs/ .md should appear in the TOC ---
     advisory_warnings = 0
-    all_docs_md = sorted(DOCS_ROOT.rglob("*.md")) if DOCS_ROOT.exists() else []
+    try:
+        ls = subprocess.run(
+            ["git", "ls-files", str(DOCS_ROOT)],
+            capture_output=True, text=True, check=True,
+        )
+        all_docs_md = sorted(
+            Path(p) for p in ls.stdout.splitlines()
+            if p.endswith(".md") and "generated" not in Path(p).parts
+        )
+    except subprocess.CalledProcessError:
+        all_docs_md = []
     for md in all_docs_md:
         if "generated" in md.parts:
             continue

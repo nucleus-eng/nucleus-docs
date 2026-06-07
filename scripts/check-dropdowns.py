@@ -17,6 +17,7 @@ Usage:
 """
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -60,16 +61,22 @@ def check_file(path: Path) -> list[tuple[int, str]]:
 
 
 def find_files(roots: list[str]) -> list[Path]:
+    try:
+        result = subprocess.run(
+            ["git", "ls-files"] + roots,
+            capture_output=True, text=True, check=True,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"error: git ls-files failed: {e}", file=sys.stderr)
+        sys.exit(1)
     files = []
-    for root in roots:
-        p = Path(root)
-        if not p.exists():
+    for p in result.stdout.splitlines():
+        if not p.endswith(".md"):
             continue
-        for md in p.rglob("*.md"):
-            parts = md.parts
-            if "generated" in parts or "templates" in parts:
-                continue
-            files.append(md)
+        path = Path(p)
+        if "generated" in path.parts or "templates" in path.parts:
+            continue
+        files.append(path)
     return sorted(files)
 
 
