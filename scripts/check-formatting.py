@@ -60,8 +60,7 @@ def check_file(path: Path) -> list[tuple[int, str]]:
     lines = text.splitlines()
     in_frontmatter = False
     in_code_fence = False
-    in_directive_fence = False
-    directive_fence_depth = 0
+    directive_fence_stack: list[int] = []
     in_html_comment = False
     prev_was_prose = False
 
@@ -99,19 +98,19 @@ def check_file(path: Path) -> list[tuple[int, str]]:
             prev_was_prose = False
             continue
 
-        # Track MyST directive fences (:::+ ... :::+)
+        # Track MyST directive fences (:::+ ... :::+) using a depth stack so
+        # nested fences (e.g. ::::{tab-item} inside ::::::{tab-set}) don't
+        # cause a premature close of the outer block.
         directive_match = re.match(r"^(:{3,})", raw)
         if directive_match:
             depth = len(directive_match.group(1))
-            if not in_directive_fence:
-                in_directive_fence = True
-                directive_fence_depth = depth
-            elif depth <= directive_fence_depth:
-                in_directive_fence = False
-                directive_fence_depth = 0
+            if directive_fence_stack and depth <= directive_fence_stack[-1]:
+                directive_fence_stack.pop()
+            else:
+                directive_fence_stack.append(depth)
             prev_was_prose = False
             continue
-        if in_directive_fence:
+        if directive_fence_stack:
             prev_was_prose = False
             continue
 
