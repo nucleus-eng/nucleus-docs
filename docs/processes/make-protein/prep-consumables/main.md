@@ -107,7 +107,7 @@ Make the following buffers *in advance* and store at 4°C. Add all components *e
 | Ultrapure water | — | — | 59.5 |
 | **Total** | | | **250** |
   
-- [ ] **Protein Buffer** — used to remove Na+ and Imidazole from proteins. Filter with a 0.22 µm vacuum filter.
+- [ ] **Protein Buffer** — used to remove Na⁺ and Imidazole from proteins. Filter with a 0.22 µm vacuum filter.
 
 | Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
 | ------------------ | ------------------------ | ------------------------ | ------------------ |
@@ -132,9 +132,9 @@ Make the following buffers *in advance* and store at 4°C. Add all components *e
 
 :::{hint} Note: Protein Buffers are compatible with PURE reactions
 :class: dropdown
-The components of the PURE system are sensitive to the types and concentrations of the salts included in the reaction (e.g., [Mg2+] affects the relative rates of transcription vs translation). Proteins in Wash and Elution Buffer (high [NaCl] and [Imidazole]) cannot be used directly in PURE reactions because Na+ and Imidazole affect PURE function.
+The components of the PURE system are sensitive to the types and concentrations of the salts included in the reaction (e.g., [Mg²⁺] affects the relative rates of transcription vs translation). Proteins in Wash and Elution Buffer (high [NaCl] and [Imidazole]) cannot be used directly in PURE reactions because Na⁺ and Imidazole affect PURE function.
 
-Protein Buffer (with and without glycerol) use K+ as a cation instead of Na+ and have no Imidazole. 
+Protein Buffer (with and without glycerol) use K⁺ as a cation instead of Na⁺ and have no Imidazole. 
 :::
 
 

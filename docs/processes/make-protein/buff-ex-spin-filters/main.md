@@ -64,7 +64,7 @@ $$
 :::
 - [ ] Add an equal volume of Protein Buffer (60% glycerol) to your sample to bring the final glycerol concentration to 30%. Freeze samples at -80°C for storage.
 - [ ] Store columns for later use.
-  - [ ] Wash columns by loading with ddH2O and spinning.
+  - [ ] Wash columns by loading with ddH₂O and spinning.
   - [ ] Load columns with EtOH 20% (v/v) and store at room temp.
 
 :::{hint} Note: If you see precipitate, dilute your sample immediately.

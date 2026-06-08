@@ -36,7 +36,7 @@ When used alongside PURE's standard energy regeneration module based on creatine
 
 ## Usage
 
-The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. This module is highly sensitive to amount of Mg2+ contained in Cytosol since PolyP acts as a magnesium chelator
+The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. This module is highly sensitive to amount of Mg²⁺ contained in Cytosol since PolyP acts as a magnesium chelator
 
 **DNA Parts**
 
@@ -101,9 +101,9 @@ The following reaction table is a self-contained experiment for evaluating the p
 
 | Name in Reaction Table     | Description                                                      |
 | -------------------------- | ---------------------------------------------------------------- |
-| **CP/CK**                  | PURE with CP and 8 mM Mg2+                                       |
-| **PPK/PolyP**              | PURE with PolyP, PPK and 18 mM Mg2+                              |
-| **CP/CK + PPK/PolyP**      | PURE with CP, PolyP, PPK and 18 mM Mg2+                          |
+| **CP/CK**                  | PURE with CP and 8 mM Mg²⁺                                       |
+| **PPK/PolyP**              | PURE with PolyP, PPK and 18 mM Mg²⁺                              |
+| **CP/CK + PPK/PolyP**      | PURE with CP, PolyP, PPK and 18 mM Mg²⁺                          |
 | **+ DNA Positive Control** | PURExpress Positive control (PC) reaction                        |
 | **- DNA Negative Control** | PURExpress Negative control (NC) reaction (without DNA template) |
 
@@ -140,7 +140,7 @@ Final protein yields of the reactions measured at steady state. The PPK2 module 
 
 ::::{tab-item} Mg Sensitivity
 :::{figure} mg-sensitivity.png
-The PPK energy module is highly sensitive to [Mg2+]. Final protein yields of PPK2-powered PURE reactions at different Mg2+ concentrations. PPK2 enzyme and polyP were added at a final concentration of 2 µM and 30 mM, respectively.
+The PPK energy module is highly sensitive to [Mg²⁺]. Final protein yields of PPK2-powered PURE reactions at different Mg²⁺ concentrations. PPK2 enzyme and polyP were added at a final concentration of 2 µM and 30 mM, respectively.
 :::
 ::::
 
