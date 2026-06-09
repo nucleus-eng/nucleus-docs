@@ -1,0 +1,5 @@
+extends: existence
+message: "Use Unicode superscript notation for ion charges: '%s' should use superscripts (e.g. Mg²⁺, Ni²⁺, Ca²⁺, Na⁺, K⁺, Fe³⁺)."
+level: error
+raw:
+  - 'Mg\+\+|Mg2\+|Ni2\+|Ca2\+|Zn2\+|Mn2\+|Fe2\+|Fe3\+|Cu2\+|Na\+|K\+'

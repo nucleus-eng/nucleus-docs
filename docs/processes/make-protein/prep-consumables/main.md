@@ -23,7 +23,7 @@ Here, we make media used to grow up an expression strain to use for subsequent p
 | Potassium Chloride             | Salts        | Potassium Chloride, ACS reagent, 99.0-100.5%                     | Sigma-Aldrich       | P3911-1KG    | $146.00   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/p3911)                                                                                                     |
 | Magnesium Chloride hexahydrate | Salts        | BioXtra MgCl₂·6H₂O, Powder or Crystals, ≥99.0%                   | Sigma-Aldrich       | M2670-100G   | $50.50    | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670)                                                                                                       |
 | Glycerol                       | Supplements  | Glycerol, Molecular Biology Grade, Liquid, ≥99.0%                | Sigma-Aldrich       | G5516-1L     | $157.00   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5516)                                                                                                      |
-| Lysozyme                       | Supplements  | Lysozyme from chicken egg white, ≥40,000 units/mg, lyophilized   | Sigma-Aldrich       | L6876-1G     | $76.90    | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876)                                                                                                      |
+| Lysozyme                       | Supplements  | Lysozyme from chicken egg white, ≥40 000 units/mg, lyophilized   | Sigma-Aldrich       | L6876-1G     | $76.90    | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876)                                                                                                      |
 | TCEP-HCl (0.5M)                | Supplements  | Bond-Breaker® TCEP Neutral Solution, 5 mL                        | Thermo Scientific   | 77720        | $175.65   | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/77720)                                                                                                    |
 | cOmplete Protease Inhibitor    | Supplements  | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets        | Roche               | 11873580001  | $472      | 1°C to 4°C     | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro)                                                                                                  |
 | LB                             | Media        | Luria Broth (Miller's LB Broth), Molecular Biology Grade, Powder | Sigma-Aldrich       | L3522-1KG    | $221      | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l3522)                                                                                                      |
@@ -38,7 +38,7 @@ Here, we make media used to grow up an expression strain to use for subsequent p
 
 # Protocol
 
-## Step 1: Prepare Stock Buffers and Media
+## Prepare Stock Buffers and Media
 
 - [ ] Make or buy the following stock solutions. Use ultrapure water (18.2 MΩ, e.g., Milli-Q).
 
@@ -77,7 +77,7 @@ First, resuspend HEPES or Imidazole in half the required volume of water. Next, 
 HEPES and Imidazole are light sensitive compounds! Keep stock solutions in the dark. Either wrap bottles in aluminum foil OR store bottles in a cabinet.
 :::
 
-## Step 2: Prepare Stable Buffers
+## Prepare Stable Buffers
 
 Make the following buffers *in advance* and store at 4°C. Add all components *except* TCEP, which you MUST add fresh the day of use.
 
@@ -107,7 +107,7 @@ Make the following buffers *in advance* and store at 4°C. Add all components *e
 | Ultrapure water | — | — | 59.5 |
 | **Total** | | | **250** |
   
-- [ ] **Protein Buffer** — used to remove Na+ and Imidazole from proteins. Filter with a 0.22 µm vacuum filter.
+- [ ] **Protein Buffer** — used to remove Na⁺ and Imidazole from proteins. Filter with a 0.22 µm vacuum filter.
 
 | Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
 | ------------------ | ------------------------ | ------------------------ | ------------------ |
@@ -132,13 +132,13 @@ Make the following buffers *in advance* and store at 4°C. Add all components *e
 
 :::{hint} Note: Protein Buffers are compatible with PURE reactions
 :class: dropdown
-The components of the PURE system are sensitive to the types and concentrations of the salts included in the reaction (e.g., [Mg2+] affects the relative rates of transcription vs translation). Proteins in Wash and Elution Buffer (high [NaCl] and [Imidazole]) cannot be used directly in PURE reactions because Na+ and Imidazole affect PURE function.
+The components of the PURE system are sensitive to the types and concentrations of the salts included in the reaction (e.g., [Mg²⁺] affects the relative rates of transcription vs translation). Proteins in Wash and Elution Buffer (high [NaCl] and [Imidazole]) cannot be used directly in PURE reactions because Na⁺ and Imidazole affect PURE function.
 
-Protein Buffer (with and without glycerol) use K+ as a cation instead of Na+ and have no Imidazole. 
+Protein Buffer (with and without glycerol) use K⁺ as a cation instead of Na⁺ and have no Imidazole. 
 :::
 
 
-## Step 3: Prepare Working Buffers
+## Prepare Working Buffers
 
 Make the following buffers on the same day as use.
 

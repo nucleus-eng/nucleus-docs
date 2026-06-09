@@ -71,7 +71,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 **Perform bulk outgrowth.**
 - [ ]  Check if (-) has growth. If not, continue.
 - [ ]  Back dilute overnight 1:250 - 1:1000 into 4x 450 mL fresh LB in 2 L baffled Erlenmeyer flasks (e.g., 1.8 mL overnight into 450 mL LB).
-- [ ]  Incubate back diluted cultures at 37°C / (225-250) rpm to mid-log phase (OD600 between 0.6 and 0.8, typically ~3 hrs).
+- [ ]  Incubate back diluted cultures at 37°C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8, typically ~3 hrs).
 
 **Pellet, wash, and store cells.**
 - [ ]  Fill 1 L centrifuge bottles with culture. Balance centrifuge bottles against each other and centrifuge cultures at 16 000 rcf / 4°C / 10 min.
@@ -148,7 +148,7 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 
 ## Quality Control
 
-- [ ]  Determine the ribosome concentration by measuring the absorbance at 260 nm at a 100x dilution in Ribosome Buffer. 10 units of A260 from a 100x dilution corresponds to 23 µM of undiluted solution.
+- [ ]  Determine the ribosome concentration by measuring the absorbance at 260 nm at a 100x dilution in Ribosome Buffer. 10 units of A₂₆₀ from a 100x dilution corresponds to 23 µM of undiluted solution.
 - [ ]  Dilute to final stock of 10 µM. To adjust the concentration, dilute the ribosomes with ribosome buffer or concentrate further via centrifugation at 4000 rcf in a 100 kDa centrifugal filter at 4°C.
 - [ ]  Protein gel: dilute 10 µM sample by 4x (Add 2.5 µL of sample with 7.5 µL water) and mix with 10 µL of 4x Laemmli with BME loading buffer. Boil samples at 90°C for 10 minutes and load 5 µL and 2.5 µL onto 4-20% tris-glycine gel. Run gel at 200 V / 30-45 min or until the loading dye line reaches the bottom of the gel.
 
