@@ -30,6 +30,7 @@ from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0
     CANON_FIELDS,
     extract_bom_table,
     index_materials,
+    is_placeholder,
     norm_key,
     norm_name,
     parse_table_header,
@@ -37,16 +38,16 @@ from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0
 )
 
 DOCS_ROOT = Path("docs")
-FILLABLE_PLACEHOLDERS = {"", "todo", "tbd", "n/a", "—", "-"}
 
 
 def _is_fillable(cell: str) -> bool:
-    c = cell.strip().lower()
-    if c in FILLABLE_PLACEHOLDERS:
+    # Empty / TODO / TBD / N/A / dash / # cells are fillable. Defer to
+    # bom_common.is_placeholder so the placeholder set has one definition.
+    if is_placeholder(cell):
         return True
     # A placeholder link like [link](TODO) or [link](#) is also fillable.
     m = re.fullmatch(r"\[[^\]]*\]\(([^)]*)\)", cell.strip())
-    if m and m.group(1).strip().lower() in (FILLABLE_PLACEHOLDERS | {"#"}):
+    if m and is_placeholder(m.group(1)):
         return True
     return False
 
