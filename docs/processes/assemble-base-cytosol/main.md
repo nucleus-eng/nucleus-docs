@@ -129,7 +129,7 @@ Prepare the reaction on ice or a cold block to prevent reactions from starting d
     - [ ]  Pipette mix PMix.
     - [ ]  **Do NOT vortex** ribosomes! *Gently* pipette mix or flick the tube.
 - [ ] For each reaction, assemble reaction master mix in a chilled PCR tube by adding each reagent in the order and volume listed in the table above. 
-- [ ] Mix the master mix thoroughly by pipette (6-10x) until visibly homogenous.
+- [ ] Mix the master mix thoroughly by pipette (6-10x) until visibly homogeneous.
 - [ ] Hold assembled reactions on ice or at 4°C until ready for measurement.
 - [ ] On a 384-well optical plate, array 10 µL of each reaction master mix into three (3) wells and note their locations.
 

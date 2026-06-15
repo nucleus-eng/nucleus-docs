@@ -62,7 +62,7 @@ Anhydrous Magnesium Chloride releases a *lot* of energy when dissolved in water,
 
 Magnesium Chloride hydrates (as in, the Magnesium Chloride crystals incorporate water molecules into the crystal structure) do not release as much energy when dissolved and are much safer to work with. Moreover, they absorb less water over time, giving you more accurate buffer concentrations.
 
-When calculating how much hydrated salt to use, don't use the molecular weight of the anhydrous salt. You must consider the water weight as well. Hydrates generally have their adjusted molecular weights labelled on the bottle, but can be calculated by adding 18.02 g/mol for each water molecule.
+When calculating how much hydrated salt to use, don't use the molecular weight of the anhydrous salt. You must consider the water weight as well. Hydrates generally have their adjusted molecular weights labeled on the bottle, but can be calculated by adding 18.02 g/mol for each water molecule.
 :::
 
 :::{hint} Note: adjust pH *then* volume.
@@ -185,6 +185,6 @@ Make the following buffers on the same day as use.
 - [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427) 
 - [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
-# Acknowledgements
+# Acknowledgments
 
 Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

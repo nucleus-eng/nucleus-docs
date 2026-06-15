@@ -2,5 +2,6 @@ jupyter-book>=2.1.4
 cookiecutter
 pytest
 black
+codespell
 pre-commit
 pyyaml

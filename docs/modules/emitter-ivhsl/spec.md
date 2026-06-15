@@ -81,7 +81,7 @@ The IV-HSL Emitter module in the Base Cell.
 Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-GFP-native`. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 8 hours collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
 
 :::{figure} cell-performance-endpoint.png
-**Emitter Cell Endpoint Montage.** Single field of view at t = 8 hours. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(grey)** Brightfield. **(rgb)** Merged image.
+**Emitter Cell Endpoint Montage.** Single field of view at t = 8 hours. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(gray)** Brightfield. **(rgb)** Merged image.
 :::
 
 ::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL.

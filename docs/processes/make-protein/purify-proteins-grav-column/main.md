@@ -97,6 +97,6 @@ If you have more than 10 mL of clarified lysate, you can load your sample in tra
 - [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
 - [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
-# Acknowledgements
+# Acknowledgments
 
 Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

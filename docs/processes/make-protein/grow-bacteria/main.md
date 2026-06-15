@@ -111,6 +111,6 @@ Frozen bacterial pellets can be stored at -80°C for extended periods (up to at 
 - [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
 - [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
-# Acknowledgements
+# Acknowledgments
 
 Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

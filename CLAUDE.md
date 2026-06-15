@@ -245,6 +245,19 @@ s/(\d+)C\b/$1°C/g
 
 Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
 
+### Spell checking (codespell)
+
+**Run `codespell docs/` before opening a PR or committing content.** codespell catches real typos and enforces American English spelling.
+
+```bash
+codespell docs/          # check all docs
+codespell <file.md>      # check a single file
+```
+
+Configuration lives in `.codespellrc` at the repo root. It uses the `en-GB_to_en-US` builtin dictionary, which flags British spellings as errors (`labelled` → `labeled`, `grey` → `gray`, `Acknowledgements` → `Acknowledgments`, `homogenous` → `homogeneous`). The `ignore-words = .codespell-ignore` option suppresses known false positives — add a **lowercased** word on its own line to suppress it (e.g., `ser` suppresses the amino acid abbreviation Ser which codespell misreads as a typo for "set").
+
+codespell only flags words in its curated misspelling dictionary, so niche technical terms (`PURExpress`, `plamGFP`, `PURET7`) are not flagged.
+
 ### Link checking (lychee)
 
 **Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** This is slower than Vale and doesn't need to run on every commit — focus on PRs that touch links.
