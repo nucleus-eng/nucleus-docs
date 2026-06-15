@@ -79,6 +79,8 @@ project:
       children:
         - file: ./docs/implementations/responder-atc-ivhsl/main.md
           hidden: true
+        - file: ./docs/implementations/emitter-ivhsl/main.md
+          hidden: true
     - file: ./guides/main.md
       children:
         - file: ./start/getting-started.md
@@ -92,6 +94,8 @@ project:
         - file: ./guides/nucleus-hub/nucleus-hub.md
           hidden: true
         - file: ./guides/contribution-guide.md
+          hidden: true
+        - file: ./guides/materials-reference.md
           hidden: true
         - file: ./guides/developer-notes/developer-notes.md
           hidden: true

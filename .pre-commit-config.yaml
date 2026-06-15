@@ -1,0 +1,29 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-dropdowns
+        name: Check empty dropdowns
+        entry: python3 scripts/check-dropdowns.py
+        language: python
+        pass_filenames: false
+        types: [markdown]
+
+      - id: check-file-placement
+        name: Check file placement
+        entry: python3 scripts/check-file-placement.py
+        language: python
+        pass_filenames: false
+
+      - id: check-toc
+        name: Check TOC
+        entry: python3 scripts/check-toc.py
+        language: python
+        pass_filenames: false
+        additional_dependencies: [pyyaml]
+
+      - id: vale
+        name: Vale lint
+        entry: vale docs/
+        language: system
+        pass_filenames: false
+        types: [markdown]

@@ -1,0 +1,12 @@
+extends: substitution
+message: "Use '%s' instead of '%s' (house casing)."
+level: error
+swap:
+  RPM: rpm
+  KAN: Kan
+  kDA: kDa
+  KDA: kDa
+  KDa: kDa
+  kda: kDa
+  Kda: kDa
+  '(\d+)X\b': '$1x'

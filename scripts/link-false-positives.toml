@@ -1,0 +1,9 @@
+# Vendor domains that terminate HTTP/2 connections at the protocol level.
+# These are valid URLs — lychee reports a spurious "HTTP/2 protocol error" for them.
+# Any OTHER error type from these domains (404, DNS failure, etc.) is still reported.
+# Add a domain substring here to suppress the false positive without touching Python.
+
+[http2_false_positives]
+domains = [
+    "sigmaaldrich.com",
+]

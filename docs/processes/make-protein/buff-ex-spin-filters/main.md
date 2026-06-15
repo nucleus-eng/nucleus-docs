@@ -13,10 +13,15 @@ You can use centrifugal spin filters to concentrate your sample and change its b
 
 We use two different volume spin filters, depending on how much sample volume we need to process: 15 mL or 0.5 mL.
 
+
+:::{table} Bill of Materials
+:label: bom-buff-ex-spin-filters
+
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 15 mL spin filters (3 kDa cutoff) | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO | Millipore Sigma | UFC9003 | $125 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc9003) |
 | 0.5 mL spin filters (3 kDa cutoff) | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO | Millipore Sigma | UFC5003 | $63 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc5003) |
+:::
 
 # Protocol
 
@@ -59,7 +64,7 @@ $$
 :::
 - [ ] Add an equal volume of Protein Buffer (60% glycerol) to your sample to bring the final glycerol concentration to 30%. Freeze samples at -80°C for storage.
 - [ ] Store columns for later use.
-  - [ ] Wash columns by loading with ddH2O and spinning.
+  - [ ] Wash columns by loading with ddH₂O and spinning.
   - [ ] Load columns with EtOH 20% (v/v) and store at room temp.
 
 :::{hint} Note: If you see precipitate, dilute your sample immediately.
@@ -68,6 +73,24 @@ $$
 If your protein precipitates out in any of the concentration steps, dilute the protein further before concentrating. The proteins are precipitating/aggregating out because of high salt concentrations; therefore, diluting the proteins will reduce the chances of the protein to aggregate/precipitate.
 
 :::
+
+# Downloads
+
+::::{grid} 1 1 1 2
+
+:::{card}
+:header: **Lab-ready Protocol**
+
+{button}`download <generated/buff-ex-spin-filters-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+
+{button}`download <generated/buff-ex-spin-filters-bom.pdf>`
+:::
+
+::::
 
 # References
 

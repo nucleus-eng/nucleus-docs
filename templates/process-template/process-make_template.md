@@ -12,7 +12,7 @@ One paragraph. State what the process does and why one would want to do it. If t
 
 When in doubt, read the existing Process pages.
 
-<!-- Delete any dropdown whose only content is "- None" before publishing.
+<!-- Delete any dropdown whose only content is a placeholder (e.g. "- TODO") before publishing.
      If all dropdowns are removed, delete this entire card block. -->
 :::::::{card}
 :header: **Important Information**
@@ -23,7 +23,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- TODO
 
 ::::::
 
@@ -31,7 +31,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- TODO
 
 ::::::
 
@@ -39,7 +39,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- TODO
 
 ::::::
 
@@ -47,7 +47,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- TODO
 
 ::::::
 
@@ -55,7 +55,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- TODO
 
 ::::::
 
@@ -63,7 +63,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- None
+- TODO
 
 ::::::
 
@@ -74,7 +74,7 @@ Please read this section carefully. It contains important notes, resources, and 
 <!-- List DevNotes and literature that informed this process.
 DevNotes are the primary source for protocol development history and QC data. -->
 
-- None
+- TODO
 
 ::::::
 
@@ -83,9 +83,12 @@ DevNotes are the primary source for protocol development history and QC data. --
 # Materials and Equipment
 
 <!-- The lab-ready pipeline generates this process's Bill of Materials PDF and
-     materials CSV from the table labeled `bom-<process-slug>` below. Replace
-     <process-slug> with this process's directory name (e.g. `bom-make-trna`).
-     Without this labeled table, no BOM artifacts are generated. See issue #10. -->
+     materials CSV from EITHER the inline table labeled `bom-<process-slug>`
+     below OR an uploaded `resources/<process-slug>-bom.csv` beside this page.
+     Replace <process-slug> with this process's directory name (e.g.
+     `bom-make-trna`). Without one of those, no BOM artifacts are generated. If
+     you provide both, they must agree (CI enforces it). Reuse existing part
+     numbers/vendors via the Materials Reference page. See issues #10 and #108. -->
 
 :::{table} Bill of Materials
 :label: bom-<process-slug>

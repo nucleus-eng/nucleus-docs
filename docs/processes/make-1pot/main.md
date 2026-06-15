@@ -27,6 +27,46 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 
 ::::::
 
+# Materials and Equipment
+
+:::{table} Bill of Materials
+:label: bom-make-1pot
+
+| Name                                              | Category    | Product                                                                                                                                                              | Manufacturer        | Part #        | Price    | Storage        | Link                                                                                                                                            |
+| ------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------- | -------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| HEPES                                             | Salts       | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle                                                                                                           | Sigma-Aldrich       | H3375-500G    | $431     | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375)                                                                                  |
+| Magnesium chloride                                | Salts       | Magnesium chloride hexahydrate, BioXtra, ≥99.0%                                                                                                                      | Sigma-Aldrich       | M2670-500G    | $115.00  | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670)                                                                                   |
+| Potassium chloride                                | Salts       | Potassium Chloride, ACS reagent, 99.0-100.5%                                                                                                                         | Sigma-Aldrich       | P3911-1KG     | $146.00  | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/p3911)                                                                                 |
+| Ammonium chloride                                 | Salts       | Ammonium chloride, ACS reagent, ≥99.5%                                                                                                                               | Sigma-Aldrich       | 213330-500G   | $73.50   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330)                                                                                |
+| Potassium hydroxide                               | Salts       | Potassium hydroxide - ACS reagent, ≥85%, pellets                                                                                                                     | Sigma-Aldrich       | 221473-1KG    | $99.90   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473)                                                                                |
+| Imidazole                                         | Salts       | ReagentPlus® Imidazole, Crystalline, 99%                                                                                                                             | Sigma-Aldrich       | I202-500G     | $120     | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/i202)                                                                                 |
+| Potassium glutamate                               | Salts       | L-Glutamic acid potassium monohydrate                                                                                                                                | Sigma-Aldrich       | G1501-100G    | $74.80   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g1501)                                                                                  |
+| Magnesium acetate                                 | Salts       | Magnesium acetate tetrahydrate                                                                                                                                       | Sigma-Aldrich       | M0631-100G    | $34.80   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631)                                                                                 |
+| EDTA                                              | Salts       | Ethylenediaminetetraacetic acid, BioUltra,  ≥99.0% (KT)                                                                                                              | Sigma-Aldrich       | 03609-250G    | $139.00  | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sial/03609)                                                                                   |
+| Glycerol                                          | Supplements | Glycerol, Molecular Biology Grade, Liquid, ≥99.0%                                                                                                                    | Sigma-Aldrich       | G5516-1L      | $157.00  | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5516)                                                                                  |
+| TCEP                                              | Reagent     | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific   | 77720         | $175.65  | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/77720)                                                                                |
+| Creatine phosphate                                | Reagent     | Sodium creatine phosphate dibasic tetrahydrate, ≥98.0%(NT)                                                                                                           | Sigma-Aldrich       | 27920-1G      | $102     | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/27920)                                                                                  |
+| Folinic acid                                      | Reagent     | Folinic acid calcium salt hydrate                                                                                                                                    | Sigma-Aldrich       | F7878-100MG   | $108     | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)                                                                                   |
+| Spermidine                                        | Reagent     | Spermidine, ≥99% (GC)                                                                                                                                                | Sigma-Aldrich       | S2626-5G      | $176     | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/s2626)                                                                                  |
+| Amino acids                                       | Reagent     | L-Amino acids, analytical standard                                                                                                                                   | Sigma-Aldrich       | LAA21-1KT     | $558     | 1°C to 4°C     | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21)                                                                                   |
+| IPTG                                              | Media       | Isopropyl β-D-thiogalactoside (IPTG), Powder, ≥99% (TLC), ≤0.1% Dioxane                                                                                              | Sigma-Aldrich       | I6758-1G      | $89.90   | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/i6758)                                                                                   |
+| BL21(DE3) Competent Cells                         | Biologic    | BL21(DE3) Competent _E. coli_                                                                                                                                        | NEB                 | C2527H        | $252     | -85°C to -75°C | [link](https://www.neb.com/en-us/products/c2527-bl21de3-competent-e-coli)                                                                       |
+| RNase Inhibitor, Murine                           | Reagent     | RNase Inhibitor, Murine<br>                                                                                                                                          | NEB                 | M0314S        | $87.00   | -25°C to -15°C | [link](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine)                                                                         |
+| PURExpress Kit                                    | Reagent     | PURExpress® _In Vitro_ Protein Synthesis Kit                                                                                                                         | NEB                 | E6800L        | $2774.00 | -85°C to -75°C | [link](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit)                                                       |
+| Nucleus PURE DNA constructs                       | Biologic    | Pooled PURE expression constructs (see Make 36-pot)                                                                                                                  | b.next              | —             | —        | -25°C to -15°C | [DNA/PURE/expression](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression)                                                             |
+| pOpen-deGFP DNA template                          | Biologic    | deGFP reporter template (see Reporter deGFP)                                                                                                                         | b.next              | —             | —        | -25°C to -15°C | [pOpen-deGFP.gbk](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk)                                                       |
+| *E. coli* Ribosomes                               | Biologic    | Nucleus 70S ribosomes (see Make Ribosomes)                                                                                                                           | b.next              | —             | —        | -80°C          | [Make Ribosomes](../make-ribosomes/main.md)                                                                                                     |
+| *E. coli* tRNAs                                   | Biologic    | Nucleus Total tRNA (see Make tRNAs)                                                                                                                                  | b.next              | —             | —        | -80°C          | [Make tRNAs](../make-trna/main.md)                                                                                                              |
+| 96-well Polypropylene DeepWell Plates             | Consumables | Nunc™ 96-Well Polypropylene DeepWell™ Sample Processing & Storage Plates with Shared-Wall Technology                                                                 | Nunc                | 260251        | $379.61  | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/260251)                                                                               |
+| Amicon Ultra 0.5 mL - 3 kDa                       | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO                                                                                                                         | Millipore Sigma     | UFC5003       | $63      | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc5003)                                                                                   |
+| Amicon Ultra 15 mL - 3 kDa                        | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO                                                                                                                         | Millipore Sigma     | UFC9003       | $125     | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc9003)                                                                                   |
+| Breathe-Easy sealing membrane                     | Consumables | Breathe-Easy® sealing membrane                                                                                                                                       | Sigma-Aldrich       | Z380059-1PAK  | $96.50   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/z380059)                                                                                |
+| Columns                                           | Columns     | Empty Disposable PD-10 Columns                                                                                                                                       | Cytiva              | 17043501      | $258.30  | 4°C to 30°C    | [link](https://www.cytivalifesciences.com/en/us/shop/chromatography/columns/empty-columns-for-lab-scale/empty-disposable-pd-10-columns-p-06217) |
+| Ni-His Resin                                      | Resin       | NEBExpress Ni Resin                                                                                                                                                  | New England Biolabs | S1428S        | $358.00  | 1°C to 4°C     | [link](https://www.neb.com/en-us/products/s1428--nebexpress-ni-resin)                                                                           |
+| Rapid-Flow Sterile Single Use Vacuum Filter Units | Consumables | Nalgene™ Rapid-Flow™ Sterile Disposable Bottle Top Filters (PES, 0.22 µm)                                                                                            | Thermo Scientific   | 596-3320      | $105.97  | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/596-3320)                                                                             |
+| SealPlate film                                    | Consumables | SealPlate® film                                                                                                                                                      | Excel Scientific    | Z369659-100EA | $72.20   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/z369659)                                                                                |
+:::
+
 # Protocol
 
 *E. coli* BL21(DE3) was used as the expression strain for all 36 PURE proteins in this protocol.
@@ -55,7 +95,7 @@ The following stock buffers are required for preparing the working buffers used 
 
 ### 1M Magnesium Chloride (250mL)
 
-- [ ] Dissolve 23.8 g MgCl₂ (MW 95.21 g/mol) in 200 mL ddH₂O.
+- [ ] Dissolve 50.8 g MgCl₂ (MW 203.3 g/mol) in 200 mL ddH₂O.
 - [ ] Adjust to a final volume of 250 mL.
 - [ ] Sterilize by autoclaving or filter sterilization.
 - [ ] Store at 4°C for up to 6 mo.
@@ -71,7 +111,7 @@ Following are the working buffers required for PURE protein production:
 
 ### Buffer A (1 L)
 
-- [ ] Add 53.5 g NH₄Cl to a 1 L Duran bottle and dissolve in 500 mL ddH₂O.
+- [ ] Add 53.5 g NH₄Cl to a 1 L bottle and dissolve in 500 mL ddH₂O.
 - [ ] Add 50 mL of 1 M HEPES.
 - [ ] Add 10 mL of 1 M MgCl₂.
 - [ ] Bring the volume up to 1 L with ddH₂O.
@@ -93,7 +133,7 @@ Following are the working buffers required for PURE protein production:
 
 ### Buffer HT (2 L)
 
-- [ ] Use a sterile 2 L Duran bottle and sterile (filtered) HEPES, MgCl₂, KCl, and water to avoid the need for filter sterilization.
+- [ ] Use a sterile 2 L bottle and sterile (filtered) HEPES, MgCl₂, KCl, and water to avoid the need for filter sterilization.
 - [ ] Add 100 mL of 1 M HEPES.
 - [ ] Add 20 mL of 1 M MgCl₂.
 - [ ] Add 100 mL of 2 M KCl.
@@ -140,7 +180,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 
 - [ ] The next day, measure the OD₆₀₀ of the starter plate using a 96 well plate by adding 30 µL of each starter  to the bottom of each well and 270 µL of  LB + Kan on top (10x dilution). Measure EF-Tu culture density at this time too. Expected OD₆₀₀ with 10x dilution is 0.2 - 0.3.
 - [ ] After 16 hr of incubation, all strains should be at OD₆₀₀ = 2-3. If a strain is growing very slowly, remove the starter volume from the 96-deep well plate and place it into a 2 mL sterile tube, and shake at 260 rpm / 37°C independently until desired OD is reached. The remaining starters can be left in the deep well plate on the bench. If a starter has overgrown above OD₆₀₀, dilute the starters to OD₆₀₀ = 3 using LB + Kan in a sterile tube.
-- [ ] Once all starter strains have been equilibrated to OD₆₀₀ 2-3, proceed to main growth by adding 500 mL of prewarmed  LB + Kan into a 2.5 L baffled flask (2X flasks).
+- [ ] Once all starter strains have been equilibrated to OD₆₀₀ 2-3, proceed to main growth by adding 500 mL of prewarmed  LB + Kan into a 2.5 L baffled flask (2x flasks).
 - [ ] Into a sterile 5 mL tube add 55 µL of each starter culture (excluding EF-Tu), and 1675 µL of EF-Tu starter culture. Mix well by vortexing and add entire content to 500 mL of  LB + Kan in 2.5 L baffled flask. Repeat for the second culture flask.
 - [ ] Incubate the cultures at 260 rpm / 37°C / (1.5 - 2) hr (until OD₆₀₀ reaches 0.2 - 0.3). Check OD₆₀₀  after 1 hr as baffled flask may cause cells to grow faster.
 - [ ] Once OD₆₀₀ of 0.2- 0.3 is reached, inoculate each culture flask with 500 µL of 100 mM IPTG to achieve a final induction concentration of 0.1 mM IPTG.
@@ -170,7 +210,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 ### Day 3: Protein Purification
 
 - [ ] Thaw cell pellets on ice.
-- [ ] Add 2 mL of fresh cOmplete resin to chromotography column. Wash column with 30 mL ddH20 twice to remove ethanol.
+- [ ] Add 2 mL of fresh Ni²⁺ affinity resin to chromotography column. Wash column with 30 mL ddH₂O twice to remove ethanol.
 - [ ] Add TCEP to Resuspension/Equilibration buffer to a final concentration of 1 mM (see {ref}`protein-buffers`).
 - [ ] Equilibrate column with 30 mL of Resuspension/Equilibration buffer + TCEP and close valve on the column with 5 mL of buffer remaining in the column.
 - [ ] Add 7.5 mL of Resuspension/Equilibration buffer + TCEP to each falcon tube containing cell pellet and resuspend thoroughly and store on ice.
@@ -185,6 +225,9 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Once the resin has settled into a bed at the bottom of the column, let the buffer run through and collect samples from the middle of the flow through into 15 mL falcon tube labeled 'flow through'.
 - [ ] Wash column with wash buffer + TCEP and collect flow through in 15 mL falcon tube labeled 'wash'.
 - [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labeled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDA dialysis cassette in buffer with magnetic stir in cold room/fridge.
+- [ ] Once the resin has settled into a bed at the bottom of the column, let the buffer run through and collect samples from the middle of the flow through into 15 mL falcon tube labelled 'flow through'.
+- [ ] Wash column with wash buffer + TCEP and collect flow through in 15 mL falcon tube labelled 'wash'.
+- [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labelled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDa dialysis cassette in buffer with magnetic stir in cold room/fridge.
 - [ ] Store eluted protein on ice.
 - [ ] Remove dialysis cassette from beaker and add 5 mL of eluted protein into the dialysis cassette. Remove as much air as possible from cassette before putting the lid back on. Dialyze according to protocol stated below to remove imidazole. 5 mL of eluted protein is dialyzed against 1L of buffer HT (without TCEP) at 4°C for 12 hr / overnight. In instances when elutions can be combined, 10 mL of elution can be dialyzed against 2 L of buffer HT.
 
@@ -197,7 +240,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Add TCEP to a 1 mL aliquot of Stock-60 to achieve a final concentration of 1 mM.
 - [ ] Add equal volume of Stock-60 + TCEP to collated sample. Proceed to determine protein concentration using [Pierce660 Assay](../pierce660/main.md) in triplicate with a calibration curve spanning (0 - 2) mg/mL.
 - [ ] Concentrate protein down using 0.5 mL 3 kDa Amicon columns and spin at 14 500 g / 4°C / 15 min at until desired volume is reached to obtain a final concentration of 15 mg/mL. 
-- [ ] Spin to pellet any precipitated proteins at 14 000g / 4°C / 10 min.
+- [ ] Spin to pellet any precipitated proteins at 14 000 g / 4°C / 10 min.
 - [ ] Determine final protein concentration using [Pierce660 Assay](../pierce660/main.md) and dilute samples with Stock 30 + TCEP as required to reach correct final concentration of 15 mg/mL.
 - [ ] Aliquot 50 µL into PCR tubes, snap freeze using liquid nitrogen, and store at -80°C.
 
@@ -212,7 +255,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 
 :::{card}
 :header: **Bill of Materials**
-{button}`download <generated/bom-1onepot.pdf>`
+{button}`download <generated/make-1pot-bom.pdf>`
 :::
 
 ::::

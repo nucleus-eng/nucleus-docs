@@ -26,7 +26,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 :::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pOpen-deGFP` | 2500 | [pOpen-deGFP.gb](https://doi.org/10.63765/fppr8928) |
+| `pOpen-deGFP` | 2789 | [pOpen-deGFP.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk) |
 :::
 ::::
 :::::
@@ -35,7 +35,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 
 ### Reference Composition
 
-:::{table} This composition was evaluated in the DevNote by [](https://doi.org/10.63765/fppr8928)
+:::{table} This composition was evaluated in this [DevNote ](https://doi.org/10.63765/fppr8928)
 ![](xref:devnote-01#rc)
 :::
 
@@ -58,30 +58,30 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 :::::{tab-set}
 ::::{tab-item} Kinetics
 :::{figure} cytosol-kinetics.png
-Translation kinetics of Cytosol and PURExpress reactions using two different pOpen-deGFP DNA preps. Cytosol w/o DNA refers to the Cytosol reaction lacking the pOpen-deGFP template. Data from [](https://doi.org/10.63765/fppr8928).
+Translation kinetics of Cytosol and PURExpress reactions using two different pOpen-deGFP DNA preps. Cytosol w/o DNA refers to the Cytosol reaction lacking the pOpen-deGFP template. Data in [DevNote](https://doi.org/10.63765/fppr8928).
 :::
 ::::
 
 ::::{tab-item} Endpoint
 :::{figure} cytosol-endpoint.png
-Final protein yields of the reactions measured at steady state. Data from [](https://doi.org/10.63765/fppr8928).
+Final protein yields of the reactions measured at steady state. Data from [DevNote](https://doi.org/10.63765/fppr8928).
 :::
 ::::
 :::::
 
 
-### Protocols
+### Cytosol Protocols
 
 ::::{grid} 1 1 1 2
 
 :::{card}
-:header: **Step-by-Step Protocol**
+:header: **Step-by-Step Cytosol Protocol**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-protocol-cytosol-degfp.pdf>`
 :::
 
 :::{card}
-:header: **Materials**
+:header: **Cytosol Materials**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-bom-reporter-degfp.pdf>`
 :::
@@ -98,7 +98,7 @@ Final protein yields of the reactions measured at steady state. Data from [](htt
 
 :::{table}
 :::
-| Component | Input concentration | Unit | Final concentration | Unit | Volume for one reaction [µL] |
+| Component | Input concentration | Unit | Final concentration | Unit | Volume for one reaction (µL) |
 | --- | --- | --- | --- | --- | --- |
 | SMix | 3.33 | × | 1 | × | 12 |
 | PMix | 15 | mg/mL | 1.80 | mg/mL | 4.8 |
@@ -109,17 +109,17 @@ Final protein yields of the reactions measured at steady state. Data from [](htt
 | Optiprep | 1.32 | mg/µL | 0.043 | mg/µL | 1.33 |
 | RNase Inhibitor | 40000 | U/mL | 2000 | U/mL | 2 |
 | Water |  |  |  |  | 6.12 |
-| Total volume [µL] |  |  |  |  | 40 |
+| Total volume (µL) |  |  |  |  | 40 |
 ::::
 
 ::::{tab-item} Membrane
 :::{table}
 
-| Component | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (uL) |
-| --- | --- | --- | --- | --- |
-| POPC | 70 | 760.076 | 25 | 162.17 |
-| Cholesterol | 29.95 | 386.654 | 50 | 17.65 |
-| Liss-Rhod PE | 0.05 | 1301.71 | 1 | 4.96 |
+| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
+| ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
+| POPC         | 70                    | 760.076                  | 25                          | 162.17             |
+| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
+| Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
 
 :::
 ::::
@@ -142,13 +142,13 @@ Final protein yields of the reactions measured at steady state. Data from [](htt
 :::::{tab-set}
 ::::{tab-item} Image 1
 :::{figure} cell-image1.png
-Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t = 0) corresponds to 30 minutes after preparation of the inner solution, reflecting the time required to prepare liposomes.
+Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t = 0) corresponds to 30 min after preparation of the inner solution, reflecting the time required to prepare liposomes.
 :::
 ::::
 
 ::::{tab-item} Image 2
 :::{figure} cell-image2.png
-Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t = 0) corresponds to 30 minutes after preparation of the inner solution, reflecting the time required to prepare liposomes.
+Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t = 0) corresponds to 30 min after preparation of the inner solution, reflecting the time required to prepare liposomes.
 :::
 ::::
 :::::
@@ -158,13 +158,13 @@ Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t =
 ::::{grid} 1 1 1 2
 
 :::{card}
-:header: **Step-by-Step Protocol**
+:header: **Step-by-Step Cell Protocol**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-protocol-cells-degfp.pdf>`
 :::
 
 :::{card}
-:header: **Materials**
+:header: **Cell Materials**
 :footer: *Implemented using Nucleus Cytosol v0.5*
 {button}`Download <module-bom-reporter-cells-degfp.pdf>`
 :::

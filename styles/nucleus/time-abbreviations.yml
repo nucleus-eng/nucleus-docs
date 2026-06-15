@@ -1,0 +1,5 @@
+extends: existence
+message: "Abbreviate time units (hours->hr, minutes->min, months->mo, seconds->sec, years->yr, days->d): '%s'."
+level: warning
+raw:
+  - '\b\d+\s*(hours?|minutes?|mins|months?|seconds?|years?|days?)\b'

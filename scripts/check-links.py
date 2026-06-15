@@ -21,16 +21,23 @@ import json
 import shutil
 import subprocess
 import sys
-
-# Domains that kill HTTP/2 connections at the protocol level.
-# These are not dead links — they are valid URLs on servers that block crawlers.
-# Any other error type from these domains (404, DNS failure, etc.) will still
-# be reported as a genuine error.
-HTTP2_FALSE_POSITIVE_DOMAINS = [
-    "sigmaaldrich.com",
-]
+import tomllib
+from pathlib import Path
 
 HTTP2_ERROR_SUBSTRING = "HTTP/2 protocol error"
+
+_CONFIG_PATH = Path(__file__).with_name("link-false-positives.toml")
+
+def _load_false_positive_domains() -> list[str]:
+    try:
+        with _CONFIG_PATH.open("rb") as f:
+            data = tomllib.load(f)
+    except FileNotFoundError:
+        return []
+    return data.get("http2_false_positives", {}).get("domains", [])
+
+
+HTTP2_FALSE_POSITIVE_DOMAINS = _load_false_positive_domains()
 
 
 def is_http2_false_positive(url: str, error_text: str) -> bool:
@@ -67,12 +74,28 @@ def main():
     genuine_errors = {}
     filtered_count = 0
 
-    for filepath, entries in report.get("error_map", {}).items():
+    error_map = report.get("error_map", {})
+
+    # A vendor URL that produced the HTTP/2 protocol error anywhere in the report
+    # is a known crawler-block false positive. Newer lychee dedupes repeated URLs
+    # within a run and reports the repeats from cache with the HTTP/2 detail
+    # stripped (status collapses to a generic "Error (cached)"), so match by URL
+    # — not per-entry text — to catch those cached repeats too. Genuine dead
+    # links (404/DNS) never produce an HTTP/2 error, so they are never added here
+    # and stay reported.
+    http2_fp_urls = {
+        entry.get("url", "")
+        for entries in error_map.values()
+        for entry in entries
+        if is_http2_false_positive(
+            entry.get("url", ""), entry.get("status", {}).get("text", "")
+        )
+    }
+
+    for filepath, entries in error_map.items():
         real = []
         for entry in entries:
-            url = entry.get("url", "")
-            text = entry.get("status", {}).get("text", "")
-            if is_http2_false_positive(url, text):
+            if entry.get("url", "") in http2_fp_urls:
                 filtered_count += 1
             else:
                 real.append(entry)

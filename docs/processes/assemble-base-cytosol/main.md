@@ -89,6 +89,10 @@ Please read this section carefully. It contains important notes, resources, and 
 :::::::
 
 
+# Materials and Equipment
+
+This is an assembly process: it combines components produced by other Nucleus processes (Small Molecule Mix, Protein Mix, ribosomes, tRNAs, and the genetically encoded components listed above) rather than introducing new reagents. Its materials are itemized in those component processes' Bills of Materials — see the consolidated [Materials Reference](../../../guides/materials-reference.md).
+
 # Protocol
 
 ## Cytosol Reaction Setup
