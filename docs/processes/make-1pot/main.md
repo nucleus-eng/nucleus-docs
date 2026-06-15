@@ -199,13 +199,13 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 | Elution Buffer | 2 | 18 | 20 | 40 |  
 :::
 
-- [ ] 15 minutes before the end of the incubation, cool table top centrifuge to 4°C and prepare an ice bucket and cool centrifuge bottles.
+- [ ] 15 min before the end of the incubation, cool table top centrifuge to 4°C and prepare an ice bucket and cool centrifuge bottles.
 - [ ] At the end of the 3 hr incubation, place baffled flask into ice bucket and remove samples for OD₆₀₀ measurement. Final expected OD₆₀₀ is 2-3.
 - [ ] Fill each centrifuge bottle with 500 mL of culture from each flask and spin at 5000 g / 4°C / 15 min and discard supernatant.
 - [ ] Add 20 mL of sterile LB into each bottle and resuspend the cell pellet thoroughly and move resuspension into labeled sterile 50 mL falcon tubes.
 - [ ] Centrifuge the Falcon tubes at 2000 g / 4°C / 8 min, remove the supernatant by decanting.
 - [ ] Centrifuge Falcon tubes again at 2000 g / 4°C / 2 min, remove residual supernatant by pipetting.
-- [ ] The pellets can be flash frozen in liquid nitrogen and stored at -80°C for up to 3 days until protein purification.
+- [ ] The pellets can be flash frozen in liquid nitrogen and stored at -80°C for up to 3 d until protein purification.
 
 ### Day 3: Protein Purification
 
@@ -217,17 +217,14 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Lyse cells via sonication at 70% amplitude, 10s on 10s off with 2000 J of energy in a ice water bath. Use a clamp stand to hold the falcon tube in place such that the cell suspension is submerged in the ice water bath and place the probe deep enough into the solution without touching the tube. If a large amount of foam is generated, the energy transfer will be damped. In that case, let the foam settle, lower the probe deeper into the solution, and extend the sonication time. If sonication is successful, the solution will turn darker.
 - [ ] Aliquot the sonicated sample in 2 mL tubes (1 mL per tube) and spin at 16 000 g / 4°C / 20 min.
 - [ ] Collate all clarified pellet free supernatant into a fresh 50 mL falcon tube on ice.
-- [ ] Resuspend the resin in the remaining 5 mL of Resuspension/Equilibration buffer + TCEP within the column and collate buffer + resin into falcon tube containing supernatant. Seal the lid with parafilm and incubate in a rotating shaker at 4°C for a minimum of 3 hours.
+- [ ] Resuspend the resin in the remaining 5 mL of Resuspension/Equilibration buffer + TCEP within the column and collate buffer + resin into falcon tube containing supernatant. Seal the lid with parafilm and incubate in a rotating shaker at 4°C for a minimum of 3 hr.
 - [ ] After incubation of sample with resin, briefly spin the falcon tubes in a table top centrifuge using pulse mode to collate the resin to the bottom of the tube.
 - [ ] Resuspend the sample with resin using a pipette and add the mixture back into the protein purification column.
 - [ ] Label three 15 mL falcon tubes as 'flow through', 'wash' and 'elution', respectively. Replicate as required for the number of purifications you are doing.
 - [ ] Add TCEP at a final concentration of 1 mM to wash and elution buffers (see {ref}`protein-buffers`) and store at 4°C until use.
 - [ ] Once the resin has settled into a bed at the bottom of the column, let the buffer run through and collect samples from the middle of the flow through into 15 mL falcon tube labeled 'flow through'.
 - [ ] Wash column with wash buffer + TCEP and collect flow through in 15 mL falcon tube labeled 'wash'.
-- [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labeled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDA dialysis cassette in buffer with magnetic stir in cold room/fridge.
-- [ ] Once the resin has settled into a bed at the bottom of the column, let the buffer run through and collect samples from the middle of the flow through into 15 mL falcon tube labelled 'flow through'.
-- [ ] Wash column with wash buffer + TCEP and collect flow through in 15 mL falcon tube labelled 'wash'.
-- [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labelled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDa dialysis cassette in buffer with magnetic stir in cold room/fridge.
+- [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labeled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDa dialysis cassette in buffer with magnetic stir in cold room/fridge.
 - [ ] Store eluted protein on ice.
 - [ ] Remove dialysis cassette from beaker and add 5 mL of eluted protein into the dialysis cassette. Remove as much air as possible from cassette before putting the lid back on. Dialyze according to protocol stated below to remove imidazole. 5 mL of eluted protein is dialyzed against 1L of buffer HT (without TCEP) at 4°C for 12 hr / overnight. In instances when elutions can be combined, 10 mL of elution can be dialyzed against 2 L of buffer HT.
 
