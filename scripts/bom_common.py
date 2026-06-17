@@ -212,7 +212,7 @@ def clean_link(raw_cell: str) -> str:
     raw = (raw_cell or "").strip()
     m = re.search(r"\]\(([^)]+)\)", raw)  # markdown link target
     url = m.group(1).strip() if m else raw.strip("[] ").strip()
-    if url.lower() in ("", "todo", "tbd", "n/a", "#", "—", "-"):
+    if is_placeholder(url):
         return ""
     return url
 
