@@ -21,3 +21,6 @@ dep/
 **/resources/Private & Shared*/
 **/resources/*-notion.md
 
+# DevNote numbered export folders (e.g. 09-cx43_cell/) — raw exports, never committed
+**/resources/[0-9][0-9]-*/
+
