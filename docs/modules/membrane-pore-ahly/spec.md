@@ -8,7 +8,7 @@ thumbnail: cell-gfp-quench.png
 ---
 # Overview
 
-The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that allows passive transport of small molecules between the cytosol of a synthetic cell and its external environment. The pore is assembled from seven monomers (33.2 kDa each, 293 amino acids) with an outer diameter of 10 nm and an inner diameter of (1.6–4.6) nm — sufficient for molecules up to ~3 kDa. The height of the 3 nm hydrophobic patch along the pore matches the thickness of the non-polar layer of a typical phospholipid membrane, making aHly a useful tool for confirming bilayer (as opposed to multilayer) formation in synthetic cells.
+The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that allows passive transport of small molecules between the cytosol of a synthetic cell and its external environment ([Noireaux and Libchaber, 2004](https://doi.org/10.1073/pnas.0408236101),  [Harjung et al., 2023](https://doi.org/10.1101/2023.10.06.561148)). The pore is assembled from seven monomers (33.2 kDa each, 293 amino acids) with an outer diameter of 10 nm and an inner diameter of (1.6–4.6) nm — sufficient for molecules up to ~3 kDa. The height of the 3 nm hydrophobic patch along the pore matches the thickness of the non-polar layer of a typical phospholipid membrane, making aHly a useful tool for confirming bilayer (as opposed to multilayer) formation in synthetic cells ([Song et al., 1996](https://doi.org/10.1126/science.274.5294.1859)).
 
 aHly is a toxin derived from *Staphylococcus aureus* and requires BSL-2 handling. The [Cx43 Module](../membrane-pore-cx43/spec.md) provides a functionally comparable alternative that does not.
 
@@ -76,7 +76,7 @@ Protein gel showing aHly expression in PURE. Lanes labeled "hly" and "(-)" corre
 
 ### Usage
 
-To demonstrate functional pore insertion, co-express aHly is with a reporter (`pT7-eGFP`) in synthetic cells using an osmolarity-matched buffer without energy molecules (10 mM HEPES, 790 mM glucose) as the outer solution. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production. 
+To demonstrate functional pore insertion, co-express aHly with a reporter (`pT7-eGFP`) in synthetic cells using an osmolarity-matched buffer without energy molecules (10 mM HEPES, 790 mM glucose) as the outer solution. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production. 
 
 Prepare master mix for 3 reactions to account for dead volume.
 
@@ -103,13 +103,6 @@ GFP production is quenched in synthetic cells expressing aHly, confirming functi
 :::{figure} cell-gfp-quench.png
 Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production is quenched when aHly is co-expressed, as small molecules leak through the inserted pores. (Right) GFP only: GFP is produced in a subpopulation of cells in the absence of aHly. Red channel: membrane label; green channel: GFP. Scale bar: 100 µm.
 :::
-
-## References
-
-- Song, L., et al. (1996). Structure of staphylococcal α-hemolysin, a heptameric transmembrane pore. *Science*, [10.1126/science.274.5294.1859](https://doi.org/10.1126/science.274.5294.1859)
-- Noireaux, V., and Libchaber, A. (2004). A vesicle bioreactor as a step toward an artificial cell assembly. *PNAS*, [10.1073/pnas.0408236101](https://doi.org/10.1073/pnas.0408236101)
-- Harjung, A., Fracassi, A., and Devaraj, N. K. (2023). Modular engineering of α-hemolysin for synthetic cell construction. *bioRxiv*, [10.1101/2023.10.06.561148](https://doi.org/10.1101/2023.10.06.561148)
-- Nishimura, K., et al. (2012). Cell-free protein synthesis inside giant unilamellar vesicles analyzed by flow cytometry. *Langmuir*, [10.1021/la3001703](https://doi.org/10.1021/la3001703)
 
 # Credits
 

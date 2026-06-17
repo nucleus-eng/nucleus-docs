@@ -9,9 +9,9 @@ site:
 
 # Overview
 
-The IV-HSL Emitter module produces and releases N-isovaleryl-L-homoserine lactone (IV-HSL), a branched acyl-homoserine lactone, enabling enzymatic small-molecule production, molecule release as a reporter output, inter-cell communication, and co-culture of synthetic cells with living bacteria. The module is based on work by [Smith, Hartmann, and Booth](https://doi.org/10.1038/s41589-023-01374-7).
+The IV-HSL Emitter module produces and releases N-isovaleryl-L-homoserine lactone (IV-HSL), a branched acyl-homoserine lactone, enabling enzymatic small-molecule production, molecule release as a reporter output, inter-cell communication, and co-culture of synthetic cells with living bacteria. The module is based on work by [Smith, Hartmann, and Booth, 2023](https://doi.org/10.1038/s41589-023-01374-7).
 
-IV-HSL offers several advantages: it crosses synthetic cell membranes; its uncommon branched-chain structure makes it orthogonal from many other HSLs [[Lindemann, 2011](https://www.pnas.org/doi/full/10.1073/pnas.1114125108)]; and it activates expression in receiver cells at picomolar concentrations. The module encodes the BjaI enzyme under a constitutive T7 promoter. BjaI converts S-adenosylmethionine (SAM) and isovaleryl coenzyme A (IV-CoA) into IV-HSL, which diffuses out of the cell through the lipid bilayer. A companion *E. coli* receiver construct (`bjaR-GFP-native`) detects IV-HSL and produces a fluorescent output.
+IV-HSL offers several advantages: it crosses synthetic cell membranes; its uncommon branched-chain structure makes it orthogonal from many other HSLs ([Lindemann et al., 2011](https://doi.org/10.1073/pnas.1114125108)); and it activates expression in receiver cells at picomolar concentrations. The module encodes the BjaI enzyme under a constitutive T7 promoter. BjaI converts S-adenosylmethionine (SAM) and isovaleryl coenzyme A (IV-CoA) into IV-HSL, which diffuses out of the cell through the lipid bilayer. A companion *E. coli* receiver construct (`bjaR-GFP-native`) detects IV-HSL and produces a fluorescent output.
 
 :::::{tab-set}
 
@@ -93,7 +93,3 @@ Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-G
 
 ::::
 
-## References
-
-- Smith, J. M., Hartmann, D. & Booth, M. J. Engineering cellular communication between light-activated synthetic cells and bacteria. *Nature Chemical Biology* **19**, 1138–1146 (2023). [10.1038/s41589-023-01374-7](https://doi.org/10.1038/s41589-023-01374-7)
-- Lindemann, A. et al. Isovaleryl-homoserine lactone, an unusual branched-chain quorum-sensing signal from the soybean symbiont *Bradyrhizobium japonicum*. *Proceedings of the National Academy of Sciences* **108**, 16765–16770 (2011). [10.1073/pnas.1114125108](https://www.pnas.org/doi/full/10.1073/pnas.1114125108)

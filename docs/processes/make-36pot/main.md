@@ -3,7 +3,7 @@ title: Make Protein Mix (36-pot)
 ---
 
 # Overview
-Protein Mix (PMix) is a combination of thirty-six (36) proteins that collectively implement [Nucleus Cytosol](../../modules/base-cytosol/spec.md) along with Small Molecule Mix (SMix), tRNAs, and Ribosomes. These proteins include all 20 canonical aminoacyl-tRNA synthetases (AlaRS, ArgRS, AsnRS, etc) and methionyl-tRNA formyltransferase (MTF); *E. coli* translation initiation factors (IF1, IF2, IF3), elongation factors (EF-G, EF-Ts, EF-Tu), and release factors (RF1, RF2, RF3, RRF); energy regeneration enzymes (AK, CK, NDK, PPiase), and T7 phage RNA polymerase (T7RNAP). This protocol explains how to prepare PMix once each of these proteins has been individually prepared (see [Making Individual Proteins](../make-protein/make-protein-main.md) for protocols describing how to purify each protein).
+Protein Mix (PMix) is a combination of thirty-six (36) proteins that collectively implement [Nucleus Cytosol](../../modules/base-cytosol/spec.md) along with Small Molecule Mix (SMix), tRNAs, and Ribosomes. These proteins include all 20 canonical aminoacyl-tRNA synthetases (AlaRS, ArgRS, AsnRS, etc) and methionyl-tRNA formyltransferase (MTF); *E. coli* translation initiation factors (IF1, IF2, IF3), elongation factors (EF-G, EF-Ts, EF-Tu), and release factors (RF1, RF2, RF3, RRF); energy regeneration enzymes (AK, CK, NDK, PPiase), and T7 phage RNA polymerase (T7RNAP). This protocol explains how to prepare PMix once each of these proteins has been individually prepared (see [Making Individual Proteins](../make-protein/make-protein-main.md) for protocols describing how to purify each protein). See methods from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)) for comparison.
 
 <!-- Delete any dropdown whose only content is "- None" before publishing.
      If all dropdowns are removed, delete this entire card block. -->
@@ -91,16 +91,6 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 | PPiase    | 16                            | 1.9                            |
 | T7RNAP    | 155                           | 18.7                           |
 | **Total** | **15 000**                    | **1800**                       |
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
-- [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
-- [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
 ::::::
 

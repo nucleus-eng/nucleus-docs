@@ -1,0 +1,17 @@
+- [x] docs/implementations/responder-atc-ivhsl/main.md                |  8 +-------
+- [x] docs/modules/control-clpxp/spec.md                              | 11 +++--------
+- [x] docs/modules/detector-laci_iptg/spec.md                         |  6 +-----
+- [x] docs/modules/emitter-ivhsl/spec.md                              |  6 +-----
+- [x] docs/modules/membrane-pore-ahly/spec.md                         | 11 ++---------
+- [x] docs/modules/membrane-pore-cx43/spec.md                         | 10 ++--------
+- [x] docs/processes/assemble-base-cytosol/main.md                    | 10 +---------
+- [x] docs/processes/make-36pot/main.md                               | 12 +-----------
+- [x] docs/processes/make-amino-acid-mix/main.md                      |  5 +----
+- [x] docs/processes/make-protein/buff-ex-spin-filters/main.md        |  8 ++------
+- [x] docs/processes/make-protein/grow-bacteria/main.md               |  8 ++------
+- [x] docs/processes/make-protein/lysis-sonication/main.md            |  8 ++------
+- [x] docs/processes/make-protein/prep-consumables/main.md            |  8 ++------
+- [x] docs/processes/make-protein/purify-proteins-grav-column/main.md |  8 ++------
+- [x] templates/module-template/spec.md                               | 14 ++++++++------
+- [x] templates/process-template/process-make_template.md             | 16 ++++++----------
+
