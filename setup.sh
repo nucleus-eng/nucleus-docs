@@ -17,6 +17,13 @@ if ! command -v vale &> /dev/null; then
   fi
 fi
 
+# Install mystmd at the pinned version used in CI
+if command -v npm &> /dev/null; then
+  npm install -g mystmd@1.9.1
+else
+  echo "WARNING: npm not found. Install Node.js then run: npm install -g mystmd@1.9.1"
+fi
+
 # Install lychee if not already present
 if ! command -v lychee &> /dev/null; then
   if command -v brew &> /dev/null; then
