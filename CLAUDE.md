@@ -235,6 +235,20 @@ When migrating content from Notion markdown exports:
 
 `myst.yml` maintains a `references:` map of named keys (e.g., `devnote-01:`) pointing to external DevNote URLs. These can be cited throughout the docs without repeating URLs.
 
+### Citations and references
+
+**Do not hand-write a `# References` section (or a References dropdown).** MyST's implicit-DOI feature auto-generates a single references section at the bottom of every page from the `https://doi.org/…` links it finds in the page content. A page that also hand-maintains a References list **double-renders** (the manual list *plus* the autogen block) — and because the DOI links often live only inside that manual list, deleting it would remove the references entirely. This was issue #101.
+
+The convention:
+
+- **Cite each source inline** where it is discussed, using a DOI link. Both styles are fine — pick whichever reads naturally:
+  - Parenthetical: `…permits passage of small molecules ([Song et al., 1996](https://doi.org/10.1126/science.274.5294.1859)).`
+  - Narrative: `As shown in [Bhatt et al., 2023](https://doi.org/10.1021/jacs.2c12491), the module functions in…`
+- The inline link text (`Author, YYYY`) is just the in-prose anchor; the bottom references entry is built from the DOI's live metadata, so it is authoritative. **This surfaces stale citations** — if the inline text disagrees with the rendered entry (wrong author/year/DOI), fix it.
+- **DevNotes with a `10.63765/…` DOI** must be cited via their `doi.org` link so they autogenerate like any other reference (a bare `doi:10.63765/…` text string does **not** trigger autogen).
+- **Non-DOI sources** (DevNotes/articles with no DOI) stay as plain inline links for now; they will not appear in the auto-generated list until the `.bib` + `{cite}` work lands (issue #138).
+- After editing references, run `myst build --html` and confirm the page renders exactly **one** `myst-bibliography` block with every cited source present.
+
 ### Prose linting (Vale)
 
 **Run `git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale` before opening a PR or committing a content migration.** This command lints only committed source files (skipping gitignored `generated/` artifacts). Vale lints both `.md` and `.csv` files and runs as part of the `qa` CI workflow (`.github/workflows/qa.yml`).

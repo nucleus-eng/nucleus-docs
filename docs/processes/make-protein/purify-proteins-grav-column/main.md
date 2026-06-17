@@ -6,6 +6,8 @@ title: Purify Proteins by Ni²⁺ Gravity Column
 
 You have a protein that you want to purify out of a complicated mixture. This protein has a 6xHis purification tag, which chelates Ni²⁺ ions. You can use a Ni-His resin to bind proteins with 6xHis tags. This resin is a suspension of microscopic gel beads with Ni ions covalently linked. Bound proteins can then be washed to remove non-tagged proteins, then eluted in a buffer with high concentration (~ 500 mM) Imidazole. Imidazole competes with 6xHis to bind the Ni ions, ultimately displacing your target proteins and releasing them from the affinity resin.
 
+This protocol is derived from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from the OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)). 
+
 :::::::{card}
 :header: **Important Information**
 
@@ -90,12 +92,6 @@ If you have more than 10 mL of clarified lysate, you can load your sample in tra
 :::
 
 ::::
-
-# References
-
-- [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
-- [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
-- [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
 # Acknowledgments
 

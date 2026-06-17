@@ -52,7 +52,7 @@ Assemble `pT7-lacO-plamGFP` into a standard PURE reaction. Add purified LacI pro
 
 We've validated the LacI-IPTG module in NEB PURExpress reactions by adding purified LacI repressor protein (MedChemExpress HY-P70247) at the final concentrations indicated, with `pT7-lacO-plamGFP` plasmid DNA at 5–10 nM.
 
-We observe repression across a wide range of LacI concentrations (15.63 nM –1000 nM), with 1000 nM showing strong repression and suitable dynamic range for use in an inducible system. We saw a small increase in expression around 62.5 nM repressor; we saw a similar effect in TetR data and may reflect a shared mechanism (e.g., preserving PURE translational capacity under moderate transcriptional repression). The 250 nM datapoint is likely a technical failure. IPTG induction is effective across 500–2000 nM, consistent with concentrations used in cellular and cell-free systems. All induced samples show expression at or above the unrepressed positive control, a behavior that we've replicated across multiple experiments and is worth of further investigation.
+We observe repression across a wide range of LacI concentrations (15.63 nM –1000 nM), with 1000 nM showing strong repression and suitable dynamic range for use in an inducible system. We saw a small increase in expression around 62.5 nM repressor; we saw a similar effect in TetR data and may reflect a shared mechanism (e.g., preserving PURE translational capacity under moderate transcriptional repression). The 250 nM datapoint is likely a technical failure. IPTG induction is effective across 500–2000 nM, consistent with concentrations used in cellular and cell-free systems ([Garamella et al., 2016](https://doi.org/10.1021/acssynbio.5b00296)). All induced samples show expression at or above the unrepressed positive control, a behavior that we've replicated across multiple experiments and is worth of further investigation.
 
 ***In vitro* repression with LacI**
 
@@ -97,10 +97,6 @@ The LacI-IPTG Detector module in the Base Cell.
 :::
 
 Cell performance data is not yet available for this module.
-
-## References
-
-- Garamella J, Marshall R, Rustad M, Noireaux V. (2016). The All E. coli TX-TL Toolbox 2.0: A Platform for Cell-Free Synthetic Biology. *ACS Synthetic Biology*. [https://doi.org/10.1021/sb400131a](https://doi.org/10.1021/sb400131a)
 
 # Credits
 

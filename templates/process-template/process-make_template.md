@@ -67,16 +67,12 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::::
 
-::::::{note} References
-:class: dropdown
-:icon: false
-
-<!-- List DevNotes and literature that informed this process.
-DevNotes are the primary source for protocol development history and QC data. -->
-
-- TODO
-
-::::::
+<!-- Citations & references: do NOT add a manual References section or dropdown. MyST auto-generates
+     a references section at the bottom of the page from the DOI links you cite inline. Cite each
+     source inline where it informs the protocol (e.g. in the Overview), using a doi.org link —
+     narrative ("...following [Author et al., YYYY](https://doi.org/...)") or parenthetical.
+     DevNotes with a 10.63765/... DOI should be cited via their doi.org link so they autogenerate.
+     Non-DOI sources stay as plain inline links for now and will not appear in the list (issue #138). -->
 
 :::::::
 

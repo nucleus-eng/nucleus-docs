@@ -6,7 +6,7 @@ subtitle: "Process"
 # Overview
 
 
-This protocol shows you how to assemble Base Cytosol from the following components: small molecule mix (SMix), tRNA, protein mix (PMix), ribosomes. To test the functionality of the assembled Cytosol we use the [Reporter Module deGFP](/docs/modules/reporter-degfp/spec.md). 
+This protocol shows you how to assemble Base Cytosol from the following components: small molecule mix (SMix), tRNA, protein mix (PMix), ribosomes. To test the functionality of the assembled Cytosol we use the [Reporter Module deGFP](/docs/modules/reporter-degfp/spec.md). Initial validation of the assembled Cytosol is documented in [Yadav (2025)](https://doi.org/10.63765/fppr8928). 
 
 **Protocols and other resources are available for download at the bottom of this page.**
 
@@ -75,14 +75,6 @@ Please read this section carefully. It contains important notes, resources, and 
 | Total                     | 10                               |
 
 :::
-
-::::::
-
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- Yadav, S. First Nucleus Cytosol Testing. *Nucleus Developer Notes.* (2025) doi:10.63765/fppr8928.
 
 ::::::
 

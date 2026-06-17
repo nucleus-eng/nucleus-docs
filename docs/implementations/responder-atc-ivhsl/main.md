@@ -6,7 +6,7 @@ site:
 ---
 # Overview
 
-The aTc → IV-HSL Responder Implementation combines the TetR-aTc Detector Module and the IV-HSL Emitter Module to produce a synthetic cell that generates isovaleryl-l-homoserine lactone (IV-HSL) in response to anhydrotetracycline (aTc). The module is implemented as a single genetic construct encoding the BjaI enzyme under control of the tet operator. A co-cultured *E. coli* receiver strain carrying `bjaR-GFP-native` reports IV-HSL production by expressing GFP.
+The aTc → IV-HSL Responder Implementation combines the TetR-aTc Detector Module and the IV-HSL Emitter Module ([Smith, Hartmann, and Booth., 2023](https://doi.org/10.1038/s41589-023-01374-7)) to produce a synthetic cell that generates isovaleryl-l-homoserine lactone (IV-HSL; [Lindemann et al., 2011](https://doi.org/10.1073/pnas.1114125108)) in response to anhydrotetracycline (aTc; [Lutz and Bujard, 1997](https://doi.org/10.1093/nar/25.6.1203)). The module is implemented as a single genetic construct encoding the BjaI enzyme under control of the tet operator. A co-cultured *E. coli* receiver strain carrying `bjaR-GFP-native` reports IV-HSL production by expressing GFP.
 
 :::{attention}
 This implementation has not been validated in Nucleus Cytosol ≥ v0.5.
@@ -62,17 +62,17 @@ The IV-HSL Emitter Module may be implemented by assembling the `pT7-tetO-tetO-bj
 
 **Reaction Construction**
 
-| **Component** | **Samples (each) (µL)** | **Positive controls (each) (µL)** | **Negative control (µL)** | **Notes** |
-| --- | --- | --- | --- | --- |
-| PURE Solution A | 4 | 4 | 4 | PURE energy solution: small molecules |
-| PURE Solution B | 3 | 3 | 3 | PURE proteins and ribosomes |
-| RNase Inhibitor | 0.5 | 0.5 | 0.5 | Prevents RNase activity |
-| Linear DNA (30 nM) | 0.2 | 0.2 | 0 | `pT7-tetO-tetO-bjaI` or variant |
-| SAM (5 mM) | 0.6 | 0.6 | 0 | |
-| IV-CoA (5 mM) | 0.16 | 0.6 | 0 | |
-| TetR (30 µM) | 1.54 | 0 | 0 | Represses tetO-controlled BjaI expression |
-| Nuclease-free water | 0 | 1.54 | 2.5 | |
-| **Total** | **10** | **10** | **10** | |
+| **Component**       | **Samples (each) (µL)** | **Positive controls (each) (µL)** | **Negative control (µL)** | **Notes**                                 |
+| ------------------- | ----------------------- | --------------------------------- | ------------------------- | ----------------------------------------- |
+| PURE Solution A     | 4                       | 4                                 | 4                         | PURE energy solution: small molecules     |
+| PURE Solution B     | 3                       | 3                                 | 3                         | PURE proteins and ribosomes               |
+| RNase Inhibitor     | 0.5                     | 0.5                               | 0.5                       | Prevents RNase activity                   |
+| Linear DNA (30 nM)  | 0.2                     | 0.2                               | 0                         | `pT7-tetO-tetO-bjaI` or variant           |
+| SAM (5 mM)          | 0.6                     | 0.6                               | 0                         |                                           |
+| IV-CoA (5 mM)       | 0.16                    | 0.6                               | 0                         |                                           |
+| TetR (30 µM)        | 1.54                    | 0                                 | 0                         | Represses tetO-controlled BjaI expression |
+| Nuclease-free water | 0                       | 1.54                              | 2.5                       |                                           |
+| **Total**           | **10**                  | **10**                            | **10**                    |                                           |
 
 **Experimental Method**
 
@@ -135,12 +135,6 @@ Endpoint GFP expression in *E. coli* receiver cells for each construct variant w
 
 - [Detector: TetR-aTc](../../modules/detector-tetr_atc/spec.md)
 - [Emitter: IV-HSL](../../modules/emitter-ivhsl/spec.md)
-
-# References
-
-- Smith J M, Hartmann D, Booth M J. Engineering cellular communication between light-activated synthetic cells and bacteria. *Nature Chemical Biology* vol. 19 1138–1146 (2023). [https://doi.org/10.1038/s41589-023-01374-7](https://doi.org/10.1038/s41589-023-01374-7)
-- Lindemann A et al. Isovaleryl-homoserine lactone, an unusual branched-chain quorum-sensing signal from the soybean symbiont *Bradyrhizobium japonicum*. *Proceedings of the National Academy of Sciences* vol. 108 16765–16770 (2011). [https://doi.org/10.1073/pnas.1114125108](https://doi.org/10.1073/pnas.1114125108)
-- Lutz R, Bujard H. Independent and tight regulation of transcriptional units in *Escherichia coli* via the LacR/O, the TetR/O and AraC/I1-I2 regulatory elements. *Nucleic Acids Research* vol. 25 1203–1210 (1997). [https://doi.org/10.1093/nar/25.6.1203](https://doi.org/10.1093/nar/25.6.1203)
 
 # Credits
 

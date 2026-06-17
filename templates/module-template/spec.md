@@ -93,12 +93,14 @@ List the Implementations that use this Module. Link each to its page.
 
 - [TODO: Implementation Name](../../implementations/TODO/implementation-template.md)
 
-# References
-
-<!-- Intrinsic properties cited in the Overview — database entries, primary literature, supplier datasheets.
-Use numbered references or inline links as appropriate. -->
-
-- TODO: Author et al. (YYYY). *Title*. Journal. [https://doi.org/TODO](https://doi.org/TODO)
+<!-- Citations & references:
+     Do NOT add a manual "# References" section. MyST auto-generates one at the bottom of the page
+     from the DOI links you cite inline. Cite each source inline where it is discussed, using a DOI
+     link — either narrative ("...as shown by [Author et al., YYYY](https://doi.org/XX.XXXX/...)")
+     or parenthetical ("...claim ([Author et al., YYYY](https://doi.org/XX.XXXX/...))").
+     DevNotes that have a 10.63765/... DOI should be cited via their doi.org link so they
+     autogenerate like any other reference. Non-DOI sources (DevNotes/articles without a DOI) stay
+     as plain inline links for now and will not appear in the auto-generated list (see issue #138). -->
 
 # Credits
 

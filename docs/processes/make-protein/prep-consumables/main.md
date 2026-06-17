@@ -6,6 +6,7 @@ title: Prepare Protein Purification Buffers and Media
 
 Here, we make media used to grow up an expression strain to use for subsequent protein purification. We also make buffers used to purify those proteins using nickel histidine affinity chromatography.
 
+This protocol is derived from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from the OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)). 
 
 # Materials and Equipment
 
@@ -178,12 +179,6 @@ Make the following buffers on the same day as use.
 :::
 
 ::::
-
-# References
-
-- [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
-- [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427) 
-- [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
 # Acknowledgments
 

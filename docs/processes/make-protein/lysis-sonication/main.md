@@ -6,6 +6,8 @@ title: Lyse Bacteria by Sonication
 
 You have bacterial cultures and you want to extract something inside of them (e.g., overexpressed protein, plasmid DNA, tRNAs, total lysate, etc.). You're going to need to lyse this culture. You can use a sonicator to do so, disrupting bacterial walls and membranes using ultrasonic frequencies pumped into the bacterial culture. This protocol shows you how to use a sonicator to mechanically lyse cells.
 
+This protocol is derived from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from the OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)). 
+
 :::::::{card}
 :header: **Important Information**
 
@@ -141,12 +143,6 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 ::::
-
-# References
-
-- [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
-- [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
-- [OnePot PURE Cell-Free System | Text Page](https://dx.doi.org/10.3791/62625)
 
 # Acknowledgments
 

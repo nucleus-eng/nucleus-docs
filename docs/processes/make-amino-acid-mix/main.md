@@ -5,7 +5,7 @@ subtitle: Process
 
 # Overview
 
-Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. Here, we make stock solutions for each amino acid and assemble them into Amino Acid Mix for use in downstream protocols.
+Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. Here, we make stock solutions for each amino acid and assemble them into Amino Acid Mix for use in downstream protocols. The assembly worksheet is adapted, with edits, from [OnePot PURE (2019)](https://doi.org/10.1021/acssynbio.8b00427).
 
 # Materials and Equipment
 
@@ -46,9 +46,6 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
 
 ## Storage
 - [ ]  Aliquot and store at -20°C.
-
-# References
-Assembly spreadsheet, with edits, from [OnePot PURE (2019)](https://doi.org/10.1021/acssynbio.8b00427).
 
 # Downloads
 

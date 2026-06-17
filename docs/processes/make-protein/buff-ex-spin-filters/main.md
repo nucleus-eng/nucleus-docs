@@ -6,6 +6,8 @@ title: Exchange Buffers and Concentrate by Spin Filtration
 
 You have a sample of a biomolecule (e.g., T7RNAP, tRNA, ribosomes, plasmid, etc.) that is either (1) in the wrong buffer (e.g., has 500 mM Imidazole) or (2) is too dilute.
 
+This protocol is derived from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from the OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)). 
+
 You can use centrifugal spin filters to concentrate your sample and change its buffer. These filters allow buffer and small molecules to flow through them, retaining large molecules bigger than the filter's specified molecular weight.
 
 
@@ -91,12 +93,6 @@ If your protein precipitates out in any of the concentration steps, dilute the p
 :::
 
 ::::
-
-# References
-
-- [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
-- [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
-- [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
 # Acknowledgments
 

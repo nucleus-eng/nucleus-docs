@@ -6,6 +6,8 @@ title: Grow and Induce Expression Strains
 
 You want to purify proteins. First, you're going to have to make some. We make proteins using bacterial strains that carry our protein of interest on an expression plasmid (here: pET28a). These expression plasmids put a gene of interest under the transcription of an inducible promoter (e.g., pT7). This allows us to first (1) grow our bacteria quickly to a high density, without the metabolic load of making a lot of proteins, then to (2) induce the overexpression of our protein of interest. Making so much protein is toxic to the cells, so we only want to induce expression once our culture is grown out (OD₆₀₀ ~0.5).
 
+This protocol is derived from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from the OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)). 
+
 :::::::{card}
 :header: **Important Information**
 
@@ -104,12 +106,6 @@ Frozen bacterial pellets can be stored at -80°C for extended periods (up to at 
 :::
 
 ::::
-
-# References
-
-- [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
-- [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
-- [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
 
 # Acknowledgments
 
