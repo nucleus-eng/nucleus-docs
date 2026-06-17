@@ -1,6 +1,7 @@
 ---
 title: "Energy: PPK"
 subtitle: "Module Specification"
+status: unvalidated-published
 thumbnail: reaction-schematic.png
 site:
     hide-toc: true
@@ -11,9 +12,9 @@ site:
 
 The PPK energy Module generates ATP and  GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor. This module complements the default energy module in Nucleus Cytosol.
 
-:::{attention}
+:::{attention} Not yet validated
 
-This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found here and in the following DevNotes:
+This Module has not been validated in Nucleus Cytosol ≥ v0.5. Documentation can be found here and in the following DevNotes:
 
 - [Integrating PPK Module in PURE Cells](https://doi.org/10.63765/mwur3749)
 - [PPK Module testing in PURE](https://doi.org/10.63765/djnv7772)
