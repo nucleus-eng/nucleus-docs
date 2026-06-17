@@ -318,22 +318,36 @@ def find_process_pages(args: List[str]) -> List[Path]:
     return result
 
 
-def render_pdf(intermediate_md: Path) -> Tuple[bool, str]:
-    """Render a PDF from an intermediate markdown file via MyST + typst."""
+def render_pdf(intermediate_md: Path, attempts: int = 3) -> Tuple[bool, str]:
+    """Render a PDF from an intermediate markdown file via MyST + typst.
+
+    The first `myst build --pdf` in a cold checkout occasionally produces no PDF
+    (intermittent, observed in CI — see issue #132), so retry up to `attempts`
+    times. On final failure, surface myst/typst's exit code and stderr tail —
+    the old code only checked `pdf.exists()` and discarded the captured output,
+    leaving failures undiagnosable in CI."""
     pdf = intermediate_md.with_suffix(".pdf")
-    if pdf.exists():
-        pdf.unlink()
-    try:
-        subprocess.run(
-            ["myst", "build", intermediate_md.name, "--pdf"],
-            cwd=intermediate_md.parent,
-            capture_output=True, text=True, timeout=180,
+    last = "unknown error"
+    for attempt in range(1, attempts + 1):
+        if pdf.exists():
+            pdf.unlink()
+        try:
+            proc = subprocess.run(
+                ["myst", "build", intermediate_md.name, "--pdf"],
+                cwd=intermediate_md.parent,
+                capture_output=True, text=True, timeout=180,
+            )
+        except subprocess.TimeoutExpired:
+            last = f"timeout after 180s (attempt {attempt}/{attempts})"
+            continue
+        if pdf.exists():
+            return True, f"rendered {pdf.name}"
+        tail = (proc.stderr or proc.stdout or "").strip().splitlines()[-15:]
+        last = "\n".join(
+            [f"exit {proc.returncode}, no PDF (attempt {attempt}/{attempts})"]
+            + [f"      {line}" for line in tail]
         )
-    except subprocess.TimeoutExpired:
-        return False, f"timeout rendering {intermediate_md.name}"
-    if pdf.exists():
-        return True, f"rendered {pdf.name}"
-    return False, f"render produced no PDF for {intermediate_md.name}"
+    return False, f"render produced no PDF for {intermediate_md.name}: {last}"
 
 
 def main() -> int:
