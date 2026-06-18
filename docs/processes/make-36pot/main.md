@@ -1,5 +1,5 @@
 ---
-title: Make Protein Mix (36-pot)
+title: Make Protein Mix
 ---
 
 # Overview

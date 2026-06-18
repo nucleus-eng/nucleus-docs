@@ -26,7 +26,7 @@ Base Cytosol is assembled from four components — a protein mix (PMix), a small
 :::::{tab-set}
 
 ::::{tab-item} PMix
-The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [make-36pot](../../processes/make-36pot/main.md) and [make-1pot](../../processes/make-1pot/main.md) processes for preparation.
+The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [Make PMix](../../processes/make-36pot/main.md) and [Make OnePot Protein Mix](../../processes/make-1pot/main.md) processes for preparation.
 
 :::{table} Composition of the Protein Mix (PMix) at stock concentration. Source: make-36pot process.
 :label: comp-pmix
@@ -73,7 +73,7 @@ The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentrat
 ::::
 
 ::::{tab-item} SMix
-The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, stabilizers, and cofactors. Concentrations below are in the assembled SMix; see the [make-small-molecule-mix](../../processes/make-small-molecule-mix/main.md) process for preparation.
+The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, stabilizers, and cofactors. Concentrations below are in the assembled SMix; see the [Make SMix](../../processes/make-small-molecule-mix/main.md) process for preparation.
 
 :::{table} Composition of the Small Molecule Mix (SMix) at stock concentration. Source: make-small-molecule-mix process.
 :label: comp-smix
@@ -95,7 +95,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 ::::
 
 ::::{tab-item} Ribosomes
-:::{table} Ribosome stock concentration. Source: make-ribosomes process.
+:::{table} Ribosome stock concentration. Source: [Make Ribosomes](../../processes/make-ribosomes/main.md) process.
 :label: comp-ribosomes
 | Component | Stock Concentration | Reaction Concentration |
 |-----------|---------------------|------------------------|
@@ -104,7 +104,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 ::::
 
 ::::{tab-item} tRNA
-:::{table} tRNA stock concentration. Source: make-trna process.
+:::{table} tRNA stock concentration. Source: [Make tRNAs](../../processes/make-trna/main.md) process.
 :label: comp-trna
 | Component | Stock Concentration | Reaction Concentration |
 |-----------|---------------------|------------------------|
