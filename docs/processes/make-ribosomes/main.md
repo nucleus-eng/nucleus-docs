@@ -48,7 +48,154 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::::
 
+# Materials and Equipment
+
+:::{table} Bill of Materials
+:label: bom-make-ribosomes
+
+| Name                                          | Category    | Product                                                                                                                                                              | Manufacturer       | Part #      | Price   | Storage     | Link                                                                                                                                                                                 |
+| --------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| HEPES                                         | Salts       | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle                                                                                                           | Sigma-Aldrich      | H3375-500G  | $431    | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375)                                                                                                                       |
+| Ammonium Chloride                             | Salts       | Ammonium chloride, ACS reagent, ≥99.5%                                                                                                                               | Sigma-Aldrich      | 213330-500G | $73.50  | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330)                                                                                                                     |
+| Ammonium Sulfate                              | Salts       | Ammonium sulfate,BioXtra, ≥99.0%                                                                                                                                     | Sigma-Aldrich      | A2939-1KG   | $188.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/a2939)                                                                                                                        |
+| Potassium Chloride                            | Salts       | Potassium Chloride, ACS reagent, 99.0-100.5%                                                                                                                         | Sigma-Aldrich      | P3911-1KG   | $146.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/p3911)                                                                                                                      |
+| Magnesium Acetate                             | Salts       | Magnesium acetate tetrahydrate                                                                                                                                       | Sigma-Aldrich      | M0631-100G  | $34.80  | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631)                                                                                                                      |
+| Potassium Hydroxide                           | Salts       | Potassium hydroxide - ACS reagent, ≥85%, pellets                                                                                                                     | Sigma-Aldrich      | 221473-1KG  | $99.90  | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473)                                                                                                                     |
+| Sodium Chloride                               | Salts       | Sodium Chloride, Redi-Dri™, anhydrous, free-flowing, ACS, ≥99%                                                                                                       | Sigma-Aldrich      | 746398-1KG  | $133.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398)                                                                                                                     |
+| Sodium Hydroxide (pellets)                    | Salts       | Sodium hydroxide, ACS Reagent Grade, Pellets, ≥97.0%, Poly bottle                                                                                                    | Sigma-Aldrich      | 221465-1KG  | $137.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221465)                                                                                                                     |
+| Acetic Acid (glacial)                         | Supplements | Acetic Acid, Glacial (Certified ACS), Fisher Chemical                                                                                                                | Fisher Scientific  | A38-212     | $458    | 4°C to 30°C | [link](https://www.fishersci.ca/shop/products/acetic-acid-glacial-certified-acs-fisher-chemical-9/A38212)                                                                            |
+| Sucrose                                       | Supplements | Sucrose, bioultra, for molecular biology, ≥99.5% (HPLC)                                                                                                              | Sigma-Aldrich      | 84097-1KG   | $170.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/84097)                                                                                                                       |
+| TCEP                                          | Supplements | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific  | 77720       | $175.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720)                                                                                                                     |
+| Ethanol                                       | Supplements | Ethanol, HPLC/Spectrophotometric Grade, Liquid, ≥99.5%, Glass bottle, 200 Proof                                                                                      | Sigma-Aldrich      | 459828-4L   | $493.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/459828)                                                                                                                     |
+| Laemmli Buffer (6x)                           | Supplements | Laemmli SDS-Sample Buffer (6x, Reducing)                                                                                                                             | Boston BioProducts | BP-111R     | $42.00  | 4°C to 30°C | [link](https://www.bostonbioproducts.com/products/laemmli-sds-sample-buffer-6x-reducing-bp-111r)                                                                                     |
+| LB                                            | Media       | Luria Broth (Miller's LB Broth), Non-Sterile, pH 6.8-7.2, Molecular Biology Grade, Powder                                                                            | Sigma-Aldrich      | L3522-1KG   | $221    | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l3522)                                                                                                                       |
+| A19 *E. coli*                                 | Strains     | A19 (RNase I mutant)                                                                                                                                                 | CGSC               | 5997        | $130.00 | -80°C       | [link](https://ecgrc.net/index.php/product/a19/)                                                                                                                                     |
+| Culture tubes (14 mL)                         | Consumables | 14mL Culture Tube and Dual Cap, PP, Sterile                                                                                                                          | CELLTREAT          | 230439      | $190.00 | 4°C to 30°C | [link](https://www.celltreat.com/product/230439/)                                                                                                                                    |
+| 2 L baffled Erlenmeyer flasks                 | Consumables | PYREX® 2L Delong Shaker Erlenmeyer Flask with Baffles                                                                                                                | Corning            | 4444-2L     | $96.44  | 4°C to 30°C | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Bioprocess-and-Scale-up/Erlenmeyer-Flasks/Erlenmeyer-Flasks%2C-Glass/PYREX%C2%AE-Flask-with-Baffles/p/pyrexFlaskBaffled) |
+| 1 L centrifuge bottles                        | Consumables | Thermo Scientific™ # Fiberlite 1000mL Bottles                                                                                                                        | Thermo Scientific  | 010-1491    | $326.84 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/010-1491)                                                                                                                  |
+| 0.22 µm syringe filters                       | Consumables | PES Syringe Filter, 0.22µm, 30mm, Sterile                                                                                                                            | CELLTREAT          | 229747      | $84.00  | 4°C to 30°C | [link](https://www.celltreat.com/product/229747/)                                                                                                                                    |
+| Butyl HIC columns (5 mL)                      | Columns     | HiTrap Butyl HP Column                                                                                                                                               | Cytiva             | 28-4110-05  | $679.00 | 4°C to 30°C | [link](https://www.cytivalifesciences.com/en/us/products/items/hitrap-butyl-hp-p-05631?selectedProduct=28411005)                                                                     |
+| 15 mL centrifuge tubes                        | Consumables | Corning® 15 mL PP Centrifuge Tubes, Rack Packed with CentriStar™ Cap, Sterile, 50/Rack, 500/Case                                                                     | Corning            | 430790      | $230.44 | 4°C to 30°C | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790)                  |
+| Polycarbonate ultracentrifuge bottles (70 mL) | Consumables | 70 mL Polycarbonate Bottle Assembly, 38 x 102mm - 6Pk                                                                                                                | Beckman Coulter    | 355622      | $687.60 | 4°C to 30°C | [link](https://www.beckman.com/supplies/tubes-and-bottles/bottles/355622)                                                                                                            |
+| 100 kDa centrifugal filter                    | Consumables | Amicon® Ultra Centrifugal Filter, 100 kDa MWCO                                                                                                                       | EMD Millipore      | UFC910008   | $141.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc9100)                                                                                                                        |
+| Tris-Glycine 4–20% gels                       | Consumables | 4–20% Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL                                                                                                        | BioRad             | 4561094     | $153.00 | 1°C to 4°C  | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094)                                                                |
+
+:::
+
 # Protocol
+
+## Prepare Stock Buffers
+
+- [ ] Make the following stock solutions. Use ultrapure water (18.2 MΩ, e.g., Milli-Q) and keep everything RNase-free.
+
+| **Stocks**         | Final Concentration (mM) | MW (g/mol) | Mass to add (g) | Final Vol (mL) | Storage (°C) |
+| ------------------ | ------------------------ | ---------- | --------------- | -------------- | ------------ |
+| HEPES-KOH (pH 7.6) | 1000                     | 238.3      | 238.3           | 1000           | room temp    |
+| Ammonium Chloride  | 1000                     | 53.49      | 53.49           | 1000           | room temp    |
+| Potassium Chloride | 1000                     | 74.55      | 74.55           | 1000           | room temp    |
+| Magnesium Acetate  | 1000                     | 214.45     | 214.45          | 1000           | room temp    |
+| Sodium Hydroxide   | 500                      | 40.00      | 20              | 1000           | room temp    |
+
+- [ ] Adjust the pH of HEPES-KOH to 7.6 with Potassium Hydroxide.
+- [ ] Prepare Sodium Hydroxide (0.5 M) from pellets (used to clean the HIC column).
+
+:::{hint} Note: components added dry or purchased
+:class: dropdown
+
+Ammonium sulfate and sucrose are **added dry** directly to the buffers (masses given in each recipe below), not prepared as stock solutions. TCEP is used from a purchased **0.5 M (500 mM)** neutral stock (Bond-Breaker) and added fresh on the day of use.
+
+:::
+
+## Prepare Stable Buffers
+
+Make these buffers *in advance* and store at 4°C. Add all components **except TCEP**, which you must add fresh on the day of use.
+
+- [ ] **Ribosome Lysis Buffer** — used to resuspend the cell pellet for sonication.
+
+| Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| ------------------ | ------------------------ | ------------------------ | ------------------ |
+| HEPES-KOH (pH 7.6) | 10                       | 1000                     | 15                 |
+| Magnesium Acetate  | 10                       | 1000                     | 15                 |
+| Potassium Chloride | 50                       | 1000                     | 75                 |
+| TCEP               | 1                        | 500                      | 3                  |
+| Ultrapure water    | —                        | —                        | 1392               |
+| **Total**          |                          |                          | **1500**           |
+
+- [ ] **Ribosome Salting Out Buffer** — added 1:1 to clarified lysate to bring ammonium sulfate to 1.5 M and precipitate contaminants.
+
+| Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| ------------------ | ------------------------ | ------------------------ | ------------------ |
+| Ammonium Sulfate   | 3000                     | n/a (dry)                | 198.21 g           |
+| HEPES-KOH (pH 7.6) | 10                       | 1000                     | 5                  |
+| Magnesium Acetate  | 10                       | 1000                     | 5                  |
+| Potassium Chloride | 50                       | 1000                     | 25                 |
+| TCEP               | 1                        | 500                      | 1                  |
+| Ultrapure water    | —                        | —                        | ~265.8             |
+| **Total**          |                          |                          | **500**            |
+
+- [ ] **Ribosome Wash Buffer** — HIC running/wash buffer; high ammonium sulfate drives hydrophobic binding.
+
+| Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| ------------------ | ------------------------ | ------------------------ | ------------------ |
+| Ammonium Sulfate   | 1500                     | n/a (dry)                | 396.42 g           |
+| HEPES-KOH (pH 7.6) | 20                       | 1000                     | 40                 |
+| Magnesium Acetate  | 10                       | 1000                     | 20                 |
+| TCEP               | 1                        | 500                      | 4                  |
+| Ultrapure water    | —                        | —                        | ~1539.6            |
+| **Total**          |                          |                          | **2000**           |
+
+- [ ] **Ribosome Elution Buffer** — HIC elution buffer; low salt releases bound ribosomes.
+
+| Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| ------------------ | ------------------------ | ------------------------ | ------------------ |
+| HEPES-KOH (pH 7.6) | 20                       | 1000                     | 20                 |
+| Magnesium Acetate  | 10                       | 1000                     | 10                 |
+| TCEP               | 1                        | 500                      | 2                  |
+| Ultrapure water    | —                        | —                        | 968                |
+| **Total**          |                          |                          | **1000**           |
+
+- [ ] **Cushion Buffer** — dense sucrose cushion through which ribosomes are pelleted during ultracentrifugation.
+
+| Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| ------------------ | ------------------------ | ------------------------ | ------------------ |
+| Sucrose            | 30% (w/v)                | n/a (dry)                | 300 g              |
+| HEPES-KOH (pH 7.6) | 20                       | 1000                     | 20                 |
+| Ammonium Chloride  | 30                       | 1000                     | 30                 |
+| Magnesium Acetate  | 10                       | 1000                     | 10                 |
+| TCEP               | 1                        | 500                      | 2                  |
+| Ultrapure water    | —                        | —                        | ~638               |
+| **Total**          |                          |                          | **1000**           |
+
+- [ ] **Ribosome Buffer** — final resuspension and storage buffer for purified ribosomes.
+
+| Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| ------------------ | ------------------------ | ------------------------ | ------------------ |
+| HEPES-KOH (pH 7.6) | 20                       | 1000                     | 10                 |
+| Magnesium Acetate  | 6                        | 1000                     | 3                  |
+| Potassium Chloride | 30                       | 1000                     | 15                 |
+| TCEP               | 1                        | 500                      | 1                  |
+| Ultrapure water    | —                        | —                        | 471                |
+| **Total**          |                          |                          | **500**            |
+
+## Prepare Working Buffers
+
+Make these column-cleaning solutions as needed for the FPLC step.
+
+- [ ] **Acetic Acid (0.1 M)** — prepared by diluting glacial acetic acid; used to clean the HIC column.
+
+| Reagent               | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
+| --------------------- | ------------------------ | ------------------------ | ------------------ |
+| Acetic Acid (glacial) | 100                      | 17 400                   | 5.75               |
+| Ultrapure water       | —                        | —                        | 994.25             |
+| **Total**             |                          |                          | 1000               |
+
+- [ ] **Ethanol (20% v/v)** — used to wash and store the HIC column.
+
+| Reagent         | Final Concentration | Stock Concentration | Volume to Add (mL) |
+| --------------- | ------------------- | ------------------- | ------------------ |
+| Ethanol         | 20% (v/v)           | 100% (v/v)          | 200                |
+| Ultrapure water | —                   | —                   | 800                |
+| **Total**       |                     |                     | **1000**           |
 
 ## Cell culture
 
@@ -82,7 +229,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 
 ## Lysis
 
-- [ ]  Resuspend (2-5) g cell pellet in 25 mL of Ribosome Lysis buffer & lyse cells using 130-watt probe sonicator (probe tip diameter: 6 mm) on ice with following parameters: 50% amplitude, 15s on/ 30s off for 2 minutes on-time. The amount of energy delivered via sonication will vary depending on the amount of cells resuspended.
+- [ ]  Resuspend (2-5) g cell pellet in 25 mL of Ribosome Lysis buffer & lyse cells using 130-watt probe sonicator (probe tip diameter: 6 mm) on ice with following parameters: 50% amplitude, 15s on/ 30s off for 2 min on-time. The amount of energy delivered via sonication will vary depending on the amount of cells resuspended.
 - [ ]  Clarify lysate by centrifugation at 16 000 rcf / 4°C / 10 min.
 - [ ]  Aspirate supernatant and measure volume. Add an equal volume of Salting Out buffer to adjust the concentration of ammonium sulfate to 1.5 M and mix well. Incubate at 4°C / 10 min.
 - [ ]  Remove precipitate by centrifugation at 16 000 rcf / 4°C / 10 min.
@@ -150,7 +297,7 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 
 - [ ]  Determine the ribosome concentration by measuring the absorbance at 260 nm at a 100x dilution in Ribosome Buffer. 10 units of A₂₆₀ from a 100x dilution corresponds to 23 µM of undiluted solution.
 - [ ]  Dilute to final stock of 10 µM. To adjust the concentration, dilute the ribosomes with ribosome buffer or concentrate further via centrifugation at 4000 rcf in a 100 kDa centrifugal filter at 4°C.
-- [ ]  Protein gel: dilute 10 µM sample by 4x (Add 2.5 µL of sample with 7.5 µL water) and mix with 10 µL of 4x Laemmli with BME loading buffer. Boil samples at 90°C for 10 minutes and load 5 µL and 2.5 µL onto 4-20% tris-glycine gel. Run gel at 200 V / 30-45 min or until the loading dye line reaches the bottom of the gel.
+- [ ]  Protein gel: dilute 10 µM sample by 4x (Add 2.5 µL of sample with 7.5 µL water) and mix with 2 µL of 6x Laemmli loading buffer. Boil samples at 90°C for 10 min and load 5 µL and 2.5 µL onto 4-20% tris-glycine gel. Run gel at 200 V / 30-45 min or until the loading dye line reaches the bottom of the gel.
 
 ## Storage
 
@@ -160,11 +307,16 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 
 :::::{card}
 :header: **Resources**
-::::{grid} 1 1 1 1
+::::{grid} 1 1 1 2
 
 :::{card}
 :header: **Lab-ready Protocol**
 {button}`download <generated/make-ribosomes-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+{button}`download <generated/make-ribosomes-bom.pdf>`
 :::
 
 ::::
