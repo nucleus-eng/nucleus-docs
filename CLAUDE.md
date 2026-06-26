@@ -153,7 +153,7 @@ This page is a work in progress and not yet ready for use.
 
 ```
 :::{attention} Not yet validated
-This page has not been validated in Nucleus Cytosol ≥ v0.5. <optional specifics, e.g. "Expected performance data below is from PURExpress cells.">
+This page has not been validated in Nucleus Cytosol. <optional specifics, e.g. "Expected performance data below is from PURExpress cells.">
 :::
 ```
 

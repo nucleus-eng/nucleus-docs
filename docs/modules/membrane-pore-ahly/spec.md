@@ -18,7 +18,7 @@ This Module is not actively supported. At this time, the Nucleus Distribution do
 :::
 
 :::{attention} Not yet validated
-This Module has not been validated in Nucleus Cytosol ≥ v0.5. Expected performance data below is from PURExpress cells.
+This Module has not been validated in Nucleus Cytosol. Expected performance data below is from PURExpress cells.
 :::
 
 aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE system, or added as purified protein from an external source. We recommend the purified protein approach for most applications.

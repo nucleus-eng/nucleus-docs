@@ -14,7 +14,7 @@ The Cx43 Module expresses connexin 43 (Cx43), a mammalian gap junction protein, 
 This Module was contributed to the Nucleus Community by Ahmed Sihorwala (Belardi Lab, UT Austin), based on the construct design from the Stachowiak Lab and the publication [Sihorwala et al., 2023](https://doi.org/10.1021/jacs.2c12491). Validation data is presented in the DevNote [Cx43 Cell: DNA Validation](https://doi.org/10.63765/xvxu3274).
 
 :::{attention} Not yet validated
-This Module has not been validated in Nucleus Cytosol ≥ v0.5. Expected performance data below is from PURExpress cells.
+This Module has not been validated in Nucleus Cytosol. Expected performance data below is from PURExpress cells.
 :::
 
 :::::{tab-set}
