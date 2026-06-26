@@ -13,6 +13,7 @@ Pierce660 is a quick (5 min) colorimetric method for total protein quantitation.
      materials CSV from the table labeled `bom-pierce660` below.
      Without this labeled table, no BOM artifacts are generated. See issue #10. -->
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-pierce660
 
@@ -24,6 +25,7 @@ Pierce660 is a quick (5 min) colorimetric method for total protein quantitation.
 | Plate Reader | Equipment | BioTek Cytation 5 Cell Imaging Multimode Reader | Agilent | CYT5MFAWSN | Quote required | 4°C to 30°C | [link](https://www.fishersci.com/shop/products/cytation-5-cell-imaging-multi-mode-reader-28/BTCYT5MFAW) |
 
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 

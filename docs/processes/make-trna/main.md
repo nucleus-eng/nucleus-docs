@@ -61,6 +61,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Materials and Equipment
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-make-trna
 
@@ -89,6 +90,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | glass serological pipettes                    | Consumables | PYREX® 10 mL Glass Serological Pipets, Sterile, Individually Paper/Plastic Wrapped, Plugged      | Corning             | 7077-10N    | $690.49 | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Glassware/Serological-Pipets%2C-Glass/PYREX%C2%AE-Disposable-Glass-Serological-Pipets%2C-Individually-Wrapped%2C-Sterile%2C-Plugged%2C-To-Deliver/p/pyrexPipetDisposableGlassSeriologicalIndividuallyWrappedSterilePluggedToDeliver) |
 
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 
@@ -270,7 +272,7 @@ NEB has a great [tool](https://nebiocalculator.neb.com/#!/od260) for converting 
     - [ ] Prepare 20 ng/µL sample by adding 10 µL of 40 ng/µL tRNA to 10 µL 2x TBE-Urea sample buffer.
     - [ ] Prepare an ssRNA ladder. We use the NEB low range ssRNA (2 µL ladder + 2 µL 2x sample buffer).
     - [ ] Incubate sample and and ladder at 65°C / 3 min → 4°C / hold using a thermal cycler.
-- [ ] Load 200 ng of tRNA (10 µL at 20 ng/µL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
+- [ ] Load 200 ng of tRNA (10 µL at 20 ng/µL) onto the TBE-Urea gel and run at 125V / 2.5 h.
 - [ ] Meanwhile, prepare SYBR-Green stain (4 µL in 40 mL water) to stain gel.
 - [ ] Soak gel in SYBR-Green stain and visualize gel using UV or blue-light transilluminator. You should see multiple distinct bands around 75-90 nt.
 

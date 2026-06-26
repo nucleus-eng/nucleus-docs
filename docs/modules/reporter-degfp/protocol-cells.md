@@ -101,7 +101,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 :::
 
 - [ ]  For a given reaction, assemble by adding the volume of reagents from the table in the order listed. Pay special attention to the handling of the Cytosol components:
-    - [ ]  Vortex SMix: Ensure thorough mixing; 10s vortex / 10s rest on ice; should be transparent with no visible precipitate; and add to the reaction tubes.
+    - [ ]  Vortex SMix: Ensure thorough mixing; 10 s vortex / 10 s rest on ice; should be transparent with no visible precipitate; and add to the reaction tubes.
     - [ ]  Vortex or pipette mix tRNA, and add to the reaction tubes.
     - [ ]  Vortex or pipette mix PMix, and add to the reaction tubes.
     - [ ]  **Do NOT vortex** ribosomes: *gently* pipette mix or flick the tube, and add to the reaction tubes.

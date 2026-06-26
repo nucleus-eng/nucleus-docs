@@ -262,8 +262,9 @@ The convention:
 **Run `git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale` before opening a PR or committing a content migration.** This command lints only committed source files (skipping gitignored `generated/` artifacts). Vale lints both `.md` and `.csv` files and runs as part of the `qa` CI workflow (`.github/workflows/qa.yml`).
 
 ```bash
-git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale   # lint all committed docs
-vale <file.md>                                              # lint a single file
+git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale          # lint all committed docs (skips generated/)
+vale --glob='!**/generated/**' docs/                              # lint full docs/ tree, excluding generated/
+vale <file.md>                                                     # lint a single file
 ```
 
 Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), chemical notation (subscripts and ion superscripts), and unit spacing.
@@ -294,7 +295,38 @@ s/(?<!%)(\d+)C\b/$1°C/g
 s/(\d+)C\b/$1°C/g
 ```
 
-Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
+Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first. When suppressing only a specific rule (e.g., to silence BOM product-name false positives), prefer rule-scoped suppression over a blanket `<!-- vale off -->`:
+
+```html
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
+:::{table} Bill of Materials
+...
+:::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
+```
+
+**Canonical unit list.** Several Vale rules share an overlapping set of recognised units. Vale rule files are self-contained YAML and have no native include or variable mechanism, so the lists are duplicated by design — the rules differ slightly because false-positive risk varies by context. The canonical reference list (for human consistency checks, not machine enforcement) is:
+
+| Domain | Units |
+| --- | --- |
+| Length | `nm`, `µm`, `mm`, `cm`, `km` |
+| Volume | `µL`, `mL`, `L` |
+| Mass | `µg`, `mg`, `g`, `kg` |
+| Concentration | `nM`, `µM`, `mM`, `M` |
+| Molecular weight | `Da`, `kDa` |
+| Time | `s`, `min`, `h`, `d` (SI); `yr`, `mo` (non-SI, no SI symbol exists) |
+| Centrifugation | `rcf`, `rpm` |
+| Temperature | `°C` |
+
+When adding a new unit to one rule, check whether the other rules (magnitude-unit-spacing, range-style, thousands-separator) should also be updated.
+
+**Known NIST SP 811 divergences.** The following are deliberate departures from NIST SP 811, documented here so they read as decisions rather than oversights:
+
+| NIST rule | NIST says | Our style | Rationale |
+| --- | --- | --- | --- |
+| §7.10.2 — percent | `25 %` (space before `%`) | `25%` | Universal convention; `25 %` reads as unusual to bench scientists |
+| §7.10.3 — ppm/ppb/ppt | Not acceptable; use `µL/L` etc. | `ppm` permitted | Accessible shorthand; rarely appears in docs |
+| Time abbreviations | `h`, `min`, `s`, `d` | `yr`, `mo` also used | Year and month have no SI symbol; `yr`/`mo` are the accepted non-SI forms |
 
 ### Spell checking (codespell)
 

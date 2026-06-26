@@ -27,6 +27,7 @@ Please read this section carefully. It contains important notes, resources, and 
 # Materials and Equipment
 
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-lysis-sonication
 
@@ -48,6 +49,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | TCEP-HCl (0.5M; presuspended) | Supplements (for Buffers) | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific | 77720 | $175.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
 | cOmplete Protease Inhibitor | Supplements (for Buffers) | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets | Roche | 11873580001 | $472 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro) |
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 
@@ -94,7 +96,7 @@ Please read this section carefully. It contains important notes, resources, and 
   :::
 
 - [ ] **Lyse cells by sonication.**
-  - [ ] Program your sonicator. We recommend 50% amplitude, 10s on / 10s off.
+  - [ ] Program your sonicator. We recommend 50% amplitude, 10 s on / 10 s off.
   - [ ] Always use a Sound Enclosure during sonication.
 
   :::{hint} Note: Always use a Sound Enclosure during sonication.

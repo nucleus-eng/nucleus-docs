@@ -93,7 +93,7 @@ The following stock buffers are required for preparing the working buffers used 
 - [ ] Sterilize by autoclaving or filter sterilization.
 - [ ] Store at 4°C with the bottle wrapped in foil to protect from light. Avoid storing HEPES for longer than one week; prepare only the amount required for the intended number of preparations.
 
-### 1M Magnesium Chloride (250mL)
+### 1M Magnesium Chloride (250 mL)
 
 - [ ] Dissolve 50.8 g MgCl₂ (MW 203.3 g/mol) in 200 mL ddH₂O.
 - [ ] Adjust to a final volume of 250 mL.
@@ -172,19 +172,19 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Add 10 µL of each of the 36 glycerol stocks (except number 25) to the corresponding labeled tubes and mix well by vortexing.
 - [ ] Add 300 µL of inoculated culture from each tube into the corresponding well of a sterile 96 deep well plate. Seal the plate using a Breath-easy sealing membrane. 
 - [ ] Inoculate 3 mL of LB + Kan in 15 mL falcon tubes with 10 µL of EF-Tu glycerol stock. Do this in duplicate.
-- [ ] Incubate deep well culture plate and 15 mL falcon tubes at 260 rpm / 37°C / 16 hr.
-- [ ] Start incubation at 6 pm. Check OD₆₀₀ at 10 am the next day (16 hr incubation).
+- [ ] Incubate deep well culture plate and 15 mL falcon tubes at 260 rpm / 37°C / 16 h.
+- [ ] Start incubation at 6 pm. Check OD₆₀₀ at 10 am the next day (16 h incubation).
 - [ ] Place 1.5 L of sterile LB in 37°C static incubator to prewarm overnight.
 
 ### Day 2: Main Growth
 
 - [ ] The next day, measure the OD₆₀₀ of the starter plate using a 96 well plate by adding 30 µL of each starter  to the bottom of each well and 270 µL of  LB + Kan on top (10x dilution). Measure EF-Tu culture density at this time too. Expected OD₆₀₀ with 10x dilution is 0.2 - 0.3.
-- [ ] After 16 hr of incubation, all strains should be at OD₆₀₀ = 2-3. If a strain is growing very slowly, remove the starter volume from the 96-deep well plate and place it into a 2 mL sterile tube, and shake at 260 rpm / 37°C independently until desired OD is reached. The remaining starters can be left in the deep well plate on the bench. If a starter has overgrown above OD₆₀₀, dilute the starters to OD₆₀₀ = 3 using LB + Kan in a sterile tube.
+- [ ] After 16 h of incubation, all strains should be at OD₆₀₀ = 2-3. If a strain is growing very slowly, remove the starter volume from the 96-deep well plate and place it into a 2 mL sterile tube, and shake at 260 rpm / 37°C independently until desired OD is reached. The remaining starters can be left in the deep well plate on the bench. If a starter has overgrown above OD₆₀₀, dilute the starters to OD₆₀₀ = 3 using LB + Kan in a sterile tube.
 - [ ] Once all starter strains have been equilibrated to OD₆₀₀ 2-3, proceed to main growth by adding 500 mL of prewarmed  LB + Kan into a 2.5 L baffled flask (2x flasks).
 - [ ] Into a sterile 5 mL tube add 55 µL of each starter culture (excluding EF-Tu), and 1675 µL of EF-Tu starter culture. Mix well by vortexing and add entire content to 500 mL of  LB + Kan in 2.5 L baffled flask. Repeat for the second culture flask.
-- [ ] Incubate the cultures at 260 rpm / 37°C / (1.5 - 2) hr (until OD₆₀₀ reaches 0.2 - 0.3). Check OD₆₀₀  after 1 hr as baffled flask may cause cells to grow faster.
+- [ ] Incubate the cultures at 260 rpm / 37°C / (1.5 - 2) hr (until OD₆₀₀ reaches 0.2 - 0.3). Check OD₆₀₀  after 1 h as baffled flask may cause cells to grow faster.
 - [ ] Once OD₆₀₀ of 0.2- 0.3 is reached, inoculate each culture flask with 500 µL of 100 mM IPTG to achieve a final induction concentration of 0.1 mM IPTG.
-- [ ] Incubate cultures for a further at 260 rpm / 37°C / 3 hr.
+- [ ] Incubate cultures for a further at 260 rpm / 37°C / 3 h.
 - [ ] During incubation periods of main growth, prepare protein purification buffers as described below and store at 4°C until use. Don't add TCEP at this point.
 
 :::{table} Protein Purification Buffers
@@ -200,7 +200,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 :::
 
 - [ ] 15 min before the end of the incubation, cool table top centrifuge to 4°C and prepare an ice bucket and cool centrifuge bottles.
-- [ ] At the end of the 3 hr incubation, place baffled flask into ice bucket and remove samples for OD₆₀₀ measurement. Final expected OD₆₀₀ is 2-3.
+- [ ] At the end of the 3 h incubation, place baffled flask into ice bucket and remove samples for OD₆₀₀ measurement. Final expected OD₆₀₀ is 2-3.
 - [ ] Fill each centrifuge bottle with 500 mL of culture from each flask and spin at 5000 g / 4°C / 15 min and discard supernatant.
 - [ ] Add 20 mL of sterile LB into each bottle and resuspend the cell pellet thoroughly and move resuspension into labeled sterile 50 mL falcon tubes.
 - [ ] Centrifuge the Falcon tubes at 2000 g / 4°C / 8 min, remove the supernatant by decanting.
@@ -214,10 +214,10 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Add TCEP to Resuspension/Equilibration buffer to a final concentration of 1 mM (see {ref}`protein-buffers`).
 - [ ] Equilibrate column with 30 mL of Resuspension/Equilibration buffer + TCEP and close valve on the column with 5 mL of buffer remaining in the column.
 - [ ] Add 7.5 mL of Resuspension/Equilibration buffer + TCEP to each falcon tube containing cell pellet and resuspend thoroughly and store on ice.
-- [ ] Lyse cells via sonication at 70% amplitude, 10s on 10s off with 2000 J of energy in a ice water bath. Use a clamp stand to hold the falcon tube in place such that the cell suspension is submerged in the ice water bath and place the probe deep enough into the solution without touching the tube. If a large amount of foam is generated, the energy transfer will be damped. In that case, let the foam settle, lower the probe deeper into the solution, and extend the sonication time. If sonication is successful, the solution will turn darker.
+- [ ] Lyse cells via sonication at 70% amplitude, 10 s on 10 s off with 2000 J of energy in a ice water bath. Use a clamp stand to hold the falcon tube in place such that the cell suspension is submerged in the ice water bath and place the probe deep enough into the solution without touching the tube. If a large amount of foam is generated, the energy transfer will be damped. In that case, let the foam settle, lower the probe deeper into the solution, and extend the sonication time. If sonication is successful, the solution will turn darker.
 - [ ] Aliquot the sonicated sample in 2 mL tubes (1 mL per tube) and spin at 16 000 g / 4°C / 20 min.
 - [ ] Collate all clarified pellet free supernatant into a fresh 50 mL falcon tube on ice.
-- [ ] Resuspend the resin in the remaining 5 mL of Resuspension/Equilibration buffer + TCEP within the column and collate buffer + resin into falcon tube containing supernatant. Seal the lid with parafilm and incubate in a rotating shaker at 4°C for a minimum of 3 hr.
+- [ ] Resuspend the resin in the remaining 5 mL of Resuspension/Equilibration buffer + TCEP within the column and collate buffer + resin into falcon tube containing supernatant. Seal the lid with parafilm and incubate in a rotating shaker at 4°C for a minimum of 3 h.
 - [ ] After incubation of sample with resin, briefly spin the falcon tubes in a table top centrifuge using pulse mode to collate the resin to the bottom of the tube.
 - [ ] Resuspend the sample with resin using a pipette and add the mixture back into the protein purification column.
 - [ ] Label three 15 mL falcon tubes as 'flow through', 'wash' and 'elution', respectively. Replicate as required for the number of purifications you are doing.
@@ -226,7 +226,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Wash column with wash buffer + TCEP and collect flow through in 15 mL falcon tube labeled 'wash'.
 - [ ] Add 5 mL elution buffer + TCEP into the column and resuspend the resin a few times with pipette and incubate for 10 min before elution into tube labeled 'elution'. During this incubation, add 1 L of Buffer HT into a 1L beaker and soak 2 kDa dialysis cassette in buffer with magnetic stir in cold room/fridge.
 - [ ] Store eluted protein on ice.
-- [ ] Remove dialysis cassette from beaker and add 5 mL of eluted protein into the dialysis cassette. Remove as much air as possible from cassette before putting the lid back on. Dialyze according to protocol stated below to remove imidazole. 5 mL of eluted protein is dialyzed against 1L of buffer HT (without TCEP) at 4°C for 12 hr / overnight. In instances when elutions can be combined, 10 mL of elution can be dialyzed against 2 L of buffer HT.
+- [ ] Remove dialysis cassette from beaker and add 5 mL of eluted protein into the dialysis cassette. Remove as much air as possible from cassette before putting the lid back on. Dialyze according to protocol stated below to remove imidazole. 5 mL of eluted protein is dialyzed against 1L of buffer HT (without TCEP) at 4°C for 12 h / overnight. In instances when elutions can be combined, 10 mL of elution can be dialyzed against 2 L of buffer HT.
 
 ### Day 4: Protein Concentration
 

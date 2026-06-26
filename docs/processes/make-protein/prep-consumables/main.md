@@ -10,6 +10,7 @@ This protocol is derived from the original PURE system ([Shimizu et al., 2001](h
 
 # Materials and Equipment
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-prep-consumables
 
@@ -36,6 +37,7 @@ This protocol is derived from the original PURE system ([Shimizu et al., 2001](h
 | 0.22 µm vacuum filters         | Consumables  | Corning® 500 mL Vacuum Filter, 0.22 µm PES Membrane, Sterile     | Corning             | 431097       | $187.14   | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Cell-Culture/Filtration/Vacuum-Filters/Vacuum-Filtration-Systems/p/431097)                              |
 
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 

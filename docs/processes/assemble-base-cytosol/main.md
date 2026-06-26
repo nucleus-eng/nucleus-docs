@@ -116,7 +116,7 @@ Prepare the reaction on ice or a cold block to prevent reactions from starting d
 :::
 
 - [ ] Resuspend each component according to the following instructions: 
-    - [ ]  Vortex SMix aggressively until visibly clear. Alternate 10s vortex / 10s rest on ice to maintain cool temperature. SMix should be transparent with no visible precipitate when ready.
+    - [ ]  Vortex SMix aggressively until visibly clear. Alternate 10 s vortex / 10 s rest on ice to maintain cool temperature. SMix should be transparent with no visible precipitate when ready.
     - [ ]  Vortex or pipette mix tRNA.
     - [ ]  Pipette mix PMix.
     - [ ]  **Do NOT vortex** ribosomes! *Gently* pipette mix or flick the tube.

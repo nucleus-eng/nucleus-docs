@@ -50,6 +50,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Materials and Equipment
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-make-ribosomes
 
@@ -81,6 +82,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Tris-Glycine 4–20% gels                       | Consumables | 4–20% Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL                                                                                                        | BioRad             | 4561094     | $153.00 | 1°C to 4°C  | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094)                                                                |
 
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 
@@ -229,7 +231,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 
 ## Lysis
 
-- [ ]  Resuspend (2-5) g cell pellet in 25 mL of Ribosome Lysis buffer & lyse cells using 130-watt probe sonicator (probe tip diameter: 6 mm) on ice with following parameters: 50% amplitude, 15s on/ 30s off for 2 min on-time. The amount of energy delivered via sonication will vary depending on the amount of cells resuspended.
+- [ ]  Resuspend (2-5) g cell pellet in 25 mL of Ribosome Lysis buffer & lyse cells using 130-watt probe sonicator (probe tip diameter: 6 mm) on ice with following parameters: 50% amplitude, 15 s on/ 30 s off for 2 min on-time. The amount of energy delivered via sonication will vary depending on the amount of cells resuspended.
 - [ ]  Clarify lysate by centrifugation at 16 000 rcf / 4°C / 10 min.
 - [ ]  Aspirate supernatant and measure volume. Add an equal volume of Salting Out buffer to adjust the concentration of ammonium sulfate to 1.5 M and mix well. Incubate at 4°C / 10 min.
 - [ ]  Remove precipitate by centrifugation at 16 000 rcf / 4°C / 10 min.

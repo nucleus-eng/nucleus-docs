@@ -32,7 +32,7 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
 - [ ] Filter ultrapure water (0.22 µm) and add the corresponding calculated resuspension volume to each tube of powdered amino acids.
 - [ ] Resuspend 19x amino acid stocks (excluding `Tyr`).
     - [ ] Put each microfuge tube on a heater shaker set to 65°C / 1400 rpm.
-    - [ ] Check for complete resuspension every 30 min (should take ≤ 1 hr). Keep stocks at 65°C for next step.
+    - [ ] Check for complete resuspension every 30 min (should take ≤ 1 h). Keep stocks at 65°C for next step.
 
 
 ## Assemble Amino Acid Master Mix.

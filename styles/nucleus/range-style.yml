@@ -1,0 +1,5 @@
+extends: existence
+message: "Avoid bare hyphens in ranges before a unit: '%s'. Prefer '225 nm to 2400 nm' or '(225–2400) nm' (NIST SP 811 §7.7)."
+level: warning
+raw:
+  - '\b\d+\s*[-–]\s*\d+\s+(?:kDa|rcf|rpm|nm|µm|mm|cm|km|m|µL|mL|L|µg|mg|kg|g|µM|mM|nM|M|Da|min|h|d|s|°C)\b'

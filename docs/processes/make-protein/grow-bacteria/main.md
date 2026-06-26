@@ -26,6 +26,7 @@ Please read this section carefully. It contains important notes, resources, and 
 # Materials and Equipment
 
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-grow-bacteria
 
@@ -44,6 +45,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | -20°C Freezer                 | Equipment    | TSX Series High-Performance -20°C Manual Defrost Freezers                                 | Thermo Scientific       | TSX2320FA  | unlisted     | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/TSX2320FA)                                                                                                      |
 | -80°C Freezer                 | Equipment    | TSX Series Ultra-Low Freezers                                                             | Thermo Scientific       | TSX60086A  | unlisted     | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/TSX60086A)                                                                                                      |
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 
@@ -75,7 +77,7 @@ Bacteria need breathing room! Oxygenation matters, plus shaking can spill overfi
 
 - [ ] **Induce protein expression.**
     - [ ] At mid-log phase, induce your cultures with IPTG to 500 µM (e.g., add 100 µL of IPTG (0.5M) to a 100 mL culture).
-    - [ ] Incubate induced cultures at 37°C / 225 rpm / 4 hr to allow cells to express proteins.
+    - [ ] Incubate induced cultures at 37°C / 225 rpm / 4 h to allow cells to express proteins.
 
 - [ ] **Centrifuge cells and freeze pellets.**
     - [ ] While incubating your induced cultures, pre-chill your centrifuge and rotor to 4°C.
