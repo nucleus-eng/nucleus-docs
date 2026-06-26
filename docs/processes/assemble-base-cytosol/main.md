@@ -122,7 +122,7 @@ Prepare the reaction on ice or a cold block to prevent reactions from starting d
     - [ ]  **Do NOT vortex** ribosomes! *Gently* pipette mix or flick the tube.
 - [ ] For each reaction, assemble reaction master mix in a chilled PCR tube by adding each reagent in the order and volume listed in the table above. 
 - [ ] Mix the master mix thoroughly by pipette (6-10x) until visibly homogeneous.
-- [ ] Hold assembled reactions on ice or at 4°C until ready for measurement.
+- [ ] Hold assembled reactions on ice or at 4 °C until ready for measurement.
 - [ ] On a 384-well optical plate, array 10 µL of each reaction master mix into three (3) wells and note their locations.
 
 :::{hint} Tip
@@ -131,7 +131,7 @@ Prepare the reaction on ice or a cold block to prevent reactions from starting d
 To avoid introducing bubbles, use reverse pipetting to array your samples. With your p20 pipette set to "10" µL, push your plunger down past the second (blowout) stop, aspirate your sample, and dispense up to the first stop. Repeat for the remaining two (2) replicates.
 :::
 
-- [ ] In a plate reader set to 37°C, measure deGFP expression using the standard green fluorescence channel (ex: 485 nm, em: 515 nm).
+- [ ] In a plate reader set to 37 °C, measure deGFP expression using the standard green fluorescence channel (ex: 485 nm, em: 515 nm).
   
 ## Return reagents to their appropriate storage locations
 - [ ] Mark the lid of each Cytosol component that you used. The number of dots indicates how many freeze–thaw cycles each component has gone through.

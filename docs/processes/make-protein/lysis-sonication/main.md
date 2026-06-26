@@ -33,21 +33,21 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Sonicator | Equipment | Q700 Sonicator | QSonica | Q700A-110 | $5500 | 4°C to 30°C | [link](https://www.sonicator.com/products/q700-sonicator?variant=36028875408) |
-| Sonicator Probe | Equipment | Standard Probe, Replaceable Tip, 1/2" (12.7mm) diameter | QSonica | 4220 | $670 | 4°C to 30°C | [link](https://www.sonicator.com/collections/q700-probe-options/products/standard-probes-for-q700-and-q500?variant=36022579984) |
-| Sound Enclosure | Equipment | Sound Enclosure | QSonica | 432B2 | $995 | 4°C to 30°C | [link](https://www.sonicator.com/collections/q700-sound-enclosure/products/sound-enclosure-for-q700-and-q500) |
-| Lab Jack | Equipment | Fisherbrand™ Lab Jacks (15cmx15cm) | Fisher Scientific | 14-673-51 | $484 | 4°C to 30°C | [link](https://www.fishersci.com/shop/products/fisherbrand-lab-jacks-11/1467351) |
-| 15 mL centrifuge tubes | Consumables | Corning® 15 mL PP Centrifuge Tubes, Rack Packed with CentriStar™ Cap, Sterile, 50/Rack, 500/Case | Corning | 430790 | $230.44 | 4°C to 30°C | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790) |
-| 10 mL Luer Lock Syringes | Consumables | Syringes with BD Luer-Lok® Tip, BD Medical, Syringe with Luer-Lok® Tip, Volume=10 mL | BD Industrial/Difco | 550-80620-PK | $102.40 | 4°C to 30°C | [link](https://www.spectrumchemical.com/bd-8482-sterile-luer-lok-8482-tip-general-purpose-syringes-320054) |
-| 0.45 µm syringe filters | Consumables | PES Syringe Filter, 0.45μm, 30mm, Sterile | CELLTREAT Scientific Products | 229749 | $84 | 4°C to 30°C | [link](https://www.celltreat.com/product/229749/) |
-| Potassium Hydroxide | Salts (for Buffers) | Potassium hydroxide - ACS reagent, ≥85%, pellets | Sigma-Aldrich | 221473-1KG | $99.90 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473) |
-| HEPES | Salts (for Buffers) | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
-| Ammonium Chloride | Salts (for Buffers) | Ammonium chloride, ACS reagent, ≥99.5% | Sigma-Aldrich | 213330-500G | $73.50 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330) |
-| Sodium Chloride | Salts (for Buffers) | Sodium Chloride, Redi-Dri™, anhydrous, free-flowing, ACS, ≥99% | Sigma-Aldrich | 746398-1KG | $133.00 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398) |
-| Magnesium Chloride hexahydrate | Salts (for Buffers) | BioXtra Magnesium chloride, Hexahydrate, Powder or Crystals, ≥99.0% | Sigma-Aldrich | M2670-100G | $50.50 | 4°C to 30°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670) |
-| Lysozyme | Supplements (for Buffers) | Lysozyme from chicken egg white, protein ≥90%, ≥40 000 units/mg protein, lyophilized powder | Sigma-Aldrich | L6876-1G | $76.90 | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876) |
-| TCEP-HCl (0.5M; presuspended) | Supplements (for Buffers) | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific | 77720 | $175.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
-| cOmplete Protease Inhibitor | Supplements (for Buffers) | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets | Roche | 11873580001 | $472 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro) |
+| Sonicator | Equipment | Q700 Sonicator | QSonica | Q700A-110 | $5500 | 4 °C to 30 °C | [link](https://www.sonicator.com/products/q700-sonicator?variant=36028875408) |
+| Sonicator Probe | Equipment | Standard Probe, Replaceable Tip, 1/2" (12.7mm) diameter | QSonica | 4220 | $670 | 4 °C to 30 °C | [link](https://www.sonicator.com/collections/q700-probe-options/products/standard-probes-for-q700-and-q500?variant=36022579984) |
+| Sound Enclosure | Equipment | Sound Enclosure | QSonica | 432B2 | $995 | 4 °C to 30 °C | [link](https://www.sonicator.com/collections/q700-sound-enclosure/products/sound-enclosure-for-q700-and-q500) |
+| Lab Jack | Equipment | Fisherbrand™ Lab Jacks (15cmx15cm) | Fisher Scientific | 14-673-51 | $484 | 4 °C to 30 °C | [link](https://www.fishersci.com/shop/products/fisherbrand-lab-jacks-11/1467351) |
+| 15 mL centrifuge tubes | Consumables | Corning® 15 mL PP Centrifuge Tubes, Rack Packed with CentriStar™ Cap, Sterile, 50/Rack, 500/Case | Corning | 430790 | $230.44 | 4 °C to 30 °C | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790) |
+| 10 mL Luer Lock Syringes | Consumables | Syringes with BD Luer-Lok® Tip, BD Medical, Syringe with Luer-Lok® Tip, Volume=10 mL | BD Industrial/Difco | 550-80620-PK | $102.40 | 4 °C to 30 °C | [link](https://www.spectrumchemical.com/bd-8482-sterile-luer-lok-8482-tip-general-purpose-syringes-320054) |
+| 0.45 µm syringe filters | Consumables | PES Syringe Filter, 0.45μm, 30mm, Sterile | CELLTREAT Scientific Products | 229749 | $84 | 4 °C to 30 °C | [link](https://www.celltreat.com/product/229749/) |
+| Potassium Hydroxide | Salts (for Buffers) | Potassium hydroxide - ACS reagent, ≥85%, pellets | Sigma-Aldrich | 221473-1KG | $99.90 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473) |
+| HEPES | Salts (for Buffers) | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
+| Ammonium Chloride | Salts (for Buffers) | Ammonium chloride, ACS reagent, ≥99.5% | Sigma-Aldrich | 213330-500G | $73.50 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330) |
+| Sodium Chloride | Salts (for Buffers) | Sodium Chloride, Redi-Dri™, anhydrous, free-flowing, ACS, ≥99% | Sigma-Aldrich | 746398-1KG | $133.00 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398) |
+| Magnesium Chloride hexahydrate | Salts (for Buffers) | BioXtra Magnesium chloride, Hexahydrate, Powder or Crystals, ≥99.0% | Sigma-Aldrich | M2670-100G | $50.50 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670) |
+| Lysozyme | Supplements (for Buffers) | Lysozyme from chicken egg white, protein ≥90%, ≥40 000 units/mg protein, lyophilized powder | Sigma-Aldrich | L6876-1G | $76.90 | -25 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876) |
+| TCEP-HCl (0.5M; presuspended) | Supplements (for Buffers) | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific | 77720 | $175.65 | 4 °C to 30 °C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
+| cOmplete Protease Inhibitor | Supplements (for Buffers) | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets | Roche | 11873580001 | $472 | 1 °C to 4 °C | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro) |
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
@@ -57,12 +57,12 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | Reagent | MW (g/mol) | Amount (g) | Final Volume (mL) | Storage | Needs pH adjustment? | Needs Sterilization? |
 | --- | --- | --- | --- | --- | --- | --- |
-| Potassium Hydroxide (1M) | 56.11 | 14.0 | 250 | 4°C to 30°C | no | no |
-| HEPES-KOH (pH=7.6; 1M) | 238.3 | 59.5 | 250 | 4°C to 30°C; dark | yes | no |
-| Ammonium Chloride (1M) | 53.49 | 13.4 | 250 | 4°C to 30°C | no | no |
-| Sodium Chloride (5M) | 58.44 | 73.1 | 250 | 4°C to 30°C | no | no |
-| Magnesium Chloride (1M) | 203.3 | 20.3 | 100 | 4°C to 30°C | no | no |
-| Lysozyme (30 mg/mL) | 14320 | 1 | 33 | -25°C to -15°C | no | no |
+| Potassium Hydroxide (1M) | 56.11 | 14.0 | 250 | 4 °C to 30 °C | no | no |
+| HEPES-KOH (pH=7.6; 1M) | 238.3 | 59.5 | 250 | 4 °C to 30 °C; dark | yes | no |
+| Ammonium Chloride (1M) | 53.49 | 13.4 | 250 | 4 °C to 30 °C | no | no |
+| Sodium Chloride (5M) | 58.44 | 73.1 | 250 | 4 °C to 30 °C | no | no |
+| Magnesium Chloride (1M) | 203.3 | 20.3 | 100 | 4 °C to 30 °C | no | no |
+| Lysozyme (30 mg/mL) | 14320 | 1 | 33 | -25 °C to -15 °C | no | no |
 
 - [ ] **Prepare Lysis Buffer** — used to resuspend bacterial pellets for mechanical lysis by sonication. Also chemically lyses cells with lysozyme (*G. gallus*). Contains protease inhibitor (cOmplete) to slow proteolysis. *Make fresh and use the same day!*
 
@@ -79,7 +79,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | **Total** | — | — | 100 |
 
 - [ ] **Prepare centrifuge and Lysis Buffer.**
-  - [ ] Pre-chill your centrifuge and Lysis Buffer to 4°C.
+  - [ ] Pre-chill your centrifuge and Lysis Buffer to 4 °C.
   - [ ] Finish Lysis Buffer with TCEP (0.5M) (e.g., add 500 µL TCEP to 1 L Lysis Buffer).
 - [ ] **Resuspend pellets in cold Lysis Buffer.**
   - [ ] Thaw bacterial pellets on ice.
@@ -90,7 +90,7 @@ Please read this section carefully. It contains important notes, resources, and 
   :::{hint} Note: Keep lysate cold to prevent proteolysis.
   :class: dropdown
 
-  Lysis releases proteases from the cytosols and cell walls of your bacteria. These proteases can degrade your sample. To slow their activity, keep your samples cold (4°C). We also recommend using protease inhibitors (e.g., cOmplete), or protease deficient expression strains to reduce protease activity further.
+  Lysis releases proteases from the cytosols and cell walls of your bacteria. These proteases can degrade your sample. To slow their activity, keep your samples cold (4 °C). We also recommend using protease inhibitors (e.g., cOmplete), or protease deficient expression strains to reduce protease activity further.
 
   To keep your samples cold during resuspension, return them to ice frequently as you resuspend them by vortexing. To check that your sample is fully suspended, vortex the pellet briefly, then hold the tube above your head and look up at the bottom of the tube. You may see either chunks or flecks of the pellet slowly float down to the bottom of the tube, or pellet gunk stuck to the bottom of the tube.
   :::
@@ -117,15 +117,15 @@ Please read this section carefully. It contains important notes, resources, and 
   :::
 
 - [ ] **Clarify lysates by centrifugation and filtration.**
-  - [ ] Centrifuge lysates at 4 krcf / 4°C / 45 min.
+  - [ ] Centrifuge lysates at 4 krcf / 4 °C / 45 min.
   - [ ] (Meanwhile) for each lysate, assemble a 10 mL Luer lock syringe and 0.22 µm syringe filter.
-  - [ ] Carefully decant each supernatant into a syringe and filter into a fresh 15 mL centrifuge tube. Keep clarified lysate cold (4°C).
+  - [ ] Carefully decant each supernatant into a syringe and filter into a fresh 15 mL centrifuge tube. Keep clarified lysate cold (4 °C).
   - [ ] Keep going! Don't take a break!
 
   :::{hint} Note: Keep going! Don't take a break!
   :class: dropdown
 
-  Your target protein is not stable in clarified lysate, even if clarification reduces proteolytic activity. You should immediately proceed to purification. Your samples will only continue to degrade until they've been purified and stored at -80°C. Work smoothly and quickly from here on out!
+  Your target protein is not stable in clarified lysate, even if clarification reduces proteolytic activity. You should immediately proceed to purification. Your samples will only continue to degrade until they've been purified and stored at -80 °C. Work smoothly and quickly from here on out!
   :::
 
 # Downloads

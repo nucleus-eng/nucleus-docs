@@ -89,19 +89,19 @@ Work inside of a fume hood when handling chloroform and lipids.
 :::
 
 - [ ]  Add the lipids in the above {ref}`comp-membrane` to the glass vial on top of the mineral oil using the appropriate glass syringe.
-- [ ]  Briefly vortex the lipid-oil mixture for 5 seconds to mix.
+- [ ]  Briefly vortex the lipid-oil mixture for 5 s to mix.
 - [ ]  Evaporate the chloroform from the lipid–oil mixture:
-    - [ ]  Place glass vial in a 55°C dry bath in a fume hood.
+    - [ ]  Place glass vial in a 55 °C dry bath in a fume hood.
     - [ ]  Shield with aluminum foil to protect from light.
-    - [ ]  Evaporate uncovered for 4 hours.
+    - [ ]  Evaporate uncovered for 4 h.
 - [ ]  In a glass bottle, add 4 mL of chloroform using a glass 10 mL serological pipette.
-- [ ]  Clean syringes by rinsing with chloroform 5 times into an empty glass bottle. Store the syringes with the plunger removed inside the fume hood for 3–4 hours to allow remaining chloroform to evaporate.
-- [ ]  After 4 hours of incubation at 55°C in a dry bath in a fume hood, allow the lipid-oil mixture to cool to room temperature for 10-15 minutes.
+- [ ]  Clean syringes by rinsing with chloroform 5 times into an empty glass bottle. Store the syringes with the plunger removed inside the fume hood for 3 h to 4 h to allow remaining chloroform to evaporate.
+- [ ]  After 4 h of incubation at 55 °C in a dry bath in a fume hood, allow the lipid-oil mixture to cool to room temperature for 10 min to 15 min.
 
 :::{hint} Note
 :class: simple
 :icon: false
-The lipid–oil mixture can be used immediately after cooling to room temperature or stored at 4°C for up to one week. Protect from light by storing in an opaque container or wrapping the vial with aluminum foil.
+The lipid–oil mixture can be used immediately after cooling to room temperature or stored at 4 °C for up to one week. Protect from light by storing in an opaque container or wrapping the vial with aluminum foil.
 :::
 
 - [ ]  Return the plungers to the syringes and store them in their designated location.
@@ -154,7 +154,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 :::{danger} Critical
 :class: simple
 :icon: false
-Adjust the outer solution concentration so its osmolarity is 100–120 units lower than the inner solution when measured on a Wescor EliTech Vapro 5600 Vapor Pressure Osmometer. 
+Adjust the outer solution concentration so its osmolarity is 100 mOsm to 120 mOsm lower than the inner solution when measured on a Wescor EliTech Vapro 5600 Vapor Pressure Osmometer. 
 :::
 
 - [ ]  Hold assembled reactions on ice until ready for encapsulation.
@@ -186,7 +186,7 @@ Align the hinges of each T tube towards the outside of the centrifuge rotor, so 
 - [ ]  Extract the liposomes from each **T** tube:
     - [ ]  Remove the oil layer and lipid debris from the top of each **T** tube by gently pipetting with a 1000 µL pipette set to 800 µL.
     - [ ]  Gently pipette mix the pellet 10-15 times with the outer solution.
-    - [ ]  Extract liposomes by pipetting 50-100 µL of pellet and outer solution from **T** and transfer liposome sample to the respective liposome tube **L**.
+    - [ ]  Extract liposomes by pipetting 50 µL to 100 µL of pellet and outer solution from **T** and transfer liposome sample to the respective liposome tube **L**.
 
 :::{danger} Critical
 :class: simple

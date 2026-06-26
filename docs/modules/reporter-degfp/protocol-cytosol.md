@@ -65,7 +65,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 Set the P20 pipette to 10.1 µL to draw the master mix, then dispense into the plate well by pushing the plunger to the first stop only—this prevents bubble generation in the reaction.
 :::
 
-- [ ]  Measure deGFP fluorescence in the plate reader while incubating at 37°C.
+- [ ]  Measure deGFP fluorescence in the plate reader while incubating at 37 °C.
   
 ### Return reagents to their appropriate storage locations
 - [ ]  Add a black dot to the lid of each of Cytosol component. The number of dots indicates freeze–thaw cycles.

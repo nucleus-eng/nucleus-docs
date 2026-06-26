@@ -49,7 +49,7 @@ Cx43 requires a lipid membrane environment for proper folding and pore assembly.
 
 ### Expected Performance
 
-**Insertion Assay** — Liposomes encapsulating NEB PURExpress and `pOpen-pT7-Cx43-eGFP` were incubated at 37°C for 6 hrs. Green fluorescent rings around liposomes confirm membrane localization of Cx43-eGFP. Control liposomes lacking the Cx43 plasmid show no rings.
+**Insertion Assay** — Liposomes encapsulating NEB PURExpress and `pOpen-pT7-Cx43-eGFP` were incubated at 37 °C for 6 hrs. Green fluorescent rings around liposomes confirm membrane localization of Cx43-eGFP. Control liposomes lacking the Cx43 plasmid show no rings.
 
 :::::{tab-set}
 
@@ -75,10 +75,10 @@ Control liposomes without Cx43 plasmid. No green fluorescent rings are observed.
 Higher-magnification views of individual Cx43-eGFP-expressing liposomes are available in the [DevNote](https://doi.org/10.63765/xvxu3274).
 :::
 
-**Leakage Assay** — Liposomes co-encapsulating NEB PURExpress, `pOpen-pT7-Cx43`, and Alexa Fluor 647 dye were incubated at 37°C for 6 hrs and imaged by confocal microscopy every 10 min.
+**Leakage Assay** — Liposomes co-encapsulating NEB PURExpress, `pOpen-pT7-Cx43`, and Alexa Fluor 647 dye were incubated at 37 °C for 6 hrs and imaged by confocal microscopy every 10 min.
 
 :::{figure} cell-leakage-kinetics.png
-Background-subtracted Alexa Fluor 647 fluorescence intensity over 6 hrs at 37°C. Liposomes containing Cx43 show a progressive decrease in encapsulated dye fluorescence relative to controls, consistent with pore-mediated dye leakage.
+Background-subtracted Alexa Fluor 647 fluorescence intensity over 6 hrs at 37 °C. Liposomes containing Cx43 show a progressive decrease in encapsulated dye fluorescence relative to controls, consistent with pore-mediated dye leakage.
 :::
 
 :::::{tab-set}
@@ -86,7 +86,7 @@ Background-subtracted Alexa Fluor 647 fluorescence intensity over 6 hrs at 37°C
 ::::{tab-item} +Cx43
 
 :::{figure} cell-leakage-timeseries-sample.png
-Time series of Cx43-reconstituted liposomes encapsulating Alexa Fluor 647 over 6 hrs at 37°C (images every 10 min, starting 40 min after preparation). Progressive loss of fluorescence is observed as dye leaks through Cx43 channels. Scale bar: 500 µm.
+Time series of Cx43-reconstituted liposomes encapsulating Alexa Fluor 647 over 6 hrs at 37 °C (images every 10 min, starting 40 min after preparation). Progressive loss of fluorescence is observed as dye leaks through Cx43 channels. Scale bar: 500 µm.
 :::
 
 ::::
@@ -94,7 +94,7 @@ Time series of Cx43-reconstituted liposomes encapsulating Alexa Fluor 647 over 6
 ::::{tab-item} -Cx43
 
 :::{figure} cell-leakage-timeseries-control.png
-Time series of control liposomes encapsulating Alexa Fluor 647 over 6 hrs at 37°C. Dye fluorescence is maintained throughout, confirming that leakage requires Cx43 expression. Scale bar: 500 µm.
+Time series of control liposomes encapsulating Alexa Fluor 647 over 6 hrs at 37 °C. Dye fluorescence is maintained throughout, confirming that leakage requires Cx43 expression. Scale bar: 500 µm.
 :::
 
 ::::
