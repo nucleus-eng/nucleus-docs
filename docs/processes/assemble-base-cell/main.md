@@ -111,17 +111,17 @@ Work inside of a fume hood when handling chloroform and lipids.
 - [ ]  Add the lipids in the above {ref}`comp-membrane` to the glass vial on top of the mineral oil using the appropriate glass syringe.
 - [ ]  Briefly vortex the lipid-oil mixture for 5 seconds to mix.
 - [ ]  Evaporate the chloroform from the lipid–oil mixture:
-    - [ ]  Place glass vial in a 55 °C dry bath in a fume hood.
+    - [ ]  Place glass vial in a 55°C dry bath in a fume hood.
     - [ ]  Shield with aluminum foil to protect from light.
     - [ ]  Evaporate uncovered for 4 hours.
 - [ ]  In a glass bottle, add 4 mL of chloroform using a glass 10 mL serological pipette.
 - [ ]  Clean syringes by rinsing with chloroform 5 times into an empty glass bottle. Store the syringes with the plunger removed inside the fume hood for (3–4) hr to allow remaining chloroform to evaporate.
-- [ ]  After 4 hr of incubation at 55 °C in a dry bath in a fume hood, allow the lipid-oil mixture to cool to room temperature for 10-15 min.
+- [ ]  After 4 hr of incubation at 55°C in a dry bath in a fume hood, allow the lipid-oil mixture to cool to room temperature for 10-15 min.
 
 :::{hint} Note
 :class: simple
 :icon: false
-The lipid–oil mixture can be used immediately after cooling to room temperature or stored at 4 °C for up to one week. Protect from light by storing in an opaque container or wrapping the vial with aluminum foil.
+The lipid–oil mixture can be used immediately after cooling to room temperature or stored at 4°C for up to one week. Protect from light by storing in an opaque container or wrapping the vial with aluminum foil.
 :::
 
 - [ ]  Return the plungers to the syringes and store them in their designated location.
