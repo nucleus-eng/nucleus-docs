@@ -4,19 +4,26 @@ site:
   hide_outline: true
 ---
 
-# Get started
+<a href="./about/release-notes/v050.md" class="version-badge">Nucleus v0.5.0</a>
 
-If you're new to Nucleus, check out [From Zero to DevNote](./start/first-guide.md). This Guide will walk you through the documentation while introducing you to the specific Nucleus tools. 
+Nucleus Documentation is the protocol and specification library for the Nucleus Distribution, an open source platform for synthetic cell development maintained by [b.next](https://bnext.bio). Here you'll find validated lab protocols, module specifications, and implementation guides for building synthetic cells using cytosol based on the PURE system.
 
-:::::{card}
+Documentation is built from [Developer Notes](https://devnotes.nucleus.engineering), the primary mechanism for contributing validated research to the Nucleus Distribution.
 
-::::{grid} 1 1 2 2
+<a href="./start/first-guide.html" class="quick-link">Get started</a> <a href="./about/release-notes/v050.html" class="quick-link">🎊 What's new in v0.5.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
+
+---
+
+## What's in the docs
+
+Nucleus Cytosol can be extended with Modules, assembled into Cells using Processes, and combined into Implementations. Supporting resources cover the DNA Distribution, software tools, and guides.
+
+::::{grid} 1 1 3 3
 
 :::{card}
-:header: 🧬 **DNA Distribution**
-:link: docs/dna-distro.md
-
-Physical materials that are used to implement Processes and Modules.
+:header: 🧱 **Modules**
+:link: docs/modules/modules-main.md
+Modules extend the functionality of Base Cytosol and Cells.
 :::
 
 :::{card}
@@ -26,15 +33,25 @@ Processes are core protocols for implementing Base Cytosol and Cells.
 :::
 
 :::{card}
-:header: 🧱 **Modules**
-:link: docs/modules/modules-main.md
-Modules extend the functionality of Base Cytosol and Cells.
-:::
-
-:::{card}
 :header: 🏗️ **Implementations**
 :link: docs/implementations/implementations-main.md
 Implementations are useful combinations of Modules and Processes.
+:::
+
+::::
+
+::::{grid} 1 1 3 3
+
+:::{card}
+:header: 🧬 **DNA Distribution**
+:link: docs/dna-distro.md
+Physical materials that are used to implement Processes and Modules.
+:::
+
+:::{card}
+:header: 🛠️ **Cell Development Kit**
+:link: https://pypi.org/project/nucleus-cdk/
+Software tools for working with the Nucleus Distribution. Available via PyPI: `pip install nucleus-cdk`.
 :::
 
 :::{card}
@@ -44,8 +61,5 @@ Tutorials, how-tos, and workshop materials for using the Nucleus Distribution an
 :::
 
 ::::
-:::::
 
-# Get in touch
-
-Join the [mailing list](https://bnextbio.typeform.com/nucleus-signup) or [contact us](mailto:build@bnext.bio) to request access to materials, get involved with the community, or ask questions.
+Supported by the Astera Institute, National Science Foundation, Schmidt Sciences, and the Sloan Foundation. [Contact us](mailto:build@bnext.bio) to request access to materials or get involved with the community on the [Forum](https://forum.nucleus.engineering).
