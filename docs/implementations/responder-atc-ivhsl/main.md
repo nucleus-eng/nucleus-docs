@@ -79,11 +79,11 @@ The responder module is assembled within a standard PURE reaction, following [As
 **Experimental Method**
 
 - [ ] Prepare M9 media containing cells and antibiotics:
-    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 0.4% (wt/vol) glucose.
+    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 0.4% (w/v) glucose.
     - [ ] Use a pipette tip to scrape some of the frozen bacteria off of the top and inoculate a 1.5 mL eppendorf containing the M9 media with 100 µg/mL carbenicillin.
     - [ ] Gently mix the tube by inverting 5 times. The solution in the tube will be named **M9-cell solution** in the following part.
-- [ ] Incubate samples and controls containing PURE reactions at 37°C for 1.5 hrs.
-- [ ] Mix varying amounts of samples or controls (1 or 2 µL) with 100 µL of the M9-cell solution.
+- [ ] Incubate samples and controls containing PURE reactions at 37°C for 1.5 h.
+- [ ] Mix varying amounts of samples or controls (between 1 µL or 2 µL) with 100 µL of the M9-cell solution.
 
 ### Expected Performance
 
@@ -131,15 +131,15 @@ Endpoint GFP expression in *E. coli* receiver cells for each construct variant w
 
 ## Cells
 
-Responder Cells were constructed and co-cultured with *E. coli* containing the `bjaR-GFP-native` IV-HSL receiver plasmid. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 6 hr, collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
+Responder Cells were constructed and co-cultured with *E. coli* containing the `bjaR-GFP-native` IV-HSL receiver plasmid. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 6 h / collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15 min intervals.
 
 ### Expected Performance
 
 :::{figure} cell-performance-endpoint.png
-8-hour endpoint images of EggPC liposomes containing PURE in M9 media. **Left** liposome (orange) and *E. coli*-expressed GFP (green) channels. **Right** *E. coli*-expressed GFP (green) channel. **+** positive control; **−** negative control (no DNA); **induced** responder cell module, induced with aTc in the outer solution; **uninduced** responder cell module, without inducer.
+8 h endpoint images of EggPC liposomes containing PURE in M9 media. **Left** liposome (orange) and *E. coli*-expressed GFP (green) channels. **Right** *E. coli*-expressed GFP (green) channel. **+** positive control; **−** negative control (no DNA); **induced** responder cell module, induced with aTc in the outer solution; **uninduced** responder cell module, without inducer.
 :::
 
-:::::::{hint} Timeseries: 45–360 min across all conditions
+:::::::{hint} Timeseries microscopy (45 min to 360 min) 
 :class: dropdown
 
 ::::::{tab-set}
