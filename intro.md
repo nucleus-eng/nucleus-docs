@@ -10,7 +10,7 @@ Nucleus Documentation is the protocol and specification library for the Nucleus 
 
 Documentation is built from [Developer Notes](https://devnotes.nucleus.engineering), the primary mechanism for contributing validated research to the Nucleus Distribution.
 
-<a href="./start/first-guide.html" class="quick-link">Get started</a> <a href="./about/release-notes/v050.html" class="quick-link">🎊 What's new in v0.5.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
+<a href="./start/first-guide.md" class="quick-link">Get started</a> <a href="./about/release-notes/v050.md" class="quick-link">🎊 What's new in v0.5.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
 
 ---
 
