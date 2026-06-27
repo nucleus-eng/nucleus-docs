@@ -22,3 +22,45 @@
     padding-bottom: 25px !important;
     border-radius: 10px;
 }
+
+.version-badge {
+    display: inline-block;
+    background-color: #006837;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border-radius: 12px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.quick-links-row {
+    display: flex;
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+p:has(.quick-link) {
+    display: flex;
+    gap: 8px;
+}
+
+.quick-link {
+    flex: 1;
+    text-align: center;
+    border: 1.5px solid #006837;
+    color: #006837 !important;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 12px;
+    text-decoration: none !important;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.quick-link:hover {
+    background-color: #006837;
+    color: #ffffff !important;
+}
