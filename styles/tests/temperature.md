@@ -2,7 +2,7 @@
 
 ## Simple tests
 
-Incubate at 37 degC for 1 hour. <!-- vale-expect: nucleus.units -->
+Incubate at 37 degC for 1 hour. <!-- vale-expect: nucleus.time-abbreviations, nucleus.units -->
 
 Cool samples to 4 degrees C before proceeding. <!-- vale-expect: nucleus.units -->
 
@@ -18,7 +18,7 @@ We use vitamin C in the buffer. <!-- vale-clean -->
 
 See option C for details. <!-- vale-clean -->
 
-The correct way: incubate at 37°C. <!-- vale-clean -->
+The correct way: incubate at 37 °C. <!-- vale-clean -->
 
 ## No false positives on figure/step labels (correctly not flagged)
 
