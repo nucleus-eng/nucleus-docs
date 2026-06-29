@@ -37,7 +37,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | `pOpen-deGFP` DNA | 124                 | nM    | 3                   | nM    | 0.95                         |
 | tRNA              | 35                  | mg/ml | 3.5                 | mg/ml | 4                            |
 | Optiprep          | 1.32                | mg/µL | 0.043               | mg/µL | 1.33                         |
-| RNase Inhibitor   | 40000               | U/mL  | 2000                | U/mL  | 2                            |
+| RNase Inhibitor   | 40 000              | U/mL  | 2000                | U/mL  | 2                            |
 | Water             |                     |       |                     |       | 6.12                         |
 | Total volume (µL) |                     |       |                     |       | 40                           |
 :::
@@ -47,11 +47,12 @@ Please read this section carefully. It contains important notes, resources, and 
 ::::{tab-item} Membrane
 :::{table}
 :label: comp-membrane
-| Component | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (uL) |
-| --- | --- | --- | --- | --- |
-| POPC | 70 | 760.076 | 25 | 162.17 |
-| Cholesterol | 29.95 | 386.654 | 50 | 17.65 |
-| Liss-Rhod PE | 0.05 | 1301.71 | 1 | 4.96 |
+
+| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (uL) |
+| ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
+| POPC         | 70                    | 760.076                  | 25                          | 162.17             |
+| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
+| Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
 
 :::
 ::::
@@ -59,9 +60,10 @@ Please read this section carefully. It contains important notes, resources, and 
 ::::{tab-item} Outer Solution
 
 :::{table}
+
 | Component | Concentration |
-| --- | --- |
-| Glucose | 850 mM |
+| --------- | ------------- |
+| Glucose   | 850 mM        |
 :::
 
 ::::
@@ -73,14 +75,33 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Materials and Equipment
 
-This is an assembly process: it encapsulates base cytosol within a lipid membrane, combining components produced by other Nucleus processes rather than introducing new reagents. Its materials are itemized in those component processes' Bills of Materials — see the consolidated [Materials Reference](../../../guides/materials-reference.md).
+:::{table}
+:label: bom-assemble-base-cell
+:align: center
+
+| Name                            | Category   | Product                                                                                                                                | Manufacturer          | Part #      | Price        | Storage        | Link                                                                                                                                                                                                                      |
+| ------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- | ------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Base Cytosol                    | Biologic   | Nucleus Base Cytosol (see [Base Cytosol](../../modules/base-cytosol/spec.md))                                                          | b.next                | —           | —            | -80°C          | [link (protocol)](../assemble-base-cytosol/main.md)                                                                                                                                                                       |
+| Optiprep                        | Reagent    | OptiPrep™                                                                                                                              | STEMCELL Technologies | 07820       | $289.00      | RT             |                                                                                                                                                                                                                           |
+| POPC                            | Lipid      | 16:0-18:1 PC 25 mg/mL                                                                                                                  | Avanti Lipids         | A80557      | $435.00      | -20°C          | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc)                                                                                                                                      |
+| Cholesterol                     | Lipid      | Cholesterol (plant)                                                                                                                    | Avanti Research       | A80100      | $261.00      | -20°C          | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant)                                                                                                                                    |
+| Liss-Rhod PE                    | Lipid      | 18:0 Liss Rhod PE 1 mg/mL                                                                                                              | Avanti Lipids         | A81179      | $273.47      | -20°C          | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe)                                                                                                                                     |
+| Glucose                         | Chemical   | D-(+)-Glucose, 99%                                                                                                                     | Thermo Scientific     | A16828-36   | $41.65       | RT             | [link](https://www.thermofisher.com/order/catalog/product/A16828.36)                                                                                                                                                      |
+| Chloroform                      | Chemical   | Chloroform, suitable for HPLC, ≥99.8%, contains 0.5-1.0% ethanol as stabilizer                                                         | Sigma-Aldrich         | 366927      | $94.30       | RT (fume hood) | [link](https://www.sigmaaldrich.com/US/en/product/sigald/366927)                                                                                                                                                          |
+| Mineral oil                     | Chemical   | Mineral oil, mixed weight                                                                                                              | Thermo Scientific     | AC415080010 | $53.40       | RT             | [link](https://www.thermofisher.com/order/catalog/product/AC415080010)                                                                                                                                                    |
+| Glass syringe 250 µL            | Equipment  | Hamilton glass syringe                                                                                                                 | Hamilton              | 14-815-238  | $150.15      | RT             | [link](https://www.fishersci.com/shop/products/800-microliter-syringes-rn-termination/14815238)                                                                                                                           |
+| Glass serological pipette 10 mL | Equipment  | PYREX® 10 mL Disposable Glass Serological Pipets, TD, Individually Wrapped, Sterile, Plugged                                           | Corning               | 7077-10N    | $690.49/case | RT             | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Glassware/Serological-Pipets%2C-Glass/PYREX%C2%AE-Disposable-Glass-Serological-Pipets%2C-Individually-Wrapped%2C-Sterile%2C-Plugged%2C-To-Deliver/p/7077-10N) |
+| Glass vials                     | Consumable | Vials, screw top, graduated, solid cap, preassembled, volume 4 mL, clear glass vial, thread 13-425, O.D. x H 15 mm x 45 mm, PTFE liner | Supelco               | 27506-U     | $157.41      | RT             | [link](https://www.sigmaaldrich.com/US/en/product/supelco/27506u)                                                                                                                                                         |
+| 384-well glass bottom plate     | Consumable | 384 well glass bottom plate, 1.5 cover glass (20/case)                                                                                 | Cellvis               | P384-1.5H-N | $423.00      | RT             | [link](https://www.cellvis.com/_384-well-glass-bottom-plate-with-high-performance-number-1.5-cover-glass_/product_detail.php?product_id=53)                                                                               |
+
+:::
 
 # Protocol
 
 ## Prepare Stock Solutions
 
 **Prepare lipids in mineral oil**
-- [ ]  Add 1 mL of mineral oil to the 1.8 mL glass vial using a 1 mL pipette.
+- [ ]  Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple
@@ -147,7 +168,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
     - [ ]  Vortex or pipette mix PMix, and add to the reaction tubes.
     - [ ]  **Do NOT vortex** ribosomes: *gently* pipette mix or flick the tube, and add to the reaction tubes.
     - [ ]  Add remaining reactions in the order they appear
-- [ ]  Mix the master mix thoroughly by pipetting up and down 10–15 times until it appears homogeneous and clear.
+- [ ]  Mix the master mix thoroughly by pipetting up and down (10–15) times until it appears homogeneous and clear.
 - [ ]  Close lids on the microcentrifuge tubes and briefly spin down to eliminate bubbles.
 - [ ]  Pipette out 10 µL of the reaction for osmolarity check using a Vapor Pressure Osmometer before starting encapsulation.
 
@@ -209,6 +230,12 @@ Do not transfer the entire solution. It is important to avoid transferring the t
 :header: **Lab-ready Protocol**
 
 {button}`download <generated/assemble-base-cell-protocol.pdf>`
+:::
+
+:::{card}
+:header: **Bill of Materials**
+
+{button}`download <generated/assemble-base-cell-bom.pdf>`
 :::
 
 ::::

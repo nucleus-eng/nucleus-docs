@@ -179,9 +179,11 @@ Pages use MyST admonition nesting with `:::` fences. Process pages follow a cons
 
 Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes. Cross-references use MyST `{ref}` syntax for same-page targets and standard markdown links for cross-page references.
 
+**Internal links in inline HTML must use `.md` extensions, not `.html`.** MyST resolves internal links via the source `.md` paths. Using `.html` in an `<a href="...">` tag produces a 404 on the deployed site. This applies to all inline HTML links (e.g. version badges, quick-link pills) — always write `href="./path/to/page.md"`, never `href="./path/to/page.html"`.
+
 **Tab-set fence depth.** Tab-sets require a consistent three-level nesting: the outer `{tab-set}` uses `:::::`(5 colons), each `{tab-item}` inside uses `::::` (4 colons), and figures or admonitions inside a tab-item use `:::` (3 colons). Mismatched colon counts are a common source of rendering failures.
 
-**Secondary figures.** Within a section that has a primary figure (e.g. a performance plot), de-emphasize supplementary or supporting figures by wrapping them in a `::::{hint} <descriptive title>` block with `:class: dropdown`. The dropdown title should describe the finding, not just label the figure (e.g. `::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL`). This keeps the primary figure prominent while keeping supporting context one click away.
+**Secondary figures.** Within a section that has a primary figure (e.g. a performance plot), de-emphasize supplementary or supporting figures by wrapping them in a `::::{hint} <descriptive title>` block with `:class: dropdown`. The dropdown title should describe the finding, not just label the figure (e.g. `::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL`). This keeps the primary figure prominent while keeping supporting context one click away. When there are multiple parallel secondary figures (e.g. the same experiment across several conditions), use a hybrid: a single dropdown wrapping a tab-set, so readers open one drawer and switch between conditions with tabs. The outer hint uses 7 colons, the `{tab-set}` inside uses 6, each `{tab-item}` uses 5, and figures inside use 3 — consistent with the tab-set nesting rules above.
 
 **System-context figure placement (module specs).** A figure showing the module in the context of the Base Cell or Developer Cell belongs in the `## Cells` section, not `# Overview`. The Overview section should carry mechanism and schematic figures only.
 

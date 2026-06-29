@@ -26,11 +26,13 @@ aTc activates BjaI expression by relieving TetR repression. BjaI converts SAM an
 The aTc → IV-HSL Responder in the Base Cell. aTc enters the cell and releases TetR from the tetO operator, allowing BjaI expression. BjaI produces IV-HSL from SAM and IV-CoA; IV-HSL diffuses to neighboring *E. coli* receiver cells.
 :::
 
-# Protocol
+## Cytosols
 
 Three construct variants were evaluated: `pT7-tetO-bjaI` (single operator), `tetO-pT7-tetO-bjaI` (sandwich operator), and `pT7-tetO-tetO-bjaI` (train operator). `pT7-tetO-bjaI` has poor dynamic range — leaky expression in the off state produces sufficient IV-HSL to induce receiving *E. coli* cells. `tetO-pT7-tetO-bjaI` and `pT7-tetO-tetO-bjaI` resolve this by providing tight repression in the off state ([Lutz and Bujard, 1997](https://doi.org/10.1093/nar/25.6.1203)). We chose to move forward with `pT7-tetO-tetO-bjaI`.
 
-The IV-HSL Emitter Module may be implemented by assembling the `pT7-tetO-tetO-bjaI` responder construct within a standard PURE reaction, following [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md). Add equimolar amounts of the substrates SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively.
+### Usage
+
+The responder module is assembled within a standard PURE reaction, following [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md). Add equimolar amounts of the substrates SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively.
 
 **DNA Parts**
 
@@ -77,13 +79,13 @@ The IV-HSL Emitter Module may be implemented by assembling the `pT7-tetO-tetO-bj
 **Experimental Method**
 
 - [ ] Prepare M9 media containing cells and antibiotics:
-    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 0.4% (wt/vol) glucose.
+    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 0.4% (w/v) glucose.
     - [ ] Use a pipette tip to scrape some of the frozen bacteria off of the top and inoculate a 1.5 mL eppendorf containing the M9 media with 100 µg/mL carbenicillin.
     - [ ] Gently mix the tube by inverting 5 times. The solution in the tube will be named **M9-cell solution** in the following part.
 - [ ] Incubate samples and controls containing PURE reactions at 37 °C for 1.5 hrs.
-- [ ] Mix varying amounts of samples or controls (1 or 2 µL) with 100 µL of the M9-cell solution.
+- [ ] Mix varying amounts of samples or controls (between 1 and 2 µL) with 100 µL of the M9-cell solution.
 
-# Performance
+### Expected Performance
 
 **Induction of receiver *E. coli***
 
@@ -126,6 +128,49 @@ Endpoint GFP expression in *E. coli* receiver cells for each construct variant w
 
 - Positive controls (samples without any TetR) exhibited similar GFP fluorescence, indicating that all DNA constructs (`pT7-tetO-tetO-bjaI`, `tetO-pT7-tetO-bjaI`, and `pT7-tetO-bjaI`) are effective for BjaI expression.
 - Repression efficiency follows the order: `pT7-tetO-tetO-bjaI` > `tetO-pT7-tetO-bjaI` > `pT7-tetO-bjaI`. Based on this, `pT7-tetO-tetO-bjaI` was selected for use in the subsequent liposome experiment to construct the responder cells.
+
+## Cells
+
+Responder Cells were constructed and co-cultured with *E. coli* containing the `bjaR-GFP-native` IV-HSL receiver plasmid. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 6 h / collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15 min intervals.
+
+### Expected Performance
+
+:::{figure} cell-performance-endpoint.png
+8 h endpoint images of EggPC liposomes containing PURE in M9 media. **Left** liposome (orange) and *E. coli*-expressed GFP (green) channels. **Right** *E. coli*-expressed GFP (green) channel. **+** positive control; **−** negative control (no DNA); **induced** responder cell module, induced with aTc in the outer solution; **uninduced** responder cell module, without inducer.
+:::
+
+:::::::{hint} Timeseries microscopy (45 min to 360 min) 
+:class: dropdown
+
+::::::{tab-set}
+
+:::::{tab-item} Positive control
+:::{figure} cell-timeseries-pos.png
+Responder Cell positive control timeseries. EggPC liposomes containing PURE + IV-HSL in M9 media; aTc induced. Liposome membrane (orange) and *E. coli*-expressed GFP (green).
+:::
+:::::
+
+:::::{tab-item} Negative control
+:::{figure} cell-timeseries-neg.png
+Responder Cell negative control timeseries. EggPC liposomes containing PURE in M9 media; aTc induced. Liposome membrane (orange) and *E. coli*-expressed GFP (green).
+:::
+:::::
+
+:::::{tab-item} Induced
+:::{figure} cell-timeseries-induced.png
+Responder Cell sample timeseries (induced). EggPC liposomes containing PURE, responder module DNA, IV-CoA and SAM, in M9 media; aTc induced. Liposome membrane (orange) and *E. coli*-expressed GFP (green).
+:::
+:::::
+
+:::::{tab-item} Uninduced
+:::{figure} cell-timeseries-uninduced.png
+Responder Cell sample timeseries (uninduced). EggPC liposomes containing PURE, responder module DNA, IV-CoA and SAM, in M9 media. Liposome membrane (orange) and *E. coli*-expressed GFP (green).
+:::
+:::::
+
+::::::
+
+:::::::
 
 # Process
 
