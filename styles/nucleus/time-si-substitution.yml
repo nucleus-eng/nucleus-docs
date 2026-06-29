@@ -2,5 +2,7 @@ extends: substitution
 message: "Use SI unit symbol '%s' instead of '%s' (NIST SP 811)."
 level: warning
 swap:
-  '(\d+)\s*hr\b': '$1 h'
-  '(\d+)\s*sec\b': '$1 s'
+  '(~?\d+(?:\.\d+)?)\s*hrs?\b': '$1 h'
+  '(\(\d+\s*[-–]\s*\d+\))\s*hrs?\b': '$1 h'
+  '(~?\d+(?:\.\d+)?)\s*sec\b': '$1 s'
+  '(\(\d+\s*[-–]\s*\d+\))\s*sec\b': '$1 s'

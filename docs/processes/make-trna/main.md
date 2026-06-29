@@ -155,12 +155,12 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ] Add 3 mL Luria Broth (LB) under sterile conditions to three (3) 14 mL culture tubes. Two (2) tubes will be used to prepare 6 mL of overnight culture and one (1) tube will be used as a negative control. 6 mL of overnight culture is enough to inoculate 4 x 450 mL of bulk outgrowths. 
 - [ ] Label two tubes “(+)” and seed with an A19 stock (colony or glycerol stock; see note above).
 - [ ] Label the other tube “(-)”. This will be your negative control, used to test your sterile technique.
-- [ ] Incubate all tubes overnight at 37 °C / (225 - 250) rpm / (10 - 16) hr.
+- [ ] Incubate all tubes overnight at 37 °C / (225 - 250) rpm / (10 - 16) h.
 
 **Perform bulk outgrowth.**
 - [ ] Check if (-) has growth. If not, continue.
 - [ ] Seed 4x 450 mL fresh media in 4x 2L baffled Erlenmeyer flasks with 1:500 overnight culture (e.g., 900 µL overnight into each flask with 450 mL media).
-- [ ] Incubate back diluted cultures at 37 °C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8). This took us ~3 hrs.
+- [ ] Incubate back diluted cultures at 37 °C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8). This took us ~3 h.
 
 **Pellet, wash, and store cells.**
 - [ ] Fill 1 L centrifuge bottles with culture. Balance centrifuge bottles against each other and pellet cultures at 16 000 rcf / 4 °C / 10 min.
@@ -230,7 +230,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 	- [ ] Carefully pipette 1.5 mL of resuspended tRNAs into the cassette. Avoid puncturing the membrane!
 	- [ ] Remove the excess air in the cassette by simultaneously pressing the membrane gently on both sides and inserting the cap and locking it into place.
 - [ ] Dialyze Sample: 
-	- [ ] Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4 °C / 2 hrs. We do this by putting our beaker in a bucket of ice on a stir plate. 
+	- [ ] Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4 °C / 2 h. We do this by putting our beaker in a bucket of ice on a stir plate. 
 	- [ ] Change the dialysis buffer and continue dialyzing overnight.
 
 ## Concentrate
