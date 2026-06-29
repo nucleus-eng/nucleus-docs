@@ -103,13 +103,13 @@ If you have more than 10 mL of clarified lysate, you can load your sample in tra
 
 ## Storing Columns
 
-- [ ] **Short-term (up to 48 hrs):** Seal each column with a cap and bung and store at 4 °C.
-- [ ] **Long-term / reuse:** To store columns longer than 48 hrs — or to save used columns for later reuse — store them in 20% EtOH. Wash the column in Wash Buffer (as above), then with 10 CV (10 mL) Ultrapure water to remove salts. Fill the column with 20% EtOH, seal the bung and lid with parafilm, and store at 4 °C.
+- [ ] **Short-term (up to 48 h):** Seal each column with a cap and bung and store at 4 °C.
+- [ ] **Long-term / reuse:** To store columns longer than 48 h — or to save used columns for later reuse — store them in 20% EtOH. Wash the column in Wash Buffer (as above), then with 10 CV (10 mL) Ultrapure water to remove salts. Fill the column with 20% EtOH, seal the bung and lid with parafilm, and store at 4 °C.
 
 :::{hint} Note: why store in EtOH?
 :class: dropdown
 
-Packed and loaded columns can harbor bacterial growth, even at 4 °C. Storing in 20% EtOH prevents this for columns you will not use within 48 hrs, or that you want to reuse later.
+Packed and loaded columns can harbor bacterial growth, even at 4 °C. Storing in 20% EtOH prevents this for columns you will not use within 48 h, or that you want to reuse later.
 
 :::
 

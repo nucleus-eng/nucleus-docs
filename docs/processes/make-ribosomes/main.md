@@ -215,12 +215,12 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ] Add 5 mL Luria Broth (LB) under sterile conditions to two (2) 14 mL culture tubes.
 - [ ] Label one tube “(+)”. Add 10 µL of A19 glycerol stock to (+).
 - [ ] Label the other tube “(-)”. This will be your negative control, testing if your technique is sterile.
-- [ ] Incubate both tubes overnight shaking at 37 °C / (225-250) rpm / (12-16) hr.
+- [ ] Incubate both tubes overnight shaking at 37 °C / (225-250) rpm / (12-16) h.
 
 **Perform bulk outgrowth.**
 - [ ]  Check if (-) has growth. If not, continue.
 - [ ]  Back dilute overnight 1:250 - 1:1000 into 4x 450 mL fresh LB in 2 L baffled Erlenmeyer flasks (e.g., 1.8 mL overnight into 450 mL LB).
-- [ ]  Incubate back diluted cultures at 37 °C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8, typically ~3 hrs).
+- [ ]  Incubate back diluted cultures at 37 °C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8, typically ~3 h).
 
 **Pellet, wash, and store cells.**
 - [ ]  Fill 1 L centrifuge bottles with culture. Balance centrifuge bottles against each other and centrifuge cultures at 16 000 rcf / 4 °C / 10 min.
@@ -280,7 +280,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 
 - [ ]  Gently overlay recovered fractions (should correspond to second peak) onto 35 mL of Cushion Buffer in a polycarbonate ultracentrifuge bottle (70 mL).
 - [ ]  Prepare another polycarbonate ultracentrifuge bottle as a balance. Measure 35 mL of Cushion Buffer, then add Ribosome Buffer until the balance mass is within 0.1 g of the sample bottle mass. **Make sure all bottles are well balanced (Δm ≤ 0.1 g) and have no cracks!**
-- [ ]  Pellet ribosomes by ultracentrifugation at 100 000 rcf / 4 °C / 16 hrs. A translucent ribosome pellet will be formed at the bottom of the centrifuge bottle. It may be difficult to see.
+- [ ]  Pellet ribosomes by ultracentrifugation at 100 000 rcf / 4 °C / 16 h. A translucent ribosome pellet will be formed at the bottom of the centrifuge bottle. It may be difficult to see.
 - [ ]  Discard the supernatant. Carefully, wash each pellet with 0.5 mL cold ribosome buffer. Repeat this step twice.
 
 ::::{hint} Note: Don’t disturb the ribosome pellet during washing.

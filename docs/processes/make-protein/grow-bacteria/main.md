@@ -52,7 +52,7 @@ Please read this section carefully. It contains important notes, resources, and 
 - [ ] **Prep overnight cultures.**
     - [ ] Add 5 mL LB + Kanamycin (50 µg/mL) to 15 mL culture tubes and label.
     - [ ] Inoculate your tubes with your expression strain working stock using a pipette tip.
-    - [ ] Incubate cultures overnight at 37 °C / 225 rpm for between 12 hrs and 16 hrs.
+    - [ ] Incubate cultures overnight at 37 °C / 225 rpm for between 12 h and 16 h.
 
 :::{hint} Note: you can use glycerol stocks OR fresh colonies as working stocks.
 :class: dropdown
@@ -65,7 +65,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 
 - [ ] **Perform bulk outgrowth.**
     - [ ] Back dilute overnight cultures 1:1000 into fresh media (e.g., add 100 µL of overnight and 100 mL LB with Kanamycin to 250 mL Erlenmeyer flasks).
-    - [ ] Incubate back diluted cultures at 37 °C / 225 rpm to mid-log phase (OD₆₀₀ between 0.4 and 0.6, ~3.5 hrs).
+    - [ ] Incubate back diluted cultures at 37 °C / 225 rpm to mid-log phase (OD₆₀₀ between 0.4 and 0.6, ~3.5 h).
 
 :::{hint} Note: leave ≥ 2.5x culture volume in headroom!
 :class: dropdown

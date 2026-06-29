@@ -182,7 +182,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] After 16 h of incubation, all strains should be at OD₆₀₀ = 2-3. If a strain is growing very slowly, remove the starter volume from the 96-deep well plate and place it into a 2 mL sterile tube, and shake at 260 rpm / 37 °C independently until desired OD is reached. The remaining starters can be left in the deep well plate on the bench. If a starter has overgrown above OD₆₀₀, dilute the starters to OD₆₀₀ = 3 using LB + Kan in a sterile tube.
 - [ ] Once all starter strains have been equilibrated to OD₆₀₀ 2-3, proceed to main growth by adding 500 mL of prewarmed  LB + Kan into a 2.5 L baffled flask (2x flasks).
 - [ ] Into a sterile 5 mL tube add 55 µL of each starter culture (excluding EF-Tu), and 1675 µL of EF-Tu starter culture. Mix well by vortexing and add entire content to 500 mL of  LB + Kan in 2.5 L baffled flask. Repeat for the second culture flask.
-- [ ] Incubate the cultures at 260 rpm / 37 °C / (1.5 - 2) hr (until OD₆₀₀ reaches 0.2 - 0.3). Check OD₆₀₀  after 1 h as baffled flask may cause cells to grow faster.
+- [ ] Incubate the cultures at 260 rpm / 37 °C / (1.5 - 2) h (until OD₆₀₀ reaches 0.2 - 0.3). Check OD₆₀₀  after 1 h as baffled flask may cause cells to grow faster.
 - [ ] Once OD₆₀₀ of 0.2- 0.3 is reached, inoculate each culture flask with 500 µL of 100 mM IPTG to achieve a final induction concentration of 0.1 mM IPTG.
 - [ ] Incubate cultures for a further at 260 rpm / 37 °C / 3 h.
 - [ ] During incubation periods of main growth, prepare protein purification buffers as described below and store at 4 °C until use. Don't add TCEP at this point.
