@@ -46,7 +46,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 :::
 
 - [ ] For a given reaction, assemble by adding the volume of reagents from the table in the order listed. Pay special attention to the handling of the Cytosol components:
-    - [ ]  Vortex SMix: Ensure thorough mixing; 10s vortex / 10s rest on ice; should be transparent with no visible precipitate; and add to the reaction tubes.
+    - [ ]  Vortex SMix: Ensure thorough mixing; 10 s vortex / 10 s rest on ice; should be transparent with no visible precipitate; and add to the reaction tubes.
     - [ ]  Vortex or pipette mix tRNA, and add to the reaction tubes.
     - [ ]  Vortex or pipette mix PMix, and add to the reaction tubes.
     - [ ]  **Do NOT vortex** ribosomes: *gently* pipette mix or flick the tube, and add to the reaction tubes.
@@ -65,7 +65,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 Set the P20 pipette to 10.1 µL to draw the master mix, then dispense into the plate well by pushing the plunger to the first stop only—this prevents bubble generation in the reaction.
 :::
 
-- [ ]  Measure deGFP fluorescence in the plate reader while incubating at 37°C.
+- [ ]  Measure deGFP fluorescence in the plate reader while incubating at 37 °C.
   
 ### Return reagents to their appropriate storage locations
 - [ ]  Add a black dot to the lid of each of Cytosol component. The number of dots indicates freeze–thaw cycles.

@@ -5,7 +5,7 @@ subtitle: "Process"
 
 # Overview
 
-Pierce660 is a quick (5 min) colorimetric method for total protein quantitation. Compared to other quantitation assays, we find Pierce660 to be simple and reproducible, with a wide dynamic range (50–2000 µg/mL), and robust to buffer composition, including detergents and reducing agents.
+Pierce660 is a quick (5 min) colorimetric method for total protein quantitation. Compared to other quantitation assays, we find Pierce660 to be simple and reproducible, with a wide dynamic range (50 µg/mL to 2000 µg/mL), and robust to buffer composition, including detergents and reducing agents.
 
 # Materials and Equipment
 
@@ -13,21 +13,23 @@ Pierce660 is a quick (5 min) colorimetric method for total protein quantitation.
      materials CSV from the table labeled `bom-pierce660` below.
      Without this labeled table, no BOM artifacts are generated. See issue #10. -->
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-pierce660
 
 | **Name** | **Category** | **Product** | **Manufacturer** | **Part #** | **Price** | **Storage** | **Link** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Pierce660 Reagent | Reagent | Pierce™ 660nm Protein Assay Reagent | Thermo Scientific | 22660 | $176.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/22660) |
-| BSA Protein Standard | Reagent | Pierce™ Bovine Serum Albumin Standard Ampules, 2 mg/mL | Thermo Scientific | 23209 | $81.65 | 4°C to 30°C | [link](https://www.thermofisher.com/order/catalog/product/23209) |
-| 96-well optical plate | Consumable | Microplate, 96 well, PS, U-bottom, clear | Greiner | 650101 | $156.14 | 4°C to 30°C | [link](https://shop.gbo.com/en/usa/products/bioscience/microplates/96-well-microplates/96-well-microplates-clear/650101.html) |
-| Plate Reader | Equipment | BioTek Cytation 5 Cell Imaging Multimode Reader | Agilent | CYT5MFAWSN | Quote required | 4°C to 30°C | [link](https://www.fishersci.com/shop/products/cytation-5-cell-imaging-multi-mode-reader-28/BTCYT5MFAW) |
+| Pierce660 Reagent | Reagent | Pierce™ 660nm Protein Assay Reagent | Thermo Scientific | 22660 | $176.65 | 4 °C to 30 °C | [link](https://www.thermofisher.com/order/catalog/product/22660) |
+| BSA Protein Standard | Reagent | Pierce™ Bovine Serum Albumin Standard Ampules, 2 mg/mL | Thermo Scientific | 23209 | $81.65 | 4 °C to 30 °C | [link](https://www.thermofisher.com/order/catalog/product/23209) |
+| 96-well optical plate | Consumable | Microplate, 96 well, PS, U-bottom, clear | Greiner | 650101 | $156.14 | 4 °C to 30 °C | [link](https://shop.gbo.com/en/usa/products/bioscience/microplates/96-well-microplates/96-well-microplates-clear/650101.html) |
+| Plate Reader | Equipment | BioTek Cytation 5 Cell Imaging Multimode Reader | Agilent | CYT5MFAWSN | Quote required | 4 °C to 30 °C | [link](https://www.fishersci.com/shop/products/cytation-5-cell-imaging-multi-mode-reader-28/BTCYT5MFAW) |
 
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 
-- [ ] Prepare a standard curve within the assay's working range (125 µg/mL to 2000 µg/mL). Remember to dilute the BSA stock in the same buffer used for your sample. The standards can be stored at −20°C for future assays.
+- [ ] Prepare a standard curve within the assay's working range (125 µg/mL to 2000 µg/mL). Remember to dilute the BSA stock in the same buffer used for your sample. The standards can be stored at −20 °C for future assays.
 
 :::{hint} Note: Standard curve dilution table
 :class: dropdown
@@ -65,8 +67,8 @@ Pierce660 is quite naturally sensitive to input volumes. Typically, multichannel
 An effective alternative is to _always_ reverse pipette your samples when using a multichannel pipette. Push your pipette plunger past the aspiration point to the blow-out point, as far as you can, and aspirate the full volume. You may see variance in the pipetted volume, but don't worry. When dispensing sample, dispense to the first point (aspiration) instead of all the way (blow-out). This ensures each sample is equally dispensed, in spite of variance in aspirated volume.
 :::
 
-- [ ] Cover your plate with aluminum foil and mix on a plate shaker at medium speed for 1 minute.
-- [ ] Incubate your plate at 25°C / 5 min. Samples should turn from brown to green.
+- [ ] Cover your plate with aluminum foil and mix on a plate shaker at medium speed for 1 min.
+- [ ] Incubate your plate at 25 °C / 5 min. Samples should turn from brown to green.
 - [ ] Using a plate reader, measure the absorbance of the samples at 660 nm.
 - [ ] Analyze results.
     - [ ] Subtract the absorbance of blank samples (i.e., BSA standard = 0 mg/µL) from all other samples ("background subtracted absorbance").

@@ -82,8 +82,8 @@ The responder module is assembled within a standard PURE reaction, following [As
     - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 0.4% (w/v) glucose.
     - [ ] Use a pipette tip to scrape some of the frozen bacteria off of the top and inoculate a 1.5 mL eppendorf containing the M9 media with 100 µg/mL carbenicillin.
     - [ ] Gently mix the tube by inverting 5 times. The solution in the tube will be named **M9-cell solution** in the following part.
-- [ ] Incubate samples and controls containing PURE reactions at 37°C for 1.5 h.
-- [ ] Mix varying amounts of samples or controls (between 1 µL or 2 µL) with 100 µL of the M9-cell solution.
+- [ ] Incubate samples and controls containing PURE reactions at 37 °C for 1.5 h.
+- [ ] Mix varying amounts of samples or controls (between 1 µL and 2 µL) with 100 µL of the M9-cell solution.
 
 ### Expected Performance
 
