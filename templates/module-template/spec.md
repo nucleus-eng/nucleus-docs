@@ -2,6 +2,7 @@
 title: "TODO: Category: Module Name"
 # Title format: "Category: Name" — e.g. "Reporter: deGFP", "Energy: PPK", "Base: Cytosol"
 subtitle: "Module Specification"
+status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
 thumbnail: schematic.png
 site:
     hide-toc: true
@@ -18,16 +19,23 @@ One paragraph. State what the module is, what it does, and what it adds to or mo
 
 When in doubt, read the existing Module specs.
 
-<!-- If this module has not been validated in Nucleus Cytosol ≥ v0.5, include the
-attention block below. Delete it if the module is fully validated. -->
+<!-- Status banner — keep it consistent with the `status:` frontmatter field (see CLAUDE.md
+"Page status"). New modules start as `status: draft` with the Draft banner below. When the
+module is complete but not yet validated in the current Cytosol, switch to
+`status: unvalidated-published` and use the "Not yet validated" banner (commented below). When
+validated, set `status: validated-published` and delete the banner entirely. -->
 
-:::{attention}
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
 
-This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on our legacy site [TODO: update link]() and in the following DevNotes:
+<!-- Use this banner instead when status is `unvalidated-published`:
+:::{attention} Not yet validated
+This Module has not been validated in Nucleus Cytosol ≥ v0.5. Documentation can be found on our legacy site [TODO: update link]() and in the following DevNotes:
 
 - [TODO: DevNote Title](https://doi.org/TODO)
-
 :::
+-->
 
 :::{figure} schematic.png
 :name: fig-schematic

@@ -1,6 +1,7 @@
 ---
 title: "TODO: Implementation Name"
 subtitle: Implementation
+status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
 site:
     hide-toc: true
 ---
