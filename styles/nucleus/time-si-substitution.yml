@@ -1,0 +1,12 @@
+extends: substitution
+message: "Use SI unit symbol '%s' instead of '%s' (NIST SP 811)."
+level: warning
+# NOTE: Vale anchors each substitution swap key at a leading word boundary, so a
+# pattern that begins with a non-word char (e.g. `\(`) silently never matches.
+# The range patterns therefore start at the first digit and keep `\)` inside the
+# capture group rather than leading with `\(`.
+swap:
+  '(\d+(?:\.\d+)?)\s*hrs?\b': '$1 h'
+  '(\d+\s*[-–]\s*\d+\))\s*hrs?\b': '$1 h'
+  '(\d+(?:\.\d+)?)\s*sec\b': '$1 s'
+  '(\d+\s*[-–]\s*\d+\))\s*sec\b': '$1 s'

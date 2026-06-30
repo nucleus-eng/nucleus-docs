@@ -1,5 +1,5 @@
 ---
-title: Make Protein Mix (36-pot)
+title: Make Protein Mix
 ---
 
 # Overview
@@ -16,7 +16,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-Complete all of the following before beginning this protocol. Each of the thirty-six proteins must be individually purified and stored at -80°C in Protein Buffer (30% glycerol).
+Complete all of the following before beginning this protocol. Each of the thirty-six proteins must be individually purified and stored at -80 °C in Protein Buffer (30% glycerol).
 
 - [Prepare Protein Purification Buffers and Media](../make-protein/prep-consumables/main.md)
 - [Grow and Induce Expression Strains](../make-protein/grow-bacteria/main.md)
@@ -147,7 +147,7 @@ Washing the assembled mix before concentrating removes residual salts (Na⁺, Im
 ## Step 6: Aliquot and Store
 
 - [ ] Aliquot PMix into PCR tubes or microcentrifuge tubes.
-- [ ] Store aliquots at -80°C.
+- [ ] Store aliquots at -80 °C.
 
 # Downloads
 

@@ -103,7 +103,7 @@ Prepare master mix for 3 reactions to account for dead volume.
 
 ### Expected Performance
 
-GFP production is quenched in synthetic cells expressing aHly, confirming functional pore insertion and membrane permeabilization. In the absence of `pT7-aHly`, GFP is produced in a subpopulation of cells. Samples incubated at 37°C for 7.5 hrs.
+GFP production is quenched in synthetic cells expressing aHly, confirming functional pore insertion and membrane permeabilization. In the absence of `pT7-aHly`, GFP is produced in a subpopulation of cells. Samples incubated at 37 °C for 7.5 h.
 
 :::{figure} cell-gfp-quench.png
 Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production is quenched when aHly is co-expressed, as small molecules leak through the inserted pores. (Right) GFP only: GFP is produced in a subpopulation of cells in the absence of aHly. Red channel: membrane label; green channel: GFP. Scale bar: 100 µm.
