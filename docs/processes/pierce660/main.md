@@ -5,7 +5,7 @@ subtitle: "Process"
 
 # Overview
 
-Pierce660 is a quick (5 min) colorimetric method for total protein quantitation. Compared to other quantitation assays, we find Pierce660 to be simple and reproducible, with a wide dynamic range (50 µg to 2000 µg/mL), and robust to buffer composition, including detergents and reducing agents.
+Pierce660 is a quick (5 min) colorimetric method for total protein quantitation. Compared to other quantitation assays, we find Pierce660 to be simple and reproducible, with a wide dynamic range (50 µg/mL to 2000 µg/mL), and robust to buffer composition, including detergents and reducing agents.
 
 # Materials and Equipment
 
