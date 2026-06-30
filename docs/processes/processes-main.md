@@ -15,7 +15,8 @@ The Base Cell is formed by encapsulating Base Cytosol (see below) in a liposome.
 flowchart TB
     BaseCytosol["Base Cytosol"] -->|"Add Module"| Cytosol["Cytosol"]
     ModSpec(["Module Spec"]) -.-> Cytosol
-    Cytosol & Membrane["Membrane"] -->|"Assemble Base Cell"| BaseCell["Base Cell"]
+    Cytosol & Membrane["Membrane"] --> J(( ))
+    J --> |"Assemble Base Cell"| BaseCell["Base Cell"]
     MemSpec(["Membrane Spec"]) -.-> Membrane
 
     style BaseCytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
@@ -24,11 +25,12 @@ flowchart TB
     style BaseCell fill:#6B7280,color:#ffffff,stroke:#4B5563
     style ModSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
     style MemSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style J fill:none,stroke:none
 
-    click BaseCytosol "./assemble-base-cytosol/main"
+    click BaseCytosol "../modules/base-cytosol/spec"
     click BaseCell "./assemble-base-cell/main"
     click ModSpec "../modules/modules-main"
-    click MemSpec "../modules/modules-main"
+    click MemSpec "../modules/membrane-popc-chol/spec"
 ```
 
 - [Assemble Base Cell](./assemble-base-cell/main.md)
@@ -41,7 +43,9 @@ Base Cytosol is a molecular system with a defined set of components including T7
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     AminoAcids["Amino Acid Mix"] -->|"Make SMix"| SMix["SMix"]
-    SMix & tRNA["tRNA"] & PMix["PMix"] & Ribosomes["Ribosomes"] -->|"Assemble Base Cytosol"| BaseCytosol["Base Cytosol"]
+    SMix & tRNA["tRNA"] & PMix["PMix"] & Ribosomes["Ribosomes"] --> J(( ))
+    
+    J --> |"Assemble Base Cytosol"| BaseCytosol["Base Cytosol"]
     BaseCytosol -->|"Add Module"| Cytosol["Cytosol"]
     ModSpec(["Module Spec"]) -.-> Cytosol
 
@@ -53,6 +57,7 @@ flowchart LR
     style BaseCytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
     style Cytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
     style ModSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style J fill:none,stroke:none
 
     click AminoAcids "./make-amino-acid-mix/main"
     click SMix "./make-small-molecule-mix/main"
