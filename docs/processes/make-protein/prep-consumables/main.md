@@ -10,32 +10,34 @@ This protocol is derived from the original PURE system ([Shimizu et al., 2001](h
 
 # Materials and Equipment
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-prep-consumables
 
 | **Name**                       | **Category** | **Product**                                                      | **Manufacturer**    | **Part #**   | **Price** | **Storage**  | **Link**                                                                                                                                                            |
 | ------------------------------ | ------------ | ---------------------------------------------------------------- | ------------------- | ------------ | --------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Potassium Hydroxide            | Salts        | Potassium hydroxide - ACS reagent, ≥85%, pellets                 | Sigma-Aldrich       | 221473-1KG   | $99.90    | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473)                                                                                                    |
-| Hydrochloric acid (1M)         | Salts        | Hydrochloric acid 1 N, Reagent Grade, 500 mL                     | VWR                 | E447-500L    | $72.46    | 4°C to 30°C    | [link](https://us.vwr.com/store/catalog/static_catalog.jsp?catalog_number=97064-756)                                                                                |
-| HEPES                          | Salts        | HEPES, Crystalline Powder, ≥99.5%, Poly bottle                   | Sigma-Aldrich       | H3375-500G   | $431      | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375)                                                                                                      |
-| Imidazole                      | Salts        | ReagentPlus® Imidazole, Crystalline, 99%                         | Sigma-Aldrich       | I202-500G    | $120      | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/i202)                                                                                                     |
-| Ammonium Chloride              | Salts        | Ammonium chloride, ACS reagent, ≥99.5%                           | Sigma-Aldrich       | 213330-500G  | $73.50    | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330)                                                                                                    |
-| Sodium Chloride                | Salts        | Sodium Chloride, Redi-Dri™, anhydrous, ACS, ≥99%                 | Sigma-Aldrich       | 746398-1KG   | $133.00   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398)                                                                                                    |
-| Potassium Chloride             | Salts        | Potassium Chloride, ACS reagent, 99.0-100.5%                     | Sigma-Aldrich       | P3911-1KG    | $146.00   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/p3911)                                                                                                     |
-| Magnesium Chloride hexahydrate | Salts        | BioXtra MgCl₂·6H₂O, Powder or Crystals, ≥99.0%                   | Sigma-Aldrich       | M2670-100G   | $50.50    | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670)                                                                                                       |
-| Glycerol                       | Supplements  | Glycerol, Molecular Biology Grade, Liquid, ≥99.0%                | Sigma-Aldrich       | G5516-1L     | $157.00   | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5516)                                                                                                      |
-| Lysozyme                       | Supplements  | Lysozyme from chicken egg white, ≥40 000 units/mg, lyophilized   | Sigma-Aldrich       | L6876-1G     | $76.90    | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876)                                                                                                      |
-| TCEP-HCl (0.5M)                | Supplements  | Bond-Breaker® TCEP Neutral Solution, 5 mL                        | Thermo Scientific   | 77720        | $175.65   | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/77720)                                                                                                    |
-| cOmplete Protease Inhibitor    | Supplements  | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets        | Roche               | 11873580001  | $472      | 1°C to 4°C     | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro)                                                                                                  |
-| LB                             | Media        | Luria Broth (Miller's LB Broth), Molecular Biology Grade, Powder | Sigma-Aldrich       | L3522-1KG    | $221      | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l3522)                                                                                                      |
-| IPTG                           | Media        | Isopropyl β-D-thiogalactoside, Powder, ≥99% (TLC)                | Sigma-Aldrich       | I6758-1G     | $89.90    | -25°C to -15°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/i6758)                                                                                                       |
-| Kanamycin                      | Media        | Kanamycin sulfate, BioReagent, ≥750 µg/mg, Powder                | Sigma-Aldrich       | K1377-1G     | $47.70    | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/k1377)                                                                                                      |
-| 15 mL centrifuge tubes         | Consumables  | Corning® 15 mL PP Centrifuge Tubes, Sterile, 50/Rack             | Corning             | 430790       | $230.44   | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790) |
-| 10 mL Luer lock syringes       | Consumables  | Syringes with BD Luer-Lok® Tip, 10 mL                            | BD Industrial/Difco | 550-80620-PK | $102.40   | 4°C to 30°C    | [link](https://www.spectrumchemical.com/bd-8482-sterile-luer-lok-8482-tip-general-purpose-syringes-320054)                                                          |
-| 0.22 µm syringe filters        | Consumables  | PES Syringe Filter, 0.22µm, 30mm, Sterile                        | CELLTREAT           | 229747       | $84       | 4°C to 30°C    | [link](https://www.celltreat.com/product/229747/)                                                                                                                   |
-| 0.22 µm vacuum filters         | Consumables  | Corning® 500 mL Vacuum Filter, 0.22 µm PES Membrane, Sterile     | Corning             | 431097       | $187.14   | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Cell-Culture/Filtration/Vacuum-Filters/Vacuum-Filtration-Systems/p/431097)                              |
+| Potassium Hydroxide            | Salts        | Potassium hydroxide - ACS reagent, ≥85%, pellets                 | Sigma-Aldrich       | 221473-1KG   | $99.90    | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473)                                                                                                    |
+| Hydrochloric acid (1M)         | Salts        | Hydrochloric acid 1 N, Reagent Grade, 500 mL                     | VWR                 | E447-500L    | $72.46    | 4 °C to 30 °C    | [link](https://us.vwr.com/store/catalog/static_catalog.jsp?catalog_number=97064-756)                                                                                |
+| HEPES                          | Salts        | HEPES, Crystalline Powder, ≥99.5%, Poly bottle                   | Sigma-Aldrich       | H3375-500G   | $431      | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375)                                                                                                      |
+| Imidazole                      | Salts        | ReagentPlus® Imidazole, Crystalline, 99%                         | Sigma-Aldrich       | I202-500G    | $120      | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/i202)                                                                                                     |
+| Ammonium Chloride              | Salts        | Ammonium chloride, ACS reagent, ≥99.5%                           | Sigma-Aldrich       | 213330-500G  | $73.50    | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330)                                                                                                    |
+| Sodium Chloride                | Salts        | Sodium Chloride, Redi-Dri™, anhydrous, ACS, ≥99%                 | Sigma-Aldrich       | 746398-1KG   | $133.00   | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398)                                                                                                    |
+| Potassium Chloride             | Salts        | Potassium Chloride, ACS reagent, 99.0-100.5%                     | Sigma-Aldrich       | P3911-1KG    | $146.00   | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/p3911)                                                                                                     |
+| Magnesium Chloride hexahydrate | Salts        | BioXtra MgCl₂·6H₂O, Powder or Crystals, ≥99.0%                   | Sigma-Aldrich       | M2670-100G   | $50.50    | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670)                                                                                                       |
+| Glycerol                       | Supplements  | Glycerol, Molecular Biology Grade, Liquid, ≥99.0%                | Sigma-Aldrich       | G5516-1L     | $157.00   | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5516)                                                                                                      |
+| Lysozyme                       | Supplements  | Lysozyme from chicken egg white, ≥40 000 units/mg, lyophilized   | Sigma-Aldrich       | L6876-1G     | $76.90    | -25 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876)                                                                                                      |
+| TCEP-HCl (0.5M)                | Supplements  | Bond-Breaker® TCEP Neutral Solution, 5 mL                        | Thermo Scientific   | 77720        | $175.65   | 4 °C to 30 °C    | [link](https://www.thermofisher.com/order/catalog/product/77720)                                                                                                    |
+| cOmplete Protease Inhibitor    | Supplements  | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets        | Roche               | 11873580001  | $472      | 1 °C to 4 °C     | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro)                                                                                                  |
+| LB                             | Media        | Luria Broth (Miller's LB Broth), Molecular Biology Grade, Powder | Sigma-Aldrich       | L3522-1KG    | $221      | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l3522)                                                                                                      |
+| IPTG                           | Media        | Isopropyl β-D-thiogalactoside, Powder, ≥99% (TLC)                | Sigma-Aldrich       | I6758-1G     | $89.90    | -25 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sial/i6758)                                                                                                       |
+| Kanamycin                      | Media        | Kanamycin sulfate, BioReagent, ≥750 µg/mg, Powder                | Sigma-Aldrich       | K1377-1G     | $47.70    | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/k1377)                                                                                                      |
+| 15 mL centrifuge tubes         | Consumables  | Corning® 15 mL PP Centrifuge Tubes, Sterile, 50/Rack             | Corning             | 430790       | $230.44   | 4 °C to 30 °C    | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790) |
+| 10 mL Luer lock syringes       | Consumables  | Syringes with BD Luer-Lok® Tip, 10 mL                            | BD Industrial/Difco | 550-80620-PK | $102.40   | 4 °C to 30 °C    | [link](https://www.spectrumchemical.com/bd-8482-sterile-luer-lok-8482-tip-general-purpose-syringes-320054)                                                          |
+| 0.22 µm syringe filters        | Consumables  | PES Syringe Filter, 0.22µm, 30mm, Sterile                        | CELLTREAT           | 229747       | $84       | 4 °C to 30 °C    | [link](https://www.celltreat.com/product/229747/)                                                                                                                   |
+| 0.22 µm vacuum filters         | Consumables  | Corning® 500 mL Vacuum Filter, 0.22 µm PES Membrane, Sterile     | Corning             | 431097       | $187.14   | 4 °C to 30 °C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Cell-Culture/Filtration/Vacuum-Filters/Vacuum-Filtration-Systems/p/431097)                              |
 
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 
@@ -51,10 +53,10 @@ This protocol is derived from the original PURE system ([Shimizu et al., 2001](h
 | Potassium Chloride | 1000                     | 74.55      | 74.55           | 1000           | room temp      |
 | Magnesium Chloride | 1000                     | 203.3      | 203.3           | 1000           | room temp      |
 | Imidazole-HCl      | 1000                     | 68.08      | 68.08           | 1000           | room temp      |
-| Lysozyme           | 30 mg/mL                 | -          | 0.3             | 10             | -20°C           |
+| Lysozyme           | 30 mg/mL                 | -          | 0.3             | 10             | -20 °C           |
 | LB                 | 1x                       | -          | 25              | 1000           | room temp      |
-| Kanamycin          | 50 mg/mL (1000x)         | -          | 2.5             | 50             | -20°C           |
-| IPTG               | 500                      | 238.3      | 238.3           | 50             | -20°C           |
+| Kanamycin          | 50 mg/mL (1000x)         | -          | 2.5             | 50             | -20 °C           |
+| IPTG               | 500                      | 238.3      | 238.3           | 50             | -20 °C           |
 - [ ] Adjust pH of HEPES and Imidazole with Potassium Hydroxide and Hydrochloric Acid, respectively.
 
 :::{hint} Note: prefer to use hydrated salts
@@ -80,7 +82,7 @@ HEPES and Imidazole are light sensitive compounds! Keep stock solutions in the d
 
 ## Prepare Stable Buffers
 
-Make the following buffers *in advance* and store at 4°C. Add all components *except* TCEP, which you MUST add fresh the day of use.
+Make the following buffers *in advance* and store at 4 °C. Add all components *except* TCEP, which you MUST add fresh the day of use.
 
 - [ ] **Wash Buffer** — used to equilibrate columns and wash samples. Contains a small amount of Imidazole (20 mM) to reduce nonspecific protein binding to columns, improving purity.
 
@@ -119,7 +121,7 @@ Make the following buffers *in advance* and store at 4°C. Add all components *e
 | Ultrapure water    | —                        | —                        | 419                |
 | **Total**          |                          |                          | **500**            |
 
-- [ ] **Protein Buffer (60% glycerol)** — added to samples in Protein Buffer as a cryoprotectant for storage at -80°C. Filter with a 0.22 µm syringe filter. To use, add an equal volume of 60% glycerol buffer to samples in Protein Buffer (1:1).
+- [ ] **Protein Buffer (60% glycerol)** — added to samples in Protein Buffer as a cryoprotectant for storage at -80 °C. Filter with a 0.22 µm syringe filter. To use, add an equal volume of 60% glycerol buffer to samples in Protein Buffer (1:1).
 
 | Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
 | ------------------ | ------------------------ | ------------------------ | ------------------ |
@@ -157,9 +159,9 @@ Make the following buffers on the same day as use.
 | Ultrapure water             | —                        | —                        | 72.8               |
 | **Total**                   |                          |                          | **100**            |
 
-  :::{hint} Note: Lysis Buffer is unstable at 4°C
+  :::{hint} Note: Lysis Buffer is unstable at 4 °C
   :class: dropdown
-  We've observed Lysis Buffer stored at 4°C becoming cloudy over the span of one week. We believe this is due to lysozyme aggregating in solution. We suspect this affects the activity of the lysozyme, so we recommend preparing Lysis Buffer fresh for use the same day.
+  We've observed Lysis Buffer stored at 4 °C becoming cloudy over the span of one week. We believe this is due to lysozyme aggregating in solution. We suspect this affects the activity of the lysozyme, so we recommend preparing Lysis Buffer fresh for use the same day.
   :::
 
 # Downloads

@@ -77,13 +77,13 @@ Module performance in PURE is documented in the DevNote [ClpXP Module Validation
 
 ::::{tab-item} Purified Proteins
 :::{figure} performance-purified-protein.png
-GFP fluorescence of samples containing purified proteins incubated at 37°C for 4 hours. These results correspond to Reaction Table 1.
+GFP fluorescence of samples containing purified proteins incubated at 37 °C for 4 h. These results correspond to Reaction Table 1.
 :::
 ::::
 
 ::::{tab-item} In Situ Expression
 :::{figure} performance-insitu.png
-GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incubated at 37°C for 6 hours. ClpX and ClpP DNAs are co-expressed in the same PURE reaction. These results correspond to Reaction Table 2.
+GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incubated at 37 °C for 6 h. ClpX and ClpP DNAs are co-expressed in the same PURE reaction. These results correspond to Reaction Table 2.
 :::
 ::::
 

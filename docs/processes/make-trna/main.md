@@ -61,34 +61,36 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Materials and Equipment
 
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
 :label: bom-make-trna
 
 | Name                                          | Category    | Product                                                                                          | Manufacturer        | Part #      | Price   | Storage        | Link                                                                                                                                                                                                                                                                                             |
 | --------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------ | ------------------- | ----------- | ------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Sodium Acetate                                | Salts       | Sodium acetate trihydrate,ACS reagent, ≥99%                                                      | Sigma-Aldrich       | 236500-500G | $87.90  | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/236500)                                                                                                                                                                                                                                 |
-| Magnesium Acetate                             | Salts       | Magnesium acetate tetrahydrate                                                                   | Sigma-Aldrich       | M0631-100G  | $34.80  | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631)                                                                                                                                                                                                                                  |
-| Sodium Chloride                               | Salts       | Sodium Chloride, Redi-Dri™, anhydrous, free-flowing, ACS, ≥99%                                   | Sigma-Aldrich       | 746398-1KG  | $133.00 | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398)                                                                                                                                                                                                                                 |
-| Acetic Acid (glacial)                         | Salts       | Acetic Acid, Glacial (Certified ACS), Fisher Chemical                                            | Fisher Scientific   | A38-212     | $458    | 4°C to 30°C    | [link](https://www.fishersci.ca/shop/products/acetic-acid-glacial-certified-acs-fisher-chemical-9/A38212)                                                                                                                                                                                        |
-| Acid Phenol (pH 4.5)                          | Supplements | Invitrogen ambion Acid Phenol:Chloroform, pH 4.5 (with IAA, 125:24:1)                            | Fisher Scientific   | AM9722      | $313.65 | 2°C to 8°C     | [link](https://www.fishersci.com/shop/products/ambion-acid-phenol-chloroform-ph-4-5-with-iaa-125-24-1-2/AM9722)                                                                                                                                                                                  |
-| Isopropanol                                   | Supplements | BioReagent 2-Propanol, Molecular Biology Grade, Liquid, ≥99.5%                                   | Sigma-Aldrich       | I9516-1L    | $142.00 | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/i9516)                                                                                                                                                                                                                                   |
-| Ethanol                                       | Supplements | Ethanol, HPLC/Spectrophotometric Grade, Liquid, ≥99.5%, Glass bottle, 200 Proof                  | Sigma-Aldrich       | 459828-4L   | $493.00 | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/459828)                                                                                                                                                                                                                                 |
-| SYBR-Green stain                              | Supplements | Invitrogen sybr Green I Nucleic Acid Gel Stain 10,000x concentrate in DMSO                       | Fisher Scientific   | S7567       | $791.70 | -25°C to -15°C | [link](https://www.fishersci.com/shop/products/invitrogen-sybr-green-i-nucleic-acid-gel-stain-10-000x-concentrate-dmso-3/S7567)                                                                                                                                                                  |
-| 2x TBE-Urea sample buffer                     | Supplements | Invitrogen novex TBE-Urea Sample Buffer (2x)                                                     | Thermo Scientific   | LC6876      | $75.60  | 2°C to 8°C     | [link](https://www.thermofisher.com/order/catalog/product/LC6876)                                                                                                                                                                                                                                |
-| NEB low range ssRNA ladder                    | Supplements | Low Range ssRNA Ladder - 100 gel lanes                                                           | New England Biolabs | N0364S      | $87.00  | -25°C to -15°C | [link](https://www.neb.com/en-us/products/n0364-low-range-ssrna-ladder)                                                                                                                                                                                                                          |
-| LB                                            | Media       | Luria Broth (Miller's LB Broth), Non-Sterile, pH 6.8-7.2, Molecular Biology Grade, Powder        | Sigma-Aldrich       | L3522-1KG   | $221    | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l3522)                                                                                                                                                                                                                                   |
-| A19 *E. coli*                                 | Strains     | A19 (RNase I mutant)                                                                             | CGSC                | 5997        | $130.00 | -80°C          | [link](https://ecgrc.net/index.php/product/a19/)                                                                                                                                                                                                                                                 |
-| Culture tubes (14 mL)                         | Consumables | 14mL Culture Tube and Dual Cap, PP, Sterile                                                      | CELLTREAT           | 230439      | $190.00 | 4°C to 30°C    | [link](https://www.celltreat.com/product/230439/)                                                                                                                                                                                                                                                |
-| 2 L baffled Erlenmeyer flasks                 | Consumables | PYREX® 2L Delong Shaker Erlenmeyer Flask with Baffles                                            | Corning             | 4444-2L     | $96.44  | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Bioprocess-and-Scale-up/Erlenmeyer-Flasks/Erlenmeyer-Flasks%2C-Glass/PYREX%C2%AE-Flask-with-Baffles/p/pyrexFlaskBaffled)                                                                                                             |
-| 1 L centrifuge bottles                        | Consumables | Thermo Scientific™ # Fiberlite 1000mL Bottles                                                    | Thermo Scientific   | 010-1491    | $326.84 | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/010-1491)                                                                                                                                                                                                                              |
-| 50 mL centrifuge tubes                        | Consumables | Corning® 50 mL Polypropylene Centrifuge Tubes, Sterile, Racked, CentriStar™ Cap                  | Corning             | 430828      | $436.88 | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2b/US/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-50-mL-Centrifuge-Tubes/p/430828)                                                                                                                             |
-| 15 mL centrifuge tubes                        | Consumables | Corning® 15 mL PP Centrifuge Tubes, Rack Packed with CentriStar™ Cap, Sterile, 50/Rack, 500/Case | Corning             | 430790      | $230.44 | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790)                                                                                                                              |
-| Slide-A-Lyzer G3 Dialysis Cassettes (3.5 kDa) | Consumables | Slide-A-Lyzer™ G3 Dialysis Cassettes, 3.5K MWCO                                                  | Thermo Scientific   | A52966      | $128.70 | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/A52966)                                                                                                                                                                                                                                |
-| Amicon Ultra 0.5 mL - 3 kDa                   | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO                                                     | Millipore Sigma     | UFC5003     | $63.00  | 4°C to 30°C    | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc5003)                                                                                                                                                                                                                                    |
-| TBE-Urea 10% gel                              | Consumables | 10% Mini-PROTEAN                                                                                 | Bio-Rad             | 4566033     | $41.00  | 2°C to 8°C     | [link](https://www.bio-rad.com/en-us/sku/4566033-10-mini-protean-tbe-urea-gel-10-well-30-ul?ID=4566033)                                                                                                                                                                                          |
-| glass serological pipettes                    | Consumables | PYREX® 10 mL Glass Serological Pipets, Sterile, Individually Paper/Plastic Wrapped, Plugged      | Corning             | 7077-10N    | $690.49 | 4°C to 30°C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Glassware/Serological-Pipets%2C-Glass/PYREX%C2%AE-Disposable-Glass-Serological-Pipets%2C-Individually-Wrapped%2C-Sterile%2C-Plugged%2C-To-Deliver/p/pyrexPipetDisposableGlassSeriologicalIndividuallyWrappedSterilePluggedToDeliver) |
+| Sodium Acetate                                | Salts       | Sodium acetate trihydrate,ACS reagent, ≥99%                                                      | Sigma-Aldrich       | 236500-500G | $87.90  | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/236500)                                                                                                                                                                                                                                 |
+| Magnesium Acetate                             | Salts       | Magnesium acetate tetrahydrate                                                                   | Sigma-Aldrich       | M0631-100G  | $34.80  | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631)                                                                                                                                                                                                                                  |
+| Sodium Chloride                               | Salts       | Sodium Chloride, Redi-Dri™, anhydrous, free-flowing, ACS, ≥99%                                   | Sigma-Aldrich       | 746398-1KG  | $133.00 | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398)                                                                                                                                                                                                                                 |
+| Acetic Acid (glacial)                         | Salts       | Acetic Acid, Glacial (Certified ACS), Fisher Chemical                                            | Fisher Scientific   | A38-212     | $458    | 4 °C to 30 °C    | [link](https://www.fishersci.ca/shop/products/acetic-acid-glacial-certified-acs-fisher-chemical-9/A38212)                                                                                                                                                                                        |
+| Acid Phenol (pH 4.5)                          | Supplements | Invitrogen ambion Acid Phenol:Chloroform, pH 4.5 (with IAA, 125:24:1)                            | Fisher Scientific   | AM9722      | $313.65 | 2 °C to 8 °C     | [link](https://www.fishersci.com/shop/products/ambion-acid-phenol-chloroform-ph-4-5-with-iaa-125-24-1-2/AM9722)                                                                                                                                                                                  |
+| Isopropanol                                   | Supplements | BioReagent 2-Propanol, Molecular Biology Grade, Liquid, ≥99.5%                                   | Sigma-Aldrich       | I9516-1L    | $142.00 | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/i9516)                                                                                                                                                                                                                                   |
+| Ethanol                                       | Supplements | Ethanol, HPLC/Spectrophotometric Grade, Liquid, ≥99.5%, Glass bottle, 200 Proof                  | Sigma-Aldrich       | 459828-4L   | $493.00 | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigald/459828)                                                                                                                                                                                                                                 |
+| SYBR-Green stain                              | Supplements | Invitrogen sybr Green I Nucleic Acid Gel Stain 10,000x concentrate in DMSO                       | Fisher Scientific   | S7567       | $791.70 | -25 °C to -15 °C | [link](https://www.fishersci.com/shop/products/invitrogen-sybr-green-i-nucleic-acid-gel-stain-10-000x-concentrate-dmso-3/S7567)                                                                                                                                                                  |
+| 2x TBE-Urea sample buffer                     | Supplements | Invitrogen novex TBE-Urea Sample Buffer (2x)                                                     | Thermo Scientific   | LC6876      | $75.60  | 2 °C to 8 °C     | [link](https://www.thermofisher.com/order/catalog/product/LC6876)                                                                                                                                                                                                                                |
+| NEB low range ssRNA ladder                    | Supplements | Low Range ssRNA Ladder - 100 gel lanes                                                           | New England Biolabs | N0364S      | $87.00  | -25 °C to -15 °C | [link](https://www.neb.com/en-us/products/n0364-low-range-ssrna-ladder)                                                                                                                                                                                                                          |
+| LB                                            | Media       | Luria Broth (Miller's LB Broth), Non-Sterile, pH 6.8-7.2, Molecular Biology Grade, Powder        | Sigma-Aldrich       | L3522-1KG   | $221    | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l3522)                                                                                                                                                                                                                                   |
+| A19 *E. coli*                                 | Strains     | A19 (RNase I mutant)                                                                             | CGSC                | 5997        | $130.00 | -80 °C          | [link](https://ecgrc.net/index.php/product/a19/)                                                                                                                                                                                                                                                 |
+| Culture tubes (14 mL)                         | Consumables | 14mL Culture Tube and Dual Cap, PP, Sterile                                                      | CELLTREAT           | 230439      | $190.00 | 4 °C to 30 °C    | [link](https://www.celltreat.com/product/230439/)                                                                                                                                                                                                                                                |
+| 2 L baffled Erlenmeyer flasks                 | Consumables | PYREX® 2L Delong Shaker Erlenmeyer Flask with Baffles                                            | Corning             | 4444-2L     | $96.44  | 4 °C to 30 °C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Bioprocess-and-Scale-up/Erlenmeyer-Flasks/Erlenmeyer-Flasks%2C-Glass/PYREX%C2%AE-Flask-with-Baffles/p/pyrexFlaskBaffled)                                                                                                             |
+| 1 L centrifuge bottles                        | Consumables | Thermo Scientific™ # Fiberlite 1000mL Bottles                                                    | Thermo Scientific   | 010-1491    | $326.84 | 4 °C to 30 °C    | [link](https://www.thermofisher.com/order/catalog/product/010-1491)                                                                                                                                                                                                                              |
+| 50 mL centrifuge tubes                        | Consumables | Corning® 50 mL Polypropylene Centrifuge Tubes, Sterile, Racked, CentriStar™ Cap                  | Corning             | 430828      | $436.88 | 4 °C to 30 °C    | [link](https://ecatalog.corning.com/life-sciences/b2b/US/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-50-mL-Centrifuge-Tubes/p/430828)                                                                                                                             |
+| 15 mL centrifuge tubes                        | Consumables | Corning® 15 mL PP Centrifuge Tubes, Rack Packed with CentriStar™ Cap, Sterile, 50/Rack, 500/Case | Corning             | 430790      | $230.44 | 4 °C to 30 °C    | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790)                                                                                                                              |
+| Slide-A-Lyzer G3 Dialysis Cassettes (3.5 kDa) | Consumables | Slide-A-Lyzer™ G3 Dialysis Cassettes, 3.5K MWCO                                                  | Thermo Scientific   | A52966      | $128.70 | 4 °C to 30 °C    | [link](https://www.thermofisher.com/order/catalog/product/A52966)                                                                                                                                                                                                                                |
+| Amicon Ultra 0.5 mL - 3 kDa                   | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO                                                     | Millipore Sigma     | UFC5003     | $63.00  | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc5003)                                                                                                                                                                                                                                    |
+| TBE-Urea 10% gel                              | Consumables | 10% Mini-PROTEAN                                                                                 | Bio-Rad             | 4566033     | $41.00  | 2 °C to 8 °C     | [link](https://www.bio-rad.com/en-us/sku/4566033-10-mini-protean-tbe-urea-gel-10-well-30-ul?ID=4566033)                                                                                                                                                                                          |
+| glass serological pipettes                    | Consumables | PYREX® 10 mL Glass Serological Pipets, Sterile, Individually Paper/Plastic Wrapped, Plugged      | Corning             | 7077-10N    | $690.49 | 4 °C to 30 °C    | [link](https://ecatalog.corning.com/life-sciences/b2c/US/en/Glassware/Serological-Pipets%2C-Glass/PYREX%C2%AE-Disposable-Glass-Serological-Pipets%2C-Individually-Wrapped%2C-Sterile%2C-Plugged%2C-To-Deliver/p/pyrexPipetDisposableGlassSeriologicalIndividuallyWrappedSterilePluggedToDeliver) |
 
 :::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 # Protocol
 
@@ -153,66 +155,66 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ] Add 3 mL Luria Broth (LB) under sterile conditions to three (3) 14 mL culture tubes. Two (2) tubes will be used to prepare 6 mL of overnight culture and one (1) tube will be used as a negative control. 6 mL of overnight culture is enough to inoculate 4 x 450 mL of bulk outgrowths. 
 - [ ] Label two tubes “(+)” and seed with an A19 stock (colony or glycerol stock; see note above).
 - [ ] Label the other tube “(-)”. This will be your negative control, used to test your sterile technique.
-- [ ] Incubate all tubes overnight at 37°C / (225 - 250) rpm / (10 - 16) hr.
+- [ ] Incubate all tubes overnight at 37 °C / (225 - 250) rpm / (10 - 16) h.
 
 **Perform bulk outgrowth.**
 - [ ] Check if (-) has growth. If not, continue.
 - [ ] Seed 4x 450 mL fresh media in 4x 2L baffled Erlenmeyer flasks with 1:500 overnight culture (e.g., 900 µL overnight into each flask with 450 mL media).
-- [ ] Incubate back diluted cultures at 37°C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8). This took us ~3 hrs.
+- [ ] Incubate back diluted cultures at 37 °C / (225-250) rpm to mid-log phase (OD₆₀₀ between 0.6 and 0.8). This took us ~3 h.
 
 **Pellet, wash, and store cells.**
-- [ ] Fill 1 L centrifuge bottles with culture. Balance centrifuge bottles against each other and pellet cultures at 16 000 rcf / 4°C / 10 min.
+- [ ] Fill 1 L centrifuge bottles with culture. Balance centrifuge bottles against each other and pellet cultures at 16 000 rcf / 4 °C / 10 min.
 - [ ] Decant supernatant, add fresh culture, and repeat centrifugation as above, working through the remaining culture. You should end up with large pellets at the bottom of each centrifuge bottle.
-- [ ] Wash the pellets by resuspending in 500 mL cold (4°C) NaCl (0.9%) then pelleting again at 16 000 rcf / 4°C / 10 min.
+- [ ] Wash the pellets by resuspending in 500 mL cold (4 °C) NaCl (0.9%) then pelleting again at 16 000 rcf / 4 °C / 10 min.
 - [ ] Transfer pellets by spatula into a tared bag weigh and record the mass.
-- [ ] Flash freeze pellet in liquid nitrogen and store at -80°C.
+- [ ] Flash freeze pellet in liquid nitrogen and store at -80 °C.
 
 ## Nucleus acid extraction by precipitation
 
 **First Nucleic Acid Extraction:**
-- [ ] Set centrifuge to 4°C and set shaking incubator to 37°C.
+- [ ] Set centrifuge to 4 °C and set shaking incubator to 37 °C.
 - [ ] Resuspend 2 g of biomass into 18 mL of Extraction Buffer: NaOAc (50 mM), Mg(OAc)2 (10 mM), pH 5.0 in a 50 mL centrifuge tube by vortexing.
 - [ ] In a fume hood and wearing the appropriate PPE, add 18 mL of Acid Phenol (pH 4.5) using a glass serological pipette.
 - [ ] Cap the 50 mL centrifuge tube and seal with parafilm to prevent your sample spilling.
-- [ ] Incubate at 37°C / 225 rpm / 30 min in a shaking incubator. Tape tubes against the bottom plate of the shaking incubator horizontally so that samples are shaking laterally.
-- [ ] Centrifuge at 4000 rcf / 4°C / 15 min. You should observe three (3) layers: the aqueous (top) fraction, the organic (lower) fraction, and a middle fraction of cell debris separating them.
+- [ ] Incubate at 37 °C / 225 rpm / 30 min in a shaking incubator. Tape tubes against the bottom plate of the shaking incubator horizontally so that samples are shaking laterally.
+- [ ] Centrifuge at 4000 rcf / 4 °C / 15 min. You should observe three (3) layers: the aqueous (top) fraction, the organic (lower) fraction, and a middle fraction of cell debris separating them.
 - [ ] Carefully collect the aqueous fraction by serological pipette, without disturbing the cell debris fraction, and transfer to a fresh 50 mL centrifuge tube.
 
 **Second Nucleic Acid Extraction:**
-- [ ] Add 14 mL of Extraction Buffer to Acid Phenol, seal the 50 mL centrifuge tube with parafilm, and incubate at 37°C / 225 rpm / 15 min.
-- [ ] Centrifuge at 4000 rcf / 4°C / 15 min.
+- [ ] Add 14 mL of Extraction Buffer to Acid Phenol, seal the 50 mL centrifuge tube with parafilm, and incubate at 37 °C / 225 rpm / 15 min.
+- [ ] Centrifuge at 4000 rcf / 4 °C / 15 min.
 - [ ] Collect the aqueous fraction and combine with the first nucleic acid extraction (total volume between 30 mL and 32 mL).
 
 **Precipitate Nucleic Acids (RNA & DNA):**
-- [ ] Set centrifuge to 25°C.
+- [ ] Set centrifuge to 25 °C.
 - [ ] Add NaCl (5 M) to the aqueous phase to a final concentration of 0.2 M (~1.5 mL). Mix by inversion and split evenly into 2x 50 mL centrifuge tubes.
 - [ ] Precipitate nucleic acids by adding one volume of isopropanol (~17 mL) to each tube and incubate at room temperature for 10 min. The mixture should turn visibly cloudy.
-- [ ] Pellet nucleic acid precipitate via centrifugation at 14 500 rcf / 25°C / 15 min.
+- [ ] Pellet nucleic acid precipitate via centrifugation at 14 500 rcf / 25 °C / 15 min.
 - [ ] Wash the pellet with EtOH (70%):
-	- [ ] Decant supernatant and wash nucleic acid pellet with 10 mL cold (-20°C) EtOH (70%).
-    - [ ] Re-pellet nucleic acid pellet by centrifugation at 14 500 rcf / 25°C / 5 min.
+	- [ ] Decant supernatant and wash nucleic acid pellet with 10 mL cold (-20 °C) EtOH (70%).
+    - [ ] Re-pellet nucleic acid pellet by centrifugation at 14 500 rcf / 25 °C / 5 min.
     - [ ] Decant the supernatant and allow the pellet to air dry for 10 min.
 
 **Remove rRNA by precipitation:**
-- [ ] Resuspend each pellet into 15 mL of cold (4°C) NaCl (1 M) by vortexing or pipetting. Ensure the pellet is fully dissolved. Allow NaCl (1 M) solution to hydrate pellet for (10 - 15) min at room temperature to help the pellet dissolve.
-- [ ] Precipitate rRNA by centrifugation at 9500 rcf / 4°C / 20 min.
+- [ ] Resuspend each pellet into 15 mL of cold (4 °C) NaCl (1 M) by vortexing or pipetting. Ensure the pellet is fully dissolved. Allow NaCl (1 M) solution to hydrate pellet for (10 - 15) min at room temperature to help the pellet dissolve.
+- [ ] Precipitate rRNA by centrifugation at 9500 rcf / 4 °C / 20 min.
 - [ ] Decant the supernatant to a new 50 mL centrifuge tube.
 
 **Precipitate remaining DNA and tRNA nucleic acids:** 
-- [ ] Add 2 volumes (approximately 30 mL) of cold (-20°C) EtOH (100%) to the supernatant and incubate at -20°C / >30 min to precipitate remaining nucleic acids. You can perform this step overnight. 
-- [ ] Centrifuge at 14 500 rcf / 4°C / 5 min. 
+- [ ] Add 2 volumes (approximately 30 mL) of cold (-20 °C) EtOH (100%) to the supernatant and incubate at -20 °C / >30 min to precipitate remaining nucleic acids. You can perform this step overnight. 
+- [ ] Centrifuge at 14 500 rcf / 4 °C / 5 min. 
 - [ ] Wash the pellet with EtOH (70%) as above.
 
 **Remove DNA by precipitation:**
-- [ ] Set centrifuge to 25°C.
-- [ ] Dissolve the pellet in 6 mL of NaOAc (300 mM, pH 5.0). As needed to ensure the pellet is fully dissolved, heat samples up to 60°C, pipette mix, and/or vortex. If the pellet is visibly small, you can dissolve each pellet in 3 mL of NaOAc (0.3 M, pH 5.0) and pool them together, totaling 6 mL.
+- [ ] Set centrifuge to 25 °C.
+- [ ] Dissolve the pellet in 6 mL of NaOAc (300 mM, pH 5.0). As needed to ensure the pellet is fully dissolved, heat samples up to 60 °C, pipette mix, and/or vortex. If the pellet is visibly small, you can dissolve each pellet in 3 mL of NaOAc (0.3 M, pH 5.0) and pool them together, totaling 6 mL.
 - [ ] Add 0.56 volumes of isopropanol (~3.4 mL) to each nucleic acid solution and incubate at room temperature for 10 min.
-- [ ] Centrifuge at 14 500 rcf / 25°C / 5 min. Decant the supernatant to a 15 mL centrifuge tube.
+- [ ] Centrifuge at 14 500 rcf / 25 °C / 5 min. Decant the supernatant to a 15 mL centrifuge tube.
 
 **Precipitate tRNAs:**
-- [ ] Set the centrifuge to 4°C.
-- [ ] Add 2.3 mL of isopropanol to the supernatant (supernatant:isopropanol is 100:95) and incubate at -20°C / >30 min. This step can be performed overnight.
-- [ ] Centrifuge the suspension at 14 500 rcf / 4°C / 15 min.
+- [ ] Set the centrifuge to 4 °C.
+- [ ] Add 2.3 mL of isopropanol to the supernatant (supernatant:isopropanol is 100:95) and incubate at -20 °C / >30 min. This step can be performed overnight.
+- [ ] Centrifuge the suspension at 14 500 rcf / 4 °C / 15 min.
 - [ ] Wash the pellet with EtOH (70%) as above.
 - [ ] Resuspend the tRNA pellet in 1.5 mL of nuclease-free water and keep on ice.
 
@@ -228,7 +230,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 	- [ ] Carefully pipette 1.5 mL of resuspended tRNAs into the cassette. Avoid puncturing the membrane!
 	- [ ] Remove the excess air in the cassette by simultaneously pressing the membrane gently on both sides and inserting the cap and locking it into place.
 - [ ] Dialyze Sample: 
-	- [ ] Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4°C / 2 hrs. We do this by putting our beaker in a bucket of ice on a stir plate. 
+	- [ ] Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4 °C / 2 h. We do this by putting our beaker in a bucket of ice on a stir plate. 
 	- [ ] Change the dialysis buffer and continue dialyzing overnight.
 
 ## Concentrate
@@ -269,8 +271,8 @@ NEB has a great [tool](https://nebiocalculator.neb.com/#!/od260) for converting 
     - [ ] Dilute tRNAs to 40 ng/µL tRNA in nuclase-free water.
     - [ ] Prepare 20 ng/µL sample by adding 10 µL of 40 ng/µL tRNA to 10 µL 2x TBE-Urea sample buffer.
     - [ ] Prepare an ssRNA ladder. We use the NEB low range ssRNA (2 µL ladder + 2 µL 2x sample buffer).
-    - [ ] Incubate sample and and ladder at 65°C / 3 min → 4°C / hold using a thermal cycler.
-- [ ] Load 200 ng of tRNA (10 µL at 20 ng/µL) onto the TBE-Urea gel and run at 125V / 2.5 hr.
+    - [ ] Incubate sample and and ladder at 65 °C / 3 min → 4 °C / hold using a thermal cycler.
+- [ ] Load 200 ng of tRNA (10 µL at 20 ng/µL) onto the TBE-Urea gel and run at 125V / 2.5 h.
 - [ ] Meanwhile, prepare SYBR-Green stain (4 µL in 40 mL water) to stain gel.
 - [ ] Soak gel in SYBR-Green stain and visualize gel using UV or blue-light transilluminator. You should see multiple distinct bands around 75-90 nt.
 
@@ -286,7 +288,7 @@ If your samples appear as a smear on your gel, consider testing your input buffe
 
 ## Storage
 
-- [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80°C.
+- [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80 °C.
 
 # Downloads
 

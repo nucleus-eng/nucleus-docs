@@ -10,21 +10,21 @@ exports:
 | **Name** | **Product** | **Manufacturer** | Storage |
 | --- | --- | --- | --- |
 | Glucose | D-(+)-Glucose, 99.5% | Sigma-Aldrich (G8270-1KG) | Room temperature |
-| POPC | 16:0-18:1 PC (POPC) | Avanti Research (A80557) | -20°C |
-| Liss-Rhod-PE | 18:1 Liss Rhod PE | Avanti Research (A81150) | -20°C |
-| Cholesterol | Cholesterol (plant) | Avanti Research (A80100) | -20°C |
+| POPC | 16:0-18:1 PC (POPC) | Avanti Research (A80557) | -20 °C |
+| Liss-Rhod-PE | 18:1 Liss Rhod PE | Avanti Research (A81150) | -20 °C |
+| Cholesterol | Cholesterol (plant) | Avanti Research (A80100) | -20 °C |
 | Mineral Oil | Mineral oil, pure | Thermo Scientific (415080010) | Room temperature |
 | Glass Syringe | Glass Syringe 250 µL and 50 µL | Hamilton (14-815-238, 14-815-216) | Room temperature |
 | Glass vials | 1.8 mL glass vials | Fisher Scientific (03-339-22A) | Room temperature |
 | Chloroform | Chloroform, 99+% | Thermo Scientific (158210010) | Flammable storage cabinet - Room temperature |
 | Glass serological pipette | 10 mL glass serological pipettes | Corning (7077-10N) | Room temperature |
-| Energy Solution | SMix | b.next | -85°C to -75°C |
-| PURE Protein Mix | PMix | b.next | -85°C to -75°C |
-| *E. coli* Ribosomes | Ribosomes | b.next | -85°C to -75°C |
-| *E. coli* tRNAs | tRNAs | b.next | -85°C to -75°C |
-| Magnesium acetate | Magnesium acetate | Sigma-Aldrich (M5661) | -85°C to -15°C |
-| DNA template | `pOpen-deGFP` | b.next | -85°C to -15°C |
-| RNAse Inhibitor, Murine | RNAse Inhibitor, Murine | NEB (M0314S) | -85°C to -15°C |
+| Energy Solution | SMix | b.next | -85 °C to -75 °C |
+| PURE Protein Mix | PMix | b.next | -85 °C to -75 °C |
+| *E. coli* Ribosomes | Ribosomes | b.next | -85 °C to -75 °C |
+| *E. coli* tRNAs | tRNAs | b.next | -85 °C to -75 °C |
+| Magnesium acetate | Magnesium acetate | Sigma-Aldrich (M5661) | -85 °C to -15 °C |
+| DNA template | `pOpen-deGFP` | b.next | -85 °C to -15 °C |
+| RNAse Inhibitor, Murine | RNAse Inhibitor, Murine | NEB (M0314S) | -85 °C to -15 °C |
 | Nuclease-free water | Nuclease-free water | ThermoFisher Scientific (AM9916) | Room temperature |
 | PCR tubes | Thin-walled, RNase-free PCR tubes | ThermoFisher Scientific (AM12225) | Room temperature |
 | Optical Adhesive Film | MicroAmp Optical Adhesive Film | ThermoFisher Scientific (4311971) | Room temperature |
