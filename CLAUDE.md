@@ -139,23 +139,9 @@ The site TOC is defined entirely in `myst.yml`. When adding a new page, you must
 
 **When migrating content into a pre-created stub directory**, scan for and delete any template placeholder files before committing. Stub directories are often created with placeholder images (e.g. `behavior/ppk-kinetics.png`, `behavior/ppk-endpoint.png`) that have no real data and were copied from the implementation template. Run `git ls-files docs/modules/<module>/` to see what's tracked, and `git rm` any placeholders that have not been replaced by real figures.
 
-### Lab-ready protocol pipeline (issue #10)
+### Lab-ready protocol pipeline
 
-`scripts/build-protocols.py` generates downloadable artifacts from process pages — **derived files are never committed; they are rebuilt at deploy so they cannot drift from the source page.** For each `docs/processes/**/main.md` (or `*-main.md`) that has a `# Protocol` heading, it writes to a gitignored `generated/` dir beside the page:
-
-- `<slug>-protocol.pdf` — a pure bench checklist: page title + step headings + `- [ ]` items + a brief hazard note (if present). All prose, admonitions, and figures are stripped; **tables are kept** (recipes/reaction setups are part of the procedure). `<slug>` is the process's directory name.
-- `<slug>-bom.pdf` + `<slug>-materials.csv` — generated from the page's Bill of Materials, supplied as **either** an inline table labeled `bom-<slug>` **or** an uploaded `resources/<slug>-bom.csv` beside the page (whichever exists; see `resolve_bom_source` in `build-protocols.py`). Generated only if one of those exists.
-
-Markers the generator keys off: `# Protocol` heading (pages without one are skipped, as are stubs with no checklist items); frontmatter `title:`; an admonition titled `Hazardous Materials` for the hazard note; a `bom-<slug>` table **or** a `resources/<slug>-bom.csv` for the BOM/CSV. Cross-reference roles (`{ref}`, `{numref}`) in protocol steps are neutralized to a plain noun, since they often point at stripped sections.
-
-**Rules:**
-- `generated/` is gitignored (`**/generated/`) — never commit PDFs/CSVs. Treat `resources/` as source assets, `generated/` as derived.
-- Download buttons point at the relative generated path, e.g. `` {button}`download <generated/<slug>-protocol.pdf>` ``. MyST resolves these at build time, so **generation must run before `myst build`** (the deploy/CI ordering). Only include a BOM button if the page has a BOM source (`bom-<slug>` table or `resources/<slug>-bom.csv`).
-- A page's BOM may be an inline table labeled `bom-<slug>` (the slug must match the directory name) **or** an uploaded `resources/<slug>-bom.csv`. **If both exist they must agree** — `check-bom-labels.py` fails on any row-for-row difference after normalization (the inline table is what renders; the CSV is treated as a redundant copy that must not drift). Use the standard 8-column schema: `Name | Category | Product | Manufacturer | Part # | Price | Storage | Link`.
-- `scripts/check-bom-labels.py` (runs on PRs via `.github/workflows/protocols.yml`) enforces: bom label matches directory; a BOM download button points at the canonical `generated/<slug>-bom.pdf` (a misnamed BOM PDF is caught too) and has a backing source; protocol download buttons point at `generated/<slug>-protocol.pdf`; inline/CSV agreement; and flags orphan standalone `bom-*.md` pages, misnamed `resources/*bom*.csv`, and a BOM source on a page with no `# Protocol`.
-- `scripts/enrich-bom.py <page>` is an author-time aid (not in CI): it fills the **empty** cells of a page's `bom-<slug>` table from other pages' BOM tables by exact `(manufacturer, part #)` match, and reports near matches (same name, different part #) for manual review. Dry-run by default; `--write` applies.
-- `scripts/build-materials-reference.py` aggregates every BOM table across `docs/` into one distribution-wide reference, written to a gitignored `guides/generated/` partial that `guides/materials-reference.md` includes (derived, rebuilt at deploy — same model as the PDFs; wired into `deploy.yml` before `myst build`). It also prints a near-duplicate/conflict QA report. Point contributors at the rendered **Materials Reference** page to reuse existing part numbers and vendors rather than introducing near-duplicates.
-- Shared parse/normalize/index logic lives in `scripts/bom_common.py` (imported by the generator, the checker, the enricher, and the reference) — change the definition of "a BOM table" or "equal" there, once.
+**Working on BOMs or the protocol pipeline** (`build-protocols.py`, `check-bom-labels.py`, `bom-<slug>` tables, download buttons)? Invoke the `build-boms` skill for the full pipeline spec and rules. One always-on rule: `generated/` is gitignored (`**/generated/`) — never commit PDFs or CSVs.
 
 ### Prose formatting
 
@@ -223,23 +209,9 @@ Please read this section carefully. It contains important notes, resources, and 
 
 Again, confirm with the developer before deleting the card.
 
-### Notion migration gotchas
+### Content migration
 
-When migrating content from Notion markdown exports:
-
-- **Table indentation**: Notion exports often produce tables with inconsistent indentation — the header row at 0 spaces and subsequent rows (including the separator) at 2 spaces, or all rows at 2 spaces. MyST requires all rows to be at the same indentation level. The correct pattern is **0 indentation throughout** (no leading spaces on any row), even when the table follows a `- [ ]` list item. Do not indent tables to nest them under list items — it breaks rendering.
-- **Materials/consumables lists**: For a BOM rendered on the page, keep it as an inline markdown table labeled `bom-<slug>` (mystmd does not support the `{csv-table}` `:file:` option for rendering external CSVs — the table must be inlined); the lab-ready pipeline generates `<slug>-materials.csv` from it. A contributor may alternatively upload the BOM as `resources/<slug>-bom.csv` (the pipeline ingests it the same way) — but do **not** hand-maintain a generic `resources/materials.csv` copy alongside an inline table, and if both a `bom-<slug>` table and `resources/<slug>-bom.csv` exist they must agree (CI enforces it). See the lab-ready protocol pipeline section below.
-- **Notion `<aside>` blocks**: Convert to the appropriate MyST admonition or section header depending on context (e.g., "Getting Started" asides → Overview prose, "Step X" asides → `##` section headers, "Resources" asides → `# References`).
-- **Notion toggles**: Convert to `:::{hint} Note: <title>` with `:class: dropdown`.
-- **Units in table column headers**: Use parentheses, not brackets (e.g., `MW (g/mol)` not `MW [g/mol]`).
-- **Data discrepancies (including concentrations)**: Source content sometimes carries internally inconsistent or unverified values — a value in the body text that conflicts with a figure caption, or a stock concentration that does not match the stated final concentration. Do not silently correct or copy these — add a `:::{warning}` block adjacent to the affected content that names the specific discrepancy, shows the conflicting values, states the most likely interpretation, and instructs the reviewer to verify before bench use. For reaction tables specifically, verify that `stock concentration × volume / total volume = stated final concentration` for every reagent row, and flag any row that fails.
-- **Scope boundary — spec vs. process**: Protocol steps, materials tables, and imaging conditions from a DevNote belong in a future Process page, not the module spec. The spec covers what the module is, its genetic designs, and expected performance. If protocol-level content appears in the DevNote, note it with a `<!-- TODO: move to process page -->` comment rather than migrating it into the spec.
-- **DevNote figures — use static PNGs with `:name:` labels**: Computed figures (e.g. from Jupyter notebook outputs or `lorem.mjs`) cannot be copied as static images and cannot be cross-referenced from nucleus-docs. Key result figures in a module spec should be static PNG files with explicit `:name: fig:something` labels in `main.md`. Only figures with `:name:` labels are reachable via `xref:<devnote-key>#fig:something` in spec pages.
-- **Bare DOI citations from Curvenote**: Curvenote DevNotes use `[](10.xxxx/xxxxx)` as a shorthand DOI citation. This resolves as a local file path in the nucleus-docs MyST build and causes a link-checker error. Always replace with a full markdown link on migration: `[Author et al., year](https://doi.org/10.xxxx/xxxxx)`. Check for bare `[](` patterns with `grep -n '\[\](' <file>` before committing a migrated spec.
-
-### DevNote migration
-
-**Read `curvenote.yml` first.** `curvenote.yml` is the single best starting point for a DevNote migration. It contains the DOI, project ID, author list (with ORCIDs and affiliations), figure sources, and download files. Read it before `main.md` to orient to the content.
+**Migrating Notion or DevNote content?** Invoke the `migrate-content` skill — it has the full checklist: table indentation, aside/toggle conversion, DOI citation format, data-discrepancy flagging, scope boundary (spec vs. process), and more.
 
 ### External references
 
@@ -356,7 +328,7 @@ python3 scripts/check-links.py <file.md>   # check a single file
 
 The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
 
-**Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
+**Before opening a PR or committing content**, run Vale + codespell (and the link checker if you touched any URLs). Invoke the `lint-docs` skill for exact commands and how to interpret each tool's output — including which Vale errors are real vs. false positives.
 
 ### Pull request workflow
 
