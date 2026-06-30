@@ -1,5 +1,5 @@
 ---
-title: "Base: Cytosol"
+title: "Base Cytosol"
 subtitle: "Module Specification"
 site:
     hide-toc: true
