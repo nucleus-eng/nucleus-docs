@@ -1,20 +1,61 @@
 ---
-title: Nucleus Documentation
+title: Nucleus
 site:
   hide_outline: true
 ---
 
 <a href="./about/release-notes/v050.md" class="version-badge">Nucleus v0.5.0</a>
 
-Nucleus Documentation is the protocol and specification library for the Nucleus Distribution, an open source platform for synthetic cell development maintained by [b.next](https://bnext.bio). Here you'll find validated lab protocols, module specifications, and implementation guides for building synthetic cells using cytosol based on the PURE system.
-
-Documentation is built from [Developer Notes](https://devnotes.nucleus.engineering), the primary mechanism for contributing validated research to the Nucleus Distribution.
+Nucleus is an open platform for synthetic cell development, maintained by [b.next](https://bnext.bio). It brings together validated protocols, modular biological components, digital tools, and physical materials — everything you need to start building synthetic cells in one place. Platform tools make it easy to contribute new capabilities back to the distribution, documented for reuse and interoperable with Nucleus specifications.
 
 <a href="./start/first-guide.html" class="quick-link">Get started</a> <a href="./about/release-notes/v050.html" class="quick-link">🎊 What's new in v0.5.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
 
 ---
 
-## What's in the docs
+## Platform
+
+The Nucleus platform makes it possible to access tools and workflows, contribute technical content, and engage with members of the Nucleus community.
+
+::::{grid} 1 1 1 4
+
+:::{card}
+:header: 📖 **Documentation**
+:link: https://docs.nucleus.engineering
+
+Validated lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
+:::
+
+:::{card}
+:header: 🔬 **Hub**
+:link: https://hub.nucleus.engineering
+
+Tools and resources for working with the Nucleus Distribution.
+:::
+
+:::{card}
+:header: 📝 **Developer Notes**
+:link: https://devnotes.nucleus.engineering
+
+Peer-reviewed research reports from the Nucleus community.
+:::
+
+:::{card}
+:header: 💬 **Forum**
+:link: https://forum.nucleus.engineering
+
+Discussions, questions, and announcements from the Nucleus community.
+:::
+
+::::
+
+---
+
+## Documentation
+
+Nucleus Documentation is the protocol and specification library for the Nucleus Distribution. Here you'll find validated lab protocols, module specifications, and implementation guides for building synthetic cells using cytosol based on the PURE system. Documentation is built from [Developer Notes](https://devnotes.nucleus.engineering), the primary mechanism for contributing validated research to the Nucleus Distribution.
+
+
+### What's in the docs
 
 Nucleus Cytosol can be extended with Modules, assembled into Cells using Processes, and combined into Implementations. Supporting resources cover the DNA Distribution, software tools, and guides.
 
