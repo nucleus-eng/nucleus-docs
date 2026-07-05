@@ -24,6 +24,7 @@ Guides provide tutorials, how-tos, and reference documentation to help you get t
 ## Workshops
 
 - [Liposome Workshop](liposome-workshop/main.md) — two-day hands-on curriculum for building synthetic cells using the PURE Cell platform
+- [OnePot PURE Workshop](onepot-pure-workshop/main.md) — five-day hands-on curriculum for assembling OnePot PURE cytosol from scratch
 
 ## Contributing
 
