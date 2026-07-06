@@ -117,6 +117,7 @@ project:
       children:
         # - file: ./about/open-science.md
         - file: ./about/license.md
+        - file: ./about/contributors.md
         - file: ./about/faqs.md
         - file: ./about/release-notes.md
           children:
