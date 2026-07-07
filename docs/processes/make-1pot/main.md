@@ -190,7 +190,6 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 :::{table} Protein Purification Buffers
 :label: protein-buffers
 :align: center
-:width: 75%
 
 | Buffer Type | Buffer A (mL) | Buffer B (mL) | Total (mL) | 0.5 M TCEP (µL) |
 | --- | --- | --- | --- | --- |

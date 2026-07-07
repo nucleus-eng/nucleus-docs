@@ -31,11 +31,11 @@ If you do not have these things please see the [Tutorial: getting started with N
   - [ ] Exit the terminal and return to the Launcher Window
 
 - [ ] Preview your DevNote.
-  - [ ] In your file directory, navigate to the directory `/devnotes/template` it should appear like [this]().
+  - [ ] In your file directory, navigate to the directory `/devnotes/template`.
   - [ ] While you're in the `devnotes/template` directory, click the button "Preview" in the "Developer Notes" toolbar of the Launcher window.
-  - [ ] You will likely see an [error message](fig:error). That's ok.
+  - [ ] You will likely see an [error message](#fig:error). That's ok.
   - [ ] Open the file `main.md` in your directory
-  - [ ] Create a [split screen](fig:splitscreen) by dragging the "Preview" tab to the right corner of the screen.
+  - [ ] Create a [split screen](#fig:splitscreen) by dragging the "Preview" tab to the right corner of the screen.
   - [ ] Make an edit, say to the level 1 heading, e.g. `#Background - edited`. The preview window should automatically refresh and you should now be able to preview any updates to your DevNote in realtime.
 
 :::::{tab-set}

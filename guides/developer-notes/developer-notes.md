@@ -11,9 +11,9 @@ This guide will introduce you to Developer Notes (DevNotes) as a way to quickly 
 
 Most of the DevNote tools that appear in the Launcher require setting up API access to [Curvenote](https://editor.curvenote.com/) to work as expected. API access can be set up by following these steps:
 
-- [ ] Navigate to the Curvenote [website](https://editor.curvenote.com/) and [create an account](curvenote-login).
+- [ ] Navigate to the Curvenote [website](https://editor.curvenote.com/) and [create an account](#curvenote-login).
 - [ ] Create a new blank project and click ‘NEXT’
-- [ ]  Go to [personal settings](curvenote-settings).
+- [ ]  Go to [personal settings](#curvenote-settings).
 - [ ]  Select ‘API Access’ and click ‘Generate New Token’.
   - [ ]  Give the token a useful description and select Expiry for the maximum time allowed.
 - [ ]  From Nucleus Hub, open a terminal window from the Launcher and run the command `curvenote token set [my-token]`
@@ -66,8 +66,8 @@ DevNotes are written using [MyST Markdown](https://mystmd.org/), a flavor of Mar
   - [ ] Open the file `main.md` in your directory.
   - [ ] Open a new Launcher window by clicking the "+" at the top of the screen.
   - [ ] Click the button "Preview" in the "Developer Notes" toolbar of the Launcher window. Note: you must be in `devnotes/my-project` directory.
-  - [ ] You may see an [error message](hub-error). That’s ok.
-  - [ ] Create a [split screen](hub-splitscreen) by dragging the "Preview" tab to the right corner of the screen.
+  - [ ] You may see an [error message](#hub-error). That’s ok.
+  - [ ] Create a [split screen](#hub-splitscreen) by dragging the "Preview" tab to the right corner of the screen.
   - [ ] Make an edit, say to the level 1 heading, e.g. `#Background - edited`. The preview window should automatically refresh and you should now be able to preview any updates to your DevNote in realtime.
 
 **Notes**

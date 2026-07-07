@@ -19,10 +19,9 @@ A *platemap* is a file that records what you put on your plate and where.
 
 ## Step 1 - make a blank plate map
 
-Create a blank plate map in the spreadsheet editor of your choice. An example of a basic plate map containing all the required fields is shown [below](fig-platemap_example_minimal). Plate maps **must** have the following columns, so that for each well you indicate:
+Create a blank plate map in the spreadsheet editor of your choice. An example of a basic plate map containing all the required fields is shown [below](#fig-platemap_example_minimal). Plate maps **must** have the following columns, so that for each well you indicate:
 
 ::::{card} Column Requirements
-:header: 
 
 - `Date` — Experiment date
 - `Experiment` — a name that gives a brief description of the overall experiment for that well
@@ -82,7 +81,7 @@ For each well on your plate, add a row to the plate map, filling in as much meta
 
 ### Including additional data
 
-If you have any additional information you have about what you are plating, consider including it as [additional columns](fig-platemap_example_rec). For example, it is often useful to describe the amount of specific materials that are used in your reaction. We often refer to a specific material that might live in your refrigerator as an artifact and give it a unique ID to keep track of it. For example:   
+If you have any additional information you have about what you are plating, consider including it as [additional columns](#fig-platemap_example_rec). For example, it is often useful to describe the amount of specific materials that are used in your reaction. We often refer to a specific material that might live in your refrigerator as an artifact and give it a unique ID to keep track of it. For example:   
 
 - `<artifact> ID` for material that can be cross-referenced against a specific reagent in your inventory; replace `<artifact>` with the identity of that material (e.g., `fluorescein stock 2`)
 - `[<artifact>] (<units>)` — indicate concentration (in well, not stock!) with square brackets
