@@ -1,6 +1,7 @@
 ---
 title: "Membrane Pore: α-Hemolysin"
 subtitle: "Module Specification"
+status: unvalidated-published
 site:
     hide-toc: true
     numbered_references: false
@@ -14,6 +15,10 @@ aHly is a toxin derived from *Staphylococcus aureus* and requires BSL-2 handling
 
 :::{attention}
 This Module is not actively supported. At this time, the Nucleus Distribution does not support BSL-2 reagents. For new implementations, we recommend the [Cx43 Module](../membrane-pore-cx43/spec.md).
+:::
+
+:::{attention} Not yet validated
+This Module has not been validated in Nucleus Cytosol. Expected performance data below is from PURExpress cells.
 :::
 
 aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE system, or added as purified protein from an external source. We recommend the purified protein approach for most applications.
@@ -98,7 +103,7 @@ Prepare master mix for 3 reactions to account for dead volume.
 
 ### Expected Performance
 
-GFP production is quenched in synthetic cells expressing aHly, confirming functional pore insertion and membrane permeabilization. In the absence of `pT7-aHly`, GFP is produced in a subpopulation of cells. Samples incubated at 37°C for 7.5 hrs.
+GFP production is quenched in synthetic cells expressing aHly, confirming functional pore insertion and membrane permeabilization. In the absence of `pT7-aHly`, GFP is produced in a subpopulation of cells. Samples incubated at 37 °C for 7.5 h.
 
 :::{figure} cell-gfp-quench.png
 Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production is quenched when aHly is co-expressed, as small molecules leak through the inserted pores. (Right) GFP only: GFP is produced in a subpopulation of cells in the absence of aHly. Red channel: membrane label; green channel: GFP. Scale bar: 100 µm.

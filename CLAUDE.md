@@ -129,6 +129,36 @@ The site TOC is defined entirely in `myst.yml`. When adding a new page, you must
 
 **Adding a module spec requires two table-of-contents updates, not one.** In addition to the `myst.yml` TOC entry, add a row to the table in `docs/modules/modules-main.md`. The table columns are `Module Class | Specification | Validation` — fill in the class name (e.g. `Detector`), a relative link to the spec (e.g. `[LacI-IPTG](./detector-laci_iptg/spec.md)`), and the validation star rating (use ★ to ★★★ following the validation key at the top of `modules-main.md`: ★ = preliminary/DevNote only, ★★ = validated in cells or in vitro, ★★★ = frequently used). Missing this step leaves the module off the main module index page.
 
+Note that `hidden: true` is used pervasively for *every* non-sidebar child page — it is a navigation setting, **not** a maturity signal. Page maturity is tracked separately via the `status:` frontmatter field (see below).
+
+### Page status (draft / published)
+
+Every content page has a maturity `status`, declared as a frontmatter field. This keeps stub or unvalidated pages from misrepresenting themselves on the public site without a heavyweight build-exclusion mechanism (issue #74; #57 may later add build-time exclusion keyed off this same field).
+
+| `status:` value | meaning | TOC | banner |
+| --- | --- | --- | --- |
+| `draft` | incomplete; not ready for public consumption | must be `hidden: true` (keep out of the sidebar) | **Draft** banner (below) |
+| `unvalidated-published` | complete and publicly visible, but not yet validated in the current Nucleus Cytosol | normal | **Not yet validated** banner (below) |
+| `validated-published` | complete and validated; ready | normal | none |
+
+- **Absent `status:` is treated as `validated-published`** — do not churn the ~50 ready pages. Only `draft` and `unvalidated-published` pages need an explicit field.
+- **Templates ship with `status: draft`** so a new page can't accidentally appear validated; the author changes it to `unvalidated-published` or `validated-published` when ready.
+- The `status:` field does **not** auto-render anything — add the matching banner by hand when you set `draft` or `unvalidated-published`. The two standard banners:
+
+```
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
+```
+
+```
+:::{attention} Not yet validated
+This page has not been validated in Nucleus Cytosol. <optional specifics, e.g. "Expected performance data below is from PURExpress cells.">
+:::
+```
+
+A page may also carry an unrelated content caveat (e.g. aHly's "not actively supported" BSL-2 note) — that is independent of `status:` and stays as its own admonition.
+
 ### Templates
 
 `templates/` contains Cookiecutter-style starter files:
@@ -139,23 +169,9 @@ The site TOC is defined entirely in `myst.yml`. When adding a new page, you must
 
 **When migrating content into a pre-created stub directory**, scan for and delete any template placeholder files before committing. Stub directories are often created with placeholder images (e.g. `behavior/ppk-kinetics.png`, `behavior/ppk-endpoint.png`) that have no real data and were copied from the implementation template. Run `git ls-files docs/modules/<module>/` to see what's tracked, and `git rm` any placeholders that have not been replaced by real figures.
 
-### Lab-ready protocol pipeline (issue #10)
+### Lab-ready protocol pipeline
 
-`scripts/build-protocols.py` generates downloadable artifacts from process pages — **derived files are never committed; they are rebuilt at deploy so they cannot drift from the source page.** For each `docs/processes/**/main.md` (or `*-main.md`) that has a `# Protocol` heading, it writes to a gitignored `generated/` dir beside the page:
-
-- `<slug>-protocol.pdf` — a pure bench checklist: page title + step headings + `- [ ]` items + a brief hazard note (if present). All prose, admonitions, and figures are stripped; **tables are kept** (recipes/reaction setups are part of the procedure). `<slug>` is the process's directory name.
-- `<slug>-bom.pdf` + `<slug>-materials.csv` — generated from the page's Bill of Materials, supplied as **either** an inline table labeled `bom-<slug>` **or** an uploaded `resources/<slug>-bom.csv` beside the page (whichever exists; see `resolve_bom_source` in `build-protocols.py`). Generated only if one of those exists.
-
-Markers the generator keys off: `# Protocol` heading (pages without one are skipped, as are stubs with no checklist items); frontmatter `title:`; an admonition titled `Hazardous Materials` for the hazard note; a `bom-<slug>` table **or** a `resources/<slug>-bom.csv` for the BOM/CSV. Cross-reference roles (`{ref}`, `{numref}`) in protocol steps are neutralized to a plain noun, since they often point at stripped sections.
-
-**Rules:**
-- `generated/` is gitignored (`**/generated/`) — never commit PDFs/CSVs. Treat `resources/` as source assets, `generated/` as derived.
-- Download buttons point at the relative generated path, e.g. `` {button}`download <generated/<slug>-protocol.pdf>` ``. MyST resolves these at build time, so **generation must run before `myst build`** (the deploy/CI ordering). Only include a BOM button if the page has a BOM source (`bom-<slug>` table or `resources/<slug>-bom.csv`).
-- A page's BOM may be an inline table labeled `bom-<slug>` (the slug must match the directory name) **or** an uploaded `resources/<slug>-bom.csv`. **If both exist they must agree** — `check-bom-labels.py` fails on any row-for-row difference after normalization (the inline table is what renders; the CSV is treated as a redundant copy that must not drift). Use the standard 8-column schema: `Name | Category | Product | Manufacturer | Part # | Price | Storage | Link`.
-- `scripts/check-bom-labels.py` (runs on PRs via `.github/workflows/protocols.yml`) enforces: bom label matches directory; a BOM download button points at the canonical `generated/<slug>-bom.pdf` (a misnamed BOM PDF is caught too) and has a backing source; protocol download buttons point at `generated/<slug>-protocol.pdf`; inline/CSV agreement; and flags orphan standalone `bom-*.md` pages, misnamed `resources/*bom*.csv`, and a BOM source on a page with no `# Protocol`.
-- `scripts/enrich-bom.py <page>` is an author-time aid (not in CI): it fills the **empty** cells of a page's `bom-<slug>` table from other pages' BOM tables by exact `(manufacturer, part #)` match, and reports near matches (same name, different part #) for manual review. Dry-run by default; `--write` applies.
-- `scripts/build-materials-reference.py` aggregates every BOM table across `docs/` into one distribution-wide reference, written to a gitignored `guides/generated/` partial that `guides/materials-reference.md` includes (derived, rebuilt at deploy — same model as the PDFs; wired into `deploy.yml` before `myst build`). It also prints a near-duplicate/conflict QA report. Point contributors at the rendered **Materials Reference** page to reuse existing part numbers and vendors rather than introducing near-duplicates.
-- Shared parse/normalize/index logic lives in `scripts/bom_common.py` (imported by the generator, the checker, the enricher, and the reference) — change the definition of "a BOM table" or "equal" there, once.
+**Working on BOMs or the protocol pipeline** (`build-protocols.py`, `check-bom-labels.py`, `bom-<slug>` tables, download buttons)? Invoke the `build-boms` skill for the full pipeline spec and rules. One always-on rule: `generated/` is gitignored (`**/generated/`) — never commit PDFs or CSVs.
 
 ### Prose formatting
 
@@ -178,6 +194,8 @@ Pages use MyST admonition nesting with `:::` fences. Process pages follow a cons
 4. `# Downloads` grid with cards linking to PDF lab protocol and Bill of Materials
 
 Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes. Cross-references use MyST `{ref}` syntax for same-page targets and standard markdown links for cross-page references.
+
+**Internal links in inline HTML must use `.md` extensions, not `.html`.** MyST resolves internal links via the source `.md` paths. Using `.html` in an `<a href="...">` tag produces a 404 on the deployed site. This applies to all inline HTML links (e.g. version badges, quick-link pills) — always write `href="./path/to/page.md"`, never `href="./path/to/page.html"`.
 
 **Tab-set fence depth.** Tab-sets require a consistent three-level nesting: the outer `{tab-set}` uses `:::::`(5 colons), each `{tab-item}` inside uses `::::` (4 colons), and figures or admonitions inside a tab-item use `:::` (3 colons). Mismatched colon counts are a common source of rendering failures.
 
@@ -221,23 +239,9 @@ Please read this section carefully. It contains important notes, resources, and 
 
 Again, confirm with the developer before deleting the card.
 
-### Notion migration gotchas
+### Content migration
 
-When migrating content from Notion markdown exports:
-
-- **Table indentation**: Notion exports often produce tables with inconsistent indentation — the header row at 0 spaces and subsequent rows (including the separator) at 2 spaces, or all rows at 2 spaces. MyST requires all rows to be at the same indentation level. The correct pattern is **0 indentation throughout** (no leading spaces on any row), even when the table follows a `- [ ]` list item. Do not indent tables to nest them under list items — it breaks rendering.
-- **Materials/consumables lists**: For a BOM rendered on the page, keep it as an inline markdown table labeled `bom-<slug>` (mystmd does not support the `{csv-table}` `:file:` option for rendering external CSVs — the table must be inlined); the lab-ready pipeline generates `<slug>-materials.csv` from it. A contributor may alternatively upload the BOM as `resources/<slug>-bom.csv` (the pipeline ingests it the same way) — but do **not** hand-maintain a generic `resources/materials.csv` copy alongside an inline table, and if both a `bom-<slug>` table and `resources/<slug>-bom.csv` exist they must agree (CI enforces it). See the lab-ready protocol pipeline section below.
-- **Notion `<aside>` blocks**: Convert to the appropriate MyST admonition or section header depending on context (e.g., "Getting Started" asides → Overview prose, "Step X" asides → `##` section headers, "Resources" asides → `# References`).
-- **Notion toggles**: Convert to `:::{hint} Note: <title>` with `:class: dropdown`.
-- **Units in table column headers**: Use parentheses, not brackets (e.g., `MW (g/mol)` not `MW [g/mol]`).
-- **Data discrepancies (including concentrations)**: Source content sometimes carries internally inconsistent or unverified values — a value in the body text that conflicts with a figure caption, or a stock concentration that does not match the stated final concentration. Do not silently correct or copy these — add a `:::{warning}` block adjacent to the affected content that names the specific discrepancy, shows the conflicting values, states the most likely interpretation, and instructs the reviewer to verify before bench use. For reaction tables specifically, verify that `stock concentration × volume / total volume = stated final concentration` for every reagent row, and flag any row that fails.
-- **Scope boundary — spec vs. process**: Protocol steps, materials tables, and imaging conditions from a DevNote belong in a future Process page, not the module spec. The spec covers what the module is, its genetic designs, and expected performance. If protocol-level content appears in the DevNote, note it with a `<!-- TODO: move to process page -->` comment rather than migrating it into the spec.
-- **DevNote figures — use static PNGs with `:name:` labels**: Computed figures (e.g. from Jupyter notebook outputs or `lorem.mjs`) cannot be copied as static images and cannot be cross-referenced from nucleus-docs. Key result figures in a module spec should be static PNG files with explicit `:name: fig:something` labels in `main.md`. Only figures with `:name:` labels are reachable via `xref:<devnote-key>#fig:something` in spec pages.
-- **Bare DOI citations from Curvenote**: Curvenote DevNotes use `[](10.xxxx/xxxxx)` as a shorthand DOI citation. This resolves as a local file path in the nucleus-docs MyST build and causes a link-checker error. Always replace with a full markdown link on migration: `[Author et al., year](https://doi.org/10.xxxx/xxxxx)`. Check for bare `[](` patterns with `grep -n '\[\](' <file>` before committing a migrated spec.
-
-### DevNote migration
-
-**Read `curvenote.yml` first.** `curvenote.yml` is the single best starting point for a DevNote migration. It contains the DOI, project ID, author list (with ORCIDs and affiliations), figure sources, and download files. Read it before `main.md` to orient to the content.
+**Migrating Notion or DevNote content?** Invoke the `migrate-content` skill — it has the full checklist: table indentation, aside/toggle conversion, DOI citation format, data-discrepancy flagging, scope boundary (spec vs. process), and more.
 
 ### External references
 
@@ -262,13 +266,16 @@ The convention:
 **Run `git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale` before opening a PR or committing a content migration.** This command lints only committed source files (skipping gitignored `generated/` artifacts). Vale lints both `.md` and `.csv` files and runs as part of the `qa` CI workflow (`.github/workflows/qa.yml`).
 
 ```bash
-git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale   # lint all committed docs
-vale <file.md>                                              # lint a single file
+git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale          # lint all committed docs (skips generated/)
+vale --glob='!**/generated/**' docs/                              # lint full docs/ tree, excluding generated/
+vale <file.md>                                                     # lint a single file
 ```
 
-Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), chemical notation (subscripts and ion superscripts), and unit spacing.
+Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), chemical notation (subscripts and ion superscripts), and unit spacing. Executable tests for these rules live in `tests/` (pytest, not content — run `python -m pytest` from the repo root).
 
-**Interpreting `nucleus.degrees-symbol` errors.** This rule flags patterns like `37C` or `4 C` that are missing the degree symbol. However, it cannot distinguish temperatures from alphanumeric labels, so it produces false positives. When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
+**Interpreting temperature-related errors.** Temperature formatting is enforced by two overlapping rules: `nucleus.units` flags spelled-out forms (`degC`, `degrees C`, `degrees Celsius`, `deg C`) via substitution; `nucleus.degrees-symbol` flags bare digit+C patterns (`95C`, `72 C`) via a raw regex. Both fire as `error` level. In practice, `nucleus.degrees-symbol` currently has a known detection gap — bare `\d+C` patterns are not reliably detected (tracked by `vale-miss` annotations in `styles/tests/temperature.md`). Rely on `nucleus.units` for spelled-out forms; flag bare patterns manually until the gap is fixed.
+
+**Interpreting `nucleus.degrees-symbol` errors.** When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
 
 - **Real error** — the token is a temperature value. Fix it by adding the degree symbol (e.g., `37C` → `37°C`, `4 C` → `4°C`).
   - Signals: preceded by "at", "to", "of", or a verb like "incubate", "store", "heat"; followed by "for X minutes/hours"; in a reaction table or thermocycler step.
@@ -294,7 +301,38 @@ s/(?<!%)(\d+)C\b/$1°C/g
 s/(\d+)C\b/$1°C/g
 ```
 
-Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first.
+Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first. When suppressing only a specific rule (e.g., to silence BOM product-name false positives), prefer rule-scoped suppression over a blanket `<!-- vale off -->`:
+
+```html
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
+:::{table} Bill of Materials
+...
+:::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
+```
+
+**Canonical unit list.** Several Vale rules share an overlapping set of recognised units. Vale rule files are self-contained YAML and have no native include or variable mechanism, so the lists are duplicated by design — the rules differ slightly because false-positive risk varies by context. The canonical reference list (for human consistency checks, not machine enforcement) is:
+
+| Domain | Units |
+| --- | --- |
+| Length | `nm`, `µm`, `mm`, `cm`, `km` |
+| Volume | `µL`, `mL`, `L` |
+| Mass | `µg`, `mg`, `g`, `kg` |
+| Concentration | `nM`, `µM`, `mM`, `M` |
+| Molecular weight | `Da`, `kDa` |
+| Time | `s`, `min`, `h`, `d` (SI); `yr`, `mo` (non-SI, no SI symbol exists) |
+| Centrifugation | `rcf`, `rpm` |
+| Temperature | `°C` |
+
+When adding a new unit to one rule, check whether the other rules (magnitude-unit-spacing, range-style, thousands-separator) should also be updated.
+
+**Known NIST SP 811 divergences.** The following are deliberate departures from NIST SP 811, documented here so they read as decisions rather than oversights:
+
+| NIST rule | NIST says | Our style | Rationale |
+| --- | --- | --- | --- |
+| §7.10.2 — percent | `25 %` (space before `%`) | `25%` | Universal convention; `25 %` reads as unusual to bench scientists |
+| §7.10.3 — ppm/ppb/ppt | Not acceptable; use `µL/L` etc. | `ppm` permitted | Accessible shorthand; rarely appears in docs |
+| Time abbreviations | `h`, `min`, `s`, `d` | `yr`, `mo` also used | Year and month have no SI symbol; `yr`/`mo` are the accepted non-SI forms |
 
 ### Spell checking (codespell)
 
@@ -320,7 +358,7 @@ python3 scripts/check-links.py <file.md>   # check a single file
 
 The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
 
-**Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
+**Before opening a PR or committing content**, run Vale + codespell (and the link checker if you touched any URLs). Invoke the `lint-docs` skill for exact commands and how to interpret each tool's output — including which Vale errors are real vs. false positives.
 
 ### Pull request workflow
 

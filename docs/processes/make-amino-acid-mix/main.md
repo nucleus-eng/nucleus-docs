@@ -14,7 +14,7 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
 
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Amino Acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1°C to 4°C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
+| Amino Acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1 °C to 4 °C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
 :::
 
 # Protocol
@@ -31,21 +31,21 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
 - [ ] Check if resuspension volume will fit assigned tube. Else, adjust mass.
 - [ ] Filter ultrapure water (0.22 µm) and add the corresponding calculated resuspension volume to each tube of powdered amino acids.
 - [ ] Resuspend 19x amino acid stocks (excluding `Tyr`).
-    - [ ] Put each microfuge tube on a heater shaker set to 65°C / 1400 rpm.
-    - [ ] Check for complete resuspension every 30 min (should take ≤ 1 hr). Keep stocks at 65°C for next step.
+    - [ ] Put each microfuge tube on a heater shaker set to 65 °C / 1400 rpm.
+    - [ ] Check for complete resuspension every 30 min (should take ≤ 1 h). Keep stocks at 65 °C for next step.
 
 
 ## Assemble Amino Acid Master Mix.
-- [ ] Put `Tyr` 15 mL tubes in hot water bath sonicator set to 65°C. Keep other 19x amino acid stocks on heater shaker at 65°C.
-- [ ] For each amino acid stock other than `Tyr`, add the calculated volume to `Tyr` 15 mL tube. Keep the `Tyr` tube in 65°C sonicator bath to maintain temperature and facilitate resuspension.
+- [ ] Put `Tyr` 15 mL tubes in hot water bath sonicator set to 65 °C. Keep other 19x amino acid stocks on heater shaker at 65 °C.
+- [ ] For each amino acid stock other than `Tyr`, add the calculated volume to `Tyr` 15 mL tube. Keep the `Tyr` tube in 65 °C sonicator bath to maintain temperature and facilitate resuspension.
 - [ ]  Add filtered ultrapure water to final concentration as specified.
-- [ ]  Resuspend amino acid mix in hot water bath sonicator set to 65°C with sonication.
+- [ ]  Resuspend amino acid mix in hot water bath sonicator set to 65 °C with sonication.
     - [ ]  Note incubation start time:
     - [ ]  Check for complete resuspension every 30 min (should take ~ 30 min).
 - [ ]  Syringe filter using 0.22 µm filter.
 
 ## Storage
-- [ ]  Aliquot and store at -20°C.
+- [ ]  Aliquot and store at -20 °C.
 
 # Downloads
 

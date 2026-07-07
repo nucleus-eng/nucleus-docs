@@ -18,15 +18,15 @@ SDS PAGE gel electrophoresis separates components of a mixture roughly by molecu
 
 | **Name**                            | **Category** | **Product**                                                   | **Manufacturer**   | **Part #** | **Price** | **Storage**    | **Link**                                                                                                                     |
 | ----------------------------------- | ------------ | ------------------------------------------------------------- | ------------------ | ---------- | --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Tris-Glycine 4%–20% gels            | Consumable   | 4–20% Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL | BioRad             | 4561094    | $153.00   | 1°C to 4°C     | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094)        |
-| 10x Tris/Glycine SDS running buffer | Reagent      | # 10x Tris/Glycine/SDS                                        | BioRad             | 1610732    | $41.00    | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/sku/1610732-10x-tris-glycine-sds?ID=1610732)                                            |
-| Protein Ladder                      | Reagent      | Precision Plus Protein™ Unstained Protein Standards           | BioRad             | 1610363EDU | $138.00   | -25°C to -15°C | [link](https://www.bio-rad.com/en-us/product/protein-electrophoresis-size-standards?ID=b0f59c37-d604-49b7-9167-eaf21a29c751) |
-| Laemmli Buffer (6x)                 | Reagent      | Laemmli SDS-Sample Buffer (6x, Reducing)                      | Boston BioProducts | BP-111R    | $42.00    | 4°C to 30°C    | [link](https://www.bostonbioproducts.com/products/laemmli-sds-sample-buffer-6x-reducing-bp-111r)                             |
-| Rapid protein stain                 | Reagent      | Pageblue™ Protein Staining Solution                           | Thermo Scientific  | 24620      | $153.65   | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/24620)                                                             |
-| Thermocycler                        | Equipment    | SimpliAmp™ Thermal Cycler                                     | Applied Biosystems | A24811     | $6,580.00 | 4°C to 30°C    | [link](https://www.thermofisher.com/order/catalog/product/A24811)                                                            |
-| Gel Tank                            | Equipment    | Criterion™ Cell                                               | BioRad             | 1656001    | $852.00   | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/product/criterion-cell?ID=0d31b27f-e577-4e08-b552-8dc71e6105b7)                         |
-| Gel Power Supply                    | Equipment    | PowerPac™ Basic Power Supply                                  | BioRad             | 1645050    | $530.00   | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/product/powerpac-basic-power-supply?ID=bea5dea1-cef0-43ad-8af5-b2c0287f6e07)            |
-| Gel Imager                          | Equipment    | ChemiDoc™ Imaging System                                      | BioRad             | 12003153   | unlisted  | 4°C to 30°C    | [link](https://www.bio-rad.com/en-us/sku/12003153-chemidoc-imaging-system?ID=12003153)                                       |
+| Tris-Glycine 4%–20% gels            | Consumable   | 4–20% Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL | BioRad             | 4561094    | $153.00   | 1 °C to 4 °C     | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094)        |
+| 10x Tris/Glycine SDS running buffer | Reagent      | # 10x Tris/Glycine/SDS                                        | BioRad             | 1610732    | $41.00    | 4 °C to 30 °C    | [link](https://www.bio-rad.com/en-us/sku/1610732-10x-tris-glycine-sds?ID=1610732)                                            |
+| Protein Ladder                      | Reagent      | Precision Plus Protein™ Unstained Protein Standards           | BioRad             | 1610363EDU | $138.00   | -25 °C to -15 °C | [link](https://www.bio-rad.com/en-us/product/protein-electrophoresis-size-standards?ID=b0f59c37-d604-49b7-9167-eaf21a29c751) |
+| Laemmli Buffer (6x)                 | Reagent      | Laemmli SDS-Sample Buffer (6x, Reducing)                      | Boston BioProducts | BP-111R    | $42.00    | 4 °C to 30 °C    | [link](https://www.bostonbioproducts.com/products/laemmli-sds-sample-buffer-6x-reducing-bp-111r)                             |
+| Rapid protein stain                 | Reagent      | Pageblue™ Protein Staining Solution                           | Thermo Scientific  | 24620      | $153.65   | 4 °C to 30 °C    | [link](https://www.thermofisher.com/order/catalog/product/24620)                                                             |
+| Thermocycler                        | Equipment    | SimpliAmp™ Thermal Cycler                                     | Applied Biosystems | A24811     | $6,580.00 | 4 °C to 30 °C    | [link](https://www.thermofisher.com/order/catalog/product/A24811)                                                            |
+| Gel Tank                            | Equipment    | Criterion™ Cell                                               | BioRad             | 1656001    | $852.00   | 4 °C to 30 °C    | [link](https://www.bio-rad.com/en-us/product/criterion-cell?ID=0d31b27f-e577-4e08-b552-8dc71e6105b7)                         |
+| Gel Power Supply                    | Equipment    | PowerPac™ Basic Power Supply                                  | BioRad             | 1645050    | $530.00   | 4 °C to 30 °C    | [link](https://www.bio-rad.com/en-us/product/powerpac-basic-power-supply?ID=bea5dea1-cef0-43ad-8af5-b2c0287f6e07)            |
+| Gel Imager                          | Equipment    | ChemiDoc™ Imaging System                                      | BioRad             | 12003153   | unlisted  | 4 °C to 30 °C    | [link](https://www.bio-rad.com/en-us/sku/12003153-chemidoc-imaging-system?ID=12003153)                                       |
 
 :::
 
@@ -35,7 +35,7 @@ SDS PAGE gel electrophoresis separates components of a mixture roughly by molecu
 - [ ] **Denature samples.**
     - [ ] Label one tube per sample.
     - [ ] Add 4 µL of 6x Laemmli sample buffer and 20 µL of sample (~1 µg total protein) per tube. Mix by pipetting.
-    - [ ] Incubate samples at 90°C / 10 min.
+    - [ ] Incubate samples at 90 °C / 10 min.
 - [ ] **Set up a gel box.**
     - [ ] Open an individually wrapped protein gel (we use 10%–20% Tris Gly gels).
     - [ ] Remove plastic tape at the bottom of gel. This exposes a strip of the gel to the running buffer, allowing current to flow from one electrode through the gel to the other electrode.
@@ -43,13 +43,13 @@ SDS PAGE gel electrophoresis separates components of a mixture roughly by molecu
     - [ ] Pour running buffer into the back half of the reservoir.
     - [ ] Carefully, remove comb from top of gel.
 - [ ] **Load 10 µL protein ladder onto the outermost lanes.**
-- [ ] **Load each sample onto its own lane.** Target between 1–2 µg purified protein and between 10 µL and 20 µL per lane.
-- [ ] **Run the gel at 200 V / 40–50 min,** or until the dye front touches the bottom of the gel.
+- [ ] **Load each sample onto its own lane.** Target between 1 µg to 2 µg purified protein and between 10 µL and 20 µL per lane.
+- [ ] **Run the gel at 200 V / 40 min to 50 min,** or until the dye front touches the bottom of the gel.
 - [ ] **Stain and destain the gel.**
     - [ ] Using a gel knife, crack open the plastic cassette holding the gel.
     - [ ] Remove the gel carefully into a waterproof container. We find this is easier if you cover the bottom of your container with Ultrapure water (≥ 3 mm).
-    - [ ] Cover the gel with Ultrapure water (~40 mL), microwave for 30 seconds, and rock for 5 minutes. Decant and repeat this step twice, washing a total of three (3) times.
-    - [ ] Cover gel in a rapid protein stain (~40 mL) in the same container. We use PageBlue Protein Staining Solution. Microwave for 30 seconds, then incubate at room temperature with rocking for ~30 minutes.
+    - [ ] Cover the gel with Ultrapure water (~40 mL), microwave for 30 s, and rock for 5 min. Decant and repeat this step twice, washing a total of three (3) times.
+    - [ ] Cover gel in a rapid protein stain (~40 mL) in the same container. We use PageBlue Protein Staining Solution. Microwave for 30 s, then incubate at room temperature with rocking for ~30 min.
     - [ ] Decant staining solution, rinse gel at least once, then cover in Ultrapure water. Incubate gel at room temperature with rocking until you can see distinct protein bands (up to overnight).
 
 :::{hint} Note: Use Kimwipes to speed up destaining

@@ -111,10 +111,13 @@ project:
           hidden: true
         - file: ./guides/liposome-workshop/main.md
           hidden: true
+        - file: ./guides/onepot-pure-workshop/main.md
+          hidden: true
     - title: About
       children:
         # - file: ./about/open-science.md
         - file: ./about/license.md
+        - file: ./about/contributors.md
         - file: ./about/faqs.md
         - file: ./about/release-notes.md
           children:

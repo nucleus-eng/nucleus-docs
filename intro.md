@@ -8,7 +8,45 @@ site:
 
 Nucleus is an open platform for synthetic cell development, maintained by [b.next](https://bnext.bio). It brings together validated protocols, modular biological components, digital tools, and physical materials — everything you need to start building synthetic cells in one place. Platform tools make it easy to contribute new capabilities back to the distribution, documented for reuse and interoperable with Nucleus specifications.
 
-<a href="./start/first-guide.html" class="quick-link">Get started</a> <a href="./about/release-notes/v050.html" class="quick-link">🎊 What's new in v0.5.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
+<a href="./start/first-guide.md" class="quick-link">Get started</a> <a href="./about/release-notes/v050.md" class="quick-link">🎊 What's new in v0.5.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
+
+---
+
+## Platform
+
+The Nucleus platform makes it possible to access tools and workflows, contribute technical content, and engage with members of the Nucleus community.
+
+::::{grid} 1 1 1 4
+
+:::{card}
+:header: 📖 **Documentation**
+:link: https://docs.nucleus.engineering
+
+Validated lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
+:::
+
+:::{card}
+:header: 🔬 **Hub**
+:link: https://hub.nucleus.engineering
+
+Tools and resources for working with the Nucleus Distribution.
+:::
+
+:::{card}
+:header: 📝 **Developer Notes**
+:link: https://devnotes.nucleus.engineering
+
+Peer-reviewed research reports from the Nucleus community.
+:::
+
+:::{card}
+:header: 💬 **Forum**
+:link: https://forum.nucleus.engineering
+
+Discussions, questions, and announcements from the Nucleus community.
+:::
+
+::::
 
 ---
 

@@ -52,7 +52,7 @@ Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentrat
 
 ### Expected Performance
 
-PURE reactions were incubated for 4 hours, then added to log-phase *E. coli* receiver cell cultures containing `bjaR-GFP-native`. GFP fluorescence was measured over 6 hours at 5-minute timepoints using a BioTek Cytation 5 plate reader. Expression in XL-10 Gold cells containing `bjaR-GFP-native` is equivalent for bulk PURE reactions with `pT7-bjaI` and substrates and for emitter cells containing IV-HSL without plasmid DNA — both show a significant response over the negative control.
+PURE reactions were incubated for 4 h, then added to log-phase *E. coli* receiver cell cultures containing `bjaR-GFP-native`. GFP fluorescence was measured over 6 h at 5-minute timepoints using a BioTek Cytation 5 plate reader. Expression in XL-10 Gold cells containing `bjaR-GFP-native` is equivalent for bulk PURE reactions with `pT7-bjaI` and substrates and for emitter cells containing IV-HSL without plasmid DNA — both show a significant response over the negative control.
 
 :::::{tab-set}
 
@@ -78,10 +78,10 @@ The IV-HSL Emitter module in the Base Cell.
 
 ### Expected Performance
 
-Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-GFP-native`. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 8 hours collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
+Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-GFP-native`. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 8 h collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
 
 :::{figure} cell-performance-endpoint.png
-**Emitter Cell Endpoint Montage.** Single field of view at t = 8 hours. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(gray)** Brightfield. **(rgb)** Merged image.
+**Emitter Cell Endpoint Montage.** Single field of view at t = 8 h. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(gray)** Brightfield. **(rgb)** Merged image.
 :::
 
 ::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL.

@@ -10,17 +10,28 @@ Processes represent the core protocols. They tell you how to transform physical 
 
 The Base Cell is formed by encapsulating Base Cytosol (see below) in a liposome.
 
-::::::{tip} Schematic of Base Cell Processes
-:class: simple dropdown
-:icon: false
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TB
+    BaseCytosol["Base Cytosol"] -->|"Add Module"| Cytosol["Cytosol"]
+    ModSpec(["Module Spec"]) -.-> Cytosol
+    Cytosol & Membrane["Membrane"] --> J(( ))
+    J --> |"Assemble Base Cell"| BaseCell["Base Cell"]
+    MemSpec(["Membrane Spec"]) -.-> Membrane
 
-:::{figure} ./resources/flowchart-cells.png
-:align: center
-:label: fig:1-2
-Flow chart for building Base Cell and its modification through the addition of Modules.
-:::
+    style BaseCytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style Cytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style Membrane fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style BaseCell fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style ModSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style MemSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style J fill:none,stroke:none
 
-::::::
+    click BaseCytosol "../modules/base-cytosol/spec"
+    click BaseCell "./assemble-base-cell/main"
+    click ModSpec "../modules/modules-main"
+    click MemSpec "../modules/membrane-popc-chol/spec"
+```
 
 - [Assemble Base Cell](./assemble-base-cell/main.md)
 
@@ -28,17 +39,34 @@ Flow chart for building Base Cell and its modification through the addition of M
 
 Base Cytosol is a molecular system with a defined set of components including T7 RNA Polymerase, ribosomes, and tRNA capable of transcription and translation. Base Cytosol builds on the [PURE system](https://doi.org/10.1038/90802), and is optimized for integration and extension.
 
-::::{tip} Schematic of Base Cytosol Processes
-:class: simple dropdown
-:icon: false
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart LR
+    AminoAcids["Amino Acid Mix"] -->|"Make SMix"| SMix["SMix"]
+    SMix & tRNA["tRNA"] & PMix["PMix"] & Ribosomes["Ribosomes"] --> J(( ))
+    
+    J --> |"Assemble Base Cytosol"| BaseCytosol["Base Cytosol"]
+    BaseCytosol -->|"Add Module"| Cytosol["Cytosol"]
+    ModSpec(["Module Spec"]) -.-> Cytosol
 
-:::{figure} ./resources/flowchart-cytosols.png
-:align: center
-:label: fig:figure2
-Flow chart for building Base Cytosol and its modification through the addition of Modules.
-:::
+    style AminoAcids fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style SMix fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style tRNA fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style PMix fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style Ribosomes fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style BaseCytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style Cytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style ModSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style J fill:none,stroke:none
 
-::::
+    click AminoAcids "./make-amino-acid-mix/main"
+    click SMix "./make-small-molecule-mix/main"
+    click tRNA "./make-trna/main"
+    click PMix "./make-36pot/main"
+    click Ribosomes "./make-ribosomes/main"
+    click BaseCytosol "./assemble-base-cytosol/main"
+    click ModSpec "../modules/modules-main"
+```
 
 - [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
 
