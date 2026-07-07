@@ -16,38 +16,6 @@ Nucleus is an open platform for synthetic cell development, maintained by [b.nex
 
 The Nucleus platform makes it possible to access tools and workflows, contribute technical content, and engage with members of the Nucleus community.
 
-::::{grid} 1 1 1 4
-
-:::{card}
-:header: 📖 **Documentation**
-:link: https://docs.nucleus.engineering
-
-Validated lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
-:::
-
-:::{card}
-:header: 🔬 **Hub**
-:link: https://hub.nucleus.engineering
-
-Tools and resources for working with the Nucleus Distribution.
-:::
-
-:::{card}
-:header: 📝 **Developer Notes**
-:link: https://devnotes.nucleus.engineering
-
-Peer-reviewed research reports from the Nucleus community.
-:::
-
-:::{card}
-:header: 💬 **Forum**
-:link: https://forum.nucleus.engineering
-
-Discussions, questions, and announcements from the Nucleus community.
-:::
-
-::::
-
 ---
 
 ## Platform
