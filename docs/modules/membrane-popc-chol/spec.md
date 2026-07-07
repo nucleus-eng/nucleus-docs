@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The Base Membrane specifies a set of components that are used to make the lipid bilayers defining the Base Cell. The membrane is a composed of (POPC), cholesterol, and fluorescent Lissamine rhodamine PE. The Base Membrane represents a sane default for making synthetic cells. The Base Cell is made by encapsulating Base Cytosol in Base Membrane following the Process [Assemble Base Cell](../../processes/assemble-base-cell/main.md).
+The Base Membrane specifies a set of components that are used to make the lipid bilayers defining the Base Cell. The membrane is a composed of (POPC), cholesterol, and fluorescent Lissamine rhodamine PE. The Base Membrane represents a sane default for making synthetic cells. The Base Cell is made by encapsulating Base Cytosol in Base Membrane following the Process [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
 :::::{tab-set}
 
@@ -42,4 +42,4 @@ The behavior of Base Cell composed of Base Membrane is characterized using the [
 
 ## Protocols
 
-Protocols for assembling Base Cell and making its components from scratch are described in the Process [Assembling Base Cell](../../processes/assemble-base-cell/main.md).
+Protocols for assembling Base Cell and making its components from scratch are described in the Process [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
