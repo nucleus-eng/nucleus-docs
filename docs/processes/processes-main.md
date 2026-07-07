@@ -27,10 +27,10 @@ flowchart TB
     style MemSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
     style J fill:none,stroke:none
 
-    click BaseCytosol "/modules/base-cytosol/spec"
-    click BaseCell "/processes/assemble-base-cell/main"
-    click ModSpec "/modules/modules-main"
-    click MemSpec "/modules/membrane-popc-chol/spec"
+    click BaseCytosol "/docs/modules/base-cytosol/spec"
+    click BaseCell "/docs/processes/assemble-base-cell/main"
+    click ModSpec "/docs/modules/modules-main"
+    click MemSpec "/docs/modules/membrane-popc-chol/spec"
 ```
 
 - [Assemble Base Cell](./assemble-base-cell/main.md)
@@ -59,13 +59,13 @@ flowchart LR
     style ModSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
     style J fill:none,stroke:none
 
-    click AminoAcids "/processes/make-amino-acid-mix/main"
-    click SMix "/processes/make-small-molecule-mix/main"
-    click tRNA "/processes/make-trna/main"
-    click PMix "/processes/make-36pot/main"
-    click Ribosomes "/processes/make-ribosomes/main"
-    click BaseCytosol "/processes/assemble-base-cytosol/main"
-    click ModSpec "/modules/modules-main"
+    click AminoAcids "/docs/processes/make-amino-acid-mix/main"
+    click SMix "/docs/processes/make-small-molecule-mix/main"
+    click tRNA "/docs/processes/make-trna/main"
+    click PMix "/docs/processes/make-36pot/main"
+    click Ribosomes "/docs/processes/make-ribosomes/main"
+    click BaseCytosol "/docs/processes/assemble-base-cytosol/main"
+    click ModSpec "/docs/modules/modules-main"
 ```
 
 - [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
