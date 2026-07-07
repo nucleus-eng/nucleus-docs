@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Base Membrane](../membrane-popc-chol/spec.md) via [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The Base Cell is deployed in a glucose outer solution and represents the default, sane liposome-based synthetic cell for the Nucleus distribution. Successfully built Base Cells start dark and increase in green fluorescence over time as GFP is produced.
+The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Base Membrane](../membrane-popc-chol/spec.md) via [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The Base Cell is deployed in a glucose outer solution and represents the default synthetic cell for the Nucleus distribution. Base Cells have red fluorescent membranes and express GFP over time if functioning correctly.
 
 ## Reference Composition
 
@@ -22,17 +22,17 @@ The inner solution encapsulated into the Base Cell is [Base Cytosol](../base-cyt
 :::{table}
 :label: comp-cytosol
 
-| Component         | Input concentration | Unit  | Final concentration | Unit  | Volume for one reaction (µL) |
-| ----------------- | -------------------- | ----- | -------------------- | ----- | ----------------------------- |
-| SMix              | 3.33                  | ×     | 1                     | ×     | 12                             |
-| PMix              | 15                    | mg/mL | 1.80                  | mg/mL | 4.8                            |
-| Ribosomes         | 10                    | µM    | 1.8                   | µM    | 7.2                            |
-| `pOpen-deGFP` DNA | 124                   | nM    | 3                     | nM    | 0.95                           |
-| tRNA              | 35                    | mg/ml | 3.5                   | mg/ml | 4                              |
-| Optiprep          | 1.32                  | mg/µL | 0.043                 | mg/µL | 1.33                           |
-| RNase Inhibitor   | 40 000                | U/mL  | 2000                  | U/mL  | 2                              |
-| Water             |                       |       |                       |       | 6.12                           |
-| Total volume (µL) |                       |       |                       |       | 40                             |
+| Component         | Input concentration | Final concentration | Volume for one reaction (µL) |
+| ----------------- | ------------------- | ------------------- | ---------------------------- |
+| SMix              | 3.33x               | 1x                  | 12                           |
+| PMix              | 15 mg/mL            | 1.80 mg/mL          | 4.8                          |
+| Ribosomes         | 10 µM               | 1.8 µM              | 7.2                          |
+| `pOpen-deGFP` DNA | 124 nM              | 3 nM                | 0.95                         |
+| tRNA              | 35 mg/mL            | 3.5 mg/ml           | 4                            |
+| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 1.33                         |
+| RNase Inhibitor   | 40 000 U/mL         | 2000 U/mL           | 2                            |
+| Water             |                     |                     | 6.12                         |
+| Total volume (µL) |                     |                     | 40                           |
 :::
 
 ::::
