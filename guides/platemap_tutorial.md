@@ -37,7 +37,6 @@ Create a blank plate map in the spreadsheet editor of your choice. An example of
     :::
 
 - `Rxn Volume (uL)` — total volume of liquid in well
-- 
 ::::
 
 :::::{tab-set}
