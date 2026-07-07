@@ -22,21 +22,21 @@ The Nucleus platform makes it possible to access tools and workflows, contribute
 :header: 📖 **Documentation**
 :link: https://docs.nucleus.engineering
 
-Validated lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
+Lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
 :::
 
 :::{card}
 :header: 🔬 **Hub**
 :link: https://hub.nucleus.engineering
 
-Tools and resources for working with the Nucleus Distribution.
+Where Nucleus developers design, analyze, and collaborate.
 :::
 
 :::{card}
 :header: 📝 **Developer Notes**
 :link: https://devnotes.nucleus.engineering
 
-Peer-reviewed research reports from the Nucleus community.
+Contributions to the Nucleus Platform from labs and developers worldwide.
 :::
 
 :::{card}
