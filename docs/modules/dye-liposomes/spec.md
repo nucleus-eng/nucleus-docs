@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-Dye Liposomes encapsulate HPTS dye in an Optiprep inner solution, deployed in a glucose outer solution. Because the inner solution is a fluorescent dye rather than a cell-free expression reaction, Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation — they let you check that your emulsion phase transfer produced liposomes before troubleshooting a more complex encapsulated system. The membrane is simpler than the [Base Cell](../base-cell/spec.md) membrane (no cholesterol). This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
+Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-popc-chol/spec.md) and use a simple, glucose outer solution. Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation and microscopy. This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
 
 ## Reference Composition
 
@@ -20,29 +20,36 @@ Dye Liposomes encapsulate HPTS dye in an Optiprep inner solution, deployed in a 
 :::{table}
 :label: comp-inner-solution
 
-| Component | Stock concentration | Unit | Final concentration | Unit | Volume for one reaction (µL) |
-| --------- | -------------------- | ---- | -------------------- | ---- | ----------------------------- |
-| HPTS      | 4                     | mM   | 0.2                   | mM   | 5                              |
-| Optiprep  | 1.32                  | mg/µL| 0.043                 | mg/µL| 1.33                           |
-| Water     |                       |      |                       |      | 23.67                          |
-| Total volume (µL) |               |      |                       |      | 30                             |
+| Component         | Stock concentration | Final concentration | Volume for one reaction (µL) |
+| ----------------- | ------------------- | ------------------- | ---------------------------- |
+| HPTS              | 4 mM                | 0.2 mM              | 5                            |
+| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 1.33                         |
+| Water             |                     |                     | 23.67                        |
+| Total volume (µL) |                     |                     | 30                           |
 :::
 
 ::::
 
 ::::{tab-item} Membrane
 
-No cholesterol is used, unlike the [Base Cell](../base-cell/spec.md) membrane. Stock lipid volumes (per the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) protocol):
+:::{table}
+:label: comp-membrane
 
-- 250 µL of 25 mg/mL POPC
-- 10 µL of 1 mg/mL Liss-Rhod PE (membrane label)
-- into 3.25 mL mineral oil
+| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
+| ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
+| POPC         | 70                    | 760.076                  | 25                          | 162.17             |
+| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
+| Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
 
+:::
+
+See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 ::::
 
 ::::{tab-item} Outer Solution
 
 :::{table}
+:label: comp-outer-solution
 
 | Component | Concentration |
 | --------- | ------------- |
@@ -55,7 +62,7 @@ No cholesterol is used, unlike the [Base Cell](../base-cell/spec.md) membrane. S
 
 ## Expected Behavior
 
-Liposomes are visible in the HPTS channel (480 nm ex / 520 nm em) and in the rhodamine membrane-label channel (540 nm ex / 580 nm em) under fluorescence microscopy.
+Liposomes are visible in the green channel (interior, HPTS, 480 nm ex / 520 nm em) and in the red channel (membrane, Liss-Rhodamine-PE, 540 nm ex / 580 nm em) under fluorescence microscopy.
 
 ## Process
 
