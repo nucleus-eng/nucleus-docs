@@ -1,5 +1,6 @@
 ---
 title: TODO: Process Name
+status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
 ---
 
 # Overview

@@ -129,6 +129,36 @@ The site TOC is defined entirely in `myst.yml`. When adding a new page, you must
 
 **Adding a module spec requires two table-of-contents updates, not one.** In addition to the `myst.yml` TOC entry, add a row to the table in `docs/modules/modules-main.md`. The table columns are `Module Class | Specification | Validation` — fill in the class name (e.g. `Detector`), a relative link to the spec (e.g. `[LacI-IPTG](./detector-laci_iptg/spec.md)`), and the validation star rating (use ★ to ★★★ following the validation key at the top of `modules-main.md`: ★ = preliminary/DevNote only, ★★ = validated in cells or in vitro, ★★★ = frequently used). Missing this step leaves the module off the main module index page.
 
+Note that `hidden: true` is used pervasively for *every* non-sidebar child page — it is a navigation setting, **not** a maturity signal. Page maturity is tracked separately via the `status:` frontmatter field (see below).
+
+### Page status (draft / published)
+
+Every content page has a maturity `status`, declared as a frontmatter field. This keeps stub or unvalidated pages from misrepresenting themselves on the public site without a heavyweight build-exclusion mechanism (issue #74; #57 may later add build-time exclusion keyed off this same field).
+
+| `status:` value | meaning | TOC | banner |
+| --- | --- | --- | --- |
+| `draft` | incomplete; not ready for public consumption | must be `hidden: true` (keep out of the sidebar) | **Draft** banner (below) |
+| `unvalidated-published` | complete and publicly visible, but not yet validated in the current Nucleus Cytosol | normal | **Not yet validated** banner (below) |
+| `validated-published` | complete and validated; ready | normal | none |
+
+- **Absent `status:` is treated as `validated-published`** — do not churn the ~50 ready pages. Only `draft` and `unvalidated-published` pages need an explicit field.
+- **Templates ship with `status: draft`** so a new page can't accidentally appear validated; the author changes it to `unvalidated-published` or `validated-published` when ready.
+- The `status:` field does **not** auto-render anything — add the matching banner by hand when you set `draft` or `unvalidated-published`. The two standard banners:
+
+```
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
+```
+
+```
+:::{attention} Not yet validated
+This page has not been validated in Nucleus Cytosol. <optional specifics, e.g. "Expected performance data below is from PURExpress cells.">
+:::
+```
+
+A page may also carry an unrelated content caveat (e.g. aHly's "not actively supported" BSL-2 note) — that is independent of `status:` and stays as its own admonition.
+
 ### Templates
 
 `templates/` contains Cookiecutter-style starter files:

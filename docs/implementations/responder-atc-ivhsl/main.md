@@ -1,6 +1,7 @@
 ---
 title: "Responder: aTc → IV-HSL"
 subtitle: Implementation
+status: unvalidated-published
 site:
     hide-toc: true
 ---
@@ -8,8 +9,8 @@ site:
 
 The aTc → IV-HSL Responder Implementation combines the TetR-aTc Detector Module and the IV-HSL Emitter Module ([Smith, Hartmann, and Booth., 2023](https://doi.org/10.1038/s41589-023-01374-7)) to produce a synthetic cell that generates isovaleryl-l-homoserine lactone (IV-HSL; [Lindemann et al., 2011](https://doi.org/10.1073/pnas.1114125108)) in response to anhydrotetracycline (aTc; [Lutz and Bujard, 1997](https://doi.org/10.1093/nar/25.6.1203)). The module is implemented as a single genetic construct encoding the BjaI enzyme under control of the tet operator. A co-cultured *E. coli* receiver strain carrying `bjaR-GFP-native` reports IV-HSL production by expressing GFP.
 
-:::{attention}
-This implementation has not been validated in Nucleus Cytosol ≥ v0.5.
+:::{attention} Not yet validated
+This implementation has not been validated in Nucleus Cytosol.
 :::
 
 :::{figure} mechanism-schematic.png
