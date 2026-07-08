@@ -21,7 +21,7 @@ Each [Module specification](../../modules/modules-main.md) gives its own referen
 | Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
 :::
 
-See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
+See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membrane spec.
 
 ::::
 
@@ -35,6 +35,10 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 | Lipid-oil      | 150             |
 | Outer Solution | 300             |
 
+:::
+
+::::
+
 :::::
 
 # Materials and Equipment
@@ -45,7 +49,7 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 | Name                            | Category   | Product                                                                                                                                | Manufacturer          | Part #      | Price        | Storage        | Link                                                                                                                                                                                                                      |
 | ------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- | ------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Optiprep                        | Reagent    | OptiPrep™                                                                                                                              | STEMCELL Technologies | 07820       | $289.00      | RT             |                                                                                                                                                                                                                           |
+| Optiprep                        | Reagent    | OptiPrep™                                                                                                                              | STEMCELL Technologies | 07820       | $289.00      | RT             | [link](https://www.stemcell.com/products/optipreptm.html)                                                                                                                                                                 |
 | POPC                            | Lipid      | 16:0-18:1 PC 25 mg/mL                                                                                                                  | Avanti Lipids         | A80557      | $435.00      | -20 °C         | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc)                                                                                                                                      |
 | Cholesterol                     | Lipid      | Cholesterol (plant)                                                                                                                    | Avanti Research       | A80100      | $261.00      | -20 °C         | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant)                                                                                                                                    |
 | Liss-Rhod PE                    | Lipid      | 18:0 Liss Rhod PE 1 mg/mL                                                                                                              | Avanti Lipids         | A81179      | $273.47      | -20 °C         | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe)                                                                                                                                     |
