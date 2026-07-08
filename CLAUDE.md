@@ -31,6 +31,8 @@ python3 scripts/build-protocols.py <dir>      # one process
 python3 scripts/build-protocols.py --extract-only   # skip PDF rendering
 ```
 
+**When verifying changes before a commit, only regenerate the process directories you actually touched** — pass the specific `docs/processes/<dir>` path(s) to `build-protocols.py`, not the bare command. Rendering PDFs for the whole site via `myst` + `typst` is the slowest step in local verification, and CI regenerates everything from scratch at deploy time regardless, so a full-site run adds no safety over a scoped one.
+
 CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `mystmd` via npm and deploying to GitHub Pages.
 
 **QA checks** (run locally before opening a PR):
