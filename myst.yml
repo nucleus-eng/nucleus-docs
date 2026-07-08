@@ -91,8 +91,6 @@ project:
           hidden: true
         - file: ./guides/tutorials.md
           hidden: true
-        - file: ./guides/nucleus-hub/nucleus-hub.md
-          hidden: true
         - file: ./guides/contribution-guide.md
           hidden: true
         - file: ./guides/materials-reference.md

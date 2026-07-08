@@ -25,7 +25,7 @@ The seventh release of the Nucleus Distribution (v0.5.0) is now available. Check
 
 ## Get started
 
-If you're new to Nucleus, checkout [From Zero to DevNote](). That guide will walk you through the documentation.
+If you're new to Nucleus, checkout [From Zero to DevNote](./first-guide.md). That guide will walk you through the documentation.
 
 ## Get in touch
 

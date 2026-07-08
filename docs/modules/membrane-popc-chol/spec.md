@@ -27,7 +27,7 @@ Schematic of a POPC/Chol liposome.
 ## Reference Composition
 
 :::{table}
-:label: comp-membrane
+:label: comp-membrane-spec
 | Component | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (uL) |
 | --- | --- | --- | --- | --- |
 | POPC | 70 | 760.076 | 25 | 162.17 |

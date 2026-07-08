@@ -97,7 +97,6 @@ Final protein yields of the reactions measured at steady state. Data from [DevNo
 ::::{tab-item} Cytosol
 
 :::{table}
-:::
 | Component | Input concentration | Unit | Final concentration | Unit | Volume for one reaction (µL) |
 | --- | --- | --- | --- | --- | --- |
 | SMix | 3.33 | × | 1 | × | 12 |
@@ -110,7 +109,7 @@ Final protein yields of the reactions measured at steady state. Data from [DevNo
 | RNase Inhibitor | 40000 | U/mL | 2000 | U/mL | 2 |
 | Water |  |  |  |  | 6.12 |
 | Total volume (µL) |  |  |  |  | 40 |
-::::
+:::
 
 ::::{tab-item} Membrane
 :::{table}
