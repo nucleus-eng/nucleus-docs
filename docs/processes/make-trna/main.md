@@ -46,7 +46,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 :::{table} 
-:label: tbl:composition-table
+:label: tbl:composition-table-trna
 :align: center
 
 | **Component** | **Stock Concentration** | **Reaction Concentration** |
