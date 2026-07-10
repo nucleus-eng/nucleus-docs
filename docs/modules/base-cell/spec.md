@@ -15,7 +15,7 @@ The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Base M
 :width: 100%
 :align: center
 
-Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spec) encapsulated with [Base Membrane](/docs/modules/membrane-popc-chol/spec.md). Constitutive components of each module schematically depicted.
+Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spec.md) encapsulated with [Base Membrane](/docs/modules/membrane-popc-chol/spec.md). Constitutive components of each module schematically depicted.
 :::
 
 ## Reference Composition
@@ -24,7 +24,7 @@ Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spe
 
 ::::{tab-item} Cytosol
 
-The inner solution encapsulated into the Base Cell is [Base Cytosol](../base-cytosol/spec.md) at reaction concentration, with `pOpen-deGFP` DNA added as a reporter.
+The inner solution encapsulated into the Base Cell is [Base Cytosol](/docs/modules/base-cytosol/spec.md) at reaction concentration, with `pOpen-deGFP` DNA added as a reporter.
 
 :::{table}
 :label: comp-cytosol
@@ -77,6 +77,12 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 Base Cells express deGFP over time, starting dark and increasing in green fluorescence as translation proceeds. Kinetics data are reported in [DevNote bnext-devnotes-base-cell-01](https://devnotes.nucleus.engineering/articles/bnext-devnotes-base-cell-01).
 
+:::{figure} cell-image.png
+:width: 100%
+:align: center
+
+Combined green (488 nm) and red (561 nm) fluroescence channels. First time point (labeled "t = 0") corresponds to 30 min after preparation of the inner solution, reflecting the time required to prepare liposomes.
+:::
 ## Process
 
 Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
