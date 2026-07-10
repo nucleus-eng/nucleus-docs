@@ -97,7 +97,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 ::::
 
 ::::{tab-item} Ribosomes
-:::{table} Ribosome stock concentration.[]() 
+:::{table} Ribosome stock concentration.
 :label: comp-ribosomes
 
 | Component | Stock Concentration | Reaction Concentration |
