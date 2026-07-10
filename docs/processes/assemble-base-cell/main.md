@@ -1,77 +1,45 @@
 ---
-title: "Assemble Base Cell"
+title: "Encapsulation: Phase Transfer"
 subtitle: "Process"
 ---
 
 # Overview
 
-Base Cells are liposome-based synthetic cells that can perform transcription and translation.
+Emulsion phase transfer is a general method for encapsulating an aqueous inner solution (e.g., [Cytosol](../../modules/base-cytosol/spec.md)) inside a lipid bilayer to form liposomes. In this protocol, you will make the necessary lipid precursors, form a water-in-oil emulsion from your inner solution, and transfer that emulsion across a lipid-stabilized oil–water interface into an outer solution, yielding liposomes suspended in the outer solution.
 
-In this protocol, you will make the necessary precursors for liposome encapsulation, and then assemble and encapsulate Cytosol that expresses Green Fluorescent Protein (GFP). The Base Cell is deployed in a glucose outer solution.
-
-Successfully built Base Cells will start dark and then increase in green fluorescence over time as GFP is produced.
-
-
-:::::::{card}
-:header: **Important Information**
-
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
-
-::::::{note} Composition
-:class: dropdown
-:icon: false
-
+Each [Module specification](../../modules/modules-main.md) gives its own reference composition, outer solution requirements, and expected behavior once encapsulated. This page covers the encapsulation process given those parameters.
 
 :::::{tab-set}
-
-::::{tab-item} Cytosol
-
-:::{table}
-:label: comp-cytosol
-
-| Component         | Input concentration | Unit  | Final concentration | Unit  | Volume for one reaction (µL) |
-| ----------------- | ------------------- | ----- | ------------------- | ----- | ---------------------------- |
-| SMix              | 3.33                | ×     | 1                   | ×     | 12                           |
-| PMix              | 15                  | mg/mL | 1.80                | mg/mL | 4.8                          |
-| Ribosomes         | 10                  | µM    | 1.8                 | µM    | 7.2                          |
-| `pOpen-deGFP` DNA | 124                 | nM    | 3                   | nM    | 0.95                         |
-| tRNA              | 35                  | mg/ml | 3.5                 | mg/ml | 4                            |
-| Optiprep          | 1.32                | mg/µL | 0.043               | mg/µL | 1.33                         |
-| RNase Inhibitor   | 40 000              | U/mL  | 2000                | U/mL  | 2                            |
-| Water             |                     |       |                     |       | 6.12                         |
-| Total volume (µL) |                     |       |                     |       | 40                           |
-:::
-
-::::
-
-::::{tab-item} Membrane
+::::{tab-item} Membrane Composition
 :::{table}
 :label: comp-membrane
 
-| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (uL) |
+| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
 | POPC         | 70                    | 760.076                  | 25                          | 162.17             |
 | Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
 | Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
-
 :::
+
+See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membrane spec.
+
 ::::
 
-::::{tab-item} Outer Solution
-
+::::{tab-item} Assembly Composition
 :::{table}
+:label: comp-assembly
 
-| Component | Concentration |
-| --------- | ------------- |
-| Glucose   | 850 mM        |
+| **Component**  | **Volume (µL)** |
+| -------------- | --------------- |
+| Inner Solution | 30              |
+| Lipid-oil      | 150             |
+| Outer Solution | 300             |
+
 :::
 
 ::::
+
 :::::
-
-::::::
-
-:::::::
 
 # Materials and Equipment
 
@@ -81,11 +49,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | Name                            | Category   | Product                                                                                                                                | Manufacturer          | Part #      | Price        | Storage        | Link                                                                                                                                                                                                                      |
 | ------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- | ------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Base Cytosol                    | Biologic   | Nucleus Base Cytosol (see [Base Cytosol](../../modules/base-cytosol/spec.md))                                                          | b.next                | —           | —            | -80°C          | [link (protocol)](../assemble-base-cytosol/main.md)                                                                                                                                                                       |
 | Optiprep                        | Reagent    | OptiPrep™                                                                                                                              | STEMCELL Technologies | 07820       | $289.00      | RT             | [link](https://www.stemcell.com/products/optipreptm.html)                                                                                                                                                                 |
-| POPC                            | Lipid      | 16:0-18:1 PC 25 mg/mL                                                                                                                  | Avanti Lipids         | A80557      | $435.00      | -20°C          | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc)                                                                                                                                      |
-| Cholesterol                     | Lipid      | Cholesterol (plant)                                                                                                                    | Avanti Research       | A80100      | $261.00      | -20°C          | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant)                                                                                                                                    |
-| Liss-Rhod PE                    | Lipid      | 18:0 Liss Rhod PE 1 mg/mL                                                                                                              | Avanti Lipids         | A81179      | $273.47      | -20°C          | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe)                                                                                                                                     |
+| POPC                            | Lipid      | 16:0-18:1 PC 25 mg/mL                                                                                                                  | Avanti Lipids         | A80557      | $435.00      | -20 °C         | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc)                                                                                                                                      |
+| Cholesterol                     | Lipid      | Cholesterol (plant)                                                                                                                    | Avanti Research       | A80100      | $261.00      | -20 °C         | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant)                                                                                                                                    |
+| Liss-Rhod PE                    | Lipid      | 18:0 Liss Rhod PE 1 mg/mL                                                                                                              | Avanti Lipids         | A81179      | $273.47      | -20 °C         | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe)                                                                                                                                     |
 | Glucose                         | Chemical   | D-(+)-Glucose, 99%                                                                                                                     | Thermo Scientific     | A16828-36   | $41.65       | RT             | [link](https://www.thermofisher.com/order/catalog/product/A16828.36)                                                                                                                                                      |
 | Chloroform                      | Chemical   | Chloroform, suitable for HPLC, ≥99.8%, contains 0.5-1.0% ethanol as stabilizer                                                         | Sigma-Aldrich         | 366927      | $94.30       | RT (fume hood) | [link](https://www.sigmaaldrich.com/US/en/product/sigald/366927)                                                                                                                                                          |
 | Mineral oil                     | Chemical   | Mineral oil, mixed weight                                                                                                              | Thermo Scientific     | AC415080010 | $53.40       | RT             | [link](https://www.thermofisher.com/order/catalog/product/AC415080010)                                                                                                                                                    |
@@ -98,10 +65,9 @@ Please read this section carefully. It contains important notes, resources, and 
 
 # Protocol
 
-## Prepare Stock Solutions
+## Prepare Lipids in Mineral Oil
 
-**Prepare lipids in mineral oil**
-- [ ]  Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
+- [ ] Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple
@@ -109,15 +75,15 @@ Please read this section carefully. It contains important notes, resources, and 
 Work inside of a fume hood when handling chloroform and lipids.
 :::
 
-- [ ]  Add the lipids in the above {ref}`comp-membrane` to the glass vial on top of the mineral oil using the appropriate glass syringe.
-- [ ]  Briefly vortex the lipid-oil mixture for 5 s to mix.
-- [ ]  Evaporate the chloroform from the lipid–oil mixture:
-    - [ ]  Place glass vial in a 55 °C dry bath in a fume hood.
-    - [ ]  Shield with aluminum foil to protect from light.
-    - [ ]  Evaporate uncovered for 4 h.
-- [ ]  In a glass bottle, add 4 mL of chloroform using a glass 10 mL serological pipette.
-- [ ]  Clean syringes by rinsing with chloroform 5 times into an empty glass bottle. Store the syringes with the plunger removed inside the fume hood for 3 h to 4 h to allow remaining chloroform to evaporate.
-- [ ]  After 4 h of incubation at 55 °C in a dry bath in a fume hood, allow the lipid-oil mixture to cool to room temperature for 10 min to 15 min.
+- [ ] Add the lipids in the above {ref}`comp-membrane` to the glass vial on top of the mineral oil using the appropriate glass syringe.
+- [ ] Briefly vortex the lipid-oil mixture for 5 s to mix.
+- [ ] Evaporate the chloroform from the lipid–oil mixture:
+    - [ ] Place glass vial in a 55 °C dry bath in a fume hood.
+    - [ ] Shield with aluminum foil to protect from light.
+    - [ ] Evaporate uncovered for 4 h.
+- [ ] In a glass bottle, add 4 mL of chloroform using a glass 10 mL serological pipette.
+- [ ] Clean syringes by rinsing with chloroform 5 times into an empty glass bottle. Store the syringes with the plunger removed inside the fume hood for 3 h to 4 h to allow remaining chloroform to evaporate.
+- [ ] After 4 h of incubation at 55 °C in a dry bath in a fume hood, allow the lipid-oil mixture to cool to room temperature for 10 min to 15 min.
 
 :::{hint} Note
 :class: simple
@@ -125,13 +91,13 @@ Work inside of a fume hood when handling chloroform and lipids.
 The lipid–oil mixture can be used immediately after cooling to room temperature or stored at 4 °C for up to one week. Protect from light by storing in an opaque container or wrapping the vial with aluminum foil.
 :::
 
-- [ ]  Return the plungers to the syringes and store them in their designated location.
-- [ ]  Dispose of chloroform waste following applicable chemical safety guidelines.
+- [ ] Return the plungers to the syringes and store them in their designated location.
+- [ ] Dispose of chloroform waste following applicable chemical safety guidelines.
 
 ## Assemble Outer Solutions
 
-- [ ]  Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
-- [ ]  Mix glucose stock solution and water according to the following table:
+- [ ] Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
+- [ ] Mix glucose stock solution and water according to the following table:
 
 :::{table} Preparation of outer solutions. These values are approximates and may vary based on the measured osmolarity of your inner solution.
 :name: os-prep
@@ -147,30 +113,8 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 :::{hint} Note
 :class: simple
 :icon: false
-These outer solution concentrations may vary and should be based on the measured osmolarity of your inner solution.
+The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol/spec.md). Measure the osmolarity of your inner solution and adjust the outer solution's glucose concentration so its osmolarity is 100 mOsm to 120 mOsm lower than the inner solution.
 :::
-
-## Assemble Cytosol Reactions
-
-- [ ]  Remove all components listed in the Composition {ref}`comp-cytosol` above from appropriate cold storage.
-- [ ]  Thaw reagents on ice.
-- [ ]  Prepare 1.5 mL microcentrifuge tubes, on ice, to assemble reactions into.
-
-:::{hint} Tip
-:class: simple
-:icon: false
-Prepare the reaction on ice or a cold block to prevent protein expression from starting during assembly. This ensures the plate reader captures the complete fluorescence kinetics for deGFP expression.
-:::
-
-- [ ]  For a given reaction, assemble by adding the volume of reagents from the Composition {ref}`comp-cytosol` in the order listed. Pay special attention to the handling of the Cytosol components:
-    - [ ]  Vortex SMix: Ensure thorough mixing; 10 s vortex / 10 s rest on ice; should be transparent with no visible precipitate; and add to the reaction tubes.
-    - [ ]  Vortex or pipette mix tRNA, and add to the reaction tubes.
-    - [ ]  Vortex or pipette mix PMix, and add to the reaction tubes.
-    - [ ]  **Do NOT vortex** ribosomes: *gently* pipette mix or flick the tube, and add to the reaction tubes.
-    - [ ]  Add remaining reactions in the order they appear
-- [ ]  Mix the master mix thoroughly by pipetting up and down (10–15) times until it appears homogeneous and clear.
-- [ ]  Close lids on the microcentrifuge tubes and briefly spin down to eliminate bubbles.
-- [ ]  Pipette out 10 µL of the reaction for osmolarity check using a Vapor Pressure Osmometer before starting encapsulation.
 
 :::{danger} Critical
 :class: simple
@@ -178,16 +122,14 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 Adjust the outer solution concentration so its osmolarity is 100 mOsm to 120 mOsm lower than the inner solution when measured on a Wescor EliTech Vapro 5600 Vapor Pressure Osmometer. 
 :::
 
-- [ ]  Hold assembled reactions on ice until ready for encapsulation.
+## Encapsulate Inner Solution
 
-## Encapsulate Cytosols into Liposomes
-
-- [ ]  Set up a 1.5 mL tube rack with two 1.5 mL microcentrifuge tubes for each liposome encapsulation. Number the tubes according to the number of reactions assembled. Label the two tubes for each reaction:
-    - [ ]  **T**—transfer
-    - [ ]  **L**—liposomes
-- [ ]  Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**.
-- [ ]  Add 150 µL of the lipid-oil mixture (at room temperature) on top of each assembled Cytosol reaction.
-- [ ]  Emulsify the lipid-oil and Cytosol reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Run it down 20–30 times until the solution forms a stable emulsion with an even milky color.
+- [ ] Set up a 1.5 mL tube rack with two 1.5 mL microcentrifuge tubes for each liposome encapsulation. Number the tubes according to the number of reactions assembled. Label the two tubes for each reaction:
+    - [ ] **T**—transfer
+    - [ ] **L**—liposomes
+- [ ] Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**.
+- [ ] Add 150 µL of the lipid-oil mixture (at room temperature) on top of each assembled inner solution reaction.
+- [ ] Emulsify the lipid-oil and inner solution reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Run it down 20–30 times until the solution forms a stable emulsion with a consistent milky color.
 
 :::{hint} Tip
 :class: simple
@@ -195,8 +137,8 @@ Adjust the outer solution concentration so its osmolarity is 100 mOsm to 120 mOs
 While running the tubes on the tube rack, hold the cap firmly to prevent it from coming off during vigorous mixing. 
 :::
 
-- [ ]  Immediately layer each emulsion over the outer solution. Slowly pipette the entire emulsion down the side of the corresponding **T** tube.
-- [ ]  Centrifuge **T** tubes at 9000 g for 10 min at room temperature to pellet the liposomes.
+- [ ] Immediately layer each emulsion over the outer solution. Slowly pipette the entire emulsion down the side of the corresponding **T** tube.
+- [ ] Centrifuge **T** tubes at 9000 g for 10 min at room temperature to pellet the liposomes.
 
 :::{hint} Tip
 :class: simple
@@ -204,10 +146,10 @@ While running the tubes on the tube rack, hold the cap firmly to prevent it from
 Align the hinges of each T tube towards the outside of the centrifuge rotor, so that the final pellet location will be indicated by the tube hinge since the liposome pellet may not always be visible.
 :::
 
-- [ ]  Extract the liposomes from each **T** tube:
-    - [ ]  Remove the oil layer and lipid debris from the top of each **T** tube by gently pipetting with a 1000 µL pipette set to 800 µL.
-    - [ ]  Gently pipette mix the pellet 10-15 times with the outer solution.
-    - [ ]  Extract liposomes by pipetting 50 µL to 100 µL of pellet and outer solution from **T** and transfer liposome sample to the respective liposome tube **L**.
+- [ ] Extract the liposomes from each **T** tube:
+    - [ ] Remove the oil layer and lipid debris from the top of each **T** tube by gently pipetting with a 1000 µL pipette set to 800 µL.
+    - [ ] Gently pipette mix the pellet 10-15 times with the outer solution.
+    - [ ] Extract liposomes by pipetting 50 µL to 100 µL of pellet and outer solution from **T** and transfer liposome sample to the respective liposome tube **L**.
 
 :::{danger} Critical
 :class: simple
@@ -215,12 +157,9 @@ Align the hinges of each T tube towards the outside of the centrifuge rotor, so 
 Do not transfer the entire solution. It is important to avoid transferring the top of the solution which may contain a residual oil layer. 
 :::
 
-- [ ]  Hold liposomes on ice until you are prepared to begin measurement.
-- [ ]  Pipette the liposomes into a well on a 384-well glass bottom plate. If the density appears too high under the microscope, dilute the liposomes with the outer solution for better data analysis.
-- [ ]  Begin measurement.
-
-**Return reagents to their appropriate storage locations.**
-- [ ]  Add a black dot to the lid of each of Cytosol component. The number of dots indicates freeze–thaw cycles.
+- [ ] Hold liposomes on ice until you are prepared to begin measurement.
+- [ ] Pipette the liposomes into a well on a 384-well glass bottom plate. If the density appears too high under the microscope, dilute the liposomes with the outer solution for better data analysis.
+- [ ] Observe liposomes by fluorescence microscopy.
 
 # Downloads
 

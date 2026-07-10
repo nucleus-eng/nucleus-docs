@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
 check-bom-labels.py — enforce the lab-ready pipeline's BOM conventions on
-process pages (issues #10, #108).
+process pages and module spec pages (issues #10, #108).
 
 The lab-ready pipeline (scripts/build-protocols.py) generates a protocol PDF, a
-Bill of Materials PDF, and a materials CSV from each process page. A page's BOM
-may be supplied as EITHER an inline table labeled ``bom-<slug>`` OR an uploaded
-``resources/<slug>-bom.csv`` (``<slug>`` = the process's directory name).
-Download buttons point at ``generated/<slug>-*.pdf``. This fast, no-toolchain
-check enforces:
+Bill of Materials PDF, and a materials CSV from each process page
+(``docs/processes/**/main.md`` or ``*-main.md``), and a BOM PDF + materials CSV
+(no protocol PDF) from each module spec page (``docs/modules/**/spec.md``) that
+carries a BOM source. A page's BOM may be supplied as EITHER an inline table
+labeled ``bom-<slug>`` OR an uploaded ``resources/<slug>-bom.csv`` (``<slug>``
+= the page's containing directory name). Download buttons point at
+``generated/<slug>-*.pdf``. This fast, no-toolchain check enforces:
 
   1. A ``bom-<...>`` table label must match its directory — ``bom-<dir-name>``.
      A renamed directory with a stale label silently stops generating the BOM.
@@ -22,16 +24,18 @@ check enforces:
   5. **Agreement:** if a page has BOTH an inline ``bom-<slug>`` table AND a
      ``resources/<slug>-bom.csv``, the two must be row-for-row identical after
      normalization — otherwise the rendered page and the uploaded file disagree.
-  6. **Orphans / misnaming:** a standalone ``bom-*.md`` file in a process dir
-     (the pre-pipeline anti-pattern), or a ``resources/*bom*.csv`` not named
-     ``<slug>-bom.csv``, is flagged. A BOM source on a page with no ``# Protocol``
-     (so the pipeline skips it) is flagged too.
+  6. **Orphans / misnaming:** a standalone ``bom-*.md`` file in a process or
+     module dir (the pre-pipeline anti-pattern), or a ``resources/*bom*.csv``
+     not named ``<slug>-bom.csv``, is flagged. On a *process* page (not a
+     module spec), a BOM source with no ``# Protocol`` heading is flagged too
+     — the pipeline requires a Protocol section to generate anything for that
+     page kind, so a BOM there would silently never be built.
 
 Reports violations as ``file:line`` and exits non-zero if any are found.
 
 Usage:
     python3 scripts/check-bom-labels.py [paths...]
-    python3 scripts/check-bom-labels.py            # all of docs/processes/
+    python3 scripts/check-bom-labels.py            # all of docs/processes/ + docs/modules/
 """
 
 import re
@@ -47,6 +51,7 @@ from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0
 )
 
 PROCESSES_ROOT = Path("docs/processes")
+MODULES_ROOT = Path("docs/modules")
 
 BOM_LABEL_RE = re.compile(r"^\s*:label:\s*(bom-[A-Za-z0-9._-]+)\s*$")
 # Loose: any generated BOM-PDF download target, however (mis)named. Lets us
@@ -59,15 +64,28 @@ ORPHAN_BOM_MD_RE = re.compile(r"^bom-.*\.md$", re.IGNORECASE)
 
 
 def find_pages(args):
-    targets = [Path(a) for a in args] if args else [PROCESSES_ROOT]
-    pages = []
+    """Return (process_pages, module_pages). Process pages are matched by
+    filename pattern under any target; module pages are ``spec.md`` files
+    specifically under ``MODULES_ROOT`` (or an explicit target inside it)."""
+    targets = [Path(a) for a in args] if args else [PROCESSES_ROOT, MODULES_ROOT]
+    modules_root_resolved = MODULES_ROOT.resolve()
+
+    process_pages = []
+    module_pages = []
     for target in targets:
+        under_modules = (
+            target.resolve() == modules_root_resolved
+            or modules_root_resolved in target.resolve().parents
+        )
         if target.is_file() and target.suffix == ".md":
-            pages.append(target)
+            (module_pages if under_modules else process_pages).append(target)
             continue
-        for pattern in ("**/main.md", "**/*-main.md"):
-            pages.extend(target.glob(pattern))
-    return sorted(set(pages))
+        if under_modules:
+            module_pages.extend(target.glob("**/spec.md"))
+        else:
+            for pattern in ("**/main.md", "**/*-main.md"):
+                process_pages.extend(target.glob(pattern))
+    return sorted(set(process_pages)), sorted(set(module_pages))
 
 
 def _has_protocol(text):
@@ -123,8 +141,26 @@ def check_agreement(inline_rows, csv_text, slug, label_line, path):
     return violations
 
 
-def check_page(path):
-    """Return a list of (line, message) violations for one process page."""
+def page_has_bom_source(path):
+    """Whether `path` (a process or module page) has adopted the pipeline's BOM
+    convention — a matching inline ``bom-<slug>`` label or a
+    ``resources/<slug>-bom.csv``. Used both by ``check_page`` and by ``main`` to
+    decide whether a directory's orphan-file checks apply (see ``main``)."""
+    slug = path.parent.name
+    expected = f"bom-{slug}"
+    text = path.read_text(encoding="utf-8")
+    has_matching_label = any(
+        BOM_LABEL_RE.match(line) and BOM_LABEL_RE.match(line).group(1) == expected
+        for line in text.splitlines()
+    )
+    has_csv = (path.parent / "resources" / f"{slug}-bom.csv").is_file()
+    return has_matching_label or has_csv
+
+
+def check_page(path, requires_protocol=True):
+    """Return a list of (line, message) violations for one page. Rule 6's
+    "no # Protocol" check only applies to process pages — module specs are
+    valid BOM-only sources for the pipeline and never have a Protocol section."""
     slug = path.parent.name
     expected = f"bom-{slug}"
     text = path.read_text(encoding="utf-8")
@@ -187,8 +223,9 @@ def check_page(path):
                     check_agreement(inline_rows, csv_text, slug,
                                     _label_line(lines, slug), path))
 
-    # Rule 6: a BOM source on a page the pipeline skips (no # Protocol).
-    if has_bom_source and not _has_protocol(text):
+    # Rule 6: a BOM source on a process page the pipeline skips (no # Protocol).
+    # Module spec pages are BOM-only by design and never have a Protocol section.
+    if requires_protocol and has_bom_source and not _has_protocol(text):
         violations.append((1,
             f"page has a BOM source but no '# Protocol' heading — the pipeline "
             f"skips it, so no BOM is generated"))
@@ -223,17 +260,28 @@ def main():
         print(f"ERROR: '{PROCESSES_ROOT}' not found — run from the repo root.")
         return 1
 
-    pages = find_pages(args)
+    process_pages, module_pages = find_pages(args)
     total = 0
 
-    for page in pages:
-        for line, msg in check_page(page):
+    for page in process_pages:
+        for line, msg in check_page(page, requires_protocol=True):
+            print(f"{page}:{line}  {msg}")
+            total += 1
+    for page in module_pages:
+        for line, msg in check_page(page, requires_protocol=False):
             print(f"{page}:{line}  {msg}")
             total += 1
 
-    # Directory-level checks, once per process directory containing a page.
+    # Directory-level checks (orphan bom-*.md, misnamed CSVs), once per
+    # directory containing a page. Every process directory is checked
+    # unconditionally (all process pages are expected to use the pipeline).
+    # Module directories are only checked if their spec.md has already opted
+    # into the pipeline (a bom-<slug> table or resources/<slug>-bom.csv) —
+    # otherwise this would flag pre-pipeline legacy modules (e.g.
+    # reporter-degfp's bom-cells.md/bom-cytosol.md, rendered through an
+    # unrelated ad hoc typst template) that are out of scope to migrate here.
     seen_dirs = set()
-    for page in pages:
+    for page in process_pages:
         proc_dir = page.parent
         if proc_dir in seen_dirs:
             continue
@@ -241,11 +289,19 @@ def main():
         for child, line, msg in check_directory(proc_dir, proc_dir.name):
             print(f"{child}:{line}  {msg}")
             total += 1
+    for page in module_pages:
+        mod_dir = page.parent
+        if mod_dir in seen_dirs or not page_has_bom_source(page):
+            continue
+        seen_dirs.add(mod_dir)
+        for child, line, msg in check_directory(mod_dir, mod_dir.name):
+            print(f"{child}:{line}  {msg}")
+            total += 1
 
     if total:
         print(f"\n❌ {total} BOM convention violation(s) found.")
         return 1
-    print(f"✅ {len(pages)} process page(s) OK.")
+    print(f"✅ {len(process_pages) + len(module_pages)} page(s) OK.")
     return 0
 
 

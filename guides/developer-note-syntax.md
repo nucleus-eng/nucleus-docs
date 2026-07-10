@@ -80,7 +80,7 @@ Illustration of the PPK2 based energy regeneration the PURE system.
 :class: dropdown
 
 :::{figure} https://github.com/bnext-bio/nucleus-developer-notes/blob/main/dev-notes/04_ppk/figures/PPK-illustration.png
-:label: fig:my-fig-1
+:label: fig:my-fig-2
 :align: left
 
 Illustration of the PPK2 based energy regeneration the PURE system. 
@@ -95,9 +95,6 @@ Illustration of the PPK2 based energy regeneration the PURE system.
 Tables follow the same basic patterns as figures:
 
 :::{table}
-:option-1: parameter-1
-:option-2: parameter-2
-:option-3: parameter-3
 
 | Header 1 | Header 2 | Header 3 |
 | --- | --- | --- |

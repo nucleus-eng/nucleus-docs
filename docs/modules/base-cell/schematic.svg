@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   sodipodi:docname="schematic.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.3376952"
+     inkscape:cx="390.22341"
+     inkscape:cy="413.02382"
+     inkscape:window-width="1710"
+     inkscape:window-height="954"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:export-bgcolor="#ffffffff">
+    <inkscape:grid
+       id="grid1549"
+       units="mm"
+       originx="0"
+       originy="0"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="false"
+       dotted="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path5"
+       style="fill:#ff0066;stroke:#ff0066;stroke-width:3"
+       d="m 151.92501,95.379847 c 3e-5,0.114632 -3.1e-4,0.229264 -10e-4,0.343894"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="schematic.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <g
+       id="g1786"
+       transform="translate(-5.9316975,-1.6242266)">
+      <path
+         id="path7"
+         style="fill:none;stroke:#b3b3b3;stroke-width:3"
+         d="m 157.84434,97.347968 c -0.18908,30.093272 -24.63783,54.388882 -54.7317,54.388882"
+         sodipodi:nodetypes="cc" />
+      <path
+         id="path6"
+         style="fill:none;stroke:#333333;stroke-width:3"
+         d="m 103.11264,151.73685 c -22.137341,0 -42.094897,-13.33521 -50.566491,-33.78745 -8.471594,-20.452236 -3.78889,-43.993778 11.864573,-59.647243 15.653465,-15.653466 39.195008,-20.33617 59.647248,-11.864575 20.45224,8.471594 33.78745,28.42915 33.78745,50.566492"
+         sodipodi:nodetypes="csssc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:none;stroke:#b3b3b3;stroke-width:0.5;stroke-dasharray:none"
+       x="171.59621"
+       y="94.654076"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';stroke-width:0.5;stroke-dasharray:none"
+         x="171.59621"
+         y="94.654076"></tspan></text>
+    <path
+       style="fill:#ff0066;fill-opacity:1;stroke:#ff0066;stroke-width:0.317828;stroke-dasharray:none;stroke-opacity:1"
+       d="m 154.90361,95.591702 c 3.87672,0 3.87672,0 3.87672,0"
+       id="path15" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+       x="170.35165"
+       y="44.447498"
+       id="text1485"><tspan
+         sodipodi:role="line"
+         id="tspan1483"
+         style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="170.35165"
+         y="44.447498" /><tspan
+         sodipodi:role="line"
+         style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="170.35165"
+         y="49.739159"
+         id="tspan1485" /></text>
+    <g
+       id="g1797"
+       transform="translate(-3.9685265,-0.91998554)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="36.015842"
+         y="64.671684"
+         id="text15"><tspan
+           sodipodi:role="line"
+           id="tspan13"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="36.015842"
+           y="64.671684" /><tspan
+           sodipodi:role="line"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="36.015842"
+           y="69.963348"
+           id="tspan14">POPC</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="36.015842"
+           y="75.255005"
+           id="tspan15" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82223px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+         x="36.051826"
+         y="73.429039"
+         id="text1508"><tspan
+           sodipodi:role="line"
+           id="tspan1508"
+           style="stroke-width:0.5"
+           x="36.051826"
+           y="73.429039">(74.925 %mol)</tspan></text>
+    </g>
+    <g
+       id="g1795"
+       transform="translate(-4.2933942,-3.0413075)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="159.34541"
+         y="134.27783"
+         id="text11"><tspan
+           sodipodi:role="line"
+           id="tspan10"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="159.34541"
+           y="134.27783" /><tspan
+           sodipodi:role="line"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="159.34541"
+           y="139.56949"
+           id="tspan12">Cholesterol</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="159.34541"
+           y="144.86116"
+           id="tspan11" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82223px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+         x="159.29462"
+         y="143.03517"
+         id="text1510"><tspan
+           sodipodi:role="line"
+           id="tspan1510"
+           style="stroke-width:0.5"
+           x="159.29462"
+           y="143.03517">(24.975 %mol)</tspan></text>
+    </g>
+    <g
+       id="g1796"
+       transform="translate(-11.212077,-0.597651)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="183.79422"
+         y="95.816818"
+         id="text8"><tspan
+           sodipodi:role="line"
+           id="tspan8"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="183.79422"
+           y="95.816818">Liss Rhod PE</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="183.79422"
+           y="101.10848"
+           id="tspan9" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82223px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+         x="183.85773"
+         y="99.282509"
+         id="text1511"><tspan
+           sodipodi:role="line"
+           id="tspan1511"
+           style="stroke-width:0.5"
+           x="183.85773"
+           y="99.282509">(0.1 %mol)</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="97.141319"
+       y="160.98944"
+       id="text1512"><tspan
+         sodipodi:role="line"
+         id="tspan1512"
+         style="font-size:8.46667px;stroke-width:0.5"
+         x="97.141319"
+         y="160.98944">Base Membrane</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="97.25985"
+       y="59.434109"
+       id="text1513"><tspan
+         sodipodi:role="line"
+         id="tspan1513"
+         style="font-size:8.46667px;stroke-width:0.5"
+         x="97.25985"
+         y="59.434109">Base Cytosol</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.450001, 0.450001;stroke-dashoffset:0;stroke-opacity:1"
+       x="86"
+       y="68.999992"
+       id="text1592"><tspan
+         sodipodi:role="line"
+         id="tspan1592"
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:0.15"
+         x="86"
+         y="68.999992" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.11667px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="88.84449"
+       y="81.430367"
+       id="text1615"><tspan
+         sodipodi:role="line"
+         style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+         x="88.84449"
+         y="81.430367"
+         id="tspan1615" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="108.42242"
+       y="81.350105"
+       id="text1758"><tspan
+         sodipodi:role="line"
+         id="tspan1758"
+         style="stroke-width:0.15"
+         x="108.42242"
+         y="81.350105"></tspan></text>
+    <g
+       id="g1791"
+       transform="translate(-5.9204095,3.9333681)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="72.618782"
+         y="67.572182"
+         id="text1469"><tspan
+           sodipodi:role="line"
+           id="tspan1467"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="72.618782"
+           y="67.572182" /><tspan
+           sodipodi:role="line"
+           style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="72.618782"
+           y="74.762497"
+           id="tspan1469">PMix</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="72.618782"
+           y="80.801346"
+           id="tspan1499" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+         x="72.714027"
+         y="78.787689"
+         id="text1500"><tspan
+           sodipodi:role="line"
+           id="tspan1500"
+           style="font-size:3.52778px;stroke:none;stroke-width:0.5"
+           x="72.714027"
+           y="78.787689">(36x @ 1.8 µg/µL)</tspan></text>
+    </g>
+    <g
+       id="g1792"
+       transform="translate(-5.9204095,4.3042009)">
+      <g
+         id="g1591"
+         transform="translate(5.7625029,-2.0583316)">
+        <circle
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.146573;stroke-dasharray:none;stroke-opacity:1"
+           id="use1514"
+           cx="86"
+           cy="69"
+           r="0.99999684"
+           inkscape:tile-x0="90.000001"
+           inkscape:tile-y0="55.000002"
+           inkscape:tile-cx="90.999998"
+           inkscape:tile-cy="55.999999"
+           inkscape:tile-w="1.9999936"
+           inkscape:tile-h="1.9999936" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           id="use1549" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(-2.0835446e-8,3.9999873)"
+           id="use1550" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(-2.0835446e-8,7.9999745)"
+           id="use1551" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(3.9999873)"
+           id="use1552" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(3.9999873,3.9999873)"
+           id="use1553" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(3.9999873,7.9999745)"
+           id="use1554" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(7.9999743)"
+           id="use1555" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(7.9999743,3.9999873)"
+           id="use1556" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(7.9999743,7.9999745)"
+           id="use1557" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(11.999962)"
+           id="use1558" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(11.999962,3.9999873)"
+           id="use1559" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(11.999962,7.9999745)"
+           id="use1560" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(15.999949)"
+           id="use1561" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(15.999949,3.9999873)"
+           id="use1562" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(15.999949,7.9999745)"
+           id="use1563" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(19.999936)"
+           id="use1564" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(19.999936,3.9999873)"
+           id="use1565" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(19.999936,7.9999745)"
+           id="use1566" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(23.999924)"
+           id="use1567" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(23.999924,3.9999873)"
+           id="use1568" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(23.999924,7.9999745)"
+           id="use1569" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(27.999911)"
+           id="use1570" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(27.999911,3.9999873)"
+           id="use1571" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(27.999911,7.9999745)"
+           id="use1572" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(31.999898)"
+           id="use1573" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(31.999898,3.9999873)"
+           id="use1574" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(31.999898,7.9999745)"
+           id="use1575" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(35.999885)"
+           id="use1576" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(35.999885,3.9999873)"
+           id="use1577" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(35.999885,7.9999745)"
+           id="use1578" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(39.999873)"
+           id="use1579" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(39.999873,3.9999873)"
+           id="use1580" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(39.999873,7.9999745)"
+           id="use1581" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(43.99986)"
+           id="use1582" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(43.99986,3.9999873)"
+           id="use1583" />
+        <use
+           x="0"
+           y="0"
+           inkscape:tiled-clone-of="#use1514"
+           xlink:href="#use1514"
+           transform="translate(43.99986,7.9999745)"
+           id="use1584" />
+      </g>
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.45, 0.45;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 89.762506,64.941664 v 8 h 32.000024 l 4,10e-7 v -4 l 12,-10e-7 v -4 z"
+         id="path1584"
+         sodipodi:nodetypes="cccccccc" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.45, 0.45;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 125.76253,72.941664 h 12 v -4"
+         id="path1586" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.45, 0.45;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 89.762506,72.941664 v 4 h 12.000004 v -4"
+         id="path1587" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.45, 0.45;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 101.76251,76.941664 h 16.00002 v -4"
+         id="path1588" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.45, 0.45;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 117.76253,76.941664 h 16 v -4"
+         id="path1589" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.45, 0.45;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 133.76253,76.941664 h 4 v -4"
+         id="path1590" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="91.762505"
+         y="67.470825"
+         id="text1593"><tspan
+           sodipodi:role="line"
+           id="tspan1593"
+           style="stroke:none;stroke-width:0.15;stroke-dasharray:none"
+           x="91.762505"
+           y="67.470825">1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="127.76239"
+         y="71.412483"
+         id="text1595"><tspan
+           sodipodi:role="line"
+           id="tspan1595"
+           style="stroke:none;stroke-width:0.15;stroke-dasharray:none"
+           x="127.76239"
+           y="71.412483">2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="91.762505"
+         y="75.412468"
+         id="text1596"><tspan
+           sodipodi:role="line"
+           id="tspan1596"
+           style="stroke:none;stroke-width:0.15;stroke-dasharray:none"
+           x="91.762505"
+           y="75.412468">3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="103.76244"
+         y="75.412468"
+         id="text1597"><tspan
+           sodipodi:role="line"
+           id="tspan1597"
+           style="stroke:none;stroke-width:0.15;stroke-dasharray:none"
+           x="103.76244"
+           y="75.412468">4</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="119.75819"
+         y="75.454582"
+         id="text1598"><tspan
+           sodipodi:role="line"
+           id="tspan1598"
+           style="stroke:none;stroke-width:0.15;stroke-dasharray:none"
+           x="119.75819"
+           y="75.454582">5</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.41111px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="135.7623"
+         y="75.412468"
+         id="text1599"><tspan
+           sodipodi:role="line"
+           id="tspan1599"
+           style="stroke:none;stroke-width:0.15;stroke-dasharray:none"
+           x="135.7623"
+           y="75.412468">6</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.11667px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="89.813263"
+         y="80.426094"
+         id="text1600"><tspan
+           sodipodi:role="line"
+           style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+           x="89.813263"
+           y="80.426094"
+           id="tspan1612">1: aaRS (+MTF) (459 ng/µL) 2: IFs (112 ng/µL) </tspan><tspan
+           sodipodi:role="line"
+           style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+           x="89.813263"
+           y="83.07193"
+           id="tspan1757">3: EFs (1120 ng/µL) 4: RFs (74.8 ng/µL) </tspan><tspan
+           sodipodi:role="line"
+           style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+           x="89.813263"
+           y="85.717766"
+           id="tspan1770">5: Energy (16.9 ng/µL) 6: T7RNAP (18.7 ng/µL)</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+           x="89.813263"
+           y="88.363609"
+           id="tspan1604" /></text>
+    </g>
+    <g
+       id="g1790"
+       transform="translate(-5.9369395,1.2875346)">
+      <g
+         id="g1789">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.35px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="80.66806"
+           y="114.24992"
+           id="text1475"><tspan
+             sodipodi:role="line"
+             id="tspan1473"
+             style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+             x="80.66806"
+             y="114.24992" /><tspan
+             sodipodi:role="line"
+             style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+             x="80.66806"
+             y="122.18742"
+             id="tspan1475">Ribosomes</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           x="80.66806"
+           y="126.79258"
+           id="text1616"><tspan
+             sodipodi:role="line"
+             id="tspan1616"
+             style="font-size:3.52778px;stroke:none;stroke-width:0.5"
+             x="80.66806"
+             y="126.79258">(bulk @ 1.8 µM)</tspan></text>
+      </g>
+      <g
+         id="g1788"
+         transform="translate(0,-0.31926337)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.35px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="123.89353"
+           y="114.77909"
+           id="text1478"><tspan
+             sodipodi:role="line"
+             id="tspan1476"
+             style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+             x="123.89353"
+             y="114.77909" /><tspan
+             sodipodi:role="line"
+             style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+             x="123.89353"
+             y="122.71659"
+             id="tspan1477">tRNA</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+             x="123.89353"
+             y="130.65408"
+             id="tspan1478" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           x="123.9983"
+           y="126.77847"
+           id="text1618"><tspan
+             sodipodi:role="line"
+             id="tspan1618"
+             style="font-size:3.52778px;stroke:none;stroke-width:0.5"
+             x="123.9983"
+             y="126.77847">(bulk @ 3.5 µg/µL)</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g1798"
+       transform="translate(0,0.983668)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.35px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="66.857124"
+         y="92.248215"
+         id="text1472"><tspan
+           sodipodi:role="line"
+           id="tspan1470"
+           style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="66.857124"
+           y="92.248215" /><tspan
+           sodipodi:role="line"
+           style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="66.857124"
+           y="100.18571"
+           id="tspan1471">SMix</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:6.35px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="66.857124"
+           y="108.12321"
+           id="tspan1472" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+         x="67.167717"
+         y="104.26169"
+         id="text1617"><tspan
+           sodipodi:role="line"
+           id="tspan1617"
+           style="font-size:3.52778px;stroke:none;stroke-width:0.5"
+           x="67.167717"
+           y="104.26169">(31x)</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.11667px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="77.492813"
+       y="97.803864"
+       id="text1761"><tspan
+         sodipodi:role="line"
+         style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+         x="77.492813"
+         y="97.803864"
+         id="tspan1773">HEPES-KOH pH 7.6 (50 mM), K-Gln	(100	mM), Mg(OAc)<tspan
+   style="font-size:2.11667px;baseline-shift:sub"
+   id="tspan1772">2</tspan> (7.5 mM), </tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+         x="77.492813"
+         y="100.4497"
+         id="tspan1780">rATP and rGTP (2 mM each), rCTP and rUTP (1 mM each), </tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+         x="77.492813"
+         y="103.09554"
+         id="tspan1783">creatine phosphate (20 mM), amino acids (0.3 mM each), </tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.11667px;fill:#000000;stroke-width:0.15"
+         x="77.492813"
+         y="105.74138"
+         id="tspan1775">spermidine (2 mM), folinic acid (0.02 mM), TCEP-HCl pH 7 (1 mM)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.11667px;font-family:'Iosevka Nerd Font Mono';-inkscape-font-specification:'Iosevka Nerd Font Mono Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="91.927109"
+       y="104.62611"
+       id="text1776"><tspan
+         sodipodi:role="line"
+         id="tspan1776"
+         style="stroke-width:0.15"
+         x="91.927109"
+         y="104.62611" /></text>
+  </g>
+</svg>

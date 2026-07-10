@@ -16,7 +16,7 @@ flowchart TB
     BaseCytosol["Base Cytosol"] -->|"Add Module"| Cytosol["Cytosol"]
     ModSpec(["Module Spec"]) -.-> Cytosol
     Cytosol & Membrane["Membrane"] --> J(( ))
-    J --> |"Assemble Base Cell"| BaseCell["Base Cell"]
+    J --> |"Encapsulate"| BaseCell["Base Cell"]
     MemSpec(["Membrane Spec"]) -.-> Membrane
 
     style BaseCytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
@@ -27,13 +27,13 @@ flowchart TB
     style MemSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
     style J fill:none,stroke:none
 
-    click BaseCytosol "../modules/base-cytosol/spec"
-    click BaseCell "./assemble-base-cell/main"
-    click ModSpec "../modules/modules-main"
-    click MemSpec "../modules/membrane-popc-chol/spec"
+    click BaseCytosol "/docs/modules/base-cytosol/spec"
+    click BaseCell "/docs/processes/assemble-base-cell/main"
+    click ModSpec "/docs/modules/modules-main"
+    click MemSpec "/docs/modules/membrane-popc-chol/spec"
 ```
 
-- [Assemble Base Cell](./assemble-base-cell/main.md)
+- [Encapsulation: Phase Transfer](./assemble-base-cell/main.md)
 
 ## Base Cytosol Processes
 
@@ -59,13 +59,13 @@ flowchart LR
     style ModSpec fill:#6B7280,color:#ffffff,stroke:#4B5563
     style J fill:none,stroke:none
 
-    click AminoAcids "./make-amino-acid-mix/main"
-    click SMix "./make-small-molecule-mix/main"
-    click tRNA "./make-trna/main"
-    click PMix "./make-36pot/main"
-    click Ribosomes "./make-ribosomes/main"
-    click BaseCytosol "./assemble-base-cytosol/main"
-    click ModSpec "../modules/modules-main"
+    click AminoAcids "/docs/processes/make-amino-acid-mix/main"
+    click SMix "/docs/processes/make-small-molecule-mix/main"
+    click tRNA "/docs/processes/make-trna/main"
+    click PMix "/docs/processes/make-36pot/main"
+    click Ribosomes "/docs/processes/make-ribosomes/main"
+    click BaseCytosol "/docs/processes/assemble-base-cytosol/main"
+    click ModSpec "/docs/modules/modules-main"
 ```
 
 - [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
