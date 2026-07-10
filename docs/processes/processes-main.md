@@ -16,7 +16,7 @@ flowchart TB
     BaseCytosol["Base Cytosol"] -->|"Add Module"| Cytosol["Cytosol"]
     ModSpec(["Module Spec"]) -.-> Cytosol
     Cytosol & Membrane["Membrane"] --> J(( ))
-    J --> |"Assemble Base Cell"| BaseCell["Base Cell"]
+    J --> |"Encapsulate"| BaseCell["Base Cell"]
     MemSpec(["Membrane Spec"]) -.-> Membrane
 
     style BaseCytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
@@ -33,7 +33,7 @@ flowchart TB
     click MemSpec "/docs/modules/membrane-popc-chol/spec"
 ```
 
-- [Assemble Base Cell](./assemble-base-cell/main.md)
+- [Encapsulation: Phase Transfer](./assemble-base-cell/main.md)
 
 ## Base Cytosol Processes
 
