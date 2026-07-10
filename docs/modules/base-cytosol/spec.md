@@ -28,93 +28,98 @@ Base Cytosol is assembled from four components — a protein mix (PMix), a small
 ::::{tab-item} PMix
 The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [Make PMix](../../processes/make-36pot/main.md) and [Make OnePot Protein Mix](../../processes/make-1pot/main.md) processes for preparation.
 
-:::{table} Composition of the Protein Mix (PMix) at stock concentration. Source: make-36pot process.
+:::{table} Composition of the Protein Mix (PMix) at stock concentration. 
 :label: comp-pmix
-| Category | Protein | Concentration (ng/µL) |
-|----------|---------|-----------------------|
-| tRNA Synthetases | AlaRS | 1086 |
-| | ArgRS | 30 |
-| | AsnRS | 341 |
-| | AspRS | 125 |
-| | CysRS | 18 |
-| | GlnRS | 59 |
-| | GluRS | 196 |
-| | GlyRS | 149 |
-| | HisRS | 12 |
-| | IleRS | 622 |
-| | LeuRS | 63 |
-| | LysRS | 99 |
-| | MetRS | 36 |
-| | PheRS | 264 |
-| | ProRS | 155 |
-| | SerRS | 30 |
-| | ThrRS | 97 |
-| | TrpRS | 97 |
-| | TyrRS | 10 |
-| | ValRS | 28 |
-| Initiation Factors | IF1 | 155 |
-| | IF2 | 622 |
-| | IF3 | 155 |
-| Elongation Factors | EF-G | 777 |
-| | EF-Tu | 7764 |
-| | EF-Ts | 777 |
-| Release Factors | RF1 | 155 |
-| | RF2 | 155 |
-| | RF3 | 155 |
-| | RRF | 155 |
-| Metabolism | MTF | 311 |
-| | CK | 63 |
-| | AK | 46 |
-| | NDK | 16 |
-| | PPiase | 16 |
-| Transcription | T7RNAP | 155 |
-| **Total** | | **15 000** |
+
+| Category           | Protein | Concentration (ng/µL) |
+| ------------------ | ------- | --------------------- |
+| tRNA Synthetases   | AlaRS   | 1086                  |
+|                    | ArgRS   | 30                    |
+|                    | AsnRS   | 341                   |
+|                    | AspRS   | 125                   |
+|                    | CysRS   | 18                    |
+|                    | GlnRS   | 59                    |
+|                    | GluRS   | 196                   |
+|                    | GlyRS   | 149                   |
+|                    | HisRS   | 12                    |
+|                    | IleRS   | 622                   |
+|                    | LeuRS   | 63                    |
+|                    | LysRS   | 99                    |
+|                    | MetRS   | 36                    |
+|                    | PheRS   | 264                   |
+|                    | ProRS   | 155                   |
+|                    | SerRS   | 30                    |
+|                    | ThrRS   | 97                    |
+|                    | TrpRS   | 97                    |
+|                    | TyrRS   | 10                    |
+|                    | ValRS   | 28                    |
+| Initiation Factors | IF1     | 155                   |
+|                    | IF2     | 622                   |
+|                    | IF3     | 155                   |
+| Elongation Factors | EF-G    | 777                   |
+|                    | EF-Tu   | 7764                  |
+|                    | EF-Ts   | 777                   |
+| Release Factors    | RF1     | 155                   |
+|                    | RF2     | 155                   |
+|                    | RF3     | 155                   |
+|                    | RRF     | 155                   |
+| Metabolism         | MTF     | 311                   |
+|                    | CK      | 63                    |
+|                    | AK      | 46                    |
+|                    | NDK     | 16                    |
+|                    | PPiase  | 16                    |
+| Transcription      | T7RNAP  | 155                   |
+| **Total**          |         | **15 000**            |
 :::
 ::::
 
 ::::{tab-item} SMix
 The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, stabilizers, and cofactors. Concentrations below are in the assembled SMix; see the [Make SMix](../../processes/make-small-molecule-mix/main.md) process for preparation.
 
-:::{table} Composition of the Small Molecule Mix (SMix) at stock concentration. Source: make-small-molecule-mix process.
+:::{table} Composition of the Small Molecule Mix (SMix) at stock concentration. 
 :label: comp-smix
-| Category | Molecule | Concentration | Units |
-|----------|----------|---------------|-------|
-| Buffers | HEPES-KOH (pH 7.6) | 125 | mM |
-| | Potassium Glutamate | 250 | mM |
-| | Magnesium Acetate | 18.75 | mM |
-| Nucleotides | rATP | 5 | mM |
-| | rGTP | 5 | mM |
-| | rCTP | 2.5 | mM |
-| | rUTP | 2.5 | mM |
-| Amino Acids | Each (Ala–Val) | 0.75 | mM |
-| Stabilizers | Spermidine | 5 | mM |
-| | TCEP | 2.5 | mM |
-| Cofactors | Creatine Phosphate | 50 | mM |
-| | Folinic Acid | 0.05 | mM |
+
+| Category    | Molecule            | Concentration | Units |
+| ----------- | ------------------- | ------------- | ----- |
+| Buffers     | HEPES-KOH (pH 7.6)  | 125           | mM    |
+|             | Potassium Glutamate | 250           | mM    |
+|             | Magnesium Acetate   | 18.75         | mM    |
+| Nucleotides | rATP                | 5             | mM    |
+|             | rGTP                | 5             | mM    |
+|             | rCTP                | 2.5           | mM    |
+|             | rUTP                | 2.5           | mM    |
+| Amino Acids | Each (Ala–Val)      | 0.75          | mM    |
+| Stabilizers | Spermidine          | 5             | mM    |
+|             | TCEP                | 2.5           | mM    |
+| Cofactors   | Creatine Phosphate  | 50            | mM    |
+|             | Folinic Acid        | 0.05          | mM    |
 :::
 ::::
 
 ::::{tab-item} Ribosomes
-:::{table} Ribosome stock concentration. Source: [Make Ribosomes](../../processes/make-ribosomes/main.md) process.
+:::{table} Ribosome stock concentration.[]() 
 :label: comp-ribosomes
+
 | Component | Stock Concentration | Reaction Concentration |
-|-----------|---------------------|------------------------|
-| Ribosomes | 10 µM (5.55×) | 1.8 µM |
+| --------- | ------------------- | ---------------------- |
+| Ribosomes | 10 µM (5.55×)       | 1.8 µM                 |
 :::
 ::::
 
 ::::{tab-item} tRNA
-:::{table} tRNA stock concentration. Source: [Make tRNAs](../../processes/make-trna/main.md) process.
+:::{table} tRNA stock concentration. 
 :label: comp-trna
+
 | Component | Stock Concentration | Reaction Concentration |
-|-----------|---------------------|------------------------|
-| tRNA | 35 µg/µL (10×) | 3.5 µg/µL |
+| --------- | ------------------- | ---------------------- |
+| tRNA      | 35 µg/µL (10×)      | 3.5 µg/µL              |
 :::
 ::::
 
 ::::{tab-item} Final Reaction
 :::{table} Composition of Base Cytosol at reaction concentration.
 :label: comp-base-cytosol
+
 | Category | Molecule | Concentration | Units |
 |----------|----------|----------------------|-------|
 | Buffers | HEPES-KOH | 50 | mM |
