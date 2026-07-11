@@ -44,6 +44,31 @@
 
 ---
 
-## D. Deliverable
+## D. DNA repo verification
 
-`.claude/plans/spudcell/extraction.md` — the filled table + citations + flagged conflicts, ready for your sign-off. Feeds Plan 1 (P2/P3 numbers) and Plan 3 (genome-table unit normalization).
+Separate from manuscript extraction, but same treatment: a checkable table, not a buried QA step. Every construct named in `spudcell-spec.md`'s genome table (L130–139) needs its status confirmed against `nucleus-eng/DNA` before any new page (Plan 1) links to it or any attention block is written. Per CLAUDE.md: verify per-construct with `ls ~/src/nucleus-eng/DNA/<subdir>/<name>.gb` (or the `gh api` fallback if the repo isn't cloned locally) — never invent a filename or link to a legacy/bnext repo.
+
+| Construct | Spec claim (L130–139) | Expected subdir | Status | Action |
+| --- | --- | --- | --- | --- |
+| `pLD1` | 30.1 kb; PURE genes (subset of 30/36) | `PURE/cloning/` or `PURE/expression/` | Not yet in `nucleus-eng/DNA` (per spec L145–146) — **confirm still true** | If absent: attention block, flag for submission |
+| `pLD2` | length TODO (M1); PURE genes | same | Not yet in `nucleus-eng/DNA` — **confirm** | Same |
+| `pLD3` | length TODO (M1); PURE genes | same | Not yet in `nucleus-eng/DNA` — **confirm** | Same |
+| `T7RNAP` | T7 RNA polymerase | `PURE/cloning/` | **Matches** — [`pOpen-T7RNAP.gb`](https://github.com/nucleus-eng/DNA/blob/main/PURE/cloning/pOpen-T7RNAP.gb) already linked in spec | Re-verify file still exists at that path (DNA repo evolves independently — check `git -C ~/src/nucleus-eng/DNA log --oneline -5` first) |
+| `pREP` (Phi29 DNAP) | Phi29 DNA polymerase | new subdir? (no `Phi29/` or `replication/` dir exists yet) | Not yet in `nucleus-eng/DNA` — **confirm**; also flag that no matching subdir category currently exists | Attention block + note the DNA repo may need a new subdir, not just a new file (out of scope for nucleus-docs, but worth flagging to whoever owns DNA) |
+| `aHL-6xHis` | growth pore, 6xHis-tagged aHL | `detectors/` or new `membrane/` category? | Not yet in `nucleus-eng/DNA` — **confirm**. Note: base aHL exists as `membrane-pore-ahly` *module* in nucleus-docs, but that's the module spec, not the DNA construct file | Check if an untagged aHL `.gb` exists that this is a variant of; attention block regardless |
+| `aHL-FLAG` | division pore, FLAG-tagged aHL; 10 nM template | same | Not yet in `nucleus-eng/DNA` — **confirm** | Same as above |
+| `FP` (GFP reporter) | 2,500 (unit ambiguous — bp not kb, see Plan 3 F7) | `reporters/` | **Matches** — [`pOpen-deGFP.gbk`](https://github.com/nucleus-eng/DNA/blob/54a07a3d65edc1a348a462cff170dd17d11f26c6/reporters/pOpen-deGFP.gbk) or any reporter pair per spec L146 | Confirm which specific reporter the manuscript actually used (deGFP vs. a specific GFP variant) — spec currently hedges with "or any green/red reporter pair" |
+
+**Known count problem (ties to Plan 3 F2):** spec text says "five of seven plasmids" lack a match but lists **six** names (`pLD1, pLD2, pLD3, pREP, aHL-6xHis, aHL-FLAG`), against "two matching" (`FP`, `T7RNAP`) — six + two = eight, not seven. This table's per-construct check will settle the real count as a side effect; feed the corrected number back into Plan 3's F2 fix.
+
+**Method:**
+1. Check DNA repo recency: `git -C ~/src/nucleus-eng/DNA log --oneline -5` (or `gh api repos/nucleus-eng/DNA/commits` if not cloned) — confirm nothing's landed since this table was last true.
+2. For each row, `ls` the expected path; if absent, browse the likely subdir (`gh api "repos/nucleus-eng/DNA/contents/<subdir>"`) in case it's filed under an unexpected name.
+3. Record verified/absent status here, not scattered across page migrations — this table is the single source of truth for attention-block placement in Plan 1's pages and in `spudcell-spec.md` itself.
+4. **Do not** submit anything to `nucleus-eng/DNA` from this repo — out of scope per CLAUDE.md. This table only decides *whether nucleus-docs needs an attention block*.
+
+---
+
+## E. Deliverable
+
+`.claude/plans/spudcell/extraction.md` — the filled manuscript table (A) + the DNA verification table (D) + flagged conflicts, ready for your sign-off. Feeds Plan 1 (P2/P3 numbers + attention-block placement) and Plan 3 (genome-table unit normalization + the five-vs-six plasmid count fix).

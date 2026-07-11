@@ -55,7 +55,7 @@ For each page P1–P3, in order:
 
 1. **Assemble sources.** Pull the matching section from `Jon's Notes on SpudCell.md` + fetch the corresponding protobiology.org/spudcell.php protocol (WebFetch). Note which numbers are still missing → hand to **Plan 2** (manuscript).
 2. **I draft `[TECH]` slots.** Materials tables as inline `bom-<slug>` tables (per `build-boms` skill + migrate-content rules: 0-indent tables, `MW (g/mol)` paren units, DOI citations as full links, discrepancy `:::{warning}` blocks).
-3. **Cross-repo DNA check.** Any construct named (aHL-6xHis, aHL-FLAG, pREP, pLD1–3) → verify against `nucleus-eng/DNA`; if absent, `:::{attention}` gap block (do **not** invent filenames). Most SpudCell constructs are *not* in the repo yet (see spec L145) → expect attention blocks.
+3. **Cross-repo DNA check.** Use **Plan 2, section D** (the construct-by-construct verification table) as the source of truth for which constructs are in `nucleus-eng/DNA` and which need an `:::{attention}` gap block — don't re-derive this per page.
 4. **You fill `[HUMAN]` slots.** I leave `<!-- HUMAN: ... -->` prompts at each.
 5. **Wire it in** (see D).
 6. **QA** — Plan 3's gauntlet, scoped to the new file.
