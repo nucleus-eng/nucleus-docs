@@ -1,5 +1,10 @@
 # Cytosol Kinetics Analysis Tutorial
 
+:::{attention}
+:class: simple
+This tutorial applies to CDK version <0.6.0. For newer versions, see the tutorial [here](guides/kinetics-tutorial/).
+:::
+
 ## Overview
 
 This tutorial guides you through analyzing time-series fluorescence data from Cytosol cell-free expression experiments. We'll cover data loading, normalization, visualization, kinetic parameter fitting, and summary statistics.
