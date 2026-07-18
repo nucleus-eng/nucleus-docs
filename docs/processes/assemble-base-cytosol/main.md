@@ -6,7 +6,7 @@ subtitle: "Process"
 # Overview
 
 
-This protocol shows you how to assemble Base Cytosol from the following components: small molecule mix (SMix), tRNA, protein mix (PMix), ribosomes. To test the functionality of the assembled Cytosol we use the [Reporter Module deGFP](/docs/modules/reporter-degfp/spec.md). 
+This protocol shows you how to assemble Base Cytosol from the following components: small molecule mix (SMix), tRNA, protein mix (PMix), ribosomes. To test the functionality of the assembled Cytosol we use the [Reporter Module deGFP](/docs/modules/reporter-degfp/spec.md). Initial validation of the assembled Cytosol is documented in [Yadav (2025)](https://doi.org/10.63765/fppr8928). 
 
 **Protocols and other resources are available for download at the bottom of this page.**
 
@@ -78,14 +78,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::::
 
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- Yadav, S. First Nucleus Cytosol Testing. *Nucleus Developer Notes.* (2025) doi:10.63765/fppr8928.
-
-::::::
-
 :::::::
 
 
@@ -124,13 +116,13 @@ Prepare the reaction on ice or a cold block to prevent reactions from starting d
 :::
 
 - [ ] Resuspend each component according to the following instructions: 
-    - [ ]  Vortex SMix aggressively until visibly clear. Alternate 10s vortex / 10s rest on ice to maintain cool temperature. SMix should be transparent with no visible precipitate when ready.
+    - [ ]  Vortex SMix aggressively until visibly clear. Alternate 10 s vortex / 10 s rest on ice to maintain cool temperature. SMix should be transparent with no visible precipitate when ready.
     - [ ]  Vortex or pipette mix tRNA.
     - [ ]  Pipette mix PMix.
     - [ ]  **Do NOT vortex** ribosomes! *Gently* pipette mix or flick the tube.
 - [ ] For each reaction, assemble reaction master mix in a chilled PCR tube by adding each reagent in the order and volume listed in the table above. 
-- [ ] Mix the master mix thoroughly by pipette (6-10x) until visibly homogenous.
-- [ ] Hold assembled reactions on ice or at 4°C until ready for measurement.
+- [ ] Mix the master mix thoroughly by pipette (6-10x) until visibly homogeneous.
+- [ ] Hold assembled reactions on ice or at 4 °C until ready for measurement.
 - [ ] On a 384-well optical plate, array 10 µL of each reaction master mix into three (3) wells and note their locations.
 
 :::{hint} Tip
@@ -139,7 +131,7 @@ Prepare the reaction on ice or a cold block to prevent reactions from starting d
 To avoid introducing bubbles, use reverse pipetting to array your samples. With your p20 pipette set to "10" µL, push your plunger down past the second (blowout) stop, aspirate your sample, and dispense up to the first stop. Repeat for the remaining two (2) replicates.
 :::
 
-- [ ] In a plate reader set to 37°C, measure deGFP expression using the standard green fluorescence channel (ex: 485 nm, em: 515 nm).
+- [ ] In a plate reader set to 37 °C, measure deGFP expression using the standard green fluorescence channel (ex: 485 nm, em: 515 nm).
   
 ## Return reagents to their appropriate storage locations
 - [ ] Mark the lid of each Cytosol component that you used. The number of dots indicates how many freeze–thaw cycles each component has gone through.

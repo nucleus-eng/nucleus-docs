@@ -18,6 +18,22 @@ jobs:
       - name: Check BOM label conventions
         run: python3 scripts/check-bom-labels.py
 
+  bom-tests:
+    # Unit tests over scripts/bom_common.py — the shared parse/normalize/index
+    # module every BOM consumer imports. These invariants (round-trip stability,
+    # inline-vs-CSV agreement, placeholder unification, self-exclusion) are
+    # execution-dependent and not caught by read-through review. See issue #114.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install pytest
+        run: pip install pytest
+      - name: Run bom_common test suite
+        run: python3 -m pytest scripts/tests/ -q
+
   build-protocols:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +42,7 @@ jobs:
         with:
           node-version: 18.x
       - name: Install MyST
-        run: npm install -g mystmd
+        run: npm install -g mystmd@1.9.1
       - name: Install typst
         run: |
           set -euo pipefail

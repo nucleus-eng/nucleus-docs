@@ -1,0 +1,4 @@
+[codespell]
+skip = ./.git,./_build,*/generated/*,*.svg,*.png,*.pdf,*.gb,*.ipynb
+builtin = clear,rare,en-GB_to_en-US
+ignore-words = .codespell-ignore

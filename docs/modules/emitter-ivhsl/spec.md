@@ -9,9 +9,9 @@ site:
 
 # Overview
 
-The IV-HSL Emitter module produces and releases N-isovaleryl-L-homoserine lactone (IV-HSL), a branched acyl-homoserine lactone, enabling enzymatic small-molecule production, molecule release as a reporter output, inter-cell communication, and co-culture of synthetic cells with living bacteria. The module is based on work by [Smith, Hartmann, and Booth](https://doi.org/10.1038/s41589-023-01374-7).
+The IV-HSL Emitter module produces and releases N-isovaleryl-L-homoserine lactone (IV-HSL), a branched acyl-homoserine lactone, enabling enzymatic small-molecule production, molecule release as a reporter output, inter-cell communication, and co-culture of synthetic cells with living bacteria. The module is based on work by [Smith, Hartmann, and Booth, 2023](https://doi.org/10.1038/s41589-023-01374-7).
 
-IV-HSL offers several advantages: it crosses synthetic cell membranes; its uncommon branched-chain structure makes it orthogonal from many other HSLs [[Lindemann, 2011](https://www.pnas.org/doi/full/10.1073/pnas.1114125108)]; and it activates expression in receiver cells at picomolar concentrations. The module encodes the BjaI enzyme under a constitutive T7 promoter. BjaI converts S-adenosylmethionine (SAM) and isovaleryl coenzyme A (IV-CoA) into IV-HSL, which diffuses out of the cell through the lipid bilayer. A companion *E. coli* receiver construct (`bjaR-GFP-native`) detects IV-HSL and produces a fluorescent output.
+IV-HSL offers several advantages: it crosses synthetic cell membranes; its uncommon branched-chain structure makes it orthogonal from many other HSLs ([Lindemann et al., 2011](https://doi.org/10.1073/pnas.1114125108)); and it activates expression in receiver cells at picomolar concentrations. The module encodes the BjaI enzyme under a constitutive T7 promoter. BjaI converts S-adenosylmethionine (SAM) and isovaleryl coenzyme A (IV-CoA) into IV-HSL, which diffuses out of the cell through the lipid bilayer. A companion *E. coli* receiver construct (`bjaR-GFP-native`) detects IV-HSL and produces a fluorescent output.
 
 :::::{tab-set}
 
@@ -52,7 +52,7 @@ Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentrat
 
 ### Expected Performance
 
-PURE reactions were incubated for 4 hours, then added to log-phase *E. coli* receiver cell cultures containing `bjaR-GFP-native`. GFP fluorescence was measured over 6 hours at 5-minute timepoints using a BioTek Cytation 5 plate reader. Expression in XL-10 Gold cells containing `bjaR-GFP-native` is equivalent for bulk PURE reactions with `pT7-bjaI` and substrates and for emitter cells containing IV-HSL without plasmid DNA — both show a significant response over the negative control.
+PURE reactions were incubated for 4 h, then added to log-phase *E. coli* receiver cell cultures containing `bjaR-GFP-native`. GFP fluorescence was measured over 6 h at 5-minute timepoints using a BioTek Cytation 5 plate reader. Expression in XL-10 Gold cells containing `bjaR-GFP-native` is equivalent for bulk PURE reactions with `pT7-bjaI` and substrates and for emitter cells containing IV-HSL without plasmid DNA — both show a significant response over the negative control.
 
 :::::{tab-set}
 
@@ -78,10 +78,10 @@ The IV-HSL Emitter module in the Base Cell.
 
 ### Expected Performance
 
-Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-GFP-native`. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 8 hours collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
+Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-GFP-native`. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 8 h collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
 
 :::{figure} cell-performance-endpoint.png
-**Emitter Cell Endpoint Montage.** Single field of view at t = 8 hours. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(grey)** Brightfield. **(rgb)** Merged image.
+**Emitter Cell Endpoint Montage.** Single field of view at t = 8 h. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(gray)** Brightfield. **(rgb)** Merged image.
 :::
 
 ::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL.
@@ -93,7 +93,3 @@ Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-G
 
 ::::
 
-## References
-
-- Smith, J. M., Hartmann, D. & Booth, M. J. Engineering cellular communication between light-activated synthetic cells and bacteria. *Nature Chemical Biology* **19**, 1138–1146 (2023). [10.1038/s41589-023-01374-7](https://doi.org/10.1038/s41589-023-01374-7)
-- Lindemann, A. et al. Isovaleryl-homoserine lactone, an unusual branched-chain quorum-sensing signal from the soybean symbiont *Bradyrhizobium japonicum*. *Proceedings of the National Academy of Sciences* **108**, 16765–16770 (2011). [10.1073/pnas.1114125108](https://www.pnas.org/doi/full/10.1073/pnas.1114125108)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 build-protocols.py — generate lab-ready protocol PDFs, BOM PDFs, and materials
-CSVs from process pages.
+CSVs from process pages and module spec pages.
 
 For each process page (a ``main.md`` / ``*-main.md`` under ``docs/processes/``
 that contains a ``# Protocol`` heading), this script produces, in the page's
@@ -13,17 +13,22 @@ that contains a ``# Protocol`` heading), this script produces, in the page's
   - ``<slug>-bom.pdf`` + ``<slug>-materials.csv`` — generated from the page's
     table labeled ``bom-<slug>`` (only if that table exists).
 
-``<slug>`` is the process's containing directory name. Generated artifacts are
-never committed (``generated/`` is gitignored); they are rebuilt on every deploy
-so they cannot drift from the source page. See issue #10 for the full design.
+For each module spec page (a ``spec.md`` under ``docs/modules/``) that carries
+a ``bom-<slug>`` table or a ``resources/<slug>-bom.csv``, the script produces
+only the ``<slug>-bom.pdf`` + ``<slug>-materials.csv`` pair — module specs have
+no ``# Protocol`` section, so there is no checklist to render.
+
+``<slug>`` is the containing directory name. Generated artifacts are never
+committed (``generated/`` is gitignored); they are rebuilt on every deploy so
+they cannot drift from the source page. See issue #10 for the full design.
 
 PDF rendering requires ``myst`` and ``typst`` on PATH. When they are absent the
 script still performs extraction and writes the intermediate markdown + CSV, and
 reports the skipped renders — useful for local testing of the extraction layer.
 
 Usage:
-    python3 scripts/build-protocols.py [docs/processes/...]
-    python3 scripts/build-protocols.py                 # all processes
+    python3 scripts/build-protocols.py [docs/processes/... | docs/modules/...]
+    python3 scripts/build-protocols.py                 # all processes + modules
     python3 scripts/build-protocols.py --extract-only   # skip PDF rendering
 """
 
@@ -50,6 +55,7 @@ from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0
 TYPST_TEMPLATE_DIR = Path("templates/typst/nucleus-protocols")
 
 PROCESSES_ROOT = Path("docs/processes")
+MODULES_ROOT = Path("docs/modules")
 
 # A checklist item: optional leading indentation, "- [ ]" or "- [x]".
 CHECKLIST_RE = re.compile(r"^\s*- \[[ xX]\]")
@@ -232,12 +238,22 @@ def strip_cross_references(text: str) -> str:
     return re.sub(r"\{(?:ref|numref|eq)\}`([^`<]*?<)?([^`>]+)>?`", repl, text)
 
 
+def yaml_quote(value: str) -> str:
+    """Double-quote a string for safe embedding as a YAML scalar, escaping
+    backslashes and double quotes. Needed because page titles may contain a
+    ':' (e.g. "Encapsulation: Phase Transfer"), which is invalid unquoted YAML
+    and would otherwise silently corrupt the generated frontmatter — MyST then
+    reports the whole block as missing its required keys."""
+    escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
+
+
 def build_protocol_markdown(title: str, hazard: Optional[List[str]],
                             checklist: List[str], slug: str) -> str:
     """Assemble the intermediate markdown that MyST renders to the protocol PDF."""
     fm = (
         "---\n"
-        f"title: {title}\n"
+        f"title: {yaml_quote(title)}\n"
         "exports:\n"
         "  - format: typst\n"
         f"    template: {TYPST_TEMPLATE_DIR.resolve()}\n"
@@ -257,7 +273,7 @@ def build_bom_markdown(title: str, bom_rows: List[str], slug: str) -> str:
     """Assemble the intermediate markdown that MyST renders to the BOM PDF."""
     fm = (
         "---\n"
-        f"title: {title} — Bill of Materials\n"
+        f"title: {yaml_quote(title + ' — Bill of Materials')}\n"
         "exports:\n"
         "  - format: typst\n"
         f"    template: {TYPST_TEMPLATE_DIR.resolve()}\n"
@@ -297,8 +313,15 @@ def resolve_bom_source(page: Path, body: str, slug: str) -> Tuple[Optional[List[
     return None, "none"
 
 
-def find_process_pages(args: List[str]) -> List[Path]:
-    targets = [Path(a) for a in args] if args else [PROCESSES_ROOT]
+def find_process_pages(args: Optional[List[str]]) -> List[Path]:
+    """``args`` of ``None`` means "scan the default root"; ``[]`` means "scan
+    nothing" (used when explicit args were all routed to the other root)."""
+    if args is None:
+        targets = [PROCESSES_ROOT]
+    elif not args:
+        return []
+    else:
+        targets = [Path(a) for a in args]
     pages: List[Path] = []
     for target in targets:
         if target.is_file() and target.suffix == ".md":
@@ -318,22 +341,83 @@ def find_process_pages(args: List[str]) -> List[Path]:
     return result
 
 
-def render_pdf(intermediate_md: Path) -> Tuple[bool, str]:
-    """Render a PDF from an intermediate markdown file via MyST + typst."""
+def find_module_bom_pages(args: Optional[List[str]]) -> List[Path]:
+    """Module spec pages (``docs/modules/**/spec.md``) that carry a BOM source
+    (an inline ``bom-<slug>`` table or a ``resources/<slug>-bom.csv``). These
+    get a ``<slug>-bom.pdf`` + ``<slug>-materials.csv`` only — module specs have
+    no ``# Protocol`` section to generate a checklist from. Same ``args``
+    convention as ``find_process_pages``."""
+    if args is None:
+        targets = [MODULES_ROOT]
+    elif not args:
+        return []
+    else:
+        targets = [Path(a) for a in args]
+    pages: List[Path] = []
+    for target in targets:
+        if target.is_file() and target.suffix == ".md":
+            pages.append(target)
+            continue
+        pages.extend(target.glob("**/spec.md"))
+    seen = set()
+    result = []
+    for p in sorted(pages):
+        if p in seen:
+            continue
+        seen.add(p)
+        slug = slug_from_page(p)
+        _, body = split_frontmatter(p.read_text(encoding="utf-8"))
+        bom_rows, _ = resolve_bom_source(p, body, slug)
+        if bom_rows:
+            result.append(p)
+    return result
+
+
+def route_args_by_root(args: List[str]) -> Tuple[List[str], List[str]]:
+    """Split explicit path args between the process and module pipelines based
+    on whether each falls under ``PROCESSES_ROOT`` or ``MODULES_ROOT``."""
+    process_args: List[str] = []
+    module_args: List[str] = []
+    modules_root_resolved = MODULES_ROOT.resolve()
+    for a in args:
+        p = Path(a).resolve()
+        if p == modules_root_resolved or modules_root_resolved in p.parents:
+            module_args.append(a)
+        else:
+            process_args.append(a)
+    return process_args, module_args
+
+
+def render_pdf(intermediate_md: Path, attempts: int = 3) -> Tuple[bool, str]:
+    """Render a PDF from an intermediate markdown file via MyST + typst.
+
+    The first `myst build --pdf` in a cold checkout occasionally produces no PDF
+    (intermittent, observed in CI — see issue #132), so retry up to `attempts`
+    times. On final failure, surface myst/typst's exit code and stderr tail —
+    the old code only checked `pdf.exists()` and discarded the captured output,
+    leaving failures undiagnosable in CI."""
     pdf = intermediate_md.with_suffix(".pdf")
-    if pdf.exists():
-        pdf.unlink()
-    try:
-        subprocess.run(
-            ["myst", "build", intermediate_md.name, "--pdf"],
-            cwd=intermediate_md.parent,
-            capture_output=True, text=True, timeout=180,
+    last = "unknown error"
+    for attempt in range(1, attempts + 1):
+        if pdf.exists():
+            pdf.unlink()
+        try:
+            proc = subprocess.run(
+                ["myst", "build", intermediate_md.name, "--pdf"],
+                cwd=intermediate_md.parent,
+                capture_output=True, text=True, timeout=180,
+            )
+        except subprocess.TimeoutExpired:
+            last = f"timeout after 180s (attempt {attempt}/{attempts})"
+            continue
+        if pdf.exists():
+            return True, f"rendered {pdf.name}"
+        tail = (proc.stderr or proc.stdout or "").strip().splitlines()[-15:]
+        last = "\n".join(
+            [f"exit {proc.returncode}, no PDF (attempt {attempt}/{attempts})"]
+            + [f"      {line}" for line in tail]
         )
-    except subprocess.TimeoutExpired:
-        return False, f"timeout rendering {intermediate_md.name}"
-    if pdf.exists():
-        return True, f"rendered {pdf.name}"
-    return False, f"render produced no PDF for {intermediate_md.name}"
+    return False, f"render produced no PDF for {intermediate_md.name}: {last}"
 
 
 def main() -> int:
@@ -349,9 +433,14 @@ def main() -> int:
     if not render_available and not extract_only:
         print("ℹ️  myst/typst not on PATH — extracting only, skipping PDF renders.")
 
-    pages = find_process_pages(args)
-    if not pages:
-        print("No process pages with a '# Protocol' section found.")
+    if args:
+        process_args, module_args = route_args_by_root(args)
+    else:
+        process_args, module_args = None, None
+    pages = find_process_pages(process_args)
+    module_pages = find_module_bom_pages(module_args)
+    if not pages and not module_pages:
+        print("No process pages with a '# Protocol' section or module BOM tables found.")
         return 0
 
     render_failures = 0
@@ -407,7 +496,34 @@ def main() -> int:
                 if not ok:
                     render_failures += 1
 
-    print(f"\nProcessed {len(pages)} process page(s).")
+    for page in module_pages:
+        slug = slug_from_page(page)
+        text = page.read_text(encoding="utf-8")
+        fm, body = split_frontmatter(text)
+        title = page_title(fm, slug)
+
+        bom_rows, bom_source = resolve_bom_source(page, body, slug)
+        if not bom_rows:
+            continue  # find_module_bom_pages already filtered; belt and suspenders
+
+        gen_dir = page.parent / "generated"
+        gen_dir.mkdir(exist_ok=True)
+
+        (gen_dir / f"{slug}-materials.csv").write_text(
+            table_to_csv(bom_rows), encoding="utf-8"
+        )
+        bom_md = gen_dir / f"{slug}-bom.md"
+        bom_md.write_text(build_bom_markdown(title, bom_rows, slug), encoding="utf-8")
+
+        print(f"✓ {page}  →  {slug}-bom.md (BOM only, from {bom_source})")
+
+        if render_available and not extract_only:
+            ok, msg = render_pdf(bom_md)
+            print(f"    {'✓' if ok else '✗'} {msg}")
+            if not ok:
+                render_failures += 1
+
+    print(f"\nProcessed {len(pages)} process page(s), {len(module_pages)} module BOM page(s).")
     if render_failures:
         print(f"❌ {render_failures} PDF render(s) failed.")
         return 1

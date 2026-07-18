@@ -4,7 +4,7 @@ extends:
   - ./site.yml
 project:
   id: 42209306-ce58-4005-9c73-983816b73d3c
-  title: Nucleus Documentation
+  title: Nucleus
   # description:
   # keywords: []
   # authors: []
@@ -39,6 +39,10 @@ project:
         - file: ./docs/modules/detector-laci_iptg/spec.md
           hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
+          hidden: true
+        - file: ./docs/modules/base-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/dye-liposomes/spec.md
           hidden: true
     - file: ./docs/processes/processes-main.md
       children:
@@ -91,8 +95,6 @@ project:
           hidden: true
         - file: ./guides/tutorials.md
           hidden: true
-        - file: ./guides/nucleus-hub/nucleus-hub.md
-          hidden: true
         - file: ./guides/contribution-guide.md
           hidden: true
         - file: ./guides/materials-reference.md
@@ -113,10 +115,13 @@ project:
           hidden: true
         - file: ./guides/liposome-workshop/main.md
           hidden: true
+        - file: ./guides/onepot-pure-workshop/main.md
+          hidden: true
     - title: About
       children:
         # - file: ./about/open-science.md
         - file: ./about/license.md
+        - file: ./about/contributors.md
         - file: ./about/faqs.md
         - file: ./about/release-notes.md
           children:

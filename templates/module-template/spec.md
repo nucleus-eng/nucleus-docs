@@ -2,6 +2,7 @@
 title: "TODO: Category: Module Name"
 # Title format: "Category: Name" — e.g. "Reporter: deGFP", "Energy: PPK", "Base: Cytosol"
 subtitle: "Module Specification"
+status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
 thumbnail: schematic.png
 site:
     hide-toc: true
@@ -18,16 +19,23 @@ One paragraph. State what the module is, what it does, and what it adds to or mo
 
 When in doubt, read the existing Module specs.
 
-<!-- If this module has not been validated in Nucleus Cytosol ≥ v0.5, include the
-attention block below. Delete it if the module is fully validated. -->
+<!-- Status banner — keep it consistent with the `status:` frontmatter field (see CLAUDE.md
+"Page status"). New modules start as `status: draft` with the Draft banner below. When the
+module is complete but not yet validated in the current Cytosol, switch to
+`status: unvalidated-published` and use the "Not yet validated" banner (commented below). When
+validated, set `status: validated-published` and delete the banner entirely. -->
 
-:::{attention}
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
 
-This Module has not been validated in Nucleus Cytosol $\ge$ v0.5. Documentation can be found on our legacy site [TODO: update link]() and in the following DevNotes:
+<!-- Use this banner instead when status is `unvalidated-published`:
+:::{attention} Not yet validated
+This Module has not been validated in Nucleus Cytosol ≥ v0.5. Documentation can be found on our legacy site [TODO: update link]() and in the following DevNotes:
 
 - [TODO: DevNote Title](https://doi.org/TODO)
-
 :::
+-->
 
 :::{figure} schematic.png
 :name: fig-schematic
@@ -93,12 +101,14 @@ List the Implementations that use this Module. Link each to its page.
 
 - [TODO: Implementation Name](../../implementations/TODO/implementation-template.md)
 
-# References
-
-<!-- Intrinsic properties cited in the Overview — database entries, primary literature, supplier datasheets.
-Use numbered references or inline links as appropriate. -->
-
-- TODO: Author et al. (YYYY). *Title*. Journal. [https://doi.org/TODO](https://doi.org/TODO)
+<!-- Citations & references:
+     Do NOT add a manual "# References" section. MyST auto-generates one at the bottom of the page
+     from the DOI links you cite inline. Cite each source inline where it is discussed, using a DOI
+     link — either narrative ("...as shown by [Author et al., YYYY](https://doi.org/XX.XXXX/...)")
+     or parenthetical ("...claim ([Author et al., YYYY](https://doi.org/XX.XXXX/...))").
+     DevNotes that have a 10.63765/... DOI should be cited via their doi.org link so they
+     autogenerate like any other reference. Non-DOI sources (DevNotes/articles without a DOI) stay
+     as plain inline links for now and will not appear in the auto-generated list (see issue #138). -->
 
 # Credits
 

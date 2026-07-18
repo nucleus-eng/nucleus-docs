@@ -17,6 +17,13 @@ if ! command -v vale &> /dev/null; then
   fi
 fi
 
+# Install mystmd at the pinned version used in CI
+if command -v npm &> /dev/null; then
+  npm install -g mystmd@1.9.1
+else
+  echo "WARNING: npm not found. Install Node.js then run: npm install -g mystmd@1.9.1"
+fi
+
 # Install lychee if not already present
 if ! command -v lychee &> /dev/null; then
   if command -v brew &> /dev/null; then
@@ -26,6 +33,11 @@ if ! command -v lychee &> /dev/null; then
     echo "  Install lychee manually: https://github.com/lycheeverse/lychee#installation"
     echo "  The check-links script will fail until lychee is on your PATH."
   fi
+fi
+
+# Install codespell if not already present
+if ! command -v codespell &> /dev/null; then
+  brew install codespell
 fi
 
 conda env remove -n nucleus-docs 2>/dev/null

@@ -76,13 +76,13 @@ Final protein yields of the reactions measured at steady state. Data from [DevNo
 
 :::{card}
 :header: **Step-by-Step Cytosol Protocol**
-:footer: *Implemented using Nucleus Cytosol v0.5*
+:footer: *Implemented using Nucleus Cytosol*
 {button}`Download <module-protocol-cytosol-degfp.pdf>`
 :::
 
 :::{card}
 :header: **Cytosol Materials**
-:footer: *Implemented using Nucleus Cytosol v0.5*
+:footer: *Implemented using Nucleus Cytosol*
 {button}`Download <module-bom-reporter-degfp.pdf>`
 :::
 
@@ -97,7 +97,6 @@ Final protein yields of the reactions measured at steady state. Data from [DevNo
 ::::{tab-item} Cytosol
 
 :::{table}
-:::
 | Component | Input concentration | Unit | Final concentration | Unit | Volume for one reaction (µL) |
 | --- | --- | --- | --- | --- | --- |
 | SMix | 3.33 | × | 1 | × | 12 |
@@ -110,7 +109,7 @@ Final protein yields of the reactions measured at steady state. Data from [DevNo
 | RNase Inhibitor | 40000 | U/mL | 2000 | U/mL | 2 |
 | Water |  |  |  |  | 6.12 |
 | Total volume (µL) |  |  |  |  | 40 |
-::::
+:::
 
 ::::{tab-item} Membrane
 :::{table}
@@ -159,13 +158,13 @@ Combined green (488 nm) and red (561 nm) fluroescence channels. Timepoint 0 (t =
 
 :::{card}
 :header: **Step-by-Step Cell Protocol**
-:footer: *Implemented using Nucleus Cytosol v0.5*
+:footer: *Implemented using Nucleus Cytosol*
 {button}`Download <module-protocol-cells-degfp.pdf>`
 :::
 
 :::{card}
 :header: **Cell Materials**
-:footer: *Implemented using Nucleus Cytosol v0.5*
+:footer: *Implemented using Nucleus Cytosol*
 {button}`Download <module-bom-reporter-cells-degfp.pdf>`
 :::
 

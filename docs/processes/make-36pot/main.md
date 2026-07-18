@@ -1,9 +1,9 @@
 ---
-title: Make Protein Mix (36-pot)
+title: Make Protein Mix
 ---
 
 # Overview
-Protein Mix (PMix) is a combination of thirty-six (36) proteins that collectively implement [Nucleus Cytosol](../../modules/base-cytosol/spec.md) along with Small Molecule Mix (SMix), tRNAs, and Ribosomes. These proteins include all 20 canonical aminoacyl-tRNA synthetases (AlaRS, ArgRS, AsnRS, etc) and methionyl-tRNA formyltransferase (MTF); *E. coli* translation initiation factors (IF1, IF2, IF3), elongation factors (EF-G, EF-Ts, EF-Tu), and release factors (RF1, RF2, RF3, RRF); energy regeneration enzymes (AK, CK, NDK, PPiase), and T7 phage RNA polymerase (T7RNAP). This protocol explains how to prepare PMix once each of these proteins has been individually prepared (see [Making Individual Proteins](../make-protein/make-protein-main.md) for protocols describing how to purify each protein).
+Protein Mix (PMix) is a combination of thirty-six (36) proteins that collectively implement [Nucleus Cytosol](../../modules/base-cytosol/spec.md) along with Small Molecule Mix (SMix), tRNAs, and Ribosomes. These proteins include all 20 canonical aminoacyl-tRNA synthetases (AlaRS, ArgRS, AsnRS, etc) and methionyl-tRNA formyltransferase (MTF); *E. coli* translation initiation factors (IF1, IF2, IF3), elongation factors (EF-G, EF-Ts, EF-Tu), and release factors (RF1, RF2, RF3, RRF); energy regeneration enzymes (AK, CK, NDK, PPiase), and T7 phage RNA polymerase (T7RNAP). This protocol explains how to prepare PMix once each of these proteins has been individually prepared (see [Making Individual Proteins](../make-protein/make-protein-main.md) for protocols describing how to purify each protein). See methods from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)) for comparison.
 
 <!-- Delete any dropdown whose only content is "- None" before publishing.
      If all dropdowns are removed, delete this entire card block. -->
@@ -16,7 +16,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-Complete all of the following before beginning this protocol. Each of the thirty-six proteins must be individually purified and stored at -80°C in Protein Buffer (30% glycerol).
+Complete all of the following before beginning this protocol. Each of the thirty-six proteins must be individually purified and stored at -80 °C in Protein Buffer (30% glycerol).
 
 - [Prepare Protein Purification Buffers and Media](../make-protein/prep-consumables/main.md)
 - [Grow and Induce Expression Strains](../make-protein/grow-bacteria/main.md)
@@ -94,16 +94,6 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 
 ::::::
 
-::::::{note} References
-:class: dropdown
-:icon: false
-
-- [Cell-free translation reconstituted with purified components](https://doi.org/10.1038/90802)
-- [A Simple, Robust, and Low-Cost Method To Produce the PURE Cell-Free System](https://doi.org/10.1021/acssynbio.8b00427)
-- [OnePot PURE Cell-Free System](https://dx.doi.org/10.3791/62625)
-
-::::::
-
 :::::::
 
 # Materials and Equipment
@@ -157,7 +147,7 @@ Washing the assembled mix before concentrating removes residual salts (Na⁺, Im
 ## Step 6: Aliquot and Store
 
 - [ ] Aliquot PMix into PCR tubes or microcentrifuge tubes.
-- [ ] Store aliquots at -80°C.
+- [ ] Store aliquots at -80 °C.
 
 # Downloads
 

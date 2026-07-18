@@ -9,22 +9,22 @@ site:
 
 # Overview
 
-The ClpXP control module enables the ATP-dependent, targeted degradation of ssrA-tagged proteins. It is based on the complex formed by the AAA+ ATPase ClpX and the tetradecameric peptidase ClpP. The module can be implemented using purified protein, *in situ* expressed proteins from DNA templates, or combinations thereof.
+The ClpXP control module enables the ATP-dependent, targeted degradation of ssrA-tagged proteins [McGinness, Baker, and Sauer, 2006](https://doi.org/10.1016/j.molcel.2006.04.027). It is based on the complex formed by the AAA+ ATPase ClpX and the tetradecameric peptidase ClpP. The module can be implemented using purified protein, *in situ* expressed proteins from DNA templates, or combinations thereof.
 
 :::::{tab-set}
 
 ::::{tab-item} Schematic
 :::{figure} mechanism-schematic.png
-Cartoon of the general mechanism of protein degradation by ClpXP, an ATP-dependent protease. Adapted from [R. Wedam, et al.](https://doi.org/10.3390/cancers15071936)
+Cartoon of the general mechanism of protein degradation by ClpXP, an ATP-dependent protease. Adapted from  [R. Wedam, et al.](https://doi.org/10.3390/cancers15071936)
 :::
 ::::
 
 ::::{tab-item} Designs
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pT7-ClpX` | N/A | Nucleus v0.5.0 Distribution Plate *(upcoming)* |
-| `pT7-ClpP` | N/A | Nucleus v0.5.0 Distribution Plate *(upcoming)* |
-| `pT7-deGFP-ssrA` | N/A | Nucleus v0.5.0 Distribution Plate *(upcoming)* |
+| `pT7-ClpX` | N/A | (upcoming) |
+| `pT7-ClpP` | N/A | (upcoming) |
+| `pT7-deGFP-ssrA` | N/A | (upcoming) |
 ::::
 
 :::::
@@ -71,17 +71,19 @@ The module can be implemented from purified proteins alone, from *in situ* expre
 
 ### Expected Performance
 
+Module performance in PURE is documented in the DevNote [ClpXP Module Validation in PURE](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpx-in-pure-01).
+
 :::::{tab-set}
 
 ::::{tab-item} Purified Proteins
 :::{figure} performance-purified-protein.png
-GFP fluorescence of samples containing purified proteins incubated at 37°C for 4 hours. These results correspond to Reaction Table 1.
+GFP fluorescence of samples containing purified proteins incubated at 37 °C for 4 h. These results correspond to Reaction Table 1.
 :::
 ::::
 
 ::::{tab-item} In Situ Expression
 :::{figure} performance-insitu.png
-GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incubated at 37°C for 6 hours. ClpX and ClpP DNAs are co-expressed in the same PURE reaction. These results correspond to Reaction Table 2.
+GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incubated at 37 °C for 6 h. ClpX and ClpP DNAs are co-expressed in the same PURE reaction. These results correspond to Reaction Table 2.
 :::
 ::::
 
@@ -89,16 +91,9 @@ GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incu
 
 ## Cells
 
-:::{attention}
-Cell context implementation is under development. No cell-context performance data is currently available.
-:::
+Cell-context validation of the ClpXP module is documented in the DevNote [ClpXP Module Validation in Cells](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpxp-pure-cells-01).
 
 :::{figure} clpxp-overview.png
 The ClpXP Control Module in the context of the [Developer Cell](https://devnotes.nucleus.engineering/articles/developer-cell-introduction). Other Developer Cell Modules are grayed out.
 :::
 
-## References
-
-- Hsu, Y. (2025). [ClpXP Module Validation in PURE](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpx-in-pure-01). *Nucleus Developer Notes.*
-- Hsu, Y. (2025). [ClpXP Module Validation in Cells](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpxp-pure-cells-01). *Nucleus Developer Notes.*
-- Wedam, R., Greer, Y. E., Wisniewski, D. J., Weltz, S., Kundu, M., Voeller, D., & Lipkowitz, S. (2023). Targeting Mitochondria with ClpP Agonists as a Novel Therapeutic Opportunity in Breast Cancer. *Cancers*, *15*(7), 1936. [10.3390/cancers15071936](https://doi.org/10.3390/cancers15071936)
