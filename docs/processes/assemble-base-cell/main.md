@@ -128,12 +128,14 @@ The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol
 
 ## Encapsulate Inner Solution
 
+- [ ] Allow lipid-oil mixture to come to room temperature as you perform these next steps.
 - [ ] For each liposome encapsulation, set up a 1.5 mL tube rack with two 1.5 mL microcentrifuge tubes. Number the tubes according to the number of reactions assembled. Label the two tubes for each reaction:
     - [ ] **T**—transfer
     - [ ] **L**—liposomes
-- [ ] Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**.
-- [ ] Add 150 µL of the lipid-oil mixture (at room temperature) on top of each assembled inner solution reaction.
-- [ ] Emulsify the lipid-oil and inner solution reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Run it down 20–30 times until the solution forms a stable emulsion with a consistent milky color.
+- [ ] Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**. Vortex thoroughly and spin down.
+- [ ] Assemble at least 30 µL of your inner solution per reaction (see [Assemble Base Cytosol](/docs/processes/assemble-base-cytosol/main) for an example).
+- [ ] Once at room temperature, add 150 µL of the lipid-oil mixture on top of each assembled inner solution reaction.
+- [ ] Emulsify the lipid-oil and inner solution reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Drag your tube across empty slots at least 50 times until you form a stable emulsion with a homogenous milky appearance.
 
 :::{hint} Tip
 :class: simple
@@ -151,18 +153,22 @@ Align the hinges of each T tube towards the outside of the centrifuge rotor, so 
 :::
 
 - [ ] Extract the liposomes from each **T** tube:
-    - [ ] Remove the oil layer and lipid debris from the top of each **T** tube by gently pipetting with a 1000 µL pipette set to 800 µL.
+    - [ ] Gently remove the oil layer and lipid debris from the top of each **T** tube with a 1000 µL pipette.
     - [ ] Gently resuspend the pellet by mixing by pipette 10-15 times.
     - [ ] Extract liposomes by pipetting 50 µL to 100 µL of pellet and outer solution from **T** and transfer liposome sample to the respective liposome tube **L**.
 
-:::{danger} Critical
+:::{hint} Tip
 :class: simple
 :icon: false
-Do not transfer the entire solution. It is more important to avoid transferring the top of the solution which may contain a residual oil layer. 
+While removing the oil layer from your preps, do not submerge the pipette tip! Just _barely_ touch your pipette tip to the oil surface and aspirate slowly. Switch from a 1000 µL pipette to a 200 µL if necessary.
+
+While extracting liposomes, it is more important to avoid transferring residual oil than to recover your entire liposome prep. Only extract less than 100 µL.
+
+While handling liposomes, be gentle! Liposomes are fragile. Do not vortex and only mix by gentle pipetting.
 :::
 
 - [ ] Hold liposomes on ice until you are prepared to begin measurement.
-- [ ] Transfer the liposomes onto a 384-well glass bottom plate. If the density of liposomes appears too high under the microscope, dilute them with outer solution to facilitate data analysis.
+- [ ] Transfer 5 µL liposomes and 20 µL of corresponding outer solution onto a 384-well glass bottom plate (5x dilution). If the density of liposomes appears too high under the microscope, dilute them with outer solution to facilitate data analysis.
 - [ ] Observe liposomes by fluorescence microscopy.
 
 # Downloads
