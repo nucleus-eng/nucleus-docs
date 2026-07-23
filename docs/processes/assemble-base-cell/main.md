@@ -9,6 +9,14 @@ Emulsion phase transfer is a general method for encapsulating an aqueous inner s
 
 Each [Module specification](../../modules/modules-main.md) gives its own reference composition, outer solution requirements, and expected behavior once encapsulated. This page covers the encapsulation process given those parameters.
 
+::::::{danger} Hazardous Materials
+:class: dropdown
+:icon: false
+
+ **Chloroform** - Irritant, possible carcinogen. Work in fume hood and use gloves.
+
+::::::
+
 :::::{tab-set}
 ::::{tab-item} Membrane Composition
 :::{table}
