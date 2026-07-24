@@ -29,5 +29,5 @@ exports:
 | PCR tubes | Thin-walled, RNase-free PCR tubes | ThermoFisher Scientific (AM12225) | Room temperature |
 | Optical Adhesive Film | MicroAmp Optical Adhesive Film | ThermoFisher Scientific (4311971) | Room temperature |
 | 384-well glass bottom plates | 384-well glass bottom plates | Cellvis (P384-1.5H-N) | Room temperature |
-| Optiprep | Optiprep | Serumwerk bernburg (1893) | Room temperature |
+| Optiprep | OptiPrep™ | STEMCELL Technologies (07820) | Room temperature |
 | Osmometer | Vapor Pressure Osmometer | Wescor EliTech Vapro 5600 Vapor Pressure Osmometer | Room temperature |
