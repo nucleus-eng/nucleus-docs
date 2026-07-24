@@ -6,9 +6,9 @@ This tutorial applies to CDK version >=0.6.0. For older versions, see the tutori
 :::
 
 ## Overview
-This tutorial guides you through analyzing time-series fluorescence data from Cytosol cell-free expression experiments using the open-source Nucleus Cell Development Kit (CDK). We’ll cover data loading, normalization, visualization, kinetic parameter fitting (see [DevNote](https://devnotes.nucleus.engineering/articles/Newman-20260421)), and summary statistics.
+This guide explains how to analyze time-series fluorescence data from plate reader expression experiments using the open-source Nucleus Cell Development Kit (CDK). Here, we'll cover how to load, normalize, visualize, and fit your data (see [DevNote](https://devnotes.nucleus.engineering/articles/Newman-20260421)), as well as describe the resultin summary statistics.
 
-\[Do we need this?\] The CDK is preinstalled in Nucleus Hub. See [instructions](https://pypi.org/project/nucleus-cdk/) for installing on your own computer (requires Python 3.11+ and the `poetry` package).
+The CDK is available [on PyPi](https://pypi.org/project/nucleus-cdk/) for install on your own computer (requires Python 3.11+ and the `poetry` package).
 
 <!-- This tutorial walks through analyzing time-series data from plate reader experiments using the `cdk` platereader module. We'll cover loading data, picking the read you care about, plotting raw curves, normalizing to a standard, fitting kinetic parameters, and visualizing results.
 
@@ -38,7 +38,7 @@ Fitting kinetics returns a **`Kinetics`** object with its own `.summary`, `.plot
 
 ## 1. Setup
 
-First, import the necessary libraries, including the `platereader` module from the CDK that contains specialized functions for loading plate reader data, performing kinetic analysis, and visualization. We alias it to `pr`. 
+First, import the necessary libraries. The `platereader` module from the CDK contains specialized functions for loading plate reader data, performing kinetic analysis, and visualization. By convention, we import `platereader` as `pr`. 
 
 ```python
 %load_ext autoreload
@@ -60,6 +60,7 @@ Load your plate reader output and merge it with the platemap (see [DevNote](http
 
 - `data_file`: path to the output file from a plate reader experiment. Currently only **BioTek** plate readers are supported.
 - `platemap_file`: path to a platemap CSV mapping each `Well` to its experimental conditions. See the [platemap tutorial](https://docs.nucleus.engineering/guides/platemap-tutorial/) for the expected format.
+- 
 <!-- `load_platereader_data()` parses the file, integrates the platemap, and returns a **`PlateReaderResult`** — a collection of blocks corresponding to the reads made by the plate reader. -->
 
 Call `load_platereader_data()` to parse the file:
@@ -88,10 +89,9 @@ print(result)
     1: (1533, 54) kinetic read with reads: GFP-Gext:485,528 (Fluorescence) (Plate 'Plate 1')
 
 
- The output lists all of the blocks in the data file. For each block, you can see the _index_ of the block, the dimensions of the underlying DataFrame, the type of the block (here, kinetic), the reads present in the block and their modalities, and the ID of the plate that block came from.
+ The output lists all of the blocks in the data file. For each block, you can see its index, the type of experiment stored (here, kinetic), the dimensions of the underlying DataFrame, the reads recorded and their measurement modalities, and the ID of the plate used.
 
-Here there were two reads with different gains but the same excitation/emission spectrum, on one plate. To work with a single read, index into the result to pull out that block. If we want the `GFP-Gext` read, that's block index `1`:
-
+Here, there are two reads of a single plate with different gains and the same excitation/emission spectra. To work with a single read, choose its index (e.g., the `GFP-Gext` read is block index `1`):
 
 
 ```python
@@ -102,12 +102,14 @@ data = result[desired_index]
 You can see the underlying data with `data.view()` (which returns a Pandas DataFrame):
 
 
+[TODO: edit this and output to .info() (too many columns to render reasonably)]
+
 ```python
 # Show the first five rows:
 data.view().head()
 ```
 
-
+[TODO: turn this into a normal .md table]
 
 
 <div>
@@ -409,9 +411,9 @@ By default, a "standard" subset of metadata is shown by `data.view()`. To see th
 
 ## 3. Plot Raw Curves
 
-Before going on, visualize the data. You can do this by calling `data.plot()`. <!-- The method is format-aware: for a kinetic (time-series) block it plots fluorescence over time.--> By default, one curve is plotted for each distinct `Name` value in the platemap; the band shows a bootstrapped 95% confidence interval across wells with that `Name`.
+First, visualize your data. You can do this by calling `data.plot()`. <!-- The method is format-aware: for a kinetic (time-series) block it plots fluorescence over time.--> By default, one curve is plotted for each distinct `Name` in the platemap. The band shows a [bootstrapped 95% confidence interval of the mean](https://seaborn.pydata.org/tutorial/error_bars.html#confidence-interval-error-bars) across wells with that `Name`.
 
-Passing `style='Type'` uses different line styles for the different well types that appear in your platemap (`Sample`, `Standard`, `Blank`, etc. as defined in the [platemap standard](https://devnotes.nucleus.engineering/articles/Bhasin-20260421#required-columns)), which makes it easy to spot controls. This helps you catch outliers, failed reactions, or unexpected kinetics before fitting.
+Passing `style='Type'` assigns different line styles for the different sample types that appear in your platemap (`Sample`, `Standard`, `Blank`, etc. as defined in the [platemap standard](https://devnotes.nucleus.engineering/articles/Bhasin-20260421#required-columns)). Line styles by type makes it easy to spot controls, catch outliers, failed reactions, or unexpected behavior before fitting dat.
 
 :::{hint} Familiar with Seaborn?
 <!-- :class: dropdown -->
@@ -426,19 +428,18 @@ data.plot(style='Type')
 ![png](kinetics_tutorial_files/kinetics_tutorial_10_1.png)
     
 
-
-We can see that the standard (here, HPTS) is stable and can be safely used for normalization.
+We can see that our Samples show typical behavior and that the standard (here, HPTS) is stable, thus we can safely normalize our data.
 
 
 ---
 
 ## 4. Normalize Data
 
-Instead of performing your analyses on the raw units output by the plate reader, we recommend you normalize to a (fluorescence) standard, so values are better comparable across experiments and instruments. 
+Instead of performing your analyses on the raw units output by the plate reader, we recommend first normalizing to a standard so values are comparable across experiments and instruments. 
 
-The function `data.normalize('<standard name>')` takes the time average of each well containing the named standard over a time window at the end of the run (1 hour by default), then divides all data by the mean of that window-average across all standard wells.
+The function `data.normalize('<standard name>')` takes the time average of each well labeled as a Standard at the end of the run (1 hour by default), then divides all data by that mean.
 
-The name you pass as an argument to `data.normalize()` must match the standard's `Name` column from your platemap. \[Could remove:\] You can check the standards on your plate this way:
+The name you pass as an argument to `data.normalize()` must match the standard's `Name` column from your platemap. You can check the name of your standards this way:
 
 
 
@@ -447,8 +448,6 @@ platemap = data.platemap
 standards = platemap[platemap['Type']=='Standard']
 standards['Name'].unique()
 ```
-
-
 
 
     array(['10 uM HPTS'], dtype=object)
@@ -460,9 +459,9 @@ Then, call `data.normalize()`:
 data = data.normalize('10 uM HPTS')
 ```
 
-You need to save the output of this transformation — it does not happen in-place!
+NOTE: you need to save the output of this transformation — it does not happen in-place!
 
-Now replot your curves to see them normalized. We exclude the standard from the plot using `exclude_types=` since it's now flat at ~1:
+Now replot to see your normalized data. We exclude the standard from the plot using `exclude_types=['Standard']`:
 
 
 ```python
@@ -474,7 +473,7 @@ g = data.plot(style='Type', exclude_types=['Standard'])
 
     
 ![png](kinetics_tutorial_files/kinetics_tutorial_16_0.png)
-    
+
 The plot y-axis label will automatically update to indicate that your data have been normalized and will indicate the name of the standard used.
 
 :::{tip}
@@ -523,38 +522,6 @@ See the [DevNote](https://devnotes.nucleus.engineering/articles/Newman-20260421)
   - **Drift**: rate of signal decay or increase after steady-state
   - **R²**: goodness of fit; "Good Fit" is `True` if $R^2 \geq 0.95$
 
-:::{note} More details on key metrics
-:class: dropdown
-\[This was moved from the bottom of the tutorial notebook, maybe could be folded in with the above or removed?\]
-
-- **Maximum Velocity**
-  - The steepest slope of the fluorescence curve (at the inflection point)
-  - Units: RFU per second
-  - Reflects the peak rate of protein synthesis
-  - Sensitive to enzyme activity, substrate availability, and reaction conditions
-
-- **Lag Time**
-  - Time before exponential fluorescence increase begins
-  - May reflect time for ribosome assembly or initial translation steps
-  - Shorter lag times suggest faster reaction initiation
-
-- **Steady-State Level**
-  - The final fluorescence value reached by the reaction
-  - Represents the total amount of protein produced
-  - Higher values indicate greater expression yield
-
-- **Drift**
-  - Rate of fluorescence change after reaching steady-state
-  - Positive drift: continued synthesis or aggregation
-  - Negative drift: photobleaching, protein degradation, or quenching
-  - Units: RFU per second
-
-- **R² Value**
-  - Goodness of fit (0 to 1, higher is better)
-  - R² > 0.98 indicates excellent fit
-  - Poor fits may indicate noisy data, overflow errors, or non-sigmoid kinetics
-:::
-
 
 Run the kinetic analysis:
 ```python
@@ -563,14 +530,11 @@ kinetics = data.fit_kinetics()
 
 `fit_kinetics()` returns a `Kinetics` object. Its `.summary` property is a tidy table of the fitted parameters and quality metrics per group (all-null columns dropped):
 
-
-
 ```python
 kinetics.summary
 ```
 
-
-
+[TODO - convert this to a .md table]
 
 <div>
 <style scoped>
@@ -922,12 +886,11 @@ g = kinetics.plot(col="Well")
 :::
 
 
-
 ---
 
 ## 6. Summary Plots
 
-`kinetics.plot_summary()` produces a multi-panel figure comparing kinetic parameters across conditions: per-experiment time series alongside bar plots of steady-state, max velocity, and drift, with error bars across technical replicates.
+`kinetics.plot_summary()` produces a multi-panel figure comparing kinetic parameters across conditions: per-experiment time series, in addition to bar plots of steady-state, max velocity, and drift with error bars across technical replicates.
 
 ```python
 g = kinetics.plot_summary()
