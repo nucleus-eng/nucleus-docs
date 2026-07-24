@@ -1,5 +1,5 @@
 ---
-description: Commands and interpretation guide for Vale, codespell, and lychee — run these before opening a PR or committing content.
+description: Commands and interpretation guide for Vale, codespell, lychee, and check-dna-refs — run these before opening a PR or committing content.
 ---
 
 ### Prose linting (Vale)
@@ -102,3 +102,20 @@ python3 scripts/check-links.py <file.md>   # check a single file
 The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
 
 **Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
+
+### DNA reference checking (check-dna-refs.py)
+
+**Run `python3 scripts/check-dna-refs.py` before opening a PR if you added or edited a Designs table** (any table linking a construct name into `nucleus-eng/DNA` with a `Length (bp)` claim). This catches a different failure than `check-links.py`: a link can resolve fine (200 OK) and still assert the wrong sequence, because nothing about a working URL confirms the docs' bp claim matches the target file. Local-only — it reads `~/src/nucleus-eng/DNA` directly (override with `NUCLEUS_DNA_REPO`) — so it is not part of CI; run it yourself whenever a Designs table changes.
+
+```bash
+python3 scripts/check-dna-refs.py                        # all of docs/
+python3 scripts/check-dna-refs.py docs/modules/<module>/  # one module
+```
+
+**Interpreting output — three levels:**
+
+- **BLOCKING** — a verifiably wrong claim: the docs' bp value doesn't match the target file's GenBank `LOCUS` length, the linked file/directory doesn't exist in the DNA repo, or the link points at the legacy `bnext-bio/nucleus` repo instead of `nucleus-eng/DNA`. Always fix before opening a PR.
+- **WARN** — the construct name doesn't obviously relate to the target's `LOCUS` name or filename (e.g. `pT7-lacO-plamGFP` naming a reporter the linked file's LOCUS name doesn't mention). Often a benign alias — GenBank `LOCUS` names are frequently truncated internal labels, not full construct names — but this is exactly the shape of a "greedy link" (a name-similarity match asserted as sequence identity, issue #120's motivating bug). Look at the actual file before dismissing; if the docs construct is not the same sequence as the target, it should be a Nucleus-equivalent `:::{attention}` block instead of a Designs-table row (see CLAUDE.md's cross-repo rules).
+- **INFO** — nothing to verify: the target is a SnapGene `.dna` file (no parseable length) or the row has no bp cell. Not an error, just unverifiable by this tool.
+
+**What it does not catch.** Sequence content — it verifies length, not identity. Two different constructs of the same length are indistinguishable to this check.

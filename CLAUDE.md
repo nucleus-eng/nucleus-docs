@@ -40,6 +40,7 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 python3 scripts/check-dropdowns.py      # flag placeholder-only lists
 python3 scripts/check-file-placement.py # flag content files outside allowed dirs
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
+python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
 These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
@@ -100,7 +101,16 @@ DNA/
 - **Do not create or store `.gb` sequence files in nucleus-docs.** All DNA sequences belong in the DNA repo.
 - **Construct names in protocol pages must match actual filenames** in the DNA repo (e.g., a step that says "use `pOpen-PURET7-3`" corresponds to `promoters/pOpen-PURET7-3.gb`). Verify before writing.
 - **Cross-repo links** in doc pages should point to the GitHub URL of the `.gb` file in `nucleus-eng/DNA`, not to a local path.
-- **Changes to the DNA repo are out of scope for nucleus-docs PRs.** If a construct referenced in a source page is not found in `nucleus-eng/DNA`, add an `:::{attention}` block in the spec noting the gap, e.g.: "Construct `pOpen-pT7-Cx43` is not yet in `nucleus-eng/DNA` (originated in `bnext-bio/nucleus`). Do not link to the legacy repo — flag for follow-up so the construct can be submitted to `nucleus-eng/DNA` before this page is used at the bench." DNA constructs referenced in a DevNote SHOULD be submitted to `nucleus-eng/DNA` before or alongside migration; if they are not present at migration time, apply the attention block and flag.
+- **Changes to the DNA repo are out of scope for nucleus-docs PRs.** If a construct referenced in a source page is not found in `nucleus-eng/DNA`, add an `:::{attention}` block in the spec noting the gap, e.g.: "Construct `pT7-aHly` is not yet in `nucleus-eng/DNA` (originated in `bnext-bio/nucleus`). Do not link to the legacy repo — flag for follow-up so the construct can be submitted to `nucleus-eng/DNA` before this page is used at the bench." DNA constructs referenced in a DevNote SHOULD be submitted to `nucleus-eng/DNA` before or alongside migration; if they are not present at migration time, apply the attention block and flag.
+- **Construct↔file identity is a claim, not a guess.** Never place a construct in a Designs table because its name resembles a filename in `nucleus-eng/DNA`. A Designs-table row asserts *this is that sequence* — it requires evidence, minimally that the row's `Length (bp)` equals the target file's GenBank `LOCUS` length (`python3 scripts/check-dna-refs.py` checks this). If the source content's construct differs from the Nucleus construct in any way — tag, backbone, promoter, codon usage, species variant — that is **equivalence, not identity**, and belongs in the block below, never as a Designs-table row. This is the specific failure mode ("greedy linking") that motivated issue #120: a name-similarity match getting asserted as sequence identity.
+
+  ```
+  :::{attention} Nucleus equivalent — not the cited sequence
+  The data on this page was generated with <cited construct> from <source>. The nearest
+  Nucleus construct is [pOpen-X](https://github.com/nucleus-eng/DNA/blob/main/<path>).
+  It is functionally equivalent but **not sequence-identical** (<the difference>).
+  :::
+  ```
 
 ### Content model
 
@@ -359,6 +369,17 @@ python3 scripts/check-links.py <file.md>   # check a single file
 ```
 
 The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
+
+### DNA reference checking
+
+**Run `python3 scripts/check-dna-refs.py` before opening a PR if you added or edited a Designs table** (any table with a `Length (bp)` / construct-name row linking into `nucleus-eng/DNA`). This is a different failure mode than link checking: a link can 404-free and still assert the wrong sequence — the motivating case was `reporter-degfp/spec.md` claiming 2789 bp for a construct that is actually 2812 bp after a correction in the DNA repo. `check-links.py` cannot see that; this script diffs the docs' bp claim against the target file's GenBank `LOCUS` line.
+
+```bash
+python3 scripts/check-dna-refs.py                       # all of docs/
+python3 scripts/check-dna-refs.py docs/modules/<module>/ # one module
+```
+
+Local-only (reads `~/src/nucleus-eng/DNA` directly, or `$NUCLEUS_DNA_REPO`) — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool.
 
 **Before opening a PR or committing content**, run Vale + codespell (and the link checker if you touched any URLs). Invoke the `lint-docs` skill for exact commands and how to interpret each tool's output — including which Vale errors are real vs. false positives.
 
