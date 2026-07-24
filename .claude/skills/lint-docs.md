@@ -1,5 +1,5 @@
 ---
-description: Commands and interpretation guide for Vale, codespell, and lychee — run these before opening a PR or committing content.
+description: Commands and interpretation guide for Vale, codespell, lychee, and the myst strict build check — run these before opening a PR or committing content.
 ---
 
 ### Prose linting (Vale)
@@ -102,3 +102,17 @@ python3 scripts/check-links.py <file.md>   # check a single file
 The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
 
 **Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
+
+### Build error checking (myst strict build)
+
+**Run this if you touched any link, image reference, directive, or table syntax.** `myst build --html` emits ⛔️-prefixed errors for broken links, missing images, and malformed directives but exits 0 regardless. `scripts/check-myst-build.py` wraps `myst build --html --strict` and fails only when an unfiltered ⛔️ error survives. This is what the `build-protocols` CI job gates on (`.github/workflows/protocols.yml`, issue #176).
+
+```bash
+python3 scripts/build-protocols.py            # generates process/module PDFs the Downloads cards link to
+python3 scripts/build-materials-reference.py  # generates the guides/materials-reference.md include
+python3 scripts/check-myst-build.py
+```
+
+Run the two generator scripts first — without them, `guides/materials-reference.md`'s `{include}` and every process page's Downloads `{button}` card report their gitignored `generated/` target as a genuinely missing file.
+
+**Interpreting output.** ⛔️ (error) fails the build; ⚠️ (warning) is summarized but never fails it — this repo deliberately leaves warnings (legacy link syntax, duplicate identifiers, unrecognized frontmatter keys like `status`) non-blocking. Treat every ⛔️ as real **except** where `scripts/myst-build-false-positives.toml` documents a specific known false positive (currently: a figure in `membrane-pore-cx43/spec.md` sourced from a remote DevNote via `xref:`, which myst still checks for on local disk even though the file only exists remotely). Any new suppression belongs in that TOML file as an exact `file` + message `substring` match, not in `myst.yml`'s `error_rules:` — mystmd's `image-exists` rule (and potentially others) carries no per-file `key` in its warning payload, so `error_rules[].keys` file-scoping can never match it; a `myst.yml`-level suppression for such a rule would be repo-wide and would blind the check to a genuinely missing file anywhere else in the docs.

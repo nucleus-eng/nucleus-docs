@@ -29,7 +29,7 @@ If you're new to Nucleus, checkout [From Zero to DevNote](./first-guide.md). Tha
 
 ## Get in touch
 
-Join the [mailing list](link-to-signup) or [contact us](mailto:build@bnext.bio) to request access to materials, get involved with the community, or ask questions.
+Email us at [build@bnext.bio](mailto:build@bnext.bio) to join the mailing list, request access to materials, get involved with the community, or ask questions.
 
 <!-- :::{card} 
 :header: **Get started** 
