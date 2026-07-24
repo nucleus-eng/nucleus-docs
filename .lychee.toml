@@ -1,12 +1,19 @@
 # .lychee.toml — lychee link checker configuration
-# Run locally: lychee docs/
+# Run locally: python3 scripts/check-links.py docs/
 # See: https://lychee.cli.rs/
+#
+# Failure *classification* lives in scripts/check-links.py, not here. This file
+# only controls how requests are made. In particular, do not add a vendor's
+# status code to `accept` to quiet a noisy site — the wrapper already tolerates
+# the whole "our crawler was refused / the server hiccuped" class, and accepting
+# a status here would also hide it from the wrapper's report.
 
-# Accepted HTTP status codes.
-# Explicitly restates the lychee default (100..=103, 200..=299) plus 403.
-# 403 is expected for academic papers and some vendor pages behind paywalls —
-# a 403 on a DOI or journal link does not mean the link is broken.
-accept = ["100..=103", "200..=299", "403"]
+# Accepted HTTP status codes — the lychee default (100..=103, 200..=299).
+#
+# 403 used to be listed here, which made every "crawler refused" response
+# silently count as a success. The wrapper handles it now, so a 403 is tolerated
+# *and reported* rather than being invisible.
+accept = ["100..=103", "200..=299"]
 
 # Root directory for resolving root-relative links (e.g. /docs/modules/foo/spec.md).
 # MyST supports root-relative paths as valid cross-page links; without this,
@@ -14,15 +21,23 @@ accept = ["100..=103", "200..=299", "403"]
 # Run lychee from the repo root for this to work correctly.
 root_dir = "."
 
-# Note: sigmaaldrich.com terminates HTTP/2 connections at the protocol level,
-# returning no HTTP status code. check-links.py filters these out specifically
-# so genuine dead Sigma links (DNS failure, 404, etc.) are still caught.
-
 # Request timeout in seconds
 timeout = 20
 
 # Maximum number of redirects to follow
 max_redirects = 10
+
+# Be gentle with individual vendors. lychee defaults to 10 concurrent requests
+# per host, so a vendor with a dozen catalog links in one BOM gets a burst of
+# parallel traffic — enough for some of them (sonicator.com, issue #193) to
+# answer 503/504 that a browser never sees. Lower concurrency plus a longer
+# inter-request delay than the 50 ms default makes those responses much rarer.
+host_concurrency = 4
+host_request_interval = "200ms"
+
+# Wait longer between retries than the default 1 s so a transient 5xx has time
+# to clear. max_retries stays at its default of 3.
+retry_wait_time = 3
 
 # Skip mailto: links
 include_mail = false
