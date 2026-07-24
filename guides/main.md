@@ -18,8 +18,9 @@ Guides provide tutorials, how-tos, and reference documentation to help you get t
 ## Digital Tools
 
 - [Getting Started with Nucleus Hub](nucleus-hub/nucleus-hub.md) — access the Cell Development Kit and collaborate with other developers on Nucleus Hub
-- [Tutorial: Analyzing Platereader Data](platereader_tutorial.md) — analyze cytosol kinetics data using the Nucleus CDK
+- [Tutorial: How to analyze plate reader kinetics](kinetics-tutorial/main.md) — analyze plate reader data and perform kinetic fitting using the Nucleus CDK 
 - [Tutorial: Making a Nucleus Compatible Plate Map](platemap_tutorial.md) — format and submit platemaps for use with CDK tools
+
 
 ## Workshops
 

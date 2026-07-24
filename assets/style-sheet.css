@@ -23,6 +23,24 @@
     border-radius: 10px;
 }
 
+html.dark .dataframe {
+    color: var(--color-foreground-primary);
+}
+
+table.dataframe {
+  width: auto !important;
+  max-width: none !important;
+}
+
+
+/* 2. Force the nbconvert wrapper to scroll horizontally */
+/* .output_html,
+.output_subarea {
+  overflow-x: auto !important;
+  display: block !important;
+  max-width: 100% !important;
+} */
+
 .version-badge {
     display: inline-block;
     background-color: #006837;
