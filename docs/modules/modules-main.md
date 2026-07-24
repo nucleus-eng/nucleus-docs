@@ -37,6 +37,8 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cytosol (Base) | [Cytosol](./base-cytosol/spec.md) | ★★★ |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★ |
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
+| Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
+| Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
 :::
 
 # Contributing a Module

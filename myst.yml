@@ -40,6 +40,10 @@ project:
           hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true
+        - file: ./docs/modules/base-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/dye-liposomes/spec.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/assemble-base-cell/main.md
@@ -90,8 +94,6 @@ project:
         - file: ./docs/dna-distro.md
           hidden: true
         - file: ./guides/tutorials.md
-          hidden: true
-        - file: ./guides/nucleus-hub/nucleus-hub.md
           hidden: true
         - file: ./guides/contribution-guide.md
           hidden: true

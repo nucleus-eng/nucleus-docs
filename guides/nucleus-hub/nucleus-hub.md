@@ -17,27 +17,27 @@ Currently, access to Nucleus Hub is available by request. If you are a Nucleus C
 
 # Orientation
 
-Upon entering Nucleus Hub you should see the the Nucleus Hub [landing page](hub-landing). This section will describe a few key interfaces that are frequently used in common workflows. Since Nucleus Hub builds on JupyterLab, an exhaustive description of the interface can be found in the [JupyterLab Docs](https://jupyterlab.readthedocs.io/en/stable/user/interface.html#main-area).
+Upon entering Nucleus Hub you should see the the Nucleus Hub [landing page](#hub-landing). This section will describe a few key interfaces that are frequently used in common workflows. Since Nucleus Hub builds on JupyterLab, an exhaustive description of the interface can be found in the [JupyterLab Docs](https://jupyterlab.readthedocs.io/en/stable/user/interface.html#main-area).
 
 :::::{tab-set}
 
 ::::{tab-item} Landing Page
 :::{figure} hub-landing.png
-:label: hub-landing
+:name: hub-landing
 Nucleus Hub landing page. 
 :::
 ::::
 
 ::::{tab-item} File Browser
 :::{figure} hub-file-browser.png
-:label: hub-file-browser
+:name: hub-file-browser
 The file browser allows you to navigate your home directory to which notebooks, scripts, datasets, and other files can be saved.
 :::
 ::::
 
 ::::{tab-item} Launcher
 :::{figure} hub-launcher.png
-:label: hub-launcher
+:name: hub-launcher
 The Launcher allows you quickly start a new activity such as creating a new template notebook or creating a new Developer Note.
 :::
 ::::
@@ -46,7 +46,7 @@ The Launcher allows you quickly start a new activity such as creating a new temp
 
 ## File Browser
 
-Nucleus Hub allows you with a home directory that allows you to save files. To learn more about your home directory and your filesystem, please refer to this documentation [page](https://2i2c.org/community-showcase/user/topics/data/filesystem.html) from 2i2c. The [file browser](hub-file-browser) is the main interface for managing notebooks, scripts, datasets, and other file types. A few directories exist by default:
+Nucleus Hub allows you with a home directory that allows you to save files. To learn more about your home directory and your filesystem, please refer to this documentation [page](https://2i2c.org/community-showcase/user/topics/data/filesystem.html) from 2i2c. The [file browser](#hub-file-browser) is the main interface for managing notebooks, scripts, datasets, and other file types. A few directories exist by default:
 
 :::{table}
 
@@ -63,7 +63,7 @@ Nucleus Hub allows you with a home directory that allows you to save files. To l
 
 ## Launcher
 
-Common Nucleus Hub workflows can be initiated from the [Launcher](hub-launcher). The button on the Launcher window are organized into the following categories:
+Common Nucleus Hub workflows can be initiated from the [Launcher](#hub-launcher). The button on the Launcher window are organized into the following categories:
 
 :::{table}
 
@@ -100,10 +100,10 @@ If you are a newcomer to Python and Jupyter the following links may be helpful:
 
 # Uploading data into the hub
 
-Small datasets (>25 MB) can be uploaded [directly](hub-upload) into the hub or by drag-and-drop directly into the file browser (e.g. typical plate reader datasets or individual PNGs). We recommend organizing your data by experiment in a directory in your home directory. For example: `/home/work/2026-04-02_my-experiment`.
+Small datasets (>25 MB) can be uploaded [directly](#hub-upload) into the hub or by drag-and-drop directly into the file browser (e.g. typical plate reader datasets or individual PNGs). We recommend organizing your data by experiment in a directory in your home directory. For example: `/home/work/2026-04-02_my-experiment`.
 
 :::{figure} hub-upload-data.png
-:label: hub-upload
+:name: hub-upload
 Data can directly uploaded into the hub.
 :::
 
