@@ -102,301 +102,62 @@ data = result[desired_index]
 You can see the underlying data with `data.view()` (which returns a Pandas DataFrame):
 
 
-[TODO: edit this and output to .info() (too many columns to render reasonably)]
-
 ```python
 # Show the first five rows:
-data.view().head()
+data.view().info()
 ```
 
-[TODO: turn this into a normal .md table]
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Experiment</th>
-      <th>Well</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Time</th>
-      <th>Data</th>
-      <th>Read</th>
-      <th>Read Name</th>
-      <th>Reader Type</th>
-      <th>Reader ID</th>
-      <th>Plate Type</th>
-      <th>Plate ID</th>
-      <th>Start Time</th>
-      <th>Read Modality</th>
-      <th>Gain</th>
-      <th>Excitation Wavelength (nm)</th>
-      <th>Excitation Bandwidth (nm)</th>
-      <th>Excitation Optics</th>
-      <th>Emission Wavelength (nm)</th>
-      <th>Emission Bandwidth (nm)</th>
-      <th>Emission Optics</th>
-      <th>Read Geometry</th>
-      <th>Read Height (mm)</th>
-      <th>PMix ID</th>
-      <th>[PMix] (mg/mL)</th>
-      <th>Ribosome ID</th>
-      <th>[Ribosome] (uM)</th>
-      <th>SMS ID</th>
-      <th>tRNA ID</th>
-      <th>[tRNA] (ug/uL)</th>
-      <th>DNA ID</th>
-      <th>[DNA] (ng/uL)</th>
-      <th>PMix Vol (uL)</th>
-      <th>Ribosome Vol (uL)</th>
-      <th>SMS Vol (uL)</th>
-      <th>tRNA Vol (uL)</th>
-      <th>DNA Vol (uL)</th>
-      <th>RNase Inhib Vol (uL)</th>
-      <th>Water vol (uL)</th>
-      <th>Rxn Volume (uL)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2025-11-11</td>
-      <td>MFG-98-tRNA-QC</td>
-      <td>B2</td>
-      <td>tRNA AR-836</td>
-      <td>Sample</td>
-      <td>0 days 00:00:33</td>
-      <td>245</td>
-      <td>GFP-Gext:485,528</td>
-      <td>GFP-Gext</td>
-      <td>Cytation5</td>
-      <td>1705168</td>
-      <td>Greiner 384 SV NoBind AutoMap</td>
-      <td>Plate 1</td>
-      <td>2025-11-11 12:24:04</td>
-      <td>Fluorescence</td>
-      <td>extended</td>
-      <td>485</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>528</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>Top</td>
-      <td>10.5 mm</td>
-      <td>NEB Sol B</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>SMS-08</td>
-      <td>AR-836</td>
-      <td>35.0</td>
-      <td>AR-805</td>
-      <td>120.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>2.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2025-11-11</td>
-      <td>MFG-98-tRNA-QC</td>
-      <td>B2</td>
-      <td>tRNA AR-836</td>
-      <td>Sample</td>
-      <td>0 days 00:05:33</td>
-      <td>254</td>
-      <td>GFP-Gext:485,528</td>
-      <td>GFP-Gext</td>
-      <td>Cytation5</td>
-      <td>1705168</td>
-      <td>Greiner 384 SV NoBind AutoMap</td>
-      <td>Plate 1</td>
-      <td>2025-11-11 12:24:04</td>
-      <td>Fluorescence</td>
-      <td>extended</td>
-      <td>485</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>528</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>Top</td>
-      <td>10.5 mm</td>
-      <td>NEB Sol B</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>SMS-08</td>
-      <td>AR-836</td>
-      <td>35.0</td>
-      <td>AR-805</td>
-      <td>120.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>2.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2025-11-11</td>
-      <td>MFG-98-tRNA-QC</td>
-      <td>B2</td>
-      <td>tRNA AR-836</td>
-      <td>Sample</td>
-      <td>0 days 00:10:33</td>
-      <td>249</td>
-      <td>GFP-Gext:485,528</td>
-      <td>GFP-Gext</td>
-      <td>Cytation5</td>
-      <td>1705168</td>
-      <td>Greiner 384 SV NoBind AutoMap</td>
-      <td>Plate 1</td>
-      <td>2025-11-11 12:24:04</td>
-      <td>Fluorescence</td>
-      <td>extended</td>
-      <td>485</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>528</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>Top</td>
-      <td>10.5 mm</td>
-      <td>NEB Sol B</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>SMS-08</td>
-      <td>AR-836</td>
-      <td>35.0</td>
-      <td>AR-805</td>
-      <td>120.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>2.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2025-11-11</td>
-      <td>MFG-98-tRNA-QC</td>
-      <td>B2</td>
-      <td>tRNA AR-836</td>
-      <td>Sample</td>
-      <td>0 days 00:15:33</td>
-      <td>230</td>
-      <td>GFP-Gext:485,528</td>
-      <td>GFP-Gext</td>
-      <td>Cytation5</td>
-      <td>1705168</td>
-      <td>Greiner 384 SV NoBind AutoMap</td>
-      <td>Plate 1</td>
-      <td>2025-11-11 12:24:04</td>
-      <td>Fluorescence</td>
-      <td>extended</td>
-      <td>485</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>528</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>Top</td>
-      <td>10.5 mm</td>
-      <td>NEB Sol B</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>SMS-08</td>
-      <td>AR-836</td>
-      <td>35.0</td>
-      <td>AR-805</td>
-      <td>120.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>2.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2025-11-11</td>
-      <td>MFG-98-tRNA-QC</td>
-      <td>B2</td>
-      <td>tRNA AR-836</td>
-      <td>Sample</td>
-      <td>0 days 00:20:33</td>
-      <td>265</td>
-      <td>GFP-Gext:485,528</td>
-      <td>GFP-Gext</td>
-      <td>Cytation5</td>
-      <td>1705168</td>
-      <td>Greiner 384 SV NoBind AutoMap</td>
-      <td>Plate 1</td>
-      <td>2025-11-11 12:24:04</td>
-      <td>Fluorescence</td>
-      <td>extended</td>
-      <td>485</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>528</td>
-      <td>20</td>
-      <td>monochromator</td>
-      <td>Top</td>
-      <td>10.5 mm</td>
-      <td>NEB Sol B</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>SMS-08</td>
-      <td>AR-836</td>
-      <td>35.0</td>
-      <td>AR-805</td>
-      <td>120.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>2.0</td>
-      <td>10.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+```python
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1533 entries, 0 to 1532
+Data columns (total 42 columns):
+ #   Column                      Non-Null Count  Dtype          
+---  ------                      --------------  -----          
+ 0   Date                        1533 non-null   datetime64[ns] 
+ 1   Experiment                  1533 non-null   object         
+ 2   Well                        1533 non-null   object         
+ 3   Name                        1533 non-null   object         
+ 4   Type                        1533 non-null   object         
+ 5   Time                        1533 non-null   timedelta64[ns]
+ 6   Data                        1533 non-null   int64          
+ 7   Data_normalized             1533 non-null   float64        
+ 8   Read                        1533 non-null   object         
+ 9   Read Name                   1533 non-null   object         
+ 10  Reader Type                 1533 non-null   object         
+ 11  Reader ID                   1533 non-null   object         
+ 12  Plate Type                  1533 non-null   object         
+ 13  Plate ID                    1533 non-null   object         
+ 14  Start Time                  1533 non-null   datetime64[ns] 
+ 15  Read Modality               1533 non-null   object         
+ 16  Gain                        1533 non-null   object         
+ 17  Excitation Wavelength (nm)  1533 non-null   int64          
+ 18  Excitation Bandwidth (nm)   1533 non-null   object         
+ 19  Excitation Optics           1533 non-null   object         
+ 20  Emission Wavelength (nm)    1533 non-null   int64          
+ 21  Emission Bandwidth (nm)     1533 non-null   int64          
+ 22  Emission Optics             1533 non-null   object         
+ 23  Read Geometry               1533 non-null   object         
+ 24  Read Height (mm)            1533 non-null   object         
+ 25  PMix ID                     1314 non-null   object         
+ 26  [PMix] (mg/mL)              0 non-null      float64        
+ 27  Ribosome ID                 0 non-null      float64        
+ 28  [Ribosome] (uM)             0 non-null      float64        
+ 29  SMS ID                      1314 non-null   object         
+ 30  tRNA ID                     1095 non-null   object         
+ 31  [tRNA] (ug/uL)              1095 non-null   float64        
+ 32  DNA ID                      1314 non-null   object         
+ 33  [DNA] (ng/uL)               1314 non-null   float64        
+ 34  PMix Vol (uL)               1314 non-null   float64        
+ 35  Ribosome Vol (uL)           0 non-null      float64        
+ 36  SMS Vol (uL)                1314 non-null   float64        
+ 37  tRNA Vol (uL)               1314 non-null   float64        
+ 38  DNA Vol (uL)                1314 non-null   float64        
+ 39  RNase Inhib Vol (uL)        1314 non-null   float64        
+ 40  Water vol (uL)              1314 non-null   float64        
+ 41  Rxn Volume (uL)             1314 non-null   float64        
+dtypes: datetime64[ns](2), float64(14), int64(4), object(21), timedelta64[ns](1)
+memory usage: 503.1+ KB
+```
 
 The dataset contains information from the platemap and metadata extracted from the plate reader's output, in [long format](https://devnotes.nucleus.engineering/articles/Bhasin-20260421#representation). Each row represents a single measurement, where:
 - `Time` represents the time point of the measurement relative to the start of the experiment, 
@@ -534,333 +295,26 @@ kinetics = data.fit_kinetics()
 kinetics.summary
 ```
 
-[TODO - convert this to a .md table]
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Well</th>
-      <th>Name</th>
-      <th>Max Velocity</th>
-      <th>Max Velocity Time</th>
-      <th>Lag Time</th>
-      <th>Steady State</th>
-      <th>Completion Time</th>
-      <th>Completion Threshold</th>
-      <th>Drift</th>
-      <th>Fit Function</th>
-      <th>R^2</th>
-      <th>Good Fit</th>
-      <th>Normalized to</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>B2</td>
-      <td>tRNA AR-836</td>
-      <td>2.49</td>
-      <td>0 days 01:33:15</td>
-      <td>0 days 00:33:09</td>
-      <td>4.74</td>
-      <td>0 days 03:01:44</td>
-      <td>0.95</td>
-      <td>0.07</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>B4</td>
-      <td>tRNA AR-837</td>
-      <td>2.67</td>
-      <td>0 days 01:33:35</td>
-      <td>0 days 00:34:38</td>
-      <td>4.99</td>
-      <td>0 days 03:00:24</td>
-      <td>0.95</td>
-      <td>0.07</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>B6</td>
-      <td>tRNA AR-838</td>
-      <td>2.44</td>
-      <td>0 days 01:32:35</td>
-      <td>0 days 00:34:21</td>
-      <td>4.50</td>
-      <td>0 days 02:58:17</td>
-      <td>0.95</td>
-      <td>0.06</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>B8</td>
-      <td>tRNA AR-839</td>
-      <td>1.68</td>
-      <td>0 days 01:32:00</td>
-      <td>0 days 00:37:35</td>
-      <td>2.89</td>
-      <td>0 days 02:52:07</td>
-      <td>0.95</td>
-      <td>0.03</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>B10</td>
-      <td>tRNA AR-730 (Rxn Control)</td>
-      <td>2.37</td>
-      <td>0 days 01:30:01</td>
-      <td>0 days 00:33:50</td>
-      <td>4.22</td>
-      <td>0 days 02:52:45</td>
-      <td>0.95</td>
-      <td>0.07</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>B12</td>
-      <td>NEB Positive Control</td>
-      <td>2.66</td>
-      <td>0 days 01:35:50</td>
-      <td>0 days 00:45:09</td>
-      <td>4.27</td>
-      <td>0 days 02:50:26</td>
-      <td>0.95</td>
-      <td>0.09</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>D2</td>
-      <td>tRNA AR-836</td>
-      <td>2.64</td>
-      <td>0 days 01:31:44</td>
-      <td>0 days 00:32:12</td>
-      <td>4.97</td>
-      <td>0 days 02:59:23</td>
-      <td>0.95</td>
-      <td>0.08</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>D4</td>
-      <td>tRNA AR-837</td>
-      <td>2.79</td>
-      <td>0 days 01:32:13</td>
-      <td>0 days 00:34:27</td>
-      <td>5.10</td>
-      <td>0 days 02:57:16</td>
-      <td>0.95</td>
-      <td>0.07</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>D6</td>
-      <td>tRNA AR-838</td>
-      <td>2.52</td>
-      <td>0 days 01:32:00</td>
-      <td>0 days 00:34:31</td>
-      <td>4.58</td>
-      <td>0 days 02:56:37</td>
-      <td>0.95</td>
-      <td>0.06</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>D8</td>
-      <td>tRNA AR-839</td>
-      <td>1.84</td>
-      <td>0 days 01:30:32</td>
-      <td>0 days 00:35:41</td>
-      <td>3.20</td>
-      <td>0 days 02:51:17</td>
-      <td>0.95</td>
-      <td>0.04</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>D10</td>
-      <td>tRNA AR-730 (Rxn Control)</td>
-      <td>2.41</td>
-      <td>0 days 01:28:51</td>
-      <td>0 days 00:32:20</td>
-      <td>4.31</td>
-      <td>0 days 02:52:03</td>
-      <td>0.95</td>
-      <td>0.07</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>D12</td>
-      <td>NEB Positive Control</td>
-      <td>3.13</td>
-      <td>0 days 01:34:33</td>
-      <td>0 days 00:44:14</td>
-      <td>4.99</td>
-      <td>0 days 02:48:38</td>
-      <td>0.95</td>
-      <td>0.09</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>F2</td>
-      <td>tRNA AR-836</td>
-      <td>2.79</td>
-      <td>0 days 01:30:12</td>
-      <td>0 days 00:32:10</td>
-      <td>5.12</td>
-      <td>0 days 02:55:38</td>
-      <td>0.95</td>
-      <td>0.08</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>F4</td>
-      <td>tRNA AR-837</td>
-      <td>2.77</td>
-      <td>0 days 01:31:33</td>
-      <td>0 days 00:33:22</td>
-      <td>5.10</td>
-      <td>0 days 02:57:12</td>
-      <td>0.95</td>
-      <td>0.07</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>F6</td>
-      <td>tRNA AR-838</td>
-      <td>2.49</td>
-      <td>0 days 01:30:49</td>
-      <td>0 days 00:33:35</td>
-      <td>4.51</td>
-      <td>0 days 02:55:05</td>
-      <td>0.95</td>
-      <td>0.06</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>F8</td>
-      <td>tRNA AR-839</td>
-      <td>1.79</td>
-      <td>0 days 01:28:45</td>
-      <td>0 days 00:36:41</td>
-      <td>2.95</td>
-      <td>0 days 02:45:25</td>
-      <td>0.95</td>
-      <td>0.03</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>F10</td>
-      <td>tRNA AR-730 (Rxn Control)</td>
-      <td>2.46</td>
-      <td>0 days 01:28:12</td>
-      <td>0 days 00:32:05</td>
-      <td>4.37</td>
-      <td>0 days 02:50:49</td>
-      <td>0.95</td>
-      <td>0.07</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>F12</td>
-      <td>NEB Positive Control</td>
-      <td>2.52</td>
-      <td>0 days 01:33:54</td>
-      <td>0 days 00:44:03</td>
-      <td>3.98</td>
-      <td>0 days 02:47:18</td>
-      <td>0.95</td>
-      <td>0.08</td>
-      <td>sigmoid_drift</td>
-      <td>1.00</td>
-      <td>True</td>
-      <td>10 uM HPTS</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+| |Well|Name|Max Velocity|Max Velocity Time|Lag Time|Steady State|Completion Time|Completion Threshold|Drift|Fit Function|R^2|Good Fit|Normalized to|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|0|B2|tRNA AR-836|2.49|0 days 01:33:15|0 days 00:33:09|4.74|0 days 03:01:44|0.95|0.07|sigmoid_drift|1.00|True|10 uM HPTS|
+|1|B4|tRNA AR-837|2.67|0 days 01:33:35|0 days 00:34:38|4.99|0 days 03:00:24|0.95|0.07|sigmoid_drift|1.00|True|10 uM HPTS|
+|2|B6|tRNA AR-838|2.44|0 days 01:32:35|0 days 00:34:21|4.50|0 days 02:58:17|0.95|0.06|sigmoid_drift|1.00|True|10 uM HPTS|
+|3|B8|tRNA AR-839|1.68|0 days 01:32:00|0 days 00:37:35|2.89|0 days 02:52:07|0.95|0.03|sigmoid_drift|1.00|True|10 uM HPTS|
+|4|B10|tRNA AR-730 (Rxn Control)|2.37|0 days 01:30:01|0 days 00:33:50|4.22|0 days 02:52:45|0.95|0.07|sigmoid_drift|1.00|True|10 uM HPTS|
+|5|B12|NEB Positive Control|2.66|0 days 01:35:50|0 days 00:45:09|4.27|0 days 02:50:26|0.95|0.09|sigmoid_drift|1.00|True|10 uM HPTS|
+|6|D2|tRNA AR-836|2.64|0 days 01:31:44|0 days 00:32:12|4.97|0 days 02:59:23|0.95|0.08|sigmoid_drift|1.00|True|10 uM HPTS|
+|7|D4|tRNA AR-837|2.79|0 days 01:32:13|0 days 00:34:27|5.10|0 days 02:57:16|0.95|0.07|sigmoid_drift|1.00|True|10 uM HPTS|
+|8|D6|tRNA AR-838|2.52|0 days 01:32:00|0 days 00:34:31|4.58|0 days 02:56:37|0.95|0.06|sigmoid_drift|1.00|True|10 uM HPTS|
+|9|D8|tRNA AR-839|1.84|0 days 01:30:32|0 days 00:35:41|3.20|0 days 02:51:17|0.95|0.04|sigmoid_drift|1.00|True|10 uM HPTS|
+|10|D10|tRNA AR-730 (Rxn Control)|2.41|0 days 01:28:51|0 days 00:32:20|4.31|0 days 02:52:03|0.95|0.07|sigmoid_drift|1.00|True|10 uM HPTS|
+|11|D12|NEB Positive Control|3.13|0 days 01:34:33|0 days 00:44:14|4.99|0 days 02:48:38|0.95|0.09|sigmoid_drift|1.00|True|10 uM HPTS|
+|12|F2|tRNA AR-836|2.79|0 days 01:30:12|0 days 00:32:10|5.12|0 days 02:55:38|0.95|0.08|sigmoid_drift|1.00|True|10 uM HPTS|
+|13|F4|tRNA AR-837|2.77|0 days 01:31:33|0 days 00:33:22|5.10|0 days 02:57:12|0.95|0.07|sigmoid_drift|1.00|True|10 uM HPTS|
+|14|F6|tRNA AR-838|2.49|0 days 01:30:49|0 days 00:33:35|4.51|0 days 02:55:05|0.95|0.06|sigmoid_drift|1.00|True|10 uM HPTS|
+|15|F8|tRNA AR-839|1.79|0 days 01:28:45|0 days 00:36:41|2.95|0 days 02:45:25|0.95|0.03|sigmoid_drift|1.00|True|10 uM HPTS|
+|16|F10|tRNA AR-730 (Rxn Control)|2.46|0 days 01:28:12|0 days 00:32:05|4.37|0 days 02:50:49|0.95|0.07|sigmoid_drift|1.00|True|10 uM HPTS|
+|17|F12|NEB Positive Control|2.52|0 days 01:33:54|0 days 00:44:03|3.98|0 days 02:47:18|0.95|0.08|sigmoid_drift|1.00|True|10 uM HPTS|
 
 ### Visualizing fits
 The function `kinetics.plot()` overlays each fitted curve on its raw data so you can confirm the fits are reasonable (high R², smooth curves). 
