@@ -24,7 +24,13 @@ else
   echo "WARNING: npm not found. Install Node.js then run: npm install -g mystmd@1.9.1"
 fi
 
-# Install lychee if not already present
+# Install lychee if not already present.
+# CI pins lychee to the version below (see .github/workflows/check-links.yml and
+# link-rot.yml) because its JSON report is the input contract for
+# scripts/check-links.py and has changed shape between releases. brew installs
+# whatever is current, so a local run can classify differently than CI — if the
+# versions drift far apart, bump the workflows to match.
+LYCHEE_PINNED_VERSION="0.24.2"
 if ! command -v lychee &> /dev/null; then
   if command -v brew &> /dev/null; then
     brew install lychee
@@ -32,6 +38,14 @@ if ! command -v lychee &> /dev/null; then
     echo "WARNING: lychee not found and brew is not available."
     echo "  Install lychee manually: https://github.com/lycheeverse/lychee#installation"
     echo "  The check-links script will fail until lychee is on your PATH."
+  fi
+fi
+
+if command -v lychee &> /dev/null; then
+  installed=$(lychee --version | awk '{print $2}')
+  if [ "$installed" != "$LYCHEE_PINNED_VERSION" ]; then
+    echo "NOTE: local lychee is $installed but CI pins $LYCHEE_PINNED_VERSION."
+    echo "  Link-check results may differ from CI. See .github/workflows/check-links.yml."
   fi
 fi
 

@@ -92,13 +92,37 @@ codespell only flags words in its curated misspelling dictionary, so niche techn
 
 ### Link checking (lychee)
 
-**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** This is slower than Vale and doesn't need to run on every commit — focus on PRs that touch links.
+**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** Takes ~20 s for the whole corpus.
 
 ```bash
-python3 scripts/check-links.py docs/       # check all docs
-python3 scripts/check-links.py <file.md>   # check a single file
+python3 scripts/check-links.py docs/                  # both passes over all docs
+python3 scripts/check-links.py <file.md>              # both passes, one file
+python3 scripts/check-links.py --offline-only docs/   # internal links only, no network (~0.05 s)
 ```
 
-The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
+The script wraps `lychee` and runs two passes: an **offline pass** over internal/relative links, and a **network pass** over external URLs.
 
-**Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
+**Exit codes.** `0` nothing blocking · `1` broken links · `2` the check could not run (lychee missing, unparsable output). Exit 2 is deliberately distinct — a broken toolchain must not read as broken docs.
+
+**Interpreting output.** A failure is judged by what it says about the link, not by which vendor served it:
+
+| Signal | Verdict |
+| --- | --- |
+| HTTP 404 or 410 | **blocking** — the resource is gone |
+| Hostname does not resolve | **blocking** — typo'd or dead domain |
+| Relative/root-relative link resolves to no file | **blocking** — this 404s the deployed site |
+| HTTP 401, 403, 429, any 5xx | tolerated, reported — crawler refused or server hiccup |
+| Any other 4xx (400, 405, 406, 451…) | tolerated, reported — bot-shaped rejection |
+| Timeout, TLS error, HTTP/2 reset, connection reset | tolerated, reported — says nothing about link validity |
+
+**Tolerated failures are expected, not actionable.** A clean run reports ~120 of them — Sigma-Aldrich and Cytiva reset HTTP/2 connections at the protocol level, and many vendors plus `doi.org` return 403 to crawlers. They are summarized by host and reason. `✅ no broken links` printed under a long tolerated list is a **pass**; report it as one.
+
+**Do not add a suppression list.** There deliberately isn't one. The previous version kept a per-domain allowlist keyed on the literal string `HTTP/2 protocol error`, which meant every newly crawler-hostile vendor turned the PR gate red until someone landed a config change (issues #193, #199). If you find yourself wanting to name a vendor in `.lychee.toml` or the script, the classifier needs fixing instead.
+
+**Blame partitioning.** CI passes `--blame-changed <base-ref>`, so external rot only blocks the PR when it sits in a file the PR modified. Pre-existing rot elsewhere prints under a "pre-existing broken link(s)" heading without failing the build; the weekly `link-rot` workflow tracks it in a single GitHub issue. Internal-link failures block regardless. Local runs omit the flag, so everything blocks.
+
+**What it does not catch.** Staleness detection only works where a vendor returns an honest status code:
+- **Sigma-Aldrich and Cytiva never return one** (~40% of external links) — a discontinued part number there is undetectable at any frequency.
+- **Soft-404s are invisible** — "product not found" served with HTTP 200 reads as healthy.
+
+Both still need manual review; don't tell the developer the link check clears them.

@@ -4,16 +4,41 @@ on:
   pull_request:
     branches: [main]
 
+# Link checking is split by what a failure means (see scripts/check-links.py):
+#
+#   * Internal links are ours to get right and a break 404s the deployed site,
+#     so any internal failure blocks — no matter which files the PR touched.
+#   * External links are checked across the whole corpus every run (that is what
+#     makes this a staleness check), but only rot in files this PR *modified*
+#     blocks it. Pre-existing rot elsewhere is reported here and tracked by the
+#     weekly link-rot workflow, so a vendor's catalog churn cannot block an
+#     unrelated PR.
+#   * Vendor noise (403/429/5xx/timeout/TLS/HTTP-2 reset) never blocks anything.
+#     See issues #193 and #199.
 jobs:
   check-links:
     runs-on: ubuntu-latest
+    env:
+      LYCHEE_VERSION: "0.24.2"
     steps:
+      # Full history so the base-ref diff behind --blame-changed resolves.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
+      # Pinned deliberately: lychee's JSON report is this check's input contract,
+      # and its shape has changed between releases before (issue #136). Tracking
+      # `latest` meant CI could classify differently than any developer's local
+      # run. Bump this in step with the local install documented in setup.sh.
       - name: Install lychee
         run: |
-          curl -sSL https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz \
+          set -euo pipefail
+          curl -sSL "https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/lychee-x86_64-unknown-linux-gnu.tar.gz" \
             | tar xz --strip-components=1 -C /usr/local/bin lychee-x86_64-unknown-linux-gnu/lychee
+          lychee --version
 
       - name: Check links
-        run: python3 scripts/check-links.py docs/
+        run: |
+          python3 scripts/check-links.py \
+            --blame-changed "origin/${{ github.base_ref }}" \
+            docs/
