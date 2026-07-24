@@ -135,7 +135,7 @@ The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol
 - [ ] Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**. Vortex thoroughly and spin down.
 - [ ] Assemble at least 30 µL of your inner solution per reaction (see [Assemble Base Cytosol](../assemble-base-cytosol/main.md) for an example).
 - [ ] Once at room temperature, add 150 µL of the lipid-oil mixture on top of each assembled inner solution reaction.
-- [ ] Emulsify the lipid-oil and inner solution reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Drag your tube across empty slots at least 50 times until you form a stable emulsion with a homogenous milky appearance.
+- [ ] Emulsify the lipid-oil and inner solution reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Drag your tube across empty slots at least 50 times until you form a stable emulsion with a homogeneous milky appearance.
 
 :::{hint} Tip
 :class: simple
