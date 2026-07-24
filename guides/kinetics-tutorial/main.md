@@ -1,4 +1,4 @@
-# How to analyze Cytosol kinetics
+# How to analyze plate reader kinetics
 
 :::{attention}
 :class: simple
@@ -186,7 +186,7 @@ You can pass the usual keyword arguments for a `lineplot` through, such as `styl
 data.plot(style='Type')
 ```
     
-![png](kinetics_tutorial_files/kinetics_tutorial_10_1.png)
+![png](resources/kinetics_tutorial_10_1.png)
     
 
 We can see that our Samples show typical behavior and that the standard (here, HPTS) is stable, thus we can safely normalize our data.
@@ -233,7 +233,7 @@ g = data.plot(style='Type', exclude_types=['Standard'])
 
 
     
-![png](kinetics_tutorial_files/kinetics_tutorial_16_0.png)
+![png](resources/kinetics_tutorial_16_0.png)
 
 The plot y-axis label will automatically update to indicate that your data have been normalized and will indicate the name of the standard used.
 
@@ -326,7 +326,7 @@ By default, `kinetics.plot()` facets by `Name`, where traces of replicate wells 
 ```python
 g = kinetics.plot()
 ```
-![png](kinetics_tutorial_files/kinetics_tutorial_24_0.png)
+![png](resources/kinetics_tutorial_24_0.png)
 :::
 :::{tab-item} Individual wells
 To show the fits to individual replicates separately, facet on `Well`:
@@ -335,7 +335,7 @@ To show the fits to individual replicates separately, facet on `Well`:
 ```python
 g = kinetics.plot(col="Well")
 ```
-![png](kinetics_tutorial_files/kinetics_tutorial_26_1.png)
+![png](resources/kinetics_tutorial_26_1.png)
     
 :::
 
@@ -352,7 +352,7 @@ g = kinetics.plot_summary()
 # g.savefig("data_summary.png", dpi=300)
 ```
  
-![png](kinetics_tutorial_files/kinetics_tutorial_29_0.png)
+![png](resources/kinetics_tutorial_29_0.png)
 
 :::{hint}
 You can control what's displayed in this plot via three keyword arguments:
