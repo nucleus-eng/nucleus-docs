@@ -22,9 +22,9 @@ Cartoon of the general mechanism of protein degradation by ClpXP, an ATP-depende
 ::::{tab-item} Designs
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pT7-ClpX` | N/A | (upcoming) |
-| `pT7-ClpP` | N/A | (upcoming) |
-| `pT7-deGFP-ssrA` | N/A | (upcoming) |
+| `pT7-ClpX` | 3394 | [pOpen-ClpX-CHis.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-ClpX-CHis.gb) |
+| `pT7-ClpP` | 2746 | [pOpen-ClpP-CHis.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-ClpP-CHis.gb) |
+| `pT7-deGFP-ssrA` | 2863 | [pOpen-deGFP-CHis-ssrA.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-deGFP-CHis-ssrA.gb) |
 ::::
 
 :::::
