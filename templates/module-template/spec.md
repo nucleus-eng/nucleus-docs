@@ -50,15 +50,20 @@ TODO: One sentence describing what the schematic shows. If the figure is not ori
 ::::{tab-item} Designs
 <!-- Two tables: one for DNA constructs, one for purified protein components.
 Delete whichever is not applicable and replace with "- None".
-DNA files link to .gb files in the nucleus GitHub repository.
-Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
+DNA files link to .gb/.gbk/.dna files in the nucleus-eng/DNA repository.
+Protein files link to sequence files (.fasta, .gb) or expression constructs.
+Length (bp) is an identity claim, not a label — it must equal the target file's
+GenBank LOCUS length (run `python3 scripts/check-dna-refs.py` to verify). Do not
+add a row here because a construct's name merely resembles a DNA-repo filename;
+see CLAUDE.md's cross-repo rules for the Nucleus-equivalent block to use instead
+when the source construct is not the exact same sequence. -->
 
 **DNA**
 
 :::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `TODO: pConstruct-Name` | TODO | [TODO: filename.gb](https://github.com/bnext-bio/nucleus/blob/main/TODO) |
+| `TODO: pConstruct-Name` | TODO | [TODO: filename.gb](https://github.com/nucleus-eng/DNA/blob/main/TODO) |
 :::
 
 **Proteins**
@@ -66,7 +71,7 @@ Protein files link to sequence files (.fasta, .gb) or expression constructs. -->
 :::{table}
 | **Name** | **MW (kDa)** | **File** |
 | --- | --- | --- |
-| `TODO: ProteinName-Tag` | TODO | [TODO: filename.fasta](https://github.com/bnext-bio/nucleus/blob/main/TODO) |
+| `TODO: ProteinName-Tag` | TODO | [TODO: filename.fasta](https://github.com/nucleus-eng/DNA/blob/main/TODO) |
 :::
 ::::
 
@@ -79,7 +84,7 @@ One figure per construct. Generated from .gb files using Benchling, SnapGene, or
 :align: center
 :width: 75%
 
-TODO: `pConstruct-Name`. Brief description of key features (promoter, insert, selection marker). Generated from [TODO: filename.gb](https://github.com/bnext-bio/nucleus/blob/main/TODO).
+TODO: `pConstruct-Name`. Brief description of key features (promoter, insert, selection marker). Generated from [TODO: filename.gb](https://github.com/nucleus-eng/DNA/blob/main/TODO).
 :::
 ::::
 

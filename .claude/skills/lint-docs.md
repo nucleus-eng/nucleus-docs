@@ -1,5 +1,5 @@
 ---
-description: Commands and interpretation guide for Vale, codespell, and lychee — run these before opening a PR or committing content.
+description: Commands and interpretation guide for Vale, codespell, lychee, and check-dna-refs — run these before opening a PR or committing content.
 ---
 
 ### Prose linting (Vale)
@@ -102,27 +102,21 @@ python3 scripts/check-links.py --offline-only docs/   # internal links only, no 
 
 The script wraps `lychee` and runs two passes: an **offline pass** over internal/relative links, and a **network pass** over external URLs.
 
-**Exit codes.** `0` nothing blocking · `1` broken links · `2` the check could not run (lychee missing, unparsable output). Exit 2 is deliberately distinct — a broken toolchain must not read as broken docs.
+**Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
 
-**Interpreting output.** A failure is judged by what it says about the link, not by which vendor served it:
+### DNA reference checking (check-dna-refs.py)
 
-| Signal | Verdict |
-| --- | --- |
-| HTTP 404 or 410 | **blocking** — the resource is gone |
-| Hostname does not resolve | **blocking** — typo'd or dead domain |
-| Relative/root-relative link resolves to no file | **blocking** — this 404s the deployed site |
-| HTTP 401, 403, 429, any 5xx | tolerated, reported — crawler refused or server hiccup |
-| Any other 4xx (400, 405, 406, 451…) | tolerated, reported — bot-shaped rejection |
-| Timeout, TLS error, HTTP/2 reset, connection reset | tolerated, reported — says nothing about link validity |
+**Run `python3 scripts/check-dna-refs.py` before opening a PR if you added or edited a Designs table** (any table linking a construct name into `nucleus-eng/DNA` with a `Length (bp)` claim). This catches a different failure than `check-links.py`: a link can resolve fine (200 OK) and still assert the wrong sequence, because nothing about a working URL confirms the docs' bp claim matches the target file. Local-only — it reads `~/src/nucleus-eng/DNA` directly (override with `NUCLEUS_DNA_REPO`) — so it is not part of CI; run it yourself whenever a Designs table changes.
 
-**Tolerated failures are expected, not actionable.** A clean run reports ~120 of them — Sigma-Aldrich and Cytiva reset HTTP/2 connections at the protocol level, and many vendors plus `doi.org` return 403 to crawlers. They are summarized by host and reason. `✅ no broken links` printed under a long tolerated list is a **pass**; report it as one.
+```bash
+python3 scripts/check-dna-refs.py                        # all of docs/
+python3 scripts/check-dna-refs.py docs/modules/<module>/  # one module
+```
 
-**Do not add a suppression list.** There deliberately isn't one. The previous version kept a per-domain allowlist keyed on the literal string `HTTP/2 protocol error`, which meant every newly crawler-hostile vendor turned the PR gate red until someone landed a config change (issues #193, #199). If you find yourself wanting to name a vendor in `.lychee.toml` or the script, the classifier needs fixing instead.
+**Interpreting output — three levels:**
 
-**Blame partitioning.** CI passes `--blame-changed <base-ref>`, so external rot only blocks the PR when it sits in a file the PR modified. Pre-existing rot elsewhere prints under a "pre-existing broken link(s)" heading without failing the build; the weekly `link-rot` workflow tracks it in a single GitHub issue. Internal-link failures block regardless. Local runs omit the flag, so everything blocks.
+- **BLOCKING** — a verifiably wrong claim: the docs' bp value doesn't match the target file's GenBank `LOCUS` length, the linked file/directory doesn't exist in the DNA repo, or the link points at the legacy `bnext-bio/nucleus` repo instead of `nucleus-eng/DNA`. Always fix before opening a PR.
+- **WARN** — the construct name doesn't obviously relate to the target's `LOCUS` name or filename (e.g. `pT7-lacO-plamGFP` naming a reporter the linked file's LOCUS name doesn't mention). Often a benign alias — GenBank `LOCUS` names are frequently truncated internal labels, not full construct names — but this is exactly the shape of a "greedy link" (a name-similarity match asserted as sequence identity, issue #120's motivating bug). Look at the actual file before dismissing; if the docs construct is not the same sequence as the target, it should be a Nucleus-equivalent `:::{attention}` block instead of a Designs-table row (see CLAUDE.md's cross-repo rules).
+- **INFO** — nothing to verify: the target is a SnapGene `.dna` file (no parseable length) or the row has no bp cell. Not an error, just unverifiable by this tool.
 
-**What it does not catch.** Staleness detection only works where a vendor returns an honest status code:
-- **Sigma-Aldrich and Cytiva never return one** (~40% of external links) — a discontinued part number there is undetectable at any frequency.
-- **Soft-404s are invisible** — "product not found" served with HTTP 200 reads as healthy.
-
-Both still need manual review; don't tell the developer the link check clears them.
+**What it does not catch.** Sequence content — it verifies length, not identity. Two different constructs of the same length are indistinguishable to this check.

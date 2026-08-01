@@ -26,7 +26,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 :::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pOpen-deGFP` | 2789 | [pOpen-deGFP.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk) |
+| `pOpen-deGFP` | 2812 | [pOpen-deGFP.gbk](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk) |
 :::
 ::::
 :::::
