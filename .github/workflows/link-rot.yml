@@ -1,0 +1,94 @@
+name: Link Rot Sweep
+
+# Whole-corpus link check against main, on a schedule rather than per-PR.
+#
+# The PR check (check-links.yml) deliberately does not block on rot in files the
+# PR did not touch — otherwise a vendor retiring a catalog page would block every
+# open PR, which is the problem issues #193 and #199 were about. That rot still
+# needs to be found and fixed, so this job owns it: it runs unpartitioned (every
+# broken link counts) and keeps a single tracking issue up to date.
+#
+# Issue filing lives here, not in the PR workflow, because a pull_request run
+# cannot do it reliably — fork PRs get a read-only token, and every re-run would
+# open another duplicate.
+
+on:
+  schedule:
+    # Mondays, 06:00 UTC.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    env:
+      LYCHEE_VERSION: "0.24.2"
+      GH_TOKEN: ${{ github.token }}
+      LABEL: link-rot
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pinned to match check-links.yml and the local install — see the comment
+      # there for why.
+      - name: Install lychee
+        run: |
+          set -euo pipefail
+          curl -sSL "https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/lychee-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar xz --strip-components=1 -C /usr/local/bin lychee-x86_64-unknown-linux-gnu/lychee
+          lychee --version
+
+      - name: Sweep links
+        id: sweep
+        run: |
+          set +e
+          python3 scripts/check-links.py docs/ 2>&1 | tee sweep.txt
+          echo "status=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Ensure tracking label exists
+        run: gh label create "$LABEL" --color B60205 --description "Broken external links found by the weekly sweep" --force
+
+      - name: File or update the tracking issue
+        if: steps.sweep.outputs.status == '1'
+        run: |
+          set -euo pipefail
+          {
+            echo "The weekly link sweep found broken links on \`main\`."
+            echo
+            echo "These are hard failures — a 404/410, or a hostname that no longer resolves."
+            echo "Vendor noise (403/429/5xx/timeouts/HTTP-2 resets) is excluded by design; see"
+            echo "\`scripts/check-links.py\`."
+            echo
+            echo "Updated by [run #${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) — this issue is edited in place, so it always reflects the latest sweep."
+            echo
+            echo '```'
+            cat sweep.txt
+            echo '```'
+          } > body.md
+
+          existing=$(gh issue list --label "$LABEL" --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file body.md
+            echo "Updated issue #$existing"
+          else
+            gh issue create --title "Broken links found on main" --label "$LABEL" --body-file body.md
+          fi
+
+      - name: Close the tracking issue when clean
+        if: steps.sweep.outputs.status == '0'
+        run: |
+          set -euo pipefail
+          existing=$(gh issue list --label "$LABEL" --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "The weekly sweep now passes — no broken links remain. Closing automatically."
+          fi
+
+      - name: Fail if the sweep could not run
+        if: steps.sweep.outputs.status == '2'
+        run: |
+          echo "::error::check-links.py could not run (exit 2) — tooling problem, not link rot."
+          cat sweep.txt
+          exit 1

@@ -48,6 +48,7 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 python3 scripts/check-dropdowns.py      # flag placeholder-only lists
 python3 scripts/check-file-placement.py # flag content files outside allowed dirs
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
+python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
 These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
@@ -108,7 +109,16 @@ DNA/
 - **Do not create or store `.gb` sequence files in nucleus-docs.** All DNA sequences belong in the DNA repo.
 - **Construct names in protocol pages must match actual filenames** in the DNA repo (e.g., a step that says "use `pOpen-PURET7-3`" corresponds to `promoters/pOpen-PURET7-3.gb`). Verify before writing.
 - **Cross-repo links** in doc pages should point to the GitHub URL of the `.gb` file in `nucleus-eng/DNA`, not to a local path.
-- **Changes to the DNA repo are out of scope for nucleus-docs PRs.** If a construct referenced in a source page is not found in `nucleus-eng/DNA`, add an `:::{attention}` block in the spec noting the gap, e.g.: "Construct `pOpen-pT7-Cx43` is not yet in `nucleus-eng/DNA` (originated in `bnext-bio/nucleus`). Do not link to the legacy repo — flag for follow-up so the construct can be submitted to `nucleus-eng/DNA` before this page is used at the bench." DNA constructs referenced in a DevNote SHOULD be submitted to `nucleus-eng/DNA` before or alongside migration; if they are not present at migration time, apply the attention block and flag.
+- **Changes to the DNA repo are out of scope for nucleus-docs PRs.** If a construct referenced in a source page is not found in `nucleus-eng/DNA`, add an `:::{attention}` block in the spec noting the gap, e.g.: "Construct `pT7-aHly` is not yet in `nucleus-eng/DNA` (originated in `bnext-bio/nucleus`). Do not link to the legacy repo — flag for follow-up so the construct can be submitted to `nucleus-eng/DNA` before this page is used at the bench." DNA constructs referenced in a DevNote SHOULD be submitted to `nucleus-eng/DNA` before or alongside migration; if they are not present at migration time, apply the attention block and flag.
+- **Construct↔file identity is a claim, not a guess.** Never place a construct in a Designs table because its name resembles a filename in `nucleus-eng/DNA`. A Designs-table row asserts *this is that sequence* — it requires evidence, minimally that the row's `Length (bp)` equals the target file's GenBank `LOCUS` length (`python3 scripts/check-dna-refs.py` checks this). If the source content's construct differs from the Nucleus construct in any way — tag, backbone, promoter, codon usage, species variant — that is **equivalence, not identity**, and belongs in the block below, never as a Designs-table row. This is the specific failure mode ("greedy linking") that motivated issue #120: a name-similarity match getting asserted as sequence identity.
+
+  ```
+  :::{attention} Nucleus equivalent — not the cited sequence
+  The data on this page was generated with <cited construct> from <source>. The nearest
+  Nucleus construct is [pOpen-X](https://github.com/nucleus-eng/DNA/blob/main/<path>).
+  It is functionally equivalent but **not sequence-identical** (<the difference>).
+  :::
+  ```
 
 ### Content model
 
@@ -359,14 +369,47 @@ codespell only flags words in its curated misspelling dictionary, so niche techn
 
 ### Link checking (lychee)
 
-**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** This is slower than Vale and doesn't need to run on every commit — focus on PRs that touch links.
+**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** Takes ~20 s for the whole corpus.
 
 ```bash
-python3 scripts/check-links.py docs/       # check all docs
-python3 scripts/check-links.py <file.md>   # check a single file
+python3 scripts/check-links.py docs/          # both passes over all docs
+python3 scripts/check-links.py <file.md>      # both passes, one file
+python3 scripts/check-links.py --offline-only docs/   # internal links only, no network (~0.05 s)
 ```
 
-The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
+The script wraps `lychee` and runs two passes: an **offline pass** over internal/relative links, and a **network pass** over external URLs. Exit codes are `0` (nothing blocking), `1` (broken links), `2` (the check could not run — e.g. lychee missing; distinct so tooling breakage isn't mistaken for broken docs).
+
+**A failure is judged by what it says about the link, not by which vendor served it.** Do not add vendor domains or status codes to a suppression list — there isn't one, deliberately (issues #193, #199).
+
+| Signal | Verdict |
+| --- | --- |
+| HTTP 404 or 410 | **blocking** — the resource is gone |
+| Hostname does not resolve | **blocking** — typo'd or dead domain |
+| Relative/root-relative link resolves to no file | **blocking** — this 404s the deployed site |
+| HTTP 401, 403, 429, any 5xx | tolerated, reported — crawler refused or server hiccup |
+| Any other 4xx (400, 405, 406, 451…) | tolerated, reported — bot-shaped rejection |
+| Timeout, TLS error, HTTP/2 reset, connection reset | tolerated, reported — says nothing about link validity |
+
+Tolerated failures are normal and expected: a clean run currently reports ~120 of them (Sigma-Aldrich and Cytiva reset HTTP/2 connections; many vendors and `doi.org` return 403 to crawlers). **`✅ no broken links` alongside a long tolerated list is a pass.**
+
+**Blame partitioning.** In CI the check runs with `--blame-changed <base-ref>`: external rot only blocks the PR if it's in a file the PR modified. Pre-existing rot elsewhere is reported under a "pre-existing broken link(s)" heading without failing the build, and is tracked by the weekly `link-rot` workflow, which keeps a single GitHub issue up to date. Internal-link failures block regardless of which files changed. Local runs omit the flag, so everything blocks.
+
+**What it does not catch.** Staleness detection only works where a vendor returns an honest status code, so its reach is narrower than it looks:
+- **Sigma-Aldrich and Cytiva never return one** — they reset the connection before any HTTP status. Between them that's ~40% of external links, and a discontinued part number there is undetectable at any frequency.
+- **Soft-404s are invisible** — a vendor serving "product not found" with HTTP 200 reads as a healthy link.
+
+Both still require manual review. `lychee` is pinned to 0.24.2 in both workflows because its JSON report is this script's input contract and has changed shape between releases before (#136); bump the pin and the local install together.
+
+### DNA reference checking
+
+**Run `python3 scripts/check-dna-refs.py` before opening a PR if you added or edited a Designs table** (any table with a `Length (bp)` / construct-name row linking into `nucleus-eng/DNA`). This is a different failure mode than link checking: a link can 404-free and still assert the wrong sequence — the motivating case was `reporter-degfp/spec.md` claiming 2789 bp for a construct that is actually 2812 bp after a correction in the DNA repo. `check-links.py` cannot see that; this script diffs the docs' bp claim against the target file's GenBank `LOCUS` line.
+
+```bash
+python3 scripts/check-dna-refs.py                       # all of docs/
+python3 scripts/check-dna-refs.py docs/modules/<module>/ # one module
+```
+
+Local-only (reads `~/src/nucleus-eng/DNA` directly, or `$NUCLEUS_DNA_REPO`) — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool.
 
 **Before opening a PR or committing content**, run Vale + codespell (and the link checker if you touched any URLs). Invoke the `lint-docs` skill for exact commands and how to interpret each tool's output — including which Vale errors are real vs. false positives.
 
