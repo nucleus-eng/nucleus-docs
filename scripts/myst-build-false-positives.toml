@@ -1,0 +1,18 @@
+# Known myst build ⛔️ false positives.
+#
+# myst's own `error_rules` config (in myst.yml) can downgrade a rule's severity,
+# but some rules (e.g. image-exists) carry no per-file `key` in mystmd 1.9.1's
+# warning payload, so `error_rules[].keys` can never scope them to one file —
+# a myst.yml suppression for such a rule is repo-wide and would blind the
+# build check to a genuinely missing file anywhere else. Entries here are
+# matched by exact file + message substring instead, so every other error
+# stays reported. Add an entry only when a diagnostic is provably wrong for
+# that specific file — a real error should be fixed, not suppressed here.
+
+[[image_exists]]
+file = "docs/modules/membrane-pore-cx43/spec.md"
+substring = 'Cannot find image "./Figure/connexin-scheme.png"'
+# Figure sourced from the remote DevNote via `xref:devnote-cx43#fig:scheme`
+# (see spec.md line ~24). myst resolves the xref's own relative figure path
+# and checks for it on local disk, but the file only exists in the remote
+# DevNote repo — it renders correctly in the browser. See issue #176.

@@ -1,5 +1,5 @@
 ---
-description: Commands and interpretation guide for Vale, codespell, lychee, and check-dna-refs — run these before opening a PR or committing content.
+description: Commands and interpretation guide for Vale, codespell, lychee, and the myst strict build check — run these before opening a PR or committing content.
 ---
 
 ### Prose linting (Vale)
@@ -104,19 +104,16 @@ The script wraps `lychee` and runs two passes: an **offline pass** over internal
 
 **Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
 
-### DNA reference checking (check-dna-refs.py)
+### Build error checking (myst strict build)
 
-**Run `python3 scripts/check-dna-refs.py` before opening a PR if you added or edited a Designs table** (any table linking a construct name into `nucleus-eng/DNA` with a `Length (bp)` claim). This catches a different failure than `check-links.py`: a link can resolve fine (200 OK) and still assert the wrong sequence, because nothing about a working URL confirms the docs' bp claim matches the target file. Local-only — it reads `~/src/nucleus-eng/DNA` directly (override with `NUCLEUS_DNA_REPO`) — so it is not part of CI; run it yourself whenever a Designs table changes.
+**Run this if you touched any link, image reference, directive, or table syntax.** `myst build --html` emits ⛔️-prefixed errors for broken links, missing images, and malformed directives but exits 0 regardless. `scripts/check-myst-build.py` wraps `myst build --html --strict` and fails only when an unfiltered ⛔️ error survives. This is what the `build-protocols` CI job gates on (`.github/workflows/protocols.yml`, issue #176).
 
 ```bash
-python3 scripts/check-dna-refs.py                        # all of docs/
-python3 scripts/check-dna-refs.py docs/modules/<module>/  # one module
+python3 scripts/build-protocols.py            # generates process/module PDFs the Downloads cards link to
+python3 scripts/build-materials-reference.py  # generates the guides/materials-reference.md include
+python3 scripts/check-myst-build.py
 ```
 
-**Interpreting output — three levels:**
+Run the two generator scripts first — without them, `guides/materials-reference.md`'s `{include}` and every process page's Downloads `{button}` card report their gitignored `generated/` target as a genuinely missing file.
 
-- **BLOCKING** — a verifiably wrong claim: the docs' bp value doesn't match the target file's GenBank `LOCUS` length, the linked file/directory doesn't exist in the DNA repo, or the link points at the legacy `bnext-bio/nucleus` repo instead of `nucleus-eng/DNA`. Always fix before opening a PR.
-- **WARN** — the construct name doesn't obviously relate to the target's `LOCUS` name or filename (e.g. `pT7-lacO-plamGFP` naming a reporter the linked file's LOCUS name doesn't mention). Often a benign alias — GenBank `LOCUS` names are frequently truncated internal labels, not full construct names — but this is exactly the shape of a "greedy link" (a name-similarity match asserted as sequence identity, issue #120's motivating bug). Look at the actual file before dismissing; if the docs construct is not the same sequence as the target, it should be a Nucleus-equivalent `:::{attention}` block instead of a Designs-table row (see CLAUDE.md's cross-repo rules).
-- **INFO** — nothing to verify: the target is a SnapGene `.dna` file (no parseable length) or the row has no bp cell. Not an error, just unverifiable by this tool.
-
-**What it does not catch.** Sequence content — it verifies length, not identity. Two different constructs of the same length are indistinguishable to this check.
+**Interpreting output.** ⛔️ (error) fails the build; ⚠️ (warning) is summarized but never fails it — this repo deliberately leaves warnings (legacy link syntax, duplicate identifiers, unrecognized frontmatter keys like `status`) non-blocking. Treat every ⛔️ as real **except** where `scripts/myst-build-false-positives.toml` documents a specific known false positive (currently: a figure in `membrane-pore-cx43/spec.md` sourced from a remote DevNote via `xref:`, which myst still checks for on local disk even though the file only exists remotely). Any new suppression belongs in that TOML file as an exact `file` + message `substring` match, not in `myst.yml`'s `error_rules:` — mystmd's `image-exists` rule (and potentially others) carries no per-file `key` in its warning payload, so `error_rules[].keys` file-scoping can never match it; a `myst.yml`-level suppression for such a rule would be repo-wide and would blind the check to a genuinely missing file anywhere else in the docs.

@@ -7,7 +7,9 @@ on:
 # Build-only gate: render every lab-ready protocol/BOM PDF so a content edit
 # that breaks rendering is caught before merge (and before it could break the
 # deploy). Does not publish or commit — uploads the PDFs as an artifact for
-# reviewers. See issue #10.
+# reviewers. See issue #10. Also gates on `myst build --html --strict` so a
+# broken link, missing image, or malformed directive fails CI instead of
+# only surfacing on a local build. See issue #176.
 jobs:
   check-bom-labels:
     # Fast static check (no toolchain): bom-<slug> labels match their directory
@@ -52,6 +54,18 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y fonts-noto-core
       - name: Build lab-ready protocols
         run: python3 scripts/build-protocols.py
+      - name: Generate distribution-wide materials reference
+        # guides/materials-reference.md `{include}`s a gitignored generated
+        # partial — without this the strict build below reports it as a real
+        # missing-file error.
+        run: python3 scripts/build-materials-reference.py
+      - name: Check for myst build errors
+        # Wraps `myst build --html --strict`, failing only on unfiltered ⛔️
+        # errors (⚠️ warnings are non-blocking). Must run after both
+        # generators above so the generated PDFs/CSVs the download buttons
+        # and includes point at actually exist. See issue #176 and
+        # scripts/check-myst-build.py.
+        run: python3 scripts/check-myst-build.py
       - name: Upload generated PDFs
         if: always()
         uses: actions/upload-artifact@v4

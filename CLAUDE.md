@@ -24,6 +24,14 @@ jupyter book start
 myst build --html
 ```
 
+**Check for myst build errors** (what the `build-protocols` CI job gates on — see issue #176):
+```bash
+python3 scripts/build-protocols.py
+python3 scripts/build-materials-reference.py
+python3 scripts/check-myst-build.py
+```
+`scripts/check-myst-build.py` runs `myst build --html --strict` and fails only on ⛔️ errors (broken links, missing images, malformed directives) — ⚠️ warnings are summarized but never fail the build. Run the two generator scripts first: `guides/materials-reference.md` and every process page's Downloads cards reference gitignored `generated/` artifacts, and a build run without them reports those as real missing-file errors. Known false positives (currently: a figure sourced from a remote DevNote via `xref:`, which myst still checks for on local disk) are declared in `scripts/myst-build-false-positives.toml` — myst's own `error_rules` config can't scope this to a single file, since some rules carry no per-file key, so a `myst.yml`-level suppression would silently blind the check to a genuinely missing file anywhere else in the docs.
+
 **Generate lab-ready protocol PDFs / BOMs** (requires `myst` + `typst` on PATH):
 ```bash
 python3 scripts/build-protocols.py            # all processes
