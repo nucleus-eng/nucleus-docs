@@ -92,14 +92,15 @@ codespell only flags words in its curated misspelling dictionary, so niche techn
 
 ### Link checking (lychee)
 
-**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** This is slower than Vale and doesn't need to run on every commit — focus on PRs that touch links.
+**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** Takes ~20 s for the whole corpus.
 
 ```bash
-python3 scripts/check-links.py docs/       # check all docs
-python3 scripts/check-links.py <file.md>   # check a single file
+python3 scripts/check-links.py docs/                  # both passes over all docs
+python3 scripts/check-links.py <file.md>              # both passes, one file
+python3 scripts/check-links.py --offline-only docs/   # internal links only, no network (~0.05 s)
 ```
 
-The script wraps `lychee` and filters known false positives before reporting. **What it catches:** dead internal links, 404 external links, empty URLs. **What it does not catch:** product catalog changes on vendor sites (e.g. Sigma-Aldrich discontinuing a part number) — those require manual review.
+The script wraps `lychee` and runs two passes: an **offline pass** over internal/relative links, and a **network pass** over external URLs.
 
 **Interpreting output.** The script will note how many HTTP/2 false positives were filtered from `sigmaaldrich.com` — these are valid URLs on a server that blocks automated crawlers at the protocol level and can be ignored. Any remaining errors are genuine and should be fixed before opening a PR.
 
