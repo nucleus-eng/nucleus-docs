@@ -120,6 +120,19 @@ DNA/
   :::
   ```
 
+### Terminology
+
+These definitions ground the module/implementation content model below (`docs/modules/`, `docs/implementations/`, and their `spec.md` files):
+
+- Composition (n): the physical make up of a system; typically concentration and spatial organization
+- Composing (v): the act of combining two or more systems and their associated functions
+- Component: an element (abstract or concrete) of Composition; a single part or piece of a larger whole. May be defined as having subcomponents.
+- Function: a designed behavior; defined by and emergent from Composition
+- Requirements: Functional or Compositional elements whose presence (or often absence) are required (and in specified amounts) in order for a system of a given Composition to demonstrate a designed Function
+- Module: a component with specified Composition and Function (given certain Requirements).
+- Specification: a concrete description of the Composition and Function of a system, as well as any Requirements on that system to Function as described
+- Integration: the engineering work required to modify the Composition of two or more Modules such as to retain their Functions when composed.
+
 ### Content model
 
 The documentation organizes content into three parallel hierarchies under `docs/`:
