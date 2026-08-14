@@ -64,7 +64,7 @@ The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentrat
 |                    | RF3      | 155                     | 59.6                     | Monomer                     | 2.60            |
 |                    | RRF      | 155                     | 20.6                     | Monomer                     | 7.52            |
 | Metabolism         | MTF      | 311                     | 34.2                     | Monomer                     | 9.09            |
-|                    | CK       | 63                      | 43.1                     | Homodimer                   | 0.731           |
+|                    | CK¶      | 63                      | 43.3                     | Homodimer                   | 0.727           |
 |                    | AK       | 46                      | 23.6                     | Monomer                     | 1.95            |
 |                    | NDK      | 16                      | 15.5                     | Homohexamer                 | 0.172           |
 |                    | PPiase§  | 16                      | 19.7                     | Homohexamer                 | 0.135           |
@@ -82,6 +82,8 @@ Molecular weight and stoichiometry are sourced from two Notion databases: the [C
 ‡ **EF-Ts** — n = 1 (monomer). One source database's "Homodimer" label reflects a crystal-packing contact (or conflation with the dimeric *Thermus thermophilus* ortholog); sedimentation-equilibrium literature shows free *E. coli* EF-Ts is monomeric in solution.
 
 § **PPiase molecular weight — source discrepancy.** The Components database lists 33.4 kDa for PPiase; the Protein Pokedex database lists 19.7 kDa for the same protein (*E. coli* inorganic pyrophosphatase, PPA/*ppa* gene, [UniProt P0A7A9](https://www.uniprot.org/uniprotkb/P0A7A9/entry)). UniProt and the literature ([Josse, 1966](https://pubmed.ncbi.nlm.nih.gov/5498420/)) give a subunit mass of 19.7 kDa (175 residues), assembled as a homohexamer (~(117–120) kDa native complex) — matching the Pokedex value and its recorded hexameric stoichiometry. This page therefore uses 19.7 kDa with n = 6. The Components database's 33.4 kDa figure does not correspond to any known form of this protein (monomer, dimer, or hexamer) and should be corrected at the source; it is flagged here rather than edited in Notion.
+
+¶ **CK species correction.** The CK construct actually expressed for PMix is chicken (*Gallus gallus*) M-type creatine kinase, not rabbit as an earlier source assumed — the DNA repository holds only a chicken expression plasmid ([`pET28a-CK-Gg.gb`](https://github.com/nucleus-eng/DNA/blob/main/PURE/expression/pET28a-CK-Gg.gb); no rabbit expression construct exists there, only a cloning intermediate, `pOpen-CK-Oc.gb`). The plasmid's 381-residue CK-Gg coding sequence matches UniProt [P00565](https://www.uniprot.org/uniprotkb/P00565/entry) (chicken CKM, muscle-type creatine kinase) exactly, giving a monomer MW of 43,328 Da (43.3 kDa) — nearly identical to the previously listed rabbit-based value (43.1 kDa) because rabbit and chicken M-type CK are highly conserved in size. Vertebrate M-type creatine kinase is a well-established homodimer (native MM form; see [UniProt P00565](https://www.uniprot.org/uniprotkb/P00565/entry) subunit structure and [Hornemann et al., 2000](https://pubmed.ncbi.nlm.nih.gov/10899637/) on subunit cooperativity in the CK dimer), so the stoichiometry (n = 2) is unchanged from the prior entry — only the species attribution and MW source are corrected here.
 :::
 ::::
 
