@@ -30,15 +30,19 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 
 :::::
 
+# Requirements
+
+This module cannot be used in the same cascade as the Theophylline Sensing Module (for example, the Chicago Cascade). Theophylline is understood to inhibit the LacZ/CPRG colorimetric reaction used for readout — reports describe reduced signal even at low theophylline concentrations, though the inhibition mechanism has not been formally characterized. The two sensing modules require mutual exclusion on the current Chicago Cascade design: they must not be co-present in the same reaction (Chicago Module Integration Status notes).
+
+:::{attention} Mutual exclusion — not a general compatibility rule
+This constraint applies to the current Chicago Cascade, where both sensing modules would share the same LacZ/CPRG readout. It is not yet established as a general nucleus-wide compatibility rule between the two modules.
+:::
+
 ## Cytosols
 
 ### Usage
 
 Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR protein to a final concentration of 500 nM, or include the `pT7-tetR` DNA construct. Add aTc inducer at 2.5 µM to 5 µM for effective induction. Volumes in µL.
-
-:::{warning}
-**Concentration discrepancy — requires review.** The reaction table lists TetR stock as `10 mM`, but the target final concentration stated in the text is 500 nM. At 10 mM stock with 0.5 µL in 10 µL total, the calculated final concentration would be 500 µM — a 1000× discrepancy. The stock concentration is likely `10 µM` (yielding 500 nM final). Please verify before use.
-:::
 
 | **Component** | **Master Mix (µL)** |
 | --- | --- |
@@ -46,7 +50,7 @@ Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR pro
 | PURExpress Solution B | 3 |
 | RNase Inhibitor | 0.5 |
 | `pT7-tetO-plamGFP` (10 nM) | 0.5 |
-| TetR (10 mM) | 0.5 |
+| TetR (10 µM) | 0.5 |
 | **Master Mix Total** | **9** |
 
 | **Component** | **Per Reaction (µL)** |
@@ -107,10 +111,6 @@ The TetR-aTc Detector module in the Base Cell.
 
 TetR detector synthetic cells were induced at multiple anhydrotetracycline concentrations and imaged over 12 h with approximately 22 min per timepoint.
 
-:::{warning}
-**Concentration discrepancy — requires review.** The figure caption for the encapsulated endpoint image states `312.5 uM` anhydrotetracycline, but the montage caption for the same experiment reports `312.5 nM`. Given the in vitro data showing toxicity above 50 µM to 100 µM, the intended concentration is almost certainly `312.5 nM`. Please verify before use.
-:::
-
 :::::{tab-set}
 
 ::::{tab-item} Montage
@@ -121,10 +121,22 @@ TetR detector synthetic cells induced at multiple anhydrotetracycline concentrat
 
 ::::{tab-item} Endpoint
 :::{figure} cell-performance-endpoint.png
-GFP expression within synthetic cells when induced with 312.5 µM anhydrotetracycline.
+GFP expression within synthetic cells when induced with 312.5 nM anhydrotetracycline.
 :::
 ::::
 
 :::::
 
 The TetR detector cell functions when induced with low-nanomolar aTc concentrations. Higher concentrations begin to inhibit expression or confound analysis due to background aTc fluorescence and membrane localization.
+
+### Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)
+
+:::{attention} Solution/GUV-level data only
+The `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate. Data below cover the solution/GUV level only — hydrogel-embedded validation has not been performed (Chicago Module Integration Status notes).
+:::
+
+A separate, Chicago-specific implementation encapsulates a `TetO-PLA1` construct — not `pT7-tetO-plamGFP` above — together with LacZ and CPRG substrate in a GUV, reading out through the LacZ/CPRG colorimetric reaction (absorbance at 575 nm) instead of GFP fluorescence. This configuration shows a graded dose-response to aTc at the solution/GUV level: absorbance increased with aTc dose (0/1/5/10 µM) across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each compared against −TetR and −DNA controls.
+
+:::{warning}
+**Gel integration not yet complete.** This result is confirmed at the solution/GUV level only. Hydrogel integration is in early stages and has not been completed. Do not treat this construct as validated for hydrogel-embedded (Cascade) use yet.
+:::

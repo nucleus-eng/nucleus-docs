@@ -31,9 +31,8 @@ Please read this section carefully. It contains important notes, resources, and 
 - If you are preparing Base Cytosol components yourself, use the following protocols:
   - [Make Small Molecule Mix](../make-small-molecule-mix/main.md)
   - [Make tRNAs](../make-trna/main.md)
-  - Make Protein Mix
-    - [Protein Mix](../make-36pot/main.md)
-    - [OnePot Protein Mix](../make-1pot/main.md)
+  - Make Protein Mix: [Protein Mix](../make-36pot/main.md) — the canonical route; PMix is stored in Protein Buffer (30% glycerol) from this process
+    - [OnePot Protein Mix](../make-1pot/main.md) is a separate, co-expression-based preparation with a different buffer formulation (Stock 30). It is not yet fully supported for Base Cytosol — do not treat it as an equivalent substitute for PMix's buffer contribution.
   - [Make Ribosomes](../make-ribosomes/main.md)
 <!-- - [Reporter Module deGFP](/docs/modules/reporter-degfp/spec) -->
 

@@ -22,7 +22,11 @@ project:
       children:
         - file: ./docs/modules/membrane-popc-chol/spec.md
           hidden: true
+        - file: ./docs/modules/membrane-popc-chol-chicago/spec.md
+          hidden: true
         - file: ./docs/modules/base-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/s30-lysate/spec.md
           hidden: true
         - file: ./docs/modules/control-clpxp/spec.md
           hidden: true
@@ -36,7 +40,17 @@ project:
           hidden: true
         - file: ./docs/modules/detector-tetr_atc/spec.md
           hidden: true
+        - file: ./docs/modules/reporter-xyle/spec.md
+          hidden: true
+        - file: ./docs/modules/reporter-lacz/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-theophylline/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-ph/spec.md
+          hidden: true
         - file: ./docs/modules/detector-laci_iptg/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-ahl/spec.md
           hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true
@@ -44,9 +58,45 @@ project:
           hidden: true
         - file: ./docs/modules/dye-liposomes/spec.md
           hidden: true
+        - file: ./docs/modules/effector-pla1/spec.md
+          hidden: true
+        - file: ./docs/modules/chicago-chassis/spec.md
+          hidden: true
+        - file: ./docs/modules/theophylline-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/london-chassis/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/atc-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/atc-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/chicago-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/ahl-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/london-cascade/spec.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/assemble-base-cell/main.md
+          hidden: true
+        - file: ./docs/processes/photopattern-pegda/main.md
+          hidden: true
+        - file: ./docs/processes/embed-alginate-hydrogel/main.md
+          hidden: true
+        - file: ./docs/processes/encapsulate-suv/main.md
+          hidden: true
+        - file: ./docs/processes/encapsulate-guv/main.md
+          hidden: true
+        - file: ./docs/processes/colorimetric-readout/main.md
+          hidden: true
+        - file: ./docs/processes/embed-ulga-hydrogel/main.md
+          hidden: true
+        - file: ./docs/processes/degrade-exterior-lacz/main.md
           hidden: true
         - file: ./docs/processes/make-amino-acid-mix/main.md
           hidden: true
