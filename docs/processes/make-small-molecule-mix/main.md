@@ -31,18 +31,18 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | **Reagent** | **Concentration in Small Molecule Mix (mM)** | **Concentration in Final Reaction (mM)** |
 | --- | --- | --- |
-| HEPES-KOH (pH 7.6) | 125 | 50 |
-| Potassium glutamate | 250 | 100 |
-| Magnesium acetate | 18.75 | 7.5 |
-| rATP  | 5 | 2 |
-| rGTP | 5 | 2 |
-| rCTP | 2.5 | 1 |
-| rUTP | 2.5 | 1 |
-| Amino Acids (each) | 0.75 | 0.3 |
-| Creatine phosphate | 50 | 20 |
-| Folinic acid | 0.05 | 0.02 |
-| Spermidine | 5 | 2 |
-| TCEP | 2.5 | 1 |
+| HEPES-KOH (pH 7.6) | 125 | 37.5 |
+| Potassium glutamate | 250 | 75 |
+| Magnesium acetate | 18.75 | 5.625 |
+| rATP  | 5 | 1.5 |
+| rGTP | 5 | 1.5 |
+| rCTP | 2.5 | 0.75 |
+| rUTP | 2.5 | 0.75 |
+| Amino Acids (each) | 0.75 | 0.225 |
+| Creatine phosphate | 50 | 15 |
+| Folinic acid | 0.05 | 0.015 |
+| Spermidine | 5 | 1.5 |
+| TCEP | 2.5 | 0.75 |
 
 :::
 

@@ -24,6 +24,7 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
 | Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
 |                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
+| Effector        | [PLA1](./effector-pla1/spec.md)             | ★          |
 
 :::
 
@@ -40,6 +41,33 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
 | Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
+| Membrane | [Chicago Membrane: POPC/Chol](./membrane-popc-chol-chicago/spec.md) | ★ |
+| Cell (Chassis) | [Chicago Chassis](./chicago-chassis/spec.md) | ★ |
+| Cell (Sensing) | [aTc Sensing Cell](./atc-sensing-cell/spec.md) | ★ |
+| Cell (Sensing) | [Theophylline Sensing Cell](./theophylline-sensing-cell/spec.md) | ★ |
+| Detector | [Theophylline](./detector-theophylline/spec.md) | ★ |
+| Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
+| Cell (Sensing) | [pH Sensing Cell](./ph-sensing-cell/spec.md) | ★ |
+| Cell (Cascade) | [pH Cascade](./ph-cascade/spec.md) | ★ |
+| Cell (Cascade) | [aTc Cascade](./atc-cascade/spec.md) | ★ |
+| Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
+| Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
+| Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
+:::
+
+## S30 Lysate
+
+Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London demo's cytosol-equivalent, based on the Promega E. coli S30 Extract System).
+
+:::{table}
+
+| Module Class | Specification | Validation |
+| --- | --- | --- |
+| Cytosol (Base) | [S30 Lysate](./s30-lysate/spec.md) | ★ |
+| Detector | [AHL](./detector-ahl/spec.md) | ★ |
+| Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
+| Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
+| Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
 :::
 
 # Contributing a Module
