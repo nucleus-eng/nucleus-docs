@@ -52,14 +52,14 @@ None of the four constructs above have a corresponding file in [`nucleus-eng/DNA
 | --- | --- | --- | --- | --- |
 | `T7-toehold-[LacZ/XylE]-T7term` | Reporter enzyme under a T7 promoter | — | — | See Designs above |
 | CPRG / catechol | Colorimetric substrate for LacZ / XylE respectively | CPRG: Roche; Catechol: TCI America | CPRG: 10884308001; Catechol: P031725G | Catechol is a phenolic compound |
-| POPC | Phospholipid for GUV production | Avanti Polar Lipids | A80557C/0200/4C11M | — |
-| Cholesterol | Membrane component for GUV production | Sigma-Aldrich | C3045-5G | — |
-| Gramicidin A | Proton channel for membrane pH equilibration | Sigma-Aldrich | 50845-5MG | Stock in DMSO, stored at -80 °C. Needed only for a vesicle-encapsulated format — the bulk hydrogel result below does not use vesicles |
+| POPC | Phospholipid for synthetic cell production | Avanti Polar Lipids | A80557C/0200/4C11M | — |
+| Cholesterol | Membrane component for synthetic cell production | Sigma-Aldrich | C3045-5G | — |
+| Gramicidin A | Proton channel for membrane pH equilibration | Sigma-Aldrich | 50845-5MG | Stock in DMSO, stored at -80 °C. Needed only for a liposome-encapsulated format — the bulk hydrogel result below does not use liposomes |
 | Nucleus Cytosol | Cell-free expression system | b.next | — | — |
 
 :::
 
-**Membrane (for a future vesicle-encapsulated format)**
+**Membrane (for a future liposome-encapsulated format)**
 
 :::{table}
 :name: components-membrane
@@ -101,8 +101,8 @@ This is a genuine, concentration-dependent difference between pH 7.4 (~0.31) and
 
 ## Cells
 
-This module has not yet been demonstrated in a vesicle-encapsulated or hydrogel-embedded synthetic cell format. The result above is a bulk agarose-hydrogel reaction without vesicles — a different, earlier step than embedding a pH Sensing Cell in the [Chicago Chassis](../chicago-chassis/spec.md).
+This module has not yet been demonstrated in a liposome-encapsulated or hydrogel-embedded synthetic cell format. The result above is a bulk agarose-hydrogel reaction without liposomes — a different, earlier step than embedding a pH Sensing Cell in the [Chicago Chassis](../chicago-chassis/spec.md).
 
 :::{attention} Chicago Chassis integration is proposed, not confirmed
-In the current module-integration diagram, the edge from the Chicago Chassis to the pH Sensing Cell is drawn dashed (proposed), not solid (confirmed). Hydrogel integration of this module remains early-stage: the bulk agarose result above shows a real signal, but vesicle encapsulation and embedding in the Chicago Chassis have not been demonstrated. Do not represent this integration as confirmed elsewhere in the docs until that step is done.
+In the current module-integration diagram, the edge from the Chicago Chassis to the pH Sensing Cell is drawn dashed (proposed), not solid (confirmed). Hydrogel integration of this module remains early-stage: the bulk agarose result above shows a real signal, but liposome encapsulation and embedding in the Chicago Chassis have not been demonstrated. Do not represent this integration as confirmed elsewhere in the docs until that step is done.
 :::

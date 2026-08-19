@@ -9,14 +9,14 @@ site:
 
 # Overview
 
-The pH Sensing Cell is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Chicago Chassis](../chicago-chassis/spec.md) — the GUV-encapsulated cytosol that acts as the Chicago demo's synthetic-cell substrate. On its own, the pH-Sensing Module is a solution-phase ssDNA/toehold-switch circuit that turns on a colorimetric reporter (LacZ or XylE) when pH drops to about 6.5. The pH Sensing Cell is what that circuit becomes once it is carried inside the chassis: the two-vesicle sensing system encapsulated in the chassis's GUV, ready to be embedded in a hydrogel for the Chicago Cascade demo.
+The pH Sensing Cell is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Chicago Chassis](../chicago-chassis/spec.md) — the synthetic-cell-encapsulated cytosol that acts as the Chicago demo's synthetic-cell substrate. On its own, the pH-Sensing Module is a solution-phase ssDNA/toehold-switch circuit that turns on a colorimetric reporter (LacZ or XylE) when pH drops to about 6.5. The pH Sensing Cell is what that circuit becomes once it is carried inside the chassis: the two-liposome sensing system encapsulated in the chassis's synthetic cell, ready to be embedded in a hydrogel for the Chicago Cascade demo.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Chassis integration is proposed, not confirmed
-The current module-integration diagram draws the edge from the Chicago Chassis to the pH Sensing Cell as dashed (proposed), not solid (confirmed). The pH-sensing two-vesicle system has been demonstrated in solution with a visible yellow-to-purple color change at pH 6.5, and a separate bulk-reaction test embedded the sensing reaction directly in 0.7% low-gelling agarose hydrogel (see Expected Performance below) — but the sensing system has not yet been demonstrated encapsulated in the Chicago Chassis's GUV format, nor embedded in a hydrogel in that combined form. Do not treat this page as describing a completed, validated Sensing Cell — it documents a proposed composition, not a demonstrated one.
+The current module-integration diagram draws the edge from the Chicago Chassis to the pH Sensing Cell as dashed (proposed), not solid (confirmed). The pH-sensing two-liposome system has been demonstrated in solution with a visible yellow-to-purple color change at pH 6.5, and a separate bulk-reaction test embedded the sensing reaction directly in 0.7% low-gelling agarose hydrogel (see Expected Performance below) — but the sensing system has not yet been demonstrated encapsulated in the Chicago Chassis's synthetic cell format, nor embedded in a hydrogel in that combined form. Do not treat this page as describing a completed, validated Sensing Cell — it documents a proposed composition, not a demonstrated one.
 :::
 
 ## Schematic
@@ -24,9 +24,9 @@ The current module-integration diagram draws the edge from the Chicago Chassis t
 ```{mermaid}
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
-    Chassis["Chicago Chassis<br/>(Base Cytosol in a<br/>9:1 POPC:cholesterol GUV)"]
+    Chassis["Chicago Chassis<br/>(Base Cytosol in a<br/>9:1 POPC:cholesterol synthetic cell)"]
     Circuit["pH-Sensing Module<br/>(pH-responsive ssDNA +<br/>trigger ssDNA + toehold switch)"]
-    Chassis & Circuit -.->|"proposed,<br/>not yet demonstrated"| Cell["pH Sensing Cell<br/>(pH-responsive GUV)"]
+    Chassis & Circuit -.->|"proposed,<br/>not yet demonstrated"| Cell["pH Sensing Cell<br/>(pH-responsive synthetic cell)"]
 
     style Chassis fill:#6B7280,color:#ffffff,stroke:#4B5563
     style Circuit fill:#6B7280,color:#ffffff,stroke:#4B5563
@@ -67,13 +67,13 @@ Neither constituent page documents the working concentrations of its own compone
 
 | Line item | Contribution | Working concentration/fraction in combined recipe |
 | --- | --- | --- |
-| Chicago Chassis | 9:1 POPC:cholesterol GUV membrane | Unchanged from [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) |
+| Chicago Chassis | 9:1 POPC:cholesterol synthetic cell membrane | Unchanged from [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) |
 | pH-Sensing Module | Not applicable — solution-phase circuit, contributes no membrane component here | N/A |
 
 :::
 
 :::{attention} pH-Sensing Module's own membrane figure is a different, unrelated formulation
-The [pH-Sensing Module](../detector-ph/spec.md#components) page separately lists a membrane fraction (89.9% POPC / 10% cholesterol / 0.1% Rhod-PE) for a possible future vesicle-encapsulated format of its own. That fraction is not the membrane used here — the Sensing Cell embeds in the Chicago Chassis's 9:1 POPC:cholesterol GUV (no Rhod-PE). Do not conflate the two.
+The [pH-Sensing Module](../detector-ph/spec.md#components) page separately lists a membrane fraction (89.9% POPC / 10% cholesterol / 0.1% Rhod-PE) for a possible future liposome-encapsulated format of its own. That fraction is not the membrane used here — the Sensing Cell embeds in the Chicago Chassis's 9:1 POPC:cholesterol synthetic cell (no Rhod-PE). Do not conflate the two.
 :::
 
 ::::
@@ -84,10 +84,10 @@ This page exists to name the combination above as the Chicago diagram's `PHV` no
 
 ## Expected Performance
 
-No result has been generated for the pH-Sensing Module encapsulated in the Chicago Chassis's GUV format. The closest available data are two separate, earlier-stage results, neither of which is the combined Sensing Cell:
+No result has been generated for the pH-Sensing Module encapsulated in the Chicago Chassis's synthetic cell format. The closest available data are two separate, earlier-stage results, neither of which is the combined Sensing Cell:
 
-- **Solution-phase, two-vesicle system:** a visible yellow-to-purple color change at pH 6.5, using separate pH-sensing and CPRG-loaded vesicle populations in solution (not the chassis GUV).
-- **Bulk hydrogel, no vesicles:** Sung-Won Hwang (Liu Lab) embedded the pH-sensing reaction directly in 0.7% low-gelling agarose (no vesicles at all), added β-galactosidase with neutralization buffer, and incubated 5 h at 37 °C (2026-08-14). Absorbance at 570 nm at the 5 h timepoint:
+- **Solution-phase, two-liposome system:** a visible yellow-to-purple color change at pH 6.5, using separate pH-sensing and CPRG-loaded liposome populations in solution (not the chassis synthetic cell).
+- **Bulk hydrogel, no liposomes:** Sung-Won Hwang (Liu Lab) embedded the pH-sensing reaction directly in 0.7% low-gelling agarose (no liposomes at all), added β-galactosidase with neutralization buffer, and incubated 5 h at 37 °C (2026-08-14). Absorbance at 570 nm at the 5 h timepoint:
 
   | Condition | Abs₅₇₀ (5 h) |
   | --- | --- |
@@ -96,7 +96,7 @@ No result has been generated for the pH-Sensing Module encapsulated in the Chica
   | pH 7.4 | ~0.31 |
   | pH 6.5 | ~0.39 |
 
-  This is a real, concentration-dependent difference between pH 7.4 and pH 6.5, and the fluorescence channel showed no Cy5 dye signal at pH 6.5, consistent with reporter expression at the acidic condition. But the gap between the two pH conditions is small relative to the positive control, and the result was described at the time as "slight pink" and "not as bright as I wanted," with an open plan to increase CPRG loading concentration. Treat this as a real, modest, concentration-dependent lead worth building on — not a robust or complete demonstration, and not a test of the GUV-encapsulated or hydrogel-embedded Sensing Cell itself.
+  This is a real, concentration-dependent difference between pH 7.4 and pH 6.5, and the fluorescence channel showed no Cy5 dye signal at pH 6.5, consistent with reporter expression at the acidic condition. But the gap between the two pH conditions is small relative to the positive control, and the result was described at the time as "slight pink" and "not as bright as I wanted," with an open plan to increase CPRG loading concentration. Treat this as a real, modest, concentration-dependent lead worth building on — not a robust or complete demonstration, and not a test of the synthetic-cell-encapsulated or hydrogel-embedded Sensing Cell itself.
 
 See the [pH-Sensing Module](../detector-ph/spec.md) spec for full detail on both results, including the requirement that trigger ssDNA be HPLC-purified and resuspended in duplex buffer (a 30× signal difference from desalted ssDNA in water).
 
@@ -106,7 +106,7 @@ The formal DevNote for the pH-Sensing Module — [Module Development Plan: DevCe
 
 ## Process
 
-No GUV-encapsulation or hydrogel-embedding process specific to the pH Sensing Cell is yet documented in `docs/processes/`. The Chicago Chassis's own GUV-formation process is itself an open gap (see [Chicago Chassis](../chicago-chassis/spec.md#process)); combining that with the pH-sensing circuit's addition step is a further, undocumented step. Do not assume any existing process page covers this combination — flag for a follow-up process page rather than treating a citation here as equivalent.
+No synthetic cell-encapsulation or hydrogel-embedding process specific to the pH Sensing Cell is yet documented in `docs/processes/`. The Chicago Chassis's own synthetic-cell formation process is itself an open gap (see [Chicago Chassis](../chicago-chassis/spec.md#process)); combining that with the pH-sensing circuit's addition step is a further, undocumented step. Do not assume any existing process page covers this combination — flag for a follow-up process page rather than treating a citation here as equivalent.
 
 # Constituent Modules
 
@@ -115,4 +115,8 @@ No GUV-encapsulation or hydrogel-embedding process specific to the pH Sensing Ce
 
 # Credits
 
-- b.next
+Developed by Sung-Won Hwang (Liu Lab, Chicago node) — pH sensing in 0.7% agarose hydrogel, read out by Cy5 dye loss (14 Aug 2026 status deck, slide 9).
+
+:::{attention} Attribution needs confirmation
+Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
+:::

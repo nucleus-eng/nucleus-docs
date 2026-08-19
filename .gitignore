@@ -23,3 +23,6 @@ dep/
 # DevNote numbered export folders (e.g. 09-cx43_cell/) — raw exports, never committed
 **/resources/[0-9][0-9]-*/
 
+
+# Local scratch / context bundles — never committed
+tmp/

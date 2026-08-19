@@ -32,7 +32,9 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 
 # Requirements
 
-This module cannot be used in the same cascade as the Theophylline Sensing Module (for example, the Chicago Cascade). Theophylline is understood to inhibit the LacZ/CPRG colorimetric reaction used for readout — reports describe reduced signal even at low theophylline concentrations, though the inhibition mechanism has not been formally characterized. The two sensing modules require mutual exclusion on the current Chicago Cascade design: they must not be co-present in the same reaction (Chicago Module Integration Status notes).
+This module must not be co-encapsulated with the [Theophylline Sensing Module](../detector-theophylline/spec.md) (for example, in the Chicago Cascade). Both read out through the same LacZ/CPRG chemistry, and the 2026-08-14 meeting resolved to make the two mutually exclusive in the current Chicago Cascade design.
+
+The requirement is settled. The mechanism usually given for it — theophylline inhibiting the LacZ/CPRG conversion — is **not** established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides; do not restate the inhibition mechanism as fact.
 
 :::{attention} Mutual exclusion — not a general compatibility rule
 This constraint applies to the current Chicago Cascade, where both sensing modules would share the same LacZ/CPRG readout. It is not yet established as a general nucleus-wide compatibility rule between the two modules.
@@ -131,12 +133,22 @@ The TetR detector cell functions when induced with low-nanomolar aTc concentrati
 
 ### Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)
 
-:::{attention} Solution/GUV-level data only
-The `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate. Data below cover the solution/GUV level only — hydrogel-embedded validation has not been performed (Chicago Module Integration Status notes).
+:::{attention} Solution/synthetic cell-level data only
+The `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate. Data below cover the confirmed in synthetic cytosols and in synthetic cells only — hydrogel-embedded validation has not been performed (Chicago Module Integration Status notes).
 :::
 
-A separate, Chicago-specific implementation encapsulates a `TetO-PLA1` construct — not `pT7-tetO-plamGFP` above — together with LacZ and CPRG substrate in a GUV, reading out through the LacZ/CPRG colorimetric reaction (absorbance at 575 nm) instead of GFP fluorescence. This configuration shows a graded dose-response to aTc at the solution/GUV level: absorbance increased with aTc dose (0/1/5/10 µM) across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each compared against −TetR and −DNA controls.
+A separate, Chicago-specific implementation encapsulates a `TetO-PLA1` construct — not `pT7-tetO-plamGFP` above — together with LacZ and CPRG substrate in a synthetic cell, reading out through the LacZ/CPRG colorimetric reaction (absorbance at 575 nm) instead of GFP fluorescence. This configuration detects aTc at the confirmed in synthetic cytosols and in synthetic cells, but the response is **not graded**. The source figure reports fold change in absorbance at 5 h (n = 3) across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each dosed with 0, 1, 5, and 10 µM aTc.
+
+Every combination separates dosed from undosed, at roughly 1.15× to 1.33× fold change. None shows a monotonic increase with dose: the response peaks at 1 µM in the first combination and at 5 µM in the third, and the error bars across the 1, 5, and 10 µM points overlap in all three. Read this as **saturating at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.**
+
+:::{attention} The 0 µM point is a baseline, not a negative control
+Values are fold change normalized to the 0 µM condition, so that point is 1.00 by construction. The source figure contains no −TetR or −DNA control panel. Earlier revisions of this page cited those controls; that citation was not supported by the figure and has been removed.
+:::
+
+:::{attention} Corrected 2026-08-19 — previously described as a graded dose-response
+An earlier revision stated "absorbance increased with aTc dose (0/1/5/10 µM)". Reading the source figure directly (14 Aug 2026 deck, slide 7, Mary Kelly, Kamat Lab) shows a non-monotonic response in two of three conditions. Flagged rather than silently rewritten, since the "graded dose-response" wording propagated to other pages.
+:::
 
 :::{warning}
-**Gel integration not yet complete.** This result is confirmed at the solution/GUV level only. Hydrogel integration is in early stages and has not been completed. Do not treat this construct as validated for hydrogel-embedded (Cascade) use yet.
+**Gel integration not yet complete.** This result is confirmed at the confirmed in synthetic cytosols and in synthetic cells only. Hydrogel integration is in early stages and has not been completed. Do not treat this construct as validated for hydrogel-embedded (Cascade) use yet.
 :::

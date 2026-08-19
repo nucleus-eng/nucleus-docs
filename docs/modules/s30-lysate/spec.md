@@ -17,7 +17,7 @@ This page is a work in progress and not yet ready for use. Composition and perfo
 
 (source-note)=
 :::{note}
-**Source of this page.** All data below is drawn from `Demo Status - London.docx` (London Module 3, "Encapsulation" — contributors Ion Ioannou, Jonah Mcdonald), the internal London demo-status writeup covering S30/POPC encapsulation. No dedicated S30 Lysate DevNote exists yet in `2026-CERN-OHL-P/devnotes/`.
+**Source of this page.** All data below is drawn from `Demo Status - London.docx` (London Module 3, "Encapsulation" — contributors Ion Ioannou, Jonah McDonald), the internal London demo-status writeup covering S30/POPC encapsulation. No dedicated S30 Lysate DevNote exists yet in `2026-CERN-OHL-P/devnotes/`.
 :::
 
 ```{mermaid}
@@ -47,9 +47,9 @@ No published schematic exists for this mechanism; the diagram above is a simplif
 
 ## Reference Composition
 
-S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rather than formulated from individual reagents, so there is no analog to Base Cytosol's PMix/SMix breakdown. The table below reproduces the one documented reaction recipe: the GUV **inner solution** used in the S30/POPC encapsulation experiment, which includes sucrose for osmotic matching to the outer buffer and RNase inhibitor. It is not a general-purpose bulk-reaction recipe — no bulk (non-encapsulated) S30 composition has been documented yet.
+S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rather than formulated from individual reagents, so there is no analog to Base Cytosol's PMix/SMix breakdown. The table below reproduces the one documented reaction recipe: the synthetic cell **inner solution** used in the S30/POPC encapsulation experiment, which includes sucrose for osmotic matching to the outer buffer and RNase inhibitor. It is not a general-purpose bulk-reaction recipe — no bulk (non-encapsulated) S30 composition has been documented yet.
 
-:::{table} Composition of the S30/POPC GUV inner solution, as used in the encapsulation experiment.
+:::{table} Composition of the S30/POPC synthetic cell inner solution, as used in the encapsulation experiment.
 :label: comp-s30-inner-solution
 
 | Component | Stock Concentration | Final Concentration | Condition 1 (− DNA, µL) | Condition 2 (+ DNA, µL) |
@@ -82,13 +82,13 @@ The `pLux-GFP` sensor plasmid is part of the AHL Sensing Module, not S30 Lysate 
 
 ## Expected Behavior
 
-S30 Lysate's expected behavior is characterized by encapsulation in a [POPC membrane](../membrane-popc-chol/spec.md) as a giant unilamellar vesicle (GUV), read out with the AHL Sensing Module (LuxR/pLux → GFP). This S30 + POPC combination is the confirmed chassis-assembly step for the London chassis (per the module-integration status tracking: both the POPC-membrane and S30-lysate legs of that assembly are marked confirmed, as of the 2026-08-14 integration review).
+S30 Lysate's expected behavior is characterized by encapsulation in the [London Membrane](../membrane-popc/spec.md) as a synthetic cell, read out with the AHL Sensing Module (LuxR/pLux → GFP). This S30 + POPC combination is the confirmed chassis-assembly step for the London chassis (per the module-integration status tracking: both the POPC-membrane and S30-lysate legs of that assembly are marked confirmed, as of the 2026-08-14 integration review).
 
-**GUV encapsulation route.** Three phase-transfer protocols for encapsulating S30 lysate in POPC GUVs were compared: the Elani-lab protocol with Optiprep, the same protocol without Optiprep, and the Schroeder protocol (JoVE, 2020). The Elani protocol with Optiprep gave the cleanest, highest-yield encapsulation; without Optiprep it gave fewer GUVs; the Schroeder protocol gave very low yield and was dropped. Adding 5 mg/mL BSA and raising Optiprep to 15% increased yield by roughly 1.5× (~42 vs. ~27 GUVs ≥5 µm per field). GUV counts held steady through 37 °C incubation, so membrane stability was not the yield bottleneck.
+**synthetic cell encapsulation route.** Three phase-transfer protocols for encapsulating S30 lysate in POPC synthetic cells were compared: the Elani-lab protocol with Optiprep, the same protocol without Optiprep, and the Schroeder protocol (JoVE, 2020). The Elani protocol with Optiprep gave the cleanest, highest-yield encapsulation; without Optiprep it gave fewer synthetic cells; the Schroeder protocol gave very low yield and was dropped. Adding 5 mg/mL BSA and raising Optiprep to 15% increased yield by roughly 1.5× (~42 vs. ~27 synthetic cells ≥5 µm per field). synthetic cell counts held steady through 37 °C incubation, so membrane stability was not the yield bottleneck.
 
-**Optiprep blocks expression.** Optiprep-containing GUVs stayed round and abundant through 48 h (mean 80, then 66 GUVs per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold.
+**Optiprep blocks expression.** Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold.
 
-**Dropping Optiprep restores expression.** Without Optiprep in the inner solution, the encapsulated AHL sensor expresses GFP on induction: green fluorescence appears in GUVs across all imaged fields, with vesicle-associated puncta co-localizing with round vesicles, consistent with an active cell-free reaction inside the vesicle.
+**Dropping Optiprep restores expression.** Without Optiprep in the inner solution, the encapsulated AHL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
 
 :::{caution}
 **Not yet controlled.** The Optiprep-free expression result above has no minus-AHL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run — the source document explicitly lists both as outstanding ("Controls ... are still needed to attribute the signal, and biological replicates remain to be added").
@@ -96,7 +96,7 @@ S30 Lysate's expected behavior is characterized by encapsulation in a [POPC memb
 
 ## Protocols
 
-GUV fabrication follows an Elani-lab mineral-oil phase-transfer protocol (per the source document). No process page for this protocol exists yet under `docs/processes/` — this is a gap, not an oversight, and should be filled in alongside (or instead of) this page once a dedicated encapsulation DevNote is filed.
+synthetic cell fabrication follows an Elani-lab mineral-oil phase-transfer protocol (per the source document). The shared method is documented in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), and the London-specific lipid composition on [London Membrane](../membrane-popc/spec.md). A dedicated encapsulation DevNote is still outstanding.
 
 :::{tip}
 **Possible protocol citations — unconfirmed.** The devnote at `2026-CERN-OHL-P/devnotes/london-quorum-sensing-polymersome/main.md` (a related but distinct London effort using diblock-copolymer polymersomes, not S30 lysate) cites Elani-lab phase-transfer literature that plausibly underlies the "Elani-lab phase-transfer protocol" referenced above:
@@ -104,9 +104,11 @@ GUV fabrication follows an Elani-lab mineral-oil phase-transfer protocol (per th
 - Contini, C., Hu, W. & Elani, Y. (2022) Manufacturing polymeric porous capsules. *Chemical Communications*. 58 (28), 4409–4419. [doi:10.1039/D1CC06565C](https://doi.org/10.1039/D1CC06565C)
 - Ioannou, I.A., Monck, C., Ceroni, F., Brooks, N.J., Kuimova, M.K. & Elani, Y. (2024) Nucleated synthetic cells with genetically driven intercompartment communication. *PNAS*. 121 (36), e2404790121. [doi:10.1073/pnas.2404790121](https://doi.org/10.1073/pnas.2404790121)
 
-This link is inferred from shared authorship (Elani lab) and shared phase-transfer method, not a citation stated in the S30 encapsulation source document itself. Confirm with the contributors (Ion Ioannou, Jonah Mcdonald) before treating either DOI as the citation for this protocol.
+This link is inferred from shared authorship (Elani lab) and shared phase-transfer method, not a citation stated in the S30 encapsulation source document itself. Confirm with the contributors (Ion Ioannou, Jonah McDonald) before treating either DOI as the citation for this protocol.
+
+**Additional reason to confirm directly:** as of 2026-08-19 London is no longer pursuing polymersomes, so the devnote these citations were found in covers abandoned work. The papers may still be the right method references — but source them from the contributors, not from that devnote.
 :::
 
 ## Implementations
 
-S30 Lysate is used, encapsulated in POPC, as the chassis for the London demo's AHL-sensing vesicle and downstream London Cascade. See [London Chassis](../london-chassis/spec.md) and [London Cascade](../london-cascade/spec.md).
+S30 Lysate is used, encapsulated in POPC, as the chassis for the London demo's AHL-sensing liposome and downstream London Cascade. See [London Chassis](../london-chassis/spec.md) and [London Cascade](../london-cascade/spec.md).

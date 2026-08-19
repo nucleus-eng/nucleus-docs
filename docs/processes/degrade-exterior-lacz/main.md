@@ -10,9 +10,9 @@ status: draft  # draft | unvalidated-published | validated-published — see CLA
 This page is a work in progress and not yet ready for use.
 :::
 
-Degrade Exterior LacZ uses proteinase K to break down LacZ reporter enzyme that has leaked outside a vesicle, cutting the background color signal that this exterior LacZ would otherwise add to a colorimetric readout. Proteinase K is added to the sample, given time to digest the exterior (non-encapsulated) LacZ, then removed by pelleting the vesicles and resuspending them in fresh solution.
+Degrade Exterior LacZ uses proteinase K to break down LacZ reporter enzyme that has leaked outside a liposome, cutting the background color signal that this exterior LacZ would otherwise add to a colorimetric readout. Proteinase K is added to the sample, given time to digest the exterior (non-encapsulated) LacZ, then removed by pelleting the liposomes and resuspending them in fresh solution.
 
-This protocol was raised in the 2026-08-14 DevCell Studio status meeting, in answer to a London question about exterior LacZ leakage from GUVs. It responds to a general problem — LacZ that ends up outside a vesicle can hydrolyze CPRG (or another chromogenic substrate) in solution and produce color that is not from the intended, vesicle-triggered handoff. This affects any DevCells cascade that relies on a clean, lysis-triggered LacZ/CPRG color change, including the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md).
+This protocol was raised in the 2026-08-14 DevStudio status meeting, in answer to a London question about exterior LacZ leakage from synthetic cells. It responds to a general problem — LacZ that ends up outside a liposome can hydrolyze CPRG (or another chromogenic substrate) in solution and produce color that is not from the intended, liposome-triggered handoff. This affects any DevCells cascade that relies on a clean, lysis-triggered LacZ/CPRG color change, including the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md).
 
 :::{attention} Concentrations and volumes not yet specified
 The source material (meeting transcript only; not in the accompanying slide deck) names the steps and temperatures below, but does not give a proteinase K concentration, a reaction volume, or a buffer. This is a real gap, not an oversight in transcription — flag it rather than filling it in. Confirm working values with the team before running this protocol, and update this page once they exist.
@@ -27,7 +27,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-Proteinase K is a broad-spectrum serine protease: it digests LacZ (and other exterior protein) without needing to enter the vesicle, since the target is already outside. The two-temperature protocol reported in the meeting — 50 °C for 10 min, then 40 °C for about 1 h — was described only as "chew up exterior lacZ" followed by those two incubation steps. No source material explains the purpose of the specific temperature split (e.g., whether 50 °C is a faster digestion step and 40 °C a lower-temperature hold to protect vesicle integrity, or the reverse). Treat this as the reported protocol, not a mechanistically justified one, until the team documents the rationale.
+Proteinase K is a broad-spectrum serine protease: it digests LacZ (and other exterior protein) without needing to enter the liposome, since the target is already outside. The two-temperature protocol reported in the meeting — 50 °C for 10 min, then 40 °C for about 1 h — was described only as "chew up exterior lacZ" followed by those two incubation steps. No source material explains the purpose of the specific temperature split (e.g., whether 50 °C is a faster digestion step and 40 °C a lower-temperature hold to protect liposome integrity, or the reverse). Treat this as the reported protocol, not a mechanistically justified one, until the team documents the rationale.
 
 ::::::
 
@@ -37,7 +37,7 @@ Proteinase K is a broad-spectrum serine protease: it digests LacZ (and other ext
 
 No result from running this exact proteinase K protocol was reported in the meeting — it was raised as a proposed protocol, not a completed one. The closest existing data point is a prior, separate attempt on the London side using Trypsin (a different protease) instead of proteinase K: this reduced background signal but was not run at a fully optimized concentration. Treat the Trypsin result as a weak, related precedent for "digesting exterior protein reduces background," not as validation of the proteinase K steps below.
 
-A chemical inhibitor of proteinase K was also mentioned as a possible next step, to stop digestion at a defined point (e.g., before it starts affecting intact vesicles) rather than relying on temperature or timing alone. This has not been tried. Do not assume an inhibitor is currently part of the protocol.
+A chemical inhibitor of proteinase K was also mentioned as a possible next step, to stop digestion at a defined point (e.g., before it starts affecting intact liposomes) rather than relying on temperature or timing alone. This has not been tried. Do not assume an inhibitor is currently part of the protocol.
 
 ::::::
 
@@ -83,7 +83,7 @@ Each step reflects what was described in the 2026-08-14 meeting transcript. Wher
 Source material does not give a proteinase K concentration or resuspension buffer. Confirm with the team before running this step.
 :::
 
-- [ ] Add the resuspended proteinase K to the GUV (or other vesicle) sample, in a volume sufficient to digest exterior LacZ without diluting the sample beyond what downstream steps require.
+- [ ] Add the resuspended proteinase K to the synthetic cell (or other liposome) sample, in a volume sufficient to digest exterior LacZ without diluting the sample beyond what downstream steps require.
 
 :::{attention} Gap: reaction volume and ratio not specified
 Source material does not give a proteinase K-to-sample volume ratio. Confirm with the team before running this step.
@@ -92,15 +92,15 @@ Source material does not give a proteinase K-to-sample volume ratio. Confirm wit
 - [ ] Incubate at 50 °C for 10 min.
 - [ ] Incubate at 40 °C for approximately 1 h.
 
-## Recover Vesicles
+## Recover Liposomes
 
-- [ ] Spin down the GUVs (or other vesicles) to pellet them and separate them from the digested exterior LacZ and proteinase K remaining in solution.
+- [ ] Spin down the synthetic cells (or other liposomes) to pellet them and separate them from the digested exterior LacZ and proteinase K remaining in solution.
 
 :::{attention} Gap: centrifugation speed and time not specified
 Source material does not give a centrifuge speed or duration for this step. See [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) for a comparable spin-down step (9000 g / RT / 10 min) as a starting point to confirm against, not as a substitute value for this protocol.
 :::
 
-- [ ] Remove the supernatant and resuspend the vesicle pellet in fresh outer solution.
+- [ ] Remove the supernatant and resuspend the liposome pellet in fresh outer solution.
 
 # Quality Control
 
@@ -108,8 +108,8 @@ Source material does not give a centrifuge speed or duration for this step. See 
 No result from running this exact protocol was reported in the source material, so no target background-reduction value or pass/fail threshold can be given yet. The items below are proposed checks, not validated criteria.
 :::
 
-- **Background signal**: Compare CPRG (or other chromogenic substrate) hydrolysis in the outer solution before and after this protocol, without triggering intended vesicle lysis. A successful run should measurably reduce background absorbance relative to an untreated control.
-- **Vesicle integrity**: Confirm that GUV counts and morphology (round, intact vesicles) are not reduced by the 50 °C step relative to an untreated control, since 50 °C is close to conditions known to affect membrane stability in other processes.
+- **Background signal**: Compare CPRG (or other chromogenic substrate) hydrolysis in the outer solution before and after this protocol, without triggering intended liposome lysis. A successful run should measurably reduce background absorbance relative to an untreated control.
+- **Liposome integrity**: Confirm that synthetic cell counts and morphology (round, intact liposomes) are not reduced by the 50 °C step relative to an untreated control, since 50 °C is close to conditions known to affect membrane stability in other processes.
 
 # Known Future Work
 
@@ -119,7 +119,7 @@ Proteinase K concentration, reaction volume, and buffer are not specified in ava
 
 # Credits
 
-Raised in the 2026-08-14 DevCell Studio status meeting in response to a London question about exterior LacZ leakage from GUVs.
+Raised in the 2026-08-14 DevStudio status meeting in response to a London question about exterior LacZ leakage from synthetic cells.
 
 # Downloads
 

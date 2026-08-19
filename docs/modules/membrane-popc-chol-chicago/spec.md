@@ -9,46 +9,85 @@ site:
 
 # Overview
 
-The Chicago Membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE), at a 9:1 POPC:cholesterol ratio. This is a distinct Module from the default [Base Membrane](../membrane-popc-chol/spec.md) (70:29.95, about 3:1) — the two are separate concrete formulations of the same underlying POPC/cholesterol lipid system, not competing values for the same Module. The Chicago Membrane is used for both the giant unilamellar vesicles (GUVs) and small unilamellar vesicles (SUVs) in the [Chicago Chassis](../chicago-chassis/spec.md) and the wider Chicago biosensing demo.
+The Chicago Membrane specifies a 9:1 POPC:cholesterol bilayer, used for every liposome in the Chicago demo — both the synthetic cells that carry the cell-free cytosol and the CPRG-loaded SUVs that carry the substrate.
 
-```{mermaid}
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-pie showData
-    title Chicago Membrane lipid composition (mol %)
-    "POPC" : 89.9
-    "Cholesterol" : 10
-    "Liss-Rhod PE" : 0.1
-```
-
-No published schematic exists for this mechanism; the pie chart above shows the lipid composition as a simplified summary, not a structural bilayer diagram. **A real schematic (structural, like the [Base Membrane](../membrane-popc-chol/spec.md) liposome figure, or a photo/micrograph of the GUVs/SUVs) is still needed from the dev team.**
+This is a distinct Module from the default [Base Membrane](../membrane-popc-chol/spec.md), which is 70:29.95 POPC:cholesterol — a ratio of about 2.3:1, not 3:1. The two are separate concrete formulations of the same POPC/cholesterol lipid system, not competing values for one Module.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-## Reference Composition
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+pie showData
+    title Chicago Membrane base bilayer (mol %)
+    "POPC" : 90
+    "Cholesterol" : 10
+```
 
-:::{table}
-:label: comp-membrane-chicago
+No published schematic exists for this membrane; the pie chart shows lipid composition as a simplified summary, not a structural bilayer diagram. **A structural schematic — like the [Base Membrane](../membrane-popc-chol/spec.md) liposome figure — or a micrograph is still needed from the dev team.**
 
-| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL, per 3 mL lipid-in-oil) |
-| ------------ | --------------------- | ------------------------ | --------------------------- | ------------------------------------------ |
-| POPC         | 89.9                  | 760.076                  | 25                           | 41                                          |
-| Cholesterol  | 10                    | 386.66                   | 50                           | 1.16                                        |
-| Liss-Rhod PE | 0.1                   | 1301.72                  | 1                            | 1.952                                       |
+# Membrane Composition
+
+One base bilayer, prepared at two scales, with the fluorescent label added or omitted depending on what the liposome is for.
+
+## Base membrane
+
+:::{table} Chicago Membrane base bilayer.
+:label: comp-membrane-chicago-base
+
+| Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) |
+| ----------- | --------------------- | ------------------------ | --------------------------- |
+| POPC        | 90                    | 760.076                  | 25                          |
+| Cholesterol | 10                    | 386.66                   | 50                          |
 
 :::
 
-This composition is sourced from the Chicago Module Integration Status writeup (`chicago.md`, from `Demo Status - Chicago.docx`). The volume column is scaled for a 3 mL lipid-in-oil prep, the inverted-emulsion format used to form GUVs for this demo — a different scale and format than the SUV/liposome-scale phase-transfer prep used for [Base Membrane](../membrane-popc-chol/spec.md). The DevCells module-integration diagram marks the "9:1 POPC:cholesterol" ratio as confirmed for both the GUVs and SUVs used throughout the demonstrated Chicago theophylline system.
+Two preparations of this base are documented, at different scales and by different methods:
 
-## Expected Behavior
+:::{table} Documented preparations of the Chicago base membrane.
+:label: comp-membrane-chicago-preps
 
-The Chicago Membrane forms the GUVs and SUVs used in the Chicago biosensing demo: GUVs encapsulate the b.next cell-free cytosol and DNA encoding a theophylline-responsive riboswitch controlling PLA1 expression, while separate SUVs are hydrated with CPRG substrate. Upon detection of theophylline, PLA1 expression initiates a vesicle-lysis cascade that produces a visible colorimetric change, read out via LacZ/CPRG. See the [Chicago Chassis](../chicago-chassis/spec.md) for the full chassis-level description and the [Theophylline Detector](../detector-theophylline/spec.md) for the sensing module.
+| Preparation | POPC (µL) | Cholesterol (µL) | Fluorescent label | Method |
+| --- | --- | --- | --- | --- |
+| Synthetic cells, per 3 mL lipid-in-oil (0.5 mM total lipid) | 41 | 1.16 | Liss-Rhod PE, added — see below | Inverted-emulsion phase transfer |
+| CPRG-loaded SUVs | 208.51 | 6.00 | none | Lipid-film hydration and extrusion |
 
-## Protocols
+:::
 
-No GUV-specific encapsulation process is yet documented in `docs/processes/`. The Chicago Module Integration Status writeup describes an inverted-emulsion (lipid-in-oil) prep for this ratio, but it has not yet been written up as a Nucleus process page. Do not assume [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) applies as written, since that page documents Base Cell's SUV/liposome-scale prep rather than GUV formation.
+Source: the Chicago Module Integration Status writeup (`Demo Status - Chicago.docx`).
+
+## Fluorescent labeling (optional)
+
+Lissamine Rhodamine PE labels the membrane for imaging. It is used for the synthetic cells and **omitted** from the CPRG-loaded SUV preparation, where the readout is absorbance rather than fluorescence.
+
+:::{table} Fluorescent label, synthetic-cell preparation only.
+:label: comp-membrane-chicago-dye
+
+| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL, per 3 mL lipid-in-oil) |
+| ------------ | --------------------- | ------------------------ | --------------------------- | ----------------------------------------- |
+| Liss-Rhod PE | 0.1                   | 1301.72                  | 1                           | 1.952                                     |
+
+:::
+
+:::{note} Why these are one Module and not two
+With the label included the composition reads 89.9 : 10 : 0.1 mol%. Drop the label and renormalize, and it is 89.99 : 10.01 — the SUV preparation's 90:10, to two decimal places. The two recipes in the source material are the same base bilayer with the dye switched on or off, so they are documented here as one Module rather than two.
+
+An earlier revision of this page claimed the labeled 9:1 formulation was "used for both the GUVs and SUVs." That was wrong in detail — the SUV preparation carries no Liss-Rhod PE — but right in substance: the base bilayer is shared.
+:::
+
+# Expected Behavior
+
+The Chicago Membrane forms both liposome populations in the Chicago demo. The synthetic cells encapsulate the b.next cell-free cytosol plus the sensing DNA; separate CPRG-loaded SUVs carry the chromogenic substrate. On detection, the expressed PLA1 initiates a liposome-lysis cascade that releases CPRG to LacZ, producing a visible color change. See [Chicago Chassis](../chicago-chassis/spec.md) for the chassis-level description and [SUV Encapsulation](../../processes/encapsulate-suv/main.md) for the substrate liposomes.
+
+# Protocols
+
+The synthetic-cell preparation uses the shared inverted-emulsion (lipid-in-oil) phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The SUV preparation uses a different method entirely — lipid-film hydration and extrusion, documented in [SUV Encapsulation](../../processes/encapsulate-suv/main.md).
 
 # Credits
 
-- b.next
+Developed by the Chicago node (Kamat Lab and Liu Lab, Northwestern).
+
+:::{attention} Attribution needs confirmation
+`Demo Status - Chicago.docx` leaves the contributor field blank for the module sections covering this membrane, so no individual attribution can be sourced for the recipe itself. The results that use it are credited on their own pages. Confirm with the Chicago team.
+:::

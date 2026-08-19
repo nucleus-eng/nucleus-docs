@@ -17,8 +17,8 @@ This page is a work in progress and not yet ready for use.
 
 Two source lines both use LacZ, at different levels of readiness, and should not be conflated:
 
-1. **Chicago node** — LacZ is used two ways: fused directly downstream of the theophylline riboswitch on a single bulk-cytosol validation construct (`pT7-theophylline-LacZ`, internally `pMN066`), and as a separate co-encapsulated reporter alongside a `TetO-PLA1` construct in the confirmed 2026-08-14 aTc Cascade GUV result (see [tetR-aTc Detector](../detector-tetr_atc/spec.md) for that data). Sources: [`devnotes/chicago-theophylline-lacz`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz), [`devnotes/chicago-colorimetric-validation`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-colorimetric-validation).
-2. **London node** — LacZ is one of two candidate reporter enzymes (alongside XylE) for the London colour-change module, in two linear-DNA formats (`T7pro-LacZ-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-LacZ-T7term` variant). As of that devnote, LacZ was reported as synthesized, with templates prepared, but no GUV-encapsulated result had yet been reported. Source: [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module).
+1. **Chicago node** — LacZ is used two ways: fused directly downstream of the theophylline riboswitch on a single bulk-cytosol validation construct (`pT7-theophylline-LacZ`, internally `pMN066`), and as a separate co-encapsulated reporter alongside a `TetO-PLA1` construct in the confirmed 2026-08-14 aTc Cascade synthetic cell result (see [tetR-aTc Detector](../detector-tetr_atc/spec.md) for that data). Sources: [`devnotes/chicago-theophylline-lacz`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz), [`devnotes/chicago-colorimetric-validation`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-colorimetric-validation).
+2. **London node** — LacZ is one of two candidate reporter enzymes (alongside XylE) for the London colour-change module, in two linear-DNA formats (`T7pro-LacZ-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-LacZ-T7term` variant). As of that devnote, LacZ was reported as synthesized, with templates prepared, but no synthetic-cell-encapsulated result had yet been reported. Source: [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module).
 
 Because both node lines use the same enzyme (LacZ) against the same substrate (CPRG), this page treats them as one shared Module, cited from each node's Implementation pages rather than duplicated across them.
 
@@ -92,30 +92,38 @@ A separate devnote ([`chicago-colorimetric-validation`](https://github.com/nucle
 ## Cells
 
 :::{note}
-See [tetR-aTc Detector](../detector-tetr_atc/spec.md) for the confirmed GUV/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ and CPRG in a GUV, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. That result is the most advanced encapsulated use of this Module as of 2026-08-14 and is not duplicated here.
+See [tetR-aTc Detector](../detector-tetr_atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ and CPRG in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. That result is the most advanced encapsulated use of this Module as of 2026-08-14 and is not duplicated here.
 :::
 
-For the London node, LacZ encapsulation is still at the milestone-planning stage: the source devnote's Milestone 3 ("Encapsulate reporter system in GUVs") lists open risks — substrate/product interference with vesicle generation, and encapsulation efficiency limiting visible pigment — with no success-criteria data reported yet. Do not read the London line as having reached the same readiness as the Chicago aTc Cascade result above.
+For the London node, LacZ encapsulation is still at the milestone-planning stage: the source devnote's Milestone 3 ("Encapsulate reporter system in synthetic cells") lists open risks — substrate/product interference with liposome generation, and encapsulation efficiency limiting visible pigment — with no success-criteria data reported yet. Do not read the London line as having reached the same readiness as the Chicago aTc Cascade result above.
 
 # Requirements
 
-:::{attention} Theophylline interferes with the LacZ/CPRG reaction itself
-Per the 2026-08-14 DevCells status meeting, theophylline interacts with and somewhat inhibits the LacZ/CPRG colorimetric reaction independent of whether a theophylline-responsive switch is present — described in the source transcript as affecting conversion "even at very low amounts" of theophylline. This is a hedged, source-quoted finding, not a fully characterized mechanistic claim, and it has not yet been written up in a formal devnote. Because this Module supplies the shared LacZ/CPRG readout for both the [Theophylline Sensing Module](../detector-theophylline/spec.md) and the [aTc Sensing Module](../detector-tetr_atc/spec.md), the two sensing Modules cannot be present together in the same cascade on the current Chicago Cascade design — see each sensing Module's own Requirements section for that mutual-exclusion decision. A general Nucleus compatibility matrix covering other module pairs is explicitly out of scope here.
+Because this Module supplies the shared LacZ/CPRG readout for both the [Theophylline Sensing Module](../detector-theophylline/spec.md) and the [aTc Sensing Module](../detector-tetr_atc/spec.md), those two sensing Modules must not be co-encapsulated in the same reaction. That requirement is settled — the 2026-08-14 meeting resolved to state it on each sensing Module page. A general Nucleus compatibility matrix covering other module pairs is out of scope here; the meeting scoped that as a platform-level decision.
+
+:::{attention} The mechanism behind that requirement is not established
+The constraint is usually explained as theophylline directly inhibiting the LacZ/CPRG conversion, "even at very low amounts." That explanation is unsupported and partly contradicted:
+
+- The one bulk figure available (14 Aug 2026 deck, slide 28) shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
+- The meeting notes state that supporting titration data exists. It is not in the status documents or the deck, and we have not seen it.
+- Every verbal source is hedged, and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
+
+Cite the requirement and the decision behind it. Do not cite the inhibition mechanism as characterized. Full evidence on both sides is on [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements).
 :::
 
 :::{attention} PEG-norbornene hydrogel chemistry requires post-crosslinking CPRG addition
-CPRG preloaded into vesicles photobleaches under the UV exposure used to crosslink PEG-norbornene (PEG4Nb) hydrogels — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-vesicle preloaded-CPRG method works as expected. This is a process-level incompatibility specific to the PEG-norbornene chemistry, not a defect in the LacZ/CPRG reaction itself.
+CPRG preloaded into liposomes photobleaches under the UV exposure used to crosslink PEG-norbornene (PEG4Nb) hydrogels — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-liposome preloaded-CPRG method works as expected. This is a process-level incompatibility specific to the PEG-norbornene chemistry, not a defect in the LacZ/CPRG reaction itself.
 
-**Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into vesicles, and pre-add LacZ to the gel instead of encapsulating it. A 2026-08-14 status-meeting slide deck ("LacZ Induced Color Change in PEG-4-NB requires post UV light addition of CPRG," Mary Kelly, Kamat Lab) documents a controlled four-condition well comparison confirming this: +CPRG/+LacZ/−UV stays purple (baseline color intact); +CPRG/+LacZ/+UV goes clear (crosslinking bleaches the CPRG color); +LacZ/+UV/−CPRG is clear (no substrate, no color expected); +LacZ/+UV/+CPRG-added-after-crosslinking goes pink/red (the workaround recovers color). This directly confirms the transcript's photobleaching report with photographic evidence, and matches the PEG4Nb hydrogel composition described elsewhere in the same deck (PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, LAP 294.21 g/mol photoinitiator).
+**Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. A 2026-08-14 status-meeting slide deck ("LacZ Induced Color Change in PEG-4-NB requires post UV light addition of CPRG," Mary Kelly, Kamat Lab) documents a controlled four-condition well comparison confirming this: +CPRG/+LacZ/−UV stays purple (baseline color intact); +CPRG/+LacZ/+UV goes clear (crosslinking bleaches the CPRG color); +LacZ/+UV/−CPRG is clear (no substrate, no color expected); +LacZ/+UV/+CPRG-added-after-crosslinking goes pink/red (the workaround recovers color). This directly confirms the transcript's photobleaching report with photographic evidence, and matches the PEG4Nb hydrogel composition described elsewhere in the same deck (PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, LAP 294.21 g/mol photoinitiator).
 :::
 
 :::{note} Exterior LacZ leakage — mitigation in progress, tracked separately
-A related but distinct issue: LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed vesicle can confound readout, independent of the photobleaching issue above. A proteinase K treatment (50 °C for 10 min, then 40 °C for 1 h, then spin down) was proposed as a mitigation for exterior LacZ leakage after PLA1-triggered lysis. This protocol is not yet written up as its own devnote — treat it as an action item, not a validated process, and see the PLA1 Lysis Module page (pending) for its eventual home rather than duplicating it here.
+A related but distinct issue: LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can confound readout, independent of the photobleaching issue above. A proteinase K treatment (50 °C for 10 min, then 40 °C for 1 h, then spin down) was proposed as a mitigation for exterior LacZ leakage after PLA1-triggered lysis. The protocol is documented at [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). Treat it as proposed, not validated: no result from running it has been reported, and a standalone devnote is still an open action item from the 2026-08-14 meeting. See also the [PLA1 Lysis Module](../effector-pla1/spec.md).
 :::
 
 # Implementations
 
-- [tetR-aTc Detector](../detector-tetr_atc/spec.md) — confirmed GUV-level encapsulation of LacZ with `TetO-PLA1` and CPRG, the aTc Cascade's readout.
+- [tetR-aTc Detector](../detector-tetr_atc/spec.md) — confirmed synthetic cell-level encapsulation of LacZ with `TetO-PLA1` and CPRG, the aTc Cascade's readout.
 - [Theophylline Sensing Module](../detector-theophylline/spec.md) — bulk-cytosol validation of the LacZ/CPRG reaction fused downstream of the theophylline riboswitch.
 - [XylE / C23DO Reporter](../reporter-xyle/spec.md) — sibling colorimetric reporter, used as an alternative or orthogonal readout in the same cascades.
 - No Implementation page exists yet for the London LacZ/XylE colour-change module, the Chicago Cascade, or the London Cascade. Each is planned per the current DevCells documentation-authoring plan; link them here once authored.
@@ -123,6 +131,6 @@ A related but distinct issue: LacZ (or LacZ/CPRG product) leaking to the exterio
 # Credits
 
 - Chicago node bulk-cytosol result: see [`devnotes/chicago-theophylline-lacz`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz) for contributor attribution.
-- Chicago node GUV/hydrogel encapsulation result (Mary Kelly, Kamat Lab): see the 2026-08-14 DevCells status meeting materials.
+- Chicago node synthetic cell/hydrogel encapsulation result (Mary Kelly, Kamat Lab): see the 2026-08-14 DevCells status meeting materials.
 - Schematic-tab photo of the LacZ/CPRG color change in patterned agarose (Samuel Chen, Liu Lab): see the 2026-08-14 DevCells status meeting materials.
 - London node module design: see [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module) for contributor attribution.

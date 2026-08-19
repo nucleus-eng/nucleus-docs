@@ -9,26 +9,28 @@ site:
 
 # Overview
 
-The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md) loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md): a 9:1 POPC:cholesterol GUV encapsulating Base Cytosol and DNA encoding the theophylline-responsive riboswitch, here controlling PLA1 expression rather than the LacZ reporter used in the Theophylline Sensing Module's bulk-cytosol validation. Detection of theophylline drives PLA1 production, which is the trigger step for the downstream Chicago Cascade lysis reaction (out of scope for this page — see Implementations).
+The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md) loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md): a 9:1 POPC:cholesterol synthetic cell encapsulating Base Cytosol and DNA encoding the theophylline-responsive riboswitch, here controlling PLA1 expression rather than the LacZ reporter used in the Theophylline Sensing Module's bulk-cytosol validation. Detection of theophylline drives PLA1 production, which is the trigger step for the downstream Chicago Cascade lysis reaction (out of scope for this page — see Implementations).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Deprioritized, not canceled
-This Sensing Cell is deprioritized in favor of the pH-Sensing and aTc Sensing Cells; the underlying riboswitch's behavior is described as "very wonky and unpredictable." A bulk-reaction replication test (2026-08-14 status deck, p. 28) also found the riboswitch **leaky**: it drove reporter expression without theophylline present at levels close to the 1 mM to 2 mM theophylline condition. This status carries over from the [Theophylline Sensing Module](../detector-theophylline/spec.md) spec — see that page for the full discussion. Status is proposed, not canceled — do not treat this page as a validated, ready-to-use Module.
+:::{attention} Removed from the Chicago demo; retained as a DevStudio replication target
+Chicago is now focusing on the aTc and pH sensors, and its Integration Assessment Framework lists "Two sensors (aTC/pH)" (14 Aug 2026 deck, slides 2 and 34); the team flagged "theophylline sensor removed from Chicago demo" as a diagram correction (2026-08-14 meeting notes). The module remains queued under "Replicating Modules in Bulk Reactions" for DevStudio (slide 28), so it is out of the demo but not out of the program.
+
+The underlying riboswitch is described as "very wonky and unpredictable", and is **leaky** in bulk: without theophylline it still drove LacZ to Abs₅₇₀ ≈ 3.0 AU by 3.5 h, versus ≈3.9 AU by 1.7 h with 1 mM or 2 mM (slide 28). Full discussion is on the [Theophylline Sensing Module](../detector-theophylline/spec.md) spec. Do not treat this page as a validated, ready-to-use Module.
 :::
 
-This page describes the Chassis + Module integration step itself, which works standalone. It does not cover the separate, currently blocked downstream integration of this Sensing Cell into the multiplexed Chicago Cascade — that merge is documented on the Chicago Cascade page (not yet authored).
+This page describes the Chassis + Module integration step itself. It does not cover this Sensing Cell's integration into the multiplexed Chicago Cascade — see [Chicago Cascade](../chicago-cascade/spec.md), and that page's Requirements section for the co-encapsulation constraint against the aTc Sensing Module.
 
 ## Schematic
 
 ```{mermaid}
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
-    Chassis["Chicago Chassis\n(Base Cytosol in 9:1 POPC:Chol GUV)"] -->|"Add riboswitch-to-PLA1 DNA"| Cytosol["Loaded Cytosol"]
+    Chassis["Chicago Chassis\n(Base Cytosol in 9:1 POPC:Chol synthetic cell)"] -->|"Add riboswitch-to-PLA1 DNA"| Cytosol["Loaded Cytosol"]
     Module["Theophylline Sensing Module\n(riboswitch-to-PLA1 DNA)"] -.-> Cytosol
-    Cytosol -->|"Encapsulate as GUV"| SensingCell["Theophylline Sensing Cell"]
+    Cytosol -->|"Encapsulate as synthetic cell"| SensingCell["Theophylline Sensing Cell"]
     Theo(("Theophylline\n(1 mM)")) -->|"Detected by riboswitch"| SensingCell
     SensingCell -->|"Produces"| PLA1["PLA1"]
     PLA1 -.->|"Out of scope on this page"| Cascade["Chicago Cascade\nlysis reaction"]
@@ -42,7 +44,7 @@ flowchart LR
     style Cascade fill:none,stroke:#9CA3AF,color:#6B7280,stroke-dasharray: 5 5
 ```
 
-This diagram shows the composed mechanism only: the Chicago Chassis loaded with the Theophylline Sensing Module's riboswitch-to-PLA1 DNA, encapsulated as a GUV, then producing PLA1 on theophylline detection. It stops at PLA1 output — the downstream Chicago Cascade lysis reaction is a separate, out-of-scope step (see Overview above).
+This diagram shows the composed mechanism only: the Chicago Chassis loaded with the Theophylline Sensing Module's riboswitch-to-PLA1 DNA, encapsulated as a synthetic cell, then producing PLA1 on theophylline detection. It stops at PLA1 output — the downstream Chicago Cascade lysis reaction is a separate, out-of-scope step (see Overview above).
 
 ## Reference Composition
 
@@ -82,7 +84,7 @@ The PLA1-linked riboswitch construct used in the Chicago integration status mate
 
 :::
 
-Same 9:1 POPC:cholesterol GUV membrane as [Chicago Chassis](../chicago-chassis/spec.md). See that page for the note on how this differs from the default [Base Membrane](../membrane-popc-chol/spec.md) ratio.
+Same 9:1 POPC:cholesterol synthetic cell membrane as [Chicago Chassis](../chicago-chassis/spec.md). See that page for the note on how this differs from the default [Base Membrane](../membrane-popc-chol/spec.md) ratio.
 
 ::::
 
@@ -98,7 +100,7 @@ As noted above, a later bulk-reaction replication (2026-08-14 status deck, p. 28
 
 ## Requirements
 
-Per the [Theophylline Sensing Module](../detector-theophylline/spec.md) page, this Sensing Cell cannot be present in the same cascade as the aTc Sensing Cell (mutual exclusion). Theophylline is reported to interact with and somewhat inhibit the LacZ/CPRG colorimetric reaction used for cascade readout — a hedged, source-quoted finding, not a fully characterized mechanistic claim. See the Theophylline Sensing Module page for the full discussion; this page does not restate it.
+Per the [Theophylline Sensing Module](../detector-theophylline/spec.md) page, this Sensing Cell must not be co-encapsulated with the aTc Sensing Cell. The requirement is settled; the mechanism behind it is not. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence, including a primary figure that runs against the usual inhibition explanation. This page does not restate it.
 
 # Constituent Modules
 
@@ -107,9 +109,18 @@ Per the [Theophylline Sensing Module](../detector-theophylline/spec.md) page, th
 
 # Implementations
 
-No Implementation page exists yet for this Sensing Cell. The downstream merge into the multiplexed Chicago Cascade is tracked separately (Chicago Cascade, not yet authored). A hydrogel cross-contamination issue between co-located DevCells has been reported as a blocker for that merge; it has not been documented in a primary source, and its mechanism and scope are not yet characterized. This page covers the Chassis + Module integration only.
+No Implementation page exists yet for this Sensing Cell. The downstream merge into the multiplexed [Chicago Cascade](../chicago-cascade/spec.md) is tracked on that page. This page covers the Chassis + Module integration only.
+
+:::{attention} A superseded "hydrogel cross-contamination" explanation has been removed
+An earlier revision cited hydrogel cross-contamination between co-located cells as the blocker for the Chicago Cascade merge. That explanation was never backed by a primary source and has been superseded by the co-encapsulation constraint documented on the [Theophylline Sensing Module](../detector-theophylline/spec.md#requirements). Recorded here rather than dropped silently.
+:::
 
 # Credits
 
-- b.next
-- [Maram Naji](https://orcid.org/0000-0003-1409-4194) — bulk-cytosol riboswitch validation (`chicago-theophylline-lacz` devnote)
+Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) — bulk-cytosol riboswitch validation (`chicago-theophylline-lacz` devnote).
+
+Developed by the Chicago node (Kamat Lab and Liu Lab) — the PLA1-linked sensing cell integration.
+
+:::{attention} Attribution needs confirmation
+Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
+:::
