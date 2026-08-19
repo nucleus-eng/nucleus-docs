@@ -99,6 +99,10 @@ For the London node, LacZ encapsulation is still at the milestone-planning stage
 
 # Requirements
 
+**Requires a lysis effector to release the substrate.** LacZ and CPRG produce no signal while the substrate stays inside its liposome, so this Module does not function on its own — it needs an upstream effector that breaches the substrate compartment on cue. In every cascade documented here that effector is the [PLA1 Lysis Module](../effector-pla1/spec.md), and the substrate is the [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+
+This is a Requirement of the readout, not a component of any sensing cell. A Sensing Cell that expresses PLA1 satisfies this requirement; it does not thereby contain the reporter.
+
 Because this Module supplies the shared LacZ/CPRG readout for both the [Theophylline Sensing Module](../detector-theophylline/spec.md) and the [aTc Sensing Module](../detector-tetr_atc/spec.md), those two sensing Modules must not be co-encapsulated in the same reaction. That requirement is settled — the 2026-08-14 meeting resolved to state it on each sensing Module page. A general Nucleus compatibility matrix covering other module pairs is out of scope here; the meeting scoped that as a platform-level decision.
 
 :::{attention} The mechanism behind that requirement is not established
