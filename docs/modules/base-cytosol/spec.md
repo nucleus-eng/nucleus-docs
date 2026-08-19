@@ -28,48 +28,62 @@ Base Cytosol is assembled from four components — a protein mix (PMix), a small
 ::::{tab-item} PMix
 The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [Make PMix](../../processes/make-36pot/main.md) and [Make OnePot Protein Mix](../../processes/make-1pot/main.md) processes for preparation.
 
-:::{table} Composition of the Protein Mix (PMix) at stock concentration. 
+:::{table} Composition of the Protein Mix (PMix) at stock concentration. Molecular weight, stoichiometry, and molarity are computed as described in the note below.
 :label: comp-pmix
 
-| Category           | Protein | Concentration (ng/µL) |
-| ------------------ | ------- | --------------------- |
-| tRNA Synthetases   | AlaRS   | 1086                  |
-|                    | ArgRS   | 30                    |
-|                    | AsnRS   | 341                   |
-|                    | AspRS   | 125                   |
-|                    | CysRS   | 18                    |
-|                    | GlnRS   | 59                    |
-|                    | GluRS   | 196                   |
-|                    | GlyRS   | 149                   |
-|                    | HisRS   | 12                    |
-|                    | IleRS   | 622                   |
-|                    | LeuRS   | 63                    |
-|                    | LysRS   | 99                    |
-|                    | MetRS   | 36                    |
-|                    | PheRS   | 264                   |
-|                    | ProRS   | 155                   |
-|                    | SerRS   | 30                    |
-|                    | ThrRS   | 97                    |
-|                    | TrpRS   | 97                    |
-|                    | TyrRS   | 10                    |
-|                    | ValRS   | 28                    |
-| Initiation Factors | IF1     | 155                   |
-|                    | IF2     | 622                   |
-|                    | IF3     | 155                   |
-| Elongation Factors | EF-G    | 777                   |
-|                    | EF-Tu   | 7764                  |
-|                    | EF-Ts   | 777                   |
-| Release Factors    | RF1     | 155                   |
-|                    | RF2     | 155                   |
-|                    | RF3     | 155                   |
-|                    | RRF     | 155                   |
-| Metabolism         | MTF     | 311                   |
-|                    | CK      | 63                    |
-|                    | AK      | 46                    |
-|                    | NDK     | 16                    |
-|                    | PPiase  | 16                    |
-| Transcription      | T7RNAP  | 155                   |
-| **Total**          |         | **15 000**            |
+| Category           | Protein  | Concentration (ng/µL) | Molecular Weight (kDa) | Stoichiometry              | Molarity (µM) |
+| ------------------ | -------- | ---------------------- | ----------------------- | -------------------------- | -------------- |
+| tRNA Synthetases   | AlaRS    | 1086                    | 96.0                     | Homotetramer                | 2.83            |
+|                    | ArgRS    | 30                      | 64.7                     | Monomer                     | 0.464           |
+|                    | AsnRS    | 341                     | 52.6                     | Homodimer                   | 3.24            |
+|                    | AspRS    | 125                     | 65.9                     | Homodimer                   | 0.948           |
+|                    | CysRS    | 18                      | 52.2                     | Monomer                     | 0.345           |
+|                    | GlnRS    | 59                      | 63.5                     | Monomer                     | 0.929           |
+|                    | GluRS    | 196                     | 53.8                     | Monomer                     | 3.64            |
+|                    | GlyRS\*  | 149                     | 223.2                    | Heterotetramer (α₂β₂)       | 0.668           |
+|                    | HisRS    | 12                      | 47.0                     | Homodimer                   | 0.128           |
+|                    | IleRS    | 622                     | 104.4                    | Monomer                     | 5.96            |
+|                    | LeuRS    | 63                      | 97.2                     | Monomer                     | 0.648           |
+|                    | LysRS    | 99                      | 57.6                     | Homodimer                   | 0.859           |
+|                    | MetRS†   | 36                      | 76.3                     | Homodimer                   | 0.236           |
+|                    | PheRS\*  | 264                     | 248.4                    | Heterotetramer (α₂β₂)       | 1.06            |
+|                    | ProRS    | 155                     | 63.7                     | Homodimer                   | 1.22            |
+|                    | SerRS    | 30                      | 48.4                     | Homodimer                   | 0.310           |
+|                    | ThrRS    | 97                      | 74.0                     | Homodimer                   | 0.655           |
+|                    | TrpRS    | 97                      | 37.4                     | Homodimer                   | 1.30            |
+|                    | TyrRS    | 10                      | 47.5                     | Homodimer                   | 0.105           |
+|                    | ValRS    | 28                      | 108.2                    | Monomer                     | 0.259           |
+| Initiation Factors | IF1      | 155                     | 8.2                      | Monomer                     | 18.9            |
+|                    | IF2      | 622                     | 97.3                     | Monomer                     | 6.39            |
+|                    | IF3      | 155                     | 20.6                     | Monomer                     | 7.52            |
+| Elongation Factors | EF-G     | 777                     | 77.6                     | Monomer                     | 10.0            |
+|                    | EF-Tu    | 7764                    | 43.3                     | Monomer                     | 179             |
+|                    | EF-Ts‡   | 777                     | 30.4                     | Monomer                     | 25.6            |
+| Release Factors    | RF1      | 155                     | 40.5                     | Monomer                     | 3.83            |
+|                    | RF2      | 155                     | 41.3                     | Monomer                     | 3.75            |
+|                    | RF3      | 155                     | 59.6                     | Monomer                     | 2.60            |
+|                    | RRF      | 155                     | 20.6                     | Monomer                     | 7.52            |
+| Metabolism         | MTF      | 311                     | 34.2                     | Monomer                     | 9.09            |
+|                    | CK¶      | 63                      | 43.3                     | Homodimer                   | 0.727           |
+|                    | AK       | 46                      | 23.6                     | Monomer                     | 1.95            |
+|                    | NDK      | 16                      | 15.5                     | Homohexamer                 | 0.172           |
+|                    | PPiase§  | 16                      | 19.7                     | Homohexamer                 | 0.135           |
+| Transcription      | T7RNAP   | 155                     | 98.9                     | Monomer                     | 1.57            |
+| **Total**          |          | **15 000**              |                          |                             |                 |
+:::
+
+:::{note} Molecular weight and molarity sources
+Molecular weight and stoichiometry are sourced from two Notion databases: the [Components](https://app.notion.com/p/b-next/0ae2c0fcfe2944a89ab2edc6cf91571f) database (per-construct MW, including the expression tag) and the [Protein Pokedex](https://app.notion.com/p/b-next/0fcae616eb518280b60901169fd12f6f) database (native oligomeric state and UniProt-derived monomer MW). Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state n. See GitHub issue #160.
+
+\* **GlyRS, PheRS** — both are α₂β₂ heterotetramers of two different subunits (GlyRS: GlyQ 34.8 kDa + GlyS 76.8 kDa; PheRS: PheS 36.8 kDa + PheT 87.4 kDa). The Molecular Weight column reports the combined complex mass (2 × (α + β)); molarity is mass concentration ÷ this combined mass, since the two subunits cannot be reduced to one monomer MW times a single n.
+
+† **MetRS** — n = 2 (homodimer). One source database's "active as monomer" note describes an artificially truncated lab construct, not full-length *E. coli* MetRS, which the literature confirms is a genuine, stable solution homodimer.
+
+‡ **EF-Ts** — n = 1 (monomer). One source database's "Homodimer" label reflects a crystal-packing contact (or conflation with the dimeric *Thermus thermophilus* ortholog); sedimentation-equilibrium literature shows free *E. coli* EF-Ts is monomeric in solution.
+
+§ **PPiase molecular weight — source discrepancy.** The Components database lists 33.4 kDa for PPiase; the Protein Pokedex database lists 19.7 kDa for the same protein (*E. coli* inorganic pyrophosphatase, PPA/*ppa* gene, [UniProt P0A7A9](https://www.uniprot.org/uniprotkb/P0A7A9/entry)). UniProt and the literature ([Josse, 1966](https://pubmed.ncbi.nlm.nih.gov/5498420/)) give a subunit mass of 19.7 kDa (175 residues), assembled as a homohexamer (~(117–120) kDa native complex) — matching the Pokedex value and its recorded hexameric stoichiometry. This page therefore uses 19.7 kDa with n = 6. The Components database's 33.4 kDa figure does not correspond to any known form of this protein (monomer, dimer, or hexamer) and should be corrected at the source; it is flagged here rather than edited in Notion.
+
+¶ **CK species correction.** The CK construct actually expressed for PMix is chicken (*Gallus gallus*) M-type creatine kinase, not rabbit as an earlier source assumed — the DNA repository holds only a chicken expression plasmid ([`pET28a-CK-Gg.gb`](https://github.com/nucleus-eng/DNA/blob/main/PURE/expression/pET28a-CK-Gg.gb); no rabbit expression construct exists there, only a cloning intermediate, `pOpen-CK-Oc.gb`). The plasmid's 381-residue CK-Gg coding sequence matches UniProt [P00565](https://www.uniprot.org/uniprotkb/P00565/entry) (chicken CKM, muscle-type creatine kinase) exactly, giving a monomer MW of 43,328 Da (43.3 kDa) — nearly identical to the previously listed rabbit-based value (43.1 kDa) because rabbit and chicken M-type CK are highly conserved in size. Vertebrate M-type creatine kinase is a well-established homodimer (native MM form; see [UniProt P00565](https://www.uniprot.org/uniprotkb/P00565/entry) subunit structure and [Hornemann et al., 2000](https://pubmed.ncbi.nlm.nih.gov/10899637/) on subunit cooperativity in the CK dimer), so the stoichiometry (n = 2) is unchanged from the prior entry — only the species attribution and MW source are corrected here.
 :::
 ::::
 
