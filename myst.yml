@@ -24,6 +24,10 @@ project:
           hidden: true
         - file: ./docs/modules/membrane-popc-chol-chicago/spec.md
           hidden: true
+        - file: ./docs/modules/membrane-popc/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-cprg-suv/spec.md
+          hidden: true
         - file: ./docs/modules/base-cytosol/spec.md
           hidden: true
         - file: ./docs/modules/s30-lysate/spec.md
@@ -90,8 +94,6 @@ project:
           hidden: true
         - file: ./docs/processes/encapsulate-suv/main.md
           hidden: true
-        - file: ./docs/processes/encapsulate-guv/main.md
-          hidden: true
         - file: ./docs/processes/colorimetric-readout/main.md
           hidden: true
         - file: ./docs/processes/embed-ulga-hydrogel/main.md
@@ -132,6 +134,10 @@ project:
     - file: ./docs/implementations/implementations-main.md
       children:
         - file: ./docs/implementations/responder-atc-ivhsl/main.md
+          hidden: true
+        - file: ./docs/implementations/chicago-devcell/main.md
+          hidden: true
+        - file: ./docs/implementations/london-devcell/main.md
           hidden: true
         - file: ./docs/implementations/emitter-ivhsl/main.md
           hidden: true

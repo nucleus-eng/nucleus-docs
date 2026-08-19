@@ -9,19 +9,37 @@ site:
 
 # Overview
 
-The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. Two effector configurations exist in current source material and should not be conflated: a bulk-cytosol validation build places the riboswitch directly upstream of a LacZ reporter (see Expected Behavior), while the Chicago Cascade design places it upstream of PLA1, so that theophylline detection triggers a two-vesicle lysis cascade read out by a separate LacZ/CPRG system. This page covers the sensing Module itself; the PLA1-linked cascade use is a separate Implementation (see Implementations).
+The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. Two effector configurations exist in current source material and should not be conflated: a bulk-cytosol validation build places the riboswitch directly upstream of a LacZ reporter (see Expected Behavior), while the Chicago Cascade design places it upstream of PLA1, so that theophylline detection triggers a two-liposome lysis cascade read out by a separate LacZ/CPRG system. This page covers the sensing Module itself; the PLA1-linked cascade use is a separate Implementation (see Implementations).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Deprioritized, not canceled
-This module shows unreliable, unpredictable behavior; the pH-Sensing and aTc Sensing Modules are currently prioritized over it. A bulk-reaction replication (status deck, p. 28) found the module **leaky**: it expressed LacZ without theophylline present at levels close to the 1 mM to 2 mM theophylline condition. Status is proposed, not canceled — do not treat this page as a validated, ready-to-use Module.
+:::{attention} Removed from the Chicago demo; retained as a DevStudio replication target
+Three distinct status facts, which earlier revisions of this page collapsed into "deprioritized":
+
+1. **Out of the Chicago demo.** Chicago is "focusing on ATC and H+ sensors" (14 Aug 2026 deck, slide 2), and its Integration Assessment Framework now lists "Two sensors (aTC/pH)" (slide 34). The team also flagged "theophylline sensor removed from Chicago demo" as a diagram inaccuracy to correct (2026-08-14 meeting notes).
+2. **Still in scope for DevStudio.** The module appears under "Replicating Modules in Bulk Reactions" (slide 28) — queued for bulk replication during the program, not abandoned.
+3. **The riboswitch is leaky.** In bulk (slide 28, `10 nM T7-theo-lacZ`), the no-theophylline condition still drives LacZ to Abs₅₇₀ ≈ 3.0 AU by 3.5 h. Adding theophylline roughly doubles the *rate* (≈3.9 AU by 1.7 h), and 1 mM and 2 mM are indistinguishable from each other.
+
+Do not treat this page as a validated, ready-to-use Module.
 :::
 
 # Requirements
 
-The Theophylline Sensing Module cannot be present in the same cascade as the [aTc Sensing Module](../detector-tetr_atc/spec.md) (mutual exclusion). Theophylline interacts with and somewhat inhibits the LacZ/CPRG colorimetric reaction that both sensing pathways rely on for readout in the Chicago Cascade, affecting conversion "even at very low amounts" of theophylline. This is a hedged, source-quoted finding, not a fully characterized mechanistic claim, and it has not yet been written up in a formal devnote. The mutual-exclusion requirement itself is confirmed: the two sensors cannot be combined in the current Chicago Cascade. A general Nucleus compatibility matrix covering other module pairs is explicitly out of scope here.
+The Theophylline Sensing Module must not be co-encapsulated with the [aTc Sensing Module](../detector-tetr_atc/spec.md). Both pathways read out through the same LacZ/CPRG chemistry, and the two were agreed to be mutually exclusive in the current Chicago Cascade design.
+
+**The requirement is settled; the mechanism behind it is not.** The decision is recorded directly: the 2026-08-14 meeting resolved to "add a hard requirement on the theophylline and ATC sensor module pages: these two sensors cannot be co-encapsulated." Treat the requirement as binding. Do not treat the explanation below as characterized. A general Nucleus compatibility matrix covering other module pairs is out of scope for this page — the meeting scoped that as a platform-level decision.
+
+:::{attention} Unresolved: the stated mechanism runs against the only primary figure available
+The mutual exclusion has been explained as theophylline *inhibiting* the LacZ/CPRG conversion, reportedly "even at very low amounts". That explanation is currently unsupported and partly contradicted:
+
+- **The one bulk figure points the other way.** In the 14 Aug 2026 deck (slide 28), adding 1 mM or 2 mM theophylline made the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could in principle mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
+- **The supporting titration data has not been seen.** The 2026-08-14 meeting notes state that "titration data exists showing even very low theophylline concentrations inhibit CPRG-lacZ conversion," and that it should go into a devnote. That data is not in the status documents or the slide deck.
+- **Every verbal source is hedged** ("somewhat inhibit", "kind of inhibiting"), and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
+
+Flagged for Chicago rather than resolved here. Until the titration data is in hand, cite the requirement and the decision behind it — not the inhibition mechanism.
+:::
 
 :::::{tab-set}
 
@@ -64,7 +82,7 @@ No sequence map is available yet; it depends on the `nucleus-eng/DNA` submission
 
 ## Bulk-cytosol validation (LacZ reporter)
 
-In [a bulk-cytosol devnote](https://github.com/bnext-bio/nucleus-developer-notes) (`chicago-theophylline-lacz`), the riboswitch-LacZ sensor converts CPRG from yellow to a red product faster in the presence of 1.5 mM theophylline than without it, measured by absorbance at 570 nm in standard Nucleus Cytosol conditions with 5 nM sensor DNA. This is a single preliminary experiment (one condition each, no replicates reported) demonstrating that the sensor is compatible with Nucleus Cytosol — it is not a fully characterized dose-response.
+In [a bulk-cytosol devnote](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz) (`chicago-theophylline-lacz`), the riboswitch-LacZ sensor converts CPRG from yellow to a red product faster in the presence of 1.5 mM theophylline than without it, measured by absorbance at 570 nm in standard Nucleus Cytosol conditions with 5 nM sensor DNA. This is a single preliminary experiment (one condition each, no replicates reported) demonstrating that the sensor is compatible with Nucleus Cytosol — it is not a fully characterized dose-response.
 
 ### Reaction composition
 
@@ -89,7 +107,7 @@ The devnote's own reaction-composition table (`chicago-theophylline-lacz/main.md
 
 ## PLA1-linked cascade design (Chicago Cascade)
 
-Separately, the Chicago Cascade integration status writeup describes a 9:1 POPC:cholesterol GUV encapsulating the b.next cell-free cytosol and DNA encoding a theophylline-responsive riboswitch controlling PLA1 expression, producing PLA1 upon detection of 1 mM theophylline. PLA1 expression then initiates a vesicle lysis cascade read out by separate CPRG-loaded SUVs embedded with LacZ. This configuration has not been independently validated by a primary devnote at the time of writing — cite the Chicago integration status material and flag pending confirmation.
+Separately, the Chicago Cascade integration status writeup describes a 9:1 POPC:cholesterol synthetic cell encapsulating the b.next cell-free cytosol and DNA encoding a theophylline-responsive riboswitch controlling PLA1 expression, producing PLA1 upon detection of 1 mM theophylline. PLA1 expression then initiates a liposome lysis cascade read out by separate CPRG-loaded SUVs embedded with LacZ. This configuration has not been independently validated by a primary devnote at the time of writing — cite the Chicago integration status material and flag pending confirmation.
 
 ## Later replication finding (leakiness)
 
@@ -97,7 +115,7 @@ A later bulk-reaction replication (status deck, p. 28) found the theophylline-La
 
 # Implementations
 
-No Implementation page exists yet for either the Theophylline Sensing Cell (GUV encapsulation) or the Chicago Cascade.
+No Implementation page exists yet for either the Theophylline Sensing Cell (synthetic cell encapsulation) or the Chicago Cascade.
 
 # Credits
 

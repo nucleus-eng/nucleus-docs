@@ -10,9 +10,9 @@ status: draft  # draft | unvalidated-published | validated-published — see CLA
 This page is a work in progress and not yet ready for use.
 :::
 
-ULGA Hydrogel Embedding immobilizes GUV-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC GUVs carrying the AHL Sensing Module (S30 Lysate plus the `pLux-GFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing GUVs fixed while AHL from an external bacterial source diffuses in through the gel and triggers a response.
+ULGA Hydrogel Embedding immobilizes synthetic-cell-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC synthetic cells carrying the AHL Sensing Module (S30 Lysate plus the `pLux-GFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing synthetic cells fixed while AHL from an external bacterial source diffuses in through the gel and triggers a response.
 
-In the process-dependency diagram, ULGA Hydrogel Embedding is fed only by GUV Encapsulation and feeds only into Colorimetric Readout. This differs from Alginate Hydrogel Embedding, which is fed by both GUV Encapsulation and SUV Encapsulation — this process uses GUVs alone, with no SUV input. GUV Encapsulation and Colorimetric Readout are being authored as separate process pages in parallel with this one; this page does not link to them until they exist, and refers to them by name only.
+In the process-dependency diagram, ULGA Hydrogel Embedding is fed only by GUV Encapsulation and feeds only into Colorimetric Readout. This differs from Alginate Hydrogel Embedding, which is fed by both GUV Encapsulation and SUV Encapsulation — this process uses synthetic cells alone, with no SUV input. GUV Encapsulation and Colorimetric Readout are being authored as separate process pages in parallel with this one; this page does not link to them until they exist, and refers to them by name only.
 
 :::{note}
 **Source of this page.** Protocol details below are cited from `Demo Status - London.docx`, Module 4 ("ULGA embedding," contributor Julia Purrinos De Oliveira) and Module 6 ("PLA1-based color change module," contributors Jonah McDonald and Charlie Newell). The backing devnote, `devnotes/london-quorum-sensing-polymersome/main.md`, is confirmed still a template stub — milestones and risk framing only, no primary experiments, figures, or data — so it is not cited as a completed source anywhere on this page. Z-stack images referenced in Module 4's key results were not independently located as primary data during authoring; this is flagged again below rather than treated as independently verified.
@@ -32,7 +32,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - ULGA gels at (8-17)°C, well below the gelling temperature of standard agarose. Source material does not specify the exact dissolution or cooling temperatures used in this protocol; dissolving and cooling steps below follow standard low-melting-agarose handling and are flagged as inferred general technique, not values taken directly from the source.
-- Two ULGA concentrations are documented for this process, from two distinct experiments: 1% ULGA for the GFP-readout demonstration (Module 4, confirmed by Z-stack imaging), and 1.5% ULGA for the PLA1/CPRG colorimetric two-vesicle demonstration (Module 6). Both use the same S30 Lysate-compatible outer solution base. Pick the concentration that matches the readout you are running; do not assume they are interchangeable without re-validation.
+- Two ULGA concentrations are documented for this process, from two distinct experiments: 1% ULGA for the GFP-readout demonstration (Module 4, confirmed by Z-stack imaging), and 1.5% ULGA for the PLA1/CPRG colorimetric two-liposome demonstration (Module 6). Both use the same S30 Lysate-compatible outer solution base. Pick the concentration that matches the readout you are running; do not assume they are interchangeable without re-validation.
 - Module 4 notes the protocol has so far been tested with liquid bacterial culture and supernatant, with a planned move to solid agar bacteria media not yet reported as complete.
 
 ::::::
@@ -41,7 +41,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-**Hot ULGA solution** - Dissolving agarose requires heating near boiling. Handle hot glass vessels and solution with appropriate heat-resistant gloves; allow to cool before combining with heat-sensitive GUVs or lysate.
+**Hot ULGA solution** - Dissolving agarose requires heating near boiling. Handle hot glass vessels and solution with appropriate heat-resistant gloves; allow to cool before combining with heat-sensitive synthetic cells or lysate.
 
 ::::::
 
@@ -53,7 +53,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} 1% ULGA (GFP readout)
 
-:::{table} Outer solution used to embed AHL Sensing Cell GUVs for the GFP readout, ULGA at 1% final concentration (Module 4).
+:::{table} Outer solution used to embed AHL Sensing Cell synthetic cells for the GFP readout, ULGA at 1% final concentration (Module 4).
 :label: comp-ulga-1pct
 
 | Component | Concentration |
@@ -69,7 +69,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} 1.5% ULGA (colorimetric readout)
 
-:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-vesicle demonstration, ULGA at 1.5% final concentration (Module 6).
+:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-liposome demonstration, ULGA at 1.5% final concentration (Module 6).
 :label: comp-ulga-1-5pct
 
 | Component | Concentration |
@@ -83,7 +83,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::
 
-This variant feeds the Colorimetric Readout process; see the [AHL Sensing Cell](../../modules/ahl-sensing-cell/spec.md) spec for the sensing GUV composition and the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) and [LacZ Reporter](../../modules/reporter-lacz/spec.md) specs for the downstream lysis and colorimetric chemistry — this process page covers embedding only, not the readout itself.
+This variant feeds the Colorimetric Readout process; see the [AHL Sensing Cell](../../modules/ahl-sensing-cell/spec.md) spec for the sensing synthetic cell composition and the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) and [LacZ Reporter](../../modules/reporter-lacz/spec.md) specs for the downstream lysis and colorimetric chemistry — this process page covers embedding only, not the readout itself.
 
 ::::
 
@@ -124,15 +124,15 @@ Module 4's own Materials table in the source document lists Glucose, Potassium g
 :::{hint} Note
 :class: simple
 :icon: false
-Source material does not specify an exact dissolution temperature or hold time. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold above the gel point (above ~17 °C for ULGA) until combined with the GUV suspension, and only then cool below the gel point to set.
+Source material does not specify an exact dissolution temperature or hold time. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold above the gel point (above ~17 °C for ULGA) until combined with the synthetic cell suspension, and only then cool below the gel point to set.
 :::
 
-- [ ] Cool the dissolved ULGA solution to a temperature that keeps it liquid (above its (8-17)°C gel point) but is safe to mix with GUVs without damaging them, before proceeding.
+- [ ] Cool the dissolved ULGA solution to a temperature that keeps it liquid (above its (8-17)°C gel point) but is safe to mix with synthetic cells without damaging them, before proceeding.
 
-## Form Hydrogel-Embedded GUVs
+## Form Hydrogel-Embedded synthetic cells
 
-- [ ] Combine the cooled, still-liquid ULGA solution with GUV Encapsulation output (e.g., AHL Sensing Cell POPC GUVs carrying `pLux-GFP` in S30 Lysate) to a total volume of 100 µL per reaction.
-- [ ] Dispense the GUV/ULGA mixture into wells or onto a plate and allow the gel to set by cooling below the ULGA gel point.
+- [ ] Combine the cooled, still-liquid ULGA solution with GUV Encapsulation output (e.g., AHL Sensing Cell POPC synthetic cells carrying `pLux-GFP` in S30 Lysate) to a total volume of 100 µL per reaction.
+- [ ] Dispense the synthetic cell/ULGA mixture into wells or onto a plate and allow the gel to set by cooling below the ULGA gel point.
 
 ## Add Bacterial Input
 
@@ -145,7 +145,7 @@ Source material does not specify an exact dissolution temperature or hold time. 
 
 ## Confirm Embedding
 
-- [ ] Image the gel by fluorescence microscopy, collecting a Z-stack to confirm GFP signal is associated with intact, embedded GUVs rather than background.
+- [ ] Image the gel by fluorescence microscopy, collecting a Z-stack to confirm GFP signal is associated with intact, embedded synthetic cells rather than background.
 - [ ] Compare against the LB-only negative control at matched optical and contrast settings.
 
 :::{attention} Primary data not located

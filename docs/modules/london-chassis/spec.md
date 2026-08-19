@@ -20,15 +20,15 @@ flowchart LR
     POPCOIL["POPC in mineral oil<br/>(4 mg/mL working lipid)"]
     DROPLET["Lipid-monolayer droplet<br/>(inner solution in oil)"]
     OUTER["Outer solution<br/>(glutamate / HEPES / glucose)"]
-    GUV["POPC-bilayer GUV<br/>encapsulating S30 Lysate"]
+    SYNCELL["POPC-bilayer synthetic cell<br/>encapsulating S30 Lysate"]
 
     S30 --> DROPLET
     POPCOIL --> DROPLET
-    DROPLET -->|mineral-oil phase transfer,<br/>across oil/water interface| GUV
-    OUTER --> GUV
+    DROPLET -->|mineral-oil phase transfer,<br/>across oil/water interface| SYNCELL
+    OUTER --> SYNCELL
 
     classDef node fill:#efefef,stroke:#666666,color:#222222;
-    class S30,POPCOIL,DROPLET,OUTER,GUV node;
+    class S30,POPCOIL,DROPLET,OUTER,SYNCELL node;
 ```
 
 No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
@@ -39,7 +39,7 @@ No published schematic exists for this mechanism; the diagram above is a simplif
 
 ::::{tab-item} Cytosol
 
-The inner solution encapsulated into the London Chassis is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, combined with the AHL Sensing Module's `pLux-GFP` reporter plasmid, sucrose (for osmotic matching to the outer solution), and RNase inhibitor. The table below is the actual GUV-formation recipe (condition 2, +DNA) from the S30/POPC encapsulation experiment.
+The inner solution encapsulated into the London Chassis is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, combined with the AHL Sensing Module's `pLux-GFP` reporter plasmid, sucrose (for osmotic matching to the outer solution), and RNase inhibitor. The table below is the actual synthetic-cell formation recipe (condition 2, +DNA) from the S30/POPC encapsulation experiment.
 
 :::{table}
 :label: comp-london-cytosol
@@ -61,16 +61,9 @@ S30 Lysate's own internal breakdown (premix, extract, amino acid mix) is not re-
 
 ::::{tab-item} Membrane
 
-:::{table}
-:label: comp-london-membrane
+The membrane is the [London Membrane](../membrane-popc/spec.md) base bilayer — 100% POPC, no cholesterol — at a **4 mg/mL working lipid concentration** in mineral oil. That page carries the full composition, the two optional additive variants (a Cyanine 5 PC label and a DSPE-PEG2000 PEGylated form), and the prep scales; they are not re-expanded here.
 
-| Component | Target Percentage (%) |
-| --------- | ---------------------- |
-| POPC      | 100                     |
-
-:::
-
-This is the one documented membrane recipe for the London chassis (from the S30/POPC GUV encapsulation experiment): a POPC film (2 mg from 80 µL of 25 mg/mL chloroform stock) dried and resuspended in 500 µL mineral oil to a 4 mg/mL working lipid concentration. Unlike [Base Membrane](../membrane-popc-chol/spec.md), this recipe carries no cholesterol at all — it is not a POPC:cholesterol ratio question for this specific recipe, it is a different lipid system entirely.
+Unlike [Base Membrane](../membrane-popc-chol/spec.md), this is not a POPC:cholesterol ratio — it is a different lipid system.
 
 ::::
 
@@ -88,7 +81,7 @@ This is the one documented membrane recipe for the London chassis (from the S30/
 
 :::
 
-Inner and outer osmolarity are matched (~920 mOsm) to keep encapsulated GUVs stable; a sucrose inner solution against a denser outer solution makes vesicles sediment and drift, complicating imaging.
+Inner and outer osmolarity are matched (~920 mOsm) to keep encapsulated synthetic cells stable; a sucrose inner solution against a denser outer solution makes liposomes sediment and drift, complicating imaging.
 
 ::::
 
@@ -96,9 +89,9 @@ Inner and outer osmolarity are matched (~920 mOsm) to keep encapsulated GUVs sta
 
 ## Process
 
-The chassis is formed by encapsulating S30 Lysate in a 100% POPC membrane, following the same mineral-oil phase-transfer method documented in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). See [GUV Encapsulation: Lipid Variants](../../processes/encapsulate-guv/main.md) for the London-specific lipid composition and the Optiprep/BSA yield-vs-expression tradeoff; that page defers to Encapsulation: Phase Transfer for the shared method steps rather than restating them.
+The chassis is formed by encapsulating S30 Lysate in a 100% POPC membrane, following the same mineral-oil phase-transfer method documented in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
-Three phase-transfer routes were compared for this chassis: the Elani-lab protocol with Optiprep, the same protocol without Optiprep, and the Schroeder protocol (JoVE, 2020). The Elani protocol with Optiprep gave the cleanest, highest-yield encapsulation, but Optiprep above ~5% of the inner solution suppresses cell-free expression — the 10% and 15% Optiprep conditions tested gave abundant, stable GUVs but no reporter signal. Dropping Optiprep restores expression: the AHL sensor expresses GFP on induction, with vesicle-associated GFP puncta co-localizing with round vesicles across imaged fields. See [S30 Lysate](../s30-lysate/spec.md) for the full expected-behavior writeup, including outstanding controls.
+Three phase-transfer routes were compared for this chassis: the Elani-lab protocol with Optiprep, the same protocol without Optiprep, and the Schroeder protocol (JoVE, 2020). The Elani protocol with Optiprep gave the cleanest, highest-yield encapsulation, but Optiprep above ~5% of the inner solution suppresses cell-free expression — the 10% and 15% Optiprep conditions tested gave abundant, stable synthetic cells but no reporter signal. Dropping Optiprep restores expression: the AHL sensor expresses GFP on induction, with liposome-associated GFP puncta co-localizing with round liposomes across imaged fields. See [S30 Lysate](../s30-lysate/spec.md) for the full expected-behavior writeup, including outstanding controls.
 
 :::{caution}
 **Not yet controlled.** The Optiprep-free expression result has no minus-AHL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run.
@@ -107,8 +100,12 @@ Three phase-transfer routes were compared for this chassis: the Elani-lab protoc
 # Constituent Modules
 
 - [S30 Lysate](../s30-lysate/spec.md)
-- [Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md)
+- [London Membrane: POPC](../membrane-popc/spec.md)
 
 # Credits
 
-- b.next
+Developed by Ion Ioannou and Jonah McDonald (London node, Elani Lab) — S30 Lysate encapsulation in POPC synthetic cells.
+
+:::{attention} Attribution needs confirmation
+Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
+:::

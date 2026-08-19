@@ -61,7 +61,7 @@ No combined reference composition exists, and none is given here — not even a 
 
 ::::{tab-item} Membrane
 
-Both feeder legs use the same [Chicago Chassis](../chicago-chassis/spec.md) membrane (9:1 POPC:cholesterol, GUV scale). If the multiplex is unblocked in the future, this membrane would carry over unchanged — the blocking issue is specific to the LacZ/CPRG readout chemistry, not the membrane.
+Both feeder legs use the same [Chicago Chassis](../chicago-chassis/spec.md) membrane (9:1 POPC:cholesterol, synthetic-cell scale). If the multiplex is unblocked in the future, this membrane would carry over unchanged — the blocking issue is specific to the LacZ/CPRG readout chemistry, not the membrane.
 
 ::::
 
@@ -92,4 +92,10 @@ No Implementation page exists for this cascade. Building one is blocked by the m
 
 # Credits
 
-- b.next
+Developed by the Chicago node (Kamat Lab and Liu Lab).
+
+This cascade has no result of its own — the multiplexed combination has not been built. See the constituent Module pages for the attributions of the individual legs.
+
+:::{attention} Attribution needs confirmation
+Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
+:::

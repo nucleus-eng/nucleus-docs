@@ -24,7 +24,7 @@ A separate, more recently explored hydrogel chemistry, PEG-norbornene, is someti
 
 **PEG-norbornene has no corresponding node in `process-dependency-diagram.md`** — the diagram only represents PEGDA. This is a diagram-maintenance gap, not a decision to fold PEG-norbornene into this page.
 
-PEG-norbornene also has a real, confirmed incompatibility that does not apply to PEGDA: chlorophenol red-β-D-galactopyranoside (CPRG) pre-loaded into vesicles photobleaches during PEG-norbornene's UV crosslinking step. The confirmed workaround is to add CPRG as a free dye after crosslinking rather than pre-loading it, with LacZ pre-added to the gel. Separately, a spatial-patterning demonstration (a block-pattern color change in agarose) was repeated with a PEG-norbornene outer gel and LacZ added on top, with the color change still observed after roughly 1.5 h — relevant context for spatial patterning work generally, but it is a PEG-norbornene result, not a PEGDA one, and should not be cited as PEGDA data.
+PEG-norbornene also has a real, confirmed incompatibility that does not apply to PEGDA: chlorophenol red-β-D-galactopyranoside (CPRG) pre-loaded into liposomes photobleaches during PEG-norbornene's UV crosslinking step. The confirmed workaround is to add CPRG as a free dye after crosslinking rather than pre-loading it, with LacZ pre-added to the gel. Separately, a spatial-patterning demonstration (a block-pattern color change in agarose) was repeated with a PEG-norbornene outer gel and LacZ added on top, with the color change still observed after roughly 1.5 h — relevant context for spatial patterning work generally, but it is a PEG-norbornene result, not a PEGDA one, and should not be cited as PEGDA data.
 :::
 
 :::::::{card}

@@ -10,9 +10,9 @@ status: draft  # draft | unvalidated-published | validated-published — see CLA
 This page is a work in progress and not yet ready for use.
 :::
 
-SUV Encapsulation prepares small unilamellar vesicles (SUVs) by lipid-film hydration and extrusion, then loads them with a chromogenic substrate. In the Chicago colorimetric readout system, SUVs carry chlorophenol red-β-D-galactopyranoside (CPRG) as a pre-loaded cargo. CPRG is a yellow substrate that turns purple (chlorophenol red, CPR) when cleaved by β-galactosidase (LacZ). SUVs are one half of a two-vesicle system: giant unilamellar vesicles (GUVs) carry the sensing and cell-free expression machinery and, on activation, express phospholipase A1 (PLA1), which lyses neighboring CPRG-loaded SUVs. Released CPRG then reacts with LacZ in the surrounding matrix to produce the visible color change.
+SUV Encapsulation prepares small unilamellar vesicles (SUVs) by lipid-film hydration and extrusion, then loads them with a chromogenic substrate. In the Chicago colorimetric readout system, SUVs carry chlorophenol red-β-D-galactopyranoside (CPRG) as a pre-loaded cargo. CPRG is a yellow substrate that turns purple (chlorophenol red, CPR) when cleaved by β-galactosidase (LacZ). SUVs are one half of a two-liposome system: synthetic cells carry the sensing and cell-free expression machinery and, on activation, express phospholipase A1 (PLA1), which lyses neighboring CPRG-loaded SUVs. Released CPRG then reacts with LacZ in the surrounding matrix to produce the visible color change.
 
-SUVs and GUVs are distinct particle-size classes and are never interchangeable. This process produces SUVs only. For GUV production, see the sibling [GUV Encapsulation](../encapsulate-guv/main.md) process.
+SUVs and synthetic cells are distinct particle-size classes and are never interchangeable. This process produces SUVs only. For synthetic cell production, see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md).
 
 SUV Encapsulation feeds only the alginate hydrogel embedding step of the process-dependency diagram. This differs from GUV Encapsulation, which feeds both alginate hydrogel embedding and ULGA hydrogel embedding.
 
@@ -54,7 +54,7 @@ This is specific to PEG-norbornene. Agarose, alginate, and ULGA hydrogel embeddi
 
 :::
 
-See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the lipid source. This process uses a 9:1 POPC:cholesterol ratio, matching the Chicago colorimetric readout system's SUV composition, rather than the Base Membrane's default 70:29.95:0.05 POPC:cholesterol:Liss-Rhod PE ratio used for GUVs.
+See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the lipid source. This process uses a 9:1 POPC:cholesterol ratio, matching the Chicago colorimetric readout system's SUV composition, rather than the Base Membrane's default 70:29.95:0.05 POPC:cholesterol:Liss-Rhod PE ratio used for synthetic cells.
 
 ::::::
 
@@ -111,21 +111,21 @@ The dried lipid film can be stored under argon or nitrogen at -20 °C for up to 
 :::{hint} Note
 :class: simple
 :icon: false
-Hydration produces a heterogeneous population of large, multilamellar vesicles. Extrusion (below) narrows this population to small unilamellar vesicles of a defined size.
+Hydration produces a heterogeneous population of large, multilamellar liposomes. Extrusion (below) narrows this population to small unilamellar vesicles of a defined size.
 :::
 
 ## Extrude
 
 - [ ] Assemble the mini-extruder with a 400 nm polycarbonate membrane per the manufacturer's instructions.
 - [ ] Load the hydrated lipid suspension into one glass syringe and pass it through the membrane into the second syringe.
-- [ ] Pass the suspension back and forth through the membrane at least 21 times (an odd number of passes to avoid retaining larger, unextruded vesicles in the final syringe).
+- [ ] Pass the suspension back and forth through the membrane at least 21 times (an odd number of passes to avoid retaining larger, unextruded liposomes in the final syringe).
 - [ ] Collect the extruded SUV suspension from the final syringe.
 
 ## Purify by Size-Exclusion Chromatography
 
 - [ ] Equilibrate a size-exclusion column with hydration buffer lacking CPRG.
-- [ ] Load the extruded SUV suspension onto the column and elute with CPRG-free buffer, collecting the vesicle fraction (elutes in the column void volume, ahead of free CPRG).
-- [ ] Repeat the size-exclusion step a second time on the collected vesicle fraction to remove residual unencapsulated CPRG.
+- [ ] Load the extruded SUV suspension onto the column and elute with CPRG-free buffer, collecting the liposome fraction (elutes in the column void volume, ahead of free CPRG).
+- [ ] Repeat the size-exclusion step a second time on the collected liposome fraction to remove residual unencapsulated CPRG.
 
 :::{hint} Tip
 :class: simple
@@ -133,14 +133,14 @@ Hydration produces a heterogeneous population of large, multilamellar vesicles. 
 A single SEC pass leaves detectable free CPRG in the eluate. Two passes are needed to reduce background color development from unencapsulated substrate.
 :::
 
-- [ ] Hold purified CPRG-loaded SUVs on ice or at 4 °C until ready to combine with GUVs and LacZ.
+- [ ] Hold purified CPRG-loaded SUVs on ice or at 4 °C until ready to combine with synthetic cells and LacZ.
 
 # Quality Control
 
 Confirm successful encapsulation and purification before combining SUVs with other components:
 
 - **Size**: Confirm a mean diameter near 400 nm by dynamic light scattering (DLS). A single narrow peak indicates a homogeneous, well-extruded population.
-- **Free CPRG removal**: Measure absorbance at 575 nm of the SEC flow-through (not the vesicle fraction). A flat, low-absorbance flow-through after the second SEC pass indicates unencapsulated CPRG has been removed. Residual absorbance in the flow-through after two passes indicates incomplete purification — repeat the SEC step.
+- **Free CPRG removal**: Measure absorbance at 575 nm of the SEC flow-through (not the liposome fraction). A flat, low-absorbance flow-through after the second SEC pass indicates unencapsulated CPRG has been removed. Residual absorbance in the flow-through after two passes indicates incomplete purification — repeat the SEC step.
 
 :::{attention} Primary data not located
 The 400 nm target size and 50 mM CPRG loading concentration are cited from the Chicago colorimetric readout status summary. No primary devnote with DLS traces or absorbance QC data for this process is available — these values are not independently verified against primary data.

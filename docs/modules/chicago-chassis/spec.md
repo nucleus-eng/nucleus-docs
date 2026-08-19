@@ -21,21 +21,21 @@ This page is a work in progress and not yet ready for use.
 flowchart LR
     Cytosol["Base Cytosol\n(aqueous droplet)"] -->|"Coated with lipid monolayer\nin mineral oil"| Droplet["Lipid-Coated Droplet\n(9:1 POPC:Chol monolayer)"]
     Lipid["9:1 POPC:Cholesterol\nin mineral oil"] -.-> Droplet
-    Droplet -->|"Phase transfer across\noil/water interface"| GUV["Chicago Chassis\n(GUV, bilayer-encapsulated Base Cytosol)"]
-    Outer(("Outer aqueous\nbuffer")) -.-> GUV
+    Droplet -->|"Phase transfer across\noil/water interface"| SYNCELL["Chicago Chassis\n(synthetic cell, bilayer-encapsulated Base Cytosol)"]
+    Outer(("Outer aqueous\nbuffer")) -.-> SYNCELL
 
     style Cytosol fill:#6B7280,color:#ffffff,stroke:#4B5563
     style Lipid fill:#6B7280,color:#ffffff,stroke:#4B5563
     style Droplet fill:#6B7280,color:#ffffff,stroke:#4B5563
-    style GUV fill:#6B7280,color:#ffffff,stroke:#4B5563
+    style SYNCELL fill:#6B7280,color:#ffffff,stroke:#4B5563
     style Outer fill:none,stroke:#4B5563
 ```
 
-This diagram shows the inverted-emulsion (lipid-in-oil) mechanism used to form the chassis: an aqueous droplet of Base Cytosol picks up a lipid monolayer from the surrounding 9:1 POPC:cholesterol lipid-in-oil mixture, then transfers across the oil/outer-aqueous interface, acquiring a second leaflet to complete the bilayer and yield the GUV. No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure.
+This diagram shows the inverted-emulsion (lipid-in-oil) mechanism used to form the chassis: an aqueous droplet of Base Cytosol picks up a lipid monolayer from the surrounding 9:1 POPC:cholesterol lipid-in-oil mixture, then transfers across the oil/outer-aqueous interface, acquiring a second leaflet to complete the bilayer and yield the synthetic cell. No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure.
 
 ## Reference Composition
 
-The table below is a one-level-deep aggregate: it states what each constituent contributes to the GUV-formation recipe, without re-expanding either constituent's own internal composition (see each linked spec for that detail — notably, Base Cytosol's own PMix/SMix breakdown runs to ~100 individual PURE-system components and stays on its own page).
+The table below is a one-level-deep aggregate: it states what each constituent contributes to the synthetic-cell formation recipe, without re-expanding either constituent's own internal composition (see each linked spec for that detail — notably, Base Cytosol's own PMix/SMix breakdown runs to ~100 individual PURE-system components and stays on its own page).
 
 :::{table} Chicago Chassis composition — aggregated from constituent Modules
 :label: comp-chicago-chassis
@@ -48,12 +48,25 @@ The table below is a one-level-deep aggregate: it states what each constituent c
 :::
 
 :::{attention} Gap: cytosol-to-membrane ratio not documented
-The volume ratio at which the Base Cytosol inner solution is actually combined with the 9:1 POPC:cholesterol lipid-in-oil during the inverted-emulsion GUV-formation step (e.g. µL of inner solution per mL of lipid-in-oil, or the resulting final GUV composition/size) is not documented in the available sourcing (`chicago.md`, from `Demo Status - Chicago.docx`). That source documents each constituent's own recipe (Base Cytosol's reaction-mix volumes; the membrane's 3 mL lipid-in-oil prep) but not the combination step itself. Do not invent a ratio — this ratio is not documented in available source material (see Process below).
+The volume ratio at which the Base Cytosol inner solution is actually combined with the 9:1 POPC:cholesterol lipid-in-oil during the inverted-emulsion synthetic-cell formation step (e.g. µL of inner solution per mL of lipid-in-oil, or the resulting final synthetic cell composition/size) is not documented in the available sourcing (`chicago.md`, from `Demo Status - Chicago.docx`). That source documents each constituent's own recipe (Base Cytosol's reaction-mix volumes; the membrane's 3 mL lipid-in-oil prep) but not the combination step itself. Do not invent a ratio — this ratio is not documented in available source material (see Process below).
 :::
 
 ## Process
 
-The chassis is formed by encapsulating Base Cytosol in the 9:1 POPC:cholesterol membrane, following the same mineral-oil phase-transfer method documented in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). See [GUV Encapsulation: Lipid Variants](../../processes/encapsulate-guv/main.md) for the Chicago-specific lipid composition and the Optiprep/BSA yield-vs-expression tradeoff; that page defers to Encapsulation: Phase Transfer for the shared method steps rather than restating them.
+The chassis is formed by encapsulating Base Cytosol in the 9:1 POPC:cholesterol membrane, following the same mineral-oil phase-transfer method documented in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The membrane recipe, including the optional fluorescent label, is on [Chicago Membrane](../membrane-popc-chol-chicago/spec.md).
+
+### Osmolarity
+
+Match the inner and outer solution osmolarity, or the cells sediment and drift, which complicates imaging. This chassis recipe targets **~1180 mOsm** (the London chassis targets ~920). Measure with a vapor-pressure osmometer and match the outer solution to your actual inner solution rather than assuming either value.
+
+### Quality control
+
+- **Yield and morphology.** Count round, intact cells ≥5 µm per imaging field by fluorescence or brightfield microscopy. Counts should stay stable through incubation at the reaction's working temperature (e.g. 37 °C); a drop over time points to membrane instability rather than an expression problem.
+- **Functional encapsulation.** Confirm reporter expression on induction. Expect a reporter-positive subpopulation, not uniform signal — encapsulation is stochastic, so not every cell captures an active reaction.
+
+:::{note} Optiprep and BSA are documented for the London chassis, not this one
+An additive tradeoff — Optiprep raising encapsulation yield but suppressing cell-free expression above ~5% of the inner solution, with BSA raising yield further — is documented for the [London Chassis](../london-chassis/spec.md). It comes entirely from London's S30 lysate work; `Demo Status - Chicago.docx` never mentions Optiprep, BSA, the Elani protocol, or the Schroeder protocol. Do not assume it transfers to Base Cytosol in this membrane without testing.
+:::
 
 # Constituent Modules
 
@@ -62,4 +75,10 @@ The chassis is formed by encapsulating Base Cytosol in the 9:1 POPC:cholesterol 
 
 # Credits
 
-- b.next
+Developed by the Chicago node (Kamat Lab and Liu Lab).
+
+The Chicago status document leaves the contributor field blank for the sections covering this chassis, so no individual attribution can be sourced for the recipe itself. Results built on it are credited on their own pages.
+
+:::{attention} Attribution needs confirmation
+Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
+:::
