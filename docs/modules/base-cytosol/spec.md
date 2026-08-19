@@ -26,11 +26,7 @@ Base Cytosol is assembled from four components — a protein mix (PMix), a small
 :::::{tab-set}
 
 ::::{tab-item} PMix
-The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL, prepared via [Make PMix](../../processes/make-36pot/main.md) — the canonical route — and stored in Protein Buffer (30% glycerol: HEPES-KOH 50 mM, KCl 100 mM, MgCl₂ 10 mM, TCEP 1 mM; see [Prepare Protein Purification Buffers and Media](../../processes/make-protein/prep-consumables/main.md)). Per-protein stock concentrations are shown below.
-
-[Make OnePot Protein Mix](../../processes/make-1pot/main.md) is a separate co-expression-based preparation with its own buffer formulation (Stock 30). It is not yet fully supported for Base Cytosol, so it is not an equivalent substitute for PMix's buffer contribution here.
-
-Final buffer-osmolarity and counter-ion accounting for PMix's contribution to Base Cytosol is scoped separately (issue #191) and is not covered by this page.
+The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [Make PMix](../../processes/make-36pot/main.md) and [Make OnePot Protein Mix](../../processes/make-1pot/main.md) processes for preparation.
 
 :::{table} Composition of the Protein Mix (PMix) at stock concentration. Molecular weight, stoichiometry, and molarity are computed as described in the note below.
 :label: comp-pmix
@@ -140,37 +136,37 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 
 | Category | Molecule | Concentration | Units |
 |----------|----------|----------------------|-------|
-| Buffers | HEPES-KOH | 37.5 | mM |
-| | Potassium Glutamate | 75 | mM |
-| | Magnesium Acetate | 5.625 | mM |
-| Nucleotides | rATP | 1.5 | mM |
-| | rGTP | 1.5 | mM |
-| | rCTP | 0.75 | mM |
-| | rUTP | 0.75 | mM |
-| Amino Acids  | Alanine (Ala) | 0.225 | mM |
-| | Arginine (Arg) | 0.225 | mM |
-| | Asparagine (Asn) | 0.225 | mM |
-| | Aspartic Acid (Asp) | 0.225 | mM |
-| | Cysteine (Cys) | 0.225 | mM |
-| | Glutamic Acid (Glu) | 0.225 | mM |
-| | Glutamine (Gln) | 0.225 | mM |
-| | Glycine (Gly) | 0.225 | mM |
-| | Histidine (His) | 0.225 | mM |
-| | Isoleucine (Ile) | 0.225 | mM |
-| | Leucine (Leu) | 0.225 | mM |
-| | Lysine (Lys) | 0.225 | mM |
-| | Methionine (Met) | 0.225 | mM |
-| | Phenylalanine (Phe) | 0.225 | mM |
-| | Proline (Pro) | 0.225 | mM |
-| | Serine (Ser) | 0.225 | mM |
-| | Threonine (Thr) | 0.225 | mM |
-| | Tryptophan (Trp) | 0.225 | mM |
-| | Tyrosine (Tyr) | 0.225 | mM |
-| | Valine (Val) | 0.225 | mM |
-| Stabilizers | Spermidine | 1.5 | mM |
-| | TCEP-HCl | 0.75 | mM |
-| Cofactors | Creatine Phosphate | 15 | mM |
-| | Folinic Acid | 0.015 | mM |
+| Buffers | HEPES-KOH | 50 | mM |
+| | Potassium Glutamate | 100 | mM |
+| | Magnesium Acetate | 7.5 | mM |
+| Nucleotides | rATP | 2 | mM |
+| | rGTP | 2 | mM |
+| | rCTP | 1 | mM |
+| | rUTP | 1 | mM |
+| Amino Acids  | Alanine (Ala) | 0.3 | mM |
+| | Arginine (Arg) | 0.3 | mM |
+| | Asparagine (Asn) | 0.3 | mM |
+| | Aspartic Acid (Asp) | 0.3 | mM |
+| | Cysteine (Cys) | 0.3 | mM |
+| | Glutamic Acid (Glu) | 0.3 | mM |
+| | Glutamine (Gln) | 0.3 | mM |
+| | Glycine (Gly) | 0.3 | mM |
+| | Histidine (His) | 0.3 | mM |
+| | Isoleucine (Ile) | 0.3 | mM |
+| | Leucine (Leu) | 0.3 | mM |
+| | Lysine (Lys) | 0.3 | mM |
+| | Methionine (Met) | 0.3 | mM |
+| | Phenylalanine (Phe) | 0.3 | mM |
+| | Proline (Pro) | 0.3 | mM |
+| | Serine (Ser) | 0.3 | mM |
+| | Threonine (Thr) | 0.3 | mM |
+| | Tryptophan (Trp) | 0.3 | mM |
+| | Tyrosine (Tyr) | 0.3 | mM |
+| | Valine (Val) | 0.3 | mM |
+| Stabilizers | Spermidine | 2 | mM |
+| | TCEP-HCl | 1 | mM |
+| Cofactors | Creatine Phosphate | 20 | mM |
+| | Folinic Acid | 0.02 | mM |
 | Ribonucleics | tRNA | 3.5 | µg/µL |
 | | Ribosomes | 1.8 | µM |
 | tRNA Synthetases | AlaRS | 130.3 | ng/µL |
