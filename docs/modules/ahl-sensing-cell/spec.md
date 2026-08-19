@@ -18,7 +18,13 @@ This page is a work in progress and not yet ready for use.
 **Source of this page.** Composition and behavior data below come from `Demo Status - London.docx` (London Module 1 and Module 3, contributors Ion Ioannou and Jonah McDonald) and a 2026-08-14 DevCells status meeting (transcript and an accompanying slide deck, 40 pages). The backing devnote, `devnotes/london-quorum-sensing-polymersome/main.md`, is confirmed still a template stub — milestones and risk framing only, no primary data — so it is not cited as a completed source anywhere on this page.
 :::
 
-```{mermaid}
+## Schematic
+
+:::::{tab-set}
+
+::::{tab-item} Mechanism
+
+```mermaid
 flowchart TD
     LON["London Chassis<br/>(S30 Lysate + POPC synthetic cell)"]
     AHLMOD["AHL Sensing Module<br/>(pLux-GFP plasmid)"]
@@ -40,6 +46,49 @@ flowchart TD
 The AHL Sensing Cell is the London Chassis (S30 Lysate encapsulated in a POPC synthetic cell) plus the AHL Sensing Module's `pLux-GFP` plasmid. Once assembled, AHL from the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome.
 
 No source figure exists for this composed mechanism. The devnote's only figure illustrates a different, superseded design (diblock-copolymer polymersome with X-gal/β-galactosidase readout, not the POPC/S30/GFP system this page documents), so it is not reused here. The slide deck has hand-drawn mechanism sketches embedded in data-heavy slides for the hydrogel-embedded configurations, but no standalone, page-ready schematic of the general composed mechanism exists. This diagram is authored here as a simple mechanism summary.
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    AHL_SENSING_CELL["AHL Sensing Cell"]
+    DETECTOR_AHL["Detector: AHL"]
+    LONDON_CHASSIS["London Chassis"]
+    MEMBRANE_POPC["London Membrane: POPC"]
+    S30_LYSATE["S30 Lysate"]
+
+    LONDON_CHASSIS --> AHL_SENSING_CELL
+    DETECTOR_AHL --> AHL_SENSING_CELL
+    S30_LYSATE --> LONDON_CHASSIS
+    MEMBRANE_POPC --> LONDON_CHASSIS
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class DETECTOR_AHL,LONDON_CHASSIS,MEMBRANE_POPC,S30_LYSATE constituent;
+    class AHL_SENSING_CELL this;
+
+    click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
+    click DETECTOR_AHL "/docs/modules/detector-ahl/spec"
+    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
+    click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 
 ## Reference Composition
 

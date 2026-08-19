@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 
 ## Schematic
 
-```{mermaid}
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     SENSE["Sensing Cell<br/>(expresses PLA1 on trigger)"]

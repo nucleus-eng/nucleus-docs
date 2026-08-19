@@ -16,7 +16,11 @@ This page is a work in progress and not yet ready for use.
 
 ## Schematic
 
-```{mermaid}
+:::::{tab-set}
+
+::::{tab-item} Mechanism
+
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     Cytosol["Base Cytosol\n(aqueous droplet)"] -->|"Coated with lipid monolayer\nin mineral oil"| Droplet["Lipid-Coated Droplet\n(9:1 POPC:Chol monolayer)"]
@@ -31,7 +35,43 @@ flowchart LR
     style Outer fill:none,stroke:#4B5563
 ```
 
-This diagram shows the inverted-emulsion (lipid-in-oil) mechanism used to form the chassis: an aqueous droplet of Base Cytosol picks up a lipid monolayer from the surrounding 9:1 POPC:cholesterol lipid-in-oil mixture, then transfers across the oil/outer-aqueous interface, acquiring a second leaflet to complete the bilayer and yield the synthetic cell. No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure.
+The inverted-emulsion (lipid-in-oil) mechanism used to form the chassis: an aqueous droplet of Base Cytosol picks up a lipid monolayer from the surrounding 9:1 POPC:cholesterol lipid-in-oil mixture, then transfers across the oil/outer-aqueous interface, acquiring a second leaflet to complete the bilayer and yield the synthetic cell. No published schematic exists for this mechanism; the diagram is a simplified summary, not a reproduction of a lab figure.
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    CHICAGO_CHASSIS["Chicago Chassis"]
+    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+
+    BASE_CYTOSOL --> CHICAGO_CHASSIS
+    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class BASE_CYTOSOL,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class CHICAGO_CHASSIS this;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
+    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
 
 ## Reference Composition
 

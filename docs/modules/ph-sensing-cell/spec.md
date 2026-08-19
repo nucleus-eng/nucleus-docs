@@ -21,7 +21,11 @@ The current module-integration diagram draws the edge from the Chicago Chassis t
 
 ## Schematic
 
-```{mermaid}
+:::::{tab-set}
+
+::::{tab-item} Proposed integration
+
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     Chassis["Chicago Chassis<br/>(Base Cytosol in a<br/>9:1 POPC:cholesterol synthetic cell)"]
@@ -37,6 +41,49 @@ flowchart LR
 ```
 
 No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure.
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    CHICAGO_CHASSIS["Chicago Chassis"]
+    DETECTOR_PH["Detector: pH-Sensing"]
+    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+    PH_SENSING_CELL["pH Sensing Cell"]
+
+    BASE_CYTOSOL --> CHICAGO_CHASSIS
+    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+    CHICAGO_CHASSIS --> PH_SENSING_CELL
+    DETECTOR_PH --> PH_SENSING_CELL
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_PH,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class PH_SENSING_CELL this;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
+    click DETECTOR_PH "/docs/modules/detector-ph/spec"
+    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 
 ## Reference Composition
 

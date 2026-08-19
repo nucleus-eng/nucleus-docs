@@ -21,9 +21,13 @@ This page is a work in progress and not yet ready for use.
 
 ## Schematic
 
+:::::{tab-set}
+
+::::{tab-item} Mechanism
+
 No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure.
 
-```{mermaid}
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     AHL["AHL (3-oxo-C6-HSL)<br/>5 µM, exterior"] --> SENSE["AHL Sensing Cell:<br/>LuxR/pLux binds AHL,<br/>drives P70lux-PLA1-term<br/>(15 ng/µL DNA)"]
@@ -43,6 +47,58 @@ flowchart LR
 ```
 
 The readout step is shaded to flag it as the currently only slightly discernible, leaky part of the chain (see [Expected Behavior](#expected-behavior) below); the status meeting deck describes the underlying rupture step itself as "temperamental... sometimes SynCells do not rupture" (deck p. 17).
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    AHL_SENSING_CELL["AHL Sensing Cell"]
+    DETECTOR_AHL["Detector: AHL"]
+    EFFECTOR_PLA1["Effector: PLA1"]
+    LONDON_CASCADE["London Cascade"]
+    LONDON_CHASSIS["London Chassis"]
+    MEMBRANE_POPC["London Membrane: POPC"]
+    REPORTER_LACZ["Reporter: LacZ"]
+    S30_LYSATE["S30 Lysate"]
+
+    LONDON_CHASSIS --> AHL_SENSING_CELL
+    DETECTOR_AHL --> AHL_SENSING_CELL
+    AHL_SENSING_CELL --> LONDON_CASCADE
+    EFFECTOR_PLA1 --> LONDON_CASCADE
+    REPORTER_LACZ --> LONDON_CASCADE
+    S30_LYSATE --> LONDON_CHASSIS
+    MEMBRANE_POPC --> LONDON_CHASSIS
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class AHL_SENSING_CELL,DETECTOR_AHL,EFFECTOR_PLA1,LONDON_CHASSIS,MEMBRANE_POPC,REPORTER_LACZ,S30_LYSATE constituent;
+    class LONDON_CASCADE this;
+
+    click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
+    click DETECTOR_AHL "/docs/modules/detector-ahl/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
+    click LONDON_CASCADE "/docs/modules/london-cascade/spec"
+    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
+    click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 
 ## Reference Composition
 

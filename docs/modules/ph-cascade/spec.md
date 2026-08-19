@@ -21,7 +21,11 @@ This page documents a proposed chain of three constituent Modules, not a single 
 
 ## Schematic
 
-```{mermaid}
+:::::{tab-set}
+
+::::{tab-item} Mechanism
+
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     PH["pH Sensing Cell:\npH-responsive ssDNA : trigger ssDNA\n(4.625 µM trigger ssDNA, final)"] -->|"pH drops to ~6.5,\ntoehold switch opens"| PLA1["PLA1 Lysis Module:\ntoehold-gated PLA1 construct\n(2 nM, final)"]
@@ -36,7 +40,59 @@ flowchart LR
     class GEL proposed;
 ```
 
-Mechanism of the confirmed, solution-phase pH Cascade leg: the pH-sensing toehold switch releases at pH ≈ 6.5 and turns on expression of a co-encapsulated PLA1 construct, which lyses its own liposome and a neighboring CPRG-loaded liposome; the released CPRG then reacts with external LacZ to produce the yellow-to-purple color change. This part of the chain is confirmed at the solution level (see [Reference Composition](#reference-composition) and [Expected Performance](#expected-performance) below). The final step — running this same chain inside a hydrogel-embedded Chicago Chassis synthetic cell — is proposed, not yet demonstrated, so it is drawn dashed/gray, matching the proposed-edge convention used in the [module-integration diagram](../chicago-cascade/spec.md). No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
+Mechanism of the confirmed, solution-phase pH Cascade integration path: the pH-sensing toehold switch releases at pH ≈ 6.5 and turns on expression of a co-encapsulated PLA1 construct, which lyses its own liposome and a neighboring CPRG-loaded liposome; the released CPRG then reacts with external LacZ to produce the yellow-to-purple color change. This part of the chain is confirmed at the solution level (see [Reference Composition](#reference-composition) and [Expected Performance](#expected-performance) below). The final step — running this same chain inside a hydrogel-embedded Chicago Chassis synthetic cell — is proposed, not yet demonstrated, so it is drawn dashed/gray, matching the proposed-edge convention used in the [module-integration diagram](../chicago-cascade/spec.md). No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    CHICAGO_CHASSIS["Chicago Chassis"]
+    DETECTOR_PH["Detector: pH-Sensing"]
+    EFFECTOR_PLA1["Effector: PLA1"]
+    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+    PH_CASCADE["pH Cascade"]
+    PH_SENSING_CELL["pH Sensing Cell"]
+    REPORTER_LACZ["Reporter: LacZ"]
+
+    BASE_CYTOSOL --> CHICAGO_CHASSIS
+    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+    PH_SENSING_CELL --> PH_CASCADE
+    EFFECTOR_PLA1 --> PH_CASCADE
+    REPORTER_LACZ --> PH_CASCADE
+    CHICAGO_CHASSIS --> PH_SENSING_CELL
+    DETECTOR_PH --> PH_SENSING_CELL
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_PH,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_SENSING_CELL,REPORTER_LACZ constituent;
+    class PH_CASCADE this;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
+    click DETECTOR_PH "/docs/modules/detector-ph/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
+    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click PH_CASCADE "/docs/modules/ph-cascade/spec"
+    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
+    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 
 ## Composition
 
@@ -52,7 +108,7 @@ None of the three constituent pages documents the combined three-part chain dire
 
 The table below aggregates the working concentrations behind the confirmed, solution-phase two-liposome result described in [Expected Performance](#expected-performance), one row per constituent Module, flattened one level deep. Two of the three rows come from the pH-sensing/PLA1 liposome's own reaction table, sourced from the Chicago node's status materials ("Demo Status – Chicago," Module 2 – pH Sensor, "Key Experiment: inner solution condition") rather than from either constituent Module's own spec page — this data has not yet been transcribed into the [pH Sensing Cell](../ph-sensing-cell/spec.md) or [PLA1 Lysis Module](../effector-pla1/spec.md) pages.
 
-:::{table} Reference composition — confirmed solution-phase pH Cascade leg (Chicago)
+:::{table} Reference composition — confirmed solution-phase pH Cascade integration path (Chicago)
 :label: comp-ph-cascade
 
 | Module | Component | Working concentration |
@@ -63,7 +119,7 @@ The table below aggregates the working concentrations behind the confirmed, solu
 :::
 
 :::{attention} CPRG/LacZ concentration is a real documentation gap, not a stand-in number
-Unlike the [aTc Cascade](../atc-cascade/spec.md#reference-composition) (0.5 mM CPRG, 20 U/mL LacZ, encapsulated) or the theophylline cascade's CPRG-loaded SUVs (50 mM CPRG loading), no CPRG or LacZ concentration is documented anywhere for this pH cascade's own solution-phase, two-liposome pairing. Do not substitute a number from a different cascade's readout leg to fill this row — that would misrepresent an undocumented gap as a real, sourced value. Flag this for follow-up once a formal devnote for the Chicago pH cascade's two-liposome reaction is written.
+Unlike the [aTc Cascade](../atc-cascade/spec.md#reference-composition) (0.5 mM CPRG, 20 U/mL LacZ, encapsulated) or the theophylline cascade's CPRG-loaded SUVs (50 mM CPRG loading), no CPRG or LacZ concentration is documented anywhere for this pH cascade's own solution-phase, two-liposome pairing. Do not substitute a number from a different cascade's readout integration path to fill this row — that would misrepresent an undocumented gap as a real, sourced value. Flag this for follow-up once a formal devnote for the Chicago pH cascade's two-liposome reaction is written.
 :::
 
 ## Expected Performance

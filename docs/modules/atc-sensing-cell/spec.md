@@ -20,6 +20,12 @@ This page is a work in progress and not yet ready for use.
 The dose-response result on this page is sourced from the Chicago Module Integration Status notes and the August DevCell Status Update meeting (2026-08-14). See the [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec's "Chicago Cascade Encapsulation" section for the same result at the module level.
 :::
 
+## Schematic
+
+:::::{tab-set}
+
+::::{tab-item} Mechanism
+
 :::{figure} mechanism-schematic.png
 :name: fig-atc-sensing-cell-schematic
 :align: center
@@ -27,6 +33,49 @@ The dose-response result on this page is sourced from the Chicago Module Integra
 
 Mechanism of the aTc Sensing Cell. Inside the synthetic cell, the `TetO-PLA1` construct is transcribed and translated to produce PLA1; co-encapsulated LacZ is also expressed. Membrane-permeable aTc (ATC) enters the synthetic cell and (via TetR, not shown) de-represses `TetO-PLA1` expression. CPRG substrate is co-loaded in the same reaction. Figure by Mary Kelly, Kamat Lab, from the 2026-08-14 DevStudio status meeting slide "aTc sensor working in b.next cytosol: Encapsulating TetO-PLA1 with LacZ"; cropped from the original slide (data panels omitted).
 :::
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    ATC_SENSING_CELL["aTc Sensing Cell"]
+    BASE_CYTOSOL["Base Cytosol"]
+    CHICAGO_CHASSIS["Chicago Chassis"]
+    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+
+    CHICAGO_CHASSIS --> ATC_SENSING_CELL
+    DETECTOR_TETR_ATC --> ATC_SENSING_CELL
+    BASE_CYTOSOL --> CHICAGO_CHASSIS
+    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_TETR_ATC,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class ATC_SENSING_CELL this;
+
+    click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
+    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr_atc/spec"
+    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 
 ## Reference Composition
 
