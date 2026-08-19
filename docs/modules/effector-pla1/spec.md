@@ -22,7 +22,7 @@ No PLA1-specific devnote with primary experimental data exists yet — this is a
 :::::{tab-set}
 
 ::::{tab-item} Schematic
-```{mermaid}
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     A["Inducer<br/>(theophylline / pH / aTc / AHL)"] --> B["Sensing circuit<br/>(riboswitch, toehold switch,<br/>TetO/aTc, or LuxR/pLux)"]

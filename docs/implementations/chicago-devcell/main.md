@@ -29,7 +29,7 @@ This is an Implementation rather than a Module because it is a cascade Module pl
 | Chassis | [Chicago Chassis](../../modules/chicago-chassis/spec.md) | ★ |
 | Membrane | [Chicago Membrane: POPC/Chol](../../modules/membrane-popc-chol-chicago/spec.md) | ★ |
 | Sensing (aTc) | [aTc Sensing Cell](../../modules/atc-sensing-cell/spec.md) → [aTc Cascade](../../modules/atc-cascade/spec.md) | detectable response, not dose-graded |
-| Sensing (pH) | [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md) → [pH Cascade](../../modules/ph-cascade/spec.md) | legs confirmed separately; chain not run end to end |
+| Sensing (pH) | [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md) → [pH Cascade](../../modules/ph-cascade/spec.md) | integration paths confirmed separately; chain not run end to end |
 | Lysis | [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) | ★ |
 | Substrate | [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md) | ★ |
 | Readout | [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) | ★ |
@@ -48,13 +48,13 @@ This is an Implementation rather than a Module because it is a cascade Module pl
 
 # Performance
 
-No integrated performance data exists. What is confirmed sits at the level of individual legs, on the Module pages above.
+No integrated performance data exists. What is confirmed sits at the level of individual integration paths, on the Module pages above.
 
 :::{attention} The integration itself is what DevStudio is for
 Every arrow between the Modules above is an integration step that has to be verified in San Francisco. Three are known open:
 
-1. **Multiplexing.** The aTc and pH legs have never been run in one reaction. The only documented multiplex attempt — aTc with theophylline — is blocked by a shared-readout constraint.
-2. **Gel integration.** The aTc leg is confirmed in synthetic cytosols and in synthetic cells, but hydrogel embedding of that cascade was still in progress as of 2026-08-14.
+1. **Multiplexing.** The aTc and pH integration paths have never been run in one reaction. The only documented multiplex attempt — aTc with theophylline — is blocked by a shared-readout constraint.
+2. **Gel integration.** The aTc integration path is confirmed in synthetic cytosols and in synthetic cells, but hydrogel embedding of that cascade was still in progress as of 2026-08-14.
 3. **Patterned readout.** PEGDA patterning has been shown to hold structure and confine color, but a macroscopically visible readout from a patterned gel has not been demonstrated — component volumes are reported as too small.
 :::
 

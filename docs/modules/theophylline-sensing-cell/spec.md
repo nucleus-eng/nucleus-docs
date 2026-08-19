@@ -25,7 +25,11 @@ This page describes the Chassis + Module integration step itself. It does not co
 
 ## Schematic
 
-```{mermaid}
+:::::{tab-set}
+
+::::{tab-item} Mechanism
+
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     Chassis["Chicago Chassis\n(Base Cytosol in 9:1 POPC:Chol synthetic cell)"] -->|"Add riboswitch-to-PLA1 DNA"| Cytosol["Loaded Cytosol"]
@@ -45,6 +49,49 @@ flowchart LR
 ```
 
 This diagram shows the composed mechanism only: the Chicago Chassis loaded with the Theophylline Sensing Module's riboswitch-to-PLA1 DNA, encapsulated as a synthetic cell, then producing PLA1 on theophylline detection. It stops at PLA1 output — the downstream Chicago Cascade lysis reaction is a separate, out-of-scope step (see Overview above).
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    CHICAGO_CHASSIS["Chicago Chassis"]
+    DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
+    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+    THEOPHYLLINE_SENSING_CELL["Theophylline Sensing Cell"]
+
+    BASE_CYTOSOL --> CHICAGO_CHASSIS
+    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+    CHICAGO_CHASSIS --> THEOPHYLLINE_SENSING_CELL
+    DETECTOR_THEOPHYLLINE --> THEOPHYLLINE_SENSING_CELL
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_THEOPHYLLINE,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class THEOPHYLLINE_SENSING_CELL this;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
+    click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
+    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click THEOPHYLLINE_SENSING_CELL "/docs/modules/theophylline-sensing-cell/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 
 ## Reference Composition
 

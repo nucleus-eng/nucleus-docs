@@ -20,7 +20,7 @@ This page is a work in progress and not yet ready for use. Composition and perfo
 **Source of this page.** All data below is drawn from `Demo Status - London.docx` (London Module 3, "Encapsulation" — contributors Ion Ioannou, Jonah McDonald), the internal London demo-status writeup covering S30/POPC encapsulation. No dedicated S30 Lysate DevNote exists yet in `2026-CERN-OHL-P/devnotes/`.
 :::
 
-```{mermaid}
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     S30Premix["S30 Premix<br/>(kit, supplied)"]
@@ -82,7 +82,7 @@ The `pLux-GFP` sensor plasmid is part of the AHL Sensing Module, not S30 Lysate 
 
 ## Expected Behavior
 
-S30 Lysate's expected behavior is characterized by encapsulation in the [London Membrane](../membrane-popc/spec.md) as a synthetic cell, read out with the AHL Sensing Module (LuxR/pLux → GFP). This S30 + POPC combination is the confirmed chassis-assembly step for the London chassis (per the module-integration status tracking: both the POPC-membrane and S30-lysate legs of that assembly are marked confirmed, as of the 2026-08-14 integration review).
+S30 Lysate's expected behavior is characterized by encapsulation in the [London Membrane](../membrane-popc/spec.md) as a synthetic cell, read out with the AHL Sensing Module (LuxR/pLux → GFP). This S30 + POPC combination is the confirmed chassis-assembly step for the London chassis (per the module-integration status tracking: both the POPC-membrane and S30-lysate integration paths of that assembly are marked confirmed, as of the 2026-08-14 integration review).
 
 **synthetic cell encapsulation route.** Three phase-transfer protocols for encapsulating S30 lysate in POPC synthetic cells were compared: the Elani-lab protocol with Optiprep, the same protocol without Optiprep, and the Schroeder protocol (JoVE, 2020). The Elani protocol with Optiprep gave the cleanest, highest-yield encapsulation; without Optiprep it gave fewer synthetic cells; the Schroeder protocol gave very low yield and was dropped. Adding 5 mg/mL BSA and raising Optiprep to 15% increased yield by roughly 1.5× (~42 vs. ~27 synthetic cells ≥5 µm per field). synthetic cell counts held steady through 37 °C incubation, so membrane stability was not the yield bottleneck.
 

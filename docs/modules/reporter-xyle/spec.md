@@ -16,7 +16,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Gap / proposed module — do not overstate maturity
-This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Performance below). No synthetic cell/liposome encapsulation or hydrogel-embedded data exist for this reporter, and it is not part of any confirmed cascade result. In the aTc Cascade, the XylE leg is explicitly still dashed/gap — the confirmed 2026-08-14 aTc encapsulation data used the LacZ leg, not XylE. Do not read this module as being at the same readiness level as its sibling [LacZ Reporter](../reporter-lacz/spec.md), which does have confirmed synthetic cell/hydrogel-level results.
+This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Performance below). No synthetic cell/liposome encapsulation or hydrogel-embedded data exist for this reporter, and it is not part of any confirmed cascade result. In the aTc Cascade, the XylE integration path is explicitly still dashed/gap — the confirmed 2026-08-14 aTc encapsulation data used the LacZ integration path, not XylE. Do not read this module as being at the same readiness level as its sibling [LacZ Reporter](../reporter-lacz/spec.md), which does have confirmed synthetic cell/hydrogel-level results.
 :::
 
 Two source lines both reference "XylE," at different levels of readiness, and they should not be conflated:
@@ -31,7 +31,7 @@ A 2026-08-14 status-meeting slide deck ("DevCell Project Meeting, 14 Aug 2026") 
 :::::{tab-set}
 
 ::::{tab-item} Schematic
-```{mermaid}
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
     A["Catechol<br/>(colorless)"] -->|"C23DO<br/>(xylE gene product)"| B["2-Hydroxymuconate<br/>semialdehyde<br/>(yellow)"]
@@ -95,7 +95,7 @@ This preliminary result shows the TetR/aTc sensor with a C23DO reporter is compa
 ## Cells
 
 :::{note}
-No encapsulated (synthetic cell/liposome) or hydrogel data exist for this module. Unlike the [LacZ Reporter](../reporter-lacz/spec.md), which the 2026-08-14 aTc Cascade result used at the synthetic cell/hydrogel-embedded level, the XylE/C23DO leg has not progressed past bulk cytosol. The aTc Cascade page keeps this leg dashed/proposed for that reason.
+No encapsulated (synthetic cell/liposome) or hydrogel data exist for this module. Unlike the [LacZ Reporter](../reporter-lacz/spec.md), which the 2026-08-14 aTc Cascade result used at the synthetic cell/hydrogel-embedded level, the XylE/C23DO integration path has not progressed past bulk cytosol. The aTc Cascade page keeps this integration path dashed/proposed for that reason.
 :::
 
 # Requirements
@@ -105,7 +105,7 @@ No encapsulated (synthetic cell/liposome) or hydrogel data exist for this module
 
 # Implementations
 
-No confirmed Implementation uses this Module yet. It is named (dashed/gap) as the XylE leg of the proposed aTc Cascade in the current module-integration diagram; that leg is not used in the confirmed 2026-08-14 aTc Cascade data, which used the LacZ leg instead.
+No confirmed Implementation uses this Module yet. It is named (dashed/gap) as the XylE integration path of the proposed aTc Cascade in the current module-integration diagram; that integration path is not used in the confirmed 2026-08-14 aTc Cascade data, which used the LacZ integration path instead.
 
 # Credits
 

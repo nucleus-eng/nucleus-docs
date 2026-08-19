@@ -17,7 +17,7 @@ This is a distinct Module from the default [Base Membrane](../membrane-popc-chol
 This page is a work in progress and not yet ready for use.
 :::
 
-```{mermaid}
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 pie showData
     title Chicago Membrane base bilayer (mol %)

@@ -49,7 +49,7 @@ Flagged for Chicago rather than resolved here. Until the titration data is in ha
 No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure. It is a simple author-created Mermaid diagram of the general Lynch and Gallivan riboswitch mechanism. Replace it with a real mechanism figure (from the source publication or a lab-drawn schematic) when one becomes available.
 :::
 
-```{mermaid}
+```mermaid
 flowchart LR
     T["Theophylline"] -->|binds| A["Aptamer domain<br/>(riboswitch 5' UTR)"]
     A --> C["Conformational change<br/>exposes ribosome binding site"]

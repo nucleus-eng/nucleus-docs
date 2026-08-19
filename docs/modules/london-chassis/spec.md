@@ -14,7 +14,13 @@ The London Chassis combines [S30 Lysate](../s30-lysate/spec.md) with a 100% POPC
 This page is a work in progress and not yet ready for use.
 :::
 
-```{mermaid}
+## Schematic
+
+:::::{tab-set}
+
+::::{tab-item} Mechanism
+
+```mermaid
 flowchart LR
     S30["S30 Lysate<br/>+ `pLux-GFP` plasmid"]
     POPCOIL["POPC in mineral oil<br/>(4 mg/mL working lipid)"]
@@ -32,6 +38,43 @@ flowchart LR
 ```
 
 No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
+
+::::
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    LONDON_CHASSIS["London Chassis"]
+    MEMBRANE_POPC["London Membrane: POPC"]
+    S30_LYSATE["S30 Lysate"]
+
+    S30_LYSATE --> LONDON_CHASSIS
+    MEMBRANE_POPC --> LONDON_CHASSIS
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class MEMBRANE_POPC,S30_LYSATE constituent;
+    class LONDON_CHASSIS this;
+
+    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
+    click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+```
+
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
+
+This diagram shows composition only — it does not assert that any integration is confirmed.
+
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 
 ## Reference Composition
 
