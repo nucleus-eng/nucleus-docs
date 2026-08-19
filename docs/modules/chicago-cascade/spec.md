@@ -9,59 +9,88 @@ site:
 
 # Overview
 
-The Chicago Cascade is the top-level, multiplexed Chicago demo node: the attempted merge of the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) and the [aTc Sensing Cell](../atc-sensing-cell/spec.md) into one combined cascade, with both sensing legs feeding a shared [PLA1 Lysis Module](../effector-pla1/spec.md) trigger and [LacZ Reporter Module](../reporter-lacz/spec.md) colorimetric readout. The goal is multiplexed detection: theophylline and aTc sensed side by side in the same reaction, each independently driving a visible color change.
+The Chicago Cascade is the top-level, multiplexed Chicago demo node: two sensing legs running side by side in one system, each detecting a different analyte, both reporting through a shared colorimetric readout. The two legs are the [aTc Cascade](../atc-cascade/spec.md) and the [pH Cascade](../ph-cascade/spec.md).
+
+The goal is multiplexed detection — aTc and pH sensed in the same reaction, with a visible color change that reflects the combination of the two inputs.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Sensing legs cannot currently be combined
-Each sensing leg works standalone: the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) and the [aTc Sensing Cell](../atc-sensing-cell/spec.md) are each confirmed working on their own. They cannot currently be combined into one cascade: both depend on the same LacZ/CPRG readout, which theophylline is understood to inhibit. A combined multiplexed reaction has not been demonstrated. Per the source transcript, even very low amounts of theophylline were "kind of inhibiting that conversion." This is a hedged, source-quoted finding, not a fully characterized mechanistic claim. See the [Theophylline Sensing Module](../detector-theophylline/spec.md#requirements) and [aTc Sensing Module](../detector-tetr_atc/spec.md#requirements) Requirements sections, and the [LacZ Reporter Module](../reporter-lacz/spec.md#requirements) Requirements section, for the same constraint stated at each affected Module. This page does not repeat the underlying rationale — it documents the cascade-level consequence.
+:::{attention} Rewritten 2026-08-19 — the legs have changed
+Earlier revisions of this page described this cascade as a merge of the **theophylline** and aTc legs, blocked because theophylline interferes with the LacZ/CPRG readout.
+
+That is superseded. Chicago is now focused on the aTc and pH sensors (14 Aug 2026 deck, slides 2 and 34, which lists "Two sensors (aTC/pH)"), and the theophylline sensor has been removed from the demo — its riboswitch drives the reporter with no analyte present, so it does not discriminate. See [Theophylline Sensing Module](../detector-theophylline/spec.md).
+
+The theophylline/aTc co-encapsulation constraint remains true and is still documented on the affected Modules. It is simply no longer this cascade's blocker, because theophylline is no longer one of its legs.
 :::
 
-This does not describe either individual leg. The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) and [aTc Sensing Cell](../atc-sensing-cell/spec.md) pages each document their own standalone-confirmed status, independent of this page. Only the combined, multiplexed cascade — both sensing legs sharing one readout — cannot currently be combined.
+## Status: not yet attempted
 
-:::{note} Cross-module compatibility tracking
-A general cross-module compatibility matrix does not currently exist. This page documents only the specific theophylline/LacZ-CPRG relationship that affects this cascade — it does not attempt a general-purpose compatibility framework.
-:::
+This combination has not been built. That is different from the previous framing — the merge is **not blocked**, it is **unattempted**. No experiment has run the two legs together.
+
+There is, however, a known design question standing in front of it, described below.
 
 ```{mermaid}
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
-    THEO["Theophylline Sensing Cell"]
-    ATC["aTc Sensing Cell"]
-    PLA1["Effector: PLA1"]
-    LACZ["Reporter: LacZ"]
-    CASCADE(("Chicago Cascade"))
+    ATCIN(("aTc")) --> ATCLEG["aTc Cascade"]
+    PHIN(("H⁺")) --> PHLEG["pH Cascade"]
+    ATCLEG -.->|"not yet attempted"| LOGIC{"How are two<br/>signals combined?<br/>undecided"}
+    PHLEG -.->|"not yet attempted"| LOGIC
+    LOGIC -.-> READOUT["Shared LacZ/CPRG readout<br/>visible color change"]
 
-    THEO --x CASCADE
-    ATC --x CASCADE
-    PLA1 -.-> CASCADE
-    LACZ -.-> CASCADE
+    classDef leg fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef open fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    class ATCLEG,PHLEG,READOUT leg;
+    class LOGIC open;
+    style ATCIN fill:none,stroke:#6b7280
+    style PHIN fill:none,stroke:#6b7280
+    style LOGIC stroke-dasharray: 5 5
+    style READOUT stroke-dasharray: 5 5
 
-    classDef chicago fill:#e3f0f8,stroke:#0072B2,color:#063a57;
-    class THEO,ATC,PLA1,LACZ,CASCADE chicago;
-    style CASCADE stroke-dasharray: 5 5
-
-    click THEO "/docs/modules/theophylline-sensing-cell/spec"
-    click ATC "/docs/modules/atc-sensing-cell/spec"
-    click PLA1 "/docs/modules/effector-pla1/spec"
-    click LACZ "/docs/modules/reporter-lacz/spec"
+    click ATCLEG "/docs/modules/atc-cascade/spec"
+    click PHLEG "/docs/modules/ph-cascade/spec"
+    click READOUT "/docs/modules/reporter-lacz/spec"
 ```
 
-## Composition — Not Applicable (Merge Blocked)
+No published schematic exists for this cascade; the diagram above is a simplified summary of the intended design, not a reproduction of a lab figure.
+
+## Requirements
+
+**Something has to decide what the readout does when both legs fire.** Both the aTc leg and the pH leg end at the same LacZ/CPRG chemistry. Two inputs arriving at one output is not, by itself, a design — it needs a stated rule for how the two signals combine. Should the color change when *either* analyte is present, only when *both* are, or only when exactly one is? Each of those is a different device, and each needs a different mechanism.
+
+That rule has not been chosen. Until it is, "multiplexed detection" describes an intent rather than a specification.
+
+:::{attention} This is the cascade's central open question
+Two things follow from it, and both are worth stating plainly.
+
+**First, a shared readout with no combining rule is not neutral.** If both legs simply drive the same enzyme reaction, the result is whatever the chemistry does when both are active — which is closer to an uncontrolled "either" than to a designed behavior. Getting a specified behavior means adding a mechanism, not just co-locating the two legs.
+
+**Second, the three candidate rules are not equally easy to build.** "Either analyte" is close to what co-locating the legs already gives, so the work is making it controlled and reproducible rather than incidental. "Both analytes" needs a coincidence mechanism — some step that only proceeds when two inputs are present at once. "Exactly one" is harder still, because it needs the system to suppress output when a signal *is* present, and inhibition is a mechanism this cascade does not currently have anywhere.
+
+So the choice of rule is not a labeling decision to make at write-up time. It determines what has to be built.
+:::
+
+**A second, separate question.** The pH leg's readout adds a neutralization buffer step before the color develops (14 Aug 2026 deck, slide 9), while the aTc leg reads out directly. Whether one shared readout can serve both legs when one of them requires a pH adjustment is unresolved, and it is a distinct issue from the combining rule above. Flagged for the Chicago team.
+
+## Composition
+
+No combined reference composition exists, and none is given here — not even a hypothetical one. The combination has never been assembled, so there are no working concentrations to report, and inventing them would present this as more real than it is.
+
+Each leg's own composition is documented on its own page:
 
 :::::{tab-set}
 
 ::::{tab-item} Cytosol
 
-No combined reference composition exists, and none is given here — not even a hypothetical one — for two reasons. First, the merge is blocked before reaching a formulation step: the multiplexed cytosol was never built. Second, a hypothetical recipe would have nothing real to flatten one level deep into: neither leg's own cytosol has a complete, numbered composition yet — the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md#reference-composition) page flags its PLA1-linked construct as not yet identified, and the [aTc Sensing Cell](../atc-sensing-cell/spec.md#reference-composition) page flags its per-component reaction table as not yet documented. Inventing working concentrations for a recipe that has never been run, on top of constituents that do not yet have their own numbers, would misrepresent this as more real than it is. Each leg's own cytosol is documented on its own Sensing Cell page: [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md#reference-composition), [aTc Sensing Cell](../atc-sensing-cell/spec.md#reference-composition).
+See [aTc Cascade](../atc-cascade/spec.md#reference-composition) and [pH Cascade](../ph-cascade/spec.md). Note that the pH Cascade's own combined-recipe concentrations are themselves flagged as undocumented, so a merged recipe would rest on an incomplete constituent.
 
 ::::
 
 ::::{tab-item} Membrane
 
-Both feeder legs use the same [Chicago Chassis](../chicago-chassis/spec.md) membrane (9:1 POPC:cholesterol, synthetic-cell scale). If the multiplex is unblocked in the future, this membrane would carry over unchanged — the blocking issue is specific to the LacZ/CPRG readout chemistry, not the membrane.
+Both legs are built on the [Chicago Chassis](../chicago-chassis/spec.md), so both use the same 9:1 POPC:cholesterol membrane. This part of the merge is straightforward — the membrane carries over unchanged, and it is not implicated in either open question above.
 
 ::::
 
@@ -69,33 +98,25 @@ Both feeder legs use the same [Chicago Chassis](../chicago-chassis/spec.md) memb
 
 ## Process
 
-No combined assembly process exists for this cascade — it has not been built, because the readout-level incompatibility blocks the merge before an assembly process would be needed. See [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) and [aTc Sensing Cell](../atc-sensing-cell/spec.md) for each leg's own process status.
-
-## Requirements
-
-The Chicago Cascade cannot currently combine the [Theophylline Sensing Module](../detector-theophylline/spec.md) and [aTc Sensing Module](../detector-tetr_atc/spec.md) sensing pathways in the same reaction: both depend on the same [LacZ Reporter Module](../reporter-lacz/spec.md) LacZ/CPRG readout, which theophylline is understood to inhibit. A combined multiplexed reaction has not been demonstrated. See each constituent Module's own Requirements section for the same constraint stated at that level:
-
-- [Theophylline Sensing Module Requirements](../detector-theophylline/spec.md#requirements)
-- [aTc Sensing Module Requirements](../detector-tetr_atc/spec.md#requirements)
-- [LacZ Reporter Module Requirements](../reporter-lacz/spec.md#requirements)
+No combined assembly process exists. Both legs are formed by the same method — see [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — and both are embedded and read out through the processes listed on their own pages. What is missing is not a technique for making either leg, but the step that brings them together and the mechanism that combines their outputs.
 
 # Constituent Modules
 
-- [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) — confirmed working standalone; blocked from combining with the aTc Sensing Cell in this cascade
-- [aTc Sensing Cell](../atc-sensing-cell/spec.md) — confirmed working standalone; blocked from combining with the Theophylline Sensing Cell in this cascade
-- [PLA1 Lysis Module](../effector-pla1/spec.md) — shared lysis trigger, intended to couple sensing to readout in the combined cascade
-- [LacZ Reporter Module](../reporter-lacz/spec.md) — shared colorimetric readout; the specific point of incompatibility between the two sensing legs
+- [aTc Cascade](../atc-cascade/spec.md) — the aTc sensing leg, confirmed in synthetic cytosols and in synthetic cells; hydrogel embedding still in progress
+- [pH Cascade](../ph-cascade/spec.md) — the pH sensing leg; its individual results are confirmed but the three-part chain has not been run end to end
+
+Both legs terminate at the [LacZ Reporter Module](../reporter-lacz/spec.md), which is shared rather than duplicated. That sharing is the subject of the Requirements section above.
 
 # Implementations
 
-No Implementation page exists for this cascade. Building one is blocked by the mutual-exclusion requirement above — a combined Implementation would need either a resolved readout incompatibility or a redesigned cascade (e.g. separate readouts per sensor) before it could be authored.
+This cascade is the sensing core of the [Chicago DevCell](../../implementations/chicago-devcell/main.md), which places it in a hydrogel and adds spatial patterning. That page carries the demo-level status.
 
 # Credits
 
-Developed by the Chicago node (Kamat Lab and Liu Lab).
+Developed by the Chicago node — Kamat Lab and Liu Lab.
 
-This cascade has no result of its own — the multiplexed combination has not been built. See the constituent Module pages for the attributions of the individual legs.
+This cascade has no result of its own; the multiplexed combination has not been built. Attributions for the individual legs are on their own pages.
 
 :::{attention} Attribution needs confirmation
-Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
+Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago status document. Mappings from person to result have not been confirmed by the team.
 :::
