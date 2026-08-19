@@ -76,8 +76,14 @@ The aTc Sensing Cell shares its LacZ/CPRG readout with the Theophylline Sensing 
 
 - [Chicago Chassis](../chicago-chassis/spec.md) — chassis (cytosol + 9:1 POPC:cholesterol synthetic cell membrane)
 - [aTc Sensing Module](../detector-tetr_atc/spec.md) — `TetO-PLA1` sensing construct, gated by aTc/TetR
-- [PLA1 Lysis Module](../effector-pla1/spec.md) — lysis trigger coupling sensing to readout
-- [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG colorimetric readout chemistry
+
+:::{note} The effector and reporter belong to the Cascade, not to this Cell
+This Sensing Cell is chassis + detector. Its Function is to express PLA1 in response to aTc — PLA1 is what it *produces*, not a Module it is composed of. Likewise the LacZ/CPRG chemistry is the readout, which belongs to the [aTc Cascade](../atc-cascade/spec.md).
+
+Earlier revisions of this page listed the [PLA1 Lysis Module](../effector-pla1/spec.md) and [LacZ Reporter Module](../reporter-lacz/spec.md) as constituents here *and* on the Cascade page, double-counting them. The other three Sensing Cells in the distribution list chassis + detector only; this page is now consistent with them.
+
+The 2026-08-14 result did physically co-encapsulate the `TetO-PLA1` construct, LacZ, and CPRG in one cell. That is the **Cascade** configuration realized in a single compartment, not a property of the Sensing Cell Module — see [aTc Cascade](../atc-cascade/spec.md).
+:::
 
 # Credits
 
