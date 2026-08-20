@@ -37,7 +37,7 @@ flowchart TB
 
 ## DevCell Encapsulation Processes
 
-DevCell integrations (e.g., the Chicago colorimetric readout system) build on two liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in SUV Encapsulation, a genuinely different technique. synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md); GUV Encapsulation: Lipid Variants documents only the Chicago/London lipid-composition variants on top of that shared method.
+DevCell integrations (e.g., the Chicago colorimetric readout system) build on two liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in [SUV Encapsulation](./encapsulate-suv/main.md), a genuinely different technique. Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
 
 - [SUV Encapsulation](./encapsulate-suv/main.md)
 
@@ -103,7 +103,7 @@ flowchart LR
 Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are embedded together in a hydrogel matrix to couple a lysis-triggered colorimetric handoff between them. Different DevCells demos use different hydrogel chemistries — see each process page for the chemistry it covers and how it differs from the others.
 
 - [Alginate Hydrogel Embedding](./embed-alginate-hydrogel/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
-- [ULGA Hydrogel Embedding](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by GUV Encapsulation only.
+- [ULGA Hydrogel Embedding](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
 
 ## Photopatterning Processes
 
