@@ -12,7 +12,7 @@ This page is a work in progress and not yet ready for use.
 
 ULGA Hydrogel Embedding immobilizes synthetic-cell-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC synthetic cells carrying the AHL Sensing Module (S30 Lysate plus the `pLux-GFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing synthetic cells fixed while AHL from an external bacterial source diffuses in through the gel and triggers a response.
 
-In the process-dependency diagram, ULGA Hydrogel Embedding is fed only by GUV Encapsulation and feeds only into Colorimetric Readout. This differs from Alginate Hydrogel Embedding, which is fed by both GUV Encapsulation and SUV Encapsulation — this process uses synthetic cells alone, with no SUV input. GUV Encapsulation and Colorimetric Readout are being authored as separate process pages in parallel with this one; this page does not link to them until they exist, and refers to them by name only.
+In the process-dependency diagram, ULGA Hydrogel Embedding is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Alginate Hydrogel Embedding](../embed-alginate-hydrogel/main.md), which is fed by both phase transfer and [SUV Encapsulation](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
 
 :::{note}
 **Source of this page.** Protocol details below are cited from `Demo Status - London.docx`, Module 4 ("ULGA embedding," contributor Julia Purrinos De Oliveira) and Module 6 ("PLA1-based color change module," contributors Jonah McDonald and Charlie Newell). The backing devnote, `devnotes/london-quorum-sensing-polymersome/main.md`, is confirmed still a template stub — milestones and risk framing only, no primary experiments, figures, or data — so it is not cited as a completed source anywhere on this page. Z-stack images referenced in Module 4's key results were not independently located as primary data during authoring; this is flagged again below rather than treated as independently verified.
@@ -131,7 +131,7 @@ Source material does not specify an exact dissolution temperature or hold time. 
 
 ## Form Hydrogel-Embedded synthetic cells
 
-- [ ] Combine the cooled, still-liquid ULGA solution with GUV Encapsulation output (e.g., AHL Sensing Cell POPC synthetic cells carrying `pLux-GFP` in S30 Lysate) to a total volume of 100 µL per reaction.
+- [ ] Combine the cooled, still-liquid ULGA solution with phase-transfer synthetic cells (e.g., AHL Sensing Cell POPC synthetic cells carrying `pLux-GFP` in S30 Lysate) to a total volume of 100 µL per reaction.
 - [ ] Dispense the synthetic cell/ULGA mixture into wells or onto a plate and allow the gel to set by cooling below the ULGA gel point.
 
 ## Add Bacterial Input
