@@ -135,7 +135,7 @@ python3 scripts/check-formatting.py docs/    # check a specific directory
 
 ### Authoring pages in MyST
 
-**Writing or editing a page under `docs/`?** Invoke the `author-myst-content` skill. It covers fence and tab-set nesting depth, `.md`-not-`.html` internal links, secondary-figure dropdowns, system-context figure placement, composition-table depth, mass-to-molar stoichiometry, the `status:` frontmatter values and their banners, and the empty-dropdown policy that `scripts/check-dropdowns.py` enforces.
+**Writing or editing a page under `docs/`?** Invoke the `author-myst-content` skill. It covers fence and tab-set nesting depth, `.md`-not-`.html` internal links, secondary-figure dropdowns, system-context figure placement, composition-table depth, the `status:` frontmatter values and their banners, and the empty-dropdown policy that `scripts/check-dropdowns.py` enforces.
 
 ### Content migration
 
