@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nucleus Docs — Relationship Graph</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #0f1117; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+  #wrap { display: flex; flex-direction: column; height: 100vh; }
+  #toolbar { flex-shrink: 0; display: flex; align-items: center; gap: 16px; padding: 10px 16px; background: #1a1d2e; border-bottom: 1px solid #252840; }
+  #toolbar h1 { font-size: 13px; font-weight: 600; color: #94a3b8; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+  #legend { display: flex; gap: 14px; margin-left: auto; }
+  .leg { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #94a3b8; cursor: pointer; user-select: none; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .leg.dimmed { opacity: 0.35; }
+  #cy { flex: 1; }
+  #tip { position: fixed; background: #1a1d2e; border: 1px solid #2d3148; border-radius: 6px; padding: 8px 12px; font-size: 12px; pointer-events: none; display: none; z-index: 10; max-width: 240px; }
+  #tip-type { color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
+  #tip-name { color: #f1f5f9; margin-top: 3px; font-weight: 500; line-height: 1.4; }
+  #tip-hint { color: #64748b; font-size: 10px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="toolbar">
+    <h1>Nucleus Distribution — Docs Graph</h1>
+    <div id="legend"></div>
+  </div>
+  <div id="cy"></div>
+</div>
+<div id="tip">
+  <div id="tip-type"></div>
+  <div id="tip-name"></div>
+  <div id="tip-hint"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+<script>
+const GRAPH  = {
+  "nodes": [
+    {
+      "id": "modules/base-cytosol/spec.md",
+      "label": "Base: Cytosol",
+      "type": "module",
+      "slug": "base-cytosol"
+    },
+    {
+      "id": "modules/control-clpxp/spec.md",
+      "label": "Control: ClpXP",
+      "type": "module",
+      "slug": "control-clpxp"
+    },
+    {
+      "id": "modules/detector-laci_iptg/spec.md",
+      "label": "Detector: LacI-IPTG",
+      "type": "module",
+      "slug": "detector-laci_iptg"
+    },
+    {
+      "id": "modules/detector-tetr_atc/spec.md",
+      "label": "Detector: tetR-aTc",
+      "type": "module",
+      "slug": "detector-tetr_atc"
+    },
+    {
+      "id": "modules/emitter-ivhsl/spec.md",
+      "label": "Emitter: IV-HSL",
+      "type": "module",
+      "slug": "emitter-ivhsl"
+    },
+    {
+      "id": "modules/energy-ppk/spec.md",
+      "label": "Energy: PPK",
+      "type": "module",
+      "slug": "energy-ppk"
+    },
+    {
+      "id": "modules/membrane-popc-chol/spec.md",
+      "label": "Base Membrane: POPC/Chol",
+      "type": "module",
+      "slug": "membrane-popc-chol"
+    },
+    {
+      "id": "modules/membrane-pore-ahly/spec.md",
+      "label": "Membrane Pore: \u03b1-Hemolysin",
+      "type": "module",
+      "slug": "membrane-pore-ahly"
+    },
+    {
+      "id": "modules/membrane-pore-cx43/spec.md",
+      "label": "Membrane Pore: Cx43",
+      "type": "module",
+      "slug": "membrane-pore-cx43"
+    },
+    {
+      "id": "modules/reporter-degfp/spec.md",
+      "label": "Reporter: deGFP",
+      "type": "module",
+      "slug": "reporter-degfp"
+    },
+    {
+      "id": "processes/assemble-base-cell/main.md",
+      "label": "Assemble Base Cell",
+      "type": "process",
+      "slug": "assemble-base-cell"
+    },
+    {
+      "id": "processes/assemble-base-cytosol/main.md",
+      "label": "Assemble Base Cytosol",
+      "type": "process",
+      "slug": "assemble-base-cytosol"
+    },
+    {
+      "id": "processes/make-1pot/main.md",
+      "label": "Make OnePot Protein Mix",
+      "type": "process",
+      "slug": "make-1pot"
+    },
+    {
+      "id": "processes/make-36pot/main.md",
+      "label": "Make Protein Mix (36-pot)",
+      "type": "process",
+      "slug": "make-36pot"
+    },
+    {
+      "id": "processes/make-amino-acid-mix/main.md",
+      "label": "Make Amino Acid Mix",
+      "type": "process",
+      "slug": "make-amino-acid-mix"
+    },
+    {
+      "id": "processes/make-protein/buff-ex-spin-filters/main.md",
+      "label": "Exchange Buffers and Concentrate by Spin Filtration",
+      "type": "process",
+      "slug": "buff-ex-spin-filters"
+    },
+    {
+      "id": "processes/make-protein/grow-bacteria/main.md",
+      "label": "Grow and Induce Expression Strains",
+      "type": "process",
+      "slug": "grow-bacteria"
+    },
+    {
+      "id": "processes/make-protein/lysis-sonication/main.md",
+      "label": "Lyse Bacteria by Sonication",
+      "type": "process",
+      "slug": "lysis-sonication"
+    },
+    {
+      "id": "processes/make-protein/make-protein-main.md",
+      "label": "Protein Purification Processes",
+      "type": "process",
+      "slug": "make-protein"
+    },
+    {
+      "id": "processes/make-protein/prep-consumables/main.md",
+      "label": "Prepare Protein Purification Buffers and Media",
+      "type": "process",
+      "slug": "prep-consumables"
+    },
+    {
+      "id": "processes/make-protein/purify-proteins-grav-column/main.md",
+      "label": "Purify Proteins by Ni\u00b2\u207a Gravity Column",
+      "type": "process",
+      "slug": "purify-proteins-grav-column"
+    },
+    {
+      "id": "processes/make-ribosomes/main.md",
+      "label": "Make Ribosomes",
+      "type": "process",
+      "slug": "make-ribosomes"
+    },
+    {
+      "id": "processes/make-small-molecule-mix/main.md",
+      "label": "Make Small Molecule Mix",
+      "type": "process",
+      "slug": "make-small-molecule-mix"
+    },
+    {
+      "id": "processes/make-trna/main.md",
+      "label": "Make tRNAs",
+      "type": "process",
+      "slug": "make-trna"
+    },
+    {
+      "id": "processes/pierce660/main.md",
+      "label": "Pierce660 Assay",
+      "type": "process",
+      "slug": "pierce660"
+    },
+    {
+      "id": "processes/protein-gel/main.md",
+      "label": "Protein Gel",
+      "type": "process",
+      "slug": "protein-gel"
+    },
+    {
+      "id": "implementations/emitter-ivhsl/main.md",
+      "label": "Emitter: IV-HSL Cell",
+      "type": "implementation",
+      "slug": "emitter-ivhsl"
+    },
+    {
+      "id": "implementations/responder-atc-ivhsl/main.md",
+      "label": "Responder: aTc \u2192 IV-HSL",
+      "type": "implementation",
+      "slug": "responder-atc-ivhsl"
+    }
+  ],
+  "edges": [
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "modules/reporter-degfp/spec.md"
+    },
+    {
+      "source": "modules/membrane-popc-chol/spec.md",
+      "target": "processes/assemble-base-cell/main.md"
+    },
+    {
+      "source": "modules/membrane-popc-chol/spec.md",
+      "target": "modules/reporter-degfp/spec.md"
+    },
+    {
+      "source": "modules/membrane-pore-ahly/spec.md",
+      "target": "modules/membrane-pore-cx43/spec.md"
+    },
+    {
+      "source": "modules/membrane-pore-ahly/spec.md",
+      "target": "processes/assemble-base-cytosol/main.md"
+    },
+    {
+      "source": "processes/assemble-base-cytosol/main.md",
+      "target": "modules/reporter-degfp/spec.md"
+    },
+    {
+      "source": "processes/assemble-base-cytosol/main.md",
+      "target": "processes/make-small-molecule-mix/main.md"
+    },
+    {
+      "source": "processes/assemble-base-cytosol/main.md",
+      "target": "processes/make-trna/main.md"
+    },
+    {
+      "source": "processes/assemble-base-cytosol/main.md",
+      "target": "processes/make-36pot/main.md"
+    },
+    {
+      "source": "processes/assemble-base-cytosol/main.md",
+      "target": "processes/make-1pot/main.md"
+    },
+    {
+      "source": "processes/assemble-base-cytosol/main.md",
+      "target": "processes/make-ribosomes/main.md"
+    },
+    {
+      "source": "processes/make-1pot/main.md",
+      "target": "processes/make-36pot/main.md"
+    },
+    {
+      "source": "processes/make-1pot/main.md",
+      "target": "processes/make-ribosomes/main.md"
+    },
+    {
+      "source": "processes/make-1pot/main.md",
+      "target": "processes/make-trna/main.md"
+    },
+    {
+      "source": "processes/make-1pot/main.md",
+      "target": "processes/pierce660/main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/make-protein/make-protein-main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/make-protein/prep-consumables/main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/make-protein/grow-bacteria/main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/make-protein/lysis-sonication/main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/make-protein/purify-proteins-grav-column/main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/make-protein/buff-ex-spin-filters/main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/pierce660/main.md"
+    },
+    {
+      "source": "processes/make-36pot/main.md",
+      "target": "processes/protein-gel/main.md"
+    },
+    {
+      "source": "processes/make-protein/grow-bacteria/main.md",
+      "target": "processes/make-protein/prep-consumables/main.md"
+    },
+    {
+      "source": "processes/make-protein/lysis-sonication/main.md",
+      "target": "processes/make-protein/prep-consumables/main.md"
+    },
+    {
+      "source": "processes/make-protein/lysis-sonication/main.md",
+      "target": "processes/make-protein/grow-bacteria/main.md"
+    },
+    {
+      "source": "processes/make-protein/make-protein-main.md",
+      "target": "processes/make-protein/prep-consumables/main.md"
+    },
+    {
+      "source": "processes/make-protein/make-protein-main.md",
+      "target": "processes/make-protein/grow-bacteria/main.md"
+    },
+    {
+      "source": "processes/make-protein/make-protein-main.md",
+      "target": "processes/make-protein/lysis-sonication/main.md"
+    },
+    {
+      "source": "processes/make-protein/make-protein-main.md",
+      "target": "processes/make-protein/purify-proteins-grav-column/main.md"
+    },
+    {
+      "source": "processes/make-protein/make-protein-main.md",
+      "target": "processes/make-protein/buff-ex-spin-filters/main.md"
+    },
+    {
+      "source": "processes/make-protein/purify-proteins-grav-column/main.md",
+      "target": "processes/make-protein/prep-consumables/main.md"
+    },
+    {
+      "source": "processes/make-protein/purify-proteins-grav-column/main.md",
+      "target": "processes/make-protein/lysis-sonication/main.md"
+    },
+    {
+      "source": "processes/make-small-molecule-mix/main.md",
+      "target": "processes/make-amino-acid-mix/main.md"
+    },
+    {
+      "source": "processes/make-small-molecule-mix/main.md",
+      "target": "processes/make-trna/main.md"
+    },
+    {
+      "source": "implementations/responder-atc-ivhsl/main.md",
+      "target": "processes/assemble-base-cytosol/main.md"
+    },
+    {
+      "source": "implementations/responder-atc-ivhsl/main.md",
+      "target": "modules/detector-tetr_atc/spec.md"
+    },
+    {
+      "source": "implementations/responder-atc-ivhsl/main.md",
+      "target": "modules/emitter-ivhsl/spec.md"
+    }
+  ]
+};
+const COLORS = {"module": "#4e9af1", "process": "#50c878", "implementation": "#f4a261"};
+
+// --- legend ---
+const legendEl = document.getElementById('legend');
+const hidden = {};
+Object.entries(COLORS).forEach(([type, color]) => {
+  const el = document.createElement('div');
+  el.className = 'leg';
+  el.dataset.type = type;
+  el.innerHTML = `<div class="leg-dot" style="background:${color}"></div>${type}`;
+  el.addEventListener('click', () => {
+    hidden[type] = !hidden[type];
+    el.classList.toggle('dimmed', hidden[type]);
+    cy.nodes(`[type="${type}"]`).toggleClass('hidden', !!hidden[type]);
+  });
+  legendEl.appendChild(el);
+});
+
+// --- cytoscape ---
+const cy = cytoscape({
+  container: document.getElementById('cy'),
+  elements: [
+    ...GRAPH.nodes.map(n => ({ data: n })),
+    ...GRAPH.edges.map(e => ({ data: e })),
+  ],
+  style: [
+    {
+      selector: 'node',
+      style: {
+        'background-color': ele => COLORS[ele.data('type')] || '#888',
+        'label': 'data(label)',
+        'color': '#cbd5e1',
+        'font-size': ele => Math.max(9, 8 + ele.degree() * 0.6) + 'px',
+        'text-valign': 'bottom',
+        'text-halign': 'center',
+        'text-margin-y': 6,
+        'text-outline-width': 2,
+        'text-outline-color': '#0f1117',
+        'width': ele => Math.max(14, 8 + ele.degree() * 5),
+        'height': ele => Math.max(14, 8 + ele.degree() * 5),
+        'transition-property': 'opacity',
+        'transition-duration': '150ms',
+      },
+    },
+    {
+      selector: 'node:selected',
+      style: { 'border-width': 2.5, 'border-color': '#f8fafc' },
+    },
+    {
+      selector: 'node.hidden',
+      style: { 'opacity': 0, 'events': 'no' },
+    },
+    {
+      selector: 'edge',
+      style: {
+        'width': 1.2,
+        'line-color': '#2d3148',
+        'target-arrow-color': '#2d3148',
+        'target-arrow-shape': 'triangle',
+        'curve-style': 'bezier',
+        'opacity': 0.65,
+        'transition-property': 'opacity, line-color, target-arrow-color',
+        'transition-duration': '150ms',
+      },
+    },
+    {
+      selector: 'edge.highlighted',
+      style: {
+        'line-color': '#94a3b8',
+        'target-arrow-color': '#94a3b8',
+        'opacity': 1,
+      },
+    },
+    {
+      selector: 'edge.faded',
+      style: { 'opacity': 0.08 },
+    },
+  ],
+  layout: {
+    name: 'breadthfirst',
+    directed: true,
+    padding: 48,
+    spacingFactor: 1.8,
+    avoidOverlap: true,
+  },
+  minZoom: 0.3,
+  maxZoom: 3,
+});
+
+// --- tooltip ---
+const tip = document.getElementById('tip');
+const tipType = document.getElementById('tip-type');
+const tipName = document.getElementById('tip-name');
+const tipHint = document.getElementById('tip-hint');
+
+cy.on('mouseover', 'node', e => {
+  const n = e.target;
+  tipType.textContent = n.data('type');
+  tipName.textContent = n.data('label');
+  tipHint.textContent = 'click to highlight connections';
+  tip.style.display = 'block';
+});
+cy.on('mousemove', e => {
+  tip.style.left = (e.originalEvent.clientX + 14) + 'px';
+  tip.style.top  = (e.originalEvent.clientY + 14) + 'px';
+});
+cy.on('mouseout', 'node', () => { tip.style.display = 'none'; });
+
+// --- click to highlight neighbourhood ---
+cy.on('tap', 'node', e => {
+  const n = e.target;
+  const hood = n.closedNeighborhood();
+  cy.elements().not(hood).addClass('faded').removeClass('highlighted');
+  hood.edges().addClass('highlighted').removeClass('faded');
+  n.removeClass('faded');
+});
+cy.on('tap', e => {
+  if (e.target === cy) {
+    cy.elements().removeClass('faded highlighted');
+  }
+});
+</script>
+</body>
+</html>
