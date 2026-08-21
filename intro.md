@@ -20,7 +20,7 @@ The Nucleus platform makes it possible to access tools and workflows, contribute
 
 :::{card}
 :header: 📖 **Documentation**
-:link: https://docs.nucleus.engineering
+:link: #documentation
 
 Lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
 :::
