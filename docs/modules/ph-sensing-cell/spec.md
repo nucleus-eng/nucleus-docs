@@ -90,7 +90,7 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 | Line item | Contribution | Working concentration/fraction in combined recipe |
 | --- | --- | --- |
 | Chicago Chassis | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration, per [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) — carries over unchanged |
-| pH-Sensing Module | pH-responsive ssDNA, trigger ssDNA, linear toehold switch (LacZ or XylE) | Not documented for this combined format — see [pH-Sensing Module](../detector-ph/spec.md#designs) for the concentrations used in that module's own, unencapsulated reactions |
+| pH-Sensing Module | pH-responsive ssDNA, trigger ssDNA, linear toehold switch (LacZ or XylE) | Not documented for this combined format — see [pH-Sensing Module](../detector-ph/spec.md#reference-composition) for the concentrations used in that module's own, unencapsulated reactions |
 
 :::
 
@@ -109,7 +109,7 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 :::
 
 :::{attention} pH-Sensing Module's own membrane figure is a different, unrelated formulation
-The [pH-Sensing Module](../detector-ph/spec.md#components) page separately lists a membrane fraction (89.9% POPC / 10% cholesterol / 0.1% Rhod-PE) for a possible future liposome-encapsulated format of its own. That fraction is not the membrane used here — the Sensing Cell embeds in the Chicago Chassis's 9:1 POPC:cholesterol synthetic cell (no Rhod-PE). Do not conflate the two.
+The [pH-Sensing Module](../detector-ph/spec.md) page separately lists a membrane fraction (89.9% POPC / 10% cholesterol / 0.1% Rhod-PE) for a possible future liposome-encapsulated format of its own. That fraction is not the membrane used here — the Sensing Cell embeds in the Chicago Chassis's 9:1 POPC:cholesterol synthetic cell (no Rhod-PE). Do not conflate the two.
 :::
 
 ::::

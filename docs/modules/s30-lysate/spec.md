@@ -12,7 +12,7 @@ site:
 S30 Lysate is a commercially available *E. coli* cell-free expression system with undefined composition. S30 Lysate may be used in place of [Base Cytosol](../base-cytosol/spec.md) for compatible modules.
 
 :::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use. Composition and performance data below come from a single internal encapsulation experiment ([London Module 3](#source-note)) and have not been independently replicated or validated.
+This page is a work in progress and not yet ready for use. Composition and performance data below come from a single internal encapsulation experiment (London Module 3) and have not been independently replicated or validated.
 :::
 
 # Reference Composition
