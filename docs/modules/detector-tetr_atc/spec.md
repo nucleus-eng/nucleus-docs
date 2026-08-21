@@ -34,9 +34,6 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 
 Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR protein to a final concentration of 500 nM, or include the `pT7-tetR` DNA construct. Add aTc inducer at 2.5 µM to 5 µM for effective induction. Volumes in µL.
 
-:::{warning}
-**Concentration discrepancy — requires review.** The reaction table lists TetR stock as `10 mM`, but the target final concentration stated in the text is 500 nM. At 10 mM stock with 0.5 µL in 10 µL total, the calculated final concentration would be 500 µM — a 1000× discrepancy. The stock concentration is likely `10 µM` (yielding 500 nM final). Please verify before use.
-:::
 
 | **Component** | **Master Mix (µL)** |
 | --- | --- |
@@ -44,7 +41,7 @@ Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR pro
 | PURExpress Solution B | 3 |
 | RNase Inhibitor | 0.5 |
 | `pT7-tetO-plamGFP` (10 nM) | 0.5 |
-| TetR (10 mM) | 0.5 |
+| TetR (10 µM) | 0.5 |
 | **Master Mix Total** | **9** |
 
 | **Component** | **Per Reaction (µL)** |
@@ -109,10 +106,6 @@ The TetR-aTc Detector module in the Base Cell.
 
 TetR detector synthetic cells were induced at multiple anhydrotetracycline concentrations and imaged over 12 h with approximately 22 min per timepoint.
 
-:::{warning}
-**Concentration discrepancy — requires review.** The figure caption for the encapsulated endpoint image states `312.5 uM` anhydrotetracycline, but the montage caption for the same experiment reports `312.5 nM`. Given the in vitro data showing toxicity above 50 µM to 100 µM, the intended concentration is almost certainly `312.5 nM`. Please verify before use.
-:::
-
 :::::{tab-set}
 
 ::::{tab-item} Montage
@@ -123,7 +116,7 @@ TetR detector synthetic cells induced at multiple anhydrotetracycline concentrat
 
 ::::{tab-item} Endpoint
 :::{figure} cell-performance-endpoint.png
-GFP expression within synthetic cells when induced with 312.5 µM anhydrotetracycline.
+GFP expression within synthetic cells when induced with 312.5 nM anhydrotetracycline.
 :::
 ::::
 
