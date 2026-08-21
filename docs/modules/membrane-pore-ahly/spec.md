@@ -100,7 +100,7 @@ Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production
 
 # Requirements
 
-Using purified aHly protein only requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+Using purified aHly protein only requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
 # Materials
 
