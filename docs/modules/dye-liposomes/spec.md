@@ -11,7 +11,7 @@ site:
 
 Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-popc-chol/spec.md) and use a simple, glucose outer solution. Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation and microscopy. This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
 
-## Reference Composition
+# Reference Composition
 
 :::::{tab-set}
 
@@ -33,7 +33,7 @@ Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-po
 ::::{tab-item} Membrane
 
 :::{table}
-:label: comp-membrane
+:label: comp-dye-liposomes-membrane
 
 | Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
@@ -60,15 +60,15 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 :::::
 
-## Expected Behavior
+# Expected Behavior
 
 Liposomes are visible in the green channel (interior, HPTS, 480 nm ex / 520 nm em) and in the red channel (membrane, Liss-Rhodamine-PE, 540 nm ex / 580 nm em) under fluorescence microscopy.
 
-## Process
+# Process
 
 Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
-# Materials and Equipment
+# Materials
 
 :::{table}
 :label: bom-dye-liposomes
@@ -93,3 +93,8 @@ Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfe
 :icon: false
 Sucrose is used in the original [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) protocol for the inner solution, but is replaced by Optiprep here to match the Base Cell inner-solution formulation. It is not included in the BOM above.
 :::
+
+# Credits
+
+Contributor attribution is pending confirmation. The formulation is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)), but the source material does not record who adapted it for Nucleus.
+

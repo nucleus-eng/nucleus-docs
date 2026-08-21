@@ -13,26 +13,24 @@ The IV-HSL Emitter module produces and releases N-isovaleryl-L-homoserine lacton
 
 IV-HSL offers several advantages: it crosses synthetic cell membranes; its uncommon branched-chain structure makes it orthogonal from many other HSLs ([Lindemann et al., 2011](https://doi.org/10.1073/pnas.1114125108)); and it activates expression in receiver cells at picomolar concentrations. The module encodes the BjaI enzyme under a constitutive T7 promoter. BjaI converts S-adenosylmethionine (SAM) and isovaleryl coenzyme A (IV-CoA) into IV-HSL, which diffuses out of the cell through the lipid bilayer. A companion *E. coli* receiver construct (`bjaR-GFP-native`) detects IV-HSL and produces a fluorescent output.
 
-:::::{tab-set}
-
-::::{tab-item} Schematic
 :::{figure} mechanism-schematic.png
 Design schematic of the IV-HSL Emitter module. `pT7-bjaI` expresses the BjaI enzyme, which converts SAM and IV-CoA substrates into IV-HSL. IV-HSL diffuses across the lipid bilayer and activates GFP expression in *E. coli* receiver cells via the BjaR transcription factor.
 :::
-::::
 
-::::{tab-item} Designs
+# Reference Composition
+
+:::::{tab-set}
+
+::::{tab-item} DNA
+:::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
 | `pOpen-pT7-bjaI` | 2752 | [pOpen-pT7-bjaI.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/pOpen-pT7-bjaI.gb) |
 | `pOpen-bjaR-GFP-native` | 3877 | [pOpen-bjaR-GFP-native.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/pOpen-bjaR-GFP-native.gb) |
+:::
 ::::
 
-:::::
-
-## Cytosols
-
-### Usage
+::::{tab-item} Cytosol
 
 Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively, to a standard PURE reaction containing `pT7-bjaI`. Volumes in µL.
 
@@ -50,7 +48,13 @@ Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentrat
 | ddH₂O | 2.22 | 3.72 | 19.74 | |
 | **Total** | **30** | **30** | **30** | |
 
-### Expected Performance
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cytosols
 
 PURE reactions were incubated for 4 h, then added to log-phase *E. coli* receiver cell cultures containing `bjaR-GFP-native`. GFP fluorescence was measured over 6 h at 5-minute timepoints using a BioTek Cytation 5 plate reader. Expression in XL-10 Gold cells containing `bjaR-GFP-native` is equivalent for bulk PURE reactions with `pT7-bjaI` and substrates and for emitter cells containing IV-HSL without plasmid DNA — both show a significant response over the negative control.
 
@@ -76,8 +80,6 @@ Expression of *E. coli* receiver cells modified with `bjaR-GFP-native` at steady
 The IV-HSL Emitter module in the Base Cell.
 :::
 
-### Expected Performance
-
 Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-GFP-native`. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 8 h collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
 
 :::{figure} cell-performance-endpoint.png
@@ -93,3 +95,17 @@ Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-G
 
 ::::
 
+# Requirements
+
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+
+**The companion receiver requires sigma-70 promoter transcription (e.g. *E. coli* RNA polymerase), not pT7.** `pOpen-bjaR-GFP-native` carries no T7 promoter — its annotated promoters are the constitutive Anderson promoter `BBa_J23100` and the BjaR-responsive `pBjaR`, both sigma-70. Base Cytosol supplies only T7 RNA polymerase, so this construct cannot be transcribed there as designed; it needs a living *E. coli* host. That makes the *E. coli* host a requirement of the construct as built, not a convenience — encapsulating the receiver would mean re-promotering it to pT7. This is the same sigma-70 requirement carried by the London Node modules.
+
+# Implementations
+
+- [Emitter: IV-HSL Cell](../../implementations/emitter-ivhsl/main.md): the module encapsulated as a synthetic cell co-cultured with *E. coli* receivers.
+- [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): BjaI expression placed under tetO control so IV-HSL emission responds to aTc.
+
+# Credits
+
+Developed by Yen-Yu Hsu (b.next).

@@ -13,26 +13,24 @@ The TetR inducible expression module is a set of two genetic constructs that enc
 
 `pT7-tetO-plamGFP` constitutively expresses the open reporter plamGFP in the absence of repressor protein. The inducible promoter is also a MoClo Level 0 'P' part and may be assembled into a Level 1 transcription unit with other MoClo-compatible genes. Addition of TetR protein — either as a purified protein or via constitutive expression of `pT7-tetR` — inhibits expression through steric occlusion of the tetO operator site. Addition of anhydrotetracycline (aTc) causes allosteric release of TetR from tetO, recovering expression. aTc is membrane-permeable, so the alpha-hemolysin membrane pore is not required for induction.
 
-:::::{tab-set}
-
-::::{tab-item} Schematic
 :::{figure} mechanism-schematic.png
 Schematic of the TetR inducible expression module. TetR represses expression from `pT7-tetO-plamGFP`; aTc relieves repression by binding TetR and causing its release from the tetO operator.
 :::
-::::
 
-::::{tab-item} Designs
+# Reference Composition
+
+:::::{tab-set}
+
+::::{tab-item} DNA
+:::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
 | `pT7-tetR` | 2877 | [pOpen-tetR.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-tetR.gb) |
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
+:::
 ::::
 
-:::::
-
-## Cytosols
-
-### Usage
+::::{tab-item} Cytosol
 
 Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR protein to a final concentration of 500 nM, or include the `pT7-tetR` DNA construct. Add aTc inducer at 2.5 µM to 5 µM for effective induction. Volumes in µL.
 
@@ -55,7 +53,13 @@ Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR pro
 | Inducer | 1 |
 | **Total** | **10** |
 
-### Expected Performance
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cytosols
 
 The TetR module was validated in NEB PURExpress reactions. Purified repressor protein (MedChemExpress, HY-P71520A) and anhydrotetracycline inducer (Cayman Chemical, 10009542) were added at the final concentrations indicated. `pT7-tetO-plamGFP` plasmid DNA was added at 0.5 nM.
 
@@ -103,8 +107,6 @@ Induction of `pT7-tetO-plamGFP` by aTc at steady state. TetR repressor protein i
 The TetR-aTc Detector module in the Base Cell.
 :::
 
-### Expected Performance
-
 TetR detector synthetic cells were induced at multiple anhydrotetracycline concentrations and imaged over 12 h with approximately 22 min per timepoint.
 
 :::{warning}
@@ -128,3 +130,15 @@ GFP expression within synthetic cells when induced with 312.5 µM anhydrotetracy
 :::::
 
 The TetR detector cell functions when induced with low-nanomolar aTc concentrations. Higher concentrations begin to inhibit expression or confound analysis due to background aTc fluorescence and membrane localization.
+
+# Requirements
+
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+
+# Implementations
+
+- [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): aTc relieves TetR repression to drive BjaI expression.
+
+# Credits
+
+Developed by Yen-Yu Hsu (b.next).
