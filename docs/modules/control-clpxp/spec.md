@@ -89,6 +89,52 @@ GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incu
 
 Cell-context validation of the ClpXP module is documented in the DevNote [ClpXP Module Validation in Cells](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpxp-pure-cells-01).
 
+Three liposome populations were prepared to test whether the control module functions inside a synthetic cell. All three encapsulated purified deGFP-ssrA together with the PURE system. The first also encapsulated two linear DNAs, `pT7-ClpX` and `pT7-ClpP`; the second encapsulated `pT7-ClpP` DNA with purified ClpX protein; the control contained no DNA.
+
+Liposomes containing functional ClpXP — whether assembled from two co-encapsulated DNAs or from DNA plus purified protein — show a clear decrease in green fluorescence over the incubation. Liposomes carrying both `pT7-ClpX` and `pT7-ClpP` degrade GFP more slowly than those carrying only `pT7-ClpP` with purified ClpX, which is consistent with competition for limited transcription and translation resources when several DNAs share one PURE reaction. Control liposomes show no substantial decrease; the slight reduction that does appear is most likely photobleaching. Expect a modest rise in green fluorescence over the first ~20 min, which reflects liposomes settling to the bottom of the imaging well rather than a change in expression.
+
+<!-- TODO: move to process page — imaging conditions (488 channel, 200 ms exposure, 40% intensity, 460–490 nm excitation, 500–550 nm emission) are protocol-level detail and belong in a Process page, not this spec. -->
+
+:::::{tab-set}
+
+::::{tab-item} ClpXP — two DNAs
+:::{figure} cell-clpxp-2dna.png
+:name: fig-clpxp-cell-2dna
+
+Time-series fluorescence microscopy of liposomes encapsulating `pT7-ClpX` and `pT7-ClpP` DNA with purified deGFP-ssrA, incubated at 37 °C. Green fluorescence decreases over time.
+:::
+::::
+
+::::{tab-item} ClpXP — one DNA
+:::{figure} cell-clpxp-1dna.png
+:name: fig-clpxp-cell-1dna
+
+Time-series fluorescence microscopy of liposomes encapsulating `pT7-ClpP` DNA with purified ClpX and purified deGFP-ssrA, incubated at 37 °C. Green fluorescence decreases faster than in the two-DNA condition.
+:::
+::::
+
+::::{tab-item} Control — no DNA
+:::{figure} cell-control-nodna.png
+:name: fig-clpxp-cell-control
+
+Time-series fluorescence microscopy of control liposomes encapsulating purified deGFP-ssrA only, incubated at 37 °C. Fluorescence stays substantially stable.
+:::
+::::
+
+:::::
+
+Quantifying single-liposome GFP intensity as time-resolved histograms reproduces the same trend: in ClpXP-containing liposomes the distribution shifts progressively toward lower intensity, while control liposomes hold steady. A small subpopulation of highly fluorescent liposomes persists in every condition, including the ClpXP ones — most likely liposomes that failed to encapsulate functional ClpXP during formation.
+
+:::{figure} cell-intensity-histograms.png
+:name: fig-clpxp-cell-histograms
+:align: center
+:width: 90%
+
+Time-resolved histograms of mean GFP fluorescence intensity for individual liposomes, at 0, 45, 90, 135, 180, and 225 min. **Top row:** both ClpX and ClpP DNA. **Middle row:** a single ClpXP DNA component. **Bottom row:** control liposomes lacking ClpXP. A persistent high-intensity subpopulation appears in all three conditions.
+:::
+
+Degradation is substantially slower inside synthetic cells than in bulk PURE reactions assembled from the same components at the same concentrations, so confinement has a real effect on the kinetics. The DevNote attributes this to energy limitation — PURE synthesis and ClpXP degradation both consume ATP — and proposes pairing this module with the [PPK energy module](../energy-ppk/spec.md) ([Integrating PPK Module in PURE Cells](https://doi.org/10.63765/mwur3749)) to address it.
+
 :::{figure} clpxp-overview.png
 The ClpXP Control Module in the context of the [Developer Cell](https://devnotes.nucleus.engineering/articles/developer-cell-introduction). Other Developer Cell Modules are grayed out.
 :::
