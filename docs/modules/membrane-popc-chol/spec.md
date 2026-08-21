@@ -41,4 +41,4 @@ Protocols for assembling Base Cell and making its components from scratch are de
 
 # Credits
 
-Contributor attribution is pending confirmation. The page cites no DevNote, and no source in this repository records who developed the 70:30 POPC/cholesterol formulation.
+Developed by b.next.

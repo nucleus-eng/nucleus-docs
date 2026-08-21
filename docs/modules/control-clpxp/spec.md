@@ -87,6 +87,10 @@ GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incu
 
 ## Cells
 
+:::{figure} clpxp-overview.png
+The ClpXP Control Module in the context of the [Developer Cell](https://devnotes.nucleus.engineering/articles/developer-cell-introduction). Other Developer Cell Modules are grayed out.
+:::
+
 Cell-context validation of the ClpXP module is documented in the DevNote [ClpXP Module Validation in Cells](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpxp-pure-cells-01).
 
 Three liposome populations were prepared to test whether the control module functions inside a synthetic cell. All three encapsulated purified deGFP-ssrA together with the PURE system. The first also encapsulated two linear DNAs, `pT7-ClpX` and `pT7-ClpP`; the second encapsulated `pT7-ClpP` DNA with purified ClpX protein; the control contained no DNA.
@@ -121,9 +125,7 @@ Time-series fluorescence microscopy of control liposomes encapsulating purified 
 :::
 ::::
 
-:::::
-
-Quantifying single-liposome GFP intensity as time-resolved histograms reproduces the same trend: in ClpXP-containing liposomes the distribution shifts progressively toward lower intensity, while control liposomes hold steady. A small subpopulation of highly fluorescent liposomes persists in every condition, including the ClpXP ones — most likely liposomes that failed to encapsulate functional ClpXP during formation.
+::::{tab-item} Single Cell Intensity Histograms
 
 :::{figure} cell-intensity-histograms.png
 :name: fig-clpxp-cell-histograms
@@ -131,17 +133,17 @@ Quantifying single-liposome GFP intensity as time-resolved histograms reproduces
 :width: 90%
 
 Time-resolved histograms of mean GFP fluorescence intensity for individual liposomes, at 0, 45, 90, 135, 180, and 225 min. **Top row:** both ClpX and ClpP DNA. **Middle row:** a single ClpXP DNA component. **Bottom row:** control liposomes lacking ClpXP. A persistent high-intensity subpopulation appears in all three conditions.
+
+
+Quantifying single-liposome GFP intensity as time-resolved histograms reproduces the same trend: in ClpXP-containing liposomes the distribution shifts progressively toward lower intensity, while control liposomes hold steady. A small subpopulation of highly fluorescent liposomes persists in every condition, including the ClpXP ones — most likely liposomes that failed to encapsulate functional ClpXP during formation.
 :::
 
-Degradation is substantially slower inside synthetic cells than in bulk PURE reactions assembled from the same components at the same concentrations, so confinement has a real effect on the kinetics. The DevNote attributes this to energy limitation — PURE synthesis and ClpXP degradation both consume ATP — and proposes pairing this module with the [PPK energy module](../energy-ppk/spec.md) ([Integrating PPK Module in PURE Cells](https://doi.org/10.63765/mwur3749)) to address it.
-
-:::{figure} clpxp-overview.png
-The ClpXP Control Module in the context of the [Developer Cell](https://devnotes.nucleus.engineering/articles/developer-cell-introduction). Other Developer Cell Modules are grayed out.
-:::
+::::
+:::::
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+Requires ATP and ssrA-tagged protein targets. Using DNA components additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). 
 
 # Credits
 

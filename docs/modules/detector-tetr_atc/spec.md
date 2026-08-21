@@ -108,13 +108,13 @@ TetR detector synthetic cells were induced at multiple anhydrotetracycline conce
 
 :::::{tab-set}
 
-::::{tab-item} Montage
+::::{tab-item} Microscopy Images
 :::{figure} cell-performance-montage.png
 TetR detector synthetic cells induced at multiple anhydrotetracycline concentrations. 8 timepoints displayed per condition, approximately 22 min apart, over 12 h total. **First row:** induction using 625 nM, 312.5 nM, and 0 nM (fully repressed) aTc introduced into the outer buffer. **Second row:** induction with 2500 nM aTc in the inner solution and positive control without TetR repression.
 :::
 ::::
 
-::::{tab-item} Endpoint
+::::{tab-item} Fluorescence Intensity
 :::{figure} cell-performance-endpoint.png
 GFP expression within synthetic cells when induced with 312.5 nM anhydrotetracycline.
 :::
