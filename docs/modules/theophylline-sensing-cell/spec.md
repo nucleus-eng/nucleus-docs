@@ -23,21 +23,15 @@ The underlying riboswitch is described as "very wonky and unpredictable", and is
 
 This page describes the Chassis + Module integration step itself. It does not cover this Sensing Cell's integration into the multiplexed Chicago Cascade — see [Chicago Cascade](../chicago-cascade/spec.md), and that page's Requirements section for the co-encapsulation constraint against the aTc Sensing Module.
 
-## Schematic
-
-:::::{tab-set}
-
-::::{tab-item} Mechanism
-
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
-    Chassis["Chicago Chassis\n(Base Cytosol in 9:1 POPC:Chol synthetic cell)"] -->|"Add riboswitch-to-PLA1 DNA"| Cytosol["Loaded Cytosol"]
-    Module["Theophylline Sensing Module\n(riboswitch-to-PLA1 DNA)"] -.-> Cytosol
+    Chassis["Chicago Chassis<br/>(Base Cytosol in 9:1 POPC:Chol synthetic cell)"] -->|"Add riboswitch-to-PLA1 DNA"| Cytosol["Loaded Cytosol"]
+    Module["Theophylline Sensing Module<br/>(riboswitch-to-PLA1 DNA)"] -.-> Cytosol
     Cytosol -->|"Encapsulate as synthetic cell"| SensingCell["Theophylline Sensing Cell"]
-    Theo(("Theophylline\n(1 mM)")) -->|"Detected by riboswitch"| SensingCell
+    Theo(("Theophylline<br/>(1 mM)")) -->|"Detected by riboswitch"| SensingCell
     SensingCell -->|"Produces"| PLA1["PLA1"]
-    PLA1 -.->|"Out of scope on this page"| Cascade["Chicago Cascade\nlysis reaction"]
+    PLA1 -.->|"Out of scope on this page"| Cascade["Chicago Cascade<br/>lysis reaction"]
 
     style Chassis fill:#6B7280,color:#ffffff,stroke:#4B5563
     style Module fill:#6B7280,color:#ffffff,stroke:#4B5563
@@ -50,7 +44,9 @@ flowchart LR
 
 This diagram shows the composed mechanism only: the Chicago Chassis loaded with the Theophylline Sensing Module's riboswitch-to-PLA1 DNA, encapsulated as a synthetic cell, then producing PLA1 on theophylline detection. It stops at PLA1 output — the downstream Chicago Cascade lysis reaction is a separate, out-of-scope step (see Overview above).
 
-::::
+# Reference Composition
+
+:::::{tab-set}
 
 <!-- gen:composition-diagram -->
 ::::{tab-item} Module Dependencies
@@ -89,13 +85,6 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 
 ::::
 <!-- /gen:composition-diagram -->
-
-:::::
-
-
-## Reference Composition
-
-:::::{tab-set}
 
 ::::{tab-item} Cytosol
 
@@ -137,7 +126,7 @@ Same 9:1 POPC:cholesterol synthetic cell membrane as [Chicago Chassis](../chicag
 
 :::::
 
-## Expected Behavior
+# Expected Behavior
 
 Per the Chicago integration status material, this Sensing Cell produces PLA1 upon detection of 1 mM theophylline. This result has not yet been independently confirmed by a primary devnote — cite the Chicago integration status material and treat as pending confirmation, consistent with the "PLA1-linked cascade design" discussion on the [Theophylline Sensing Module](../detector-theophylline/spec.md) page.
 
@@ -145,14 +134,13 @@ Separately, the bulk-cytosol devnote behind the Theophylline Sensing Module (`ch
 
 As noted above, a later bulk-reaction replication (2026-08-14 status deck, p. 28) found the riboswitch leaky in the LacZ-reporter configuration, expressing reporter without theophylline at levels close to the 1 mM to 2 mM theophylline condition. Whether the same leakiness applies to the PLA1-linked construct used in this Sensing Cell has not been separately tested — flagged as an open question rather than assumed.
 
-## Requirements
+# Requirements
+
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
+
+Requires theophylline to cross the membrane and reach the encapsulated riboswitch; the reported result uses 1 mM theophylline in the outer solution.
 
 Per the [Theophylline Sensing Module](../detector-theophylline/spec.md) page, this Sensing Cell must not be co-encapsulated with the aTc Sensing Cell. The requirement is settled; the mechanism behind it is not. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence, including a primary figure that runs against the usual inhibition explanation. This page does not restate it.
-
-# Constituent Modules
-
-- [Chicago Chassis](../chicago-chassis/spec.md)
-- [Theophylline Sensing Module](../detector-theophylline/spec.md) (PLA1-linked configuration — see Reference Composition above for how this differs from that page's bulk-cytosol validation construct)
 
 # Implementations
 
@@ -162,12 +150,13 @@ No Implementation page exists yet for this Sensing Cell. The downstream merge in
 An earlier revision cited hydrogel cross-contamination between co-located cells as the blocker for the Chicago Cascade merge. That explanation was never backed by a primary source and has been superseded by the co-encapsulation constraint documented on the [Theophylline Sensing Module](../detector-theophylline/spec.md#requirements). Recorded here rather than dropped silently.
 :::
 
+# Constituent Modules
+
+- [Chicago Chassis](../chicago-chassis/spec.md)
+- [Theophylline Sensing Module](../detector-theophylline/spec.md) (PLA1-linked configuration — see Reference Composition above for how this differs from that page's bulk-cytosol validation construct)
+
 # Credits
 
-Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) — bulk-cytosol riboswitch validation (`chicago-theophylline-lacz` devnote).
+Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab) — bulk-cytosol riboswitch validation (`chicago-theophylline-lacz` devnote).
 
-Developed by the Chicago node (Kamat Lab and Liu Lab) — the PLA1-linked sensing cell integration.
-
-:::{attention} Attribution needs confirmation
-Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
-:::
+Developed by the Chicago Node (Kamat Lab and Liu Lab) — the PLA1-linked sensing cell integration.

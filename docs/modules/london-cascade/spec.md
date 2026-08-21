@@ -19,12 +19,6 @@ This page is a work in progress and not yet ready for use.
 **Source of this page.** Composition and behavior data below come from `Demo Status - London.docx` (London Module 6, "PLA1-based colour-change module," contributors Jonah McDonald and Charlie Newell) and the 2026-08-14 DevCells status meeting (transcript and an accompanying 40-page slide deck, pp. 15–17). The backing devnotes for this cascade — `devnotes/london-quorum-sensing-polymersome/main.md` and `devnotes/london-lacz-xyle-module/main.md` — are both confirmed still template stubs, so neither is cited here as a completed primary source. See the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) spec for the underlying LuxR/pLux sensing data (encapsulation, plasmid dosing, temperature dependence) rather than duplicating it here — this page covers only what changes when PLA1 replaces GFP as the sensed cascade's output.
 :::
 
-## Schematic
-
-:::::{tab-set}
-
-::::{tab-item} Mechanism
-
 No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure.
 
 ```mermaid
@@ -46,9 +40,11 @@ flowchart LR
     click READOUT "/docs/modules/reporter-lacz/spec"
 ```
 
-The readout step is shaded to flag it as the currently only slightly discernible, leaky part of the chain (see [Expected Behavior](#expected-behavior) below); the status meeting deck describes the underlying rupture step itself as "temperamental... sometimes SynCells do not rupture" (deck p. 17).
+Schematic representation of the London Cascade mechanism. The readout step is shaded to flag it as the currently only slightly discernible, leaky part of the chain (see [Expected Behavior](#expected-behavior) below); the status meeting deck describes the underlying rupture step itself as "temperamental... sometimes SynCells do not rupture" (deck p. 17).
 
-::::
+# Reference Composition
+
+:::::{tab-set}
 
 <!-- gen:composition-diagram -->
 ::::{tab-item} Module Dependencies
@@ -97,10 +93,7 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 ::::
 <!-- /gen:composition-diagram -->
 
-:::::
-
-
-## Reference Composition
+::::{tab-item} Working Concentrations
 
 The table below aggregates the working concentrations of the three constituent Modules in the combined cascade, flattened one level deep, for the S30 lysate condition reported in `Demo Status - London.docx` (Module 6): 15 ng/µL `P70lux-PLA1-term` plasmid DNA plus 5 µM purified AHSL (AHL). It does not re-expand any constituent's own internal composition — see each linked spec for that detail.
 
@@ -117,16 +110,22 @@ The table below aggregates the working concentrations of the three constituent M
 :::
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
-`P70lux-PLA1-term` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) Designs tab for the same gap. Do not add a Designs table entry here until the construct is confirmed and its length verified against the source file.
+`P70lux-PLA1-term` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) Designs tab for the same gap. Do not add a DNA table entry here until the construct is confirmed and its length verified against the source file.
 :::
 
 Source material does not report a full outer-solution table (glucose/salt osmolarity components) specific to this cascade, or a separate reaction-composition table confirming that the S30 lysate premix, extract, amino acid mix, sucrose, and RNase inhibitor concentrations carry over unchanged from the AHL Sensing Cell's own inner-solution table for the PLA1 payload — see the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) spec for the closest documented analog on both counts.
 
-## Expected Behavior
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cells
 
 With S30 lysate-encapsulated liposomes and quorum sensing active, a color change is observed both in the presence and absence of AHSL — at 15 ng/µL plasmid DNA and 5 µM purified AHSL, the difference in color between the +AHSL and −AHSL conditions is described as only slightly discernible after 16 h at 37 °C. The team is still testing other DNA/AHSL concentrations and hydrogel concentrations to widen this gap and reduce time-to-signal.
 
-The status meeting deck separately reports this same AHL-gated lysate colorimetric configuration (both solution and gel formats, deck pp. 16–17) as having been repeated across two different labs in gel format, but describes it as "temperamental... sometimes SynCells do not rupture" (deck p. 17). The deck also flags "leaky expression [as] a bigger issue than first thought" for the London node generally (deck p. 13, discussing the earlier GFP-based AHL sensor module) — a separate module from the PLA1/LacZ cascade on this page, but the same leakiness recurs here: the deck's own p. 17 notes "also have some leaky expression (but still discernible)" for this cascade specifically.
+The status meeting deck separately reports this same AHL-gated lysate colorimetric configuration (both solution and gel formats, deck pp. 16–17) as having been repeated across two different labs in gel format, but describes it as "temperamental... sometimes SynCells do not rupture" (deck p. 17). The deck also flags "leaky expression [as] a bigger issue than first thought" for the London Node generally (deck p. 13, discussing the earlier GFP-based AHL sensor module) — a separate module from the PLA1/LacZ cascade on this page, but the same leakiness recurs here: the deck's own p. 17 notes "also have some leaky expression (but still discernible)" for this cascade specifically.
 
 :::{attention} Net characterization
 The AHL-gated PLA1/LacZ colorimetric readout is not yet a robust, confirmed result. The signal is real — a color difference between +AHSL and −AHSL conditions has been observed — but it is explicitly described as only slightly discernible, and the underlying two-liposome lysis-and-release mechanism is reported as unreliable ("temperamental," inconsistent rupture) even where repeated across labs. Treat this Module as an in-progress optimization target, not as a validated colorimetric cascade.
@@ -136,7 +135,19 @@ The AHL-gated PLA1/LacZ colorimetric readout is not yet a robust, confirmed resu
 A separate constitutive (non-AHL-gated) configuration of the same PLA1/CPRG two-liposome chemistry, run in nucleus cytosol without quorum sensing, shows a clearer result: a color change observable from ~3 h at 37 °C, easily discernible by 16 h, reproduced across multiple days (`Demo Status - London.docx`, Module 6). This confirms the PLA1/LacZ/CPRG chemistry itself works, but it is not the AHL-sensing cascade described on this page — it has no LuxR/pLux gating and is not a demonstration of AHL detection.
 :::
 
-## Process
+# Requirements
+
+Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `P70lux-PLA1-term` construct is driven by the *E. coli* P70/pLux promoter, not pT7, so it does not express in a T7-only cytosol.
+
+Requires AHL (3-oxo-C6-HSL) as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: AHL](../detector-ahl/spec.md)).
+
+Requires two separate liposome populations — the PLA1-payload sensing population and a CPRG-loaded population (e.g. [London Chassis](../london-chassis/spec.md)) — plus β-galactosidase in the exterior solution (e.g. [LacZ Reporter](../reporter-lacz/spec.md)). The readout depends on PLA1 lysing both compartments to release CPRG, so this cascade has no bulk-cytosol route.
+
+# Implementations
+
+- [London DevCell](../../implementations/london-devcell/main.md): places this cascade in its demo operating context.
+
+# Process
 
 The London Cascade requires encapsulating two separate liposome populations (the PLA1-payload sensing population and the CPRG-loaded reporter population) and combining them in a shared exterior LacZ solution, following the same synthetic cell mineral-oil phase-transfer route documented on the [London Chassis](../london-chassis/spec.md) and [AHL Sensing Cell](../ahl-sensing-cell/spec.md) specs.
 
@@ -156,5 +167,4 @@ Exterior LacZ (or LacZ/CPRG product) leakage after PLA1-triggered lysis was rais
 
 # Credits
 
-- Jonah McDonald (PLA1-based colour-change module)
-- Charlie Newell (PLA1-based colour-change module)
+Developed by Jonah McDonald and Charlie Newell (London Node).

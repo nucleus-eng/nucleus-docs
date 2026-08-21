@@ -17,28 +17,27 @@ This page is a work in progress and not yet ready for use.
 
 Two source lines both use LacZ, at different levels of readiness, and should not be conflated:
 
-1. **Chicago node** — LacZ is used two ways: fused directly downstream of the theophylline riboswitch on a single bulk-cytosol validation construct (`pT7-theophylline-LacZ`, internally `pMN066`), and as a separate co-encapsulated reporter alongside a `TetO-PLA1` construct in the confirmed 2026-08-14 aTc Cascade synthetic cell result (see [tetR-aTc Detector](../detector-tetr_atc/spec.md) for that data). Sources: [`devnotes/chicago-theophylline-lacz`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz), [`devnotes/chicago-colorimetric-validation`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-colorimetric-validation).
-2. **London node** — LacZ is one of two candidate reporter enzymes (alongside XylE) for the London colour-change module, in two linear-DNA formats (`T7pro-LacZ-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-LacZ-T7term` variant). As of that devnote, LacZ was reported as synthesized, with templates prepared, but no synthetic-cell-encapsulated result had yet been reported. Source: [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module).
+1. **Chicago Node** — LacZ is used two ways: fused directly downstream of the theophylline riboswitch on a single bulk-cytosol validation construct (`pT7-theophylline-LacZ`, internally `pMN066`), and as a separate co-encapsulated reporter alongside a `TetO-PLA1` construct in the confirmed 2026-08-14 aTc Cascade synthetic cell result (see [tetR-aTc Detector](../detector-tetr_atc/spec.md) for that data). Sources: [`devnotes/chicago-theophylline-lacz`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz), [`devnotes/chicago-colorimetric-validation`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-colorimetric-validation).
+2. **London Node** — LacZ is one of two candidate reporter enzymes (alongside XylE) for the London colour-change module, in two linear-DNA formats (`T7pro-LacZ-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-LacZ-T7term` variant). As of that devnote, LacZ was reported as synthesized, with templates prepared, but no synthetic-cell-encapsulated result had yet been reported. Source: [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module).
 
 Because both node lines use the same enzyme (LacZ) against the same substrate (CPRG), this page treats them as one shared Module, cited from each node's Implementation pages rather than duplicated across them.
 
-:::::{tab-set}
-
-::::{tab-item} Schematic
-
 :::{figure} cprg-color-change-agarose.png
+:name: fig-lacz-cprg-agarose
 :align: center
 :width: 80%
-LacZ/CPRG colorimetric reaction in an agarose hydrogel well, photographed at t = 0, 30, and 60 min (left to right) after PLA1-triggered rupture of CPRG-loaded SUVs. CPRG starts yellow and turns magenta/purple as LacZ converts it. Source: 2026-08-14 DevCells status-meeting slide, "Color change in patterned agarose hydrogel can be spatially confined," Samuel Chen, Liu Lab.
+Photograph of the LacZ/CPRG colorimetric reaction in an agarose hydrogel well, taken at t = 0, 30, and 60 min (left to right) after PLA1-triggered rupture of CPRG-loaded SUVs. CPRG starts yellow and turns magenta/purple as LacZ converts it. Source: 2026-08-14 DevCells status-meeting slide, "Color change in patterned agarose hydrogel can be spatially confined," Samuel Chen, Liu Lab.
 :::
 
 :::{note}
 This photo shows the LacZ/CPRG reaction in the patterned-agarose demonstration, not the specific Chicago or London constructs on this page. It is included as a representative depiction of the underlying color-change mechanism (yellow → magenta/purple) shared by both node lines.
 :::
 
-::::
+# Reference Composition
 
-::::{tab-item} Designs
+:::::{tab-set}
+
+::::{tab-item} DNA
 
 :::{attention} Not yet in `nucleus-eng/DNA`
 No LacZ-encoding construct referenced by either node has a corresponding file in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA) as of this writing (checked `detectors/` and `reporters/`; none found). The Chicago bulk-cytosol construct `pT7-theophylline-LacZ` (`pMN066`) fuses LacZ downstream of the theophylline riboswitch rather than expressing it standalone, so even once submitted it would not represent a bare LacZ reporter part. The London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) are reported as synthesized in the source devnote but no sequence file or DNA-repo submission is cited. Do not link to a placeholder or guess a filename — flag for follow-up so a standalone LacZ construct can be submitted to `nucleus-eng/DNA` before this table can cite a real sequence file.
@@ -52,19 +51,11 @@ No LacZ-encoding construct referenced by either node has a corresponding file in
 
 ::::
 
-:::::
-
-## Substrate
-
-CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is the substrate used in all confirmed LacZ results on this page. It is prepared fresh or stored at -20 °C in water at 10 mg/mL, and is converted by LacZ from a yellow compound into a magenta/red product, readable by absorbance near 570 nm to 575 nm or by eye.
-
-## Cytosols
-
-### Reference Composition
+::::{tab-item} Cytosol
 
 The only bulk-cytosol reaction data available characterizes LacZ fused downstream of the theophylline riboswitch, not LacZ expressed standalone. In a 10 µL Nucleus Cytosol reaction with `pT7-theophylline-LacZ` (`pMN066`) at 5 nM sensor DNA and CPRG at 0.6 mg/mL final concentration, incubated at 37 °C in a platereader:
 
-:::{table} Reaction composition (Chicago node, bulk cytosol)
+:::{table} Reaction composition (Chicago Node, bulk cytosol)
 | Component | Stock Concentration | Final concentration | − theophylline [µL] | + 1.5 mM theophylline [µL] |
 | --- | --- | --- | --- | --- |
 | SMix | 3.33× | 1× | 3 | 3 |
@@ -78,7 +69,17 @@ The only bulk-cytosol reaction data available characterizes LacZ fused downstrea
 | Water | | | 0.54 | 0 |
 :::
 
-### Expected Performance
+::::
+
+:::::
+
+## Substrate
+
+CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is the substrate used in all confirmed LacZ results on this page. It is prepared fresh or stored at -20 °C in water at 10 mg/mL, and is converted by LacZ from a yellow compound into a magenta/red product, readable by absorbance near 570 nm to 575 nm or by eye.
+
+# Expected Behavior
+
+## Cytosols
 
 Absorbance at 570 nm over time shows CPRG converts from yellow to a red product faster in the presence of 1.5 mM theophylline than without it, under the reaction above. This is a single preliminary experiment (one condition each, no replicates reported) demonstrating that the LacZ/CPRG reaction functions in Nucleus Cytosol — it is not a characterization of LacZ turnover independent of a switch, and no bulk-cytosol data exists yet for LacZ expressed standalone (without a sensor fused upstream).
 
@@ -95,7 +96,7 @@ A separate devnote ([`chicago-colorimetric-validation`](https://github.com/nucle
 See [tetR-aTc Detector](../detector-tetr_atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ and CPRG in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. That result is the most advanced encapsulated use of this Module as of 2026-08-14 and is not duplicated here.
 :::
 
-For the London node, LacZ encapsulation is still at the milestone-planning stage: the source devnote's Milestone 3 ("Encapsulate reporter system in synthetic cells") lists open risks — substrate/product interference with liposome generation, and encapsulation efficiency limiting visible pigment — with no success-criteria data reported yet. Do not read the London line as having reached the same readiness as the Chicago aTc Cascade result above.
+For the London Node, LacZ encapsulation is still at the milestone-planning stage: the source devnote's Milestone 3 ("Encapsulate reporter system in synthetic cells") lists open risks — substrate/product interference with liposome generation, and encapsulation efficiency limiting visible pigment — with no success-criteria data reported yet. Do not read the London line as having reached the same readiness as the Chicago aTc Cascade result above.
 
 # Requirements
 
@@ -134,7 +135,8 @@ A related but distinct issue: LacZ (or LacZ/CPRG product) leaking to the exterio
 
 # Credits
 
-- Chicago node bulk-cytosol result: see [`devnotes/chicago-theophylline-lacz`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz) for contributor attribution.
-- Chicago node synthetic cell/hydrogel encapsulation result (Mary Kelly, Kamat Lab): see the 2026-08-14 DevCells status meeting materials.
-- Schematic-tab photo of the LacZ/CPRG color change in patterned agarose (Samuel Chen, Liu Lab): see the 2026-08-14 DevCells status meeting materials.
-- London node module design: see [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module) for contributor attribution.
+Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab) — bulk-cytosol validation.
+
+Developed by [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab) — London colour-change module design.
+
+Synthetic cell/hydrogel encapsulation result by Mary Kelly (Chicago Node, Kamat Lab), and the patterned-agarose color-change photo by Samuel Chen (Chicago Node, Liu Lab), both from the 2026-08-14 DevCells status meeting materials.

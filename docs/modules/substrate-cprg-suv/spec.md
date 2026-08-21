@@ -42,7 +42,11 @@ flowchart LR
 
 No published schematic exists for this module; the diagram above is a simplified summary, not a reproduction of a lab figure.
 
-# Membrane Composition
+# Reference Composition
+
+:::::{tab-set}
+
+::::{tab-item} Membrane
 
 The Substrate SUV uses the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) base bilayer — 90:10 POPC:cholesterol — with **no fluorescent label**. The label is omitted because the readout is absorbance, not fluorescence.
 
@@ -58,7 +62,9 @@ The Substrate SUV uses the [Chicago Membrane](../membrane-popc-chol-chicago/spec
 
 See [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) for the shared base and the labeled variant used for Sensing Cells.
 
-# Composition
+::::
+
+::::{tab-item} Luminal Cargo
 
 The luminal cargo is CPRG in hydration buffer. Two working concentrations are documented, for two different downstream uses.
 
@@ -74,7 +80,9 @@ The luminal cargo is CPRG in hydration buffer. Two working concentrations are do
 
 The two figures agree with each other: CPRG has a molecular weight of about 585 g/mol, so 50 mM is 29.3 mg/mL — the "30 mg/mL" of the deck. The 15 mg/mL figure is a different, lower concentration used when the SUVs are cast into the inner gel of a patterned construct, not a restatement of the loading concentration.
 
-# Standard Usage Conditions
+::::
+
+::::{tab-item} Preparation Parameters
 
 :::{table} Standard preparation parameters.
 :label: comp-substrate-cprg-usage
@@ -94,15 +102,13 @@ The two figures agree with each other: CPRG has a molecular weight of about 585 
 These are different methods with different residual-substrate profiles, and residual free CPRG is exactly what produces background color. This may be a change of method over time, or two different preparations. Do not pick one silently — confirm with the Chicago team which is current.
 :::
 
-# Requirements
+::::
 
-**Do not pair pre-loaded Substrate SUVs with PEG-norbornene gelation.** CPRG photobleaches under the UV crosslinking step: side-by-side comparisons show UV exposure during PEG-norbornene crosslinking visibly bleaches the color while an unexposed control retains it.
-
-The confirmed workaround for PEG-norbornene is to invert the order — pre-add LacZ to the gel, crosslink, then add CPRG as a free dye afterwards. That path does not use this module. Agarose, alginate, and ULGA embedding involve no UV step and are compatible with pre-loading as described here.
+:::::
 
 # Expected Behavior
 
-Intact Substrate SUVs produce no signal. On PLA1-triggered lysis of a neighboring Sensing Cell, released CPRG reacts with LacZ in the surrounding matrix to give a yellow-to-purple change, measurable at 575 nm and visible by eye. In ~1% alginate the change appears after about 16 h.
+Intact Substrate SUVs produce no signal. On PLA1-triggered lysis of a neighboring Sensing Cell, released CPRG reacts with LacZ in the surrounding matrix to give a yellow-to-purple change, measurable at 575 nm and visible by eye.
 
 Quality control before combining with other components:
 
@@ -113,22 +119,30 @@ Quality control before combining with other components:
 The 400 nm target size and the 50 mM loading concentration are cited from Chicago status material and the meeting deck. No DevNote with DLS traces or absorbance QC data has been located, so these values are not independently verified. Listed as a wanted module DevNote.
 :::
 
-# Protocols
+## Gels
 
-- [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — lipid film, CPRG hydration, extrusion, purification.
-- [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md) — co-embedding with Sensing Cells and LacZ.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the readout step itself.
+In ~1% alginate the yellow-to-purple change appears after about 16 h.
 
-# Used By
+# Requirements
+
+Requires an external β-galactosidase source in the surrounding matrix (e.g. [LacZ Reporter](../reporter-lacz/spec.md)), and a lysis trigger to breach the SUV membrane (e.g. [PLA1 Lysis Module](../effector-pla1/spec.md)).
+
+**Do not pair pre-loaded Substrate SUVs with PEG-norbornene gelation.** CPRG photobleaches under the UV crosslinking step: side-by-side comparisons show UV exposure during PEG-norbornene crosslinking visibly bleaches the color while an unexposed control retains it.
+
+The confirmed workaround for PEG-norbornene is to invert the order — pre-add LacZ to the gel, crosslink, then add CPRG as a free dye afterwards. That path does not use this module. Agarose, alginate, and ULGA embedding involve no UV step and are compatible with pre-loading as described here.
+
+# Implementations
 
 - [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) — the alginate-embedded colorimetric result.
 - [aTc Sensing Cell](../atc-sensing-cell/spec.md) — note that this cascade co-encapsulates LacZ and CPRG *inside* the Sensing Cell rather than using a separate Substrate SUV; check which configuration applies before assuming this module is involved.
 - [London Cascade](../london-cascade/spec.md) — the two-liposome PLA1/CPRG handoff.
 
+# Process
+
+- [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — lipid film, CPRG hydration, extrusion, purification.
+- [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md) — co-embedding with Sensing Cells and LacZ.
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the readout step itself.
+
 # Credits
 
-Developed by the Chicago node (Kamat Lab and Liu Lab).
-
-:::{attention} Attribution needs confirmation
-`Demo Status - Chicago.docx` leaves the contributor field blank for the sections covering the SUV preparation. Samuel Chen (Liu Lab) is credited on the patterned-agarose result that uses these SUVs (14 Aug 2026 deck, slide 10), but not for the preparation itself. Confirm with the Chicago team.
-:::
+Developed by the Chicago Node (Kamat Lab and Liu Lab).

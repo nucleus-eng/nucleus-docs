@@ -64,8 +64,4 @@ No integrated performance data exists. Confirmed results sit at the level of ind
 
 # Credits
 
-Developed by the London node — Elani Lab. Contributors named in the source material: Ion Ioannou, Jonah McDonald, Charlie Newell, Manuel. Individual results are credited on their own Module pages.
-
-:::{attention} Attribution needs confirmation
-Names and their mapping to results come from `Demo Status - London.docx` and the 2026-08-14 meeting notes, not from the London team directly.
-:::
+Developed by the London Node — Elani Lab. Contributors named in the source material: Ion Ioannou, Jonah McDonald, Charlie Newell, Manuel. Individual results are credited on their own Module pages.

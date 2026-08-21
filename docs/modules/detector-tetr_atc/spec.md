@@ -137,7 +137,7 @@ The TetR detector cell functions when induced with low-nanomolar aTc concentrati
 The `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate. Data below cover the confirmed in synthetic cytosols and in synthetic cells only — hydrogel-embedded validation has not been performed (Chicago Module Integration Status notes).
 :::
 
-A separate, Chicago-specific implementation encapsulates a `TetO-PLA1` construct — not `pT7-tetO-plamGFP` above — together with LacZ and CPRG substrate in a synthetic cell, reading out through the LacZ/CPRG colorimetric reaction (absorbance at 575 nm) instead of GFP fluorescence. This configuration detects aTc at the confirmed in synthetic cytosols and in synthetic cells, but the response is **not graded**. The source figure reports fold change in absorbance at 5 h (n = 3) across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each dosed with 0, 1, 5, and 10 µM aTc.
+A separate, Chicago-specific implementation encapsulates a `TetO-PLA1` construct — not `pT7-tetO-plamGFP` above — together with LacZ and CPRG substrate in a synthetic cell, reading out through the LacZ/CPRG colorimetric reaction (absorbance at 575 nm) instead of GFP fluorescence. This configuration detects aTc confirmed in synthetic cytosols and in synthetic cells, but the response is **not graded**. The source figure reports fold change in absorbance at 5 h (n = 3) across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each dosed with 0, 1, 5, and 10 µM aTc.
 
 Every combination separates dosed from undosed, at roughly 1.15× to 1.33× fold change. None shows a monotonic increase with dose: the response peaks at 1 µM in the first combination and at 5 µM in the third, and the error bars across the 1, 5, and 10 µM points overlap in all three. Read this as **saturating at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.**
 
@@ -150,5 +150,5 @@ An earlier revision stated "absorbance increased with aTc dose (0/1/5/10 µM)". 
 :::
 
 :::{warning}
-**Gel integration not yet complete.** This result is confirmed at the confirmed in synthetic cytosols and in synthetic cells only. Hydrogel integration is in early stages and has not been completed. Do not treat this construct as validated for hydrogel-embedded (Cascade) use yet.
+**Gel integration not yet complete.** This result is confirmed confirmed in synthetic cytosols and in synthetic cells only. Hydrogel integration is in early stages and has not been completed. Do not treat this construct as validated for hydrogel-embedded (Cascade) use yet.
 :::
