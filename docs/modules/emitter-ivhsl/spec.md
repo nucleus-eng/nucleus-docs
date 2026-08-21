@@ -84,7 +84,7 @@ Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-G
 
 :::::{tab-set}
 
-::::{tab-item} Micr0scopy Timeseries
+::::{tab-item} Microscopy Timeseries
 :::{figure} cell-liposome-exclusion.png
 **Emitter Cell Timeseries. (Positive)** Liposomes contain PURE and 100 nM IV-HSL. **(Negative)** Liposomes contain PURE supplemented with SAM and IV-HSL, but no DNA encoding BjaI. **(Emitter)** Liposomes contain PURE expressing BjaI from `pT7-bjaI`. Exposures are matched between wells. Each field of view is 167 µm wide.
 :::
