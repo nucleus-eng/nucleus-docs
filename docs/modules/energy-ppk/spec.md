@@ -137,7 +137,7 @@ The following reaction table is a self-contained experiment for evaluating the p
 | Mg-Acetate                                                                                  | 1.40           | 3.15               | 3.15                       | 0.00                            | 0.00                           |
 | Creatine phosphate                                                                          | 0.70           | 0.00               | 0.70                       | 0.00                            | 0.00                           |
 | PEG4K 40%                                                                                   | 1.75           | 1.75               | 1.75                       | 0.00                            | 0.00                           |
-| PolyP                                                                                       | 0.00           | 2.10               | []()2.10                   | 0.00                            | 0.00                           |
+| PolyP                                                                                       | 0.00           | 2.10               | 2.10                   | 0.00                            | 0.00                           |
 | PPK2                                                                                        | 0.00           | 1.22               | 1.22                       | 0.00                            | 0.00                           |
 | Water                                                                                       | 7.30           | 2.93               | 2.23                       | 8.82                            | 10.49                          |
 
