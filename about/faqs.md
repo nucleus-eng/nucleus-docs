@@ -16,7 +16,7 @@ We believe that building sophisticated, useful synthetic cells requires integrat
 
 ### What is open source?
 
-Open source describes content — of any kind, not just software — that is documented and made publicly available in enough detail to be reproduced, and released under a license that grants terms allowing others to use, modify, reuse, and build on it, rather than restricting that activity. At Nucleus, that includes designs, protocols, specifications, datasets, and documentation, alongside code; each is released under a license appropriate to its type (see our License page). Open source is sometimes assumed to mean unsupported or informal — a hobbyist effort without real backing. That's not the case here. Nucleus is actively stewarded by a dedicated core development team at b.next, with defined processes for review, release, and quality control, a role we expect to evolve as the community matures (see "Who decides what content lives on Nucleus?"). Being open source is a licensing and access model, not a statement about how seriously a project is maintained. Open source is necessary to realize the kind of networked engineering this field needs — see "Why is Nucleus open source?" for more.
+Open source describes content — of any kind, not just software — that is documented and made publicly available in enough detail to be reproduced, and released under a license that grants terms allowing others to use, modify, reuse, and build on it, rather than restricting that activity. At Nucleus, that includes designs, protocols, specifications, datasets, and documentation, alongside code; each is released under a license appropriate to its type (see our [License page](./license.md)). Open source is sometimes assumed to mean unsupported or informal — a hobbyist effort without real backing. That's not the case here. Nucleus is actively stewarded by a dedicated core development team at b.next, with defined processes for review, release, and quality control, a role we expect to evolve as the community matures (see "Who decides what content lives on Nucleus?"). Being open source is a licensing and access model, not a statement about how seriously a project is maintained. Open source is necessary to realize the kind of networked engineering this field needs — see "Why is Nucleus open source?" for more.
 
 ### How do I get started with Nucleus?
 
@@ -50,7 +50,7 @@ The Nucleus licensing scheme does not require you to open source or license back
 
 ### How does Nucleus handle physical materials?
 
-Nucleus is scoped to handle plasmids. Currently, b.next may receive digital designs of plasmids and synthesize them such that they can be redistributed to the Nucleus community under the terms of the [OpenMTA](./license.md). We expect distribution of these plasmids to be mediated by Addgene beginning in September, 2026.
+Nucleus is scoped to handle plasmids. Currently, b.next may receive digital designs of plasmids and synthesize them such that they can be redistributed to the Nucleus community under the terms of the OpenMTA. We expect distribution of these plasmids to be mediated by Addgene beginning in September, 2026.
 
 ### What does the OpenMTA allow me to do?
 
