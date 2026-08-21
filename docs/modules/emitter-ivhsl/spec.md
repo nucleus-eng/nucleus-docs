@@ -82,24 +82,23 @@ The IV-HSL Emitter module in the Base Cell.
 
 Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-GFP-native`. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 8 h collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15-minute intervals.
 
-:::{figure} cell-performance-endpoint.png
-**Emitter Cell Endpoint Montage.** Single field of view at t = 8 h. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(gray)** Brightfield. **(rgb)** Merged image.
-:::
+:::::{tab-set}
 
-::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL.
-:class: dropdown
-
+::::{tab-item} Micr0scopy Timeseries
 :::{figure} cell-liposome-exclusion.png
 **Emitter Cell Timeseries. (Positive)** Liposomes contain PURE and 100 nM IV-HSL. **(Negative)** Liposomes contain PURE supplemented with SAM and IV-HSL, but no DNA encoding BjaI. **(Emitter)** Liposomes contain PURE expressing BjaI from `pT7-bjaI`. Exposures are matched between wells. Each field of view is 167 µm wide.
 :::
-
 ::::
+
+::::{tab-item} Microscopy Endpoint
+:::{figure} cell-performance-endpoint.png
+**Emitter Cell Endpoint Montage.** Single field of view at t = 8 h. **(green)** *E. coli* producing GFP in response to IV-HSL emitted by the Emitter Cells. **(red)** Emitter cells with rhodamine-labeled membrane. **(gray)** Brightfield. **(rgb)** Merged image.
+:::
+:::::
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
-
-**The companion receiver requires sigma-70 promoter transcription (e.g. *E. coli* RNA polymerase), not pT7.** `pOpen-bjaR-GFP-native` carries no T7 promoter — its annotated promoters are the constitutive Anderson promoter `BBa_J23100` and the BjaR-responsive `pBjaR`, both sigma-70. Base Cytosol supplies only T7 RNA polymerase, so this construct cannot be transcribed there as designed; it needs a living *E. coli* host. That makes the *E. coli* host a requirement of the construct as built, not a convenience — encapsulating the receiver would mean re-promotering it to pT7. This is the same sigma-70 requirement carried by the London Node modules.
+The emitter component (`pOpen-pT7-bjaI`) requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). The receiver component (`pOpen-bjaR-GFP-native`) requires sigma-70 promoter transcription (e.g. *E. coli* RNA polymerase) and translation.
 
 # Implementations
 

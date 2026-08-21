@@ -97,14 +97,14 @@ Induction of `pT7-lacO-plamGFP` by IPTG at steady state. LacI repressor protein 
 ## Cells
 
 :::{figure} cell-overview.png
-The LacI-IPTG Detector module in the Base Cell.
+Schematic representation of LacI-IPTG Detector module in the Base Cell.
 :::
 
 Cell performance data is not yet available for this module.
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). If used in a synthetic cell, requires IPTG transport across membrane (e.g., [Cx43 pore](../membrane-pore-cx43/spec.md)).
 
 # Credits
 

@@ -96,5 +96,5 @@ Sucrose is used in the original [Build a Cell liposome kit](https://github.com/B
 
 # Credits
 
-Contributor attribution is pending confirmation. The formulation is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)), but the source material does not record who adapted it for Nucleus.
+Adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
 

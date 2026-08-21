@@ -73,14 +73,14 @@ Design files for the construct below are available in the [Nucleus DNA repositor
 
 ::::{tab-item} Custom SMix
 
-**Custom SMix.** The construction SMix without creatine phosphate (SMixΔCP) is as follow. Note that normal SMix contains all of the following plus 20 mM CP.
+**Custom SMix.** The construction SMix without creatine phosphate (SMix -CP) is as follow. Note that normal SMix contains all of the following plus 20 mM CP.
 
 | Component             | Stock concentration (mM) | Concentration of components in reaction (mM) | Concentration in Energy solution  (mM) | Final volume to add (µL) |
 | --------------------- | ------------------------ | -------------------------------------------- | -------------------------------------- | ------------------------ |
 | HEPES                 | 1000                     | 50                                           | 150                                    | 30.0                     |
 | Potassium glutamate   | 2500                     | 100                                          | 300                                    | 24.0                     |
 | Magnesium acetate     | 1000                     | 11.8                                         | 35.4                                   | 7.1                      |
-| NTP                   | 100                      | 2                                            | 6                                      | 12.0                     |
+| rNTPs (each)          | 100                      | 2                                            | 6                                      | 12.0                     |
 | tRNA                  | 35 (mg/mL)               | 3.5 (mg/mL)                                  | 10.5 (mg/mL)                           | 60.0                     |
 | Creatine phosphate    | 1000                     | 0                                            | 0                                      | 0.0                      |
 | TCEP                  | 500                      | 1                                            | 3                                      | 1.2                      |
@@ -137,7 +137,7 @@ The following reaction table is a self-contained experiment for evaluating the p
 | Mg-Acetate                                                                                  | 1.40           | 3.15               | 3.15                       | 0.00                            | 0.00                           |
 | Creatine phosphate                                                                          | 0.70           | 0.00               | 0.70                       | 0.00                            | 0.00                           |
 | PEG4K 40%                                                                                   | 1.75           | 1.75               | 1.75                       | 0.00                            | 0.00                           |
-| PolyP                                                                                       | 0.00           | 2.10               | 2.10                       | 0.00                            | 0.00                           |
+| PolyP                                                                                       | 0.00           | 2.10               | []()2.10                   | 0.00                            | 0.00                           |
 | PPK2                                                                                        | 0.00           | 1.22               | 1.22                       | 0.00                            | 0.00                           |
 | Water                                                                                       | 7.30           | 2.93               | 2.23                       | 8.82                            | 10.49                          |
 
@@ -171,11 +171,17 @@ The PPK energy module is highly sensitive to [Mg²⁺]. Final protein yields of 
 
 :::::
 
+## Cells
+
+:::{warning} Not yet validated
+This Module has not been validated in synthetic cells.
+:::
+
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). Requires an additional 10 mM Mg²⁺ (see below).
 
-**Highly sensitive to Mg²⁺.** PolyP acts as a magnesium chelator, so this module is highly sensitive to the amount of Mg²⁺ in the Cytosol. The reactions above raise Mg²⁺ from 8 mM to 18 mM when PolyP is present; see the Mg Sensitivity figure for the dose-response.
+**Highly sensitive to Mg²⁺.** PolyP acts as a magnesium chelator, so this module is highly sensitive to the amount of Mg²⁺ in the Cytosol. The reactions above raise optimal Mg²⁺ from 8 mM to 18 mM; see the Mg Sensitivity figure for the dose-response.
 
 # Credits
 

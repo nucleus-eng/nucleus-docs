@@ -50,14 +50,6 @@ Design files for the constructs below are available [Nucleus DNA repository](htt
 
 # Expected Behavior
 
-## Cytosols
-
-:::{warning}
-Cx43 requires a lipid membrane environment for proper folding and pore assembly. To the best of our knowledge, this Module cannot be functionally deployed in Nucleus Cytosol alone.
-:::
-
-## Cells
-
 **Insertion Assay** — Liposomes encapsulating NEB PURExpress and `pOpen-pT7-Cx43-eGFP` were incubated at 37 °C for 6 h. Green fluorescent rings around liposomes confirm membrane localization of Cx43-eGFP. Control liposomes lacking the Cx43 plasmid show no rings.
 
 :::::{tab-set}
@@ -148,9 +140,7 @@ Endpoint confocal image (6 h 40 min) of control liposomes. Most liposomes remain
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
-
-Requires a lipid bilayer membrane. Cx43 does not fold or assemble in cytosol alone — see the Cytosols note under Expected Behavior.
+Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). If using DNA components, additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). 
 
 # Credits
 
