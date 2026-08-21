@@ -16,12 +16,9 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Documentation gap — no dedicated PLA1 devnote
-No PLA1-specific devnote with primary experimental data exists yet — this is a known documentation gap. This page is built by inference from the cascades that use PLA1 as their shared lysis-triggering component: `chicago-teto-catecholase` and `london-lacz-xyle-module` document the sensing and reporter chemistry paired with PLA1 in those cascades, but neither devnote describes PLA1 itself. See [Known Implementations](#known-implementations) below for how each cascade uses it, and the [tetR-aTc Detector Module](../detector-tetr_atc/spec.md) spec for the one PLA1-encapsulation result with primary (if interim) data behind it. Treat everything on this page as inferred/interim until a dedicated PLA1 devnote is written.
+No PLA1-specific devnote with primary experimental data exists yet — this is a known documentation gap. This page is built by inference from the cascades that use PLA1 as their shared lysis-triggering component: `chicago-teto-catecholase` and `london-lacz-xyle-module` document the sensing and reporter chemistry paired with PLA1 in those cascades, but neither devnote describes PLA1 itself. See [Implementations](#implementations) below for how each cascade uses it, and the [tetR-aTc Detector Module](../detector-tetr_atc/spec.md) spec for the one PLA1-encapsulation result with primary (if interim) data behind it. Treat everything on this page as inferred/interim until a dedicated PLA1 devnote is written.
 :::
 
-:::::{tab-set}
-
-::::{tab-item} Schematic
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
@@ -34,10 +31,13 @@ flowchart LR
     G --> H["Colorimetric readout"]
 ```
 
-No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
-::::
+Schematic representation of the PLA1 lysis cascade. No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
 
-::::{tab-item} Designs
+# Reference Composition
+
+:::::{tab-set}
+
+::::{tab-item} DNA
 :::{attention} Not yet in `nucleus-eng/DNA`
 Source material names two PLA1 constructs — a constitutive/riboswitch-gated `T7pro-PLA1-T7term` used in Chicago's PURE-based theophylline and pH cascades, and a LuxR/pLux-controlled `P70lux-PLA1-term` used in London's PURE/lysate AHL cascade — but neither has a confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Sequence files are reported to already exist on Nucleus Hub; the pending step is linking them into a shared materials spreadsheet, not a docs-side branch of the DNA repo. Do not add a Designs-table row here until a file lands in `nucleus-eng/DNA` and its identity is confirmed against this row's construct name — flag the gap to Surendra (tracking sequence files via Nucleus Hub / the shared materials spreadsheet) rather than guessing at a filename.
 :::
@@ -45,23 +45,8 @@ Source material names two PLA1 constructs — a constitutive/riboswitch-gated `T
 
 :::::
 
-# Known Implementations
-
-PLA1 lyses a liposome in every DevCells cascade that needs a two-liposome colorimetric handoff. None of these are documented in a PLA1-specific devnote — each is described in the sensing or reporter devnote for that cascade, with PLA1's role inferred from the cascade's overall behavior.
-
-- **Chicago theophylline cascade.** A theophylline riboswitch (Lynch & Gallivan design) gates PLA1 expression. PLA1 ruptures its own synthetic cell and a neighboring CPRG-loaded synthetic cell, releasing CPRG to an external LacZ solution and producing a visible color change after ~16 h in an alginate hydrogel. Confirmed at the synthetic cell/hydrogel level, with a known caveat: the color change currently occurs with or without theophylline present (riboswitch leak), so target specificity is not yet solved.
-- **Chicago pH cascade.** A pH-responsive toehold switch gates PLA1. The same two-liposome CPRG/LacZ handoff produces a visible yellow-to-purple change at pH 6.5 in solution. Confirmed at the solution level only; not yet moved into the hydrogel-embedded chassis.
-- **Chicago aTc cascade.** See the [tetR-aTc Detector Module](../detector-tetr_atc/spec.md) spec, "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section: a `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate in a synthetic cell, showing a detectable but **non-graded** absorbance response to aTc (saturating at or below 1 µM). This is currently the only PLA1 result with primary (if interim) supporting data behind it, rather than a description inferred purely from cascade-level behavior.
-- **London AHL cascade.** A LuxR/pLux quorum-sensing promoter gates PLA1 expression in S30 lysate. PLA1 lysis again triggers the CPRG/LacZ handoff. As of the latest report, this shows a discernible but still leaky difference in color change between +AHL and −AHL conditions; the team is optimizing DNA and AHL concentrations to widen this gap.
-
-:::{attention} Interim source — formal devnote pending
-The cascade summaries above are sourced from the Chicago and London Module Integration Status notes and the 2026-08-14 DevStudio status meeting ("August DevCell Status Update"). Treat these as interim primary sources, not as validated Module-level performance data for PLA1 itself.
-:::
-
-# Composition & Usage
-
 :::{attention} Only one cascade has PLA1-specific numbers
-Of the four cascades in [Known Implementations](#known-implementations), only the Chicago aTc cascade's encapsulation result gives concentrations for the PLA1 construct itself. The theophylline, pH, and AHL cascade devnotes describe the paired sensing/reporter chemistry (riboswitch, toehold switch, LuxR/pLux, LacZ/XylE, CPRG/catechol) in quantitative detail but do not report a DNA, protein, or timing value for PLA1 itself — the PLA1 step in those cascades is described only qualitatively ("PLA1 ruptures its own synthetic cell..."). That is a genuine documentation gap: no PLA1-specific reaction data exists independent of the cascades that use it.
+Of the four cascades in [Implementations](#implementations), only the Chicago aTc cascade's encapsulation result gives concentrations for the PLA1 construct itself. The theophylline, pH, and AHL cascade devnotes describe the paired sensing/reporter chemistry (riboswitch, toehold switch, LuxR/pLux, LacZ/XylE, CPRG/catechol) in quantitative detail but do not report a DNA, protein, or timing value for PLA1 itself — the PLA1 step in those cascades is described only qualitatively ("PLA1 ruptures its own synthetic cell..."). That is a genuine documentation gap: no PLA1-specific reaction data exists independent of the cascades that use it.
 :::
 
 The table below is built from the "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section of the [tetR-aTc Detector Module spec](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) — the only source with primary (if interim) numbers for a PLA1 construct's own expression conditions, as opposed to whole-cascade description.
@@ -81,9 +66,19 @@ The table below is built from the "Chicago Cascade Encapsulation (TetO-PLA1 / La
 
 :::
 
+# Expected Behavior
+
+## Cells
+
+PLA1 lyses a liposome in every DevCells cascade that needs a two-liposome colorimetric handoff. None of these are documented in a PLA1-specific devnote — each is described in the sensing or reporter devnote for that cascade, with PLA1's role inferred from the cascade's overall behavior. Per-cascade behavior is described in [Implementations](#implementations) below.
+
 # Requirements
 
-PLA1 is a lysis effector, not a standalone module — it only produces an observable effect when paired with a sensing circuit and a downstream reporter/substrate liposome. Premature lysis is a known failure mode, and the Chicago pH cascade shows two independent routes to it.
+Requires an upstream sensing circuit to gate expression (e.g. [Detector: AHL](../detector-ahl/spec.md), [Detector: tetR-aTc](../detector-tetr_atc/spec.md)), a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-popc/spec.md), [Chicago Membrane](../membrane-popc-chol-chicago/spec.md)), and a downstream reporter enzyme with its chromogenic substrate in a neighboring liposome (LacZ with CPRG, or XylE/C23DO with catechol).
+
+Using `T7pro-PLA1-T7term` requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). Using `P70lux-PLA1-term` requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)).
+
+PLA1 is a lysis effector, not a standalone module — it only produces an observable effect when paired with a sensing circuit and a downstream reporter/substrate liposome, and none at all in bulk cytosol, where there is no membrane to degrade. Premature lysis is a known failure mode, and the Chicago pH cascade shows two independent routes to it.
 
 **Gramicidin A is a cause of premature lysis, not a mitigation.** Gramicidin A was used as a proton channel for the pH cascade's GFP-expression result, but it was deliberately **left out** of the colorimetric demonstration: it caused a portion of the CPRG-loaded liposomes to rupture prematurely, producing nonspecific color development. Its absence can reduce pH-sensing efficiency, but proton diffusion into the subset of liposomes with relatively permeable membranes was sufficient to drive PLA1 expression and initiate the lysis cascade. Do not add gramicidin A to a colorimetric cascade expecting it to hold liposomes intact.
 
@@ -93,6 +88,17 @@ Any implementation adding PLA1 to a new cascade should account for both routes r
 
 :::{attention} Corrected 2026-08-19 — this section previously stated the opposite
 An earlier revision of this page said gramicidin A was used "specifically to prevent" premature rupture, and that *removing* it caused background color. Both halves inverted the source. `Demo Status - Chicago.docx` states gramicidin A "was not included in the colorimetric demonstration because it **caused** a portion of the CPRG-loaded vesicles to rupture prematurely, leading to nonspecific color development." Flagged here rather than silently rewritten, since the inverted version may have been read or cited.
+:::
+
+# Implementations
+
+- **Chicago theophylline cascade.** A theophylline riboswitch (Lynch & Gallivan design) gates PLA1 expression. PLA1 ruptures its own synthetic cell and a neighboring CPRG-loaded synthetic cell, releasing CPRG to an external LacZ solution and producing a visible color change after ~16 h in an alginate hydrogel. Confirmed at the synthetic cell/hydrogel level, with a known caveat: the color change currently occurs with or without theophylline present (riboswitch leak), so target specificity is not yet solved.
+- **Chicago pH cascade.** A pH-responsive toehold switch gates PLA1. The same two-liposome CPRG/LacZ handoff produces a visible yellow-to-purple change at pH 6.5 in solution. Confirmed at the solution level only; not yet moved into the hydrogel-embedded chassis.
+- **Chicago aTc cascade.** See the [tetR-aTc Detector Module](../detector-tetr_atc/spec.md) spec, "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section: a `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate in a synthetic cell, showing a detectable but **non-graded** absorbance response to aTc (saturating at or below 1 µM). This is currently the only PLA1 result with primary (if interim) supporting data behind it, rather than a description inferred purely from cascade-level behavior.
+- **London AHL cascade.** A LuxR/pLux quorum-sensing promoter gates PLA1 expression in S30 lysate. PLA1 lysis again triggers the CPRG/LacZ handoff. As of the latest report, this shows a discernible but still leaky difference in color change between +AHL and −AHL conditions; the team is optimizing DNA and AHL concentrations to widen this gap.
+
+:::{attention} Interim source — formal devnote pending
+The cascade summaries above are sourced from the Chicago and London Module Integration Status notes and the 2026-08-14 DevStudio status meeting ("August DevCell Status Update"). Treat these as interim primary sources, not as validated Module-level performance data for PLA1 itself.
 :::
 
 # Known Future Work
@@ -109,4 +115,8 @@ Proteinase K concentration, reaction volume, and buffer are not specified in ava
 
 # Credits
 
-Contributor attribution is pending confirmation. Source material names Jonah McDonald and Charlie Newell (London node) in connection with the PLA1-based color-change module, and Mary Kelly (Kamat Lab, Chicago node) in connection with the TetO-PLA1/LacZ encapsulation result cited above — but neither is yet backed by a published devnote, so this page does not assert formal authorship.
+Developed by Jonah McDonald and Charlie Newell (London Node) and Mary Kelly (Chicago Node, Kamat Lab).
+
+:::{attention} Attribution is not from a DevNote
+No PLA1 DevNote exists. The names above come from `Demo Status - London.docx` (the PLA1-based color-change module) and `Demo Status - Chicago.docx` (the TetO-PLA1/LacZ encapsulation result), not from a published DevNote.
+:::

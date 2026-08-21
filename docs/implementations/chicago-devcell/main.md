@@ -60,4 +60,4 @@ Every arrow between the Modules above is an integration step that has to be veri
 
 # Credits
 
-Developed by the Chicago node — Kamat Lab and Liu Lab. Individual results are credited on their own Module pages.
+Developed by the Chicago Node — Kamat Lab and Liu Lab. Individual results are credited on their own Module pages.

@@ -16,14 +16,8 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Chassis integration is proposed, not confirmed
-The current module-integration diagram draws the edge from the Chicago Chassis to the pH Sensing Cell as dashed (proposed), not solid (confirmed). The pH-sensing two-liposome system has been demonstrated in solution with a visible yellow-to-purple color change at pH 6.5, and a separate bulk-reaction test embedded the sensing reaction directly in 0.7% low-gelling agarose hydrogel (see Expected Performance below) — but the sensing system has not yet been demonstrated encapsulated in the Chicago Chassis's synthetic cell format, nor embedded in a hydrogel in that combined form. Do not treat this page as describing a completed, validated Sensing Cell — it documents a proposed composition, not a demonstrated one.
+The current module-integration diagram draws the edge from the Chicago Chassis to the pH Sensing Cell as dashed (proposed), not solid (confirmed). The pH-sensing two-liposome system has been demonstrated in solution with a visible yellow-to-purple color change at pH 6.5, and a separate bulk-reaction test embedded the sensing reaction directly in 0.7% low-gelling agarose hydrogel (see Expected Behavior below) — but the sensing system has not yet been demonstrated encapsulated in the Chicago Chassis's synthetic cell format, nor embedded in a hydrogel in that combined form. Do not treat this page as describing a completed, validated Sensing Cell — it documents a proposed composition, not a demonstrated one.
 :::
-
-## Schematic
-
-:::::{tab-set}
-
-::::{tab-item} Proposed integration
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
@@ -40,9 +34,15 @@ flowchart LR
     click Circuit "/docs/modules/detector-ph/spec"
 ```
 
-No published schematic exists for this mechanism; the diagram below is a simplified summary, not a reproduction of a lab figure.
+No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
 
-::::
+# Reference Composition
+
+:::{attention} Combined-recipe concentrations not documented
+Neither constituent page documents the working concentrations of its own components once combined into a single reaction before encapsulation. The table below states each constituent as a single aggregated line item, as used **on its own page** — see each constituent spec for its full internal composition. Do not treat the "combined recipe" column as a demonstrated formulation.
+:::
+
+:::::{tab-set}
 
 <!-- gen:composition-diagram -->
 ::::{tab-item} Module Dependencies
@@ -82,17 +82,6 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 ::::
 <!-- /gen:composition-diagram -->
 
-:::::
-
-
-## Reference Composition
-
-:::{attention} Combined-recipe concentrations not documented
-Neither constituent page documents the working concentrations of its own components once combined into a single reaction before encapsulation. The table below states each constituent as a single aggregated line item, as used **on its own page** — see each constituent spec for its full internal composition. Do not treat the "combined recipe" column as a demonstrated formulation.
-:::
-
-:::::{tab-set}
-
 ::::{tab-item} Cytosol
 
 :::{table}
@@ -129,7 +118,7 @@ The [pH-Sensing Module](../detector-ph/spec.md#components) page separately lists
 
 This page exists to name the combination above as the Chicago diagram's `PHV` node — see each constituent spec for its own full reference composition and requirements.
 
-## Expected Performance
+# Expected Behavior
 
 No result has been generated for the pH-Sensing Module encapsulated in the Chicago Chassis's synthetic cell format. The closest available data are two separate, earlier-stage results, neither of which is the combined Sensing Cell:
 
@@ -151,7 +140,7 @@ See the [pH-Sensing Module](../detector-ph/spec.md) spec for full detail on both
 The formal DevNote for the pH-Sensing Module — [Module Development Plan: DevCell-based pH sensor](https://github.com/nucleus-eng/2026-CERN-OHL-P/blob/main/devnotes/chicago-ph-sensor-plan/main.md) (`chicago-ph-sensor-plan`) — is a template stub, not a completed writeup: its `title` field is still the literal placeholder `"[Title]"`, and it carries no populated figures or dated results. This page and the [pH-Sensing Module](../detector-ph/spec.md) spec draw on that DevNote's design description combined with quantitative results reported separately at the 2026-08-14 DevCell status meeting, because the DevNote itself has not been filled in with that data. This is a real documentation gap, not treated here as a real source in its own right.
 :::
 
-## Process
+# Process
 
 No synthetic cell-encapsulation or hydrogel-embedding process specific to the pH Sensing Cell is yet documented in `docs/processes/`. The Chicago Chassis's own synthetic-cell formation process is itself an open gap (see [Chicago Chassis](../chicago-chassis/spec.md#process)); combining that with the pH-sensing circuit's addition step is a further, undocumented step. Do not assume any existing process page covers this combination — flag for a follow-up process page rather than treating a citation here as equivalent.
 
@@ -162,8 +151,4 @@ No synthetic cell-encapsulation or hydrogel-embedding process specific to the pH
 
 # Credits
 
-Developed by Sung-Won Hwang (Liu Lab, Chicago node) — pH sensing in 0.7% agarose hydrogel, read out by Cy5 dye loss (14 Aug 2026 status deck, slide 9).
-
-:::{attention} Attribution needs confirmation
-Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago and London status documents. Mappings from person to result have not been confirmed by the teams themselves.
-:::
+Developed by Sung-Won Hwang (Chicago Node, Liu Lab) — pH sensing in 0.7% agarose hydrogel, read out by Cy5 dye loss (14 Aug 2026 status deck, slide 9).

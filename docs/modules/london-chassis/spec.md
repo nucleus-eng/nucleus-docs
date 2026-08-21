@@ -7,12 +7,18 @@ site:
 ---
 # Overview
 
-The London Chassis is used for the London Node's DevStudio Demo and combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., AHL Sensing Module (@Claude: link to explicit docs page)).
+The London Chassis is used for the London Node's DevStudio Demo and combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [AHL Sensing Module](../detector-ahl/spec.md), giving the [AHL Sensing Cell](../ahl-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
+# Reference Composition
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
@@ -34,14 +40,18 @@ flowchart TD
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
 ```
 
+What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
 
-## Reference Composition
+This diagram shows composition only — it does not assert that any integration is confirmed.
 
-:::::{tab-set}
+Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
+
+::::
+<!-- /gen:composition-diagram -->
 
 ::::{tab-item} Cytosol
 
-The inner solution encapsulated into the London Chassis is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, with sucrose to assist [encapsulation by phase transfer](../../processes/assemble-base-cell/main), and RNase inhibitor to improve performance.
+The inner solution encapsulated into the London Chassis is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, with sucrose to assist [encapsulation by phase transfer](../../processes/assemble-base-cell/main.md), and RNase inhibitor to improve performance.
 
 :::{table}
 :label: comp-london-cytosol
@@ -59,13 +69,19 @@ The inner solution encapsulated into the London Chassis is [S30 Lysate](../s30-l
 
 ::::{tab-item} Membrane
 
-| Component                    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) (@Claude: pull these from membrane spec page once recalculated) | Notes                                                                      |
-| ---------------------------- | --------------------- | ------------------------ | --------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| POPC                         | 99                    | 760.076                  | 25                          | 80                                                                                 | -                                                                          |
-| (Optional) DSPE-PEG2000      | 0.85                  | 2805.5                   | 10                          | 10.32                                                                              | stabilizes membrane (@Claude: verify, and add to questionnaire; duplicate) |
-| (Optional) 18:1 Cyanine 5 PC | 0.1                   | 1316.26                  | 1                           | 3.423                                                                              | red fluorescence                                                           |
+The membrane is the [London Membrane](../membrane-popc/spec.md) (100% POPC), optionally functionalized with red fluorescent Cyanine 5 PC, or DSPE-PEG2000. The two optional lipids come from two separate documented preparations and are not combined in one membrane.
 
-The membrane is the [London Membrane](../membrane-popc/spec.md) (100% POPC), optionally functionalized with red fluorescent Cyanine 5 PC, or DSPE-PEG2000.
+:::{table} London Membrane preparations, as documented on the [London Membrane](../membrane-popc/spec.md) spec.
+:label: comp-london-membrane
+
+| Preparation                    | Target composition (mol %)     | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |
+| ------------------------------ | ------------------------------ | --------- | ----------------- | ---------------------- | ---------------- |
+| PEGylated membrane             | 99.15 POPC : 0.85 DSPE-PEG2000 | 130.4     | 10.32             | —                      | 3.36             |
+| Fluorescently labeled membrane | 99.9 POPC : 0.1 Cyanine 5 PC   | 79.863    | —                 | 3.423                  | 2.00             |
+
+:::
+
+Stock concentrations, molecular weights, and the disputed Cyanine 5 stock are on the [London Membrane](../membrane-popc/spec.md) spec — edit them there, not here.
 
 ::::
 
@@ -88,15 +104,15 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 
 :::::
 
-# Process
-
-The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 
-
 # Expected Behavior
 
 :::{attention} Needs Expected Behavior
-@Claude: add this to London Questionnaire. Verbal description of expected behavior (e.g., cell size, brightness, density of prep, etc.) and reference images.
+No verbal description of expected behavior (cell size, brightness, density of prep) and no reference images are recorded in the source material. Raised with the London Node (London questionnaire, Q9).
 :::
+
+# Process
+
+The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 
 
 # Constituent Modules
 
@@ -105,4 +121,4 @@ The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a 
 
 # Credits
 
-Developed by Ion Ioannou and Jonah McDonald (London node, Elani Lab).
+Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).

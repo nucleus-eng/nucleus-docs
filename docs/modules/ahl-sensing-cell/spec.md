@@ -18,12 +18,6 @@ This page is a work in progress and not yet ready for use.
 **Source of this page.** Composition and behavior data below come from `Demo Status - London.docx` (London Module 1 and Module 3, contributors Ion Ioannou and Jonah McDonald) and a 2026-08-14 DevCells status meeting (transcript and an accompanying slide deck, 40 pages). The backing devnote, `devnotes/london-quorum-sensing-polymersome/main.md`, is confirmed still a template stub — milestones and risk framing only, no primary data — so it is not cited as a completed source anywhere on this page.
 :::
 
-## Schematic
-
-:::::{tab-set}
-
-::::{tab-item} Mechanism
-
 ```mermaid
 flowchart TD
     LON["London Chassis<br/>(S30 Lysate + POPC synthetic cell)"]
@@ -47,7 +41,9 @@ The AHL Sensing Cell is the London Chassis (S30 Lysate encapsulated in a POPC sy
 
 No source figure exists for this composed mechanism. The devnote's only figure illustrates a different, superseded design (diblock-copolymer polymersome with X-gal/β-galactosidase readout, not the POPC/S30/GFP system this page documents), so it is not reused here. The slide deck has hand-drawn mechanism sketches embedded in data-heavy slides for the hydrogel-embedded configurations, but no standalone, page-ready schematic of the general composed mechanism exists. This diagram is authored here as a simple mechanism summary.
 
-::::
+# Reference Composition
+
+:::::{tab-set}
 
 <!-- gen:composition-diagram -->
 ::::{tab-item} Module Dependencies
@@ -86,13 +82,6 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 
 ::::
 <!-- /gen:composition-diagram -->
-
-:::::
-
-
-## Reference Composition
-
-:::::{tab-set}
 
 ::::{tab-item} Cytosol
 
@@ -152,7 +141,7 @@ Inner and outer osmolarity are matched (~920 mOsm) to keep encapsulated syntheti
 
 :::::
 
-## Expected Behavior
+# Expected Behavior
 
 Without Optiprep in the inner solution, the encapsulated sensor expresses GFP on AHL induction: green fluorescence appears across all imaged fields, with liposome-associated GFP puncta co-localizing with round synthetic cells, consistent with an active encapsulated reaction. Minus-AHL and no-DNA negative controls, plus biological replicates, were still needed at the time of writing to formally attribute the signal — treat this result as directional, not a fully controlled positive.
 
@@ -164,8 +153,6 @@ Separately, the sensor was embedded in POPC synthetic cells within 1% ultra-low-
 - Sensor fold-induction is strongest near 25 °C and drops at 37 °C; incubate at 25 °C when minimal background matters.
 - Encapsulation is stochastic — expect a GFP-positive subpopulation rather than uniform signal across synthetic cells.
 :::
-
-### Expected Performance
 
 Across nine configurations spanning solution, gel, and bulk formats, and cytosol, lysate, and live-bacteria expression systems, reproducibility varies and no configuration is yet fully validated:
 
@@ -188,11 +175,11 @@ Separately, an AHL Sensing Cell + [CPRG-loaded SUV](../../processes/encapsulate-
 Taken together, the AHL Sensing Cell has real, multi-format experimental traction — GFP and colorimetric readouts have both worked in at least one lysate/synthetic cell/gel configuration, in some cases repeated across labs or over long time courses. It has not, however, reached the point of established reproducibility: leakiness (signal in the absence of AHL) is a recurring, explicitly unresolved caveat across multiple configurations, and the most recent reported result is both unreproduced and subject to a known false-positive risk from old-stock liposome leakage. Treat this Module as demonstrating feasibility, not as a validated Sensing Cell.
 :::
 
-### Related cascade
+## Related cascade
 
 The GFP payload documented above is swapped for a `P70lux-PLA1-term` construct in the [London Cascade](../london-cascade/spec.md), so that AHL exposure instead triggers a two-liposome PLA1/LacZ colorimetric handoff. See that page for the cascade-level composition and its own, separate caveats — not duplicated here.
 
-## Process
+# Process
 
 The AHL Sensing Cell is formed by encapsulating S30 Lysate plus the `pLux-GFP` sensor plasmid in a POPC membrane as a synthetic cell, using an Elani-lab mineral-oil phase-transfer protocol — the same route documented on the [London Chassis](../london-chassis/spec.md) spec. Hydrogel-embedded configurations additionally require a ULGA hydrogel-embedding step.
 
@@ -211,5 +198,4 @@ No mineral-oil phase-transfer encapsulation process, and no ULGA hydrogel-embedd
 
 # Credits
 
-- Ion Ioannou (synthetic cell encapsulation)
-- Jonah McDonald (synthetic cell encapsulation)
+Developed by Ion Ioannou and Jonah McDonald (London Node) — synthetic cell encapsulation.

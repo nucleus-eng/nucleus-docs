@@ -25,18 +25,6 @@ That is superseded. Chicago is now focused on the aTc and pH sensors (14 Aug 202
 The theophylline/aTc co-encapsulation constraint remains true and is still documented on the affected Modules. It is simply no longer this cascade's blocker, because theophylline is no longer one of its integration paths.
 :::
 
-## Status: not yet attempted
-
-This combination has not been built. That is different from the previous framing — the merge is **not blocked**, it is **unattempted**. No experiment has run the two integration paths together.
-
-There is, however, a known design question standing in front of it, described below.
-
-## Schematic
-
-:::::{tab-set}
-
-::::{tab-item} Intended design
-
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
@@ -60,9 +48,15 @@ flowchart LR
     click READOUT "/docs/modules/reporter-lacz/spec"
 ```
 
-No published schematic exists for this cascade; the diagram above is a simplified summary of the intended design, not a reproduction of a lab figure.
+Schematic representation of the intended Chicago Cascade design. No published schematic exists for this cascade; the diagram above is a simplified summary of the intended design, not a reproduction of a lab figure.
 
-::::
+# Reference Composition
+
+No combined reference composition exists, and none is given here — not even a hypothetical one. The combination has never been assembled, so there are no working concentrations to report, and inventing them would present this as more real than it is.
+
+Each integration path's own composition is documented on its own page.
+
+:::::{tab-set}
 
 <!-- gen:composition-diagram -->
 ::::{tab-item} Module Dependencies
@@ -126,10 +120,37 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} Cytosol
+
+See [aTc Cascade](../atc-cascade/spec.md#reference-composition) and [pH Cascade](../ph-cascade/spec.md). Note that the pH Cascade's own combined-recipe concentrations are themselves flagged as undocumented, so a merged recipe would rest on an incomplete constituent.
+
+::::
+
+::::{tab-item} Membrane
+
+Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), so both use the same 9:1 POPC:cholesterol membrane. This part of the merge is straightforward — the membrane carries over unchanged, and it is not implicated in either open question below.
+
+::::
+
 :::::
 
+# Expected Behavior
 
-## Requirements
+**Status: not yet attempted.** This combination has not been built. That is different from the previous framing — the merge is **not blocked**, it is **unattempted**. No experiment has run the two integration paths together.
+
+There is, however, a known design question standing in front of it, described below.
+
+## Cells
+
+:::{warning} Not yet validated
+This Module has not been validated in synthetic cells.
+:::
+
+# Requirements
+
+Requires both integration paths in one system — [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md) — on a shared [Chicago Chassis](../chicago-chassis/spec.md) membrane, reporting through one shared [LacZ Reporter](../reporter-lacz/spec.md).
+
+Requires each integration path's own requirements to hold unchanged. Neither path has a bulk-cytosol route, so this cascade does not either.
 
 **Something has to decide what the readout does when both paths fire.** Both the aTc and pH integration paths end at the same LacZ/CPRG chemistry. Two inputs arriving at one output is not, by itself, a design — it needs a stated rule for how the two signals combine. Should the color change when *either* analyte is present, only when *both* are, or only when exactly one is? Each of those is a different device, and each needs a different mechanism.
 
@@ -147,29 +168,11 @@ So the choice of rule is not a labeling decision to make at write-up time. It de
 
 **A second, separate question.** The pH path's readout adds a neutralization buffer step before the color develops (14 Aug 2026 deck, slide 9), while the aTc path reads out directly. Whether one shared readout can serve both paths when one of them requires a pH adjustment is unresolved, and it is a distinct issue from the combining rule above. Flagged for the Chicago team.
 
-## Composition
+# Implementations
 
-No combined reference composition exists, and none is given here — not even a hypothetical one. The combination has never been assembled, so there are no working concentrations to report, and inventing them would present this as more real than it is.
+This cascade is the sensing core of the [Chicago DevCell](../../implementations/chicago-devcell/main.md), which places it in a hydrogel and adds spatial patterning. That page carries the demo-level status.
 
-Each integration path's own composition is documented on its own page:
-
-:::::{tab-set}
-
-::::{tab-item} Cytosol
-
-See [aTc Cascade](../atc-cascade/spec.md#reference-composition) and [pH Cascade](../ph-cascade/spec.md). Note that the pH Cascade's own combined-recipe concentrations are themselves flagged as undocumented, so a merged recipe would rest on an incomplete constituent.
-
-::::
-
-::::{tab-item} Membrane
-
-Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), so both use the same 9:1 POPC:cholesterol membrane. This part of the merge is straightforward — the membrane carries over unchanged, and it is not implicated in either open question above.
-
-::::
-
-:::::
-
-## Process
+# Process
 
 No combined assembly process exists. Both integration paths are formed by the same method — see [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — and both are embedded and read out through the processes listed on their own pages. What is missing is not a technique for making either path, but the step that brings them together and the mechanism that combines their outputs.
 
@@ -180,16 +183,10 @@ No combined assembly process exists. Both integration paths are formed by the sa
 
 Both integration paths terminate at the [LacZ Reporter Module](../reporter-lacz/spec.md), which is shared rather than duplicated. That sharing is the subject of the Requirements section above.
 
-# Implementations
-
-This cascade is the sensing core of the [Chicago DevCell](../../implementations/chicago-devcell/main.md), which places it in a hydrogel and adds spatial patterning. That page carries the demo-level status.
-
 # Credits
 
-Developed by the Chicago node — Kamat Lab and Liu Lab.
+Developed by the Chicago Node (Kamat Lab and Liu Lab).
 
 This cascade has no result of its own; the multiplexed combination has not been built. Attributions for the individual integration paths are on their own pages.
 
-:::{attention} Attribution needs confirmation
-Contributor names are taken from the 14 Aug 2026 status deck, where they appear printed on the slides, and from the module sections of the Chicago status document. Mappings from person to result have not been confirmed by the team.
-:::
+Contributor names come from the 14 Aug 2026 status deck and from the module sections of the Chicago status document, and have not been confirmed by the team.
