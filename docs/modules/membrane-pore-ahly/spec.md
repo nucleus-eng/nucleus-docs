@@ -23,10 +23,6 @@ This Module has not been validated in Nucleus Cytosol. Expected performance data
 
 aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE system, or added as purified protein from an external source. We recommend the purified protein approach for most applications.
 
-:::{note}
-A schematic for this module is not yet available.
-:::
-
 # Reference Composition
 
 :::::{tab-set}
@@ -104,11 +100,11 @@ Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production
 
 # Requirements
 
-The purified protein route places aHly in the outer solution and requires no transcription or translation. The `pT7-aHly` expression route requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+Using purified aHly protein only requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
 # Materials
 
-We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. HY-P2967) and resuspending to 10 µM in milliQ water. Introduce purified protein to the outer solution of synthetic cells rather than expressing from DNA to avoid variability in expression efficiency.
+We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. HY-P2967) and resuspending to 10 µM in ultrapure water. Introduce purified protein to the outer solution of synthetic cells rather than expressing from DNA to avoid variability in expression efficiency.
 
 | Material | Description | Manufacturer | Part # |
 | --- | --- | --- | --- |
