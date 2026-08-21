@@ -9,25 +9,19 @@ site:
 
 # Overview
 
-The Base Membrane specifies a phospholipid bilayer composed of (POPC), cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE). The Base Membrane is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+The Base Membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE). The Base Membrane is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
-:::::{tab-set}
-
-::::{tab-item} Schematic
 :::{figure} schematic.png
 :width: 50%
 :align: center
 
 Schematic of a POPC/Chol liposome.
 :::
-::::
 
-:::::
-
-## Reference Composition
+# Reference Composition
 
 :::{table}
-:label: comp-membrane
+:label: comp-membrane-popc-chol
 
 | Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
@@ -37,10 +31,14 @@ Schematic of a POPC/Chol liposome.
 
 :::
 
-## Expected Behavior
+# Expected Behavior
 
 The behavior of Base Membrane is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
 
-## Protocols
+# Process
 
 Protocols for assembling Base Cell and making its components from scratch are described in the Process [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+
+# Credits
+
+Contributor attribution is pending confirmation. The page cites no DevNote, and no source in this repository records who developed the 70:30 POPC/cholesterol formulation.

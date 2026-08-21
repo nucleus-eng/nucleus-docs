@@ -10,7 +10,7 @@ site:
 
 # Overview
 
-The PPK energy Module generates ATP and  GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor. This module complements the default energy module in Nucleus Cytosol.
+The PPK energy Module generates ATP and GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor. This module complements the default energy module in Nucleus Cytosol.
 
 :::{attention} Not yet validated
 
@@ -21,43 +21,57 @@ This Module has not been validated in Nucleus Cytosol. Documentation can be foun
 
 :::
 
+:::::{tab-set}
+
+::::{tab-item} Reaction Mechanism
+
+:::{figure} reaction-schematic.png
+:align: center
+:width: 50%
+
+PPK uses inorganic polyphosphate (polyPₙ) as a phosphate donor to regenerate ATP from AMP and ADP, and GTP from GDP, releasing a shortened polyPₙ₋₁ chain. External modules consume the regenerated nucleotides.
+:::
+
+::::
+
+::::{tab-item} Developer Cell Context
+
 :::{figure} header.png
 :align: center
 :width: 60%
+
+Where the PPK Energy module sits in the Developer Cell, raising expression capacity. The grayed-out components are separate modules — SecYEG membrane translation and ClpXP protease control.
 :::
+
+::::
+
+:::::
 
 The PPK Energy module consists of a purified protein, the bifunctional polyphosphate kinase (PPK2), and its substrate, the 100mer polyphosphate (PolyP). Here, bifunctionality refers to the module's ability to direct the synthesis of ATP and GTP from AMP and GDP, respectively
 
 When used alongside PURE's standard energy regeneration module based on creatine kinase and creatine phosphate (CP/CK), significant increases in protein expression yields can result.
 
-:::{figure} reaction-schematic.png
-:align: center
-:width: 50%
-:::
+# Reference Composition
 
-## Usage
+The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. The module is supplied as two components: purified PPK2 protein, and the 100mer polyphosphate substrate. No additional cell components are required.
 
-The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. This module is highly sensitive to amount of Mg²⁺ contained in Cytosol since PolyP acts as a magnesium chelator
+:::::{tab-set}
 
-**DNA Parts**
+::::{tab-item} DNA
 
 :::{attention}
-Design files for the constructs below are available [Nucleus DNA repository](https://github.com/nucleus-eng/DNA).
+Design files for the construct below are available in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA).
+
+`pOpen-PPK-CHis` is offered as a **cloning vector** for downstream use — it carries no promoter, so it does not express PPK2 as filed and does not on its own satisfy this Module's specification. Add a promoter (pT7 for Nucleus Cytosol) before expressing from it. The Module as specified uses purified PPK2 protein.
 :::
 
 | Construct        | Size    | Description                                                 | **File**                                                                                     |
 | ---------------- | ------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
 | `pOpen-PPK-CHis` | 2915 bp | Contains PPK2 in pOpen backbone. Does NOT have a promoter. | [pOpen-PPK-CHis.gbk](https://github.com/nucleus-eng/DNA/blob/main/energy/pOpen-PPK-CHis.gbk) |
 
-**Protein components**
+::::
 
-- PPK2
-
-**Cell components**
-
-This module is implemented using purified PPK2 protein; no additional cell components are required.
-
-### Reaction Construction
+::::{tab-item} Custom SMix
 
 **Custom SMix.** The construction SMix without creatine phosphate (SMixΔCP) is as follow. Note that normal SMix contains all of the following plus 20 mM CP.
 
@@ -78,6 +92,10 @@ This module is implemented using purified PPK2 protein; no additional cell compo
 | Energy solution total |                          | Final concentration (fold)                   |                                        | Final volume             |
 |                       |                          | 3                                            |                                        | 200                      |
 
+::::
+
+::::{tab-item} Reaction
+
 The following reaction table is a self-contained experiment for evaluating the performance of the PPK energy module. Details about the stock solutions and detailed reaction descriptions are available in the toggle list below.
 
 :::{hint} Note: Concentration of Stock Solutions
@@ -93,7 +111,7 @@ The following reaction table is a self-contained experiment for evaluating the p
 | Creatine phosphate                                                                          | 1000                | mM    |
 | PEG4K 40%                                                                                   | 40                  | %     |
 | PolyP                                                                                       | 500                 | mM    |
-| PPK2                                                                                        | 57.5                | uM    |
+| PPK2                                                                                        | 57.5                | µM    |
 
 :::
 
@@ -123,7 +141,13 @@ The following reaction table is a self-contained experiment for evaluating the p
 | PPK2                                                                                        | 0.00           | 1.22               | 1.22                       | 0.00                            | 0.00                           |
 | Water                                                                                       | 7.30           | 2.93               | 2.23                       | 8.82                            | 10.49                          |
 
-## Performance Data
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cytosols
 
 :::::{tab-set}
 
@@ -147,6 +171,12 @@ The PPK energy module is highly sensitive to [Mg²⁺]. Final protein yields of 
 
 :::::
 
-## Credits
+# Requirements
 
-- Surendra Yadav
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+
+**Highly sensitive to Mg²⁺.** PolyP acts as a magnesium chelator, so this module is highly sensitive to the amount of Mg²⁺ in the Cytosol. The reactions above raise Mg²⁺ from 8 mM to 18 mM when PolyP is present; see the Mg Sensitivity figure for the dose-response.
+
+# Credits
+
+Developed by Surendra Yadav (b.next).

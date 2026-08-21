@@ -11,31 +11,25 @@ site:
 
 The ClpXP control module enables the ATP-dependent, targeted degradation of ssrA-tagged proteins [McGinness, Baker, and Sauer, 2006](https://doi.org/10.1016/j.molcel.2006.04.027). It is based on the complex formed by the AAA+ ATPase ClpX and the tetradecameric peptidase ClpP. The module can be implemented using purified protein, *in situ* expressed proteins from DNA templates, or combinations thereof.
 
-:::::{tab-set}
-
-::::{tab-item} Schematic
 :::{figure} mechanism-schematic.png
 Cartoon of the general mechanism of protein degradation by ClpXP, an ATP-dependent protease. Adapted from  [R. Wedam, et al.](https://doi.org/10.3390/cancers15071936)
 :::
-::::
 
-::::{tab-item} Designs
+# Reference Composition
+
+The module can be implemented from purified proteins alone, from *in situ* expressed proteins encoded on DNA templates, or from combinations thereof.
+
+:::::{tab-set}
+
+::::{tab-item} DNA
+:::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
 | `pT7-ClpX` | 3394 | [pOpen-ClpX-CHis.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-ClpX-CHis.gb) |
 | `pT7-ClpP` | 2746 | [pOpen-ClpP-CHis.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-ClpP-CHis.gb) |
 | `pT7-deGFP-ssrA` | 2863 | [pOpen-deGFP-CHis-ssrA.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-deGFP-CHis-ssrA.gb) |
+:::
 ::::
-
-:::::
-
-## Cytosols
-
-### Usage
-
-The module can be implemented from purified proteins alone, from *in situ* expressed proteins encoded on DNA templates, or from combinations thereof.
-
-:::::{tab-set}
 
 ::::{tab-item} Purified Proteins
 **Reaction Table 1.** The control module implemented from purified proteins. Volumes in µL.
@@ -69,7 +63,9 @@ The module can be implemented from purified proteins alone, from *in situ* expre
 
 :::::
 
-### Expected Performance
+# Expected Behavior
+
+## Cytosols
 
 Module performance in PURE is documented in the DevNote [ClpXP Module Validation in PURE](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpx-in-pure-01).
 
@@ -97,3 +93,10 @@ Cell-context validation of the ClpXP module is documented in the DevNote [ClpXP 
 The ClpXP Control Module in the context of the [Developer Cell](https://devnotes.nucleus.engineering/articles/developer-cell-introduction). Other Developer Cell Modules are grayed out.
 :::
 
+# Requirements
+
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+
+# Credits
+
+Developed by [Yen-Yu Hsu](https://orcid.org/0000-0003-0866-6184) (b.next).

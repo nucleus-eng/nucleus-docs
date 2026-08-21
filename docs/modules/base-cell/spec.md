@@ -18,7 +18,7 @@ The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Base M
 Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spec.md) encapsulated with [Base Membrane](/docs/modules/membrane-popc-chol/spec.md). Constitutive components of each module schematically depicted.
 :::
 
-## Reference Composition
+# Reference Composition
 
 :::::{tab-set}
 
@@ -73,7 +73,7 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 :::::
 
-## Expected Behavior
+# Expected Behavior
 
 Base Cells express deGFP over time, starting dark and increasing in green fluorescence as translation proceeds. Kinetics data are reported in [DevNote bnext-devnotes-base-cell-01](https://devnotes.nucleus.engineering/articles/bnext-devnotes-base-cell-01).
 
@@ -81,8 +81,14 @@ Base Cells express deGFP over time, starting dark and increasing in green fluore
 :width: 100%
 :align: center
 
-Combined green (488 nm) and red (561 nm) fluroescence channels. First time point (labeled "t = 0") corresponds to 30 min after preparation of the inner solution, reflecting the time required to prepare liposomes.
+Combined green (488 nm) and red (561 nm) fluorescence channels. First time point (labeled "t = 0") corresponds to 30 min after preparation of the inner solution, reflecting the time required to prepare liposomes.
 :::
-## Process
+
+# Process
 
 Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+
+# Credits
+
+Developed by Surendra Yadav (b.next).
+
