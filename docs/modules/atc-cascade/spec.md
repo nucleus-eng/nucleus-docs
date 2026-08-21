@@ -115,7 +115,7 @@ The table below aggregates the working concentrations behind the 2026-08-14 aTc-
 :::
 
 :::{attention} Confirmed path only — does not include XylE
-This table covers only the confirmed LacZ integration path described above. The proposed XylE / C23DO alternate integration path has no encapsulated working concentrations to report — see the constituent list in [Reference Composition](#reference-composition) above and [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#expected-performance) for its separate, more preliminary bulk-cytosol result.
+This table covers only the confirmed LacZ integration path described above. The proposed XylE / C23DO alternate integration path has no encapsulated working concentrations to report — see the constituent list in [Reference Composition](#reference-composition) above and [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#expected-behavior) for its separate, more preliminary bulk-cytosol result.
 :::
 
 ::::
@@ -130,7 +130,7 @@ The full sensing → lysis → LacZ readout chain has been run together in synth
 
 What this cascade can claim, therefore, is a working end-to-end chain with a detectable aTc-dependent signal — not a characterized dose-response. Full detail, including why the 0 µM point is a normalization baseline rather than a negative control, is on the [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec and is not duplicated here.
 
-No result exists for the XylE alternate integration path run as part of this cascade — the XylE/C23DO chemistry has only been tested in bulk cytosol, in isolation, downstream of the same aTc/TetR sensing construct family, and never together with the PLA1 lysis trigger or in a synthetic cell. See [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#expected-performance) for that separate, more preliminary result.
+No result exists for the XylE alternate integration path run as part of this cascade — the XylE/C23DO chemistry has only been tested in bulk cytosol, in isolation, downstream of the same aTc/TetR sensing construct family, and never together with the PLA1 lysis trigger or in a synthetic cell. See [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#expected-behavior) for that separate, more preliminary result.
 
 ## Gels
 
