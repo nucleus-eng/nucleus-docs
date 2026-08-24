@@ -14,29 +14,6 @@ The AHL Sensing Cell combines the [London Chassis](../london-chassis/spec.md) wi
 This page is a work in progress and not yet ready for use.
 :::
 
-```mermaid
-flowchart TD
-    LON["London Chassis<br/>(S30 Lysate + POPC synthetic cell)"]
-    AHLMOD["AHL Sensing Module<br/>(pLux-GFP plasmid)"]
-    CELL["AHL Sensing Cell"]
-    LON --> CELL
-    AHLMOD --> CELL
-
-    AHLEXT["AHL<br/>(outer solution)"] -->|diffuses across POPC membrane| LUXR[LuxR]
-    LUXR --> COMPLEX["LuxR-AHL complex"]
-    COMPLEX -->|activates| PLUX[pLux promoter]
-    PLUX -->|drives expression| GFPOUT["GFP<br/>(inside synthetic cell)"]
-
-    CELL -.contains.-> LUXR
-
-    classDef node fill:#efefef,stroke:#666666,color:#222222;
-    class LON,AHLMOD,CELL,AHLEXT,LUXR,COMPLEX,PLUX,GFPOUT node;
-```
-
-The AHL Sensing Cell is the London Chassis (S30 Lysate encapsulated in a POPC synthetic cell) plus the AHL Sensing Module's `pLux-GFP` plasmid. Once assembled, AHL from the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome.
-
-The diagram below is a mechanism summary, not a reproduction of a published figure.
-
 # Reference Composition
 
 :::::{tab-set}

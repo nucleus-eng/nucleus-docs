@@ -61,8 +61,10 @@ them.
 found by `check-implementations.py`:
 
 - A cascade is a **Module**, however composed. Only pages under `docs/implementations/`
-  belong in this section. Modules that use this Module go nowhere — the dependency
-  diagram already shows them.
+  belong in this section. Modules that use this Module do not belong here
+  either. On a composed Module the dependency diagram already shows them; on a leaf
+  Module — a detector, reporter, membrane, cytosol — there is no diagram, so name them in
+  one Overview sentence instead.
 - The relation is symmetric. If an Implementation is built from this Module, this Module
   lists that Implementation. The reverse half is the one that rots: nobody revisits twelve
   Module pages when an Implementation gains a Module.

@@ -123,7 +123,7 @@ State requirements; do not argue for them.
 
 ## Implementations
 
-Only pages under `docs/implementations/`. A cascade is a Module however composed it is, and a Module that uses this Module belongs nowhere here — the dependency diagram already shows it.
+Only pages under `docs/implementations/`. A cascade is a Module however composed it is, and a Module that uses this Module does not belong here either. On a composed Module the dependency diagram already shows those relations. A leaf Module has no diagram, so name what it composes into in one Overview sentence.
 
 The relation is symmetric: if an Implementation is built from this Module, this Module lists that Implementation. `scripts/check-implementations.py` checks both halves.
 

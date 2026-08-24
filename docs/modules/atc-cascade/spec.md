@@ -119,6 +119,7 @@ Every component below is co-encapsulated in a single synthetic cell.
 | TetR | 50 nM (headline condition); also tested at 100 nM |
 | CPRG substrate | 0.5 mM |
 | LacZ enzyme | 20 U/mL |
+| Base Cytosol components | At reaction concentration; not separately documented for this cascade |
 :::
 
 aTc is dosed at 0, 1, 5 and 10 µM, with 0 µM as the normalization baseline; the source figure carries no −TetR or −DNA control panel. Whether aTc is added to the inner or the outer solution is not documented.

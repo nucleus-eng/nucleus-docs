@@ -11,6 +11,8 @@ site:
 
 The AHL Detector module is a LuxR/pLux genetic sensor that detects the _E. coli_ quorum-sensing molecule 3-oxohexanoyl-L-homoserine lactone or 3OC6-HSL. LuxR binds AHL and activates the pLux promoter, driving expression of a downstream effector gene (e.g., [deGFP](../reporter-degfp/spec.md)). 
 
+This Module is composed into the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), driving GFP expression, and the [London Cascade](../london-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
+
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
@@ -24,7 +26,7 @@ All data below comes from bacterial S30 lysate (Promega) and POPC synthetic cell
 :::
 
 :::{figure} mechanism-schematic.png
-Schematic representation of the AHL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-AHL as it diffuses in from outside the synthetic cell. LuxR–AHL activates the pLux promoter, driving gene expression (here: GFP). Cropped from a DevCell Status Update slide deck (14 Aug 2026, p. 13, "Sensor GFP SynCells with lysate (in gel)"); the source panel's phospholipid-bilayer inset has been cropped out as unrelated to the sensing mechanism itself.
+Schematic representation of the AHL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-AHL as it diffuses in from outside the synthetic cell. LuxR–AHL activates the pLux promoter, driving gene expression (here: GFP). The phospholipid-bilayer inset of the original panel is cropped out as unrelated to the sensing mechanism.
 :::
 
 # Reference Composition
@@ -34,7 +36,7 @@ Schematic representation of the AHL Detector mechanism. LuxR, constitutively exp
 ::::{tab-item} DNA
 
 :::{attention} Construct not in `nucleus-eng/DNA`
-The LuxR/pLux AHL sensor plasmid used in the synthetic cell encapsulation work below is referred to as `pLux-GFP` (in-house stock, Elani lab) and has no catalog number or sequence file in the source material. It is not present in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and does not appear to have originated from a prior repository either — it needs to be submitted before this Designs table can cite a real sequence file. Do not treat the name `pLux-GFP` as a stable identifier: the bacterial-lysate characterization below (Module 1) references only an unnamed "sensing plasmid" and does not confirm it is the same construct as the synthetic cell encapsulation plasmid (Module 3). Flagging this rather than assuming identity.
+The LuxR/pLux AHL sensor plasmid used in the synthetic cell encapsulation work below is referred to as `pLux-GFP` (in-house stock, Elani lab) and has no catalog number or sequence file recorded. It is not present in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and does not appear to have originated from a prior repository either — it needs to be submitted before this Designs table can cite a real sequence file. Do not treat the name `pLux-GFP` as a stable identifier: the bacterial-lysate characterization below (Module 1) references only an unnamed "sensing plasmid" and does not confirm it is the same construct as the synthetic cell encapsulation plasmid (Module 3). Flagging this rather than assuming identity.
 :::
 
 | **Name**   | **Length (bp)** | **File**                     |
@@ -70,7 +72,7 @@ Recomputing `stock × volume / 50 µL` against the stated final concentration fa
 | Amino acids | 1.8 µM | 1.0 µM |
 | **3OC6-HSL** | **0.01 mM (10 µM)** | **0.5 mM — 50× off** |
 
-The 3OC6-HSL row is the one that matters: 0.5 µL of a 50 mM stock into 50 µL gives 0.5 mM, not 10 µM. A 1 mM stock would give exactly 10 µM. Separately, the column headed **− AHL** is the one carrying the 0.5 µL of 3OC6-HSL, which reads as a header inversion. Raised with the London Node (London questionnaire, Q1); do not use this table at the bench until it is answered.
+The 3OC6-HSL row is the one that matters: 0.5 µL of a 50 mM stock into 50 µL gives 0.5 mM, not 10 µM. A 1 mM stock would give exactly 10 µM. Separately, the column headed **− AHL** is the one carrying the 0.5 µL of 3OC6-HSL, which reads as a header inversion. @Editor: confirm both with the London Node. Do not use this table at the bench until it is answered.
 :::
 
 ::::
@@ -115,10 +117,7 @@ Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required:
 
 # Implementations
 
-The synthetic-cell-encapsulated and hydrogel-embedded configurations described above are now documented as composed Module pages rather than as a standalone Implementation:
-
-- [AHL Sensing Cell](../ahl-sensing-cell/spec.md): this Sensor Module encapsulated in the [London Chassis](../london-chassis/spec.md) driving GFP expression. 
-- [London Cascade](../london-cascade/spec.md): this Sensor Module encapsulated in the [London Chassis](../london-chassis/spec.md) driving expression of [PLA1 Lysis Module](../effector-pla1/spec.md) used as part of the macroscopic colorimetric readout supplied by the [LacZ Reporter](../reporter-lacz/spec.md) and its [CPRG Substrate SUVs](../substrate-cprg-suv/spec.md).
+- [London DevCell](../../implementations/london-devcell/main.md): this Module supplies AHL sensing for the London quorum-sensing demo.
 
 # Credits
 

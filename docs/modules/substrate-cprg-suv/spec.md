@@ -71,14 +71,14 @@ The luminal cargo is CPRG in hydration buffer. Two working concentrations are do
 :::{table} Luminal cargo.
 :label: comp-substrate-cprg-lumen
 
-| Use | CPRG concentration | Source |
-| --- | --- | --- |
-| SUV hydration (loading) | 50 mM, equivalently ~30 mg/mL | `Demo Status - Chicago.docx`; 14 Aug 2026 deck, slide 10 |
-| Inner gel, patterned agarose | 15 mg/mL | 14 Aug 2026 deck, slide 10 |
+| Use | CPRG concentration |
+| --- | --- |
+| SUV hydration (loading) | 50 mM, equivalently ~30 mg/mL |
+| Inner gel, patterned agarose | 15 mg/mL |
 
 :::
 
-The two figures agree with each other: CPRG has a molecular weight of about 585 g/mol, so 50 mM is 29.3 mg/mL — the "30 mg/mL" of the deck. The 15 mg/mL figure is a different, lower concentration used when the SUVs are cast into the inner gel of a patterned construct, not a restatement of the loading concentration.
+The two figures agree: CPRG has a molecular weight of about 585 g/mol, so 50 mM is 29.3 mg/mL, the ~30 mg/mL recorded elsewhere. The 15 mg/mL figure is a different, lower concentration used when the SUVs are cast into the inner gel of a patterned construct, not a restatement of the loading concentration.
 
 ::::
 
@@ -91,15 +91,15 @@ The two figures agree with each other: CPRG has a molecular weight of about 585 
 | --- | --- | --- |
 | Target diameter | 400 nm | Extruded through a 400 nm polycarbonate membrane |
 | Extrusion passes | ≥21, odd number | Odd count avoids retaining unextruded material in the final syringe |
-| Free-substrate removal | see the flag below | Sources disagree on the method |
+| Free-substrate removal | see the flag below | Two methods are recorded |
 | Storage before use | on ice or at 4 °C | Hold until combining with Sensing Cells and LacZ |
 
 :::
 
-:::{attention} Sources disagree on how free CPRG is removed
-`Demo Status - Chicago.docx` states the SUVs are "purified twice using size-exclusion chromatography (SEC) to remove unencapsulated CPRG." The 14 Aug 2026 deck (slide 10) instead states "SUVs were washed via centrifugation to remove CPRG outside SUVs."
+:::{attention} Two purification methods are recorded
+@Editor: one record has the SUVs purified twice by size-exclusion chromatography to remove unencapsulated CPRG; another has them washed by centrifugation. Confirm with the Chicago Node which was used.
 
-These are different methods with different residual-substrate profiles, and residual free CPRG is exactly what produces background color. This may be a change of method over time, or two different preparations. Do not pick one silently — confirm with the Chicago team which is current.
+The two methods leave different residual-substrate profiles, and residual free CPRG is what produces background color.
 :::
 
 ::::
@@ -107,6 +107,8 @@ These are different methods with different residual-substrate profiles, and resi
 :::::
 
 # Expected Behavior
+
+The [aTc Sensing Cell](../atc-sensing-cell/spec.md) co-encapsulates LacZ and CPRG inside a single Sensing Cell rather than using a separate Substrate SUV. A result from that configuration is not evidence for this Module.
 
 Intact Substrate SUVs produce no signal. On PLA1-triggered lysis of a neighboring Sensing Cell, released CPRG reacts with LacZ in the surrounding matrix to give a yellow-to-purple change, measurable at 575 nm and visible by eye.
 
@@ -116,7 +118,7 @@ Quality control before combining with other components:
 - **Free substrate removed.** Measure absorbance at 575 nm of the purification flow-through, not the liposome fraction. A flat, low-absorbance flow-through indicates unencapsulated CPRG has been removed; residual absorbance means repeat the purification.
 
 :::{attention} No primary data located
-The 400 nm target size and the 50 mM loading concentration are cited from Chicago status material and the meeting deck. No DevNote with DLS traces or absorbance QC data has been located, so these values are not independently verified. Listed as a wanted module DevNote.
+@Editor: the 400 nm target size and the 50 mM loading concentration have no DevNote behind them. No DLS traces or absorbance QC data has been located, so these values are not independently verified. Listed as a wanted module DevNote.
 :::
 
 ## Gels
@@ -133,9 +135,8 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 
 # Implementations
 
-- [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) — the alginate-embedded colorimetric result.
-- [aTc Sensing Cell](../atc-sensing-cell/spec.md) — note that this cascade co-encapsulates LacZ and CPRG *inside* the Sensing Cell rather than using a separate Substrate SUV; check which configuration applies before assuming this module is involved.
-- [London Cascade](../london-cascade/spec.md) — the two-liposome PLA1/CPRG handoff.
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the substrate for the theophylline and pH colorimetric readouts.
+- [London DevCell](../../implementations/london-devcell/main.md): supplies the substrate for the AHL colorimetric readout.
 
 # Process
 
