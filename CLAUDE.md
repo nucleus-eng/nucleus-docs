@@ -57,6 +57,12 @@ pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
 ```
 
+## Writing style
+
+**Prose style for all documentation content is defined in [STYLE-GUIDE.md](STYLE-GUIDE.md).** Read it before writing or editing a page. It covers what each page type is for, what belongs in each section of a spec, and what must never appear on a page. Detail lives in `style-guide/`.
+
+This file covers mechanics — build commands, QA tooling, repo structure, MyST syntax. Where the two overlap, the style guide is the authority on *what to write* and this file on *how the repo works*.
+
 ## Architecture
 
 ### Companion DNA repository

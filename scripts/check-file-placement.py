@@ -24,11 +24,12 @@ CONTENT_EXTENSIONS = {".md", ".csv", ".pdf", ".png", ".jpg", ".jpeg", ".gif", ".
 
 ALLOWED_ROOTS = {
     "docs", "guides", "about", "start", "templates", "styles", "assets",
+    "style-guide",
 }
 
 ALLOWED_ROOT_FILES = {
     "intro.md", "readme.md", "claude.md",
-    "contributors.md", "license.md", "fixme.md",
+    "contributors.md", "license.md", "fixme.md", "style-guide.md",
     "favicon.ico",
 }
 
