@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The LacZ Reporter Module produces β-galactosidase (LacZ), an enzyme that hydrolyzes the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) from a yellow compound into a magenta/red product, giving a colorimetric readout visible to the naked eye. It is the shared colorimetric reporter behind both the Chicago and London DevCells cascades: Chicago pairs it with the Theophylline Sensing Module and the aTc Sensing Module, and London pairs it with a quorum-sensing input as one of two candidate reporter enzymes (alongside [XylE / C23DO](../reporter-xyle/spec.md)). This page covers the reporter enzyme and its LacZ/CPRG chemistry; sensor-specific behavior is documented on each sensing Module's own page and cited here rather than duplicated.
+The LacZ Reporter Module produces β-galactosidase (LacZ), an enzyme that hydrolyzes the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) from a yellow compound into a magenta/red product, giving a colorimetric readout visible to the naked eye. It is the shared colorimetric reporter behind both the Chicago and London DevCells cascades: Chicago pairs it with the Theophylline Sensing Module and the aTc Sensing Module, and London pairs it with a quorum-sensing input as one of two candidate reporter enzymes (alongside [XylE / C23DO](../reporter-xyle/spec.md)). Sensor-specific behavior is on each sensing Module's own page.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -136,10 +136,10 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the colorimetric readout for the aTc, pH and theophylline cascades.
 - [London DevCell](../../implementations/london-devcell/main.md): supplies the colorimetric readout for the AHL cascade.
 
+# Processes
+
+- [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md)
+
 # Credits
 
-Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab) — bulk-cytosol validation.
-
-Developed by [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab) — London colour-change module design.
-
-Developed by Mary Kelly (Chicago Node, Kamat Lab) and Samuel Chen (Chicago Node, Liu Lab).
+Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab), [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab), Mary Kelly (Chicago Node, Kamat Lab), and Samuel Chen (Chicago Node, Liu Lab).

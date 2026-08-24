@@ -46,7 +46,7 @@ The pH Cascade combines its Modules as follows:
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the pH switch fires; ruptures its own liposome and a neighboring CPRG-loaded liposome, coupling sensing to readout.
 - **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — reacts with the released CPRG substrate to produce the visible yellow-to-purple color change.
 
-None of the three Module pages documents the combined three-part chain. This page specifies it.
+The combined three-part chain is specified here.
 
 :::::{tab-set}
 
@@ -159,7 +159,7 @@ A second liposome population carrying the chromogenic substrate. See [Substrate 
 
 # Expected Behavior
 
-No result has been generated for the full pH Sensing Cell → PLA1 → LacZ chain run together. The closest available data are the Module-level results documented on each Module's own page, none of which is the combined cascade.
+No result has been generated for the full pH Sensing Cell → PLA1 → LacZ chain run together. The closest available data are the Module-level results on each Module's own page, none of which is the combined cascade.
 
 ## Cells
 

@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 :align: center
 :width: 75%
 
-Schematic representation of the aTc Sensing Cell mechanism. Inside the synthetic cell, the `TetO-PLA1` construct is transcribed and translated to produce PLA1; co-encapsulated LacZ is also expressed. Membrane-permeable aTc (ATC) enters the synthetic cell and (via TetR, not shown) de-represses `TetO-PLA1` expression. CPRG substrate is co-loaded in the same reaction. Figure by Mary Kelly, Kamat Lab, from the 2026-08-14 DevStudio status meeting slide "aTc sensor working in b.next cytosol: Encapsulating TetO-PLA1 with LacZ"; cropped from the original slide (data panels omitted).
+Schematic representation of the aTc Sensing Cell mechanism. Inside the synthetic cell, the `TetO-PLA1` construct is transcribed and translated to produce PLA1; co-encapsulated LacZ is also expressed. Membrane-permeable aTc (ATC) enters the synthetic cell and (via TetR, not shown) de-represses `TetO-PLA1` expression. CPRG substrate is co-loaded in the same reaction. Figure by Mary Kelly (Chicago Node, Kamat Lab); the data panels of the original are omitted.
 :::
 
 # Reference Composition
@@ -121,7 +121,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires TetR, and aTc as the derepressing analyte — see the [aTc Sensing Module](../detector-tetr_atc/spec.md).
 
-The aTc Sensing Cell shares its LacZ/CPRG readout with the Theophylline Sensing Cell, and the two must not be co-encapsulated. The requirement is settled; the mechanism usually given for it — theophylline inhibiting the LacZ/CPRG conversion — is not established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides. Do not restate the inhibition mechanism as fact.
+The aTc Sensing Cell shares its LacZ/CPRG readout with the Theophylline Sensing Cell, and the two must not be co-encapsulated. The mechanism usually given for the constraint — theophylline inhibiting the LacZ/CPRG conversion — is not established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides. Do not restate the inhibition mechanism as fact.
 
 # Implementations
 
@@ -137,6 +137,10 @@ This Sensing Cell is chassis + detector. Its Function is to express PLA1 in resp
 
 The 2026-08-14 result did physically co-encapsulate the `TetO-PLA1` construct, LacZ, and CPRG in one cell. That is the **Cascade** configuration realized in a single compartment, not a property of the Sensing Cell Module — see [aTc Cascade](../atc-cascade/spec.md).
 :::
+
+# Processes
+
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the shared phase-transfer method, with the Chicago-specific lipid composition on [Chicago Membrane](../membrane-popc-chol-chicago/spec.md).
 
 # Credits
 

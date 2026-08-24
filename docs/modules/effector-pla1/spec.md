@@ -15,8 +15,8 @@ The PLA1 Lysis Module uses phospholipase A1 (PLA1) as a genetically encoded lysi
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Documentation gap — no dedicated PLA1 devnote
-No PLA1-specific devnote with primary experimental data exists yet — this is a known documentation gap. This page is built by inference from the cascades that use PLA1 as their shared lysis-triggering component: `chicago-teto-catecholase` and `london-lacz-xyle-module` document the sensing and reporter chemistry paired with PLA1 in those cascades, but neither devnote describes PLA1 itself. See [Implementations](#implementations) below for how each cascade uses it, and the [tetR-aTc Detector Module](../detector-tetr_atc/spec.md) spec for the one PLA1-encapsulation result with primary (if interim) data behind it. Treat everything on this page as inferred/interim until a dedicated PLA1 devnote is written.
+:::{attention} No PLA1-specific experimental data
+@Editor: no experiment characterizes PLA1 on its own. Every result below comes from a cascade that uses it, so no PLA1 concentration, timing or efficiency figure exists independent of a sensing circuit. Confirm whether such data exists.
 :::
 
 ```mermaid
@@ -31,7 +31,7 @@ flowchart LR
     G --> H["Colorimetric readout"]
 ```
 
-Schematic representation of the PLA1 lysis cascade. No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
+Schematic representation of the PLA1 lysis cascade.
 
 # Reference Composition
 
@@ -85,17 +85,17 @@ Both a self-lysis target and, in the two-liposome cascades, a neighboring [Subst
 
 ## Cells
 
-PLA1 lyses a liposome in every DevCells cascade that needs a two-liposome colorimetric handoff. None of these are documented in a PLA1-specific devnote — each is described in the sensing or reporter devnote for that cascade, with PLA1's role inferred from the cascade's overall behavior. Per-cascade behavior is described in [Implementations](#implementations) below.
+PLA1 lyses a liposome in every DevCells cascade that needs a two-liposome colorimetric handoff. PLA1's role inferred from the cascade's overall behavior. Per-cascade behavior is described in [Implementations](#implementations) below.
 
 PLA1 behaves the same way in each cascade that uses it — expression, self-lysis, then rupture of a neighboring substrate liposome. The four documented contexts:
 
 - **Chicago theophylline cascade.** A theophylline riboswitch (Lynch & Gallivan design) gates PLA1 expression. PLA1 ruptures its own synthetic cell and a neighboring CPRG-loaded synthetic cell, releasing CPRG to an external LacZ solution and producing a visible color change after ~16 h in an alginate hydrogel. Confirmed at the synthetic cell/hydrogel level, with a known caveat: the color change currently occurs with or without theophylline present (riboswitch leak), so target specificity is not yet solved.
 - **Chicago pH cascade.** A pH-responsive toehold switch gates PLA1. The same two-liposome CPRG/LacZ handoff produces a visible yellow-to-purple change at pH 6.5 in solution. Confirmed at the solution level only; not yet moved into the hydrogel-embedded chassis.
-- **Chicago aTc cascade.** See the [tetR-aTc Detector Module](../detector-tetr_atc/spec.md) spec, "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section: a `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate in a synthetic cell, showing a detectable but **non-graded** absorbance response to aTc (saturating at or below 1 µM). This is currently the only PLA1 result with primary (if interim) supporting data behind it, rather than a description inferred purely from cascade-level behavior.
+- **Chicago aTc cascade.** See the [tetR-aTc Detector Module](../detector-tetr_atc/spec.md) spec, "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section: a `TetO-PLA1` construct is co-encapsulated with LacZ and CPRG substrate in a synthetic cell, showing a detectable but **non-graded** absorbance response to aTc (saturating at or below 1 µM). This is currently the only PLA1 result with primary supporting data behind it.
 - **London AHL cascade.** A LuxR/pLux quorum-sensing promoter gates PLA1 expression in S30 lysate. PLA1 lysis again triggers the CPRG/LacZ handoff. As of the latest report, this shows a discernible but still leaky difference in color change between +AHL and −AHL conditions; the team is optimizing DNA and AHL concentrations to widen this gap.
 
-:::{attention} Interim results
-These cascade summaries are interim results, not validated Module-level performance data for PLA1 itself.
+:::{attention} These are cascade results, not PLA1 characterization
+Each summary describes PLA1 working inside a cascade. None isolates PLA1's own performance.
 :::
 
 :::{attention} Premature lysis has two independent causes
@@ -129,9 +129,13 @@ This is about mitigating **exterior** LacZ leakage, not PLA1's lysis function (c
 
 A proteinase K treatment (50 °C/10 min, then 40 °C/1 h, then spin down) mitigates exterior LacZ leakage in cascades that use PLA1. It is documented as its own process page: [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md).
 
-:::{attention} Documentation gap
-Proteinase K concentration, reaction volume, and buffer are not documented.
+:::{attention} Treatment conditions incomplete
+@Editor: proteinase K concentration, reaction volume and buffer are not recorded. Confirm with the Node that ran it.
 :::
+
+# Processes
+
+- [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md)
 
 # Credits
 

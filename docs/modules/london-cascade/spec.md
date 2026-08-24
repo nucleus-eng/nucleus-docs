@@ -17,7 +17,7 @@ AHL activates the LuxR/pLux promoter inside the sensing cell. Here that promoter
 This page is a work in progress and not yet ready for use.
 :::
 
-See the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) spec for the underlying LuxR/pLux sensing data — encapsulation, plasmid dosing, and temperature dependence. This page covers what changes when PLA1 replaces GFP as the output.
+See the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) spec for the underlying LuxR/pLux sensing data — encapsulation, plasmid dosing, and temperature dependence.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
@@ -213,8 +213,8 @@ The London Cascade requires encapsulating two separate liposome populations (the
 The individual steps are documented: [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), [SUV Encapsulation](../../processes/encapsulate-suv/main.md), and [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md). What is **not** documented is the co-incubation step that combines the two liposome populations at the ratio this cascade needs — that remains a gap.
 :::
 
-:::{attention} Exterior LacZ leakage — mitigation not yet written up
-Exterior LacZ, or LacZ/CPRG product, leaks after PLA1-triggered lysis. This is an open issue for two-liposome cascades of this kind. A proteinase K treatment — 50 °C for 10 min, then 40 °C for 1 h, then spin down — is a candidate mitigation, but is not yet written up as a process. See [PLA1 Lysis Module § Known Future Work](../effector-pla1/spec.md#known-future-work).
+:::{attention} Exterior LacZ leakage confounds the readout
+Exterior LacZ, or LacZ/CPRG product, leaks after PLA1-triggered lysis. This is an open issue for two-liposome cascades of this kind. A proteinase K treatment — 50 °C for 10 min, then 40 °C for 1 h, then spin down — is a candidate mitigation. See [PLA1 Lysis Module § Known Future Work](../effector-pla1/spec.md#known-future-work).
 :::
 
 # Constituent Modules

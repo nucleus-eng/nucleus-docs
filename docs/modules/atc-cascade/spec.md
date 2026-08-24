@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 The combined sensing → lysis → LacZ readout chain is confirmed in synthetic cytosols and in synthetic cells (see [Expected Behavior](#expected-behavior) below). Two things are **not** yet true of this cascade:
 
 1. **Gel integration is not complete.** Hydrogel embedding has not been finished. Do not treat this cascade as validated for hydrogel-embedded use.
-2. **Merge into the overall Chicago Cascade is not yet attempted**, not confirmed or blocked. The aTc Cascade works standalone, but its multiplexed integration alongside the theophylline and pH cascades into one combined Chicago Cascade has not been demonstrated. Unlike the theophylline integration path (which cannot combine with this cascade due to a confirmed LacZ/CPRG interference), this cascade's merge into the Chicago Cascade has not yet been attempted, not been shown to be blocked.
+2. **The multiplexed Chicago Cascade has not been demonstrated.** The aTc Cascade works standalone; combining it with the theophylline and pH cascades has not been shown. Unlike the theophylline integration path (which cannot combine with this cascade due to a confirmed LacZ/CPRG interference), this cascade's merge into the Chicago Cascade has not yet been attempted, not been shown to be blocked.
 :::
 
 ```mermaid
@@ -166,7 +166,7 @@ Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago
 
 Requires CPRG and LacZ co-encapsulated with the sensing and lysis constructs (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
-Cannot be co-encapsulated with theophylline sensing. This cascade shares the LacZ/CPRG readout's co-encapsulation constraint with theophylline sensing. The requirement is settled; the mechanism usually given for it — theophylline inhibiting the LacZ/CPRG conversion — is not established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides. Do not restate the inhibition mechanism as fact.
+Cannot be co-encapsulated with theophylline sensing. This cascade shares the LacZ/CPRG readout's co-encapsulation constraint with theophylline sensing. The mechanism usually given for the constraint — theophylline inhibiting the LacZ/CPRG conversion — is not established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides. Do not restate the inhibition mechanism as fact.
 
 # Implementations
 
