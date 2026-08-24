@@ -41,28 +41,31 @@ flowchart TD
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
 ```
 
-What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
-
-This diagram shows composition only — it does not assert that any integration is confirmed.
-
-Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
-
 ::::
 <!-- /gen:composition-diagram -->
 
 ::::{tab-item} Cytosol
 
-The inner solution encapsulated into the Chicago Chassis is [Base Cytosol](../base-cytosol/spec.md), a PURE-based aqueous solution supplying transcription and translation. Demo variants add DNA encoding sensing/reporter logic.
-
-:::{attention} Stock and final concentrations not documented
-Base Cytosol is listed here as a single aggregated line item. The working concentrations and per-reaction volumes of the Chicago Chassis inner solution, and any encapsulation additive equivalent to London's sucrose and RNase inhibitor, are not recorded in the source material. Raise on the Chicago questionnaire.
+:::{warning} Cytosol Composition is not verified!
+Below is an approximate composition table for the cytosolic components in the Chicago Chassis, based on the composition of [Base Cytosol](../base-cytosol/spec.md) and have not been verified by the module developers. 
 :::
+
+| Component         | Input concentration | Final concentration | Volume for one reaction (µL) |
+| ----------------- | ------------------- | ------------------- | ---------------------------- |
+| SMix              | 3.33x               | 1x                  | 12                           |
+| PMix              | 15 mg/mL            | 1.80 mg/mL          | 4.8                          |
+| Ribosomes         | 10 µM               | 1.8 µM              | 7.2                          |
+| tRNA              | 35 mg/mL            | 3.5 mg/ml           | 4                            |
+| RNase Inhibitor   | 40 000 U/mL         | 2000 U/mL           | 2                            |
+| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 1.33                         |
+| template DNA      | X nM                | Y nM                | -                            |
+| Water             |                     |                     | to 40 µL final volume        |
+:::
+
 
 ::::
 
 ::::{tab-item} Membrane
-
-The membrane is the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md), a 9:1 POPC:cholesterol phospholipid bilayer that provides encapsulation, optionally functionalized with red fluorescent Liss-Rhod PE.
 
 :::{table}
 :label: comp-chicago-membrane
@@ -84,7 +87,8 @@ Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Chicago M
 Use this cell in outer solution at 1180 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer.
 
 :::{attention} Outer solution composition not documented
-Only the osmolarity target is recorded. The solutes and their concentrations, equivalent to London's potassium L-glutamate / HEPES / glucose table, are not in the source material. Raise on the Chicago questionnaire.
+Only the osmolarity target is recorded. The solutes and their concentrations are not yet recorded. Use glucose in ultrapure water as a default.
+
 :::
 
 ::::

@@ -42,9 +42,9 @@ pie showData
 
 ::::
 
-::::{tab-item} Documented Preparations
+::::{tab-item} Preparations
 
-:::{table} Documented preparations of the Chicago base membrane.
+:::{table} Preparations of the Chicago base membrane.
 :label: comp-membrane-chicago-preps
 
 | Preparation | POPC (µL) | Cholesterol (µL) | Liss-Rhod PE (µL) | Method |
@@ -59,11 +59,11 @@ pie showData
 
 # Expected Behavior
 
-The Chicago Membrane forms both liposome populations in the Chicago DevStudio Demo: synthetic cells encapsulating [Base Cytosol](../base-cytosol/spec.md); and [CPRG-loaded SUVs](../substrate-cprg-suv/spec.md) carrying a chromogenic substrate as part of the [LacZ Reporter](../reporter-lacz/spec.md) colorimetric readout. This membrane module can be used generally to encapsulate Cytosolic modules. See [Chicago Chassis](../chicago-chassis/spec.md) and [SUV Encapsulation](../../processes/encapsulate-suv/main.md) for more information.
+The Chicago Membrane is used for both synthetic cell preparations in the Chicago DevStudio Demo: synthetic cells encapsulating [Base Cytosol](../base-cytosol/spec.md); and [CPRG-loaded SUVs](../substrate-cprg-suv/spec.md) carrying a chromogenic substrate as part of the [LacZ Reporter](../reporter-lacz/spec.md) colorimetric readout. This membrane module can be used generally to encapsulate Cytosolic modules. See [Chicago Chassis](../chicago-chassis/spec.md) and [SUV Encapsulation](../../processes/encapsulate-suv/main.md) for more information.
 
 # Process
 
-The synthetic-cell preparation uses the shared inverted-emulsion (lipid-in-oil) phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The SUV preparation uses a different method entirely — lipid-film hydration and extrusion, documented in [SUV Encapsulation](../../processes/encapsulate-suv/main.md).
+Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-transfer method](../../processes/assemble-base-cell/main.md). SUVs are prepared using [lipid-film hydration and extrusion](../../processes/encapsulate-suv/main.md).
 
 # Credits
 
