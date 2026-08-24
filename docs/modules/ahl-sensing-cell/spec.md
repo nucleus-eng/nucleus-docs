@@ -14,10 +14,6 @@ The AHL Sensing Cell combines the [London Chassis](../london-chassis/spec.md) wi
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{note}
-**Source of this page.** Composition and behavior data below come from `Demo Status - London.docx` (London Module 1 and Module 3, contributors Ion Ioannou and Jonah McDonald) and a 2026-08-14 DevCells status meeting (transcript and an accompanying slide deck, 40 pages). The backing devnote, `devnotes/london-quorum-sensing-polymersome/main.md`, is confirmed still a template stub — milestones and risk framing only, no primary data — so it is not cited as a completed source anywhere on this page.
-:::
-
 ```mermaid
 flowchart TD
     LON["London Chassis<br/>(S30 Lysate + POPC synthetic cell)"]
@@ -39,7 +35,7 @@ flowchart TD
 
 The AHL Sensing Cell is the London Chassis (S30 Lysate encapsulated in a POPC synthetic cell) plus the AHL Sensing Module's `pLux-GFP` plasmid. Once assembled, AHL from the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome.
 
-No source figure exists for this composed mechanism. The devnote's only figure illustrates a different, superseded design (diblock-copolymer polymersome with X-gal/β-galactosidase readout, not the POPC/S30/GFP system this page documents), so it is not reused here. The slide deck has hand-drawn mechanism sketches embedded in data-heavy slides for the hydrogel-embedded configurations, but no standalone, page-ready schematic of the general composed mechanism exists. This diagram is authored here as a simple mechanism summary.
+The diagram below is a mechanism summary, not a reproduction of a published figure.
 
 # Reference Composition
 
@@ -76,6 +72,23 @@ flowchart TD
 
 ::::
 <!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `pLux-GFP` | not documented | — | Expressed in the sensing cell; the LuxR/pLux reporter plasmid |
+| LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
+:::
+
+:::{attention} Sensor plasmid not in `nucleus-eng/DNA`
+@Editor: `pLux-GFP` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA), and it is not recorded whether LuxR is expressed from a construct or added as protein. Confirm both with the London Node.
+:::
+
+See [Detector: AHL](../detector-ahl/spec.md) for the sensor's own characterization.
+
+::::
 
 ::::{tab-item} Cytosol
 
@@ -141,7 +154,7 @@ Without Optiprep in the inner solution, the encapsulated sensor expresses GFP on
 
 Separately, the sensor was embedded in POPC synthetic cells within 1% ultra-low-gelling-temperature agarose (ULGA) hydrogel. These hydrogel-embedded synthetic cells produced a GFP response after 2.5 h incubation with either overnight bacterial culture or bacterial culture supernatant, confirmed by Z-stack imaging; an LB-only control showed no signal at matched imaging settings.
 
-:::{attention} Caveats from the source material
+:::{attention} Caveats
 - Optiprep above ~5% of the inner solution broadly suppresses cell-free expression (not AHL-specific); the 10% and 15% Optiprep conditions tested gave abundant, stable synthetic cells but no reporter signal. Encapsulate without Optiprep to preserve expression.
 - Plasmid dosing is critical: early failures traced to roughly seven-fold under-dosing; use ~1000 ng per reaction (~37–80 ng/µL in-reaction).
 - Sensor fold-induction is strongest near 25 °C and drops at 37 °C; incubate at 25 °C when minimal background matters.
@@ -169,16 +182,26 @@ Separately, an AHL Sensing Cell + [CPRG-loaded SUV](../../processes/encapsulate-
 Taken together, the AHL Sensing Cell has real, multi-format experimental traction — GFP and colorimetric readouts have both worked in at least one lysate/synthetic cell/gel configuration, in some cases repeated across labs or over long time courses. It has not, however, reached the point of established reproducibility: leakiness (signal in the absence of AHL) is a recurring, explicitly unresolved caveat across multiple configurations, and the most recent reported result is both unreproduced and subject to a known false-positive risk from old-stock liposome leakage. Treat this Module as demonstrating feasibility, not as a validated Sensing Cell.
 :::
 
-## Related cascade
+The [London Cascade](../london-cascade/spec.md) swaps this Cell's GFP payload for a `P70lux-PLA1-term` construct, so that AHL exposure triggers a two-liposome PLA1/LacZ colorimetric handoff instead.
 
-The GFP payload documented above is swapped for a `P70lux-PLA1-term` construct in the [London Cascade](../london-cascade/spec.md), so that AHL exposure instead triggers a two-liposome PLA1/LacZ colorimetric handoff. See that page for the cascade-level composition and its own, separate caveats — not duplicated here.
+# Requirements
+
+Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `pLux-GFP` construct is driven by the *E. coli* pLux promoter, not pT7, so it does not express in a T7-only cytosol.
+
+Requires AHL (3-oxo-C6-HSL) in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: AHL](../detector-ahl/spec.md)).
+
+Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression.
+
+# Implementations
+
+- [London DevCell](../../implementations/london-devcell/main.md): places this Cell in the London quorum-sensing demo.
 
 # Process
 
 The AHL Sensing Cell is formed by encapsulating S30 Lysate plus the `pLux-GFP` sensor plasmid in a POPC membrane as a synthetic cell, using an Elani-lab mineral-oil phase-transfer protocol — the same route documented on the [London Chassis](../london-chassis/spec.md) spec. Hydrogel-embedded configurations additionally require a ULGA hydrogel-embedding step.
 
 :::{attention} Process gap
-No mineral-oil phase-transfer encapsulation process, and no ULGA hydrogel-embedding process, is yet documented in `docs/processes/`. Do not assume [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) applies as written to either step — flag both for follow-up process pages rather than treating this citation as equivalent.
+@Editor: no mineral-oil phase-transfer encapsulation process and no ULGA hydrogel-embedding process are documented in `docs/processes/`. Both need pages. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply to either step.
 :::
 
 :::{caution}

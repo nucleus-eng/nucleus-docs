@@ -73,5 +73,8 @@ git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale
 codespell docs/
 python3 scripts/check-links.py --offline-only docs/
 python3 scripts/check-dropdowns.py && python3 scripts/check-toc.py && python3 scripts/check-file-placement.py
-grep -rn '@[A-Za-z]' docs/ && echo "LOOSE TAG — do not push"
+grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):'
 ```
+
+The last line flags stray tags. `@Editor:` and `@Developer:` are sanctioned and expected on
+a draft page; resolve them before the page is published.

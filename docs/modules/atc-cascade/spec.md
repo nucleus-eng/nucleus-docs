@@ -169,15 +169,14 @@ Cannot be co-encapsulated with theophylline sensing. This cascade shares the Lac
 
 # Implementations
 
-- [Chicago Cascade](../chicago-cascade/spec.md): the aTc integration path of the multiplexed Chicago demo. That combination has not been built.
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): places the Chicago cascades in a hydrogel with spatial patterning.
 
 # Process
 
-Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). What remains undocumented is hydrogel embedding **of this cascade specifically** — gel integration was still in progress as of 2026-08-14.
+Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). Hydrogel embedding of this cascade is not documented.
 
 :::{attention} Process gap
-Do not assume [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) applies as written to synthetic-cell scale prep, and do not assume any existing process page covers hydrogel embedding for this cascade — flag both for follow-up process pages rather than treating a citation here as equivalent.
+@Editor: no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
 :::
 
 # Constituent Modules

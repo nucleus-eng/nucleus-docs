@@ -28,6 +28,7 @@ read-through; the rest catch what is *present and wrong*.
 
 ```bash
 python3 scripts/check-composition-tabs.py docs/modules/<name>/
+python3 scripts/check-implementations.py
 python3 scripts/check-links.py --offline-only docs/
 ```
 
@@ -40,6 +41,31 @@ Then check by hand:
 - Does every section the page needs exist? A missing `# Requirements` is common.
 - Does the DNA tab list **every** construct in the closure, or only the one that was easy
   to find? Mark unknown supply routes rather than omitting the row.
+
+**Tag every gap you leave behind.** A cell reading "not documented" records the gap but
+asks nobody to close it. Give the tab an attention block naming what is missing and who
+should find it:
+
+```
+:::{attention} Composition not fully documented
+@Editor: the outer-solution osmolarity components for this cascade are not recorded.
+Confirm with the London Node.
+:::
+```
+
+`@Editor:` and `@Developer:` are the sanctioned forms. The pre-PR screen for stray `@` is
+what stops one shipping unresolved — it is a reminder to close them, not a ban on writing
+them.
+
+**`# Implementations` lists Implementations, and lists all of them.** Two failures, both
+found by `check-implementations.py`:
+
+- A cascade is a **Module**, however composed. Only pages under `docs/implementations/`
+  belong in this section. Modules that use this Module go nowhere — the dependency
+  diagram already shows them.
+- The relation is symmetric. If an Implementation is built from this Module, this Module
+  lists that Implementation. The reverse half is the one that rots: nobody revisits twelve
+  Module pages when an Implementation gains a Module.
 
 ### 2. Boundaries — is this content on the right page?
 
@@ -104,8 +130,13 @@ codespell docs/
 python3 scripts/check-composition-tabs.py
 python3 scripts/check-links.py --offline-only docs/
 python3 scripts/check-dropdowns.py && python3 scripts/check-toc.py && python3 scripts/check-file-placement.py
-grep -rn '@[A-Za-z]' docs/ && echo "LOOSE TAG — do not push"
+grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):' && echo "STRAY TAG — resolve before publishing"
 ```
+
+`@Editor:` and `@Developer:` are the sanctioned forms and are expected on a `status: draft`
+page — they are how a gap asks to be closed. The screen exists to catch anything else, and
+to remind you that tagged gaps must be resolved before a page is published, not to forbid
+writing them.
 
 **Verify token by token.** Diff every number, temperature, construct name and cross-link
 against the pre-edit file. A structural pass should change structure, not facts.

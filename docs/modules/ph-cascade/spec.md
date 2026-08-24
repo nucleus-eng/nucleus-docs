@@ -190,7 +190,6 @@ Do not add gramicidin A to the colorimetric configuration. See [Expected Behavio
 
 # Implementations
 
-- [Chicago Cascade](../chicago-cascade/spec.md): the pH integration path of the multiplexed Chicago demo. That combination has not been built.
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): places the Chicago cascades in a hydrogel with spatial patterning.
 
 # Process

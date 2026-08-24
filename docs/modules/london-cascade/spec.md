@@ -95,6 +95,10 @@ flowchart TD
 | β-galactosidase (LacZ) | not applicable | — | Supplied as purified enzyme in the outer solution, not expressed |
 :::
 
+:::{attention} LuxR supply route unknown
+@Editor: confirm whether LuxR is expressed from a construct in this cascade or added as purified protein. If expressed, the construct needs a row above.
+:::
+
 :::{attention} Construct not yet in `nucleus-eng/DNA`
 `P70lux-PLA1-term` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) DNA tab for the same gap. Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
 :::
@@ -112,6 +116,10 @@ The [AHL Sensing Cell](../ahl-sensing-cell/spec.md) with `P70lux-PLA1-term` in p
 | --- | --- |
 | `P70lux-PLA1-term` plasmid DNA | 15 ng/µL |
 | S30 lysate premix, extract, amino acid mix, sucrose, RNase inhibitor | Not documented for the PLA1 payload; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for the closest documented analog |
+:::
+
+:::{attention} Inner solution not confirmed for the PLA1 payload
+@Editor: confirm with the London Node whether the S30 lysate premix, extract, amino acid mix, sucrose and RNase inhibitor concentrations carry over unchanged from the AHL Sensing Cell when `P70lux-PLA1-term` replaces `pLux-GFP`.
 :::
 
 :::{table} AHL Sensing Cell membrane — [London Membrane: POPC](../membrane-popc/spec.md).
@@ -136,6 +144,10 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | CPRG substrate | Not reported for this cascade configuration |
 :::
 
+:::{attention} Substrate loading not documented
+@Editor: the CPRG concentration loaded into the Substrate SUVs for this cascade is not recorded. Confirm with the London Node.
+:::
+
 :::{table} Substrate SUV membrane — [London Membrane: POPC](../membrane-popc/spec.md).
 :label: comp-london-cascade-suv-membrane
 
@@ -157,7 +169,9 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | β-galactosidase (LacZ) | Not reported for this cascade configuration; see [LacZ Reporter](../reporter-lacz/spec.md) for the enzyme's general characterization |
 :::
 
-The osmolarity components of the outer solution are not documented for this cascade.
+:::{attention} Outer solution incompletely documented
+@Editor: the exterior β-galactosidase concentration and the osmolarity components of the outer solution are not recorded for this cascade. Confirm with the London Node.
+:::
 
 ::::
 

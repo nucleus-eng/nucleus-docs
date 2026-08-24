@@ -16,6 +16,8 @@ A tab-set: the generated `Module Dependencies` diagram, then one tab per part of
 
 Requirements imply tabs too. A lysis Module requires a membrane, because there is nothing to lyse without one, so it carries a Membrane tab even though no membrane appears in its own constituent list.
 
+**A tab may say the composition is not documented. It may not be absent.** Where a value is missing, say so in the cell and add an attention block tagging who should find it — `@Editor:` or `@Developer:`. A cell reading "not documented" records a gap; a tagged block asks someone to close it.
+
 **A tab may say the composition is not documented. It may not be absent.** An absent Membrane tab reads as "this Module has no membrane"; a Membrane tab saying the composition is undocumented reads as the truth. `scripts/check-composition-tabs.py` enforces this.
 
 ### Naming the tabs
@@ -118,6 +120,12 @@ Every Nucleus construct uses a pT7 promoter unless the page says otherwise, beca
 State requirements; do not argue for them.
 
 **Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. Nucleus has not adopted abstract Modules yet. Until it does, the one-page workaround is accepted.
+
+## Implementations
+
+Only pages under `docs/implementations/`. A cascade is a Module however composed it is, and a Module that uses this Module belongs nowhere here — the dependency diagram already shows it.
+
+The relation is symmetric: if an Implementation is built from this Module, this Module lists that Implementation. `scripts/check-implementations.py` checks both halves.
 
 ## Process
 
