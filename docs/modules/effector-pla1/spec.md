@@ -38,39 +38,62 @@ Schematic representation of the PLA1 lysis cascade. No published schematic exist
 :::::{tab-set}
 
 ::::{tab-item} DNA
-:::{attention} Not yet in `nucleus-eng/DNA`
-PLA1 has two constructs: a constitutive, riboswitch-gated `T7pro-PLA1-T7term` used in Chicago's PURE-based theophylline and pH cascades, and a LuxR/pLux-controlled `P70lux-PLA1-term` used in London's lysate AHL cascade. Neither has a confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Do not add a row above until a file lands there and its identity is confirmed against the construct name.
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `T7pro-PLA1-T7term` | not yet determined | — | pT7; Chicago theophylline and pH cascades |
+| `P70lux-PLA1-term` | not yet determined | — | *E. coli* P70/pLux; London AHL cascade |
 :::
+
+:::{attention} Neither construct is in `nucleus-eng/DNA`
+Neither has a confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Do not add a length or file entry until one lands there and its identity is confirmed against the construct name.
+:::
+
+::::
+
+::::{tab-item} Cytosol
+
+PLA1 is expressed from one of the constructs above rather than added as a reagent, so it has no working concentration of its own.
+
+:::{table} PLA1 DNA dose, by cascade.
+:label: comp-pla1-cytosol
+
+| Cascade | Construct | Working concentration |
+| --- | --- | --- |
+| Chicago aTc | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
+| London AHL | `P70lux-PLA1-term` | 15 ng/µL |
+| Chicago pH | Toehold-switch-gated PLA1 template | 2 nM |
+| Chicago theophylline | `T7pro-PLA1-T7term` | Not documented |
+:::
+
+The cytosol itself is whichever the host cascade uses — [Base Cytosol](../base-cytosol/spec.md) for the Chicago cascades, [S30 Lysate](../s30-lysate/spec.md) for London.
+
+::::
+
+::::{tab-item} Membrane
+
+PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module: it takes whichever membrane the host cell has, [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) or [London Membrane: POPC](../membrane-popc/spec.md).
+
+Both a self-lysis target and, in the two-liposome cascades, a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) membrane are required.
+
 ::::
 
 :::::
-
-:::{attention} Only one cascade has PLA1-specific numbers
-Of the four cascades in [Implementations](#implementations), only the Chicago aTc cascade's encapsulation result gives concentrations for the PLA1 construct itself. The theophylline, pH, and AHL cascade devnotes describe the paired sensing/reporter chemistry (riboswitch, toehold switch, LuxR/pLux, LacZ/XylE, CPRG/catechol) in quantitative detail but do not report a DNA, protein, or timing value for PLA1 itself — the PLA1 step in those cascades is described only qualitatively ("PLA1 ruptures its own synthetic cell..."). That is a genuine documentation gap: no PLA1-specific reaction data exists independent of the cascades that use it.
-:::
-
-The table below is built from the "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section of the [tetR-aTc Detector Module spec](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) — the only source with primary (if interim) numbers for a PLA1 construct's own expression conditions, as opposed to whole-cascade description.
-
-:::{table} TetO-PLA1 encapsulation parameters — Chicago aTc cascade (2026-08-14)
-:name: pla1-chicago-encapsulation
-
-| Parameter | Value | Notes |
-| --- | --- | --- |
-| Construct | `TetO-PLA1` | Distinct from `pT7-tetO-plamGFP` used elsewhere in the tetR-aTc Detector Module |
-| DNA concentration tested | 1 nM or 0.5 nM | Three DNA/TetR combinations tested; see below |
-| TetR concentration tested | 50 nM or 100 nM | Co-encapsulated repressor |
-| aTc inducer dose range | 0, 1, 5, 10 µM | Detectable response vs. 0 µM in all three combinations, but **not** dose-graded — non-monotonic in two of three; see the [source-figure reading](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) |
-| Co-encapsulated reporter | LacZ + CPRG substrate | Same synthetic cell as the `TetO-PLA1` construct |
-| Readout | Absorbance at 575 nm | Colorimetric, via the LacZ/CPRG reaction |
-| Validation level | Solution/synthetic cell only | Hydrogel integration has not been completed. |
-
-:::
 
 # Expected Behavior
 
 ## Cells
 
 PLA1 lyses a liposome in every DevCells cascade that needs a two-liposome colorimetric handoff. None of these are documented in a PLA1-specific devnote — each is described in the sensing or reporter devnote for that cascade, with PLA1's role inferred from the cascade's overall behavior. Per-cascade behavior is described in [Implementations](#implementations) below.
+
+:::{attention} Premature lysis has two independent causes
+**Gramicidin A causes premature lysis; it does not prevent it.** Used as a proton channel for the pH cascade's GFP-expression result, it was left out of the colorimetric demonstration because it ruptured a portion of the CPRG-loaded liposomes, producing nonspecific color. Its absence can reduce pH-sensing efficiency, but proton diffusion into the more permeable liposomes was enough to drive PLA1 expression and initiate the lysis cascade.
+
+**Acidic conditions alone rupture some CPRG-loaded liposomes**, independent of PLA1, which confounds attributing a color change to the sensing pathway.
+
+Account for both routes rather than assuming a liposome stays intact until the intended trigger.
+:::
 
 # Requirements
 
@@ -80,15 +103,7 @@ Using `T7pro-PLA1-T7term` requires pT7 transcription and translation (e.g. [Base
 
 PLA1 is a lysis effector, not a standalone module — it only produces an observable effect when paired with a sensing circuit and a downstream reporter/substrate liposome, and none at all in bulk cytosol, where there is no membrane to degrade. Premature lysis is a known failure mode, and the Chicago pH cascade shows two independent routes to it.
 
-**Gramicidin A is a cause of premature lysis, not a mitigation.** Gramicidin A was used as a proton channel for the pH cascade's GFP-expression result, but it was deliberately **left out** of the colorimetric demonstration: it caused a portion of the CPRG-loaded liposomes to rupture prematurely, producing nonspecific color development. Its absence can reduce pH-sensing efficiency, but proton diffusion into the subset of liposomes with relatively permeable membranes was sufficient to drive PLA1 expression and initiate the lysis cascade. Do not add gramicidin A to a colorimetric cascade expecting it to hold liposomes intact.
-
-**Acidic conditions alone can rupture CPRG-loaded liposomes**, independent of PLA1 expression, which confounds attribution of any color change to the intended sensing pathway.
-
-Any implementation adding PLA1 to a new cascade should account for both routes rather than assuming the liposome stays intact until the intended trigger.
-
-:::{attention} Gramicidin A causes premature rupture
-Gramicidin A was excluded from the colorimetric demonstration because it caused a portion of the CPRG-loaded liposomes to rupture prematurely, producing nonspecific color development. It is not a stabilizer.
-:::
+Do not add gramicidin A to a colorimetric cascade. See [Expected Behavior](#expected-behavior) for why.
 
 # Implementations
 
@@ -116,7 +131,3 @@ Proteinase K concentration, reaction volume, and buffer are not documented.
 # Credits
 
 Developed by Jonah McDonald and Charlie Newell (London Node) and Mary Kelly (Chicago Node, Kamat Lab).
-
-:::{attention} No PLA1 DevNote exists
-Attribution above is not drawn from a published DevNote.
-:::

@@ -88,9 +88,11 @@ flowchart TD
 ::::{tab-item} DNA
 
 :::{table}
-| **Name** | **Length (bp)** | **File** |
-| --- | --- | --- |
-| `P70lux-PLA1-term` | not yet determined | — |
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `P70lux-PLA1-term` | not yet determined | — | Expressed in the AHL Sensing Cell; replaces `pLux-GFP` |
+| LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
+| β-galactosidase (LacZ) | not applicable | — | Supplied as purified enzyme in the outer solution, not expressed |
 :::
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
@@ -99,17 +101,25 @@ flowchart TD
 
 ::::
 
-::::{tab-item} Sensing Cell
+::::{tab-item} AHL Sensing Cell
 
-The S30 lysate inner solution and POPC membrane of the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), with `P70lux-PLA1-term` in place of `pLux-GFP`.
+The [AHL Sensing Cell](../ahl-sensing-cell/spec.md) with `P70lux-PLA1-term` in place of `pLux-GFP`.
 
-:::{table} Sensing Cell, S30 lysate condition. Inner solution otherwise as documented on the AHL Sensing Cell spec.
+:::{table} AHL Sensing Cell inner solution, S30 lysate condition.
 :label: comp-london-cascade-sensing
 
 | Component | Working concentration |
 | --- | --- |
 | `P70lux-PLA1-term` plasmid DNA | 15 ng/µL |
 | S30 lysate premix, extract, amino acid mix, sucrose, RNase inhibitor | Not documented for the PLA1 payload; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for the closest documented analog |
+:::
+
+:::{table} AHL Sensing Cell membrane — [London Membrane: POPC](../membrane-popc/spec.md).
+:label: comp-london-cascade-sensing-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 100 |
 :::
 
 ::::
@@ -124,6 +134,14 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | Component | Working concentration |
 | --- | --- |
 | CPRG substrate | Not reported for this cascade configuration |
+:::
+
+:::{table} Substrate SUV membrane — [London Membrane: POPC](../membrane-popc/spec.md).
+:label: comp-london-cascade-suv-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 100 |
 :::
 
 ::::

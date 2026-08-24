@@ -33,7 +33,14 @@ This is an Implementation rather than a Module because it is a cascade Module pl
 | Lysis | [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) | ★ |
 | Substrate | [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md) | ★ |
 | Readout | [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) | ★ |
+| Readout (alternate) | [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) | proposed, not used |
 | Multiplex | [Chicago Cascade](../../modules/chicago-cascade/spec.md) | not built |
+
+## Choosing the colorimetric readout
+
+Two colorimetric readouts are available. **LacZ is the one this demo uses.** It has been demonstrated together with the aTc sensing and PLA1 lysis constructs in a single synthetic cell, and produced the 2026-08-14 aTc-response data.
+
+[XylE / C23DO](../../modules/reporter-xyle/spec.md) is a second, orthogonal colorimetric enzyme (catechol 2,3-dioxygenase) and remains an option for a future build. It is validated only in bulk cytosol, using a different TetR/aTc-inducible construct (`pT7-TetO-catecholase` / `pMN067`), with no synthetic cell encapsulation or hydrogel data, and it has never been run with the PLA1 lysis trigger. See [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md#expected-behavior) for that result.
 
 # Process
 

@@ -42,6 +42,7 @@ When content is on the wrong page, the destination depends on what it is evidenc
 | A specific demo run, with its conditions and outcome | The Implementation page |
 | Step-by-step method | The Process page |
 | A constraint on what the Module can compose with | Requirements |
+| An alternative or option not part of this Module's Composition | The Implementation page that would choose between them |
 | Status, provenance of internal sources, open questions | `tmp/`, not the repo |
 
 A result does not belong on a constituent's page merely because the constituent was physically in the tube.

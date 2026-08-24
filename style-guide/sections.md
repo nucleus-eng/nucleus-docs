@@ -12,6 +12,12 @@ What the Module is and what it does. Mechanism and schematic figures go here. A 
 
 A tab-set: the generated `Module Dependencies` diagram, then one tab per part of the system.
 
+**Derive the tab set. Do not read it off the table that is already there.** Enumerate the transitive closure of `# Constituent Modules` — the generated diagram already computes it — and add anything the Requirements name. Every compartment and every genetically encoded part in that closure gets a tab.
+
+Requirements imply tabs too. A lysis Module requires a membrane, because there is nothing to lyse without one, so it carries a Membrane tab even though no membrane appears in its own constituent list.
+
+**A tab may say the composition is not documented. It may not be absent.** An absent Membrane tab reads as "this Module has no membrane"; a Membrane tab saying the composition is undocumented reads as the truth. `scripts/check-composition-tabs.py` enforces this.
+
 ### Naming the tabs
 
 **A tab names a place in the system or a stage in the recipe. Never a property of the table.**
@@ -43,8 +49,10 @@ Not every Module has all of these. A membrane has no cytosol, a cytosol has no m
 A cascade spans two liposome populations plus the exterior, so compartment names alone do not reach. Put the population at the top level and keep the same axis:
 
 ```
-Module Dependencies | DNA | Sensing Cell | Substrate SUV | Outer Solution
+Module Dependencies | DNA | AHL Sensing Cell | Substrate SUV | Outer Solution
 ```
+
+Population tabs take the Module's real name. `AHL Sensing Cell`, not `Sensing Cell` — a cascade page usually sits beside two others whose sensing cells are different Modules.
 
 Each population tab carries captioned tables for its own compartments. Captioned tables are not pseudo-headings — the rule above forbids bold text standing in for structure, not multiple tables in one tab.
 
@@ -53,6 +61,10 @@ Keying by location rather than by Module also removes rows that only ever existe
 **A construct appearing in both `DNA` and a location tab is correct.** `DNA` establishes identity — which construct, how long, which file. The location tab gives the dose in context. That duplication is doing two different jobs.
 
 `base-cell` is the reference: `Cytosol | Membrane | Outer Solution`, one axis, no exceptions.
+
+**This section contains composition tables and nothing else.** Not evidence, not sourcing notes, not another Module's result. A table of the reaction parameters that produced a result is Expected Behavior — and where the result belongs to a different Module, it belongs on that Module's page.
+
+State a gap inside the tab it affects, in the row where the number would go. A tab holding no table is not a tab.
 
 ### The tables
 
@@ -97,7 +109,9 @@ One line per component that imposes something — not a single generic sentence 
 
 There is no path dependence. Given a set of Modules to compose you get a set of Requirements, under one composition operator that is fully transitive. "Per route" is not a thing.
 
-Incompatibilities are Requirements, not Expected Behavior. A requirement the reader must satisfy cannot live in a composition tab.
+A **Requirement** is something the reader must provide, or must avoid, for the Module to function. An **observed property** of the system is Expected Behavior, even when it sounds like a warning. "Gramicidin A causes premature rupture" is a finding. "Do not include gramicidin A" would be a requirement. Write the finding.
+
+A requirement the reader must satisfy cannot live in a composition tab.
 
 Every Nucleus construct uses a pT7 promoter unless the page says otherwise, because the system is built for PURE and T7 RNAP. Exceptions are *E. coli* sigma-70 promoters and promoterless cloning vectors. Check each page.
 
@@ -105,9 +119,15 @@ State requirements; do not argue for them.
 
 **Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. Nucleus has not adopted abstract Modules yet. Until it does, the one-page workaround is accepted.
 
+## Process
+
+Link the Process pages that build this Module, in order. Nothing else.
+
+If no Process page covers the combination, say so in one sentence and stop. "No process page documents assembling this cascade end to end." Do not explain what a reader should not assume, and do not leave instructions for a future editor — those go in `tmp/`.
+
 ## Credits
 
-Short and unhedged. Node before Lab. The attested forms:
+Credits is **one sentence**. Not a paragraph, and never a second paragraph carrying a caveat. Validation status belongs in Expected Behavior or the status banner; whether attribution has been confirmed belongs in `tmp/`. Node before Lab. The attested forms:
 
 ```
 Developed by <Name> (b.next).

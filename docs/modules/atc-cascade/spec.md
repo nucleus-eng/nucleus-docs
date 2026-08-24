@@ -47,8 +47,7 @@ The aTc Cascade combines its Modules as follows:
 
 - **Sensing input:** [aTc Sensing Cell](../atc-sensing-cell/spec.md) — the `TetO-PLA1` sensing construct, gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the aTc/TetR sensing circuit fires; couples sensing to readout. In the confirmed result, this is co-encapsulated in the same synthetic cell as the sensing construct rather than triggering a separate neighboring liposome.
-- **Colorimetric readout — confirmed integration path:** [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG chemistry, co-encapsulated with the sensing and lysis constructs. This is the integration path used in the 2026-08-14 aTc-response data.
-- **Colorimetric readout — proposed alternate integration path:** [XylE / C23DO Reporter Module](../reporter-xyle/spec.md) — a second, orthogonal colorimetric enzyme (catechol 2,3-dioxygenase). It is validated only in bulk cytosol, using a different TetR/aTc-inducible construct (`pT7-TetO-catecholase` / `pMN067`), with no synthetic cell encapsulation or hydrogel data. Only LacZ has been demonstrated together with the aTc sensing and PLA1 lysis constructs in one synthetic cell.
+- **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG chemistry, co-encapsulated with the sensing and lysis constructs.
 
 :::::{tab-set}
 
@@ -93,6 +92,20 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} DNA
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `TetO-PLA1` | not documented | — | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
+| TetR repressor | not applicable | — | Co-encapsulated as purified protein |
+| β-galactosidase (LacZ) | not applicable | — | Co-encapsulated as purified enzyme, not expressed |
+:::
+
+See [Detector: tetR-aTc](../detector-tetr_atc/spec.md) for the sensing construct and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
+
+::::
+
 ::::{tab-item} Cytosol
 
 Every component below is co-encapsulated in a single synthetic cell.
@@ -114,6 +127,20 @@ PLA1 has no row of its own. It is expressed from the `TetO-PLA1` construct alrea
 
 ::::
 
+::::{tab-item} Membrane
+
+:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:label: comp-atc-cascade-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
+:::
+
+::::
+
 :::::
 
 # Expected Behavior
@@ -123,8 +150,6 @@ PLA1 has no row of its own. It is expressed from the `TetO-PLA1` construct alrea
 The full sensing → lysis → LacZ readout chain has been run together in synthetic cytosols and in synthetic cells, and it responds to aTc — but the response is **not graded**. Fold change in absorbance at 5 h (n = 3) separates dosed from undosed at roughly 1.15× to 1.33×, across three DNA/TetR combinations dosed at 0, 1, 5, and 10 µM aTc. The response is non-monotonic in two of the three combinations, and the error bars across the 1, 5, and 10 µM points overlap in all three.
 
 What this cascade can claim, therefore, is a working end-to-end chain with a detectable aTc-dependent signal — not a characterized dose-response. The [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec covers why the 0 µM point is a normalization baseline rather than a negative control.
-
-No result exists for the XylE alternate integration path run as part of this cascade — the XylE/C23DO chemistry has only been tested in bulk cytosol, in isolation, downstream of the same aTc/TetR sensing construct family, and never together with the PLA1 lysis trigger or in a synthetic cell. See [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#expected-behavior) for that separate, more preliminary result.
 
 ## Gels
 
@@ -161,10 +186,6 @@ Do not assume [Encapsulation: Phase Transfer](../../processes/assemble-base-cell
 - [PLA1 Lysis Module](../effector-pla1/spec.md) — lysis trigger coupling sensing to readout
 - [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG colorimetric readout chemistry — the confirmed readout, used in the 2026-08-14 aTc-response data
 
-The [XylE / C23DO Reporter Module](../reporter-xyle/spec.md) is a proposed alternate colorimetric readout. It has not been confirmed and was not used in the demonstrated cascade data.
-
 # Credits
 
-Developed by Mary Kelly (Chicago Node, Kamat Lab) — the TetO-PLA1/LacZ-CPRG encapsulation result.
-
-Attribution is pending a formal DevNote.
+Developed by Mary Kelly (Chicago Node, Kamat Lab).

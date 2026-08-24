@@ -33,6 +33,8 @@ A Module exists to be composed into systems its author never imagined. Do not wr
 
 State what the Module **is**. Do not state what it is not. Negative space is not composition — the `# Constituent Modules` list is already the boundary statement, so prose repeating it adds nothing and prose defending it presumes a reader who arrived confused from a neighboring page.
 
+When you cut a statement of what a Module is not, move what it carried. An option that is not part of this Module usually belongs on an Implementation page, because choosing between options is what those pages are for. Trimming the framing and leaving the content behind is the common failure.
+
 If a boundary feels urgent while you write, check whether it is urgent for the reader or only for you because you just wrote the adjacent page.
 
 ## Sentences
@@ -40,6 +42,8 @@ If a boundary feels urgent while you write, check whether it is urgent for the r
 Be direct. Say more with fewer words — text that survives review is usually half as long with the same technical content.
 
 State requirements; do not argue for them. Reasoning belongs in Expected Behavior or nowhere.
+
+**Say it once.** If a fact appears twice on a page, one of the two is in the wrong section. Decide which section owns it and delete the other.
 
 Follow Simplified Technical English, pragmatic mode. Do not hard-wrap paragraphs.
 

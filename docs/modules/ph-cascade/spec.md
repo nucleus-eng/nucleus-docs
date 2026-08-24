@@ -91,17 +91,42 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Sensing Cell
+::::{tab-item} DNA
 
-The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsulated in one liposome.
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| Toehold-switch-gated PLA1 template | not documented | — | Expressed in the pH Sensing Cell |
+| pH-responsive ssDNA : trigger ssDNA | not applicable | — | Synthesized oligonucleotides, added directly |
+| β-galactosidase (LacZ) | not applicable | — | Supplied as purified enzyme, not expressed |
+:::
 
-:::{table} pH Sensing Cell liposome, confirmed solution-phase integration path.
+See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
+
+::::
+
+::::{tab-item} pH Sensing Cell
+
+The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsulated in one liposome, in [Base Cytosol](../base-cytosol/spec.md).
+
+:::{table} pH Sensing Cell cytosol, confirmed solution-phase integration path.
 :label: comp-ph-cascade-sensing
 
 | Component | Working concentration |
 | --- | --- |
 | pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 µM trigger ssDNA, final |
 | Toehold-switch-gated PLA1 DNA template | 2 nM, final — a distinct, PLA1-fused construct |
+| Base Cytosol components | At reaction concentration; not separately documented for this pairing |
+:::
+
+:::{table} pH Sensing Cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:label: comp-ph-cascade-sensing-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
 :::
 
 ::::
@@ -116,6 +141,16 @@ A second liposome population carrying the chromogenic substrate. See [Substrate 
 | Component | Working concentration |
 | --- | --- |
 | CPRG substrate | Not documented at a reaction concentration for this two-liposome pairing |
+:::
+
+:::{table} Substrate SUV membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:label: comp-ph-cascade-suv-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
 :::
 
 ::::
@@ -139,23 +174,19 @@ No result has been generated for the full pH Sensing Cell → PLA1 → LacZ chai
 
 - **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected (Sung-Won Hwang, Liu Lab). The concentration-dependent absorbance data is on the [pH Sensing Cell](../ph-sensing-cell/spec.md#expected-behavior) spec.
 
+:::{attention} Premature lysis has two independent causes
+**Gramicidin A causes premature lysis; it does not prevent it.** Used as a proton channel for the GFP-expression result, it was left out of the colorimetric demonstration because it ruptured a portion of the CPRG-loaded liposomes, producing nonspecific color. Its absence can reduce pH-sensing efficiency, but proton diffusion into the more permeable liposomes was enough to drive PLA1 expression.
+
+**Acidic conditions alone rupture some CPRG-loaded liposomes**, independent of PLA1, which confounds attributing a color change to the sensing pathway.
+:::
+
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the toehold-switch-gated PLA1 construct, and a drop to pH ≈ 6.5 to open the toehold switch (e.g. [Detector: pH-Sensing](../detector-ph/spec.md)).
 
 Requires two lipid compartments — a sensing/PLA1 liposome and a separate CPRG-loaded liposome (e.g. [Chicago Chassis](../chicago-chassis/spec.md)) — plus β-galactosidase in the exterior solution (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). The readout depends on lysis releasing CPRG from one compartment into another, so this cascade has no bulk-cytosol route.
 
-Premature lysis is a known failure mode for this cascade, by two independent routes.
-
-**Gramicidin A causes premature lysis; it does not prevent it.** Gramicidin A was used as a proton channel for the pH cascade's GFP-expression result, but it was deliberately left out of the colorimetric demonstration because it caused a portion of the CPRG-loaded liposomes to rupture prematurely, producing nonspecific color. Its absence can reduce pH-sensing efficiency, but proton diffusion into the more permeable subset of liposomes was enough to drive PLA1 expression.
-
-**Acidic conditions alone rupture some CPRG-loaded liposomes**, independent of PLA1, which confounds attributing any color change to the sensing pathway.
-
-See the [PLA1 Lysis Module](../effector-pla1/spec.md#requirements) spec for detail.
-
-:::{attention} Gramicidin A causes premature rupture
-Gramicidin A was excluded from the colorimetric demonstration because it caused a portion of the CPRG-loaded liposomes to rupture prematurely. It is not a stabilizer.
-:::
+Do not add gramicidin A to the colorimetric configuration. See [Expected Behavior](#expected-behavior) for why.
 
 # Implementations
 
@@ -164,7 +195,7 @@ Gramicidin A was excluded from the colorimetric demonstration because it caused 
 
 # Process
 
-No process page documents assembling this three-part cascade end to end. The [pH Sensing Cell](../ph-sensing-cell/spec.md#process) spec already flags its own synthetic cell-encapsulation/hydrogel-embedding gap; combining that cell with PLA1 and LacZ into one cascade is a further, undocumented step. Do not assume any existing process page covers this combination — flag for a follow-up process page rather than treating a citation here as equivalent.
+No process page documents assembling this three-part cascade end to end.
 
 # Constituent Modules
 
@@ -174,6 +205,4 @@ No process page documents assembling this three-part cascade end to end. The [pH
 
 # Credits
 
-Developed by Sung-Won Hwang and Samuel Chen (Chicago Node, Liu Lab) — the pH sensing result and the spatially confined colorimetric readout in patterned agarose, respectively. This page composes those two results; the combined three-part cascade has not been demonstrated end to end.
-
-Contributor names have not been confirmed by the teams.
+Developed by Sung-Won Hwang and Samuel Chen (Chicago Node, Liu Lab).
