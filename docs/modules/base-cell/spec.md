@@ -22,6 +22,32 @@ Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spe
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    BASE_CELL["Base Cell"]
+    BASE_CYTOSOL["Base Cytosol"]
+    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
+
+    BASE_CYTOSOL --> BASE_CELL
+    MEMBRANE_POPC_CHOL --> BASE_CELL
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class BASE_CYTOSOL,MEMBRANE_POPC_CHOL constituent;
+    class BASE_CELL this;
+
+    click BASE_CELL "/docs/modules/base-cell/spec"
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Cytosol
 
 The inner solution encapsulated into the Base Cell is [Base Cytosol](/docs/modules/base-cytosol/spec.md) at reaction concentration, with `pOpen-deGFP` DNA added as a reporter.
@@ -87,6 +113,11 @@ Combined green (488 nm) and red (561 nm) fluorescence channels. First time point
 # Process
 
 Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — inner solution, encapsulated at reaction concentration
+- [Base Membrane](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer
 
 # Credits
 
