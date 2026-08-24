@@ -51,6 +51,8 @@ Follow Simplified Technical English, pragmatic mode. Do not hard-wrap paragraphs
 
 **Treat every page as world-readable, because it is.**
 
+The test is one question asked of every prose block: **does this describe the Module, or does it describe our work on the Module?** The second kind comes out. A list of banned phrases will not find it — every page invents new wording.
+
 - **Internal documents.** No questionnaires, status decks, meeting transcripts, or `.docx` filenames. Status and hedging live in `tmp/`, for agents and editors.
 - **Editor-directed text.** Address the editor with an `@Editor:` or `@Developer:` tag, never in prose. Screen for stray `@` before every PR.
 - **Revision history.** "Earlier revisions of this page…" describes the document, not the Module.

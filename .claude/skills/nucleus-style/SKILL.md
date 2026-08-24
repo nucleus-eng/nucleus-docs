@@ -88,15 +88,40 @@ common failure.
 
 Treat every page as world-readable, because it is.
 
+**Read every prose block and ask one question of it: does this sentence describe the
+Module, or does it describe our work on the Module?** The second kind comes out. That
+question is the test. Grep is not the test — see the warning below.
+
+The categories, with examples seen so far. The examples are a seed list, not a checklist:
+
 - **Internal documents** — questionnaires, status decks, meeting transcripts, `.docx`
   filenames, slide numbers. Including inside `# Credits`.
+- **Project management** — milestones, open action items, "still at the planning stage",
+  "waiting for Twist", "mitigation in progress", "tracked separately", "pending".
+- **How a decision got made** — "the 2026-08-14 meeting resolved to…", "that requirement
+  is settled". State the requirement; the meeting that produced it is ours, not theirs.
 - **Editor-directed text** — use an `@Editor:` or `@Developer:` tag, never prose.
+- **Our own migration state** — "Figure not yet migrated", "not yet transcribed",
+  "interim source". If a figure has not been migrated, migrate it.
 - **Revision history** — "Earlier revisions of this page…" describes the document.
 - **Meta-commentary** — "flattened one level deep", "not duplicated here".
 - **Hedged attribution** — never "attribution is pending confirmation".
 
 Preliminary data is published behind the `status:` banner and an `:::{attention}` block.
 That is what carries the doubt.
+
+:::{warning} Do not trust a phrase search here
+This is the class that keeps surviving a pass, and the reason is measurable. A grep for
+the known phrases catches **none** of: "still at the milestone-planning stage", "waiting
+for Twist", "Interim source", "the 2026-08-14 meeting resolved", "mitigation in progress",
+"Figure not yet migrated". Every page invents new wording; a phrase list only knows the
+last page's.
+
+Structural checks — `check-composition-tabs.py`, `check-implementations.py` — are complete,
+because they enumerate from a graph. There is no equivalent for this class. A page with
+zero phrase hits is **not** evidence of conformance, and a conformance score built from
+phrase hits measures the phrases, not the category.
+:::
 
 ### 4. Sections and prose
 

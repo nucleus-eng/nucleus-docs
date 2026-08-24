@@ -16,10 +16,6 @@ The aTc Sensing Cell combines the [Chicago Chassis](../chicago-chassis/spec.md) 
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Interim source
-The dose-response result on this page is sourced from the Chicago Module Integration Status notes and the August DevCell Status Update meeting (2026-08-14). See the [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec's "Chicago Cascade Encapsulation" section for the same result at the module level.
-:::
-
 :::{figure} mechanism-schematic.png
 :name: fig-atc-sensing-cell-schematic
 :align: center
@@ -95,7 +91,15 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 ::::{tab-item} Membrane
 
-The membrane follows the [Chicago Chassis](../chicago-chassis/spec.md) reference composition (9:1 POPC:cholesterol, synthetic-cell scale) — see that page for the full membrane spec.
+:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md), at synthetic-cell scale.
+:label: comp-atc-sensing-cell-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
+:::
 
 ::::
 

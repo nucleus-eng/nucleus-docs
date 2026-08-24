@@ -83,12 +83,13 @@ CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is the substra
 
 Absorbance at 570 nm over time shows CPRG converts from yellow to a red product faster in the presence of 1.5 mM theophylline than without it, under the reaction above. This is a single preliminary experiment (one condition each, no replicates reported) demonstrating that the LacZ/CPRG reaction functions in Nucleus Cytosol — it is not a characterization of LacZ turnover independent of a switch, and no bulk-cytosol data exists yet for LacZ expressed standalone (without a sensor fused upstream).
 
-:::{hint} Figure not yet migrated
-:class: dropdown
-The source devnote includes a kinetics figure (`pT7_theo_lacZ.png`, absorbance at 570 nm over time for the −/+ theophylline conditions). It has not been copied into this page — see [`devnotes/chicago-theophylline-lacz`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-theophylline-lacz) for the original.
+:::{figure} cytosol-theophylline-kinetics.png
+:label: fig-lacz-theophylline-kinetics
+:width: 75%
+
+Kinetics for colorimetric conversion of CPRG into a red product, absorbance at 570 nm, with and without theophylline.
 :::
 
-A separate devnote ([`chicago-colorimetric-validation`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-colorimetric-validation)) frames a broader goal of testing all sensor/reporter combinations (including LacZ) for at least 2-fold signal change with minimal leak, but reports no completed reaction data of its own — its DNA constructs are listed as "Awaiting from Twist." Treat it as milestone framing, not a second data point.
 
 ## Cells
 
@@ -96,15 +97,19 @@ A separate devnote ([`chicago-colorimetric-validation`](https://github.com/nucle
 See [tetR-aTc Detector](../detector-tetr_atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ and CPRG in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. That result is the most advanced encapsulated use of this Module as of 2026-08-14 and is not duplicated here.
 :::
 
-For the London Node, LacZ encapsulation is still at the milestone-planning stage: the source devnote's Milestone 3 ("Encapsulate reporter system in synthetic cells") lists open risks — substrate/product interference with liposome generation, and encapsulation efficiency limiting visible pigment — with no success-criteria data reported yet. Do not read the London line as having reached the same readiness as the Chicago aTc Cascade result above.
+LacZ encapsulation in synthetic cells is not yet demonstrated for the London Node.
+
+:::{attention} Encapsulated LacZ not demonstrated
+@Editor: confirm the London Node's current status for encapsulating the reporter system in synthetic cells.
+:::
 
 # Requirements
 
-**Requires a lysis effector to release the substrate.** LacZ and CPRG produce no signal while the substrate stays inside its liposome, so this Module does not function on its own — it needs an upstream effector that breaches the substrate compartment on cue. In every cascade documented here that effector is the [PLA1 Lysis Module](../effector-pla1/spec.md), and the substrate is the [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+**Where the substrate is encapsulated separately, requires a lysis effector to release it.** LacZ and CPRG produce no signal while the substrate stays inside its own liposome. Co-encapsulating LacZ and CPRG with the sensing circuit in a single synthetic cell needs no lysis effector — it needs an upstream effector that breaches the substrate compartment on cue. In every cascade documented here that effector is the [PLA1 Lysis Module](../effector-pla1/spec.md), and the substrate is the [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
 
 This is a Requirement of the readout, not a component of any sensing cell. A Sensing Cell that expresses PLA1 satisfies this requirement; it does not thereby contain the reporter.
 
-Because this Module supplies the shared LacZ/CPRG readout for both the [Theophylline Sensing Module](../detector-theophylline/spec.md) and the [aTc Sensing Module](../detector-tetr_atc/spec.md), those two sensing Modules must not be co-encapsulated in the same reaction. That requirement is settled — the 2026-08-14 meeting resolved to state it on each sensing Module page. A general Nucleus compatibility matrix covering other module pairs is out of scope here; the meeting scoped that as a platform-level decision.
+Because this Module supplies the shared LacZ/CPRG readout for both the [Theophylline Sensing Module](../detector-theophylline/spec.md) and the [aTc Sensing Module](../detector-tetr_atc/spec.md), those two sensing Modules must not be co-encapsulated in the same reaction.
 
 :::{attention} The mechanism behind that requirement is not established
 The constraint is usually explained as theophylline directly inhibiting the LacZ/CPRG conversion, "even at very low amounts." That explanation is unsupported and partly contradicted:
@@ -122,8 +127,8 @@ CPRG preloaded into liposomes photobleaches under the UV exposure used to crossl
 **Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
 :::
 
-:::{note} Exterior LacZ leakage — mitigation in progress, tracked separately
-A related but distinct issue: LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can confound readout, independent of the photobleaching issue above. A proteinase K treatment (50 °C for 10 min, then 40 °C for 1 h, then spin down) was proposed as a mitigation for exterior LacZ leakage after PLA1-triggered lysis. The protocol is documented at [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). Treat it as proposed, not validated: no result from running it has been reported, and a standalone devnote is still an open action item from the 2026-08-14 meeting. See also the [PLA1 Lysis Module](../effector-pla1/spec.md).
+:::{note} Exterior LacZ leakage confounds the readout
+LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can confound readout, independent of the photobleaching issue above. A proteinase K treatment (50 °C for 10 min, then 40 °C for 1 h, then spin down) was proposed as a mitigation for exterior LacZ leakage after PLA1-triggered lysis. The protocol is documented at [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). Treat it as proposed, not validated: no result from running it has been reported.
 :::
 
 # Implementations
