@@ -24,9 +24,9 @@ Two source lines both reference "XylE," at different levels of readiness, and th
 1. **Chicago Node** — a TetR/aTc-inducible construct, `pT7-TetO-catecholase` (`pMN067`), expressing C23DO downstream of the [tetR-aTc Detector](../detector-tetr_atc/spec.md). Validated in bulk Nucleus Cytosol (see Expected Behavior). Source: [`devnotes/chicago-teto-catecholase`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-teto-catecholase).
 2. **London Node** — XylE proposed as one of two candidate reporter enzymes (alongside LacZ) for the London color-change module, in two linear-DNA formats (`T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant). As of that devnote, the London-specific XylE DNA was still "to be designed" — not yet synthesized. Source: [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module).
 
-Because *xylE* encodes C23DO, these are the same enzyme referenced by two different programs, not two distinct reporters. Whether the Chicago `pMN067` construct and the still-undesigned London construct will end up as the same DNA design is **not established** in the source material — treat this as open rather than assuming a shared construct.
+Because *xylE* encodes C23DO, these are the same enzyme referenced by two different programs, not two distinct reporters. Whether the Chicago `pMN067` construct and the still-undesigned London construct will end up as the same DNA design is **not established** — treat this as open rather than assuming a shared construct.
 
-A 2026-08-14 status-meeting slide deck ("DevCell Project Meeting, 14 Aug 2026") lists "XylE / C23DO Reporter" as a labeled box in a system-architecture module-dependency diagram (module list spanning Chicago/London/Shared/Proposed categories), confirming the module is tracked at the program level, but the deck gives no additional experimental data for it beyond that label.
+The Module is tracked at the program level but the deck gives no additional experimental data for it beyond that label.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
@@ -36,7 +36,7 @@ flowchart LR
     style B fill:#f7e34d,stroke:#555555
 ```
 
-No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure. The devnote's kinetics figure (`pT7_TetO_catecholase.png`) and the meeting-slide well-plate photo both show absorbance/color-change *data*, not the reaction mechanism, so neither is a substitute for a schematic. A real schematic (e.g. depicting the ring-fission mechanism or the reporter construct) is still needed from the dev team.
+The diagram above is a mechanism summary. neither is a substitute for a schematic. A real schematic (e.g. depicting the ring-fission mechanism or the reporter construct) is still needed from the dev team.
 
 # Reference Composition
 
@@ -74,7 +74,7 @@ The Chicago-node construct was tested downstream of the tetR-aTc Detector at thr
 :::
 
 :::{attention} TetR concentration — flagged inconsistency, do not resolve silently
-A separate, later status update (2026-08-14 meeting slide deck, "DevCell Project Meeting") re-runs the same TetR/aTc/C23DO-catechol chemistry as a bulk-reaction replication ahead of a September/October DevStudio, and reports clean induced/repressed/unregulated separation — but at TetR concentrations of 500 nM and 1000 nM, a different scale than the 75 nM used in the reference reaction above. The deck slide does not state whether this is the same DNA construct (`pMN067`) or a newly prepared one. Treat these as two separate data points at different TetR scales, not as replicated confirmation of a single condition, until reconciled.
+A later replication re-runs the same TetR/aTc/C23DO-catechol chemistry as a bulk-reaction replication ahead of a September/October DevStudio, and reports clean induced/repressed/unregulated separation — but at TetR concentrations of 500 nM and 1000 nM, a different scale than the 75 nM used in the reference reaction above. The deck slide does not state whether this is the same DNA construct (`pMN067`) or a newly prepared one. Treat these as two separate data points at different TetR scales, not as replicated confirmation of a single condition, until reconciled.
 :::
 
 ::::
@@ -87,9 +87,11 @@ A separate, later status update (2026-08-14 meeting slide deck, "DevCell Project
 
 The construct was validated in standard Nucleus Cytosol conditions with 20 nM sensor DNA, 1 mM catechol, in 10 µL reactions incubated at 37 °C in a platereader, monitored by absorbance at 385 nm. Color conversion (colorless to yellow) occurred faster to a visually detectable level only in the derepressed condition (TetR + 10 µM aTc); the regulated (TetR, no aTc) condition remained visually below a prior-calibrated visual threshold of absorbance 1.0. A homemade TetR stock stored in glycerol was used for this preliminary result; glycerol can cause reaction poisoning in Nucleus Cytosol and is not an optimal long-term storage buffer for TetR — a caveat noted directly in the source devnote.
 
-:::{hint} Figure not yet migrated
-:class: dropdown
-The source devnote includes a kinetics figure (`pT7_TetO_catecholase.png`, absorbance at 385 nm over time for Unregulated/Regulated/Derepressed conditions). It has not been copied into this page — see [`devnotes/chicago-teto-catecholase`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-teto-catecholase) for the original.
+:::{figure} cytosol-catecholase-kinetics.png
+:label: fig-xyle-catecholase-kinetics
+:width: 75%
+
+Absorbance at 385 nm over time for the unregulated, regulated and derepressed conditions.
 :::
 
 This preliminary result shows the TetR/aTc sensor with a C23DO reporter is compatible with Nucleus Cytosol at bulk scale. It has **not** been tested encapsulated (synthetic cell) or in a hydrogel — the source devnote states that "encapsulation of the sensor will inform whether 10 µM aTc is sufficient for derepression," i.e. that step had not yet been done as of authoring.
@@ -110,10 +112,9 @@ Per the 2026-08-14 status-meeting decision to represent module incompatibility a
 
 # Implementations
 
-No confirmed Implementation uses this Module yet. It is named (dashed/gap) as the XylE integration path of the proposed aTc Cascade in the current module-integration diagram; that integration path is not used in the confirmed 2026-08-14 aTc Cascade data, which used the LacZ integration path instead.
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): a proposed alternate colorimetric readout.
+- [London DevCell](../../implementations/london-devcell/main.md): a proposed alternate colorimetric readout.
 
 # Credits
 
-Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab) — bulk-cytosol validation.
-
-Developed by [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab) — London colour-change module design.
+Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab), [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab).

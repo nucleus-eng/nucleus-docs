@@ -65,6 +65,10 @@ The Chicago Membrane is used for both synthetic cell preparations in the Chicago
 
 Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-transfer method](../../processes/assemble-base-cell/main.md). SUVs are prepared using [lipid-film hydration and extrusion](../../processes/encapsulate-suv/main.md).
 
+# Implementations
+
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the membrane of the Chicago demo's synthetic cells.
+
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab, Northwestern).

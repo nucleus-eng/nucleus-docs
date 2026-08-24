@@ -62,7 +62,6 @@ Below is an approximate composition table for the cytosolic components in the Ch
 | Water             |                     |                     | to 40 µL final volume        |
 :::
 
-
 ::::
 
 ::::{tab-item} Membrane
@@ -84,10 +83,18 @@ Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Chicago M
 
 ::::{tab-item} Outer Solution
 
-Use this cell in outer solution at 1180 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer.
+:::{table} Outer solution.
+:label: comp-chicago-chassis-outer
 
-:::{attention} Outer solution composition not documented
-Only the osmolarity target is recorded. The solutes and their concentrations are not yet recorded. Use glucose in ultrapure water as a default.
+| Component | Working concentration |
+| --- | --- |
+| Glucose in ultrapure water | To 1180 mOsm |
+:::
+
+Match outer and inner solution osmolarities empirically with a vapor-pressure osmometer where possible.
+
+:::{attention} Solutes not documented
+@Editor: only the osmolarity target is recorded, not the solutes and their concentrations. Glucose in ultrapure water is the working default. Confirm with the Chicago Node.
 
 :::
 
@@ -108,6 +115,10 @@ The chassis is formed by encapsulating [Base Cytosol](../base-cytosol/spec.md) i
 
 - [Base Cytosol](../base-cytosol/spec.md)
 - [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md)
+
+# Implementations
+
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the chassis for the Chicago demo's synthetic cells.
 
 # Credits
 

@@ -18,7 +18,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Rewritten 2026-08-19 — the integration paths have changed
-Earlier revisions of this page described this cascade as a merge of the **theophylline** and aTc integration paths, blocked because theophylline interferes with the LacZ/CPRG readout.
+Theophylline interferes with the LacZ/CPRG readout, so the theophylline path is not part of this cascade.
 
 That is superseded. Chicago is now focused on the aTc and pH sensors (14 Aug 2026 deck, slides 2 and 34, which lists "Two sensors (aTC/pH)"), and the theophylline sensor has been removed from the demo — its riboswitch drives the reporter with no analyte present, so it does not discriminate. See [Theophylline Sensing Module](../detector-theophylline/spec.md).
 
@@ -114,15 +114,52 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} DNA
+
+The constructs are those of the two integration paths; no construct is specific to the merge.
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `TetO-PLA1` | not documented | — | Expressed; see [aTc Cascade](../atc-cascade/spec.md) |
+| Toehold-switch-gated PLA1 template | not documented | — | Expressed; see [pH Cascade](../ph-cascade/spec.md) |
+| pH-responsive ssDNA : trigger ssDNA | not applicable | — | Synthesized oligonucleotides |
+| β-galactosidase (LacZ) | not applicable | — | Purified enzyme, not expressed |
+:::
+
+::::
+
 ::::{tab-item} Cytosol
 
-See [aTc Cascade](../atc-cascade/spec.md#reference-composition) and [pH Cascade](../ph-cascade/spec.md). Note that the pH Cascade's own combined-recipe concentrations are themselves flagged as undocumented, so a merged recipe would rest on an incomplete Module.
+:::{table} Cytosol of the merged cascade.
+:label: comp-chicago-cascade-cytosol
+
+| Component | Working concentration |
+| --- | --- |
+| aTc path components | As on [aTc Cascade](../atc-cascade/spec.md#reference-composition) |
+| pH path components | As on [pH Cascade](../ph-cascade/spec.md#reference-composition) |
+| Base Cytosol components | At reaction concentration |
+:::
+
+:::{attention} Merged recipe not documented
+@Editor: no combined recipe exists for the two paths together, and the pH path's own combined-recipe concentrations are undocumented. Confirm with the Chicago Node.
+:::
 
 ::::
 
 ::::{tab-item} Membrane
 
-Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), so both use the same 9:1 POPC:cholesterol membrane. This part of the merge is straightforward — the membrane carries over unchanged, and it is not implicated in either open question below.
+Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), so the membrane carries over unchanged.
+
+:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:label: comp-chicago-cascade-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
+:::
 
 ::::
 
@@ -130,7 +167,7 @@ Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spe
 
 # Expected Behavior
 
-**Status: not yet attempted.** This combination has not been built. That is different from the previous framing — the merge is **not blocked**, it is **unattempted**. No experiment has run the two integration paths together.
+**Status: not attempted.** No experiment has run the two integration paths together. The merge is not blocked; it has not been tried.
 
 There is, however, a known design question standing in front of it, described below.
 
@@ -160,7 +197,7 @@ Two things follow from it, and both are worth stating plainly.
 So the choice of rule is not a labeling decision to make at write-up time. It determines what has to be built.
 :::
 
-**A second, separate question.** The pH path's readout adds a neutralization buffer step before the color develops (14 Aug 2026 deck, slide 9), while the aTc path reads out directly. Whether one shared readout can serve both paths when one of them requires a pH adjustment is unresolved, and it is a distinct issue from the combining rule above. Flagged for the Chicago team.
+**A second, separate question.** The pH path's readout adds a neutralization buffer step before the color develops, while the aTc path reads out directly. @Editor: whether one shared readout can serve both paths when one requires a pH adjustment is unresolved. Confirm with the Chicago Node.
 
 # Implementations
 
@@ -180,7 +217,3 @@ Both integration paths terminate at the [LacZ Reporter Module](../reporter-lacz/
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).
-
-This cascade has no result of its own; the multiplexed combination has not been built. Attributions for the individual integration paths are on their own pages.
-
-Contributor names come from the 14 Aug 2026 status deck and from the module sections of the Chicago status document, and have not been confirmed by the team.

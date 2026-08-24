@@ -123,7 +123,7 @@ Requires pT7 transcription and translation (e.g., [Base Cytosol](../base-cytosol
 Requires direct exposure to pH source. Either do not encapsulate OR include H⁺ ion transport across the membrane (e.g., Gramicidin A).
 
 :::{attention}
-**Trigger ssDNA purity and formulation strongly affects signal.** IDT-desalted ssDNA in water gave about 25 000 RFU, while HPLC-purified ssDNA in duplex buffer gave about 800 000 RFU (>30×). The composition of the duplex buffer is not recorded in any source available here; raised with the Chicago Node (Chicago questionnaire, Q8).
+**Trigger ssDNA purity and formulation strongly affects signal.** IDT-desalted ssDNA in water gave about 25 000 RFU, while HPLC-purified ssDNA in duplex buffer gave about 800 000 RFU (>30×). @Editor: the duplex buffer composition is not recorded. Confirm with the Chicago Node.
 :::
 
 # Implementations
@@ -149,6 +149,4 @@ No Implementations exist yet.
 
 # Credits
 
-Developed by [Samuel J. Chen](https://orcid.org/0000-0001-8501-7175), Sung-Won Hwang, and Allen Liu (Chicago Node, Liu Lab). Sung-Won Hwang ran the gel embedding.
-
-Design adapted from [Chen, Hwang, et al., 2025](https://doi.org/10.1101/2025.11.16.688650).
+Developed by [Samuel J. Chen](https://orcid.org/0000-0001-8501-7175), Sung-Won Hwang, and Allen Liu (Chicago Node, Liu Lab), adapted from [Chen, Hwang, et al., 2025](https://doi.org/10.1101/2025.11.16.688650).

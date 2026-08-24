@@ -101,7 +101,7 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 # Expected Behavior
 
 :::{attention} Needs Expected Behavior
-No verbal description of expected behavior (cell size, brightness, density of prep) and no reference images are recorded in the source material. Raised with the London Node (London questionnaire, Q9).
+@Editor: no description of expected behavior — cell size, brightness, density of prep — and no reference images are recorded. Confirm with the London Node.
 :::
 
 # Processes
@@ -112,6 +112,10 @@ The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a 
 
 - [S30 Lysate](../s30-lysate/spec.md)
 - [London Membrane: POPC](../membrane-popc/spec.md)
+
+# Implementations
+
+- [London DevCell](../../implementations/london-devcell/main.md): the chassis for the London demo's synthetic cells.
 
 # Credits
 

@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. This page covers the sensing Module itself (see Implementations for its use in an integrated system).
+The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. 
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -93,7 +93,7 @@ This Module has not been validated in synthetic cells.
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). Requires the effector gene cloned downstream of the riboswitch 5' UTR, and theophylline exposure to switch it on.
 
-This Module must not be co-encapsulated with the [aTc Sensing Module](../detector-tetr_atc/spec.md), for example in the Chicago Cascade. The conflict is not between the two sensors: it is that both read out through the same [LacZ / CPRG](../reporter-lacz/spec.md) chemistry, and theophylline is reported to interfere with that conversion. There is no known TetR cross-talk. The 2026-08-14 meeting resolved to state the mutual exclusion as a hard requirement on both sensing Module pages.
+This Module must not be co-encapsulated with the [aTc Sensing Module](../detector-tetr_atc/spec.md), for example in the Chicago Cascade. The conflict is not between the two sensors: it is that both read out through the same [LacZ / CPRG](../reporter-lacz/spec.md) chemistry, and theophylline is reported to interfere with that conversion. There is no known TetR cross-talk.
 
 :::{attention} The mechanism behind that requirement is not established
 The requirement itself is settled. The explanation usually given for it — that theophylline inhibits the LacZ/CPRG conversion "even at very low amounts" — is hedged in every source and is not supported by any figure available here.
@@ -102,12 +102,12 @@ Caveats:
 - **The supporting titration data has not been seen.** The 2026-08-14 meeting notes state that "titration data exists showing even very low theophylline concentrations inhibit CPRG-lacZ conversion," and that it should go into a devnote. That data is not yet in this corpus.
 - **Every verbal source is hedged** ("somewhat inhibit", "kind of inhibiting"), and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
 
-Flagged for Chicago rather than resolved here. Until the titration data is in hand, cite the requirement and the decision behind it — not the inhibition mechanism.
+@Editor: confirm with the Chicago Node. Until the titration data is in hand, cite the requirement, not the inhibition mechanism.
 :::
 
 # Implementations
 
-No Implementations exist yet.
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): a queued sensing option for the Chicago demo.
 
 # Credits
 

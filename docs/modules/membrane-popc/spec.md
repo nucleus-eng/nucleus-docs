@@ -51,7 +51,9 @@ DSPE-PEG2000 is a PEGylated lipid used in the London colorimetric (PLA1) work. T
 Both rows reconcile against the stocks in the Lipid Composition tab. The PEGylated recipe gives 99.150 mol% POPC and 0.850 mol% DSPE-PEG2000; the labeled recipe gives 99.901 mol% POPC and 0.099 mol% Cyanine 5 PC. The PEGylated preparation is a 3.5× batch (1× batch = 320 µL lipid-in-oil at 3 mg/mL); the labeled preparation is the 2 mg single-batch scale described under Process below.
 
 :::{warning} Cyanine 5 stock concentration is disputed
-The source table gives the 18:1 Cyanine 5 PC stock as **25 mg/mL**. At 25 mg/mL the volumes above give 2.42 mol% dye — about 24× the 0.1 mol% target. At **1 mg/mL** they give 0.099 mol%, matching the target exactly, and 1 mg/mL is the dye-stock convention used for Liss-Rhod PE in both other Nucleus membranes. The table above uses 1 mg/mL on that reasoning. Confirm with the London Node before bench use (London questionnaire, Q2).
+One record gives the 18:1 Cyanine 5 PC stock as **25 mg/mL**. At 25 mg/mL the volumes above give 2.42 mol% dye — about 24× the 0.1 mol% target. At **1 mg/mL** they give 0.099 mol%, matching the target exactly, and 1 mg/mL is the dye-stock convention used for Liss-Rhod PE in both other Nucleus membranes. The table above uses 1 mg/mL on that reasoning.
+
+@Editor: confirm the Cyanine 5 PC stock concentration with the London Node before bench use.
 :::
 
 ::::
@@ -67,6 +69,10 @@ The London Membrane is used in all synthetic cell preps in the London Demo. This
 The membrane is prepared and encapsulated by the shared mineral-oil phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). Hydrogel embedding of the labeled variant is documented in [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md).
 
 To prepare this membrane, assemble 2 mg total lipids (e.g., 80 µL of a 25 mg/mL chloroform stock). Dry, then resuspend in 500 µL mineral oil (4 mg/mL working concentration). 
+
+# Implementations
+
+- [London DevCell](../../implementations/london-devcell/main.md): the membrane of the London demo's synthetic cells.
 
 # Credits
 

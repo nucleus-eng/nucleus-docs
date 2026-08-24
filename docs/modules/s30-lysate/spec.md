@@ -38,7 +38,7 @@ S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rathe
 S30 Lysate's expected behavior is characterized by expressing a reporter module (e.g., [deGFP](../reporter-degfp/spec.md)).
 
 :::{attention} Needs more detail
-No verbal description of expected behavior is recorded — what the lysate expresses, in what assay, over what time and at what temperature (for example, "expresses X ng/µL deGFP over 6 h at 30 °C") — and no characterization data such as a positive-control cell-free reaction. Raised with the London Node (London questionnaire, Q9).
+@Editor: no expected behavior is recorded — what the lysate expresses, in what assay, over what time and at what temperature (for example, "expresses X ng/µL deGFP over 6 h at 30 °C") — and no characterization data such as a positive-control cell-free reaction. Confirm with the London Node.
 :::
 
 # Requirements
@@ -50,12 +50,12 @@ Not compatible with Optiprep in the inner solution above ~5%; use sucrose for de
 **Optiprep blocks expression.** Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold. Without Optiprep in the inner solution, the encapsulated AHL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
 
 :::{caution}
-**Not yet controlled.** The Optiprep-free expression result above has no minus-AHL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run — the source document explicitly lists both as outstanding ("Controls ... are still needed to attribute the signal, and biological replicates remain to be added").
+**Not yet controlled.** The Optiprep-free expression result above has no minus-AHL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run.
 :::
 
 # Implementations
 
-S30 Lysate is used, encapsulated in POPC, as the chassis for the London demo's AHL-sensing liposome and downstream London Cascade. See [London Chassis](../london-chassis/spec.md) and [London Cascade](../london-cascade/spec.md).
+- [London DevCell](../../implementations/london-devcell/main.md): S30 Lysate is the cytosol of the London quorum-sensing demo.
 
 # Materials
 
@@ -70,5 +70,9 @@ S30 Lysate is used, encapsulated in POPC, as the chassis for the London demo's A
 :::
 
 :::{warning} S30 kit storage temperature is inconsistent between sources
-Two source materials tables give different storage temperatures for the same Promega L1020 kit: **−65 °C** in the Chicago-side table and **−80 °C** in the London-side table. The table above carries the −65 °C figure as transcribed. Confirm against the current Promega product page before relying on either (London questionnaire, Q9).
+@Editor: two records give different storage temperatures for the same Promega L1020 kit, **−65 °C** and **−80 °C**. The table above carries −65 °C. Confirm against the current Promega product page.
 :::
+
+# Credits
+
+Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).

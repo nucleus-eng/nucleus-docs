@@ -76,6 +76,23 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} DNA
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| Toehold-switch-gated reporter template | not documented | — | Expressed in the Sensing Cell |
+| pH-responsive ssDNA : trigger ssDNA | not applicable | — | Synthesized oligonucleotides, added directly |
+:::
+
+:::{attention} Constructs not in `nucleus-eng/DNA`
+@Editor: no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
+:::
+
+See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
+
+::::
+
 ::::{tab-item} Cytosol
 
 :::{table}
@@ -110,7 +127,7 @@ The [pH-Sensing Module](../detector-ph/spec.md) page separately lists a membrane
 
 :::::
 
-This page exists to name the combination above as the Chicago diagram's `PHV` node — see each Module's spec for its own full reference composition and requirements.
+See each Module's spec for its own reference composition and requirements.
 
 # Expected Behavior
 
@@ -131,7 +148,7 @@ No result has been generated for the pH-Sensing Module encapsulated in the Chica
 See the [pH-Sensing Module](../detector-ph/spec.md) spec for full detail on both results, including the requirement that trigger ssDNA be HPLC-purified and resuspended in duplex buffer (a 30× signal difference from desalted ssDNA in water).
 
 :::{attention} Backing DevNote is a template stub
-The formal DevNote for the pH-Sensing Module — [Module Development Plan: DevCell-based pH sensor](https://github.com/nucleus-eng/2026-CERN-OHL-P/blob/main/devnotes/chicago-ph-sensor-plan/main.md) (`chicago-ph-sensor-plan`) — is a template stub, not a completed writeup: its `title` field is still the literal placeholder `"[Title]"`, and it carries no populated figures or dated results. This page and the [pH-Sensing Module](../detector-ph/spec.md) spec draw on that DevNote's design description combined with quantitative results reported separately at the 2026-08-14 DevCell status meeting, because the DevNote itself has not been filled in with that data. This is a real documentation gap, not treated here as a real source in its own right.
+@Editor: no completed DevNote exists for the pH-Sensing Module. Confirm with the Chicago Node.
 :::
 
 # Processes
@@ -143,6 +160,10 @@ No synthetic cell-encapsulation or hydrogel-embedding process specific to the pH
 - [Chicago Chassis](../chicago-chassis/spec.md)
 - [pH-Sensing Module](../detector-ph/spec.md)
 
+# Implementations
+
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the pH sensing element of the Chicago demo.
+
 # Credits
 
-Developed by Sung-Won Hwang (Chicago Node, Liu Lab) — pH sensing in 0.7% agarose hydrogel, read out by Cy5 dye loss (14 Aug 2026 status deck, slide 9).
+Developed by Sung-Won Hwang (Chicago Node, Liu Lab).
