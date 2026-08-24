@@ -41,7 +41,7 @@ The distinguishing feature against the Chicago device is the analyte source: the
 The distribution's existing AHL work is the [IV-HSL Emitter](../../modules/emitter-ivhsl/spec.md): BjaI makes a branched AHL and a co-cultured *E. coli* strain carrying `bjaR-GFP-native` does the sensing. This device instead senses 3OC6-HSL with LuxR/pLux, inside a synthetic cell. Different analyte, different receptor, different host for the sensing step. Both are AHL sensors; they are not interchangeable.
 :::
 
-# Process
+# Processes
 
 | Step | Process |
 | --- | --- |

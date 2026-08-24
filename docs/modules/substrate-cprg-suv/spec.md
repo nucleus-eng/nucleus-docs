@@ -64,11 +64,11 @@ See [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) for the shared bas
 
 ::::
 
-::::{tab-item} Luminal Cargo
+::::{tab-item} Inner Solution
 
 The luminal cargo is CPRG in hydration buffer. Two working concentrations are documented, for two different downstream uses.
 
-:::{table} Luminal cargo.
+:::{table} Inner solution.
 :label: comp-substrate-cprg-lumen
 
 | Use | CPRG concentration |
@@ -79,28 +79,6 @@ The luminal cargo is CPRG in hydration buffer. Two working concentrations are do
 :::
 
 The two figures agree: CPRG has a molecular weight of about 585 g/mol, so 50 mM is 29.3 mg/mL, the ~30 mg/mL recorded elsewhere. The 15 mg/mL figure is a different, lower concentration used when the SUVs are cast into the inner gel of a patterned construct, not a restatement of the loading concentration.
-
-::::
-
-::::{tab-item} Preparation Parameters
-
-:::{table} Standard preparation parameters.
-:label: comp-substrate-cprg-usage
-
-| Parameter | Value | Notes |
-| --- | --- | --- |
-| Target diameter | 400 nm | Extruded through a 400 nm polycarbonate membrane |
-| Extrusion passes | ≥21, odd number | Odd count avoids retaining unextruded material in the final syringe |
-| Free-substrate removal | see the flag below | Two methods are recorded |
-| Storage before use | on ice or at 4 °C | Hold until combining with Sensing Cells and LacZ |
-
-:::
-
-:::{attention} Two purification methods are recorded
-@Editor: one record has the SUVs purified twice by size-exclusion chromatography to remove unencapsulated CPRG; another has them washed by centrifugation. Confirm with the Chicago Node which was used.
-
-The two methods leave different residual-substrate profiles, and residual free CPRG is what produces background color.
-:::
 
 ::::
 
@@ -138,11 +116,29 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the substrate for the theophylline and pH colorimetric readouts.
 - [London DevCell](../../implementations/london-devcell/main.md): supplies the substrate for the AHL colorimetric readout.
 
-# Process
+# Processes
 
 - [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — lipid film, CPRG hydration, extrusion, purification.
 - [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md) — co-embedding with Sensing Cells and LacZ.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the readout step itself.
+
+:::{table} Standard preparation parameters.
+:label: proc-substrate-cprg-parameters
+
+| Parameter | Value | Notes |
+| --- | --- | --- |
+| Target diameter | 400 nm | Extruded through a 400 nm polycarbonate membrane |
+| Extrusion passes | ≥21, odd number | Odd count avoids retaining unextruded material in the final syringe |
+| Free-substrate removal | see the flag below | Two methods are recorded |
+| Storage before use | on ice or at 4 °C | Hold until combining with Sensing Cells and LacZ |
+
+:::
+
+:::{attention} Two purification methods are recorded
+@Editor: one record has the SUVs purified twice by size-exclusion chromatography to remove unencapsulated CPRG; another has them washed by centrifugation. Confirm with the Chicago Node which was used.
+
+The two methods leave different residual-substrate profiles, and residual free CPRG is what produces background color.
+:::
 
 # Credits
 

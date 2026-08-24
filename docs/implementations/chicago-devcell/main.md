@@ -42,7 +42,7 @@ Two colorimetric readouts are available. **LacZ is the one this demo uses.** It 
 
 [XylE / C23DO](../../modules/reporter-xyle/spec.md) is a second, orthogonal colorimetric enzyme (catechol 2,3-dioxygenase) and remains an option for a future build. It is validated only in bulk cytosol, using a different TetR/aTc-inducible construct (`pT7-TetO-catecholase` / `pMN067`), with no synthetic cell encapsulation or hydrogel data, and it has never been run with the PLA1 lysis trigger. See [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md#expected-behavior) for that result.
 
-# Process
+# Processes
 
 | Step | Process |
 | --- | --- |

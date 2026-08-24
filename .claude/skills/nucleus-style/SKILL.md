@@ -106,8 +106,12 @@ That is what carries the doubt.
 - **Expected Behavior is what the reader will see** — "X Module is expected to…", not a
   past-tense account of one experiment.
 - **Credits is one sentence.** Node before Lab.
-- **Process links the Process pages.** If none covers the combination, one sentence saying
-  so, and stop.
+- **`# Processes`, plural.** It links the Process pages and carries preparation parameters
+  — target size, extrusion passes, purification, storage. A number describing *how you make
+  it* is process data even in a table, and does not belong in Reference Composition. If no
+  Process page covers the combination, one sentence saying so, and stop.
+- **`Inner Solution` is the compartment inside any liposome.** Not `Luminal Cargo`. Use
+  `Cytosol` only when the contents are an expression system.
 - Half the length, same technical content.
 
 ## Rewriting an internal reference

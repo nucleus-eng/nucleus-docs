@@ -114,7 +114,7 @@ Where a context has not been tested, say so plainly:
 
 TODO: What a correct prep looks like, and how you would know it failed.
 
-# Process
+# Processes
 
 <!-- A pointer at the assembly process, not a restatement of it. Protocol steps belong on the
 Process page. Use "Process" — not "Protocols" — for this section.

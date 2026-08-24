@@ -1,6 +1,6 @@
 # Sections of a Module spec
 
-Order: Overview, Reference Composition, Expected Behavior, Requirements, Implementations, Materials, Downloads, Credits. Omit a section rather than stubbing it empty — except Expected Behavior Contexts, below.
+Order: Overview, Reference Composition, Expected Behavior, Requirements, Implementations, Processes, Materials, Downloads, Credits. Omit a section rather than stubbing it empty — except Expected Behavior Contexts, below.
 
 Top-level sections are `#`, subsections `##`. Never skip a level.
 
@@ -38,7 +38,7 @@ The common vocabulary, in tab order:
 | `Membrane` | The bilayer. |
 | `Outer Solution` | What is outside. |
 
-`Cytosol` names what fills the compartment; `Inner Solution` names the compartment. Use `Cytosol` when the interior is one, and `Inner Solution` when it is not — a dye liposome's interior is HPTS and Optiprep, with no expression machinery, so it is not a cytosol. These are different claims, not two names for one thing.
+`Inner Solution` is the compartment inside a liposome, whatever the liposome carries — a lumen holding substrate is an inner solution, not a `Luminal Cargo`. `Cytosol` names what fills that compartment when the contents are an expression system. Use `Cytosol` when the interior is one, and `Inner Solution` when it is not — a dye liposome's interior is HPTS and Optiprep, with no expression machinery, so it is not a cytosol. These are different claims, not two names for one thing.
 
 Not every Module has all of these. A membrane has no cytosol, a cytosol has no membrane, and a formulation inventory such as `base-cytosol` is organized by recipe stage (`PMix`, `SMix`, `Final Reaction`) instead. The axis stays consistent within a page; which set of names applies follows from what the Module is.
 
@@ -64,7 +64,7 @@ Keying by location rather than by Module also removes rows that only ever existe
 
 `base-cell` is the reference: `Cytosol | Membrane | Outer Solution`, one axis, no exceptions.
 
-**This section contains composition tables and nothing else.** Not evidence, not sourcing notes, not another Module's result. A table of the reaction parameters that produced a result is Expected Behavior — and where the result belongs to a different Module, it belongs on that Module's page.
+**This section contains composition tables and nothing else.** Preparation parameters — target diameter, extrusion passes, purification method, storage — describe how the Module is made, so they belong under `# Processes`. Not evidence, not sourcing notes, not another Module's result. A table of the reaction parameters that produced a result is Expected Behavior — and where the result belongs to a different Module, it belongs on that Module's page.
 
 State a gap inside the tab it affects, in the row where the number would go. A tab holding no table is not a tab.
 
@@ -127,9 +127,9 @@ Only pages under `docs/implementations/`. A cascade is a Module however composed
 
 The relation is symmetric: if an Implementation is built from this Module, this Module lists that Implementation. `scripts/check-implementations.py` checks both halves.
 
-## Process
+## Processes
 
-Link the Process pages that build this Module, in order. Nothing else.
+Link the Process pages that build this Module, in order, plus any preparation parameters that are not composition — target size, extrusion passes, purification method, storage before use. A number that describes *how you make it* is process data even when it sits in a table.
 
 If no Process page covers the combination, say so in one sentence and stop. "No process page documents assembling this cascade end to end." Do not explain what a reader should not assume, and do not leave instructions for a future editor — those go in `tmp/`.
 

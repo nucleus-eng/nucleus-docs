@@ -43,7 +43,7 @@ IMPLIES = [
     ("MEMBRANE", ("Membrane",), "membrane"),
     ("BASE_CYTOSOL", ("Cytosol", "Inner Solution"), "cytosol"),
     ("S30_LYSATE", ("Cytosol", "Inner Solution"), "cytosol"),
-    ("SUBSTRATE", ("Substrate", "Luminal"), "substrate"),
+    ("SUBSTRATE", ("Substrate", "Inner Solution"), "substrate"),
     ("DETECTOR", ("DNA",), "dna"),
     ("REPORTER", ("DNA",), "dna"),
     ("EFFECTOR", ("DNA",), "dna"),

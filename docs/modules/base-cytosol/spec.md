@@ -206,7 +206,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 
 The behavior of Base Cytosol is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module. 
 
-# Process
+# Processes
 
 Protocols for assembling Base Cytosol and making its components from scratch can be found on [Base Cytosol Processes](../../processes/processes-main.md#base-cytosol-processes).
 

@@ -87,7 +87,7 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 Liposomes are visible in the green channel (interior, HPTS, 480 nm ex / 520 nm em) and in the red channel (membrane, Liss-Rhodamine-PE, 540 nm ex / 580 nm em) under fluorescence microscopy.
 
-# Process
+# Processes
 
 Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 

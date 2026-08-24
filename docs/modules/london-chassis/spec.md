@@ -104,7 +104,7 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 No verbal description of expected behavior (cell size, brightness, density of prep) and no reference images are recorded in the source material. Raised with the London Node (London questionnaire, Q9).
 :::
 
-# Process
+# Processes
 
 The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 
 

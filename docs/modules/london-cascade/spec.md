@@ -205,7 +205,7 @@ Requires two separate liposome populations — the PLA1-payload sensing populati
 
 - [London DevCell](../../implementations/london-devcell/main.md): places this cascade in its demo operating context.
 
-# Process
+# Processes
 
 The London Cascade requires encapsulating two separate liposome populations (the PLA1-payload sensing population and the CPRG-loaded reporter population) and combining them in a shared exterior LacZ solution, following the same synthetic cell mineral-oil phase-transfer route documented on the [London Chassis](../london-chassis/spec.md) and [AHL Sensing Cell](../ahl-sensing-cell/spec.md) specs.
 

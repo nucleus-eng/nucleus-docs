@@ -61,7 +61,7 @@ pie showData
 
 The Chicago Membrane is used for both synthetic cell preparations in the Chicago DevStudio Demo: synthetic cells encapsulating [Base Cytosol](../base-cytosol/spec.md); and [CPRG-loaded SUVs](../substrate-cprg-suv/spec.md) carrying a chromogenic substrate as part of the [LacZ Reporter](../reporter-lacz/spec.md) colorimetric readout. This membrane module can be used generally to encapsulate Cytosolic modules. See [Chicago Chassis](../chicago-chassis/spec.md) and [SUV Encapsulation](../../processes/encapsulate-suv/main.md) for more information.
 
-# Process
+# Processes
 
 Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-transfer method](../../processes/assemble-base-cell/main.md). SUVs are prepared using [lipid-film hydration and extrusion](../../processes/encapsulate-suv/main.md).
 

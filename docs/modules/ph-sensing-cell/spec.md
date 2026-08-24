@@ -134,9 +134,9 @@ See the [pH-Sensing Module](../detector-ph/spec.md) spec for full detail on both
 The formal DevNote for the pH-Sensing Module — [Module Development Plan: DevCell-based pH sensor](https://github.com/nucleus-eng/2026-CERN-OHL-P/blob/main/devnotes/chicago-ph-sensor-plan/main.md) (`chicago-ph-sensor-plan`) — is a template stub, not a completed writeup: its `title` field is still the literal placeholder `"[Title]"`, and it carries no populated figures or dated results. This page and the [pH-Sensing Module](../detector-ph/spec.md) spec draw on that DevNote's design description combined with quantitative results reported separately at the 2026-08-14 DevCell status meeting, because the DevNote itself has not been filled in with that data. This is a real documentation gap, not treated here as a real source in its own right.
 :::
 
-# Process
+# Processes
 
-No synthetic cell-encapsulation or hydrogel-embedding process specific to the pH Sensing Cell is yet documented in `docs/processes/`. The Chicago Chassis's own synthetic-cell formation process is itself an open gap (see [Chicago Chassis](../chicago-chassis/spec.md#process)); combining that with the pH-sensing circuit's addition step is a further, undocumented step. Do not assume any existing process page covers this combination — flag for a follow-up process page rather than treating a citation here as equivalent.
+No synthetic cell-encapsulation or hydrogel-embedding process specific to the pH Sensing Cell is yet documented in `docs/processes/`. The Chicago Chassis's own synthetic-cell formation process is itself an open gap (see [Chicago Chassis](../chicago-chassis/spec.md#processes)); combining that with the pH-sensing circuit's addition step is a further, undocumented step. Do not assume any existing process page covers this combination — flag for a follow-up process page rather than treating a citation here as equivalent.
 
 # Constituent Modules
 

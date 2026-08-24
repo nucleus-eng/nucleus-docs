@@ -62,7 +62,7 @@ The source table gives the 18:1 Cyanine 5 PC stock as **25 mg/mL**. At 25 mg/mL 
 
 The London Membrane is used in all synthetic cell preps in the London Demo. This membrane module can be used generally to encapsulate Cytosolic modules. See [London Chassis](../london-chassis/spec.md) for more information.
 
-# Process
+# Processes
 
 The membrane is prepared and encapsulated by the shared mineral-oil phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). Hydrogel embedding of the labeled variant is documented in [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md).
 

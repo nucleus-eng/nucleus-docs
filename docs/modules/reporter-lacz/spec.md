@@ -109,8 +109,8 @@ Because this Module supplies the shared LacZ/CPRG readout for both the [Theophyl
 :::{attention} The mechanism behind that requirement is not established
 The constraint is usually explained as theophylline directly inhibiting the LacZ/CPRG conversion, "even at very low amounts." That explanation is unsupported and partly contradicted:
 
-- The one bulk figure available (14 Aug 2026 deck, slide 28) shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
-- The meeting notes state that supporting titration data exists. It is not in the status documents or the deck, and we have not seen it.
+- The one bulk figure available shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
+- @Editor: supporting titration data is reported to exist but has not been located. Confirm with the Chicago Node.
 - Every verbal source is hedged, and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
 
 Cite the requirement and the decision behind it. Do not cite the inhibition mechanism as characterized. Full evidence on both sides is on [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements).
@@ -119,7 +119,7 @@ Cite the requirement and the decision behind it. Do not cite the inhibition mech
 :::{attention} PEG-norbornene hydrogel chemistry requires post-crosslinking CPRG addition
 CPRG preloaded into liposomes photobleaches under the UV exposure used to crosslink PEG-norbornene (PEG4Nb) hydrogels — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-liposome preloaded-CPRG method works as expected. This is a process-level incompatibility specific to the PEG-norbornene chemistry, not a defect in the LacZ/CPRG reaction itself.
 
-**Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. A 2026-08-14 status-meeting slide deck ("LacZ Induced Color Change in PEG-4-NB requires post UV light addition of CPRG," Mary Kelly, Kamat Lab) documents a controlled four-condition well comparison confirming this: +CPRG/+LacZ/−UV stays purple (baseline color intact); +CPRG/+LacZ/+UV goes clear (crosslinking bleaches the CPRG color); +LacZ/+UV/−CPRG is clear (no substrate, no color expected); +LacZ/+UV/+CPRG-added-after-crosslinking goes pink/red (the workaround recovers color). This directly confirms the transcript's photobleaching report with photographic evidence, and matches the PEG4Nb hydrogel composition described elsewhere in the same deck (PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, LAP 294.21 g/mol photoinitiator).
+**Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
 :::
 
 :::{note} Exterior LacZ leakage — mitigation in progress, tracked separately
@@ -128,10 +128,8 @@ A related but distinct issue: LacZ (or LacZ/CPRG product) leaking to the exterio
 
 # Implementations
 
-- [tetR-aTc Detector](../detector-tetr_atc/spec.md) — confirmed synthetic cell-level encapsulation of LacZ with `TetO-PLA1` and CPRG, the aTc Cascade's readout.
-- [Theophylline Sensing Module](../detector-theophylline/spec.md) — bulk-cytosol validation of the LacZ/CPRG reaction fused downstream of the theophylline riboswitch.
-- [XylE / C23DO Reporter](../reporter-xyle/spec.md) — sibling colorimetric reporter, used as an alternative or orthogonal readout in the same cascades.
-- No Implementation page exists yet for the London LacZ/XylE colour-change module, the Chicago Cascade, or the London Cascade. Each is planned per the current DevCells documentation-authoring plan; link them here once authored.
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the colorimetric readout for the aTc, pH and theophylline cascades.
+- [London DevCell](../../implementations/london-devcell/main.md): supplies the colorimetric readout for the AHL cascade.
 
 # Credits
 
@@ -139,4 +137,4 @@ Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, 
 
 Developed by [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab) — London colour-change module design.
 
-Synthetic cell/hydrogel encapsulation result by Mary Kelly (Chicago Node, Kamat Lab), and the patterned-agarose color-change photo by Samuel Chen (Chicago Node, Liu Lab), both from the 2026-08-14 DevCells status meeting materials.
+Developed by Mary Kelly (Chicago Node, Kamat Lab) and Samuel Chen (Chicago Node, Liu Lab).

@@ -64,6 +64,20 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} DNA
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `TetO-PLA1` | not documented | — | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
+| TetR repressor | not applicable | — | Co-encapsulated as purified protein |
+| β-galactosidase (LacZ) | not applicable | — | Co-encapsulated as purified enzyme, not expressed |
+:::
+
+See [Detector: tetR-aTc](../detector-tetr_atc/spec.md) for the sensing construct.
+
+::::
+
 ::::{tab-item} Cytosol
 
 The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the `TetO-PLA1` construct from the [aTc Sensing Module](../detector-tetr_atc/spec.md) and LacZ from the [LacZ Reporter Module](../reporter-lacz/spec.md) added as the sensing and reporter DNA, and CPRG substrate ([LacZ Reporter Module](../reporter-lacz/spec.md#substrate)) co-loaded for the colorimetric handoff. The table below flattens the combined synthetic cell reaction one level deep, to the four Modules — see each module's own spec for its full internal composition (not repeated here).
@@ -76,8 +90,6 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | No independent concentration — PLA1 is expressed from the `TetO-PLA1` construct already counted in the aTc Sensing Module row above, not added as a separate reagent | No dedicated PLA1 devnote exists yet; see that page's documentation-gap notice. |
 | [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 20 U/mL; CPRG substrate: 0.5 mM | LacZ and CPRG are both encapsulated in the same synthetic cell per the source slide. |
 :::
-
-Source: DevStudio status meeting slide "aTc sensor working in b.next cytosol: Encapsulating TetO-PLA1 with LacZ" (Mary Kelly, Kamat Lab, 2026-08-14), cross-checked against the [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec's "Chicago Cascade Encapsulation" section.
 
 ::::
 
@@ -107,6 +119,10 @@ Requires TetR, and aTc as the derepressing analyte — see the [aTc Sensing Modu
 
 The aTc Sensing Cell shares its LacZ/CPRG readout with the Theophylline Sensing Cell, and the two must not be co-encapsulated. The requirement is settled; the mechanism usually given for it — theophylline inhibiting the LacZ/CPRG conversion — is not established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides. Do not restate the inhibition mechanism as fact.
 
+# Implementations
+
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): this Cell is the aTc sensing element of the Chicago demo.
+
 # Constituent Modules
 
 - [Chicago Chassis](../chicago-chassis/spec.md) — chassis (cytosol + 9:1 POPC:cholesterol synthetic cell membrane)
@@ -120,4 +136,4 @@ The 2026-08-14 result did physically co-encapsulate the `TetO-PLA1` construct, L
 
 # Credits
 
-Developed by Mary Kelly (Chicago Node, Kamat Lab) — TetO-PLA1/LacZ-CPRG encapsulation result, from the 2026-08-14 DevStudio status meeting.
+Developed by Mary Kelly (Chicago Node, Kamat Lab).

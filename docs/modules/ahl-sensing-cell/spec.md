@@ -173,7 +173,7 @@ Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-p
 
 - [London DevCell](../../implementations/london-devcell/main.md): places this Cell in the London quorum-sensing demo.
 
-# Process
+# Processes
 
 The AHL Sensing Cell is formed by encapsulating S30 Lysate plus the `pLux-GFP` sensor plasmid in a POPC membrane as a synthetic cell, using an Elani-lab mineral-oil phase-transfer protocol — the same route documented on the [London Chassis](../london-chassis/spec.md) spec. Hydrogel-embedded configurations additionally require a ULGA hydrogel-embedding step.
 

@@ -192,7 +192,7 @@ Do not add gramicidin A to the colorimetric configuration. See [Expected Behavio
 
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): places the Chicago cascades in a hydrogel with spatial patterning.
 
-# Process
+# Processes
 
 No process page documents assembling this three-part cascade end to end.
 
