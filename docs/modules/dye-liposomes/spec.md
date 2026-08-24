@@ -15,6 +15,29 @@ Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-po
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    DYE_LIPOSOMES["Dye Liposomes"]
+    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
+
+    MEMBRANE_POPC_CHOL --> DYE_LIPOSOMES
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class MEMBRANE_POPC_CHOL constituent;
+    class DYE_LIPOSOMES this;
+
+    click DYE_LIPOSOMES "/docs/modules/dye-liposomes/spec"
+    click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Inner Solution
 
 :::{table}
@@ -93,6 +116,10 @@ Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfe
 :icon: false
 Sucrose is used in the original [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) protocol for the inner solution, but is replaced by Optiprep here to match the Base Cell inner-solution formulation. It is not included in the BOM above.
 :::
+
+# Constituent Modules
+
+- [Base Membrane](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer encapsulating the HPTS dye solution
 
 # Credits
 
