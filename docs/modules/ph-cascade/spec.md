@@ -9,14 +9,14 @@ site:
 
 # Overview
 
-The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md), giving a synthetic cell that turns a drop in pH into a visible colorimetric readout. In this cascade, the pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome; the released CPRG then reacts with LacZ to produce the yellow-to-purple color change. This page names that pH-sensor-to-readout chain as its own Module — see each constituent spec for its own reference composition, requirements, and expected performance.
+The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md), giving a synthetic cell that turns a drop in pH into a visible colorimetric readout. In this cascade, the pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome; the released CPRG then reacts with LacZ to produce the yellow-to-purple color change. This page names that pH-sensor-to-readout chain as its own Module — see each Module's spec for its own reference composition, requirements, and expected performance.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Cascade composition is proposed, not a demonstrated combined result
-This page documents a proposed chain of three constituent Modules, not a single validated result for the combination. The pieces have been shown to work in different, partial combinations — see [Expected Behavior](#expected-behavior) below — but no experiment has run the full pH Sensing Cell → PLA1 → LacZ chain together in one format. Do not treat this page as describing a completed cascade.
+This page documents a proposed chain of three Modules, not a single validated result for the combination. The pieces have been shown to work in different, partial combinations — see [Expected Behavior](#expected-behavior) below — but no experiment has run the full pH Sensing Cell → PLA1 → LacZ chain together in one format. Do not treat this page as describing a completed cascade.
 :::
 
 ```mermaid
@@ -38,13 +38,13 @@ Schematic representation of the confirmed, solution-phase pH Cascade integration
 
 # Reference Composition
 
-The pH Cascade combines its constituent Modules as follows:
+The pH Cascade combines its Modules as follows:
 
 - **Sensing input:** [pH Sensing Cell](../ph-sensing-cell/spec.md) — the pH-responsive toehold switch encapsulated in the Chicago Chassis synthetic cell, gating downstream expression at pH ≈ 6.5.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the pH switch fires; ruptures its own liposome and a neighboring CPRG-loaded liposome, coupling sensing to readout.
 - **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — reacts with the released CPRG substrate to produce the visible yellow-to-purple color change.
 
-None of the three constituent pages documents the combined three-part chain directly. This page exists to name that chain as the Chicago diagram's `PHCAS` node.
+None of the three Module pages documents the combined three-part chain directly. This page exists to name that chain as the Chicago diagram's `PHCAS` node.
 
 :::::{tab-set}
 
@@ -86,18 +86,12 @@ flowchart TD
     click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
 ```
 
-What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
-
-This diagram shows composition only — it does not assert that any integration is confirmed.
-
-Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
-
 ::::
 <!-- /gen:composition-diagram -->
 
 ::::{tab-item} Working Concentrations
 
-The table below aggregates the working concentrations behind the confirmed, solution-phase two-liposome result described in [Expected Behavior](#expected-behavior), one row per constituent Module, flattened one level deep. Two of the three rows come from the pH-sensing/PLA1 liposome's own reaction table, sourced from the Chicago Node's status materials ("Demo Status – Chicago," Module 2 – pH Sensor, "Key Experiment: inner solution condition") rather than from either constituent Module's own spec page — this data has not yet been transcribed into the [pH Sensing Cell](../ph-sensing-cell/spec.md) or [PLA1 Lysis Module](../effector-pla1/spec.md) pages.
+The table below aggregates the working concentrations behind the confirmed, solution-phase two-liposome result described in [Expected Behavior](#expected-behavior), one row per Module, flattened one level deep. Two of the three rows come from the pH-sensing/PLA1 liposome's own reaction table, sourced from the Chicago Node's status materials ("Demo Status – Chicago," Module 2 – pH Sensor, "Key Experiment: inner solution condition") rather than from either Module's own spec page — this data has not yet been transcribed into the [pH Sensing Cell](../ph-sensing-cell/spec.md) or [PLA1 Lysis Module](../effector-pla1/spec.md) pages.
 
 :::{table} Reference composition — confirmed solution-phase pH Cascade integration path (Chicago)
 :label: comp-ph-cascade
@@ -119,7 +113,7 @@ Unlike the [aTc Cascade](../atc-cascade/spec.md#reference-composition) (0.5 mM C
 
 # Expected Behavior
 
-No result has been generated for the full pH Sensing Cell → PLA1 → LacZ chain run together. The closest available data are the constituent-level results documented on each Module's own page, none of which is the combined cascade.
+No result has been generated for the full pH Sensing Cell → PLA1 → LacZ chain run together. The closest available data are the Module-level results documented on each Module's own page, none of which is the combined cascade.
 
 ## Cells
 

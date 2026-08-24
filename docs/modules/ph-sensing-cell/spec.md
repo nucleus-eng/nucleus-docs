@@ -39,7 +39,7 @@ No published schematic exists for this mechanism; the diagram above is a simplif
 # Reference Composition
 
 :::{attention} Combined-recipe concentrations not documented
-Neither constituent page documents the working concentrations of its own components once combined into a single reaction before encapsulation. The table below states each constituent as a single aggregated line item, as used **on its own page** — see each constituent spec for its full internal composition. Do not treat the "combined recipe" column as a demonstrated formulation.
+Neither Module page documents the working concentrations of its own components once combined into a single reaction before encapsulation. The table below states each Module as a single aggregated line item, as used **on its own page** — see each Module's spec for its full internal composition. Do not treat the "combined recipe" column as a demonstrated formulation.
 :::
 
 :::::{tab-set}
@@ -72,12 +72,6 @@ flowchart TD
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
 ```
-
-What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
-
-This diagram shows composition only — it does not assert that any integration is confirmed.
-
-Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
 
 ::::
 <!-- /gen:composition-diagram -->
@@ -116,7 +110,7 @@ The [pH-Sensing Module](../detector-ph/spec.md) page separately lists a membrane
 
 :::::
 
-This page exists to name the combination above as the Chicago diagram's `PHV` node — see each constituent spec for its own full reference composition and requirements.
+This page exists to name the combination above as the Chicago diagram's `PHV` node — see each Module's spec for its own full reference composition and requirements.
 
 # Expected Behavior
 

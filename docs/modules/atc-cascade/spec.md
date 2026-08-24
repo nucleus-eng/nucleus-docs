@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The aTc Cascade names the chain from aTc sensing to a visible colorimetric readout as its own Module: the [aTc Sensing Cell](../atc-sensing-cell/spec.md) supplies the `TetO-PLA1` sensing circuit gated by anhydrotetracycline (aTc), the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger that couples sensing to readout, and a downstream colorimetric reporter converts the released substrate into a visible signal. Unlike the [pH Cascade](../ph-cascade/spec.md), whose three constituent Modules have each only been shown to work in separate, partial combinations, this cascade's combined chain has a confirmed result behind it: the aTc Sensing Cell already co-encapsulates the `TetO-PLA1` construct, PLA1, and the LacZ reporter together in a single synthetic cell, and that combined configuration is what produced the 2026-08-14 aTc-response data. This page names that confirmed chain as the Chicago diagram's `ATCCAS` node and cites the aTc Sensing Cell spec for the underlying data rather than duplicating it.
+The aTc Cascade names the chain from aTc sensing to a visible colorimetric readout as its own Module: the [aTc Sensing Cell](../atc-sensing-cell/spec.md) supplies the `TetO-PLA1` sensing circuit gated by anhydrotetracycline (aTc), the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger that couples sensing to readout, and a downstream colorimetric reporter converts the released substrate into a visible signal. Unlike the [pH Cascade](../ph-cascade/spec.md), whose three Modules have each only been shown to work in separate, partial combinations, this cascade's combined chain has a confirmed result behind it: the aTc Sensing Cell already co-encapsulates the `TetO-PLA1` construct, PLA1, and the LacZ reporter together in a single synthetic cell, and that combined configuration is what produced the 2026-08-14 aTc-response data. This page names that confirmed chain as the Chicago diagram's `ATCCAS` node and cites the aTc Sensing Cell spec for the underlying data rather than duplicating it.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -41,7 +41,7 @@ Schematic representation of the confirmed aTc Cascade integration path: aTc reli
 
 # Reference Composition
 
-The aTc Cascade combines its constituent Modules as follows:
+The aTc Cascade combines its Modules as follows:
 
 - **Sensing input:** [aTc Sensing Cell](../atc-sensing-cell/spec.md) — the `TetO-PLA1` sensing construct, gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the aTc/TetR sensing circuit fires; couples sensing to readout. In the confirmed result, this is co-encapsulated in the same synthetic cell as the sensing construct rather than triggering a separate neighboring liposome.
@@ -88,18 +88,12 @@ flowchart TD
     click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
 ```
 
-What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
-
-This diagram shows composition only — it does not assert that any integration is confirmed.
-
-Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
-
 ::::
 <!-- /gen:composition-diagram -->
 
 ::::{tab-item} Working Concentrations
 
-The table below aggregates the working concentrations behind the 2026-08-14 aTc-response result, one row per constituent Module. It is sourced directly from the [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec's "Chicago Cascade Encapsulation" section, the 14 Aug 2026 meeting slide deck (p. 7, "aTc sensor working in b.next cytosol: Encapsulating TetO-PLA1 with LacZ," Mary Kelly, Kamat Lab), and the meeting-reconciliation notes reconciling the transcript against that deck.
+The table below aggregates the working concentrations behind the 2026-08-14 aTc-response result, one row per Module. It is sourced directly from the [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec's "Chicago Cascade Encapsulation" section, the 14 Aug 2026 meeting slide deck (p. 7, "aTc sensor working in b.next cytosol: Encapsulating TetO-PLA1 with LacZ," Mary Kelly, Kamat Lab), and the meeting-reconciliation notes reconciling the transcript against that deck.
 
 :::{table} Reference composition — confirmed aTc Cascade integration path (Chicago, 2026-08-14)
 :label: comp-atc-cascade
@@ -115,7 +109,7 @@ The table below aggregates the working concentrations behind the 2026-08-14 aTc-
 :::
 
 :::{attention} Confirmed path only — does not include XylE
-This table covers only the confirmed LacZ integration path described above. The proposed XylE / C23DO alternate integration path has no encapsulated working concentrations to report — see the constituent list in [Reference Composition](#reference-composition) above and [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#expected-behavior) for its separate, more preliminary bulk-cytosol result.
+This table covers only the confirmed LacZ integration path described above. The proposed XylE / C23DO alternate integration path has no encapsulated working concentrations to report — see the Module list in [Reference Composition](#reference-composition) above and [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#expected-behavior) for its separate, more preliminary bulk-cytosol result.
 :::
 
 ::::
@@ -167,7 +161,7 @@ Do not assume [Encapsulation: Phase Transfer](../../processes/assemble-base-cell
 - [PLA1 Lysis Module](../effector-pla1/spec.md) — lysis trigger coupling sensing to readout
 - [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG colorimetric readout chemistry — the confirmed readout, used in the 2026-08-14 aTc-response data
 
-The [XylE / C23DO Reporter Module](../reporter-xyle/spec.md) is a proposed alternate colorimetric readout. It is deliberately not listed as a constituent above: it has not been confirmed and was not used in the demonstrated cascade data, so it is not part of this cascade's composition.
+The [XylE / C23DO Reporter Module](../reporter-xyle/spec.md) is a proposed alternate colorimetric readout. It is deliberately not listed as a Module above: it has not been confirmed and was not used in the demonstrated cascade data, so it is not part of this cascade's composition.
 
 # Credits
 

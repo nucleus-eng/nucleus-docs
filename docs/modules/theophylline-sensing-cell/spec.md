@@ -77,12 +77,6 @@ flowchart TD
     click THEOPHYLLINE_SENSING_CELL "/docs/modules/theophylline-sensing-cell/spec"
 ```
 
-What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
-
-This diagram shows composition only — it does not assert that any integration is confirmed.
-
-Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
-
 ::::
 <!-- /gen:composition-diagram -->
 
@@ -90,12 +84,12 @@ Generated from the `# Constituent Modules` section of each page by the `mermaid-
 
 The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concentration, per [Chicago Chassis](../chicago-chassis/spec.md), with DNA added encoding the theophylline riboswitch upstream of PLA1.
 
-The table below is a one-level-deep aggregate: it states what each constituent contributes to the combined Sensing Cell recipe, without re-expanding either constituent's own internal composition (see each linked spec for that detail).
+The table below is a one-level-deep aggregate: it states what each Module contributes to the combined Sensing Cell recipe, without re-expanding either Module's own internal composition (see each linked spec for that detail).
 
-:::{table} Sensing Cell composition (Cytosol) — aggregated from constituent Modules
+:::{table} Sensing Cell composition (Cytosol) — aggregated from Modules
 :label: comp-theo-sensing-cell-cytosol
 
-| Constituent | Contributes | Working concentration / fraction in the Sensing Cell recipe |
+| Module | Contributes | Working concentration / fraction in the Sensing Cell recipe |
 | --- | --- | --- |
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol reaction mix (see that page and [Base Cytosol](../base-cytosol/spec.md) for the internal recipe) | 1x reaction concentration — the chassis cytosol is not diluted to add the sensing DNA |
 | [Theophylline Sensing Module](../detector-theophylline/spec.md) | DNA encoding the theophylline riboswitch upstream of PLA1 | Not documented for the PLA1-linked construct actually used in this Sensing Cell (see gap flag below). For scale only: the bulk-cytosol validation construct — `pT7-theophylline-LacZ` (`pMN066`), a different downstream gene — runs at 5 nM final DNA in a 1x cytosol reaction, per the `chicago-theophylline-lacz` devnote. That figure is cited for scale only; it is not confirmed to apply to the PLA1-linked construct. |

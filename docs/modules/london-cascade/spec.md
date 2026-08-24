@@ -84,18 +84,12 @@ flowchart TD
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
 ```
 
-What this Module is composed of. Arrows point from a constituent to the Module that contains it; the darker node is this page. Click any node to open its spec.
-
-This diagram shows composition only — it does not assert that any integration is confirmed.
-
-Generated from the `# Constituent Modules` section of each page by the `mermaid-diagrams` skill. Edit the composition, not this block.
-
 ::::
 <!-- /gen:composition-diagram -->
 
 ::::{tab-item} Working Concentrations
 
-The table below aggregates the working concentrations of the three constituent Modules in the combined cascade, flattened one level deep, for the S30 lysate condition reported in `Demo Status - London.docx` (Module 6): 15 ng/µL `P70lux-PLA1-term` plasmid DNA plus 5 µM purified AHSL (AHL). It does not re-expand any constituent's own internal composition — see each linked spec for that detail.
+The table below aggregates the working concentrations of the three Modules in the combined cascade, flattened one level deep, for the S30 lysate condition reported in `Demo Status - London.docx` (Module 6): 15 ng/µL `P70lux-PLA1-term` plasmid DNA plus 5 µM purified AHSL (AHL). It does not re-expand any Module's own internal composition — see each linked spec for that detail.
 
 :::{table} Reference composition — London Cascade, S30 lysate condition (15 ng/µL DNA + 5 µM AHL)
 :label: comp-london-cascade
@@ -152,7 +146,7 @@ Requires two separate liposome populations — the PLA1-payload sensing populati
 The London Cascade requires encapsulating two separate liposome populations (the PLA1-payload sensing population and the CPRG-loaded reporter population) and combining them in a shared exterior LacZ solution, following the same synthetic cell mineral-oil phase-transfer route documented on the [London Chassis](../london-chassis/spec.md) and [AHL Sensing Cell](../ahl-sensing-cell/spec.md) specs.
 
 :::{attention} Process gap
-The constituent steps are documented: [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), [SUV Encapsulation](../../processes/encapsulate-suv/main.md), and [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md). What is **not** documented is the co-incubation step that combines the two liposome populations at the ratio this cascade needs — that remains a gap.
+The individual steps are documented: [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), [SUV Encapsulation](../../processes/encapsulate-suv/main.md), and [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md). What is **not** documented is the co-incubation step that combines the two liposome populations at the ratio this cascade needs — that remains a gap.
 :::
 
 :::{attention} Exterior LacZ leakage — mitigation not yet written up
