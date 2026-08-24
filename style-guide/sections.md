@@ -10,7 +10,51 @@ What the Module is and what it does. Mechanism and schematic figures go here. A 
 
 ## Reference Composition
 
-Tabs for the composition, plus the generated `Module Dependencies` diagram.
+A tab-set: the generated `Module Dependencies` diagram, then one tab per part of the system.
+
+### Naming the tabs
+
+**A tab names a place in the system or a stage in the recipe. Never a property of the table.**
+
+`Working Concentrations` is the failure case. Every composition tab lists working concentrations, so the name says nothing. It appears on exactly the three cascade pages, and always for the same reason: the table was keyed by Module rather than by location, so no location was left to name the tab after. Fix the table and the name follows.
+
+**One axis per tab-set.** Do not mix a compartment (`Cytosol`) with a supply route (`In Situ Expression`) with a figure (`Schematic`) in the same row of tabs. A reader cannot tell whether such tabs are alternatives or additions.
+
+The common vocabulary, in tab order:
+
+| Tab | Holds |
+| --- | --- |
+| `Module Dependencies` | The generated diagram. Always first. Not a composition. |
+| `DNA` | The constructs: name, length, file. |
+| `Cytosol` / `Inner Solution` | What is inside. |
+| `Membrane` | The bilayer. |
+| `Outer Solution` | What is outside. |
+
+`Cytosol` names what fills the compartment; `Inner Solution` names the compartment. Use `Cytosol` when the interior is one, and `Inner Solution` when it is not — a dye liposome's interior is HPTS and Optiprep, with no expression machinery, so it is not a cytosol. These are different claims, not two names for one thing.
+
+Not every Module has all of these. A membrane has no cytosol, a cytosol has no membrane, and a formulation inventory such as `base-cytosol` is organized by recipe stage (`PMix`, `SMix`, `Final Reaction`) instead. The axis stays consistent within a page; which set of names applies follows from what the Module is.
+
+**No figures in this section.** A schematic belongs in `# Overview`.
+
+**Do not nest compartments inside a tab as bold pseudo-headings.** A `Cell` tab containing bold "Inner solution", "Membrane" and "Outer solution" should be three tabs.
+
+### Systems with more than one population
+
+A cascade spans two liposome populations plus the exterior, so compartment names alone do not reach. Put the population at the top level and keep the same axis:
+
+```
+Module Dependencies | DNA | Sensing Cell | Substrate SUV | Outer Solution
+```
+
+Each population tab carries captioned tables for its own compartments. Captioned tables are not pseudo-headings — the rule above forbids bold text standing in for structure, not multiple tables in one tab.
+
+Keying by location rather than by Module also removes rows that only ever existed to give each Module one. A component expressed from DNA already counted — PLA1 in the London Cascade — is not something the reader adds, so it has no location and needs no row. Its mechanism belongs in `# Overview`.
+
+**A construct appearing in both `DNA` and a location tab is correct.** `DNA` establishes identity — which construct, how long, which file. The location tab gives the dose in context. That duplication is doing two different jobs.
+
+`base-cell` is the reference: `Cytosol | Membrane | Outer Solution`, one axis, no exceptions.
+
+### The tables
 
 **Recurse until the table says something.** Soft limit one layer, hard limit two:
 
