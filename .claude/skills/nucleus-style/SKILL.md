@@ -88,6 +88,12 @@ common failure.
 
 Treat every page as world-readable, because it is.
 
+**When you find a phrasing violation, search the corpus for it before moving on.** These
+spread. "The requirement is settled" was written once and reached three pages; the same
+gramicidin admonition reached two; "Source of this page." reached two. A sweep that
+introduced a phrase introduced it everywhere it fit, so fixing the page you are on leaves
+the rest.
+
 **Read every prose block and ask one question of it: does this sentence describe the
 Module, or does it describe our work on the Module?** The second kind comes out. That
 question is the test. Grep is not the test — see the warning below.
@@ -152,6 +158,14 @@ Four treatments:
 3. **It dates** — "the 2026-08-14 status meeting" → keep the date, drop the meeting.
 4. **It is a pointer for us** — "raise on the Chicago questionnaire" → delete, move to
    `tmp/`.
+
+## When this skill changes
+
+A page conformed under an older version of this skill is not conformant now. Every rule
+here came from reviewing a page that had already passed, so the set of already-conformed
+pages is exactly the set most likely to violate a new rule. Re-run the whole set after any
+rule is added — the last such pass produced twenty-two edits across nine pages that had
+each been called clean.
 
 ## Before you finish
 

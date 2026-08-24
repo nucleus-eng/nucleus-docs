@@ -68,6 +68,8 @@ Keying by location rather than by Module also removes rows that only ever existe
 
 State a gap inside the tab it affects, in the row where the number would go. A tab holding no table is not a tab.
 
+**A composition tab carries a table, not a sentence pointing at another page.** Where a Module inherits its membrane or cytosol from a chassis, reproduce the table and name the source in the caption — a reader composing this Module should not have to open two more pages to learn its lipid fractions. The one exception is a Module that genuinely takes several hosts: [Effector: PLA1](../docs/modules/effector-pla1/spec.md) lyses whichever membrane its host cell has, so it names the alternatives instead of inventing a single table.
+
 ### The tables
 
 **Recurse until the table says something.** Soft limit one layer, hard limit two:

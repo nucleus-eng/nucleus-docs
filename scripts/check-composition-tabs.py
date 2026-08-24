@@ -83,18 +83,35 @@ def composition_surface(text: str) -> str:
     return " | ".join(parts)
 
 
-def check(path: Path) -> list[str]:
+def check(path: Path) -> tuple[list[str], list[str]]:
+    """Return (errors, advisories)."""
     text = path.read_text(encoding="utf-8")
+    waived = {m.lower() for m in WAIVER.findall(text)}
+
+    # A composition tab should carry a table. A Module that genuinely takes
+    # several hosts is the exception, so this warns rather than fails.
+    advisories = []
+    if "# Reference Composition" in text and "table" not in waived:
+        sec = text.split("# Reference Composition", 1)[1].split("\n# ", 1)[0]
+        for blk in re.split(r"^:*\{tab-item\} ", sec, flags=re.M)[1:]:
+            title = blk.split("\n", 1)[0].strip()
+            if title in ("Module Dependencies", "Schematic"):
+                continue
+            if ":::{table" not in blk and not re.search(r"^\|", blk, re.M):
+                advisories.append(
+                    f"{path}: the '{title}' tab has no table — a composition tab "
+                    "carries a table, not a sentence pointing elsewhere"
+                )
+
     nodes = diagram_nodes(text)
     if not nodes:
-        return []
+        return [], advisories
 
     # A page's own node is not a constituent of itself.
     own = path.parent.name.upper().replace("-", "_")
     nodes.discard(own)
 
     tabs = composition_surface(text)
-    waived = {m.lower() for m in WAIVER.findall(text)}
 
     findings = []
     for prefix, accepted, key in IMPLIES:
@@ -107,7 +124,7 @@ def check(path: Path) -> list[str]:
             f"{path}: dependency graph contains {', '.join(matching)} "
             f"but there is no {' or '.join(accepted)} tab"
         )
-    return findings
+    return findings, advisories
 
 
 def main() -> int:
@@ -119,8 +136,15 @@ def main() -> int:
         print("error: no spec.md found in the given path(s)", file=sys.stderr)
         return 2
 
-    findings = [f for s in specs for f in check(s)]
+    findings, advisories = [], []
+    for spec in specs:
+        e, a = check(spec)
+        findings += e
+        advisories += a
     checked = sum(1 for s in specs if diagram_nodes(s.read_text(encoding="utf-8")))
+
+    for a in advisories:
+        print(f"warning: {a}")
 
     if findings:
         for f in findings:
@@ -132,7 +156,8 @@ def main() -> int:
         )
         return 1
 
-    print(f"✅ Composition tabs cover the dependency graph. {checked} page(s) checked.")
+    note = f" {len(advisories)} advisory." if advisories else ""
+    print(f"✅ Composition tabs cover the dependency graph. {checked} page(s) checked.{note}")
     return 0
 
 
