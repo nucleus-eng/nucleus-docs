@@ -109,7 +109,7 @@ Performance data is not its own heading; it lives inside the Context it was meas
 
 One line per component that imposes something — not a single generic sentence covering the page. Name a concrete satisfying Module and link it:
 
-> Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+> Requires pT7 transcription and translation (e.g. [Base Cytosol](../docs/modules/base-cytosol/spec.md)).
 
 There is no path dependence. Given a set of Modules to compose you get a set of Requirements, under one composition operator that is fully transitive. "Per route" is not a thing.
 

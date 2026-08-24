@@ -66,11 +66,26 @@ A construct-to-file identity claim requires evidence, minimally a matching GenBa
 - `generated/` and `tmp/` are never committed.
 - Delete any dropdown whose only content is a placeholder.
 
+## What never appears
+
+The test is the question in [principles.md](principles.md#every-page-is-world-readable-because-it-is): does this describe the Module, or our work on it? These are the categories seen so far — a seed list, never a checklist.
+
+- **Internal documents** — questionnaires, status decks, meeting transcripts, `.docx` filenames, slide numbers. Including inside `# Credits`.
+- **Project management** — milestones, open action items, "still at the planning stage", "waiting for Twist", "mitigation in progress", "tracked separately", "pending".
+- **How a decision got made** — "the 2026-08-14 meeting resolved to…", "that requirement is settled". State the requirement; the meeting that produced it is ours, not the reader's.
+- **Our own records** — "Figure not yet migrated", "not yet transcribed", "interim source", "no dedicated devnote", "documented on each Module's own page". If a figure has not been migrated, migrate it.
+- **Editor-directed text** — use an `@Editor:` or `@Developer:` tag, never prose.
+- **Revision history** — "Earlier revisions of this page…" describes the document.
+- **Meta-commentary** — "flattened one level deep", "not duplicated here", "this page specifies it".
+- **Hedged attribution** — never "attribution is pending confirmation".
+
 ## Before a PR
 
 ```bash
 git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale
 codespell docs/
+python3 scripts/check-composition-tabs.py
+python3 scripts/check-implementations.py
 python3 scripts/check-links.py --offline-only docs/
 python3 scripts/check-dropdowns.py && python3 scripts/check-toc.py && python3 scripts/check-file-placement.py
 grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):'

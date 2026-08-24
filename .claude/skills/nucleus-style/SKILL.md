@@ -3,189 +3,75 @@ name: nucleus-style
 description: Write and review nucleus-docs content against the repo style guide — what each page type is for, what belongs in each section of a Module spec, and what must never appear on a page. Use when authoring, editing, migrating or reviewing any page under docs/ or guides/, when conforming a drafted page, and when deciding where displaced content should go.
 ---
 
-Read [STYLE-GUIDE.md](../../../STYLE-GUIDE.md) first — it is under 800 words and states the principles. This skill is the working procedure that applies them.
+This is the **procedure**. It states no rules of its own — every rule lives in one file under [`style-guide/`](../../../style-guide/), and this points there. If a rule seems to be missing, add it to the reference, not here.
 
-Detail lives in three references, loaded as needed:
+Read [`principles.md`](../../../style-guide/principles.md) first. It is short, and the rest follows from it.
 
-- [`style-guide/page-types.md`](../../../style-guide/page-types.md) — the four page types, and where displaced content goes
-- [`style-guide/sections.md`](../../../style-guide/sections.md) — every section of a Module spec, in order
-- [`style-guide/conventions.md`](../../../style-guide/conventions.md) — terminology, figures, citations, mechanics
-
-## The one idea
-
-These pages are **reference documentation**, not status trackers. A Specification states
-Composition, Function and Requirements, and is a **definition, not a report**. An
-Implementation page is the one place where a report is the right genre.
-
-Everything else follows from that.
+| Reference | Holds |
+| --- | --- |
+| [`principles.md`](../../../style-guide/principles.md) | What these documents are; what everything else follows from |
+| [`page-types.md`](../../../style-guide/page-types.md) | The four page types, and where displaced content goes |
+| [`sections.md`](../../../style-guide/sections.md) | Every section of a Module spec, in order |
+| [`conventions.md`](../../../style-guide/conventions.md) | Terminology, figures, citations, what never appears, mechanics |
 
 ## Reviewing a page
 
-Work in this order. The first two catch what is *missing*, which is invisible to a
-read-through; the rest catch what is *present and wrong*.
+In this order. The first step finds what is *missing*, which a read-through cannot see. The rest find what is present and wrong.
 
-### 1. Completeness — run the checks
+### 1. Completeness — run the checks first
 
 ```bash
 python3 scripts/check-composition-tabs.py docs/modules/<name>/
 python3 scripts/check-implementations.py
-python3 scripts/check-links.py --offline-only docs/
 ```
 
-`check-composition-tabs.py` compares each page's Reference Composition tabs against the
-transitive closure in its own generated dependency diagram. A page can read perfectly and
-still be missing half its composition — that is the failure mode a prose pass cannot see.
+These enumerate from the dependency graph, so they are complete in a way no prose check can be. A page can read perfectly and still be missing half its composition.
 
-Then check by hand:
+Then by hand, against [`sections.md`](../../../style-guide/sections.md):
 
-- Does every section the page needs exist? A missing `# Requirements` is common.
-- Does the DNA tab list **every** construct in the closure, or only the one that was easy
-  to find? Mark unknown supply routes rather than omitting the row.
-
-**Tag every gap you leave behind.** A cell reading "not documented" records the gap but
-asks nobody to close it. Give the tab an attention block naming what is missing and who
-should find it:
-
-```
-:::{attention} Composition not fully documented
-@Editor: the outer-solution osmolarity components for this cascade are not recorded.
-Confirm with the London Node.
-:::
-```
-
-`@Editor:` and `@Developer:` are the sanctioned forms. The pre-PR screen for stray `@` is
-what stops one shipping unresolved — it is a reminder to close them, not a ban on writing
-them.
-
-**`# Implementations` lists Implementations, and lists all of them.** Two failures, both
-found by `check-implementations.py`:
-
-- A cascade is a **Module**, however composed. Only pages under `docs/implementations/`
-  belong in this section. Modules that use this Module do not belong here
-  either. On a composed Module the dependency diagram already shows them; on a leaf
-  Module — a detector, reporter, membrane, cytosol — there is no diagram, so name them in
-  one Overview sentence instead.
-- The relation is symmetric. If an Implementation is built from this Module, this Module
-  lists that Implementation. The reverse half is the one that rots: nobody revisits twelve
-  Module pages when an Implementation gains a Module.
+- Does every section the page needs exist? A missing `# Requirements` is common, and a missing `# Implementations` more so.
+- Does the DNA tab list **every** construct in the closure, or only the one that was easy to find? Mark unknown supply routes rather than omitting the row.
+- Does every gap carry an `@Editor:` ask, or does it just say "not documented"?
 
 ### 2. Boundaries — is this content on the right page?
 
-| Content | Belongs on |
-| --- | --- |
-| Evidence that this Module's Function holds | this page, Expected Behavior |
-| A result produced by several Modules together | the composed Module, or an Implementation |
-| A specific demo run | the Implementation page |
-| Step-by-step method | the Process page |
-| An option not part of this Module's Composition | the Implementation that would choose |
-| Status, provenance of internal sources, open questions | `tmp/`, not the repo |
+Use the displacement table in [`page-types.md`](../../../style-guide/page-types.md#where-displaced-content-goes).
 
-**Moving beats trimming.** When you cut a statement of what a Module is *not*, the content
-it carried usually has a home. Trimming the framing and leaving the paragraph is the
-common failure.
+**Moving beats trimming.** When you cut a statement of what a Module is *not*, the content it carried usually has a home. Trimming the framing and leaving the paragraph is the common failure.
 
-### 3. What must never appear
+### 3. Read every prose block
 
-Treat every page as world-readable, because it is.
-
-**When you find a phrasing violation, search the corpus for it before moving on.** These
-spread. "The requirement is settled" was written once and reached three pages; the same
-gramicidin admonition reached two; "Source of this page." reached two. A sweep that
-introduced a phrase introduced it everywhere it fit, so fixing the page you are on leaves
-the rest.
-
-**Read every prose block and ask one question of it: does this sentence describe the
-Module, or does it describe our work on the Module?** The second kind comes out. That
-question is the test. Grep is not the test — see the warning below.
-
-The categories, with examples seen so far. The examples are a seed list, not a checklist:
-
-- **Internal documents** — questionnaires, status decks, meeting transcripts, `.docx`
-  filenames, slide numbers. Including inside `# Credits`.
-- **Project management** — milestones, open action items, "still at the planning stage",
-  "waiting for Twist", "mitigation in progress", "tracked separately", "pending".
-- **How a decision got made** — "the 2026-08-14 meeting resolved to…", "that requirement
-  is settled". State the requirement; the meeting that produced it is ours, not theirs.
-- **Editor-directed text** — use an `@Editor:` or `@Developer:` tag, never prose.
-- **Our own migration state** — "Figure not yet migrated", "not yet transcribed",
-  "interim source". If a figure has not been migrated, migrate it.
-- **Revision history** — "Earlier revisions of this page…" describes the document.
-- **Meta-commentary** — "flattened one level deep", "not duplicated here".
-- **Hedged attribution** — never "attribution is pending confirmation".
-
-Preliminary data is published behind the `status:` banner and an `:::{attention}` block.
-That is what carries the doubt.
+Ask the question from [`principles.md`](../../../style-guide/principles.md#every-page-is-world-readable-because-it-is): **does this describe the Module, or our work on the Module?** The categories are listed in [`conventions.md`](../../../style-guide/conventions.md#what-never-appears).
 
 :::{warning} Do not trust a phrase search here
-This is the class that keeps surviving a pass, and the reason is measurable. A grep for
-the known phrases catches **none** of: "still at the milestone-planning stage", "waiting
-for Twist", "Interim source", "the 2026-08-14 meeting resolved", "mitigation in progress",
-"Figure not yet migrated". Every page invents new wording; a phrase list only knows the
-last page's.
+This is the class that keeps surviving a pass. A grep for the known phrases catches **none** of: "still at the milestone-planning stage", "waiting for Twist", "Interim source", "the 2026-08-14 meeting resolved", "mitigation in progress", "Figure not yet migrated". Every page invents new wording.
 
-Structural checks — `check-composition-tabs.py`, `check-implementations.py` — are complete,
-because they enumerate from a graph. There is no equivalent for this class. A page with
-zero phrase hits is **not** evidence of conformance, and a conformance score built from
-phrase hits measures the phrases, not the category.
+A page with zero phrase hits is **not** evidence of conformance, and a score built from phrase hits measures the phrases, not the category.
 :::
+
+**When you find a phrasing violation, search the corpus for it before moving on.** These spread. "The requirement is settled" was written once and reached three pages; the same gramicidin admonition reached two; "Source of this page." reached two. A sweep that introduced a phrase introduced it everywhere it fit.
 
 ### 4. Sections and prose
 
-- **Say it once.** A fact appearing twice means one copy is in the wrong section.
-- **Requirement or observation?** A Requirement is what the reader must provide or avoid.
-  An observed property is Expected Behavior, even when it sounds like a warning.
-- **Expected Behavior is what the reader will see** — "X Module is expected to…", not a
-  past-tense account of one experiment.
-- **Credits is one sentence.** Node before Lab.
-- **`# Processes`, plural.** It links the Process pages and carries preparation parameters
-  — target size, extrusion passes, purification, storage. A number describing *how you make
-  it* is process data even in a table, and does not belong in Reference Composition. If no
-  Process page covers the combination, one sentence saying so, and stop.
-- **`Inner Solution` is the compartment inside any liposome.** Not `Luminal Cargo`. Use
-  `Cytosol` only when the contents are an expression system.
-- Half the length, same technical content.
+Check the page against [`sections.md`](../../../style-guide/sections.md) section by section, and the wording against [`conventions.md`](../../../style-guide/conventions.md).
 
 ## Rewriting an internal reference
 
-Most of this text is doing real work — it is how a reader learns a number came from one
-unreplicated experiment. Deleting the phrase alone makes preliminary data read as settled.
-Four treatments:
+Most of this text is doing real work — it is how a reader learns a number came from one unreplicated experiment. Deleting the phrase alone makes preliminary data read as settled. Four treatments:
 
-1. **It hedges** — "the source material does not specify…" → characterize the evidence:
-   "not established; a single unreplicated experiment".
-2. **It attributes** — a `.docx` or slide number in `# Credits` → drop the citation, keep
-   the person, Node and Lab.
+1. **It hedges** — "the source material does not specify…" → characterize the evidence: "not established; a single unreplicated experiment".
+2. **It attributes** — a `.docx` or slide number in `# Credits` → drop the citation, keep the person, Node and Lab.
 3. **It dates** — "the 2026-08-14 status meeting" → keep the date, drop the meeting.
-4. **It is a pointer for us** — "raise on the Chicago questionnaire" → delete, move to
-   `tmp/`.
+4. **It is a pointer for us** — "raise on the Chicago questionnaire" → delete, move to `tmp/`.
 
-## When this skill changes
+## When a rule changes
 
-A page conformed under an older version of this skill is not conformant now. Every rule
-here came from reviewing a page that had already passed, so the set of already-conformed
-pages is exactly the set most likely to violate a new rule. Re-run the whole set after any
-rule is added — the last such pass produced twenty-two edits across nine pages that had
-each been called clean.
+A page conformed under an older version of these rules is not conformant now. Every rule came from reviewing a page that had already passed, so the conformed set is exactly the set most likely to violate a new one. Re-run the whole set after any rule is added — the last such pass produced twenty-two edits across nine pages that had each been called clean.
 
 ## Before you finish
 
-```bash
-git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale
-codespell docs/
-python3 scripts/check-composition-tabs.py
-python3 scripts/check-links.py --offline-only docs/
-python3 scripts/check-dropdowns.py && python3 scripts/check-toc.py && python3 scripts/check-file-placement.py
-grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):' && echo "STRAY TAG — resolve before publishing"
-```
+Run the pre-PR list in [`conventions.md`](../../../style-guide/conventions.md#before-a-pr).
 
-`@Editor:` and `@Developer:` are the sanctioned forms and are expected on a `status: draft`
-page — they are how a gap asks to be closed. The screen exists to catch anything else, and
-to remind you that tagged gaps must be resolved before a page is published, not to forbid
-writing them.
+**Verify token by token.** Diff every number, temperature, construct name and cross-link against the pre-edit file. Reading the diff is not enough: a rewrite that drops a citation can drop a real value in the same sentence, and that is how the PEG hydrogel composition was lost on reporter-lacz.
 
-**Verify token by token.** Diff every number, temperature, construct name and cross-link
-against the pre-edit file. A structural pass should change structure, not facts.
-
-**Never touch** the `# Constituent Modules` heading or mermaid `classDef constituent` —
-the diagram generator matches both with hardcoded strings, and a page missing either drops
-out of the generator silently.
+**Never touch** the `# Constituent Modules` heading or mermaid `classDef constituent` — the diagram generator matches both with hardcoded strings, and a page missing either drops out of the generator silently.

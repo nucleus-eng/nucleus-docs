@@ -4,8 +4,6 @@ These pages are **reference documentation** for Module and Process specification
 
 Write for the global compositional biology community: engineers and scientists who will use a page to build something. Not for the author, not for an editor, and not for the person who happened to run the experiment.
 
-Read this file first. Detail lives in [`style-guide/`](style-guide/).
-
 ## The four page types
 
 | Type | Location | Genre |
@@ -15,60 +13,30 @@ Read this file first. Detail lives in [`style-guide/`](style-guide/).
 | **Implementation** | `docs/implementations/<name>/main.md` | A worked example — a report |
 | **Guide** | `guides/` | Tutorial, reference, contribution |
 
-Compositions — chassis, sensing cells, cascades — are Modules. Integration is an activity, not a page type. See [`page-types.md`](style-guide/page-types.md).
+Compositions — chassis, sensing cells, cascades — are Modules. Integration is an activity, not a page type.
 
-## A specification is a definition, not a report
+## The rules
 
-A Specification states **Composition**, **Function**, and **Requirements**. Anything else is off-spec.
+Every rule lives in exactly one file under [`style-guide/`](style-guide/). Nothing is restated here, so there is one place to change when a rule changes.
 
-*Function* and *Expected Behavior* are the same thing: `Function` is the formal term, `Expected Behavior` is the section name on the page. Never use them as if they differed.
+| File | Holds |
+| --- | --- |
+| [`principles.md`](style-guide/principles.md) | What these documents are, and what the other rules follow from. **Read this one first.** |
+| [`page-types.md`](style-guide/page-types.md) | What belongs on each page type, and where displaced content goes |
+| [`sections.md`](style-guide/sections.md) | Every section of a Module spec, in order |
+| [`conventions.md`](style-guide/conventions.md) | Terminology, figures, citations, what never appears, mechanics |
 
-A spec describes an idealization of the Module, not one realization of it. Experiments are evidence that the defined Function holds — never the source of the definition. A result produced by several Modules together is evidence for the composed thing, so it belongs on that page or on an Implementation, not on a constituent's page.
+If those four disagree with each other, `principles.md` wins and the other file is wrong.
 
-Expected Behavior describes **what the reader will see if they follow the page**. Write "X Module is expected to…", not a past-tense account of one experiment.
+## Applying them
 
-## Write for an unknown composer
+`.claude/skills/nucleus-style/SKILL.md` is the working procedure: what order to review in, which checks to run, and how to verify a pass did not lose anything. It states no rules of its own — it points here.
 
-A Module exists to be composed into systems its author never imagined. Do not write a spec around the one composition you happen to know about.
+Two checks find what reading cannot, because absence is invisible on the page:
 
-State what the Module **is**. Do not state what it is not. Negative space is not composition — the `# Constituent Modules` list is already the boundary statement, so prose repeating it adds nothing and prose defending it presumes a reader who arrived confused from a neighboring page.
+```bash
+python3 scripts/check-composition-tabs.py    # tabs must cover the dependency graph
+python3 scripts/check-implementations.py     # Implementations are Implementations, both ways
+```
 
-When you cut a statement of what a Module is not, move what it carried. An option that is not part of this Module usually belongs on an Implementation page, because choosing between options is what those pages are for. Trimming the framing and leaving the content behind is the common failure.
-
-If a boundary feels urgent while you write, check whether it is urgent for the reader or only for you because you just wrote the adjacent page.
-
-## Sentences
-
-Be direct. Say more with fewer words — text that survives review is usually half as long with the same technical content.
-
-State requirements; do not argue for them. Reasoning belongs in Expected Behavior or nowhere.
-
-**Say it once.** If a fact appears twice on a page, one of the two is in the wrong section. Decide which section owns it and delete the other.
-
-Follow Simplified Technical English, pragmatic mode. Do not hard-wrap paragraphs.
-
-## Never on a page
-
-**Treat every page as world-readable, because it is.**
-
-The test is one question asked of every prose block: **does this describe the Module, or does it describe our work on the Module?** The second kind comes out. A list of banned phrases will not find it — every page invents new wording.
-
-- **Internal documents.** No questionnaires, status decks, meeting transcripts, or `.docx` filenames. Status and hedging live in `tmp/`, for agents and editors.
-- **Editor-directed text.** Address the editor with an `@Editor:` or `@Developer:` tag, never in prose. Screen for stray `@` before every PR.
-- **Revision history.** "Earlier revisions of this page…" describes the document, not the Module.
-- **Meta-commentary.** "flattened one level deep", "not duplicated here", "this page exists to name…".
-- **Hedged attribution.** Never "attribution is pending confirmation". Never invent a name, Node, or Lab.
-
-Preliminary data is published behind the `status:` frontmatter and its banner, plus an `:::{attention}` block where needed. That is what carries the doubt — not hedging prose, and not a pointer to an internal source.
-
-## Structural passes
-
-When moving structure rather than rewriting content: nothing is deleted, only relocated. Misplaced content stays on the page and gets reported. The diff should show structure moving, not prose changing.
-
-Renaming a heading is a link change. Run `python3 scripts/check-links.py --offline-only docs/` afterward.
-
-## References
-
-- [`page-types.md`](style-guide/page-types.md) — what belongs on each type, and where displaced content goes
-- [`sections.md`](style-guide/sections.md) — Overview, Reference Composition, Expected Behavior, Requirements, Credits
-- [`conventions.md`](style-guide/conventions.md) — terminology, figures, tables, citations, mechanics
+The full pre-PR command list is in [`conventions.md`](style-guide/conventions.md#before-a-pr).
