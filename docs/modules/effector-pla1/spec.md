@@ -39,7 +39,7 @@ Schematic representation of the PLA1 lysis cascade. No published schematic exist
 
 ::::{tab-item} DNA
 :::{attention} Not yet in `nucleus-eng/DNA`
-Source material names two PLA1 constructs — a constitutive/riboswitch-gated `T7pro-PLA1-T7term` used in Chicago's PURE-based theophylline and pH cascades, and a LuxR/pLux-controlled `P70lux-PLA1-term` used in London's PURE/lysate AHL cascade — but neither has a confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Sequence files are reported to already exist on Nucleus Hub; the pending step is linking them into a shared materials spreadsheet, not a docs-side branch of the DNA repo. Do not add a Designs-table row here until a file lands in `nucleus-eng/DNA` and its identity is confirmed against this row's construct name — flag the gap to Surendra (tracking sequence files via Nucleus Hub / the shared materials spreadsheet) rather than guessing at a filename.
+PLA1 has two constructs: a constitutive, riboswitch-gated `T7pro-PLA1-T7term` used in Chicago's PURE-based theophylline and pH cascades, and a LuxR/pLux-controlled `P70lux-PLA1-term` used in London's lysate AHL cascade. Neither has a confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Do not add a row above until a file lands there and its identity is confirmed against the construct name.
 :::
 ::::
 
@@ -86,8 +86,8 @@ PLA1 is a lysis effector, not a standalone module — it only produces an observ
 
 Any implementation adding PLA1 to a new cascade should account for both routes rather than assuming the liposome stays intact until the intended trigger.
 
-:::{attention} Corrected 2026-08-19 — this section previously stated the opposite
-An earlier revision of this page said gramicidin A was used "specifically to prevent" premature rupture, and that *removing* it caused background color. Both halves inverted the source. `Demo Status - Chicago.docx` states gramicidin A "was not included in the colorimetric demonstration because it **caused** a portion of the CPRG-loaded vesicles to rupture prematurely, leading to nonspecific color development." Flagged here rather than silently rewritten, since the inverted version may have been read or cited.
+:::{attention} Gramicidin A causes premature rupture
+Gramicidin A was excluded from the colorimetric demonstration because it caused a portion of the CPRG-loaded liposomes to rupture prematurely, producing nonspecific color development. It is not a stabilizer.
 :::
 
 # Implementations
@@ -98,7 +98,7 @@ An earlier revision of this page said gramicidin A was used "specifically to pre
 - **London AHL cascade.** A LuxR/pLux quorum-sensing promoter gates PLA1 expression in S30 lysate. PLA1 lysis again triggers the CPRG/LacZ handoff. As of the latest report, this shows a discernible but still leaky difference in color change between +AHL and −AHL conditions; the team is optimizing DNA and AHL concentrations to widen this gap.
 
 :::{attention} Interim source — formal devnote pending
-The cascade summaries above are sourced from the Chicago and London Module Integration Status notes and the 2026-08-14 DevStudio status meeting ("August DevCell Status Update"). Treat these as interim primary sources, not as validated Module-level performance data for PLA1 itself.
+These cascade summaries are interim results, not validated Module-level performance data for PLA1 itself.
 :::
 
 # Known Future Work
@@ -110,13 +110,13 @@ This is about mitigating **exterior** LacZ leakage, not PLA1's lysis function (c
 A proteinase K treatment (50 °C/10 min, then 40 °C/1 h, then spin down) mitigates exterior LacZ leakage in cascades that use PLA1. It is documented as its own process page: [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md).
 
 :::{attention} Documentation gap
-Proteinase K concentration, reaction volume, and buffer are not specified in available source material.
+Proteinase K concentration, reaction volume, and buffer are not documented.
 :::
 
 # Credits
 
 Developed by Jonah McDonald and Charlie Newell (London Node) and Mary Kelly (Chicago Node, Kamat Lab).
 
-:::{attention} Attribution is not from a DevNote
-No PLA1 DevNote exists. The names above come from `Demo Status - London.docx` (the PLA1-based color-change module) and `Demo Status - Chicago.docx` (the TetO-PLA1/LacZ encapsulation result), not from a published DevNote.
+:::{attention} No PLA1 DevNote exists
+Attribution above is not drawn from a published DevNote.
 :::

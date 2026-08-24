@@ -9,7 +9,9 @@ site:
 
 # Overview
 
-The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md), giving a synthetic cell that turns a drop in pH into a visible colorimetric readout. In this cascade, the pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome; the released CPRG then reacts with LacZ to produce the yellow-to-purple color change. This page names that pH-sensor-to-readout chain as its own Module — see each Module's spec for its own reference composition, requirements, and expected performance.
+The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md) to turn a drop in pH into a visible colorimetric readout.
+
+The pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome. The released CPRG reacts with LacZ to produce the yellow-to-purple color change.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -44,7 +46,7 @@ The pH Cascade combines its Modules as follows:
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the pH switch fires; ruptures its own liposome and a neighboring CPRG-loaded liposome, coupling sensing to readout.
 - **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — reacts with the released CPRG substrate to produce the visible yellow-to-purple color change.
 
-None of the three Module pages documents the combined three-part chain directly. This page exists to name that chain as the Chicago diagram's `PHCAS` node.
+None of the three Module pages documents the combined three-part chain. This page specifies it.
 
 :::::{tab-set}
 
@@ -89,22 +91,31 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Working Concentrations
+::::{tab-item} Sensing Cell
 
-The table below aggregates the working concentrations behind the confirmed, solution-phase two-liposome result described in [Expected Behavior](#expected-behavior), one row per Module, flattened one level deep. Two of the three rows come from the pH-sensing/PLA1 liposome's own reaction table, sourced from the Chicago Node's status materials ("Demo Status – Chicago," Module 2 – pH Sensor, "Key Experiment: inner solution condition") rather than from either Module's own spec page — this data has not yet been transcribed into the [pH Sensing Cell](../ph-sensing-cell/spec.md) or [PLA1 Lysis Module](../effector-pla1/spec.md) pages.
+The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsulated in one liposome.
 
-:::{table} Reference composition — confirmed solution-phase pH Cascade integration path (Chicago)
-:label: comp-ph-cascade
+:::{table} pH Sensing Cell liposome, confirmed solution-phase integration path.
+:label: comp-ph-cascade-sensing
 
-| Module | Component | Working concentration |
-| --- | --- | --- |
-| pH Sensing Cell | pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 µM trigger ssDNA, final — co-encapsulated with the PLA1 construct below in one liposome |
-| PLA1 Lysis Module | Toehold-switch-gated PLA1 DNA template | 2 nM, final — co-encapsulated with the pH-sensing ssDNA above; this is a distinct, PLA1-fused construct, not the standalone toehold-LacZ/XylE construct listed on the [pH-Sensing Module](../detector-ph/spec.md) page's DNA tab |
-| LacZ Reporter Module | CPRG substrate | Not documented at a reaction concentration for this specific two-liposome pairing — CPRG is loaded into a separate liposome population and reacts with external β-galactosidase after lysis, but no working concentration for either is recorded in the surveyed source material for this pairing |
+| Component | Working concentration |
+| --- | --- |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 µM trigger ssDNA, final |
+| Toehold-switch-gated PLA1 DNA template | 2 nM, final — a distinct, PLA1-fused construct |
 :::
 
-:::{attention} CPRG/LacZ concentration is a real documentation gap, not a stand-in number
-Unlike the [aTc Cascade](../atc-cascade/spec.md#reference-composition) (0.5 mM CPRG, 20 U/mL LacZ, encapsulated) or the theophylline cascade's CPRG-loaded SUVs (50 mM CPRG loading), no CPRG or LacZ concentration is documented anywhere for this pH cascade's own solution-phase, two-liposome pairing. Do not substitute a number from a different cascade's readout integration path to fill this row — that would misrepresent an undocumented gap as a real, sourced value. Flag this for follow-up once a formal devnote for the Chicago pH cascade's two-liposome reaction is written.
+::::
+
+::::{tab-item} Substrate SUV
+
+A second liposome population carrying the chromogenic substrate. See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+
+:::{table} Substrate SUV lumen.
+:label: comp-ph-cascade-suv
+
+| Component | Working concentration |
+| --- | --- |
+| CPRG substrate | Not documented at a reaction concentration for this two-liposome pairing |
 :::
 
 ::::
@@ -126,7 +137,7 @@ No result has been generated for the full pH Sensing Cell → PLA1 → LacZ chai
 
 ## Gels
 
-- **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected (Sung-Won Hwang, Liu Lab). Full detail, including the concentration-dependent absorbance data, is documented on the [pH Sensing Cell](../ph-sensing-cell/spec.md#expected-behavior) spec and is not duplicated here.
+- **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected (Sung-Won Hwang, Liu Lab). The concentration-dependent absorbance data is on the [pH Sensing Cell](../ph-sensing-cell/spec.md#expected-behavior) spec.
 
 # Requirements
 
@@ -142,8 +153,8 @@ Premature lysis is a known failure mode for this cascade, by two independent rou
 
 See the [PLA1 Lysis Module](../effector-pla1/spec.md#requirements) spec for detail.
 
-:::{attention} Corrected 2026-08-19 — this section previously stated the opposite
-An earlier revision said gramicidin A was used "to keep the PLA1-carrying liposome intact" and that *removing* it caused background color. Both halves inverted the source, which states gramicidin A "was not included in the colorimetric demonstration because it **caused** a portion of the CPRG-loaded vesicles to rupture prematurely." Recorded rather than silently rewritten.
+:::{attention} Gramicidin A causes premature rupture
+Gramicidin A was excluded from the colorimetric demonstration because it caused a portion of the CPRG-loaded liposomes to rupture prematurely. It is not a stabilizer.
 :::
 
 # Implementations
@@ -163,6 +174,6 @@ No process page documents assembling this three-part cascade end to end. The [pH
 
 # Credits
 
-Developed by Sung-Won Hwang and Samuel Chen (Chicago Node, Liu Lab) — the pH sensing result (14 Aug 2026 status deck, slide 9) and the spatially confined colorimetric readout in patterned agarose (slide 10), respectively. This page composes those two results; the combined three-part cascade has not been demonstrated end to end.
+Developed by Sung-Won Hwang and Samuel Chen (Chicago Node, Liu Lab) — the pH sensing result and the spatially confined colorimetric readout in patterned agarose, respectively. This page composes those two results; the combined three-part cascade has not been demonstrated end to end.
 
-Contributor names come from the 14 Aug 2026 status deck and from the module sections of the Chicago and London status documents, and have not been confirmed by the teams.
+Contributor names have not been confirmed by the teams.

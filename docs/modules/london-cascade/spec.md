@@ -85,27 +85,61 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Working Concentrations
+::::{tab-item} DNA
 
-Working concentrations for the S30 lysate condition: 15 ng/µL `P70lux-PLA1-term` plasmid DNA with 5 µM purified AHL.
-
-:::{table} Reference composition — London Cascade, S30 lysate condition (15 ng/µL DNA + 5 µM AHL)
-:label: comp-london-cascade
-
-| Module | Component | Working concentration |
+:::{table}
+| **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| [AHL Sensing Cell](../ahl-sensing-cell/spec.md) | `P70lux-PLA1-term` plasmid DNA (in place of `pLux-GFP`) | 15 ng/µL |
-| [AHL Sensing Cell](../ahl-sensing-cell/spec.md) | AHL (3-oxo-C6-HSL) inducer | 5 µM, exterior |
-| [PLA1 Lysis Module](../effector-pla1/spec.md) | PLA1 lysis trigger | Co-encapsulated with the sensing construct in the same synthetic cell; no separate working concentration documented beyond the DNA dose above |
-| [LacZ Reporter](../reporter-lacz/spec.md) | CPRG substrate | Encapsulated in a second, dedicated liposome population; working concentration not reported for this cascade configuration |
-| [LacZ Reporter](../reporter-lacz/spec.md) | β-galactosidase (LacZ), exterior solution | Working concentration not reported for this cascade configuration — see the [LacZ Reporter](../reporter-lacz/spec.md) spec for the enzyme's general characterization |
+| `P70lux-PLA1-term` | not yet determined | — |
 :::
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
-`P70lux-PLA1-term` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) Designs tab for the same gap. Do not add a DNA table entry here until the construct is confirmed and its length verified against the source file.
+`P70lux-PLA1-term` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) DNA tab for the same gap. Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
 :::
 
-The outer solution for this cascade is not documented, and neither is a reaction composition confirming that the S30 lysate premix, extract, amino acid mix, sucrose, and RNase inhibitor concentrations carry over unchanged for the PLA1 payload. See the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) spec for the closest documented analog on both counts.
+::::
+
+::::{tab-item} Sensing Cell
+
+The S30 lysate inner solution and POPC membrane of the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), with `P70lux-PLA1-term` in place of `pLux-GFP`.
+
+:::{table} Sensing Cell, S30 lysate condition. Inner solution otherwise as documented on the AHL Sensing Cell spec.
+:label: comp-london-cascade-sensing
+
+| Component | Working concentration |
+| --- | --- |
+| `P70lux-PLA1-term` plasmid DNA | 15 ng/µL |
+| S30 lysate premix, extract, amino acid mix, sucrose, RNase inhibitor | Not documented for the PLA1 payload; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for the closest documented analog |
+:::
+
+::::
+
+::::{tab-item} Substrate SUV
+
+A second, dedicated liposome population carrying the chromogenic substrate. See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+
+:::{table} Substrate SUV lumen.
+:label: comp-london-cascade-suv
+
+| Component | Working concentration |
+| --- | --- |
+| CPRG substrate | Not reported for this cascade configuration |
+:::
+
+::::
+
+::::{tab-item} Outer Solution
+
+:::{table} Exterior solution.
+:label: comp-london-cascade-outer
+
+| Component | Working concentration |
+| --- | --- |
+| AHL (3-oxo-C6-HSL) inducer | 5 µM |
+| β-galactosidase (LacZ) | Not reported for this cascade configuration; see [LacZ Reporter](../reporter-lacz/spec.md) for the enzyme's general characterization |
+:::
+
+The osmolarity components of the outer solution are not documented for this cascade.
 
 ::::
 
