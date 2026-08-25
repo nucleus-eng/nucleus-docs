@@ -17,8 +17,8 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Module Class    | Specification                               | Validation |
 | --------------- | ------------------------------------------- | ---------- |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        |
-| Detector        | [tetR-aTc](./detector-tetr_atc/spec.md)     | ★★         |
-|                 | [LacI-IPTG](./detector-laci_iptg/spec.md)   | ★★         |
+| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | ★★         |
+|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | ★★         |
 | Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         |
 | Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
@@ -65,7 +65,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Module Class | Specification | Validation |
 | --- | --- | --- |
 | Cytosol (Base) | [S30 Lysate](./s30-lysate/spec.md) | ★ |
-| Detector | [AHL](./detector-ahl/spec.md) | ★ |
+| Detector | [AHL](./detector-3oc6-hsl/spec.md) | ★ |
 | Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
@@ -94,7 +94,7 @@ Modules specifications are derived from DevNotes that follow the adhere to the [
 - Status: Cell
 
 ## Detector: tetR-aTc
-- [Specification](./detector-tetr_atc/spec.md)
+- [Specification](./detector-tetr-atc/spec.md)
 - Base Module: PURExpress
 - Status: Cell
   
@@ -149,7 +149,7 @@ Modules can be combined with Process Protocols to create Implementations.
 | Membrane | POPC/Chol | PURExpress Cell | Distribution |
 | Membrane Pore | [alpha-Hemolysin](./membrane-pore-ahly/spec.md) | PURExpress Cell  | Distribution |
 |  | [Cx43](./membrane-pore-cx43/spec.md) | PURExpress Cell | DevNote |
-| Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | PURExpress Cell | Distribution |
+| Detector | [tetR-aTc](./detector-tetr-atc/spec.md) | PURExpress Cell | Distribution |
 | Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | PURExpress Cell | Distribution |
 | Energy | [PPK](./energy-ppk/spec.md) | PURExpress Cell | Distribution |
 | Control | [ClpXP](./control-clpxp/spec.md) | PURExpress Cytosol | Distribution |

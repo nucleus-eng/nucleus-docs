@@ -9,46 +9,20 @@ site:
 
 # Overview
 
-A **Substrate SUV** is a small unilamellar liposome that carries a chromogenic substrate and nothing else — no cytosol, no genetic circuit, no expression. It is a subcomponent of a colorimetric cascade rather than a module that does anything on its own, in the same sense that a Feeder Cell is a subcomponent of SpudCell.
+A Substrate SUV is a small unilamellar liposome that carries a chemical substrate of interest and nothing else. The CPRG Substrate SUV is a subcomponent of a [LacZ colorimetric cascade](../../processes/colorimetric-readout/main.md).
 
-This Substrate SUV carries chlorophenol red-β-D-galactopyranoside (CPRG). CPRG is yellow; β-galactosidase (LacZ) cleaves it to chlorophenol red, which is purple. Holding the substrate inside a liposome is what makes the readout *triggered* rather than continuous: as long as the SUV is intact, CPRG and LacZ never meet. When a neighboring Sensing Cell expresses PLA1 and lyses, it breaches these SUVs too, releasing CPRG into the surrounding LacZ solution and starting the color change.
+This Substrate SUV carries chlorophenol red-β-D-galactopyranoside (CPRG). CPRG is yellow; β-galactosidase (LacZ) cleaves it to chlorophenol red, which is purple. Holding the substrate inside a liposome allows for substrate release using [PLA1](../effector-pla1/spec.md): as long as the SUV is intact, CPRG and LacZ never meet. When a neighboring Sensing Cell expresses PLA1 and lyses, it breaches these SUVs too, releasing CPRG into the surrounding LacZ solution and starting the color change.
 
-It is not a reporter. The reporter is the enzyme — see [LacZ Reporter Module](../reporter-lacz/spec.md). This module is the substrate reservoir that gates when the reporter can act.
+This module is not a reporter in and of itself, requiring [LacZ Reporter Module](../reporter-lacz/spec.md) to produce an output.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
-
-## Schematic
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart LR
-    SENSE["Sensing Cell<br/>(expresses PLA1 on trigger)"]
-    SUV["Substrate SUV<br/>(CPRG, intact — no signal)"]
-    LYSED["SUV breached<br/>CPRG released"]
-    LACZ(("LacZ<br/>in surrounding matrix"))
-    COLOR["Yellow to purple<br/>Abs 575 nm"]
-
-    SENSE -->|"PLA1 degrades<br/>neighboring membrane"| SUV
-    SUV --> LYSED
-    LACZ -.-> LYSED
-    LYSED -->|"CPRG cleaved to<br/>chlorophenol red"| COLOR
-
-    classDef n fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    class SENSE,SUV,LYSED,COLOR n;
-    style LACZ fill:none,stroke:#4B5563
-```
-
-No published schematic exists for this module; the diagram above is a simplified summary, not a reproduction of a lab figure.
-
 # Reference Composition
 
 :::::{tab-set}
 
 ::::{tab-item} Membrane
-
-The Substrate SUV uses the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) base bilayer — 90:10 POPC:cholesterol — with **no fluorescent label**. The label is omitted because the readout is absorbance, not fluorescence.
 
 :::{table} Substrate SUV bilayer, as prepared for the Chicago colorimetric work.
 :label: comp-substrate-cprg-bilayer
@@ -60,7 +34,7 @@ The Substrate SUV uses the [Chicago Membrane](../membrane-popc-chol-chicago/spec
 
 :::
 
-See [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) for the shared base and the labeled variant used for Sensing Cells.
+See [Chicago Membrane](../membrane-popc-chol-chicago/spec.md).
 
 ::::
 
@@ -73,20 +47,16 @@ The luminal cargo is CPRG in hydration buffer. Two working concentrations are do
 
 | Use | CPRG concentration |
 | --- | --- |
-| SUV hydration (loading) | 50 mM, equivalently ~30 mg/mL |
+| SUV hydration (loading) | 50 mM (approx. 30 mg/mL) |
 | Inner gel, patterned agarose | 15 mg/mL |
 
 :::
-
-The two figures agree: CPRG has a molecular weight of about 585 g/mol, so 50 mM is 29.3 mg/mL, the ~30 mg/mL recorded elsewhere. The 15 mg/mL figure is a different, lower concentration used when the SUVs are cast into the inner gel of a patterned construct, not a restatement of the loading concentration.
 
 ::::
 
 :::::
 
 # Expected Behavior
-
-The [aTc Sensing Cell](../atc-sensing-cell/spec.md) co-encapsulates LacZ and CPRG inside a single Sensing Cell rather than using a separate Substrate SUV. A result from that configuration is not evidence for this Module.
 
 Intact Substrate SUVs produce no signal. On PLA1-triggered lysis of a neighboring Sensing Cell, released CPRG reacts with LacZ in the surrounding matrix to give a yellow-to-purple change, measurable at 575 nm and visible by eye.
 
@@ -107,9 +77,11 @@ In ~1% alginate the yellow-to-purple change appears after about 16 h.
 
 Requires an external β-galactosidase source in the surrounding matrix (e.g. [LacZ Reporter](../reporter-lacz/spec.md)), and a lysis trigger to breach the SUV membrane (e.g. [PLA1 Lysis Module](../effector-pla1/spec.md)).
 
-**Do not pair pre-loaded Substrate SUVs with PEG-norbornene gelation.** CPRG photobleaches under the UV crosslinking step: side-by-side comparisons show UV exposure during PEG-norbornene crosslinking visibly bleaches the color while an unexposed control retains it.
+:::{warning} Do not expose CPRG Substrate SUVs to UV light!
+CPRG photobleaches under UV illumination, e.g., during PEG-norbornene crosslinking: side-by-side comparisons show UV exposure during PEG-norbornene crosslinking visibly bleaches the color while an unexposed control retains it.
 
 The confirmed workaround for PEG-norbornene is to invert the order — pre-add LacZ to the gel, crosslink, then add CPRG as a free dye afterwards. That path does not use this module. Agarose, alginate, and ULGA embedding involve no UV step and are compatible with pre-loading as described here.
+:::
 
 # Implementations
 

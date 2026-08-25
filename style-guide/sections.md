@@ -16,9 +16,9 @@ A tab-set: the generated `Module Dependencies` diagram, then one tab per part of
 
 Requirements imply tabs too. A lysis Module requires a membrane, because there is nothing to lyse without one, so it carries a Membrane tab even though no membrane appears in its own constituent list.
 
-**A tab may say the composition is not documented. It may not be absent.** Where a value is missing, say so in the cell and add an attention block tagging who should find it — `@Editor:` or `@Developer:`. A cell reading "not documented" records a gap; a tagged block asks someone to close it.
+**A tab may say the composition is not documented. It may not be absent.** An absent Membrane tab reads as "this Module has no membrane"; a Membrane tab saying the composition is undocumented reads as the truth. Where a value is missing, say so in the cell and [tag the gap](principles.md#say-it-once). `scripts/check-composition-tabs.py` enforces this.
 
-**A tab may say the composition is not documented. It may not be absent.** An absent Membrane tab reads as "this Module has no membrane"; a Membrane tab saying the composition is undocumented reads as the truth. `scripts/check-composition-tabs.py` enforces this.
+**Composition is the design, not a completed run.** The tabs state how the Module works when it works — not a transcript of the best experiment anyone has managed. A reaction that omits one of the Module's own constituents is a component test: evidence that a part works, and so Expected Behavior. Where the design values are not yet backed by an assembled run, keep them and mark it with an `@Editor:` block.
 
 ### Naming the tabs
 
@@ -71,6 +71,14 @@ State a gap inside the tab it affects, in the row where the number would go. A t
 **A composition tab carries a table, not a sentence pointing at another page.** Where a Module inherits its membrane or cytosol from a chassis, reproduce the table and name the source in the caption — a reader composing this Module should not have to open two more pages to learn its lipid fractions. The one exception is a Module that genuinely takes several hosts: [Effector: PLA1](../docs/modules/effector-pla1/spec.md) lyses whichever membrane its host cell has, so it names the alternatives instead of inventing a single table.
 
 ### The tables
+
+**One contributor means no line-item table.** A composed Module's tab lists each constituent that contributes to that compartment. Where exactly one does, the abstraction adds nothing — a union over a single set is that set — so give the constituent's own composition table instead of a row pointing at it. A tab whose only informative cell reads "unchanged from X" is a link wearing a table's clothes. Keep the line-item form only where two or more constituents genuinely combine.
+
+**Optional components do not change a Module's identity.** Two compositions that differ only in a component the spec marks optional are the same Module. The Chicago Membrane lists `(Optional) Liss Rhod PE` at 0.1%, so a membrane written as `89.9 / 10 / 0.1` and one written as `9:1 POPC:cholesterol` are the same membrane, not two formulations. Do not write a note distinguishing them.
+
+More generally: deciding whether some material *is* a named Module is not a comparison of two tables for equality. It is a question of whether the material satisfies that Module's specification, and a specification tolerates what it marks optional. Comparing tables cell by cell forces an exact match the spec never asked for, and every optional row then reads as a difference.
+
+**A DNA tab lists unique sequences; a compartment tab lists what is added.** The two differ whenever parts are combined before use — two annealed oligos are two sequences and one pipetting step. Give every sequence its own row in the DNA tab, and the combined reagent one row in the tab for the compartment it enters, quoted by whichever strand the rest of the corpus quotes.
 
 **Recurse until the table says something.** Soft limit one layer, hard limit two:
 
@@ -129,9 +137,13 @@ Only pages under `docs/implementations/`. A cascade is a Module however composed
 
 The relation is symmetric: if an Implementation is built from this Module, this Module lists that Implementation. `scripts/check-implementations.py` checks both halves.
 
+Every Module link inside this section reads as a claim, prose included — naming the cascade a reader passes through is enough to trip the check. Describe the path in words and link only the Implementation.
+
 ## Processes
 
-Link the Process pages that build this Module, in order, plus any preparation parameters that are not composition — target size, extrusion passes, purification method, storage before use. A number that describes *how you make it* is process data even when it sits in a table.
+Link every Process page related to this Module, in the order a bench user meets them. That means both directions: the processes that **build** the Module, and the processes that **use** it — an assay that reads it, a downstream step it feeds. A page listing only its own preparation hides half of what a reader came for. Where the relation is not obvious from the title, gloss it in a few words.
+
+Include any preparation parameters that are not composition — target size, extrusion passes, purification method, storage before use. A number that describes *how you make it* is process data even when it sits in a table.
 
 If no Process page covers the combination, say so in one sentence and stop. "No process page documents assembling this cascade end to end." Do not explain what a reader should not assume, and do not leave instructions for a future editor — those go in `tmp/`.
 

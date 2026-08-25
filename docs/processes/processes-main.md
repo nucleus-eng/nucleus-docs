@@ -46,6 +46,7 @@ DevCell integrations (e.g., the Chicago colorimetric readout system) build on tw
 Every DevCells sensing cascade (Chicago and London alike) ends at the same downstream step: a chromogenic substrate hydrolyzed by a reporter enzyme to give a visible, absorbance-measurable signal.
 
 - [Colorimetric Readout](./colorimetric-readout/main.md)
+- [Anneal pH-Responsive Trigger Duplex](./anneal-ph-trigger-duplex/main.md) — anneals the pH-responsive and trigger ssDNA into the single duplex reagent the pH-Sensing Module uses
 - [Degrade Exterior LacZ](./degrade-exterior-lacz/main.md) — proteinase K treatment to cut background signal from LacZ that has leaked outside a liposome; concentrations and volumes not yet specified.
 
 ## Base Cytosol Processes

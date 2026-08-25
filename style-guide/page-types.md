@@ -41,8 +41,11 @@ When content is on the wrong page, the destination depends on what it is evidenc
 | A result produced by several Modules together | The composed Module's page, or an Implementation |
 | A specific demo run, with its conditions and outcome | The Implementation page |
 | Step-by-step method | The Process page |
+| A constituent of the Module, or the amount of one | Reference Composition |
 | A constraint on what the Module can compose with | Requirements |
 | An alternative or option not part of this Module's Composition | The Implementation page that would choose between them |
 | Status, provenance of internal sources, open questions | `tmp/`, not the repo |
 
 A result does not belong on a constituent's page merely because the constituent was physically in the tube.
+
+A quantity is not displaced composition just for being a quantity. The concentration a result was measured at is part of that evidence and stays with it, and a number describing how the Module is made is process data. The Reference Composition row is for a constituent stated somewhere other than the tab that should carry it.

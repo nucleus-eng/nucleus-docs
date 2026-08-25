@@ -10,7 +10,7 @@ site:
 
 # Overview
 
-The aTc Sensing Cell combines the [Chicago Chassis](../chicago-chassis/spec.md) with a `TetO-PLA1` / LacZ-CPRG sensing-and-readout circuit, giving a synthetic cell that reports anhydrotetracycline (aTc) dose as a colorimetric (absorbance) signal. It encapsulates the Modules below into a single synthetic cell: the [aTc Sensing Module](../detector-tetr_atc/spec.md) supplies the `TetO-PLA1` sensing construct, the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger that couples sensing to readout, and the [LacZ Reporter Module](../reporter-lacz/spec.md) supplies the enzyme and CPRG substrate chemistry that produce the visible color change.
+The aTc Sensing Cell combines the [Chicago Chassis](../chicago-chassis/spec.md) with a `TetO-PLA1` / LacZ-CPRG sensing-and-readout circuit, giving a synthetic cell that reports anhydrotetracycline (aTc) dose as a colorimetric (absorbance) signal. It encapsulates the Modules below into a single synthetic cell: the [aTc Sensing Module](../detector-tetr-atc/spec.md) supplies the `TetO-PLA1` sensing construct, the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger that couples sensing to readout, and the [LacZ Reporter Module](../reporter-lacz/spec.md) supplies the enzyme and CPRG substrate chemistry that produce the visible color change.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -27,7 +27,6 @@ Schematic representation of the aTc Sensing Cell mechanism. Inside the synthetic
 # Reference Composition
 
 :::::{tab-set}
-
 <!-- gen:composition-diagram -->
 ::::{tab-item} Module Dependencies
 
@@ -53,7 +52,7 @@ flowchart TD
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
-    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr_atc/spec"
+    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
 ```
 
@@ -61,6 +60,10 @@ flowchart TD
 <!-- /gen:composition-diagram -->
 
 ::::{tab-item} DNA
+
+:::{attention} Construct not yet in `nucleus-eng/DNA`
+@Editor: `TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. Do not treat the name below as an identity claim against any existing DNA-repo file — flag for follow-up so the construct can be submitted before this page is used at the bench.
+:::
 
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
@@ -70,28 +73,32 @@ flowchart TD
 | β-galactosidase (LacZ) | not applicable | — | Co-encapsulated as purified enzyme, not expressed |
 :::
 
-See [Detector: tetR-aTc](../detector-tetr_atc/spec.md) for the sensing construct.
+See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct.
 
 ::::
 
 ::::{tab-item} Cytosol
 
-The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the `TetO-PLA1` construct from the [aTc Sensing Module](../detector-tetr_atc/spec.md) and LacZ from the [LacZ Reporter Module](../reporter-lacz/spec.md) added as the sensing and reporter DNA, and CPRG substrate ([LacZ Reporter Module](../reporter-lacz/spec.md#substrate)) co-loaded for the colorimetric handoff. The table below flattens the combined synthetic cell reaction one level deep, to the four Modules — see each module's own spec for its full internal composition (not repeated here).
+The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the `TetO-PLA1` construct from the [aTc Sensing Module](../detector-tetr-atc/spec.md), and both LacZ protein and CPRG substrate from the [LacZ Reporter Module](../reporter-lacz/spec.md).
 
-:::{table} Combined synthetic cell reaction, one level deep (Chicago Node, 2026-08-14)
+:::{table} Combined synthetic cell reaction, one level deep.
 | Module | Working concentration | Notes |
 | --- | --- | --- |
-| [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Supplies the reaction mix and encapsulation shell; see that page for its own reference composition — not re-expanded here. |
-| [aTc Sensing Module](../detector-tetr_atc/spec.md) (`TetO-PLA1` DNA + TetR) | Three DNA/TetR combinations tested: 1 nM DNA + 50 nM TetR (headline condition); 0.5 nM DNA + 50 nM TetR; 1 nM DNA + 100 nM TetR | aTc analyte dosed at 0/1/5/10 µM against each combination — see [Expected Behavior](#expected-behavior) below. All three combinations are documented as tested; none is singled out as canonical. |
-| [PLA1 Lysis Module](../effector-pla1/spec.md) | No independent concentration — PLA1 is expressed from the `TetO-PLA1` construct already counted in the aTc Sensing Module row above, not added as a separate reagent | No dedicated PLA1 devnote exists yet; see that page's documentation-gap notice. |
-| [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 20 U/mL; CPRG substrate: 0.5 mM | LacZ and CPRG are both encapsulated in the same synthetic cell per the source slide. |
+| [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [aTc Sensing Module](../detector-tetr-atc/spec.md) | 1 nM `TetO-PLA1` DNA + 50 nM TetR | Two other DNA/TetR ratios have been characterized — see [Expected Behavior](#expected-behavior). |
+| [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by 1 nM `TetO-PLA1` DNA | |
+| [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 20 U/mL; CPRG substrate: 0.5 mM |  |
+:::
+
+:::{attention} Reference DNA/TetR ratio not canonical in the source
+@Editor: the source records three DNA/TetR combinations as tested and singles out none as canonical. The table above takes the headline condition as the reference. Confirm with the Chicago Node which ratio the Module should specify.
 :::
 
 ::::
 
 ::::{tab-item} Membrane
 
-:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md), at synthetic-cell scale.
+:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
 :label: comp-atc-sensing-cell-membrane
 
 | Component | Target percentage (%) |
@@ -109,19 +116,17 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 This configuration detects aTc confirmed in synthetic cytosols and in synthetic cells, but the response is **not graded**. Fold change in absorbance at 5 h (n = 3) separates dosed from undosed at roughly 1.15× to 1.33×, across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each dosed at 0, 1, 5, and 10 µM aTc. The response is non-monotonic in two of the three combinations, and the error bars across the 1, 5, and 10 µM points overlap in all three. Treat it as saturating at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.
 
-Full detail, including the reading of the source figure and why the 0 µM point is a normalization baseline rather than a negative control, is documented in the [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec and is not duplicated here.
+Full detail, including the reading of the source figure and why the 0 µM point is a normalization baseline rather than a negative control, is documented in the [aTc Sensing Module](../detector-tetr-atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec and is not duplicated here.
 
-:::{warning}
-**Gel integration not yet complete.** This result is confirmed confirmed in synthetic cytosols and in synthetic cells only. Hydrogel integration was reported as "just... in the process of putting this into our gel" and had not been completed. Do not treat the aTc Sensing Cell as validated for hydrogel-embedded (Chicago Cascade) use yet — the edge from this cell into the Chicago Cascade should be kept dashed/in-progress until a gel-integrated result is confirmed.
+:::{caution} Gel integration not yet complete.
+This result is confirmed confirmed in synthetic cytosols and in synthetic cells only.
 :::
 
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
 
-Requires TetR, and aTc as the derepressing analyte — see the [aTc Sensing Module](../detector-tetr_atc/spec.md).
-
-The aTc Sensing Cell shares its LacZ/CPRG readout with the Theophylline Sensing Cell, and the two must not be co-encapsulated. The mechanism usually given for the constraint — theophylline inhibiting the LacZ/CPRG conversion — is not established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides. Do not restate the inhibition mechanism as fact.
+Requires TetR, and aTc as the analyte — see the [aTc Sensing Module](../detector-tetr-atc/spec.md).
 
 # Implementations
 
@@ -130,17 +135,13 @@ The aTc Sensing Cell shares its LacZ/CPRG readout with the Theophylline Sensing 
 # Constituent Modules
 
 - [Chicago Chassis](../chicago-chassis/spec.md) — chassis (cytosol + 9:1 POPC:cholesterol synthetic cell membrane)
-- [aTc Sensing Module](../detector-tetr_atc/spec.md) — `TetO-PLA1` sensing construct, gated by aTc/TetR
-
-:::{note} The effector and reporter belong to the Cascade, not to this Cell
-This Sensing Cell is chassis + detector. Its Function is to express PLA1 in response to aTc — PLA1 is what it *produces*, not a Module it is composed of. Likewise the LacZ/CPRG chemistry is the readout, which belongs to the [aTc Cascade](../atc-cascade/spec.md).
-
-The 2026-08-14 result did physically co-encapsulate the `TetO-PLA1` construct, LacZ, and CPRG in one cell. That is the **Cascade** configuration realized in a single compartment, not a property of the Sensing Cell Module — see [aTc Cascade](../atc-cascade/spec.md).
-:::
+- [aTc Sensing Module](../detector-tetr-atc/spec.md) — `TetO-PLA1` sensing construct, gated by aTc/TetR
 
 # Processes
 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the shared phase-transfer method, with the Chicago-specific lipid composition on [Chicago Membrane](../membrane-popc-chol-chicago/spec.md).
+
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
 
 # Credits
 

@@ -44,6 +44,8 @@ Where a page has a gap, tag it: an attention block naming what is missing and wh
 
 If a fact appears twice on a page, one of the two is in the wrong section. Decide which section owns it and delete the other.
 
+Across pages the rule holds for conventions rather than for facts. A physical constant can have more than one correct value: cholesterol is 386.654 g/mol under the older atomic weights and 386.66 under IUPAC 2021. Counting pages does not settle which to use, because the majority spelling can be the superseded one. Pick one reference convention for the corpus and follow it everywhere. Two spellings of one constant is a defect even when both are correct.
+
 Be direct. Text that survives review is usually half as long with the same technical content. State requirements; do not argue for them — reasoning belongs in Expected Behavior or nowhere.
 
 Follow Simplified Technical English, pragmatic mode. Do not hard-wrap paragraphs.
@@ -52,4 +54,6 @@ Follow Simplified Technical English, pragmatic mode. Do not hard-wrap paragraphs
 
 When moving structure rather than rewriting content: nothing is deleted, only relocated. Misplaced content stays on the page and gets reported. The diff should show structure moving, not prose changing.
 
-Renaming a heading is a link change. Run `python3 scripts/check-links.py --offline-only docs/` afterward.
+Renaming *or removing* a heading is a link change — see [conventions.md](conventions.md#headings-and-captions).
+
+**Internal consistency is not correctness.** A table whose every row reconciles proves the arithmetic was done, not that the inputs were right: a units error propagates cleanly through every row and looks exactly like a sound table. Test a suspect value against something outside it — a second experiment, the supplier's stock format, the paper the design came from.

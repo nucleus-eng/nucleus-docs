@@ -48,31 +48,18 @@ The LuxR/pLux AHL sensor plasmid used in the synthetic cell encapsulation work b
 
 ::::{tab-item} Cytosol
 
-This is the bacterial-lysate characterization reaction, at 50 µL — twice the 25 µL scale of the reference table on the [S30 Lysate](../s30-lysate/spec.md) spec. The three kit components scale exactly: premix, extract, and amino acid mix sit at 0.4, 0.3, and 0.1 of the reaction volume in both tables, so both describe the same 1× working kit concentrations. The RNase inhibitor does not: 1 µL of 40 000 U/mL into 50 µL gives 800 U/mL here, against 2000 U/mL on the S30 spec.
+| **Component**   | **Stock**   | **Final** | **− AHL (µL)** | **+ 10 µM AHL (µL)** |
+| --------------- | ----------- | --------- | --------- | --------------- |
+| Premix          | 2.5x        | 1×        | 20        | 20              |
+| Extract         | 3.33x       | 1×        | 15        | 15              |
+| Amino acid mix  | 10x         | 1×        | 5         | 5               |
+| Sensing plasmid | 2000 ng/µL  | 40 ng/µL  | 1         | 1               |
+| 3OC6-HSL        | 1 mM        | 10 µM     | 0         | 0.5             |
+| RNase inhibitor | 40 000 U/mL | 800 U/mL  | 1         | 1               |
+| Water           | —           | —         | 8         | 7.5             |
 
-Volumes are in µL.
-
-| **Component**   | **Stock**  | **Final**  | **− AHL** | **+ 10 µM AHL** |
-| --------------- | ---------- | ---------- | --------- | --------------- |
-| Premix          | 3.33x      | 1x         | 20        | 20              |
-| Extract         | 15 mg/mL   | 1.80 mg/mL | 15        | 15              |
-| Amino acids     | 10 µM      | 1.8 µM     | 5         | 5               |
-| Sensing plasmid | 2000 ng/µL | 40 ng/µL   | 1         | 1               |
-| 3OC6-HSL        | 50 mM      | 0.01 mM    | 0.5       | 0               |
-| RNase inhibitor | 40000 U/mL | 800 U/mL   | 1         | 1               |
-| Water           | —          | —          | 7.5       | 8               |
-
-:::{warning} Four rows of this table do not reconcile
-Recomputing `stock × volume / 50 µL` against the stated final concentration fails for four of the seven reagent rows, and the two condition columns look inverted.
-
-| Row | Stated final | Computes to |
-| --- | --- | --- |
-| Premix | 1× | 1.33× |
-| Extract | 1.80 mg/mL | 4.5 mg/mL |
-| Amino acids | 1.8 µM | 1.0 µM |
-| **3OC6-HSL** | **0.01 mM (10 µM)** | **0.5 mM — 50× off** |
-
-The 3OC6-HSL row is the one that matters: 0.5 µL of a 50 mM stock into 50 µL gives 0.5 mM, not 10 µM. A 1 mM stock would give exactly 10 µM. Separately, the column headed **− AHL** is the one carrying the 0.5 µL of 3OC6-HSL, which reads as a header inversion. @Editor: confirm both with the London Node. Do not use this table at the bench until it is answered.
+:::{attention} Composition reconstructed, needs verification
+Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior; the source's 50 mM would require 0.01 µL. The condition columns are also swapped relative to the source, in which the column headed **− AHL** was the one carrying the AHL. The RNase inhibitor is left as sourced at 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor: confirm all three with the London Node before bench use.
 :::
 
 ::::
@@ -94,11 +81,11 @@ The 3OC6-HSL row is the one that matters: 0.5 µL of a 50 mM stock into 50 µL g
 
 ## Cytosols
 
-3OC6-HSL turns on effector gene expression with increasing strength up to 10 µM. This system has only been validated in [S30 Lysate](../s30-lysate/spec.md).  
+3OC6-HSL expresses a downstream effector gene at increasing strength with increasing 3OC6-HSL concentration up to 10 µM. This system has only been validated in [S30 Lysate](../s30-lysate/spec.md).  
 
 :::{attention} Missing Characterization Data
-- S30 lysate curves
-- Nucleus Cytosol curves (Surendra is validating this module in Cytosol; pull data here)
+- S30 lysate 
+- Nucleus Cytosol 
 :::
 
 ## Cells
@@ -118,6 +105,10 @@ Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required:
 # Implementations
 
 - [London DevCell](../../implementations/london-devcell/main.md): this Module supplies AHL sensing for the London quorum-sensing demo.
+
+# Processes
+
+No process page documents building this Module or assembling it into a reaction.
 
 # Credits
 

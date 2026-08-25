@@ -9,38 +9,13 @@ site:
 
 # Overview
 
-The pH Sensing Cell is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Chicago Chassis](../chicago-chassis/spec.md) — the synthetic-cell-encapsulated cytosol that acts as the Chicago demo's synthetic-cell substrate. On its own, the pH-Sensing Module is a solution-phase ssDNA/toehold-switch circuit that turns on a colorimetric reporter (LacZ or XylE) when pH drops to about 6.5. The pH Sensing Cell is what that circuit becomes once it is carried inside the chassis: the two-liposome sensing system encapsulated in the chassis's synthetic cell, ready to be embedded in a hydrogel for the Chicago Cascade demo.
+The pH Sensing Cell is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Chicago Chassis](../chicago-chassis/spec.md). On its own, the pH-Sensing Module is an cytosolic ssDNA/toehold-switch circuit that turns on a downstream effector gene (e.g., a colorimetric reporter) when pH drops to about 6.5. The pH Sensing Cell encapsulates this module in a synthetic cell.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Chassis integration is proposed, not confirmed
-The current module-integration diagram draws the edge from the Chicago Chassis to the pH Sensing Cell as dashed (proposed), not solid (confirmed). The pH-sensing two-liposome system has been demonstrated in solution with a visible yellow-to-purple color change at pH 6.5, and a separate bulk-reaction test embedded the sensing reaction directly in 0.7% low-gelling agarose hydrogel (see Expected Behavior below) — but the sensing system has not yet been demonstrated encapsulated in the Chicago Chassis's synthetic cell format, nor embedded in a hydrogel in that combined form. Do not treat this page as describing a completed, validated Sensing Cell — it documents a proposed composition, not a demonstrated one.
-:::
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart LR
-    Chassis["Chicago Chassis<br/>(Base Cytosol in a<br/>9:1 POPC:cholesterol synthetic cell)"]
-    Circuit["pH-Sensing Module<br/>(pH-responsive ssDNA +<br/>trigger ssDNA + toehold switch)"]
-    Chassis & Circuit -.->|"proposed,<br/>not yet demonstrated"| Cell["pH Sensing Cell<br/>(pH-responsive synthetic cell)"]
-
-    style Chassis fill:#6B7280,color:#ffffff,stroke:#4B5563
-    style Circuit fill:#6B7280,color:#ffffff,stroke:#4B5563
-    style Cell fill:#6B7280,color:#ffffff,stroke:#4B5563,stroke-dasharray: 5 5
-
-    click Chassis "/docs/modules/chicago-chassis/spec"
-    click Circuit "/docs/modules/detector-ph/spec"
-```
-
-No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
-
 # Reference Composition
-
-:::{attention} Combined-recipe concentrations not documented
-Neither Module page documents the working concentrations of its own components once combined into a single reaction before encapsulation. The table below states each Module as a single aggregated line item, as used **on its own page** — see each Module's spec for its full internal composition. Do not treat the "combined recipe" column as a demonstrated formulation.
-:::
 
 :::::{tab-set}
 
@@ -101,7 +76,7 @@ See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
 | Line item | Contribution | Working concentration/fraction in combined recipe |
 | --- | --- | --- |
 | Chicago Chassis | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration, per [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) — carries over unchanged |
-| pH-Sensing Module | pH-responsive ssDNA, trigger ssDNA, linear toehold switch (LacZ or XylE) | Not documented for this combined format — see [pH-Sensing Module](../detector-ph/spec.md#reference-composition) for the concentrations used in that module's own, unencapsulated reactions |
+| pH-Sensing Module | Toehold-switch template, plus pH-responsive ssDNA : trigger ssDNA annealed 3:1 | Template 2 nM; duplex 4.8 nM trigger ssDNA — as specified on [pH-Sensing Module](../detector-ph/spec.md#reference-composition). Whether encapsulation changes either figure is not recorded. |
 
 :::
 
@@ -109,18 +84,14 @@ See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
 
 ::::{tab-item} Membrane
 
-:::{table}
+:::{table} The [Chicago Membrane](../membrane-popc-chol-chicago/spec.md).
 :label: comp-sensing-cell-membrane
 
-| Line item | Contribution | Working concentration/fraction in combined recipe |
-| --- | --- | --- |
-| Chicago Chassis | 9:1 POPC:cholesterol synthetic cell membrane | Unchanged from [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) |
-| pH-Sensing Module | Not applicable — solution-phase circuit, contributes no membrane component here | N/A |
+| Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) |
+| ----------- | --------------------- | ------------------------ | --------------------------- |
+| POPC        | 90                  | 760.076                  | 25                          |
+| Cholesterol | 10                    | 386.66                   | 50                          |
 
-:::
-
-:::{attention} pH-Sensing Module's own membrane figure is a different, unrelated formulation
-The [pH-Sensing Module](../detector-ph/spec.md) page separately lists a membrane fraction (89.9% POPC / 10% cholesterol / 0.1% Rhod-PE) for a possible future liposome-encapsulated format of its own. That fraction is not the membrane used here — the Sensing Cell embeds in the Chicago Chassis's 9:1 POPC:cholesterol synthetic cell (no Rhod-PE). Do not conflate the two.
 :::
 
 ::::
@@ -131,21 +102,32 @@ See each Module's spec for its own reference composition and requirements.
 
 # Expected Behavior
 
-No result has been generated for the pH-Sensing Module encapsulated in the Chicago Chassis's synthetic cell format. The closest available data are two separate, earlier-stage results, neither of which is the combined Sensing Cell:
+The pH Sensing Cell is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Chicago Membrane — in solution. Neither has been embedded into a hydrogel.
 
-- **Solution-phase, two-liposome system:** a visible yellow-to-purple color change at pH 6.5, using separate pH-sensing and CPRG-loaded liposome populations in solution (not the chassis synthetic cell).
-- **Bulk hydrogel, no liposomes:** Sung-Won Hwang (Liu Lab) embedded the pH-sensing reaction directly in 0.7% low-gelling agarose (no liposomes at all), added β-galactosidase with neutralization buffer, and incubated 5 h at 37 °C (2026-08-14). Absorbance at 570 nm at the 5 h timepoint:
+## Cells
 
-  | Condition | Abs₅₇₀ (5 h) |
-  | --- | --- |
-  | Positive control (Triton X) | ~0.46 |
-  | Negative control | ~0.31 |
-  | pH 7.4 | ~0.31 |
-  | pH 6.5 | ~0.39 |
+A two-liposome system — separate pH-sensing and CPRG-loaded populations in solution — gives a visible yellow-to-purple color change at pH 6.5. The assay runs in two steps, because both the purple CPR product and β-galactosidase activity are themselves pH-dependent: 16 h incubation under acidic conditions to induce PLA1 expression, then a pH 9.9 neutralizing buffer before the color is read.
 
-  This is a real, concentration-dependent difference between pH 7.4 and pH 6.5, and the fluorescence channel showed no Cy5 dye signal at pH 6.5, consistent with reporter expression at the acidic condition. But the gap between the two pH conditions is small relative to the positive control, and the result was described at the time as "slight pink" and "not as bright as I wanted," with an open plan to increase CPRG loading concentration. Treat this as a real, modest, concentration-dependent lead worth building on — not a robust or complete demonstration, and not a test of the synthetic-cell-encapsulated or hydrogel-embedded Sensing Cell itself.
+A separate result shows pH-responsive GFP expression in liposomes in solution. That one used gramicidin A, which was left out of the colorimetric demonstration because it ruptured CPRG-loaded liposomes and produced nonspecific color.
 
-See the [pH-Sensing Module](../detector-ph/spec.md) spec for full detail on both results, including the requirement that trigger ssDNA be HPLC-purified and resuspended in duplex buffer (a 30× signal difference from desalted ssDNA in water).
+:::{warning} Not yet validated in a hydrogel
+Both results are in solution. The Chicago demo embeds this Cell in a hydrogel, and that step has not been run — the source states the system will be tested in a gel next. The [pH Cascade](../ph-cascade/spec.md) records the gel step as the open integration gap for this path.
+:::
+
+## Gels
+
+Embedded directly in 0.7% low-gelling agarose with no liposomes at all, the pH-sensing reaction plus β-galactosidase and neutralization buffer gives a measurable pH-dependent difference after 5 h at 37 °C:
+
+| Condition | Abs₅₇₀ (5 h) |
+| --- | --- |
+| Positive control (Triton X) | ~0.46 |
+| Negative control | ~0.31 |
+| pH 7.4 | ~0.31 |
+| pH 6.5 | ~0.39 |
+
+The fluorescence channel shows no membrane fluorescence (Cy5) at pH 6.5, consistent with PLA1 expression. The gap between the two pH conditions is small relative to the positive control.
+
+See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
 
 :::{attention} Backing DevNote is a template stub
 @Editor: no completed DevNote exists for the pH-Sensing Module. Confirm with the Chicago Node.
@@ -153,7 +135,8 @@ See the [pH-Sensing Module](../detector-ph/spec.md) spec for full detail on both
 
 # Processes
 
-No synthetic cell-encapsulation or hydrogel-embedding process specific to the pH Sensing Cell is yet documented in `docs/processes/`. The Chicago Chassis's own synthetic-cell formation process is itself an open gap (see [Chicago Chassis](../chicago-chassis/spec.md#processes)); combining that with the pH-sensing circuit's addition step is a further, undocumented step. Do not assume any existing process page covers this combination — flag for a follow-up process page rather than treating a citation here as equivalent.
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
+- [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
 
 # Constituent Modules
 

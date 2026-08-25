@@ -24,7 +24,7 @@ This page documents a proposed chain of three Modules, not a single validated re
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart LR
-    PH["pH Sensing Cell:<br/>pH-responsive ssDNA : trigger ssDNA<br/>(4.625 µM trigger ssDNA, final)"] -->|"pH drops to ~6.5,<br/>toehold switch opens"| PLA1["PLA1 Lysis Module:<br/>toehold-gated PLA1 construct<br/>(2 nM, final)"]
+    PH["pH Sensing Cell:<br/>pH-responsive ssDNA : trigger ssDNA<br/>(4.625 nM trigger ssDNA, final)"] -->|"pH drops to ~6.5,<br/>toehold switch opens"| PLA1["PLA1 Lysis Module:<br/>toehold-gated PLA1 construct<br/>(2 nM, final)"]
     PLA1 -->|"PLA1 expressed,<br/>lyses own + neighboring liposome"| LYSIS["Lysis:<br/>CPRG released from<br/>neighboring liposome"]
     LYSIS -->|"CPRG reacts with<br/>external LacZ"| READOUT["LacZ Reporter Module:<br/>yellow CPRG to purple CPR"]
     READOUT -.->|"proposed: hydrogel-embedded<br/>Chicago Chassis format"| GEL["Combined, gel-integrated<br/>pH Cascade"]
@@ -114,7 +114,7 @@ The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsula
 
 | Component | Working concentration |
 | --- | --- |
-| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 µM trigger ssDNA, final |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 nM trigger ssDNA, final |
 | Toehold-switch-gated PLA1 DNA template | 2 nM, final — a distinct, PLA1-fused construct |
 | Base Cytosol components | At reaction concentration; not separately documented for this pairing |
 :::

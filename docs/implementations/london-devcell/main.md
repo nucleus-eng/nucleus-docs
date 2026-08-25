@@ -18,7 +18,7 @@ The distinguishing feature against the Chicago device is the analyte source: the
 
 ## What the demo is, as of 2026-08-19
 
-**Polymersomes are out.** London is not pursuing diblock-copolymer polymersomes. The device is lipid-based throughout. This invalidates `london-quorum-sensing-polymersome` as a source document, which leaves the [AHL Detector](../../modules/detector-ahl/spec.md) with no backing document at all.
+**Polymersomes are out.** London is not pursuing diblock-copolymer polymersomes. The device is lipid-based throughout. This invalidates [`london-quorum-sensing-polymersome`](https://devnotes.nucleus.engineering/articles/019b13f8-9a25-7553-a88d-fa4f19790d13) as a source document, which leaves the [AHL Detector](../../modules/detector-3oc6-hsl/spec.md) with no backing document at all.
 
 **Two readouts, at different maturity.** GFP output in ULGA hydrogel is confirmed with Z-stack imaging. The PLA1-driven color change is confirmed in bulk over repeated runs, but the two have not been combined into one device.
 
@@ -31,7 +31,7 @@ The distinguishing feature against the Chicago device is the analyte source: the
 | Cytosol | [S30 Lysate](../../modules/s30-lysate/spec.md) | ★ |
 | Membrane | [London Membrane: POPC](../../modules/membrane-popc/spec.md) | ★ |
 | Chassis | [London Chassis](../../modules/london-chassis/spec.md) | ★ |
-| Sensing | [AHL Detector](../../modules/detector-ahl/spec.md) → [AHL Sensing Cell](../../modules/ahl-sensing-cell/spec.md) | characterized in lysate; leaky |
+| Sensing | [AHL Detector](../../modules/detector-3oc6-hsl/spec.md) → [AHL Sensing Cell](../../modules/ahl-sensing-cell/spec.md) | characterized in lysate; leaky |
 | Lysis | [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) | ★ |
 | Substrate | [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md) | ★ |
 | Readout | [LacZ Reporter](../../modules/reporter-lacz/spec.md) · [XylE / C23DO](../../modules/reporter-xyle/spec.md) | LacZ used; XylE proposed |

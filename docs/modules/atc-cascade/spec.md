@@ -83,7 +83,7 @@ flowchart TD
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
-    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr_atc/spec"
+    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
@@ -102,7 +102,7 @@ flowchart TD
 | β-galactosidase (LacZ) | not applicable | — | Co-encapsulated as purified enzyme, not expressed |
 :::
 
-See [Detector: tetR-aTc](../detector-tetr_atc/spec.md) for the sensing construct and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
+See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
 
 ::::
 
@@ -150,7 +150,7 @@ PLA1 has no row of its own. It is expressed from the `TetO-PLA1` construct alrea
 
 The full sensing → lysis → LacZ readout chain has been run together in synthetic cytosols and in synthetic cells, and it responds to aTc — but the response is **not graded**. Fold change in absorbance at 5 h (n = 3) separates dosed from undosed at roughly 1.15× to 1.33×, across three DNA/TetR combinations dosed at 0, 1, 5, and 10 µM aTc. The response is non-monotonic in two of the three combinations, and the error bars across the 1, 5, and 10 µM points overlap in all three.
 
-What this cascade can claim, therefore, is a working end-to-end chain with a detectable aTc-dependent signal — not a characterized dose-response. The [aTc Sensing Module](../detector-tetr_atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec covers why the 0 µM point is a normalization baseline rather than a negative control.
+What this cascade can claim, therefore, is a working end-to-end chain with a detectable aTc-dependent signal — not a characterized dose-response. The [aTc Sensing Module](../detector-tetr-atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec covers why the 0 µM point is a normalization baseline rather than a negative control.
 
 ## Gels
 
@@ -160,7 +160,7 @@ This Module has not been validated in hydrogels. The aTc-response result above i
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the `TetO-PLA1` construct, and TetR as the repressor holding it off in the absence of aTc (e.g. [Detector: tetR-aTc](../detector-tetr_atc/spec.md)).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the `TetO-PLA1` construct, and TetR as the repressor holding it off in the absence of aTc (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)).
 
 Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout is produced by lysis releasing CPRG to co-encapsulated LacZ, so this cascade has no bulk-cytosol route.
 

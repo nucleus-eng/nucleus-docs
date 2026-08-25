@@ -109,7 +109,7 @@ The table below is a one-level-deep aggregate: it states what each Module contri
 | Module | Contributes | Working concentration / fraction in the Sensing Cell recipe |
 | --- | --- | --- |
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol reaction mix (see that page and [Base Cytosol](../base-cytosol/spec.md) for the internal recipe) | 1x reaction concentration — the chassis cytosol is not diluted to add the sensing DNA |
-| [Theophylline Sensing Module](../detector-theophylline/spec.md) | DNA encoding the theophylline riboswitch upstream of PLA1 | Not documented for the PLA1-linked construct actually used in this Sensing Cell (see gap flag below). For scale only: the bulk-cytosol validation construct — `pT7-theophylline-LacZ` (`pMN066`), a different downstream gene — runs at 5 nM final DNA in a 1x cytosol reaction, per the `chicago-theophylline-lacz` devnote. That figure is cited for scale only; it is not confirmed to apply to the PLA1-linked construct. |
+| [Theophylline Sensing Module](../detector-theophylline/spec.md) | DNA encoding the theophylline riboswitch upstream of PLA1 | Not documented for the PLA1-linked construct actually used in this Sensing Cell (see gap flag below). For scale only: the bulk-cytosol validation construct — `pT7-theophylline-LacZ` (`pMN066`), a different downstream gene — runs at 5 nM final DNA in a 1x cytosol reaction, per the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) devnote. That figure is cited for scale only; it is not confirmed to apply to the PLA1-linked construct. |
 
 :::
 
@@ -141,7 +141,7 @@ Same 9:1 POPC:cholesterol synthetic cell membrane as [Chicago Chassis](../chicag
 
 Per the Chicago integration status material, this Sensing Cell produces PLA1 upon detection of 1 mM theophylline. This result has not yet been independently confirmed by a primary devnote — cite the Chicago integration status material and treat as pending confirmation, consistent with the "PLA1-linked cascade design" discussion on the [Theophylline Sensing Module](../detector-theophylline/spec.md) page.
 
-Separately, the bulk-cytosol devnote behind the Theophylline Sensing Module (`chicago-theophylline-lacz`) demonstrates the riboswitch itself converts CPRG faster in the presence of 1.5 mM theophylline than without it, using the LacZ-reporter construct rather than the PLA1-linked construct used here. That result supports the riboswitch's general compatibility with Nucleus Cytosol; it is not a validation of this Sensing Cell's specific PLA1 output.
+Separately, the bulk-cytosol devnote behind the Theophylline Sensing Module ([`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd)) demonstrates the riboswitch itself converts CPRG faster in the presence of 1.5 mM theophylline than without it, using the LacZ-reporter construct rather than the PLA1-linked construct used here. That result supports the riboswitch's general compatibility with Nucleus Cytosol; it is not a validation of this Sensing Cell's specific PLA1 output.
 
 A later bulk-reaction replication found the riboswitch leaky in the LacZ-reporter configuration, expressing reporter without theophylline at levels close to the 1 mM to 2 mM theophylline condition. Whether the same leakiness applies to the PLA1-linked construct used in this Sensing Cell has not been separately tested — flagged as an open question rather than assumed.
 
@@ -156,6 +156,11 @@ Per the [Theophylline Sensing Module](../detector-theophylline/spec.md) page, th
 # Implementations
 
 Not used in a documented Implementation.
+
+# Processes
+
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
+- [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
 
 # Constituent Modules
 

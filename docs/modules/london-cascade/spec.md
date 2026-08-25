@@ -73,7 +73,7 @@ flowchart TD
     class LONDON_CASCADE this;
 
     click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
-    click DETECTOR_AHL "/docs/modules/detector-ahl/spec"
+    click DETECTOR_AHL "/docs/modules/detector-3oc6-hsl/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click LONDON_CASCADE "/docs/modules/london-cascade/spec"
     click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
@@ -197,7 +197,7 @@ Run in Nucleus Cytosol without quorum sensing, the same PLA1/CPRG two-liposome c
 
 Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `P70lux-PLA1-term` construct is driven by the *E. coli* P70/pLux promoter, not pT7, so it does not express in a T7-only cytosol.
 
-Requires AHL (3-oxo-C6-HSL) as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: AHL](../detector-ahl/spec.md)).
+Requires AHL (3-oxo-C6-HSL) as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)).
 
 Requires two separate liposome populations — the PLA1-payload sensing population and a CPRG-loaded population (e.g. [London Chassis](../london-chassis/spec.md)) — plus β-galactosidase in the exterior solution (e.g. [LacZ Reporter](../reporter-lacz/spec.md)). The readout depends on PLA1 lysing both compartments to release CPRG, so this cascade has no bulk-cytosol route.
 
@@ -214,8 +214,10 @@ The individual steps are documented: [Encapsulation: Phase Transfer](../../proce
 :::
 
 :::{attention} Exterior LacZ leakage confounds the readout
-Exterior LacZ, or LacZ/CPRG product, leaks after PLA1-triggered lysis. This is an open issue for two-liposome cascades of this kind. A proteinase K treatment — 50 °C for 10 min, then 40 °C for 1 h, then spin down — is a candidate mitigation. See [PLA1 Lysis Module § Known Future Work](../effector-pla1/spec.md#known-future-work).
+Exterior LacZ, or LacZ/CPRG product, leaks after PLA1-triggered lysis. This is an open issue for two-liposome cascades of this kind. A proteinase K treatment — 50 °C for 10 min, then 40 °C for 1 h, then spin down — is a candidate mitigation. See [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md).
 :::
+
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
 
 # Constituent Modules
 

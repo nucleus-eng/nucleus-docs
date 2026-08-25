@@ -42,7 +42,7 @@ project:
           hidden: true
         - file: ./docs/modules/reporter-degfp/spec.md
           hidden: true
-        - file: ./docs/modules/detector-tetr_atc/spec.md
+        - file: ./docs/modules/detector-tetr-atc/spec.md
           hidden: true
         - file: ./docs/modules/reporter-xyle/spec.md
           hidden: true
@@ -52,9 +52,9 @@ project:
           hidden: true
         - file: ./docs/modules/detector-ph/spec.md
           hidden: true
-        - file: ./docs/modules/detector-laci_iptg/spec.md
+        - file: ./docs/modules/detector-laci-iptg/spec.md
           hidden: true
-        - file: ./docs/modules/detector-ahl/spec.md
+        - file: ./docs/modules/detector-3oc6-hsl/spec.md
           hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true
@@ -95,6 +95,8 @@ project:
         - file: ./docs/processes/encapsulate-suv/main.md
           hidden: true
         - file: ./docs/processes/colorimetric-readout/main.md
+          hidden: true
+        - file: ./docs/processes/anneal-ph-trigger-duplex/main.md
           hidden: true
         - file: ./docs/processes/embed-ulga-hydrogel/main.md
           hidden: true

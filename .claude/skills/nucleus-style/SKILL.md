@@ -44,6 +44,8 @@ Use the displacement table in [`page-types.md`](../../../style-guide/page-types.
 
 **Moving beats trimming.** When you cut a statement of what a Module is *not*, the content it carried usually has a home. Trimming the framing and leaving the paragraph is the common failure.
 
+The tell is a caption that argues with its own content — a warning explaining that the table above is not really this Module, a note saying a figure is not really this Module's. Writing one means the content is in the wrong section. Move it; do not label it.
+
 ### 3. Read every prose block
 
 Ask the question from [`principles.md`](../../../style-guide/principles.md#every-page-is-world-readable-because-it-is): **does this describe the Module, or our work on the Module?** The categories are listed in [`conventions.md`](../../../style-guide/conventions.md#what-never-appears).

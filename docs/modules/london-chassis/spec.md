@@ -7,7 +7,7 @@ site:
 ---
 # Overview
 
-The London Chassis is used for the London Node's DevStudio Demo and combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [AHL Sensing Module](../detector-ahl/spec.md), giving the [AHL Sensing Cell](../ahl-sensing-cell/spec.md)).
+The London Chassis is used for the London Node's DevStudio Demo and combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [AHL Sensing Module](../detector-3oc6-hsl/spec.md), giving the [AHL Sensing Cell](../ahl-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -75,8 +75,6 @@ The membrane is the [London Membrane](../membrane-popc/spec.md) (100% POPC), opt
 
 :::
 
-Stock concentrations, molecular weights, and the disputed Cyanine 5 stock are on the [London Membrane](../membrane-popc/spec.md) spec — edit them there, not here.
-
 ::::
 
 ::::{tab-item} Outer Solution
@@ -107,6 +105,8 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 # Processes
 
 The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 
+
+- [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) — the London hydrogel format
 
 # Constituent Modules
 

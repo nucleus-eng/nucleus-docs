@@ -103,7 +103,7 @@ flowchart TD
     click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
     click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_PH "/docs/modules/detector-ph/spec"
-    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr_atc/spec"
+    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"

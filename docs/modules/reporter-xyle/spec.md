@@ -9,34 +9,15 @@ site:
 
 # Overview
 
-The XylE / C23DO Reporter Module produces a visible color change by expressing catechol 2,3-dioxygenase (C23DO, the *xylE* gene product), which oxidises colorless catechol into 2-hydroxymuconate semialdehyde, a yellow ring-fission product readable by absorbance near (375–385) nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). It is a second colorimetric reporter enzyme alongside LacZ/CPRG, giving the platform an orthogonal readout for multiplexed sensing.
+The XylE / C23DO Reporter Module produces a visible color change by expressing catechol 2,3-dioxygenase (C23DO, the *xylE* gene product), which oxidises catechol (colorless) into 2-hydroxymuconate semialdehyde (yellow) and can be detectable by absorbance near (375–385) nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). 
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Gap / proposed module — do not overstate maturity
-This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Behavior below). No synthetic cell/liposome encapsulation or hydrogel-embedded data exist for this reporter, and it is not part of any confirmed cascade result. In the aTc Cascade, the XylE integration path is explicitly still dashed/gap — the confirmed 2026-08-14 aTc encapsulation data used the LacZ integration path, not XylE. Do not read this module as being at the same readiness level as its sibling [LacZ Reporter](../reporter-lacz/spec.md), which does have confirmed synthetic cell/hydrogel-level results.
+:::{attention} Proposed module requires validation
+This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Behavior below). No synthetic cell/liposome encapsulation or hydrogel-embedded data exist for this reporter, and it is not part of any confirmed cascade result. Do not read this module as being at the same readiness level as its sibling [LacZ Reporter](../reporter-lacz/spec.md), which does have confirmed synthetic cell/hydrogel-level results.
 :::
-
-Two source lines both reference "XylE," at different levels of readiness, and they should not be conflated:
-
-1. **Chicago Node** — a TetR/aTc-inducible construct, `pT7-TetO-catecholase` (`pMN067`), expressing C23DO downstream of the [tetR-aTc Detector](../detector-tetr_atc/spec.md). Validated in bulk Nucleus Cytosol (see Expected Behavior). Source: [`devnotes/chicago-teto-catecholase`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/chicago-teto-catecholase).
-2. **London Node** — XylE proposed as one of two candidate reporter enzymes (alongside LacZ) for the London color-change module, in two linear-DNA formats (`T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant). As of that devnote, the London-specific XylE DNA was still "to be designed" — not yet synthesized. Source: [`devnotes/london-lacz-xyle-module`](https://github.com/nucleus-eng/2026-CERN-OHL-P/tree/main/devnotes/london-lacz-xyle-module).
-
-Because *xylE* encodes C23DO, these are the same enzyme referenced by two different programs, not two distinct reporters. Whether the Chicago `pMN067` construct and the still-undesigned London construct will end up as the same DNA design is **not established** — treat this as open rather than assuming a shared construct.
-
-The Module is tracked at the program level but the deck gives no additional experimental data for it beyond that label.
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart LR
-    A["Catechol<br/>(colorless)"] -->|"C23DO<br/>(xylE gene product)"| B["2-Hydroxymuconate<br/>semialdehyde<br/>(yellow)"]
-    style A fill:#ffffff,stroke:#555555
-    style B fill:#f7e34d,stroke:#555555
-```
-
-The diagram above is a mechanism summary. neither is a substitute for a schematic. A real schematic (e.g. depicting the ring-fission mechanism or the reporter construct) is still needed from the dev team.
 
 # Reference Composition
 
@@ -59,7 +40,7 @@ The diagram above is a mechanism summary. neither is a substitute for a schemati
 The Chicago-node construct was tested downstream of the tetR-aTc Detector at three conditions — unregulated (no TetR), regulated (TetR, no aTc), and derepressed (TetR + aTc) — in a 10 µL Nucleus Cytosol reaction with `pT7-TetO-catecholase` (`pMN067`) at 20 nM final concentration and 1 mM catechol.
 
 :::{table} Reaction composition (Chicago Node)
-| Component | Stock Concentration | Final concentration | Unregulated [µL] | Regulated [µL] | Derepressed [µL] |
+| Component | Stock Concentration | Final concentration | Unregulated (µL) | Repressed (µL) | Activated (µL) |
 | --- | --- | --- | --- | --- | --- |
 | SMix | 3.33× | 1× | 3 | 3 | 3 |
 | PMix | 15 mg/mL | 1.80 mg/mL | 1.2 | 1.2 | 1.2 |
@@ -69,7 +50,7 @@ The Chicago-node construct was tested downstream of the tetR-aTc Detector at thr
 | Catechol | 100 mM | 1 mM | 0.2 | 0.2 | 0.2 |
 | TetR | 1305.6 nM | 75 nM | 0 | 0.57 | 0.57 |
 | Anhydrotetracycline (aTc) | 100 µM | 10 µM | 0 | 0 | 1 |
-| RNase Inhibitor | 40000 U/mL | 2000 U/mL | 0.5 | 0.5 | 0.5 |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 0.5 | 0.5 |
 | Water | | | 1.57 | 1 | 0 |
 :::
 
@@ -85,7 +66,7 @@ A later replication re-runs the same TetR/aTc/C23DO-catechol chemistry as a bulk
 
 ## Cytosols
 
-The construct was validated in standard Nucleus Cytosol conditions with 20 nM sensor DNA, 1 mM catechol, in 10 µL reactions incubated at 37 °C in a platereader, monitored by absorbance at 385 nm. Color conversion (colorless to yellow) occurred faster to a visually detectable level only in the derepressed condition (TetR + 10 µM aTc); the regulated (TetR, no aTc) condition remained visually below a prior-calibrated visual threshold of absorbance 1.0. A homemade TetR stock stored in glycerol was used for this preliminary result; glycerol can cause reaction poisoning in Nucleus Cytosol and is not an optimal long-term storage buffer for TetR — a caveat noted directly in the source devnote.
+The construct was validated in standard Nucleus Cytosol conditions with 20 nM sensor DNA, 1 mM catechol, in 10 µL reactions incubated at 37 °C in a platereader, monitored by absorbance at 385 nm. Color conversion (colorless to yellow) occurred faster and to a visually detectable level only in the activated condition (TetR + 10 µM aTc). The repressed condition (TetR, no aTc) remained visibly transparent relative to a priorly calibrated visual threshold (absorbance 1.0). 
 
 :::{figure} cytosol-catecholase-kinetics.png
 :label: fig-xyle-catecholase-kinetics
@@ -94,26 +75,32 @@ The construct was validated in standard Nucleus Cytosol conditions with 20 nM se
 Absorbance at 385 nm over time for the unregulated, regulated and derepressed conditions.
 :::
 
-This preliminary result shows the TetR/aTc sensor with a C23DO reporter is compatible with Nucleus Cytosol at bulk scale. It has **not** been tested encapsulated (synthetic cell) or in a hydrogel — the source devnote states that "encapsulation of the sensor will inform whether 10 µM aTc is sufficient for derepression," i.e. that step had not yet been done as of authoring.
 
 ## Cells
 
-:::{note}
-No encapsulated (synthetic cell/liposome) or hydrogel data exist for this module. Unlike the [LacZ Reporter](../reporter-lacz/spec.md), which the 2026-08-14 aTc Cascade result used at the synthetic cell/hydrogel-embedded level, the XylE/C23DO integration path has not progressed past bulk cytosol. The aTc Cascade page keeps this integration path dashed/proposed for that reason.
+:::{caution} Missing Validation Data
+No synthetic cell or hydrogel data exist for this module. 
 :::
 
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), and catechol as substrate.
 
-When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR and anhydrotetracycline (aTc) as the derepressing input — see the [tetR-aTc Detector](../detector-tetr_atc/spec.md).
+When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR and anhydrotetracycline (aTc) as the derepressing input — see the [tetR-aTc Detector](../detector-tetr-atc/spec.md).
 
-Per the 2026-08-14 status-meeting decision to represent module incompatibility as a stated Requirement (rather than a general cross-Nucleus compatibility matrix, which is explicitly out of scope for this tranche): if this reporter is ever co-located with the Theophylline Sensing Module in the same reaction or compartment, note that theophylline has been reported (hedged: "somewhat inhibit," not a flatly confirmed mechanism) to interfere with the related LacZ/CPRG color reaction — whether the same interference applies to the catechol/C23DO chemistry used here has not been tested and should not be assumed either way.
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): a proposed alternate colorimetric readout.
-- [London DevCell](../../implementations/london-devcell/main.md): a proposed alternate colorimetric readout.
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): a proposed alternate colorimetric readout. The construct is `pT7-TetO-catecholase` (`pMN067`), expressing C23DO under a TetO/aTc promoter; it is validated in bulk Nucleus Cytosol and has no synthetic cell result. Source: [`chicago-teto-catecholase`](https://devnotes.nucleus.engineering/articles/019e0429-3749-72ce-a062-7d2a7cf18c20).
+- [London DevCell](../../implementations/london-devcell/main.md): a proposed alternate to LacZ, in two linear-DNA formats — `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is still to be designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
+
+:::{attention} The two Nodes' constructs may not converge
+@Editor: whether Chicago's `pMN067` and London's still-undesigned construct end up as the same DNA design is not established. Confirm with both Nodes before treating them as one construct.
+:::
+
+# Processes
+
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the catechol conversion that produces the visible signal
 
 # Credits
 

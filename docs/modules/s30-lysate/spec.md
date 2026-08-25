@@ -12,7 +12,7 @@ site:
 S30 Lysate is a commercially available *E. coli* cell-free expression system with undefined composition. S30 Lysate may be used in place of [Base Cytosol](../base-cytosol/spec.md) for compatible modules.
 
 :::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use. Composition and performance data below come from a single internal encapsulation experiment (London Module 3) and have not been independently replicated or validated.
+This page is a work in progress and not yet ready for use. 
 :::
 
 # Reference Composition
@@ -43,19 +43,23 @@ S30 Lysate's expected behavior is characterized by expressing a reporter module 
 
 # Requirements
 
-Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: AHL](../detector-ahl/spec.md)) and an RNase inhibitor. For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
+Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor. For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
 
 Not compatible with Optiprep in the inner solution above ~5%; use sucrose for density matching instead (e.g. [London Chassis](../london-chassis/spec.md)).
 
-**Optiprep blocks expression.** Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold. Without Optiprep in the inner solution, the encapsulated AHL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
+:::{caution} Optiprep may block expression. 
+Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold. Without Optiprep in the inner solution, the encapsulated AHL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
 
-:::{caution}
 **Not yet controlled.** The Optiprep-free expression result above has no minus-AHL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run.
 :::
 
 # Implementations
 
 - [London DevCell](../../implementations/london-devcell/main.md): S30 Lysate is the cytosol of the London quorum-sensing demo.
+
+# Processes
+
+No process page builds this Module: S30 Lysate is supplied as a kit. See [Materials](#materials) for the catalog entry.
 
 # Materials
 
@@ -64,13 +68,9 @@ Not compatible with Optiprep in the inner solution above ~5%; use sucrose for de
 
 | Name            | Product                                       | Manufacturer | Part # | Price | Storage | Link                                                                                                                                     |
 | --------------- | --------------------------------------------- | ------------ | ------ | ----- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| S30 Lysate      | *E. coli* S30 Extract System for Circular DNA | Promega      | L1020  | ~$650 | −65 °C  | [link](https://www.promega.com/products/protein-expression/cell-free-protein-expression/e_-coli-s30-extract-system-for-circular-dna/)   |
+| S30 Lysate      | *E. coli* S30 Extract System for Circular DNA | Promega      | L1020  | ~$650 | −80 °C  | [link](https://www.promega.com/products/protein-expression/cell-free-protein-expression/e_-coli-s30-extract-system-for-circular-dna/)   |
 | RNase Inhibitor | Recombinant RNasin Ribonuclease Inhibitor     | Promega      | N2511  | ~$180 | −20 °C  | [link](https://www.promega.com/products/rna-analysis/rnase-inhibitor-rna-protection/rnasin-ribonuclease-inhibitor/)                     |
 
-:::
-
-:::{warning} S30 kit storage temperature is inconsistent between sources
-@Editor: two records give different storage temperatures for the same Promega L1020 kit, **−65 °C** and **−80 °C**. The table above carries −65 °C. Confirm against the current Promega product page.
 :::
 
 # Credits

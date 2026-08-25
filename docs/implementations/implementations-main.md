@@ -10,6 +10,7 @@ Implementations are combinations of useful Processes and Modules. This section i
 ## Implementations
 
 - [Responder Cell: aTc-detection IVHSL-emission](./responder-atc-ivhsl/main.md)
+- [Emitter: IV-HSL Cell](./emitter-ivhsl/main.md)
 
 ## DevCells
 

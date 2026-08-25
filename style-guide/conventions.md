@@ -31,7 +31,7 @@ No hedge words. "Preparations", not "Documented Preparations".
 
 Figure captions name the figure type: "Schematic representation of X in the Base Cell", not "X in the Base Cell".
 
-Renaming a heading is a link change, because inbound anchors do not follow it. `check-links.py` verifies fragments against MyST's slug rule.
+Renaming *or removing* a heading is a link change, because inbound anchors do not follow it. Deleting a section this guide bans — revision history, future work — is the common case. `check-links.py` verifies fragments against MyST's slug rule; run it after any such edit.
 
 ## Figures
 
@@ -87,9 +87,11 @@ codespell docs/
 python3 scripts/check-composition-tabs.py
 python3 scripts/check-implementations.py
 python3 scripts/check-links.py --offline-only docs/
+python3 scripts/check-dna-refs.py
 python3 scripts/check-dropdowns.py && python3 scripts/check-toc.py && python3 scripts/check-file-placement.py
 grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):'
 ```
 
-The last line flags stray tags. `@Editor:` and `@Developer:` are sanctioned and expected on
-a draft page; resolve them before the page is published.
+`check-dna-refs.py` reads a local checkout of `nucleus-eng/DNA`, so CI never runs it and only a local run will catch a Designs table whose bp claim disagrees with the target's GenBank `LOCUS`. That link resolves, so no other check sees it.
+
+The last line flags stray tags. `@Editor:` and `@Developer:` are sanctioned and expected on a draft page; resolve them before the page is published.
