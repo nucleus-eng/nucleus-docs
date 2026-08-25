@@ -17,6 +17,10 @@ Two failures, both of which a read-through misses.
 Coverage is advisory: an Implementation may legitimately use a Module in
 passing without that Module wanting a backlink. Category is an error.
 
+Links inside a ``:::`` directive block do not count as usage — a note saying two
+Modules are *not* interchangeable names both, and is a contrast rather than a
+claim. So a real usage claim written inside an admonition is invisible here.
+
 Usage:
     python3 scripts/check-implementations.py
     python3 scripts/check-implementations.py --strict   # coverage fails too
@@ -30,6 +34,34 @@ MODULES = Path("docs/modules")
 IMPLS = Path("docs/implementations")
 
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+
+
+def body(text: str) -> str:
+    """The page with ``:::`` directive blocks removed.
+
+    A link inside a note or warning is commentary, not a claim. London DevCell
+    links the IV-HSL Emitter inside a `:::{note}` in order to say the two are
+    *not* interchangeable — different analyte, different receptor. Counting that
+    as usage would have the checker demand a backlink asserting a relation the
+    prose explicitly denies, and on an Implementation page there is no way to
+    describe a contrast without naming what you are contrasting against.
+
+    The consequence, which is the reason it is written down here: **a genuine
+    usage claim inside an admonition is invisible to this check.** Put the claim
+    in the body.
+    """
+    out, depth = [], 0
+    for line in text.splitlines():
+        stripped = line.lstrip()
+        if re.match(r"^:{3,}\{", stripped):
+            depth += 1
+            continue
+        if re.match(r"^:{3,}\s*$", stripped):
+            depth = max(0, depth - 1)
+            continue
+        if depth == 0:
+            out.append(line)
+    return "\n".join(out)
 
 
 def section(text: str, heading: str) -> str:
@@ -61,7 +93,7 @@ def main() -> int:
         name = main_md.parent.name
         text = main_md.read_text(encoding="utf-8")
         impl_uses[name] = {
-            s for t in LINK.findall(text) if (s := slug(t, "modules"))
+            s for t in LINK.findall(body(text)) if (s := slug(t, "modules"))
         }
 
     # what each Module lists under # Implementations
