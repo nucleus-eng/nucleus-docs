@@ -130,7 +130,7 @@ DNA/
 
 These definitions ground the module/implementation content model below (`docs/modules/`, `docs/implementations/`, and their `spec.md` files):
 
-- Composition (n): the physical make up of a system; typically concentration and spatial organization
+- Composition (n): the specified make up of a system; typically concentration and spatial organization. Composition is the design, not a completed run — see [sections.md](style-guide/sections.md#reference-composition).
 - Composing (v): the act of combining two or more systems and their associated functions
 - Component: an element (abstract or concrete) of Composition; a single part or piece of a larger whole. May be defined as having subcomponents.
 - Function: a designed behavior; defined by and emergent from Composition
