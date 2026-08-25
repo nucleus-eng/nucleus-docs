@@ -70,23 +70,13 @@ See [Detector: AHL](../detector-3oc6-hsl/spec.md) for sensor specification.
 ::::{tab-item} Cytosol
 The inner solution is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, plus the [AHL Sensing Module](../detector-3oc6-hsl/spec.md)'s `pLux-GFP` reporter plasmid.
 
-:::{warning} Missing information for `LuxR`
-LuxR DNA sequence and working concentration unspecified.
-:::
-
-:::{table} Composition of the AHL Sensing Cell inner solution. Volumes in µL.
+:::{table} Combined synthetic cell reaction, one level deep.
 :label: comp-ahl-cell-inner
 
-| Component | Stock Concentration | Final Concentration | Volume (µL) |
-| --- | --- | --- | --- |
-| S30 premix | supplied | 1x | 10 |
-| S30 extract | supplied | 1x | 7.5 |
-| Amino acid mix (pooled) | supplied | 1x | 2.5 |
-| `pLux-GFP` sensor plasmid DNA | 1056 ng/µL | 37 ng/µL | 0.95 |
-| `p70`-driven LuxR DNA | ? | ? | ? |
-| Sucrose | 2 M | 276 mM | 3.75 |
-| RNase inhibitor | 40 000 U/mL | 1840 U/mL | 1.25 |
-| Nuclease-free water | — | — | 1.25 |
+| Module | Working concentration | Notes |
+| --- | --- | --- |
+| [London Chassis](../london-chassis/spec.md) | S30 Lysate at reaction concentration, in a 100% POPC synthetic cell membrane | Transcription, translation, and encapsulation. The 27.2 µL recipe on that page carries over unchanged, except that 0.95 µL of the nuclease-free water is displaced by sensor plasmid. |
+| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `pLux-GFP` sensor plasmid at 37 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | The `p70`-driven LuxR cassette is expressed in-reaction at an unrecorded concentration. See the DNA tab for what is missing. |
 
 :::
 
