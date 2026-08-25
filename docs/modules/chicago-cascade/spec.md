@@ -101,8 +101,11 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-@Claude: standard DNA callout for missing sequences
 The constructs are those of the two integration paths; no construct is specific to the merge.
+
+:::{attention} Constructs not yet in `nucleus-eng/DNA`
+Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. `TetO-PLA1` carries the same gap where it is specified, on [aTc Sensing Cell](../atc-sensing-cell/spec.md). The toehold-switch-gated template is not separately recorded, and whether it is one of the two constructs listed on [Effector: PLA1](../effector-pla1/spec.md) or a third design is not established — do not assume it from the name. Do not add a length or file entry here until each construct is confirmed and its length verified against the source file.
+:::
 
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
