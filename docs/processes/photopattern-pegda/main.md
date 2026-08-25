@@ -1,7 +1,7 @@
 ---
 title: "Photopatterning, PEGDA"
 subtitle: "Process"
-status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
+status: draft
 ---
 
 # Overview
@@ -17,7 +17,7 @@ DevCell component volumes are currently too small to produce macroscopically vis
 :::
 
 :::{attention} PEG-norbornene: a related, newer hydrogel chemistry — not yet a diagram node
-A separate, more recently explored hydrogel chemistry, PEG-norbornene, is sometimes discussed alongside PEGDA in DevCells source material but is chemically distinct and **not the subject of this page**:
+A separate, more recently explored hydrogel chemistry, PEG-norbornene, is sometimes discussed alongside PEGDA but is chemically distinct and **not the subject of this page**:
 
 - **PEGDA** crosslinks by chain-growth radical polymerization of the acrylate groups directly (no separate crosslinker), which is prone to oxygen inhibition at the gel surface and produces more heterogeneous networks.
 - **PEG-norbornene** crosslinks by step-growth thiol-ene chemistry — 4-arm PEG-norbornene plus a PEG4SH crosslinker, with lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator — which is less prone to oxygen inhibition.
@@ -37,7 +37,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - Exposure time (15 s to 30 s at 405 nm) needs to be adjusted based on other experimental conditions (e.g., monomer concentration, layer thickness, feature size) — no single fixed value is established.
-- A source materials list for this process (the Chicago status summary's "PHD" module) also lists a PEG-4SH crosslinker. PEG-4SH is a step-growth thiol-ene crosslinker used with PEG-norbornene, not with PEGDA's chain-growth acrylate polymerization — it is excluded from the Bill of Materials below as likely carried over from source material that predates the PEGDA/PEG-norbornene distinction. Flagging rather than silently including or silently correcting it.
+- PEG-4SH, a step-growth thiol-ene crosslinker used with PEG-norbornene, is excluded from the Bill of Materials below — it does not belong to PEGDA's chain-growth acrylate polymerization chemistry.
 
 ::::::
 
@@ -71,7 +71,7 @@ Please read this section carefully. It contains important notes, resources, and 
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 :::{attention} Materials list incomplete
-The source status summary for this process does not specify a target PEGDA working concentration, a LAP working concentration, or a mold/patterning-chamber setup. Only the reagents themselves and the 405 nm exposure window (15 s to 30 s) are documented. Flagging this as a gap rather than inventing concentrations or equipment.
+@Editor: no target PEGDA working concentration, LAP working concentration, or mold/patterning-chamber setup is established for this process. Only the reagents themselves and the 405 nm exposure window (15 s to 30 s) are documented.
 :::
 
 # Protocol
@@ -84,7 +84,7 @@ The source status summary for this process does not specify a target PEGDA worki
 :::{hint} Note
 :class: simple
 :icon: false
-Working concentrations for PEGDA monomer and LAP in this precursor solution are not established in available source material — see the flag above.
+Working concentrations for PEGDA monomer and LAP in this precursor solution are not yet established — see the flag above.
 :::
 
 - [ ] Mix thoroughly, protecting the solution from light until ready to pattern.
@@ -101,7 +101,7 @@ Working concentrations for PEGDA monomer and LAP in this precursor solution are 
 :::{hint} Note
 :class: simple
 :icon: false
-This combined system has been used to demonstrate a PEGDA frame–alginate core construct with reasonable structural integrity. The ionic-crosslinking step for the alginate component (e.g., CaCl₂ concentration and exposure time) is not specified in available source material.
+This combined system has been used to demonstrate a PEGDA frame–alginate core construct with reasonable structural integrity. The ionic-crosslinking step for the alginate component (e.g., CaCl₂ concentration and exposure time) is not yet established.
 :::
 
 # Quality Control
@@ -110,7 +110,13 @@ This combined system has been used to demonstrate a PEGDA frame–alginate core 
 - **Structural integrity (multimaterial constructs)**: For PEGDA frame–alginate core constructs, confirm structural integrity by visual and/or mechanical inspection.
 
 :::{attention} Primary data not located
-Feature-size and structural-integrity results cited above are drawn from a status summary ("PHD" module, Chicago colorimetric readout system). A primary devnote with quantitative feature-size measurements, imaging methodology, or mechanical-integrity data for this process was not located at the time of authoring — flagging this gap rather than presenting these results as independently verified. This process's link to a macroscopically visible colorimetric readout has likewise not been demonstrated (see the dashed-edge note in the Overview).
+@Editor: no devnote with quantitative feature-size measurements, imaging methodology, or mechanical-integrity data for this process is available yet, so the feature-size and structural-integrity results above are not independently verified. This process's link to a macroscopically visible colorimetric readout has likewise not been demonstrated (see the dashed-edge note in the Overview).
+:::
+
+# Credits
+
+:::{attention} Attribution not established
+@Editor: no contributor record was found for this protocol. Confirm with the originating Node before publication.
 :::
 
 # Downloads
