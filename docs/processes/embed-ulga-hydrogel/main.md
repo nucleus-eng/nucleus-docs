@@ -1,7 +1,7 @@
 ---
 title: "ULGA Hydrogel Embedding"
 subtitle: "Process"
-status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
+status: draft
 ---
 
 # Overview
@@ -14,14 +14,6 @@ ULGA Hydrogel Embedding immobilizes synthetic-cell-encapsulated London Sensing C
 
 In the process-dependency diagram, ULGA Hydrogel Embedding is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Alginate Hydrogel Embedding](../embed-alginate-hydrogel/main.md), which is fed by both phase transfer and [SUV Encapsulation](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
 
-:::{note}
-**Source of this page.** Protocol details below are cited from `Demo Status - London.docx`, Module 4 ("ULGA embedding," contributor Julia Purrinos De Oliveira) and Module 6 ("PLA1-based color change module," contributors Jonah McDonald and Charlie Newell). The backing devnote, `devnotes/london-quorum-sensing-polymersome/main.md`, is confirmed still a template stub — milestones and risk framing only, no primary experiments, figures, or data — so it is not cited as a completed source anywhere on this page. Z-stack images referenced in Module 4's key results were not independently located as primary data during authoring; this is flagged again below rather than treated as independently verified.
-:::
-
-:::{attention} Acronym expansion
-Source material is inconsistent about the acronym: the Module 4 overview text writes "ultra low gelling agarose (ULGA)," while its own Materials table gives the product name as "Ultra low gelling temperature agarose." This page uses **ultra-low-gelling-temperature agarose (ULGA)**, matching the fuller product-name form and the usage already established on the [AHL Sensing Cell](../../modules/ahl-sensing-cell/spec.md) and [London Chassis](../../modules/london-chassis/spec.md) spec pages.
-:::
-
 :::::::{card}
 :header: **Important Information**
 
@@ -31,9 +23,9 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- ULGA gels at (8-17)°C, well below the gelling temperature of standard agarose. Source material does not specify the exact dissolution or cooling temperatures used in this protocol; dissolving and cooling steps below follow standard low-melting-agarose handling and are flagged as inferred general technique, not values taken directly from the source.
-- Two ULGA concentrations are documented for this process, from two distinct experiments: 1% ULGA for the GFP-readout demonstration (Module 4, confirmed by Z-stack imaging), and 1.5% ULGA for the PLA1/CPRG colorimetric two-liposome demonstration (Module 6). Both use the same S30 Lysate-compatible outer solution base. Pick the concentration that matches the readout you are running; do not assume they are interchangeable without re-validation.
-- Module 4 notes the protocol has so far been tested with liquid bacterial culture and supernatant, with a planned move to solid agar bacteria media not yet reported as complete.
+- ULGA gels at (8-17)°C, well below the gelling temperature of standard agarose. The exact dissolution and cooling temperatures for this protocol are not established; the dissolving and cooling steps below follow standard low-melting-agarose handling as a general technique, not values confirmed for this specific preparation.
+- Two ULGA concentrations are documented for this process, from two distinct experiments: 1% ULGA for the GFP-readout demonstration (confirmed by Z-stack imaging), and 1.5% ULGA for the PLA1/CPRG colorimetric two-liposome demonstration. Both use the same S30 Lysate-compatible outer solution base. Pick the concentration that matches the readout you are running; do not assume they are interchangeable without re-validation.
+- This protocol has so far been tested with liquid bacterial culture and supernatant; testing with solid agar bacterial media has not yet been completed.
 
 ::::::
 
@@ -53,7 +45,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} 1% ULGA (GFP readout)
 
-:::{table} Outer solution used to embed AHL Sensing Cell synthetic cells for the GFP readout, ULGA at 1% final concentration (Module 4).
+:::{table} Outer solution used to embed AHL Sensing Cell synthetic cells for the GFP readout, ULGA at 1% final concentration.
 :label: comp-ulga-1pct
 
 | Component | Concentration |
@@ -69,7 +61,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} 1.5% ULGA (colorimetric readout)
 
-:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-liposome demonstration, ULGA at 1.5% final concentration (Module 6).
+:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-liposome demonstration, ULGA at 1.5% final concentration.
 :label: comp-ulga-1-5pct
 
 | Component | Concentration |
@@ -111,7 +103,7 @@ This variant feeds the Colorimetric Readout process; see the [AHL Sensing Cell](
 :::
 
 :::{attention} Incomplete Materials table
-Module 4's own Materials table in the source document lists Glucose, Potassium glutamate, and HEPES rows with no manufacturer, part number, price, or storage data filled in (marked only with a placeholder `#`) — this table carries that gap forward rather than inventing catalog details. Flag for follow-up before this page is used at the bench.
+@Editor: no manufacturer, part number, price, or storage data is established for Glucose, potassium L-glutamate, or HEPES. Confirm before this page is used at the bench.
 :::
 
 # Protocol
@@ -124,7 +116,7 @@ Module 4's own Materials table in the source document lists Glucose, Potassium g
 :::{hint} Note
 :class: simple
 :icon: false
-Source material does not specify an exact dissolution temperature or hold time. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold above the gel point (above ~17 °C for ULGA) until combined with the synthetic cell suspension, and only then cool below the gel point to set.
+No exact dissolution temperature or hold time is established for this step. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold above the gel point (above ~17 °C for ULGA) until combined with the synthetic cell suspension, and only then cool below the gel point to set.
 :::
 
 - [ ] Cool the dissolved ULGA solution to a temperature that keeps it liquid (above its (8-17)°C gel point) but is safe to mix with synthetic cells without damaging them, before proceeding.
@@ -143,14 +135,20 @@ Source material does not specify an exact dissolution temperature or hold time. 
 - [ ] Include a positive control gel using a constitutively expressed GFP construct (not the AHL-gated sensor) to confirm the encapsulated lysate is expressing independent of AHL exposure.
 - [ ] Incubate 2.5 h.
 
-## Confirm Embedding
+# Quality Control
 
-- [ ] Image the gel by fluorescence microscopy, collecting a Z-stack to confirm GFP signal is associated with intact, embedded synthetic cells rather than background.
-- [ ] Compare against the LB-only negative control at matched optical and contrast settings.
+Confirm embedding succeeded before scoring a readout:
+
+- **GFP signal association**: image the gel by fluorescence microscopy, collecting a Z-stack to confirm GFP signal is associated with intact, embedded synthetic cells rather than background.
+- **Negative control comparison**: compare against the LB-only negative control at matched optical and contrast settings.
 
 :::{attention} Primary data not located
-Module 4 reports GFP signal in both the overnight-culture and supernatant conditions after 2.5 h, with no signal in the LB control at matched settings, "confirmed with Z-stack images." The referenced Z-stack image files were not independently located as a primary dataset during authoring of this page — this result is cited from the status-document summary only, not independently re-verified here.
+@Editor: GFP signal is reported in both the overnight-culture and supernatant conditions after 2.5 h, with no signal in the LB-only control at matched settings, confirmed by Z-stack imaging — but the underlying Z-stack image files are not available on this page and this result has not been independently re-verified.
 :::
+
+# Credits
+
+Developed by Ion Ioannou and Jonah McDonald (London Node).
 
 # Downloads
 
