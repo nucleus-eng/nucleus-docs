@@ -84,6 +84,10 @@ flowchart TD
 The `TetO-PLA1` sensing construct is specified on [Detector: tetR-aTc](../detector-tetr-atc/spec.md), and the PLA1 constructs on [Effector: PLA1](../effector-pla1/spec.md).
 :::
 
+:::{attention} Construct not yet in `nucleus-eng/DNA`
+`TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. The same gap is recorded on [aTc Sensing Cell](../atc-sensing-cell/spec.md). Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
+:::
+
 ::::
 
 ::::{tab-item} Cytosol

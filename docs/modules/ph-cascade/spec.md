@@ -106,6 +106,10 @@ flowchart TD
 
 See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
 
+:::{attention} Construct not yet in `nucleus-eng/DNA`
+The toehold-switch-gated PLA1 template has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is also not recorded as a construct in its own right anywhere in this corpus: neither [Detector: pH-Sensing](../detector-ph/spec.md), which specifies the toehold switch with LacZ and XylE effectors, nor [Effector: PLA1](../effector-pla1/spec.md), which lists two PLA1 constructs, claims this one. Whether it is a third design or one of those two under another name is not established — do not assume it from the name. Do not add a length or file entry until the construct is confirmed and its length verified against the source file.
+:::
+
 ::::
 
 ::::{tab-item} pH Sensing Cell
