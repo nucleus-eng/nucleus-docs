@@ -17,9 +17,11 @@ Two failures, both of which a read-through misses.
 Coverage is advisory: an Implementation may legitimately use a Module in
 passing without that Module wanting a backlink. Category is an error.
 
-Links inside a ``:::`` directive block do not count as usage — a note saying two
-Modules are *not* interchangeable names both, and is a contrast rather than a
-claim. So a real usage claim written inside an admonition is invisible here.
+Links inside an admonition — note, warning, attention and their siblings — do not
+count as usage: a note saying two Modules are *not* interchangeable names both,
+and is a contrast rather than a claim. Declarative containers such as
+``{table}``, ``{figure}`` and ``{card}`` are still read. So a real usage claim
+written inside an admonition is invisible here.
 
 Usage:
     python3 scripts/check-implementations.py
@@ -36,8 +38,21 @@ IMPLS = Path("docs/implementations")
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
 
+# Directives that carry commentary about a page rather than its content. A
+# closed list on purpose: `{table}`, `{figure}`, `{tab-item}`, `{card}` and
+# `{grid}` are declarative containers, and `:::{table}` with a `:label:` is this
+# repo's dominant table convention — 117 of them across 52 files. Stripping
+# every `:::` block would mean that giving an Implementation's Modules table a
+# caption, which is how every mature page here is written, silently zeroed every
+# usage claim on it and left this check reporting clean.
+ADMONITIONS = {
+    "attention", "caution", "danger", "hint",
+    "note", "seealso", "tip", "warning",
+}
+
+
 def body(text: str) -> str:
-    """The page with ``:::`` directive blocks removed.
+    """The page with admonition blocks removed.
 
     A link inside a note or warning is commentary, not a claim. London DevCell
     links the IV-HSL Emitter inside a `:::{note}` in order to say the two are
@@ -50,16 +65,18 @@ def body(text: str) -> str:
     usage claim inside an admonition is invisible to this check.** Put the claim
     in the body.
     """
-    out, depth = [], 0
+    out, stack = [], []
     for line in text.splitlines():
         stripped = line.lstrip()
-        if re.match(r"^:{3,}\{", stripped):
-            depth += 1
+        opening = re.match(r"^:{3,}\{([a-z-]+)\}", stripped)
+        if opening:
+            stack.append(opening.group(1))
             continue
         if re.match(r"^:{3,}\s*$", stripped):
-            depth = max(0, depth - 1)
+            if stack:
+                stack.pop()
             continue
-        if depth == 0:
+        if not any(d in ADMONITIONS for d in stack):
             out.append(line)
     return "\n".join(out)
 
