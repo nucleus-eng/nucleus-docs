@@ -137,7 +137,7 @@ Only pages under `docs/implementations/`. A cascade is a Module however composed
 
 The relation is symmetric: if an Implementation is built from this Module, this Module lists that Implementation. `scripts/check-implementations.py` checks both halves.
 
-Every Module link inside this section reads as a claim, prose included — naming the cascade a reader passes through is enough to trip the check. Describe the path in words and link only the Implementation.
+Every Module link inside this section reads as a claim, prose included. Naming the cascade a reader passes through asserts that a cascade is an Implementation, and it is not — it is a Module however composed it is. Describe the path in words and link only the Implementation. A caveat about the entries goes in a tagged admonition after the list, as `reporter-xyle` does.
 
 ## Processes
 
