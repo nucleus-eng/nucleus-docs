@@ -56,4 +56,8 @@ When moving structure rather than rewriting content: nothing is deleted, only re
 
 Renaming *or removing* a heading is a link change — see [conventions.md](conventions.md#headings-and-captions).
 
+**A rule justified by tool behavior rots when you fix the tool.** State a rule from the content model. If the only reason you can give for it is that a checker complains, either the checker is wrong or the rule is not yet understood — and a guide that accumulates workaround-shaped rules ends up holding rules nobody can justify.
+
+**A clean number is not a measurement.** A scan that reports zero has to be shown capable of reporting non-zero before the zero means anything. Precise output is more persuasive than a hand-wave and gets challenged less, so it is the form a wrong answer most easily hides in.
+
 **Internal consistency is not correctness.** A table whose every row reconciles proves the arithmetic was done, not that the inputs were right: a units error propagates cleanly through every row and looks exactly like a sound table. Test a suspect value against something outside it — a second experiment, the supplier's stock format, the paper the design came from.
