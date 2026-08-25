@@ -1,7 +1,7 @@
 ---
 title: "Colorimetric Readout"
 subtitle: "Process"
-status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
+status: draft
 ---
 
 # Overview
@@ -26,9 +26,9 @@ Please read this section carefully. It contains important notes, resources, and 
 The process-dependency diagram draws two edges into this process, with different confirmation status, and they should not be treated as equally solid:
 
 - **ULGA Hydrogel Embedding → Colorimetric Readout is solid (confirmed).** The London ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
-- **Photopatterning, PEGDA → Colorimetric Readout is dashed (proposed, not yet demonstrated).** Chicago's PEGDA-patterned hydrogel work (Module 4, PHD) has confirmed photopatterning feature-size control and PEGDA-frame/alginate-core structural integrity, but explicitly caveats that "DevCell component volumes are currently too small to produce macroscopically visible QR code changes" — a functional colorimetric readout from a PEGDA-patterned hydrogel has not been shown.
+- **Photopatterning, PEGDA → Colorimetric Readout is dashed (proposed, not yet demonstrated).** Chicago's PEGDA-patterned hydrogel work has confirmed photopatterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are currently too small to produce macroscopically visible QR-code pattern changes — a functional colorimetric readout from a PEGDA-patterned hydrogel has not been shown.
 
-The diagram does **not** draw a direct edge from Alginate Hydrogel Embedding to this process — alginate embedding feeds into PEGDA patterning (Alginate → PEGDA is itself solid/confirmed), not directly into Colorimetric Readout. The unpatterned alginate-embedded readout ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change, Chicago Overview) is a real, separately confirmed result, but it is not represented as its own edge into this node in the current diagram.
+The diagram does **not** draw a direct edge from Alginate Hydrogel Embedding to this process — alginate embedding feeds into PEGDA patterning (Alginate → PEGDA is itself solid/confirmed), not directly into Colorimetric Readout. The unpatterned alginate-embedded readout ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a real, separately confirmed result, but it is not represented as its own edge into this node in the current diagram.
 
 ::::::
 
@@ -108,6 +108,10 @@ A positive color change alone does not confirm specific detection — several ca
 - The pH-sensing bulk hydrogel result shows a real but modest absorbance gap (Abs₅₇₀ ≈0.31 at pH 7.4 vs. ≈0.39 at pH 6.5, against a ≈0.46 positive control) — see the [pH-Sensing Module](../../modules/detector-ph/spec.md) spec.
 
 Always include the negative/uninduced control specified by the cascade's own Module page alongside the induced condition in the same read, and treat this process's absorbance values as relative to that same-plate control rather than against an absolute threshold.
+
+# Credits
+
+Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab), [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab), Mary Kelly (Chicago Node, Kamat Lab), and Samuel Chen (Chicago Node, Liu Lab).
 
 # Downloads
 
