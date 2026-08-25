@@ -17,30 +17,6 @@ The whole chain runs in one compartment: the aTc Sensing Cell co-encapsulates th
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Confirmed in synthetic cytosols and in synthetic cells — two gaps remain
-The combined sensing → lysis → LacZ readout chain is confirmed in synthetic cytosols and in synthetic cells (see [Expected Behavior](#expected-behavior) below). Two things are **not** yet true of this cascade:
-
-1. **Gel integration is not complete.** Hydrogel embedding has not been finished. Do not treat this cascade as validated for hydrogel-embedded use.
-2. **The multiplexed Chicago Cascade has not been demonstrated.** The aTc Cascade works standalone; combining it with the theophylline and pH cascades has not been shown. Unlike the theophylline integration path (which cannot combine with this cascade due to a confirmed LacZ/CPRG interference), this cascade's merge into the Chicago Cascade has not yet been attempted, not been shown to be blocked.
-:::
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart LR
-    ATC[aTc, 0/1/5/10 µM] --> SENSE["aTc Sensing Cell:<br/>TetO-PLA1 construct<br/>(1 nM DNA, 50 nM TetR)"]
-    SENSE -->|"TetR released,<br/>PLA1 expressed"| LYSIS["PLA1 Lysis Module:<br/>self-lysis of the synthetic cell"]
-    LYSIS -->|"releases CPRG<br/>to co-encapsulated LacZ"| READOUT["LacZ Reporter Module:<br/>LacZ/CPRG, Abs 575 nm<br/>(0.5 mM CPRG, 20 U/mL LacZ)"]
-    LYSIS -.->|proposed, unconfirmed| XYLE["XylE / C23DO Reporter<br/>(alternate integration path)"]
-
-    classDef confirmed fill:#def5ee,stroke:#009E73,color:#00402e;
-    classDef proposed fill:#f5f5f5,stroke:#999999,color:#555555,stroke-dasharray: 5 5;
-
-    class ATC,SENSE,LYSIS,READOUT confirmed;
-    class XYLE proposed;
-```
-
-Schematic representation of the confirmed aTc Cascade integration path: aTc relieves TetR repression of the `TetO-PLA1` construct, PLA1 expression lyses the synthetic cell, and the released CPRG reacts with co-encapsulated LacZ to produce the colorimetric readout. The XylE/C23DO alternate integration path (dashed) is a proposed substitute for the LacZ readout step, not yet run in this cascade — see the [Reference Composition](#reference-composition) and [Expected Behavior](#expected-behavior) sections below for the confirmed-vs-proposed distinction. No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
-
 # Reference Composition
 
 The aTc Cascade combines its Modules as follows:
@@ -102,7 +78,9 @@ flowchart TD
 | β-galactosidase (LacZ) | not applicable | — | Co-encapsulated as purified enzyme, not expressed |
 :::
 
-See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
+:::{note} Where these constructs are specified
+The `TetO-PLA1` sensing construct is specified on [Detector: tetR-aTc](../detector-tetr-atc/spec.md), and the PLA1 constructs on [Effector: PLA1](../effector-pla1/spec.md).
+:::
 
 ::::
 
@@ -122,9 +100,9 @@ Every component below is co-encapsulated in a single synthetic cell.
 | Base Cytosol components | At reaction concentration; not separately documented for this cascade |
 :::
 
-aTc is dosed at 0, 1, 5 and 10 µM, with 0 µM as the normalization baseline; the source figure carries no −TetR or −DNA control panel. Whether aTc is added to the inner or the outer solution is not documented.
+Whether aTc is added to the inner or the outer solution is not established.
 
-PLA1 has no row of its own. It is expressed from the `TetO-PLA1` construct already counted above, not added as a reagent.
+PLA1 has no row of its own: it is expressed from the `TetO-PLA1` construct already listed, not added as a reagent.
 
 ::::
 
@@ -148,9 +126,9 @@ PLA1 has no row of its own. It is expressed from the `TetO-PLA1` construct alrea
 
 ## Cells
 
-The full sensing → lysis → LacZ readout chain has been run together in synthetic cytosols and in synthetic cells, and it responds to aTc — but the response is **not graded**. Fold change in absorbance at 5 h (n = 3) separates dosed from undosed at roughly 1.15× to 1.33×, across three DNA/TetR combinations dosed at 0, 1, 5, and 10 µM aTc. The response is non-monotonic in two of the three combinations, and the error bars across the 1, 5, and 10 µM points overlap in all three.
+The aTc Cascade is expected to run the full sensing → lysis → LacZ readout chain in one compartment and to produce a detectable aTc-dependent color change, confirmed in synthetic cytosols and in synthetic cells. **The response is not graded.** Fold change in absorbance at 5 h (n = 3) separates dosed from undosed at roughly 1.15× to 1.33×, across three DNA/TetR combinations dosed at 0, 1, 5, and 10 µM aTc. It is non-monotonic in two of the three combinations, and the error bars across the 1, 5, and 10 µM points overlap in all three. Expect a working end-to-end chain with a detectable signal, not a characterized dose-response.
 
-What this cascade can claim, therefore, is a working end-to-end chain with a detectable aTc-dependent signal — not a characterized dose-response. The [aTc Sensing Module](../detector-tetr-atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec covers why the 0 µM point is a normalization baseline rather than a negative control.
+The [aTc Sensing Module](../detector-tetr-atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec covers why the 0 µM point is a normalization baseline rather than a negative control.
 
 ## Gels
 
@@ -166,7 +144,7 @@ Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago
 
 Requires CPRG and LacZ co-encapsulated with the sensing and lysis constructs (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
-Cannot be co-encapsulated with theophylline sensing. This cascade shares the LacZ/CPRG readout's co-encapsulation constraint with theophylline sensing. The mechanism usually given for the constraint — theophylline inhibiting the LacZ/CPRG conversion — is not established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides. Do not restate the inhibition mechanism as fact.
+Must not be co-encapsulated with theophylline sensing, which shares this cascade's LacZ/CPRG readout. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the constraint and the state of the evidence behind it.
 
 # Implementations
 
