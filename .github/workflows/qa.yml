@@ -59,3 +59,21 @@ jobs:
 
       - name: Check TOC
         run: python3 scripts/check-toc.py
+
+  composition-tabs:
+    # A Module's Reference Composition must cover everything its own dependency
+    # graph contains. Absence is a claim — a page with no Membrane tab reads as
+    # "this Module has no membrane", not "we did not write it down". Checks the
+    # pages carrying a generated composition diagram, and names any Module page
+    # it cannot reach so the count never overstates its coverage. A page may
+    # waive a tab with an HTML comment. See scripts/check-composition-tabs.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Check composition tabs
+        run: python3 scripts/check-composition-tabs.py
