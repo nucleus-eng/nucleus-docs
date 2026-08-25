@@ -29,7 +29,12 @@ The theophylline/aTc co-encapsulation constraint remains true and is still docum
 
 No combined reference composition exists, and none is given here — not even a hypothetical one. The combination has never been assembled, so there are no working concentrations to report.
 
-Each integration path's own composition is documented on its own page. 
+Each integration path's own composition is documented on its own page.
+
+:::{attention} Merged recipe not documented
+@Editor: no combined recipe exists for the two paths together. The per-population tables below are each path's own composition, carried over unchanged; nothing records what changes when they share one reaction. Confirm with the Chicago Node.
+:::
+
 
 :::::{tab-set}
 
@@ -110,21 +115,52 @@ The constructs are those of the two integration paths; no construct is specific 
 
 ::::
 
-::::{tab-item} Cytosol 
+::::{tab-item} Membrane
 
-:::{table} Cytosol of the merged cascade.
-:label: comp-chicago-cascade-cytosol
+**All three populations carry the same membrane.** Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), and the Substrate SUV uses the same lipid composition, so one table covers the aTc Sensing Cell, the pH Sensing Cell and the Substrate SUV alike. That identity is load-bearing — see [Requirements](#requirements).
 
+:::{table} Synthetic cell and SUV membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:label: comp-chicago-cascade-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
+:::
+
+::::
+
+::::{tab-item} aTc Sensing Cell
+
+The aTc integration path is one compartment: sensing, lysis and readout are co-encapsulated together, so this population carries its own LacZ and CPRG and needs nothing from the exterior.
+
+:::{table} aTc Sensing Cell cytosol — as on [aTc Cascade](../atc-cascade/spec.md#reference-composition).
+:label: comp-chicago-cascade-atc-cell
 
 | Component | Working concentration |
 | --- | --- |
-| aTc path components | As on [aTc Cascade](../atc-cascade/spec.md#reference-composition) |
-| pH path components | As on [pH Cascade](../ph-cascade/spec.md#reference-composition) |
+| `TetO-PLA1` DNA | 1 nM |
+| TetR | 50 nM |
+| CPRG substrate | 0.5 mM |
+| LacZ enzyme | 20 U/mL |
 | Base Cytosol components | At reaction concentration |
 :::
 
-:::{attention} Merged recipe not documented
-@Editor: no combined recipe exists for the two paths together, and the pH path's own combined-recipe concentrations are undocumented. Confirm with the Chicago Node.
+::::
+
+::::{tab-item} pH Sensing Cell
+
+The pH integration path is two compartments. This population carries sensing and lysis only; its substrate is in the Substrate SUV and its LacZ is in the outer solution.
+
+:::{table} pH Sensing Cell cytosol — as on [pH Cascade](../ph-cascade/spec.md#reference-composition).
+:label: comp-chicago-cascade-ph-cell
+
+| Component | Working concentration |
+| --- | --- |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 nM trigger ssDNA, final |
+| Toehold-switch-gated PLA1 DNA template | 2 nM, final |
+| Base Cytosol components | At reaction concentration |
 :::
 
 ::::
@@ -141,22 +177,21 @@ A second liposome population carrying the chromogenic substrate, entering this c
 | CPRG substrate | Not documented at a reaction concentration for the multiplexed cascade |
 :::
 
-The SUV membrane follows [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md), as specified on [pH Cascade](../ph-cascade/spec.md#reference-composition). The aTc integration path co-encapsulates free CPRG instead, so it contributes no SUV population.
+The aTc integration path co-encapsulates free CPRG instead, so it contributes no SUV population.
 
 ::::
 
-::::{tab-item} Membrane
+::::{tab-item} Outer Solution
 
-Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), so the membrane carries over unchanged.
+The medium all three populations sit in, and the only compartment with no membrane of its own. The pH integration path reports through LacZ here; the aTc path carries its own LacZ internally and does not depend on it.
 
-:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
-:label: comp-chicago-cascade-membrane
+:::{table} Outer solution.
+:label: comp-chicago-cascade-outer
 
-| Component | Target percentage (%) |
+| Component | Working concentration |
 | --- | --- |
-| POPC | 89.9 |
-| Cholesterol | 10 |
-| Liss-Rhod PE | 0.1 |
+| β-galactosidase (LacZ) | Not documented at a working concentration for the multiplexed cascade |
+| Osmotic balance | Matched to the inner solutions, per [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) |
 :::
 
 ::::
@@ -181,6 +216,8 @@ Requires both integration paths in one system — [aTc Cascade](../atc-cascade/s
 
 Requires each integration path's own requirements to hold unchanged. Neither path has a bulk-cytosol route, so this cascade does not either.
 
+Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation; the pattern itself is an Implementation-level choice, documented on [Chicago DevCell](../../implementations/chicago-devcell/main.md).
+
 **Something has to decide what the readout does when both paths fire.** Both the aTc and pH integration paths end at the same LacZ/CPRG chemistry. Two inputs arriving at one output is not, by itself, a design — it needs a stated rule for how the two signals combine. Should the color change when *either* analyte is present, only when *both* are, or only when exactly one is? Each of those is a different device, and each needs a different mechanism.
 
 That rule has not been chosen. Until it is, "multiplexed detection" describes an intent rather than a specification.
@@ -188,9 +225,11 @@ That rule has not been chosen. Until it is, "multiplexed detection" describes an
 :::{attention} This is the cascade's central open question
 Two things follow from it, and both are worth stating plainly.
 
-**First, a shared readout with no combining rule is not neutral.** If both paths simply drive the same enzyme reaction, the result is whatever the chemistry does when both are active — which is closer to an uncontrolled "either" than to a designed behavior. Getting a specified behavior means adding a mechanism, not just co-locating the two paths.
+**First, without spatial separation the paths are not independent.** Either analyte alone drives PLA1, and PLA1 lyses every compartment within reach: the aTc path releases its own internal LacZ and CPRG *and* opens the Substrate SUV, while the pH path opens the SUV *and* the aTc cell, releasing that cell's LacZ. Color appears by several routes with only one analyte present. This is not the readout chemistry being shared — it is the membrane being shared, with an effector that does not discriminate.
 
-**Second, the three candidate rules are not equally easy to build.** "Either analyte" is close to what co-locating the paths already gives, so the work is making it controlled and reproducible rather than incidental. "Both analytes" needs a coincidence mechanism — some step that only proceeds when two inputs are present at once. "Exactly one" is harder still, because it needs the system to suppress output when a signal *is* present, and inhibition is a mechanism this cascade does not currently have anywhere.
+**Second, a shared readout with no combining rule is not neutral.** If both paths simply drive the same enzyme reaction, the result is whatever the chemistry does when both are active — which is closer to an uncontrolled "either" than to a designed behavior. Getting a specified behavior means adding a mechanism, not just co-locating the two paths.
+
+**Third, the three candidate rules are not equally easy to build.** "Either analyte" is close to what co-locating the paths already gives, so the work is making it controlled and reproducible rather than incidental. "Both analytes" needs a coincidence mechanism — some step that only proceeds when two inputs are present at once — and that mechanism has to survive the cross-lysis above, since either analyte alone otherwise destroys the compartments the coincidence would have to be read from. It cannot be solved by making PLA1 selective: neighbor lysis is the mechanism the readout depends on. "Exactly one" is harder still, because it needs the system to suppress output when a signal *is* present, and inhibition is a mechanism this cascade does not currently have anywhere.
 
 So the choice of rule is not a labeling decision to make at write-up time. It determines what has to be built.
 :::

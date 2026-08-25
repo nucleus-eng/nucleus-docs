@@ -57,10 +57,10 @@ The cytosol itself is whichever the host cascade uses — [Base Cytosol](../base
 
 ::::
 
-<!-- composition-tabs: no-table (PLA1 takes whichever membrane its host cell has, so a single lipid table would be wrong) -->
+<!-- composition-tabs: no-table (PLA1 acts on any phospholipid membrane in reach, so a single lipid table would be wrong) -->
 ::::{tab-item} Membrane
 
-PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module: it takes whichever membrane the host cell has, [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) or [London Membrane: POPC](../membrane-popc/spec.md).
+PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module: PLA1 acts on any phospholipid membrane it reaches, whether or not that membrane belongs to the cell that expressed it. The membranes it has been used with are [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) and [London Membrane: POPC](../membrane-popc/spec.md).
 
 Both a self-lysis target and, in the two-liposome cascades, a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) membrane are required.
 
