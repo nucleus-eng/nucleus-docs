@@ -70,13 +70,15 @@ See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
 
 ::::{tab-item} Cytosol
 
-:::{table}
+The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the toehold-switch template and the annealed pH-responsive ssDNA : trigger ssDNA duplex from the [pH-Sensing Module](../detector-ph/spec.md).
+
+:::{table} Combined synthetic cell reaction, one level deep.
 :label: comp-sensing-cell-cytosol
 
-| Line item | Contribution | Working concentration/fraction in combined recipe |
+| Module | Working concentration | Notes |
 | --- | --- | --- |
-| Chicago Chassis | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration, per [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) — carries over unchanged |
-| pH-Sensing Module | Toehold-switch template, plus pH-responsive ssDNA : trigger ssDNA annealed 3:1 | Template 2 nM; duplex 4.8 nM trigger ssDNA — as specified on [pH-Sensing Module](../detector-ph/spec.md#reference-composition). Whether encapsulation changes either figure is not recorded. |
+| [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [pH-Sensing Module](../detector-ph/spec.md) | Toehold-switch template 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.8 nM trigger ssDNA | As specified on [pH-Sensing Module](../detector-ph/spec.md#reference-composition). Whether encapsulation changes either figure is not recorded. |
 
 :::
 
