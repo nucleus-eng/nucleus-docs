@@ -55,6 +55,31 @@ IMPLIES = [
 WAIVER = re.compile(r"<!--\s*composition-tabs:\s*no-([a-z]+)\b", re.I)
 
 
+HEADING = re.compile(r"^(#{1,6})[ \t]+(.+?)[ \t]*$", re.M)
+
+
+def section_bodies(text: str, title: str) -> list[str]:
+    """Bodies under every heading named `title`, at whatever depth.
+
+    Each body ends at the next heading of the same or shallower depth. Pages
+    carry this section at H1, H2 or H3 depending on template, and a page with
+    both a Cytosols and a Cells arm carries two of them.
+    """
+    out = []
+    for m in HEADING.finditer(text):
+        if m.group(2).strip() != title:
+            continue
+        depth = len(m.group(1))
+        rest = text[m.end():]
+        end = len(rest)
+        for n in HEADING.finditer(rest):
+            if len(n.group(1)) <= depth:
+                end = n.start()
+                break
+        out.append(rest[:end])
+    return out
+
+
 def diagram_nodes(text: str) -> set[str]:
     """Node ids declared inside the generated block."""
     if BEGIN not in text or END not in text:
@@ -74,12 +99,14 @@ def composition_surface(text: str) -> str:
     requirement by carrying a captioned membrane table, so matching tab titles
     alone reports a false gap. This searches the whole section instead.
     """
-    if "# Reference Composition" not in text:
+    sections = section_bodies(text, "Reference Composition")
+    if not sections:
         return " | ".join(tab_titles(text))
-    section = text.split("# Reference Composition", 1)[1].split("\n# ", 1)[0]
-    parts = re.findall(r"^:*\{tab-item\}\s*(.+?)\s*$", section, re.M)
-    parts += re.findall(r"^:*\{table\}\s*(.+?)\s*$", section, re.M)
-    parts += re.findall(r"^:(?:label|name):\s*(\S+)\s*$", section, re.M)
+    parts = []
+    for section in sections:
+        parts += re.findall(r"^:*\{tab-item\}\s*(.+?)\s*$", section, re.M)
+        parts += re.findall(r"^:*\{table\}\s*(.+?)\s*$", section, re.M)
+        parts += re.findall(r"^:(?:label|name):\s*(\S+)\s*$", section, re.M)
     return " | ".join(parts)
 
 
@@ -91,8 +118,8 @@ def check(path: Path) -> tuple[list[str], list[str]]:
     # A composition tab should carry a table. A Module that genuinely takes
     # several hosts is the exception, so this warns rather than fails.
     advisories = []
-    if "# Reference Composition" in text and "table" not in waived:
-        sec = text.split("# Reference Composition", 1)[1].split("\n# ", 1)[0]
+    if "table" not in waived:
+        sec = "\n".join(section_bodies(text, "Reference Composition"))
         for blk in re.split(r"^:*\{tab-item\} ", sec, flags=re.M)[1:]:
             title = blk.split("\n", 1)[0].strip()
             if title in ("Module Dependencies", "Schematic"):
@@ -127,12 +154,33 @@ def check(path: Path) -> tuple[list[str], list[str]]:
     return findings, advisories
 
 
+def unreachable_specs(targets: list[Path]) -> list[Path]:
+    """Module pages this script cannot see, because they are misnamed.
+
+    `style-guide/page-types.md` puts a Module spec at `docs/modules/<name>/spec.md`.
+    A page named `<name>-spec.md` is still a spec to a reader, but it is invisible
+    to the glob below — so the run would report success over a corpus it never
+    looked at. Silently checking fewer pages than exist is the one failure a
+    checker must not have.
+    """
+    return sorted(
+        {
+            s
+            for t in targets
+            if not t.is_file()
+            for s in t.rglob("*spec.md")
+            if s.name != "spec.md"
+        }
+    )
+
+
 def main() -> int:
     targets = [Path(a) for a in sys.argv[1:]] or [MODULES_ROOT]
     specs = sorted(
         {s for t in targets for s in ([t] if t.is_file() else t.rglob("spec.md"))}
     )
-    if not specs:
+    unreachable = unreachable_specs(targets)
+    if not specs and not unreachable:
         print("error: no spec.md found in the given path(s)", file=sys.stderr)
         return 2
 
@@ -146,14 +194,27 @@ def main() -> int:
     for a in advisories:
         print(f"warning: {a}")
 
-    if findings:
-        for f in findings:
-            print(f"error: {f}")
-        pages = len({f.split(':')[0] for f in findings})
+    for u in unreachable:
         print(
-            f"\n{len(findings)} missing tab(s) across {pages} page(s). "
-            "A tab may say the composition is not documented; it may not be absent."
+            f"error: {u}: a Module spec lives at <name>/spec.md, so nothing "
+            "checks this page — rename it or move it into its own directory"
         )
+
+    for f in findings:
+        print(f"error: {f}")
+
+    summary = []
+    if findings:
+        pages = len({f.split(":")[0] for f in findings})
+        summary.append(
+            f"{len(findings)} missing tab(s) across {pages} page(s) — a tab may "
+            "say the composition is not documented; it may not be absent"
+        )
+    if unreachable:
+        summary.append(f"{len(unreachable)} Module page(s) the check cannot reach")
+
+    if summary:
+        print("\n" + ". ".join(summary) + ".")
         return 1
 
     note = f" {len(advisories)} advisory." if advisories else ""

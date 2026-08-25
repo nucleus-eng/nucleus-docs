@@ -21,11 +21,16 @@ In this order. The first step finds what is *missing*, which a read-through cann
 ### 1. Completeness — run the checks first
 
 ```bash
-python3 scripts/check-composition-tabs.py docs/modules/<name>/
+python3 scripts/check-composition-tabs.py docs/modules/<name>/   # scoped, fast loop
+python3 scripts/check-composition-tabs.py                        # whole corpus
 python3 scripts/check-implementations.py
 ```
 
-These enumerate from the dependency graph, so they are complete in a way no prose check can be. A page can read perfectly and still be missing half its composition.
+Both run in CI on every pull request, so the local run is for speed, not for safety. Run the scoped form while editing one page, and the unscoped form before you finish: **a scoped run only ever sees its own directory.** A Module spec named `<name>-spec.md` rather than `<name>/spec.md` is invisible to the glob, and the check reports it — but only if the run covers the directory it is in.
+
+These enumerate from the dependency graph, and that is the whole reason to run them first. The constituent relation is transitive, so the full closure of a Module is derivable from the pages — a tool can compute the list of things that *should* be on the page and compare. Prose review cannot do this. Reading inspects what is present, and **absence has no textual signature**: a page missing half its composition reads exactly like a page whose composition is short. No amount of care recovers what was never written down.
+
+That asymmetry is why the order in this section is fixed. Step 1 finds what is missing, by enumeration. Steps 2 to 4 find what is present and wrong, by reading. Doing them the other way round means a careful pass over an incomplete page.
 
 Then by hand, against [`sections.md`](../../../style-guide/sections.md):
 
@@ -74,4 +79,14 @@ Run the pre-PR list in [`conventions.md`](../../../style-guide/conventions.md#be
 
 **Verify token by token.** Diff every number, temperature, construct name and cross-link against the pre-edit file. Reading the diff is not enough: a rewrite that drops a citation can drop a real value in the same sentence, and that is how the PEG hydrogel composition was lost on reporter-lacz.
 
-**Never touch** the `# Constituent Modules` heading or mermaid `classDef constituent` — the diagram generator matches both with hardcoded strings, and a page missing either drops out of the generator silently.
+**The `# Constituent Modules` heading text is load-bearing.** The diagram generator finds the section by its exact words, at any heading depth, so rewording the heading drops the page's constituents out of the graph. Rename anything else on the page freely.
+
+The mermaid `classDef constituent` line is different: the generator *writes* it and never reads it. It is output. Editing it changes the rendered colors and nothing else, and the next run overwrites it.
+
+**Do not rely on being careful about either.** Once the generator lands (it is on PR #222, not on this branch yet), verify instead:
+
+```bash
+python3 .claude/skills/mermaid-diagrams/scripts/gen-module-diagrams.py --check
+```
+
+It names every page whose block is stale or missing, which is what "silently" used to mean here. A rule that asks an author to remember something is a rule the tool should be enforcing — if you find a way to break the graph that `--check` does not report, fix the generator rather than adding a warning back here.
