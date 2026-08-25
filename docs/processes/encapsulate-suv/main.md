@@ -1,7 +1,7 @@
 ---
 title: "SUV Encapsulation"
 subtitle: "Process"
-status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
+status: draft
 ---
 
 # Overview
@@ -143,8 +143,12 @@ Confirm successful encapsulation and purification before combining SUVs with oth
 - **Free CPRG removal**: Measure absorbance at 575 nm of the SEC flow-through (not the liposome fraction). A flat, low-absorbance flow-through after the second SEC pass indicates unencapsulated CPRG has been removed. Residual absorbance in the flow-through after two passes indicates incomplete purification — repeat the SEC step.
 
 :::{attention} Primary data not located
-The 400 nm target size and 50 mM CPRG loading concentration are cited from the Chicago colorimetric readout status summary. No primary devnote with DLS traces or absorbance QC data for this process is available — these values are not independently verified against primary data.
+@Editor: the 400 nm target size and 50 mM CPRG loading concentration are not independently verified against primary data — no devnote with DLS traces or absorbance QC data for this process exists yet.
 :::
+
+# Credits
+
+Developed by the Chicago Node (Kamat Lab and Liu Lab).
 
 # Downloads
 
