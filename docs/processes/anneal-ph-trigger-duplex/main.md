@@ -36,3 +36,7 @@ Run the following in a thermocycler. The melting temperature of the construct is
 :::{attention} Working concentration not recorded
 @Editor: the annealed construct is stored at 25 µM trigger ssDNA, and the dilution between that stock and the reaction is not recorded in the source. Confirm the working concentration with the Chicago Node before use.
 :::
+
+# Credits
+
+Developed by [Samuel J. Chen](https://orcid.org/0000-0001-8501-7175), Sung-Won Hwang, and Allen Liu (Chicago Node, Liu Lab).
