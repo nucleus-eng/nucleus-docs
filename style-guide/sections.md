@@ -113,6 +113,16 @@ Three cases, and they differ:
 
 Performance data is not its own heading; it lives inside the Context it was measured in.
 
+**Say what measured it.** Every result names the Process that produced it, as a link:
+
+> Colour developed within 3 h at 37 °C, scored by eye — see [Colorimetric Readout](../docs/processes/colorimetric-readout/main.md).
+
+A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on [London Cascade](../docs/modules/london-cascade/spec.md): the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimisation, or a better assay.
+
+Where no Process page exists for the readout, say what was used in prose and mark it `@Editor:`. Do not drop the detail because there is nowhere tidy to link.
+
+**How it was read decides what can be known.** A bulk measurement reports a population average and cannot show how much individual cells differ; imaging individual liposomes can. Two readouts of one Module are not competing versions of a result — they answer different questions, and both belong under the Context they were run in.
+
 ## Requirements
 
 One line per component that imposes something — not a single generic sentence covering the page. Name a concrete satisfying Module and link it:
