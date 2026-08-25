@@ -25,23 +25,23 @@ This page is a work in progress and not yet ready for use.
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     AHL_SENSING_CELL["AHL Sensing Cell"]
-    DETECTOR_AHL["Detector: AHL"]
+    DETECTOR_3OC6_HSL["Detector: AHL"]
     LONDON_CHASSIS["London Chassis"]
     MEMBRANE_POPC["London Membrane: POPC"]
     S30_LYSATE["S30 Lysate"]
 
     LONDON_CHASSIS --> AHL_SENSING_CELL
-    DETECTOR_AHL --> AHL_SENSING_CELL
+    DETECTOR_3OC6_HSL --> AHL_SENSING_CELL
     S30_LYSATE --> LONDON_CHASSIS
     MEMBRANE_POPC --> LONDON_CHASSIS
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class DETECTOR_AHL,LONDON_CHASSIS,MEMBRANE_POPC,S30_LYSATE constituent;
+    class DETECTOR_3OC6_HSL,LONDON_CHASSIS,MEMBRANE_POPC,S30_LYSATE constituent;
     class AHL_SENSING_CELL this;
 
     click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
-    click DETECTOR_AHL "/docs/modules/detector-3oc6-hsl/spec"
+    click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
     click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click S30_LYSATE "/docs/modules/s30-lysate/spec"

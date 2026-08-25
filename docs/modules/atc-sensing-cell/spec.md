@@ -37,23 +37,29 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     CHICAGO_CHASSIS["Chicago Chassis"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    EFFECTOR_PLA1["Effector: PLA1"]
     MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+    REPORTER_LACZ["Reporter: LacZ"]
 
     CHICAGO_CHASSIS --> ATC_SENSING_CELL
     DETECTOR_TETR_ATC --> ATC_SENSING_CELL
+    EFFECTOR_PLA1 --> ATC_SENSING_CELL
+    REPORTER_LACZ --> ATC_SENSING_CELL
     BASE_CYTOSOL --> CHICAGO_CHASSIS
     MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_TETR_ATC,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,REPORTER_LACZ constituent;
     class ATC_SENSING_CELL this;
 
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
 ```
 
 ::::
@@ -136,6 +142,8 @@ Requires TetR, and aTc as the analyte — see the [aTc Sensing Module](../detect
 
 - [Chicago Chassis](../chicago-chassis/spec.md) — chassis (cytosol + 9:1 POPC:cholesterol synthetic cell membrane)
 - [aTc Sensing Module](../detector-tetr-atc/spec.md) — `TetO-PLA1` sensing construct, gated by aTc/TetR
+- [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed from `TetO-PLA1`; lyses the cell to release the readout
+- [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ and CPRG substrate, co-encapsulated in the same cell
 
 # Processes
 

@@ -26,7 +26,7 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     CHICAGO_CHASSIS["Chicago Chassis"]
-    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane (9:1 POPC:Chol)"]
+    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
 
     BASE_CYTOSOL --> CHICAGO_CHASSIS
     MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS

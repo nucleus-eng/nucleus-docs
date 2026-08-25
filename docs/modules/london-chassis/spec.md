@@ -24,7 +24,7 @@ This page is a work in progress and not yet ready for use.
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     LONDON_CHASSIS["London Chassis"]
-    MEMBRANE_POPC["London Membrane (POPC)"]
+    MEMBRANE_POPC["London Membrane: POPC"]
     S30_LYSATE["S30 Lysate"]
 
     S30_LYSATE --> LONDON_CHASSIS

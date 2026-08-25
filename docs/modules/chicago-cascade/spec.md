@@ -25,36 +25,11 @@ That is superseded. Chicago is now focused on the aTc and pH sensors (14 Aug 202
 The theophylline/aTc co-encapsulation constraint remains true and is still documented on the affected Modules. It is simply no longer this cascade's blocker, because theophylline is no longer one of its integration paths.
 :::
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart LR
-    ATCIN(("aTc")) --> ATCPATH["aTc Cascade"]
-    PHIN(("H⁺")) --> PHPATH["pH Cascade"]
-    ATCPATH -.->|"not yet attempted"| LOGIC{"How are two<br/>signals combined?<br/>undecided"}
-    PHPATH -.->|"not yet attempted"| LOGIC
-    LOGIC -.-> READOUT["Shared LacZ/CPRG readout<br/>visible color change"]
-
-    classDef path fill:#6b7280,stroke:#374151,color:#ffffff;
-    classDef open fill:#e5e7eb,stroke:#6b7280,color:#111827;
-    class ATCPATH,PHPATH,READOUT path;
-    class LOGIC open;
-    style ATCIN fill:none,stroke:#6b7280
-    style PHIN fill:none,stroke:#6b7280
-    style LOGIC stroke-dasharray: 5 5
-    style READOUT stroke-dasharray: 5 5
-
-    click ATCPATH "/docs/modules/atc-cascade/spec"
-    click PHPATH "/docs/modules/ph-cascade/spec"
-    click READOUT "/docs/modules/reporter-lacz/spec"
-```
-
-Schematic representation of the intended Chicago Cascade design. No published schematic exists for this cascade; the diagram above is a simplified summary of the intended design, not a reproduction of a lab figure.
-
 # Reference Composition
 
-No combined reference composition exists, and none is given here — not even a hypothetical one. The combination has never been assembled, so there are no working concentrations to report, and inventing them would present this as more real than it is.
+No combined reference composition exists, and none is given here — not even a hypothetical one. The combination has never been assembled, so there are no working concentrations to report.
 
-Each integration path's own composition is documented on its own page.
+Each integration path's own composition is documented on its own page. 
 
 :::::{tab-set}
 
@@ -76,12 +51,15 @@ flowchart TD
     PH_CASCADE["pH Cascade"]
     PH_SENSING_CELL["pH Sensing Cell"]
     REPORTER_LACZ["Reporter: LacZ"]
+    SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
 
     ATC_SENSING_CELL --> ATC_CASCADE
     EFFECTOR_PLA1 --> ATC_CASCADE
     REPORTER_LACZ --> ATC_CASCADE
     CHICAGO_CHASSIS --> ATC_SENSING_CELL
     DETECTOR_TETR_ATC --> ATC_SENSING_CELL
+    EFFECTOR_PLA1 --> ATC_SENSING_CELL
+    REPORTER_LACZ --> ATC_SENSING_CELL
     ATC_CASCADE --> CHICAGO_CASCADE
     PH_CASCADE --> CHICAGO_CASCADE
     BASE_CYTOSOL --> CHICAGO_CHASSIS
@@ -89,12 +67,13 @@ flowchart TD
     PH_SENSING_CELL --> PH_CASCADE
     EFFECTOR_PLA1 --> PH_CASCADE
     REPORTER_LACZ --> PH_CASCADE
+    SUBSTRATE_CPRG_SUV --> PH_CASCADE
     CHICAGO_CHASSIS --> PH_SENSING_CELL
     DETECTOR_PH --> PH_SENSING_CELL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class ATC_CASCADE,ATC_SENSING_CELL,BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_PH,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_CASCADE,PH_SENSING_CELL,REPORTER_LACZ constituent;
+    class ATC_CASCADE,ATC_SENSING_CELL,BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_PH,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_CASCADE,PH_SENSING_CELL,REPORTER_LACZ,SUBSTRATE_CPRG_SUV constituent;
     class CHICAGO_CASCADE this;
 
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
@@ -109,6 +88,7 @@ flowchart TD
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
     click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+    click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
 ```
 
 ::::
@@ -116,6 +96,7 @@ flowchart TD
 
 ::::{tab-item} DNA
 
+@Claude: standard DNA callout for missing sequences
 The constructs are those of the two integration paths; no construct is specific to the merge.
 
 :::{table}
@@ -129,10 +110,11 @@ The constructs are those of the two integration paths; no construct is specific 
 
 ::::
 
-::::{tab-item} Cytosol
+::::{tab-item} Cytosol 
 
 :::{table} Cytosol of the merged cascade.
 :label: comp-chicago-cascade-cytosol
+
 
 | Component | Working concentration |
 | --- | --- |
@@ -144,6 +126,22 @@ The constructs are those of the two integration paths; no construct is specific 
 :::{attention} Merged recipe not documented
 @Editor: no combined recipe exists for the two paths together, and the pH path's own combined-recipe concentrations are undocumented. Confirm with the Chicago Node.
 :::
+
+::::
+
+::::{tab-item} Substrate SUV
+
+A second liposome population carrying the chromogenic substrate, entering this cascade through the [pH Cascade](../ph-cascade/spec.md). See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+
+:::{table} Substrate SUV lumen.
+:label: comp-chicago-cascade-suv
+
+| Component | Working concentration |
+| --- | --- |
+| CPRG substrate | Not documented at a reaction concentration for the multiplexed cascade |
+:::
+
+The SUV membrane follows [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md), as specified on [pH Cascade](../ph-cascade/spec.md#reference-composition). The aTc integration path co-encapsulates free CPRG instead, so it contributes no SUV population.
 
 ::::
 
