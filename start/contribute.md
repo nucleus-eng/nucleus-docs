@@ -22,7 +22,7 @@ Nucleus Docs, tools, and reference collections live across several repos in the 
 
 - [Nucleus Docs](https://github.com/nucleus-eng/nucleus-docs) — the documentation site itself, including protocols, specs, and guides
 - [DNA](https://github.com/nucleus-eng/DNA) — the DNA sequence collection
-- [DevNote Archive](https://github.com/nucleus-eng/2026-CERN-OHL-P) — the archive of published DevNotes. Corrections and improvements are welcome here too; maintainers review and cut new versions from accepted PRs.
+- [DevNote Archive](https://github.com/nucleus-eng/nucleus-devnote-archive-1) — the archive of published DevNotes. Corrections and improvements are welcome here too; maintainers review and cut new versions from accepted PRs.
 
 ## Join the discussion
 
