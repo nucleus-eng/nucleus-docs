@@ -71,7 +71,7 @@ See [Detector: Theophylline](../detector-theophylline/spec.md) for the design.
 
 ::::{tab-item} Cytosol
 
-The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concentration, per [Chicago Chassis](../chicago-chassis/spec.md), with DNA added encoding the theophylline riboswitch upstream of PLA1.
+The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concentration, per [Chicago Chassis](../chicago-chassis/spec.md), with DNA added encoding the theophylline riboswitch upstream of an effector gene.
 
 :::{table} Combined synthetic cell reaction, one level deep.
 :label: comp-theo-sensing-cell-cytosol
@@ -79,29 +79,30 @@ The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concen
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
-| [Theophylline Sensing Module](../detector-theophylline/spec.md) | Not established for the PLA1-linked construct | The bulk-cytosol validation construct `pT7-theophylline-LacZ` (`pMN066`) runs at 5 nM final DNA in a 1x reaction ([`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd)), but carries a different downstream gene, so that figure is cited for scale only. |
+| [Theophylline Sensing Module](../detector-theophylline/spec.md) | `pT7-theophylline-LacZ` (`pMN066`) at 5 nM final DNA | The riboswitch drives whichever effector gene sits downstream of it; this is the characterized construct. |
 
 :::
 
-:::{attention} Construct not yet identified
-The PLA1-linked riboswitch construct used in the Chicago integration status material is a separate design from `pT7-theophylline-LacZ` (`pMN066`), the bulk-cytosol validation construct documented on the [Theophylline Sensing Module](../detector-theophylline/spec.md) page. It is not yet named or present in `nucleus-eng/DNA`. Do not link a placeholder or assume the LacZ-reporter construct's sequence applies here — flag for follow-up so the PLA1-linked construct can be identified and submitted to `nucleus-eng/DNA`.
+:::{attention} Construct not yet in `nucleus-eng/DNA`
+`pT7-theophylline-LacZ` (`pMN066`) has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) — the same gap is recorded on [Theophylline Sensing Module](../detector-theophylline/spec.md). Do not link a placeholder or add a length until the construct is submitted and its length verified against the source file.
 :::
 
 ::::
 
 ::::{tab-item} Membrane
 
-:::{table}
+:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
 :label: comp-theov-membrane
 
-| Component   | Target Percentage (%) |
-| ----------- | ---------------------- |
-| POPC        | ~90 (9:1 ratio)         |
-| Cholesterol | ~10 (9:1 ratio)         |
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
 
 :::
 
-Same 9:1 POPC:cholesterol synthetic cell membrane as [Chicago Chassis](../chicago-chassis/spec.md). See that page for the note on how this differs from the default [Base Membrane](../membrane-popc-chol/spec.md) ratio.
+The same membrane as [Chicago Chassis](../chicago-chassis/spec.md), which carries the note on how the 9:1 ratio differs from the default [Base Membrane](../membrane-popc-chol/spec.md).
 
 ::::
 
@@ -109,11 +110,19 @@ Same 9:1 POPC:cholesterol synthetic cell membrane as [Chicago Chassis](../chicag
 
 # Expected Behavior
 
-Per the Chicago integration status material, this Sensing Cell produces PLA1 upon detection of 1 mM theophylline. This result has not yet been independently confirmed by a primary devnote — cite the Chicago integration status material and treat as pending confirmation, consistent with the "PLA1-linked cascade design" discussion on the [Theophylline Sensing Module](../detector-theophylline/spec.md) page.
+## Cytosols
 
-Separately, the bulk-cytosol devnote behind the Theophylline Sensing Module ([`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd)) demonstrates the riboswitch itself converts CPRG faster in the presence of 1.5 mM theophylline than without it, using the LacZ-reporter construct rather than the PLA1-linked construct used here. That result supports the riboswitch's general compatibility with Nucleus Cytosol; it is not a validation of this Sensing Cell's specific PLA1 output.
+The Theophylline Sensing Cell is expected to express whichever effector gene sits downstream of the riboswitch on detection of theophylline in the outer solution, at 1 mM. Which effector that is belongs to the composition a reader builds, not to this Module.
 
-A later bulk-reaction replication found the riboswitch leaky in the LacZ-reporter configuration: without theophylline it still drove LacZ to Abs₅₇₀ ≈ 3.0 AU by 3.5 h, against ≈ 3.9 AU by 1.7 h at 1 mM or 2 mM. Whether the same leakiness applies to the PLA1-linked construct used in this Sensing Cell has not been separately tested — flagged as an open question rather than assumed.
+In bulk Base Cytosol the riboswitch converts CPRG to chlorophenol red faster with 1.5 mM theophylline than without, read by absorbance at 570 nm — see [Colorimetric Readout](../../processes/colorimetric-readout/main.md) and the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) devnote. That establishes the riboswitch works in Nucleus Cytosol.
+
+**Expect leak.** A later bulk replication found the riboswitch expressing its effector without theophylline at close to the induced level: Abs₅₇₀ ≈ 3.0 AU by 3.5 h undosed, against ≈ 3.9 AU by 1.7 h at 1 mM or 2 mM. Dose separates from no-dose in rate rather than in endpoint.
+
+## Cells
+
+:::{warning} Not yet validated
+No synthetic cell result for this Sensing Cell is on record. Both results above are bulk Base Cytosol, so encapsulation is expected to work by construction from [Chicago Chassis](../chicago-chassis/spec.md) rather than demonstrated.
+:::
 
 # Requirements
 
@@ -121,11 +130,11 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires theophylline to cross the membrane and reach the encapsulated riboswitch; the reported result uses 1 mM theophylline in the outer solution.
 
-Per the [Theophylline Sensing Module](../detector-theophylline/spec.md) page, this Sensing Cell must not be co-encapsulated with the aTc Sensing Cell. The mechanism behind that requirement is not established. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence, including a primary figure that runs against the usual inhibition explanation. This page does not restate it.
+Must not use [LacZ / CPRG](../reporter-lacz/spec.md) as its reporter: theophylline is reported to interfere with LacZ activity. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the constraint and the state of the evidence behind it.
 
 # Implementations
 
-Not used in a documented Implementation.
+Not used in a documented Implementation. The [Chicago DevCell](../../implementations/chicago-devcell/main.md) dropped the theophylline sensor before the demo was built.
 
 # Processes
 
@@ -135,7 +144,7 @@ Not used in a documented Implementation.
 # Constituent Modules
 
 - [Chicago Chassis](../chicago-chassis/spec.md)
-- [Theophylline Sensing Module](../detector-theophylline/spec.md) (PLA1-linked configuration — see Reference Composition above for how this differs from that page's bulk-cytosol validation construct)
+- [Theophylline Sensing Module](../detector-theophylline/spec.md)
 
 # Credits
 
