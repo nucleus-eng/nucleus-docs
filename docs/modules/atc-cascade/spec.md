@@ -23,7 +23,7 @@ The aTc Cascade combines its Modules as follows:
 
 - **Sensing input:** [aTc Sensing Cell](../atc-sensing-cell/spec.md) — the `TetO-PLA1` sensing construct, gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the aTc/TetR sensing circuit fires; couples sensing to readout. In the confirmed result, this is co-encapsulated in the same synthetic cell as the sensing construct rather than triggering a separate neighboring liposome.
-- **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG chemistry, co-encapsulated with the sensing and lysis constructs.
+- **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG chemistry, with the enzyme encapsulated and the substrate outside, so color appears only once lysis brings them together.
 
 :::::{tab-set}
 
@@ -88,21 +88,18 @@ The `TetO-PLA1` sensing construct is specified on [Detector: tetR-aTc](../detect
 
 ::::{tab-item} Cytosol
 
-In the confirmed synthetic cell result every component below sits in one compartment, LacZ and CPRG included. The hydrogel format does not work this way — there LacZ is commercial enzyme dispersed through the matrix, outside every liposome. See [Requirements](#requirements).
+The sensing cell interior. It carries the enzyme but not its substrate — see the note under Outer Solution.
 
-:::{table} Synthetic cell reaction, all components co-encapsulated.
+:::{table} Sensing cell interior.
 :label: comp-atc-cascade
 
 | Component | Working concentration |
 | --- | --- |
 | `TetO-PLA1` DNA | 1 nM (headline condition); also tested at 0.5 nM |
 | TetR | 50 nM (headline condition); also tested at 100 nM |
-| CPRG substrate | 0.5 mM |
 | LacZ enzyme | 20 U/mL |
 | Base Cytosol components | At reaction concentration; not separately documented for this cascade |
 :::
-
-Whether aTc is added to the inner or the outer solution is not established.
 
 PLA1 has no row of its own: it is expressed from the `TetO-PLA1` construct already listed, not added as a reagent.
 
@@ -119,6 +116,29 @@ PLA1 has no row of its own: it is expressed from the `TetO-PLA1` construct alrea
 | Cholesterol | 10 |
 | Liss-Rhod PE | 0.1 |
 :::
+
+::::
+
+::::{tab-item} Outer Solution
+
+:::{table} Outer solution.
+:label: comp-atc-cascade-outer
+
+| Component | Working concentration |
+| --- | --- |
+| CPRG substrate | 0.5 mM |
+| aTc | 1 µM — the response saturates at or below this, so higher doses add nothing. See [Expected Behavior](#expected-behavior) for the dose series. |
+:::
+
+:::{important} This cascade must start in the OFF state
+LacZ and CPRG together is the ON state — the enzyme converts the substrate on contact. That is not a fault in the [LacZ Reporter Module](../reporter-lacz/spec.md); it is what the Module does. It is a constraint on any system built to *switch*, this one included: assemble it with the two already in contact and color appears whether or not aTc is present, so the cascade reports nothing.
+
+So LacZ goes inside and CPRG outside, and PLA1 brings them together by rupturing the membrane. The [pH Cascade](../ph-cascade/spec.md) is the mirror image, holding CPRG in an SUV and LacZ outside. Either separation works; starting with none does not.
+:::
+
+In the hydrogel format CPRG is added to the gel **after** UV crosslinking, because crosslinking bleaches it — see [Photopatterning, PEGDA](../../processes/photopattern-pegda/main.md).
+
+Whether aTc is added to the inner or the outer solution is not established.
 
 ::::
 
@@ -144,7 +164,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout is produced by lysis releasing CPRG to LacZ, so this cascade has no bulk-cytosol route.
 
-Requires CPRG and LacZ (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). Where they sit depends on the format rather than on this Module: the confirmed synthetic cell result co-encapsulates both with the sensing and lysis constructs, while the hydrogel format disperses commercial LacZ through the matrix, outside every liposome, and holds CPRG in a separate SUV population.
+Requires LacZ encapsulated with the sensing and lysis constructs, and CPRG in the outer solution (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). **The two must start in separate compartments**, because they react on contact and the cascade has to begin in the OFF state.
 
 Must not be exposed to theophylline, which is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#requirements) for the constraint and the state of the evidence behind it.
 

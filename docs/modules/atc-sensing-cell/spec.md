@@ -10,7 +10,7 @@ site:
 
 # Overview
 
-The aTc Sensing Cell combines the [Chicago Chassis](../chicago-chassis/spec.md) with a `TetO-PLA1` / LacZ-CPRG sensing-and-readout circuit, giving a synthetic cell that reports anhydrotetracycline (aTc) dose as a colorimetric (absorbance) signal. It encapsulates the Modules below into a single synthetic cell: the [aTc Sensing Module](../detector-tetr-atc/spec.md) supplies the `TetO-PLA1` sensing construct, the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger that couples sensing to readout, and the [LacZ Reporter Module](../reporter-lacz/spec.md) supplies the enzyme and CPRG substrate chemistry that produce the visible color change.
+The aTc Sensing Cell combines the [Chicago Chassis](../chicago-chassis/spec.md) with a `TetO-PLA1` sensing circuit and encapsulated LacZ, giving a synthetic cell that reports anhydrotetracycline (aTc) dose as a colorimetric (absorbance) signal. The [aTc Sensing Module](../detector-tetr-atc/spec.md) supplies the `TetO-PLA1` sensing construct and the [PLA1 Lysis Module](../effector-pla1/spec.md) the lysis trigger, both inside the cell along with LacZ from the [LacZ Reporter Module](../reporter-lacz/spec.md). That Module's CPRG substrate stays outside, so the cell starts colorless and lysis is what produces the signal.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 :align: center
 :width: 75%
 
-Schematic representation of the aTc Sensing Cell mechanism. Inside the synthetic cell, the `TetO-PLA1` construct is transcribed and translated to produce PLA1; co-encapsulated LacZ is also expressed. Membrane-permeable aTc (ATC) enters the synthetic cell and (via TetR, not shown) de-represses `TetO-PLA1` expression. CPRG substrate is co-loaded in the same reaction. Figure by Mary Kelly (Chicago Node, Kamat Lab); the data panels of the original are omitted.
+Schematic representation of the aTc Sensing Cell mechanism. Inside the synthetic cell, the `TetO-PLA1` construct is transcribed and translated to produce PLA1; LacZ is co-encapsulated as purified enzyme, with its CPRG substrate outside the cell. Membrane-permeable aTc (ATC) enters the synthetic cell and (via TetR, not shown) de-represses `TetO-PLA1` expression. PLA1 then ruptures the membrane, releasing LacZ to the CPRG outside. Figure by Mary Kelly (Chicago Node, Kamat Lab); the data panels of the original are omitted.
 :::
 
 # Reference Composition
@@ -69,8 +69,6 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `TetO-PLA1` | not documented | — | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
-| TetR repressor | not applicable | — | Co-encapsulated as purified protein |
-| β-galactosidase (LacZ) | not applicable | — | Co-encapsulated as purified enzyme, not expressed |
 :::
 
 See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct.
@@ -79,7 +77,7 @@ See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct
 
 ::::{tab-item} Cytosol
 
-The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the `TetO-PLA1` construct from the [aTc Sensing Module](../detector-tetr-atc/spec.md), and both LacZ protein and CPRG substrate from the [LacZ Reporter Module](../reporter-lacz/spec.md).
+The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the `TetO-PLA1` construct from the [aTc Sensing Module](../detector-tetr-atc/spec.md), and LacZ protein from the [LacZ Reporter Module](../reporter-lacz/spec.md).
 
 :::{table} Combined synthetic cell reaction, one level deep.
 | Module | Working concentration | Notes |
@@ -87,7 +85,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [aTc Sensing Module](../detector-tetr-atc/spec.md) | 1 nM `TetO-PLA1` DNA + 50 nM TetR | Two other DNA/TetR ratios have been characterized — see [Expected Behavior](#expected-behavior). |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by 1 nM `TetO-PLA1` DNA | |
-| [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 20 U/mL; CPRG substrate: 0.5 mM |  |
+| [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 20 U/mL | Enzyme only. CPRG stays in the outer solution — co-encapsulating the two makes the readout constitutive. |
 :::
 
 :::{attention} Reference DNA/TetR ratio not canonical in the source
@@ -110,6 +108,21 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 ::::
 
+::::{tab-item} Outer Solution
+
+:::{table} Outer solution.
+:label: comp-atc-sensing-cell-outer
+
+| Component | Working concentration |
+| --- | --- |
+| aTc | 1 µM — the response saturates at or below this |
+| CPRG substrate | 0.5 mM — kept out of the cell that carries its enzyme |
+:::
+
+The cell has to start in the OFF state, so LacZ and CPRG begin in separate compartments and lysis brings them together. See [LacZ Reporter Module](../reporter-lacz/spec.md#requirements).
+
+::::
+
 :::::
 
 # Expected Behavior
@@ -119,7 +132,7 @@ This configuration detects aTc confirmed in synthetic cytosols and in synthetic 
 Full detail, including the reading of the source figure and why the 0 µM point is a normalization baseline rather than a negative control, is documented in the [aTc Sensing Module](../detector-tetr-atc/spec.md#chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout) spec and is not duplicated here.
 
 :::{caution} Gel integration not yet complete.
-This result is confirmed confirmed in synthetic cytosols and in synthetic cells only.
+This result is confirmed in synthetic cytosols and in synthetic cells only.
 :::
 
 # Requirements

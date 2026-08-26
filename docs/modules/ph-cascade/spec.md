@@ -17,27 +17,6 @@ The pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its o
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Cascade composition is proposed, not a demonstrated combined result
-This page documents a proposed chain of three Modules, not a single validated result for the combination. The pieces have been shown to work in different, partial combinations — see [Expected Behavior](#expected-behavior) below — but no experiment has run the full pH Sensing Cell → PLA1 → LacZ chain together in one format. Do not treat this page as describing a completed cascade.
-:::
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart LR
-    PH["pH Sensing Cell:<br/>pH-responsive ssDNA : trigger ssDNA<br/>(4.625 nM trigger ssDNA, final)"] -->|"pH drops to ~6.5,<br/>toehold switch opens"| PLA1["PLA1 Lysis Module:<br/>toehold-gated PLA1 construct<br/>(2 nM, final)"]
-    PLA1 -->|"PLA1 expressed,<br/>lyses own + neighboring liposome"| LYSIS["Lysis:<br/>CPRG released from<br/>neighboring liposome"]
-    LYSIS -->|"CPRG reacts with<br/>external LacZ"| READOUT["LacZ Reporter Module:<br/>yellow CPRG to purple CPR"]
-    READOUT -.->|"proposed: hydrogel-embedded<br/>Chicago Chassis format"| GEL["Combined, gel-integrated<br/>pH Cascade"]
-
-    classDef confirmed fill:#def5ee,stroke:#009E73,color:#00402e;
-    classDef proposed fill:#f5f5f5,stroke:#999999,color:#555555,stroke-dasharray: 5 5;
-
-    class PH,PLA1,LYSIS,READOUT confirmed;
-    class GEL proposed;
-```
-
-Schematic representation of the confirmed, solution-phase pH Cascade integration path: the pH-sensing toehold switch releases at pH ≈ 6.5 and turns on expression of a co-encapsulated PLA1 construct, which lyses its own liposome and a neighboring CPRG-loaded liposome; the released CPRG then reacts with external LacZ to produce the yellow-to-purple color change. This part of the chain is confirmed at the solution level (see [Reference Composition](#reference-composition) and [Expected Behavior](#expected-behavior) below). The final step — running this same chain inside a hydrogel-embedded Chicago Chassis synthetic cell — is proposed, not yet demonstrated, so it is drawn dashed/gray, matching the proposed-edge convention used in the [module-integration diagram](../chicago-cascade/spec.md). No published schematic exists for this mechanism; the diagram above is a simplified summary, not a reproduction of a lab figure.
-
 # Reference Composition
 
 The pH Cascade combines its Modules as follows:
@@ -162,19 +141,34 @@ A second liposome population carrying the chromogenic substrate. See [Substrate 
 
 ::::
 
+::::{tab-item} Outer Solution
+
+:::{table} Outer solution.
+:label: comp-ph-cascade-outer
+
+| Component | Working concentration |
+| --- | --- |
+| H⁺ | pH 7.4 at rest; a drop to ≈ 6.5 opens the toehold switch |
+| β-galactosidase (LacZ) | Not reported for this cascade configuration; see [LacZ Reporter](../reporter-lacz/spec.md) |
+:::
+
+This cascade is the mirror of the [aTc Cascade](../atc-cascade/spec.md): the substrate is enclosed in the Substrate SUV and the enzyme is out here, rather than the other way round. Either separation keeps the system OFF until lysis.
+
+::::
+
 :::::
 
 # Expected Behavior
 
-No result has been generated for the full pH Sensing Cell → PLA1 → LacZ chain run together. The closest available data are the Module-level results on each Module's own page, none of which is the combined cascade.
+The pH Cascade is expected to turn a drop to pH ≈ 6.5 into a visible yellow-to-purple color change: the toehold switch opens, PLA1 is expressed, and lysis releases CPRG from the substrate population to LacZ in the exterior solution.
 
 ## Cells
 
 - **pH-sensing color change, solution-phase, two-liposome system:** a visible yellow-to-purple color change at pH 6.5, using separate pH-sensing and CPRG-loaded liposome populations in solution. See [pH Sensing Cell](../ph-sensing-cell/spec.md#expected-behavior) for detail.
 - **PLA1-driven lysis coupling to CPRG/LacZ readout:** confirmed at the solution level for the Chicago pH cascade — see [PLA1 Lysis Module](../effector-pla1/spec.md#implementations), "Chicago pH cascade."
 
-:::{warning}
-**Not yet demonstrated as a working multiplexed cascade.** The pH Sensing Cell's own integration into the Chicago Chassis's synthetic cell/hydrogel format is itself still proposed, not confirmed (see [pH Sensing Cell](../ph-sensing-cell/spec.md)). This page's cascade — pH Sensing Cell driving PLA1-triggered lysis and LacZ/CPRG readout, together in one format — has not been run as a single experiment. Keep this cascade's edge into the combined, multiplexed Chicago Cascade dashed/proposed until a gel-integrated, combined result is confirmed.
+:::{warning} Not yet validated as a combined cascade
+The three Modules above have run in partial combinations, never together in one format. The pH Sensing Cell's own integration into the Chicago Chassis synthetic cell and hydrogel format is itself proposed rather than confirmed — see [pH Sensing Cell](../ph-sensing-cell/spec.md).
 :::
 
 ## Gels
@@ -193,7 +187,9 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires two lipid compartments — a sensing/PLA1 liposome and a separate CPRG-loaded liposome (e.g. [Chicago Chassis](../chicago-chassis/spec.md)) — plus β-galactosidase in the exterior solution (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). The readout depends on lysis releasing CPRG from one compartment into another, so this cascade has no bulk-cytosol route.
 
-Do not add gramicidin A to the colorimetric configuration. See [Expected Behavior](#expected-behavior) for why.
+Do not add gramicidin A to the colorimetric configuration. It ruptures a portion of the CPRG-loaded liposomes by itself, producing color that did not come from sensing. Leaving it out costs some pH-sensing efficiency, but proton diffusion into the more permeable liposomes is enough to drive PLA1 expression without it.
+
+Requires a control that separates sensing-driven color from acid-driven leakage. Acidic conditions rupture some CPRG-loaded liposomes on their own, with no PLA1 involved, so color at pH 6.5 is not by itself attributable to the sensing pathway.
 
 # Implementations
 

@@ -134,7 +134,7 @@ Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](http
 
 ::::{tab-item} aTc Sensing Cell
 
-The aTc integration path is one compartment: sensing, lysis and readout are co-encapsulated together, so this population carries its own LacZ and CPRG and needs nothing from the exterior.
+The aTc integration path uses one liposome population. It carries its own LacZ, but not the CPRG that LacZ acts on — that stays in the outer solution, so lysis is what produces color.
 
 :::{table} aTc Sensing Cell cytosol — as on [aTc Cascade](../atc-cascade/spec.md#reference-composition).
 :label: comp-chicago-cascade-atc-cell
@@ -143,7 +143,6 @@ The aTc integration path is one compartment: sensing, lysis and readout are co-e
 | --- | --- |
 | `TetO-PLA1` DNA | 1 nM |
 | TetR | 50 nM |
-| CPRG substrate | 0.5 mM |
 | LacZ enzyme | 20 U/mL |
 | Base Cytosol components | At reaction concentration |
 :::
@@ -178,20 +177,24 @@ A second liposome population carrying the chromogenic substrate, entering this c
 | CPRG substrate | Not documented at a reaction concentration for the multiplexed cascade |
 :::
 
-The aTc integration path co-encapsulates free CPRG instead, so it contributes no SUV population.
+The aTc integration path keeps its CPRG free in the outer solution instead, so it contributes no SUV population.
 
 ::::
 
 ::::{tab-item} Outer Solution
 
-The medium all three populations sit in, and the only compartment with no membrane of its own. The pH integration path reports through LacZ here; the aTc path carries its own LacZ internally and does not depend on it.
+The medium all three populations sit in, the only compartment with no membrane of its own, and where both analytes are presented. Both paths depend on it, in opposite directions: the pH path keeps its LacZ out here and its CPRG in an SUV, while the aTc path keeps its LacZ in the cell and its CPRG out here. Each arrangement is OFF until lysis.
+
+The hydrogel format keeps one enzyme and sequesters every substrate. Commercial LacZ is dispersed through the matrix; CPRG is loaded into SUVs and the preparation is SEC-purified twice specifically to remove unencapsulated CPRG, so no free substrate meets the enzyme before lysis. A second sensing path is intended to bring its own output SUVs carrying an orthogonal substrate — X-gal or catechol rather than CPRG — so that two analytes give two distinguishable colors rather than competing for one.
 
 :::{table} Outer solution.
 :label: comp-chicago-cascade-outer
 
 | Component | Working concentration |
 | --- | --- |
-| β-galactosidase (LacZ) | Not documented at a working concentration for the multiplexed cascade |
+| aTc | 1 µM — the aTc path's analyte, per [aTc Cascade](../atc-cascade/spec.md#reference-composition) |
+| H⁺ | pH 7.4 at rest; a drop to ≈ 6.5 opens the pH path's toehold switch |
+| β-galactosidase (LacZ) | Commercial enzyme dispersed through the matrix; not documented at a working concentration for the multiplexed cascade. One enzyme pool serves the whole gel. |
 | Osmotic balance | Matched to the inner solutions, per [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) |
 :::
 

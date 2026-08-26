@@ -58,7 +58,7 @@ LacZ may also be added as a purifid protein rather than expressed from DNA to 20
 :::{attention} Imputed from the theophylline-gated reaction
 @Editor: no reaction expressing LacZ standalone is on record. Every value above is taken from the theophylline-gated reaction on the [Theophylline Detector](../detector-theophylline/spec.md#reference-composition) spec with the analyte removed — that reaction is this Module plus a riboswitch, so what remains when theophylline is dropped is this Module. Two things that follow are assumptions, not measurements: that a constitutive LacZ construct wants the same 5 nM as a riboswitch-gated one, and that the London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) behave like the Chicago one at that concentration. Confirm both with the Node that runs it.
 
-In synthetic cells LacZ is not expressed at all — it is co-encapsulated as purified enzyme at 20 U/mL with 0.5 mM CPRG. See the [aTc Sensing Cell](../atc-sensing-cell/spec.md).
+In the synthetic cells documented here LacZ is not expressed at all — it is added as purified enzyme at 20 U/mL. Where the two sit relative to each other is the composing system's choice; see the [aTc Sensing Cell](../atc-sensing-cell/spec.md), which encapsulates the enzyme and keeps 0.5 mM CPRG outside.
 :::
 
 ::::
@@ -85,11 +85,13 @@ Kinetics for colorimetric conversion of CPRG into a red product, absorbance at 5
 
 ## Cells
 
-See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ and CPRG in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. 
+See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ, CPRG outside, in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. 
 
 # Requirements
 
-**Where the substrate is encapsulated separately, requires a lysis effector to release it.** LacZ and CPRG produce no signal while the substrate stays inside its own liposome. Co-encapsulating LacZ and CPRG with the sensing circuit in a single synthetic cell needs no lysis effector — it needs an upstream effector that breaches the substrate compartment on cue. In every cascade documented here that effector is the [PLA1 Lysis Module](../effector-pla1/spec.md), and the substrate is the [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+**LacZ and CPRG in one place is the ON state.** The enzyme converts the substrate on contact, so a reaction holding both is already reporting. That is correct behavior for this Module and needs nothing added.
+
+A system that has to *switch* carries the extra requirement, not this Module: it must start in the OFF state, which means keeping enzyme and substrate in separate compartments and providing an effector that breaches one of them on cue. Either side may be the one enclosed — the [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside, the [pH Cascade](../ph-cascade/spec.md) does the reverse with a [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md). In every cascade documented here the effector is the [PLA1 Lysis Module](../effector-pla1/spec.md).
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
@@ -115,7 +117,7 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the colorimetric readout for the aTc and pH cascades. LacZ is co-encapsulated as purified enzyme alongside the sensing construct rather than expressed from DNA, and converts CPRG released from a neighboring Substrate SUV. Sources: [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd), [`chicago-colorimetric-validation`](https://devnotes.nucleus.engineering/articles/019b140b-4888-74fd-b8c9-c2b79a64601e).
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the colorimetric readout for the aTc and pH cascades. LacZ is encapsulated as purified enzyme alongside the sensing construct rather than expressed from DNA, and converts CPRG released from a neighboring Substrate SUV. Sources: [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd), [`chicago-colorimetric-validation`](https://devnotes.nucleus.engineering/articles/019b140b-4888-74fd-b8c9-c2b79a64601e).
 - [London DevCell](../../implementations/london-devcell/main.md): supplies the colorimetric readout for the AHL cascade. LacZ is the enzyme in use and XylE/C23DO is the proposed alternative, not yet run. Both linear-DNA formats have been synthesized and templates prepared; no encapsulated result has been reported. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
 
 # Processes
