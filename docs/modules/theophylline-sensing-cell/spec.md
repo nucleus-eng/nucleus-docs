@@ -11,6 +11,8 @@ site:
 
 The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
 
+Where a colorimetric readout is composed onto it, this Module gates it in time rather than by compartment. The riboswitch supplies its reporter as DNA, so no enzyme exists until theophylline induces expression, and the substrate may sit in the same reaction from the start. That is the alternative to the compartment split the [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md) use.
+
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
@@ -110,7 +112,7 @@ Every result below was nonetheless produced with `pT7-theophylline-LacZ`, the on
 
 :::
 
-The same membrane as [Chicago Chassis](../chicago-chassis/spec.md), which carries the note on how the 9:1 ratio differs from the default [Base Membrane](../membrane-popc-chol/spec.md).
+The same membrane as [Chicago Chassis](../chicago-chassis/spec.md).
 
 ::::
 
@@ -124,7 +126,7 @@ The same membrane as [Chicago Chassis](../chicago-chassis/spec.md), which carrie
 | Theophylline | 1 mM |
 :::
 
-Theophylline crosses the membrane to reach the encapsulated riboswitch. Nothing else is presented from outside — this Module's readout happens inside the cell.
+Theophylline crosses the membrane to reach the encapsulated riboswitch. 
 
 ::::
 
@@ -138,7 +140,7 @@ The Theophylline Sensing Cell drives expression of an effector gene downstream o
 
 In bulk Base Cytosol, LacZ expressed from the riboswitch construct converts CPRG to chlorophenol red faster with 1.5 mM theophylline than without, read by absorbance at 570 nm — see [Colorimetric Readout](../../processes/colorimetric-readout/main.md) and the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) devnote. That establishes the riboswitch works in Nucleus Cytosol.
 
-**Expect leak.** A later bulk replication found the riboswitch expressing its effector without theophylline at close to the induced level: Abs₅₇₀ ≈ 3.0 AU by 3.5 h undosed, against ≈ 3.9 AU by 1.7 h at 1 mM or 2 mM. Dose separates from no-dose in rate rather than in endpoint.
+**Expect leak.** A later bulk replication found the riboswitch expressing its effector without theophylline at close to the induced level: Abs₅₇₀ ≈ 3.0 by 3.5 h undosed, against ≈ 3.9 by 1.7 h at 1 mM or 2 mM. Dose separates from no-dose in rate rather than in endpoint.
 
 ## Cells
 
@@ -152,9 +154,13 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires theophylline to cross the membrane and reach the encapsulated riboswitch; the reported result uses 1 mM theophylline in the outer solution.
 
+Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). This Module satisfies it by supplying no LacZ protein at all.
+
 Must not use [LacZ / CPRG](../reporter-lacz/spec.md) as its reporter: theophylline is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#requirements) for the constraint and the state of the evidence behind it.
 
+:::{warning} Only characterized with incompatible LacZ reporter!
 Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly that pairing, so every result on this page was produced with the reporter the constraint rules out. That is part of why the leak above is hard to attribute — it could be riboswitch leak, or theophylline acting on LacZ. A XylE readout would separate the two, and none has been run. Confirm with the Chicago Node before building on either reading.
+:::
 
 # Implementations
 

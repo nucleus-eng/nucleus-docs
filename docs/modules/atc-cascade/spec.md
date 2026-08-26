@@ -11,7 +11,9 @@ site:
 
 The aTc Cascade turns anhydrotetracycline (aTc) exposure into a visible colorimetric readout. The [aTc Sensing Cell](../atc-sensing-cell/spec.md) supplies the `TetO-PLA1` sensing circuit, the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger, and a colorimetric reporter converts the released substrate into a visible signal.
 
-The whole chain runs in one compartment: the aTc Sensing Cell co-encapsulates the `TetO-PLA1` construct, PLA1 and the LacZ reporter in a single synthetic cell, and that configuration produced the 2026-08-14 aTc-response data.
+The chain spans two phases. The sensing cell encapsulates the `TetO-PLA1` construct and LacZ; CPRG stays outside in the surrounding solution. aTc de-represses `TetO-PLA1`, the expressed PLA1 ruptures the membrane, and the released LacZ reaches the CPRG waiting outside.
+
+That split is what makes the cascade a switch. LacZ and CPRG react on contact, so a build with both in one place reports color from the moment it is assembled, whatever the analyte does. The [pH Cascade](../ph-cascade/spec.md) solves the same problem from the other side, enclosing the substrate rather than the enzyme.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -130,11 +132,7 @@ PLA1 has no row of its own: it is expressed from the `TetO-PLA1` construct alrea
 | aTc | 1 µM — the response saturates at or below this, so higher doses add nothing. See [Expected Behavior](#expected-behavior) for the dose series. |
 :::
 
-:::{important} This cascade must start in the OFF state
-LacZ and CPRG together is the ON state — the enzyme converts the substrate on contact. That is not a fault in the [LacZ Reporter Module](../reporter-lacz/spec.md); it is what the Module does. It is a constraint on any system built to *switch*, this one included: assemble it with the two already in contact and color appears whether or not aTc is present, so the cascade reports nothing.
-
-So LacZ goes inside and CPRG outside, and PLA1 brings them together by rupturing the membrane. The [pH Cascade](../ph-cascade/spec.md) is the mirror image, holding CPRG in an SUV and LacZ outside. Either separation works; starting with none does not.
-:::
+CPRG sits out here rather than with its enzyme; see [Overview](#overview) for why.
 
 In the hydrogel format CPRG is added to the gel **after** UV crosslinking, because crosslinking bleaches it — see [Photopatterning, PEGDA](../../processes/photopattern-pegda/main.md).
 
@@ -164,7 +162,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout is produced by lysis releasing CPRG to LacZ, so this cascade has no bulk-cytosol route.
 
-Requires LacZ encapsulated with the sensing and lysis constructs, and CPRG in the outer solution (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). **The two must start in separate compartments**, because they react on contact and the cascade has to begin in the OFF state.
+Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
 Must not be exposed to theophylline, which is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#requirements) for the constraint and the state of the evidence behind it.
 

@@ -11,7 +11,9 @@ site:
 
 The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md) to turn a drop in pH into a visible colorimetric readout.
 
-The pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome. The released CPRG reacts with LacZ to produce the yellow-to-purple color change.
+The pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome. The released CPRG reacts with LacZ in the exterior solution to produce the yellow-to-purple color change.
+
+Enclosing the substrate is what makes the cascade a switch. LacZ and CPRG react on contact, so a build with both in one place reports color from the moment it is assembled, whatever the pH does. The [aTc Cascade](../atc-cascade/spec.md) solves the same problem from the other side, enclosing the enzyme rather than the substrate.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -152,7 +154,7 @@ A second liposome population carrying the chromogenic substrate. See [Substrate 
 | β-galactosidase (LacZ) | Not reported for this cascade configuration; see [LacZ Reporter](../reporter-lacz/spec.md) |
 :::
 
-This cascade is the mirror of the [aTc Cascade](../atc-cascade/spec.md): the substrate is enclosed in the Substrate SUV and the enzyme is out here, rather than the other way round. Either separation keeps the system OFF until lysis.
+LacZ sits out here rather than with its substrate; see [Overview](#overview) for why.
 
 ::::
 
@@ -185,7 +187,9 @@ The three Modules above have run in partial combinations, never together in one 
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the toehold-switch-gated PLA1 construct, and a drop to pH ≈ 6.5 to open the toehold switch (e.g. [Detector: pH-Sensing](../detector-ph/spec.md)).
 
-Requires two lipid compartments — a sensing/PLA1 liposome and a separate CPRG-loaded liposome (e.g. [Chicago Chassis](../chicago-chassis/spec.md)) — plus β-galactosidase in the exterior solution (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). The readout depends on lysis releasing CPRG from one compartment into another, so this cascade has no bulk-cytosol route.
+Requires two lipid compartments — a sensing/PLA1 liposome and a separate CPRG-loaded liposome (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout depends on lysis releasing CPRG from one compartment into another, so this cascade has no bulk-cytosol route.
+
+Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
 Do not add gramicidin A to the colorimetric configuration. It ruptures a portion of the CPRG-loaded liposomes by itself, producing color that did not come from sensing. Leaving it out costs some pH-sensing efficiency, but proton diffusion into the more permeable liposomes is enough to drive PLA1 expression without it.
 

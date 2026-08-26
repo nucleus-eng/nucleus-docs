@@ -13,6 +13,8 @@ The London Cascade combines the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) 
 
 AHL activates the LuxR/pLux promoter inside the sensing cell. Here that promoter drives a PLA1 construct (`P70lux-PLA1-term`) rather than the GFP payload of the [AHL Sensing Cell](../ahl-sensing-cell/spec.md). Expressed PLA1 ruptures its own liposome and a neighboring CPRG-loaded liposome, releasing CPRG into an exterior β-galactosidase (LacZ) solution, which converts yellow CPRG into magenta chlorophenol red.
 
+Enclosing the substrate is what makes the cascade a switch. LacZ and CPRG react on contact, so a build with both in one place reports color from the moment it is assembled, whatever the AHL does. The [aTc Cascade](../atc-cascade/spec.md) solves the same problem from the other side, enclosing the enzyme rather than the substrate.
+
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
@@ -202,7 +204,11 @@ Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate
 
 Requires AHL (3-oxo-C6-HSL) as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)).
 
-Requires two separate liposome populations — the PLA1-payload sensing population and a CPRG-loaded population (e.g. [London Chassis](../london-chassis/spec.md)) — plus β-galactosidase in the exterior solution (e.g. [LacZ Reporter](../reporter-lacz/spec.md)). The readout depends on PLA1 lysing both compartments to release CPRG, so this cascade has no bulk-cytosol route.
+Requires two separate liposome populations — the PLA1-payload sensing population and a CPRG-loaded population (e.g. [London Chassis](../london-chassis/spec.md)).
+
+The readout depends on PLA1 lysing both compartments to release CPRG, so this cascade has no bulk-cytosol route.
+
+Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
 # Implementations
 

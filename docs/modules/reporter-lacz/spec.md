@@ -89,9 +89,17 @@ See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed syntheti
 
 # Requirements
 
-**LacZ and CPRG in one place is the ON state.** The enzyme converts the substrate on contact, so a reaction holding both is already reporting. That is correct behavior for this Module and needs nothing added.
+**LacZ protein and CPRG in one place is the ON state.** The enzyme converts the substrate on contact, so a reaction holding both is already reporting. That is correct behavior for this Module and needs nothing added.
 
-A system that has to *switch* carries the extra requirement, not this Module: it must start in the OFF state, which means keeping enzyme and substrate in separate compartments and providing an effector that breaches one of them on cue. Either side may be the one enclosed — the [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside, the [pH Cascade](../ph-cascade/spec.md) does the reverse with a [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md). In every cascade documented here the effector is the [PLA1 Lysis Module](../effector-pla1/spec.md).
+A system that has to *switch* carries the extra requirement, not this Module: **no LacZ protein may share a compartment with CPRG until the reporter is turned on, and the trigger must be the only route to contact.** Anything else that brings them together — leakage, premature lysis, a ruptured substrate liposome — reports a signal that did not come from sensing.
+
+How that is arranged is the composing system's choice, and the corpus uses three:
+
+- **Enclose the enzyme.** The [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside.
+- **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior.
+- **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) provides LacZ as DNA rather than protein, so none exists until expression is induced and CPRG may share the reaction from the start.
+
+The first two need an effector to breach the compartment on cue; in every cascade documented here that is the [PLA1 Lysis Module](../effector-pla1/spec.md). The third needs none.
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
