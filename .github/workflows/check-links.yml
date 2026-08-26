@@ -15,6 +15,13 @@ on:
 #     unrelated PR.
 #   * Vendor noise (403/429/5xx/timeout/TLS/HTTP-2 reset) never blocks anything.
 #     See issues #193 and #199.
+#
+# check-anchors.py runs in the same job because it is the same failure domain,
+# and it is the one internal-link failure check-links.py cannot see: MyST binds
+# a link fragment by global identifier and ignores the file path, so an #anchor
+# whose slug is not unique silently resolves to a different page. The file
+# exists and does own the heading, so lychee passes it. See
+# style-guide/conventions.md, Cross-references.
 jobs:
   check-links:
     runs-on: ubuntu-latest
@@ -42,3 +49,16 @@ jobs:
           python3 scripts/check-links.py \
             --blame-changed "origin/${{ github.base_ref }}" \
             docs/
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml
+        run: pip install pyyaml
+
+      # Every page in the TOC, not just docs/ — a colliding identifier anywhere
+      # in the site can capture an anchor written in docs/. Blocks regardless of
+      # which files the PR touched, like every other internal-link failure.
+      - name: Check anchors
+        run: python3 scripts/check-anchors.py
