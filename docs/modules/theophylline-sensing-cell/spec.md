@@ -58,7 +58,6 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | Theophylline riboswitch reporter construct | not documented | — | Expressed in the Sensing Cell |
-| β-galactosidase (LacZ) | not applicable | — | Purified enzyme, not expressed |
 :::
 
 :::{attention} Constructs not in `nucleus-eng/DNA`
@@ -80,6 +79,7 @@ The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concen
 | --- | --- | --- |
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [Theophylline Sensing Module](../detector-theophylline/spec.md) | `pT7-theophylline-LacZ` (`pMN066`) at 5 nM final DNA | The riboswitch drives whichever effector gene sits downstream of it; this is the characterized construct. |
+| [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ 20 U/mL as purified enzyme; CPRG 0.5 mM | Not expressed. See the constraint under [Requirements](#requirements) before pairing this Module with LacZ. | 
 
 :::
 
@@ -110,11 +110,11 @@ The same membrane as [Chicago Chassis](../chicago-chassis/spec.md), which carrie
 
 # Expected Behavior
 
+The Theophylline Sensing Cell drives expression of an effector gene downstream of the riboswitch on detection of theophylline in the outer solution at 1 mM. 
+
 ## Cytosols
 
-The Theophylline Sensing Cell is expected to express whichever effector gene sits downstream of the riboswitch on detection of theophylline in the outer solution, at 1 mM. Which effector that is belongs to the composition a reader builds, not to this Module.
-
-In bulk Base Cytosol the riboswitch converts CPRG to chlorophenol red faster with 1.5 mM theophylline than without, read by absorbance at 570 nm — see [Colorimetric Readout](../../processes/colorimetric-readout/main.md) and the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) devnote. That establishes the riboswitch works in Nucleus Cytosol.
+In bulk Base Cytosol, the riboswitch converts CPRG to chlorophenol red faster with 1.5 mM theophylline than without, read by absorbance at 570 nm — see [Colorimetric Readout](../../processes/colorimetric-readout/main.md) and the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) devnote. That establishes the riboswitch works in Nucleus Cytosol.
 
 **Expect leak.** A later bulk replication found the riboswitch expressing its effector without theophylline at close to the induced level: Abs₅₇₀ ≈ 3.0 AU by 3.5 h undosed, against ≈ 3.9 AU by 1.7 h at 1 mM or 2 mM. Dose separates from no-dose in rate rather than in endpoint.
 

@@ -47,8 +47,6 @@ flowchart TD
     REPORTER_LACZ --> ATC_CASCADE
     CHICAGO_CHASSIS --> ATC_SENSING_CELL
     DETECTOR_TETR_ATC --> ATC_SENSING_CELL
-    EFFECTOR_PLA1 --> ATC_SENSING_CELL
-    REPORTER_LACZ --> ATC_SENSING_CELL
     BASE_CYTOSOL --> CHICAGO_CHASSIS
     MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
 
@@ -76,8 +74,6 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `TetO-PLA1` | not documented | — | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
-| TetR repressor | not applicable | — | Co-encapsulated as purified protein |
-| β-galactosidase (LacZ) | not applicable | — | Co-encapsulated as purified enzyme, not expressed |
 :::
 
 :::{note} Where these constructs are specified
@@ -92,9 +88,9 @@ The `TetO-PLA1` sensing construct is specified on [Detector: tetR-aTc](../detect
 
 ::::{tab-item} Cytosol
 
-Every component below is co-encapsulated in a single synthetic cell.
+In the confirmed synthetic cell result every component below sits in one compartment, LacZ and CPRG included. The hydrogel format does not work this way — there LacZ is commercial enzyme dispersed through the matrix, outside every liposome. See [Requirements](#requirements).
 
-:::{table} Confirmed aTc Cascade integration path (Chicago, 2026-08-14).
+:::{table} Synthetic cell reaction, all components co-encapsulated.
 :label: comp-atc-cascade
 
 | Component | Working concentration |
@@ -146,11 +142,11 @@ This Module has not been validated in hydrogels. The aTc-response result above i
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the `TetO-PLA1` construct, and TetR as the repressor holding it off in the absence of aTc (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)).
 
-Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout is produced by lysis releasing CPRG to co-encapsulated LacZ, so this cascade has no bulk-cytosol route.
+Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout is produced by lysis releasing CPRG to LacZ, so this cascade has no bulk-cytosol route.
 
-Requires CPRG and LacZ co-encapsulated with the sensing and lysis constructs (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)).
+Requires CPRG and LacZ (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). Where they sit depends on the format rather than on this Module: the confirmed synthetic cell result co-encapsulates both with the sensing and lysis constructs, while the hydrogel format disperses commercial LacZ through the matrix, outside every liposome, and holds CPRG in a separate SUV population.
 
-Must not be co-encapsulated with theophylline sensing, which shares this cascade's LacZ/CPRG readout. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the constraint and the state of the evidence behind it.
+Must not be exposed to theophylline, which is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#requirements) for the constraint and the state of the evidence behind it.
 
 # Implementations
 
