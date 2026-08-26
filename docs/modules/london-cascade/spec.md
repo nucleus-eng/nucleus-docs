@@ -9,38 +9,11 @@ site:
 
 # Overview
 
-The London Cascade combines the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter](../reporter-lacz/spec.md) to turn AHL exposure into a visible color change.
-
-AHL activates the LuxR/pLux promoter inside the sensing cell. Here that promoter drives a PLA1 construct (`P70lux-PLA1-term`) rather than the GFP payload of the [AHL Sensing Cell](../ahl-sensing-cell/spec.md). Expressed PLA1 ruptures its own liposome and a neighboring CPRG-loaded liposome, releasing CPRG into an exterior β-galactosidase (LacZ) solution, which converts yellow CPRG into magenta chlorophenol red.
-
-Enclosing the substrate is what makes the cascade a switch. LacZ and CPRG react on contact, so a build with both in one place reports color from the moment it is assembled, whatever the AHL does. The [aTc Cascade](../atc-cascade/spec.md) solves the same problem from the other side, enclosing the enzyme rather than the substrate.
+The London Cascade combines the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter](../reporter-lacz/spec.md) to turn AHL exposure into a visible color change. AHL activates the LuxR/pLux promoter inside the sensing cell, driving expression of PLA1 which then lyses its own liposome and a neighboring CPRG-loaded liposome, releasing CPRG into an outer solution containing β-galactosidase (LacZ), which then converts yellow CPRG into magenta chlorophenol red.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
-
-See the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) spec for the underlying LuxR/pLux sensing data — encapsulation, plasmid dosing, and temperature dependence.
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart LR
-    AHL["AHL (3-oxo-C6-HSL)<br/>5 µM, exterior"] --> SENSE["AHL Sensing Cell:<br/>LuxR/pLux binds AHL,<br/>drives P70lux-PLA1-term<br/>(15 ng/µL DNA)"]
-    SENSE -->|"PLA1 expressed"| LYSIS["PLA1 Lysis Module:<br/>self-lysis of the<br/>sensing synthetic cell"]
-    LYSIS -->|"ruptures neighboring<br/>CPRG-loaded synthetic cell"| RELEASE["CPRG released into<br/>exterior solution"]
-    RELEASE -->|"β-galactosidase"| READOUT["LacZ Reporter:<br/>yellow CPRG →<br/>magenta chlorophenol red"]
-
-    classDef confirmed fill:#def5ee,stroke:#009E73,color:#00402e;
-    classDef leaky fill:#fff3cd,stroke:#b8860b,color:#5c4400;
-
-    class AHL,SENSE,LYSIS,RELEASE confirmed;
-    class READOUT leaky;
-
-    click SENSE "/docs/modules/ahl-sensing-cell/spec"
-    click LYSIS "/docs/modules/effector-pla1/spec"
-    click READOUT "/docs/modules/reporter-lacz/spec"
-```
-
-Schematic representation of the London Cascade mechanism. The readout step is shaded because it is the leaky, only slightly discernible part of the chain (see [Expected Behavior](#expected-behavior)). Rupture is unreliable: synthetic cells do not always rupture.
 
 # Reference Composition
 
@@ -97,7 +70,6 @@ flowchart TD
 | --- | --- | --- | --- |
 | `P70lux-PLA1-term` | not yet determined | — | Expressed in the AHL Sensing Cell; replaces `pLux-GFP` |
 | LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
-| β-galactosidase (LacZ) | not applicable | — | Supplied as purified enzyme in the outer solution, not expressed |
 :::
 
 :::{attention} LuxR supply route unknown
@@ -112,19 +84,16 @@ flowchart TD
 
 ::::{tab-item} AHL Sensing Cell
 
-The [AHL Sensing Cell](../ahl-sensing-cell/spec.md) with `P70lux-PLA1-term` in place of `pLux-GFP`.
+The [AHL Sensing Cell](../ahl-sensing-cell/spec.md), carrying `P70lux-PLA1-term` as its payload in place of `pLux-GFP`.
 
-:::{table} AHL Sensing Cell inner solution, S30 lysate condition.
+:::{table} AHL Sensing Cell inner solution, one level deep.
 :label: comp-london-cascade-sensing
 
-| Component | Working concentration |
-| --- | --- |
-| `P70lux-PLA1-term` plasmid DNA | 15 ng/µL |
-| S30 lysate premix, extract, amino acid mix, sucrose, RNase inhibitor | Not documented for the PLA1 payload; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for the closest documented analog |
-:::
-
-:::{attention} Inner solution not confirmed for the PLA1 payload
-@Editor: confirm with the London Node whether the S30 lysate premix, extract, amino acid mix, sucrose and RNase inhibitor concentrations carry over unchanged from the AHL Sensing Cell when `P70lux-PLA1-term` replaces `pLux-GFP`.
+| Module | Working concentration | Notes |
+| --- | --- | --- |
+| [London Chassis](../london-chassis/spec.md) | S30 Lysate at reaction concentration, in a 100% POPC synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `P70lux-PLA1-term` plasmid at 15 ng/µL final | The payload swap. The Sensing Cell carries `pLux-GFP` at 37 ng/µL instead. The `p70`-driven LuxR cassette is expressed in-reaction at an unrecorded concentration. |
+| [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by `P70lux-PLA1-term` | PLA1 is expressed from the plasmid above, not supplied separately. |
 :::
 
 :::{table} AHL Sensing Cell membrane — [London Membrane: POPC](../membrane-popc/spec.md).
@@ -146,11 +115,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 
 | Component | Working concentration |
 | --- | --- |
-| CPRG substrate | Not reported for this cascade configuration |
-:::
-
-:::{attention} Substrate loading not documented
-@Editor: the CPRG concentration loaded into the Substrate SUVs for this cascade is not recorded. Confirm with the London Node.
+| CPRG substrate | 50 mM at hydration, approx. 30 mg/mL — per [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
 :::
 
 :::{table} Substrate SUV membrane — [London Membrane: POPC](../membrane-popc/spec.md).
@@ -159,6 +124,10 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | Component | Target percentage (%) |
 | --- | --- |
 | POPC | 100 |
+:::
+
+:::{attention} The SUV bilayer here is not the one the Module specifies
+@Editor: [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) specifies a 90:10 POPC:cholesterol bilayer and points at the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). This cascade builds the same lumen into a 100% POPC bilayer instead. Either London's SUVs use a different bilayer than the Module documents, or the Module's Membrane section is Chicago-specific and needs to be generalized. The loading concentration above is bilayer-independent and carries over either way.
 :::
 
 ::::
@@ -171,17 +140,18 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | Component | Working concentration |
 | --- | --- |
 | AHL (3-oxo-C6-HSL) inducer | 5 µM |
-| β-galactosidase (LacZ) | Not reported for this cascade configuration; see [LacZ Reporter](../reporter-lacz/spec.md) for the enzyme's general characterization |
+| β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md) |
 :::
 
 :::{attention} Outer solution incompletely documented
-@Editor: the exterior β-galactosidase concentration and the osmolarity components of the outer solution are not recorded for this cascade. Confirm with the London Node.
+@Editor: two gaps remain. The osmolarity components of the outer solution are not recorded for this cascade — the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) matches inner and outer at ≈ 920 mOsm with potassium L-glutamate, HEPES and glucose, but whether those carry over here is not established. The AHL concentration also differs between the two pages, 5 µM here against 10 µM on the Sensing Cell; confirm which applies to the PLA1 payload.
 :::
 
 ::::
 
 :::::
 
+(london-cascade-expected-behavior)=
 # Expected Behavior
 
 ## Cells
@@ -208,7 +178,7 @@ Requires two separate liposome populations — the PLA1-payload sensing populati
 
 The readout depends on PLA1 lysing both compartments to release CPRG, so this cascade has no bulk-cytosol route.
 
-Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)).
+Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (see [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
 # Implementations
 
@@ -216,17 +186,29 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 # Processes
 
-The London Cascade requires encapsulating two separate liposome populations (the PLA1-payload sensing population and the CPRG-loaded reporter population) and combining them in a shared exterior LacZ solution, following the same synthetic cell mineral-oil phase-transfer route documented on the [London Chassis](../london-chassis/spec.md) and [AHL Sensing Cell](../ahl-sensing-cell/spec.md) specs.
+Six steps, listed in the order they are performed. Every one has a Process page except the first, which needs none, and the fourth, which has none.
 
-:::{attention} Process gap
-The individual steps are documented: [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), [SUV Encapsulation](../../processes/encapsulate-suv/main.md), and [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md). What is **not** documented is the co-incubation step that combines the two liposome populations at the ratio this cascade needs — that remains a gap.
+**Shared**
+
+1. **Reconstitute the cytosol.** [S30 Lysate](../s30-lysate/spec.md) is supplied as a kit — premix, extract and amino acid mix — so it is mixed rather than built from a protocol. This is where the London Cascade departs from a Nucleus Cytosol build, which assembles its cytosol through a documented process.
+
+**Sensing population**
+
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) by emulsion phase transfer: S30 Lysate carrying the LuxR receiver and the `P70lux-PLA1-term` construct, inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
+
+**Reporter population**
+
+3. [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by lipid-film hydration and extrusion, then purifies away unencapsulated CPRG. Residual free CPRG is what produces background color.
+
+**Shared, once both populations exist**
+
+4. **Co-incubate the two populations** in a shared outer solution containing LacZ. No Process page covers this step.
+5. [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) — the gel format the London demo uses. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for how the formats compare.
+6. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, yellow to magenta, read by absorbance and by eye.
+
+:::{attention} The combining step is the one that is missing
+Every technique above is documented. What is not is step 4: the ratio at which the two liposome populations are brought together. A reader can make each population from the pages linked here and still not know how to combine them.
 :::
-
-:::{attention} Exterior LacZ leakage confounds the readout
-Exterior LacZ, or LacZ/CPRG product, leaks after PLA1-triggered lysis. This is an open issue for two-liposome cascades of this kind. A proteinase K treatment — 50 °C for 10 min, then 40 °C for 1 h, then spin down — is a candidate mitigation. See [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md).
-:::
-
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
 
 # Constituent Modules
 

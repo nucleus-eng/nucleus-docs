@@ -12,7 +12,15 @@ This page is a work in progress and not yet ready for use.
 
 Degrade Exterior LacZ uses proteinase K to break down LacZ reporter enzyme that has leaked outside a liposome, cutting the background color signal that this exterior LacZ would otherwise add to a colorimetric readout. Proteinase K is added to the sample, given time to digest the exterior (non-encapsulated) LacZ, then removed by pelleting the liposomes and resuspending them in fresh solution.
 
-This protocol was raised in the 2026-08-14 DevStudio status meeting, in answer to a London question about exterior LacZ leakage from synthetic cells. It responds to a general problem — LacZ that ends up outside a liposome can hydrolyze CPRG (or another chromogenic substrate) in solution and produce color that is not from the intended, liposome-triggered handoff. This affects any DevCells cascade that relies on a clean, lysis-triggered LacZ/CPRG color change, including the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md).
+The problem it addresses is real wherever LacZ is meant to stay inside a compartment: enzyme that ends up outside can hydrolyze CPRG, or another chromogenic substrate, in solution and produce color that did not come from the intended lysis-triggered handoff. See the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) for the lysis step this protects.
+
+:::{attention} This suits one architecture, not every LacZ cascade
+Use it where **LacZ is encapsulated and its substrate is outside** — the [aTc Sensing Cell](../../modules/atc-sensing-cell/spec.md) and the [aTc Cascade](../../modules/atc-cascade/spec.md) both carry LacZ at 20 U/mL inside the cell, with CPRG in the outer solution. There, exterior enzyme is a contaminant and digesting it is exactly the point.
+
+Do not use it where LacZ sits in the outer solution or is dispersed through a gel on purpose. The [London Cascade](../../modules/london-cascade/spec.md), the [pH Cascade](../../modules/ph-cascade/spec.md), and the hydrogel format of the [Chicago Cascade](../../modules/chicago-cascade/spec.md) are all of that kind. Proteinase K does not distinguish one LacZ from another, so in those systems it digests the reporter itself. Their background risk is unencapsulated substrate rather than stray enzyme, and the control for that is the purification step in [SUV Encapsulation](../encapsulate-suv/main.md).
+
+The protocol also assumes a liposome suspension, since it removes the protease by pelleting and resuspending. It has no route to an already-embedded gel.
+:::
 
 :::{attention} Concentrations and volumes not yet specified
 The source material (meeting transcript only; not in the accompanying slide deck) names the steps and temperatures below, but does not give a proteinase K concentration, a reaction volume, or a buffer. This is a real gap, not an oversight in transcription — flag it rather than filling it in. Confirm working values with the team before running this protocol, and update this page once they exist.

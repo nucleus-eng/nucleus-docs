@@ -129,17 +129,37 @@ One line per component that imposes something — not a single generic sentence 
 
 > Requires pT7 transcription and translation (e.g. [Base Cytosol](../docs/modules/base-cytosol/spec.md)).
 
+**One clause per line.** A sentence that joins three requirements with "and" is three requirements. A reader checking whether their system qualifies must first take the sentence apart. Split it yourself.
+
+**`e.g.` names something that satisfies the Requirement. `see` names a cross-reference.** Do not use `e.g.` for the Module that *imposes* the constraint — it reads as though that Module meets it. "Requires that no LacZ protein share a compartment with CPRG (e.g. [LacZ Reporter])" has it backwards: the reporter is the source of the requirement, so write `see`.
+
 There is no path dependence. Given a set of Modules to compose you get a set of Requirements, under one composition operator that is fully transitive. "Per route" is not a thing.
+
+**Dependence on configuration is a different thing, and it is real.** A Module that ships two constructs has a Requirement per construct, and composing it picks one. Write the condition as a trailing clause so the line still reads as a single Requirement:
+
+> Requires sigma-70 transcription and translation, when using `P70lux-PLA1-term` (e.g. [S30 Lysate](../docs/modules/s30-lysate/spec.md)).
+
+Not "Using `P70lux-PLA1-term` requires…", which buries the Requirement behind its condition. Order does not matter; which variant you built does. See the Known gap below — it is the same thing.
 
 A **Requirement** is something the reader must provide, or must avoid, for the Module to function. An **observed property** of the system is Expected Behavior, even when it sounds like a warning. "Gramicidin A causes premature rupture" is a finding. "Do not include gramicidin A" would be a requirement. Write the finding.
 
+**A prohibition asserts a result. Point at the result.** Telling a reader to avoid something claims the system fails otherwise, and that claim needs a figure, a dataset or a citation behind it somewhere on the page. Where none exists, the honest form is the control that would settle it, tagged `@Editor:` like any other gap. `ph-cascade` writes both forms four lines apart — "Do not add gramicidin A to the colorimetric configuration" against "Requires a control that separates sensing-driven color from acid-driven leakage." The second is the one to copy.
+
+A hedge in the supporting prose and an imperative in this section cannot both be right. Theophylline against LacZ is the other page-set where they are, and its own admonition says the mechanism is unestablished.
+
 A requirement the reader must satisfy cannot live in a composition tab.
+
+**Say when the page already satisfies a Requirement it inherited.** A composed Module takes on its constituents' Requirements and can also meet them, and the reader cannot tell the two apart without being told. `atc-sensing-cell` writes the met case:
+
+> Requires pT7 transcription and translation (e.g. [Base Cytosol](../docs/modules/base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../docs/modules/chicago-chassis/spec.md).
+
+**A composed Module lists what a composer must still supply, not everything its parts require.** That follows from "say it once" and from writing for an unknown composer: the constituent pages already hold their own Requirements, and a reader who needs the full set gets it by following the links. Restating an inherited Requirement that this page satisfies makes the page look harder to use than it is; dropping one it does *not* satisfy makes it look easier. Neither is recoverable from the text today.
 
 Every Nucleus construct uses a pT7 promoter unless the page says otherwise, because the system is built for PURE and T7 RNAP. Exceptions are *E. coli* sigma-70 promoters and promoterless cloning vectors. Check each page.
 
 State requirements; do not argue for them.
 
-**Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. Nucleus has not adopted abstract Modules yet. Until it does, the one-page workaround is accepted.
+**Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines, written with the trailing-clause form above. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. Nucleus has not adopted abstract Modules yet. Until it does, the one-page workaround is accepted.
 
 ## Implementations
 

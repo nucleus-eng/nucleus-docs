@@ -68,6 +68,7 @@ Both a self-lysis target and, in the two-liposome cascades, a neighboring [Subst
 
 :::::
 
+(effector-pla1-expected-behavior)=
 # Expected Behavior
 
 ## Cells
@@ -91,14 +92,18 @@ Each summary describes PLA1 working inside a cascade. None isolates PLA1's own p
 Account for both routes rather than assuming a liposome stays intact until the intended trigger.
 :::
 
+(effector-pla1-requirements)=
 # Requirements
 
 Requires an upstream sensing circuit to gate expression (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)), a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-popc/spec.md), [Chicago Membrane](../membrane-popc-chol-chicago/spec.md)), and a downstream reporter enzyme with its chromogenic substrate in a neighboring liposome ([LacZ](../reporter-lacz/spec.md) with [CPRG](../substrate-cprg-suv/spec.md), or [XylE/C23DO](../reporter-xyle/spec.md) with catechol).
 
-Using `T7pro-PLA1-T7term` requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). Using `P70lux-PLA1-term` requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)).
+Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
-Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#expected-behavior) for why.
+Requires sigma-70 transcription and translation, when using `P70lux-PLA1-term` (e.g. [S30 Lysate](../s30-lysate/spec.md)).
 
+Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effector-pla1-expected-behavior) for why.
+
+(effector-pla1-implementations)=
 # Implementations
 
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): PLA1 drives the aTc, pH and theophylline colorimetric readouts.

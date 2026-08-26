@@ -52,11 +52,11 @@ No LacZ-encoding construct referenced by either node has a corresponding file in
 | CPRG | 10 mg/mL | 0.6 mg/mL |
 | RNase inhibitor | 40 000 U/mL | 2000 U/mL |
 
-LacZ may also be added as a purifid protein rather than expressed from DNA to 20 U/mL final.
+LacZ may also be added as a purified protein rather than expressed from DNA to 20 U/mL final.
 :::
 
 :::{attention} Imputed from the theophylline-gated reaction
-@Editor: no reaction expressing LacZ standalone is on record. Every value above is taken from the theophylline-gated reaction on the [Theophylline Detector](../detector-theophylline/spec.md#reference-composition) spec with the analyte removed — that reaction is this Module plus a riboswitch, so what remains when theophylline is dropped is this Module. Two things that follow are assumptions, not measurements: that a constitutive LacZ construct wants the same 5 nM as a riboswitch-gated one, and that the London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) behave like the Chicago one at that concentration. Confirm both with the Node that runs it.
+@Editor: no reaction expressing LacZ standalone is on record. Every value above is taken from the theophylline-gated reaction on the [Theophylline Detector](../detector-theophylline/spec.md#detector-theophylline-reference-composition) spec with the analyte removed — that reaction is this Module plus a riboswitch, so what remains when theophylline is dropped is this Module. Two things that follow are assumptions, not measurements: that a constitutive LacZ construct wants the same 5 nM as a riboswitch-gated one, and that the London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) behave like the Chicago one at that concentration. Confirm both with the Node that runs it.
 
 In the synthetic cells documented here LacZ is not expressed at all — it is added as purified enzyme at 20 U/mL. Where the two sit relative to each other is the composing system's choice; see the [aTc Sensing Cell](../atc-sensing-cell/spec.md), which encapsulates the enzyme and keeps 0.5 mM CPRG outside.
 :::
@@ -70,10 +70,11 @@ In the synthetic cells documented here LacZ is not expressed at all — it is ad
 CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is the substrate used in all confirmed LacZ results on this page. It is prepared fresh or stored at -20 °C in water at 10 mg/mL, and is converted by LacZ from a yellow compound into a magenta/red product, readable by absorbance near 570 nm to 575 nm or by eye.
 
 # Expected Behavior
+LacZ converts CPRG on contact, so a reaction colocalizing both is in the ON state.
 
 ## Cytosols
 
-Absorbance at 570 nm over time shows CPRG converts from yellow to a red product faster in the presence of 1.5 mM theophylline than without it, under the reaction on the [Theophylline Detector](../detector-theophylline/spec.md#reference-composition) spec. This is a single preliminary experiment (one condition each, no replicates reported) demonstrating that the LacZ/CPRG reaction functions in Nucleus Cytosol — it is not a characterization of LacZ turnover independent of a switch, and no bulk-cytosol data exists yet for LacZ expressed standalone (without a sensor fused upstream).
+Absorbance at 570 nm over time shows CPRG converts from yellow to a red product faster in the presence of 1.5 mM theophylline than without it, under the reaction on the [Theophylline Detector](../detector-theophylline/spec.md#detector-theophylline-reference-composition) spec. This is a single preliminary experiment (one condition each, no replicates reported) demonstrating that the LacZ/CPRG reaction functions in Nucleus Cytosol — it is not a characterization of LacZ turnover independent of a switch, and no bulk-cytosol data exists yet for LacZ expressed standalone (without a sensor fused upstream).
 
 :::{figure} cytosol-theophylline-kinetics.png
 :label: fig-lacz-theophylline-kinetics
@@ -87,19 +88,16 @@ Kinetics for colorimetric conversion of CPRG into a red product, absorbance at 5
 
 See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ, CPRG outside, in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. 
 
+(reporter-lacz-requirements)=
 # Requirements
 
-**LacZ protein and CPRG in one place is the ON state.** The enzyme converts the substrate on contact, so a reaction holding both is already reporting. That is correct behavior for this Module and needs nothing added.
+A system that has to *switch* ON requires that LacZ protein is not colocalized with CPRG until the reporter is turned ON, and the trigger must be the only route for these components to come in contact. 
 
-A system that has to *switch* carries the extra requirement, not this Module: **no LacZ protein may share a compartment with CPRG until the reporter is turned on, and the trigger must be the only route to contact.** Anything else that brings them together — leakage, premature lysis, a ruptured substrate liposome — reports a signal that did not come from sensing.
+How to achieve this requirement is a design choice. Here are three example solutions:
 
-How that is arranged is the composing system's choice, and the corpus uses three:
-
-- **Enclose the enzyme.** The [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside.
-- **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior.
-- **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) provides LacZ as DNA rather than protein, so none exists until expression is induced and CPRG may share the reaction from the start.
-
-The first two need an effector to breach the compartment on cue; in every cascade documented here that is the [PLA1 Lysis Module](../effector-pla1/spec.md). The third needs none.
+- **Enclose the enzyme.** The [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside. LacZ can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
+- **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior. CPRG can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
+- **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) co-encapsulates CPRG and DNA encoding LacZ rather than LacZ protein.
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
@@ -110,16 +108,16 @@ The constraint is usually explained as theophylline directly inhibiting the LacZ
 - @Editor: supporting titration data is reported to exist but has not been located. Confirm with the Chicago Node.
 - Every verbal source is hedged, and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
 
-See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for more details.
+See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#detector-theophylline-requirements) for more details.
 :::
 
-:::{attention} Gels requiring UV crosslinking require post-exposure addition of CPRG
+:::{warning} Gels requiring UV crosslinking require post-exposure addition of CPRG
 CPRG preloaded into liposomes photobleaches under the UV exposure used to crosslink PEG-norbornene (PEG4Nb) hydrogels — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-liposome preloaded-CPRG method works as expected. This is a process-level incompatibility specific to the PEG-norbornene chemistry, not a defect in the LacZ/CPRG reaction itself.
 
 **Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
 :::
 
-:::{note} Exterior LacZ leakage confounds the readout
+:::{caution} Exterior LacZ leakage confounds the readout
 LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can confound readout, independent of the photobleaching issue above. A proteinase K treatment (50 °C for 10 min, then 40 °C for 1 h, then spin down) was proposed as a mitigation for exterior LacZ leakage after PLA1-triggered lysis. The protocol is documented at [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). Treat it as proposed, not validated: no result from running it has been reported.
 :::
 

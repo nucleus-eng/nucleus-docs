@@ -62,6 +62,7 @@ A later replication re-runs the same TetR/aTc/C23DO-catechol chemistry as a bulk
 
 :::::
 
+(reporter-xyle-expected-behavior)=
 # Expected Behavior
 
 ## Cytosols

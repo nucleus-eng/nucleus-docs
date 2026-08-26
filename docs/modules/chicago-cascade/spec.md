@@ -9,9 +9,7 @@ site:
 
 # Overview
 
-The Chicago Cascade is the top-level, multiplexed Chicago demo node: two integration paths running side by side in one system, each detecting a different analyte, both reporting through a shared colorimetric readout. The two integration paths are the [aTc Cascade](../atc-cascade/spec.md) and the [pH Cascade](../ph-cascade/spec.md).
-
-The goal is multiplexed detection — aTc and pH sensed in the same reaction, with a visible color change that reflects the combination of the two inputs.
+The Chicago Cascade is the top-level, multiplexed demo from the Chicago Node of DevCells: two integrated synthetic cell detectors embedded in parallel in one system, each detecting a different analyte, both reporting through a shared colorimetric readout. The two module integration paths are the [aTc Cascade](../atc-cascade/spec.md) and the [pH Cascade](../ph-cascade/spec.md).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -22,15 +20,10 @@ Theophylline interferes with the LacZ/CPRG readout, so the theophylline path is 
 
 That is superseded. Chicago is now focused on the aTc and pH sensors (14 Aug 2026 deck, slides 2 and 34, which lists "Two sensors (aTC/pH)"), and the theophylline sensor has been removed from the demo — its riboswitch drives the reporter with no analyte present, so it does not discriminate. See [Theophylline Sensing Module](../detector-theophylline/spec.md).
 
-The theophylline/aTc co-encapsulation constraint remains true and is still documented on the affected Modules. It is simply no longer this cascade's blocker, because theophylline is no longer one of its integration paths.
+The theophylline/aTc colocalization constraint remains plausible but requires testing and is still documented on the affected Modules. 
 :::
 
 # Reference Composition
-
-No combined reference composition exists, and none is given here — not even a hypothetical one. The combination has never been assembled, so there are no working concentrations to report.
-
-Each integration path's own composition is documented on its own page.
-
 :::{attention} Merged recipe not documented
 @Editor: no combined recipe exists for the two paths together. The per-population tables below are each path's own composition, carried over unchanged; nothing records what changes when they share one reaction. Confirm with the Chicago Node.
 :::
@@ -110,15 +103,14 @@ Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](http
 | --- | --- | --- | --- |
 | `TetO-PLA1` | not documented | — | Expressed; see [aTc Cascade](../atc-cascade/spec.md) |
 | Toehold-switch-gated PLA1 template | not documented | — | Expressed; see [pH Cascade](../ph-cascade/spec.md) |
-| pH-responsive ssDNA : trigger ssDNA | not applicable | — | Synthesized oligonucleotides |
-| β-galactosidase (LacZ) | not applicable | — | Purified enzyme, not expressed |
+| pH-responsive ssDNA : trigger ssDNA | not documented | — | Synthesized oligonucleotides |
 :::
 
 ::::
 
 ::::{tab-item} Membrane
 
-**All three populations carry the same membrane.** Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), and the Substrate SUV uses the same lipid composition, so one table covers the aTc Sensing Cell, the pH Sensing Cell and the Substrate SUV alike. That identity is load-bearing — see [Requirements](#requirements).
+**All three populations carry the same membrane.** Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), and the Substrate SUV uses the same lipid composition, so one table covers the aTc Sensing Cell, the pH Sensing Cell and the Substrate SUV alike. That identity is load-bearing — see [Requirements](#chicago-cascade-requirements).
 
 :::{table} Synthetic cell and SUV membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
 :label: comp-chicago-cascade-membrane
@@ -136,7 +128,7 @@ Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](http
 
 The aTc integration path uses one liposome population. It carries its own LacZ, but not the CPRG that LacZ acts on — that stays in the outer solution, so lysis is what produces color.
 
-:::{table} aTc Sensing Cell cytosol — as on [aTc Cascade](../atc-cascade/spec.md#reference-composition).
+:::{table} aTc Sensing Cell cytosol — as on [aTc Cascade](../atc-cascade/spec.md#atc-cascade-reference-composition).
 :label: comp-chicago-cascade-atc-cell
 
 | Component | Working concentration |
@@ -153,7 +145,7 @@ The aTc integration path uses one liposome population. It carries its own LacZ, 
 
 The pH integration path is two compartments. This population carries sensing and lysis only; its substrate is in the Substrate SUV and its LacZ is in the outer solution.
 
-:::{table} pH Sensing Cell cytosol — as on [pH Cascade](../ph-cascade/spec.md#reference-composition).
+:::{table} pH Sensing Cell cytosol — as on [pH Cascade](../ph-cascade/spec.md#ph-cascade-reference-composition).
 :label: comp-chicago-cascade-ph-cell
 
 | Component | Working concentration |
@@ -174,7 +166,7 @@ A second liposome population carrying the chromogenic substrate, entering this c
 
 | Component | Working concentration |
 | --- | --- |
-| CPRG substrate | Not documented at a reaction concentration for the multiplexed cascade |
+| CPRG substrate | 50 mM at hydration, approx. 30 mg/mL — per [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
 :::
 
 The aTc integration path keeps its CPRG free in the outer solution instead, so it contributes no SUV population.
@@ -192,10 +184,10 @@ The hydrogel format keeps one enzyme and sequesters every substrate. Commercial 
 
 | Component | Working concentration |
 | --- | --- |
-| aTc | 1 µM — the aTc path's analyte, per [aTc Cascade](../atc-cascade/spec.md#reference-composition) |
+| aTc | 1 µM — the aTc path's analyte, per [aTc Cascade](../atc-cascade/spec.md#atc-cascade-reference-composition) |
 | H⁺ | pH 7.4 at rest; a drop to ≈ 6.5 opens the pH path's toehold switch |
 | β-galactosidase (LacZ) | Commercial enzyme dispersed through the matrix; not documented at a working concentration for the multiplexed cascade. One enzyme pool serves the whole gel. |
-| Osmotic balance | Matched to the inner solutions, per [Chicago Chassis](../chicago-chassis/spec.md#reference-composition) |
+| Osmotic balance | Matched to the inner solutions, per [Chicago Chassis](../chicago-chassis/spec.md#chicago-chassis-reference-composition) |
 :::
 
 ::::
@@ -204,30 +196,23 @@ The hydrogel format keeps one enzyme and sequesters every substrate. Commercial 
 
 # Expected Behavior
 
-**Status: not attempted.** No experiment has run the two integration paths together. The merge is not blocked; it has not been tried.
-
-There is, however, a known design question standing in front of it, described below.
-
-## Cells
-
-:::{warning} Not yet validated
-This Module has not been validated in synthetic cells.
+:::{warning} Not attempted!
+No experiment has run the two integration paths together. The merge is not blocked; it has not been tried.
 :::
 
+(chicago-cascade-requirements)=
 # Requirements
 
 Requires both integration paths in one system — [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md) — on a shared [Chicago Chassis](../chicago-chassis/spec.md) membrane, reporting through one shared [LacZ Reporter](../reporter-lacz/spec.md).
 
-Requires each integration path's own requirements to hold unchanged. Neither path has a bulk-cytosol route, so this cascade does not either.
+Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation; the pattern itself is an Implementation-level choice, documented on [Chicago DevCell](../../implementations/chicago-devcell/main.md).
 
-Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation; the pattern itself is an Implementation-level choice, documented on [Chicago DevCell](../../implementations/chicago-devcell/main.md).
 
-**Something has to decide what the readout does when both paths fire.** Both the aTc and pH integration paths end at the same LacZ/CPRG chemistry. Two inputs arriving at one output is not, by itself, a design — it needs a stated rule for how the two signals combine. Should the color change when *either* analyte is present, only when *both* are, or only when exactly one is? Each of those is a different device, and each needs a different mechanism.
+:::{attention} Something has to decide what the readout does when both paths fire.
 
-That rule has not been chosen. Until it is, "multiplexed detection" describes an intent rather than a specification.
+@Editor: Both the aTc and pH integration paths end at the same LacZ/CPRG chemistry. Two inputs arriving at one output is not, by itself, a design — it needs a stated rule for how the two signals combine. Should the color change when *either* analyte is present, only when *both* are, or only when exactly one is? Each of those is a different device, and each needs a different mechanism. That rule has not been chosen. Until it is, "multiplexed detection" describes an intent rather than a specification.
 
-:::{attention} This is the cascade's central open question
-Two things follow from it, and both are worth stating plainly.
+This is the cascade's central open question. Two things follow from it, and both are worth stating plainly.
 
 **First, without spatial separation the paths are not independent.** Either analyte alone drives PLA1, and PLA1 lyses every compartment within reach: the aTc path releases its own internal LacZ and CPRG *and* opens the Substrate SUV, while the pH path opens the SUV *and* the aTc cell, releasing that cell's LacZ. Color appears by several routes with only one analyte present. This is not the readout chemistry being shared — it is the membrane being shared, with an effector that does not discriminate.
 
@@ -238,15 +223,37 @@ Two things follow from it, and both are worth stating plainly.
 So the choice of rule is not a labeling decision to make at write-up time. It determines what has to be built.
 :::
 
-**A second, separate question.** The pH path's readout adds a neutralization buffer step before the color develops, while the aTc path reads out directly. @Editor: whether one shared readout can serve both paths when one requires a pH adjustment is unresolved. Confirm with the Chicago Node.
-
 # Implementations
 
 This cascade is the sensing core of the [Chicago DevCell](../../implementations/chicago-devcell/main.md), which places it in a hydrogel and adds spatial patterning. That page carries the demo-level status.
 
 # Processes
 
-No combined assembly process exists. Both integration paths are formed by the same method — see [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — and both are embedded and read out through the processes listed on their own pages. What is missing is not a technique for making either path, but the step that brings them together and the mechanism that combines their outputs.
+Every step below has a Process page. They are listed in the order they are performed.
+
+**Shared**
+
+1. [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) — the cell-free reaction both integration paths run on.
+
+**aTc integration path**
+
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the aTc Sensing Cell, carrying `TetO-PLA1`, TetR and LacZ in one compartment.
+
+**pH integration path**
+
+3. [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — anneals the sensing and trigger strands into the single duplex reagent, before encapsulation.
+4. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the same method as the aTc cell, with a different inner solution: the duplex and the toehold-gated PLA1 template, and no LacZ.
+5. [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by film hydration and extrusion, then purifies away unencapsulated CPRG.
+
+**Shared, once the populations exist**
+
+6. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests LacZ that escaped the aTc cells, which would otherwise meet CPRG with no lysis and add background color. Proteinase K does not distinguish one LacZ from another, so this step suits a format where the enzyme is encapsulated. It cannot be applied to the hydrogel format described above, which disperses commercial LacZ through the matrix on purpose.
+7. Embedding — either [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md), the format the current demo uses, or [Photopatterning, PEGDA](../../processes/photopattern-pegda/main.md), which supplies the spatial separation the Requirements section calls for. Which one is an Implementation choice; see [Chicago DevCell](../../implementations/chicago-devcell/main.md).
+8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
+
+The PEGDA route reorders the last two steps: UV bleaches CPRG, so CPRG goes into the gel after crosslinking rather than being embedded with everything else.
+
+No process covers the step that would make this cascade one system rather than two — bringing both integration paths into a single gel. Every technique above is documented for one path or the other. What is absent is the merge, and the mechanism that resolves two outputs into one readout.
 
 # Constituent Modules
 

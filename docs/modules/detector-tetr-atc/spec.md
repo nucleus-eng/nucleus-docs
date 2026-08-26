@@ -22,12 +22,22 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 :::::{tab-set}
 
 ::::{tab-item} DNA
+
 :::{table}
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
 | `pT7-tetR` | 2877 | [pOpen-tetR.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-tetR.gb) |
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
+| `T7-tetO-deGFP` | not documented | not yet in `nucleus-eng/DNA` |
+| `TetO-PLA1` | not documented | not yet in `nucleus-eng/DNA` |
 :::
+
+The first two constructs are this Module's Reference Composition. The other two swap the reporter out and appear only in results: deGFP under [Replicated in Nucleus Cytosol](#replicated-in-nucleus-cytosol), and PLA1 driving a colorimetric readout under [TetO-PLA1 encapsulated with LacZ](#teto-pla1-encapsulated-with-lacz).
+
+:::{attention} Two constructs are not yet in `nucleus-eng/DNA`
+@Editor: neither `T7-tetO-deGFP` nor `TetO-PLA1` has a sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. Both are distinct from `pT7-tetO-plamGFP`, so do not read either name as an identity claim against `pOpen-pT7-tetO.gb`. Flag for follow-up so both can be submitted before this page is used at the bench.
+:::
+
 ::::
 
 ::::{tab-item} Cytosol
@@ -98,6 +108,25 @@ Induction of `pT7-tetO-plamGFP` by aTc at steady state. TetR repressor protein i
 
 :::::
 
+### Replicated in Nucleus Cytosol
+
+The results above are from NEB PURExpress. The Module has since been re-run in [Base Cytosol](../base-cytosol/spec.md), swapping the plamGFP reporter for deGFP, and both repression and aTc induction carry over.
+
+Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated reporter to under a tenth of its plateau, and adding aTc recovers about two thirds of it — so repression is close to complete at this TetR concentration, while induction is substantial but partial.
+
+:::{figure} cytosol-nucleus-degfp-kinetics.png
+:name: fig-tetr-atc-nucleus-degfp
+:align: center
+
+`T7-tetO-deGFP` in Nucleus Cytosol: unregulated, repressed with 500 nM TetR, and induced with 500 nM TetR plus aTc, alongside a cytosol control reaction. Fluorescence is normalized to 1 µM fluorescein, and shaded bands are the spread across replicates.
+:::
+
+The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#reporter-xyle-expected-behavior) spec.
+
+:::{attention} Inducer concentration not recorded
+@Editor: the aTc concentration used for the induced condition is not recorded. Confirm it before this result is used at the bench. The construct gap is noted in the DNA tab under Reference Composition.
+:::
+
 ## Cells
 
 :::{figure} detector-overview.png
@@ -124,35 +153,36 @@ GFP expression within synthetic cells when induced with 312.5 nM anhydrotetracyc
 
 The TetR detector cell functions when induced with low-nanomolar aTc concentrations. Higher concentrations begin to inhibit expression or confound analysis due to background aTc fluorescence and membrane localization.
 
-### Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)
+### TetO-PLA1 encapsulated with LacZ
 
-:::{attention} Synthetic-cell data only
-The `TetO-PLA1` construct is co-encapsulated with LacZ; CPRG stays in the outer solution, so lysis is what brings enzyme and substrate together. The data below cover synthetic cytosols and synthetic cells only — hydrogel-embedded validation has not been performed.
+A second configuration replaces the plamGFP reporter with a `TetO-PLA1` construct and co-encapsulates LacZ protein at 20 U/mL, leaving 0.5 mM CPRG in the outer solution. aTc de-represses `TetO-PLA1`, PLA1 ruptures the membrane, and the released LacZ reaches the CPRG outside, so the readout is the [LacZ Reporter Module](../reporter-lacz/spec.md)'s color change at 575 nm rather than fluorescence. This configuration detects aTc in synthetic cells, but the response is **not graded**.
+
+Three DNA/TetR pairs — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — were each dosed at 0, 1, 5, and 10 µM aTc, and fold change in absorbance was measured at 5 h (n = 3). Every pair separates dosed from undosed by roughly 1.15× to 1.33×. None is monotonic in dose, and the spread across the 1, 5, and 10 µM points overlaps in all three. Expect the response to saturate at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.
+
+:::{figure} cell-lacz-readout-endpoint.png
+:name: fig-tetr-atc-lacz-endpoint
+:align: center
+
+Fold change in absorbance at 575 nm after 5 h, relative to the undosed condition, for three DNA/TetR pairs dosed at 0, 1, 5, and 10 µM aTc. Points are the three replicates. LacZ is encapsulated at 20 U/mL, with CPRG at 0.5 mM outside. Figure by Mary Kelly (Chicago Node, Kamat Lab).
 :::
 
-A separate, Chicago-specific implementation encapsulates a `TetO-PLA1` construct — not `pT7-tetO-plamGFP` above — together with LacZ in a synthetic cell, with CPRG outside, reading out through the LacZ/CPRG colorimetric reaction (absorbance at 575 nm) instead of GFP fluorescence. This configuration detects aTc in synthetic cytosols and in synthetic cells, but the response is **not graded**. The source figure reports fold change in absorbance at 5 h (n = 3) across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each dosed with 0, 1, 5, and 10 µM aTc.
+**The 0 µM condition is the normalization baseline, not a negative control.** Fold change is taken against it, which is why every panel's 0 µM bar sits at exactly 1.0 with no spread — that bar reports the arithmetic, not a measurement. The controls that bound the assay are on the raw absorbance trace instead, where a reaction with no DNA template reaches nearly the same absorbance at 5 h as an undosed one. Most of the signal is therefore template-independent, and aTc recovers only part of the distance to a fully de-repressed reaction.
 
-Every combination separates dosed from undosed, at roughly 1.15× to 1.33× fold change. None shows a monotonic increase with dose: the response peaks at 1 µM in the first combination and at 5 µM in the third, and the error bars across the 1, 5, and 10 µM points overlap in all three. Read this as **saturating at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.**
+::::{hint} Most of the absorbance develops with no DNA template at all
+:class: dropdown
 
-:::{attention} The 0 µM point is a baseline, not a negative control
-Values are fold change normalized to the 0 µM condition, so that point is 1.00 by construction. The source figure contains no −TetR or −DNA control panel. An earlier revision of this page cited those controls; that citation was not supported by the figure and has been removed.
+:::{figure} cell-lacz-readout-kinetics.png
+:name: fig-tetr-atc-lacz-kinetics
+:align: center
+
+Absorbance at 575 nm over 5 h, for 1 nM `TetO-PLA1` DNA with 50 nM TetR. The reaction without TetR is de-repressed throughout and reads highest; the three aTc-dosed conditions overlap one another; the undosed reaction and the no-DNA control run close together at the bottom. Figure by Mary Kelly (Chicago Node, Kamat Lab).
 :::
 
-:::{warning}
-**Gel integration not yet complete.** This result is confirmed in synthetic cytosols and in synthetic cells only. Hydrogel integration is in early stages and has not been completed. Do not treat this construct as validated for hydrogel-embedded (Cascade) use yet.
-:::
+::::
 
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
-
-This Module must not be co-encapsulated with the [Theophylline Sensing Module](../detector-theophylline/spec.md) (for example, in the Chicago Cascade). Both read out through the same LacZ/CPRG chemistry, and the 2026-08-14 meeting resolved to make the two mutually exclusive in the current Chicago Cascade design.
-
-The requirement is settled. The mechanism usually given for it — theophylline inhibiting the LacZ/CPRG conversion — is **not** established, and the only primary figure available points the other way. See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for the evidence on both sides; do not restate the inhibition mechanism as fact.
-
-:::{attention} Mutual exclusion — not a general compatibility rule
-This constraint applies to the current Chicago Cascade, where both sensing modules would share the same LacZ/CPRG readout. It is not yet established as a general nucleus-wide compatibility rule between the two Modules.
-:::
 
 # Implementations
 
@@ -160,4 +190,4 @@ This constraint applies to the current Chicago Cascade, where both sensing modul
 
 # Credits
 
-Developed by Yen-Yu Hsu (b.next).
+Developed by Yen-Yu Hsu (b.next), with the encapsulated LacZ/CPRG configuration by Mary Kelly (Chicago Node, Kamat Lab).
