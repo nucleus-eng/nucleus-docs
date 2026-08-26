@@ -48,6 +48,7 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 python3 scripts/check-dropdowns.py      # flag placeholder-only lists
 python3 scripts/check-file-placement.py # flag content files outside allowed dirs
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
+python3 scripts/check-anchors.py        # flag #anchors MyST binds to the wrong page
 python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
@@ -235,7 +236,16 @@ Pages use MyST admonition nesting with `:::` fences. Process pages follow a cons
 3. `# Protocol` with `##` subsections and checklist steps (`- [ ]`)
 4. `# Downloads` grid with cards linking to PDF lab protocol and Bill of Materials
 
-Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes. Cross-references use MyST `{ref}` syntax for same-page targets and standard markdown links for cross-page references.
+Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes.
+
+**Never link to a bare section heading anchor.** MyST resolves `#anchor` by global identifier and ignores the file path, so any heading name shared across pages — `#overview`, `#requirements`, `#expected-behavior`, `#reference-composition`, `#implementations` — binds to whichever page won and silently sends the reader elsewhere. This is not theoretical: 25 links broke this way, including `../reporter-xyle/spec.md#expected-behavior` landing on the POPC/Chol membrane spec and `ph-cascade`'s own `[Overview](#overview)` leaving `docs/` for a getting-started page. Same-page and cross-page links are both affected.
+
+Two forms are safe:
+
+- **No fragment** — `[LacZ Reporter Module](../reporter-lacz/spec.md)`. Builds as a plain `link` node and resolves by path.
+- **A unique label** — put `(reporter-lacz-requirements)=` on the line above the target heading, then link to `../reporter-lacz/spec.md#reporter-lacz-requirements`. Name labels `<module-directory>-<section-slug>`; that is unique by construction and readable at the link site.
+
+**`check-links.py` cannot see this failure** — the named file exists and does own that heading, so a mis-binding link passes every check. `python3 scripts/check-anchors.py` is the guard: it collects every identifier each page defines, flags any link whose fragment is defined on more than one page, and runs from sources in under a second. It reports ambiguity rather than current mis-binding, because an anchor that happens to land right today is correct by luck — MyST does not prefer the local page. Audit against the built AST instead: in `_build/site/content/*.json`, a correct same-page anchor is a `crossReference` with `resolved: true` and no `url`, while a colliding one carries a `url` pointing at another page. Do not filter such a scan on `urlSource`; same-page links have none, so a scan keyed on it reports a confident zero.
 
 **Internal links in inline HTML must use `.md` extensions, not `.html`.** MyST resolves internal links via the source `.md` paths. Using `.html` in an `<a href="...">` tag produces a 404 on the deployed site. This applies to all inline HTML links (e.g. version badges, quick-link pills) — always write `href="./path/to/page.md"`, never `href="./path/to/page.html"`.
 
@@ -420,7 +430,11 @@ Tolerated failures are normal and expected: a clean run currently reports ~120 o
 
 **Anchor fragments are checked, with a MyST correction applied.** A link to `spec.md#some-heading` is verified against the target's real headings and labels. lychee alone cannot be trusted here: it slugs headings the GitHub way, MyST does not, and the two disagree whenever a heading contains spaced or doubled punctuation — GitHub turns `" / "` into `--`, MyST collapses it to `-`. MyST builds the deployed site, so the wrapper re-tests every fragment lychee rejects against MyST's own rule (`myst_html_id`, a port of `createHtmlId` in `myst-common`) and drops the ones MyST would resolve. It also collects `:label:`, `:name:` and `(target)=` anchors, which lychee cannot see at all. `tests/test_myst_slug.py` pins the slug rule — MyST is not a Python dependency, so nothing else would notice it drifting. Renaming a heading is therefore a link change: run the checker after any rename.
 
-**What it does not catch.** Staleness detection only works where a vendor returns an honest status code, so its reach is narrower than it looks:
+**What it does not catch.** Two blind spots, one internal and one external.
+
+The internal one is **anchors that resolve to the wrong page**. The checker verifies that the named file exists and owns the heading, which is true even when MyST binds the anchor to a different page entirely — see the bare-anchor rule under *MyST syntax conventions* above. A clean run says nothing about where those links actually land.
+
+Externally, staleness detection only works where a vendor returns an honest status code, so its reach is narrower than it looks:
 - **Sigma-Aldrich and Cytiva never return one** — they reset the connection before any HTTP status. Between them that's ~40% of external links, and a discontinued part number there is undetectable at any frequency.
 - **Soft-404s are invisible** — a vendor serving "product not found" with HTTP 200 reads as a healthy link.
 

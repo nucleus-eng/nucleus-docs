@@ -78,7 +78,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
-| [pH-Sensing Module](../detector-ph/spec.md) | Toehold-switch template 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.8 nM trigger ssDNA | As specified on [pH-Sensing Module](../detector-ph/spec.md#reference-composition). Whether encapsulation changes either figure is not recorded. |
+| [pH-Sensing Module](../detector-ph/spec.md) | Toehold-switch template 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.8 nM trigger ssDNA | As specified on [pH-Sensing Module](../detector-ph/spec.md#detector-ph-reference-composition). Whether encapsulation changes either figure is not recorded. |
 
 :::
 
@@ -102,6 +102,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 See each Module's spec for its own reference composition and requirements.
 
+(ph-sensing-cell-expected-behavior)=
 # Expected Behavior
 
 The pH Sensing Cell is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Chicago Membrane — in solution. Neither has been embedded into a hydrogel.

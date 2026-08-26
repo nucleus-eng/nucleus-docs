@@ -15,6 +15,7 @@ The Theophylline Sensing Module is a translational riboswitch, designed by [Lync
 This page is a work in progress and not yet ready for use.
 :::
 
+(detector-theophylline-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -93,6 +94,7 @@ This is a single preliminary experiment with no replicates and no positive contr
 This Module has not been validated in synthetic cells.
 :::
 
+(detector-theophylline-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). Requires the effector gene positioned downstream of the riboswitch, and presence of theophylline to switch on effector gene expression.

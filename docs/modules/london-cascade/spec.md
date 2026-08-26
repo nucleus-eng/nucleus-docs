@@ -40,7 +40,7 @@ flowchart LR
     click READOUT "/docs/modules/reporter-lacz/spec"
 ```
 
-Schematic representation of the London Cascade mechanism. The readout step is shaded because it is the leaky, only slightly discernible part of the chain (see [Expected Behavior](#expected-behavior)). Rupture is unreliable: synthetic cells do not always rupture.
+Schematic representation of the London Cascade mechanism. The readout step is shaded because it is the leaky, only slightly discernible part of the chain (see [Expected Behavior](#london-cascade-expected-behavior)). Rupture is unreliable: synthetic cells do not always rupture.
 
 # Reference Composition
 
@@ -182,6 +182,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 
 :::::
 
+(london-cascade-expected-behavior)=
 # Expected Behavior
 
 ## Cells

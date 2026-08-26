@@ -16,7 +16,7 @@ The companion notebook `platereader.ipynb` runs the same code without the explan
 
 ## Table of Contents
 1. [Setup](#setup)
-2. [Load Data](#load-data)
+2. [Load Data](#kinetics-tutorial-load-data)
 3. [Plot Raw Curves](#plot-curves)
 4. [Normalize Data](#normalize)
 5. [Kinetic Analysis](#kinetic-analysis)
@@ -54,6 +54,7 @@ from cdk.instruments import platereader as pr
 
 ---
 
+(kinetics-tutorial-load-data)=
 ## 2. Load Data
 
 Load your plate reader output and merge it with the platemap (see [DevNote](https://devnotes.nucleus.engineering/articles/Bhasin-20260421)) that describes your experimental conditions.

@@ -14,6 +14,7 @@ The Chicago Chassis is used for the Chicago Node's DevStudio Demo and combines [
 This page is a work in progress and not yet ready for use.
 :::
 
+(chicago-chassis-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}

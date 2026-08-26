@@ -31,7 +31,22 @@ No hedge words. "Preparations", not "Documented Preparations".
 
 Figure captions name the figure type: "Schematic representation of X in the Base Cell", not "X in the Base Cell".
 
-Renaming *or removing* a heading is a link change, because inbound anchors do not follow it. Deleting a section this guide bans — revision history, future work — is the common case. `check-links.py` verifies fragments against MyST's slug rule; run it after any such edit.
+Renaming *or removing* a heading is a link change, because inbound anchors do not follow it. Deleting a section this guide bans — revision history, future work — is the common case. `check-links.py` verifies fragments against MyST's slug rule; run it after any such edit. See [Cross-references](#cross-references) for which anchors are safe to write in the first place.
+
+## Cross-references
+
+**Never link to a bare section slug.** MyST resolves `#anchor` by global identifier and ignores the file path. Every module spec has a heading called Overview, Requirements, Expected Behavior, so those slugs collide across pages and bind to whichever page won — the reader lands somewhere else entirely. `../reporter-xyle/spec.md#expected-behavior` went to the POPC/Chol membrane spec. The pH Cascade's own `[Overview](#overview)` left the docs for a getting-started page.
+
+`check-links.py` cannot catch this. The named file exists and does own that heading, so the link passes; MyST simply never reads the path. Twenty-five links broke this way before anyone noticed.
+
+Two forms are safe:
+
+- **No fragment** — `[LacZ Reporter Module](../reporter-lacz/spec.md)`. This builds as a plain link and resolves by path. Use it when the whole page is the destination, which is most of the time.
+- **A unique label** — put `(reporter-lacz-requirements)=` on the line above the target heading, then link to `../reporter-lacz/spec.md#reporter-lacz-requirements`. Name labels `<module-directory>-<section-slug>` so they are unique by construction and readable at the link site.
+
+Same-page links follow the same rule: `[Overview](#overview)` is broken, `[Overview](#ph-cascade-overview)` is not.
+
+Audit against the built AST, never the source. In `_build/site/content/*.json`, a correct same-page anchor is a `crossReference` with `resolved: true` and **no** `url`; a colliding one carries a `url` pointing at another page. Do not filter such a scan on `urlSource` — same-page links do not have one, so a scan keyed on it reports a confident zero.
 
 ## Figures
 
@@ -87,10 +102,13 @@ codespell docs/
 python3 scripts/check-composition-tabs.py
 python3 scripts/check-implementations.py
 python3 scripts/check-links.py --offline-only docs/
+python3 scripts/check-anchors.py
 python3 scripts/check-dna-refs.py
 python3 scripts/check-dropdowns.py && python3 scripts/check-toc.py && python3 scripts/check-file-placement.py
 grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):'
 ```
+
+`check-anchors.py` catches the failure in [Cross-references](#cross-references) — an `#anchor` whose slug is not unique, which MyST binds to whichever page won. It reads sources only, so it runs in well under a second and needs no build.
 
 `check-dna-refs.py` reads a local checkout of `nucleus-eng/DNA`, so CI never runs it and only a local run will catch a Designs table whose bp claim disagrees with the target's GenBank `LOCUS`. That link resolves, so no other check sees it.
 

@@ -59,8 +59,9 @@ Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean
 
 # Processes
 
-No process page builds this Module: S30 Lysate is supplied as a kit. See [Materials](#materials) for the catalog entry.
+No process page builds this Module: S30 Lysate is supplied as a kit. See [Materials](#s30-lysate-materials) for the catalog entry.
 
+(s30-lysate-materials)=
 # Materials
 
 :::{table} Kit and reagents used in the S30/POPC encapsulation experiment.

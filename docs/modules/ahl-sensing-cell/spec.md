@@ -14,6 +14,7 @@ The AHL Sensing Cell combines the [London Chassis](../london-chassis/spec.md) wi
 This page is a work in progress and not yet ready for use.
 :::
 
+(ahl-sensing-cell-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -135,7 +136,7 @@ In [S30 Lysate](../s30-lysate/spec.md), the AHL-gated [colorimetric](../../proce
 :::
 
 :::{attention} Plasmid concentration is two conflicting figures, not a range
-@Editor: the source gives 37 ng/µL in its reaction table and 80 ng/µL in its prose. The [Reference Composition](#reference-composition) above uses 37 ng/µL. Confirm with the London Node which applies.
+@Editor: the source gives 37 ng/µL in its reaction table and 80 ng/µL in its prose. The [Reference Composition](#ahl-sensing-cell-reference-composition) above uses 37 ng/µL. Confirm with the London Node which applies.
 :::
 
 ## Gels
