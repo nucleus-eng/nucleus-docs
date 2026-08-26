@@ -17,7 +17,7 @@ project:
       children:
         - file: ./guides/nucleus-hub/nucleus-hub.md
         - file: ./docs/dna-distro.md
-        - file: ./guides/contribution-guide.md
+        - file: ./start/contribute.md
     - file: ./docs/modules/modules-main.md
       children:
         - file: ./docs/modules/membrane-popc-chol/spec.md

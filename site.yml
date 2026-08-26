@@ -16,6 +16,8 @@ site:
       url: https://devnotes.nucleus.engineering/
     - title: Forum
       url: https://forum.nucleus.engineering/
+    - title: Contribute
+      url: /start/contribute
     # - title: Help
     #   children:
     #   - title: Forum

@@ -1,55 +1,33 @@
 ---
-title: Nucleus Workflow
+title: Contribute
 ---
 
-This document describes at a high level the end-to-end workflow of using and contributing to the Nucleus Distribution. [optional] The following page describes each step in much greater detail. 
+There are several ways to contribute to Nucleus: through Developer Notes, issues and pull requests on our repos, and discussion on the Forum. Here's where to start, depending on what you're looking to do.
 
-It is interesting to consider that since there is substantial cost and effort to get started as a user, the marginal cost of contributing is rather small. This means every user ought to be a constributor. 
+## Share a result (DevNote)
 
-## Sourcing materials
+Developer Notes (DevNotes) are the primary way to contribute science to Nucleus. They're a way to quickly share plans, results, and replications with the developer community, and can lead to changes in Nucleus Docs, including new Modules, Processes, and Implementations.
 
-It all starts with sourcing materials. Most materials are bought from third party vendors. Every instance includes a bill of materials and recommended vendors to source them from. Other materials such as the plasmids contained in the Nucleus DNA Distribution and Nucleus Reagent Kits can be acquired from b.next. 
+The DevNote creation workflow is actively evolving, so rather than duplicate it here, start with:
 
-- Instance bill of material
-- Nucleus DNA Distribution
-- Nucleus Reagent Kits
+- [Getting Started: From Zero to DevNote](./first-guide.md) — the full walkthrough, from using the Distribution through posting your first DevNote
+- [Getting Started with Developer Notes](../guides/developer-notes/developer-notes.md) — the tool mechanics, including Curvenote setup, live preview, draft submit, and submission
+- [DevNote template](https://github.com/nucleus-eng/devnote-template) — the project template pulled into Nucleus Hub when you start a new DevNote
 
-## Preparing your lab for synthetic cell work
+Once your DevNote exists, see the [Contribution Guidelines](../guides/contribution-guide.md) for what makes a submission more likely to be integrated into the Distribution.
 
-We have a number of guide that walk you through best practices for making and storing foundational stocks so that you can easily get started working on cytosols, cells, and assemblies.
+## Contribute to a repo
 
-- guide for buffers
-- guide for transformations
-- best practices for experimental design
+Nucleus Docs, tools, and reference collections live across several repos in the [Nucleus GitHub organization](https://github.com/nucleus-eng). Found a bug, typo, or gap? Open an issue. Want to propose a fix or addition yourself? Open a pull request.
 
-## Make an instance
+- [Nucleus Docs](https://github.com/nucleus-eng/nucleus-docs) — the documentation site itself, including protocols, specs, and guides
+- [DNA](https://github.com/nucleus-eng/DNA) — the DNA sequence collection
+- [DevNote Archive](https://github.com/nucleus-eng/2026-CERN-OHL-P) — the archive of published DevNotes. Corrections and improvements are welcome here too; maintainers review and cut new versions from accepted PRs.
 
-Most people will want to make a specific instance to build upon and modify for their own work. In this case we will use plamGFP cytosol as an example. Review the protocol accompanying documentation before going into the lab. Most instances will include one or more Processes or Modules. 
+## Join the discussion
 
-[There should be something here about how to plan an experiment and what a Nucleus compatible platemap format should be; the platemap format can be included in the Instance Template so that people can more easily contribute data as a validation DevNote]
+For conversation that doesn't fit neatly into a DevNote or a repo issue (questions, ideas, introductions), head to the [Nucleus Forum](https://forum.nucleus.engineering/).
 
-- plamGFP Instance
+## Licensing and openness
 
-## Analyze the data in Nucleus Hub
-
-Having made an instance of the plamGFP cytosol you will also have your own performance data. The performance data can be analyzed using the Cell Development Kit (CDK) which can be accessed on Nucleus Hub. 
-
-- Nucleus Hub Guide
-
-## Share your data as Developer Note
-
-Now that you have analyzed your data using Jupyter Hub, you can quickly share your data with the Developer Community. While using a off-the-shelf reagent kit to express plamGFP might seem like a small feat, sharing replication data when benchmarked correctly is a valuable contribution and let's the rest of the Developer Community know that you committed to building reproducible synthetic cells that work. 
-
-- Developer Note Guide
-
-## Integration into the Distribution
-
-Every three months Developer Notes are reviewed by the core development team and integrated into the distribution to ensure quality and interoperability. We focus on contributions that are regarded as highly useful to the developer community or are very well aligned with the technical roadmap. 
-
-We have a strong preference for contributions that adhere to the Module Contribution Criteria. 
-
-- Cytosol Module Contribution Guidelines
-- Synthetic Cell Contribution Guidelines
-
-If you are developing a module whose performance not be properly assessed by one of these criteria, we would invite a Developer Note suggesting a proper criteria. 
-
+Nucleus content is released under permissive licenses so others can use, modify, and build on it: narrative content and data under CC-BY-4.0, and protocols, designs, and sequence maps under CERN-OHL-P-2.0. See the [License page](../about/license.md) for details, or the [FAQ](../about/faqs.md) for the reasoning behind it and how governance works today.
