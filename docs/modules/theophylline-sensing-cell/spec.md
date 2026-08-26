@@ -11,8 +11,6 @@ site:
 
 The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
 
-Where a colorimetric readout is composed onto it, this Module gates it in time rather than by compartment. The riboswitch supplies its reporter as DNA, so no enzyme exists until theophylline induces expression, and the substrate may sit in the same reaction from the start. That is the alternative to the compartment split the [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md) use.
-
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
@@ -153,8 +151,6 @@ No synthetic cell result for this Sensing Cell is on record. Both results above 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
 
 Requires theophylline to cross the membrane and reach the encapsulated riboswitch; the reported result uses 1 mM theophylline in the outer solution.
-
-Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (e.g. [LacZ Reporter Module](../reporter-lacz/spec.md)). This Module satisfies it by supplying no LacZ protein at all.
 
 Must not use [LacZ / CPRG](../reporter-lacz/spec.md) as its reporter: theophylline is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#requirements) for the constraint and the state of the evidence behind it.
 

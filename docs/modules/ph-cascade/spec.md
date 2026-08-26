@@ -9,11 +9,7 @@ site:
 
 # Overview
 
-The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md) to turn a drop in pH into a visible colorimetric readout.
-
-The pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome. The released CPRG reacts with LacZ in the exterior solution to produce the yellow-to-purple color change.
-
-Enclosing the substrate is what makes the cascade a switch. LacZ and CPRG react on contact, so a build with both in one place reports color from the moment it is assembled, whatever the pH does. The [aTc Cascade](../atc-cascade/spec.md) solves the same problem from the other side, enclosing the enzyme rather than the substrate.
+The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md) to turn a drop in pH into a visible colorimetric readout. The pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome. The released CPRG reacts with LacZ in the exterior solution upon contact to produce the yellow-to-purple color change. Compare with the [aTc Cascade](../atc-cascade/spec.md), which releases the encapsulated enzyme into an outer solution with the substrate instead.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -81,14 +77,13 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | Toehold-switch-gated PLA1 template | not documented | — | Expressed in the pH Sensing Cell |
-| pH-responsive ssDNA : trigger ssDNA | not applicable | — | Synthesized oligonucleotides, added directly |
-| β-galactosidase (LacZ) | not applicable | — | Supplied as purified enzyme, not expressed |
+| pH-responsive ssDNA : trigger ssDNA | not documented | — | Synthesized oligonucleotides, added directly |
 :::
 
 See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
-The toehold-switch-gated PLA1 template has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is also not recorded as a construct in its own right anywhere in this corpus: neither [Detector: pH-Sensing](../detector-ph/spec.md), which specifies the toehold switch with LacZ and XylE effectors, nor [Effector: PLA1](../effector-pla1/spec.md), which lists two PLA1 constructs, claims this one. Whether it is a third design or one of those two under another name is not established — do not assume it from the name. Do not add a length or file entry until the construct is confirmed and its length verified against the source file.
+@Editor: The toehold-switch-gated PLA1 template has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is also not recorded as a construct in its own right anywhere in this corpus: neither [Detector: pH-Sensing](../detector-ph/spec.md), which specifies the toehold switch with LacZ and XylE effectors, nor [Effector: PLA1](../effector-pla1/spec.md), which lists two PLA1 constructs, claims this one. Whether it is a third design or one of those two under another name is not established — do not assume it from the name. Do not add a length or file entry until the construct is confirmed and its length verified against the source file.
 :::
 
 ::::

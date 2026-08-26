@@ -61,7 +61,7 @@ No integrated performance data exists. What is confirmed sits at the level of in
 Every arrow between the Modules above is an integration step that has to be verified in San Francisco. Three are known open:
 
 1. **Multiplexing.** The aTc and pH integration paths have never been run in one reaction. The only documented multiplex attempt — aTc with theophylline — is blocked by a shared-readout constraint.
-2. **Gel integration.** The aTc integration path is confirmed in synthetic cytosols and in synthetic cells, but hydrogel embedding of that cascade was still in progress as of 2026-08-14.
+2. **Gel integration.** The aTc integration path is confirmed in synthetic cells, but hydrogel embedding of that cascade was still in progress as of 2026-08-14.
 3. **Patterned readout.** PEGDA patterning has been shown to hold structure and confine color, but a macroscopically visible readout from a patterned gel has not been demonstrated — component volumes are reported as too small.
 :::
 

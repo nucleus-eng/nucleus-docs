@@ -70,6 +70,7 @@ In the synthetic cells documented here LacZ is not expressed at all — it is ad
 CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is the substrate used in all confirmed LacZ results on this page. It is prepared fresh or stored at -20 °C in water at 10 mg/mL, and is converted by LacZ from a yellow compound into a magenta/red product, readable by absorbance near 570 nm to 575 nm or by eye.
 
 # Expected Behavior
+LacZ converts CPRG on contact, so a reaction colocalizing both is in the ON state.
 
 ## Cytosols
 
@@ -89,17 +90,13 @@ See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed syntheti
 
 # Requirements
 
-**LacZ protein and CPRG in one place is the ON state.** The enzyme converts the substrate on contact, so a reaction holding both is already reporting. That is correct behavior for this Module and needs nothing added.
+A system that has to *switch* ON requires that LacZ protein is not colocalized with CPRG until the reporter is turned ON, and the trigger must be the only route for these components to come in contact. 
 
-A system that has to *switch* carries the extra requirement, not this Module: **no LacZ protein may share a compartment with CPRG until the reporter is turned on, and the trigger must be the only route to contact.** Anything else that brings them together — leakage, premature lysis, a ruptured substrate liposome — reports a signal that did not come from sensing.
+How to achieve this requirement is a design choice. Here are three example solutions:
 
-How that is arranged is the composing system's choice, and the corpus uses three:
-
-- **Enclose the enzyme.** The [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside.
-- **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior.
-- **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) provides LacZ as DNA rather than protein, so none exists until expression is induced and CPRG may share the reaction from the start.
-
-The first two need an effector to breach the compartment on cue; in every cascade documented here that is the [PLA1 Lysis Module](../effector-pla1/spec.md). The third needs none.
+- **Enclose the enzyme.** The [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside. LacZ can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
+- **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior. CPRG can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
+- **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) co-encapsulates CPRG and DNA encoding LacZ rather than LacZ protein.
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
@@ -113,13 +110,13 @@ The constraint is usually explained as theophylline directly inhibiting the LacZ
 See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#requirements) for more details.
 :::
 
-:::{attention} Gels requiring UV crosslinking require post-exposure addition of CPRG
+:::{warning} Gels requiring UV crosslinking require post-exposure addition of CPRG
 CPRG preloaded into liposomes photobleaches under the UV exposure used to crosslink PEG-norbornene (PEG4Nb) hydrogels — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-liposome preloaded-CPRG method works as expected. This is a process-level incompatibility specific to the PEG-norbornene chemistry, not a defect in the LacZ/CPRG reaction itself.
 
 **Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
 :::
 
-:::{note} Exterior LacZ leakage confounds the readout
+:::{caution} Exterior LacZ leakage confounds the readout
 LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can confound readout, independent of the photobleaching issue above. A proteinase K treatment (50 °C for 10 min, then 40 °C for 1 h, then spin down) was proposed as a mitigation for exterior LacZ leakage after PLA1-triggered lysis. The protocol is documented at [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). Treat it as proposed, not validated: no result from running it has been reported.
 :::
 
