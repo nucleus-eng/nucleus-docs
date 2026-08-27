@@ -102,6 +102,10 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 @Editor: no description of expected behavior — cell size, brightness, density of prep — and no reference images are recorded. Confirm with the London Node.
 :::
 
+# Requirements
+
+Requires a membrane to encapsulate the cytosol (e.g. [London Membrane: POPC](../membrane-popc/spec.md)).
+
 # Processes
 
 The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 

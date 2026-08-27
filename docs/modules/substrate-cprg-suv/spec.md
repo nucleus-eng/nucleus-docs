@@ -77,6 +77,8 @@ In ~1% alginate the yellow-to-purple change appears after about 16 h.
 
 Requires an external β-galactosidase source in the surrounding matrix (e.g. [LacZ Reporter](../reporter-lacz/spec.md)), and a lysis trigger to breach the SUV membrane (e.g. [PLA1 Lysis Module](../effector-pla1/spec.md)).
 
+Requires encapsulation within a lipid membrane (e.g. POPC, or POPC:cholesterol) until a lysis trigger is applied; released CPRG must not contact LacZ before that trigger.
+
 :::{warning} Do not expose CPRG Substrate SUVs to UV light!
 CPRG photobleaches under UV illumination, e.g., during PEG-norbornene crosslinking: side-by-side comparisons show UV exposure during PEG-norbornene crosslinking visibly bleaches the color while an unexposed control retains it.
 

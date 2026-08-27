@@ -136,6 +136,12 @@ See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
 @Editor: no completed DevNote exists for the pH-Sensing Module. Confirm with the Chicago Node.
 :::
 
+# Requirements
+
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
+
+Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
+
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal

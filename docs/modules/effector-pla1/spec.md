@@ -95,7 +95,7 @@ Account for both routes rather than assuming a liposome stays intact until the i
 (effector-pla1-requirements)=
 # Requirements
 
-Requires an upstream sensing circuit to gate expression (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)), a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-popc/spec.md), [Chicago Membrane](../membrane-popc-chol-chicago/spec.md)), and a downstream reporter enzyme with its chromogenic substrate in a neighboring liposome ([LacZ](../reporter-lacz/spec.md) with [CPRG](../substrate-cprg-suv/spec.md), or [XylE/C23DO](../reporter-xyle/spec.md) with catechol).
+Requires an upstream sensing circuit to gate expression (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)), and a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-popc/spec.md), [Chicago Membrane](../membrane-popc-chol-chicago/spec.md)).
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 

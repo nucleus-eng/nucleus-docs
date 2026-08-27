@@ -126,9 +126,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | POPC | 100 |
 :::
 
-:::{attention} The SUV bilayer here is not the one the Module specifies
-@Editor: [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) specifies a 90:10 POPC:cholesterol bilayer and points at the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). This cascade builds the same lumen into a 100% POPC bilayer instead. Either London's SUVs use a different bilayer than the Module documents, or the Module's Membrane section is Chicago-specific and needs to be generalized. The loading concentration above is bilayer-independent and carries over either way.
-:::
+[Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)'s Requirements accept either lipid composition — POPC, or POPC:cholesterol — so the 100% POPC bilayer here is not a discrepancy with the Module. The loading concentration is bilayer-independent and carries over either way.
 
 ::::
 
