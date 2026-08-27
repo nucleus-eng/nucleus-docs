@@ -8,6 +8,8 @@ site:
 
 Nucleus is an open platform for synthetic cell development, maintained by [b.next](https://bnext.bio). It brings together validated protocols, modular biological components, digital tools, and physical materials — everything you need to start building synthetic cells in one place. Platform tools make it easy to contribute new capabilities back to the distribution, documented for reuse and interoperable with Nucleus specifications.
 
+The underlying source for all Nucleus tools, designs, and documentation is available in the repositories at the [Nucleus GitHub organization](https://github.com/nucleus-eng).
+
 <a href="./start/first-guide.md" class="quick-link">Get started</a> <a href="./about/release-notes/v050.md" class="quick-link">🎊 What's new in v0.5.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
 
 ---
