@@ -137,13 +137,17 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 
 | Component | Working concentration |
 | --- | --- |
-| AHL (3-oxo-C6-HSL) inducer | 10 µM; 5 µM is also used, and both appear in reported results |
+| Potassium L-glutamate | 578 mM |
+| HEPES, pH 7.4 | 72 mM |
+| Glucose | 300 mM |
+| ULGA | 1.5%, dissolved in the solution above — see [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) |
+| AHL (3-oxo-C6-HSL) inducer | 10 µM; 5 µM is also used, and both appear in reported results. Present in the induced condition only. |
 | β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md). London supplies LacZ purified rather than expressing it in-reaction. |
 :::
 
-:::{attention} Outer solution incompletely documented
-@Editor(london): the osmolarity components of the outer solution are not recorded for this cascade. The [AHL Sensing Cell](../ahl-sensing-cell/spec.md) matches inner and outer at ≈ 920 mOsm with potassium L-glutamate, HEPES and glucose; confirm those carry over.
-:::
+The first three components are the same salts and sugar at the same concentrations as the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), which matches its inner and outer solutions at ≈ 920 mOsm. Matching them here keeps encapsulated contents from being driven across the bilayer by an osmotic gradient before the cascade fires.
+
+AHL may instead be supplied as supernatant from an AHL-producing bacterial culture, diluted 10:1 — 20 µL into 200 µL of hydrogel.
 
 ::::
 

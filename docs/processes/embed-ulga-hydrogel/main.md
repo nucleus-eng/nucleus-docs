@@ -103,7 +103,9 @@ This variant feeds the Colorimetric Readout process; see the [AHL Sensing Cell](
 :::
 
 :::{attention} Incomplete Materials table
-@Editor(london): no manufacturer, part number, price, or storage data is established for Glucose, potassium L-glutamate, or HEPES. Confirm before this page is used at the bench.
+No manufacturer, part number, price or storage data is established for glucose, potassium L-glutamate or HEPES on this page. Nucleus buys all three elsewhere in this documentation — [D-(+)-Glucose, 99%](https://www.thermofisher.com/order/catalog/product/A16828.36) (Thermo Scientific A16828-36), [L-glutamic acid potassium monohydrate](https://www.sigmaaldrich.com/US/en/product/sigma/g1501) (Sigma-Aldrich G1501-100G) and [HEPES, crystalline powder, ≥99.5%](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) (Sigma-Aldrich H3375-500G).
+
+@Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
 :::
 
 # Protocol
