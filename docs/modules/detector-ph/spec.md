@@ -51,7 +51,7 @@ At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toeho
 | `T7-toehold-LacZ-T7term` | 2 nM                       | Designed    | —        |
 | `T7-toehold-XylE-T7term` | 2 nM                       | Designed    | —        |
 | Trigger ssDNA            | 4.8 µM                     | Synthesized | —        |
-| pH-responsive ssDNA      | 14.4 nM                    | Synthesized | —        |
+| pH-responsive ssDNA      | 14.4 µM                    | Synthesized | —        |
 
 Four sequences, two additions. The trigger and pH-responsive strands are annealed into a single duplex at a 3:1 ratio before use — see [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — so a working reaction receives that duplex and one toehold-switch template, and never the strands independently.
 
