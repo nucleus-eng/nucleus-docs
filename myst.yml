@@ -28,6 +28,14 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-cprg-suv/spec.md
           hidden: true
+        - file: ./docs/modules/gel-alginate/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-ulga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-pegda/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-peg-norbornene/spec.md
+          hidden: true
         - file: ./docs/modules/base-cytosol/spec.md
           hidden: true
         - file: ./docs/modules/s30-lysate/spec.md

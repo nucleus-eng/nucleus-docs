@@ -54,6 +54,9 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
 | Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
 | Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
+| Gel | [Alginate](./gel-alginate/spec.md) | ★ |
+| Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
+| Gel | [PEG-Norbornene](./gel-peg-norbornene/spec.md) | ★ |
 :::
 
 ## S30 Lysate
@@ -70,6 +73,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
 | Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
+| Gel | [ULGA](./gel-ulga/spec.md) | ★ |
 :::
 
 # Contributing a Module
