@@ -59,7 +59,7 @@ The LuxR/pLux AHL sensor plasmid used in the synthetic cell encapsulation work b
 | Water           | —           | —         | 8         | 7.5             |
 
 :::{attention} Composition reconstructed, needs verification
-Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior; the source's 50 mM would require 0.01 µL. The condition columns are also swapped relative to the source, in which the column headed **− AHL** was the one carrying the AHL. The RNase inhibitor is left as sourced at 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor: confirm all three with the London Node before bench use.
+Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior; the source's 50 mM would require 0.01 µL. The condition columns are also swapped relative to the source, in which the column headed **− AHL** was the one carrying the AHL. The RNase inhibitor is left as sourced at 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor(london): confirm all three with the London Node before bench use.
 :::
 
 ::::
@@ -113,3 +113,7 @@ No process page documents building this Module or assembling it into a reaction.
 # Credits
 
 Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

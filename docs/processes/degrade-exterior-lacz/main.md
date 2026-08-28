@@ -23,7 +23,7 @@ The protocol also assumes a liposome suspension, since it removes the protease b
 :::
 
 :::{attention} Concentrations and volumes not yet specified
-@Editor: no proteinase K concentration, reaction volume, or buffer is established for this protocol. This is a real gap, not an oversight — confirm working values before this protocol is used at the bench.
+@Editor(chicago): no proteinase K concentration, reaction volume, or buffer is established for this protocol. This is a real gap, not an oversight — confirm working values before this protocol is used at the bench.
 :::
 
 :::::::{card}
@@ -74,7 +74,7 @@ A chemical inhibitor of proteinase K has also been proposed, to stop digestion a
 :::
 
 :::{attention} Bill of Materials is incomplete
-@Editor: only the items directly confirmed are listed above. A dry bath or heat block (for the 50 °C and 40 °C incubation steps) and a centrifuge (for the final spin-down) are also required but do not yet have confirmed models — add specific models once confirmed, rather than guessing at part numbers here.
+@Editor(chicago): only the items directly confirmed are listed above. A dry bath or heat block (for the 50 °C and 40 °C incubation steps) and a centrifuge (for the final spin-down) are also required but do not yet have confirmed models — add specific models once confirmed, rather than guessing at part numbers here.
 :::
 
 # Protocol
@@ -88,13 +88,13 @@ These steps are reported, not independently optimized. Where a concentration, vo
 - [ ] Resuspend proteinase K to a working concentration.
 
 :::{attention} Gap: working concentration not specified
-@Editor: no proteinase K concentration or resuspension buffer is established for this step.
+@Editor(chicago): no proteinase K concentration or resuspension buffer is established for this step.
 :::
 
 - [ ] Add the resuspended proteinase K to the synthetic cell (or other liposome) sample, in a volume sufficient to digest exterior LacZ without diluting the sample beyond what downstream steps require.
 
 :::{attention} Gap: reaction volume and ratio not specified
-@Editor: no proteinase K-to-sample volume ratio is established for this step.
+@Editor(chicago): no proteinase K-to-sample volume ratio is established for this step.
 :::
 
 - [ ] Incubate at 50 °C for 10 min.
@@ -105,7 +105,7 @@ These steps are reported, not independently optimized. Where a concentration, vo
 - [ ] Spin down the synthetic cells (or other liposomes) to pellet them and separate them from the digested exterior LacZ and proteinase K remaining in solution.
 
 :::{attention} Gap: centrifugation speed and time not specified
-@Editor: no centrifuge speed or duration is established for this step. See [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) for a comparable spin-down step (9000 g / RT / 10 min) as a starting point to confirm against, not as a substitute value for this protocol.
+@Editor(chicago): no centrifuge speed or duration is established for this step. See [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) for a comparable spin-down step (9000 g / RT / 10 min) as a starting point to confirm against, not as a substitute value for this protocol.
 :::
 
 - [ ] Remove the supernatant and resuspend the liposome pellet in fresh outer solution.
@@ -140,3 +140,7 @@ Developed by Jonah McDonald and Charlie Newell (London Node) and Mary Kelly (Chi
 :::
 
 ::::
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

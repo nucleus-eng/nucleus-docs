@@ -1,7 +1,7 @@
 ---
 title: "Detector: Theophylline"
 subtitle: "Module Specification"
-status: draft
+status: canceled
 site:
     hide-toc: true
     numbered_references: false
@@ -11,8 +11,8 @@ site:
 
 The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. 
 
-:::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use.
+:::{attention} Canceled — not part of the DevCells demo
+The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It was cut from the demo, and its constructs are recorded as no longer in use. This specification is kept for reference and is not maintained.
 :::
 
 (detector-theophylline-reference-composition)=
@@ -62,7 +62,7 @@ The bulk-cytosol validation construct `pT7-theophylline-LacZ` (internally refere
 | **Total**           |                     |                     | **10**              | **10**                     |
 
 :::{attention} Volumes do not sum to the stated total
-@Editor: with CPRG included the columns sum to 10.05 µL against a stated total of 10 µL. The CPRG row is required — this reaction is read by CPRG conversion — but was absent from the source table, and its 0.6 µL does not close the gap exactly. Confirm the intended volumes with the Chicago Node.
+@Editor(chicago): with CPRG included the columns sum to 10.05 µL against a stated total of 10 µL. The CPRG row is required — this reaction is read by CPRG conversion — but was absent from the source table, and its 0.6 µL does not close the gap exactly. Confirm the intended volumes with the Chicago Node.
 :::
 
 ::::
@@ -108,7 +108,7 @@ Caveats:
 - **The supporting titration data has not been seen.** The 2026-08-14 meeting notes state that "titration data exists showing even very low theophylline concentrations inhibit CPRG-lacZ conversion," and that it should go into a devnote. That data is not yet in this corpus.
 - **Every verbal source is hedged** ("somewhat inhibit", "kind of inhibiting"), and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
 
-@Editor: confirm with the Chicago Node. Until the titration data is in hand, cite the requirement, not the inhibition mechanism.
+@Editor(chicago): confirm with the Chicago Node. Until the titration data is in hand, cite the requirement, not the inhibition mechanism.
 :::
 
 # Implementations
@@ -122,3 +122,7 @@ No process page documents building this Module or assembling it into a reaction.
 # Credits
 
 Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

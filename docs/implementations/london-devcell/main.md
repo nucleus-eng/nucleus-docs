@@ -65,3 +65,7 @@ No integrated performance data exists. Confirmed results sit at the level of ind
 # Credits
 
 Developed by the London Node — Elani Lab. Contributors named in the source material: Ion Ioannou, Jonah McDonald, Charlie Newell, Manuel. Individual results are credited on their own Module pages.
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

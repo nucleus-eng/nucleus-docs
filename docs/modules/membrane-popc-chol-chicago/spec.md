@@ -72,3 +72,7 @@ Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-trans
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab, Northwestern).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

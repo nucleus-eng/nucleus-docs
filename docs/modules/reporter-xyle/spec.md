@@ -54,8 +54,8 @@ The Chicago-node construct was tested downstream of the tetR-aTc Detector at thr
 | Water | | | 1.57 | 1 | 0 |
 :::
 
-:::{attention} TetR concentration — flagged inconsistency, do not resolve silently
-A later replication re-runs the same TetR/aTc/C23DO-catechol chemistry as a bulk-reaction replication ahead of a September/October DevStudio, and reports clean induced/repressed/unregulated separation — but at TetR concentrations of 500 nM and 1000 nM, a different scale than the 75 nM used in the reference reaction above. The deck slide does not state whether this is the same DNA construct (`pMN067`) or a newly prepared one. Treat these as two separate data points at different TetR scales, not as replicated confirmation of a single condition, until reconciled.
+:::{note} Two TetR scales, one construct
+A later bulk-reaction replication re-runs the same TetR/aTc/C23DO-catechol chemistry and reports clean induced/repressed/unregulated separation, but at 500 nM and 1000 nM TetR against the 75 nM used in the reference reaction above. Both use the same construct, so these are two conditions of one design rather than two designs. The dependence of the readout on TetR concentration across that range has not been characterized.
 :::
 
 ::::
@@ -96,7 +96,7 @@ When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR a
 - [London DevCell](../../implementations/london-devcell/main.md): a proposed alternate to LacZ, in two linear-DNA formats — `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is still to be designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
 
 :::{attention} The two Nodes' constructs may not converge
-@Editor: whether Chicago's `pMN067` and London's still-undesigned construct end up as the same DNA design is not established. Confirm with both Nodes before treating them as one construct.
+@Editor(chicago): whether Chicago's `pMN067` and London's still-undesigned construct end up as the same DNA design is not established. Confirm with both Nodes before treating them as one construct.
 :::
 
 # Processes
@@ -106,3 +106,7 @@ When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR a
 # Credits
 
 Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab), [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

@@ -72,8 +72,8 @@ flowchart TD
 | LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
 :::
 
-:::{attention} LuxR supply route unknown
-@Editor: confirm whether LuxR is expressed from a construct in this cascade or added as purified protein. If expressed, the construct needs a row above.
+:::{note} LuxR is expressed from the same plasmid as its target
+LuxR is not supplied as purified protein. Each London sensing construct carries a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving the payload, on one molecule — so `LuxR-PLA1` and `LuxR-deGFP` each express their own receiver. The DevCells demo uses `LuxR-PLA1`; `LuxR-deGFP` is the reporter variant under test.
 :::
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
@@ -137,12 +137,14 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 
 | Component | Working concentration |
 | --- | --- |
-| AHL (3-oxo-C6-HSL) inducer | 5 µM |
+| AHL (3-oxo-C6-HSL) inducer | 10 µM |
 | β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md) |
 :::
 
 :::{attention} Outer solution incompletely documented
-@Editor: two gaps remain. The osmolarity components of the outer solution are not recorded for this cascade — the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) matches inner and outer at ≈ 920 mOsm with potassium L-glutamate, HEPES and glucose, but whether those carry over here is not established. The AHL concentration also differs between the two pages, 5 µM here against 10 µM on the Sensing Cell; confirm which applies to the PLA1 payload.
+@Editor(london): the osmolarity components of the outer solution are not recorded for this cascade. The [AHL Sensing Cell](../ahl-sensing-cell/spec.md) matches inner and outer at ≈ 920 mOsm with potassium L-glutamate, HEPES and glucose; confirm those carry over.
+
+Separately, the result below is recorded at 5 µM AHL while the specification is 10 µM. Confirm whether that experiment really ran at half the working concentration or the figure is a transcription slip.
 :::
 
 ::::
@@ -218,3 +220,7 @@ Every technique above is documented. What is not is step 4: the ratio at which t
 # Credits
 
 Developed by Jonah McDonald and Charlie Newell (London Node).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

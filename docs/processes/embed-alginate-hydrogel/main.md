@@ -72,7 +72,7 @@ This process does not itself encode anything — the Sensing Cells and CPRG-load
 :::{attention} Bench-level protocol parameters not fully specified
 The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the outcome (yellow-to-purple color change after ~16 h, monitored at 570 nm–575 nm) are established, but several bench-level parameters needed to reproduce this result are not: the exact Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio, gel volume or well format, order of addition (liposomes mixed into alginate before or after partial gelation), and precise CaCl₂ exposure method (bath immersion vs. direct addition). The protocol below follows standard ionic-gelation practice for alginate and states each such step as a general method — flagged inline — rather than inventing specific numbers that have not been established.
 
-@Editor: confirm these parameters with the Chicago Node before treating this page as bench-ready.
+@Editor(chicago): confirm these parameters with the Chicago Node before treating this page as bench-ready.
 :::
 
 # Materials and Equipment
@@ -91,7 +91,7 @@ The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the 
 :::
 
 :::{attention} Reagent gaps
-@Editor: the commercial LacZ product/vendor and the exact well-plate format used for this result are not established. Confirm before treating these rows as verified purchasing information.
+The commercial enzyme is β-galactosidase from *E. coli*. @Editor(chicago): its working concentration in the gel, and the well-plate format used for this result, are still not established. Confirm before treating these rows as verified purchasing information.
 :::
 
 # Protocol
@@ -115,7 +115,7 @@ The buffer the alginate stock was prepared in, and the exact mixing time/tempera
 
 :::{hint} Note: mixing ratio not confirmed
 :class: dropdown
-@Editor: the Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio used to produce the ~16 h color-change result is not established. Confirm this ratio before treating any specific volume as a reference value.
+@Editor(chicago): the Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio used to produce the ~16 h color-change result is not established. Confirm this ratio before treating any specific volume as a reference value.
 :::
 
 ## Crosslink the Hydrogel
@@ -142,7 +142,7 @@ The color change occurs in both 0 mM and 1 mM theophylline conditions, indicatin
 Confirm gel formation by visual inspection (a fully crosslinked ~1% alginate gel should hold its shape and not flow when the container is tilted) before incubating for colorimetric readout. Confirm colorimetric response as described in [Colorimetric Readout](../colorimetric-readout/main.md): a visible yellow-to-purple shift, or an absorbance increase at 570 nm–575 nm, relative to a no-lysis or no-CPRG control.
 
 :::{attention} No dedicated QC dataset for the embedding step itself
-@Editor: the downstream colorimetric outcome (color change, absorbance) is established, but no QC data specific to the alginate gelation step alone (e.g., gel mechanical integrity, liposome retention/leakage rate within the gel, or crosslinking completeness) has been measured.
+@Editor(chicago): the downstream colorimetric outcome (color change, absorbance) is established, but no QC data specific to the alginate gelation step alone (e.g., gel mechanical integrity, liposome retention/leakage rate within the gel, or crosslinking completeness) has been measured.
 :::
 
 # Credits
@@ -166,3 +166,7 @@ Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, 
 :::
 
 ::::
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

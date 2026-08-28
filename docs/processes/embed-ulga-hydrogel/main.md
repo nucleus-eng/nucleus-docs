@@ -103,7 +103,7 @@ This variant feeds the Colorimetric Readout process; see the [AHL Sensing Cell](
 :::
 
 :::{attention} Incomplete Materials table
-@Editor: no manufacturer, part number, price, or storage data is established for Glucose, potassium L-glutamate, or HEPES. Confirm before this page is used at the bench.
+@Editor(london): no manufacturer, part number, price, or storage data is established for Glucose, potassium L-glutamate, or HEPES. Confirm before this page is used at the bench.
 :::
 
 # Protocol
@@ -143,7 +143,7 @@ Confirm embedding succeeded before scoring a readout:
 - **Negative control comparison**: compare against the LB-only negative control at matched optical and contrast settings.
 
 :::{attention} Primary data not located
-@Editor: GFP signal is reported in both the overnight-culture and supernatant conditions after 2.5 h, with no signal in the LB-only control at matched settings, confirmed by Z-stack imaging — but the underlying Z-stack image files are not available on this page and this result has not been independently re-verified.
+@Editor(london): GFP signal is reported in both the overnight-culture and supernatant conditions after 2.5 h, with no signal in the LB-only control at matched settings, confirmed by Z-stack imaging — but the underlying Z-stack image files are not available on this page and this result has not been independently re-verified.
 :::
 
 # Credits
@@ -167,3 +167,7 @@ Developed by Ion Ioannou and Jonah McDonald (London Node).
 :::
 
 ::::
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

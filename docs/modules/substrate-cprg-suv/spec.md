@@ -66,7 +66,7 @@ Quality control before combining with other components:
 - **Free substrate removed.** Measure absorbance at 575 nm of the purification flow-through, not the liposome fraction. A flat, low-absorbance flow-through indicates unencapsulated CPRG has been removed; residual absorbance means repeat the purification.
 
 :::{attention} No primary data located
-@Editor: the 400 nm target size and the 50 mM loading concentration have no DevNote behind them. No DLS traces or absorbance QC data has been located, so these values are not independently verified. Listed as a wanted module DevNote.
+@Editor(chicago): the 400 nm target size and the 50 mM loading concentration are stated in the Chicago integration status, but have no DevNote behind them. No DLS traces or absorbance QC data has been located, so these values are not independently verified. Listed as a wanted module DevNote.
 :::
 
 ## Gels
@@ -109,7 +109,7 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 :::
 
 :::{attention} Two purification methods are recorded
-@Editor: one record has the SUVs purified twice by size-exclusion chromatography to remove unencapsulated CPRG; another has them washed by centrifugation. Confirm with the Chicago Node which was used.
+@Editor(chicago): one record has the SUVs purified twice by size-exclusion chromatography to remove unencapsulated CPRG; another has them washed by centrifugation. Confirm with the Chicago Node which was used.
 
 The two methods leave different residual-substrate profiles, and residual free CPRG is what produces background color.
 :::
@@ -117,3 +117,7 @@ The two methods leave different residual-substrate profiles, and residual free C
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

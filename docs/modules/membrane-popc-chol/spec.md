@@ -42,3 +42,7 @@ Protocols for assembling Base Cell and making its components from scratch are de
 # Credits
 
 Developed by b.next.
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

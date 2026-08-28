@@ -89,14 +89,14 @@ Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Chicago M
 
 | Component | Working concentration |
 | --- | --- |
-| Glucose in ultrapure water | To 1180 mOsm |
+| Tris-HEPES buffer stock (0.5 M Tris base, 1.7 M HEPES; pH ≈ 7.4, ≈ 2700 mOsm) | 42.5% (v/v) in water, giving ≈ 1180 mOsm |
+| Energy solution | Supplemented into the outer solution |
 :::
 
 Match outer and inner solution osmolarities empirically with a vapor-pressure osmometer where possible.
 
-:::{attention} Solutes not documented
-@Editor: only the osmolarity target is recorded, not the solutes and their concentrations. Glucose in ultrapure water is the working default. Confirm with the Chicago Node.
-
+:::{attention} Recorded for the pH Sensing Cell, assumed for the chassis
+@Editor(chicago): the buffer above is the outer solution recorded for the pH sensor. Confirm it is the chassis default rather than specific to that cell, and confirm what the energy solution supplement contains.
 :::
 
 ::::
@@ -124,3 +124,7 @@ The chassis is formed by encapsulating [Base Cytosol](../base-cytosol/spec.md) i
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

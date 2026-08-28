@@ -35,7 +35,7 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 The first two constructs are this Module's Reference Composition. The other two swap the reporter out and appear only in results: deGFP under [Replicated in Nucleus Cytosol](#replicated-in-nucleus-cytosol), and PLA1 driving a colorimetric readout under [TetO-PLA1 encapsulated with LacZ](#teto-pla1-encapsulated-with-lacz).
 
 :::{attention} Two constructs are not yet in `nucleus-eng/DNA`
-@Editor: neither `T7-tetO-deGFP` nor `TetO-PLA1` has a sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. Both are distinct from `pT7-tetO-plamGFP`, so do not read either name as an identity claim against `pOpen-pT7-tetO.gb`. Flag for follow-up so both can be submitted before this page is used at the bench.
+@Editor(chicago): neither `T7-tetO-deGFP` nor `TetO-PLA1` has a sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. Both are distinct from `pT7-tetO-plamGFP`, so do not read either name as an identity claim against `pOpen-pT7-tetO.gb`. Flag for follow-up so both can be submitted before this page is used at the bench.
 :::
 
 ::::
@@ -124,7 +124,7 @@ Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated 
 The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#reporter-xyle-expected-behavior) spec.
 
 :::{attention} Inducer concentration not recorded
-@Editor: the aTc concentration used for the induced condition is not recorded. Confirm it before this result is used at the bench. The construct gap is noted in the DNA tab under Reference Composition.
+@Editor(chicago): the aTc concentration used for the induced condition is not recorded. Confirm it before this result is used at the bench. The construct gap is noted in the DNA tab under Reference Composition.
 :::
 
 ## Cells
@@ -191,3 +191,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Credits
 
 Developed by Yen-Yu Hsu (b.next), with the encapsulated LacZ/CPRG configuration by Mary Kelly (Chicago Node, Kamat Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

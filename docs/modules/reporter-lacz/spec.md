@@ -56,7 +56,7 @@ LacZ may also be added as a purified protein rather than expressed from DNA to 2
 :::
 
 :::{attention} Imputed from the theophylline-gated reaction
-@Editor: no reaction expressing LacZ standalone is on record. Every value above is taken from the theophylline-gated reaction on the [Theophylline Detector](../detector-theophylline/spec.md#detector-theophylline-reference-composition) spec with the analyte removed — that reaction is this Module plus a riboswitch, so what remains when theophylline is dropped is this Module. Two things that follow are assumptions, not measurements: that a constitutive LacZ construct wants the same 5 nM as a riboswitch-gated one, and that the London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) behave like the Chicago one at that concentration. Confirm both with the Node that runs it.
+@Editor(chicago): no reaction expressing LacZ standalone is on record. Every value above is taken from the theophylline-gated reaction on the [Theophylline Detector](../detector-theophylline/spec.md#detector-theophylline-reference-composition) spec with the analyte removed — that reaction is this Module plus a riboswitch, so what remains when theophylline is dropped is this Module. Two things that follow are assumptions, not measurements: that a constitutive LacZ construct wants the same 5 nM as a riboswitch-gated one, and that the London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) behave like the Chicago one at that concentration. Confirm both with the Node that runs it.
 
 In the synthetic cells documented here LacZ is not expressed at all — it is added as purified enzyme at 20 U/mL. Where the two sit relative to each other is the composing system's choice; see the [aTc Sensing Cell](../atc-sensing-cell/spec.md), which encapsulates the enzyme and keeps 0.5 mM CPRG outside.
 :::
@@ -105,7 +105,7 @@ LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylli
 The constraint is usually explained as theophylline directly inhibiting the LacZ/CPRG conversion, "even at very low amounts." That explanation is unsupported and partly contradicted:
 
 - The one bulk figure available shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
-- @Editor: supporting titration data is reported to exist but has not been located. Confirm with the Chicago Node.
+- @Editor(chicago): supporting titration data is reported to exist but has not been located. Confirm with the Chicago Node.
 - Every verbal source is hedged, and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
 
 See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#detector-theophylline-requirements) for more details.
@@ -136,3 +136,7 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 # Credits
 
 Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab), [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab), Mary Kelly (Chicago Node, Kamat Lab), and Samuel Chen (Chicago Node, Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

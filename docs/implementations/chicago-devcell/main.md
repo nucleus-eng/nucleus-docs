@@ -68,3 +68,7 @@ Every arrow between the Modules above is an integration step that has to be veri
 # Credits
 
 Developed by the Chicago Node — Kamat Lab and Liu Lab. Individual results are credited on their own Module pages.
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

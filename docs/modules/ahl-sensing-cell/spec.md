@@ -61,7 +61,7 @@ flowchart TD
 :::
 
 :::{attention} Sensor plasmid not in `nucleus-eng/DNA`
-@Editor: `pLux-GFP` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). The mechanism has LuxR expressed from a constitutive p70 cassette, but no source records whether that cassette is carried on `pLux-GFP` itself or on a second plasmid — and if it is a second plasmid, both this table and the reaction below are missing a row for it. Confirm with the London Node.
+@Editor(london): `pLux-GFP` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). The mechanism has LuxR expressed from a constitutive p70 cassette, but no source records whether that cassette is carried on `pLux-GFP` itself or on a second plasmid — and if it is a second plasmid, both this table and the reaction below are missing a row for it. Confirm with the London Node.
 :::
 
 See [Detector: AHL](../detector-3oc6-hsl/spec.md) for sensor specification.
@@ -136,7 +136,7 @@ In [S30 Lysate](../s30-lysate/spec.md), the AHL-gated [colorimetric](../../proce
 :::
 
 :::{attention} Plasmid concentration is two conflicting figures, not a range
-@Editor: the source gives 37 ng/µL in its reaction table and 80 ng/µL in its prose. The [Reference Composition](#ahl-sensing-cell-reference-composition) above uses 37 ng/µL. Confirm with the London Node which applies.
+@Editor(london): the source gives 37 ng/µL in its reaction table and 80 ng/µL in its prose. The [Reference Composition](#ahl-sensing-cell-reference-composition) above uses 37 ng/µL. Confirm with the London Node which applies.
 :::
 
 ## Gels
@@ -171,7 +171,7 @@ Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-p
 - [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) — immobilizes the Cell in gel, for the gel-format configurations
 
 :::{attention} The London encapsulation route may be a variant
-@Editor: this Cell is formed by an Elani-lab mineral-oil phase-transfer protocol, the same route described on the [London Chassis](../london-chassis/spec.md) spec. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) documents emulsion phase transfer as a general method, but it is not confirmed that the London mineral-oil route is that protocol rather than a variant needing its own page. Confirm with the London Node.
+@Editor(london): this Cell is formed by an Elani-lab mineral-oil phase-transfer protocol, the same route described on the [London Chassis](../london-chassis/spec.md) spec. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) documents emulsion phase transfer as a general method, but it is not confirmed that the London mineral-oil route is that protocol rather than a variant needing its own page. Confirm with the London Node.
 :::
 
 # Constituent Modules
@@ -182,3 +182,7 @@ Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-p
 # Credits
 
 Developed by Ion Ioannou and Jonah McDonald (London Node) — synthetic cell encapsulation.
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

@@ -1,7 +1,7 @@
 ---
 title: "Theophylline Sensing Cell"
 subtitle: "Module Specification"
-status: draft
+status: canceled
 site:
     hide-toc: true
     numbered_references: false
@@ -11,8 +11,8 @@ site:
 
 The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
 
-:::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use.
+:::{attention} Canceled — not part of the DevCells demo
+The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It was cut from the demo, and its constructs are recorded as no longer in use. This specification is kept for reference and is not maintained.
 :::
 
 # Reference Composition
@@ -60,7 +60,7 @@ flowchart TD
 :::
 
 :::{attention} Constructs not in `nucleus-eng/DNA`
-@Editor: no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
+@Editor(chicago): no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
 :::
 
 See [Detector: Theophylline](../detector-theophylline/spec.md) for the design.
@@ -176,3 +176,7 @@ Not used in a documented Implementation. The [Chicago DevCell](../../implementat
 # Credits
 
 Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab) and the Chicago Node (Kamat Lab and Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

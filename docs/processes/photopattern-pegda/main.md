@@ -71,7 +71,7 @@ Please read this section carefully. It contains important notes, resources, and 
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
 :::{attention} Materials list incomplete
-@Editor: no target PEGDA working concentration, LAP working concentration, or mold/patterning-chamber setup is established for this process. Only the reagents themselves and the 405 nm exposure window (15 s to 30 s) are documented.
+Patterning runs at 405 nm for (15–30) s, adjusted for the other conditions; multimaterial patterning combines PEGDA with 1.6 wt% alginate. @Editor(chicago): the PEGDA and LAP *working* concentrations and the mold or patterning-chamber setup are still not established. Only the reagents themselves and the 405 nm exposure window (15 s to 30 s) are documented.
 :::
 
 # Protocol
@@ -110,14 +110,12 @@ This combined system has been used to demonstrate a PEGDA frame–alginate core 
 - **Structural integrity (multimaterial constructs)**: For PEGDA frame–alginate core constructs, confirm structural integrity by visual and/or mechanical inspection.
 
 :::{attention} Primary data not located
-@Editor: no devnote with quantitative feature-size measurements, imaging methodology, or mechanical-integrity data for this process is available yet, so the feature-size and structural-integrity results above are not independently verified. This process's link to a macroscopically visible colorimetric readout has likewise not been demonstrated (see the dashed-edge note in the Overview).
+@Editor(chicago): no devnote with quantitative feature-size measurements, imaging methodology, or mechanical-integrity data for this process is available yet, so the feature-size and structural-integrity results above are not independently verified. This process's link to a macroscopically visible colorimetric readout has likewise not been demonstrated (see the dashed-edge note in the Overview).
 :::
 
 # Credits
 
-:::{attention} Attribution not established
-@Editor: no contributor record was found for this protocol. Confirm with the originating Node before publication.
-:::
+Developed by Ojaswita Pant (Chicago Node, Truby Lab).
 
 # Downloads
 
@@ -136,3 +134,7 @@ This combined system has been used to demonstrate a PEGDA frame–alginate core 
 :::
 
 ::::
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

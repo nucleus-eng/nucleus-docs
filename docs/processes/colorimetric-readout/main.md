@@ -130,3 +130,7 @@ Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, 
 :::
 
 ::::
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

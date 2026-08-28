@@ -99,7 +99,7 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 # Expected Behavior
 
 :::{attention} Needs Expected Behavior
-@Editor: no description of expected behavior — cell size, brightness, density of prep — and no reference images are recorded. Confirm with the London Node.
+@Editor(london): no description of expected behavior — cell size, brightness, density of prep — and no reference images are recorded. Confirm with the London Node.
 :::
 
 # Requirements
@@ -124,3 +124,7 @@ The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a 
 # Credits
 
 Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

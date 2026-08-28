@@ -216,3 +216,6 @@ Reformulated from the PURE system by Yemo Ku and Jon Calles (b.next).
 
 PURE was developed by the Ueda Lab ([Shimizu et al., 2001](https://doi.org/10.1038/90802)).
 
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

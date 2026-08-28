@@ -62,7 +62,7 @@ flowchart TD
 ::::{tab-item} DNA
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
-@Editor: `TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. Do not treat the name below as an identity claim against any existing DNA-repo file — flag for follow-up so the construct can be submitted before this page is used at the bench.
+@Editor(chicago): `TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. Do not treat the name below as an identity claim against any existing DNA-repo file — flag for follow-up so the construct can be submitted before this page is used at the bench.
 :::
 
 :::{table}
@@ -89,7 +89,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 :::
 
 :::{attention} Reference DNA/TetR ratio not canonical in the source
-@Editor: the source records three DNA/TetR combinations as tested and singles out none as canonical. The table above takes the headline condition as the reference. Confirm with the Chicago Node which ratio the Module should specify.
+@Editor(chicago): the source records three DNA/TetR combinations as tested and singles out none as canonical. The table above takes the headline condition as the reference. Confirm with the Chicago Node which ratio the Module should specify.
 :::
 
 ::::
@@ -160,3 +160,7 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 # Credits
 
 Developed by Mary Kelly (Chicago Node, Kamat Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

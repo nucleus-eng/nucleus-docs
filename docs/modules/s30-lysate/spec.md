@@ -38,7 +38,7 @@ S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rathe
 S30 Lysate's expected behavior is characterized by expressing a reporter module (e.g., [deGFP](../reporter-degfp/spec.md)).
 
 :::{attention} Needs more detail
-@Editor: no expected behavior is recorded — what the lysate expresses, in what assay, over what time and at what temperature (for example, "expresses X ng/µL deGFP over 6 h at 30 °C") — and no characterization data such as a positive-control cell-free reaction. Confirm with the London Node.
+@Editor(london): no expected behavior is recorded — what the lysate expresses, in what assay, over what time and at what temperature (for example, "expresses X ng/µL deGFP over 6 h at 30 °C") — and no characterization data such as a positive-control cell-free reaction. Confirm with the London Node.
 :::
 
 # Requirements
@@ -77,3 +77,7 @@ No process page builds this Module: S30 Lysate is supplied as a kit. See [Materi
 # Credits
 
 Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

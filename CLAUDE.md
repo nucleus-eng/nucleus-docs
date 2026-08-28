@@ -180,7 +180,11 @@ Every content page has a maturity `status`, declared as a frontmatter field. Thi
 | `draft` | incomplete; not ready for public consumption | must be `hidden: true` (keep out of the sidebar) | **Draft** banner (below) |
 | `unvalidated-published` | complete and publicly visible, but not yet validated in the current Nucleus Cytosol | normal | **Not yet validated** banner (below) |
 | `validated-published` | complete and validated; ready | normal | none |
+| `canceled` | specified, then cut; kept for reference and not maintained | must be `hidden: true` | **Canceled** banner naming why it was cut |
 
+- `canceled` is not a maturity level — it is a scope decision. Use it when a Module was
+  specified and then cut, and the specification is still worth keeping. Say in the banner
+  *why* it was cut, not just that it was.
 - **Absent `status:` is treated as `validated-published`** — do not churn the ~50 ready pages. Only `draft` and `unvalidated-published` pages need an explicit field.
 - **Templates ship with `status: draft`** so a new page can't accidentally appear validated; the author changes it to `unvalidated-published` or `validated-published` when ready.
 - The `status:` field does **not** auto-render anything — add the matching banner by hand when you set `draft` or `unvalidated-published`. The two standard banners:

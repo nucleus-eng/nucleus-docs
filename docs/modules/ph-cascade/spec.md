@@ -85,7 +85,7 @@ flowchart TD
 See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
-@Editor: The toehold-switch-gated PLA1 template has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is also not recorded as a construct in its own right anywhere in this corpus: neither [Detector: pH-Sensing](../detector-ph/spec.md), which specifies the toehold switch with LacZ and XylE effectors, nor [Effector: PLA1](../effector-pla1/spec.md), which lists two PLA1 constructs, claims this one. Whether it is a third design or one of those two under another name is not established — do not assume it from the name. Do not add a length or file entry until the construct is confirmed and its length verified against the source file.
+@Editor(chicago): The toehold-switch-gated PLA1 template has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is also not recorded as a construct in its own right anywhere in this corpus: neither [Detector: pH-Sensing](../detector-ph/spec.md), which specifies the toehold switch with LacZ and XylE effectors, nor [Effector: PLA1](../effector-pla1/spec.md), which lists two PLA1 constructs, claims this one. Whether it is a third design or one of those two under another name is not established — do not assume it from the name. Do not add a length or file entry until the construct is confirmed and its length verified against the source file.
 :::
 
 ::::
@@ -99,7 +99,7 @@ The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsula
 
 | Component | Working concentration |
 | --- | --- |
-| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 nM trigger ssDNA, final |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 µM trigger ssDNA, final |
 | Toehold-switch-gated PLA1 DNA template | 2 nM, final — a distinct, PLA1-fused construct |
 | Base Cytosol components | At reaction concentration; not separately documented for this pairing |
 :::
@@ -210,3 +210,7 @@ No process page documents assembling this three-part cascade end to end.
 # Credits
 
 Developed by Sung-Won Hwang and Samuel Chen (Chicago Node, Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

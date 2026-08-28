@@ -165,7 +165,7 @@ Must not be exposed to theophylline, which is reported to interfere with LacZ ac
 Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). Hydrogel embedding of this cascade is not documented.
 
 :::{attention} Process gap
-@Editor: no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
+@Editor(chicago): no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
 :::
 
 # Constituent Modules
@@ -177,3 +177,7 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 # Credits
 
 Developed by Mary Kelly (Chicago Node, Kamat Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

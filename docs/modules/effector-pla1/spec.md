@@ -16,7 +16,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} No PLA1-specific experimental data
-@Editor: no experiment characterizes PLA1 on its own. Every result below comes from a cascade that uses it, so no PLA1 concentration, timing or efficiency figure exists independent of a sensing circuit. Confirm whether such data exists.
+@Editor(bnext): no experiment characterizes PLA1 on its own. Every result below comes from a cascade that uses it, so no PLA1 concentration, timing or efficiency figure exists independent of a sensing circuit. Confirm whether such data exists.
 :::
 
 # Reference Composition
@@ -120,3 +120,7 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 # Credits
 
 Developed by Jonah McDonald and Charlie Newell (London Node) and Mary Kelly (Chicago Node, Kamat Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

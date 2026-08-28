@@ -145,3 +145,7 @@ Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). If u
 # Credits
 
 Module contributed by Ahmed Sihorwala (Belardi Lab, UT Austin). Validation data by Yen-Yu Hsu (b.next).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

@@ -25,7 +25,7 @@ The theophylline/aTc colocalization constraint remains plausible but requires te
 
 # Reference Composition
 :::{attention} Merged recipe not documented
-@Editor: no combined recipe exists for the two paths together. The per-population tables below are each path's own composition, carried over unchanged; nothing records what changes when they share one reaction. Confirm with the Chicago Node.
+@Editor(chicago): no combined recipe exists for the two paths together. The per-population tables below are each path's own composition, carried over unchanged; nothing records what changes when they share one reaction. Confirm with the Chicago Node.
 :::
 
 
@@ -150,7 +150,7 @@ The pH integration path is two compartments. This population carries sensing and
 
 | Component | Working concentration |
 | --- | --- |
-| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 nM trigger ssDNA, final |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 µM trigger ssDNA, final |
 | Toehold-switch-gated PLA1 DNA template | 2 nM, final |
 | Base Cytosol components | At reaction concentration |
 :::
@@ -208,19 +208,22 @@ Requires both integration paths in one system — [aTc Cascade](../atc-cascade/s
 Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation; the pattern itself is an Implementation-level choice, documented on [Chicago DevCell](../../implementations/chicago-devcell/main.md).
 
 
-:::{attention} Something has to decide what the readout does when both paths fire.
+:::{note} The paths are multiplexed in space, not combined in logic
+The two integration paths are not wired into one signal. They are separate populations of
+synthetic cells embedded at different places in one gel — one sensing aTc, one sensing pH —
+and what distinguishes one analyte from both from neither is **the geometry of the color
+signal**, not a rule for combining them. There is no coincidence mechanism to build, because
+there is no combining step.
 
-@Editor: Both the aTc and pH integration paths end at the same LacZ/CPRG chemistry. Two inputs arriving at one output is not, by itself, a design — it needs a stated rule for how the two signals combine. Should the color change when *either* analyte is present, only when *both* are, or only when exactly one is? Each of those is a different device, and each needs a different mechanism. That rule has not been chosen. Until it is, "multiplexed detection" describes an intent rather than a specification.
+That makes spatial separation the whole design, rather than a workaround. It is also what the
+Requirement above is protecting: PLA1 lyses any membrane it reaches, so two populations sharing
+a region would destroy each other regardless of which analyte fired.
 
-This is the cascade's central open question. Two things follow from it, and both are worth stating plainly.
-
-**First, without spatial separation the paths are not independent.** Either analyte alone drives PLA1, and PLA1 lyses every compartment within reach: the aTc path releases its own internal LacZ and CPRG *and* opens the Substrate SUV, while the pH path opens the SUV *and* the aTc cell, releasing that cell's LacZ. Color appears by several routes with only one analyte present. This is not the readout chemistry being shared — it is the membrane being shared, with an effector that does not discriminate.
-
-**Second, a shared readout with no combining rule is not neutral.** If both paths simply drive the same enzyme reaction, the result is whatever the chemistry does when both are active — which is closer to an uncontrolled "either" than to a designed behavior. Getting a specified behavior means adding a mechanism, not just co-locating the two paths.
-
-**Third, the three candidate rules are not equally easy to build.** "Either analyte" is close to what co-locating the paths already gives, so the work is making it controlled and reproducible rather than incidental. "Both analytes" needs a coincidence mechanism — some step that only proceeds when two inputs are present at once — and that mechanism has to survive the cross-lysis above, since either analyte alone otherwise destroys the compartments the coincidence would have to be read from. It cannot be solved by making PLA1 selective: neighbor lysis is the mechanism the readout depends on. "Exactly one" is harder still, because it needs the system to suppress output when a signal *is* present, and inhibition is a mechanism this cascade does not currently have anywhere.
-
-So the choice of rule is not a labeling decision to make at write-up time. It determines what has to be built.
+**Whether the demo shows one color or two is not yet settled.** Both paths can read out through
+LacZ on CPRG, giving one color in two places. The [XylE / C23DO](../reporter-xyle/spec.md)
+reporter converts catechol to a different colored product, which would give two distinguishable
+colors — still spatially separated, since the populations are separate either way. These are
+different demos and want separate specifications.
 :::
 
 # Implementations
@@ -265,3 +268,7 @@ Both integration paths terminate at the [LacZ Reporter Module](../reporter-lacz/
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

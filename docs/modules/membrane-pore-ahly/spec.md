@@ -118,3 +118,7 @@ High concentrations of purified aHly (>100 nM) are more likely to aggregate. Kee
 # Credits
 
 Module developed by the [Devaraj Lab](https://www.devarajgroup.com/).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

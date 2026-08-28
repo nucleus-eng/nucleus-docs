@@ -50,7 +50,7 @@ At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toeho
 | ------------------------ | -------------------------- | ----------- | -------- |
 | `T7-toehold-LacZ-T7term` | 2 nM                       | Designed    | —        |
 | `T7-toehold-XylE-T7term` | 2 nM                       | Designed    | —        |
-| Trigger ssDNA            | 4.8 nM                     | Synthesized | —        |
+| Trigger ssDNA            | 4.8 µM                     | Synthesized | —        |
 | pH-responsive ssDNA      | 14.4 nM                    | Synthesized | —        |
 
 Four sequences, two additions. The trigger and pH-responsive strands are annealed into a single duplex at a 3:1 ratio before use — see [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — so a working reaction receives that duplex and one toehold-switch template, and never the strands independently.
@@ -68,16 +68,18 @@ Neither toehold construct above, nor either strand of the annealed duplex, has a
 | Component                                                                | Final Concentration  |
 | ------------------------------------------------------------------------ | -------------------- |
 | [Base Cytosol](../base-cytosol/spec.md)                                    | 1×                   |
-| Toehold-switch DNA template (`T7-toehold-LacZ-T7term` or `T7-toehold-XylE-T7term`) | 2 nM         |
-| pH-responsive ssDNA : trigger ssDNA (3:1, annealed)                        | 4.8 nM trigger ssDNA |
+| Toehold-switch DNA template (`pT7-toehold9-PLA1`; also designed with LacZ and XylE effectors) | 2 nM         |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed)                        | 4.8 µM trigger ssDNA |
 | RNase inhibitor                                                            | 2000 U/mL            |
 
 :::
 
-Two additions to Base Cytosol: the annealed duplex and one toehold-switch template. Which template is used sets the effector and so the readout — LacZ with CPRG, or XylE/C23DO with catechol.
+Two additions to Base Cytosol: the annealed duplex and one toehold-switch template. Which template is used sets the effector and so the readout. The DevCells demo uses `pT7-toehold9-PLA1`, so the switch drives lysis and the color comes from a neighboring substrate liposome. The LacZ and XylE templates were designed and are not used for the demo.
 
-:::{caution} Composition inferred, but not yet experimentally verified!
-@Editor: no reaction assembling all four sequences at once is on record. The concentrations above are the design values from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote; the [pH Cascade](../ph-cascade/spec.md) spec quotes 4.625 nM trigger ssDNA for its own encapsulated variant. Confirm the working duplex concentration with the Chicago Node.
+:::{note} These are design values; the assembled reaction is on the Sensing Cell
+The concentrations above are the design values from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote. The reaction as actually assembled — with Optiprep, and at encapsulation scale — is on [pH Sensing Cell](../ph-sensing-cell/spec.md).
+
+The 4.8 µM here and the 4.625 µM there are not in conflict: that reaction was assembled above its specified volume, which dilutes every component in proportion. The relative molarities match.
 :::
 
 ::::
@@ -119,7 +121,7 @@ Requires pT7 transcription and translation (e.g., [Base Cytosol](../base-cytosol
 Requires direct exposure to pH source. Either do not encapsulate OR include H⁺ ion transport across the membrane (e.g., Gramicidin A).
 
 :::{attention}
-**Trigger ssDNA purity and formulation strongly affects signal.** IDT-desalted ssDNA in water gave about 25 000 RFU, while HPLC-purified ssDNA in duplex buffer gave about 800 000 RFU (>30×). @Editor: the duplex buffer composition is not recorded. Confirm with the Chicago Node.
+**Trigger ssDNA purity and formulation strongly affects signal.** IDT-desalted ssDNA in water gave about 25 000 RFU, while HPLC-purified ssDNA in duplex buffer gave about 800 000 RFU (>30×). The buffer is IDT Nuclease Free Duplex Buffer (cat. 11-01-03-01); use the HPLC-purified oligo in it rather than a desalted oligo in water.
 :::
 
 # Implementations
@@ -153,3 +155,7 @@ Requires direct exposure to pH source. Either do not encapsulate OR include H⁺
 # Credits
 
 Developed by [Samuel J. Chen](https://orcid.org/0000-0001-8501-7175), Sung-Won Hwang, and Allen Liu (Chicago Node, Liu Lab), adapted from [Chen, Hwang, et al., 2025](https://doi.org/10.1101/2025.11.16.688650).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

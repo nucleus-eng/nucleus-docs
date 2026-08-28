@@ -53,7 +53,7 @@ Both rows reconcile against the stocks in the Lipid Composition tab. The PEGylat
 :::{warning} Cyanine 5 stock concentration is disputed
 One record gives the 18:1 Cyanine 5 PC stock as **25 mg/mL**. At 25 mg/mL the volumes above give 2.42 mol% dye — about 24× the 0.1 mol% target. At **1 mg/mL** they give 0.099 mol%, matching the target exactly, and 1 mg/mL is the dye-stock convention used for Liss-Rhod PE in both other Nucleus membranes. The table above uses 1 mg/mL on that reasoning.
 
-@Editor: confirm the Cyanine 5 PC stock concentration with the London Node before bench use.
+@Editor(london): confirm the Cyanine 5 PC stock concentration with the London Node before bench use.
 :::
 
 ::::
@@ -77,3 +77,7 @@ To prepare this membrane, assemble 2 mg total lipids (e.g., 80 µL of a 25 mg/mL
 # Credits
 
 Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab), and extended by Jonah McDonald and Charlie Newell (London Node) with PEGylated lipids.
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

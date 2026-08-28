@@ -61,7 +61,7 @@ flowchart TD
 :::
 
 :::{attention} Constructs not in `nucleus-eng/DNA`
-@Editor: no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
+@Editor(chicago): no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
 :::
 
 See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
@@ -78,7 +78,10 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
-| [pH-Sensing Module](../detector-ph/spec.md) | Toehold-switch template 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.8 nM trigger ssDNA | As specified on [pH-Sensing Module](../detector-ph/spec.md#detector-ph-reference-composition). Whether encapsulation changes either figure is not recorded. |
+| [pH-Sensing Module](../detector-ph/spec.md) | `pT7-toehold9-PLA1` template at 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.625 µM trigger ssDNA | Compare [pH-Sensing Module](../detector-ph/spec.md#detector-ph-reference-composition), whose design values are quoted at 4.8 µM. |
+| Optiprep | 4.5% (v/v) | Density agent for the phase-transfer step. Present in the encapsulated reaction and not in the bulk one. |
+| RNase inhibitor | 1000 U/mL | Half the 2000 U/mL used in the bulk module reaction. |
+| Sulfo-Cyanine5 | 2 µM, optional | Membrane-independent fill marker, used when the lumen needs to be visible. |
 
 :::
 
@@ -133,7 +136,7 @@ The fluorescence channel shows no membrane fluorescence (Cy5) at pH 6.5, consist
 See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
 
 :::{attention} Backing DevNote is a template stub
-@Editor: no completed DevNote exists for the pH-Sensing Module. Confirm with the Chicago Node.
+@Editor(chicago): no completed DevNote exists for the pH-Sensing Module. Confirm with the Chicago Node.
 :::
 
 # Requirements
@@ -158,4 +161,8 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
 # Credits
 
-Developed by Sung-Won Hwang (Chicago Node, Liu Lab).
+Developed by Sung-Won Hwang, Samuel Chen, and Allen Liu (Chicago Node, Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

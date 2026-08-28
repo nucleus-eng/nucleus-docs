@@ -34,9 +34,13 @@ Run the following in a thermocycler. The melting temperature of the construct is
 - [ ] Store the annealed construct at -20 °C.
 
 :::{attention} Working concentration not recorded
-@Editor: the annealed construct is stored at 25 µM trigger ssDNA, and the dilution between that stock and the reaction is not recorded in the source. Confirm the working concentration with the Chicago Node before use.
+The annealed construct is stored at 25 µM trigger ssDNA. The pH sensor reaction takes 3.7 µL of that stock into a 20 µL reaction, giving 4.625 µM trigger ssDNA final — see [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md).
 :::
 
 # Credits
 
 Developed by [Samuel J. Chen](https://orcid.org/0000-0001-8501-7175), Sung-Won Hwang, and Allen Liu (Chicago Node, Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::
