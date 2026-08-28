@@ -254,7 +254,7 @@ Every step below has a Process page. They are listed in the order they are perfo
 7. Embedding — either [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md), the format the current demo uses, or [Photopatterning, PEGDA](../../processes/photopattern-pegda/main.md), which supplies the spatial separation the Requirements section calls for. Which one is an Implementation choice; see [Chicago DevCell](../../implementations/chicago-devcell/main.md).
 8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
 
-The PEGDA route reorders the last two steps: UV bleaches CPRG, so CPRG goes into the gel after crosslinking rather than being embedded with everything else.
+The photopatterned route may reorder the last two steps, putting CPRG into the gel after crosslinking rather than embedding it with everything else. The photobleaching that forces this is confirmed for PEG-norbornene and stated not to apply to PEGDA — see [aTc Cascade](../atc-cascade/spec.md) for the open question about which ordering PEGDA needs.
 
 No process covers the step that would make this cascade one system rather than two — bringing both integration paths into a single gel. Every technique above is documented for one path or the other. What is absent is the merge, and the mechanism that resolves two outputs into one readout.
 
