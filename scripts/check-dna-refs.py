@@ -128,10 +128,44 @@ class Claim:
 # --------------------------------------------------------------------------- #
 
 
-def find_dna_repo() -> Path | None:
+def _looks_like_dna_repo(path: Path) -> bool:
+    """A directory is the DNA repo only if it actually holds sequence files.
+
+    Without this, any empty directory called DNA satisfies the search and the
+    check reports a clean run over an index of nothing.
+    """
+    if not path.is_dir():
+        return False
+    return any(
+        p.suffix.lower() in SEQ_EXTENSIONS
+        for p in path.rglob("*")
+        if p.is_file()
+    )
+
+
+def dna_repo_candidates() -> list[Path]:
+    """Where the DNA repo might be, most explicit first.
+
+    NUCLEUS_DNA_REPO wins. Otherwise the sibling of this repo is tried before
+    the documented ~/src/nucleus-eng/DNA, because a checkout that nests the org
+    under an employer directory keeps the two repos side by side but puts
+    neither at the documented path.
+    """
     env = os.environ.get("NUCLEUS_DNA_REPO")
-    candidate = Path(env) if env else Path.home() / "src" / "nucleus-eng" / "DNA"
-    return candidate if candidate.is_dir() else None
+    if env:
+        return [Path(env).expanduser()]
+    repo_root = Path(__file__).resolve().parent.parent
+    return [
+        repo_root.parent / "DNA",
+        Path.home() / "src" / "nucleus-eng" / "DNA",
+    ]
+
+
+def find_dna_repo() -> Path | None:
+    for candidate in dna_repo_candidates():
+        if _looks_like_dna_repo(candidate):
+            return candidate
+    return None
 
 
 def _parse_locus(path: Path) -> tuple[str | None, int | None]:
@@ -393,9 +427,11 @@ def main(argv=None) -> int:
 
     dna_repo = find_dna_repo()
     if dna_repo is None:
+        searched = "\n".join(f"  {c}" for c in dna_repo_candidates())
         print(
-            "ERROR: could not find the nucleus-eng/DNA repo. Clone it to "
-            "~/src/nucleus-eng/DNA, or set NUCLEUS_DNA_REPO to its path.",
+            "ERROR: could not find the nucleus-eng/DNA repo. Searched:\n"
+            f"{searched}\n"
+            "Clone it next to this repo, or set NUCLEUS_DNA_REPO to its path.",
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN

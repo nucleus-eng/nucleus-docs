@@ -68,7 +68,7 @@ This file covers mechanics — build commands, QA tooling, repo structure, MyST 
 
 ### Companion DNA repository
 
-Sequence files for every plasmid and construct referenced in these docs are maintained in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)** (local path: `~/src/nucleus-eng/DNA`). That repo stores GenBank (`.gb`) files organized by part type:
+Sequence files for every plasmid and construct referenced in these docs are maintained in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)**, checked out beside this one, so `../DNA` from the repo root. That is `~/src/nucleus-eng/DNA` where the org sits at the top of `~/src`, and somewhere else where it does not — set `NUCLEUS_DNA_REPO` in that case. That repo stores GenBank (`.gb`) files organized by part type:
 
 ```
 DNA/
@@ -87,23 +87,23 @@ DNA/
 
 1. **Session start** — when beginning any work that involves DNA construct references, check recent activity in the DNA repo:
    ```bash
-   git -C ~/src/nucleus-eng/DNA log --oneline -5
+   git -C ../DNA log --oneline -5
    ```
    Commit messages will tell you if the structure or contents have changed since you last worked with it.
 
 2. **Before naming a specific construct** — before writing a protocol step that references a construct by filename (e.g., `pOpen-PURET7-3`), confirm the file exists:
    ```bash
-   ls ~/src/nucleus-eng/DNA/promoters/pOpen-PURET7-3.gb
+   ls ../DNA/promoters/pOpen-PURET7-3.gb
    ```
    If the file is missing, flag it to the developer — do not invent construct names or create placeholder references.
 
 3. **If folder structure is uncertain** — if you are unsure which subdirectory a part type lives in, read the DNA repo's README:
    ```bash
-   # or: Read ~/src/nucleus-eng/DNA/README.md
+   # or: Read ../DNA/README.md
    ```
    The README is maintained as the canonical description of the repo structure.
 
-4. **If `~/src/nucleus-eng/DNA` is not on this machine** — use the GitHub API as a fallback to browse the repo or inspect construct files without cloning:
+4. **If the DNA repo is not on this machine** — use the GitHub API as a fallback to browse the repo or inspect construct files without cloning:
    ```bash
    # Browse a directory (e.g. detectors/)
    gh api "repos/nucleus-eng/DNA/contents/detectors" --jq '.[].name'
@@ -453,7 +453,9 @@ python3 scripts/check-dna-refs.py                       # all of docs/
 python3 scripts/check-dna-refs.py docs/modules/<module>/ # one module
 ```
 
-Local-only (reads `~/src/nucleus-eng/DNA` directly, or `$NUCLEUS_DNA_REPO`) — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool.
+Local-only — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool, and that blind spot is live: PLA1 is realized as two 963 bp coding sequences that differ at 77.6% nucleotide identity and encode the same protein.
+
+It finds the DNA repo at `$NUCLEUS_DNA_REPO`, else beside this repo, else `~/src/nucleus-eng/DNA`, and accepts a candidate only if it actually contains sequence files — an empty directory named `DNA` would otherwise satisfy the search and produce a clean run over an index of nothing. It exits 2 and lists what it searched when it finds none, so a missing checkout never reads as a pass.
 
 **Before opening a PR or committing content**, run Vale + codespell (and the link checker if you touched any URLs). Invoke the `lint-docs` skill for exact commands and how to interpret each tool's output — including which Vale errors are real vs. false positives.
 
