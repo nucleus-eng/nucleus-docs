@@ -85,7 +85,7 @@ The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the 
 | Sodium alginate | Chemical | Alginic acid sodium salt, low viscosity | Sigma-Aldrich | A0682 | $91.90 | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/a0682) |
 | Calcium chloride | Chemical | Calcium chloride, anhydrous, ≥97% | Sigma-Aldrich | C1016 | $57.00 | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/c1016) |
 | CPRG | Reagent | Chlorophenol red-β-D-galactopyranoside | Roche | 10884308001 | $160.00 | -20 °C in water at 10 mg/mL | [link](https://www.sigmaaldrich.com/US/en/product/roche/10884308001) |
-| β-galactosidase (LacZ) | Reagent | Commercial LacZ — specific product not yet confirmed | TBD | TBD | TBD | TBD | TBD |
+| β-galactosidase (LacZ) | Reagent | β-Galactosidase from *E. coli* | TBD | TBD | TBD | TBD | TBD |
 | 96-well plate | Consumable | Standard 96-well plate — format not yet confirmed | TBD | TBD | TBD | TBD | TBD |
 
 :::

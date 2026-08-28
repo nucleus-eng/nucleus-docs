@@ -29,7 +29,7 @@ This page is a work in progress and not yet ready for use.
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `T7pro-PLA1-T7term` | not yet determined | — | pT7; Chicago theophylline and pH cascades |
-| `P70lux-PLA1-term` | not yet determined | — | *E. coli* P70/pLux; London AHL cascade |
+| `LuxR-PLA1` | 2237 | — | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1, one molecule; London AHL cascade |
 :::
 
 :::{attention} Neither construct is in `nucleus-eng/DNA`
@@ -48,7 +48,7 @@ PLA1 is expressed from one of the constructs above rather than added as a reagen
 | Cascade | Construct | Working concentration |
 | --- | --- | --- |
 | Chicago aTc | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
-| London AHL | `P70lux-PLA1-term` | 15 ng/µL |
+| London AHL | `LuxR-PLA1` | 15 ng/µL |
 | Chicago pH | Toehold-switch-gated PLA1 template | 2 nM |
 | Chicago theophylline | `T7pro-PLA1-T7term` | Not documented |
 :::
@@ -99,7 +99,7 @@ Requires an upstream sensing circuit to gate expression (e.g. [Detector: AHL](..
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
-Requires sigma-70 transcription and translation, when using `P70lux-PLA1-term` (e.g. [S30 Lysate](../s30-lysate/spec.md)).
+Requires sigma-70 transcription and translation, when using `LuxR-PLA1` (e.g. [S30 Lysate](../s30-lysate/spec.md)).
 
 Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effector-pla1-expected-behavior) for why.
 

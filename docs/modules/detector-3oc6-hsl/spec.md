@@ -35,14 +35,16 @@ Schematic representation of the AHL Detector mechanism. LuxR, constitutively exp
 
 ::::{tab-item} DNA
 
-:::{attention} Construct not in `nucleus-eng/DNA`
-The LuxR/pLux AHL sensor plasmid used in the synthetic cell encapsulation work below is referred to as `pLux-GFP` (in-house stock, Elani lab) and has no catalog number or sequence file recorded. It is not present in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and does not appear to have originated from a prior repository either — it needs to be submitted before this Designs table can cite a real sequence file. Do not treat the name `pLux-GFP` as a stable identifier: the bacterial-lysate characterization below (Module 1) references only an unnamed "sensing plasmid" and does not confirm it is the same construct as the synthetic cell encapsulation plasmid (Module 3). Flagging this rather than assuming identity.
+This Module detects 3OC6-HSL and drives whatever sits downstream of `pLux`. The sensing plasmid is a parameter, not part of the Module: `LuxR-deGFP` is the reporter variant used to characterize it, and `LuxR-PLA1` is the variant the DevCells demo uses. Both put a constitutive `BBa_J23101`→`luxR` cassette and the `pLux`-driven payload on one molecule, so LuxR is never supplied separately.
+
+:::{attention} Sequence files not yet in `nucleus-eng/DNA`
+@Editor(london): both constructs exist and their sequences are in hand, but neither has been submitted to [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), so this table cites no file.
 :::
 
 | **Name**   | **Length (bp)** | **File**                     |
 | ---------- | --------------- | ---------------------------- |
-| `pLux-GFP` | not available   | not yet in `nucleus-eng/DNA` |
-| `LuxR`     | ?               | ?                            |
+| `LuxR-deGFP` | 1952 | not yet in `nucleus-eng/DNA` |
+| `LuxR-PLA1`  | 2237 | not yet in `nucleus-eng/DNA` |
 
 ::::
 

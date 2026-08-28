@@ -68,7 +68,7 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `P70lux-PLA1-term` | not yet determined | — | Expressed in the AHL Sensing Cell; replaces `pLux-GFP` |
+| `LuxR-PLA1` | 2237 | — | Expressed in the AHL Sensing Cell. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. |
 | LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
 :::
 
@@ -77,14 +77,14 @@ LuxR is not supplied as purified protein. Each London sensing construct carries 
 :::
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
-`P70lux-PLA1-term` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) DNA tab for the same gap. Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
+`LuxR-PLA1` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) DNA tab for the same gap. Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
 :::
 
 ::::
 
 ::::{tab-item} AHL Sensing Cell
 
-The [AHL Sensing Cell](../ahl-sensing-cell/spec.md), carrying `P70lux-PLA1-term` as its payload in place of `pLux-GFP`.
+The [AHL Sensing Cell](../ahl-sensing-cell/spec.md), carrying `LuxR-PLA1` as its payload in place of `LuxR-deGFP`.
 
 :::{table} AHL Sensing Cell inner solution, one level deep.
 :label: comp-london-cascade-sensing
@@ -92,8 +92,8 @@ The [AHL Sensing Cell](../ahl-sensing-cell/spec.md), carrying `P70lux-PLA1-term`
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [London Chassis](../london-chassis/spec.md) | S30 Lysate at reaction concentration, in a 100% POPC synthetic cell membrane | Transcription, translation, and encapsulation. |
-| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `P70lux-PLA1-term` plasmid at 15 ng/µL final | The payload swap. The Sensing Cell carries `pLux-GFP` at 37 ng/µL instead. The `p70`-driven LuxR cassette is expressed in-reaction at an unrecorded concentration. |
-| [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by `P70lux-PLA1-term` | PLA1 is expressed from the plasmid above, not supplied separately. |
+| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-PLA1` plasmid at 15 ng/µL final | The payload swap. The Sensing Cell carries `LuxR-deGFP` at 37 ng/µL instead. LuxR is not supplied separately — it is on this same molecule, under a constitutive promoter. |
+| [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by `LuxR-PLA1` | PLA1 is expressed from the plasmid above, not supplied separately. |
 :::
 
 :::{table} AHL Sensing Cell membrane — [London Membrane: POPC](../membrane-popc/spec.md).
@@ -138,7 +138,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | Component | Working concentration |
 | --- | --- |
 | AHL (3-oxo-C6-HSL) inducer | 10 µM |
-| β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md) |
+| β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md). London supplies LacZ purified rather than expressing it in-reaction. |
 :::
 
 :::{attention} Outer solution incompletely documented
@@ -170,7 +170,7 @@ Run in Nucleus Cytosol without quorum sensing, the same PLA1/CPRG two-liposome c
 
 # Requirements
 
-Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `P70lux-PLA1-term` construct is driven by the *E. coli* P70/pLux promoter, not pT7, so it does not express in a T7-only cytosol.
+Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `LuxR-PLA1` construct is driven by the *E. coli* P70/pLux promoter, not pT7, so it does not express in a T7-only cytosol.
 
 Requires AHL (3-oxo-C6-HSL) as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)).
 
@@ -194,7 +194,7 @@ Six steps, listed in the order they are performed. Every one has a Process page 
 
 **Sensing population**
 
-2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) by emulsion phase transfer: S30 Lysate carrying the LuxR receiver and the `P70lux-PLA1-term` construct, inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) by emulsion phase transfer: S30 Lysate carrying `LuxR-PLA1`, which supplies both the LuxR receiver and the PLA1 payload, inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
 
 **Reporter population**
 
