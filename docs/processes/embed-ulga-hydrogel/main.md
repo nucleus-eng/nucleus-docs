@@ -108,6 +108,12 @@ No manufacturer, part number, price or storage data is established for glucose, 
 @Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
 :::
 
+:::{attention} Two catalog numbers for the ultra-low-gelling agarose
+The source records this reagent twice with different products: Sigma-Aldrich A5030 alongside the colorimetric work, and Sigma-Aldrich A2576, "Agarose, Type IX-A, ultra low gelling temperature", alongside the imaging work that immobilizes cells in the same gel. The table above carries A5030.
+
+@Editor(london): confirm which product this process uses, or whether the two jobs genuinely use different agaroses.
+:::
+
 # Protocol
 
 ## Prepare ULGA Outer Solution

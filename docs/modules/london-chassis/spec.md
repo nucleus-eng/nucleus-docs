@@ -96,10 +96,19 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 
 :::::
 
+(london-chassis-expected-behavior)=
 # Expected Behavior
 
-:::{attention} Needs Expected Behavior
-@Editor(london): no description of expected behavior — cell size, brightness, density of prep — and no reference images are recorded. Confirm with the London Node.
+## Cells
+
+Three phase-transfer routes have been compared for encapsulating S30 Lysate in POPC. The Elani-lab protocol with Optiprep in the inner solution gives the cleanest and highest-yield preparation. The same protocol without Optiprep gives fewer cells, and the Schroeder route (JoVE, 2020) gave yields low enough that it was dropped.
+
+Yield is counted as cells at or above 5 µm per imaging field. In the Elani route, adding 5 mg/mL BSA and raising Optiprep to 15% raised that count about 1.5×, from roughly 27 to roughly 42. Counts hold through incubation at 37 °C, and in the Optiprep condition cells stay round and abundant for 48 h, averaging 80 per field at 1 h and 66 at 48 h. Membrane stability is therefore not what limits yield.
+
+**Yield and expression pull against each other.** Optiprep above about 5% of the inner solution suppresses cell-free expression, so the conditions that give the most cells give no signal at all — see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for that result and its controls. The configuration demonstrated to express is the one without Optiprep, at the cost of yield. Expect to choose.
+
+:::{attention} Size is a threshold, not a distribution
+Cell size is recorded only as the ≥5 µm cutoff used for counting. @Editor(london): a size distribution, a measure of brightness, and reference images are still needed.
 :::
 
 # Requirements
