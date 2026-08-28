@@ -31,6 +31,14 @@ Each [Module specification](../../modules/modules-main.md) gives its own referen
 
 See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membrane spec.
 
+:::{attention} The Liss-Rhod PE product and the molecular weight disagree
+The row above uses 1301.71 g/mol, which is Avanti's 18:1 product, `A81150`. The Materials table below orders the 18:0 product, `A81179`, which Avanti gives as roughly 1305.7 — the two differ by two double bonds, so they cannot share a molecular weight. Every composition table in this documentation uses 1301.71, and [deGFP Reporter](../../modules/reporter-degfp/spec.md)'s materials table orders `A81150` against [Dye Liposomes](../../modules/dye-liposomes/spec.md)'s `A81179`.
+
+This is not cosmetic: the 18:0 lipid is gel-phase at 37 °C and the 18:1 is fluid.
+
+@Editor(bnext): confirm which product the Base Cell membrane uses, then make the part number, product name, link and molecular weight agree here, on Dye Liposomes and on deGFP Reporter.
+:::
+
 ::::
 
 ::::{tab-item} Assembly Composition

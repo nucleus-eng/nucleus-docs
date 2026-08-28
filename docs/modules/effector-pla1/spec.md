@@ -30,13 +30,17 @@ No result isolates PLA1 from the CPRG/LacZ readout. Lysis is always scored by th
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `T7pro-PLA1-T7term` | not yet determined | — | pT7; Chicago theophylline and pH cascades |
-| `LuxR-PLA1` | 2237 | — | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1, one molecule; London AHL cascade. Also referred to as `P70lux-PLA1-term`. |
+| `T7pro-PLA1-T7term` | not yet determined | — | pT7; Chicago theophylline cascade, and the ungated London run |
+| `LuxR-PLA1` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1, one molecule; London AHL cascade. Also referred to as `P70lux-PLA1-term`. |
 :::
 
-:::{attention} Neither construct is in `nucleus-eng/DNA`
-Neither has a confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Do not add a length or file entry until one lands there and its identity is confirmed against the construct name.
+:::{attention} `T7pro-PLA1-T7term` is not in `nucleus-eng/DNA`
+It has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Do not add a length or file entry until one lands there and its identity is confirmed against the construct name.
 :::
+
+**The enzyme has two coding sequences.** Every construct carrying PLA1 carries 963 bp of it, and all of them encode the same protein — but not all from the same DNA. Chicago's two gated constructs, `pT7-tetO-PLA1` and `pT7-toehold9-PLA1`, are identical across the whole coding sequence. London's `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of residues, which makes it a separate codon optimization of the same enzyme.
+
+They are interchangeable at the protein level and distinct at the DNA level. Codon usage is tuned to a host and the two Nodes use different cytosols, so substituting one for the other is a change even though the enzyme is not. Length cannot tell them apart.
 
 ::::
 
