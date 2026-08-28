@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-PEG-Norbornene Gel is a photocrosslinked hydrogel formed by step-growth thiol-ene chemistry: 4-arm PEG-norbornene, a PEG4SH crosslinker, and a photoinitiator. Like [PEGDA Gel](../gel-pegda/spec.md) it patterns under light, but through a different mechanism, and it is less prone to oxygen inhibition at the gel surface. Compare to [Alginate Gel](../gel-alginate/spec.md) and [ULGA Gel](../gel-ulga/spec.md), which set uniformly and never illuminate their contents.
+PEG-Norbornene Gel is a photocrosslinked hydrogel formed by step-growth thiol-ene chemistry: 4-arm PEG-norbornene, a PEG4SH crosslinker, and a photoinitiator. Like [PEGDA Gel](../gel-pegda/spec.md) its geometry is set by projected light, but through a different mechanism, and it is less prone to oxygen inhibition at the gel surface. Compare to [Alginate Gel](../gel-alginate/spec.md) and [ULGA Gel](../gel-ulga/spec.md), which set uniformly and never illuminate their contents.
 
 It is the newer of the two photopatterning chemistries and the one with a confirmed incompatibility: it bleaches CPRG.
 

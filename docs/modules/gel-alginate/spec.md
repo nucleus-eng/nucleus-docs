@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-Alginate Gel is a ~1% (w/v) sodium alginate hydrogel, crosslinked ionically by divalent calcium, used as the matrix that holds synthetic cells and reporter liposomes in fixed relation to one another. It is the format the Chicago colorimetric demo runs in. Compare to [ULGA Gel](../gel-ulga/spec.md), which reaches the same result through a thermal set rather than an ionic one, and to [PEGDA Gel](../gel-pegda/spec.md), which is the only gel here that can be patterned into a defined shape.
+Alginate Gel is a ~1% (w/v) sodium alginate hydrogel, crosslinked ionically by divalent calcium, used as the matrix that holds synthetic cells and reporter liposomes in fixed relation to one another. It is the format the Chicago colorimetric demo runs in. Compare to [ULGA Gel](../gel-ulga/spec.md), which reaches the same result through a thermal set rather than an ionic one, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.
 
 Alginate is the gentlest of the four on its contents: it sets at room temperature, in the dark, with no radicals and no heat.
 

@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-PEGDA Gel is a poly(ethylene glycol) diacrylate hydrogel crosslinked by 405 nm light in the presence of a photoinitiator. It is the only gel in this documentation that can be patterned into a defined shape rather than simply set in a well, which is what makes it the route to spatial separation in a cascade that needs two populations kept apart. Compare to [Alginate Gel](../gel-alginate/spec.md) and [ULGA Gel](../gel-ulga/spec.md), which set uniformly and impose no illumination, and to [PEG-Norbornene Gel](../gel-peg-norbornene/spec.md), which patterns by a different chemistry.
+PEGDA Gel is a poly(ethylene glycol) diacrylate hydrogel crosslinked by 405 nm light in the presence of a photoinitiator. It gels only where the light falls, so its geometry is set by a projected image rather than by its container. That is what makes it a route to the spatial separation a cascade needs when two populations must be kept apart — though not the only route: a block-pattern result has also been produced in agarose, by a different method. Compare to [Alginate Gel](../gel-alginate/spec.md) and [ULGA Gel](../gel-ulga/spec.md), which set uniformly and impose no illumination, and to [PEG-Norbornene Gel](../gel-peg-norbornene/spec.md), which patterns by a different chemistry.
 
 PEGDA crosslinks by chain-growth radical polymerization of its acrylate groups, with no separate crosslinker.
 
@@ -45,7 +45,7 @@ Expect a gel that forms only where the light falls, so the pattern is set by the
 Chain-growth acrylate polymerization is prone to oxygen inhibition at the gel surface and produces more heterogeneous networks than a step-growth chemistry would.
 
 :::{warning} Not yet validated with a cascade
-No result embeds a working sensing cascade in this gel. It is documented as the route to the spatial separation the [Chicago Cascade](../chicago-cascade/spec.md) Requirements section calls for, but that combination has not been run.
+No result embeds a working sensing cascade in this gel. It is documented as a route to the spatial separation the [Chicago Cascade](../chicago-cascade/spec.md) Requirements section calls for, but that combination has not been run.
 :::
 
 :::{attention} No feature-size or mechanical data
@@ -59,7 +59,7 @@ Requires 405 nm illumination and a photoinitiator, so anything embedded must tol
 
 Requires the precursor solution to be protected from light until patterning.
 
-Requires a 405 nm projector. This is the only gel here with an equipment requirement beyond ordinary labware.
+Requires a 405 nm projector, an equipment requirement neither ionically nor thermally set gels carry.
 
 Does not require the CPRG-after-crosslinking ordering that [PEG-Norbornene Gel](../gel-peg-norbornene/spec.md) does — the confirmed photobleaching is that chemistry's, and the PEGDA process page states it does not apply here. Whether the ordering is still worth keeping as a precaution is [an open question](../atc-cascade/spec.md).
 

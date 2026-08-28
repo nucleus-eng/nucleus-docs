@@ -14,6 +14,14 @@ The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that allo
 aHly is a toxin derived from *Staphylococcus aureus* and requires BSL-2 handling. The [Cx43 Module](../membrane-pore-cx43/spec.md) provides a functionally comparable alternative that does not.
 
 :::{attention}
+:::{attention} The two pores are declared alternatives with no stated guard
+This page recommends [Cx43](../membrane-pore-cx43/spec.md) as a functionally comparable alternative, but neither Module's Requirements section says what each pore passes. Both list only a membrane and, for the DNA route, pT7 transcription and translation. A reader swapping one for the other has nothing to check the swap against.
+
+The two are not interchangeable for arbitrary cargo — a staphylococcal β-barrel and a hexameric connexon have different channel dimensions — but no cutoff for either appears anywhere in this documentation.
+
+@Editor(bnext): give each pore a cargo-size limit in its Requirements section, with a citation, so the recommendation above carries a condition.
+:::
+
 This Module is not actively supported. At this time, the Nucleus Distribution does not support BSL-2 reagents. For new implementations, we recommend the [Cx43 Module](../membrane-pore-cx43/spec.md).
 :::
 

@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-ULGA Gel is an ultra-low-gelling-temperature agarose hydrogel, dissolved directly into the outer solution it will become and set by cooling. It is the matrix the London demo runs in. Compare to [Alginate Gel](../gel-alginate/spec.md), which reaches an equivalent result by ionic crosslinking instead of a thermal set, and to [PEGDA Gel](../gel-pegda/spec.md), which is the only gel here that can be patterned.
+ULGA Gel is an ultra-low-gelling-temperature agarose hydrogel, dissolved directly into the outer solution it will become and set by cooling. It is the matrix the London demo runs in. Compare to [Alginate Gel](../gel-alginate/spec.md), which reaches an equivalent result by ionic crosslinking instead of a thermal set, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.
 
 The property that makes ULGA usable with synthetic cells is its gel point. It sets at (8–17)°C, far below standard agarose, so the window between "still liquid enough to mix" and "cold enough to damage the contents" is wide.
 
