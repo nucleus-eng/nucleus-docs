@@ -260,7 +260,7 @@ No process covers the step that would make this cascade one system rather than t
 
 # Constituent Modules
 
-- [aTc Cascade](../atc-cascade/spec.md) — the aTc integration path, confirmed in synthetic cytosols and in synthetic cells; hydrogel embedding still in progress
+- [aTc Cascade](../atc-cascade/spec.md) — the aTc integration path, confirmed in synthetic cells; hydrogel embedding still in progress. The detector alone is separately replicated in bulk Nucleus Cytosol with a deGFP reporter standing in for the lysis and colorimetric steps, so that result does not extend to the chain.
 - [pH Cascade](../ph-cascade/spec.md) — the pH integration path; its individual results are confirmed but the three-part chain has not been run end to end
 
 Both integration paths terminate at the [LacZ Reporter Module](../reporter-lacz/spec.md), which is shared rather than duplicated. That sharing is the subject of the Requirements section above.

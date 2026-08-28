@@ -75,6 +75,8 @@ In ~1% alginate the yellow-to-purple change appears after about 16 h.
 
 # Requirements
 
+Requires an outer solution above roughly 1200 mOsm where CPRG retention over time matters. In glucose-based outer solutions, dye leakage from loaded liposomes falls sharply above that osmolarity — leaked CPRG meets the external enzyme with no lysis and raises background before the cascade fires.
+
 Requires an external β-galactosidase source in the surrounding matrix (e.g. [LacZ Reporter](../reporter-lacz/spec.md)), and a lysis trigger to breach the SUV membrane (e.g. [PLA1 Lysis Module](../effector-pla1/spec.md)).
 
 Requires encapsulation within a lipid membrane (e.g. POPC, or POPC:cholesterol) until a lysis trigger is applied; released CPRG must not contact LacZ before that trigger.

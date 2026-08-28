@@ -148,7 +148,7 @@ Confirm embedding succeeded before scoring a readout:
 
 # Credits
 
-Developed by Ion Ioannou and Jonah McDonald (London Node).
+Developed by Julia Purrinos De Oliveira (London Node), with the PLA1 colorimetric variant by Jonah McDonald and Charlie Newell.
 
 # Downloads
 

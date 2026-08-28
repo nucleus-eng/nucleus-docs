@@ -68,7 +68,7 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `LuxR-PLA1` | 2237 | — | Expressed in the AHL Sensing Cell. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. |
+| `LuxR-PLA1` | 2237 | — | Expressed in the AHL Sensing Cell. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. London's own documents call it `P70lux-PLA1-term`. |
 | LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
 :::
 
@@ -137,14 +137,12 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 
 | Component | Working concentration |
 | --- | --- |
-| AHL (3-oxo-C6-HSL) inducer | 10 µM |
+| AHL (3-oxo-C6-HSL) inducer | 10 µM; 5 µM is also used, and both appear in reported results |
 | β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md). London supplies LacZ purified rather than expressing it in-reaction. |
 :::
 
 :::{attention} Outer solution incompletely documented
 @Editor(london): the osmolarity components of the outer solution are not recorded for this cascade. The [AHL Sensing Cell](../ahl-sensing-cell/spec.md) matches inner and outer at ≈ 920 mOsm with potassium L-glutamate, HEPES and glucose; confirm those carry over.
-
-Separately, the result below is recorded at 5 µM AHL while the specification is 10 µM. Confirm whether that experiment really ran at half the working concentration or the figure is a transcription slip.
 :::
 
 ::::
@@ -165,7 +163,7 @@ The AHL-gated PLA1/LacZ colorimetric readout is not yet robust. The signal is re
 :::
 
 :::{note} A constitutive configuration of the same chemistry gives a clearer result
-Run in Nucleus Cytosol without quorum sensing, the same PLA1/CPRG two-liposome chemistry produces a color change from ~3 h at 37 °C, easily discernible by 16 h and reproduced across multiple days. That result establishes the PLA1/LacZ/CPRG chemistry. It carries no LuxR/pLux gating, so it is evidence for the chemistry rather than for AHL detection.
+Run in Nucleus Cytosol without quorum sensing, the same PLA1/CPRG two-liposome chemistry produces a color change from ~3 h at 37 °C, easily discernible by 16 h and reproduced across multiple days. That result establishes the PLA1/LacZ/CPRG chemistry and is specified in full on the [PLA1 Lysis Module](../effector-pla1/spec.md) page. It carries no LuxR/pLux gating, so it is evidence for the chemistry rather than for AHL detection.
 :::
 
 # Requirements

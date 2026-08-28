@@ -91,7 +91,7 @@ The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the 
 :::
 
 :::{attention} Reagent gaps
-The commercial enzyme is β-galactosidase from *E. coli*. @Editor(chicago): its working concentration in the gel, and the well-plate format used for this result, are still not established. Confirm before treating these rows as verified purchasing information.
+The commercial enzyme is β-galactosidase from *E. coli*. London sources it as Sigma-Aldrich G5635. @Editor(chicago): confirm whether Chicago uses the same product, and give its working concentration in the gel and the well-plate format used for this result, before treating these rows as verified purchasing information.
 :::
 
 # Protocol
