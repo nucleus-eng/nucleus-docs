@@ -20,7 +20,7 @@ If you are looking to get started quickly, we recommend acquiring a kit from b.n
 # Using the Distribution as a knowledge base
 
 The Distribution contains useful documentation organized across four different categories:
-- [Modules](../docs/modules/modules-main.md) include specification pages for functional biological modules (see [Nucleus Cytosol](./base-cytosol/spec) as an example). 
+- [Modules](../docs/modules/modules-main.md) include specification pages for functional biological modules (see [Nucleus Cytosol](../docs/modules/base-cytosol/spec.md) as an example). 
 - [Processes](../docs/processes/processes-main.md) describe validated lab protocols that either help you implement modules or just generally do useful things (see [Assemble Protein Mix](../docs/processes/make-36pot/main.md) as an example). 
 - [Implementations](../docs/implementations/implementations-main.md) describe particular uses of Modules in a specific context and using specific Processes (see [Responder: aTc -> ivhsl](../docs/implementations/responder-atc-ivhsl/main.md) as an example). 
 - [Guides](../guides/main.md) are narrative documentation describing how to do something generally useful (this page is a guide, for instance). We recommend exploring the four document categories to get a sense for how this site is organized.
