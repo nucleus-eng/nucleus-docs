@@ -33,7 +33,7 @@ This page is a work in progress and not yet ready for use.
 @Editor(chicago): neither the PEGDA monomer concentration nor the LAP concentration is established. Exposure time depends on both, so the (15–30) s window below cannot be reproduced without them.
 :::
 
-A multimaterial variant combines this precursor with 1.6 wt% alginate, giving a gel that crosslinks both photochemically and ionically. That is a composition of this gel with [Alginate Gel](../gel-alginate/spec.md), not a variant of either.
+A multimaterial variant mixes 1.6 wt% alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. So the mixture names the ingredients and not the product — the product is a structure. See [Alginate Gel](../gel-alginate/spec.md); the CaCl₂ concentration and exposure time for the alginate step are not established.
 
 (gel-pegda-expected-behavior)=
 # Expected Behavior

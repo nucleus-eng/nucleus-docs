@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 
 The alginate is dissolved in whatever outer solution the embedded populations already sit in, so the gel does not have an osmolarity of its own to specify. It inherits one.
 
-A multimaterial variant combines 1.6 wt% alginate with a PEGDA precursor to give a gel that crosslinks both ionically and photochemically. That is a composition of two gels rather than a variant of this one — see [PEGDA Gel](../gel-pegda/spec.md).
+A multimaterial variant mixes 1.6 wt% alginate into a PEGDA precursor, then crosslinks each component by its own route. The mixture is the ingredient; the product is not a blended gel but **a PEGDA frame around an alginate core** — two regions with a boundary between them, demonstrated with reasonable structural integrity. The CaCl₂ concentration and exposure time for the alginate step are not established. See [PEGDA Gel](../gel-pegda/spec.md).
 
 (gel-alginate-expected-behavior)=
 # Expected Behavior
