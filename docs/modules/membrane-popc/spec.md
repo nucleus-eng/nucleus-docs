@@ -26,13 +26,15 @@ This page is a work in progress and not yet ready for use.
 
 | Component                    | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Notes                |
 | ---------------------------- | ------------------------ | --------------------------- | -------------------- |
-| POPC                         | 760.076                  | 25                          | bilayer-forming lipid |
-| (Optional) DSPE-PEG2000      | 2805.5                   | 10                          | stabilizes membrane   |
-| (Optional) 18:1 Cyanine 5 PC | 1316.26                  | 1                           | red fluorescence      |
+| POPC              | 760.076                  | 25                          | bilayer-forming lipid; in every preparation |
+| DSPE-PEG2000      | 2805.5                   | 10                          | PEGylated preparation only |
+| 18:1 Cyanine 5 PC | 1316.26                  | 1                           | labeled preparation only   |
 
 :::
 
-DSPE-PEG2000 is a PEGylated lipid used in the London colorimetric (PLA1) work. The PEG headgroup provides steric stabilization at the bilayer surface — a functional change, not a labeling one. 18:1 Cyanine 5 PC is a red fluorescently-tagged lipid that is used similarly to Liss-Rhod PE. The two optional lipids come from two separate documented preparations and have never been combined in one membrane.
+This is the parts list. The two recipes that use them are in Documented Preparations, and neither additional lipid is optional within its own recipe — they are what distinguish one preparation from the other, and they have never been combined in one membrane.
+
+The two are not the same kind of addition. DSPE-PEG2000's PEG headgroup provides steric stabilization at the bilayer surface, which is a functional change rather than a labeling one, so the PEGylated membrane behaves differently from plain POPC. 18:1 Cyanine 5 PC is a red fluorescently-tagged lipid used the way Liss-Rhod PE is used elsewhere in Nucleus: to see the membrane, not to change it.
 
 ::::
 
