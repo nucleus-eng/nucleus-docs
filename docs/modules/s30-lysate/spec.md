@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-S30 Lysate is a commercially available *E. coli* cell-free expression system with undefined composition. S30 Lysate may be used in place of [Base Cytosol](../base-cytosol/spec.md) for compatible modules.
+S30 Lysate is a commercially available *E. coli* cell-free expression system with undefined composition. S30 Lysate and [Base Cytosol](../base-cytosol/spec.md) are not drop-in replacements for one another. Base Cytosol supplies T7 RNA polymerase and transcribes T7-driven constructs; S30 Lysate carries *E. coli*'s native machinery and transcribes sigma-70-driven ones. A Module moves between the two only if its construct carries the matching promoter, which is the condition stated under Requirements.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use. 
@@ -43,7 +43,15 @@ S30 Lysate's expected behavior is characterized by expressing a reporter module 
 
 # Requirements
 
-Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor. For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
+Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
+
+:::{attention} Which DNA presentation goes into the reaction is not recorded
+The kit is supplied for circular DNA, and this documentation calls the London constructs plasmids throughout. But the sequence files for those constructs are the linear presentation, supplied as G-blocks or clonal DNA, and the same parts also exist as glycerol stocks in a pET-Kan vector. That is one part in two physical forms, and only one of them matches what the kit asks for.
+
+The distinction has bench consequences: linear DNA is exposed to exonuclease activity in an *E. coli* extract in a way circular DNA is not.
+
+@Editor(london): confirm whether reactions receive the linear construct or the pET-Kan plasmid, and if linear, whether anything is done to protect it.
+::: For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
 
 Not compatible with Optiprep in the inner solution above ~5%; use sucrose for density matching instead (e.g. [London Chassis](../london-chassis/spec.md)).
 
