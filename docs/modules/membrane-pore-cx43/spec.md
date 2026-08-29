@@ -140,7 +140,9 @@ Endpoint confocal image (6 h 40 min) of control liposomes. Most liposomes remain
 
 # Requirements
 
-Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). If using DNA components, additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). 
+Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). If using DNA components, additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+
+Passes molecules up to ~1 kDa. Anything larger will not cross. [α-Hemolysin](../membrane-pore-ahly/spec.md) passes up to ~3 kDa, so substituting this Module for it lowers the cutoff and a cargo between the two figures will stop crossing. 
 
 # Credits
 

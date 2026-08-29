@@ -40,6 +40,11 @@ END = "<!-- /gen:composition-diagram -->"
 # Cytosol and Inner Solution are alternatives, not synonyms: Cytosol names what
 # fills the compartment, Inner Solution names the compartment. Either satisfies.
 IMPLIES = [
+    # MEMBRANE_PORE must stay above MEMBRANE and is not a special case of it: a
+    # pore sits in the membrane rather than being one, so it implies a DNA tab
+    # for the construct that expresses it, not a lipid table. Matching is
+    # longest-prefix-wins so the two never both claim the same node.
+    ("MEMBRANE_PORE", ("DNA",), "dna"),
     ("MEMBRANE", ("Membrane",), "membrane"),
     ("BASE_CYTOSOL", ("Cytosol", "Inner Solution"), "cytosol"),
     ("S30_LYSATE", ("Cytosol", "Inner Solution"), "cytosol"),
@@ -140,9 +145,18 @@ def check(path: Path) -> tuple[list[str], list[str]]:
 
     tabs = composition_surface(text)
 
+    # Each node belongs to the longest prefix that claims it, so a specific rule
+    # beats a general one that happens to be a string prefix of it.
+    owner = {}
+    for node in nodes:
+        best = max((p for p, _, _ in IMPLIES if node.startswith(p)),
+                   key=len, default=None)
+        if best is not None:
+            owner.setdefault(best, []).append(node)
+
     findings = []
     for prefix, accepted, key in IMPLIES:
-        matching = sorted(n for n in nodes if n.startswith(prefix))
+        matching = sorted(owner.get(prefix, []))
         if not matching or key in waived:
             continue
         if any(a.lower() in tabs.lower() for a in accepted):
