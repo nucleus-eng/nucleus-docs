@@ -19,7 +19,7 @@ DevCell component volumes are currently too small to produce macroscopically vis
 :::{attention} PEG-norbornene: a related, newer hydrogel chemistry — not yet a diagram node
 A separate, more recently explored hydrogel chemistry, PEG-norbornene, is sometimes discussed alongside PEGDA but is chemically distinct and **not the subject of this page**:
 
-- **PEGDA** crosslinks by chain-growth radical polymerization of the acrylate groups directly (no separate crosslinker), which is prone to oxygen inhibition at the gel surface and produces more heterogeneous networks.
+- **PEGDA** crosslinks by radical polymerization of the acrylate groups, which is prone to oxygen inhibition at the gel surface and produces more heterogeneous networks.
 - **PEG-norbornene** crosslinks by step-growth thiol-ene chemistry — 4-arm PEG-norbornene plus a PEG4SH crosslinker, with lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator — which is less prone to oxygen inhibition.
 
 **PEG-norbornene has no corresponding node in `process-dependency-diagram.md`** — the diagram only represents PEGDA. This is a diagram-maintenance gap, not a decision to fold PEG-norbornene into this page.
@@ -37,7 +37,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - Exposure time (15 s to 30 s at 405 nm) needs to be adjusted based on other experimental conditions (e.g., monomer concentration, layer thickness, feature size) — no single fixed value is established.
-- PEG-4SH, a step-growth thiol-ene crosslinker used with PEG-norbornene, is excluded from the Bill of Materials below — it does not belong to PEGDA's chain-growth acrylate polymerization chemistry.
+- PEG-4SH is the crosslinker for both photodevelopment routes, not for PEG-norbornene alone. It is missing from the Bill of Materials below and needs a sourced entry — see [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md).
 
 ::::::
 
@@ -96,7 +96,7 @@ Working concentrations for PEGDA monomer and LAP in this precursor solution are 
 
 ## Multimaterial Patterning with Alginate (optional)
 
-- [ ] For multimaterial photopatterning, combine 1.6 wt% alginate with the PEGDA precursor solution to enable a combined ionic/photo-crosslinking system, producing a photopatterned PEGDA frame around an alginate core.
+- [ ] For multimaterial photodevelopment, combine 1.6 wt% alginate with the PEGDA precursor solution to enable a combined ionic/photo-crosslinking system, producing a patterned PEGDA frame around an alginate core.
 
 :::{hint} Note
 :class: simple
@@ -106,7 +106,7 @@ This combined system has been used to demonstrate a PEGDA frame–alginate core 
 
 # Quality Control
 
-- **Pattern fidelity and feature size**: Confirm by microscopy imaging, comparing patterned feature dimensions against the intended design. Tunable feature sizes have been demonstrated for PEGDA hydrogels photopatterned by this process.
+- **Pattern fidelity and feature size**: Confirm by microscopy imaging, comparing patterned feature dimensions against the intended design. Tunable feature sizes have been demonstrated for PEGDA hydrogels patterned by this process.
 - **Structural integrity (multimaterial constructs)**: For PEGDA frame–alginate core constructs, confirm structural integrity by visual and/or mechanical inspection.
 
 :::{attention} Primary data not located

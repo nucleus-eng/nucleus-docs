@@ -36,7 +36,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 - Alginate crosslinks ionically: divalent Ca²⁺ ions bridge adjacent alginate polymer chains (an "egg-box" junction), gelling the matrix without the heat or UV exposure that agarose or PEGDA-based hydrogels require. This is compatible with pre-formed Sensing Cells and CPRG-loaded SUVs in the gel at the time of crosslinking, unlike UV-crosslinked chemistries (see the PEG-norbornene caveat below).
 - This process assumes the Sensing Cells and CPRG-loaded SUVs are already formed and purified by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [SUV Encapsulation](../encapsulate-suv/main.md) before this step. It does not cover liposome formation itself.
-- A separate, higher-concentration alginate formulation — 1.6 wt% alginate (Kamat lab) combined with PEGDA for photopatterning — appears on the [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) page. That is a distinct multimaterial construct for spatial patterning, not this process's ~1% (w/v) co-encapsulation formulation. Do not conflate the two concentrations or assume this page's protocol produces the PEGDA-frame/alginate-core construct described there.
+- A separate, higher-concentration alginate formulation — 1.6 wt% alginate (Kamat lab) combined with PEGDA for photodevelopment — appears on the [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) page. That is a distinct multimaterial construct for spatial patterning, not this process's ~1% (w/v) co-encapsulation formulation. Do not conflate the two concentrations or assume this page's protocol produces the PEGDA-frame/alginate-core construct described there.
 
 ::::
 

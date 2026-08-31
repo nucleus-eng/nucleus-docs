@@ -11,7 +11,7 @@ site:
 
 PEG-Norbornene Gel is a photocrosslinked hydrogel formed by step-growth thiol-ene chemistry: 4-arm PEG-norbornene, a PEG4SH crosslinker, and a photoinitiator. Like [PEGDA Gel](../gel-pegda/spec.md) its geometry is set by projected light, but through a different mechanism, and it is less prone to oxygen inhibition at the gel surface. Compare to [Alginate Gel](../gel-alginate/spec.md) and [ULGA Gel](../gel-ulga/spec.md), which set uniformly and never illuminate their contents.
 
-It is the newer of the two photopatterning chemistries and the one with a confirmed incompatibility: it bleaches CPRG.
+It is the newer of the two photodevelopment chemistries. Like the PEGDA route it exposes the payload to UV, so neither can carry pre-loaded CPRG through crosslinking.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -26,7 +26,7 @@ This page is a work in progress and not yet ready for use.
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | 4-arm PEG-norbornene | not established | the backbone |
-| PEG4SH | not established | step-growth thiol-ene crosslinker; supplies the thiols |
+| PEG4SH | not established | thiol crosslinker, shared with the [PEGDA route](../gel-pegda/spec.md) |
 | LAP photoinitiator | not established | lithium phenyl-2,4,6-trimethylbenzoylphosphinate |
 :::
 
@@ -54,7 +54,7 @@ The confirmed workaround inverts the order: pre-add LacZ to the gel, crosslink, 
 
 Requires UV illumination and a photoinitiator, so anything embedded must tolerate light exposure and the radical species it generates.
 
-Requires a free thiol crosslinker, PEG4SH, which the other photopatterning route does not use.
+Requires the PEG4SH crosslinker, as the PEGDA route does.
 
 **Requires that CPRG is not pre-loaded into liposomes.** This is the one requirement here that rules a whole cascade out rather than constraining it: the two-liposome colorimetric readout cannot be run in this gel as written.
 

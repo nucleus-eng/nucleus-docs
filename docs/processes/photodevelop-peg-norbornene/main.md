@@ -22,7 +22,7 @@ The confirmed workaround inverts the order: pre-add LacZ to the gel, crosslink, 
 # Materials and Equipment
 
 :::{attention} Not established
-No precursor concentration, arm ratio, crosslinker ratio, photoinitiator concentration, exposure time or light source is recorded for this route. PEG4SH is deliberately excluded from the [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) bill of materials because it belongs to this chemistry and not to that one, so it has no sourced entry anywhere yet.
+No precursor concentration, arm ratio, crosslinker ratio, photoinitiator concentration, exposure time or light source is recorded for this route. PEG4SH has no sourced entry on any page — it is the crosslinker for both routes and is missing from the [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) bill of materials as well.
 
 @Editor(chicago): supply the precursor composition and exposure conditions before this page is used at the bench.
 :::
@@ -30,7 +30,7 @@ No precursor concentration, arm ratio, crosslinker ratio, photoinitiator concent
 | Name | Category | Product | Manufacturer | Part # |
 | --- | --- | --- | --- | --- |
 | 4-arm PEG-norbornene | Chemical | not established | — | — |
-| PEG4SH | Chemical | thiol crosslinker; not established | — | — |
+| PEG4SH | Chemical | thiol crosslinker, shared with the PEGDA route; not established | — | — |
 | LAP photoinitiator | Chemical | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G |
 
 # Protocol
