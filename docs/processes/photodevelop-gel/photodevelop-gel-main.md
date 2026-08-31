@@ -1,5 +1,5 @@
 ---
-title: Photopattern Gel
+title: Photodevelop Gel
 status: draft
 ---
 
@@ -9,8 +9,8 @@ Photopatterning crosslinks a light-sensitive polymer precursor into a gel only w
 
 This page covers what the two chemistries share. Each has its own page, because the precursor, the crosslinking mechanism and what the exposure does to the payload all differ:
 
-- [Photopatterning, PEGDA](../photopattern-pegda/main.md) — chain-growth radical polymerization of acrylate groups, with no separate crosslinker.
-- [Photopatterning, PEG-Norbornene](../photopattern-peg-norbornene/main.md) — step-growth thiol-ene addition, with a separate thiol crosslinker.
+- [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) — chain-growth radical polymerization of acrylate groups, with no separate crosslinker.
+- [Photodevelopment, PEG-Norbornene](../photodevelop-peg-norbornene/main.md) — step-growth thiol-ene addition, with a separate thiol crosslinker.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

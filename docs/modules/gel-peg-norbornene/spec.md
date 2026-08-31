@@ -60,7 +60,7 @@ Requires a free thiol crosslinker, PEG4SH, which the other photopatterning route
 
 # Processes
 
-Formed by [Photopatterning, PEG-Norbornene](../../processes/photopattern-peg-norbornene/main.md), which is a stub — it records the chemistry and the CPRG incompatibility but no precursor recipe or exposure conditions. [Photopattern Gel](../../processes/photopattern-gel/photopattern-gel-main.md) carries the steps this route shares with [Photopatterning, PEGDA](../../processes/photopattern-pegda/main.md).
+Formed by [Photodevelopment, PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md), which is a stub — it records the chemistry and the CPRG incompatibility but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Photodevelopment, PEGDA](../../processes/photodevelop-pegda/main.md).
 
 # Credits
 
