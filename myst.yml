@@ -96,8 +96,13 @@ project:
       children:
         - file: ./docs/processes/assemble-base-cell/main.md
           hidden: true
-        - file: ./docs/processes/photopattern-pegda/main.md
+        - file: ./docs/processes/photopattern-gel/photopattern-gel-main.md
           hidden: true
+          children:
+            - file: ./docs/processes/photopattern-pegda/main.md
+              hidden: true
+            - file: ./docs/processes/photopattern-peg-norbornene/main.md
+              hidden: true
         - file: ./docs/processes/embed-alginate-hydrogel/main.md
           hidden: true
         - file: ./docs/processes/encapsulate-suv/main.md

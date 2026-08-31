@@ -65,7 +65,7 @@ Does not require the CPRG-after-crosslinking ordering that [PEG-Norbornene Gel](
 
 # Processes
 
-Prepared and patterned by [Photopatterning, PEGDA](../../processes/photopattern-pegda/main.md).
+Prepared and patterned by [Photopatterning, PEGDA](../../processes/photopattern-pegda/main.md). [Photopattern Gel](../../processes/photopattern-gel/photopattern-gel-main.md) carries the steps this route shares with the [PEG-norbornene route](../../processes/photopattern-peg-norbornene/main.md).
 
 # Materials
 
