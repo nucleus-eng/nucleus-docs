@@ -173,16 +173,20 @@ Responder Cell sample timeseries (uninduced). EggPC liposomes containing PURE, r
 
 :::::::
 
-# Process
+# Processes
 
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md)
 
 # Modules
 
-- [Detector: TetR-aTc](../../modules/detector-tetr_atc/spec.md)
+- [Detector: TetR-aTc](../../modules/detector-tetr-atc/spec.md)
 - [Emitter: IV-HSL](../../modules/emitter-ivhsl/spec.md)
 
 # Credits
 
 - Jefferson Smith & Michael Booth (Oxford / UCL)
 - b.next
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

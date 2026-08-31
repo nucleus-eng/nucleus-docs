@@ -48,6 +48,7 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 python3 scripts/check-dropdowns.py      # flag placeholder-only lists
 python3 scripts/check-file-placement.py # flag content files outside allowed dirs
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
+python3 scripts/check-anchors.py        # flag #anchors MyST binds to the wrong page
 python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
@@ -57,11 +58,36 @@ pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
 ```
 
+## Writing style
+
+**Prose style for all documentation content is defined in [STYLE-GUIDE.md](STYLE-GUIDE.md).** Read it before writing or editing a page. It covers what each page type is for, what belongs in each section of a spec, and what must never appear on a page. Detail lives in `style-guide/`.
+
+This file covers mechanics — build commands, QA tooling, repo structure, MyST syntax. Where the two overlap, the style guide is the authority on *what to write* and this file on *how the repo works*.
+
+### Staged edits
+
+**Do not edit committed files directly when resolving a conflict or applying a ruling.** Write the proposal to a staging file in `tmp/` first, resolve the conflict there, and apply only when the developer explicitly says to.
+
+Scope: every committed file in this repo — `docs/`, `CLAUDE.md`, `STYLE-GUIDE.md`, `myst.yml`, `scripts/`. Files under `tmp/` are gitignored and may be edited directly. Other repos have their own conventions.
+
+A staging file records four things:
+
+1. **The ruling or finding**, quoted.
+2. **What it overturns**, quoted from the page it contradicts. This is the part that earns the file — an edit that silently overwrites a claim hides whether the claim had a rationale behind it, and a wrong claim with a rationale attached is more convincing than a blank.
+3. **The edit sites**, as a table of page, line, current text, proposed text.
+4. **What it leaves open**, including questions for the developer.
+
+**A ruling about what is true is not approval to apply it.** Settling a fact decides what the staging file should say; it does not authorize touching a page. The same holds for answers to questions raised inside the staging file — those close items in the proposal, not the review.
+
+**The commit is the fold-in.** One commit, after review, whose subject is applying the staging file — not edit, then commit, then discuss. If an edit lands before approval, revert it and then remove the revert as well: a commit that should not have existed should not leave a revert pair in the history.
+
+Naming: `tmp/STAGED-<date>-<topic>.md`.
+
 ## Architecture
 
 ### Companion DNA repository
 
-Sequence files for every plasmid and construct referenced in these docs are maintained in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)** (local path: `~/src/nucleus-eng/DNA`). That repo stores GenBank (`.gb`) files organized by part type:
+Sequence files for every plasmid and construct referenced in these docs are maintained in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)**, checked out beside this one, so `../DNA` from the repo root. That is `~/src/nucleus-eng/DNA` where the org sits at the top of `~/src`, and somewhere else where it does not — set `NUCLEUS_DNA_REPO` in that case. That repo stores GenBank (`.gb`) files organized by part type:
 
 ```
 DNA/
@@ -80,23 +106,23 @@ DNA/
 
 1. **Session start** — when beginning any work that involves DNA construct references, check recent activity in the DNA repo:
    ```bash
-   git -C ~/src/nucleus-eng/DNA log --oneline -5
+   git -C ../DNA log --oneline -5
    ```
    Commit messages will tell you if the structure or contents have changed since you last worked with it.
 
 2. **Before naming a specific construct** — before writing a protocol step that references a construct by filename (e.g., `pOpen-PURET7-3`), confirm the file exists:
    ```bash
-   ls ~/src/nucleus-eng/DNA/promoters/pOpen-PURET7-3.gb
+   ls ../DNA/promoters/pOpen-PURET7-3.gb
    ```
    If the file is missing, flag it to the developer — do not invent construct names or create placeholder references.
 
 3. **If folder structure is uncertain** — if you are unsure which subdirectory a part type lives in, read the DNA repo's README:
    ```bash
-   # or: Read ~/src/nucleus-eng/DNA/README.md
+   # or: Read ../DNA/README.md
    ```
    The README is maintained as the canonical description of the repo structure.
 
-4. **If `~/src/nucleus-eng/DNA` is not on this machine** — use the GitHub API as a fallback to browse the repo or inspect construct files without cloning:
+4. **If the DNA repo is not on this machine** — use the GitHub API as a fallback to browse the repo or inspect construct files without cloning:
    ```bash
    # Browse a directory (e.g. detectors/)
    gh api "repos/nucleus-eng/DNA/contents/detectors" --jq '.[].name'
@@ -122,9 +148,9 @@ DNA/
 
 ### Terminology
 
-These definitions ground the module/implementation content model below (`docs/modules/`, `docs/implementations/`, and their `spec.md` files):
+These definitions ground the content model below — all three hierarchies: `docs/modules/`, `docs/implementations/` and `docs/processes/`, and their `spec.md` and `main.md` files:
 
-- Composition (n): the physical make up of a system; typically concentration and spatial organization
+- Composition (n): the specified make up of a system; typically concentration and spatial organization. Composition is the design, not a completed run — see [sections.md](style-guide/sections.md#reference-composition).
 - Composing (v): the act of combining two or more systems and their associated functions
 - Component: an element (abstract or concrete) of Composition; a single part or piece of a larger whole. May be defined as having subcomponents.
 - Function: a designed behavior; defined by and emergent from Composition
@@ -160,7 +186,7 @@ The documentation organizes content into three parallel hierarchies under `docs/
 
 The site TOC is defined entirely in `myst.yml`. When adding a new page, you must add it to the `toc:` section. Child pages that should not appear directly in the sidebar use `hidden: true`. The file `site.yml` holds site-wide settings (license, nav links, theme) that `myst.yml` extends.
 
-**Adding a module spec requires two table-of-contents updates, not one.** In addition to the `myst.yml` TOC entry, add a row to the table in `docs/modules/modules-main.md`. The table columns are `Module Class | Specification | Validation` — fill in the class name (e.g. `Detector`), a relative link to the spec (e.g. `[LacI-IPTG](./detector-laci_iptg/spec.md)`), and the validation star rating (use ★ to ★★★ following the validation key at the top of `modules-main.md`: ★ = preliminary/DevNote only, ★★ = validated in cells or in vitro, ★★★ = frequently used). Missing this step leaves the module off the main module index page.
+**Adding a module spec requires two table-of-contents updates, not one.** In addition to the `myst.yml` TOC entry, add a row to the table in `docs/modules/modules-main.md`. The table columns are `Module Class | Specification | Validation` — fill in the class name (e.g. `Detector`), a relative link to the spec (e.g. `[LacI-IPTG](./detector-laci-iptg/spec.md)`), and the validation star rating (use ★ to ★★★ following the validation key at the top of `modules-main.md`: ★ = preliminary/DevNote only, ★★ = validated in cells or in vitro, ★★★ = frequently used). Missing this step leaves the module off the main module index page.
 
 Note that `hidden: true` is used pervasively for *every* non-sidebar child page — it is a navigation setting, **not** a maturity signal. Page maturity is tracked separately via the `status:` frontmatter field (see below).
 
@@ -173,7 +199,11 @@ Every content page has a maturity `status`, declared as a frontmatter field. Thi
 | `draft` | incomplete; not ready for public consumption | must be `hidden: true` (keep out of the sidebar) | **Draft** banner (below) |
 | `unvalidated-published` | complete and publicly visible, but not yet validated in the current Nucleus Cytosol | normal | **Not yet validated** banner (below) |
 | `validated-published` | complete and validated; ready | normal | none |
+| `canceled` | specified, then cut; kept for reference and not maintained | must be `hidden: true` | **Canceled** banner naming why it was cut |
 
+- `canceled` is not a maturity level — it is a scope decision. Use it when a Module was
+  specified and then cut, and the specification is still worth keeping. Say in the banner
+  *why* it was cut, not just that it was.
 - **Absent `status:` is treated as `validated-published`** — do not churn the ~50 ready pages. Only `draft` and `unvalidated-published` pages need an explicit field.
 - **Templates ship with `status: draft`** so a new page can't accidentally appear validated; the author changes it to `unvalidated-published` or `validated-published` when ready.
 - The `status:` field does **not** auto-render anything — add the matching banner by hand when you set `draft` or `unvalidated-published`. The two standard banners:
@@ -196,7 +226,10 @@ A page may also carry an unrelated content caveat (e.g. aHly's "not actively sup
 
 `templates/` contains Cookiecutter-style starter files:
 - `process-template/process-make_template.md` — full example of a process page including admonition blocks, protocol steps with checkboxes, and a Downloads section
-- `module-template/spec.md` — module spec structure with schematic, designs table, compatible processes, and usage references
+- `module-template/spec-formulation.md` — for a module you **mix**: cytosols, membranes, chassis, cells. Sections: Overview / Reference Composition / Expected Behavior / Process / Materials / Credits
+- `module-template/spec-functional.md` — for a module you **add to someone else's recipe**: detectors, reporters, effectors, emitters, controls, pores, energy. Sections: Overview / Reference Composition / Expected Behavior (with per-context subsections) / Requirements / Implementations / Materials / Downloads / Credits
+
+  Pick by what the page documents, not by where the module sits in the composition tree — Base Cell is a composed module but reads as a recipe, and a membrane pore is a membrane but reads as a function. Omit a section rather than stubbing it empty.
 - `implementation-template/implementation-template.md` — combined implementation format
 - `typst/nucleus-protocols/` — the branded typst template used to render lab-ready protocol/BOM PDFs (vendored in-repo; pubmatter pinned to 0.2.2 — see its README)
 
@@ -226,7 +259,16 @@ Pages use MyST admonition nesting with `:::` fences. Process pages follow a cons
 3. `# Protocol` with `##` subsections and checklist steps (`- [ ]`)
 4. `# Downloads` grid with cards linking to PDF lab protocol and Bill of Materials
 
-Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes. Cross-references use MyST `{ref}` syntax for same-page targets and standard markdown links for cross-page references.
+Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes.
+
+**Never link to a bare section heading anchor.** MyST resolves `#anchor` by global identifier and ignores the file path, so any heading name shared across pages — `#overview`, `#requirements`, `#expected-behavior`, `#reference-composition`, `#implementations` — binds to whichever page won and silently sends the reader elsewhere. This is not theoretical: 25 links broke this way, including `../reporter-xyle/spec.md#expected-behavior` landing on the POPC/Chol membrane spec and `ph-cascade`'s own `[Overview](#overview)` leaving `docs/` for a getting-started page. Same-page and cross-page links are both affected.
+
+Two forms are safe:
+
+- **No fragment** — `[LacZ Reporter Module](../reporter-lacz/spec.md)`. Builds as a plain `link` node and resolves by path.
+- **A unique label** — put `(reporter-lacz-requirements)=` on the line above the target heading, then link to `../reporter-lacz/spec.md#reporter-lacz-requirements`. Name labels `<module-directory>-<section-slug>`; that is unique by construction and readable at the link site.
+
+**`check-links.py` cannot see this failure** — the named file exists and does own that heading, so a mis-binding link passes every check. `python3 scripts/check-anchors.py` is the guard: it collects every identifier each page defines, flags any link whose fragment is defined on more than one page, and runs from sources in under a second. It reports ambiguity rather than current mis-binding, because an anchor that happens to land right today is correct by luck — MyST does not prefer the local page. Audit against the built AST instead: in `_build/site/content/*.json`, a correct same-page anchor is a `crossReference` with `resolved: true` and no `url`, while a colliding one carries a `url` pointing at another page. Do not filter such a scan on `urlSource`; same-page links have none, so a scan keyed on it reports a confident zero.
 
 **Internal links in inline HTML must use `.md` extensions, not `.html`.** MyST resolves internal links via the source `.md` paths. Using `.html` in an `<a href="...">` tag produces a 404 on the deployed site. This applies to all inline HTML links (e.g. version badges, quick-link pills) — always write `href="./path/to/page.md"`, never `href="./path/to/page.html"`.
 
@@ -235,6 +277,8 @@ Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended not
 **Secondary figures.** Within a section that has a primary figure (e.g. a performance plot), de-emphasize supplementary or supporting figures by wrapping them in a `::::{hint} <descriptive title>` block with `:class: dropdown`. The dropdown title should describe the finding, not just label the figure (e.g. `::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL`). This keeps the primary figure prominent while keeping supporting context one click away. When there are multiple parallel secondary figures (e.g. the same experiment across several conditions), use a hybrid: a single dropdown wrapping a tab-set, so readers open one drawer and switch between conditions with tabs. The outer hint uses 7 colons, the `{tab-set}` inside uses 6, each `{tab-item}` uses 5, and figures inside use 3 — consistent with the tab-set nesting rules above.
 
 **System-context figure placement (module specs).** A figure showing the module in the context of the Base Cell or Developer Cell belongs in the `## Cells` section, not `# Overview`. The Overview section should carry mechanism and schematic figures only.
+
+**Composition table depth for composed modules.** Some module specs are themselves a composition of other modules — e.g. a chassis made of a cytosol and a membrane, a sensing cell made of a chassis and a detector, a cascade made of a sensing cell, an effector, and a reporter. For these pages, the default is to flatten the Composition/Reference table **one level deep**: list each direct constituent module as a single line item with its working concentration or fraction in the combined recipe (e.g. `Base Cytosol: <amount>`, `Chicago Membrane: <amount>`). Do not expand a constituent module further into its own sub-components (e.g. don't break Base Cytosol down into its ~100 individual PURE-system components on the composed page) — that level of detail belongs on the constituent's own spec page. The full composition is a mathematically well-defined, fully collapsible object all the way down to base components, so a page can show that full expansion if it is genuinely useful, but one level of flattening is the expected default for readability. Citation-only rows with no numbers are not sufficient — the direct constituents' working concentrations should always appear.
 
 ### Overview card dropdowns — empty dropdown policy
 
@@ -407,7 +451,13 @@ Tolerated failures are normal and expected: a clean run currently reports ~120 o
 
 **Blame partitioning.** In CI the check runs with `--blame-changed <base-ref>`: external rot only blocks the PR if it's in a file the PR modified. Pre-existing rot elsewhere is reported under a "pre-existing broken link(s)" heading without failing the build, and is tracked by the weekly `link-rot` workflow, which keeps a single GitHub issue up to date. Internal-link failures block regardless of which files changed. Local runs omit the flag, so everything blocks.
 
-**What it does not catch.** Staleness detection only works where a vendor returns an honest status code, so its reach is narrower than it looks:
+**Anchor fragments are checked, with a MyST correction applied.** A link to `spec.md#some-heading` is verified against the target's real headings and labels. lychee alone cannot be trusted here: it slugs headings the GitHub way, MyST does not, and the two disagree whenever a heading contains spaced or doubled punctuation — GitHub turns `" / "` into `--`, MyST collapses it to `-`. MyST builds the deployed site, so the wrapper re-tests every fragment lychee rejects against MyST's own rule (`myst_html_id`, a port of `createHtmlId` in `myst-common`) and drops the ones MyST would resolve. It also collects `:label:`, `:name:` and `(target)=` anchors, which lychee cannot see at all. `tests/test_myst_slug.py` pins the slug rule — MyST is not a Python dependency, so nothing else would notice it drifting. Renaming a heading is therefore a link change: run the checker after any rename.
+
+**What it does not catch.** Two blind spots, one internal and one external.
+
+The internal one is **anchors that resolve to the wrong page**. The checker verifies that the named file exists and owns the heading, which is true even when MyST binds the anchor to a different page entirely — see the bare-anchor rule under *MyST syntax conventions* above. A clean run says nothing about where those links actually land.
+
+Externally, staleness detection only works where a vendor returns an honest status code, so its reach is narrower than it looks:
 - **Sigma-Aldrich and Cytiva never return one** — they reset the connection before any HTTP status. Between them that's ~40% of external links, and a discontinued part number there is undetectable at any frequency.
 - **Soft-404s are invisible** — a vendor serving "product not found" with HTTP 200 reads as a healthy link.
 
@@ -422,7 +472,9 @@ python3 scripts/check-dna-refs.py                       # all of docs/
 python3 scripts/check-dna-refs.py docs/modules/<module>/ # one module
 ```
 
-Local-only (reads `~/src/nucleus-eng/DNA` directly, or `$NUCLEUS_DNA_REPO`) — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool.
+Local-only — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool, and that blind spot is live: PLA1 is realized as two 963 bp coding sequences that differ at 77.6% nucleotide identity and encode the same protein.
+
+It finds the DNA repo at `$NUCLEUS_DNA_REPO`, else beside this repo, else `~/src/nucleus-eng/DNA`, and accepts a candidate only if it actually contains sequence files — an empty directory named `DNA` would otherwise satisfy the search and produce a clean run over an index of nothing. It exits 2 and lists what it searched when it finds none, so a missing checkout never reads as a pass.
 
 **Before opening a PR or committing content**, run Vale + codespell (and the link checker if you touched any URLs). Invoke the `lint-docs` skill for exact commands and how to interpret each tool's output — including which Vale errors are real vs. false positives.
 

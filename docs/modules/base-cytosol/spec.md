@@ -19,7 +19,7 @@ Plasmid designs for the PURE proteins are maintained as pET28a expression vector
 Schematic of components in Cytosol and their function. Figure by [Ganesh and Maerkl, 2024](https://doi.org/10.1101/2024.04.03.587879) used under CC-BY-4.0 / cropped from original with numerical annotations removed.
 :::
 
-## Reference Composition
+# Reference Composition
 
 Base Cytosol is assembled from four components — a protein mix (PMix), a small molecule mix (SMix), ribosomes, and tRNA. The tabs below give the composition of each component at its **stock** concentration, plus the **Final Reaction** composition with every component at its in-reaction concentration.
 
@@ -202,10 +202,20 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 
 :::::
 
-## Expected Behavior
+# Expected Behavior
 
 The behavior of Base Cytosol is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module. 
 
-## Protocols
+# Processes
 
 Protocols for assembling Base Cytosol and making its components from scratch can be found on [Base Cytosol Processes](../../processes/processes-main.md#base-cytosol-processes).
+
+# Credits
+
+Reformulated from the PURE system by Yemo Ku and Jon Calles (b.next).
+
+PURE was developed by the Ueda Lab ([Shimizu et al., 2001](https://doi.org/10.1038/90802)).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

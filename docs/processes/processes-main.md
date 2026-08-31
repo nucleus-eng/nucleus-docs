@@ -35,6 +35,20 @@ flowchart TB
 
 - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md)
 
+## DevCell Encapsulation Processes
+
+DevCell integrations (e.g., the Chicago colorimetric readout system) build on two liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in [SUV Encapsulation](./encapsulate-suv/main.md), a genuinely different technique. Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
+
+- [SUV Encapsulation](./encapsulate-suv/main.md)
+
+## DevCell Readout Processes
+
+Every DevCells sensing cascade (Chicago and London alike) ends at the same downstream step: a chromogenic substrate hydrolyzed by a reporter enzyme to give a visible, absorbance-measurable signal.
+
+- [Colorimetric Readout](./colorimetric-readout/main.md)
+- [Anneal pH-Responsive Trigger Duplex](./anneal-ph-trigger-duplex/main.md) — anneals the pH-responsive and trigger ssDNA into the single duplex reagent the pH-Sensing Module uses
+- [Degrade Exterior LacZ](./degrade-exterior-lacz/main.md) — proteinase K treatment to cut background signal from LacZ that has leaked outside a liposome; concentrations and volumes not yet specified.
+
 ## Base Cytosol Processes
 
 Base Cytosol is a molecular system with a defined set of components including T7 RNA Polymerase, ribosomes, and tRNA capable of transcription and translation. Base Cytosol builds on the [PURE system](https://doi.org/10.1038/90802), and is optimized for integration and extension.
@@ -84,4 +98,19 @@ flowchart LR
 
 - [Protein Gel](./protein-gel/main.md)
 - [Pierce660 Assay](./pierce660/main.md)
+
+## Hydrogel Embedding Processes
+
+Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are embedded together in a hydrogel matrix to couple a lysis-triggered colorimetric handoff between them. Different DevCells demos use different hydrogel chemistries — see each process page for the chemistry it covers and how it differs from the others.
+
+- [Alginate Hydrogel Embedding](./embed-alginate-hydrogel/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
+- [ULGA Hydrogel Embedding](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
+
+## Photopatterning Processes
+
+Beyond simple hydrogel embedding, spatial patterning within the hydrogel matrix can compartmentalize multiple sensing modules. PEGDA is one hydrogel chemistry explored for this — see the process page for its current status and open gaps.
+
+- [Photodevelop Gel](./photodevelop-gel/photodevelop-gel-main.md) — what the two photocrosslinking routes share, and the table of what they do not.
+  - [Photodevelopment, PEGDA](./photodevelop-pegda/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
+  - [Photodevelopment, PEG-Norbornene](./photodevelop-peg-norbornene/main.md) — step-growth thiol-ene route; a stub.
 

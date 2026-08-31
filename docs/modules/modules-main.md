@@ -17,12 +17,14 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Module Class    | Specification                               | Validation |
 | --------------- | ------------------------------------------- | ---------- |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        |
-| Detector        | [tetR-aTc](./detector-tetr_atc/spec.md)     | ★★         |
+| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | ★★         |
+|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | ★★         |
 | Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         |
 | Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
 | Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
 |                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
+| Effector        | [PLA1](./effector-pla1/spec.md)             | ★          |
 
 :::
 
@@ -39,6 +41,39 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
 | Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
+| Membrane | [Chicago Membrane: POPC/Chol](./membrane-popc-chol-chicago/spec.md) | ★ |
+| Cell (Chassis) | [Chicago Chassis](./chicago-chassis/spec.md) | ★ |
+| Cell (Sensing) | [aTc Sensing Cell](./atc-sensing-cell/spec.md) | ★ |
+| Cell (Sensing) | [Theophylline Sensing Cell](./theophylline-sensing-cell/spec.md) | ★ |
+| Detector | [Theophylline](./detector-theophylline/spec.md) | ★ |
+| Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
+| Cell (Sensing) | [pH Sensing Cell](./ph-sensing-cell/spec.md) | ★ |
+| Cell (Cascade) | [pH Cascade](./ph-cascade/spec.md) | ★ |
+| Cell (Cascade) | [aTc Cascade](./atc-cascade/spec.md) | ★ |
+| Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
+| Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
+| Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
+| Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
+| Gel | [Alginate](./gel-alginate/spec.md) | ★ |
+| Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
+| Gel | [PEG-Norbornene](./gel-peg-norbornene/spec.md) | ★ |
+:::
+
+## S30 Lysate
+
+Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London demo's cytosol-equivalent, based on the Promega E. coli S30 Extract System).
+
+:::{table}
+
+| Module Class | Specification | Validation |
+| --- | --- | --- |
+| Cytosol (Base) | [S30 Lysate](./s30-lysate/spec.md) | ★ |
+| Detector | [AHL](./detector-3oc6-hsl/spec.md) | ★ |
+| Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
+| Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
+| Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
+| Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
+| Gel | [ULGA](./gel-ulga/spec.md) | ★ |
 :::
 
 # Contributing a Module
@@ -63,7 +98,7 @@ Modules specifications are derived from DevNotes that follow the adhere to the [
 - Status: Cell
 
 ## Detector: tetR-aTc
-- [Specification](./detector-tetr_atc/spec.md)
+- [Specification](./detector-tetr-atc/spec.md)
 - Base Module: PURExpress
 - Status: Cell
   
@@ -118,7 +153,7 @@ Modules can be combined with Process Protocols to create Implementations.
 | Membrane | POPC/Chol | PURExpress Cell | Distribution |
 | Membrane Pore | [alpha-Hemolysin](./membrane-pore-ahly/spec.md) | PURExpress Cell  | Distribution |
 |  | [Cx43](./membrane-pore-cx43/spec.md) | PURExpress Cell | DevNote |
-| Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | PURExpress Cell | Distribution |
+| Detector | [tetR-aTc](./detector-tetr-atc/spec.md) | PURExpress Cell | Distribution |
 | Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | PURExpress Cell | Distribution |
 | Energy | [PPK](./energy-ppk/spec.md) | PURExpress Cell | Distribution |
 | Control | [ClpXP](./control-clpxp/spec.md) | PURExpress Cytosol | Distribution |
