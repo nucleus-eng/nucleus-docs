@@ -125,13 +125,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 | aTc | 1 µM — the response saturates at or below this, so higher doses add nothing. See [Expected Behavior](#atc-cascade-expected-behavior) for the dose series. |
 :::
 
-In the photodeveloped format CPRG is added to the gel **after** crosslinking rather than pre-loaded, because UV bleaches it.
-
-:::{attention} The bleaching result is PEG-norbornene's, not PEGDA's
-The confirmed photobleaching is under PEG-norbornene's UV crosslinking step. [Photodevelopment, PEGDA](../../processes/photodevelop-pegda/main.md) states the incompatibility does not apply to PEGDA, and [LacZ Reporter](../reporter-lacz/spec.md) records it as not affecting agarose, alginate or ULGA either. This page previously attributed it to PEGDA.
-
-@Editor(chicago): confirm whether the add-CPRG-last ordering is still required for PEGDA as a precaution, or whether it can be pre-loaded there.
-:::
+In the photodeveloped format CPRG is added to the gel **after** crosslinking rather than pre-loaded, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes — see [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md).
 
 ::::
 

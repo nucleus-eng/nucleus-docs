@@ -36,7 +36,7 @@ The diagram does **not** draw a direct edge from Alginate Hydrogel Embedding to 
 :class: dropdown
 :icon: false
 
-CPRG pre-loaded into liposomes photobleaches under the UV exposure used to crosslink PEG-norbornene (PEG4Nb) hydrogels. This does not affect agarose, alginate, or ULGA embedding, where CPRG is pre-loaded into liposomes as usual. For PEG-norbornene, add CPRG as a free dye *after* UV crosslinking, and pre-add LacZ to the gel rather than encapsulating it — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md#reporter-lacz-requirements) Requirements section for the confirmed four-condition comparison behind this workaround. PEG-norbornene has no node yet in the process-dependency diagram; this note is included here because it directly affects how this readout process is run in that hydrogel chemistry.
+CPRG pre-loaded into liposomes photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route. This does not affect agarose, alginate, or ULGA embedding, where CPRG is pre-loaded into liposomes as usual. For PEG-norbornene, add CPRG as a free dye *after* UV crosslinking, and pre-add LacZ to the gel rather than encapsulating it — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md#reporter-lacz-requirements) Requirements section for the confirmed four-condition comparison behind this workaround. PEG-norbornene has no node yet in the process-dependency diagram; this note is included here because it directly affects how this readout process is run in that hydrogel chemistry.
 
 ::::::
 

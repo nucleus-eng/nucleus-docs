@@ -25,7 +25,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-CPRG pre-loaded into SUVs photobleaches during the UV crosslinking step of PEG-norbornene hydrogel formation. Side-by-side comparisons confirm that UV exposure during PEG-norbornene crosslinking visibly bleaches the CPRG color, while an unexposed control retains it.
+CPRG pre-loaded into SUVs photobleaches during the UV crosslinking step of photodeveloped gel formation, by either route. Side-by-side comparisons confirm that UV exposure during PEG-norbornene crosslinking visibly bleaches the CPRG color, while an unexposed control retains it.
 
 This is specific to PEG-norbornene. Agarose, alginate, and ULGA hydrogel embedding do not expose SUVs to a UV crosslinking step and do not show this problem — the SUV pre-loading approach described in this process is compatible with the alginate hydrogel embedding process it is normally paired with.
 

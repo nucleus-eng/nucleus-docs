@@ -62,7 +62,7 @@ Requires the precursor solution to be protected from light until patterning.
 
 Requires a 405 nm projector, an equipment requirement neither ionically nor thermally set gels carry.
 
-Does not require the CPRG-after-crosslinking ordering that [PEG-Norbornene Gel](../gel-peg-norbornene/spec.md) does — the confirmed photobleaching is that chemistry's, and the PEGDA process page states it does not apply here. Whether the ordering is still worth keeping as a precaution is [an open question](../atc-cascade/spec.md).
+Requires that no UV-sensitive component is present during crosslinking. [CPRG](../substrate-cprg-suv/spec.md) is the known case, so it goes into the gel after crosslinking rather than pre-loaded — the same constraint the [PEG-norbornene route](../gel-peg-norbornene/spec.md) carries, since both share the UV exposure.
 
 # Processes
 

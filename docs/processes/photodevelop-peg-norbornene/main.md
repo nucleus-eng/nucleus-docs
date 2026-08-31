@@ -13,10 +13,10 @@ Step-growth thiol-ene addition gives a more uniform network than PEGDA's chain-g
 This page is a stub. The chemistry and its one confirmed incompatibility are recorded; the procedure is not. It cannot be run from this page.
 :::
 
-:::{warning} This route bleaches CPRG
-CPRG pre-loaded into liposomes photobleaches during this gel's UV crosslinking step. A side-by-side comparison shows the exposed sample visibly bleached against an unexposed control. The effect is confirmed for PEG-norbornene and is stated **not** to apply to PEGDA, agarose, alginate or ULGA — see [LacZ Reporter](../../modules/reporter-lacz/spec.md).
+:::{warning} UV exposure bleaches CPRG
+This route exposes the payload to UV, so [CPRG](../../modules/substrate-cprg-suv/spec.md) cannot be pre-loaded into liposomes present during crosslinking. The constraint is shared with the PEGDA route and stated on [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), along with the workaround. It does not apply to the agarose, alginate or ULGA routes, which use no UV.
 
-The confirmed workaround inverts the order: pre-add LacZ to the gel, crosslink, then add CPRG as a free dye afterwards. That path does not use the [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md) module at all, so it is a different cascade rather than the same one in a different gel.
+The side-by-side comparison behind it — exposed sample visibly bleached against an unexposed control — was run on this chemistry.
 :::
 
 # Materials and Equipment

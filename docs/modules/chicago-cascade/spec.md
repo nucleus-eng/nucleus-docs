@@ -254,7 +254,13 @@ Every step below has a Process page. They are listed in the order they are perfo
 7. Embedding — either [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md), the format the current demo uses, or [Photodevelopment, PEGDA](../../processes/photodevelop-pegda/main.md), which supplies the spatial separation the Requirements section calls for. Which one is an Implementation choice; see [Chicago DevCell](../../implementations/chicago-devcell/main.md).
 8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
 
-The photodeveloped route may reorder the last two steps, putting CPRG into the gel after crosslinking rather than embedding it with everything else. The photobleaching that forces this is confirmed for PEG-norbornene and stated not to apply to PEGDA — see [aTc Cascade](../atc-cascade/spec.md) for the open question about which ordering PEGDA needs.
+The photodeveloped route reorders the last two steps: CPRG goes into the gel after crosslinking rather than being embedded with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes.
+
+:::{attention} Spatial separation and this readout are in tension
+The Requirements section above calls for spatial separation between the two integration paths, and photodevelopment is the only route to it. But both photodevelopment routes impose UV on the payload, and the reordering that avoids the bleaching adds CPRG as a free dye — which does not use the [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) module at all.
+
+So this cascade cannot currently have both its spatial separation and its two-liposome readout as specified. @Editor(chicago): confirm which one gives.
+:::
 
 No process covers the step that would make this cascade one system rather than two — bringing both integration paths into a single gel. Every technique above is documented for one path or the other. What is absent is the merge, and the mechanism that resolves two outputs into one readout.
 

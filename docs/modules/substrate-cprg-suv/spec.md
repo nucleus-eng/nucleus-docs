@@ -82,7 +82,7 @@ Requires an external β-galactosidase source in the surrounding matrix (e.g. [La
 Requires encapsulation within a lipid membrane (e.g. POPC, or POPC:cholesterol) until a lysis trigger is applied; released CPRG must not contact LacZ before that trigger.
 
 :::{warning} Do not expose CPRG Substrate SUVs to UV light!
-CPRG photobleaches under UV illumination, e.g., during PEG-norbornene crosslinking: side-by-side comparisons show UV exposure during PEG-norbornene crosslinking visibly bleaches the color while an unexposed control retains it.
+**CPRG is UV-sensitive.** It photobleaches under UV illumination, including the UV a 405 nm source emits: side-by-side comparisons show UV exposure during photodevelopment visibly bleaches the color while an unexposed control retains it.
 
 The confirmed workaround for PEG-norbornene is to invert the order — pre-add LacZ to the gel, crosslink, then add CPRG as a free dye afterwards. That path does not use this module. Agarose, alginate, and ULGA embedding involve no UV step and are compatible with pre-loading as described here.
 :::

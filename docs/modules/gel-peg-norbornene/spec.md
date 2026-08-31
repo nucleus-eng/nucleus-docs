@@ -43,10 +43,10 @@ Expect a gel that forms where the light falls, with a more uniform network than 
 
 A spatial-patterning result is confirmed: a block-pattern color change, first shown in agarose, was repeated with a PEG-norbornene outer gel and LacZ added on top, with the color change still visible after roughly 1.5 h.
 
-:::{warning} This gel bleaches CPRG
-CPRG pre-loaded into liposomes photobleaches during this gel's UV crosslinking step. Side-by-side comparison shows the exposed sample visibly bleached against an unexposed control. This is confirmed for PEG-norbornene and stated **not** to apply to PEGDA, agarose, alginate or ULGA.
+:::{warning} UV exposure bleaches CPRG
+[CPRG](../substrate-cprg-suv/spec.md) is UV-sensitive, and this gel's crosslinking step imposes UV on the payload. The side-by-side comparison behind the finding — exposed sample visibly bleached against an unexposed control — was run on this chemistry, but the constraint follows from the UV and applies to [PEGDA](../gel-pegda/spec.md) equally. It does not apply to alginate or ULGA, which use no UV.
 
-The confirmed workaround inverts the order: pre-add LacZ to the gel, crosslink, then add CPRG as a free dye afterwards. That path does not use the [CPRG Substrate SUV](../substrate-cprg-suv/spec.md) module at all, so it is a different cascade rather than the same one in a different gel.
+The workaround inverts the order: pre-add LacZ to the gel, crosslink, then add CPRG as a free dye. That path does not use the CPRG Substrate SUV module at all, so it is a different cascade rather than the same one in a different gel.
 :::
 
 (gel-peg-norbornene-requirements)=

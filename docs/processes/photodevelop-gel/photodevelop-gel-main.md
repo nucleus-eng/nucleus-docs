@@ -36,7 +36,6 @@ Both routes run the same four steps. What changes between them is what goes into
 | Mechanism | radical polymerization of acrylates | step-growth thiol-ene |
 | Oxygen inhibition at the surface | prone | less prone |
 | Network uniformity | more heterogeneous | more uniform |
-| Effect on pre-loaded CPRG | none recorded | **bleaches it** — see the child page |
 
 The last row is the one that decides which route a colorimetric cascade can use, and it is the reason these are two pages rather than one page with a parameter.
 
@@ -44,7 +43,11 @@ The last row is the one that decides which route a colorimetric cascade can use,
 
 Requires a 405 nm light source, normally a DLP projector. This is the only gel-forming route in this documentation with an equipment requirement beyond ordinary labware.
 
-Requires that anything embedded tolerates light exposure and the radical species the photoinitiator generates. Neither [Alginate Hydrogel Embedding](../embed-alginate-hydrogel/main.md) nor [ULGA Hydrogel Embedding](../embed-ulga-hydrogel/main.md) illuminates its contents at all, so this is the constraint that distinguishes the photodeveloped routes from the other two.
+**This process imposes UV on whatever it is applied to.** The source is 405 nm, and a source in that range emits UV along with it. Anything UV-sensitive must not be present during crosslinking, on either route. Neither [Alginate Hydrogel Embedding](../embed-alginate-hydrogel/main.md) nor [ULGA Hydrogel Embedding](../embed-ulga-hydrogel/main.md) illuminates its contents at all, so this is the constraint that distinguishes the photodeveloped routes from the other two.
+
+[CPRG](../../modules/substrate-cprg-suv/spec.md) is the known case: pre-loaded into liposomes it photobleaches during the crosslinking step, confirmed against an unexposed control. The workaround inverts the order — pre-add LacZ to the gel, crosslink, then add CPRG as a free dye. That path does not use the Substrate SUV module, so it is a different cascade rather than the same one in a different gel.
+
+Requires the PEG4SH crosslinker and the LAP photoinitiator, for either route.
 
 # Modules
 
