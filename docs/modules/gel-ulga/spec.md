@@ -51,7 +51,7 @@ No dissolution temperature, hold time, or cooling target is recorded for this ge
 (gel-ulga-requirements)=
 # Requirements
 
-Requires a heat excursion to dissolve — near boiling, with stirring — followed by cooling to a temperature that is still above the gel point but safe for the cells being mixed in. Anything embedded must survive that cycle.
+Requires a heat excursion to dissolve — near boiling, with stirring — followed by cooling to a temperature that is still above the gel point but safe for the cells being mixed in. Anything mixed in at that point must survive the cooling and the set; nothing but the ULGA itself is present for the near-boiling step, and a component added onto the set gel afterwards experiences neither.
 
 Requires the outer solution to be prepared first, since the agarose is dissolved into it rather than being added to a finished gel.
 

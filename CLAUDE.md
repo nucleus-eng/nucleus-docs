@@ -148,7 +148,7 @@ DNA/
 
 ### Terminology
 
-These definitions ground the module/implementation content model below (`docs/modules/`, `docs/implementations/`, and their `spec.md` files):
+These definitions ground the content model below — all three hierarchies: `docs/modules/`, `docs/implementations/` and `docs/processes/`, and their `spec.md` and `main.md` files:
 
 - Composition (n): the specified make up of a system; typically concentration and spatial organization. Composition is the design, not a completed run — see [sections.md](style-guide/sections.md#reference-composition).
 - Composing (v): the act of combining two or more systems and their associated functions

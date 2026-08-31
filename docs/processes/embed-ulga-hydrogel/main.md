@@ -136,6 +136,8 @@ No exact dissolution temperature or hold time is established for this step. Stan
 
 ## Add Bacterial Input
 
+Where a component is sensitive to anything the formation step imposes (e.g., temperature), add at this step — noting that it is applied on top of the set gel and reaches the interior only by diffusion, so this suits an analyte rather than a component that must sit with the cells.
+
 - [ ] Add 10 µL of one of the following on top of the set gel, per condition:
     - [ ] Overnight bacterial culture (AHL-producing).
     - [ ] Bacterial culture supernatant (AHL-producing, cell-free).

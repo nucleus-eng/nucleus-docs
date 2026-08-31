@@ -147,7 +147,15 @@ A **Requirement** is something the reader must provide, or must avoid, for the M
 
 A hedge in the supporting prose and an imperative in this section cannot both be right. Theophylline against LacZ is the other page-set where they are, and its own admonition says the mechanism is unestablished.
 
-A requirement the reader must satisfy cannot live in a composition tab.
+A requirement the reader must satisfy cannot live in a composition tab. **Nor in Overview prose.** Requirements is the section a composition check reads and a composer checks before a swap, so a true constraint stated anywhere else does not function as one. Three pages carried a real guard outside it: α-Hemolysin and Cx43 state their cargo cutoffs in their Overviews while neither Requirements section mentions cargo, and `s30-lysate` states its σ70 guard three sections below the substitution claim it governs. All three have a Requirements section, so this is not something a completeness check can see.
+
+**An imposition belongs to a morphism.** Processes and Functions are both morphisms, split by agency — a Process is one you choose to apply, a Function is one the object entails — and either may impose a condition on what it acts on. A Module or a Component does not impose; it carries a sensitivity.
+
+So an incompatibility is written twice, each half on the object whose property it is. The Component states what it is sensitive to, the morphism states what it imposes, and the incompatibility is derived rather than asserted. CPRG is UV-sensitive; photodevelopment imposes UV on whatever it is applied to; together those entail that CPRG cannot be present during photodevelopment, without either statement naming the other. The Function case has the same shape — `effector-pla1` lyses any membrane in reach, so the imposition is the Function's and the sensitivity is the membrane's.
+
+Written the other way round, the same fact lands on every page that could ever trigger it: the CPRG incompatibility was independently asserted on nine pages, and two of those assertions were wrong in the same direction. Stated as a sensitivity plus an imposition, the exemption also falls out for free — alginate and ULGA need no exemption clause because no morphism producing them imposes UV, so the derivation never fires. The established name for this shape is assume-guarantee reasoning; a material neither emits nor resists, it is subjected to what a morphism does to it.
+
+**A substitution claim carries its guard at the point of the claim.** A page saying another Module may be used instead of this one states the condition in the same breath, or it has published an unguarded swap. A clause and a pointer is enough; a bare recommendation is not. This is a local convention rather than a consequence of the content model — good editorial practice, and it should not be defended as a derivation.
 
 **Say when the page already satisfies a Requirement it inherited.** A composed Module takes on its constituents' Requirements and can also meet them, and the reader cannot tell the two apart without being told. `atc-sensing-cell` writes the met case:
 
