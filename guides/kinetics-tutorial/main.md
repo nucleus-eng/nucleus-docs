@@ -2,7 +2,7 @@
 
 :::{attention}
 :class: simple
-This tutorial applies to CDK version >=0.6.0. For older versions, see the tutorial [here](guides/platereader-tutorial/).
+This tutorial applies to CDK version >=0.6.0. For older versions, see the tutorial [here](../platereader_tutorial.md).
 :::
 
 ## Overview
