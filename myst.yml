@@ -120,15 +120,12 @@ project:
         - file: ./guides/onepot-pure-workshop/main.md
           hidden: true
     - file: ./about/faqs.md
-    - title: About
+    - file: ./about/release-notes.md
       children:
-        # - file: ./about/open-science.md
-        - file: ./about/license.md
-        - file: ./about/contributors.md
-        - file: ./about/release-notes.md
-          children:
-            - file: ./about/release-notes/v050.md
-              hidden: true
+        - file: ./about/release-notes/v050.md
+          hidden: true
+    - file: ./about/contributors.md
+    - file: ./about/license.md
   references:
     devnote-01: https://devnotes.bnext.bio/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
     devnote-02: https://devnotes.bnext.bio/articles/ppk-module-test
