@@ -6,6 +6,7 @@ project:
   abbreviations:
     PURE: protein synthesis using recombinant elements
 site:
+  url: https://docs.nucleus.engineering
   template: book-theme
   nav: 
     - title: Documentation
