@@ -82,64 +82,9 @@ Naming: `tmp/STAGED-<date>-<topic>.md`.
 
 ### Companion DNA repository
 
-Sequence files for every plasmid and construct referenced in these docs are maintained in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)** (local path: `~/src/nucleus-eng/DNA`). That repo stores GenBank (`.gb`) files organized by part type:
+Sequence files for every plasmid and construct referenced in these docs live in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)** (local path: `~/src/bnext/nucleus-eng/DNA`). Never create or store `.gb` files here, and never link a construct into the legacy `bnext-bio/nucleus` repo.
 
-```
-DNA/
-├── PURE/
-│   ├── cloning/      # pOpen entry vectors for all PURE system proteins
-│   └── expression/   # pET28a expression vectors for PURE system proteins
-├── assembly/         # MoClo backbone (pOpen-pOpenv3-MCL0)
-├── RBS/              # Ribosome binding site and UTR parts
-├── promoters/        # Level-matched T7 promoter library (PURET7-1 through -10)
-├── reporters/        # Fluorescent protein and chromoprotein reporters
-├── terminators/      # T7 terminator variants
-└── detectors/        # LacI/TetR circuits and quorum sensing components
-```
-
-**Checking the DNA repo's current state.** The DNA repo evolves independently — always verify its current state before writing or editing content that references specific constructs. Use a tiered approach:
-
-1. **Session start** — when beginning any work that involves DNA construct references, check recent activity in the DNA repo:
-   ```bash
-   git -C ~/src/nucleus-eng/DNA log --oneline -5
-   ```
-   Commit messages will tell you if the structure or contents have changed since you last worked with it.
-
-2. **Before naming a specific construct** — before writing a protocol step that references a construct by filename (e.g., `pOpen-PURET7-3`), confirm the file exists:
-   ```bash
-   ls ~/src/nucleus-eng/DNA/promoters/pOpen-PURET7-3.gb
-   ```
-   If the file is missing, flag it to the developer — do not invent construct names or create placeholder references.
-
-3. **If folder structure is uncertain** — if you are unsure which subdirectory a part type lives in, read the DNA repo's README:
-   ```bash
-   # or: Read ~/src/nucleus-eng/DNA/README.md
-   ```
-   The README is maintained as the canonical description of the repo structure.
-
-4. **If `~/src/nucleus-eng/DNA` is not on this machine** — use the GitHub API as a fallback to browse the repo or inspect construct files without cloning:
-   ```bash
-   # Browse a directory (e.g. detectors/)
-   gh api "repos/nucleus-eng/DNA/contents/detectors" --jq '.[].name'
-   # Decode a GenBank file and read the LOCUS line for construct length
-   gh api "repos/nucleus-eng/DNA/contents/detectors/pOpen-LacI-IPTG.gb" --jq '.content' | base64 -d | grep "^LOCUS"
-   ```
-
-**Key rules when working across both repos:**
-
-- **Do not create or store `.gb` sequence files in nucleus-docs.** All DNA sequences belong in the DNA repo.
-- **Construct names in protocol pages must match actual filenames** in the DNA repo (e.g., a step that says "use `pOpen-PURET7-3`" corresponds to `promoters/pOpen-PURET7-3.gb`). Verify before writing.
-- **Cross-repo links** in doc pages should point to the GitHub URL of the `.gb` file in `nucleus-eng/DNA`, not to a local path.
-- **Changes to the DNA repo are out of scope for nucleus-docs PRs.** If a construct referenced in a source page is not found in `nucleus-eng/DNA`, add an `:::{attention}` block in the spec noting the gap, e.g.: "Construct `pT7-aHly` is not yet in `nucleus-eng/DNA` (originated in `bnext-bio/nucleus`). Do not link to the legacy repo — flag for follow-up so the construct can be submitted to `nucleus-eng/DNA` before this page is used at the bench." DNA constructs referenced in a DevNote SHOULD be submitted to `nucleus-eng/DNA` before or alongside migration; if they are not present at migration time, apply the attention block and flag.
-- **Construct↔file identity is a claim, not a guess.** Never place a construct in a Designs table because its name resembles a filename in `nucleus-eng/DNA`. A Designs-table row asserts *this is that sequence* — it requires evidence, minimally that the row's `Length (bp)` equals the target file's GenBank `LOCUS` length (`python3 scripts/check-dna-refs.py` checks this). If the source content's construct differs from the Nucleus construct in any way — tag, backbone, promoter, codon usage, species variant — that is **equivalence, not identity**, and belongs in the block below, never as a Designs-table row. This is the specific failure mode ("greedy linking") that motivated issue #120: a name-similarity match getting asserted as sequence identity.
-
-  ```
-  :::{attention} Nucleus equivalent — not the cited sequence
-  The data on this page was generated with <cited construct> from <source>. The nearest
-  Nucleus construct is [pOpen-X](https://github.com/nucleus-eng/DNA/blob/main/<path>).
-  It is functionally equivalent but **not sequence-identical** (<the difference>).
-  :::
-  ```
+**Naming a construct, or adding a Designs-table row?** Invoke the `verify-dna-constructs` skill first. A Designs-table row is an identity claim, not a name match — the skill has the repo layout, the verification steps, the Nucleus-equivalent attention block, and `scripts/check-dna-refs.py`.
 
 ### Terminology
 
@@ -183,35 +128,7 @@ The site TOC is defined entirely in `myst.yml`. When adding a new page, you must
 
 **Adding a module spec requires two table-of-contents updates, not one.** In addition to the `myst.yml` TOC entry, add a row to the table in `docs/modules/modules-main.md`. The table columns are `Module Class | Specification | Validation` — fill in the class name (e.g. `Detector`), a relative link to the spec (e.g. `[LacI-IPTG](./detector-laci_iptg/spec.md)`), and the validation star rating (use ★ to ★★★ following the validation key at the top of `modules-main.md`: ★ = preliminary/DevNote only, ★★ = validated in cells or in vitro, ★★★ = frequently used). Missing this step leaves the module off the main module index page.
 
-Note that `hidden: true` is used pervasively for *every* non-sidebar child page — it is a navigation setting, **not** a maturity signal. Page maturity is tracked separately via the `status:` frontmatter field (see below).
-
-### Page status (draft / published)
-
-Every content page has a maturity `status`, declared as a frontmatter field. This keeps stub or unvalidated pages from misrepresenting themselves on the public site without a heavyweight build-exclusion mechanism (issue #74; #57 may later add build-time exclusion keyed off this same field).
-
-| `status:` value | meaning | TOC | banner |
-| --- | --- | --- | --- |
-| `draft` | incomplete; not ready for public consumption | must be `hidden: true` (keep out of the sidebar) | **Draft** banner (below) |
-| `unvalidated-published` | complete and publicly visible, but not yet validated in the current Nucleus Cytosol | normal | **Not yet validated** banner (below) |
-| `validated-published` | complete and validated; ready | normal | none |
-
-- **Absent `status:` is treated as `validated-published`** — do not churn the ~50 ready pages. Only `draft` and `unvalidated-published` pages need an explicit field.
-- **Templates ship with `status: draft`** so a new page can't accidentally appear validated; the author changes it to `unvalidated-published` or `validated-published` when ready.
-- The `status:` field does **not** auto-render anything — add the matching banner by hand when you set `draft` or `unvalidated-published`. The two standard banners:
-
-```
-:::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use.
-:::
-```
-
-```
-:::{attention} Not yet validated
-This page has not been validated in Nucleus Cytosol. <optional specifics, e.g. "Expected performance data below is from PURExpress cells.">
-:::
-```
-
-A page may also carry an unrelated content caveat (e.g. aHly's "not actively supported" BSL-2 note) — that is independent of `status:` and stays as its own admonition.
+Note that `hidden: true` is used pervasively for *every* non-sidebar child page — it is a navigation setting, **not** a maturity signal. Page maturity is tracked separately via the `status:` frontmatter field, which the `author-myst-content` skill documents.
 
 ### Templates
 
@@ -220,8 +137,6 @@ A page may also carry an unrelated content caveat (e.g. aHly's "not actively sup
 - `module-template/spec.md` — module spec structure with schematic, designs table, compatible processes, and usage references
 - `implementation-template/implementation-template.md` — combined implementation format
 - `typst/nucleus-protocols/` — the branded typst template used to render lab-ready protocol/BOM PDFs (vendored in-repo; pubmatter pinned to 0.2.2 — see its README)
-
-**When migrating content into a pre-created stub directory**, scan for and delete any template placeholder files before committing. Stub directories are often created with placeholder images (e.g. `behavior/ppk-kinetics.png`, `behavior/ppk-endpoint.png`) that have no real data and were copied from the implementation template. Run `git ls-files docs/modules/<module>/` to see what's tracked, and `git rm` any placeholders that have not been replaced by real figures.
 
 ### Lab-ready protocol pipeline
 
@@ -239,59 +154,9 @@ python3 scripts/check-formatting.py --strict # exit 1 if findings found (for loc
 python3 scripts/check-formatting.py docs/    # check a specific directory
 ```
 
-### MyST syntax conventions
+### Authoring pages in MyST
 
-Pages use MyST admonition nesting with `:::` fences. Process pages follow a consistent structure:
-1. Frontmatter (`title:`)
-2. `# Overview` with an `:::::::{card}` block containing nested dropdowns for Notes, Prerequisites, Hazardous Materials, Critical Materials, Genetically Encoded Components, Composition, and References
-3. `# Protocol` with `##` subsections and checklist steps (`- [ ]`)
-4. `# Downloads` grid with cards linking to PDF lab protocol and Bill of Materials
-
-Protocol steps use `- [ ]` checkboxes and `:::{hint}` dropdowns for extended notes. Cross-references use MyST `{ref}` syntax for same-page targets and standard markdown links for cross-page references.
-
-**Internal links in inline HTML must use `.md` extensions, not `.html`.** MyST resolves internal links via the source `.md` paths. Using `.html` in an `<a href="...">` tag produces a 404 on the deployed site. This applies to all inline HTML links (e.g. version badges, quick-link pills) — always write `href="./path/to/page.md"`, never `href="./path/to/page.html"`.
-
-**Tab-set fence depth.** Tab-sets require a consistent three-level nesting: the outer `{tab-set}` uses `:::::`(5 colons), each `{tab-item}` inside uses `::::` (4 colons), and figures or admonitions inside a tab-item use `:::` (3 colons). Mismatched colon counts are a common source of rendering failures.
-
-**Secondary figures.** Within a section that has a primary figure (e.g. a performance plot), de-emphasize supplementary or supporting figures by wrapping them in a `::::{hint} <descriptive title>` block with `:class: dropdown`. The dropdown title should describe the finding, not just label the figure (e.g. `::::{hint} The Emitter Cell causes E. coli to express GFP in response to IV-HSL`). This keeps the primary figure prominent while keeping supporting context one click away. When there are multiple parallel secondary figures (e.g. the same experiment across several conditions), use a hybrid: a single dropdown wrapping a tab-set, so readers open one drawer and switch between conditions with tabs. The outer hint uses 7 colons, the `{tab-set}` inside uses 6, each `{tab-item}` uses 5, and figures inside use 3 — consistent with the tab-set nesting rules above.
-
-**System-context figure placement (module specs).** A figure showing the module in the context of the Base Cell or Developer Cell belongs in the `## Cells` section, not `# Overview`. The Overview section should carry mechanism and schematic figures only.
-
-### Overview card dropdowns — empty dropdown policy
-
-The template includes all possible dropdown sections as a starting point. **When authoring or reviewing a process page, only keep dropdowns that have real content.** Delete any dropdown whose only content is a placeholder (e.g. `- TODO`).
-
-The process template uses `- TODO` as the scaffold placeholder — this is intentional so contributors know which sections need to be filled in. **`check-dropdowns.py` (and CI) will fail if any `- TODO`, `- None`, `- N/A`, or `- TBD` placeholder-only list survives outside `templates/`.** Before opening a PR, run:
-```bash
-python3 scripts/check-dropdowns.py
-```
-
-**When editing or reviewing a process page**, scan for empty dropdowns matching this pattern and flag them:
-
-```
-::::::{<type>} <Section Title>
-:class: dropdown
-:icon: false
-
-- TODO
-
-::::::
-```
-
-If you find one, flag it and ask the developer: **"The `<Section Title>` dropdown is empty — should it be deleted, or does it need content?"** Wait for confirmation before making any changes. Do not silently leave placeholder content in committed files, but also do not silently delete them. The template file (`templates/process-template/process-make_template.md`) is the only file exempt from this rule.
-
-**If all dropdowns in the Important Information card are removed**, the containing card block should also be removed:
-
-```
-:::::::{card}
-:header: **Important Information**
-
-Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
-
-:::::::
-```
-
-Again, confirm with the developer before deleting the card.
+**Writing or editing a page under `docs/`?** Invoke the `author-myst-content` skill. It covers fence and tab-set nesting depth, `.md`-not-`.html` internal links, secondary-figure dropdowns, system-context figure placement, composition-table depth, the `status:` frontmatter values and their banners, and the empty-dropdown policy that `scripts/check-dropdowns.py` enforces.
 
 ### Content migration
 
@@ -315,137 +180,9 @@ The convention:
 - **Non-DOI sources** (DevNotes/articles with no DOI) stay as plain inline links for now; they will not appear in the auto-generated list until the `.bib` + `{cite}` work lands (issue #138).
 - After editing references, run `myst build --html` and confirm the page renders exactly **one** `myst-bibliography` block with every cited source present.
 
-### Prose linting (Vale)
+### Checking your work
 
-**Run `git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale` before opening a PR or committing a content migration.** This command lints only committed source files (skipping gitignored `generated/` artifacts). Vale lints both `.md` and `.csv` files and runs as part of the `qa` CI workflow (`.github/workflows/qa.yml`).
-
-```bash
-git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale          # lint all committed docs (skips generated/)
-vale --glob='!**/generated/**' docs/                              # lint full docs/ tree, excluding generated/
-vale <file.md>                                                     # lint a single file
-```
-
-Vale rules live in `styles/nucleus/`. Current rules enforce temperature unit formatting (`°C`), micro symbol usage (`µ`), chemical notation (subscripts and ion superscripts), and unit spacing. Executable tests for these rules live in `tests/` (pytest, not content — run `python -m pytest` from the repo root).
-
-**Interpreting temperature-related errors.** Temperature formatting is enforced by two overlapping rules: `nucleus.units` flags spelled-out forms (`degC`, `degrees C`, `degrees Celsius`, `deg C`) via substitution; `nucleus.degrees-symbol` flags bare digit+C patterns (`95C`, `72 C`) via a raw regex. Both fire as `error` level. In practice, `nucleus.degrees-symbol` currently has a known detection gap — bare `\d+C` patterns are not reliably detected (tracked by `vale-miss` annotations in `styles/tests/temperature.md`). Rely on `nucleus.units` for spelled-out forms; flag bare patterns manually until the gap is fixed.
-
-**Interpreting `nucleus.degrees-symbol` errors.** When Vale flags a `nucleus.degrees-symbol` error, check the surrounding context:
-
-- **Real error** — the token is a temperature value. Fix it by adding the degree symbol (e.g., `37C` → `37°C`, `4 C` → `4°C`).
-  - Signals: preceded by "at", "to", "of", or a verb like "incubate", "store", "heat"; followed by "for X minutes/hours"; in a reaction table or thermocycler step.
-  - **Table cells**: a bare value (e.g., `37C`) in a table column whose header indicates temperature (e.g., "Temperature", "Incubation temp", "Storage") is always a real error, even without surrounding signal words.
-- **False positive** — the token is a label, not a temperature. Leave it alone.
-  - Signals: preceded by "Figure", "Fig.", "Step", "Lane", "Panel", "Tube", "Option", or a similar structural label word.
-
-**Interpreting `nucleus.chemical-notation` errors.** This rule flags molecular formulae and wavelength labels written with bare ASCII digits and suggests the correct Unicode subscript form. Always a real error — replace `OD600` → `OD₆₀₀`, `A260` → `A₂₆₀`, `H2O` → `H₂O`, `ddH2O` → `ddH₂O`, `MgSO4` → `MgSO₄`, etc. The rule is a substitution rule — the error message shows the exact correct form to use. There are no known false positives (the rule uses an explicit curated list of formulae rather than a generic pattern, so construct names like `pET28a` and labels like `A19` are unaffected).
-
-**Interpreting `nucleus.ion-charges` errors.** This rule flags ion charges written with inline numbers rather than Unicode superscripts. Always a real error — replace `Mg2+` → `Mg²⁺`, `Ni2+` → `Ni²⁺`, `Na+` → `Na⁺`, `K+` → `K⁺`, `Mg++` → `Mg²⁺`, etc. Superscript characters: ⁺ (U+207A), ² (U+00B2), ³ (U+00B3).
-
-**Interpreting `nucleus.micro-symbol` errors.** This rule flags patterns like `10 uL`, `500 uM`, or `2 um` that use an ASCII `u` instead of the micro symbol `µ`. Always a real error — replace with `µL`, `µM`, or `µm` respectively.
-
-**Vale `TokenIgnores` limitation on CSV files.** Vale's `TokenIgnores` setting (used to suppress URL matches) works for `.md` files but is silently ignored for `.csv` files. This means URL-encoded sequences like `%2C` in CSV cells can trigger rules even when URLs are listed in `TokenIgnores`. The workaround is to bake URL safety directly into the rule pattern (e.g., `(?<!%)\d+\s*C\b` instead of `\d+\s*C\b`).
-
-**Applying fixes programmatically.** When using a script (e.g., perl/sed) to bulk-apply degrees-symbol fixes, always use a negative lookbehind for `%` to avoid corrupting URL-encoded sequences like `%2C` (comma):
-
-```perl
-# Safe — won't corrupt %2C, %3C, etc. in URLs
-s/(?<!%)(\d+)C\b/$1°C/g
-
-# Unsafe — will corrupt URL-encoded sequences
-s/(\d+)C\b/$1°C/g
-```
-
-Do not add Vale inline suppression comments (`<!-- vale off -->`) without confirming with the developer first. When suppressing only a specific rule (e.g., to silence BOM product-name false positives), prefer rule-scoped suppression over a blanket `<!-- vale off -->`:
-
-```html
-<!-- vale nucleus.magnitude-unit-spacing = NO -->
-:::{table} Bill of Materials
-...
-:::
-<!-- vale nucleus.magnitude-unit-spacing = YES -->
-```
-
-**Canonical unit list.** Several Vale rules share an overlapping set of recognised units. Vale rule files are self-contained YAML and have no native include or variable mechanism, so the lists are duplicated by design — the rules differ slightly because false-positive risk varies by context. The canonical reference list (for human consistency checks, not machine enforcement) is:
-
-| Domain | Units |
-| --- | --- |
-| Length | `nm`, `µm`, `mm`, `cm`, `km` |
-| Volume | `µL`, `mL`, `L` |
-| Mass | `µg`, `mg`, `g`, `kg` |
-| Concentration | `nM`, `µM`, `mM`, `M` |
-| Molecular weight | `Da`, `kDa` |
-| Time | `s`, `min`, `h`, `d` (SI); `yr`, `mo` (non-SI, no SI symbol exists) |
-| Centrifugation | `rcf`, `rpm` |
-| Temperature | `°C` |
-
-When adding a new unit to one rule, check whether the other rules (magnitude-unit-spacing, range-style, thousands-separator) should also be updated.
-
-**Known NIST SP 811 divergences.** The following are deliberate departures from NIST SP 811, documented here so they read as decisions rather than oversights:
-
-| NIST rule | NIST says | Our style | Rationale |
-| --- | --- | --- | --- |
-| §7.10.2 — percent | `25 %` (space before `%`) | `25%` | Universal convention; `25 %` reads as unusual to bench scientists |
-| §7.10.3 — ppm/ppb/ppt | Not acceptable; use `µL/L` etc. | `ppm` permitted | Accessible shorthand; rarely appears in docs |
-| Time abbreviations | `h`, `min`, `s`, `d` | `yr`, `mo` also used | Year and month have no SI symbol; `yr`/`mo` are the accepted non-SI forms |
-
-### Spell checking (codespell)
-
-**Run `codespell docs/` before opening a PR or committing content.** codespell catches real typos and enforces American English spelling.
-
-```bash
-codespell docs/          # check all docs
-codespell <file.md>      # check a single file
-```
-
-Configuration lives in `.codespellrc` at the repo root. It uses the `en-GB_to_en-US` builtin dictionary, which flags British spellings as errors (`labelled` → `labeled`, `grey` → `gray`, `Acknowledgements` → `Acknowledgments`, `homogenous` → `homogeneous`). The `ignore-words = .codespell-ignore` option suppresses known false positives — add a **lowercased** word on its own line to suppress it (e.g., `ser` suppresses the amino acid abbreviation Ser which codespell misreads as a typo for "set").
-
-codespell only flags words in its curated misspelling dictionary, so niche technical terms (`PURExpress`, `plamGFP`, `PURET7`) are not flagged.
-
-### Link checking (lychee)
-
-**Run `python3 scripts/check-links.py docs/` before opening a PR if you have added, edited, or removed any links or URLs.** Takes ~20 s for the whole corpus.
-
-```bash
-python3 scripts/check-links.py docs/          # both passes over all docs
-python3 scripts/check-links.py <file.md>      # both passes, one file
-python3 scripts/check-links.py --offline-only docs/   # internal links only, no network (~0.05 s)
-```
-
-The script wraps `lychee` and runs two passes: an **offline pass** over internal/relative links, and a **network pass** over external URLs. Exit codes are `0` (nothing blocking), `1` (broken links), `2` (the check could not run — e.g. lychee missing; distinct so tooling breakage isn't mistaken for broken docs).
-
-**A failure is judged by what it says about the link, not by which vendor served it.** Do not add vendor domains or status codes to a suppression list — there isn't one, deliberately (issues #193, #199).
-
-| Signal | Verdict |
-| --- | --- |
-| HTTP 404 or 410 | **blocking** — the resource is gone |
-| Hostname does not resolve | **blocking** — typo'd or dead domain |
-| Relative/root-relative link resolves to no file | **blocking** — this 404s the deployed site |
-| HTTP 401, 403, 429, any 5xx | tolerated, reported — crawler refused or server hiccup |
-| Any other 4xx (400, 405, 406, 451…) | tolerated, reported — bot-shaped rejection |
-| Timeout, TLS error, HTTP/2 reset, connection reset | tolerated, reported — says nothing about link validity |
-
-Tolerated failures are normal and expected: a clean run currently reports ~120 of them (Sigma-Aldrich and Cytiva reset HTTP/2 connections; many vendors and `doi.org` return 403 to crawlers). **`✅ no broken links` alongside a long tolerated list is a pass.**
-
-**Blame partitioning.** In CI the check runs with `--blame-changed <base-ref>`: external rot only blocks the PR if it's in a file the PR modified. Pre-existing rot elsewhere is reported under a "pre-existing broken link(s)" heading without failing the build, and is tracked by the weekly `link-rot` workflow, which keeps a single GitHub issue up to date. Internal-link failures block regardless of which files changed. Local runs omit the flag, so everything blocks.
-
-**What it does not catch.** Staleness detection only works where a vendor returns an honest status code, so its reach is narrower than it looks:
-- **Sigma-Aldrich and Cytiva never return one** — they reset the connection before any HTTP status. Between them that's ~40% of external links, and a discontinued part number there is undetectable at any frequency.
-- **Soft-404s are invisible** — a vendor serving "product not found" with HTTP 200 reads as a healthy link.
-
-Both still require manual review. `lychee` is pinned to 0.24.2 in both workflows because its JSON report is this script's input contract and has changed shape between releases before (#136); bump the pin and the local install together.
-
-### DNA reference checking
-
-**Run `python3 scripts/check-dna-refs.py` before opening a PR if you added or edited a Designs table** (any table with a `Length (bp)` / construct-name row linking into `nucleus-eng/DNA`). This is a different failure mode than link checking: a link can 404-free and still assert the wrong sequence — the motivating case was `reporter-degfp/spec.md` claiming 2789 bp for a construct that is actually 2812 bp after a correction in the DNA repo. `check-links.py` cannot see that; this script diffs the docs' bp claim against the target file's GenBank `LOCUS` line.
-
-```bash
-python3 scripts/check-dna-refs.py                       # all of docs/
-python3 scripts/check-dna-refs.py docs/modules/<module>/ # one module
-```
-
-Local-only (reads `~/src/nucleus-eng/DNA` directly, or `$NUCLEUS_DNA_REPO`) — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool.
-
-**Before opening a PR or committing content**, run Vale + codespell (and the link checker if you touched any URLs). Invoke the `lint-docs` skill for exact commands and how to interpret each tool's output — including which Vale errors are real vs. false positives.
+**Before opening a PR or committing content**, run Vale + codespell, and the link checker if you touched any URLs. Invoke the `lint-docs` skill for the exact commands and how to read each tool's output — including which Vale errors are real and which are false positives. It also covers `scripts/check-myst-build.py`, the strict MyST build that the `build-protocols` CI job gates on.
 
 ### Pull request workflow
 

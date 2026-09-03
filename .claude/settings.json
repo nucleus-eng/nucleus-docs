@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "nucleus": {
+      "source": {
+        "source": "github",
+        "repo": "nucleus-eng/nucleus-skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "nucleus@nucleus": true
+  }
+}
