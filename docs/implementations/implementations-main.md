@@ -1,5 +1,6 @@
 ---
 title: Implementations
+description: Documented combinations of Nucleus modules and processes demonstrating complete synthetic cell behaviors, characterized across operating conditions.
 ---
 
 # Overview

@@ -1,5 +1,6 @@
 ---
 title: Nucleus
+description: Validated lab protocols, module specifications, and implementation guides for building synthetic cells with PURE system-based cytosol.
 site:
   hide_outline: true
 ---

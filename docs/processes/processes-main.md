@@ -1,5 +1,6 @@
 ---
 title: "Processes"
+description: Step-by-step lab protocols for preparing PURE system-based cytosol, ribosomes, membranes, and assembling synthetic cells from physical materials.
 ---
 
 # Overview
