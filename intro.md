@@ -14,44 +14,6 @@ The underlying source for all Nucleus tools, designs, and documentation is avail
 
 ---
 
-## Platform
-
-The Nucleus platform makes it possible to access tools and workflows, contribute technical content, and engage with members of the Nucleus community.
-
-::::{grid} 1 1 1 4
-
-:::{card}
-:header: 📖 **Documentation**
-:link: #documentation
-
-Lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
-:::
-
-:::{card}
-:header: 🔬 **Hub**
-:link: https://hub.nucleus.engineering
-
-Where Nucleus developers design, analyze, and collaborate.
-:::
-
-:::{card}
-:header: 📝 **Developer Notes**
-:link: https://devnotes.nucleus.engineering
-
-Contributions to the Nucleus Platform from labs and developers worldwide.
-:::
-
-:::{card}
-:header: 💬 **Forum**
-:link: https://forum.nucleus.engineering
-
-Discussions, questions, and announcements from the Nucleus community.
-:::
-
-::::
-
----
-
 ## Documentation
 
 Nucleus Documentation is the protocol and specification library for the Nucleus Distribution. Here you'll find validated lab protocols, module specifications, and implementation guides for building synthetic cells using cytosol based on the PURE system. Documentation is built from [Developer Notes](https://devnotes.nucleus.engineering), the primary mechanism for contributing validated research to the Nucleus Distribution.
@@ -101,6 +63,44 @@ Software tools for working with the Nucleus Distribution. Available via PyPI: `p
 :header: 📖 **Guides**
 :link: guides/main.md
 Tutorials, how-tos, and workshop materials for using the Nucleus Distribution and its digital tools.
+:::
+
+::::
+
+---
+
+## Platform
+
+The Nucleus platform makes it possible to access tools and workflows, contribute technical content, and engage with members of the Nucleus community.
+
+::::{grid} 1 1 1 4
+
+:::{card}
+:header: 📖 **Documentation**
+:link: #documentation
+
+Lab protocols, module specifications, and implementation guides for the Nucleus Distribution.
+:::
+
+:::{card}
+:header: 🔬 **Hub**
+:link: https://hub.nucleus.engineering
+
+Where Nucleus developers design, analyze, and collaborate.
+:::
+
+:::{card}
+:header: 📝 **Developer Notes**
+:link: https://devnotes.nucleus.engineering
+
+Contributions to the Nucleus Platform from labs and developers worldwide.
+:::
+
+:::{card}
+:header: 💬 **Forum**
+:link: https://forum.nucleus.engineering
+
+Discussions, questions, and announcements from the Nucleus community.
 :::
 
 ::::
