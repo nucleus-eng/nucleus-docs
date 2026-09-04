@@ -7,9 +7,6 @@ project:
   title: Nucleus
   description: Nucleus is an open-source distribution of wetware, software, and documentation to enable collaborative engineering of synthetic cells.
   keywords: [synthetic cells, PURE system, cell-free protein synthesis, liposomes, GUVs, open-source biology, CERN-OHL, OpenMTA, in vitro transcription-translation]
-  authors:
-    - name: Nucleus Contributors
-      url: https://docs.nucleus.engineering/about/contributors/
   github: https://github.com/nucleus-eng/nucleus-docs
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   toc:
