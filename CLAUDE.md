@@ -217,7 +217,10 @@ A page may also carry an unrelated content caveat (e.g. aHly's "not actively sup
 
 `templates/` contains Cookiecutter-style starter files:
 - `process-template/process-make_template.md` — full example of a process page including admonition blocks, protocol steps with checkboxes, and a Downloads section
-- `module-template/spec.md` — module spec structure with schematic, designs table, compatible processes, and usage references
+- `module-template/spec-formulation.md` — for a module you **mix**: cytosols, membranes, chassis, cells. Sections: Overview / Reference Composition / Expected Behavior / Process / Materials / Credits
+- `module-template/spec-functional.md` — for a module you **add to someone else's recipe**: detectors, reporters, effectors, emitters, controls, pores, energy. Sections: Overview / Reference Composition / Expected Behavior (with per-context subsections) / Requirements / Implementations / Materials / Downloads / Credits
+
+  Pick by what the page documents, not by where the module sits in the composition tree — Base Cell is a composed module but reads as a recipe, and a membrane pore is a membrane but reads as a function. Omit a section rather than stubbing it empty.
 - `implementation-template/implementation-template.md` — combined implementation format
 - `typst/nucleus-protocols/` — the branded typst template used to render lab-ready protocol/BOM PDFs (vendored in-repo; pubmatter pinned to 0.2.2 — see its README)
 

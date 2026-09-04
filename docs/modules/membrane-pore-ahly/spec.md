@@ -23,17 +23,11 @@ This Module has not been validated in Nucleus Cytosol. Expected performance data
 
 aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE system, or added as purified protein from an external source. We recommend the purified protein approach for most applications.
 
+# Reference Composition
+
 :::::{tab-set}
 
-::::{tab-item} Schematic
-
-:::{note}
-A schematic for this module is not yet available.
-:::
-
-::::
-
-::::{tab-item} Designs
+::::{tab-item} DNA
 
 :::{attention}
 `pT7-aHly` is not in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA).
@@ -45,13 +39,7 @@ A schematic for this module is not yet available.
 
 ::::
 
-:::::
-
-## Cytosols
-
-### Usage
-
-We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. HY-P2967) and resuspending to 10 µM in milliQ water. Introduce purified protein to the outer solution of synthetic cells rather than expressing from DNA to avoid variability in expression efficiency.
+::::{tab-item} Cytosol
 
 Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as a template. Reactions are assembled following the [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) protocol.
 
@@ -64,24 +52,11 @@ Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as
 | Nucleus-Free Water | 1           |
 | **Total**          | **10**      |
 
-:::{hint} Note: aggregation at high concentrations
-:class: dropdown
-High concentrations of purified aHly (>100 nM) are more likely to aggregate. Keep your working concentrations below this threshold.
-:::
+::::
 
-### Expected Performance
+::::{tab-item} Cell
 
-We validated aHly expression in cytosol by protein gel. Bands at ~33 kDa (red arrows) confirm successful expression of aHly monomer from `pT7-aHly` in PURE. Two loading volumes are shown (5 µL and 2.5 µL) alongside a no-template control (-).
-
-:::{figure} cytosol-protein-gel.png
-Protein gel showing aHly expression in PURE. Lanes labeled "hly" and "(-)" correspond to reactions with and without `pT7-aHly`. Red arrows indicate the aHly band at ~33 kDa. Left pair: 5 µL; right pair: 2.5 µL per lane.
-:::
-
-## Cells
-
-### Usage
-
-To demonstrate functional pore insertion, co-express aHly with a reporter (`pT7-eGFP`) in synthetic cells using an osmolarity-matched buffer without energy molecules (10 mM HEPES, 790 mM glucose) as the outer solution. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production. 
+To demonstrate functional pore insertion, co-express aHly with a reporter (`pT7-eGFP`) in synthetic cells using an osmolarity-matched buffer without energy molecules (10 mM HEPES, 790 mM glucose) as the outer solution. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production.
 
 Prepare master mix for 3 reactions to account for dead volume.
 
@@ -101,12 +76,43 @@ Prepare master mix for 3 reactions to account for dead volume.
 | Nucleus-Free Water | 0 | 0.5 |
 | **Total** | **10** | **10** |
 
-### Expected Performance
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cytosols
+
+We validated aHly expression in cytosol by protein gel. Bands at ~33 kDa (red arrows) confirm successful expression of aHly monomer from `pT7-aHly` in PURE. Two loading volumes are shown (5 µL and 2.5 µL) alongside a no-template control (-).
+
+:::{figure} cytosol-protein-gel.png
+Protein gel showing aHly expression in PURE. Lanes labeled "hly" and "(-)" correspond to reactions with and without `pT7-aHly`. Red arrows indicate the aHly band at ~33 kDa. Left pair: 5 µL; right pair: 2.5 µL per lane.
+:::
+
+## Cells
 
 GFP production is quenched in synthetic cells expressing aHly, confirming functional pore insertion and membrane permeabilization. In the absence of `pT7-aHly`, GFP is produced in a subpopulation of cells. Samples incubated at 37 °C for 7.5 h.
 
 :::{figure} cell-gfp-quench.png
 Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production is quenched when aHly is co-expressed, as small molecules leak through the inserted pores. (Right) GFP only: GFP is produced in a subpopulation of cells in the absence of aHly. Red channel: membrane label; green channel: GFP. Scale bar: 100 µm.
+:::
+
+# Requirements
+
+Using purified aHly protein only requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+
+# Materials
+
+We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. HY-P2967) and resuspending to 10 µM in ultrapure water. Introduce purified protein to the outer solution of synthetic cells rather than expressing from DNA to avoid variability in expression efficiency.
+
+| Material | Description | Manufacturer | Part # |
+| --- | --- | --- | --- |
+| α-Hemolysin | Purified α-hemolysin protein, resuspended to 10 µM in milliQ water | MedChemExpress | HY-P2967 |
+
+:::{hint} Note: aggregation at high concentrations
+:class: dropdown
+High concentrations of purified aHly (>100 nM) are more likely to aggregate. Keep your working concentrations below this threshold.
 :::
 
 # Credits
