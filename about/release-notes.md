@@ -4,9 +4,11 @@ title: Release Notes
 
 # Current release
 
-- [🎊 What’s new in v0.5.0](./release-notes/v050.md) (*Release: January 8, 2026*)
+- [🎊 What’s new in v0.6.0](./release-notes/v060.md) (*Release: September 2026*)
 
 # Past releases
+
+- [🎊 What’s new in v0.5.0](./release-notes/v050.md) (*Release: January 8, 2026*)
 
 - [🎊 What’s new in v0.4.0](https://nucleus.bnext.bio/What-s-new-in-v0-4-0-23aae616eb51802a8628c928d8703fc7) (*Release: July 23, 2025*)
 - [🎊 What’s new in v0.3.0](https://nucleus.bnext.bio/What-s-new-in-v0-3-0-1b2ae616eb5180d2872ae51182052055) (*Release: March 12, 2025*)

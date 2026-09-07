@@ -8,15 +8,11 @@ project:
 site:
   url: https://docs.nucleus.engineering
   template: book-theme
-  nav: 
+  nav:
     - title: Documentation
       url: https://docs.nucleus.engineering/
-    - title: Hub
-      url: https://hub.nucleus.engineering/
     - title: Developer Notes
       url: https://devnotes.nucleus.engineering/
-    - title: Forum
-      url: https://forum.nucleus.engineering/
     - title: Contribute
       url: /start/contribute
     # - title: Help
