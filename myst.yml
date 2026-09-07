@@ -119,6 +119,8 @@ project:
     - file: ./about/faqs.md
     - file: ./about/release-notes.md
       children:
+        - file: ./about/release-notes/v060.md
+          hidden: true
         - file: ./about/release-notes/v050.md
           hidden: true
     - file: ./about/contributors.md

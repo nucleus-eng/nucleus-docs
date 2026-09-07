@@ -2,6 +2,8 @@
 title: Contribute
 ---
 
+Synthetic cell development advances faster when protocols, data, and tools are shared openly. Contributing to Nucleus means your work doesn't stay in a notebook — it gets documented, validated, and made available to every lab building with the Distribution. Whether you have a result to share, a bug to fix, or an idea to propose, here's where to start.
+
 There are several ways to contribute to Nucleus: through Developer Notes, issues and pull requests on our repos, and discussion on the Forum. Here's where to start, depending on what you're looking to do.
 
 ## Share a result (DevNote)
