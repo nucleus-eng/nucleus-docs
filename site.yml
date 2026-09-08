@@ -22,6 +22,7 @@ site:
     #   - title: FAQs
     #     url: /docs/about/faqs
   options:
+    analytics_plausible: nucleus.engineering
     logo: assets/logo-v1.png
     logo_url: https://nucleus.engineering/
     style: assets/style-sheet.css
