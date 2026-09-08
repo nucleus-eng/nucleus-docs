@@ -66,7 +66,7 @@ Processes are core protocols for implementing Base Cytosol and Cells.
 :::{card}
 :header: 🏗️ **Implementations**
 :link: docs/implementations/implementations-main.md
-Implementations are useful combinations of Modules and Processes.
+Implementations are Cells, and other useful combinations of Modules and Processes.
 :::
 
 ::::

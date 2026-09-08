@@ -5,7 +5,7 @@ description: Documented combinations of Nucleus modules and processes demonstrat
 
 # Overview
 
-Implementations are Cells, and other useful combinations of Modules and Processes. 
+Implementations are combinations of useful Processes and Modules. This section is intended to capture where multiple modules have been operated together or characterized under a variety of operating conditions. 
 
 
 ## Implementations
