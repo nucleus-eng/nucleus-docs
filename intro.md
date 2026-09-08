@@ -5,13 +5,11 @@ site:
   hide_outline: true
 ---
 
-<a href="./about/release-notes/v060.md" class="version-badge">Nucleus v0.6.0</a> <a href="https://github.com/nucleus-eng/nucleus-docs/issues" class="version-badge">Improve the Docs</a> <a href="./about/license.md" class="version-badge">Open Source</a>
+<a href="./about/release-notes/v060.md" class="version-badge">Nucleus v0.6.0</a> <a href="./about/license.md" class="version-badge">Open Source</a>
 
 Nucleus is an open platform for synthetic cell development, maintained by [b.next](https://bnext.bio). It brings together validated protocols, modular biological components, digital tools, and physical materials — everything you need to start building synthetic cells in one place. Platform tools make it easy to contribute new capabilities back to the distribution, documented for reuse and interoperable with Nucleus specifications.
 
-The underlying source for all Nucleus tools, designs, and documentation is available in the repositories at the [Nucleus GitHub organization](https://github.com/nucleus-eng).
-
-<a href="./start/first-guide.md" class="quick-link">Get started</a> <a href="./about/release-notes/v060.md" class="quick-link">🎊 What's new in v0.6.0</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
+<a href="./start/first-guide.md" class="quick-link">Get started</a> <a href="./about/release-notes/v060.md" class="quick-link">🎊 What's new in v0.6.0</a> <a href="https://github.com/nucleus-eng" class="quick-link">GitHub</a> <a href="https://bnextbio.typeform.com/nucleus-signup" class="quick-link">Join the mailing list</a>
 
 ---
 
