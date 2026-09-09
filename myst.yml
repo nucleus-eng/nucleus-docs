@@ -28,6 +28,8 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-cprg-suv/spec.md
           hidden: true
+        - file: ./docs/modules/guv-cprg/spec.md
+          hidden: true
         - file: ./docs/modules/substrate-cprg/spec.md
           hidden: true
         - file: ./docs/modules/gel-alginate/spec.md

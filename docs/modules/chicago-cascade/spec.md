@@ -35,64 +35,130 @@ The theophylline/aTc colocalization constraint remains plausible but requires te
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
-    ATC_CASCADE["aTc Cascade"]
-    ATC_SENSING_CELL["aTc Sensing Cell"]
-    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     BASE_CYTOSOL["Base Cytosol"]
-    CHICAGO_CASCADE["Chicago Cascade"]
-    DETECTOR_PH["Detector: pH-Sensing"]
-    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
+    ENERGY_SOLUTION["Energy solution"]
+    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
     EFFECTOR_PLA1["Effector: PLA1"]
-    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
-    PH_CASCADE["pH Cascade"]
-    PH_SENSING_CELL["pH Sensing Cell"]
-    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
-    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
+    REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
+    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    PEGDA_MONOMER["PEGDA monomer"]
+    PEG4SH["PEG4SH crosslinker"]
+    LAP["LAP photoinitiator"]
+    PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
+    TRIGGER_SSDNA["Trigger ssDNA"]
+    ALGINATE["Sodium alginate"]
+
+    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    CHICAGO_OUTER_SOLUTION["Outer Solution"]
+    P2_ASSEMBLE_ATC_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
+    P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
+    P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
+    ATC_SENSING_CELL["aTc Sensing Cell"]
+    P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel (packing)"])
+    ATC_GEL["aTc gel piece"]
+    P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
+    ATC_GEL_LOADED["aTc gel piece, CPRG loaded"]
+    P6_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
+    PH_TRIGGER_DUPLEX["pH trigger duplex"]
+    P7_ASSEMBLE_PH_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+    P8_ENCAPSULATE_PH_0(["Encapsulation: Phase Transfer (packing)"])
+    PH_SENSING_CELL["pH Sensing Cell"]
+    P9_ENCAPSULATE_SUBSTRATE_SUV_0(["SUV Encapsulation (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
+    P10_EMBED_ALGINATE_0(["Alginate Hydrogel Embedding (packing)"])
+    PH_GEL["pH gel piece"]
+    P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
+    CHICAGO_CASCADE["Chicago Cascade"]
 
-    ATC_SENSING_CELL --> ATC_CASCADE
-    REPORTER_LACZ_ENZYME --> ATC_CASCADE
-    SUBSTRATE_CPRG --> ATC_CASCADE
-    ATC_SENSOR_CYTOSOL --> ATC_SENSING_CELL
-    MEMBRANE_POPC_CHOL_CHICAGO --> ATC_SENSING_CELL
-    BASE_CYTOSOL --> ATC_SENSOR_CYTOSOL
-    DETECTOR_TETR_ATC --> ATC_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> ATC_SENSOR_CYTOSOL
-    REPORTER_LACZ_ENZYME --> ATC_SENSOR_CYTOSOL
-    ATC_CASCADE --> CHICAGO_CASCADE
-    PH_CASCADE --> CHICAGO_CASCADE
-    PH_SENSING_CELL --> PH_CASCADE
-    REPORTER_LACZ_ENZYME --> PH_CASCADE
-    SUBSTRATE_CPRG_SUV --> PH_CASCADE
-    PH_SENSOR_CYTOSOL --> PH_SENSING_CELL
-    MEMBRANE_POPC_CHOL_CHICAGO --> PH_SENSING_CELL
-    BASE_CYTOSOL --> PH_SENSOR_CYTOSOL
-    DETECTOR_PH --> PH_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> PH_SENSOR_CYTOSOL
+    TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> CHICAGO_OUTER_SOLUTION
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class ATC_CASCADE,ATC_SENSING_CELL,ATC_SENSOR_CYTOSOL,BASE_CYTOSOL,DETECTOR_PH,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_CASCADE,PH_SENSING_CELL,PH_SENSOR_CYTOSOL,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG,SUBSTRATE_CPRG_SUV constituent;
-    class CHICAGO_CASCADE this;
+    BASE_CYTOSOL --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    DETECTOR_TETR_ATC --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    EFFECTOR_PLA1 --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    REPORTER_LACZ_ENZYME --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    P2_ASSEMBLE_ATC_CYTOSOL_0 --> ATC_SENSOR_CYTOSOL
 
-    click ATC_CASCADE "/docs/modules/atc-cascade/spec"
-    click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
+    ATC_SENSOR_CYTOSOL --> P3_ENCAPSULATE_ATC_0
+    MEMBRANE_CHICAGO --> P3_ENCAPSULATE_ATC_0
+    P3_ENCAPSULATE_ATC_0 --> P3_ENCAPSULATE_ATC_1
+    P3_ENCAPSULATE_ATC_1 --> ATC_SENSING_CELL
+
+    PEGDA_MONOMER --> P4_PHOTODEVELOP_ATC_GEL_0
+    PEG4SH --> P4_PHOTODEVELOP_ATC_GEL_0
+    LAP --> P4_PHOTODEVELOP_ATC_GEL_0
+    CHICAGO_OUTER_SOLUTION --> P4_PHOTODEVELOP_ATC_GEL_0
+    ATC_SENSING_CELL --> P4_PHOTODEVELOP_ATC_GEL_0
+    P4_PHOTODEVELOP_ATC_GEL_0 --> ATC_GEL
+
+    ATC_GEL --> P5_DOSE_CPRG_INTO_ATC_GEL_0
+    SUBSTRATE_CPRG --> P5_DOSE_CPRG_INTO_ATC_GEL_0
+    P5_DOSE_CPRG_INTO_ATC_GEL_0 --> ATC_GEL_LOADED
+
+    PH_RESPONSIVE_SSDNA --> P6_ANNEAL_TRIGGER_DUPLEX_0
+    TRIGGER_SSDNA --> P6_ANNEAL_TRIGGER_DUPLEX_0
+    P6_ANNEAL_TRIGGER_DUPLEX_0 --> PH_TRIGGER_DUPLEX
+
+    BASE_CYTOSOL --> P7_ASSEMBLE_PH_CYTOSOL_0
+    PH_TRIGGER_DUPLEX --> P7_ASSEMBLE_PH_CYTOSOL_0
+    EFFECTOR_PLA1 --> P7_ASSEMBLE_PH_CYTOSOL_0
+    P7_ASSEMBLE_PH_CYTOSOL_0 --> PH_SENSOR_CYTOSOL
+
+    PH_SENSOR_CYTOSOL --> P8_ENCAPSULATE_PH_0
+    MEMBRANE_CHICAGO --> P8_ENCAPSULATE_PH_0
+    P8_ENCAPSULATE_PH_0 --> PH_SENSING_CELL
+
+    SUBSTRATE_CPRG --> P9_ENCAPSULATE_SUBSTRATE_SUV_0
+    MEMBRANE_CHICAGO --> P9_ENCAPSULATE_SUBSTRATE_SUV_0
+    P9_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
+
+    ALGINATE --> P10_EMBED_ALGINATE_0
+    CHICAGO_OUTER_SOLUTION --> P10_EMBED_ALGINATE_0
+    PH_SENSING_CELL --> P10_EMBED_ALGINATE_0
+    SUBSTRATE_CPRG_SUV --> P10_EMBED_ALGINATE_0
+    REPORTER_LACZ_ENZYME --> P10_EMBED_ALGINATE_0
+    P10_EMBED_ALGINATE_0 --> PH_GEL
+
+    ATC_GEL_LOADED --> P11_BOND_GELS_0
+    PH_GEL --> P11_BOND_GELS_0
+    P11_BOND_GELS_0 --> CHICAGO_CASCADE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,TRIS_HEPES_STOCK,ENERGY_SOLUTION,MEMBRANE_CHICAGO,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG,DETECTOR_TETR_ATC,PEGDA_MONOMER,PEG4SH,LAP,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,ALGINATE leaf;
+    class CHICAGO_OUTER_SOLUTION,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_GEL_LOADED,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_GEL,CHICAGO_CASCADE composed;
+    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_ATC_CYTOSOL_0,P3_ENCAPSULATE_ATC_0,P3_ENCAPSULATE_ATC_1,P4_PHOTODEVELOP_ATC_GEL_0,P5_DOSE_CPRG_INTO_ATC_GEL_0,P6_ANNEAL_TRIGGER_DUPLEX_0,P7_ASSEMBLE_PH_CYTOSOL_0,P8_ENCAPSULATE_PH_0,P9_ENCAPSULATE_SUBSTRATE_SUV_0,P10_EMBED_ALGINATE_0,P11_BOND_GELS_0 process;
+
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
-    click DETECTOR_PH "/docs/modules/detector-ph/spec"
-    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
-    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
-    click PH_CASCADE "/docs/modules/ph-cascade/spec"
-    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
-    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
+    click PEGDA_MONOMER "/docs/modules/gel-pegda/spec"
+    click ALGINATE "/docs/modules/gel-alginate/spec"
+    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
+    click P3_ENCAPSULATE_ATC_0 "/docs/processes/assemble-base-cell/main"
+    click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
+    click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
+    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/photodevelop-gel/main"
+    click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
+    click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+    click P8_ENCAPSULATE_PH_0 "/docs/processes/assemble-base-cell/main"
+    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
+    click P9_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click P10_EMBED_ALGINATE_0 "/docs/processes/embed-alginate-hydrogel/main"
+    click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
 ```
 
 ::::

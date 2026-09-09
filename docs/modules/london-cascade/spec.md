@@ -23,42 +23,75 @@ This page is a work in progress and not yet ready for use.
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
-    AHL_SENSING_CELL["AHL Sensing Cell"]
+    S30_LYSATE["Cytosol: S30 Lysate"]
+    DETECTOR_3OC6_HSL["3OC6-HSL Detector Module"]
+    EFFECTOR_PLA1["PLA1 Lysis Module"]
+    MEMBRANE_POPC["London Membrane"]
+    SUBSTRATE_CPRG["CPRG Substrate"]
+    REPORTER_LACZ_ENZYME["LacZ Enzyme"]
+    ULGA_POWDER["ULGA powder"]
+    POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
+    HEPES["HEPES, pH 7.4"]
+    GLUCOSE["Glucose"]
+
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
     AHL_SENSOR_CYTOSOL["AHL Sensor Cytosol"]
-    DETECTOR_3OC6_HSL["Detector: AHL"]
-    EFFECTOR_PLA1["Effector: PLA1"]
+    P2_ENCAPSULATE_SENSING_0(["Encapsulation: Phase Transfer (packing)"])
+    AHL_SENSING_CELL["AHL Sensing Cell"]
+    P3_ENCAPSULATE_SUBSTRATE_0(["Encapsulation: Phase Transfer (packing)"])
+    GUV_CPRG["GUV: CPRG"]
+    P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    OUTER_SOLUTION["Outer Solution"]
+    P5_EMBED_ULGA_0(["ULGA Embedding (packing)"])
     LONDON_CASCADE["London Cascade"]
-    MEMBRANE_POPC["London Membrane: POPC"]
-    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
-    S30_LYSATE["S30 Lysate"]
-    SUBSTRATE_CPRG["Substrate: CPRG"]
 
-    AHL_SENSOR_CYTOSOL --> AHL_SENSING_CELL
-    MEMBRANE_POPC --> AHL_SENSING_CELL
-    S30_LYSATE --> AHL_SENSOR_CYTOSOL
-    DETECTOR_3OC6_HSL --> AHL_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> AHL_SENSOR_CYTOSOL
-    AHL_SENSING_CELL --> LONDON_CASCADE
-    EFFECTOR_PLA1 --> LONDON_CASCADE
-    REPORTER_LACZ_ENZYME --> LONDON_CASCADE
-    SUBSTRATE_CPRG --> LONDON_CASCADE
+    S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
+    DETECTOR_3OC6_HSL --> P1_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1 --> P1_ASSEMBLE_CYTOSOL_0
+    P1_ASSEMBLE_CYTOSOL_0 --> AHL_SENSOR_CYTOSOL
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class AHL_SENSING_CELL,AHL_SENSOR_CYTOSOL,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,MEMBRANE_POPC,REPORTER_LACZ_ENZYME,S30_LYSATE,SUBSTRATE_CPRG constituent;
-    class LONDON_CASCADE this;
+    AHL_SENSOR_CYTOSOL --> P2_ENCAPSULATE_SENSING_0
+    MEMBRANE_POPC --> P2_ENCAPSULATE_SENSING_0
+    P2_ENCAPSULATE_SENSING_0 --> AHL_SENSING_CELL
 
-    click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
-    click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
+    SUBSTRATE_CPRG --> P3_ENCAPSULATE_SUBSTRATE_0
+    MEMBRANE_POPC --> P3_ENCAPSULATE_SUBSTRATE_0
+    P3_ENCAPSULATE_SUBSTRATE_0 --> GUV_CPRG
+
+    POTASSIUM_GLUTAMATE --> P4_ASSEMBLE_OUTER_SOLUTION_0
+    HEPES --> P4_ASSEMBLE_OUTER_SOLUTION_0
+    GLUCOSE --> P4_ASSEMBLE_OUTER_SOLUTION_0
+    P4_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION
+
+    ULGA_POWDER --> P5_EMBED_ULGA_0
+    OUTER_SOLUTION --> P5_EMBED_ULGA_0
+    REPORTER_LACZ_ENZYME --> P5_EMBED_ULGA_0
+    AHL_SENSING_CELL --> P5_EMBED_ULGA_0
+    GUV_CPRG --> P5_EMBED_ULGA_0
+    P5_EMBED_ULGA_0 -->|"1:1:2"| LONDON_CASCADE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class S30_LYSATE,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,MEMBRANE_POPC,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
+    class AHL_SENSOR_CYTOSOL,AHL_SENSING_CELL,GUV_CPRG,OUTER_SOLUTION,LONDON_CASCADE composed;
+    class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_SENSING_0,P3_ENCAPSULATE_SUBSTRATE_0,P4_ASSEMBLE_OUTER_SOLUTION_0,P5_EMBED_ULGA_0 process;
+
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
-    click LONDON_CASCADE "/docs/modules/london-cascade/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
-    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click S30_LYSATE "/docs/modules/s30-lysate/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
+    click P2_ENCAPSULATE_SENSING_0 "/docs/processes/assemble-base-cell/main"
+    click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
+    click P3_ENCAPSULATE_SUBSTRATE_0 "/docs/processes/assemble-base-cell/main"
+    click GUV_CPRG "/docs/modules/guv-cprg/spec"
+    click P5_EMBED_ULGA_0 "/docs/processes/embed-ulga-hydrogel/main"
+    click LONDON_CASCADE "/docs/modules/london-cascade/spec"
 ```
 
 ::::
@@ -134,9 +167,11 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 
 ::::
 
-::::{tab-item} Outer Solution
+::::{tab-item} Outer Solution and Gel
 
-:::{table} Exterior solution.
+Two things, assembled at different steps. The Outer Solution is mixed first; everything else enters at embedding. See [Gel: ULGA](../gel-ulga/spec.md).
+
+:::{table} Outer Solution — the three components mixed at step 4.
 :label: comp-london-cascade-outer
 
 | Component | Working concentration |
@@ -144,12 +179,21 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | Potassium L-glutamate | 578 mM |
 | HEPES, pH 7.4 | 72 mM |
 | Glucose | 300 mM |
-| ULGA | 1.5%, dissolved in the solution above — see [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) |
-| AHL (3-oxo-C6-HSL) inducer | 10 µM; 5 µM is also used, and both appear in reported results. Present in the induced condition only. |
-| β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md). London supplies LacZ purified rather than expressing it in-reaction. |
 :::
 
-The first three components are the same salts and sugar at the same concentrations as the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), which matches its inner and outer solutions at ≈ 920 mOsm. Matching them here keeps encapsulated contents from being driven across the bilayer by an osmotic gradient before the cascade fires.
+:::{table} Added at embedding, into the solution above.
+:label: comp-london-cascade-gel
+
+| Component | Working concentration |
+| --- | --- |
+| ULGA | 1% (w/v) dissolved in the Outer Solution; 0.5% (w/v) in the set gel once both cell populations are combined in at 1:1:2 |
+| β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md). London supplies LacZ purified rather than expressing it in-reaction. |
+| AHL (3-oxo-C6-HSL) inducer | 10 µM; 5 µM is also used, and both appear in reported results. Present in the induced condition only. |
+:::
+
+AHL is the analyte rather than a component of the cascade, so it is listed here for completeness but is not part of the composition.
+
+The first three components are the same salts and sugar at the same concentrations as the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), which matches its inner and outer solutions at ≈ 920 mOsm. Matching them here keeps encapsulated contents from being driven across the bilayer by an osmotic gradient before the cascade fires. Because both halves carry the same salts, combining them does not dilute the salts — only the ULGA, which is present in this half alone.
 
 AHL may instead be supplied as supernatant from an AHL-producing bacterial culture, diluted 10:1 — 20 µL into 200 µL of hydrogel.
 
@@ -192,40 +236,51 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 # Processes
 
-Six steps, listed in the order they are performed. Every one has a Process page except the first, which needs none, and the fourth, which has none.
-
-**Shared**
-
-1. **Reconstitute the cytosol.** [S30 Lysate](../s30-lysate/spec.md) is supplied as a kit — premix, extract and amino acid mix — so it is mixed rather than built from a protocol. This is where the London Cascade departs from a Nucleus Cytosol build, which assembles its cytosol through a documented process.
+Five steps, listed in the order they are performed. Each one combines its inputs under a single operator: **mixing**, where the result shares one compartment, or **packing**, where each input keeps its own. The operator follows from the process rather than being chosen per step.
 
 **Sensing population**
 
-2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the [AHL Sensing Cell](../ahl-sensing-cell/spec.md) by emulsion phase transfer: S30 Lysate carrying `LuxR-PLA1`, which supplies both the LuxR receiver and the PLA1 payload, inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
+1. **Assemble Cytosol** (mixing) — [S30 Lysate](../s30-lysate/spec.md) carrying `LuxR-PLA1`, which supplies both the LuxR receiver and the PLA1 payload, giving the [AHL Sensor Cytosol](../ahl-sensor-cytosol/spec.md). S30 Lysate is supplied as a kit — premix, extract and amino acid mix — so it is reconstituted rather than built from a protocol. **No Process page covers this step.**
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — forms the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), the cytosol inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
 
 **Reporter population**
 
-3. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — prepares the substrate liposomes carrying [CPRG](../substrate-cprg/spec.md), by the same phase-transfer route as the sensing population. **This replaces SUV encapsulation**, which the London Node stopped using in favor of GUVs (2026-09-09): the cascade is slower to make and has one fewer process to track, because both populations now come from one method.
+3. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — prepares the substrate liposomes carrying [CPRG](../substrate-cprg/spec.md), by the same route as the sensing population. This is the same Process page as step 2, applied a second time with different inputs. **It replaces SUV encapsulation**, which the London Node stopped using in favor of GUVs (2026-09-09): the cascade is slower to make and has one fewer process to track, because both populations now come from one method.
 
-**Shared, once both populations exist**
+**The gel**
 
-4. **Co-incubate the two populations 1:1** in a shared outer solution containing LacZ, giving an equimolar mixture of the two synthetic cell populations. No Process page covers this step.
-5. [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) — the gel format the London demo uses. The population mixture is combined 1:1 with ULGA at 1% (w/v), giving **0.5% (w/v) final** — so the cascade's overall ratio is **1:1:2**, sensing cells to substrate cells to gel mixture. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md).
-6. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, yellow to magenta, read by absorbance and by eye.
+4. **Assemble Outer Solution** (mixing) — potassium L-glutamate, HEPES and glucose, matched to the sensing cell's inner solution at ≈ 920 mOsm. **No Process page covers this step.**
+5. [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at 20 U/mL and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md).
+
+[Colorimetric Readout](../../processes/colorimetric-readout/main.md) measures the result — the CPRG conversion, yellow to magenta, read by absorbance and by eye. It is not a composition step, because it produces no Module.
+
+:::{note} Steps 1 and 4 are the same process
+Both assemble an aqueous solution by mixing components into one compartment, and both are instances of the same abstract process. That is why both are mixing: the operator follows from what the process does, not from what it happens to be combining.
+:::
 
 :::{important} The combining ratio, confirmed at the bench
-Step 4 was previously recorded as a gap: a reader could make each population from the pages linked here and still not know how much of each to use.
+Step 5 was previously recorded as a gap: a reader could make each population from the pages linked here and still not know how much of each to use.
 
-Confirmed with the London Node, 2026-09-09: the two populations are mixed **1:1**, then that mixture is combined **1:1 with 1% (w/v) ULGA** for a **0.5% final** gel — an overall **1:1:2**. ULGA works from **0.2% to 0.5%**, and lower concentrations give faster kinetics.
+Confirmed with the London Node, 2026-09-09: the two populations are mixed **1:1**, then that mixture is combined **1:1 with 1% (w/v) ULGA** for a **0.5% final** gel — an overall **1:1:2**.
 
-**No Process page covers step 4.** Every combination step needs one, so the gap is now a missing page rather than a missing number.
+**Two of the five steps have no Process page** — steps 1 and 4. Every combination step needs one, so these are missing pages rather than missing numbers.
 :::
 
 # Constituent Modules
 
-- [AHL Sensing Cell](../ahl-sensing-cell/spec.md)
-- [PLA1 Lysis Module](../effector-pla1/spec.md)
+The five inputs to the embedding step, which is where the cascade is made.
+
+- [AHL Sensing Cell](../ahl-sensing-cell/spec.md) — the sensing population
+- [GUV: CPRG](../guv-cprg/spec.md) — the substrate population. [Substrate: CPRG](../substrate-cprg/spec.md) is what it carries, one level further down
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — dispersed free in the gel, not encapsulated
-- [Substrate: CPRG](../substrate-cprg/spec.md) — held in the second liposome population
+- [Gel: ULGA](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution at embedding
+- **Outer Solution** — potassium L-glutamate, HEPES and glucose, assembled first. No page yet
+
+:::{attention} PLA1 is inside the sensing cell, not beside it
+The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
+:::
+
+`composition.yml` in this directory carries the same structure in machine-readable form, with the process and operator for each step. Nothing checks that the two agree.
 
 # Credits
 

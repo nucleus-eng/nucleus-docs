@@ -1,0 +1,51 @@
+# Composition source for Base Cytosol.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# This file exists so that a cascade rendered at `--depth 2` can expand Base
+# Cytosol instead of treating it as a given. At depth 1, which is the default
+# on module pages, a cascade shows Base Cytosol as a leaf and this file is
+# never read.
+
+module: base-cytosol
+title: Base Cytosol
+
+inputs:
+  pmix:
+    title: "Protein Mix (PMix)"
+    page: null            # 36 PURE proteins, 15 ug/uL total
+  smix:
+    title: "Small Molecule Mix (SMix)"
+    page: null            # buffers, nucleotides, amino acids, cofactors
+  ribosomes:
+    title: "Ribosomes"
+    page: null
+  trna:
+    title: "tRNA"
+    page: null
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null            # optional — 0 to 2000 U/mL
+
+steps:
+  - id: assemble-base-cytosol
+    process:
+      title: "Assemble Base Cytosol"
+      page: ../../processes/assemble-base-cytosol/main.md
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [smix, trna, pmix, ribosomes, rnase-inhibitor]
+    produces:
+      id: base-cytosol
+      title: "Base Cytosol"
+      page: ../base-cytosol/spec.md
+    headroom:
+      capacity: "2.0 uL of 10"
+      balance: "Nuclease Free Water, 2.0 - X"
+      notes: >
+        Water is the unit. Filling the slot with water alone leaves every other
+        component at its reference concentration, which is what makes this the
+        X = 0 case of Assemble Cytosol.
+    notes: >
+      RNase inhibitor is a range, 0 to 2000 U/mL, so it can be left out
+      entirely. The protocol adds 0.5 uL per 10 uL reaction.

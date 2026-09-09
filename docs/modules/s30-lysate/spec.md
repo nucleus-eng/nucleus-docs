@@ -33,6 +33,12 @@ S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rathe
 
 :::
 
+:::{note} The headroom is 3.75 µL of 25
+The four kit and inhibitor volumes come to 21.25 µL, and water makes the reaction up to 25 µL. The 3.75 µL between them is the slot any added component has to fit in, and the DNA template is already spending part of it. Water is the balance term, so filling the slot with water alone leaves every other component at the concentration listed above.
+
+This is the same structure as [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md), which states its slot directly as `User Additives X` against `Nuclease Free Water 2.0 - X`. Here the capacity is implied by the total rather than named, so a composer adding to this cytosol has to derive it.
+:::
+
 # Expected Behavior
 
 S30 Lysate's expected behavior is characterized by expressing a reporter module (e.g., [deGFP](../reporter-degfp/spec.md)).

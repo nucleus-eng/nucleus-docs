@@ -24,7 +24,8 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - ULGA gels at (8-17)°C, well below the gelling temperature of standard agarose. The exact dissolution and cooling temperatures for this protocol are not established; the dissolving and cooling steps below follow standard low-melting-agarose handling as a general technique, not values confirmed for this specific preparation.
-- Two ULGA concentrations are documented for this process, from two distinct experiments: 1% ULGA for the GFP-readout demonstration (confirmed by Z-stack imaging), and 1.5% ULGA for the PLA1/CPRG colorimetric two-liposome demonstration. Both use the same S30 Lysate-compatible outer solution base. Pick the concentration that matches the readout you are running; do not assume they are interchangeable without re-validation.
+- Dissolve ULGA to 1% (w/v) in the prepared outer solution. Combined 1:1 with the synthetic cell suspension, that gives 0.5% (w/v) in the set gel, which is the top of the 0.2% to 0.5% working range. Lower concentrations gel more slowly and give faster kinetics. Both readouts on this page use the same concentration.
+- The colorimetric demonstration was originally run at 1.5% (w/v). The London Node confirmed the 1:1:2 combining ratio on 2026-09-09, and 1.5% gives 0.75% (w/v) in the set gel under that ratio, above the working range. Use 1% for new work. The result measured at 1.5% is kept on the [Gel: ULGA](../../modules/gel-ulga/spec.md) spec, because it records the condition the experiment ran at.
 - This protocol has so far been tested with liquid bacterial culture and supernatant; testing with solid agar bacterial media has not yet been completed.
 
 ::::::
@@ -43,10 +44,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::{tab-set}
 
-::::{tab-item} 1% ULGA (GFP readout)
+::::{tab-item} GFP readout
 
-:::{table} Outer solution used to embed AHL Sensing Cell synthetic cells for the GFP readout, ULGA at 1% final concentration.
-:label: comp-ulga-1pct
+:::{table} Outer solution used to embed AHL Sensing Cell synthetic cells for the GFP readout. ULGA at 1% (w/v) in the prepared solution.
+:label: comp-ulga-gfp
 
 | Component | Concentration |
 | --- | --- |
@@ -59,10 +60,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::
 
-::::{tab-item} 1.5% ULGA (colorimetric readout)
+::::{tab-item} Colorimetric readout
 
-:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-liposome demonstration, ULGA at 1.5% final concentration.
-:label: comp-ulga-1-5pct
+:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-liposome demonstration. ULGA at 1% (w/v) in the prepared solution.
+:label: comp-ulga-colorimetric
 
 | Component | Concentration |
 | --- | --- |
@@ -71,7 +72,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Glucose | 300 mM |
 | AHL (3OC6-HSL, + condition only) | (5-10) µM |
 | AHL-producing bacteria supernatant | 10:1 dilution (20 µL per 200 µL hydrogel) |
-| ULGA | 1.5% (w/v) |
+| ULGA | 1% (w/v) |
 
 :::
 
@@ -119,7 +120,7 @@ The source records this reagent twice with different products: Sigma-Aldrich A50
 ## Prepare ULGA Outer Solution
 
 - [ ] Prepare the base outer solution: (578 mM) potassium L-glutamate, (72 mM) HEPES, (300 mM) glucose in water.
-- [ ] Dissolve ULGA into the base outer solution to a final concentration of 1% (w/v) for a GFP readout, or 1.5% (w/v) for a PLA1/CPRG colorimetric readout, by heating near boiling with stirring until fully dissolved.
+- [ ] Dissolve ULGA into the base outer solution to 1% (w/v), by heating near boiling with stirring until fully dissolved. This gives 0.5% (w/v) in the set gel after the 1:1 combination in the next section.
 
 :::{hint} Note
 :class: simple

@@ -56,6 +56,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
 | Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
 | Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
+| Substrate | [CPRG GUV](./guv-cprg/spec.md) | ★ |
 | Substrate | [CPRG](./substrate-cprg/spec.md) | ★ |
 | Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |

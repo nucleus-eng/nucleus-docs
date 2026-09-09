@@ -1,0 +1,149 @@
+# Composition source for the London Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling.
+# Nothing checks that the two agree yet.
+#
+# Structure confirmed with the London Node, 2026-09-09.
+
+module: london-cascade
+title: London Cascade
+
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The operator is determined by the process, not chosen per step. `abstract:`
+# names the process this one is an instance of — Assemble Cytosol and Assemble
+# Outer Solution are both Assemble Aqueous Solution, which is why both mix.
+
+# Objects the graph names that are not produced by a step here.
+# `page: null` means no spec page exists yet — the generator renders the node
+# without a click target rather than inventing a link.
+inputs:
+  s30-lysate:
+    title: "Cytosol: S30 Lysate"
+    page: ../s30-lysate/spec.md
+  detector-3oc6-hsl:
+    title: "3OC6-HSL Detector Module"
+    page: ../detector-3oc6-hsl/spec.md
+  effector-pla1:
+    title: "PLA1 Lysis Module"
+    page: ../effector-pla1/spec.md
+  membrane-popc:
+    title: "London Membrane"
+    page: ../membrane-popc/spec.md
+  substrate-cprg:
+    title: "CPRG Substrate"
+    page: ../substrate-cprg/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  ulga-powder:
+    title: "ULGA powder"
+    page: null            # Raw material, not a Module. Sigma-Aldrich A5030.
+                          # Ruled 2026-09-09: no page unless one is needed.
+  potassium-glutamate:
+    title: "Potassium L-glutamate"
+    page: null
+  hepes:
+    title: "HEPES, pH 7.4"
+    page: null
+  glucose:
+    title: "Glucose"
+    page: null
+
+steps:
+
+  # 1 ────────────────────────────────────────────────────────────────────
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null                    # abstract; no London derivative page yet
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
+    produces:
+      id: ahl-sensor-cytosol
+      title: "AHL Sensor Cytosol"
+      page: ../ahl-sensor-cytosol/spec.md
+    notes: >
+      S30 Lysate is supplied as a kit, so this is a reconstitution rather than a
+      build from a protocol. Its headroom is 3.75 uL of 25, implied by the total
+      rather than named — see s30-lysate/spec.md.
+
+  # 2 ────────────────────────────────────────────────────────────────────
+  - id: encapsulate-sensing
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [ahl-sensor-cytosol, membrane-popc]
+    produces:
+      id: ahl-sensing-cell
+      title: "AHL Sensing Cell"
+      page: ../ahl-sensing-cell/spec.md
+
+  # 3 ────────────────────────────────────────────────────────────────────
+  # Same process page as step 2. Two applications, one page — the call-site
+  # relationship, not a reason to duplicate the page.
+  - id: encapsulate-substrate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [substrate-cprg, membrane-popc]
+    produces:
+      id: guv-cprg
+      title: "GUV: CPRG"
+      page: ../guv-cprg/spec.md
+
+  # 4 ────────────────────────────────────────────────────────────────────
+  # Same abstract process as step 1 — see `abstract:`. Both are aqueous
+  # assembly, so both are mixing.
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: null                          # no page yet
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [potassium-glutamate, hepes, glucose]
+    produces:
+      id: outer-solution
+      title: "Outer Solution"
+      page: null
+    notes: >
+      Matched to the AHL Sensing Cell inner solution at about 920 mOsm. AHL is
+      excluded — it is the analyte, present in the induced condition only, and
+      belongs to the assay rather than the composition.
+
+  # 5 ────────────────────────────────────────────────────────────────────
+  - id: embed-ulga
+    process:
+      title: "ULGA Embedding"
+      page: ../../processes/embed-ulga-hydrogel/main.md
+    operator: packing
+    operands:
+      - ulga-powder
+      - outer-solution
+      - reporter-lacz-enzyme
+      - ahl-sensing-cell
+      - guv-cprg
+    ratio: "1:1:2"                        # sensing cells : substrate cells : gel
+    parameters:
+      ulga: "1.0% (w/v)"                  # in the gel-forming solution
+      ulga_final: "0.5% (w/v)"            # in the set gel; 0.2-0.5% works
+    produces:
+      id: london-cascade
+      title: "London Cascade"
+      page: ../london-cascade/spec.md
+    notes: >
+      One step. The powder is dissolved into the outer solution, the enzyme and
+      both cell populations go in, and the gel sets around all of them.
+
+# Not composition steps. Colorimetric Readout measures the result and produces
+# no Module, so it is recorded separately rather than as a step above (#228).
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md

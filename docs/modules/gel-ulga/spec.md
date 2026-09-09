@@ -25,7 +25,7 @@ This page is a work in progress and not yet ready for use.
 
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| ULGA | 1% (w/v) for a fluorescence readout; 1.5% (w/v) for a PLA1/CPRG colorimetric readout | dissolved into the outer solution below, not into water |
+| ULGA | 1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1 with the cell suspension | dissolved into the outer solution below, not into water. Works from 0.2% to 0.5% in the set gel, and lower gives faster kinetics |
 | Potassium L-glutamate | 578 mM | |
 | HEPES, pH 7.4 | 72 mM | |
 | Glucose | 300 mM | |
@@ -43,6 +43,12 @@ A separate configuration replaces those three with 1200 mM glucose and 0.1 mM Ca
 Expect a gel that stays liquid while warm, tolerates mixing with intact synthetic cells, and sets on cooling below its gel point without a crosslinker, a divalent load or any illumination.
 
 Two results are confirmed in this matrix. At 1.5%, the two-liposome PLA1/CPRG/LacZ chemistry gives a visible color change from about 3 h at 37 °C, easily discernible by 16 h — see [PLA1 Lysis Module](../effector-pla1/spec.md). At 1%, encapsulated cells give a GFP readout scored after 2.5 h.
+
+:::{note} The colorimetric result was measured at a superseded concentration
+The 1.5% above is the condition that experiment ran at, and it is kept for that reason. New work uses 1% (w/v) in the prepared solution, which gives 0.5% (w/v) in the set gel.
+
+The London Node confirmed the 1:1:2 combining ratio on 2026-09-09. Under that ratio 1.5% gives 0.75% (w/v) in the set gel, above the 0.2% to 0.5% working range — so the confirmed colorimetric result comes from a condition current practice does not use.
+:::
 
 :::{attention} The temperatures are not established
 No dissolution temperature, hold time, or cooling target is recorded for this gel. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold it above the gel point until use, but that is convention rather than a measured protocol here.

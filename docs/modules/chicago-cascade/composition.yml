@@ -1,0 +1,287 @@
+# Composition source for the Chicago Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling.
+# Nothing checks that the two agree yet.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The operator is determined by the process, not chosen per step. `abstract:`
+# names the process this one is an instance of.
+#
+# `composed_of:` is a chain of processes run as one step, with no Module
+# between them. The step's operator belongs to whichever link performs the
+# composition — the first, unless a link declares its own. A link that composes
+# nothing carries no operator.
+
+module: chicago-cascade
+title: Chicago Cascade
+
+# Depth 1. Anything you can obtain is a leaf; only what this cascade builds on
+# the way to its own result is expanded. Base Cytosol is a leaf for the same
+# reason S30 Lysate is one in the London cascade — it is a thing you can have,
+# and its own page says how. Render deeper with `--depth 2`, which follows a
+# leaf's own composition.yml where one exists.
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+
+  # Alginate dissolves into this, and both cell populations sit in it.
+  tris-hepes-stock:
+    title: "Tris-HEPES buffer stock"
+    page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
+  energy-solution:
+    title: "Energy solution"
+    page: null            # @Editor(chicago): contents not recorded
+
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+  # aTc path
+  detector-tetr-atc:
+    title: "Detector: tetR-aTc"
+    page: ../detector-tetr-atc/spec.md
+  pegda-monomer:
+    title: "PEGDA monomer"
+    page: ../gel-pegda/spec.md
+  peg4sh:
+    title: "PEG4SH crosslinker"
+    page: null            # shared with the PEG-norbornene route
+  lap:
+    title: "LAP photoinitiator"
+    page: null            # keep dark until patterning
+
+  # pH path
+  ph-responsive-ssdna: { title: "pH-responsive ssDNA", page: null }
+  trigger-ssdna:       { title: "Trigger ssDNA",       page: null }
+  alginate:
+    title: "Sodium alginate"
+    page: ../gel-alginate/spec.md
+
+steps:
+
+  # ── Shared ──────────────────────────────────────────────────────────────
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution]
+    produces:
+      id: chicago-outer-solution
+      title: "Outer Solution"
+      page: null
+    parameters:
+      tris-hepes: "42.5% (v/v) in water, giving about 1180 mOsm"
+    notes: >
+      The alginate dissolves into this and both populations sit in it, so the
+      gel has no osmolarity of its own — it inherits this one. Same shape as
+      the London cascade's outer solution.
+
+  # ── aTc path ────────────────────────────────────────────────────────────
+  - id: assemble-atc-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
+    produces:
+      id: atc-sensor-cytosol
+      title: "aTc Sensor Cytosol"
+      page: ../atc-sensor-cytosol/spec.md
+    notes: >
+      PLA1 rides on the same molecule as the detector, so it is not supplied
+      separately. LacZ is encapsulated here — the opposite arrangement to the
+      pH path, where the enzyme goes in the gel and the substrate is
+      encapsulated. Fills the Base Cytosol headroom.
+
+  - id: encapsulate-atc
+    process:
+      # A chain: two processes run as one step, with no Module between them.
+      composed_of:
+        - title: "Encapsulation: Phase Transfer"
+          page: ../../processes/assemble-base-cell/main.md
+        - title: "Degrade Exterior LacZ"
+          page: ../../processes/degrade-exterior-lacz/main.md
+          # No operator. It composes nothing — it removes something.
+    operator: packing
+    operands: [atc-sensor-cytosol, membrane-chicago]
+    produces:
+      id: atc-sensing-cell
+      title: "aTc Sensing Cell"
+      page: ../atc-sensing-cell/spec.md
+    notes: >
+      One step, two processes. Proteinase K digests LacZ that escaped the
+      cells, which would otherwise meet CPRG with no lysis and add background.
+      It is a process reagent rather than an operand — nothing of it is in the
+      result. This pair applies to this path only: proteinase K cannot tell one
+      LacZ from another, so it cannot be used on the pH path, which disperses
+      LacZ through the gel on purpose.
+
+  - id: photodevelop-atc-gel
+    process:
+      title: "Photodevelop Gel"
+      page: ../../processes/photodevelop-gel/main.md
+    operator: packing
+    operands:
+      - pegda-monomer
+      - peg4sh
+      - lap
+      - chicago-outer-solution
+      - atc-sensing-cell
+    produces:
+      id: atc-gel
+      title: "aTc gel piece"
+      page: null
+    notes: >
+      Same shape as the alginate step: gel components plus the Outer Solution
+      they dissolve into, plus what is being embedded. No concentration is
+      established for the monomer, the crosslinker or the photoinitiator, and
+      exposure time depends on all three. Two routes are documented, PEGDA and
+      PEG-Norbornene, and the choice is not settled. Both carry a UV step.
+
+  - id: dose-cprg-into-atc-gel
+    process:
+      title: "Dose CPRG into the set gel"
+      page: null
+    operator: packing
+    operands: [atc-gel, substrate-cprg]
+    produces:
+      id: atc-gel-loaded
+      title: "aTc gel piece, CPRG loaded"
+      page: null
+    notes: >
+      After crosslinking, not before. UV bleaches CPRG, so this path cannot
+      carry the substrate through photodevelopment and cannot use a substrate
+      liposome. That is why the two paths differ in where CPRG lives.
+
+  # ── pH path ─────────────────────────────────────────────────────────────
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+    notes: >
+      Two strands at 3:1 forming one duplex, annealed before it enters the
+      cytosol.
+
+  - id: assemble-ph-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
+    produces:
+      id: ph-sensor-cytosol
+      title: "pH Sensor Cytosol"
+      page: ../ph-sensor-cytosol/spec.md
+    notes: >
+      The pT7-toehold9-PLA1 template is Effector: PLA1 — the switch and the
+      effector are one molecule, so there is no separate template operand. The
+      headroom also carries Optiprep at 4.5% (v/v), which the encapsulation
+      step needs rather than the sensing function: a downstream process
+      spending the cytosol's slot.
+
+  - id: encapsulate-ph
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [ph-sensor-cytosol, membrane-chicago]
+    produces:
+      id: ph-sensing-cell
+      title: "pH Sensing Cell"
+      page: ../ph-sensing-cell/spec.md
+
+  - id: encapsulate-substrate-suv
+    process:
+      title: "SUV Encapsulation"
+      page: ../../processes/encapsulate-suv/main.md
+    operator: packing
+    operands: [substrate-cprg, membrane-chicago]
+    produces:
+      id: substrate-cprg-suv
+      title: "Substrate SUV: CPRG"
+      page: ../substrate-cprg-suv/spec.md
+    notes: >
+      This path keeps the substrate liposome because alginate imposes no UV.
+
+  - id: embed-alginate
+    process:
+      title: "Alginate Hydrogel Embedding"
+      page: ../../processes/embed-alginate-hydrogel/main.md
+    operator: packing
+    operands:
+      - alginate
+      - chicago-outer-solution
+      - ph-sensing-cell
+      - substrate-cprg-suv
+      - reporter-lacz-enzyme
+    produces:
+      id: ph-gel
+      title: "pH gel piece"
+      page: null
+    parameters:
+      alginate: "about 1% (w/v)"
+      crosslinker: "200 mM CaCl2, applied separately, not premixed"
+    notes: >
+      The mixing ratio of sensing cells to SUVs to LacZ is not established —
+      the same gap London closed on 2026-09-09 and this path still has.
+
+  # ── The bond ────────────────────────────────────────────────────────────
+  - id: bond-gels
+    process:
+      title: "Bond the two gels"
+      page: null
+    operator: packing
+    operands: [atc-gel-loaded, ph-gel]
+    produces:
+      id: chicago-cascade
+      title: "Chicago Cascade"
+      page: ../chicago-cascade/spec.md
+    notes: >
+      Spatial separation comes from the two gels being separate pieces, not
+      from patterning one gel. This is the step the cascade is named for and
+      the only combination step with no page.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+# ── Open ─────────────────────────────────────────────────────────────────
+open:
+  - id: pegda-precursor-solvent
+    question: >
+      Settled here in favor of the Outer Solution (Jon, 2026-09-09), but
+      gel-pegda/spec.md still says the precursor is dissolved in "PBS or
+      deionized water". That page and this file now disagree. PBS would put a
+      large osmotic gradient across the membrane at the moment of embedding —
+      the aTc cells sit at about 1180 mOsm — which is the reason to think the
+      page is the wrong one. @Editor(chicago) to confirm before the page is
+      changed.
+  - id: photodevelopable-gel-choice
+    question: >
+      PEGDA or PEG-Norbornene is an unsettled design choice, carried here as
+      the PEGDA route alone. @Editor(chicago) has it down for 11 Sept.
