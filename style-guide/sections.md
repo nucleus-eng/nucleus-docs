@@ -60,6 +60,10 @@ Each population tab carries captioned tables for its own compartments. Captioned
 
 Keying by location rather than by Module also removes rows that only ever existed to give each Module one. A component expressed from DNA already counted — PLA1 in the London Cascade — is not something the reader adds, so it has no location and needs no row. Its mechanism belongs in `# Overview`.
 
+**The `DNA` tab enumerates every construct in the closure, and says how each is supplied.** A construct can reach a reaction as a plasmid, as a linear cassette, or not at all — supplied instead as purified protein, as LacZ is in the London Cascade. Listing only the constructs someone happened to find reads as a complete list, and a missing row is indistinguishable from a Module that needs no DNA. Where the supply route is unrecorded, give the construct a row and say the route is unknown.
+
+**Supply route is not a footnote; it selects the sequence file.** S30 Lysate degrades linear DNA, so an S30 route takes the circular form of a construct and a Base Cytosol route takes the cassette — two files, differing by a whole backbone, for one design. A page that names a construct without its route has not said which sequence it means.
+
 **A construct appearing in both `DNA` and a location tab is correct.** `DNA` establishes identity — which construct, how long, which file. The location tab gives the dose in context. That duplication is doing two different jobs.
 
 `base-cell` is the reference: `Cytosol | Membrane | Outer Solution`, one axis, no exceptions.
@@ -115,9 +119,9 @@ Performance data is not its own heading; it lives inside the Context it was meas
 
 **Say what measured it.** Every result names the Process that produced it, as a link:
 
-> Colour developed within 3 h at 37 °C, scored by eye — see [Colorimetric Readout](../docs/processes/colorimetric-readout/main.md).
+> Color developed within 3 h at 37 °C, scored by eye — see [Colorimetric Readout](../docs/processes/colorimetric-readout/main.md).
 
-A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on [London Cascade](../docs/modules/london-cascade/spec.md): the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimisation, or a better assay.
+A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on [London Cascade](../docs/modules/london-cascade/spec.md): the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimization, or a better assay.
 
 Where no Process page exists for the readout, say what was used in prose and mark it `@Editor:`. Do not drop the detail because there is nowhere tidy to link.
 
