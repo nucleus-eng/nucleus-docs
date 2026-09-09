@@ -28,6 +28,8 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-cprg-suv/spec.md
           hidden: true
+        - file: ./docs/modules/substrate-cprg/spec.md
+          hidden: true
         - file: ./docs/modules/gel-alginate/spec.md
           hidden: true
         - file: ./docs/modules/gel-ulga/spec.md
@@ -56,6 +58,8 @@ project:
           hidden: true
         - file: ./docs/modules/reporter-lacz/spec.md
           hidden: true
+        - file: ./docs/modules/reporter-lacz-enzyme/spec.md
+          hidden: true
         - file: ./docs/modules/detector-theophylline/spec.md
           hidden: true
         - file: ./docs/modules/detector-ph/spec.md
@@ -80,7 +84,11 @@ project:
           hidden: true
         - file: ./docs/modules/ph-sensing-cell/spec.md
           hidden: true
+        - file: ./docs/modules/ph-sensor-cytosol/spec.md
+          hidden: true
         - file: ./docs/modules/atc-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/atc-sensor-cytosol/spec.md
           hidden: true
         - file: ./docs/modules/ph-cascade/spec.md
           hidden: true
@@ -89,6 +97,8 @@ project:
         - file: ./docs/modules/chicago-cascade/spec.md
           hidden: true
         - file: ./docs/modules/ahl-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/ahl-sensor-cytosol/spec.md
           hidden: true
         - file: ./docs/modules/london-cascade/spec.md
           hidden: true

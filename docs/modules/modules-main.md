@@ -48,11 +48,15 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Detector | [Theophylline](./detector-theophylline/spec.md) | ★ |
 | Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
 | Cell (Sensing) | [pH Sensing Cell](./ph-sensing-cell/spec.md) | ★ |
+| Cytosol (Sensor) | [aTc Sensor Cytosol](./atc-sensor-cytosol/spec.md) | ★ |
+| Cytosol (Sensor) | [pH Sensor Cytosol](./ph-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [pH Cascade](./ph-cascade/spec.md) | ★ |
 | Cell (Cascade) | [aTc Cascade](./atc-cascade/spec.md) | ★ |
 | Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
+| Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
 | Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
+| Substrate | [CPRG](./substrate-cprg/spec.md) | ★ |
 | Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
@@ -72,6 +76,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
+| Cytosol (Sensor) | [AHL Sensor Cytosol](./ahl-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
 | Gel | [ULGA](./gel-ulga/spec.md) | ★ |
 :::
