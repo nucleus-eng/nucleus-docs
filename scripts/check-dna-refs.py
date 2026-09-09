@@ -92,6 +92,24 @@ FILENAME_RE = re.compile(r"^([\w.\-]+\.(?:gb|gbk|dna|fasta|fa))$", re.IGNORECASE
 LOCUS_RE = re.compile(r"^LOCUS\s+(\S+)\s+(\d+)\s+bp", re.IGNORECASE)
 SEP_ROW_RE = re.compile(r"^[\s|:-]+$")
 
+# --------------------------------------------------------------------------- #
+# Stale absence claims
+# --------------------------------------------------------------------------- #
+# A page can assert that a construct is NOT in the DNA repo. That claim goes
+# stale the moment the file lands, and nothing sees it: every other check here
+# validates rows that DO cite a file. Six such claims sat wrong for twelve days.
+ABSENCE_RE = re.compile(
+    r"(?:not (?:yet )?(?:been )?(?:in|submitted to)\b"
+    r"|no sequence file\b"
+    r"|has no sequence file\b"
+    r"|no recorded length\b"
+    r"|not yet determined\b)",
+    re.IGNORECASE,
+)
+# Construct names are written in backticks; skip prose words that happen to be
+# code-formatted (paths, file extensions, bare English).
+NAME_CANDIDATE_RE = re.compile(r"^[A-Za-z0-9][\w.\-]{2,}$")
+
 
 @dataclass
 class Finding:
@@ -398,6 +416,47 @@ def validate_claim(claim: Claim, dna_index: dict, dna_repo_root: Path) -> list[F
 # --------------------------------------------------------------------------- #
 
 
+def find_stale_absence_claims(
+    md_file: Path, text: str, dna_index: dict[str, ConstructFile]
+) -> list[Finding]:
+    """Flag lines claiming a construct is absent from the DNA repo when a file
+    of that name is now present.
+
+    Deliberately reports a *finding*, never a fix. A filename match is not an
+    identity claim — the linear/circular pairs in this corpus share a cassette
+    and differ by kilobases. Saying "closeable" here would automate the exact
+    mistake this check exists to catch.
+    """
+    by_stem: dict[str, list[str]] = {}
+    for rel, cf in dna_index.items():
+        by_stem.setdefault(_normalize(Path(rel).stem), []).append(rel)
+        if cf.locus_name:
+            by_stem.setdefault(_normalize(cf.locus_name), []).append(rel)
+
+    findings = []
+    for lineno, line in enumerate(text.splitlines(), start=1):
+        if not ABSENCE_RE.search(line):
+            continue
+        for raw in BACKTICK_RE.findall(line):
+            if not NAME_CANDIDATE_RE.match(raw) or "/" in raw:
+                continue
+            hits = by_stem.get(_normalize(raw))
+            if not hits:
+                continue
+            where = ", ".join(sorted(set(hits))[:3])
+            findings.append(
+                Finding(
+                    WARN,
+                    str(md_file),
+                    lineno,
+                    f"this line says `{raw}` is absent from {CANONICAL_REPO}, "
+                    f"but a file of that name exists there ({where}) — "
+                    f"verify it is the same construct, then update or remove the claim",
+                )
+            )
+    return findings
+
+
 def collect_markdown_files(paths: list[str]) -> list[Path]:
     files = []
     for raw in paths:
@@ -414,6 +473,7 @@ def check(paths: list[str], dna_repo: Path) -> list[Finding]:
     findings: list[Finding] = []
     for md_file in collect_markdown_files(paths):
         text = md_file.read_text(errors="ignore")
+        findings.extend(find_stale_absence_claims(md_file, text, dna_index))
         for header_cells, rows in find_tables(text):
             for claim in extract_claims(header_cells, rows, str(md_file)):
                 findings.extend(validate_claim(claim, dna_index, dna_repo))
