@@ -28,15 +28,11 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 | --- | --- | --- |
 | `pT7-tetR` | 2877 | [pOpen-tetR.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-tetR.gb) |
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
-| `T7-tetO-deGFP` | not documented | not yet in `nucleus-eng/DNA` |
-| `TetO-PLA1` | not documented | not yet in `nucleus-eng/DNA` |
+| `T7-tetO-deGFP` | 917 | [pT7-tetO-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/detector-tetr-atc/pT7-tetO-deGFP-linear.gb) |
+| `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) |
 :::
 
 The first two constructs are this Module's Reference Composition. The other two swap the reporter out and appear only in results: deGFP under [Replicated in Nucleus Cytosol](#replicated-in-nucleus-cytosol), and PLA1 driving a colorimetric readout under [TetO-PLA1 encapsulated with LacZ](#teto-pla1-encapsulated-with-lacz).
-
-:::{attention} Two constructs are not yet in `nucleus-eng/DNA`
-@Editor(chicago): neither `T7-tetO-deGFP` nor `TetO-PLA1` has a sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. Both are distinct from `pT7-tetO-plamGFP`, so do not read either name as an identity claim against `pOpen-pT7-tetO.gb`. Flag for follow-up so both can be submitted before this page is used at the bench.
-:::
 
 ::::
 

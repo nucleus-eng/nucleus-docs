@@ -56,12 +56,9 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| Toehold-switch-gated reporter template | not documented | — | Expressed in the Sensing Cell |
-| pH-responsive ssDNA : trigger ssDNA | not applicable | — | Synthesized oligonucleotides, added directly |
-:::
-
-:::{attention} Constructs not in `nucleus-eng/DNA`
-@Editor(chicago): no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
+| Toehold-switch-gated reporter template | 918 | [pT7-toehold9-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/detector-ph/pT7-toehold9-deGFP-linear.gb) | Expressed in the Sensing Cell |
+| pH-responsive ssDNA | 49 | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | Synthesized oligonucleotide, added directly |
+| trigger ssDNA | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, added directly |
 :::
 
 See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.

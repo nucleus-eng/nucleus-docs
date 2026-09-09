@@ -61,14 +61,10 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{attention} Construct not yet in `nucleus-eng/DNA`
-@Editor(chicago): `TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. Do not treat the name below as an identity claim against any existing DNA-repo file — flag for follow-up so the construct can be submitted before this page is used at the bench.
-:::
-
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `TetO-PLA1` | not documented | — | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
+| `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
 :::
 
 See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct.
