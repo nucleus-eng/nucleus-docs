@@ -26,24 +26,27 @@ This page is a work in progress and not yet ready for use.
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     AHL_SENSING_CELL["AHL Sensing Cell"]
+    AHL_SENSOR_CYTOSOL["AHL Sensor Cytosol"]
     DETECTOR_3OC6_HSL["Detector: AHL"]
-    LONDON_CHASSIS["London Chassis"]
+    EFFECTOR_PLA1["Effector: PLA1"]
     MEMBRANE_POPC["London Membrane: POPC"]
     S30_LYSATE["S30 Lysate"]
 
-    LONDON_CHASSIS --> AHL_SENSING_CELL
-    DETECTOR_3OC6_HSL --> AHL_SENSING_CELL
-    S30_LYSATE --> LONDON_CHASSIS
-    MEMBRANE_POPC --> LONDON_CHASSIS
+    AHL_SENSOR_CYTOSOL --> AHL_SENSING_CELL
+    MEMBRANE_POPC --> AHL_SENSING_CELL
+    S30_LYSATE --> AHL_SENSOR_CYTOSOL
+    DETECTOR_3OC6_HSL --> AHL_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> AHL_SENSOR_CYTOSOL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class DETECTOR_3OC6_HSL,LONDON_CHASSIS,MEMBRANE_POPC,S30_LYSATE constituent;
+    class AHL_SENSOR_CYTOSOL,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,MEMBRANE_POPC,S30_LYSATE constituent;
     class AHL_SENSING_CELL this;
 
     click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
+    click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
-    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
 ```
@@ -175,12 +178,8 @@ Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-p
 
 # Constituent Modules
 
-- [AHL Sensing Module](../detector-3oc6-hsl/spec.md) — LuxR/3OC6-HSL sensing constructs, in [S30 Lysate](../s30-lysate/spec.md)
+- [AHL Sensor Cytosol](../ahl-sensor-cytosol/spec.md) — [S30 Lysate](../s30-lysate/spec.md) carrying the LuxR/3OC6-HSL sensing construct and the PLA1 effector on the same molecule
 - [London Membrane: POPC](../membrane-popc/spec.md)
-
-:::{attention} Cytosol intermediate not yet specified
-The cytosolic components are composed before encapsulation, not added to a closed chassis. The intermediate that names that composition does not yet have a page. @Editor: link it here when it lands.
-:::
 
 # Credits
 

@@ -36,34 +36,38 @@ The aTc Cascade combines its Modules as follows:
 flowchart TD
     ATC_CASCADE["aTc Cascade"]
     ATC_SENSING_CELL["aTc Sensing Cell"]
+    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     BASE_CYTOSOL["Base Cytosol"]
-    CHICAGO_CHASSIS["Chicago Chassis"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
     EFFECTOR_PLA1["Effector: PLA1"]
     MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
-    REPORTER_LACZ["Reporter: LacZ"]
+    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
 
     ATC_SENSING_CELL --> ATC_CASCADE
-    EFFECTOR_PLA1 --> ATC_CASCADE
-    REPORTER_LACZ --> ATC_CASCADE
-    CHICAGO_CHASSIS --> ATC_SENSING_CELL
-    DETECTOR_TETR_ATC --> ATC_SENSING_CELL
-    BASE_CYTOSOL --> CHICAGO_CHASSIS
-    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+    REPORTER_LACZ_ENZYME --> ATC_CASCADE
+    SUBSTRATE_CPRG --> ATC_CASCADE
+    ATC_SENSOR_CYTOSOL --> ATC_SENSING_CELL
+    MEMBRANE_POPC_CHOL_CHICAGO --> ATC_SENSING_CELL
+    BASE_CYTOSOL --> ATC_SENSOR_CYTOSOL
+    DETECTOR_TETR_ATC --> ATC_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> ATC_SENSOR_CYTOSOL
+    REPORTER_LACZ_ENZYME --> ATC_SENSOR_CYTOSOL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class ATC_SENSING_CELL,BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,REPORTER_LACZ constituent;
+    class ATC_SENSING_CELL,ATC_SENSOR_CYTOSOL,BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG constituent;
     class ATC_CASCADE this;
 
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
+    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
-    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
 ```
 
 ::::
@@ -111,6 +115,20 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 | Cholesterol | 10 |
 | Liss-Rhod PE | 0.1 |
 :::
+
+::::
+
+::::{tab-item} Substrate
+
+[CPRG](../substrate-cprg/spec.md) reaches this cascade as a **free dye dosed into the gel after crosslinking**, not inside a liposome. The photodeveloped gel this path uses imposes UV, which bleaches CPRG, so the substrate goes in once crosslinking is done.
+
+:::{table} CPRG in the aTc path.
+| Component | Working concentration | Notes |
+| --- | --- | --- |
+| CPRG | not documented | @Editor(chicago): the free-dye dosing concentration for the photodeveloped path is not recorded. Confirm on 11 Sept |
+:::
+
+**This path carries no substrate liposome.** The pH path does — see [pH Cascade](../ph-cascade/spec.md). The difference follows from the gel, not from the reporter chemistry.
 
 ::::
 
@@ -171,8 +189,12 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 # Constituent Modules
 
 - [aTc Sensing Cell](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell
-- [PLA1 Lysis Module](../effector-pla1/spec.md) — lysis trigger coupling sensing to readout
-- [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG colorimetric readout chemistry — the confirmed readout, used in the 2026-08-14 aTc-response data
+- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the sensing reaction at 20 U/mL
+- [Substrate: CPRG](../substrate-cprg/spec.md) — dosed free into the gel after crosslinking, because UV bleaches it. This path carries no substrate liposome
+
+:::{attention} PLA1 is inside the sensing cell, not beside it
+The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
+:::
 
 # Credits
 

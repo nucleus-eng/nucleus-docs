@@ -26,26 +26,29 @@ This page is a work in progress and not yet ready for use.
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    CHICAGO_CHASSIS["Chicago Chassis"]
     DETECTOR_PH["Detector: pH-Sensing"]
+    EFFECTOR_PLA1["Effector: PLA1"]
     MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
     PH_SENSING_CELL["pH Sensing Cell"]
+    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
 
-    BASE_CYTOSOL --> CHICAGO_CHASSIS
-    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
-    CHICAGO_CHASSIS --> PH_SENSING_CELL
-    DETECTOR_PH --> PH_SENSING_CELL
+    PH_SENSOR_CYTOSOL --> PH_SENSING_CELL
+    MEMBRANE_POPC_CHOL_CHICAGO --> PH_SENSING_CELL
+    BASE_CYTOSOL --> PH_SENSOR_CYTOSOL
+    DETECTOR_PH --> PH_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> PH_SENSOR_CYTOSOL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_PH,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class BASE_CYTOSOL,DETECTOR_PH,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_SENSOR_CYTOSOL constituent;
     class PH_SENSING_CELL this;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_PH "/docs/modules/detector-ph/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
 ```
 
 ::::
@@ -149,12 +152,8 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
 # Constituent Modules
 
-- [pH-Sensing Module](../detector-ph/spec.md) — annealed trigger duplex and toehold-gated PLA1 template, in [Base Cytosol](../base-cytosol/spec.md)
+- [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
 - [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
-
-:::{attention} Cytosol intermediate not yet specified
-The cytosolic components are composed before encapsulation, not added to a closed chassis. The intermediate that names that composition does not yet have a page. @Editor: link it here when it lands.
-:::
 
 # Implementations
 

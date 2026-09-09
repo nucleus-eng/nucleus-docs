@@ -25,24 +25,18 @@ The theophylline riboswitch expresses its effector without theophylline present,
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
-    BASE_CYTOSOL["Base Cytosol"]
-    CHICAGO_CHASSIS["Chicago Chassis"]
     DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
     MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
     THEOPHYLLINE_SENSING_CELL["Theophylline Sensing Cell"]
 
-    BASE_CYTOSOL --> CHICAGO_CHASSIS
-    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
-    CHICAGO_CHASSIS --> THEOPHYLLINE_SENSING_CELL
     DETECTOR_THEOPHYLLINE --> THEOPHYLLINE_SENSING_CELL
+    MEMBRANE_POPC_CHOL_CHICAGO --> THEOPHYLLINE_SENSING_CELL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_THEOPHYLLINE,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class DETECTOR_THEOPHYLLINE,MEMBRANE_POPC_CHOL_CHICAGO constituent;
     class THEOPHYLLINE_SENSING_CELL this;
 
-    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click THEOPHYLLINE_SENSING_CELL "/docs/modules/theophylline-sensing-cell/spec"

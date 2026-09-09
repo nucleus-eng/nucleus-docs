@@ -36,37 +36,37 @@ The combined three-part chain is specified here.
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    CHICAGO_CHASSIS["Chicago Chassis"]
     DETECTOR_PH["Detector: pH-Sensing"]
     EFFECTOR_PLA1["Effector: PLA1"]
     MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
     PH_CASCADE["pH Cascade"]
     PH_SENSING_CELL["pH Sensing Cell"]
-    REPORTER_LACZ["Reporter: LacZ"]
+    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
 
-    BASE_CYTOSOL --> CHICAGO_CHASSIS
-    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
     PH_SENSING_CELL --> PH_CASCADE
-    EFFECTOR_PLA1 --> PH_CASCADE
-    REPORTER_LACZ --> PH_CASCADE
+    REPORTER_LACZ_ENZYME --> PH_CASCADE
     SUBSTRATE_CPRG_SUV --> PH_CASCADE
-    CHICAGO_CHASSIS --> PH_SENSING_CELL
-    DETECTOR_PH --> PH_SENSING_CELL
+    PH_SENSOR_CYTOSOL --> PH_SENSING_CELL
+    MEMBRANE_POPC_CHOL_CHICAGO --> PH_SENSING_CELL
+    BASE_CYTOSOL --> PH_SENSOR_CYTOSOL
+    DETECTOR_PH --> PH_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> PH_SENSOR_CYTOSOL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_PH,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_SENSING_CELL,REPORTER_LACZ,SUBSTRATE_CPRG_SUV constituent;
+    class BASE_CYTOSOL,DETECTOR_PH,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_SENSING_CELL,PH_SENSOR_CYTOSOL,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG_SUV constituent;
     class PH_CASCADE this;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_PH "/docs/modules/detector-ph/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
-    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
 ```
 
@@ -201,9 +201,12 @@ No process page documents assembling this three-part cascade end to end.
 # Constituent Modules
 
 - [pH Sensing Cell](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
-- [PLA1 Lysis Module](../effector-pla1/spec.md) — lysis trigger coupling sensing to readout
-- [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG colorimetric readout chemistry
-- [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the CPRG released on lysis
+- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
+- [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because alginate embedding imposes no UV
+
+:::{attention} PLA1 is inside the sensing cell, not beside it
+The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
+:::
 
 # Credits
 

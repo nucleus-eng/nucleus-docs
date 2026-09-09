@@ -34,26 +34,32 @@ Schematic representation of the aTc Sensing Cell mechanism. Inside the synthetic
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     ATC_SENSING_CELL["aTc Sensing Cell"]
+    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     BASE_CYTOSOL["Base Cytosol"]
-    CHICAGO_CHASSIS["Chicago Chassis"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    EFFECTOR_PLA1["Effector: PLA1"]
     MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
 
-    CHICAGO_CHASSIS --> ATC_SENSING_CELL
-    DETECTOR_TETR_ATC --> ATC_SENSING_CELL
-    BASE_CYTOSOL --> CHICAGO_CHASSIS
-    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+    ATC_SENSOR_CYTOSOL --> ATC_SENSING_CELL
+    MEMBRANE_POPC_CHOL_CHICAGO --> ATC_SENSING_CELL
+    BASE_CYTOSOL --> ATC_SENSOR_CYTOSOL
+    DETECTOR_TETR_ATC --> ATC_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> ATC_SENSOR_CYTOSOL
+    REPORTER_LACZ_ENZYME --> ATC_SENSOR_CYTOSOL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_TETR_ATC,MEMBRANE_POPC_CHOL_CHICAGO constituent;
+    class ATC_SENSOR_CYTOSOL,BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,REPORTER_LACZ_ENZYME constituent;
     class ATC_SENSING_CELL this;
 
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
+    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
 ```
 
 ::::
@@ -151,12 +157,8 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 # Constituent Modules
 
-- [aTc Sensing Module](../detector-tetr-atc/spec.md) — `TetO-PLA1` sensing construct, gated by aTc/TetR, in [Base Cytosol](../base-cytosol/spec.md)
+- [aTc Sensor Cytosol](../atc-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the aTc sensing construct, the PLA1 effector it gates, and the LacZ enzyme
 - [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
-
-:::{attention} Cytosol intermediate not yet specified
-The cytosolic components are composed before encapsulation, not added to a closed chassis. The intermediate that names that composition does not yet have a page. @Editor: link it here when it lands.
-:::
 
 # Processes
 

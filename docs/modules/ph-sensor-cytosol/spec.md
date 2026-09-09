@@ -19,6 +19,53 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    DETECTOR_PH["Detector: pH-Sensing"]
+    EFFECTOR_PLA1["Effector: PLA1"]
+    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+
+    BASE_CYTOSOL --> PH_SENSOR_CYTOSOL
+    DETECTOR_PH --> PH_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> PH_SENSOR_CYTOSOL
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class BASE_CYTOSOL,DETECTOR_PH,EFFECTOR_PLA1 constituent;
+    class PH_SENSOR_CYTOSOL this;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click DETECTOR_PH "/docs/modules/detector-ph/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+:::{table} Constructs in the pH Sensor Cytosol.
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `pT7-toehold9-PLA1` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed in the cytosol at 2 nM |
+| pH-responsive ssDNA | 49 | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | Synthesized oligonucleotide, annealed before mixing |
+| trigger ssDNA | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, annealed before mixing |
+:::
+
+The toehold switch and the effector are on one molecule, so [PLA1](../effector-pla1/spec.md) has no construct of its own here.
+
+::::
+
+::::{tab-item} Cytosol
+
 :::{table} Cytosolic components of the pH Sensor Cytosol, at reaction concentration.
 | Module | Working concentration | Notes |
 | --- | --- | --- |
@@ -30,7 +77,17 @@ This page is a work in progress and not yet ready for use.
 | Sulfo-Cyanine5 | 2 µM, optional | Membrane-independent fill marker, used when the lumen needs to be visible. Sulfo-Cyanine5 carboxylic acid, Lumiprobe 13390 |
 :::
 
+::::
+
+:::::
+
 **Optiprep is a process reagent that has to sit in the composition.** It is present because of how the cell is encapsulated, not because the sensing function needs it, and it is absent from the bulk reaction. It is listed here because it is in the tube.
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation
+- [pH-Sensing Module](../detector-ph/spec.md) — trigger duplex and toehold-gated template
+- [PLA1 Lysis Module](../effector-pla1/spec.md) — carried on the same molecule as the switch
 
 # Process
 

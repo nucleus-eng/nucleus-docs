@@ -39,51 +39,59 @@ The theophylline/aTc colocalization constraint remains plausible but requires te
 flowchart TD
     ATC_CASCADE["aTc Cascade"]
     ATC_SENSING_CELL["aTc Sensing Cell"]
+    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     BASE_CYTOSOL["Base Cytosol"]
     CHICAGO_CASCADE["Chicago Cascade"]
-    CHICAGO_CHASSIS["Chicago Chassis"]
     DETECTOR_PH["Detector: pH-Sensing"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
     EFFECTOR_PLA1["Effector: PLA1"]
     MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
     PH_CASCADE["pH Cascade"]
     PH_SENSING_CELL["pH Sensing Cell"]
-    REPORTER_LACZ["Reporter: LacZ"]
+    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
 
     ATC_SENSING_CELL --> ATC_CASCADE
-    EFFECTOR_PLA1 --> ATC_CASCADE
-    REPORTER_LACZ --> ATC_CASCADE
-    CHICAGO_CHASSIS --> ATC_SENSING_CELL
-    DETECTOR_TETR_ATC --> ATC_SENSING_CELL
+    REPORTER_LACZ_ENZYME --> ATC_CASCADE
+    SUBSTRATE_CPRG --> ATC_CASCADE
+    ATC_SENSOR_CYTOSOL --> ATC_SENSING_CELL
+    MEMBRANE_POPC_CHOL_CHICAGO --> ATC_SENSING_CELL
+    BASE_CYTOSOL --> ATC_SENSOR_CYTOSOL
+    DETECTOR_TETR_ATC --> ATC_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> ATC_SENSOR_CYTOSOL
+    REPORTER_LACZ_ENZYME --> ATC_SENSOR_CYTOSOL
     ATC_CASCADE --> CHICAGO_CASCADE
     PH_CASCADE --> CHICAGO_CASCADE
-    BASE_CYTOSOL --> CHICAGO_CHASSIS
-    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
     PH_SENSING_CELL --> PH_CASCADE
-    EFFECTOR_PLA1 --> PH_CASCADE
-    REPORTER_LACZ --> PH_CASCADE
+    REPORTER_LACZ_ENZYME --> PH_CASCADE
     SUBSTRATE_CPRG_SUV --> PH_CASCADE
-    CHICAGO_CHASSIS --> PH_SENSING_CELL
-    DETECTOR_PH --> PH_SENSING_CELL
+    PH_SENSOR_CYTOSOL --> PH_SENSING_CELL
+    MEMBRANE_POPC_CHOL_CHICAGO --> PH_SENSING_CELL
+    BASE_CYTOSOL --> PH_SENSOR_CYTOSOL
+    DETECTOR_PH --> PH_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> PH_SENSOR_CYTOSOL
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class ATC_CASCADE,ATC_SENSING_CELL,BASE_CYTOSOL,CHICAGO_CHASSIS,DETECTOR_PH,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_CASCADE,PH_SENSING_CELL,REPORTER_LACZ,SUBSTRATE_CPRG_SUV constituent;
+    class ATC_CASCADE,ATC_SENSING_CELL,ATC_SENSOR_CYTOSOL,BASE_CYTOSOL,DETECTOR_PH,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_CASCADE,PH_SENSING_CELL,PH_SENSOR_CYTOSOL,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG,SUBSTRATE_CPRG_SUV constituent;
     class CHICAGO_CASCADE this;
 
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
+    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
-    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
     click DETECTOR_PH "/docs/modules/detector-ph/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
-    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
 ```
 
@@ -251,19 +259,27 @@ Every step below has a Process page. They are listed in the order they are perfo
 **Shared, once the populations exist**
 
 6. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests LacZ that escaped the aTc cells, which would otherwise meet CPRG with no lysis and add background color. Proteinase K does not distinguish one LacZ from another, so this step suits a format where the enzyme is encapsulated. It cannot be applied to the hydrogel format described above, which disperses commercial LacZ through the matrix on purpose.
-7. Embedding — either [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md), the format the current demo uses, or [Photodevelopment, PEGDA](../../processes/photodevelop-pegda/main.md), which supplies the spatial separation the Requirements section calls for. Which one is an Implementation choice; see [Chicago DevCell](../../implementations/chicago-devcell/main.md).
+7. **Embedding — two steps, one per path, then a bond.** The pH path uses [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md); the aTc path uses a photodeveloped gel, [PEGDA](../../processes/photodevelop-pegda/main.md) or [PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md). The two gels are then bonded into one piece. **No process page covers the bond.**
 8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
 
-The photodeveloped route reorders the last two steps: CPRG goes into the gel after crosslinking rather than being embedded with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes.
+The photodeveloped path adds CPRG after crosslinking rather than embedding it with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes, and it is why that path carries CPRG as a free dye rather than in a liposome.
 
-:::{attention} Spatial separation and this readout are in tension
-The Requirements section above calls for spatial separation between the two integration paths, and photodevelopment is the only route to it. But both photodevelopment routes impose UV on the payload, and the reordering that avoids the bleaching adds CPRG as a free dye — which does not use the [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) module at all.
+:::{important} The tension resolves: each path takes the combination that works for it
+This section previously said the cascade could not have both its spatial separation and its two-liposome readout, and asked which gives. **Neither gives.** The two integration paths are embedded separately, in different gels, and the incompatible pair never meets:
 
-So this cascade cannot currently have both its spatial separation and its two-liposome readout as specified. @Editor(chicago): confirm which one gives.
+| Path | Gel | CPRG |
+| --- | --- | --- |
+| pH | Alginate | Held in [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — no UV, so the substrate survives |
+| aTc | Photodeveloped, PEGDA or PEG-Norbornene | Dosed **free into the gel after crosslinking**, because UV bleaches it |
+
+**Spatial separation comes from the two gels being separate pieces**, not from patterning one gel. The photodeveloped path can use UV precisely because it carries no liposome-held substrate to bleach.
+
+@Editor(chicago): the path-to-gel assignment above is the Node's understanding as of 2026-09-09 and is **to be confirmed on 11 Sept**.
 :::
 
-No process covers the step that would make this cascade one system rather than two — bringing both integration paths into a single gel. Every technique above is documented for one path or the other. What is absent is the merge, and the mechanism that resolves two outputs into one readout.
+**The missing step is a bond, and now it has a name.** Two gels are embedded separately and then joined into one piece; nothing documents the joining. Every technique above is documented for one path or the other, and the step that makes this cascade one system rather than two is the one with no page.
 
+@Editor(chicago): the bonding step needs a Process page. Every combination step requires one, and this is the combination the whole cascade is named for.
 # Constituent Modules
 
 - [aTc Cascade](../atc-cascade/spec.md) — the aTc integration path, confirmed in synthetic cells; hydrogel embedding still in progress. The detector alone is separately replicated in bulk Nucleus Cytosol with a deGFP reporter standing in for the lysis and colorimetric steps, so that result does not extend to the chain.
