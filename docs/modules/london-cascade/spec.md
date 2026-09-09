@@ -26,38 +26,39 @@ This page is a work in progress and not yet ready for use.
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     AHL_SENSING_CELL["AHL Sensing Cell"]
+    AHL_SENSOR_CYTOSOL["AHL Sensor Cytosol"]
     DETECTOR_3OC6_HSL["Detector: AHL"]
     EFFECTOR_PLA1["Effector: PLA1"]
     LONDON_CASCADE["London Cascade"]
-    LONDON_CHASSIS["London Chassis"]
     MEMBRANE_POPC["London Membrane: POPC"]
-    REPORTER_LACZ["Reporter: LacZ"]
+    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
     S30_LYSATE["S30 Lysate"]
-    SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
 
-    LONDON_CHASSIS --> AHL_SENSING_CELL
-    DETECTOR_3OC6_HSL --> AHL_SENSING_CELL
+    S30_LYSATE --> AHL_SENSOR_CYTOSOL
+    DETECTOR_3OC6_HSL --> AHL_SENSOR_CYTOSOL
+    EFFECTOR_PLA1 --> AHL_SENSOR_CYTOSOL
+    AHL_SENSOR_CYTOSOL --> AHL_SENSING_CELL
+    MEMBRANE_POPC --> AHL_SENSING_CELL
+    MEMBRANE_POPC --> SUBSTRATE_CPRG
     AHL_SENSING_CELL --> LONDON_CASCADE
-    EFFECTOR_PLA1 --> LONDON_CASCADE
-    REPORTER_LACZ --> LONDON_CASCADE
-    SUBSTRATE_CPRG_SUV --> LONDON_CASCADE
-    S30_LYSATE --> LONDON_CHASSIS
-    MEMBRANE_POPC --> LONDON_CHASSIS
+    SUBSTRATE_CPRG --> LONDON_CASCADE
+    REPORTER_LACZ_ENZYME --> LONDON_CASCADE
 
     classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
     classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class AHL_SENSING_CELL,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,LONDON_CHASSIS,MEMBRANE_POPC,REPORTER_LACZ,S30_LYSATE,SUBSTRATE_CPRG_SUV constituent;
+    class AHL_SENSING_CELL,AHL_SENSOR_CYTOSOL,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,MEMBRANE_POPC,REPORTER_LACZ_ENZYME,S30_LYSATE,SUBSTRATE_CPRG constituent;
     class LONDON_CASCADE this;
 
     click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
+    click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click LONDON_CASCADE "/docs/modules/london-cascade/spec"
-    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
-    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
-    click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
 ```
 
 ::::
@@ -91,7 +92,8 @@ The [AHL Sensing Cell](../ahl-sensing-cell/spec.md), carrying `LuxR-PLA1` as its
 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
-| [London Chassis](../london-chassis/spec.md) | S30 Lysate at reaction concentration, in a 100% POPC synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [AHL Sensor Cytosol](../ahl-sensor-cytosol/spec.md) | S30 Lysate at reaction concentration | Transcription and translation. Composed before encapsulation, not added to a closed chassis |
+| [London Membrane: POPC](../membrane-popc/spec.md) | 100% POPC | Closes the cytosol in one encapsulation step |
 | [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-PLA1` plasmid at 15 ng/µL final | The payload swap. The Sensing Cell carries `LuxR-deGFP` at 37 ng/µL instead. LuxR is not supplied separately — it is on this same molecule, under a constitutive promoter. |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by `LuxR-PLA1` | PLA1 is expressed from the plasmid above, not supplied separately. |
 :::
@@ -106,19 +108,21 @@ The [AHL Sensing Cell](../ahl-sensing-cell/spec.md), carrying `LuxR-PLA1` as its
 
 ::::
 
-::::{tab-item} Substrate SUV
+::::{tab-item} Substrate Liposome
 
-A second, dedicated liposome population carrying the chromogenic substrate. See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+A second, dedicated liposome population carrying the chromogenic substrate. See [Substrate: CPRG](../substrate-cprg/spec.md).
 
-:::{table} Substrate SUV lumen.
+**The London Node has moved from SUVs to GUVs** (2026-09-09), so this population is now made by the same phase-transfer route as the sensing cells rather than by film hydration and extrusion. It is slower, and it removes a whole process from the cascade.
+
+:::{table} Substrate liposome lumen.
 :label: comp-london-cascade-suv
 
 | Component | Working concentration |
 | --- | --- |
-| CPRG substrate | 50 mM at hydration, approx. 30 mg/mL — per [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
+| CPRG substrate | 50 mM at hydration, approx. 30 mg/mL — per [Substrate: CPRG](../substrate-cprg/spec.md) |
 :::
 
-:::{table} Substrate SUV membrane — [London Membrane: POPC](../membrane-popc/spec.md).
+:::{table} Substrate liposome membrane — [London Membrane: POPC](../membrane-popc/spec.md).
 :label: comp-london-cascade-suv-membrane
 
 | Component | Target percentage (%) |
@@ -126,7 +130,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | POPC | 100 |
 :::
 
-[Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)'s Requirements accept either lipid composition — POPC, or POPC:cholesterol — so the 100% POPC bilayer here is not a discrepancy with the Module. The loading concentration is bilayer-independent and carries over either way.
+[Substrate: CPRG](../substrate-cprg/spec.md)'s Requirements accept either lipid composition — POPC, or POPC:cholesterol — so the 100% POPC bilayer here is not a discrepancy with the Module. The loading concentration is bilayer-independent and carries over either way.
 
 ::::
 
@@ -200,24 +204,28 @@ Six steps, listed in the order they are performed. Every one has a Process page 
 
 **Reporter population**
 
-3. [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by lipid-film hydration and extrusion, then purifies away unencapsulated CPRG. Residual free CPRG is what produces background color.
+3. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — prepares the substrate liposomes carrying [CPRG](../substrate-cprg/spec.md), by the same phase-transfer route as the sensing population. **This replaces SUV encapsulation**, which the London Node stopped using in favor of GUVs (2026-09-09): the cascade is slower to make and has one fewer process to track, because both populations now come from one method.
 
 **Shared, once both populations exist**
 
-4. **Co-incubate the two populations** in a shared outer solution containing LacZ. No Process page covers this step.
-5. [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) — the gel format the London demo uses. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for how the formats compare.
+4. **Co-incubate the two populations 1:1** in a shared outer solution containing LacZ, giving an equimolar mixture of the two synthetic cell populations. No Process page covers this step.
+5. [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) — the gel format the London demo uses. The population mixture is combined 1:1 with ULGA at 1% (w/v), giving **0.5% (w/v) final** — so the cascade's overall ratio is **1:1:2**, sensing cells to substrate cells to gel mixture. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md).
 6. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, yellow to magenta, read by absorbance and by eye.
 
-:::{attention} The combining step is the one that is missing
-Every technique above is documented. What is not is step 4: the ratio at which the two liposome populations are brought together. A reader can make each population from the pages linked here and still not know how to combine them.
+:::{important} The combining ratio, confirmed at the bench
+Step 4 was previously recorded as a gap: a reader could make each population from the pages linked here and still not know how much of each to use.
+
+Confirmed with the London Node, 2026-09-09: the two populations are mixed **1:1**, then that mixture is combined **1:1 with 1% (w/v) ULGA** for a **0.5% final** gel — an overall **1:1:2**. ULGA works from **0.2% to 0.5%**, and lower concentrations give faster kinetics.
+
+**No Process page covers step 4.** Every combination step needs one, so the gap is now a missing page rather than a missing number.
 :::
 
 # Constituent Modules
 
 - [AHL Sensing Cell](../ahl-sensing-cell/spec.md)
 - [PLA1 Lysis Module](../effector-pla1/spec.md)
-- [LacZ Reporter](../reporter-lacz/spec.md)
-- [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)
+- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — dispersed free in the gel, not encapsulated
+- [Substrate: CPRG](../substrate-cprg/spec.md) — held in the second liposome population
 
 # Credits
 
