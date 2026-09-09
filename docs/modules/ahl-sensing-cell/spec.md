@@ -175,8 +175,12 @@ Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-p
 
 # Constituent Modules
 
-- [London Chassis](../london-chassis/spec.md)
-- [AHL Sensing Module](../detector-3oc6-hsl/spec.md)
+- [AHL Sensing Module](../detector-3oc6-hsl/spec.md) — LuxR/3OC6-HSL sensing constructs, in [S30 Lysate](../s30-lysate/spec.md)
+- [London Membrane: POPC](../membrane-popc/spec.md)
+
+:::{attention} Cytosol intermediate not yet specified
+The cytosolic components are composed before encapsulation, not added to a closed chassis. The intermediate that names that composition does not yet have a page. @Editor: link it here when it lands.
+:::
 
 # Credits
 

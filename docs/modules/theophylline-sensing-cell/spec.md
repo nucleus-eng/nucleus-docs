@@ -170,8 +170,12 @@ Not used in a documented Implementation. The [Chicago DevCell](../../implementat
 
 # Constituent Modules
 
-- [Chicago Chassis](../chicago-chassis/spec.md)
-- [Theophylline Sensing Module](../detector-theophylline/spec.md)
+- [Theophylline Sensing Module](../detector-theophylline/spec.md) — theophylline riboswitch, in [Base Cytosol](../base-cytosol/spec.md)
+- [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
+
+:::{attention} Cytosol intermediate not yet specified
+The cytosolic components are composed before encapsulation, not added to a closed chassis. The intermediate that names that composition does not yet have a page. @Editor: link it here when it lands.
+:::
 
 # Credits
 
