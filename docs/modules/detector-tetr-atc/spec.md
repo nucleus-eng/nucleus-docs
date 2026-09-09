@@ -30,6 +30,14 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
 | `T7-tetO-deGFP` | 917 | [pT7-tetO-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/detector-tetr-atc/pT7-tetO-deGFP-linear.gb) |
 | `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) |
+| `pOpen-T7-tetO-PLA1` | 3140 | pending — see below |
+| `pOpen-T7-tetO-C23DO` | 3101 | pending — see below |
+:::
+
+:::{attention} The circular forms are not on `main` yet
+@Editor(chicago): `pOpen-T7-tetO-PLA1.gb` and `pOpen-T7-tetO-C23DO.gb` are on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file links when it lands.
+
+Chicago prefers the circular form and both are expected to work. They are **not sequence-identical** — the linear entry is the expression cassette, the circular one is that cassette in a pOpen backbone — so the row a page cites follows the route it documents.
 :::
 
 The first two constructs are this Module's Reference Composition. The other two swap the reporter out and appear only in results: deGFP under [Replicated in Nucleus Cytosol](#replicated-in-nucleus-cytosol), and PLA1 driving a colorimetric readout under [TetO-PLA1 encapsulated with LacZ](#teto-pla1-encapsulated-with-lacz).

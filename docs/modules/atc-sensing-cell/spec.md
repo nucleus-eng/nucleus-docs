@@ -64,7 +64,14 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
+| `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form; expressed in the synthetic cell. Distinct from `pT7-tetO-plamGFP` |
+| `pOpen-T7-tetO-PLA1` | 3140 | pending — see below | Circular form, preferred by the Chicago Node |
+:::
+
+:::{attention} The circular forms are not on `main` yet
+@Editor(chicago): `pOpen-T7-tetO-PLA1.gb` and `pOpen-T7-tetO-C23DO.gb` are on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file links when it lands.
+
+Chicago prefers the circular form and both are expected to work. They are **not sequence-identical** — the linear entry is the expression cassette, the circular one is that cassette in a pOpen backbone — so the row a page cites follows the route it documents.
 :::
 
 See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct.

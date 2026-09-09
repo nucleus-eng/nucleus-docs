@@ -37,14 +37,20 @@ Schematic representation of the AHL Detector mechanism. LuxR, constitutively exp
 
 This Module detects 3OC6-HSL and drives whatever sits downstream of `pLux`. The sensing plasmid is a parameter, not part of the Module: `LuxR-deGFP` is the reporter variant used to characterize it, and `LuxR-PLA1` is the variant the DevCells demo uses. Both put a constitutive `BBa_J23101`→`luxR` cassette and the `pLux`-driven payload on one molecule, so LuxR is never supplied separately.
 
-:::{attention} Sequence files not yet in `nucleus-eng/DNA`
-@Editor(london): both constructs exist and their sequences are in hand, but neither has been submitted to [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), so this table cites no file.
-:::
+This page documents the S30 route, which [requires circular DNA](../s30-lysate/spec.md). Each construct therefore appears twice: the expression cassette, and that cassette in a pOpen backbone. **The circular form is the one an S30 reaction receives.**
 
-| **Name**   | **Length (bp)** | **File**                     |
-| ---------- | --------------- | ---------------------------- |
-| `LuxR-deGFP` | 1952 | not yet in `nucleus-eng/DNA` |
-| `LuxR-PLA1`  | 2237 | not yet in `nucleus-eng/DNA` |
+| **Name** | **Length (bp)** | **File** | **Route** |
+| --- | --- | --- | --- |
+| `pOpen-LuxR-deGFP` | 3890 | pending — see below | **S30** |
+| `pOpen-LuxR-PLA1` | 4175 | pending — see below | **S30** |
+| `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | Base Cytosol |
+| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Base Cytosol |
+
+:::{attention} The circular files are not on `main` yet
+@Editor(london): `pOpen-LuxR-deGFP.gb` and `pOpen-LuxR-PLA1.gb` are on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file links when it lands.
+
+**Until then, do not substitute the linear file.** The two share a cassette and differ by a whole pOpen backbone — functionally equivalent, **not sequence-identical**. The lengths above were previously recorded as 1952 and 2237 for the S30 constructs; those are the cassette lengths, and were wrong for this route.
+:::
 
 ::::
 

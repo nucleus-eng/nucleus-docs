@@ -45,13 +45,13 @@ S30 Lysate's expected behavior is characterized by expressing a reporter module 
 
 Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
 
-:::{attention} Which DNA presentation goes into the reaction is not recorded
-The kit is supplied for circular DNA, and this documentation calls the London constructs plasmids throughout. But the sequence files for those constructs are the linear presentation, supplied as G-blocks or clonal DNA, and the same parts also exist as glycerol stocks in a pET-Kan vector. That is one part in two physical forms, and only one of them matches what the kit asks for.
+:::{important} Reactions receive the circular form, and the distinction is not cosmetic
+Confirmed with the London Node, 2026-09-09: **S30 Lysate requires circular DNA.** Nothing is done to protect a linear template — no GamS is added — so linear DNA is exposed to exonuclease activity in an *E. coli* extract and the circular form is used instead.
 
-The distinction has bench consequences: linear DNA is exposed to exonuclease activity in an *E. coli* extract in a way circular DNA is not.
+Each London construct exists in both presentations. The linear form is the expression cassette alone, used in [Base Cytosol](../base-cytosol/spec.md); the circular form is that same cassette in a pOpen backbone, and is what goes into an S30 reaction. **They are functionally equivalent but not sequence-identical**, so a page citing one is not citing the other — see [Detector: AHL](../detector-3oc6-hsl/spec.md).
+:::
 
-@Editor(london): confirm whether reactions receive the linear construct or the pET-Kan plasmid, and if linear, whether anything is done to protect it.
-::: For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
+For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
 
 Not compatible with Optiprep in the inner solution above ~5%; use sucrose for density matching instead (e.g. [London Chassis](../london-chassis/spec.md)).
 
