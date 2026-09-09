@@ -77,6 +77,8 @@ A staging file records four things:
 3. **The edit sites**, as a table of page, line, current text, proposed text.
 4. **What it leaves open**, including questions for the developer.
 
+**A cross-repo quotation carries the commit ref it was taken from.** Staging files partition by *edit site* — a review pass touching two repos produces one file per repo, each naming the other, neither carrying the other's edit sites. But **edit sites partition and quotations cross**: part 2 of a staging file quotes what it overturns, so a file here that overturns a claim in another repo must quote that repo's text. If the other repo rewords the clause afterwards, the file argues against text that no longer exists and nothing notices. A quote pinned to a hash is checkable by a script; a bare quote is not, and it costs one hash.
+
 **A ruling about what is true is not approval to apply it.** Settling a fact decides what the staging file should say; it does not authorize touching a page. The same holds for answers to questions raised inside the staging file — those close items in the proposal, not the review.
 
 **The commit is the fold-in.** One commit, after review, whose subject is applying the staging file — not edit, then commit, then discuss. If an edit lands before approval, revert it and then remove the revert as well: a commit that should not have existed should not leave a revert pair in the history.
