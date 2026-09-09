@@ -68,7 +68,7 @@ This file covers mechanics — build commands, QA tooling, repo structure, MyST 
 
 **Do not edit committed files directly when resolving a conflict or applying a ruling.** Write the proposal to a staging file in `tmp/` first, resolve the conflict there, and apply only when the developer explicitly says to.
 
-Scope: every committed file in this repo — `docs/`, `CLAUDE.md`, `STYLE-GUIDE.md`, `myst.yml`, `scripts/`. Files under `tmp/` are gitignored and may be edited directly. Other repos have their own conventions.
+Scope: every committed file in this repo — `docs/`, `CLAUDE.md`, `STYLE-GUIDE.md`, `myst.yml`, `scripts/`. Files under `tmp/` are gitignored (see `.gitignore`) and may be edited directly. Other repos have their own conventions.
 
 A staging file records four things:
 
@@ -81,7 +81,9 @@ A staging file records four things:
 
 **The commit is the fold-in.** One commit, after review, whose subject is applying the staging file — not edit, then commit, then discuss. If an edit lands before approval, revert it and then remove the revert as well: a commit that should not have existed should not leave a revert pair in the history.
 
-Naming: `tmp/STAGED-<date>-<topic>.md`.
+**Location: `tmp/staging/`.** Each repo declares where its staging files live; for this repo it is `tmp/staging/`, and nothing else in `tmp/` is a staging file. Naming: `tmp/staging/STAGED-<date>-<topic>.md`.
+
+**Open questions go at the top of the file**, ahead of the drafted edits, each with space for a ruling written inline beside it. A reviewer reads a staging file once, top to bottom; with the questions last, they read every proposed edit before reaching the one thing the drafter needs from them, and a long file buries the ask. The block is a running ledger of decided versus open, updated as rulings arrive — and a ruling written beside its question is the record. See `nucleus-eng/nucleus-skills#24`.
 
 ## Architecture
 
