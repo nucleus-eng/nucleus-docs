@@ -1,0 +1,41 @@
+# Composition source for the London Chassis.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Both constituents are obtained.
+
+module: london-chassis
+title: London Chassis
+
+inputs:
+  s30-lysate:
+    title: "Cytosol: S30 Lysate"
+    page: ../s30-lysate/spec.md
+  membrane-popc:
+    title: "London Membrane"
+    page: ../membrane-popc/spec.md
+
+steps:
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [s30-lysate, membrane-popc]
+    produces:
+      id: london-chassis
+      title: "London Chassis"
+      page: ../london-chassis/spec.md
+    notes: >
+      The empty chassis — S30 Lysate with no sensing payload, closed in a 100%
+      POPC bilayer. Use in outer solution at 920 mOsm, or match inner to outer
+      empirically with a vapor-pressure osmometer.
+
+# ULGA Hydrogel Embedding appears on this page as a downstream format. It does
+# not compose the chassis, so it is not a step here.

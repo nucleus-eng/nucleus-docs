@@ -1,0 +1,43 @@
+# Composition source for the AHL Sensor Cytosol.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Anything you can obtain is a leaf.
+
+module: ahl-sensor-cytosol
+title: AHL Sensor Cytosol
+
+inputs:
+  s30-lysate:
+    title: "Cytosol: S30 Lysate"
+    page: ../s30-lysate/spec.md
+  detector-3oc6-hsl:
+    title: "3OC6-HSL Detector Module"
+    page: ../detector-3oc6-hsl/spec.md
+  effector-pla1:
+    title: "PLA1 Lysis Module"
+    page: ../effector-pla1/spec.md
+
+steps:
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null                          # no page yet
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
+    produces:
+      id: ahl-sensor-cytosol
+      title: "AHL Sensor Cytosol"
+      page: ../ahl-sensor-cytosol/spec.md
+    notes: >
+      S30 Lysate is supplied as a kit, so this is a reconstitution rather than
+      a build from a protocol. Its headroom is 3.75 uL of 25, implied by the
+      total rather than named — see s30-lysate/spec.md. The detector and the
+      effector are one molecule, so PLA1 is not supplied separately.

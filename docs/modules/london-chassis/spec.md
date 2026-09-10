@@ -21,23 +21,29 @@ This page is a work in progress and not yet ready for use.
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
+    S30_LYSATE["Cytosol: S30 Lysate"]
+    MEMBRANE_POPC["London Membrane"]
+
+    P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     LONDON_CHASSIS["London Chassis"]
-    MEMBRANE_POPC["London Membrane: POPC"]
-    S30_LYSATE["S30 Lysate"]
 
-    S30_LYSATE --> LONDON_CHASSIS
-    MEMBRANE_POPC --> LONDON_CHASSIS
+    S30_LYSATE --> P1_ENCAPSULATE_0
+    MEMBRANE_POPC --> P1_ENCAPSULATE_0
+    P1_ENCAPSULATE_0 --> LONDON_CHASSIS
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class MEMBRANE_POPC,S30_LYSATE constituent;
-    class LONDON_CHASSIS this;
 
-    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
-    click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class S30_LYSATE,MEMBRANE_POPC leaf;
+    class LONDON_CHASSIS composed;
+    class P1_ENCAPSULATE_0 process;
+
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
+    click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
 ```
 
 ::::

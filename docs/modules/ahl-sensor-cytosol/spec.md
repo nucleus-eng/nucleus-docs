@@ -25,26 +25,31 @@ This page is a work in progress and not yet ready for use.
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
+    S30_LYSATE["Cytosol: S30 Lysate"]
+    DETECTOR_3OC6_HSL["3OC6-HSL Detector Module"]
+    EFFECTOR_PLA1["PLA1 Lysis Module"]
+
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
     AHL_SENSOR_CYTOSOL["AHL Sensor Cytosol"]
-    DETECTOR_3OC6_HSL["Detector: AHL"]
-    EFFECTOR_PLA1["Effector: PLA1"]
-    S30_LYSATE["S30 Lysate"]
 
-    S30_LYSATE --> AHL_SENSOR_CYTOSOL
-    DETECTOR_3OC6_HSL --> AHL_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> AHL_SENSOR_CYTOSOL
+    S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
+    DETECTOR_3OC6_HSL --> P1_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1 --> P1_ASSEMBLE_CYTOSOL_0
+    P1_ASSEMBLE_CYTOSOL_0 --> AHL_SENSOR_CYTOSOL
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class DETECTOR_3OC6_HSL,EFFECTOR_PLA1,S30_LYSATE constituent;
-    class AHL_SENSOR_CYTOSOL this;
 
-    click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class S30_LYSATE,DETECTOR_3OC6_HSL,EFFECTOR_PLA1 leaf;
+    class AHL_SENSOR_CYTOSOL composed;
+    class P1_ASSEMBLE_CYTOSOL_0 process;
+
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
-    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+    click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
 ```
 
 ::::
