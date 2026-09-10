@@ -26,23 +26,29 @@ Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spe
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
-    BASE_CELL["Base Cell"]
     BASE_CYTOSOL["Base Cytosol"]
-    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
+    MEMBRANE_POPC_CHOL["Base Membrane"]
 
-    BASE_CYTOSOL --> BASE_CELL
-    MEMBRANE_POPC_CHOL --> BASE_CELL
+    P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
+    BASE_CELL["Base Cell"]
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,MEMBRANE_POPC_CHOL constituent;
-    class BASE_CELL this;
+    BASE_CYTOSOL --> P1_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL --> P1_ENCAPSULATE_0
+    P1_ENCAPSULATE_0 --> BASE_CELL
 
-    click BASE_CELL "/docs/modules/base-cell/spec"
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,MEMBRANE_POPC_CHOL leaf;
+    class BASE_CELL composed;
+    class P1_ENCAPSULATE_0 process;
+
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+    click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click BASE_CELL "/docs/modules/base-cell/spec"
 ```
 
 ::::

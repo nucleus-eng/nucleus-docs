@@ -1,0 +1,40 @@
+# Composition source for the Chicago Chassis.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Both constituents are obtained.
+
+module: chicago-chassis
+title: Chicago Chassis
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+
+steps:
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [base-cytosol, membrane-chicago]
+    produces:
+      id: chicago-chassis
+      title: "Chicago Chassis"
+      page: ../chicago-chassis/spec.md
+    notes: >
+      The empty chassis — Base Cytosol with no sensing payload, closed in a 9:1
+      POPC:cholesterol bilayer. The sensing cells built on this membrane are
+      siblings of this Module rather than things made from it: each packs its
+      own sensor cytosol in the same membrane, and a cytosol cannot be added to
+      an already-closed chassis.

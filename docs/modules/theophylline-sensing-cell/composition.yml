@@ -1,0 +1,78 @@
+# Composition source for the Theophylline Sensing Cell.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. The sensor cytosol is expanded because this Cell builds it, exactly
+# as on the aTc and pH pages.
+
+module: theophylline-sensing-cell
+title: Theophylline Sensing Cell
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  detector-theophylline:
+    title: "Detector: Theophylline"
+    page: ../detector-theophylline/spec.md
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+
+steps:
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null                          # no page yet
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, detector-theophylline]
+    produces:
+      id: theophylline-sensor-cytosol
+      title: "Theophylline Sensor Cytosol"
+      page: null                          # no page yet — see `open` below
+    parameters:
+      riboswitch: "5 nM final DNA"
+    notes: >
+      The riboswitch drives whichever effector gene sits downstream of it, and
+      no effector is specified on this page. So this cytosol is a sensing
+      reaction with no output wired to it yet.
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [theophylline-sensor-cytosol, membrane-chicago]
+    produces:
+      id: theophylline-sensing-cell
+      title: "Theophylline Sensing Cell"
+      page: ../theophylline-sensing-cell/spec.md
+    notes: >
+      The cytosol is composed before encapsulation, not added to a closed
+      chassis.
+
+open:
+  - id: cytosol-intermediate-has-no-page
+    question: >
+      spec.md already flags this: "The intermediate that names that composition
+      does not yet have a page." Writing this source forces the intermediate to
+      be named, so it is called Theophylline Sensor Cytosol here, matching aTc
+      Sensor Cytosol and pH Sensor Cytosol. The name is this file's, not the
+      corpus's, and no page exists — the diagram draws it as a box with no link.
+      Rename or split freely when the page lands.
+  - id: chassis-is-a-sibling
+    question: >
+      The Cytosol tab of spec.md lists Chicago Chassis as a constituent of this
+      Cell, at "Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol
+      synthetic cell membrane". Structurally the chassis is a sibling, not an
+      ingredient: both pack a cytosol in the same membrane and differ only in
+      which cytosol. This file models the sibling structure. The prose is left
+      alone — check-composition.py does not see it, because the claim is in a
+      composition table rather than in `# Constituent Modules`.

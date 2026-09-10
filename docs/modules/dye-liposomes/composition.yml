@@ -1,0 +1,40 @@
+# Composition source for Dye Liposomes.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Both constituents are obtained.
+
+module: dye-liposomes
+title: Dye Liposomes
+
+inputs:
+  hpts:
+    title: "HPTS dye solution"
+    page: null            # 4 mM stock, 0.2 mM in the lumen
+  membrane-popc-chol:
+    title: "Base Membrane"
+    page: ../membrane-popc-chol/spec.md
+
+steps:
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [hpts, membrane-popc-chol]
+    produces:
+      id: dye-liposomes
+      title: "Dye Liposomes"
+      page: ../dye-liposomes/spec.md
+    parameters:
+      hpts: "0.2 mM in the lumen, from a 4 mM stock"
+    notes: >
+      No cytosol — the lumen is dye in buffer. That is the point: a fast
+      positive control for encapsulation and microscopy with nothing in it that
+      can fail to express.

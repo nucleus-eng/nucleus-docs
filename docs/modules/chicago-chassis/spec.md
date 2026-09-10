@@ -23,23 +23,29 @@ This page is a work in progress and not yet ready for use.
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
+    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+
+    P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     CHICAGO_CHASSIS["Chicago Chassis"]
-    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
 
-    BASE_CYTOSOL --> CHICAGO_CHASSIS
-    MEMBRANE_POPC_CHOL_CHICAGO --> CHICAGO_CHASSIS
+    BASE_CYTOSOL --> P1_ENCAPSULATE_0
+    MEMBRANE_CHICAGO --> P1_ENCAPSULATE_0
+    P1_ENCAPSULATE_0 --> CHICAGO_CHASSIS
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,MEMBRANE_POPC_CHOL_CHICAGO constituent;
-    class CHICAGO_CHASSIS this;
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,MEMBRANE_CHICAGO leaf;
+    class CHICAGO_CHASSIS composed;
+    class P1_ENCAPSULATE_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
-    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
 ```
 
 ::::

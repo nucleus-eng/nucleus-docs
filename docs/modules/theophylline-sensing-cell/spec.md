@@ -23,22 +23,36 @@ The theophylline riboswitch expresses its effector without theophylline present,
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
-    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
+    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    THEOPHYLLINE_SENSOR_CYTOSOL["Theophylline Sensor Cytosol"]
+    P2_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     THEOPHYLLINE_SENSING_CELL["Theophylline Sensing Cell"]
 
-    DETECTOR_THEOPHYLLINE --> THEOPHYLLINE_SENSING_CELL
-    MEMBRANE_POPC_CHOL_CHICAGO --> THEOPHYLLINE_SENSING_CELL
+    BASE_CYTOSOL --> P1_ASSEMBLE_CYTOSOL_0
+    DETECTOR_THEOPHYLLINE --> P1_ASSEMBLE_CYTOSOL_0
+    P1_ASSEMBLE_CYTOSOL_0 --> THEOPHYLLINE_SENSOR_CYTOSOL
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class DETECTOR_THEOPHYLLINE,MEMBRANE_POPC_CHOL_CHICAGO constituent;
-    class THEOPHYLLINE_SENSING_CELL this;
+    THEOPHYLLINE_SENSOR_CYTOSOL --> P2_ENCAPSULATE_0
+    MEMBRANE_CHICAGO --> P2_ENCAPSULATE_0
+    P2_ENCAPSULATE_0 --> THEOPHYLLINE_SENSING_CELL
 
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,DETECTOR_THEOPHYLLINE,MEMBRANE_CHICAGO leaf;
+    class THEOPHYLLINE_SENSOR_CYTOSOL,THEOPHYLLINE_SENSING_CELL composed;
+    class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
-    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click THEOPHYLLINE_SENSING_CELL "/docs/modules/theophylline-sensing-cell/spec"
 ```
 
