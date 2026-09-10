@@ -1,0 +1,63 @@
+# Composition source for the pH Sensor Cytosol.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Base Cytosol is obtained; the trigger duplex is built here, because
+# the two strands are annealed before they enter the cytosol.
+
+module: ph-sensor-cytosol
+title: pH Sensor Cytosol
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+
+steps:
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+    notes: >
+      Two strands at 3:1 forming one duplex, annealed before it enters the
+      cytosol.
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null                          # no page yet
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
+    produces:
+      id: ph-sensor-cytosol
+      title: "pH Sensor Cytosol"
+      page: ../ph-sensor-cytosol/spec.md
+    notes: >
+      The pT7-toehold9-PLA1 template is Effector: PLA1 — the switch and the
+      effector are one molecule, so there is no separate template operand. The
+      headroom also carries Optiprep at 4.5% (v/v), which the encapsulation
+      step needs rather than the sensing function: a downstream process
+      spending the cytosol's slot. RNase inhibitor sits at 1000 U/mL, inside
+      the 0 to 2000 U/mL Base Cytosol accepts.

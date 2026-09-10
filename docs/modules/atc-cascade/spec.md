@@ -32,42 +32,78 @@ The aTc Cascade combines its Modules as follows:
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
-    ATC_CASCADE["aTc Cascade"]
-    ATC_SENSING_CELL["aTc Sensing Cell"]
-    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
     EFFECTOR_PLA1["Effector: PLA1"]
-    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
-    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
+    REPORTER_LACZ_ENZYME["LacZ Enzyme"]
+    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
+    TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
+    ENERGY_SOLUTION["Energy solution"]
+    PEGDA_MONOMER["PEGDA monomer"]
+    PEG4SH["PEG4SH crosslinker"]
+    LAP["LAP photoinitiator"]
 
-    ATC_SENSING_CELL --> ATC_CASCADE
-    REPORTER_LACZ_ENZYME --> ATC_CASCADE
-    SUBSTRATE_CPRG --> ATC_CASCADE
-    ATC_SENSOR_CYTOSOL --> ATC_SENSING_CELL
-    MEMBRANE_POPC_CHOL_CHICAGO --> ATC_SENSING_CELL
-    BASE_CYTOSOL --> ATC_SENSOR_CYTOSOL
-    DETECTOR_TETR_ATC --> ATC_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> ATC_SENSOR_CYTOSOL
-    REPORTER_LACZ_ENZYME --> ATC_SENSOR_CYTOSOL
+    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    CHICAGO_OUTER_SOLUTION["Outer Solution"]
+    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
+    P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
+    P3_ENCAPSULATE_1(["Degrade Exterior LacZ"])
+    ATC_SENSING_CELL["aTc Sensing Cell"]
+    P4_PHOTODEVELOP_GEL_0(["Photodevelop Gel (packing)"])
+    ATC_GEL["aTc gel piece"]
+    P5_DOSE_CPRG_0(["Dose CPRG into the set gel (packing) — no page"])
+    ATC_CASCADE["aTc Cascade"]
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class ATC_SENSING_CELL,ATC_SENSOR_CYTOSOL,BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG constituent;
-    class ATC_CASCADE this;
+    TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> CHICAGO_OUTER_SOLUTION
 
-    click ATC_CASCADE "/docs/modules/atc-cascade/spec"
-    click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
+    BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
+    DETECTOR_TETR_ATC --> P2_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1 --> P2_ASSEMBLE_CYTOSOL_0
+    REPORTER_LACZ_ENZYME --> P2_ASSEMBLE_CYTOSOL_0
+    P2_ASSEMBLE_CYTOSOL_0 --> ATC_SENSOR_CYTOSOL
+
+    ATC_SENSOR_CYTOSOL --> P3_ENCAPSULATE_0
+    MEMBRANE_CHICAGO --> P3_ENCAPSULATE_0
+    P3_ENCAPSULATE_0 --> P3_ENCAPSULATE_1
+    P3_ENCAPSULATE_1 --> ATC_SENSING_CELL
+
+    PEGDA_MONOMER --> P4_PHOTODEVELOP_GEL_0
+    PEG4SH --> P4_PHOTODEVELOP_GEL_0
+    LAP --> P4_PHOTODEVELOP_GEL_0
+    CHICAGO_OUTER_SOLUTION --> P4_PHOTODEVELOP_GEL_0
+    ATC_SENSING_CELL --> P4_PHOTODEVELOP_GEL_0
+    P4_PHOTODEVELOP_GEL_0 --> ATC_GEL
+
+    ATC_GEL --> P5_DOSE_CPRG_0
+    SUBSTRATE_CPRG --> P5_DOSE_CPRG_0
+    P5_DOSE_CPRG_0 --> ATC_CASCADE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,TRIS_HEPES_STOCK,ENERGY_SOLUTION,PEGDA_MONOMER,PEG4SH,LAP leaf;
+    class CHICAGO_OUTER_SOLUTION,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE composed;
+    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P3_ENCAPSULATE_1,P4_PHOTODEVELOP_GEL_0,P5_DOSE_CPRG_0 process;
+
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
-    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click PEGDA_MONOMER "/docs/modules/gel-pegda/spec"
+    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
+    click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click P3_ENCAPSULATE_1 "/docs/processes/degrade-exterior-lacz/main"
+    click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
+    click P4_PHOTODEVELOP_GEL_0 "/docs/processes/photodevelop-gel/main"
+    click ATC_CASCADE "/docs/modules/atc-cascade/spec"
 ```
 
 ::::

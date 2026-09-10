@@ -1,0 +1,73 @@
+# Composition source for the pH Sensing Cell.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. The sensor cytosol and the trigger duplex are expanded because this
+# Cell builds them.
+
+module: ph-sensing-cell
+title: pH Sensing Cell
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+
+steps:
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
+    produces:
+      id: ph-sensor-cytosol
+      title: "pH Sensor Cytosol"
+      page: ../ph-sensor-cytosol/spec.md
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [ph-sensor-cytosol, membrane-chicago]
+    produces:
+      id: ph-sensing-cell
+      title: "pH Sensing Cell"
+      page: ../ph-sensing-cell/spec.md
+    notes: >
+      The cytosol is composed before encapsulation, not added to a closed
+      chassis. Optiprep is in the cytosol for this step's sake.
+
+# The analyte is not part of this composition — pH change reaches the Cell from
+# outside after encapsulation.

@@ -1,0 +1,141 @@
+# Composition source for the aTc Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. This is the aTc integration path of the Chicago Cascade, entire.
+# chicago-cascade/composition.yml builds the same path and bonds the result to
+# the pH one.
+
+module: atc-cascade
+title: aTc Cascade
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  detector-tetr-atc:
+    title: "Detector: tetR-aTc"
+    page: ../detector-tetr-atc/spec.md
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  tris-hepes-stock:
+    title: "Tris-HEPES buffer stock"
+    page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
+  energy-solution:
+    title: "Energy solution"
+    page: null            # @Editor(chicago): contents not recorded
+  pegda-monomer:
+    title: "PEGDA monomer"
+    page: ../gel-pegda/spec.md
+  peg4sh:
+    title: "PEG4SH crosslinker"
+    page: null
+  lap:
+    title: "LAP photoinitiator"
+    page: null
+
+steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution]
+    produces:
+      id: chicago-outer-solution
+      title: "Outer Solution"
+      page: null
+    parameters:
+      tris-hepes: "42.5% (v/v) in water, giving about 1180 mOsm"
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
+    produces:
+      id: atc-sensor-cytosol
+      title: "aTc Sensor Cytosol"
+      page: ../atc-sensor-cytosol/spec.md
+
+  - id: encapsulate
+    process:
+      composed_of:
+        - title: "Encapsulation: Phase Transfer"
+          page: ../../processes/assemble-base-cell/main.md
+        - title: "Degrade Exterior LacZ"
+          page: ../../processes/degrade-exterior-lacz/main.md
+    operator: packing
+    operands: [atc-sensor-cytosol, membrane-chicago]
+    produces:
+      id: atc-sensing-cell
+      title: "aTc Sensing Cell"
+      page: ../atc-sensing-cell/spec.md
+
+  - id: photodevelop-gel
+    process:
+      title: "Photodevelop Gel"
+      page: ../../processes/photodevelop-gel/main.md
+    operator: packing
+    operands:
+      - pegda-monomer
+      - peg4sh
+      - lap
+      - chicago-outer-solution
+      - atc-sensing-cell
+    produces:
+      id: atc-gel
+      title: "aTc gel piece"
+      page: null
+    notes: >
+      No concentration is established for the monomer, the crosslinker or the
+      photoinitiator, and exposure time depends on all three. Two routes are
+      documented, PEGDA and PEG-Norbornene, and the choice is not settled.
+
+  - id: dose-cprg
+    process:
+      title: "Dose CPRG into the set gel"
+      page: null
+    operator: packing
+    operands: [atc-gel, substrate-cprg]
+    produces:
+      id: atc-cascade
+      title: "aTc Cascade"
+      page: ../atc-cascade/spec.md
+    notes: >
+      After crosslinking, not before. UV bleaches CPRG, so this path cannot
+      carry the substrate through photodevelopment and cannot use a substrate
+      liposome. That is why it differs from the pH path in where CPRG lives.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: pegda-precursor-solvent
+    question: >
+      gel-pegda/spec.md says the precursor is dissolved in "PBS or deionized
+      water", while this file dissolves it in the Outer Solution. PBS would put
+      a large osmotic gradient across the membrane at the moment of embedding —
+      the cells sit at about 1180 mOsm. Same item as in
+      chicago-cascade/composition.yml. @Editor(chicago).

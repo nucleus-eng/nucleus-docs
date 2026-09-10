@@ -25,25 +25,38 @@ This page is a work in progress and not yet ready for use.
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    DETECTOR_PH["Detector: pH-Sensing"]
+    PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
+    TRIGGER_SSDNA["Trigger ssDNA"]
     EFFECTOR_PLA1["Effector: PLA1"]
+
+    P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
+    PH_TRIGGER_DUPLEX["pH trigger duplex"]
+    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
 
-    BASE_CYTOSOL --> PH_SENSOR_CYTOSOL
-    DETECTOR_PH --> PH_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> PH_SENSOR_CYTOSOL
+    PH_RESPONSIVE_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
+    TRIGGER_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
+    P1_ANNEAL_TRIGGER_DUPLEX_0 --> PH_TRIGGER_DUPLEX
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,DETECTOR_PH,EFFECTOR_PLA1 constituent;
-    class PH_SENSOR_CYTOSOL this;
+    BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
+    PH_TRIGGER_DUPLEX --> P2_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1 --> P2_ASSEMBLE_CYTOSOL_0
+    P2_ASSEMBLE_CYTOSOL_0 --> PH_SENSOR_CYTOSOL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1 leaf;
+    class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL composed;
+    class P1_ANNEAL_TRIGGER_DUPLEX_0,P2_ASSEMBLE_CYTOSOL_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click DETECTOR_PH "/docs/modules/detector-ph/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
+    click P1_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
+    click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
 ```
 

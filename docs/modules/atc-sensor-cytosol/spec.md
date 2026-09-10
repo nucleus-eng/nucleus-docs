@@ -25,29 +25,34 @@ This page is a work in progress and not yet ready for use.
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
-    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
     EFFECTOR_PLA1["Effector: PLA1"]
-    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
+    REPORTER_LACZ_ENZYME["LacZ Enzyme"]
 
-    BASE_CYTOSOL --> ATC_SENSOR_CYTOSOL
-    DETECTOR_TETR_ATC --> ATC_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> ATC_SENSOR_CYTOSOL
-    REPORTER_LACZ_ENZYME --> ATC_SENSOR_CYTOSOL
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME constituent;
-    class ATC_SENSOR_CYTOSOL this;
+    BASE_CYTOSOL --> P1_ASSEMBLE_CYTOSOL_0
+    DETECTOR_TETR_ATC --> P1_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1 --> P1_ASSEMBLE_CYTOSOL_0
+    REPORTER_LACZ_ENZYME --> P1_ASSEMBLE_CYTOSOL_0
+    P1_ASSEMBLE_CYTOSOL_0 --> ATC_SENSOR_CYTOSOL
 
-    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME leaf;
+    class ATC_SENSOR_CYTOSOL composed;
+    class P1_ASSEMBLE_CYTOSOL_0 process;
+
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
 ```
 
 ::::

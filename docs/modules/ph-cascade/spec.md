@@ -33,41 +33,82 @@ The combined three-part chain is specified here.
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    DETECTOR_PH["Detector: pH-Sensing"]
+    PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
+    TRIGGER_SSDNA["Trigger ssDNA"]
     EFFECTOR_PLA1["Effector: PLA1"]
-    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Membrane: POPC/Chol"]
-    PH_CASCADE["pH Cascade"]
-    PH_SENSING_CELL["pH Sensing Cell"]
+    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+    REPORTER_LACZ_ENZYME["LacZ Enzyme"]
+    ALGINATE["Sodium alginate"]
+    TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
+    ENERGY_SOLUTION["Energy solution"]
+
+    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    CHICAGO_OUTER_SOLUTION["Outer Solution"]
+    P2_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
+    PH_TRIGGER_DUPLEX["pH trigger duplex"]
+    P3_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
-    REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
+    P4_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
+    PH_SENSING_CELL["pH Sensing Cell"]
+    P5_ENCAPSULATE_SUBSTRATE_SUV_0(["SUV Encapsulation (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
+    P6_EMBED_ALGINATE_0(["Alginate Hydrogel Embedding (packing)"])
+    PH_CASCADE["pH Cascade"]
 
-    PH_SENSING_CELL --> PH_CASCADE
-    REPORTER_LACZ_ENZYME --> PH_CASCADE
-    SUBSTRATE_CPRG_SUV --> PH_CASCADE
-    PH_SENSOR_CYTOSOL --> PH_SENSING_CELL
-    MEMBRANE_POPC_CHOL_CHICAGO --> PH_SENSING_CELL
-    BASE_CYTOSOL --> PH_SENSOR_CYTOSOL
-    DETECTOR_PH --> PH_SENSOR_CYTOSOL
-    EFFECTOR_PLA1 --> PH_SENSOR_CYTOSOL
+    TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> CHICAGO_OUTER_SOLUTION
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,DETECTOR_PH,EFFECTOR_PLA1,MEMBRANE_POPC_CHOL_CHICAGO,PH_SENSING_CELL,PH_SENSOR_CYTOSOL,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG_SUV constituent;
-    class PH_CASCADE this;
+    PH_RESPONSIVE_SSDNA --> P2_ANNEAL_TRIGGER_DUPLEX_0
+    TRIGGER_SSDNA --> P2_ANNEAL_TRIGGER_DUPLEX_0
+    P2_ANNEAL_TRIGGER_DUPLEX_0 --> PH_TRIGGER_DUPLEX
+
+    BASE_CYTOSOL --> P3_ASSEMBLE_CYTOSOL_0
+    PH_TRIGGER_DUPLEX --> P3_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1 --> P3_ASSEMBLE_CYTOSOL_0
+    P3_ASSEMBLE_CYTOSOL_0 --> PH_SENSOR_CYTOSOL
+
+    PH_SENSOR_CYTOSOL --> P4_ENCAPSULATE_0
+    MEMBRANE_CHICAGO --> P4_ENCAPSULATE_0
+    P4_ENCAPSULATE_0 --> PH_SENSING_CELL
+
+    SUBSTRATE_CPRG --> P5_ENCAPSULATE_SUBSTRATE_SUV_0
+    MEMBRANE_CHICAGO --> P5_ENCAPSULATE_SUBSTRATE_SUV_0
+    P5_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
+
+    ALGINATE --> P6_EMBED_ALGINATE_0
+    CHICAGO_OUTER_SOLUTION --> P6_EMBED_ALGINATE_0
+    PH_SENSING_CELL --> P6_EMBED_ALGINATE_0
+    SUBSTRATE_CPRG_SUV --> P6_EMBED_ALGINATE_0
+    REPORTER_LACZ_ENZYME --> P6_EMBED_ALGINATE_0
+    P6_EMBED_ALGINATE_0 --> PH_CASCADE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ALGINATE,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
+    class CHICAGO_OUTER_SOLUTION,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
+    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_ALGINATE_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click DETECTOR_PH "/docs/modules/detector-ph/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
-    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
-    click PH_CASCADE "/docs/modules/ph-cascade/spec"
-    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
-    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click ALGINATE "/docs/modules/gel-alginate/spec"
+    click P2_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
+    click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+    click P4_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
+    click P5_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click P6_EMBED_ALGINATE_0 "/docs/processes/embed-alginate-hydrogel/main"
+    click PH_CASCADE "/docs/modules/ph-cascade/spec"
 ```
 
 ::::
@@ -203,6 +244,7 @@ No process page documents assembling this three-part cascade end to end.
 - [pH Sensing Cell](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because alginate embedding imposes no UV
+- [Gel: Alginate](../gel-alginate/spec.md) — the matrix, at about 1% (w/v), dissolved into the outer solution the two populations already sit in
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.

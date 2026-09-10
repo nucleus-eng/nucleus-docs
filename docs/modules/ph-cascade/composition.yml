@@ -1,0 +1,140 @@
+# Composition source for the pH Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. This is the pH integration path of the Chicago Cascade, entire.
+# chicago-cascade/composition.yml builds the same path and bonds the result to
+# the aTc one.
+
+module: ph-cascade
+title: pH Cascade
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  alginate:
+    title: "Sodium alginate"
+    page: ../gel-alginate/spec.md
+  tris-hepes-stock:
+    title: "Tris-HEPES buffer stock"
+    page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
+  energy-solution:
+    title: "Energy solution"
+    page: null            # @Editor(chicago): contents not recorded
+
+steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution]
+    produces:
+      id: chicago-outer-solution
+      title: "Outer Solution"
+      page: null
+    parameters:
+      tris-hepes: "42.5% (v/v) in water, giving about 1180 mOsm"
+    notes: >
+      The alginate dissolves into this and both populations sit in it, so the
+      gel has no osmolarity of its own — it inherits this one.
+
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
+    produces:
+      id: ph-sensor-cytosol
+      title: "pH Sensor Cytosol"
+      page: ../ph-sensor-cytosol/spec.md
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [ph-sensor-cytosol, membrane-chicago]
+    produces:
+      id: ph-sensing-cell
+      title: "pH Sensing Cell"
+      page: ../ph-sensing-cell/spec.md
+
+  - id: encapsulate-substrate-suv
+    process:
+      title: "SUV Encapsulation"
+      page: ../../processes/encapsulate-suv/main.md
+    operator: packing
+    operands: [substrate-cprg, membrane-chicago]
+    produces:
+      id: substrate-cprg-suv
+      title: "Substrate SUV: CPRG"
+      page: ../substrate-cprg-suv/spec.md
+    notes: >
+      This path keeps the substrate liposome because alginate imposes no UV.
+
+  - id: embed-alginate
+    process:
+      title: "Alginate Hydrogel Embedding"
+      page: ../../processes/embed-alginate-hydrogel/main.md
+    operator: packing
+    operands:
+      - alginate
+      - chicago-outer-solution
+      - ph-sensing-cell
+      - substrate-cprg-suv
+      - reporter-lacz-enzyme
+    produces:
+      id: ph-cascade
+      title: "pH Cascade"
+      page: ../ph-cascade/spec.md
+    parameters:
+      alginate: "about 1% (w/v)"
+      crosslinker: "200 mM CaCl2, applied separately, not premixed"
+    notes: >
+      The mixing ratio of sensing cells to SUVs to LacZ is not established —
+      the same gap London closed on 2026-09-09 and this path still has.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md

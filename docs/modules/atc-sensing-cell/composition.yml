@@ -1,0 +1,68 @@
+# Composition source for the aTc Sensing Cell.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. The sensor cytosol is expanded because this Cell builds it.
+
+module: atc-sensing-cell
+title: aTc Sensing Cell
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  detector-tetr-atc:
+    title: "Detector: tetR-aTc"
+    page: ../detector-tetr-atc/spec.md
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+
+steps:
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
+    produces:
+      id: atc-sensor-cytosol
+      title: "aTc Sensor Cytosol"
+      page: ../atc-sensor-cytosol/spec.md
+
+  - id: encapsulate
+    process:
+      # A chain: two processes run as one step, with no Module between them.
+      composed_of:
+        - title: "Encapsulation: Phase Transfer"
+          page: ../../processes/assemble-base-cell/main.md
+        - title: "Degrade Exterior LacZ"
+          page: ../../processes/degrade-exterior-lacz/main.md
+          # No operator. It composes nothing — it removes something.
+    operator: packing
+    operands: [atc-sensor-cytosol, membrane-chicago]
+    produces:
+      id: atc-sensing-cell
+      title: "aTc Sensing Cell"
+      page: ../atc-sensing-cell/spec.md
+    notes: >
+      Proteinase K digests LacZ that escaped the cells, which would otherwise
+      meet CPRG with no lysis and add background. It is a process reagent, not
+      an operand — nothing of it is in the result. The cytosol is composed
+      before encapsulation, not added to a closed chassis.
+
+# The analyte reaches the Cell from outside after encapsulation, so aTc is not
+# part of this composition.

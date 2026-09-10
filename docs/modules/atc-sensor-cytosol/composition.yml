@@ -1,0 +1,45 @@
+# Composition source for the aTc Sensor Cytosol.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Base Cytosol is obtained; its own page says how it is made.
+
+module: atc-sensor-cytosol
+title: aTc Sensor Cytosol
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  detector-tetr-atc:
+    title: "Detector: tetR-aTc"
+    page: ../detector-tetr-atc/spec.md
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+
+steps:
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: null                          # no page yet
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
+    produces:
+      id: atc-sensor-cytosol
+      title: "aTc Sensor Cytosol"
+      page: ../atc-sensor-cytosol/spec.md
+    notes: >
+      Fills the Base Cytosol headroom, 2.0 uL of 10. The detector and the
+      effector are one molecule, so PLA1 is not supplied separately. LacZ is
+      encapsulated here, which is the opposite arrangement to the pH path.
