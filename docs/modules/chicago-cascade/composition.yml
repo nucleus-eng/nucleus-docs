@@ -163,8 +163,8 @@ steps:
     operands: [atc-gel, substrate-cprg]
     produces:
       id: atc-gel-loaded
-      title: "aTc gel piece, CPRG loaded"
-      page: null
+      title: "aTc Cascade"
+      page: ../atc-cascade/spec.md
     notes: >
       After crosslinking, not before. UV bleaches CPRG, so this path cannot
       carry the substrate through photodevelopment and cannot use a substrate
@@ -240,8 +240,8 @@ steps:
       - reporter-lacz-enzyme
     produces:
       id: ph-gel
-      title: "pH gel piece"
-      page: null
+      title: "pH Cascade"
+      page: ../ph-cascade/spec.md
     parameters:
       alginate: "about 1% (w/v)"
       crosslinker: "200 mM CaCl2, applied separately, not premixed"

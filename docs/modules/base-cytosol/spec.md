@@ -25,6 +25,42 @@ Base Cytosol is assembled from four components — a protein mix (PMix), a small
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PMIX["Protein Mix (PMix)"]
+    SMIX["Small Molecule Mix (SMix)"]
+    RIBOSOMES["Ribosomes"]
+    TRNA["tRNA"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_ASSEMBLE_BASE_CYTOSOL_0(["Assemble Base Cytosol (mixing)"])
+    BASE_CYTOSOL["Base Cytosol"]
+
+    SMIX --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    TRNA --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    PMIX --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    RIBOSOMES --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    P1_ASSEMBLE_BASE_CYTOSOL_0 --> BASE_CYTOSOL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PMIX,SMIX,RIBOSOMES,TRNA,RNASE_INHIBITOR leaf;
+    class BASE_CYTOSOL composed;
+    class P1_ASSEMBLE_BASE_CYTOSOL_0 process;
+
+    click P1_ASSEMBLE_BASE_CYTOSOL_0 "/docs/processes/assemble-base-cytosol/main"
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} PMix
 The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [Make PMix](../../processes/make-36pot/main.md) and [Make OnePot Protein Mix](../../processes/make-1pot/main.md) processes for preparation.
 

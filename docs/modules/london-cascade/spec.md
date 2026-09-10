@@ -85,6 +85,7 @@ flowchart TD
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click ULGA_POWDER "/docs/modules/gel-ulga/spec"
     click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
     click P2_ENCAPSULATE_SENSING_0 "/docs/processes/assemble-base-cell/main"
     click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"

@@ -41,8 +41,7 @@ inputs:
     page: ../reporter-lacz-enzyme/spec.md
   ulga-powder:
     title: "ULGA powder"
-    page: null            # Raw material, not a Module. Sigma-Aldrich A5030.
-                          # Ruled 2026-09-09: no page unless one is needed.
+    page: ../gel-ulga/spec.md   # that page covers the agarose and the set gel
   potassium-glutamate:
     title: "Potassium L-glutamate"
     page: null

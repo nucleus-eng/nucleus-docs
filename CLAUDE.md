@@ -50,6 +50,7 @@ python3 scripts/check-file-placement.py # flag content files outside allowed dir
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
 python3 scripts/check-anchors.py        # flag #anchors MyST binds to the wrong page
 python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
+python3 scripts/check-composition.py    # if you touched a composition.yml or a Constituent Modules list
 ```
 
 These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
@@ -466,6 +467,23 @@ Externally, staleness detection only works where a vendor returns an honest stat
 - **Soft-404s are invisible** — a vendor serving "product not found" with HTTP 200 reads as a healthy link.
 
 Both still require manual review. `lychee` is pinned to 0.24.2 in both workflows because its JSON report is this script's input contract and has changed shape between releases before (#136); bump the pin and the local install together.
+
+### Composition sources
+
+A module may carry a `composition.yml` beside its `spec.md`: the machine-readable
+composition (#248), naming the process that performs each combination step and the operator it applies. `scripts/render-composition.py` draws the diagram from it and writes it into the `gen:composition-diagram` markers on that page.
+
+```bash
+python3 scripts/render-composition.py docs/modules/<module>/composition.yml            # print the mermaid
+python3 scripts/render-composition.py docs/modules/<module>/composition.yml --embed    # write it into spec.md
+python3 scripts/render-composition.py docs/modules/<module>/composition.yml --depth 2  # expand the leaves too
+```
+
+**Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page is *not* the test: `aTc Sensor Cytosol` has a page and is still expanded on the cascade that builds it. Deeper renders are for review material, never for a docs page. A module whose composition is a single box gets no diagram at all.
+
+**`# Constituent Modules` stays as prose and the yml is the contract for tooling** (Jon, 2026-09-09). Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `london-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
+
+Two generators currently read two different sources into the same markers; see issue #250 before running the other one.
 
 ### DNA reference checking
 

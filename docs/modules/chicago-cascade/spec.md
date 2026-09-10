@@ -61,7 +61,7 @@ flowchart TD
     P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel (packing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
-    ATC_GEL_LOADED["aTc gel piece, CPRG loaded"]
+    ATC_GEL_LOADED["aTc Cascade"]
     P6_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P7_ASSEMBLE_PH_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
@@ -71,7 +71,7 @@ flowchart TD
     P9_ENCAPSULATE_SUBSTRATE_SUV_0(["SUV Encapsulation (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
     P10_EMBED_ALGINATE_0(["Alginate Hydrogel Embedding (packing)"])
-    PH_GEL["pH gel piece"]
+    PH_GEL["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]
 
@@ -150,6 +150,7 @@ flowchart TD
     click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
     click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/photodevelop-gel/main"
+    click ATC_GEL_LOADED "/docs/modules/atc-cascade/spec"
     click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
@@ -158,6 +159,7 @@ flowchart TD
     click P9_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
     click P10_EMBED_ALGINATE_0 "/docs/processes/embed-alginate-hydrogel/main"
+    click PH_GEL "/docs/modules/ph-cascade/spec"
     click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
 ```
 
