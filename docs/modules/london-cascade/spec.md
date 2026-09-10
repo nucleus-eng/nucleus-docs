@@ -35,13 +35,13 @@ flowchart TD
     HEPES["HEPES, pH 7.4"]
     GLUCOSE["Glucose"]
 
-    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     AHL_SENSOR_CYTOSOL["AHL Sensor Cytosol"]
     P2_ENCAPSULATE_SENSING_0(["Encapsulation: Phase Transfer (packing)"])
     AHL_SENSING_CELL["AHL Sensing Cell"]
     P3_ENCAPSULATE_SUBSTRATE_0(["Encapsulation: Phase Transfer (packing)"])
     GUV_CPRG["GUV: CPRG"]
-    P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     OUTER_SOLUTION["Outer Solution"]
     P5_EMBED_ULGA_0(["ULGA Embedding (packing)"])
     LONDON_CASCADE["London Cascade"]
@@ -86,11 +86,13 @@ flowchart TD
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click ULGA_POWDER "/docs/modules/gel-ulga/spec"
+    click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
     click P2_ENCAPSULATE_SENSING_0 "/docs/processes/assemble-base-cell/main"
     click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"
     click P3_ENCAPSULATE_SUBSTRATE_0 "/docs/processes/assemble-base-cell/main"
     click GUV_CPRG "/docs/modules/guv-cprg/spec"
+    click P4_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click P5_EMBED_ULGA_0 "/docs/processes/embed-ulga-hydrogel/main"
     click LONDON_CASCADE "/docs/modules/london-cascade/spec"
 ```

@@ -45,11 +45,11 @@ flowchart TD
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
 
-    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     CHICAGO_OUTER_SOLUTION["Outer Solution"]
     P2_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
-    P3_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P3_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
     P4_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["pH Sensing Cell"]
@@ -100,8 +100,10 @@ flowchart TD
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click ALGINATE "/docs/modules/gel-alginate/spec"
+    click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click P2_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click P3_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
     click P4_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"

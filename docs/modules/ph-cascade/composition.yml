@@ -51,7 +51,7 @@ steps:
   - id: assemble-outer-solution
     process:
       title: "Assemble Outer Solution"
-      page: null
+      page: ../../processes/assemble-outer-solution/main.md
       abstract: assemble-aqueous-solution
     operator: mixing
     operands: [tris-hepes-stock, energy-solution]
@@ -79,7 +79,7 @@ steps:
   - id: assemble-cytosol
     process:
       title: "Assemble Cytosol"
-      page: null
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-aqueous-solution
     operator: mixing
     operands: [base-cytosol, ph-trigger-duplex, effector-pla1]

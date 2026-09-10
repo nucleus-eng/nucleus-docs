@@ -31,7 +31,7 @@ flowchart TD
     EFFECTOR_PLA1["Effector: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
 
-    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
 
     BASE_CYTOSOL --> P1_ASSEMBLE_CYTOSOL_0
@@ -52,6 +52,7 @@ flowchart TD
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
 ```
 

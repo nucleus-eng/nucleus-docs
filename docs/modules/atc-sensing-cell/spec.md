@@ -38,7 +38,7 @@ flowchart TD
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
 
-    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     P2_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     P2_ENCAPSULATE_1(["Degrade Exterior LacZ"])
@@ -68,6 +68,7 @@ flowchart TD
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click P2_ENCAPSULATE_1 "/docs/processes/degrade-exterior-lacz/main"

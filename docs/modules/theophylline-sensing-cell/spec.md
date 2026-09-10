@@ -28,7 +28,7 @@ flowchart TD
     DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
     MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
 
-    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     THEOPHYLLINE_SENSOR_CYTOSOL["Theophylline Sensor Cytosol"]
     P2_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     THEOPHYLLINE_SENSING_CELL["Theophylline Sensing Cell"]
@@ -52,6 +52,7 @@ flowchart TD
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click THEOPHYLLINE_SENSING_CELL "/docs/modules/theophylline-sensing-cell/spec"
 ```

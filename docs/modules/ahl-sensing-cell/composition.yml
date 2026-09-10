@@ -32,7 +32,7 @@ steps:
   - id: assemble-cytosol
     process:
       title: "Assemble Cytosol"
-      page: null
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-aqueous-solution
     operator: mixing
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]

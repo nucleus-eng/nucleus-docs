@@ -32,7 +32,7 @@ flowchart TD
 
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
-    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["pH Sensing Cell"]
@@ -63,6 +63,7 @@ flowchart TD
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click P1_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"

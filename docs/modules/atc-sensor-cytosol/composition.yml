@@ -31,7 +31,7 @@ steps:
   - id: assemble-cytosol
     process:
       title: "Assemble Cytosol"
-      page: null                          # no page yet
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-aqueous-solution
     operator: mixing
     operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]

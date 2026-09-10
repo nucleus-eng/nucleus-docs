@@ -82,7 +82,10 @@ flowchart LR
     click ModSpec "/docs/modules/modules-main"
 ```
 
-- [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
+- [Assemble Aqueous Solution](./assemble-aqueous-solution/assemble-aqueous-solution-main.md) — the abstraction both mixing processes below are instances of.
+  - [Assemble Cytosol](./assemble-cytosol/assemble-cytosol-main.md) — a reaction that will be encapsulated; reserves headroom for what a particular reaction adds.
+    - [Assemble Base Cytosol](./assemble-base-cytosol/main.md) — the unit case, with the headroom filled by water.
+  - [Assemble Outer Solution](./assemble-outer-solution/main.md) — what cells sit in, and what a gel dissolves into.
 
 ### Make Base Cytosol Components
 

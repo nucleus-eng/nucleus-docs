@@ -29,7 +29,7 @@ flowchart TD
     EFFECTOR_PLA1["PLA1 Lysis Module"]
     MEMBRANE_POPC["London Membrane"]
 
-    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     AHL_SENSOR_CYTOSOL["AHL Sensor Cytosol"]
     P2_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     AHL_SENSING_CELL["AHL Sensing Cell"]
@@ -55,6 +55,7 @@ flowchart TD
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click AHL_SENSOR_CYTOSOL "/docs/modules/ahl-sensor-cytosol/spec"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click AHL_SENSING_CELL "/docs/modules/ahl-sensing-cell/spec"

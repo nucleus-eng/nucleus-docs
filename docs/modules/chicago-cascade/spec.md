@@ -51,9 +51,9 @@ flowchart TD
     TRIGGER_SSDNA["Trigger ssDNA"]
     ALGINATE["Sodium alginate"]
 
-    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     CHICAGO_OUTER_SOLUTION["Outer Solution"]
-    P2_ASSEMBLE_ATC_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P2_ASSEMBLE_ATC_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
@@ -64,7 +64,7 @@ flowchart TD
     ATC_GEL_LOADED["aTc Cascade"]
     P6_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
-    P7_ASSEMBLE_PH_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P7_ASSEMBLE_PH_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
     P8_ENCAPSULATE_PH_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["pH Sensing Cell"]
@@ -145,6 +145,8 @@ flowchart TD
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click PEGDA_MONOMER "/docs/modules/gel-pegda/spec"
     click ALGINATE "/docs/modules/gel-alginate/spec"
+    click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
+    click P2_ASSEMBLE_ATC_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P3_ENCAPSULATE_ATC_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
@@ -153,6 +155,7 @@ flowchart TD
     click ATC_GEL_LOADED "/docs/modules/atc-cascade/spec"
     click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click P7_ASSEMBLE_PH_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
     click P8_ENCAPSULATE_PH_0 "/docs/processes/assemble-base-cell/main"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"

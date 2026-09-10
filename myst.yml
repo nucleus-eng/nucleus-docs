@@ -139,8 +139,16 @@ project:
           hidden: true
         - file: ./docs/processes/make-1pot/main.md
           hidden: true
-        - file: ./docs/processes/assemble-base-cytosol/main.md
+        - file: ./docs/processes/assemble-aqueous-solution/assemble-aqueous-solution-main.md
           hidden: true
+          children:
+            - file: ./docs/processes/assemble-cytosol/assemble-cytosol-main.md
+              hidden: true
+              children:
+                - file: ./docs/processes/assemble-base-cytosol/main.md
+                  hidden: true
+            - file: ./docs/processes/assemble-outer-solution/main.md
+              hidden: true
         - file: ./docs/processes/protein-gel/main.md
           hidden: true
         - file: ./docs/processes/pierce660/main.md

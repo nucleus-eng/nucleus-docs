@@ -33,7 +33,7 @@ flowchart TD
 
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
-    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
 
     PH_RESPONSIVE_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
@@ -57,6 +57,7 @@ flowchart TD
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click P1_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
 ```
 

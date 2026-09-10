@@ -45,9 +45,9 @@ flowchart TD
     PEG4SH["PEG4SH crosslinker"]
     LAP["LAP photoinitiator"]
 
-    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing) — no page"])
+    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     CHICAGO_OUTER_SOLUTION["Outer Solution"]
-    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing) — no page"])
+    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_1(["Degrade Exterior LacZ"])
@@ -98,6 +98,8 @@ flowchart TD
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click PEGDA_MONOMER "/docs/modules/gel-pegda/spec"
+    click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
+    click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_1 "/docs/processes/degrade-exterior-lacz/main"

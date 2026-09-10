@@ -58,7 +58,7 @@ steps:
   - id: assemble-cytosol
     process:
       title: "Assemble Cytosol"
-      page: null                    # abstract; no London derivative page yet
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md                    # abstract; no London derivative page yet
       abstract: assemble-aqueous-solution
     operator: mixing
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
@@ -103,7 +103,7 @@ steps:
   - id: assemble-outer-solution
     process:
       title: "Assemble Outer Solution"
-      page: null                          # no page yet
+      page: ../../processes/assemble-outer-solution/main.md                          # no page yet
       abstract: assemble-aqueous-solution
     operator: mixing
     operands: [potassium-glutamate, hepes, glucose]
