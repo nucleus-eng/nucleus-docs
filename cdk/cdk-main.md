@@ -4,11 +4,9 @@ title: "Cell Development Kit"
 
 # Overview
 
-The Nucleus Cell Development Kit (CDK) is the Python library for analyzing synthetic
-cell experiments. It turns raw instrument output into tidy, plottable data — and then
-into the population statistics and kinetic parameters you actually report.
+The Nucleus Cell Development Kit (CDK) is a Python library for analyzing synthetic cell experiments. It reads instrument output into a DataFrame and gives you population statistics, curve fits, and plots.
 
-The CDK is organized around the two measurements that dominate synthetic cell work:
+Nearly all of our data comes off one of two instruments, and the CDK has a module for each:
 
 :::::{card}
 
@@ -18,24 +16,20 @@ The CDK is organized around the two measurements that dominate synthetic cell wo
 :header: 🔬 **Cell**
 :link: ./api/cell.md
 
-Microscopy. Segmented single-object measurements from a plate zarr — size,
-intensity, and how a population shifts over time.
+Microscopy. Segmented single-object measurements from a plate zarr: size, intensity, and how a population shifts over time.
 :::
 
 :::{card}
 :header: 🧪 **Cytosol**
 :link: ./api/cytosol.md
 
-Plate reader. Kinetic, endpoint, and spectral reads — blanked, normalized to a
-standard, and fit for steady state and rate.
+Plate reader. Kinetic, endpoint, and spectral reads, with blanking, normalization to a standard, and fits for steady state and rate.
 :::
 
 ::::
 :::::
 
-Both live under the same package and share the same conventions: a platemap describes
-your wells, every plot takes the same faceting arguments, and every transform returns
-new data rather than mutating what you passed in.
+Both halves are in the same package and follow the same conventions. A platemap describes your wells, the plotting functions take the same faceting arguments, and transforms return new data, leaving the object you passed in unchanged.
 
 ## Install
 
@@ -55,14 +49,14 @@ See [Installation](./install.md) for Python version requirements and the Jupyter
 :header: **Tutorials**
 :link: ./tutorials/tutorials-main.md
 
-Worked analyses from load to figure. Start here.
+Worked analyses from load to figure. Start here if you are new to the CDK.
 :::
 
 :::{card}
 :header: **API Reference**
 :link: ./api/api-main.md
 
-Every public function, grouped by what you are trying to do.
+Every public function, grouped by analysis stage.
 :::
 
 ::::
@@ -70,6 +64,4 @@ Every public function, grouped by what you are trying to do.
 
 ## Source
 
-The CDK is open source under the MIT license. The package is published on
-[PyPI](https://pypi.org/project/nucleus-cdk/) as `nucleus-cdk`, and the source lives on
-[GitHub](https://github.com/bnext-bio/nucleus).
+The CDK is open source under the MIT license. The package is published on [PyPI](https://pypi.org/project/nucleus-cdk/) as `nucleus-cdk`, and the source lives on [GitHub](https://github.com/bnext-bio/nucleus).
