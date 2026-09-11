@@ -11,13 +11,9 @@ This documents internal tooling. See [Internal Reference](./internal-main.md).
 
 # Overview
 
-A discovery-plate experiment is described by a single `experiment.toml` in the experiment
-directory. Sibling CSVs are referenced from it by relative path. This page is the complete
-schema.
+A discovery-plate experiment is described by a single `experiment.toml` in the experiment directory. Sibling CSVs are referenced from it by relative path. This page is the complete schema.
 
-The schema is enforced, not advisory: **any unknown section or key raises `ValueError`**
-naming what is allowed. That makes typos loud rather than silently ignored, but it also
-means a key that looks reasonable will be rejected if it is not on the list below.
+The schema is strict. **Any unknown section or key raises `ValueError`**, naming what is allowed. This catches typos immediately, at the cost of rejecting any reasonable-looking key that is not on the list below.
 
 ```toml
 [meta]
@@ -61,12 +57,11 @@ replicates = 3
 
 ## Sections
 
-Every section is optional except `[reaction]`, and every key within a section is optional
-except `final_rxn_vol_ul`.
+Every section is optional except `[reaction]`, and every key within a section is optional except `final_rxn_vol_ul`.
 
 ### `[meta]`
 
-Human notes. the calculator ignores them.
+Human notes. The calculator ignores them.
 
 | Key | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -85,9 +80,7 @@ Human notes. the calculator ignores them.
 :icon: false
 :class: simple
 
-Omitting it raises `AssertionError`, not `ValueError` — the config parses fine, then
-fails the required-field check. The message is
-`[reaction].final_rxn_vol_ul must be provided in experiment.toml.`
+Omitting it raises `AssertionError`, not `ValueError` — the config parses fine, then fails the required-field check. The message is `[reaction].final_rxn_vol_ul must be provided in experiment.toml.`
 :::
 
 ### `[pipetting]`
@@ -98,9 +91,6 @@ fails the required-field check. The message is
 | `pipetting_scalar` | float | `1.1` | Overage factor on mix volumes |
 | `conc_decimals` | int | `3` | Rounding for concentrations in output |
 | `vol_decimals` | int | `3` | Rounding for volumes in output |
-
-`min_pipetting_vol_ul` is one of the two usual causes of an infeasible solve — raising it
-narrows the window the master-mix solver has to work in.
 
 ### `[base_master_mix]`
 
@@ -133,16 +123,11 @@ Paths are relative to the experiment directory.
 
 ## `[doe]` — generating conditions
 
-The `[doe]` section configures which condition generators run. Each generator is a
-self-contained sub-table; there is no `params = "<sibling>.toml"` indirection. Configure
-as many as you need and their outputs are concatenated.
+The `[doe]` section configures which condition generators run. Each generator is a self-contained sub-table; there is no `params = "<sibling>.toml"` indirection. Configure as many as you need and their outputs are concatenated.
 
-Allowed sub-tables: `lhs`, `ratio_sweep`, `standards`, `control`, `external`, plus an
-`output` key.
+Allowed sub-tables: `lhs`, `ratio_sweep`, `standards`, `control`, `external`, plus an `output` key.
 
-Every generated row carries a `Type` column naming where it came from — `lhs`,
-`ratio_sweep`, `standards`, `control`, or `external`. The calculator routes on it:
-`standards` rows take a simple dilution path, everything else goes through the master mix.
+Every generated row carries a `Type` column naming where it came from — `lhs`, `ratio_sweep`, `standards`, `control`, or `external`. The calculator routes on it: `standards` rows take a simple dilution path, everything else goes through the master mix.
 
 ### `[doe.lhs]` — Latin hypercube sampling
 
@@ -198,12 +183,9 @@ Each `[[doe.standards.compounds]]` entry accepts:
 :icon: false
 :class: dropdown
 
-When `[doe.control]` is configured, every reagent column appearing in non-control rows
-must also appear in the control row. The check runs on canonicalized `(reagent, unit)`
-keys, so `[PMix] (mg/mL)` and `pmix mg/ml` are recognized as the same column.
+When `[doe.control]` is configured, every reagent column appearing in non-control rows must also appear in the control row. The check runs on canonicalized `(reagent, unit)` keys, so `[PMix] (mg/mL)` and `pmix mg/ml` are recognized as the same column.
 
-To opt a swept reagent into the control baseline, add it to the fixed-reagents CSV with
-value `0`.
+To opt a swept reagent into the control baseline, add it to the fixed-reagents CSV with value `0`.
 :::
 
 ### `[doe.external]`
@@ -216,17 +198,10 @@ Bring in a design generated elsewhere.
 | `fixed_reagents` | path | Overrides `[files].fixed` |
 | `replicates` | int | Replicates per condition |
 
-`source` is an input path, distinct from `[files].samples_final_concs`, which is where
-the concatenated result is written. Keeping them separate is what makes the orchestrator
-idempotent — it never reads its own output as input.
+`source` is an input path. It is distinct from `[files].samples_final_concs`, which is where the concatenated result is written. Keeping them separate keeps the orchestrator idempotent, because it never reads its own output as input.
 
 ## The second validation layer
 
-Schema validation above is structural and raises. A separate advisory pass in
-`cdk.calculators.validation` checks the *contents*: that referenced files exist, that
-reagent and sample CSVs carry their required columns, that units are consistent, that
-stock concentrations are present, and that pipetting parameters are sane.
+Schema validation above is structural and raises. A separate advisory pass in `cdk.calculators.validation` checks the *contents*: that referenced files exist, that reagent and sample CSVs carry their required columns, that units are consistent, that stock concentrations are present, and that pipetting parameters are sane.
 
-That pass **never raises**. It returns a list of issues, each with a severity
-(`ERROR` or `WARNING`) and a stable code, so a caller can decide what to do. This is what
-drives live feedback in the Marimo builder.
+That pass **never raises**. It returns a list of issues, each with a severity (`ERROR` or `WARNING`) and a stable code, so the caller decides what to do with them. This is what drives live feedback in the Marimo builder.

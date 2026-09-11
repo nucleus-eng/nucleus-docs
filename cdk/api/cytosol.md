@@ -7,10 +7,7 @@ subtitle: "cdk.instruments.platereader — plate reader"
 :class: simple
 :icon: false
 
-This page is an outline awaiting content. The structure mirrors the
-[cell API reference](./cell.md); the sections below name the entry points but do not yet
-describe them. The code itself is released and working — see the
-[kinetics tutorial](../tutorials/cytosol-kinetics.md) for usage.
+This page is an outline awaiting content. It mirrors the structure of the [cell API reference](./cell.md), but the sections below only name the entry points; they do not describe them yet. The code itself is released and working. See the [kinetics tutorial](../tutorials/cytosol-kinetics.md) for usage.
 :::
 
 # Overview
@@ -21,10 +18,7 @@ Loading, transforming and fitting plate reader data.
 from cdk.instruments.platereader import load_platereader_data
 ```
 
-The plate reader half of the CDK is built around an **immutable object API**: loading
-gives you an object that knows what it contains, and every transform returns a new object
-rather than mutating the one you have. Provenance travels with the data, so a plot can
-label its own axes from the transforms that produced it.
+The plate reader half of the CDK uses an **immutable object API**. Loading gives you an object that carries its own metadata, and each transform returns a new object, leaving the original unchanged. The transform history travels with the data, so a plot can label its own axes from the transforms that produced it.
 
 | Module | Role |
 | --- | --- |
@@ -69,8 +63,7 @@ label its own axes from the transforms that produced it.
 
 ## Kinetics results
 
-`Kinetics.plot(...)`, `Kinetics.plot_data(...)`, `Kinetics.plot_summary(...)`,
-`Kinetics.plot_response(x, y, ...)`
+`Kinetics.plot(...)`, `Kinetics.plot_data(...)`, `Kinetics.plot_summary(...)`, `Kinetics.plot_response(x, y, ...)`
 
 ## Plotting data
 
@@ -82,9 +75,7 @@ label its own axes from the transforms that produced it.
 
 ## Legacy API
 
-`cdk.instruments.platereader.legacy` — DataFrame-in / DataFrame-out. Reach for it when
-you need the rolling-window steady-state analysis or the wider instrument set (Envision,
-Glomax) that the object API does not cover yet.
+`cdk.instruments.platereader.legacy` — DataFrame-in / DataFrame-out. Reach for it when you need the rolling-window steady-state analysis or the wider instrument set (Envision, Glomax) that the object API does not cover yet.
 
 :::{note} Migrating an old notebook
 :icon: false

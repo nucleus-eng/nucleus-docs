@@ -4,9 +4,7 @@ title: "CDK Tutorials"
 
 # Overview
 
-Worked analyses that take a dataset from raw instrument output to a figure you could put
-in a Developer Note. Each one follows the arc of a notebook template shipped with the
-package, with the reasoning written out.
+Worked analyses that take a dataset from raw instrument output to a figure you could put in a Developer Note. Each one follows a notebook template shipped with the package, with the reasoning written out.
 
 :::::{card}
 
@@ -16,8 +14,7 @@ package, with the reasoning written out.
 :header: 🔬 **Analyzing Microscopy Data**
 :link: ./cell-microscopy.md
 
-Load segmented single-object measurements, check the segmentation, and read population
-behavior over time.
+Load segmented single-object measurements, check the segmentation, and read population behavior over time.
 :::
 
 :::{card}
