@@ -27,4 +27,4 @@ See the [Nucleus Hub guide](../guides/nucleus-hub/nucleus-hub.md) for access.
 
 ## Templates
 
-The package ships runnable notebook templates alongside the library, under `notebooks/templates/`. Run one to see a full analysis end to end. The [tutorials](./tutorials/tutorials-main.md) on this site cover the same ground with more explanation.
+The package ships runnable notebook templates alongside the library, under `notebooks/templates/`. Run one to see a full analysis end to end. The [tutorials](./tutorials/cdk-tutorials-main.md) on this site cover the same ground with more explanation.

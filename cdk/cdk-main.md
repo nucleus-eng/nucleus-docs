@@ -44,7 +44,7 @@ See [Installation](./install.md) for Python version requirements and the Jupyter
 
 :::{card}
 :header: **Tutorials**
-:link: ./tutorials/tutorials-main.md
+:link: ./tutorials/cdk-tutorials-main.md
 
 Worked analyses from load to figure. Start here if you are new to the CDK.
 :::
