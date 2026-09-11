@@ -460,6 +460,14 @@ failure was `london-cascade` claiming `Substrate: CPRG` where its source said `G
 an hour after both existed — and reports without blocking when the final step has an
 operand the prose omits, which is a grain difference rather than an error.
 
+**The scripts are named for the concern they check, not the file they read.**
+`check-composition.py` and `render-composition.py` both read `spec.yml` and both handle
+composition only — what composes, by which process, under which operator. They are not
+misnamed, and renaming them to match the file would be the change that does not scale:
+`spec.yml` is the container, and composition is one concern inside it. When requirements
+land in the same file, `check-requirements.py` (#223) reads it for a different concern and
+sits beside these two.
+
 **Diagrams render at depth 1.** Anything you can obtain is a leaf; only what the module
 builds on the way to its own result is expanded. Base Cytosol is a leaf for the same
 reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page
