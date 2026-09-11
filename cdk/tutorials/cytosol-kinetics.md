@@ -63,7 +63,7 @@ from cdk.instruments import platereader as pr
 Load your plate reader output and merge it with the platemap (see [DevNote](https://devnotes.nucleus.engineering/articles/Bhasin-20260421)) that describes your experimental conditions.
 
 - `data_file`: path to the output file from a plate reader experiment. Currently only **BioTek** plate readers are supported.
-- `platemap_file`: path to a platemap CSV mapping each `Well` to its experimental conditions. See the [platemap tutorial](https://docs.nucleus.engineering/guides/platemap-tutorial/) for the expected format.
+- `platemap_file`: path to a platemap CSV mapping each `Well` to its experimental conditions. See the [platemap tutorial](../../guides/platemap_tutorial.md) for the expected format.
 - 
 <!-- `load_platereader_data()` parses the file, integrates the platemap, and returns a **`PlateReaderResult`** — a collection of blocks corresponding to the reads made by the plate reader. -->
 
