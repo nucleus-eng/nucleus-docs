@@ -16,7 +16,8 @@ Tutorials are a type of Guide that tie together documentation into useful groups
 ## Cell Development Kit
 
 - [Tutorial: Analyzing Microscopy Data](../cdk/tutorials/cell-microscopy.md)
-- [Tutorial: Analyzing Platereader Data with the CDK](./platereader_tutorial.md)
+- [Tutorial: Analyzing Plate Reader Data](../cdk/tutorials/cytosol-kinetics.md)
+- [Tutorial: Analyzing Platereader Data with the CDK](./platereader_tutorial.md) — for CDK versions <0.6.0
 - [Reference: CDK API](../cdk/api/api-main.md)
 
 ## Developer Notes

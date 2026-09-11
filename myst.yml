@@ -124,8 +124,6 @@ project:
           hidden: true
         - file: ./guides/platereader_tutorial.md
           hidden: true
-        - file: ./guides/kinetics-tutorial/main.md
-          hidden: true
         - file: ./guides/platemap_tutorial.md
           hidden: true
         - file: ./guides/liposome-workshop/main.md
