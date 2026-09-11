@@ -45,13 +45,17 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 
 **QA checks** (run locally before opening a PR):
 ```bash
-python3 scripts/check-dropdowns.py      # flag placeholder-only lists
-python3 scripts/check-file-placement.py # flag content files outside allowed dirs
-python3 scripts/check-toc.py            # validate myst.yml TOC entries
-python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
+python3 scripts/check-dropdowns.py      # (CI) flag placeholder-only lists
+python3 scripts/check-file-placement.py # (CI) flag content files outside allowed dirs
+python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
+python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
+python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
-These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
+**The four marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
+also runs Vale. **`check-dna-refs.py` runs in no workflow** — deliberately, because a
+commit in `nucleus-eng/DNA` could turn it red with no change here (see the DNA section
+below). Run it by hand before opening a PR. Install pre-commit hooks to catch violations before pushing:
 ```bash
 pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
@@ -433,6 +437,51 @@ Tolerated failures are normal and expected: a clean run currently reports ~120 o
 - **Soft-404s are invisible** — a vendor serving "product not found" with HTTP 200 reads as a healthy link.
 
 Both still require manual review. `lychee` is pinned to 0.24.2 in both workflows because its JSON report is this script's input contract and has changed shape between releases before (#136); bump the pin and the local install together.
+
+### Composition sources
+
+A module may carry a `spec.yml` beside its `spec.md`: the machine-readable composition
+(#248), naming the process that performs each combination step and the operator it
+applies. `scripts/render-composition.py` draws the diagram from it and writes it into the
+`gen:composition-diagram` markers on that page.
+
+```bash
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml            # print the mermaid
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml --embed    # write it into spec.md
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  # expand the leaves too
+```
+
+**The pairing is `spec.md` for humans, `spec.yml` for tooling** (Jon, 2026-09-11). That is
+one file per module carrying composition and, in time, requirements — not a separate
+`requirements.yml`. The prose `## Constituent Modules` list stays for readers, so nothing
+makes the two agree on its own: `python3 scripts/check-composition.py` checks that they do
+not disagree. It blocks when the prose lists a module the source never names — the live
+failure was `london-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`,
+an hour after both existed — and reports without blocking when the final step has an
+operand the prose omits, which is a grain difference rather than an error.
+
+**Diagrams render at depth 1.** Anything you can obtain is a leaf; only what the module
+builds on the way to its own result is expanded. Base Cytosol is a leaf for the same
+reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page
+is *not* the test. Deeper renders are for review material, never for a docs page. A module
+whose composition is a single box gets no diagram at all.
+
+**The keys in use.** No schema file and no validator — this table is the record, and a key
+not listed here is new.
+
+| Level | Keys |
+| --- | --- |
+| top | `module`, `title`, `inputs`, `steps`; `measured_by`; `open` |
+| step | `id`, `process`, `operator`, `operands`, `produces`; `notes`; `parameters`; `headroom`; `ratio` |
+| input | `title`, `page`; `component_of` where a component has no page of its own; `owner` |
+
+**A number belongs in `spec.yml` when it states a fact no single constituent page can
+state.** `headroom.capacity` is a property of the Module that provides the slot — not of
+the process that filled it, and not of any additive, since the process that spends a slot
+is usually not the one that made it. A combining `ratio` is a property of the step. An
+osmolarity that has to match across a membrane is a relation. Those belong here. A
+preparation figure that already sits on its own page does not, and duplicating it is how
+the two drift.
 
 ### DNA reference checking
 

@@ -1,0 +1,37 @@
+# Composition source for the Base Cell.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Both constituents are obtained.
+
+module: base-cell
+title: Base Cell
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  membrane-popc-chol:
+    title: "Base Membrane"
+    page: ../membrane-popc-chol/spec.md
+
+steps:
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [base-cytosol, membrane-popc-chol]
+    produces:
+      id: base-cell
+      title: "Base Cell"
+      page: ../base-cell/spec.md
+    notes: >
+      Base Cytosol at reaction concentration, closed in a 70:30
+      POPC:cholesterol bilayer.
