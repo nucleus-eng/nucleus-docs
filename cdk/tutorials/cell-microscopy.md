@@ -14,20 +14,15 @@ release and are available now on the Nucleus Hub.
 
 # Overview
 
-This tutorial covers reading a **segmented measurement table** — one row per object per
-timepoint — and turning it into population statistics you can interpret.
-
-It assumes segmentation has already run. Producing that table from a plate zarr is a
-separate, GPU-bound step (`process_dataset`, documented in the
-[cell API reference](../api/cell.md)) that you run once per dataset. Everything here is
-pandas and seaborn, fast enough to re-run freely in a notebook.
+This tutorial covers reading a **segmented measurement table**. Producing this table from a plate zarr is a
+separate step (`process_dataset`, documented in the
+[cell API reference](../api/cell.md)) that must be run once per dataset. 
 
 :::{note} What you need
 :icon: false
 :class: simple
 
-A measurement table (`.parquet` or `.csv`) written by the segmentation step, and
-optionally a **platemap** CSV describing what was in each well. The platemap is what
+A measurement table (`.parquet` or `.csv`) written by the segmentation step, and a **platemap** CSV describing what was in each well. The platemap is what
 lets you split figures by experimental factor rather than by well.
 :::
 
@@ -40,16 +35,12 @@ data = m.load(PARQUET_URL, PLATEMAP_PATH)
 ```
 
 `load` reads local paths or `https://` URLs, and accepts either format. The platemap is
-merged on `Well`; wells that fail to match are named in a warning rather than silently
-dropped.
-
-What comes back is an ordinary `DataFrame`, so anything you already know about pandas
-applies. Every plotting function below takes it directly.
+merged on `Well`; wells that fail to match are named in a warning. This returns an `DataFrame` that can be processed by pandas.
 
 ### Real timepoints
 
 By default the time axis is `Timepoint` — an integer frame index. Pass
-`minutes_per_timepoint` to get real minutes, and every plot will use them automatically:
+`minutes_per_timepoint` to get real minutes. If you do this, every plot will use them automatically. 
 
 ```python
 data = m.load(PARQUET_URL, PLATEMAP_PATH, minutes_per_timepoint=10)
@@ -60,7 +51,7 @@ data = m.load(PARQUET_URL, PLATEMAP_PATH, minutes_per_timepoint=10)
 :class: simple
 
 This multiplies the frame index by the interval you supply, so it is only correct if
-acquisition actually held that interval. On the Cephla, sampling every well can take
+acquisition followed that interval. On the Cephla, sampling every well can take
 longer than the requested `dt`, which shifts the real timing progressively later. Confirm
 the interval your run actually achieved before relying on the axis. A proper per-frame
 timestamp is planned; this argument is the current workaround.
@@ -71,8 +62,7 @@ a figure much faster.
 
 ## Check the segmentation first
 
-Before reading anything into the population statistics, look at what the segmenter
-actually found. `plot_cell_grid` draws real image crops with the mask outline on top:
+Before reading anything into the population statistics, look at what got segmented. `plot_cell_grid` draws real image crops with the mask outline on top:
 
 ```python
 m.plot_cell_grid(data, ZARR_URL, n=4)
@@ -83,35 +73,28 @@ m.plot_cell_grid(data, ZARR_URL, n=4)
 :label: fig:cell-grid
 
 Segmented objects with mask outlines. **Red** is the selected object; **teal** are its
-neighbours that were also segmented. Each object is shown once per channel — here
-Alexa Fluor 647 and GFP — scaled to the same intensity range within a channel.
+neighbours that were also segmented. Each object is shown once per channel (here Alexa Fluor 647 and GFP) scaled to the same intensity range within a channel.
 :::
 
 Objects are picked at random unless you narrow the frame you pass in. To inspect a
 specific well and timepoint, filter first:
 
 ```python
-one = data[(data.Well == "M4") & (data.Timepoint == 0)]
-m.plot_cell_grid(one, ZARR_URL, n=5, channels=["Alexa Fluor 647"])
+example_subset = data[(data.Well == "M4") & (data.Timepoint == 0)]
+m.plot_cell_grid(example_subset, ZARR_URL, n=5, channels=["Alexa Fluor 647"])
 ```
-
-Segmentation runs on the **membrane** channel, not the reporter — Alexa Fluor 647 or
-Rhodamine by default. That is why the membrane channel is the one to check here.
 
 :::{tip} This one is slow
 :icon: false
 :class: dropdown
 
-`plot_cell_grid` is the only function on this page that reads the image data rather than
-the measurement table, so it needs the zarr as well. Over a URL every frame is fetched
-whole, which takes seconds per object. Pass `pyramid_level=2` to pull a coarser level, or
-copy the zarr locally when you are iterating.
+`plot_cell_grid` reads the image data rather than
+the measurement table, so it needs the zarr as well. Doing this for many cells could take quite some time. 
 :::
 
-## Did the acquisition hold up?
+## How did general cells and segementation channel come out?
 
-`plot_qc` answers a different question from the grid above: not "is segmentation
-correct" but "did the *imaging* stay stable". It tracks membrane channel intensity and
+`plot_qc` tracks membrane channel intensity and
 object count across time.
 
 ```python
@@ -124,9 +107,6 @@ _ = m.plot_qc(data)
 
 Membrane channel intensity and object count over time.
 :::
-
-Both are things you want to know *before* interpreting a reporter trend, because either
-one can manufacture a signal that looks biological.
 
 ## How did the population shift?
 
@@ -145,16 +125,13 @@ Population percentiles over time. The solid line is the median; bands are the pe
 ranges named in the legend.
 :::
 
-The percentile view matters because the interesting population is often not the median
-one. In the figure above — real data — the **99th percentile** carries the trend of cells
-that actually turned on, while the median barely moves. A mean-intensity line would have
-shown almost nothing.
+We split up into percentiles here because we noticed that there are oftentimes two separate populations: one that is actually turned on and others that practically do not turn on. 
+In the figure above from real data, the **99th percentile** carries the trend of cells
+that actually turned on, while the median barely shifts in intensity. 
 
 ### Turning on, or getting brighter?
 
-When a reporter signal rises, two very different things could be happening: more objects
-crossed threshold, or the same objects got brighter. `plot_positive_fraction` separates
-them.
+Here we track how the changes in the population at the upper percentile (positive) compare to the lower percentile (negative).
 
 ```python
 m.plot_positive_fraction(data, facet="Name", hue="Osmolarity (mM)")
@@ -164,15 +141,13 @@ m.plot_positive_fraction(data, facet="Name", hue="Osmolarity (mM)")
 :align: center
 :label: fig:positive-fraction
 
-Three rows, three questions. **Top:** what fraction of objects crossed their baseline
+**Top:** what fraction of objects crossed their baseline
 gate. **Middle:** how bright those positives got. **Bottom:** the size of the positive
 and negative populations.
 :::
 
-The gate is per-well and self-referential: it is that well's own 99th-percentile
-intensity at the first timepoint. Each well is therefore compared against its own
-starting state rather than a global threshold, which keeps well-to-well brightness
-offsets from being read as biology. Adjust it with `gate_quantile=`.
+% of objects above their well's baseline threshold (set at t=0), the median brightness of those positives, and the median size of each population. 
+Adjust the baseline percentage threshold with `gate_quantile=`.
 
 ### Does size correlate with expression?
 
@@ -192,7 +167,7 @@ Per-object reporter intensity against volume, as a hexbin with a fit line per pa
 :class: dropdown
 
 **The low-intensity population is an artifact.** The band of objects at very low GFP in
-the figure above comes from a microscopy tile that was never collected, not from a real
+the figure above comes from a dropped microscopy tile, and not from a real
 dim subpopulation. If you see a suspiciously clean low-intensity cluster, check your tiles
 before interpreting it, we noticed in earlier versions of microscopy hardware, tiles could be dropped. 
 
@@ -210,18 +185,16 @@ m.plot_quantile_ribbon(data)                                       # groups by w
 m.plot_quantile_ribbon(data, hue="Osmolarity (mM)", facet="Name")  # crosses two factors
 ```
 
-When you leave one unset, it resolves:
+The default values are: 
 
-| Argument | Unset behavior |
-| --- | --- |
-| `hue` | `Name` if a platemap was merged, otherwise `Well` |
-| `time` | `Time (min)` if available, otherwise `Timepoint` |
+| Argument | Default behavior                                                             |
+| --- |------------------------------------------------------------------------------|
+| `hue` | `Name` if a platemap was merged, otherwise `Well`                            |
+| `time` | `Time (min)` if available, otherwise `Timepoint`                             |
 | `value` | the first channel found among the `Intensity Mean (…)` columns — your reporter |
-| `facet` | never guessed; no faceting unless you ask |
+| `facet` | None                                           |
 
-Any platemap column works for `hue` and `facet`, so the split is yours to choose:
-`facet="Name"` gives one row per lipid mix while `hue="Osmolarity (mM)"` colours within
-it. Numeric factors get a sequential colour ramp automatically; categorical ones get
+Numeric factors get a sequential colour ramp automatically; categorical ones get
 distinct colours.
 
 ## Caveats 
