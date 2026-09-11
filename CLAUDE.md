@@ -45,15 +45,19 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 
 **QA checks** (run locally before opening a PR):
 ```bash
-python3 scripts/check-dropdowns.py      # flag placeholder-only lists
-python3 scripts/check-file-placement.py # flag content files outside allowed dirs
-python3 scripts/check-toc.py            # validate myst.yml TOC entries
-python3 scripts/check-anchors.py        # flag #anchors MyST binds to the wrong page
-python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
-python3 scripts/check-composition.py    # if you touched a composition.yml or a Constituent Modules list
+python3 scripts/check-dropdowns.py      # (CI) flag placeholder-only lists
+python3 scripts/check-file-placement.py # (CI) flag content files outside allowed dirs
+python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
+python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
+python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page
+python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
-These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
+**The four marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
+also runs Vale and `check-composition-tabs.py`. **The two marked `(local)` run in no
+workflow** — `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
+turn it red with no change here (see the DNA section below); `check-anchors.py` because it
+is not wired up yet. Run both by hand before opening a PR. Install pre-commit hooks to catch violations before pushing:
 ```bash
 pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
@@ -470,16 +474,32 @@ Both still require manual review. `lychee` is pinned to 0.24.2 in both workflows
 
 ### Composition sources
 
-A module may carry a `composition.yml` beside its `spec.md`: the machine-readable
+A module may carry a `spec.yml` beside its `spec.md`: the machine-readable
 composition (#248), naming the process that performs each combination step and the operator it applies. `scripts/render-composition.py` draws the diagram from it and writes it into the `gen:composition-diagram` markers on that page.
 
 ```bash
-python3 scripts/render-composition.py docs/modules/<module>/composition.yml            # print the mermaid
-python3 scripts/render-composition.py docs/modules/<module>/composition.yml --embed    # write it into spec.md
-python3 scripts/render-composition.py docs/modules/<module>/composition.yml --depth 2  # expand the leaves too
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml            # print the mermaid
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml --embed    # write it into spec.md
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  # expand the leaves too
 ```
 
 **Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page is *not* the test: `aTc Sensor Cytosol` has a page and is still expanded on the cascade that builds it. Deeper renders are for review material, never for a docs page. A module whose composition is a single box gets no diagram at all.
+
+**The keys in use.** No schema file and no validator — this table is the record, and a key
+not listed here is new.
+
+| Level | Keys |
+| --- | --- |
+| top | `module`, `title`, `inputs`, `steps` (all 16 sources); `measured_by` (4); `open` (3) |
+| step | `id`, `process`, `operator`, `operands`, `produces` (all 45 steps); `notes` (32); `parameters` (8); `headroom` (1); `ratio` (1) |
+| input | `title`, `page`; `component_of` where a component has no page of its own; `owner` |
+
+**A number belongs in `spec.yml` when it states a fact no single constituent page can
+state** (Jon, 2026-09-11). `headroom.capacity` is a property of the Module that provides
+the slot, not of the process that filled it, and not of any additive. A combining `ratio`
+is a property of the step. An osmolarity that has to match across a membrane is a relation.
+Those belong here. A preparation figure that already sits on its own page — `alginate: about
+1% (w/v)` — does not, and duplicating it is how the two drift.
 
 **`# Constituent Modules` stays as prose and the yml is the contract for tooling** (Jon, 2026-09-09). Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `london-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
 

@@ -9,7 +9,7 @@
 #   packing  both at once, each keeping its own compartment
 #
 # Depth 1. This is the pH integration path of the Chicago Cascade, entire.
-# chicago-cascade/composition.yml builds the same path and bonds the result to
+# chicago-cascade/spec.yml builds the same path and bonds the result to
 # the aTc one.
 
 module: ph-cascade

@@ -60,6 +60,27 @@ jobs:
       - name: Check TOC
         run: python3 scripts/check-toc.py
 
+  composition:
+    # The prose `# Constituent Modules` list and the machine-readable `spec.yml`
+    # are two sources for one fact, and they drift: `london-cascade` listed
+    # `Substrate: CPRG` where its own source said `GUV: CPRG`, within an hour of
+    # both existing. Blocks when the prose names a module the source never does;
+    # reports without blocking when the final step has an operand the prose
+    # omits, which is a grain difference. See scripts/check-composition.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml
+        run: pip install pyyaml
+
+      - name: Check composition sources
+        run: python3 scripts/check-composition.py
+
   composition-tabs:
     # A Module's Reference Composition must cover everything its own dependency
     # graph contains. Absence is a claim — a page with no Membrane tab reads as

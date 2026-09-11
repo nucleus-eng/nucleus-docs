@@ -283,7 +283,7 @@ The five inputs to the embedding step, which is where the cascade is made.
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
 
-`composition.yml` in this directory carries the same structure in machine-readable form, with the process and operator for each step. Nothing checks that the two agree.
+`spec.yml` in this directory carries the same structure in machine-readable form, with the process and operator for each step. Nothing checks that the two agree.
 
 # Credits
 

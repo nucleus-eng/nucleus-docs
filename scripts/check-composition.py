@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check each module's `# Constituent Modules` prose against its composition.yml.
+"""Check each module's `# Constituent Modules` prose against its spec.yml.
 
 Jon ruled on 2026-09-09 that the prose section stays for humans while the yml
 is the contract for tooling (#248). Two sources for one fact drift, and this one
@@ -101,22 +101,22 @@ def main() -> int:
     root = repo_root()
     targets = [Path(a) for a in sys.argv[1:] if not a.startswith("-")]
     roots = targets or [root / "docs" / "modules"]
-    sources = sorted({p for r in roots for p in Path(r).rglob("composition.yml")})
+    sources = sorted({p for r in roots for p in Path(r).rglob("spec.yml")})
     if not sources:
-        print(f"no composition.yml under {', '.join(str(r) for r in roots)}")
+        print(f"no spec.yml under {', '.join(str(r) for r in roots)}")
         return 0
 
     blocking, reported = 0, 0
     for src in sources:
         spec = src.parent / "spec.md"
         if not spec.is_file():
-            print(f"⛔️ {src.parent.name}: composition.yml with no spec.md")
+            print(f"⛔️ {src.parent.name}: spec.yml with no spec.md")
             blocking += 1
             continue
         missing, unlisted = check(spec, src)
         for s in missing:
             print(f"⛔️ {spec}: '# Constituent Modules' lists {s}, "
-                  f"which composition.yml never names")
+                  f"which spec.yml never names")
             blocking += 1
         for s in unlisted:
             print(f"⚠️  {spec}: {s} is an operand of the final step "

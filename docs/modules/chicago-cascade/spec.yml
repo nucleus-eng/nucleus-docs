@@ -23,7 +23,7 @@ title: Chicago Cascade
 # the way to its own result is expanded. Base Cytosol is a leaf for the same
 # reason S30 Lysate is one in the London cascade — it is a thing you can have,
 # and its own page says how. Render deeper with `--depth 2`, which follows a
-# leaf's own composition.yml where one exists.
+# leaf's own spec.yml where one exists.
 inputs:
   base-cytosol:
     title: "Base Cytosol"

@@ -9,7 +9,7 @@
 #   packing  both at once, each keeping its own compartment
 #
 # Depth 1. This is the aTc integration path of the Chicago Cascade, entire.
-# chicago-cascade/composition.yml builds the same path and bonds the result to
+# chicago-cascade/spec.yml builds the same path and bonds the result to
 # the pH one.
 
 module: atc-cascade
@@ -139,4 +139,4 @@ open:
       water", while this file dissolves it in the Outer Solution. PBS would put
       a large osmotic gradient across the membrane at the moment of embedding —
       the cells sit at about 1180 mOsm. Same item as in
-      chicago-cascade/composition.yml. @Editor(chicago).
+      chicago-cascade/spec.yml. @Editor(chicago).

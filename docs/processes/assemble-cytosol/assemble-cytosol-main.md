@@ -10,7 +10,7 @@ Assemble Cytosol combines a cytosol base with whatever a particular reaction nee
 Its derivatives, all attested in this documentation:
 
 - [Assemble Base Cytosol](../assemble-base-cytosol/main.md) — the unit case, where nothing is added and the slot is filled with water.
-- **Assemble aTc Sensor Cytosol**, **Assemble pH Sensor Cytosol**, **Assemble AHL Sensor Cytosol**, **Assemble Theophylline Sensor Cytosol** — no pages yet. Each is specified in the `composition.yml` of the Module it produces.
+- **Assemble aTc Sensor Cytosol**, **Assemble pH Sensor Cytosol**, **Assemble AHL Sensor Cytosol**, **Assemble Theophylline Sensor Cytosol** — no pages yet. Each is specified in the `spec.yml` of the Module it produces.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

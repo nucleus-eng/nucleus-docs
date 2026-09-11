@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render a module's composition.yml to a Mermaid flowchart.
+"""Render a module's spec.yml to a Mermaid flowchart.
 
 Reads the machine-readable composition source (#248) and writes the diagram
 into the `gen:composition-diagram` markers on that module's spec.md (#249).
@@ -24,12 +24,12 @@ Depth. A module page shows `--depth 1` by default: anything you can obtain is a
 leaf, and only what this module builds on the way to its own result is
 expanded. Base Cytosol is a leaf at depth 1 for the same reason S30 Lysate is —
 it is a thing you can have, and its own page says how. `--depth 2` follows each
-leaf's own composition.yml where one exists, and so on. Deeper renders are for
+leaf's own spec.yml where one exists, and so on. Deeper renders are for
 review material, not for module pages.
 
-    python3 scripts/render-composition.py docs/modules/london-cascade/composition.yml
-    python3 scripts/render-composition.py <path>/composition.yml --embed
-    python3 scripts/render-composition.py <path>/composition.yml --depth 3
+    python3 scripts/render-composition.py docs/modules/london-cascade/spec.yml
+    python3 scripts/render-composition.py <path>/spec.yml --embed
+    python3 scripts/render-composition.py <path>/spec.yml --depth 3
 """
 import re
 import sys
@@ -71,7 +71,7 @@ def chain(step: dict) -> list[dict]:
 
 
 def expand(doc: dict, depth: int, root: Path) -> dict:
-    """Splice each leaf's own composition.yml in, `depth - 1` times over.
+    """Splice each leaf's own spec.yml in, `depth - 1` times over.
 
     A leaf qualifies if it names a module page and that module has a source of
     its own. Its final step produces the leaf, so that product is renamed to
@@ -85,7 +85,7 @@ def expand(doc: dict, depth: int, root: Path) -> dict:
         page = v.get("page")
         if not page:
             continue
-        sub_path = (root / page).resolve().parent / "composition.yml"
+        sub_path = (root / page).resolve().parent / "spec.yml"
         if not sub_path.is_file():
             continue
         sub = expand(yaml.safe_load(sub_path.read_text()), depth - 1, sub_path.parent)
