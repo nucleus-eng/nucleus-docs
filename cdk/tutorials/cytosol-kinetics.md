@@ -1,14 +1,18 @@
-# How to analyze plate reader kinetics
+---
+title: "Analyzing Plate Reader Data"
+---
 
 :::{attention}
 :class: simple
-This tutorial applies to CDK version >=0.6.0. For older versions, see the tutorial [here](../platereader_tutorial.md).
+This tutorial applies to CDK version >=0.6.0. For older versions, see the tutorial [here](../../guides/platereader_tutorial.md).
 :::
 
-## Overview
-This guide explains how to analyze time-series fluorescence data from plate reader expression experiments using the open-source Nucleus Cell Development Kit (CDK). Here, we'll cover how to load, normalize, visualize, and fit your data (see [DevNote](https://devnotes.nucleus.engineering/articles/Newman-20260421)), as well as describe the resultin summary statistics.
+# Overview
+This guide explains how to analyze time-series fluorescence data from plate reader expression experiments using the open-source Nucleus Cell Development Kit (CDK). Here, we'll cover how to load, normalize, visualize, and fit your data (see [DevNote](https://devnotes.nucleus.engineering/articles/Newman-20260421)), as well as describe the resulting summary statistics.
 
 The CDK is available [on PyPi](https://pypi.org/project/nucleus-cdk/) for install on your own computer (requires Python 3.11+ and the `poetry` package).
+
+It is the cytosol counterpart to [Analyzing Microscopy Data](./cell-microscopy.md). Reference material is in the [cytosol API reference](../api/cytosol.md).
 
 <!-- This tutorial walks through analyzing time-series data from plate reader experiments using the `cdk` platereader module. We'll cover loading data, picking the read you care about, plotting raw curves, normalizing to a standard, fitting kinetic parameters, and visualizing results.
 
@@ -59,7 +63,7 @@ from cdk.instruments import platereader as pr
 Load your plate reader output and merge it with the platemap (see [DevNote](https://devnotes.nucleus.engineering/articles/Bhasin-20260421)) that describes your experimental conditions.
 
 - `data_file`: path to the output file from a plate reader experiment. Currently only **BioTek** plate readers are supported.
-- `platemap_file`: path to a platemap CSV mapping each `Well` to its experimental conditions. See the [platemap tutorial](https://docs.nucleus.engineering/guides/platemap-tutorial/) for the expected format.
+- `platemap_file`: path to a platemap CSV mapping each `Well` to its experimental conditions. See the [platemap tutorial](../../guides/platemap_tutorial.md) for the expected format.
 - 
 <!-- `load_platereader_data()` parses the file, integrates the platemap, and returns a **`PlateReaderResult`** — a collection of blocks corresponding to the reads made by the plate reader. -->
 
@@ -174,7 +178,7 @@ By default, a "standard" subset of metadata is shown by `data.view()`. To see th
 
 First, visualize your data. You can do this by calling `data.plot()`. <!-- The method is format-aware: for a kinetic (time-series) block it plots fluorescence over time.--> By default, one curve is plotted for each distinct `Name` in the platemap. The band shows a [bootstrapped 95% confidence interval of the mean](https://seaborn.pydata.org/tutorial/error_bars.html#confidence-interval-error-bars) across wells with that `Name`.
 
-Passing `style='Type'` assigns different line styles for the different sample types that appear in your platemap (`Sample`, `Standard`, `Blank`, etc. as defined in the [platemap standard](https://devnotes.nucleus.engineering/articles/Bhasin-20260421#required-columns)). Line styles by type makes it easy to spot controls, catch outliers, failed reactions, or unexpected behavior before fitting dat.
+Passing `style='Type'` assigns different line styles for the different sample types that appear in your platemap (`Sample`, `Standard`, `Blank`, etc. as defined in the [platemap standard](https://devnotes.nucleus.engineering/articles/Bhasin-20260421#required-columns)). Line styles by type makes it easy to spot controls, catch outliers, failed reactions, or unexpected behavior before fitting data.
 
 :::{hint} Familiar with Seaborn?
 <!-- :class: dropdown -->
@@ -319,16 +323,16 @@ kinetics.summary
 ### Visualizing fits
 The function `kinetics.plot()` overlays each fitted curve on its raw data so you can confirm the fits are reasonable (high R², smooth curves). 
 
-::::{tab-set}
-:::{tab-item} Across replicates
+:::::{tab-set}
+::::{tab-item} Across replicates
 By default, `kinetics.plot()` facets by `Name`, where traces of replicate wells of each condition are shown in a single panel with an average fit overlaid:
 
 ```python
 g = kinetics.plot()
 ```
 ![png](resources/kinetics_tutorial_24_0.png)
-:::
-:::{tab-item} Individual wells
+::::
+::::{tab-item} Individual wells
 To show the fits to individual replicates separately, facet on `Well`:
 
 
@@ -337,7 +341,8 @@ g = kinetics.plot(col="Well")
 ```
 ![png](resources/kinetics_tutorial_26_1.png)
     
-:::
+::::
+:::::
 
 
 ---

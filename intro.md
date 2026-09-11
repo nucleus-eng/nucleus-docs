@@ -81,8 +81,8 @@ Physical materials that are used to implement Processes and Modules.
 
 :::{card}
 :header: 🛠️ **Cell Development Kit**
-:link: https://pypi.org/project/nucleus-cdk/
-Software tools for working with the Nucleus Distribution. Available via PyPI: `pip install nucleus-cdk`.
+:link: cdk/cdk-main.md
+Python library for analyzing synthetic cell experiments, from raw instrument output to reportable statistics. Available via PyPI: `pip install nucleus-cdk`.
 :::
 
 :::{card}

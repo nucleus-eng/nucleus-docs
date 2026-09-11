@@ -18,9 +18,14 @@ Guides provide tutorials, how-tos, and reference documentation to help you get t
 ## Digital Tools
 
 - [Getting Started with Nucleus Hub](nucleus-hub/nucleus-hub.md) — access the Cell Development Kit and collaborate with other developers on Nucleus Hub
-- [Tutorial: How to analyze plate reader kinetics](kinetics-tutorial/main.md) — analyze plate reader data and perform kinetic fitting using the Nucleus CDK 
 - [Tutorial: Making a Nucleus Compatible Plate Map](platemap_tutorial.md) — format and submit platemaps for use with CDK tools
 
+## Cell Development Kit
+
+- [Cell Development Kit](../cdk/cdk-main.md) — Python library for analyzing synthetic cell experiments, with installation and API reference
+- [Tutorial: Analyzing Microscopy Data](../cdk/tutorials/cell-microscopy.md) — single-object measurements from a plate zarr, and how a population shifts over time
+- [Tutorial: Analyzing Plate Reader Data](../cdk/tutorials/cytosol-kinetics.md) — load, normalize, and kinetically fit plate reader time series with the CDK
+- [Reference: CDK API](../cdk/api/api-main.md) — every public function, grouped by analysis stage
 
 ## Workshops
 
