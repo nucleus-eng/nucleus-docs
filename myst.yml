@@ -84,6 +84,29 @@ project:
           hidden: true
         - file: ./docs/implementations/emitter-ivhsl/main.md
           hidden: true
+    - file: ./cdk/cdk-main.md
+      children:
+        - file: ./cdk/install.md
+          hidden: true
+        - file: ./cdk/tutorials/tutorials-main.md
+          children:
+            - file: ./cdk/tutorials/cell-microscopy.md
+              hidden: true
+            - file: ./cdk/tutorials/cytosol-kinetics.md
+              hidden: true
+        - file: ./cdk/api/api-main.md
+          children:
+            - file: ./cdk/api/cell.md
+              hidden: true
+            - file: ./cdk/api/cytosol.md
+              hidden: true
+        - file: ./cdk/internal/internal-main.md
+          hidden: true
+          children:
+            - file: ./cdk/internal/experiment-toml.md
+              hidden: true
+            - file: ./cdk/internal/discovery-plate-pipeline.md
+              hidden: true
     - file: ./guides/main.md
       children:
         - file: ./start/getting-started.md
@@ -133,4 +156,5 @@ project:
     devnote-devcell-plan: https://devnotes.bnext.bio/articles/developer-cell-introduction
   resources:
     - docs/**/*
+    - cdk/**/*
 
