@@ -100,13 +100,6 @@ project:
               hidden: true
             - file: ./cdk/api/cytosol.md
               hidden: true
-        - file: ./cdk/internal/internal-main.md
-          hidden: true
-          children:
-            - file: ./cdk/internal/experiment-toml.md
-              hidden: true
-            - file: ./cdk/internal/discovery-plate-pipeline.md
-              hidden: true
     - file: ./guides/main.md
       children:
         - file: ./start/getting-started.md
