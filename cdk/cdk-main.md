@@ -6,8 +6,7 @@ title: "Cell Development Kit"
 
 The Nucleus Cell Development Kit (CDK) is a Python library for analyzing synthetic cell experiments. It reads instrument output into a DataFrame and gives you population statistics, curve fits, and plots.
 
-Nearly all of our data comes off one of two instruments, and the CDK has a module for each:
-
+We currently assume cellular data uses microscopy and cytosol (bulk) data comes from plate readers. The CDK splits that up respectively. The APIs are found here:
 :::::{card}
 
 ::::{grid} 1 1 2 2
@@ -16,20 +15,18 @@ Nearly all of our data comes off one of two instruments, and the CDK has a modul
 :header: 🔬 **Cell**
 :link: ./api/cell.md
 
-Microscopy. Segmented single-object measurements from a plate zarr: size, intensity, and how a population shifts over time.
+Microscopy data. Segmented single-object measurements from a plate zarr: size, intensity, and how a population shifts over time.
 :::
 
 :::{card}
 :header: 🧪 **Cytosol**
 :link: ./api/cytosol.md
 
-Plate reader. Kinetic, endpoint, and spectral reads, with blanking, normalization to a standard, and fits for steady state and rate.
+Plate reader data. Kinetic, endpoint, and spectral reads, with blanking, normalization to a standard, and fits for steady state and rate.
 :::
 
 ::::
 :::::
-
-Both halves are in the same package and follow the same conventions. A platemap describes your wells, the plotting functions take the same faceting arguments, and transforms return new data, leaving the object you passed in unchanged.
 
 ## Install
 

@@ -4,7 +4,7 @@ title: "CDK Tutorials"
 
 # Overview
 
-Worked analyses that take a dataset from raw instrument output to a figure you could put in a Developer Note. Each one follows a notebook template shipped with the package, with the reasoning written out.
+Worked analyses that take a dataset from raw instrument output to a figure.
 
 :::::{card}
 
