@@ -32,9 +32,11 @@ inputs:
   # Alginate dissolves into this, and both cell populations sit in it.
   tris-hepes-stock:
     title: "Tris-HEPES buffer stock"
+    component_of: ../../processes/assemble-outer-solution/main.md
     page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
   energy-solution:
     title: "Energy solution"
+    component_of: ../../processes/assemble-outer-solution/main.md
     page: null            # @Editor(chicago): contents not recorded
 
   membrane-chicago:
@@ -59,14 +61,16 @@ inputs:
     page: ../gel-pegda/spec.md
   peg4sh:
     title: "PEG4SH crosslinker"
+    component_of: ../gel-pegda/spec.md
     page: null            # shared with the PEG-norbornene route
   lap:
     title: "LAP photoinitiator"
+    component_of: ../gel-pegda/spec.md
     page: null            # keep dark until patterning
 
   # pH path
-  ph-responsive-ssdna: { title: "pH-responsive ssDNA", page: null }
-  trigger-ssdna:       { title: "Trigger ssDNA",       page: null }
+  ph-responsive-ssdna: { component_of: "../detector-ph/spec.md", title: "pH-responsive ssDNA", page: null }
+  trigger-ssdna:       { component_of: "../detector-ph/spec.md", title: "Trigger ssDNA", page: null }
   alginate:
     title: "Sodium alginate"
     page: ../gel-alginate/spec.md
@@ -135,8 +139,9 @@ steps:
 
   - id: photodevelop-atc-gel
     process:
-      title: "Photodevelop Gel"
-      page: ../../processes/photodevelop-gel/main.md
+      title: "Photodevelop Gel: PEGDA"
+      page: ../../processes/photodevelop-pegda/main.md
+      abstract: photodevelop-gel
     operator: packing
     operands:
       - pegda-monomer
@@ -216,7 +221,7 @@ steps:
 
   - id: encapsulate-substrate-suv
     process:
-      title: "SUV Encapsulation"
+      title: "Encapsulation: SUV"
       page: ../../processes/encapsulate-suv/main.md
     operator: packing
     operands: [substrate-cprg, membrane-chicago]
@@ -229,7 +234,7 @@ steps:
 
   - id: embed-alginate
     process:
-      title: "Alginate Hydrogel Embedding"
+      title: "Hydrogel Embedding: Alginate"
       page: ../../processes/embed-alginate-hydrogel/main.md
     operator: packing
     operands:

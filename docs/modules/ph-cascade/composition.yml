@@ -101,7 +101,7 @@ steps:
 
   - id: encapsulate-substrate-suv
     process:
-      title: "SUV Encapsulation"
+      title: "Encapsulation: SUV"
       page: ../../processes/encapsulate-suv/main.md
     operator: packing
     operands: [substrate-cprg, membrane-chicago]
@@ -114,7 +114,7 @@ steps:
 
   - id: embed-alginate
     process:
-      title: "Alginate Hydrogel Embedding"
+      title: "Hydrogel Embedding: Alginate"
       page: ../../processes/embed-alginate-hydrogel/main.md
     operator: packing
     operands:

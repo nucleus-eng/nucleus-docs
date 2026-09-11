@@ -58,7 +58,7 @@ flowchart TD
     P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["aTc Sensing Cell"]
-    P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel (packing)"])
+    P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel: PEGDA (packing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_GEL_LOADED["aTc Cascade"]
@@ -68,9 +68,9 @@ flowchart TD
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
     P8_ENCAPSULATE_PH_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["pH Sensing Cell"]
-    P9_ENCAPSULATE_SUBSTRATE_SUV_0(["SUV Encapsulation (packing)"])
+    P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P10_EMBED_ALGINATE_0(["Alginate Hydrogel Embedding (packing)"])
+    P10_EMBED_ALGINATE_0(["Hydrogel Embedding: Alginate (packing)"])
     PH_GEL["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]
@@ -151,7 +151,7 @@ flowchart TD
     click P3_ENCAPSULATE_ATC_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/photodevelop-gel/main"
+    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/photodevelop-pegda/main"
     click ATC_GEL_LOADED "/docs/modules/atc-cascade/spec"
     click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
@@ -325,12 +325,12 @@ Every step below has a Process page. They are listed in the order they are perfo
 
 3. [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — anneals the sensing and trigger strands into the single duplex reagent, before encapsulation.
 4. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the same method as the aTc cell, with a different inner solution: the duplex and the toehold-gated PLA1 template, and no LacZ.
-5. [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by film hydration and extrusion, then purifies away unencapsulated CPRG.
+5. [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by film hydration and extrusion, then purifies away unencapsulated CPRG.
 
 **Shared, once the populations exist**
 
 6. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests LacZ that escaped the aTc cells, which would otherwise meet CPRG with no lysis and add background color. Proteinase K does not distinguish one LacZ from another, so this step suits a format where the enzyme is encapsulated. It cannot be applied to the hydrogel format described above, which disperses commercial LacZ through the matrix on purpose.
-7. **Embedding — two steps, one per path, then a bond.** The pH path uses [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md); the aTc path uses a photodeveloped gel, [PEGDA](../../processes/photodevelop-pegda/main.md) or [PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md). The two gels are then bonded into one piece. **No process page covers the bond.**
+7. **Embedding — two steps, one per path, then a bond.** The pH path uses [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md); the aTc path uses a photodeveloped gel, [PEGDA](../../processes/photodevelop-pegda/main.md) or [PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md). The two gels are then bonded into one piece. **No process page covers the bond.**
 8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
 
 The photodeveloped path adds CPRG after crosslinking rather than embedding it with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes, and it is why that path carries CPRG as a free dye rather than in a liposome.

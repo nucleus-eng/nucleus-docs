@@ -66,7 +66,7 @@ Requires that no UV-sensitive component is present during crosslinking. [CPRG](.
 
 # Processes
 
-Prepared and patterned by [Photodevelopment, PEGDA](../../processes/photodevelop-pegda/main.md). [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with the [PEG-norbornene route](../../processes/photodevelop-peg-norbornene/main.md).
+Prepared and patterned by [Photodevelop Gel: PEGDA](../../processes/photodevelop-pegda/main.md). [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with the [PEG-norbornene route](../../processes/photodevelop-peg-norbornene/main.md).
 
 # Materials
 

@@ -68,7 +68,7 @@ The London Membrane is used in all synthetic cell preps in the London Demo. This
 
 # Processes
 
-The membrane is prepared and encapsulated by the shared mineral-oil phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). Hydrogel embedding of the labeled variant is documented in [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md).
+The membrane is prepared and encapsulated by the shared mineral-oil phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). Hydrogel embedding of the labeled variant is documented in [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md).
 
 To prepare this membrane, assemble 2 mg total lipids (e.g., 80 µL of a 25 mg/mL chloroform stock). Dry, then resuspend in 500 µL mineral oil (4 mg/mL working concentration). 
 

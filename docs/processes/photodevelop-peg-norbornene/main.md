@@ -1,11 +1,11 @@
 ---
-title: "Photodevelopment, PEG-Norbornene"
+title: "Photodevelop Gel: PEG-Norbornene"
 status: draft
 ---
 
 # Overview
 
-Photodevelopment, PEG-Norbornene crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. It is one of the two routes under [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md); see that page for the steps the two share, and [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) for the other.
+PEG-norbornene photodevelopment crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. It is one of the two routes under [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md); see that page for the steps the two share, and [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md) for the other.
 
 Step-growth thiol-ene addition gives a more uniform network than PEGDA's chain-growth acrylate polymerization and is less prone to oxygen inhibition at the gel surface.
 
@@ -22,7 +22,7 @@ The side-by-side comparison behind it — exposed sample visibly bleached agains
 # Materials and Equipment
 
 :::{attention} Not established
-No precursor concentration, arm ratio, crosslinker ratio, photoinitiator concentration, exposure time or light source is recorded for this route. PEG4SH has no sourced entry on any page — it is the crosslinker for both routes and is missing from the [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) bill of materials as well.
+No precursor concentration, arm ratio, crosslinker ratio, photoinitiator concentration, exposure time or light source is recorded for this route. PEG4SH has no sourced entry on any page — it is the crosslinker for both routes and is missing from the [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md) bill of materials as well.
 
 @Editor(chicago): supply the precursor composition and exposure conditions before this page is used at the bench.
 :::

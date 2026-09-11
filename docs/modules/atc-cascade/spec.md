@@ -104,7 +104,7 @@ flowchart TD
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click P4_PHOTODEVELOP_GEL_0 "/docs/processes/photodevelop-gel/main"
+    click P4_PHOTODEVELOP_GEL_0 "/docs/processes/photodevelop-gel/photodevelop-gel-main"
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
 ```
 

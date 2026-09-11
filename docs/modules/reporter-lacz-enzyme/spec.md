@@ -26,8 +26,12 @@ This page is a work in progress and not yet ready for use.
 | Dispersed in the gel | Not documented | London Cascade, ULGA embedding |
 :::
 
-:::{attention} Supply and concentration in the gel format
-@Editor(chicago): the commercial enzyme is β-galactosidase from *E. coli*; London sources it as Sigma-Aldrich G5635. Confirm whether Chicago uses the same product, and give the working concentration for the gel-dispersed format.
+:::{attention} Two numbers, and neither is settled
+**The gel-dispersed working concentration is missing outright.** @Editor(london): the London Cascade disperses this enzyme through the ULGA gel and no concentration is recorded for it anywhere. Without it that half of the cascade cannot be reproduced.
+
+**The encapsulated figure of 20 U/mL is used everywhere and sourced nowhere.** @Editor(chicago): it appears on ten pages across both demos, and no titration, assay or reference is recorded behind it. We are not asking what concentration to use — we are asking what it was measured against, and whether the value carries across from the aTc format to the others.
+
+@Editor(chicago): separately, the commercial enzyme is β-galactosidase from *E. coli* and London sources it as Sigma-Aldrich G5635. Confirm whether Chicago uses the same product.
 :::
 
 # Requirements

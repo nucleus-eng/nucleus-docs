@@ -37,5 +37,5 @@ steps:
       POPC bilayer. Use in outer solution at 920 mOsm, or match inner to outer
       empirically with a vapor-pressure osmometer.
 
-# ULGA Hydrogel Embedding appears on this page as a downstream format. It does
+# Hydrogel Embedding: ULGA appears on this page as a downstream format. It does
 # not compose the chassis, so it is not a step here.

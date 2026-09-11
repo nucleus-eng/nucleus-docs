@@ -46,9 +46,10 @@ The first two constructs are this Module's Reference Composition. The other two 
 
 ::::{tab-item} Cytosol
 
-Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR protein to a final concentration of 500 nM, or include the `pT7-tetR` DNA construct. Add aTc inducer at 2.5 µM to 5 µM for effective induction. Volumes in µL.
+Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR protein to a final concentration of 500 nM, or include the `pT7-tetR` DNA construct. Add aTc inducer at 2.5 µM to 5 µM for effective induction. Volumes in µL. @Claude: aTc concentration should be in the reference composition table. text is not enough
 
 
+@Claude: let's replace this table. (1) we now have data on this module in Base Cytosol, so we should represent it in Base Cytosol. (2) See other cytosolic module pages for standard Reference Composition Cytosol Tab (typically, reagent, working concentration, notes; sometimes other)
 | **Component** | **Master Mix (µL)** |
 | --- | --- |
 | PURExpress Solution A | 4 |

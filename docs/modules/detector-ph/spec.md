@@ -21,6 +21,8 @@ This Module has not been validated in Nucleus Cytosol. The performance data belo
 :align: center
 :width: 75%
 
+@Claude: this schematic should be copied over to pH Sensing Cytosol and Cell. we should lightly copy edit all captions for module and Cytosol to indicate that other components are displayed (i.e., color change, gramacidin, etc.)
+
 Schematic of the pH-Sensing Module. At neutral pH, trigger ssDNA is bound to pH-responsive ssDNA and the toehold switch stays closed. At acidic pH, trigger ssDNA releases and opens the toehold switch, allowing translation of the effector gene (e.g., a colorimetric reporter). Reproduced from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote, where it appears as `general/pH sensor schematic.png`.
 :::
 
@@ -133,7 +135,7 @@ Requires direct exposure to pH source. Either do not encapsulate OR include H⁺
 [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) prepares the pH-responsive : trigger ssDNA duplex. No process page covers assembling the full Module into a reaction.
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
-- [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
+- [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
 
 # Materials
 

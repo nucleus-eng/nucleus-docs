@@ -1,15 +1,15 @@
 ---
-title: "Alginate Hydrogel Embedding"
+title: "Hydrogel Embedding: Alginate"
 subtitle: "Process"
 status: draft
 ---
 
 # Overview
 
-Alginate Hydrogel Embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~1% (w/v) sodium alginate hydrogel, ionically crosslinked with 200 mM CaCl₂. The hydrogel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific — it is the `ALG` node in the process-dependency diagram, fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [SUV Encapsulation](../encapsulate-suv/main.md), and feeding into [Photodevelopment, PEGDA](../photodevelop-pegda/main.md).
+Alginate hydrogel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~1% (w/v) sodium alginate hydrogel, ionically crosslinked with 200 mM CaCl₂. The hydrogel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific — it is the `ALG` node in the process-dependency diagram, fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: SUV](../encapsulate-suv/main.md), and feeding into [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md).
 
 :::{note} Diagram does not draw a direct Alginate → Readout edge
-The current process-dependency diagram routes Alginate Hydrogel Embedding only into [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) (a confirmed/solid edge), not directly into [Colorimetric Readout](../colorimetric-readout/main.md). The unpatterned alginate-embedded result documented on this page ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a real, separately confirmed colorimetric outcome, but it is not represented as its own edge into the Colorimetric Readout node in the diagram as currently drawn — see [Colorimetric Readout](../colorimetric-readout/main.md) for the same note from that page's side.
+The current process-dependency diagram routes Hydrogel Embedding: Alginate only into [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md) (a confirmed/solid edge), not directly into [Colorimetric Readout](../colorimetric-readout/main.md). The unpatterned alginate-embedded result documented on this page ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a real, separately confirmed colorimetric outcome, but it is not represented as its own edge into the Colorimetric Readout node in the diagram as currently drawn — see [Colorimetric Readout](../colorimetric-readout/main.md) for the same note from that page's side.
 :::
 
 :::{attention} 🚧 Draft
@@ -35,8 +35,8 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - Alginate crosslinks ionically: divalent Ca²⁺ ions bridge adjacent alginate polymer chains (an "egg-box" junction), gelling the matrix without the heat or UV exposure that agarose or PEGDA-based hydrogels require. This is compatible with pre-formed Sensing Cells and CPRG-loaded SUVs in the gel at the time of crosslinking, unlike UV-crosslinked chemistries (see the PEG-norbornene caveat below).
-- This process assumes the Sensing Cells and CPRG-loaded SUVs are already formed and purified by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [SUV Encapsulation](../encapsulate-suv/main.md) before this step. It does not cover liposome formation itself.
-- A separate, higher-concentration alginate formulation — 1.6 wt% alginate (Kamat lab) combined with PEGDA for photodevelopment — appears on the [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) page. That is a distinct multimaterial construct for spatial patterning, not this process's ~1% (w/v) co-encapsulation formulation. Do not conflate the two concentrations or assume this page's protocol produces the PEGDA-frame/alginate-core construct described there.
+- This process assumes the Sensing Cells and CPRG-loaded SUVs are already formed and purified by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: SUV](../encapsulate-suv/main.md) before this step. It does not cover liposome formation itself.
+- A separate, higher-concentration alginate formulation — 1.6 wt% alginate (Kamat lab) combined with PEGDA for photodevelopment — appears on the [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md) page. That is a distinct multimaterial construct for spatial patterning, not this process's ~1% (w/v) co-encapsulation formulation. Do not conflate the two concentrations or assume this page's protocol produces the PEGDA-frame/alginate-core construct described there.
 
 ::::
 
@@ -60,7 +60,7 @@ This process does not itself encode anything — the Sensing Cells and CPRG-load
 | --- | --- |
 | Sodium alginate | ~1% (w/v) |
 | Calcium chloride (CaCl₂) crosslinker | 200 mM |
-| CPRG (in SUVs) | see [SUV Encapsulation](../encapsulate-suv/main.md) |
+| CPRG (in SUVs) | see [Encapsulation: SUV](../encapsulate-suv/main.md) |
 | LacZ (commercial, free in gel) | not yet specified — see gap note below |
 
 :::
@@ -98,7 +98,7 @@ The commercial enzyme is β-galactosidase from *E. coli*. London sources it as S
 
 ## Prepare Alginate Stock
 
-- [ ] Dissolve sodium alginate to ~1% (w/v) in a buffer compatible with the Sensing Cells and CPRG-loaded SUVs (e.g., the outer solution used for the input liposome preparations — see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [SUV Encapsulation](../encapsulate-suv/main.md)). Mix gently until fully dissolved; avoid vigorous vortexing, which can shear synthetic cells once liposomes are added downstream.
+- [ ] Dissolve sodium alginate to ~1% (w/v) in a buffer compatible with the Sensing Cells and CPRG-loaded SUVs (e.g., the outer solution used for the input liposome preparations — see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: SUV](../encapsulate-suv/main.md)). Mix gently until fully dissolved; avoid vigorous vortexing, which can shear synthetic cells once liposomes are added downstream.
 
 :::{hint} Note: exact buffer and mixing conditions not confirmed
 :class: dropdown
@@ -111,7 +111,7 @@ The buffer the alginate stock was prepared in, and the exact mixing time/tempera
 
 ## Co-Encapsulate synthetic cells, SUVs, and LacZ in Alginate
 
-- [ ] Combine synthetic cells (from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md)), SUVs (from [SUV Encapsulation](../encapsulate-suv/main.md)), and commercial LacZ into the ~1% (w/v) alginate solution prepared above.
+- [ ] Combine synthetic cells (from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md)), SUVs (from [Encapsulation: SUV](../encapsulate-suv/main.md)), and commercial LacZ into the ~1% (w/v) alginate solution prepared above.
 
 :::{hint} Note: mixing ratio not confirmed
 :class: dropdown

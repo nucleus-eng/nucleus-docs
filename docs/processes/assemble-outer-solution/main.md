@@ -44,6 +44,6 @@ Three formulations are attested, and they are not interchangeable — each is ma
 
 Every process that takes an outer solution as an operand:
 
-- [ULGA Hydrogel Embedding](../embed-ulga-hydrogel/main.md)
-- [Alginate Hydrogel Embedding](../embed-alginate-hydrogel/main.md)
+- [Hydrogel Embedding: ULGA](../embed-ulga-hydrogel/main.md)
+- [Hydrogel Embedding: Alginate](../embed-alginate-hydrogel/main.md)
 - [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md)

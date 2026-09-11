@@ -41,15 +41,19 @@ inputs:
     page: ../reporter-lacz-enzyme/spec.md
   ulga-powder:
     title: "ULGA powder"
-    page: ../gel-ulga/spec.md   # that page covers the agarose and the set gel
+    owner: vendor               # purchased consumable, Sigma-Aldrich A5030
+    page: ../gel-ulga/spec.md
   potassium-glutamate:
     title: "Potassium L-glutamate"
+    component_of: ../../processes/assemble-outer-solution/main.md
     page: null
   hepes:
     title: "HEPES, pH 7.4"
+    component_of: ../../processes/assemble-outer-solution/main.md
     page: null
   glucose:
     title: "Glucose"
+    component_of: ../../processes/assemble-outer-solution/main.md
     page: null
 
 steps:

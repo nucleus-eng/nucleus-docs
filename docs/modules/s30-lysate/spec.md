@@ -33,7 +33,11 @@ S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rathe
 
 :::
 
+S30 lyste has a headroom volume of 3.75 µL of 25. @Claude: see note below
+
 :::{note} The headroom is 3.75 µL of 25
+@Claude: Headroom should be represented in the module's .yml file primarily, and can have a much shorter, one line comment in the reference composition (see above). Let's edit any admonitions that you added about headroom in the same way described here (short sentence in Reference Composition Tab, headroom details (required, provided) in .yml).
+
 The four kit and inhibitor volumes come to 21.25 µL, and water makes the reaction up to 25 µL. The 3.75 µL between them is the slot any added component has to fit in, and the DNA template is already spending part of it. Water is the balance term, so filling the slot with water alone leaves every other component at the concentration listed above.
 
 This is the same structure as [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md), which states its slot directly as `User Additives X` against `Nuclease Free Water 2.0 - X`. Here the capacity is implied by the total rather than named, so a composer adding to this cytosol has to derive it.
@@ -42,10 +46,6 @@ This is the same structure as [Assemble Base Cytosol](../../processes/assemble-b
 # Expected Behavior
 
 S30 Lysate's expected behavior is characterized by expressing a reporter module (e.g., [deGFP](../reporter-degfp/spec.md)).
-
-:::{attention} Needs more detail
-@Editor(london): no expected behavior is recorded — what the lysate expresses, in what assay, over what time and at what temperature (for example, "expresses X ng/µL deGFP over 6 h at 30 °C") — and no characterization data such as a positive-control cell-free reaction. Confirm with the London Node.
-:::
 
 # Requirements
 

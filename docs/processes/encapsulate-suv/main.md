@@ -1,5 +1,5 @@
 ---
-title: "SUV Encapsulation"
+title: "Encapsulation: SUV"
 subtitle: "Process"
 status: draft
 ---
@@ -10,11 +10,11 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
-SUV Encapsulation prepares small unilamellar vesicles (SUVs) by lipid-film hydration and extrusion, then loads them with a chromogenic substrate. In the Chicago colorimetric readout system, SUVs carry chlorophenol red-β-D-galactopyranoside (CPRG) as a pre-loaded cargo. CPRG is a yellow substrate that turns purple (chlorophenol red, CPR) when cleaved by β-galactosidase (LacZ). SUVs are one half of a two-liposome system: synthetic cells carry the sensing and cell-free expression machinery and, on activation, express phospholipase A1 (PLA1), which lyses neighboring CPRG-loaded SUVs. Released CPRG then reacts with LacZ in the surrounding matrix to produce the visible color change.
+SUV encapsulation prepares small unilamellar vesicles (SUVs) by lipid-film hydration and extrusion, then loads them with a chromogenic substrate. In the Chicago colorimetric readout system, SUVs carry chlorophenol red-β-D-galactopyranoside (CPRG) as a pre-loaded cargo. CPRG is a yellow substrate that turns purple (chlorophenol red, CPR) when cleaved by β-galactosidase (LacZ). SUVs are one half of a two-liposome system: synthetic cells carry the sensing and cell-free expression machinery and, on activation, express phospholipase A1 (PLA1), which lyses neighboring CPRG-loaded SUVs. Released CPRG then reacts with LacZ in the surrounding matrix to produce the visible color change.
 
 SUVs and synthetic cells are distinct particle-size classes and are never interchangeable. This process produces SUVs only. For synthetic cell production, see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md).
 
-SUV Encapsulation feeds only the alginate hydrogel embedding step of the process-dependency diagram. This differs from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md), whose synthetic cells feed both alginate hydrogel embedding and ULGA hydrogel embedding.
+This process feeds only the alginate hydrogel embedding step of the process-dependency diagram. This differs from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md), whose synthetic cells feed both alginate hydrogel embedding and ULGA hydrogel embedding.
 
 :::::::{card}
 :header: **Important Information**

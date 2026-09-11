@@ -91,7 +91,7 @@ CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules 
 # Processes
 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the population. The same process and the same page as the sensing population, applied with a different inner solution.
-- [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) — combines this population with the sensing population and the gel, at 1:1:2.
+- [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — combines this population with the sensing population and the gel, at 1:1:2.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the readout itself.
 
 # Credits

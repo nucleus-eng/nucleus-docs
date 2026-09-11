@@ -46,8 +46,8 @@ The distribution's existing AHL work is the [IV-HSL Emitter](../../modules/emitt
 | Step | Process |
 | --- | --- |
 | Form synthetic cells | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) |
-| Form substrate liposomes | [SUV Encapsulation](../../processes/encapsulate-suv/main.md) |
-| Embed | [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md) |
+| Form substrate liposomes | [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) |
+| Embed | [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) |
 | Read out | [Colorimetric Readout](../../processes/colorimetric-readout/main.md) |
 | Reduce background | [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — proposed, never run |
 

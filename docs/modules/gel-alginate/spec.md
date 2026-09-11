@@ -57,7 +57,7 @@ Imposes no heat and no illumination on its contents, which is what distinguishes
 
 # Processes
 
-Prepared and set by [Alginate Hydrogel Embedding](../../processes/embed-alginate-hydrogel/main.md), which also covers co-embedding the sensing cells, SUVs and LacZ.
+Prepared and set by [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md), which also covers co-embedding the sensing cells, SUVs and LacZ.
 
 # Materials
 

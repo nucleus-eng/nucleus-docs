@@ -27,10 +27,6 @@ This page is a work in progress and not yet ready for use.
 | Free in the gel | Not documented | Photodevelopment routes, where UV would bleach encapsulated CPRG |
 :::
 
-:::{attention} The Chicago loading figures have no primary data behind them
-@Editor(chicago): the 400 nm target size and the 50 mM loading concentration are stated in the Chicago integration status but have no DevNote behind them. No DLS traces or absorbance QC data has been located.
-:::
-
 # Requirements
 
 Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — CPRG alone is inert and yellow.
@@ -39,7 +35,7 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 # Processes
 
-- [SUV Encapsulation](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
+- [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format, since the move to GUVs.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
 

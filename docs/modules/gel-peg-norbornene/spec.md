@@ -23,6 +23,7 @@ This page is a work in progress and not yet ready for use.
 :::{table} PEG-norbornene precursor solution.
 :label: comp-gel-peg-norbornene
 
+@Claude: BOM missing for this process. partially because part numbers for these components. Check spreadsheet for vendor links: https://docs.google.com/spreadsheets/d/1S5AEJnl6sMWUU7Yof3lFIO8tpLtEgvEa/edit?gid=1064417783#gid=1064417783
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | 4-arm PEG-norbornene | not established | the backbone |
@@ -60,7 +61,7 @@ Requires the PEG4SH crosslinker, as the PEGDA route does.
 
 # Processes
 
-Formed by [Photodevelopment, PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md), which is a stub — it records the chemistry and the CPRG incompatibility but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Photodevelopment, PEGDA](../../processes/photodevelop-pegda/main.md).
+Formed by [Photodevelop Gel: PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md), which is a stub — it records the chemistry and the CPRG incompatibility but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Photodevelop Gel: PEGDA](../../processes/photodevelop-pegda/main.md).
 
 # Credits
 

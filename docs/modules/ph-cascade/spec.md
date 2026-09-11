@@ -53,9 +53,9 @@ flowchart TD
     PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
     P4_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["pH Sensing Cell"]
-    P5_ENCAPSULATE_SUBSTRATE_SUV_0(["SUV Encapsulation (packing)"])
+    P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P6_EMBED_ALGINATE_0(["Alginate Hydrogel Embedding (packing)"])
+    P6_EMBED_ALGINATE_0(["Hydrogel Embedding: Alginate (packing)"])
     PH_CASCADE["pH Cascade"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0

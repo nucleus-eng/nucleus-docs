@@ -93,8 +93,9 @@ steps:
 
   - id: photodevelop-gel
     process:
-      title: "Photodevelop Gel"
-      page: ../../processes/photodevelop-gel/main.md
+      title: "Photodevelop Gel: PEGDA"
+      page: ../../processes/photodevelop-pegda/main.md
+      abstract: photodevelop-gel
     operator: packing
     operands:
       - pegda-monomer

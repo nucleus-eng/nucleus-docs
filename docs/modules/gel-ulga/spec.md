@@ -38,6 +38,7 @@ A separate configuration replaces those three with 1200 mM glucose and 0.1 mM Ca
 (gel-ulga-expected-behavior)=
 # Expected Behavior
 
+@Claude: somewhere in this document we should add the expected (or tolerated?) osmolarity range for Gel, as a member of Outer Solution fiber. this applies to all Outer Solution child pages. should also go into the .yml. 
 ## Gels
 
 Expect a gel that stays liquid while warm, tolerates mixing with intact synthetic cells, and sets on cooling below its gel point without a crosslinker, a divalent load or any illumination.
@@ -65,7 +66,7 @@ Imposes no divalent load and no illumination on its contents.
 
 # Processes
 
-Prepared and set by [ULGA Hydrogel Embedding](../../processes/embed-ulga-hydrogel/main.md).
+Prepared and set by [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md).
 
 # Materials
 

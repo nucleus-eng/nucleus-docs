@@ -9,8 +9,8 @@ Photopatterning crosslinks a light-sensitive polymer precursor into a gel only w
 
 This page covers what the two chemistries share. Each has its own page, because the precursor, the crosslinking mechanism and what the exposure does to the payload all differ:
 
-- [Photodevelopment, PEGDA](../photodevelop-pegda/main.md) — radical polymerization of acrylate groups.
-- [Photodevelopment, PEG-Norbornene](../photodevelop-peg-norbornene/main.md) — step-growth thiol-ene addition, with a separate thiol crosslinker.
+- [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md) — radical polymerization of acrylate groups.
+- [Photodevelop Gel: PEG-Norbornene](../photodevelop-peg-norbornene/main.md) — step-growth thiol-ene addition, with a separate thiol crosslinker.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -43,7 +43,7 @@ The last row is the one that decides which route a colorimetric cascade can use,
 
 Requires a 405 nm light source, normally a DLP projector. This is the only gel-forming route in this documentation with an equipment requirement beyond ordinary labware.
 
-**This process imposes UV on whatever it is applied to.** The source is 405 nm, and a source in that range emits UV along with it. Anything UV-sensitive must not be present during crosslinking, on either route. Neither [Alginate Hydrogel Embedding](../embed-alginate-hydrogel/main.md) nor [ULGA Hydrogel Embedding](../embed-ulga-hydrogel/main.md) illuminates its contents at all, so this is the constraint that distinguishes the photodeveloped routes from the other two.
+**This process imposes UV on whatever it is applied to.** The source is 405 nm, and a source in that range emits UV along with it. Anything UV-sensitive must not be present during crosslinking, on either route. Neither [Hydrogel Embedding: Alginate](../embed-alginate-hydrogel/main.md) nor [Hydrogel Embedding: ULGA](../embed-ulga-hydrogel/main.md) illuminates its contents at all, so this is the constraint that distinguishes the photodeveloped routes from the other two.
 
 [CPRG](../../modules/substrate-cprg-suv/spec.md) is the known case: pre-loaded into liposomes it photobleaches during the crosslinking step, confirmed against an unexposed control. The workaround inverts the order — pre-add LacZ to the gel, crosslink, then add CPRG as a free dye. That path does not use the Substrate SUV module, so it is a different cascade rather than the same one in a different gel.
 

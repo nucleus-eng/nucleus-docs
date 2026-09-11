@@ -1,5 +1,5 @@
 ---
-title: "Photodevelopment, PEGDA"
+title: "Photodevelop Gel: PEGDA"
 subtitle: "Process"
 status: draft
 ---
@@ -10,7 +10,7 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
-Photodevelopment, PEGDA crosslinks poly(ethylene glycol) diacrylate (PEGDA) hydrogel precursor into spatially defined patterns using 405 nm light, delivered through a digital light processing (DLP) projector. In the Chicago colorimetric readout system, this process is used to fabricate hydrogel-embedded micro-patterns (e.g., QR-code-style test patterns) intended to house DevCells with precise spatial control and low phototoxicity relative to traditional UV crosslinking. An alternative version combines PEGDA with alginate to produce a patterned frame around an alginate core, multiplexing PEGDA's patternability with alginate's mechanical and functional stability.
+PEGDA photodevelopment crosslinks poly(ethylene glycol) diacrylate (PEGDA) hydrogel precursor into spatially defined patterns using 405 nm light, delivered through a digital light processing (DLP) projector. In the Chicago colorimetric readout system, this process is used to fabricate hydrogel-embedded micro-patterns (e.g., QR-code-style test patterns) intended to house DevCells with precise spatial control and low phototoxicity relative to traditional UV crosslinking. An alternative version combines PEGDA with alginate to produce a patterned frame around an alginate core, multiplexing PEGDA's patternability with alginate's mechanical and functional stability.
 
 :::{attention} PEGDA → Readout is not yet demonstrated at macroscopic scale
 DevCell component volumes are currently too small to produce macroscopically visible QR-code pattern changes. Photopatterning of the PEGDA hydrogel itself has been demonstrated (tunable feature sizes, and a PEGDA frame with a structurally sound alginate core), but the downstream link from a patterned, DevCell-embedded hydrogel to a visible colorimetric readout has not. This matches the dashed PEGDA → Readout edge in `process-dependency-diagram.md`.
