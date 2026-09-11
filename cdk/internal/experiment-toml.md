@@ -21,7 +21,7 @@ means a key that looks reasonable will be rejected if it is not on the list belo
 
 ```toml
 [meta]
-name = "ARIA-R3"
+name = "Discovery Plate R1"
 created = 2026-03-14
 notes = "Third replicate; PMix lot MFG-98."
 
@@ -66,7 +66,7 @@ except `final_rxn_vol_ul`.
 
 ### `[meta]`
 
-Human notes. Carried through to the Marimo app; the calculator ignores them.
+Human notes. the calculator ignores them.
 
 | Key | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -144,7 +144,7 @@ Every generated row carries a `Type` column naming where it came from — `lhs`,
 `ratio_sweep`, `standards`, `control`, or `external`. The calculator routes on it:
 `standards` rows take a simple dilution path, everything else goes through the master mix.
 
-### `[doe.lhs]` — Latin hypercube
+### `[doe.lhs]` — Latin hypercube sampling
 
 | Key | Type | Description |
 | --- | --- | --- |

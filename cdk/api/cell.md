@@ -22,22 +22,14 @@ from cdk.analysis import cell as m
 
 The package is three pipeline stages, one module each:
 
-| Module | Role |
-| --- | --- |
-| `raw_image_process` | Plate zarr → Cellpose → per-object measurements, appended to a CSV beside the dataset. GPU-bound; run once per dataset. |
-| `analysis` | That CSV → population plots, plus the column and channel naming the others share. Pandas and seaborn only; run repeatedly in notebooks. |
-| `segmentation_qc` | That CSV **and** the zarr → per-object image crops with mask outlines, for checking the segmentation. |
+| Module | Role                                                                                               |
+| --- |----------------------------------------------------------------------------------------------------|
+| `raw_image_process` | Per-object measurements, appended to a CSV beside the dataset.                                     |
+| `analysis` | Segmentated data CSV → population plots                                                            |
+| `segmentation_qc` | Segmented CSV and zarr → per-object image crops with mask outlines, for checking the segmentation. |
 
 `raw_image_process` and `analysis` communicate only through the file on disk.
 `segmentation_qc` spans both: it reads the table to pick objects but the zarr for pixels.
-
-:::{tip} Import cost
-:icon: false
-:class: dropdown
-
-Importing the package pulls in `torch` and `cellpose` by way of `raw_image_process`.
-If you are only reading measurements and plotting, import the analysis module directly to
-stay clear of them:
 
 ```python
 from cdk.analysis.cell import analysis as m
@@ -126,7 +118,7 @@ Still supported, slated for deprecation in favour of the gated and quantile view
 
 ## Segmentation
 
-The GPU-bound stage. Run once per dataset; everything above reads its output.
+Run once per dataset (faster with GPU); everything above reads its output.
 
 :::{card} `process_dataset(dataset_path, pyramid_level=0, write_labels=False, segment_channel=None, target_wells=None, target_timepoints=None)`
 

@@ -122,9 +122,7 @@ _ = m.plot_qc(data)
 :align: center
 :label: fig:qc
 
-Membrane channel intensity and object count over time. A downward intensity trend is
-photobleaching; a falling object count means objects are being lost, either physically
-or by the segmenter.
+Membrane channel intensity and object count over time.
 :::
 
 Both are things you want to know *before* interpreting a reporter trend, because either
@@ -176,7 +174,7 @@ intensity at the first timepoint. Each well is therefore compared against its ow
 starting state rather than a global threshold, which keeps well-to-well brightness
 offsets from being read as biology. Adjust it with `gate_quantile=`.
 
-### Does size explain expression?
+### Does size correlate with expression?
 
 ```python
 _ = m.plot_size_expression(data, facet="Name")
@@ -189,28 +187,23 @@ _ = m.plot_size_expression(data, facet="Name")
 Per-object reporter intensity against volume, as a hexbin with a fit line per panel.
 :::
 
-This is where you see whether bigger objects are simply brighter, and which conditions
-produced more objects at all.
-
 :::{warning} Two things to know about this figure
 :icon: false
 :class: dropdown
 
 **The low-intensity population is an artifact.** The band of objects at very low GFP in
 the figure above comes from a microscopy tile that was never collected, not from a real
-dim subpopulation. Dropped tiles are a known Cephla fault; filtering them automatically
-is in progress. If you see a suspiciously clean low-intensity cluster, check your tiles
-before interpreting it.
+dim subpopulation. If you see a suspiciously clean low-intensity cluster, check your tiles
+before interpreting it, we noticed in earlier versions of microscopy hardware, tiles could be dropped. 
 
 **The fit line is fit to everything.** It is not split by percentile, so a skewed
-population pulls it. Read it as an eyeline, not an estimate.
+population pulls it. Read it as an eyeline, not an estimate. Updates forthcoming. 
 :::
 
 ## Splitting figures by experimental factor
 
 Every plotting function takes the same four arguments — `hue`, `facet`, `time`, and
-`value` — and all four default to `None`. That is what lets one call work with or without
-a platemap:
+`value` — and all four default to `None`. This is where a platemap is very useful. 
 
 ```python
 m.plot_quantile_ribbon(data)                                       # groups by well
@@ -231,7 +224,7 @@ Any platemap column works for `hue` and `facet`, so the split is yours to choose
 it. Numeric factors get a sequential colour ramp automatically; categorical ones get
 distinct colours.
 
-## One caveat that will bite you
+## Caveats 
 
 :::{danger} `Label` is not stable across timepoints
 :icon: false

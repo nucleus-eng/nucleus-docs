@@ -16,7 +16,7 @@ to the other.
 The names are the biology, not the instrument: *cell* analysis describes individual
 objects imaged under a microscope, *cytosol* analysis describes bulk reactions read in a
 plate. Most microscopy work is cell analysis and most plate reader work is cytosol
-analysis, but the distinction that matters is what the numbers describe.
+analysis.
 
 :::::{card}
 
@@ -40,14 +40,4 @@ analysis, but the distinction that matters is what the numbers describe.
 ::::
 :::::
 
-## Conventions shared by both
 
-**Platemaps.** A platemap CSV maps wells to what was in them. Merging one is optional —
-every function works without it, falling back to `Well` as the label — but supplying one
-is what unlocks faceting by experimental factor.
-
-**Transforms return new objects.** Nothing mutates in place. `data.blank()` gives you
-blanked data; the original is untouched.
-
-**Plots return their figure.** Every `plot_*` function returns the matplotlib figure or
-seaborn grid it drew, so you can adjust and save it.
