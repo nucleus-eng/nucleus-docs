@@ -32,6 +32,16 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-cprg/spec.md
           hidden: true
+        - file: ./docs/modules/analyte-atc/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-3oc6-hsl/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-theophylline/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-iptg/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-ph/spec.md
+          hidden: true
         - file: ./docs/modules/gel-alginate/spec.md
           hidden: true
         - file: ./docs/modules/gel-ulga/spec.md

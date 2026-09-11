@@ -58,6 +58,11 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
 | Substrate | [CPRG GUV](./guv-cprg/spec.md) | ★ |
 | Substrate | [CPRG](./substrate-cprg/spec.md) | ★ |
+| Analyte | [aTc](./analyte-atc/spec.md) | ★ |
+| Analyte | [3OC6-HSL](./analyte-3oc6-hsl/spec.md) | ★ |
+| Analyte | [Theophylline](./analyte-theophylline/spec.md) | ★ |
+| Analyte | [IPTG](./analyte-iptg/spec.md) | ★ |
+| Analyte | [pH](./analyte-ph/spec.md) | ★ |
 | Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
