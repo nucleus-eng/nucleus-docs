@@ -46,7 +46,7 @@ The first two constructs are this Module's Reference Composition. The other two 
 
 ::::{tab-item} Cytosol
 
-Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add purified TetR protein to a final concentration of 500 nM, or include the `pT7-tetR` DNA construct. Add aTc inducer at 2.5 µM to 5 µM for effective induction. Volumes in µL. @Claude: aTc concentration should be in the reference composition table. text is not enough
+Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the three formats below — and aTc inducer. **The dose depends on the cytosol**: 2.5 µM to 5 µM in lysate, but 0.1 µM to 0.5 µM in Nucleus Cytosol, where higher concentrations poison the reaction. See [aTc](../analyte-atc/spec.md). Volumes in µL. @Claude: aTc concentration should be in the reference composition table. text is not enough
 
 
 @Claude: let's replace this table. (1) we now have data on this module in Base Cytosol, so we should represent it in Base Cytosol. (2) See other cytosolic module pages for standard Reference Composition Cytosol Tab (typically, reagent, working concentration, notes; sometimes other)
@@ -129,7 +129,25 @@ Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated 
 The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#reporter-xyle-expected-behavior) spec.
 
 :::{attention} Inducer concentration not recorded
-@Editor(chicago): the aTc concentration used for the induced condition is not recorded. Confirm it before this result is used at the bench. The construct gap is noted in the DNA tab under Reference Composition.
+@Editor(chicago): the aTc concentration used for this particular induced condition is not recorded. The Node's current working window in Nucleus Cytosol is 0.1 µM to 0.5 µM with an optimum near 0.25–0.35 µM, but that was established after this result. The construct gap is noted in the DNA tab under Reference Composition.
+
+:::{attention} TetR arrives in three formats, and they are not interchangeable
+The corpus offered two — purified protein, or `pT7-tetR` DNA expressed in situ. A third is in use, and as of 2026-09-11 it is **the only one that has demonstrated induction** in Nucleus Cytosol.
+
+| Format | Amount | State |
+| --- | --- | --- |
+| Purified protein | 500 nM | Works at b.next with a His-tagged TetR carrying no SUMO tag — stable a week at 4 °C and three weeks at −20 °C |
+| Expressed in situ from `pT7-tetR` | — | A b.next practice; dose aTc after the repressor has accumulated |
+| **Expressed overnight, then combined with a fresh reaction** | **2.5 µL of an 18 h, 30 °C reaction. Concentration unknown** | Chicago Node. The only format that has induced |
+
+**Three preparations were compared and all three repressed; only the cell-free-expressed one induced.** The two that failed were a MedChem Express SUMO-His TetR and a foundry TetR, so the tag and the source are functional parameters rather than sourcing detail.
+
+**The third format cannot be written as a working concentration**, which is why the table above gives a volume. It specifies an amount of a reaction whose yield nobody measured, and that is a property of a process step rather than of a component.
+
+**It also breaks its own controls, and the other two do not.** A spent reaction added as a vehicle control carries spent reagents; a sham no-DNA reaction carries fresh ones. Neither matches. The ideal — an overnight of a non-functional TetR — does not exist.
+
+@Editor(bnext): decide how a format-3 amount is expressed at all, and whether formats 1 and 2 are ours to re-demonstrate in Nucleus Cytosol.
+:::
 :::
 
 ## Cells
@@ -160,7 +178,7 @@ The TetR detector cell functions when induced with low-nanomolar aTc concentrati
 
 ### TetO-PLA1 encapsulated with LacZ
 
-A second configuration replaces the plamGFP reporter with a `TetO-PLA1` construct and co-encapsulates LacZ protein at 20 U/mL, leaving 0.5 mM CPRG in the outer solution. aTc de-represses `TetO-PLA1`, PLA1 ruptures the membrane, and the released LacZ reaches the CPRG outside, so the readout is the [LacZ Reporter Module](../reporter-lacz/spec.md)'s color change at 575 nm rather than fluorescence. This configuration detects aTc in synthetic cells, but the response is **not graded**.
+A second configuration replaces the plamGFP reporter with a `TetO-PLA1` construct and co-encapsulates LacZ protein at 2.5 U/mL, leaving 0.5 mM CPRG in the outer solution. aTc de-represses `TetO-PLA1`, PLA1 ruptures the membrane, and the released LacZ reaches the CPRG outside, so the readout is the [LacZ Reporter Module](../reporter-lacz/spec.md)'s color change at 575 nm rather than fluorescence. This configuration detects aTc in synthetic cells, but the response is **not graded**.
 
 Three DNA/TetR pairs — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — were each dosed at 0, 1, 5, and 10 µM aTc, and fold change in absorbance was measured at 5 h (n = 3). Every pair separates dosed from undosed by roughly 1.15× to 1.33×. None is monotonic in dose, and the spread across the 1, 5, and 10 µM points overlaps in all three. Expect the response to saturate at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.
 
@@ -169,6 +187,12 @@ Three DNA/TetR pairs — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, a
 :align: center
 
 Fold change in absorbance at 575 nm after 5 h, relative to the undosed condition, for three DNA/TetR pairs dosed at 0, 1, 5, and 10 µM aTc. Points are the three replicates. LacZ is encapsulated at 20 U/mL, with CPRG at 0.5 mM outside. Figure by Mary Kelly (Chicago Node, Kamat Lab).
+:::
+
+:::{attention} This caption's 20 U/mL is left as recorded
+Every other page now states 2.5 U/mL for encapsulated LacZ, and the figure above still says 20 U/mL. That is deliberate: a caption states what an experiment did, and 2.5 U/mL is the Node's current practice rather than this run's condition.
+
+@Editor(chicago): confirm what this experiment actually used. See [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) for why the 20 U/mL figure was withdrawn elsewhere.
 :::
 
 **The 0 µM condition is the normalization baseline, not a negative control.** Fold change is taken against it, which is why every panel's 0 µM bar sits at exactly 1.0 with no spread — that bar reports the arithmetic, not a measurement. The controls that bound the assay are on the raw absorbance trace instead, where a reaction with no DNA template reaches nearly the same absorbance at 5 h as an undosed one. Most of the signal is therefore template-independent, and aTc recovers only part of the distance to a fully de-repressed reaction.

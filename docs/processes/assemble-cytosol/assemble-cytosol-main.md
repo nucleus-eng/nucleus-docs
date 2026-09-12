@@ -51,7 +51,7 @@ A derivative is identified by the **pair** of base and filling. Neither alone na
 | Derivative | Base | Filling |
 | --- | --- | --- |
 | [Base Cytosol](../../modules/base-cytosol/spec.md) | Base | water |
-| [aTc Sensor Cytosol](../../modules/atc-sensor-cytosol/spec.md) | Base Cytosol | `TetO-PLA1` · TetR · LacZ at 20 U/mL |
+| [aTc Sensor Cytosol](../../modules/atc-sensor-cytosol/spec.md) | Base Cytosol | `TetO-PLA1` · TetR · LacZ at 2.5 U/mL |
 | [pH Sensor Cytosol](../../modules/ph-sensor-cytosol/spec.md) | Base Cytosol | trigger duplex · toehold-gated template · Optiprep · Sulfo-Cy5 |
 | [Theophylline Sensor Cytosol](../../modules/theophylline-sensing-cell/spec.md) | Base Cytosol | riboswitch construct at 5 nM |
 | [AHL Sensor Cytosol](../../modules/ahl-sensor-cytosol/spec.md) | S30 Lysate | `LuxR-PLA1` or `LuxR-deGFP` |

@@ -32,6 +32,8 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-cprg/spec.md
           hidden: true
+        - file: ./docs/modules/substrate-xgal/spec.md
+          hidden: true
         - file: ./docs/modules/analyte-atc/spec.md
           hidden: true
         - file: ./docs/modules/analyte-3oc6-hsl/spec.md

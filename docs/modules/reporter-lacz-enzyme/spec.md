@@ -19,20 +19,33 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
-:::{table} LacZ Enzyme working concentrations by context.
-| Context | Working concentration | Notes |
+**This Module has been used across a roughly sixty-fold range, and no single figure is canonical.** The range is what this page states; a page that composes the enzyme states the figure its own result used.
+
+:::{table} LacZ Enzyme — the range in use.
+| Context | Working concentration | Source |
 | --- | --- | --- |
-| Encapsulated with the sensing reaction | 20 U/mL | [aTc Sensor Cytosol](../atc-sensor-cytosol/spec.md). Co-encapsulating the enzyme with CPRG would make the readout constitutive |
-| Dispersed in the gel | Not documented | London Cascade, ULGA embedding |
+| Encapsulated in a GUV, in PEG-norbornene | **2.5 U/mL** final — 0.5 µL of a 125 U/mL stock into a 25 µL cell-free reaction | Chicago Node, Kamat Lab, 2026-09-11 |
+| Encapsulated in a GUV, in 0.7% agarose | **156 U/mL** | Chicago Node, Liu Lab, 2026-09-11 |
+| Dispersed in the gel | not documented | London Cascade, ULGA embedding |
 :::
 
-:::{attention} Two numbers, and neither is settled
-**The gel-dispersed working concentration is missing outright.** @Editor(london): the London Cascade disperses this enzyme through the ULGA gel and no concentration is recorded for it anywhere. Without it that half of the cascade cannot be reproduced.
+**Both encapsulated figures are for the same arrangement** — enzyme inside the cell, substrate outside — and they differ by about 60×. Co-encapsulating the enzyme with its substrate would make the readout constitutive, which is why neither format does it.
 
-**The encapsulated figure of 20 U/mL is used everywhere and sourced nowhere.** @Editor(chicago): it appears on ten pages across both demos, and no titration, assay or reference is recorded behind it. We are not asking what concentration to use — we are asking what it was measured against, and whether the value carries across from the aTc format to the others.
+:::{attention} The 20 U/mL this documentation used to state is withdrawn
+Ten pages carried 20 U/mL as the encapsulated working concentration. No titration, assay or reference was ever recorded behind it, and when the Chicago Node was asked directly what concentration it uses in the synthetic cells, the answer computed to **2.5 U/mL** — the same arrangement, eight-fold lower.
 
-@Editor(chicago): separately, the commercial enzyme is β-galactosidase from *E. coli* and London sources it as Sigma-Aldrich G5635. Confirm whether Chicago uses the same product.
+**Not a difference of context.** The question and the answer were both about the aTc sensing cells. So 20 U/mL is withdrawn rather than kept as a third entry: a figure with nothing behind it should not anchor a range of measured ones.
 :::
+
+:::{attention} The gel-dispersed concentration is still missing
+@Editor(london): the London Cascade disperses this enzyme through the ULGA gel and no concentration is recorded for it anywhere. Without it that half of the cascade cannot be reproduced.
+
+**The Chicago figures do not carry across.** Both are encapsulated; London's is dispersed through the matrix. Different arrangement, different requirement.
+:::
+
+**Potency degrades in storage.** A stock kept at 4 °C loses activity over time, visibly slowing the color change. The figures above are for fresh enzyme.
+
+@Editor(chicago): the commercial enzyme is β-galactosidase from *E. coli* and London sources it as Sigma-Aldrich G5635. Both nodes hold it at the same pack size, 2 × 3 KU. Confirm it is the same product.
 
 # Requirements
 

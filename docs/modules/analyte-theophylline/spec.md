@@ -1,7 +1,7 @@
 ---
 title: "Analyte: Theophylline"
 subtitle: "Module Specification"
-status: draft
+status: canceled
 site:
     hide-toc: true
     numbered_references: false
@@ -13,12 +13,12 @@ Theophylline is a xanthine derivative and the ligand of the translational ribosw
 
 **This is an Analyte, so it is not a constituent of anything.** It reaches a sensing cell from outside, after the cell is closed.
 
-:::{attention} The Detector is cancelled; this page is not
-[Theophylline Detector](../detector-theophylline/spec.md) is marked *"Canceled — not part of the DevCells demo"*. This page exists anyway, because the constraint below is a fact about theophylline and LacZ rather than about that Detector, and it outlives the demo decision.
-:::
+:::{attention} Canceled — its detector was cut
+The [Theophylline Detector](../detector-theophylline/spec.md) and [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) are both canceled: the riboswitch expresses its effector without theophylline present, so it does not discriminate. The DevStudio DNA list records all three theophylline constructs as no longer in use, with `T7-theo-lacZ` marked leaky.
 
-:::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use.
+**The constraint below outlives the decision.** It is a fact about theophylline and LacZ rather than about that Detector, which is why this page is kept for reference rather than removed. Theophylline is also still named as a candidate second sensor if one is wanted during the Studio.
+
+An analyte with no working detector is kept for reference and is not maintained. Theophylline is still named as a candidate second sensor if one is wanted during the Studio, which is why this page is kept rather than removed.
 :::
 
 # Reference Composition

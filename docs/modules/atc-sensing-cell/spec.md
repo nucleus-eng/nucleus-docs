@@ -107,7 +107,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [aTc Sensing Module](../detector-tetr-atc/spec.md) | 1 nM `TetO-PLA1` DNA + 50 nM TetR | Two other DNA/TetR ratios have been characterized — see [Expected Behavior](#atc-sensing-cell-expected-behavior). |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by 1 nM `TetO-PLA1` DNA | |
-| [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 20 U/mL | Enzyme only. CPRG stays in the outer solution — co-encapsulating the two makes the readout constitutive. |
+| [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 2.5 U/mL | Enzyme only. CPRG stays in the outer solution — co-encapsulating the two makes the readout constitutive. |
 :::
 
 :::{attention} Reference DNA/TetR ratio not canonical in the source

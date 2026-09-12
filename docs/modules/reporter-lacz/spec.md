@@ -52,13 +52,13 @@ No LacZ-encoding construct referenced by either node has a corresponding file in
 | CPRG | 10 mg/mL | 0.6 mg/mL |
 | RNase inhibitor | 40 000 U/mL | 2000 U/mL |
 
-LacZ may also be added as a purified protein rather than expressed from DNA to 20 U/mL final.
+LacZ may also be added as a purified protein rather than expressed from DNA. See [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) for the range in use — about 2.5 U/mL to 156 U/mL across the encapsulated formats on record.
 :::
 
 :::{attention} Imputed from the theophylline-gated reaction
 @Editor(chicago): no reaction expressing LacZ standalone is on record. Every value above is taken from the theophylline-gated reaction on the [Theophylline Detector](../detector-theophylline/spec.md#detector-theophylline-reference-composition) spec with the analyte removed — that reaction is this Module plus a riboswitch, so what remains when theophylline is dropped is this Module. Two things that follow are assumptions, not measurements: that a constitutive LacZ construct wants the same 5 nM as a riboswitch-gated one, and that the London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) behave like the Chicago one at that concentration. Confirm both with the Node that runs it.
 
-In the synthetic cells documented here LacZ is not expressed at all — it is added as purified enzyme at 20 U/mL. Where the two sit relative to each other is the composing system's choice; see the [aTc Sensing Cell](../atc-sensing-cell/spec.md), which encapsulates the enzyme and keeps 0.5 mM CPRG outside.
+In the synthetic cells documented here LacZ is not expressed at all — it is added as purified enzyme, at a concentration that varies about sixty-fold between formats. Where the two sit relative to each other is the composing system's choice; see the [aTc Sensing Cell](../atc-sensing-cell/spec.md), which encapsulates the enzyme at 2.5 U/mL and keeps 0.5 mM CPRG outside.
 :::
 
 ::::

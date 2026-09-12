@@ -1,7 +1,7 @@
 ---
 title: "Gel: PEGDA"
 subtitle: "Module Specification"
-status: draft
+status: canceled
 site:
     hide-toc: true
     numbered_references: false
@@ -13,8 +13,10 @@ PEGDA Gel is a poly(ethylene glycol) diacrylate hydrogel crosslinked by 405 nm l
 
 PEGDA crosslinks by radical polymerization of its acrylate groups, with a PEG4SH crosslinker and a LAP photoinitiator — the same crosslinker the PEG-norbornene route uses.
 
-:::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use.
+:::{attention} Canceled — PEGDA destroys the vesicles
+PEGDA is not a route for any DevCells demo. Chicago Node, 2026-09-11: the aTc path uses [PEG-Norbornene](../gel-peg-norbornene/spec.md) "because PEG-DA destroys the vesicles." Radical acrylate polymerization is not compatible with the lipid membranes the cascades are built from, so a gel that sets around intact synthetic cells cannot use this chemistry.
+
+This specification is kept for reference and is not maintained. Its PEG-SH crosslinker and LAP photoinitiator are shared with the PEG-norbornene route, which is live.
 :::
 
 (gel-pegda-reference-composition)=

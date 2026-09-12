@@ -190,7 +190,7 @@ Two things, assembled at different steps. The Outer Solution is mixed first; eve
 | Component | Working concentration |
 | --- | --- |
 | ULGA | 1% (w/v) dissolved in the Outer Solution; 0.5% (w/v) in the set gel once both cell populations are combined in at 1:1:2 |
-| β-galactosidase (LacZ) | 20 U/mL, added as purified protein — per [LacZ Reporter](../reporter-lacz/spec.md). London supplies LacZ purified rather than expressing it in-reaction. |
+| β-galactosidase (LacZ) | not documented, added as purified protein. London supplies LacZ purified rather than expressing it in-reaction. @Editor(london): this row previously carried 20 U/mL, borrowed from a figure since withdrawn — see [LacZ Enzyme](../reporter-lacz-enzyme/spec.md). The gel-dispersed concentration has never been recorded and the Chicago figures are for encapsulated enzyme, so they do not carry across. |
 | AHL (3-oxo-C6-HSL) inducer | 10 µM; 5 µM is also used, and both appear in reported results. Present in the induced condition only. |
 :::
 
@@ -253,7 +253,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 **The gel**
 
 4. **Assemble Outer Solution** (mixing) — potassium L-glutamate, HEPES and glucose, matched to the sensing cell's inner solution at ≈ 920 mOsm. **No Process page covers this step.**
-5. [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at 20 U/mL and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md).
+5. [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md).
 
 [Colorimetric Readout](../../processes/colorimetric-readout/main.md) measures the result — the CPRG conversion, yellow to magenta, read by absorbance and by eye. It is not a composition step, because it produces no Module.
 

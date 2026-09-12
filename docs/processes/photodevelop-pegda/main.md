@@ -1,13 +1,15 @@
 ---
 title: "Photodevelop Gel: PEGDA"
 subtitle: "Process"
-status: draft
+status: canceled
 ---
 
 # Overview
 
-:::{attention} 🚧 Draft
-This page is a work in progress and not yet ready for use.
+:::{attention} Canceled — PEGDA destroys the vesicles
+This route is not used by any DevCells demo. Chicago Node, 2026-09-11: the aTc path uses PEG-norbornene "because PEG-DA destroys the vesicles." See [PEG-Norbornene Photodevelopment](../photodevelop-peg-norbornene/main.md), which is the live route, and [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), the parent process, which is unaffected.
+
+This protocol is kept for reference and is not maintained.
 :::
 
 PEGDA photodevelopment crosslinks poly(ethylene glycol) diacrylate (PEGDA) hydrogel precursor into spatially defined patterns using 405 nm light, delivered through a digital light processing (DLP) projector. In the Chicago colorimetric readout system, this process is used to fabricate hydrogel-embedded micro-patterns (e.g., QR-code-style test patterns) intended to house DevCells with precise spatial control and low phototoxicity relative to traditional UV crosslinking. An alternative version combines PEGDA with alginate to produce a patterned frame around an alginate core, multiplexing PEGDA's patternability with alginate's mechanical and functional stability.

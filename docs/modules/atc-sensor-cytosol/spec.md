@@ -67,7 +67,7 @@ flowchart TD
 | `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form. Base Cytosol does not require circular DNA |
 | `pOpen-T7-tetO-PLA1` | 3140 | pending — [PR #10](https://github.com/nucleus-eng/DNA/pull/10) | Circular form, preferred by the Chicago Node |
 | TetR | not documented | — | Supplied as purified protein at 50 nM, not expressed |
-| LacZ | not documented | — | Supplied as purified enzyme at 20 U/mL, not expressed |
+| LacZ | not documented | — | Supplied as purified enzyme at 2.5 U/mL, not expressed |
 :::
 
 One molecule carries the operator and the effector, so [PLA1](../effector-pla1/spec.md) has no construct of its own here.
@@ -82,7 +82,7 @@ One molecule carries the operator and the effector, so [PLA1](../effector-pla1/s
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
 | [aTc Sensing Module](../detector-tetr-atc/spec.md) | 1 nM `TetO-PLA1` DNA + 50 nM TetR | Two other DNA/TetR ratios have been characterized — see [aTc Sensing Cell](../atc-sensing-cell/spec.md) |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | Covered by 1 nM `TetO-PLA1` DNA | The operator and the effector are on one molecule |
-| [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | 20 U/mL | Enzyme only. CPRG stays in the outer solution — co-encapsulating the two makes the readout constitutive |
+| [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | 2.5 U/mL | Enzyme only. CPRG stays in the outer solution — co-encapsulating the two makes the readout constitutive |
 :::
 
 ::::

@@ -214,7 +214,7 @@ The aTc integration path uses one liposome population. It carries its own LacZ, 
 | --- | --- |
 | `TetO-PLA1` DNA | 1 nM |
 | TetR | 50 nM |
-| LacZ enzyme | 20 U/mL |
+| LacZ enzyme | 2.5 U/mL |
 | Base Cytosol components | At reaction concentration |
 :::
 
@@ -330,7 +330,7 @@ Every step below has a Process page. They are listed in the order they are perfo
 **Shared, once the populations exist**
 
 6. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests LacZ that escaped the aTc cells, which would otherwise meet CPRG with no lysis and add background color. Proteinase K does not distinguish one LacZ from another, so this step suits a format where the enzyme is encapsulated. It cannot be applied to the hydrogel format described above, which disperses commercial LacZ through the matrix on purpose.
-7. **Embedding — two steps, one per path, then a bond.** The pH path uses [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md); the aTc path uses a photodeveloped gel, [PEGDA](../../processes/photodevelop-pegda/main.md) or [PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md). The two gels are then bonded into one piece. **No process page covers the bond.**
+7. **Embedding — two steps, one per path, then a bond.** The pH path uses an **agarose** gel; the aTc path uses [PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md) photodevelopment. The two gels are then bonded into one piece. **No process page covers the bond**, and **no process page covers the agarose route either** — see the caution below.
 8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
 
 The photodeveloped path adds CPRG after crosslinking rather than embedding it with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes, and it is why that path carries CPRG as a free dye rather than in a liposome.
@@ -340,12 +340,20 @@ This section previously said the cascade could not have both its spatial separat
 
 | Path | Gel | CPRG |
 | --- | --- | --- |
-| pH | Alginate | Held in [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — no UV, so the substrate survives |
-| aTc | Photodeveloped, PEGDA or PEG-Norbornene | Dosed **free into the gel after crosslinking**, because UV bleaches it |
+| pH | **Agarose**, 0.7% | Held in [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — no UV, so the substrate survives |
+| aTc | **PEG-Norbornene**, photodeveloped | Dosed **free into the gel after crosslinking** at 0.5 mM, because UV bleaches it |
 
 **Spatial separation comes from the two gels being separate pieces**, not from patterning one gel. The photodeveloped path can use UV precisely because it carries no liposome-held substrate to bleach.
 
-@Editor(chicago): the path-to-gel assignment above is the Node's understanding as of 2026-09-09 and is **to be confirmed on 11 Sept**.
+**Confirmed 2026-09-11, and both paths moved.** The Node corrected the assignment live: the pH path is agarose, not alginate, and the aTc path is PEG-norbornene specifically — *"definitely pegnorburine because PEG-DA destroys the vesicles."* [PEGDA](../gel-pegda/spec.md) is canceled as a route.
+
+:::{caution} Which agarose is not established, and it decides whether the pH path has a process page
+This corpus has one agarose embedding process, [ULGA](../../processes/embed-ulga-hydrogel/main.md), and it is specific: ultra-low-gelling-temperature agarose gelling at (8–17) °C. The Chicago work is described only as **0.7% agarose**, cast on ice for about five minutes.
+
+Low-gelling-temperature agarose and ULGA are the same object under different part numbers, and both nodes hold it — but that does not establish that the 0.7% gel *is* that agarose rather than a plain, non-low-temperature one.
+
+**If it is ULGA, the pH path can likely reuse the ULGA process with a concentration change. If it is not, that path has no process page at all**, because moving off alginate took away the one it had. @Editor(chicago): a part number settles it.
+:::
 :::
 
 **The missing step is a bond, and now it has a name.** Two gels are embedded separately and then joined into one piece; nothing documents the joining. Every technique above is documented for one path or the other, and the step that makes this cascade one system rather than two is the one with no page.

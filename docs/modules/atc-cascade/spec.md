@@ -136,7 +136,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 | --- | --- |
 | `TetO-PLA1` DNA | 1 nM (headline condition); also tested at 0.5 nM |
 | TetR | 50 nM (headline condition); also tested at 100 nM |
-| LacZ enzyme | 20 U/mL |
+| LacZ enzyme | 2.5 U/mL |
 | Base Cytosol components | At reaction concentration; not separately documented for this cascade |
 :::
 
@@ -163,7 +163,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 :::{table} CPRG in the aTc path.
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| CPRG | not documented | @Editor(chicago): the free-dye dosing concentration for the photodeveloped path is not recorded. Confirm on 11 Sept |
+| CPRG | 0.5 mM final in the gel | about 11 µL of a 5 mM stock per 100 µL of gel. Chicago Node, 2026-09-11 |
 :::
 
 **This path carries no substrate liposome.** The pH path does — see [pH Cascade](../ph-cascade/spec.md). The difference follows from the gel, not from the reporter chemistry.
@@ -227,7 +227,7 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 # Constituent Modules
 
 - [aTc Sensing Cell](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell
-- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the sensing reaction at 20 U/mL
+- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the sensing reaction at 2.5 U/mL
 - [Substrate: CPRG](../substrate-cprg/spec.md) — dosed free into the gel after crosslinking, because UV bleaches it. This path carries no substrate liposome
 
 :::{attention} PLA1 is inside the sensing cell, not beside it

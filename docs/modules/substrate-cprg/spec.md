@@ -11,6 +11,8 @@ site:
 
 CPRG is chlorophenol red-β-D-galactopyranoside, the chromogenic substrate half of the [LacZ Reporter](../reporter-lacz/spec.md) pair. It is yellow; [LacZ](../reporter-lacz-enzyme/spec.md) cleaves it to chlorophenol red, which is magenta.
 
+**A second substrate exists.** [X-Gal](../substrate-xgal/spec.md) works with the same enzyme and precipitates rather than diffusing, so it holds a pattern where CPRG smears. It cannot be liposome-loaded, so the two are not interchangeable in every format — see that page.
+
 **This page is about the substrate, not about a container for it.** Holding CPRG inside a liposome keeps it away from the enzyme until a lysis event releases it, but the liposome format is the business of the process that encapsulates it: the London Node uses GUVs made by phase transfer, and the Chicago Node uses SUVs made by film hydration and extrusion. Both hold the same substrate. See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) for the SUV format specifically.
 
 :::{attention} 🚧 Draft
