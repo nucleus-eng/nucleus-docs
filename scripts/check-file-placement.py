@@ -31,6 +31,12 @@ ALLOWED_ROOT_FILES = {
     "intro.md", "readme.md", "claude.md",
     "contributors.md", "license.md", "fixme.md", "style-guide.md",
     "favicon.ico",
+    # TEMPORARY — remove together with CREDITS-TRACKING.md before merging the
+    # devcells-integration-pages branch to main. That file is a working model of
+    # who did what, not documentation, and it carries the same instruction at its
+    # own head. An allowlist entry outliving the file it permits would silently
+    # re-open the root to a content file.
+    "credits-tracking.md",
 }
 
 IGNORED_DIRS = {"_build", ".github", ".claude", ".obsidian", "scripts", "generated"}
