@@ -63,7 +63,8 @@ steps:
       title: "Outer Solution"
       page: null
     parameters:
-      tris-hepes: "42.5% (v/v) in water, giving about 1180 mOsm"
+      tris-hepes: "42.5% (v/v) in water"
+      osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
 
   - id: assemble-cytosol
     process:

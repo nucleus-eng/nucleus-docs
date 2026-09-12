@@ -90,10 +90,12 @@ steps:
       title: "Outer Solution"
       page: null
     parameters:
-      tris-hepes: "42.5% (v/v) in water, giving about 1180 mOsm"
+      tris-hepes: "42.5% (v/v) in water"
+      osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
     notes: >
-      The alginate dissolves into this and both populations sit in it, so the
-      gel has no osmolarity of its own — it inherits this one. Same shape as
+      The alginate dissolves into this and both populations sit in it.
+      Osmolarity is additive; the polymer's own term is negligible at about
+      1% (w/v), so this value sets the gel's. Same shape as
       the London cascade's outer solution.
 
   # ── aTc path ────────────────────────────────────────────────────────────

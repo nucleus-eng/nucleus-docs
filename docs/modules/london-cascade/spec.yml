@@ -107,7 +107,7 @@ steps:
   - id: assemble-outer-solution
     process:
       title: "Assemble Outer Solution"
-      page: ../../processes/assemble-outer-solution/main.md                          # no page yet
+      page: ../../processes/assemble-outer-solution/main.md
       abstract: assemble-aqueous-solution
     operator: mixing
     operands: [potassium-glutamate, hepes, glucose]
@@ -115,6 +115,8 @@ steps:
       id: outer-solution
       title: "Outer Solution"
       page: null
+    parameters:
+      osmolarity: "~920 mOsm"     # measured or calculated is not recorded in any source
     notes: >
       Matched to the AHL Sensing Cell inner solution at about 920 mOsm. AHL is
       excluded — it is the analyte, present in the induced condition only, and

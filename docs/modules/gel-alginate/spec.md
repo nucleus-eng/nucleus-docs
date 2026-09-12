@@ -29,7 +29,7 @@ This page is a work in progress and not yet ready for use.
 | Calcium chloride (CaCl₂) | 200 mM | applied as a separate crosslinking solution, not premixed |
 :::
 
-The alginate is dissolved in whatever outer solution the embedded populations already sit in, so the gel does not have an osmolarity of its own to specify. It inherits one.
+The alginate is dissolved in whatever outer solution the embedded populations already sit in. Osmolarity is additive, so the gel's is the sum of that solution's and the polymer's own — and at about 1% (w/v) the polymer's term is on the order of 0.1 mOsm, negligible against the roughly 1180 mOsm of the solution. The solution sets it.
 
 A multimaterial variant mixes 1.6 wt% alginate into a PEGDA precursor, then crosslinks each component by its own route. The mixture is the ingredient; the product is not a blended gel but **a PEGDA frame around an alginate core** — two regions with a boundary between them, demonstrated with reasonable structural integrity. The CaCl₂ concentration and exposure time for the alginate step are not established. See [PEGDA Gel](../gel-pegda/spec.md).
 

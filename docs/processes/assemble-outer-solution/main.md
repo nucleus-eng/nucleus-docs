@@ -38,7 +38,7 @@ Three formulations are attested, and they are not interchangeable — each is ma
 
 **Above roughly 1200 mOsm, CPRG stops leaking.** In glucose-based outer solutions, dye leakage from loaded liposomes falls sharply above that osmolarity. That is the reason for the high-glucose configuration: leaked CPRG meets external enzyme with no lysis and raises background before the cascade fires. See [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md).
 
-**Whatever dissolves into it inherits its osmolarity.** A gel polymer — ULGA, alginate, or a photodevelopable precursor — is dissolved into this solution, so the gel imposes no osmotic environment of its own. Changing the outer solution changes the gel.
+**Osmolarity is additive, and the solution sets it.** Every component contributes osmolytes, so a gel's osmolarity is the sum of the solution's and the polymer's own. A gel polymer — ULGA, alginate, or a photodevelopable precursor — is dissolved into this solution at a concentration whose contribution is negligible: about 1% (w/v) agarose adds on the order of 0.1 mOsm against a 920 mOsm background. So the polymer is not osmotically inert, only negligible, and changing the outer solution changes the gel.
 
 # Processes
 

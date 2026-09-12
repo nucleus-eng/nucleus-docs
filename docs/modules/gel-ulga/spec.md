@@ -29,16 +29,31 @@ This page is a work in progress and not yet ready for use.
 | Potassium L-glutamate | 578 mM | |
 | HEPES, pH 7.4 | 72 mM | |
 | Glucose | 300 mM | |
+| **Osmolarity** | **~920 mOsm** | the sum of the components above. Whether this figure was measured or calculated is not recorded |
 :::
 
 Unlike the other three gels, ULGA is specified together with its solution rather than as an additive to someone else's. The salts and sugar above are the [London Chassis](../london-chassis/spec.md) outer solution, which matches inner to outer at about 920 mOsm.
+
+**Osmolarity is additive.** The figure above is the sum of every component's contribution, the polymer included. At 1% (w/v) the ULGA itself adds on the order of 0.1 mOsm — negligible against 920, but not zero. The salts and sugar set it.
 
 A separate configuration replaces those three with 1200 mM glucose and 0.1 mM CaCl₂, used where the embedded cells carry [Base Cytosol](../base-cytosol/spec.md) rather than [S30 Lysate](../s30-lysate/spec.md). The 1200 mM figure is not arbitrary — above roughly 1200 mOsm, CPRG leakage from loaded liposomes drops sharply.
 
 (gel-ulga-expected-behavior)=
 # Expected Behavior
 
-@Claude: somewhere in this document we should add the expected (or tolerated?) osmolarity range for Gel, as a member of Outer Solution fiber. this applies to all Outer Solution child pages. should also go into the .yml. 
+## Osmolarity
+
+**This gel provides an osmolarity; it does not tolerate one.** The distinction matters when swapping a module in or out. An outer solution — and a gel is one, since the polymer dissolves into it — states a **range it provides**. What tolerates a range is the cell inside, and that tolerance is a property of its membrane rather than of this gel.
+
+| Configuration | Osmolarity | Used with |
+| --- | --- | --- |
+| Standard, with the London Chassis outer solution | ~920 mOsm | [S30 Lysate](../s30-lysate/spec.md) cells |
+| High-glucose, 1200 mM glucose + 0.1 mM CaCl₂ | ~1200 mOsm | [Base Cytosol](../base-cytosol/spec.md) cells, where CPRG retention matters |
+
+**The upper figure is a threshold, not a preference.** Above roughly 1200 mOsm, CPRG leakage from loaded liposomes falls sharply — so the high-glucose configuration is chosen for dye retention, not for the cells' sake.
+
+**No tolerated range is established for any membrane used with this gel.** Measuring one means putting [Dye Liposomes](../dye-liposomes/spec.md) across a panel of outer solutions and scoring liposome integrity. Until that exists, match empirically.
+
 ## Gels
 
 Expect a gel that stays liquid while warm, tolerates mixing with intact synthetic cells, and sets on cooling below its gel point without a crosslinker, a divalent load or any illumination.
