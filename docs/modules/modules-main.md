@@ -24,6 +24,7 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
 | Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
 |                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
+|                 | [Gramicidin A](./membrane-pore-gramicidin/spec.md) | ★   |
 | Effector        | [PLA1](./effector-pla1/spec.md)             | ★          |
 
 :::

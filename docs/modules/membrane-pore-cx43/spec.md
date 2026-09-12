@@ -76,7 +76,7 @@ Control liposomes without Cx43 plasmid. No green fluorescent rings are observed.
 Higher-magnification views of individual Cx43-eGFP-expressing liposomes are available in the [DevNote](https://doi.org/10.63765/xvxu3274).
 :::
 
-**Leakage Assay** — Liposomes co-encapsulating NEB PURExpress, `pOpen-pT7-Cx43`, and Alexa Fluor 647 dye were incubated at 37 °C for 6 h and imaged by confocal microscopy every 10 min.
+**Leakage Assay** — Liposomes co-encapsulating NEB PURExpress, `pOpen-pT7-Cx43`, and Alexa Fluor 647 dye (~1.3 kDa) were incubated at 37 °C for 6 h and imaged by confocal microscopy every 10 min. Cx43 is expressed in situ from the co-encapsulated plasmid, so the time course below is limited by expression and insertion rather than by transport through the assembled channel.
 
 :::{figure} cell-leakage-kinetics.png
 Background-subtracted Alexa Fluor 647 fluorescence intensity over 6 h at 37 °C. Liposomes containing Cx43 show a progressive decrease in encapsulated dye fluorescence relative to controls, consistent with pore-mediated dye leakage.
@@ -87,7 +87,7 @@ Background-subtracted Alexa Fluor 647 fluorescence intensity over 6 h at 37 °C.
 ::::{tab-item} +Cx43
 
 :::{figure} cell-leakage-timeseries-sample.png
-Time series of Cx43-reconstituted liposomes encapsulating Alexa Fluor 647 over 6 h at 37 °C (images every 10 min, starting 40 min after preparation). Progressive loss of fluorescence is observed as dye leaks through Cx43 channels. Scale bar: 500 µm.
+Time series of Cx43-expressing liposomes encapsulating Alexa Fluor 647 over 6 h at 37 °C (images every 10 min, starting 40 min after preparation). Progressive loss of fluorescence is observed as dye leaks through Cx43 channels. Scale bar: 500 µm.
 :::
 
 ::::
@@ -107,7 +107,7 @@ Time series of control liposomes encapsulating Alexa Fluor 647 over 6 h at 37 °
 ::::{tab-item} +Cx43 (start)
 
 :::{figure} cell-leakage-startpoint-sample.png
-Confocal image of Cx43-reconstituted liposomes at the start point, 40 min after preparation. Some liposomes already show reduced fluorescence, consistent with early dye leakage at room temperature. Scale bar: 500 µm.
+Confocal image of Cx43-expressing liposomes at the start point, 40 min after preparation. Some liposomes already show reduced fluorescence, consistent with early dye leakage at room temperature. Scale bar: 500 µm.
 :::
 
 ::::
@@ -115,7 +115,7 @@ Confocal image of Cx43-reconstituted liposomes at the start point, 40 min after 
 ::::{tab-item} +Cx43 (endpoint)
 
 :::{figure} cell-leakage-endpoint-sample.png
-Endpoint confocal image (6 h 40 min) of Cx43-reconstituted liposomes. A higher proportion of non-fluorescent liposomes is observed relative to controls. Scale bar: 500 µm.
+Endpoint confocal image (6 h 40 min) of Cx43-expressing liposomes. A higher proportion of non-fluorescent liposomes is observed relative to controls. Scale bar: 500 µm.
 :::
 
 ::::
@@ -142,7 +142,11 @@ Endpoint confocal image (6 h 40 min) of control liposomes. Most liposomes remain
 
 Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). If using DNA components, additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
-Passes molecules up to ~1 kDa. Anything larger will not cross. [α-Hemolysin](../membrane-pore-ahly/spec.md) passes up to ~3 kDa, so substituting this Module for it lowers the cutoff and a cargo between the two figures will stop crossing. 
+Passes molecules up to ~1 kDa. [α-Hemolysin](../membrane-pore-ahly/spec.md) passes up to ~3 kDa, so substituting this Module for it lowers the cutoff and a cargo between the two figures will stop crossing.
+
+**The figure is approximate, and this page's own assay shows by how much.** The leakage result above uses Alexa Fluor 647, about 1.3 kDa, and it crosses. So ~1 kDa is a scale rather than a ceiling, and a cargo somewhat above it is not excluded. Mass is one clause of a pore's selectivity, not the whole of it — [Gramicidin A](../membrane-pore-gramicidin/spec.md) selects on charge instead, and passes protons at 1 Da while excluding uncharged solutes many times larger.
+
+**Transport is symmetric, and that obliges the outer solution.** The cutoff is equally a statement about what leaves. Anything below it that the interior consumes equilibrates with the outside, so **it must also be present in the outer solution, or the interior runs out**. The requirement propagates to any membrane carrying this pore and to any Cell built on that membrane, and is discharged by checking the outer solution's composition rather than anything on this page.
 
 # Credits
 

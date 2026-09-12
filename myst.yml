@@ -62,6 +62,8 @@ project:
           hidden: true
         - file: ./docs/modules/membrane-pore-ahly/spec.md
           hidden: true
+        - file: ./docs/modules/membrane-pore-gramicidin/spec.md
+          hidden: true
         - file: ./docs/modules/reporter-degfp/spec.md
           hidden: true
         - file: ./docs/modules/detector-tetr-atc/spec.md
