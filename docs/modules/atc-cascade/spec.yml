@@ -40,9 +40,9 @@ inputs:
   energy-solution:
     title: "Energy solution"
     page: null            # @Editor(chicago): contents not recorded
-  pegda-monomer:
-    title: "PEGDA monomer"
-    page: ../gel-pegda/spec.md
+  peg-norbornene-monomer:
+    title: "4-arm PEG-norbornene"
+    page: ../gel-peg-norbornene/spec.md
   peg4sh:
     title: "PEG4SH crosslinker"
     page: null
@@ -94,12 +94,12 @@ steps:
 
   - id: photodevelop-gel
     process:
-      title: "Photodevelop Gel: PEGDA"
-      page: ../../processes/photodevelop-pegda/main.md
+      title: "Photodevelop Gel: PEG-Norbornene"
+      page: ../../processes/photodevelop-peg-norbornene/main.md
       abstract: photodevelop-gel
     operator: packing
     operands:
-      - pegda-monomer
+      - peg-norbornene-monomer
       - peg4sh
       - lap
       - chicago-outer-solution
@@ -110,8 +110,8 @@ steps:
       page: null
     notes: >
       No concentration is established for the monomer, the crosslinker or the
-      photoinitiator, and exposure time depends on all three. Two routes are
-      documented, PEGDA and PEG-Norbornene, and the choice is not settled.
+      photoinitiator, and exposure time depends on all three. The PEGDA route
+      was cut on 2026-09-11 — PEG-DA destroys the vesicles.
 
   - id: dose-cprg
     process:
@@ -134,10 +134,10 @@ measured_by:
       page: ../../processes/colorimetric-readout/main.md
 
 open:
-  - id: pegda-precursor-solvent
+  - id: peg-norbornene-precursor-solvent
     question: >
-      gel-pegda/spec.md says the precursor is dissolved in "PBS or deionized
-      water", while this file dissolves it in the Outer Solution. PBS would put
-      a large osmotic gradient across the membrane at the moment of embedding —
-      the cells sit at about 1180 mOsm. Same item as in
+      No page states what the PEG-Norbornene precursor dissolves in. This file
+      dissolves it in the Outer Solution; anything less would put a large
+      osmotic gradient across the membrane at the moment of embedding — the
+      cells sit at about 1180 mOsm. Same item as in
       chicago-cascade/spec.yml. @Editor(chicago).

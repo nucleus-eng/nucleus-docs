@@ -37,9 +37,9 @@ inputs:
   reporter-lacz-enzyme:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
-  alginate:
-    title: "Sodium alginate"
-    page: ../gel-alginate/spec.md
+  agarose:
+    title: "Agarose, 0.7%"
+    page: null            # which agarose is not established — @Editor(chicago)
   tris-hepes-stock:
     title: "Tris-HEPES buffer stock"
     page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
@@ -63,9 +63,9 @@ steps:
       tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
     notes: >
-      The alginate dissolves into this and both populations sit in it.
+      The agarose dissolves into this and both populations sit in it.
       Osmolarity is additive; the polymer's own term is negligible at about
-      1% (w/v), so this value sets the gel's.
+      0.7% (w/v), so this value sets the gel's.
 
   - id: anneal-trigger-duplex
     process:
@@ -112,15 +112,20 @@ steps:
       title: "Substrate SUV: CPRG"
       page: ../substrate-cprg-suv/spec.md
     notes: >
-      This path keeps the substrate liposome because alginate imposes no UV.
+      This path keeps the substrate liposome because agarose imposes no UV.
+      Confirmed 2026-09-11: the Liu Lab runs the pH solution and still uses
+      SUVs.
 
-  - id: embed-alginate
+  - id: embed-agarose
     process:
-      title: "Hydrogel Embedding: Alginate"
-      page: ../../processes/embed-alginate-hydrogel/main.md
+      title: "Hydrogel Embedding: Agarose"
+      # No page. Moving off alginate on 2026-09-11 took away the only process
+      # page this path had; embed-ulga-hydrogel is ULGA-specific and whether
+      # this is that agarose is not established. @Editor(chicago)
+      page: null
     operator: packing
     operands:
-      - alginate
+      - agarose
       - chicago-outer-solution
       - ph-sensing-cell
       - substrate-cprg-suv
@@ -130,8 +135,7 @@ steps:
       title: "pH Cascade"
       page: ../ph-cascade/spec.md
     parameters:
-      alginate: "about 1% (w/v)"
-      crosslinker: "200 mM CaCl2, applied separately, not premixed"
+      agarose: "0.7% (w/v)"   # sets thermally; no crosslinker
     notes: >
       The mixing ratio of sensing cells to SUVs to LacZ is not established —
       the same gap London closed on 2026-09-09 and this path still has.

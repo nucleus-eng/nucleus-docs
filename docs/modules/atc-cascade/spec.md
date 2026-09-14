@@ -41,7 +41,7 @@ flowchart TD
     SUBSTRATE_CPRG["Substrate: CPRG"]
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
-    PEGDA_MONOMER["PEGDA monomer"]
+    PEG_NORBORNENE_MONOMER["4-arm PEG-norbornene"]
     PEG4SH["PEG4SH crosslinker"]
     LAP["LAP photoinitiator"]
 
@@ -52,7 +52,7 @@ flowchart TD
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["aTc Sensing Cell"]
-    P4_PHOTODEVELOP_GEL_0(["Photodevelop Gel (packing)"])
+    P4_PHOTODEVELOP_GEL_0(["Photodevelop Gel: PEG-Norbornene (packing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_CASCADE["aTc Cascade"]
@@ -72,7 +72,7 @@ flowchart TD
     P3_ENCAPSULATE_0 --> P3_ENCAPSULATE_1
     P3_ENCAPSULATE_1 --> ATC_SENSING_CELL
 
-    PEGDA_MONOMER --> P4_PHOTODEVELOP_GEL_0
+    PEG_NORBORNENE_MONOMER --> P4_PHOTODEVELOP_GEL_0
     PEG4SH --> P4_PHOTODEVELOP_GEL_0
     LAP --> P4_PHOTODEVELOP_GEL_0
     CHICAGO_OUTER_SOLUTION --> P4_PHOTODEVELOP_GEL_0
@@ -87,7 +87,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,TRIS_HEPES_STOCK,ENERGY_SOLUTION,PEGDA_MONOMER,PEG4SH,LAP leaf;
+    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,TRIS_HEPES_STOCK,ENERGY_SOLUTION,PEG_NORBORNENE_MONOMER,PEG4SH,LAP leaf;
     class CHICAGO_OUTER_SOLUTION,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P3_ENCAPSULATE_1,P4_PHOTODEVELOP_GEL_0,P5_DOSE_CPRG_0 process;
 
@@ -97,14 +97,14 @@ flowchart TD
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
-    click PEGDA_MONOMER "/docs/modules/gel-pegda/spec"
+    click PEG_NORBORNENE_MONOMER "/docs/modules/gel-peg-norbornene/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click P4_PHOTODEVELOP_GEL_0 "/docs/processes/photodevelop-gel/photodevelop-gel-main"
+    click P4_PHOTODEVELOP_GEL_0 "/docs/processes/photodevelop-peg-norbornene/main"
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
 ```
 
