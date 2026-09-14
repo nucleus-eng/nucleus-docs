@@ -78,6 +78,26 @@ A staging file records four things:
 
 Naming: `tmp/STAGED-<date>-<topic>.md`.
 
+### Provenance in a staging file
+
+**Every commit hash, file path and line number in a staging file is a claim.** Check it before you write it. A dead hash has shipped three times in this practice, and the third was inside the staging file proposing this very rule — it cited a commit that existed on no branch of the repo it named, three times, while arguing that pins must be checkable.
+
+**Four atoms are the ones a machine can settle** — hash, path, line number, date. The referent is in the repo and the check's predicate *is* the claim. A string match is not on that list: it is a prompt to go look, never a verdict. (`nucleus-eng/category-theory`'s `when-a-claim-is-checkable.md` sets out why these and not others.)
+
+**A word count is a fifth atom of the same kind**, and an estimated one is marked as estimated. `category-theory` has three misses on record, all in the safe direction — "roughly 120" measured at 109, and a clause counted at 15 and restated at 16, twice, by two sessions.
+
+**A cross-repo measurement names its branch, not just its commit.** The atoms above are checkable because the referent is in the repo. A hash from another repo is precise and unanchored: it does not say which tree the reader should be standing in. **A figure taken against a different branch is not a stale version of the same claim; it is a different claim.**
+
+**The same holds for a quotation, and the measurement rule does not cover it.** Edit sites partition by repo; **quotations cross.** A line quoted from another repo needs the ref it was read at, for the same reason a count does — the sentence may not be there, or may not say that, at the commit the reader is standing on.
+
+**So a cross-repo pin names three things: repo, branch, hash.** The repo says what you looked at, not where you were standing — the pin records the source, never your location. The branch says which tree a reader must stand in to see it. The hash makes it checkable after either moves. **A pin that names the wrong object is worse than no pin, because it looks checkable and so nobody checks it.**
+
+Verify a cross-repo hash before writing it:
+
+```bash
+gh api repos/<owner>/<repo>/commits/<sha> --jq .sha
+```
+
 ## Architecture
 
 ### Companion DNA repository
