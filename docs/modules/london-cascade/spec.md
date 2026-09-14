@@ -252,7 +252,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 
 **The gel**
 
-4. **Assemble Outer Solution** (mixing) — potassium L-glutamate, HEPES and glucose, matched to the sensing cell's inner solution at ≈ 920 mOsm. **No Process page covers this step.**
+4. [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) (mixing) — potassium L-glutamate, HEPES and glucose, matched to the sensing cell's inner solution at ≈ 920 mOsm.
 5. [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [AHL Sensing Cell](../ahl-sensing-cell/spec.md).
 
 [Colorimetric Readout](../../processes/colorimetric-readout/main.md) measures the result — the CPRG conversion, yellow to magenta, read by absorbance and by eye. It is not a composition step, because it produces no Module.

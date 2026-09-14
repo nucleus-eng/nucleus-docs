@@ -41,7 +41,7 @@ inputs:
     page: ../reporter-lacz-enzyme/spec.md
   ulga-powder:
     title: "ULGA powder"
-    owner: vendor               # purchased consumable, Sigma-Aldrich A5030
+    owner: vendor               # purchased consumable; A5030 vs A2576 is open — see gel-ulga/spec.md
     page: ../gel-ulga/spec.md
   potassium-glutamate:
     title: "Potassium L-glutamate"
