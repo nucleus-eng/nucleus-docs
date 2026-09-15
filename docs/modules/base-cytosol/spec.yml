@@ -32,7 +32,7 @@ steps:
     process:
       title: "Assemble Base Cytosol"
       page: ../../processes/assemble-base-cytosol/main.md
-      abstract: assemble-aqueous-solution
+      abstract: assemble-cytosol
     operator: mixing
     operands: [smix, trna, pmix, ribosomes, rnase-inhibitor]
     produces:
@@ -40,7 +40,7 @@ steps:
       title: "Base Cytosol"
       page: ../base-cytosol/spec.md
     headroom:
-      capacity: "2.0 uL of 10"
+      provides: "2.0 uL of 10"
       balance: "Nuclease Free Water, 2.0 - X"
       notes: >
         Water is the unit. Filling the slot with water alone leaves every other

@@ -23,7 +23,6 @@ This page is a work in progress and not yet ready for use.
 :::{table} PEG-norbornene precursor solution.
 :label: comp-gel-peg-norbornene
 
-@Claude: BOM missing for this process. partially because part numbers for these components. Check spreadsheet for vendor links: https://docs.google.com/spreadsheets/d/1S5AEJnl6sMWUU7Yof3lFIO8tpLtEgvEa/edit?gid=1064417783#gid=1064417783
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | 4-arm PEG-norbornene | not established | the backbone |
@@ -62,6 +61,24 @@ Requires the PEG4SH crosslinker, as the PEGDA route does.
 # Processes
 
 Formed by [Photodevelop Gel: PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md), which is a stub — it records the chemistry and the CPRG incompatibility but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Photodevelop Gel: PEGDA](../../processes/photodevelop-pegda/main.md).
+
+# Materials
+
+<!-- vale nucleus.magnitude-unit-spacing = NO -->
+:::{table} Purchased materials.
+:label: bom-gel-peg-norbornene
+
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 4-arm PEG-norbornene | Chemical | 4-Arm PEG-Norbornene, MW 5k | Creative PEGWorks | PSB-4110-5g | — | — | [link](https://creativepegworks.com/product/4-arm-peg-norbornene-mw-5k) |
+| PEG4SH | Chemical | not established | — | — | — | — | — |
+| LAP photoinitiator | Chemical | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G | — | — | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/900889) |
+:::
+<!-- vale nucleus.magnitude-unit-spacing = YES -->
+
+:::{attention} Two rows are sourced and one is not
+@Editor(chicago): `PEG4SH` has no part number or manufacturer on any page or in the DevCell materials tracker, where it appears as `PEG-SH` with a quantity and no vendor. It is the crosslinker for **both** photodevelopment routes, so the gap also sits on [PEGDA Gel](../gel-pegda/spec.md) and [Photodevelop Gel: PEGDA](../../processes/photodevelop-pegda/main.md). Supply the vendor and part number, and confirm whether `PEG-SH` and `PEG4SH` are the same item.
+:::
 
 # Credits
 

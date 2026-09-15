@@ -490,12 +490,12 @@ not listed here is new.
 
 | Level | Keys |
 | --- | --- |
-| top | `module`, `title`, `inputs`, `steps` (all 16 sources); `measured_by` (4); `open` (3) |
-| step | `id`, `process`, `operator`, `operands`, `produces` (all 45 steps); `notes` (32); `parameters` (8); `headroom` (1); `ratio` (1) |
+| top | `module`, `title`, `inputs`, `steps` (all 17 sources); `measured_by` (4); `open` (4) |
+| step | `id`, `process`, `operator`, `operands`, `produces` (all 46 steps); `notes` (33); `parameters` (8); `headroom` (2); `ratio` (1) |
 | input | `title`, `page`; `component_of` where a component has no page of its own; `owner` |
 
 **A number belongs in `spec.yml` when it states a fact no single constituent page can
-state** (Jon, 2026-09-11). `headroom.capacity` is a property of the Module that provides
+state** (Jon, 2026-09-11). `headroom.provides` is a property of the Module that provides
 the slot, not of the process that filled it, and not of any additive. A combining `ratio`
 is a property of the step. An osmolarity that has to match across a membrane is a relation.
 Those belong here. A preparation figure that already sits on its own page — `alginate: about

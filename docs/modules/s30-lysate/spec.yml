@@ -1,0 +1,53 @@
+module: s30-lysate
+title: "S30 Lysate"
+
+inputs:
+  s30-premix:
+    title: "S30 premix"
+    page: null
+    component_of: "Promega E. coli S30 Extract System for Circular DNA, L1020"
+  s30-extract:
+    title: "S30 extract"
+    page: null
+    component_of: "Promega E. coli S30 Extract System for Circular DNA, L1020"
+  amino-acid-mix:
+    title: "Amino acid mix (pooled)"
+    page: null
+    component_of: "Promega E. coli S30 Extract System for Circular DNA, L1020"
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null
+
+steps:
+  - id: assemble-s30-lysate
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [s30-premix, s30-extract, amino-acid-mix, rnase-inhibitor]
+    produces:
+      id: s30-lysate
+      title: "S30 Lysate"
+      page: ../s30-lysate/spec.md
+    headroom:
+      provides: "3.75 uL of 25"
+      balance: "Nuclease-free water, to 25"
+      notes: >
+        The four kit and inhibitor volumes come to 21.25 uL and water makes the
+        reaction up to 25 uL. The slot is implied by the total rather than named,
+        and a DNA template spends part of it.
+    notes: >
+      The kit is supplied premixed rather than formulated from individual
+      reagents, so the three kit components have no pages of their own.
+
+open:
+  - id: no-process-page-for-this-assembly
+    question: >
+      spec.md has no Process section and no Nucleus process page documents
+      assembling S30 Lysate. This file names Assemble Cytosol because that is
+      the process that reserves headroom and because modules-main.md classes
+      S30 Lysate as Cytosol (Base), the same class as Base Cytosol. Base
+      Cytosol instead names Assemble Base Cytosol, the X = 0 case, which is
+      PURE-specific and does not cover a kit. Confirm the process, or write
+      the page this step should point at.

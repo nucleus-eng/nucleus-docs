@@ -27,11 +27,15 @@ No precursor concentration, arm ratio, crosslinker ratio, photoinitiator concent
 @Editor(chicago): supply the precursor composition and exposure conditions before this page is used at the bench.
 :::
 
+:::{table} Bill of Materials
+:label: bom-photodevelop-peg-norbornene
+
 | Name | Category | Product | Manufacturer | Part # |
 | --- | --- | --- | --- | --- |
 | 4-arm PEG-norbornene | Chemical | not established | — | — |
 | PEG4SH | Chemical | thiol crosslinker, shared with the PEGDA route; not established | — | — |
 | LAP photoinitiator | Chemical | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G |
+:::
 
 # Protocol
 

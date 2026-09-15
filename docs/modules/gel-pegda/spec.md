@@ -73,6 +73,7 @@ Prepared and patterned by [Photodevelop Gel: PEGDA](../../processes/photodevelop
 # Materials
 
 :::{table} Purchased materials.
+:label: bom-gel-pegda
 
 | Name | Category | Product | Manufacturer | Part # | Link |
 | --- | --- | --- | --- | --- | --- |

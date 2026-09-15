@@ -21,9 +21,7 @@ This Module has not been validated in Nucleus Cytosol. The performance data belo
 :align: center
 :width: 75%
 
-@Claude: this schematic should be copied over to pH Sensing Cytosol and Cell. we should lightly copy edit all captions for module and Cytosol to indicate that other components are displayed (i.e., color change, gramacidin, etc.)
-
-Schematic of the pH-Sensing Module. At neutral pH, trigger ssDNA is bound to pH-responsive ssDNA and the toehold switch stays closed. At acidic pH, trigger ssDNA releases and opens the toehold switch, allowing translation of the effector gene (e.g., a colorimetric reporter). Reproduced from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote, where it appears as `general/pH sensor schematic.png`.
+Schematic of the pH-Sensing Module, drawn inside the cell that carries it. **The bilayer, Gramicidin A, the colorimetric enzyme and the color change belong to that cell and are shown for context; this Module is the pH-responsive ssDNA, the trigger ssDNA and the toehold switch.** At neutral pH, trigger ssDNA is bound to pH-responsive ssDNA and the toehold switch stays closed. At acidic pH, trigger ssDNA releases and opens the toehold switch, allowing translation of the effector gene (e.g., a colorimetric reporter). Reproduced from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote, where it appears as `general/pH sensor schematic.png`.
 :::
 
 (detector-ph-reference-composition)=

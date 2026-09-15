@@ -46,10 +46,36 @@ The first two constructs are this Module's Reference Composition. The other two 
 
 ::::{tab-item} Cytosol
 
-Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the three formats below — and aTc inducer. **The dose depends on the cytosol**: 2.5 µM to 5 µM in lysate, but 0.1 µM to 0.5 µM in Nucleus Cytosol, where higher concentrations poison the reaction. See [aTc](../analyte-atc/spec.md). Volumes in µL. @Claude: aTc concentration should be in the reference composition table. text is not enough
+Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the three formats below — and aTc inducer. See [aTc](../analyte-atc/spec.md) for the dose, which depends on the cytosol.
 
+:::{table} Cytosolic components of the tetR-aTc Detector in Base Cytosol, at reaction concentration.
+| Module | Working concentration | Notes |
+| --- | --- | --- |
+| [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
+| `T7-tetO-deGFP` template | 0.5 nM | The reporter re-run in Base Cytosol. `pT7-tetO-plamGFP` is the PURExpress reference |
+| TetR repressor | 500 nM | Saturates repression; improvable to 2000 nM. Three formats are not interchangeable — see Expected Behavior |
+| aTc inducer | 0.1 µM to 0.5 µM, optimum ~0.25–0.35 µM | **The Node's working window in this cytosol, not the dose used in the figures below, which is unrecorded.** Lysate wants 2.5 µM to 5 µM. See [aTc](../analyte-atc/spec.md) |
+:::
 
-@Claude: let's replace this table. (1) we now have data on this module in Base Cytosol, so we should represent it in Base Cytosol. (2) See other cytosolic module pages for standard Reference Composition Cytosol Tab (typically, reagent, working concentration, notes; sometimes other)
+The PURExpress master mix that produced the reference figures is in Expected Behavior, below.
+
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cytosols
+
+The TetR module was validated in NEB PURExpress reactions. Purified repressor protein (MedChemExpress, HY-P71520A) and anhydrotetracycline inducer (Cayman Chemical, 10009542) were added at the final concentrations indicated. `pT7-tetO-plamGFP` plasmid DNA was added at 0.5 nM.
+
+Repression follows a roughly linear trend between 125 and 750 nM TetR and saturates around 500 nM, though it can be further improved up to 2000 nM. An inducer concentration of 2.5 µM to 5 µM provides effective induction well below saturating or toxic aTc levels. Note that aTc's yellow color overwhelms GFP fluorescence at concentrations greater than 50 µM to 100 µM, and high concentrations may negatively affect expression generally.
+
+(tetr-atc-purexpress-reference)=
+
+:::{table} PURExpress reference build, per 10 µL reaction. Volumes in µL.
+:label: comp-detector-tetr-atc-purexpress
+
 | **Component** | **Master Mix (µL)** |
 | --- | --- |
 | PURExpress Solution A | 4 |
@@ -64,18 +90,7 @@ Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the 
 | Master Mix | 9 |
 | Inducer | 1 |
 | **Total** | **10** |
-
-::::
-
-:::::
-
-# Expected Behavior
-
-## Cytosols
-
-The TetR module was validated in NEB PURExpress reactions. Purified repressor protein (MedChemExpress, HY-P71520A) and anhydrotetracycline inducer (Cayman Chemical, 10009542) were added at the final concentrations indicated. `pT7-tetO-plamGFP` plasmid DNA was added at 0.5 nM.
-
-Repression follows a roughly linear trend between 125 and 750 nM TetR and saturates around 500 nM, though it can be further improved up to 2000 nM. An inducer concentration of 2.5 µM to 5 µM provides effective induction well below saturating or toxic aTc levels. Note that aTc's yellow color overwhelms GFP fluorescence at concentrations greater than 50 µM to 100 µM, and high concentrations may negatively affect expression generally.
+:::
 
 ***In vitro* repression with TetR**
 
