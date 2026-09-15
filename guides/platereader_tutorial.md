@@ -2,7 +2,7 @@
 
 :::{attention}
 :class: simple
-This tutorial applies to CDK version <0.6.0. For newer versions, see the tutorial [here](guides/kinetics-tutorial/).
+This tutorial applies to CDK version <0.6.0. For newer versions, see the tutorial [here](./kinetics-tutorial/main.md).
 :::
 
 ## Overview

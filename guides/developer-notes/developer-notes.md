@@ -17,7 +17,7 @@ Most of the DevNote tools that appear in the Launcher require setting up API acc
 - [ ]  Select ‘API Access’ and click ‘Generate New Token’.
   - [ ]  Give the token a useful description and select Expiry for the maximum time allowed.
 - [ ]  From Nucleus Hub, open a terminal window from the Launcher and run the command `curvenote token set [my-token]`
-- [ ]  You should see a message that says: Token set for "[curvenote-username]" <curvenote-email-account> at https://api.curvenote.com/login”
+- [ ]  You should see a message that says: `Token set for "[curvenote-username]" <curvenote-email-account> at https://api.curvenote.com/login`
 
 :::::{tab-set}
 

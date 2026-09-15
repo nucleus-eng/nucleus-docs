@@ -57,6 +57,27 @@ pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
 ```
 
+## Staged edits
+
+**Do not edit committed files directly when resolving a conflict or applying a ruling.** Write the proposal to a staging file in `tmp/` first, resolve the conflict there, and apply only when the developer explicitly says to.
+
+Scope: every committed file in this repo — `docs/`, `CLAUDE.md`, `STYLE-GUIDE.md`, `myst.yml`, `scripts/`. Files under `tmp/` are gitignored and may be edited directly. Other repos have their own conventions.
+
+A staging file records four things:
+
+1. **The ruling or finding**, quoted.
+2. **What it overturns**, quoted from the page it contradicts. This is the part that earns the file — an edit that silently overwrites a claim hides whether the claim had a rationale behind it, and a wrong claim with a rationale attached is more convincing than a blank.
+3. **The edit sites**, as a table of page, line, current text, proposed text.
+4. **What it leaves open**, including questions for the developer.
+
+**A ruling about what is true is not approval to apply it.** Settling a fact decides what the staging file should say; it does not authorize touching a page. The same holds for answers to questions raised inside the staging file — those close items in the proposal, not the review.
+
+**The commit is the fold-in.** One commit, after review, whose subject is applying the staging file — not edit, then commit, then discuss. If an edit lands before approval, revert it and then remove the revert as well: a commit that should not have existed should not leave a revert pair in the history.
+
+**Name a staging file's dependencies.** One review pass can produce edits that land in several files, and applying them in the wrong order can make a correct proposal wrong — line numbers in particular are only valid against an unchanged file.
+
+Naming: `tmp/STAGED-<date>-<topic>.md`.
+
 ## Architecture
 
 ### Companion DNA repository

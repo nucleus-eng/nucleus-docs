@@ -1,5 +1,6 @@
 ---
 title: Implementations
+description: Documented combinations of Nucleus modules and processes demonstrating complete synthetic cell behaviors, characterized across operating conditions.
 ---
 
 # Overview
@@ -10,3 +11,4 @@ Implementations are combinations of useful Processes and Modules. This section i
 ## Implementations
 
 - [Responder Cell: aTc-detection IVHSL-emission](./responder-atc-ivhsl/main.md)
+- [Emitter Cell: IV-HSL emission](./emitter-ivhsl/main.md)

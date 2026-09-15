@@ -6,16 +6,15 @@ project:
   abbreviations:
     PURE: protein synthesis using recombinant elements
 site:
+  url: https://docs.nucleus.engineering
   template: book-theme
-  nav: 
+  nav:
     - title: Documentation
       url: https://docs.nucleus.engineering/
-    - title: Hub
-      url: https://hub.nucleus.engineering/
     - title: Developer Notes
       url: https://devnotes.nucleus.engineering/
-    - title: Forum
-      url: https://forum.nucleus.engineering/
+    - title: Contribute
+      url: /start/contribute
     # - title: Help
     #   children:
     #   - title: Forum
@@ -23,6 +22,7 @@ site:
     #   - title: FAQs
     #     url: /docs/about/faqs
   options:
+    analytics_plausible: nucleus.engineering
     logo: assets/logo-v1.png
     logo_url: https://nucleus.engineering/
     style: assets/style-sheet.css

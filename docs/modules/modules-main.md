@@ -1,5 +1,6 @@
 ---
 title: Modules
+description: A catalog of validated biochemical modules — detectors, reporters, emitters, membrane pores, and energy systems — for extending Nucleus synthetic cells.
 ---
 
 # Overview
@@ -18,6 +19,7 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | --------------- | ------------------------------------------- | ---------- |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        |
 | Detector        | [tetR-aTc](./detector-tetr_atc/spec.md)     | ★★         |
+|                 | [LacI-IPTG](./detector-laci_iptg/spec.md)   | ★★         |
 | Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         |
 | Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
