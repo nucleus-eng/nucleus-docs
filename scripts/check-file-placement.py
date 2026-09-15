@@ -24,12 +24,16 @@ CONTENT_EXTENSIONS = {".md", ".csv", ".pdf", ".png", ".jpg", ".jpeg", ".gif", ".
 
 ALLOWED_ROOTS = {
     "docs", "guides", "about", "start", "templates", "styles", "assets",
+    # The prose style guide. Not site content — it is never built or published,
+    # but it is Markdown, so this checker sees it.
+    "style-guide",
 }
 
 ALLOWED_ROOT_FILES = {
     "intro.md", "readme.md", "claude.md",
     "contributors.md", "license.md", "fixme.md",
     "favicon.ico",
+    "style-guide.md",
 }
 
 # Scratch and tooling directories. Nothing in them is site content.
