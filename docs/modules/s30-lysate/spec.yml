@@ -21,9 +21,9 @@ inputs:
 steps:
   - id: assemble-s30-lysate
     process:
-      title: "Assemble Cytosol"
-      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
-      abstract: assemble-aqueous-solution
+      title: "Assemble S30 Lysate"
+      page: null
+      abstract: assemble-cytosol
     operator: mixing
     operands: [s30-premix, s30-extract, amino-acid-mix, rnase-inhibitor]
     produces:
@@ -40,14 +40,3 @@ steps:
     notes: >
       The kit is supplied premixed rather than formulated from individual
       reagents, so the three kit components have no pages of their own.
-
-open:
-  - id: no-process-page-for-this-assembly
-    question: >
-      spec.md has no Process section and no Nucleus process page documents
-      assembling S30 Lysate. This file names Assemble Cytosol because that is
-      the process that reserves headroom and because modules-main.md classes
-      S30 Lysate as Cytosol (Base), the same class as Base Cytosol. Base
-      Cytosol instead names Assemble Base Cytosol, the X = 0 case, which is
-      PURE-specific and does not cover a kit. Confirm the process, or write
-      the page this step should point at.

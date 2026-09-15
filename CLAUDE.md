@@ -49,15 +49,18 @@ python3 scripts/check-dropdowns.py      # (CI) flag placeholder-only lists
 python3 scripts/check-file-placement.py # (CI) flag content files outside allowed dirs
 python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
 python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
+python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
 python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page
 python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
 **The four marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
-also runs Vale and `check-composition-tabs.py`. **The two marked `(local)` run in no
+also runs Vale and `check-composition-tabs.py`. **The three marked `(local)` run in no
 workflow** — `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
 turn it red with no change here (see the DNA section below); `check-anchors.py` because it
-is not wired up yet. Run both by hand before opening a PR. Install pre-commit hooks to catch violations before pushing:
+is not wired up yet; `check-spec-schema.py` deliberately, per the ruling that the composition
+tooling is built before it is enforced — wiring it up needs `jsonschema` beside `pyyaml` in
+`qa.yml`. Run both by hand before opening a PR. Install pre-commit hooks to catch violations before pushing:
 ```bash
 pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
@@ -485,14 +488,13 @@ python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  
 
 **Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page is *not* the test: `aTc Sensor Cytosol` has a page and is still expanded on the cascade that builds it. Deeper renders are for review material, never for a docs page. A module whose composition is a single box gets no diagram at all.
 
-**The keys in use.** No schema file and no validator — this table is the record, and a key
-not listed here is new.
-
-| Level | Keys |
-| --- | --- |
-| top | `module`, `title`, `inputs`, `steps` (all 17 sources); `measured_by` (4); `open` (4) |
-| step | `id`, `process`, `operator`, `operands`, `produces` (all 46 steps); `notes` (33); `parameters` (8); `headroom` (2); `ratio` (1) |
-| input | `title`, `page`; `component_of` where a component has no page of its own; `owner` |
+**The schema is [`scripts/spec-yml-schema.yml`](scripts/spec-yml-schema.yml)**, with
+`python3 scripts/check-spec-schema.py` to validate against it. A key the schema does not allow is
+rejected, rather than merely being absent from a list — the key table this replaces was wrong
+about four things within four days of being written, and did not carry `abstract:` or
+`composed_of:` at all. The validator also checks what a schema cannot express: an operand naming
+nothing, a duplicated product id, an `abstract:` naming no process, and a `page:` that does not
+resolve.
 
 **A number belongs in `spec.yml` when it states a fact no single constituent page can
 state** (Jon, 2026-09-11). `headroom.provides` is a property of the Module that provides
