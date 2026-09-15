@@ -32,7 +32,10 @@ ALLOWED_ROOT_FILES = {
     "favicon.ico",
 }
 
-IGNORED_DIRS = {"_build", ".github", ".claude", ".obsidian", "scripts", "generated"}
+# Scratch and tooling directories. Nothing in them is site content.
+# "tmp" holds staging documents and is gitignored except for tmp/README.md,
+# which declares the staging location for the `staging` skill to find.
+IGNORED_DIRS = {"_build", ".github", ".claude", ".obsidian", "scripts", "generated", "tmp"}
 
 
 def get_tracked_files() -> list[Path]:

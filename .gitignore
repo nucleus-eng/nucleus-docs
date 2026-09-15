@@ -23,3 +23,8 @@ dep/
 # DevNote numbered export folders (e.g. 09-cx43_cell/) — raw exports, never committed
 **/resources/[0-9][0-9]-*/
 
+# Scratch space. Staging documents live in tmp/staging/ — see tmp/README.md.
+# The README is the one tracked file: the staging skill reads it to find the
+# location, so it has to survive the ignore that protects everything beside it.
+tmp/*
+!tmp/README.md
