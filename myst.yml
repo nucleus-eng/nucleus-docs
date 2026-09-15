@@ -126,11 +126,11 @@ project:
     - file: ./about/contributors.md
     - file: ./about/license.md
   references:
-    devnote-01: https://devnotes.bnext.bio/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
-    devnote-02: https://devnotes.bnext.bio/articles/ppk-module-test
-    devnote-deGFP-cells: https://devnotes.nucleus.engineering/articles/bnext-devnotes-base-cell-01
-    devnote-cx43: https://devnotes.bnext.bio/articles/019a7496-0498-7d89-bebb-58cdc15caf54
-    devnote-devcell-plan: https://devnotes.bnext.bio/articles/developer-cell-introduction
+    devnote-01: https://devnotes.nucleus.engineering/articles/fppr8928
+    devnote-02: https://devnotes.nucleus.engineering/articles/ppk-module-test
+    devnote-deGFP-cells: https://devnotes.nucleus.engineering/articles/base-cell-01
+    devnote-cx43: https://devnotes.nucleus.engineering/articles/cx43-cell-01
+    devnote-devcell-plan: https://devnotes.nucleus.engineering/articles/developer-cell-introduction
   resources:
     - docs/**/*
 
