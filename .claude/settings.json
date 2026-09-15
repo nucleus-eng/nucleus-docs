@@ -3,8 +3,7 @@
     "nucleus": {
       "source": {
         "source": "github",
-        "repo": "nucleus-eng/nucleus-skills",
-        "ref": "cleanup/post-stack"
+        "repo": "nucleus-eng/nucleus-skills"
       }
     }
   },

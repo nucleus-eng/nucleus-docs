@@ -26,11 +26,13 @@ Every rule lives in exactly one file under [`style-guide/`](style-guide/). Nothi
 | [`sections.md`](style-guide/sections.md) | Every section of a Module spec, in order |
 | [`conventions.md`](style-guide/conventions.md) | Terminology, figures, citations, what never appears, mechanics |
 
+**MyST mechanics are not here.** Fence and tab-set depth, cross-reference anchors, `.md`-not-`.html` links and figure placement are properties of MyST rather than of this repo, and live in the `author-myst-content` skill. Invoke it when writing a page.
+
 If those four disagree with each other, `principles.md` wins and the other file is wrong.
 
 ## Applying them
 
-`.claude/skills/nucleus-style/SKILL.md` is the working procedure: what order to review in, which checks to run, and how to verify a pass did not lose anything. It states no rules of its own — it points here.
+**Invoke the `style-guide` skill** for the working procedure: what order to review in, which checks to run, and how to verify a pass did not lose anything. It states no rules — it reads this guide and applies what it finds.
 
 Two checks find what reading cannot, because absence is invisible on the page:
 

@@ -116,8 +116,9 @@ TODO: What a correct prep looks like, and how you would know it failed.
 
 # Processes
 
-<!-- A pointer at the assembly process, not a restatement of it. Protocol steps belong on the
-Process page. Use "Process" — not "Protocols" — for this section.
+<!-- Pointers at the assembly processes, not a restatement of them. Protocol steps belong on the
+Process page. Use "Processes" — not "Protocols" or the singular "Process" — for this section:
+the corpus settled on the plural, 38 pages to 3.
 
 If a method detail has nowhere else to live because no Process page covers it yet, keep it
 here rather than dropping it, and open an issue for the Process page. Never delete sourced

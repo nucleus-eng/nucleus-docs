@@ -24,6 +24,8 @@ CONTENT_EXTENSIONS = {".md", ".csv", ".pdf", ".png", ".jpg", ".jpeg", ".gif", ".
 
 ALLOWED_ROOTS = {
     "docs", "guides", "about", "start", "templates", "styles", "assets",
+    # The prose style guide. Not site content — it is never built or published,
+    # but it is Markdown, so this checker sees it.
     "style-guide",
 }
 
@@ -31,6 +33,7 @@ ALLOWED_ROOT_FILES = {
     "intro.md", "readme.md", "claude.md",
     "contributors.md", "license.md", "fixme.md", "style-guide.md",
     "favicon.ico",
+    "style-guide.md",
     # TEMPORARY — remove together with CREDITS-TRACKING.md before merging the
     # devcells-integration-pages branch to main. That file is a working model of
     # who did what, not documentation, and it carries the same instruction at its
@@ -39,7 +42,10 @@ ALLOWED_ROOT_FILES = {
     "credits-tracking.md",
 }
 
-IGNORED_DIRS = {"_build", ".github", ".claude", ".obsidian", "scripts", "generated"}
+# Scratch and tooling directories. Nothing in them is site content.
+# "tmp" holds staging documents and is gitignored except for tmp/README.md,
+# which declares the staging location for the `staging` skill to find.
+IGNORED_DIRS = {"_build", ".github", ".claude", ".obsidian", "scripts", "generated", "tmp"}
 
 
 def get_tracked_files() -> list[Path]:

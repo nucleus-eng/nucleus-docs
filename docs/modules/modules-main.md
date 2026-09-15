@@ -1,5 +1,6 @@
 ---
 title: Modules
+description: A catalog of validated biochemical modules — detectors, reporters, emitters, membrane pores, and energy systems — for extending Nucleus synthetic cells.
 ---
 
 # Overview

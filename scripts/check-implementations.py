@@ -17,6 +17,12 @@ Two failures, both of which a read-through misses.
 Coverage is advisory: an Implementation may legitimately use a Module in
 passing without that Module wanting a backlink. Category is an error.
 
+Links inside an admonition — note, warning, attention and their siblings — do not
+count as usage: a note saying two Modules are *not* interchangeable names both,
+and is a contrast rather than a claim. Declarative containers such as
+``{table}``, ``{figure}`` and ``{card}`` are still read. So a real usage claim
+written inside an admonition is invisible here.
+
 Usage:
     python3 scripts/check-implementations.py
     python3 scripts/check-implementations.py --strict   # coverage fails too
@@ -30,6 +36,49 @@ MODULES = Path("docs/modules")
 IMPLS = Path("docs/implementations")
 
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+
+
+# Directives that carry commentary about a page rather than its content. A
+# closed list on purpose: `{table}`, `{figure}`, `{tab-item}`, `{card}` and
+# `{grid}` are declarative containers, and `:::{table}` with a `:label:` is this
+# repo's dominant table convention — 117 of them across 52 files. Stripping
+# every `:::` block would mean that giving an Implementation's Modules table a
+# caption, which is how every mature page here is written, silently zeroed every
+# usage claim on it and left this check reporting clean.
+ADMONITIONS = {
+    "attention", "caution", "danger", "hint",
+    "note", "seealso", "tip", "warning",
+}
+
+
+def body(text: str) -> str:
+    """The page with admonition blocks removed.
+
+    A link inside a note or warning is commentary, not a claim. London DevCell
+    links the IV-HSL Emitter inside a `:::{note}` in order to say the two are
+    *not* interchangeable — different analyte, different receptor. Counting that
+    as usage would have the checker demand a backlink asserting a relation the
+    prose explicitly denies, and on an Implementation page there is no way to
+    describe a contrast without naming what you are contrasting against.
+
+    The consequence, which is the reason it is written down here: **a genuine
+    usage claim inside an admonition is invisible to this check.** Put the claim
+    in the body.
+    """
+    out, stack = [], []
+    for line in text.splitlines():
+        stripped = line.lstrip()
+        opening = re.match(r"^:{3,}\{([a-z-]+)\}", stripped)
+        if opening:
+            stack.append(opening.group(1))
+            continue
+        if re.match(r"^:{3,}\s*$", stripped):
+            if stack:
+                stack.pop()
+            continue
+        if not any(d in ADMONITIONS for d in stack):
+            out.append(line)
+    return "\n".join(out)
 
 
 def section(text: str, heading: str) -> str:
@@ -61,7 +110,7 @@ def main() -> int:
         name = main_md.parent.name
         text = main_md.read_text(encoding="utf-8")
         impl_uses[name] = {
-            s for t in LINK.findall(text) if (s := slug(t, "modules"))
+            s for t in LINK.findall(body(text)) if (s := slug(t, "modules"))
         }
 
     # what each Module lists under # Implementations
