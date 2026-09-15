@@ -11,9 +11,32 @@ site:
 
 Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-popc-chol/spec.md) and use a simple, glucose outer solution. Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation and microscopy. This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
 
-## Reference Composition
+# Reference Composition
 
 :::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TD
+    DYE_LIPOSOMES["Dye Liposomes"]
+    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
+
+    MEMBRANE_POPC_CHOL --> DYE_LIPOSOMES
+
+    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
+    classDef this fill:#374151,color:#ffffff,stroke:#111827;
+    class MEMBRANE_POPC_CHOL constituent;
+    class DYE_LIPOSOMES this;
+
+    click DYE_LIPOSOMES "/docs/modules/dye-liposomes/spec"
+    click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
 
 ::::{tab-item} Inner Solution
 
@@ -33,7 +56,7 @@ Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-po
 ::::{tab-item} Membrane
 
 :::{table}
-:label: comp-membrane
+:label: comp-dye-liposomes-membrane
 
 | Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
@@ -60,15 +83,15 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 :::::
 
-## Expected Behavior
+# Expected Behavior
 
 Liposomes are visible in the green channel (interior, HPTS, 480 nm ex / 520 nm em) and in the red channel (membrane, Liss-Rhodamine-PE, 540 nm ex / 580 nm em) under fluorescence microscopy.
 
-## Process
+# Process
 
 Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
-# Materials and Equipment
+# Materials
 
 :::{table}
 :label: bom-dye-liposomes
@@ -93,3 +116,12 @@ Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfe
 :icon: false
 Sucrose is used in the original [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) protocol for the inner solution, but is replaced by Optiprep here to match the Base Cell inner-solution formulation. It is not included in the BOM above.
 :::
+
+# Constituent Modules
+
+- [Base Membrane](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer encapsulating the HPTS dye solution
+
+# Credits
+
+Adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
+
