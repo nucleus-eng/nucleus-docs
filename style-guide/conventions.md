@@ -2,28 +2,22 @@
 
 ## Terminology
 
-| Use | Not | Note |
-| --- | --- | --- |
-| Module | constituent | `# Constituent Modules` and mermaid `classDef constituent` are protected strings |
-| Node (proper noun) | node | Chicago Node, London Node |
-| DevCells | — | the program |
-| DevStudio | DevCell Studio | the three-week hackathon |
-| liposome | vesicle | never an umbrella term; GUV, SUV and LUV are distinct and must not collapse |
-| synthetic cell | liposome | wherever the liposome can reasonably be called a synthetic cell |
-| integration path | leg | |
-| colorimetric | colormetric | |
-| ultrapure water | milliQ water | vendor-neutral |
-| `SMix -CP` | `SMixΔCP` | prefer plain characters |
+**The terms are not here any more.** They live in the Nucleus glossary, shared by every repo that
+installs the `nucleus` plugin: a definition for each term, the spellings it refuses, and which of
+those refusals are rules.
 
-**"Confirmed in synthetic cytosols and in synthetic cells"** is the standard phrasing for that claim. It is a phrasing, not a find-and-replace target — applying it blindly once produced "confirmed confirmed in synthetic cytosols and in synthetic cells".
+> `plugins/nucleus/references/glossary.md` — `nucleus-eng/nucleus-skills`, branch `feat/glossary`,
+> `f68e4598f33bb3d5c3d86f8ee21ce6419fac0d54`.
 
-**Name the exact chemical species.** Write `rNTPs` or `dNTPs`, never the ambiguous `NTP`. Some Modules specify both on the same page, so this is not a substitution you can automate.
+**Ten of its refusals run here as Vale rules.** `.vale.ini` sets the severity, because severity is
+each repo's own call: a refusal that collapses two meanings blocks, a house preference advises.
 
-**Be precise about what a number means.** "Raises Mg²⁺ from 8 to 18 mM" and "raises *optimal* Mg²⁺ from 8 to 18 mM" are different claims.
+**The rest cannot be rules and are not weaker for it.** A refused word that collides with a
+required heading, a filename or ordinary English is enforced by reading, which is the `style-guide`
+skill's job. The glossary marks which are which, and why.
 
-**Name the specific thing built,** using real Module names: "aTc Sensing Cell + CPRG-containing SUV + LacZ in 1% alginate". If a Module name does not exist for something you keep describing, it probably should.
-
-One item, one name (STE 1.11). American English. Renaming a shared term needs collaborator consent — a rename that reaches other Nodes is not an editorial decision.
+**Renaming a shared term needs collaborator consent** — a rename that reaches other Nodes is not an
+editorial decision. That holds for the glossary itself, not just for pages.
 
 ## Headings and captions
 
