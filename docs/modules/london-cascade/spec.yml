@@ -56,7 +56,7 @@ inputs:
     component_of: ../../processes/assemble-outer-solution/main.md
     page: null
 
-steps:
+process_steps:
 
   # 1 ────────────────────────────────────────────────────────────────────
   - id: assemble-cytosol
@@ -135,9 +135,6 @@ steps:
       - ahl-sensing-cell
       - guv-cprg
     ratio: "1:1:2"                        # sensing cells : substrate cells : gel
-    parameters:
-      ulga: "1.0% (w/v)"                  # in the gel-forming solution
-      ulga_final: "0.5% (w/v)"            # in the set gel; 0.2-0.5% works
     produces:
       id: london-cascade
       title: "London Cascade"

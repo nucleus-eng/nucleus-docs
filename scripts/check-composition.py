@@ -20,6 +20,20 @@ Two findings, and they are not the same severity.
             `chicago-cascade` names two Cascades where the source names the two
             gel pieces they end as, and neither is wrong.
 
+  SKIPPABLE a step marked `optional: true` whose product a later step consumes
+            through an operator that cannot take its operands instead.
+            Reported, not blocking. Skipping an optional step rewires rather
+            than removes — whatever consumed the product consumes the operands
+            (Jon, 2026-09-15). A `mixing` consumer usually survives that: the
+            operands land in one compartment either way. A `packing` consumer
+            usually does not, because the product was the thing with its own
+            boundary and the operands are two things without one.
+
+            No source marks a step optional yet, so this rule has never fired.
+            It reports rather than blocks for exactly that reason: a blocking
+            rule with no corpus behind it is how you ship a rule that is wrong
+            the first time real text meets it.
+
 Exit 0 nothing blocking, 1 a MISSING, 2 the check could not run.
 
     python3 scripts/check-composition.py
@@ -78,23 +92,43 @@ def source_slugs(doc: dict) -> tuple[set[str], set[str]]:
         if (s := slug_of(v.get("page"))):
             named.add(s)
             pages[key] = s
-    for step in doc.get("steps") or []:
+    for step in doc.get("process_steps") or []:
         out = step["produces"]
         if (s := slug_of(out.get("page"))):
             named.add(s)
             pages[out["id"]] = s
-    steps = doc.get("steps") or []
+    steps = doc.get("process_steps") or []
     direct = {pages[o] for o in steps[-1]["operands"] if o in pages} if steps else set()
     return named, direct
 
 
-def check(spec: Path, src: Path) -> tuple[list[str], list[str]]:
+def skippable(doc: dict) -> list[str]:
+    """Optional steps whose product a packing consumer could not do without."""
+    steps = doc.get("process_steps") or []
+    by_product = {s["produces"]["id"]: s for s in steps if "produces" in s}
+    out = []
+    for i, s in enumerate(steps):
+        if not s.get("optional"):
+            continue
+        product = s.get("produces", {}).get("id")
+        for later in steps[i + 1:]:
+            if product not in (later.get("operands") or []):
+                continue
+            if later.get("operator") == "packing":
+                out.append(
+                    f"{s['id']} is optional, but {later['id']} packs its product "
+                    f"'{product}'; packing cannot take {len(s.get('operands') or [])} "
+                    f"loose operands where one bounded thing was expected")
+    return out
+
+
+def check(spec: Path, src: Path) -> tuple[list[str], list[str], list[str]]:
     doc = yaml.safe_load(src.read_text(encoding="utf-8"))
     named, direct = source_slugs(doc)
     listed = prose_constituents(spec.read_text(encoding="utf-8"))
     missing = [s for s in listed if s not in named]
     unlisted = sorted(s for s in direct if s not in listed)
-    return missing, unlisted
+    return missing, unlisted, skippable(doc)
 
 
 def main() -> int:
@@ -113,7 +147,7 @@ def main() -> int:
             print(f"⛔️ {src.parent.name}: spec.yml with no spec.md")
             blocking += 1
             continue
-        missing, unlisted = check(spec, src)
+        missing, unlisted, skips = check(spec, src)
         for s in missing:
             print(f"⛔️ {spec}: '# Constituent Modules' lists {s}, "
                   f"which spec.yml never names")
@@ -121,6 +155,9 @@ def main() -> int:
         for s in unlisted:
             print(f"⚠️  {spec}: {s} is an operand of the final step "
                   f"but is not in '# Constituent Modules'")
+            reported += 1
+        for s in skips:
+            print(f"⚠️  {spec}: {s}")
             reported += 1
 
     n = len(sources)

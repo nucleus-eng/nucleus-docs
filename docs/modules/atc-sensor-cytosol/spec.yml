@@ -27,7 +27,7 @@ inputs:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
 
-steps:
+process_steps:
   - id: assemble-cytosol
     process:
       title: "Assemble Cytosol"

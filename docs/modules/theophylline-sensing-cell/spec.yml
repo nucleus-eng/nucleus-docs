@@ -25,7 +25,7 @@ inputs:
     title: "Chicago Membrane: POPC/Chol"
     page: ../membrane-popc-chol-chicago/spec.md
 
-steps:
+process_steps:
   - id: assemble-cytosol
     process:
       title: "Assemble Cytosol"
@@ -37,8 +37,6 @@ steps:
       id: theophylline-sensor-cytosol
       title: "Theophylline Sensor Cytosol"
       page: null                          # no page yet — see `open` below
-    parameters:
-      riboswitch: "5 nM final DNA"
     notes: >
       The riboswitch drives whichever effector gene sits downstream of it, and
       no effector is specified on this page. So this cytosol is a sensing

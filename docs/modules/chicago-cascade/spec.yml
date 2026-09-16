@@ -75,7 +75,7 @@ inputs:
     title: "Agarose, 0.7%"
     page: null            # which agarose is not established — @Editor(chicago)
 
-steps:
+process_steps:
 
   # ── Shared ──────────────────────────────────────────────────────────────
   - id: assemble-outer-solution

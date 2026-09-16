@@ -24,7 +24,7 @@ inputs:
     title: "PLA1 Lysis Module"
     page: ../effector-pla1/spec.md
 
-steps:
+process_steps:
   - id: assemble-cytosol
     process:
       title: "Assemble Cytosol"

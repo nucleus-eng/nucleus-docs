@@ -28,7 +28,7 @@ inputs:
     title: "Effector: PLA1"
     page: ../effector-pla1/spec.md
 
-steps:
+process_steps:
   - id: anneal-trigger-duplex
     process:
       title: "Anneal pH-Responsive Trigger Duplex"

@@ -47,28 +47,28 @@ def reference_findings(path, doc):
                     f'is "{doc.get("module")}" but the directory is "{expect}"'))
 
     known = set((doc.get("inputs") or {}).keys())
-    for i, s in enumerate(doc.get("steps") or []):
+    for i, s in enumerate(doc.get("process_steps") or []):
         sid = s.get("id", f"#{i}")
         for op in s.get("operands") or []:
             if op not in known:
-                out.append(("operand", f"steps/{sid}/operands",
+                out.append(("operand", f"process_steps/{sid}/operands",
                             f'"{op}" names no input and no earlier step'))
         # a step's product is available to later steps
         pid = (s.get("produces") or {}).get("id")
         if pid:
             if pid in known:
-                out.append(("duplicate-id", f"steps/{sid}/produces/id",
+                out.append(("duplicate-id", f"process_steps/{sid}/produces/id",
                             f'"{pid}" is already an input or an earlier product'))
             known.add(pid)
 
     # abstract: must name a real process directory. Existence only — whether it is
     # the IMMEDIATE parent needs the process tree, which lives in prose in
     # processes-main.md. One value was wrong by one hop when the rule was ruled.
-    for i, s in enumerate(doc.get("steps") or []):
+    for i, s in enumerate(doc.get("process_steps") or []):
         sid = s.get("id", f"#{i}")
         ab = (s.get("process") or {}).get("abstract")
         if ab and not os.path.isdir(os.path.join(REPO, "docs/processes", ab)):
-            out.append(("abstract", f"steps/{sid}/process/abstract",
+            out.append(("abstract", f"process_steps/{sid}/process/abstract",
                         f'"{ab}" names no directory under docs/processes/'))
 
     # every page: path must resolve, relative to the yml's own directory

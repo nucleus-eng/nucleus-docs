@@ -25,9 +25,11 @@ inputs:
     page: null
   rnase-inhibitor:
     title: "RNase inhibitor"
-    page: null            # optional — 0 to 2000 U/mL
+    page: null
+    optional: true
+    range: "0 to 2000 U/mL"
 
-steps:
+process_steps:
   - id: assemble-base-cytosol
     process:
       title: "Assemble Base Cytosol"

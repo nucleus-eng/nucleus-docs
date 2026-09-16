@@ -21,7 +21,7 @@ inputs:
     title: "London Membrane"
     page: ../membrane-popc/spec.md
 
-steps:
+process_steps:
   - id: encapsulate
     process:
       title: "Encapsulation: Phase Transfer"

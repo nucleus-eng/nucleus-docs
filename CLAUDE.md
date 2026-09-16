@@ -198,6 +198,18 @@ python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  
 
 **Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page is *not* the test: `aTc Sensor Cytosol` has a page and is still expanded on the cascade that builds it. Deeper renders are for review material, never for a docs page. A module whose composition is a single box gets no diagram at all.
 
+**The composition steps are `process_steps:`** (Jon, 2026-09-15). Each entry applies one Process
+to named operands and yields a named product — *"`step` isn't the right language. These are
+Processes, are they not?"* Two entries may name the same Process, so an entry is an application of
+one, not the Process itself.
+
+**An input or a step may be `optional: true`,** and an input may carry a `range:` where one figure
+would be wrong. **Skipping an optional step rewires rather than removes**: whatever consumed its
+product consumes its operands instead. `check-composition.py` reports where that cannot work — a
+`packing` consumer expected one bounded thing and would get several loose ones. It reports rather
+than blocks, because no source marks a step optional yet and a rule with no corpus behind it is a
+rule nobody has tested.
+
 **The schema is [`scripts/spec-yml-schema.yml`](scripts/spec-yml-schema.yml)**, with
 `python3 scripts/check-spec-schema.py` to validate against it. A key the schema does not allow is
 rejected, rather than merely being absent from a list — the key table this replaces was wrong
@@ -210,8 +222,26 @@ resolve.
 state** (Jon, 2026-09-11). `headroom.provides` is a property of the Module that provides
 the slot, not of the process that filled it, and not of any additive. A combining `ratio`
 is a property of the step. An osmolarity that has to match across a membrane is a relation.
-Those belong here. A preparation figure that already sits on its own page — `alginate: about
-1% (w/v)` — does not, and duplicating it is how the two drift.
+Those belong here.
+
+**The test for a `parameters:` value, made operational 2026-09-15.** Delete it when the step names
+an operand that **has a page of its own**, and that page states the figure. Keep it otherwise. The
+audit that produced this rule removed three of thirteen values — `ulga` and `ulga_final`, both on
+[`gel-ulga`](docs/modules/gel-ulga/spec.md), and `riboswitch`, on
+[`detector-theophylline`](docs/modules/detector-theophylline/spec.md).
+
+**The ten that stayed, stayed for two reasons, and neither is laziness.** Four are `osmolarity`, a
+relation by the rule above. Six name an operand with **no page at all** — `agarose`, `hpts`,
+`tris-hepes-stock` — so no constituent page can state them, and deleting would lose the figure.
+**That `agarose` and HPTS have no module page is the finding**, not the duplication. `tris-hepes`
+is the one to watch: `processes/assemble-outer-solution/main.md` states it, but a process page is
+not a constituent page, so the rule leaves it in place.
+
+**Read the comment before deleting the key it sits on.** `ulga_final` carried
+`# in the set gel; 0.2-0.5% works` — a working range, not a restatement. It was safe to delete
+only because `gel-ulga`'s own page says *"Works from 0.2% to 0.5% in the set gel"*. A first search
+for that range missed it, because the page writes `0.2% to 0.5%` and the pattern allowed no `%`
+between. **A search that finds nothing is not evidence; widen it before you act on it.**
 
 **`# Constituent Modules` stays as prose and the yml is the contract for tooling** (Jon, 2026-09-09). Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `london-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
 

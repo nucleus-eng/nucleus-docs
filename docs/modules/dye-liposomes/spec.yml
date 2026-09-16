@@ -21,7 +21,7 @@ inputs:
     title: "Base Membrane"
     page: ../membrane-popc-chol/spec.md
 
-steps:
+process_steps:
   - id: encapsulate
     process:
       title: "Encapsulation: Phase Transfer"

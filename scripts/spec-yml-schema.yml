@@ -15,7 +15,7 @@ $id: "https://docs.nucleus.engineering/schema/spec-yml/v1"
 title: Module composition source
 type: object
 additionalProperties: false
-required: [module, title, inputs, steps]
+required: [module, title, inputs, process_steps]
 
 properties:
   module:
@@ -29,7 +29,7 @@ properties:
     type: object
     description: >
       Everything the module starts from, keyed by id. Ids are referenced by
-      steps[].operands. 17 of 17 sources.
+      process_steps[].operands. 17 of 17 sources.
     minProperties: 1
     additionalProperties:
       type: object
@@ -49,10 +49,23 @@ properties:
           description: >
             Names the purchased item or mixture this is part of, where the component
             has no page of its own. 12 of 90 inputs.
+        optional:
+          type: boolean
+          description: >
+            True where the module composes without this input. The default is
+            absent, not false: an input with no `optional` key is required.
+            1 of 90 inputs — base-cytosol's RNase inhibitor, which the protocol
+            adds at 0.5 uL per 10 uL and which may be left out entirely.
+        range:
+          type: string
+          description: >
+            The span an optional or variable input may take, where a single figure
+            would be wrong. Free text carrying its unit, as the corpus writes
+            figures elsewhere.
         owner:
           type: string
           description: The Node that supplies or maintains it. 1 of 90 inputs.
-  steps:
+  process_steps:
     type: array
     description: Ordered composition steps. 46 across 17 sources.
     minItems: 1
@@ -103,6 +116,13 @@ $defs:
     additionalProperties: false
     required: [id, process, operator, operands, produces]
     properties:
+      optional:
+        type: boolean
+        description: >
+          True where the module composes without performing this step. Skipping it
+          rewires rather than removes: whatever consumed this step's product
+          consumes its operands instead. 0 of 46 steps today — the key exists so a
+          source can say it, and check-composition.py reports on the consequence.
       id:
         type: string
         pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"

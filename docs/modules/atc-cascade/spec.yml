@@ -50,7 +50,7 @@ inputs:
     title: "LAP photoinitiator"
     page: null
 
-steps:
+process_steps:
   - id: assemble-outer-solution
     process:
       title: "Assemble Outer Solution"

@@ -31,7 +31,7 @@ inputs:
     title: "Chicago Membrane: POPC/Chol"
     page: ../membrane-popc-chol-chicago/spec.md
 
-steps:
+process_steps:
   - id: anneal-trigger-duplex
     process:
       title: "Anneal pH-Responsive Trigger Duplex"

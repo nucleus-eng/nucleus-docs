@@ -18,7 +18,7 @@ inputs:
     title: "RNase inhibitor"
     page: null
 
-steps:
+process_steps:
   - id: assemble-s30-lysate
     process:
       title: "Assemble S30 Lysate"

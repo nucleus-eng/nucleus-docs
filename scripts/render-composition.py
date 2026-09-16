@@ -80,7 +80,7 @@ def expand(doc: dict, depth: int, root: Path) -> dict:
     if depth <= 1:
         return doc
     inputs = dict(doc.get("inputs") or {})
-    steps = list(doc["steps"])
+    steps = list(doc["process_steps"])
     for key, v in list(inputs.items()):
         page = v.get("page")
         if not page:
@@ -91,14 +91,14 @@ def expand(doc: dict, depth: int, root: Path) -> dict:
         sub = expand(yaml.safe_load(sub_path.read_text()), depth - 1, sub_path.parent)
         # The leaf stops being an input; the sub-graph produces it instead.
         del inputs[key]
-        produced = sub["steps"][-1]["produces"]["id"]
-        for s in sub["steps"]:
+        produced = sub["process_steps"][-1]["produces"]["id"]
+        for s in sub["process_steps"]:
             if s["produces"]["id"] == produced:
                 s["produces"] = {**s["produces"], "id": key}
             s["operands"] = [key if o == produced else o for o in s["operands"]]
         inputs.update(sub.get("inputs") or {})
-        steps = sub["steps"] + steps
-    return {**doc, "inputs": inputs, "steps": steps}
+        steps = sub["process_steps"] + steps
+    return {**doc, "inputs": inputs, "process_steps": steps}
 
 
 def render(doc: dict) -> str:
@@ -116,7 +116,7 @@ def render(doc: dict) -> str:
         declare(node_id(key), v["title"], v.get("page"), leaves)
 
     L.append("")
-    for i, s in enumerate(doc["steps"], 1):
+    for i, s in enumerate(doc["process_steps"], 1):
         pn = f"P{i}_{node_id(s['id'])}"
         # The operator rides on the process node, because it is a property of
         # the process rather than of any one edge.
@@ -138,7 +138,7 @@ def render(doc: dict) -> str:
         declare(node_id(out["id"]), out["title"], out.get("page"), composed)
 
     L.append("")
-    for i, s in enumerate(doc["steps"], 1):
+    for i, s in enumerate(doc["process_steps"], 1):
         pn = f"P{i}_{node_id(s['id'])}"
         n = len(chain(s))
         # Operands feed the first process; the chain runs; the last produces.
