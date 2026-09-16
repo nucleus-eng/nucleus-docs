@@ -1,0 +1,146 @@
+# Composition source for the pH Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. This is the pH integration path of the Chicago Cascade, entire.
+# chicago-cascade/spec.yml builds the same path and bonds the result to
+# the aTc one.
+
+module: ph-cascade
+title: pH Cascade
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  agarose:
+    title: "Agarose, 0.7%"
+    page: null            # which agarose is not established — @Editor(chicago)
+  tris-hepes-stock:
+    title: "Tris-HEPES buffer stock"
+    page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
+  energy-solution:
+    title: "Energy solution"
+    page: null            # @Editor(chicago): contents not recorded
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution]
+    produces:
+      id: chicago-outer-solution
+      title: "Outer Solution"
+      page: null
+    parameters:
+      tris-hepes: "42.5% (v/v) in water"
+      osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
+    notes: >
+      The agarose dissolves into this and both populations sit in it.
+      Osmolarity is additive; the polymer's own term is negligible at about
+      0.7% (w/v), so this value sets the gel's.
+
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
+    produces:
+      id: ph-sensor-cytosol
+      title: "pH Sensor Cytosol"
+      page: ../ph-sensor-cytosol/spec.md
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [ph-sensor-cytosol, membrane-chicago]
+    produces:
+      id: ph-sensing-cell
+      title: "pH Sensing Cell"
+      page: ../ph-sensing-cell/spec.md
+
+  - id: encapsulate-substrate-suv
+    process:
+      title: "Encapsulation: SUV"
+      page: ../../processes/encapsulate-suv/main.md
+    operator: packing
+    operands: [substrate-cprg, membrane-chicago]
+    produces:
+      id: substrate-cprg-suv
+      title: "Substrate SUV: CPRG"
+      page: ../substrate-cprg-suv/spec.md
+    notes: >
+      This path keeps the substrate liposome because agarose imposes no UV.
+      Confirmed 2026-09-11: the Liu Lab runs the pH solution and still uses
+      SUVs.
+
+  - id: embed-agarose
+    process:
+      title: "Hydrogel Embedding: Agarose"
+      # No page. Moving off alginate on 2026-09-11 took away the only process
+      # page this path had; embed-ulga-hydrogel is ULGA-specific and whether
+      # this is that agarose is not established. @Editor(chicago)
+      page: null
+    operator: packing
+    operands:
+      - agarose
+      - chicago-outer-solution
+      - ph-sensing-cell
+      - substrate-cprg-suv
+      - reporter-lacz-enzyme
+    produces:
+      id: ph-cascade
+      title: "pH Cascade"
+      page: ../ph-cascade/spec.md
+    parameters:
+      agarose: "0.7% (w/v)"   # sets thermally; no crosslinker
+    notes: >
+      The mixing ratio of sensing cells to SUVs to LacZ is not established —
+      the same gap London closed on 2026-09-09 and this path still has.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md

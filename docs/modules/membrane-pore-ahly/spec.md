@@ -102,6 +102,16 @@ Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production
 
 Using purified aHly protein only requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
+Passes molecules up to ~3 kDa, through an inner diameter of (1.6–4.6) nm. A payload well above that mass needs a different transport route. This is the figure that governs a swap to [Cx43](../membrane-pore-cx43/spec.md), which passes only ~1 kDa — the alternative recommended above is the more restrictive pore, not an equivalent one.
+
+**The mass figure is a scale, not a filter.** What a pore passes is set by a selectivity property of the pore, and mass is one clause of that property rather than the whole of it. This one is a geometric aperture, so mass is the clause that governs — but the figure is approximate at both ends. A cargo a little above it may still cross: Cx43's ~1 kDa aperture passes a ~1.3 kDa dye, measured on its own page. And a cargo far below it may not cross at all: a proton is 1 Da and does not cross a bare bilayer, which is why an encapsulated [pH sensor](../detector-ph/spec.md) needs its own transport route. Neither bound is sharp.
+
+**Transport is symmetric, and that obliges the outer solution.** The cutoff is equally a statement about what leaves. Once this pore is in a membrane, anything below the cutoff that the interior consumes equilibrates with the outside, so **it must also be present in the outer solution, or the interior runs out**. Base Cytosol's substrates are almost all below 3 kDa — NTPs, amino acids, phosphoenolpyruvate, the salts — while its machinery is not. So adding this Module is a change to the outer solution's composition, not an addition to the membrane.
+
+This requirement propagates: a membrane carrying this pore has it, and so does any Cell built on that membrane. It is discharged by checking the outer solution's own composition, not by anything on this page.
+
+**How fast is not established.** Equilibration competes with consumption, and no rate is recorded for any transport Module in this corpus. A reaction that finishes quickly may be untouched by a pore that equilibrates slowly. Dye loss through a pore is measured — see [Cx43](../membrane-pore-cx43/spec.md) — but that time course is limited by expression of the pore, not by transport through it.
+
 # Materials
 
 We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. HY-P2967) and resuspending to 10 µM in ultrapure water. Introduce purified protein to the outer solution of synthetic cells rather than expressing from DNA to avoid variability in expression efficiency.
@@ -118,3 +128,7 @@ High concentrations of purified aHly (>100 nM) are more likely to aggregate. Kee
 # Credits
 
 Module developed by the [Devaraj Lab](https://www.devarajgroup.com/).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

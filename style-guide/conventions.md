@@ -38,6 +38,7 @@ Renaming *or removing* a heading is a link change, because inbound anchors do no
 
 Generated diagrams carry the diagram and nothing else — no explanatory paragraphs.
 
+A generated diagram must not name specific Nodes.
 
 A Modules flowchart shows only Modules; a Processes flowchart only Processes; a third type shows a full Implementation with both. Every node must be a dependency of something in the diagram.
 

@@ -72,7 +72,7 @@ Keying by location rather than by Module also removes rows that only ever existe
 
 State a gap inside the tab it affects, in the row where the number would go. A tab holding no table is not a tab.
 
-**A composition tab carries a table, not a sentence pointing at another page.** Where a Module inherits its membrane or cytosol from a chassis, reproduce the table and name the source in the caption — a reader composing this Module should not have to open two more pages to learn its lipid fractions. The one exception is a Module whose composition is not specific to any one host: **Effector: PLA1** acts on any phospholipid membrane it reaches, so it names the membranes it has been used with instead of inventing a single table.
+**A composition tab carries a table, not a sentence pointing at another page.** Where a Module inherits its membrane or cytosol from a chassis, reproduce the table and name the source in the caption — a reader composing this Module should not have to open two more pages to learn its lipid fractions. The one exception is a Module whose composition is not specific to any one host: [Effector: PLA1](../docs/modules/effector-pla1/spec.md) acts on any phospholipid membrane it reaches, so it names the membranes it has been used with instead of inventing a single table.
 
 ### The tables
 
@@ -119,9 +119,9 @@ Performance data is not its own heading; it lives inside the Context it was meas
 
 **Say what measured it.** Every result names the Process that produced it, as a link:
 
-> Color developed within 3 h at 37 °C, scored by eye — see **Colorimetric Readout**.
+> Color developed within 3 h at 37 °C, scored by eye — see [Colorimetric Readout](../docs/processes/colorimetric-readout/main.md).
 
-A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on **London Cascade**: the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimization, or a better assay.
+A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on [London Cascade](../docs/modules/london-cascade/spec.md): the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimization, or a better assay.
 
 Where no Process page exists for the readout, say what was used in prose and mark it `@Editor:`. Do not drop the detail because there is nowhere tidy to link.
 
@@ -141,7 +141,7 @@ There is no path dependence. Given a set of Modules to compose you get a set of 
 
 **Dependence on configuration is a different thing, and it is real.** A Module that ships two constructs has a Requirement per construct, and composing it picks one. Write the condition as a trailing clause so the line still reads as a single Requirement:
 
-> Requires sigma-70 transcription and translation, when using `P70lux-PLA1-term` (e.g. **S30 Lysate**).
+> Requires sigma-70 transcription and translation, when using `P70lux-PLA1-term` (e.g. [S30 Lysate](../docs/modules/s30-lysate/spec.md)).
 
 Not "Using `P70lux-PLA1-term` requires…", which buries the Requirement behind its condition. Order does not matter; which variant you built does. See the Known gap below — it is the same thing.
 
@@ -163,7 +163,7 @@ Written the other way round, the same fact lands on every page that could ever t
 
 **Say when the page already satisfies a Requirement it inherited.** A composed Module takes on its constituents' Requirements and can also meet them, and the reader cannot tell the two apart without being told. `atc-sensing-cell` writes the met case:
 
-> Requires pT7 transcription and translation (e.g. [Base Cytosol](../docs/modules/base-cytosol/spec.md)), supplied here by the **Chicago Chassis**.
+> Requires pT7 transcription and translation (e.g. [Base Cytosol](../docs/modules/base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../docs/modules/chicago-chassis/spec.md).
 
 **A composed Module lists what a composer must still supply, not everything its parts require.** That follows from "say it once" and from writing for an unknown composer: the constituent pages already hold their own Requirements, and a reader who needs the full set gets it by following the links. Restating an inherited Requirement that this page satisfies makes the page look harder to use than it is; dropping one it does *not* satisfy makes it look easier. Neither is recoverable from the text today.
 

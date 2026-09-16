@@ -186,3 +186,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Credits
 
 Developed by Surendra Yadav (b.next).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

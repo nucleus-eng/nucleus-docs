@@ -148,3 +148,7 @@ Requires ATP and ssrA-tagged protein targets. Using DNA components additionally 
 # Credits
 
 Developed by [Yen-Yu Hsu](https://orcid.org/0000-0003-0866-6184) (b.next).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::
