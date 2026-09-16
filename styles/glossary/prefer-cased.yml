@@ -2,7 +2,7 @@
 # copy in nucleus-skills either — both come from one table in the glossary.
 #
 # Source  nucleus-eng/nucleus-skills, branch feat/glossary,
-#         f68e4598f33bb3d5c3d86f8ee21ce6419fac0d54
+#         2fb9ba03c27879cbc2eb61dffe454f98c47dc611
 #         plugins/nucleus/references/glossary.md, section "Refused spellings"
 #
 # To change a rule: edit the glossary row there, run scripts/generate-vale-rules.py,

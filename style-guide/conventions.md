@@ -7,7 +7,7 @@ installs the `nucleus` plugin: a definition for each term, the spellings it refu
 those refusals are rules.
 
 > `plugins/nucleus/references/glossary.md` — `nucleus-eng/nucleus-skills`, branch `feat/glossary`,
-> `f68e4598f33bb3d5c3d86f8ee21ce6419fac0d54`.
+> `2fb9ba03c27879cbc2eb61dffe454f98c47dc611`.
 
 **Ten of its refusals run here as Vale rules.** `.vale.ini` sets the severity, because severity is
 each repo's own call: a refusal that collapses two meanings blocks, a house preference advises.
