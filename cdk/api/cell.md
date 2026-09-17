@@ -3,13 +3,11 @@ title: "Cell API"
 subtitle: "cdk.analysis.cell — microscopy"
 ---
 
-:::{attention}
+:::{note}
 :icon: false
 :class: simple
 
-The interface described here is not yet in the released `nucleus-cdk` package. Version
-0.6.0 exposes only `cdk.analysis.cell.microscopy`; the functions below ship in the next
-release and are available now on the Nucleus Hub.
+This page documents CDK 0.6.1 [on PyPI](https://pypi.org/project/nucleus-cdk/). See the [microscopy tutorial](../tutorials/cell-microscopy.md) for usage.
 :::
 
 # Overview

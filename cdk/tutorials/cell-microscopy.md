@@ -3,11 +3,11 @@ title: "Analyzing Microscopy Data"
 subtitle: "Cell population analysis with the CDK"
 ---
 
-:::{attention}
+:::{note}
 :icon: false
 :class: simple
 
-The interface described here is not yet in the released `nucleus-cdk` package. Version 0.6.0 exposes only `cdk.analysis.cell.microscopy`; the functions below ship in the next release and are available now on the Nucleus Hub.
+This tutorial applies to CDK 0.6.1 [on PyPI](https://pypi.org/project/nucleus-cdk/). Reference material is in the [cell API reference](../api/cell.md).
 :::
 
 # Overview

@@ -1,6 +1,6 @@
 ---
 title: "Cytosol API"
-subtitle: "cdk.instruments.platereader — plate reader"
+subtitle: "cdk.instruments.platereader, cdk.analysis.cytosol — plate reader"
 ---
 
 :::{warning}
