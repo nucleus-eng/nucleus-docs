@@ -68,7 +68,7 @@ Requires the PEG4SH crosslinker, as the PEGDA route does.
 
 # Processes
 
-Formed by [Photodevelop Gel: PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md), which is a stub — it records the chemistry and the CPRG incompatibility but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Photodevelop Gel: PEGDA](../../processes/photodevelop-pegda/main.md).
+Formed by [Photodevelop Gel: PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md), which is a stub — it records the chemistry and the **Conflict** its UV exposure raises with CPRG, but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Photodevelop Gel: PEGDA](../../processes/photodevelop-pegda/main.md).
 
 # Materials
 

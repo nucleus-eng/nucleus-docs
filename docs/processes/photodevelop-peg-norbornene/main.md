@@ -10,7 +10,7 @@ PEG-norbornene photodevelopment crosslinks a 4-arm PEG-norbornene precursor with
 Step-growth thiol-ene addition gives a more uniform network than PEGDA's chain-growth acrylate polymerization and is less prone to oxygen inhibition at the gel surface.
 
 :::{attention} 🚧 Draft
-This page is a stub. The chemistry and its one confirmed incompatibility are recorded; the procedure is not. It cannot be run from this page.
+This page is a stub. The chemistry is recorded, and so is its one confirmed **Conflict** — this Process imposes UV, and CPRG is sensitive to it. The procedure is not recorded, so the page cannot be run from.
 :::
 
 :::{warning} UV exposure bleaches CPRG
