@@ -32,7 +32,7 @@ This page is a work in progress and not yet ready for use.
 
 :::{note} The composition is recorded; the arm ratio is provisional
 Chicago Node, Ojaswita Pant, 2026-09-14. Dissolve in 1 mL PBS, deionized water or buffer.
-Vortex 2000 rpm 1 min, rest 3–5 min at room temperature, vortex 2–4 min, repeat until clear.
+Vortex 2000 rpm 1 min, rest (3–5) min at room temperature, vortex (2–4) min, repeat until clear.
 Prepare under red light or in the dark.
 
 **The arm ratio is 4:1 ene-to-thiol** — 320 mM norbornene against 80 mM thiol — where

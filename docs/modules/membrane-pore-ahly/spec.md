@@ -118,7 +118,7 @@ We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. 
 
 | Material | Description | Manufacturer | Part # |
 | --- | --- | --- | --- |
-| α-Hemolysin | Purified α-hemolysin protein, resuspended to 10 µM in milliQ water | MedChemExpress | HY-P2967 |
+| α-Hemolysin | Purified α-hemolysin protein, resuspended to 10 µM in ultrapure water | MedChemExpress | HY-P2967 |
 
 :::{hint} Note: aggregation at high concentrations
 :class: dropdown

@@ -273,7 +273,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ]  Place inlet into a NaOH (0.5 M) and perform pump wash. Wash the column with 3 CV NaOH (0.5M).
 - [ ]  Place the inlet into water, perform pump wash, and then wash column in 2 CV filtered Ultrapure water.
 - [ ]  Place the inlet into AcOH (0.1 M), perform pump wash, and subsequently wash column with 3 CV AcOH (0.1 M).
-- [ ]  Pump wash with water and wash column with 2 CV filtered MilliQ water.
+- [ ]  Pump wash with water and wash column with 2 CV filtered ultrapure water.
 - [ ]  Place all inlets into EtOH (20% v/v). Perform a pump wash, then wash columns with 3 CV EtOH (20% v/v). Store columns at 4 °C in EtOH (20% v/v) until ready for use.
 
 ## Ultracentrifugation

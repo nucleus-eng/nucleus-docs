@@ -37,7 +37,7 @@ This module's chemistry is confirmed only at bulk-cytosol scale, with one constr
 
 ::::{tab-item} Cytosol
 
-The Chicago-node construct was tested downstream of the tetR-aTc Detector at three conditions — unregulated (no TetR), regulated (TetR, no aTc), and derepressed (TetR + aTc) — in a 10 µL Nucleus Cytosol reaction with `pT7-TetO-catecholase` (`pMN067`) at 20 nM final concentration and 1 mM catechol.
+The Chicago Node construct was tested downstream of the tetR-aTc Detector at three conditions — unregulated (no TetR), regulated (TetR, no aTc), and derepressed (TetR + aTc) — in a 10 µL Nucleus Cytosol reaction with `pT7-TetO-catecholase` (`pMN067`) at 20 nM final concentration and 1 mM catechol.
 
 :::{table} Reaction composition (Chicago Node)
 | Component | Stock Concentration | Final concentration | Unregulated (µL) | Repressed (µL) | Activated (µL) |

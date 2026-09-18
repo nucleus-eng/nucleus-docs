@@ -46,7 +46,7 @@ There it is the crosslinker at 20 mM of a 2 kDa four-arm polymer — roughly 4 w
 thiol partner. At that loading it acts as a chain-transfer agent. "Shared with" is true of the
 bottle and misleading about the chemistry.
 
-Vortex 2000 rpm 3–5 min. Photopattern 15–30 s at 405 nm — the window already on this page is
+Vortex 2000 rpm (3–5) min. Photopattern (15–30) s at 405 nm — the window already on this page is
 correct.
 :::
 
