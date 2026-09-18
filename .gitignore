@@ -23,3 +23,10 @@ dep/
 # DevNote numbered export folders (e.g. 09-cx43_cell/) — raw exports, never committed
 **/resources/[0-9][0-9]-*/
 
+# Staging and scratch — never committed. Staging documents live in tmp/staging/;
+# tmp/README.md declares that, and is the one tracked file here because the
+# staging skill reads it to find the location. Ignoring the directory itself
+# (`tmp/`) would stop git descending into it, so the negation below would never
+# fire and the declaration would silently go untracked.
+tmp/*
+!tmp/README.md

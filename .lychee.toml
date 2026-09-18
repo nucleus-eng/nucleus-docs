@@ -41,3 +41,16 @@ retry_wait_time = 3
 
 # Skip mailto: links
 include_mail = false
+
+# Fragment checking is deliberately NOT set here.
+#
+# It is switched on in scripts/check-links.py, on the offline pass only, because
+# lychee's verdict on a fragment cannot be trusted on its own: lychee slugs
+# headings the GitHub way and MyST does not. GitHub deletes punctuation then maps
+# spaces to hyphens, so " / " becomes "--"; MyST maps every non-alphanumeric to a
+# hyphen and then collapses runs, so the same heading gets "-". MyST builds the
+# deployed site, so MyST wins. The wrapper re-tests every fragment lychee rejects
+# against MyST's own rule (myst_html_id) and drops the ones MyST resolves.
+#
+# Setting include_fragments here would apply it to the network pass too and skip
+# that re-test, which reports working links as broken. See nucleus-skills#12.

@@ -59,3 +59,21 @@ jobs:
 
       - name: Check TOC
         run: python3 scripts/check-toc.py
+
+  implementations:
+    # Two rules over `# Implementations`. CATEGORY (blocking): an entry there
+    # must point at docs/implementations/, not at another Module — a cascade is
+    # a Module however composed it is. COVERAGE (advisory): an Implementation
+    # names the Modules it is built from, and each should link back. Coverage is
+    # the half that rots, so it is reported but does not fail; add --strict to
+    # enforce it. See scripts/check-implementations.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Check Implementations sections
+        run: python3 scripts/check-implementations.py
