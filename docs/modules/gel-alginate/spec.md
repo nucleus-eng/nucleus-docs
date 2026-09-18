@@ -20,6 +20,48 @@ This page is a work in progress and not yet ready for use.
 (gel-alginate-reference-composition)=
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    SODIUM_ALGINATE["Sodium alginate"]
+    CALCIUM_CHLORIDE["Calcium chloride (CaCl2)"]
+    EMBEDDING_BUFFER["Buffer compatible with what is being embedded"]
+
+    P1_DISSOLVE_0(["Hydrogel Embedding: Alginate (mixing)"])
+    ALGINATE_PRECURSOR["Alginate precursor solution"]
+    P2_CROSSLINK_IONIC_0(["Hydrogel Embedding: Alginate (mixing)"])
+    GEL_ALGINATE["Gel: Alginate"]
+
+    SODIUM_ALGINATE --> P1_DISSOLVE_0
+    EMBEDDING_BUFFER --> P1_DISSOLVE_0
+    P1_DISSOLVE_0 --> ALGINATE_PRECURSOR
+
+    ALGINATE_PRECURSOR --> P2_CROSSLINK_IONIC_0
+    CALCIUM_CHLORIDE --> P2_CROSSLINK_IONIC_0
+    P2_CROSSLINK_IONIC_0 --> GEL_ALGINATE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class SODIUM_ALGINATE,CALCIUM_CHLORIDE,EMBEDDING_BUFFER leaf;
+    class ALGINATE_PRECURSOR,GEL_ALGINATE composed;
+    class P1_DISSOLVE_0,P2_CROSSLINK_IONIC_0 process;
+
+    click P1_DISSOLVE_0 "/docs/processes/embed-alginate-hydrogel/main"
+    click P2_CROSSLINK_IONIC_0 "/docs/processes/embed-alginate-hydrogel/main"
+    click GEL_ALGINATE "/docs/modules/gel-alginate/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Gel
+
 :::{table} Alginate gel, as prepared.
 :label: comp-gel-alginate
 
@@ -28,6 +70,10 @@ This page is a work in progress and not yet ready for use.
 | Sodium alginate | ~1% (w/v) | dissolved in a buffer compatible with the liposomes being embedded — normally their own outer solution |
 | Calcium chloride (CaCl₂) | 200 mM | applied as a separate crosslinking solution, not premixed |
 :::
+
+::::
+
+:::::
 
 The alginate is dissolved in whatever outer solution the embedded populations already sit in. Osmolarity is additive, so the gel's is the sum of that solution's and the polymer's own — and at about 1% (w/v) the polymer's term is on the order of 0.1 mOsm, negligible against the roughly 1180 mOsm of the solution. The solution sets it.
 

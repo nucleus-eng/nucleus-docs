@@ -20,6 +20,50 @@ This page is a work in progress and not yet ready for use.
 (gel-peg-norbornene-reference-composition)=
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PEG4NB["4-arm PEG-norbornene, 5 kDa"]
+    PEG4SH["PEG4SH, 2 kDa"]
+    LAP["LAP photoinitiator"]
+    SOLVENT["PBS, deionized water or buffer"]
+
+    P1_ASSEMBLE_PRECURSOR_0(["Photodevelop Gel: PEG-Norbornene (mixing)"])
+    PEG_NORBORNENE_PRECURSOR["PEG-norbornene precursor solution"]
+    P2_PHOTOPATTERN_0(["Photodevelop Gel: PEG-Norbornene (mixing)"])
+    GEL_PEG_NORBORNENE["Gel: PEG-Norbornene"]
+
+    PEG4NB --> P1_ASSEMBLE_PRECURSOR_0
+    PEG4SH --> P1_ASSEMBLE_PRECURSOR_0
+    LAP --> P1_ASSEMBLE_PRECURSOR_0
+    SOLVENT --> P1_ASSEMBLE_PRECURSOR_0
+    P1_ASSEMBLE_PRECURSOR_0 -->|"4:1 ene-to-thiol — 320 mM norbornene against 80 mM thiol"| PEG_NORBORNENE_PRECURSOR
+
+    PEG_NORBORNENE_PRECURSOR --> P2_PHOTOPATTERN_0
+    P2_PHOTOPATTERN_0 --> GEL_PEG_NORBORNENE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PEG4NB,PEG4SH,LAP,SOLVENT leaf;
+    class PEG_NORBORNENE_PRECURSOR,GEL_PEG_NORBORNENE composed;
+    class P1_ASSEMBLE_PRECURSOR_0,P2_PHOTOPATTERN_0 process;
+
+    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/photodevelop-peg-norbornene/main"
+    click P2_PHOTOPATTERN_0 "/docs/processes/photodevelop-peg-norbornene/main"
+    click GEL_PEG_NORBORNENE "/docs/modules/gel-peg-norbornene/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Precursor
+
 :::{table} PEG-norbornene precursor solution.
 :label: comp-gel-peg-norbornene
 
@@ -29,6 +73,10 @@ This page is a work in progress and not yet ready for use.
 | PEG4SH, 2 kDa | 20 mM | thiol crosslinker. 4:1 ene-to-thiol against the backbone — provisional, see below |
 | LAP photoinitiator | 16.9 mM | lithium phenyl-2,4,6-trimethylbenzoylphosphinate |
 :::
+
+::::
+
+:::::
 
 :::{note} The composition is recorded; the arm ratio is provisional
 Chicago Node, Ojaswita Pant, 2026-09-14. Dissolve in 1 mL PBS, deionized water or buffer.

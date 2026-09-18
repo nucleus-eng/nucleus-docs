@@ -20,6 +20,50 @@ This page is a work in progress and not yet ready for use.
 (gel-ulga-reference-composition)=
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    ULGA["Ultra low gelling temperature agarose"]
+    POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
+    HEPES["HEPES, pH 7.4"]
+    GLUCOSE["Glucose"]
+
+    P1_ASSEMBLE_OUTER_0(["Assemble Outer Solution (mixing)"])
+    LONDON_OUTER_SOLUTION["London outer solution"]
+    P2_SET_THERMAL_0(["Hydrogel Embedding: ULGA (mixing)"])
+    GEL_ULGA["Gel: ULGA"]
+
+    POTASSIUM_GLUTAMATE --> P1_ASSEMBLE_OUTER_0
+    HEPES --> P1_ASSEMBLE_OUTER_0
+    GLUCOSE --> P1_ASSEMBLE_OUTER_0
+    P1_ASSEMBLE_OUTER_0 --> LONDON_OUTER_SOLUTION
+
+    ULGA --> P2_SET_THERMAL_0
+    LONDON_OUTER_SOLUTION --> P2_SET_THERMAL_0
+    P2_SET_THERMAL_0 -->|"1:1 with the cell suspension, halving the ULGA to its final figure"| GEL_ULGA
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class ULGA,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
+    class LONDON_OUTER_SOLUTION,GEL_ULGA composed;
+    class P1_ASSEMBLE_OUTER_0,P2_SET_THERMAL_0 process;
+
+    click P1_ASSEMBLE_OUTER_0 "/docs/processes/assemble-outer-solution/main"
+    click P2_SET_THERMAL_0 "/docs/processes/embed-ulga-hydrogel/main"
+    click GEL_ULGA "/docs/modules/gel-ulga/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Gel
+
 :::{table} ULGA gel, as prepared.
 :label: comp-gel-ulga
 
@@ -31,6 +75,10 @@ This page is a work in progress and not yet ready for use.
 | Glucose | 300 mM | |
 | **Osmolarity** | **~920 mOsm** | the sum of the components above. Whether this figure was measured or calculated is not recorded |
 :::
+
+::::
+
+:::::
 
 Unlike the other three gels, ULGA is specified together with its solution rather than as an additive to someone else's. The salts and sugar above are the [London Chassis](../london-chassis/spec.md) outer solution, which matches inner to outer at about 920 mOsm.
 

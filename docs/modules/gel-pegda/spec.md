@@ -29,6 +29,50 @@ This specification is kept for reference and is not maintained.
 (gel-pegda-reference-composition)=
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PEGDA575["PEGDA monomer, PEGDA575"]
+    PEG4SH["PEG4SH"]
+    LAP["LAP photoinitiator"]
+    PBS["PBS"]
+
+    P1_ASSEMBLE_PRECURSOR_0(["Photodevelop Gel: PEGDA (mixing)"])
+    PEGDA_PRECURSOR["PEGDA precursor solution"]
+    P2_PHOTOPATTERN_0(["Photodevelop Gel: PEGDA (mixing)"])
+    GEL_PEGDA["Gel: PEGDA"]
+
+    PEGDA575 --> P1_ASSEMBLE_PRECURSOR_0
+    PEG4SH --> P1_ASSEMBLE_PRECURSOR_0
+    LAP --> P1_ASSEMBLE_PRECURSOR_0
+    PBS --> P1_ASSEMBLE_PRECURSOR_0
+    P1_ASSEMBLE_PRECURSOR_0 --> PEGDA_PRECURSOR
+
+    PEGDA_PRECURSOR --> P2_PHOTOPATTERN_0
+    P2_PHOTOPATTERN_0 --> GEL_PEGDA
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PEGDA575,PEG4SH,LAP,PBS leaf;
+    class PEGDA_PRECURSOR,GEL_PEGDA composed;
+    class P1_ASSEMBLE_PRECURSOR_0,P2_PHOTOPATTERN_0 process;
+
+    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/photodevelop-pegda/main"
+    click P2_PHOTOPATTERN_0 "/docs/processes/photodevelop-pegda/main"
+    click GEL_PEGDA "/docs/modules/gel-pegda/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Precursor
+
 :::{table} PEGDA precursor solution.
 :label: comp-gel-pegda
 
@@ -38,6 +82,10 @@ This specification is kept for reference and is not maintained.
 | PEG4SH | 0.3 wt% | chain-transfer agent in this route, not the crosslinker — see below |
 | LAP photoinitiator | 0.03 wt% | lithium phenyl-2,4,6-trimethylbenzoylphosphinate; keep the solution dark until patterning |
 :::
+
+::::
+
+:::::
 
 :::{note} PEG4SH does a different job here
 Same reagent as the [PEG-norbornene route](../gel-peg-norbornene/spec.md), different function.
