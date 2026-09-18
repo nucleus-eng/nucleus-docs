@@ -67,7 +67,7 @@ The cytosol itself is whichever the host configuration uses — [Base Cytosol](.
 <!-- composition-tabs: no-table (PLA1 acts on any phospholipid membrane in reach, so a single lipid table would be wrong) -->
 ::::{tab-item} Membrane
 
-PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module: PLA1 acts on any phospholipid membrane it reaches, whether or not that membrane belongs to the cell that expressed it. The membranes it has been used with are [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) and [London Membrane: POPC](../membrane-popc/spec.md).
+PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module. The membranes it has been used with are [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) and [London Membrane: POPC](../membrane-popc/spec.md).
 
 Both a self-lysis target and, in the two-liposome cascades, a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) membrane are required.
 
@@ -104,6 +104,8 @@ Account for both routes rather than assuming a liposome stays intact until the i
 # Requirements
 
 Requires a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-popc/spec.md), [Chicago Membrane](../membrane-popc-chol-chicago/spec.md)).
+
+**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbour's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago DevCell](../../implementations/chicago-devcell/main.md) carries the same [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism, not a defect: a neighbouring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
 
 Requires an upstream sensing circuit (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
 
