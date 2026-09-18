@@ -141,7 +141,7 @@ Without Optiprep in the inner solution, the encapsulated sensor expresses GFP on
 In [S30 Lysate](../s30-lysate/spec.md), the AHL-gated [colorimetric](../../processes/colorimetric-readout/main.md) sensor works in solution as well as in gel. An AHL Sensing Cell combined with a [CPRG-loaded SUV](../../processes/encapsulate-suv/main.md) and AHL has not been reproduced. Negative controls in that test turned purple, attributed to leaky old-stock liposomes rather than an AHL response.
 
 :::{attention} Caveats
-- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the AHL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression.
+- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the AHL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
 - Plasmid dose is critical — roughly seven-fold under-dosing accounts for early failures. Use ~1000 ng per reaction.
 - Fold-induction is strongest near 25 °C and drops at 37 °C. Incubate at 25 °C where minimal background matters.
 - Encapsulation is stochastic. Expect a GFP-positive subpopulation rather than uniform signal across synthetic cells.
@@ -171,7 +171,7 @@ Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate
 
 Requires AHL (3-oxo-C6-HSL) in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)).
 
-Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression.
+Requires a membrane permeable to AHL (e.g. [London Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
 
 # Implementations
 

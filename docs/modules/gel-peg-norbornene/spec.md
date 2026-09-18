@@ -25,13 +25,21 @@ This page is a work in progress and not yet ready for use.
 
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| 4-arm PEG-norbornene | not established | the backbone |
-| PEG4SH | not established | thiol crosslinker, shared with the [PEGDA route](../gel-pegda/spec.md) |
-| LAP photoinitiator | not established | lithium phenyl-2,4,6-trimethylbenzoylphosphinate |
+| 4-arm PEG-norbornene, 5 kDa | 80 mM | the backbone |
+| PEG4SH, 2 kDa | 20 mM | thiol crosslinker. 4:1 ene-to-thiol against the backbone — provisional, see below |
+| LAP photoinitiator | 16.9 mM | lithium phenyl-2,4,6-trimethylbenzoylphosphinate |
 :::
 
-:::{attention} No composition is recorded
-@Editor(chicago): no concentration, arm ratio, exposure time or light source is established for this gel. Everything below describes what it does, not how to make it. It needs a composition and a process page before it can be used at the bench.
+:::{note} The composition is recorded; the arm ratio is provisional
+Chicago Node, Ojaswita Pant, 2026-09-14. Dissolve in 1 mL PBS, deionized water or buffer.
+Vortex 2000 rpm 1 min, rest 3–5 min at room temperature, vortex 2–4 min, repeat until clear.
+Prepare under red light or in the dark.
+
+**The arm ratio is 4:1 ene-to-thiol** — 320 mM norbornene against 80 mM thiol — where
+step-growth thiol-ene normally runs near 1:1. A four-fold norbornene excess gives a loosely
+crosslinked network, which may be deliberate: the same protocol specifies photopatterning for
+"exactly 60 s". @Editor(chicago): confirm the 4:1 ratio is intended rather than a transcription
+slip.
 :::
 
 (gel-peg-norbornene-expected-behavior)=
@@ -71,14 +79,10 @@ Formed by [Photodevelop Gel: PEG-Norbornene](../../processes/photodevelop-peg-no
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 4-arm PEG-norbornene | Chemical | 4-Arm PEG-Norbornene, MW 5k | Creative PEGWorks | PSB-4110-5g | — | — | [link](https://creativepegworks.com/product/4-arm-peg-norbornene-mw-5k) |
-| PEG4SH | Chemical | not established | — | — | — | — | — |
+| PEG4SH | Chemical | 4-Arm PEG-Thiol (2k) | Creative PEGWorks | PSB-440-5g | $900 | −20 °C, dark | — |
 | LAP photoinitiator | Chemical | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G | — | — | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/900889) |
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
-
-:::{attention} Two rows are sourced and one is not
-@Editor(chicago): `PEG4SH` has no part number or manufacturer on any page or in the DevCell materials tracker, where it appears as `PEG-SH` with a quantity and no vendor. It is the crosslinker for **both** photodevelopment routes, so the gap also sits on [PEGDA Gel](../gel-pegda/spec.md) and [Photodevelop Gel: PEGDA](../../processes/photodevelop-pegda/main.md). Supply the vendor and part number, and confirm whether `PEG-SH` and `PEG4SH` are the same item.
-:::
 
 # Credits
 

@@ -111,7 +111,7 @@ Three phase-transfer routes have been compared for encapsulating S30 Lysate in P
 
 Yield is counted as cells at or above 5 µm per imaging field. In the Elani route, adding 5 mg/mL BSA and raising Optiprep to 15% raised that count about 1.5×, from roughly 27 to roughly 42. Counts hold through incubation at 37 °C, and in the Optiprep condition cells stay round and abundant for 48 h, averaging 80 per field at 1 h and 66 at 48 h. Membrane stability is therefore not what limits yield.
 
-**Yield and expression pull against each other.** Optiprep above about 5% of the inner solution suppresses cell-free expression, so the conditions that give the most cells give no signal at all — see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for that result and its controls. The configuration demonstrated to express is the one without Optiprep, at the cost of yield. Expect to choose.
+**Yield and expression pull against each other.** Optiprep above about 5% of the inner solution suppresses cell-free expression, so the conditions that give the most cells give no signal at all — see [AHL Sensing Cell](../ahl-sensing-cell/spec.md) for that result and its controls. The configuration demonstrated to express is the one without Optiprep, at the cost of yield. Expect to choose. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
 
 :::{attention} Size is a threshold, not a distribution
 Cell size is recorded only as the ≥5 µm cutoff used for counting. @Editor(london): a size distribution, a measure of brightness, and reference images are still needed.

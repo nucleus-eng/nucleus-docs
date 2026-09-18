@@ -21,11 +21,7 @@ The side-by-side comparison behind it — exposed sample visibly bleached agains
 
 # Materials and Equipment
 
-:::{attention} Not established
-No precursor concentration, arm ratio, crosslinker ratio, photoinitiator concentration, exposure time or light source is recorded for this route. PEG4SH has no sourced entry on any page — it is the crosslinker for both routes and is missing from the [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md) bill of materials as well.
-
-@Editor(chicago): supply the precursor composition and exposure conditions before this page is used at the bench.
-:::
+Precursor composition and preparation are on [PEG-Norbornene Gel](../../modules/gel-peg-norbornene/spec.md). Patterning runs **60 s at 405 nm**.
 
 :::{table} Bill of Materials
 :label: bom-photodevelop-peg-norbornene

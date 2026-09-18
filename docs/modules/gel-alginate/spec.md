@@ -31,7 +31,9 @@ This page is a work in progress and not yet ready for use.
 
 The alginate is dissolved in whatever outer solution the embedded populations already sit in. Osmolarity is additive, so the gel's is the sum of that solution's and the polymer's own — and at about 1% (w/v) the polymer's term is on the order of 0.1 mOsm, negligible against the roughly 1180 mOsm of the solution. The solution sets it.
 
-A multimaterial variant mixes 1.6 wt% alginate into a PEGDA precursor, then crosslinks each component by its own route. The mixture is the ingredient; the product is not a blended gel but **a PEGDA frame around an alginate core** — two regions with a boundary between them, demonstrated with reasonable structural integrity. The CaCl₂ concentration and exposure time for the alginate step are not established. See [PEGDA Gel](../gel-pegda/spec.md).
+A multimaterial variant mixes 1.6 wt% alginate into a PEGDA precursor, then crosslinks each component by its own route. The mixture is the ingredient; the product is not a blended gel but **a PEGDA frame around an alginate core** — two regions with a boundary between them, demonstrated with reasonable structural integrity. The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm. See [PEGDA Gel](../gel-pegda/spec.md).
+
+Chicago compared this against the punch-out method — gel surrounded by air — and prefers the punch-out method: the frame route shows "more color bleed into the white frame, reducing spatial resolution" (Chicago Node, 2026-09-17). Recorded, not recommended. The punch-out method has no protocol on record.
 
 (gel-alginate-expected-behavior)=
 # Expected Behavior

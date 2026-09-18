@@ -72,8 +72,10 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
-:::{attention} Materials list incomplete
-Patterning runs at 405 nm for (15–30) s, adjusted for the other conditions; multimaterial patterning combines PEGDA with 1.6 wt% alginate. @Editor(chicago): the PEGDA and LAP *working* concentrations and the mold or patterning-chamber setup are still not established. Only the reagents themselves and the 405 nm exposure window (15 s to 30 s) are documented.
+Patterning runs at 405 nm for (15–30) s. Precursor is 20 wt% PEGDA575, 0.3 wt% PEG4SH and 0.03 wt% LAP in PBS — see [PEGDA Gel](../../modules/gel-pegda/spec.md).
+
+:::{attention} The patterning setup is not recorded
+@Editor(chicago): the mold or patterning-chamber setup is still not established. The multimaterial variant mixes 1.6 wt% alginate; its frame recipe and exposure times are on [Alginate Gel](../../modules/gel-alginate/spec.md).
 :::
 
 # Protocol

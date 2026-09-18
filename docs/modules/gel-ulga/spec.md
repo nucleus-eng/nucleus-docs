@@ -25,7 +25,7 @@ This page is a work in progress and not yet ready for use.
 
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| ULGA | 1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1 with the cell suspension | dissolved into the outer solution below, not into water. Works from 0.2% to 0.5% in the set gel, and lower gives faster kinetics |
+| ULGA | 1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1 with the cell suspension | dissolved into the outer solution below, not into water. Works from 0.2% to 0.5% in the set gel. **Lower gives faster kinetics; higher holds a better on-off state**, so the density is a dynamic-range lever rather than a preference. 0.2% immobilizes GUVs |
 | Potassium L-glutamate | 578 mM | |
 | HEPES, pH 7.4 | 72 mM | |
 | Glucose | 300 mM | |
@@ -92,9 +92,7 @@ Prepared and set by [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrog
 | ULGA | Reagent | Ultra low gelling temperature agarose | Sigma-Aldrich | A5030 | [link](https://www.sigmaaldrich.com/GB/en/product/sial/a5030) |
 :::
 
-:::{attention} Two part numbers for the same reagent
-The source records this agarose as both Sigma-Aldrich A5030 and Sigma-Aldrich A2576, "Agarose, Type IX-A, ultra low gelling temperature". @Editor(london): confirm which this process uses, or whether the imaging and embedding jobs genuinely use different agaroses.
-:::
+The source records this agarose as both Sigma-Aldrich A5030 and A2576, "Agarose, Type IX-A, ultra low gelling temperature". London Node: they are interchangeable.
 
 # Credits
 

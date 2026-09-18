@@ -13,10 +13,17 @@ PEGDA Gel is a poly(ethylene glycol) diacrylate hydrogel crosslinked by 405 nm l
 
 PEGDA crosslinks by radical polymerization of its acrylate groups, with a PEG4SH crosslinker and a LAP photoinitiator — the same crosslinker the PEG-norbornene route uses.
 
-:::{attention} Canceled — PEGDA destroys the vesicles
-PEGDA is not a route for any DevCells demo. Chicago Node, 2026-09-11: the aTc path uses [PEG-Norbornene](../gel-peg-norbornene/spec.md) "because PEG-DA destroys the vesicles." Radical acrylate polymerization is not compatible with the lipid membranes the cascades are built from, so a gel that sets around intact synthetic cells cannot use this chemistry.
+:::{attention} Canceled as a cell-carrying gel — PEGDA destroys the vesicles
+PEGDA cannot hold synthetic cells. Chicago Node, 2026-09-11: the aTc path uses
+[PEG-Norbornene](../gel-peg-norbornene/spec.md) "because PEG-DA destroys the vesicles."
+Radical acrylate polymerization is not compatible with the lipid membranes the cascades are
+built from.
 
-This specification is kept for reference and is not maintained. Its PEG-SH crosslinker and LAP photoinitiator are shared with the PEG-norbornene route, which is live.
+**It remains live as a structural frame.** Ojaswita Pant's 2026-09-14 protocol patterns a
+PEGDA575-alginate frame and backfills a PEG4Nb inset with the DevCells in it — the cells never
+enter the PEGDA. That composite has its own page.
+
+This specification is kept for reference and is not maintained.
 :::
 
 (gel-pegda-reference-composition)=
@@ -27,16 +34,25 @@ This specification is kept for reference and is not maintained. Its PEG-SH cross
 
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| PEGDA monomer | not established | dissolved in PBS or deionized water |
-| PEG4SH | not established | thiol crosslinker, shared with the [PEG-norbornene route](../gel-peg-norbornene/spec.md) |
-| LAP photoinitiator | not established | lithium phenyl-2,4,6-trimethylbenzoylphosphinate; keep the solution dark until patterning |
+| PEGDA monomer, PEGDA575 | 20 wt% | in PBS to 100 wt% total |
+| PEG4SH | 0.3 wt% | chain-transfer agent in this route, not the crosslinker — see below |
+| LAP photoinitiator | 0.03 wt% | lithium phenyl-2,4,6-trimethylbenzoylphosphinate; keep the solution dark until patterning |
 :::
 
-:::{attention} The concentrations are not recorded
-@Editor(chicago): no concentration is established for the PEGDA monomer, the PEG4SH crosslinker or the LAP photoinitiator, and PEG4SH has no sourced product anywhere in this documentation. Exposure time depends on all three, so the (15–30) s window below cannot be reproduced without them.
+:::{note} PEG4SH does a different job here
+Same reagent as the [PEG-norbornene route](../gel-peg-norbornene/spec.md), different function.
+There it is the crosslinker at 20 mM of a 2 kDa four-arm polymer — roughly 4 wt%. Here it is
+**0.3 wt%**, thirteen-fold lower, in a system where the acrylate self-polymerizes and needs no
+thiol partner. At that loading it acts as a chain-transfer agent. "Shared with" is true of the
+bottle and misleading about the chemistry.
+
+Vortex 2000 rpm 3–5 min. Photopattern 15–30 s at 405 nm — the window already on this page is
+correct.
 :::
 
-A multimaterial variant mixes 1.6 wt% alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. So the mixture names the ingredients and not the product — the product is a structure. See [Alginate Gel](../gel-alginate/spec.md); the CaCl₂ concentration and exposure time for the alginate step are not established.
+A multimaterial variant mixes 1.6 wt% alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. So the mixture names the ingredients and not the product — the product is a structure. See [Alginate Gel](../gel-alginate/spec.md). The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm.
+
+Chicago compared this against the punch-out method — gel surrounded by air — and prefers the punch-out method: the frame route shows "more color bleed into the white frame, reducing spatial resolution" (Chicago Node, 2026-09-17). Recorded, not recommended. The punch-out method has no protocol on record.
 
 (gel-pegda-expected-behavior)=
 # Expected Behavior
