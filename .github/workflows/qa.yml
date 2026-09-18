@@ -99,6 +99,36 @@ jobs:
       - name: Check composition tabs
         run: python3 scripts/check-composition-tabs.py
 
+  operator-pairs:
+    # The `operator` key records one value per step, and a step can have many
+    # operands. One label over n operands asserts all C(n,2) pairs carry it, and a
+    # single contrary pair falsifies it. This derives each pair's operator from the
+    # operand sorts and reports where the step's label disagrees.
+    #
+    # ADVISORY, on the implementations precedent. The current violations are not
+    # editable defects: those steps genuinely both form a gel phase and hold
+    # compartments in it, so no single value is correct and a fix needs the schema
+    # question settled first. Pass --strict to enforce once it is.
+    #
+    # The seed table is never extended by reading step labels. Sort predicts the
+    # recorded operator on all 59 sort-pairs here and at least one of those labels is
+    # wrong, so a table fitted to the corpus scores on the error and reports it as
+    # confirmation. Every row cites a claim argued independently of any spec.yml.
+    # See scripts/check-operator-pairs.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Check operator pairs
+        run: python3 scripts/check-operator-pairs.py
+
   implementations:
     # Two rules over `# Implementations`. CATEGORY (blocking): an entry there
     # must point at docs/implementations/, not at another Module — a cascade is

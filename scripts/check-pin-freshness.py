@@ -67,7 +67,16 @@ def text_at(root, ref, path):
     return NORM(out) if rc == 0 else None
 
 tally, rows = collections.Counter(), []
-for sf in sorted(glob.glob('tmp/staging/STAGED-*.md')):
+
+STAGING = sorted(glob.glob('tmp/staging/STAGED-*.md'))
+if not STAGING:
+    print('NOTHING CHECKED: no tmp/staging/STAGED-*.md found.')
+    print('`tmp/` is gitignored, so this tool finds nothing in a fresh clone and')
+    print('a green result here would verify nothing. It is a working-copy check,')
+    print('never a CI gate. Run it where the staging files actually live.')
+    sys.exit(2)
+
+for sf in STAGING:
     lines = open(sf, encoding='utf-8').read().split('\n')
     for n, raw in enumerate(lines, 1):
         cite = CITE.search(raw)

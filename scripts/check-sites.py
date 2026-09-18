@@ -24,7 +24,7 @@ Two ways to get a clean run that means nothing, both found in practice:
   * **Keep the `Current` cell to the quoted text alone.** Commentary beside the quote reports
     a false GONE, and a checker that cries wolf gets ignored.
 """
-import re, os, glob, collections
+import re, os, sys, glob, collections
 
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 HDR  = re.compile(r'^\|\s*File\s*\|\s*Line\s*\|\s*Current\s*\|\s*Proposed\s*\|', re.I)
@@ -37,7 +37,16 @@ def unquote(s):
     return s
 
 tally = collections.Counter()
-for sf in sorted(glob.glob('tmp/staging/STAGED-*.md')):
+
+STAGING = sorted(glob.glob('tmp/staging/STAGED-*.md'))
+if not STAGING:
+    print('NOTHING CHECKED: no tmp/staging/STAGED-*.md found.')
+    print('`tmp/` is gitignored, so this tool finds nothing in a fresh clone and')
+    print('a green result here would verify nothing. It is a working-copy check,')
+    print('never a CI gate. Run it where the staging files actually live.')
+    sys.exit(2)
+
+for sf in STAGING:
     out, intable = [], False
     for raw in open(sf, encoding='utf-8'):
         if HDR.match(raw): intable = True; continue
