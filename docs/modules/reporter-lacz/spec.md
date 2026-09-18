@@ -105,7 +105,8 @@ LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylli
 The constraint is usually explained as theophylline directly inhibiting the LacZ/CPRG conversion, "even at very low amounts." That explanation is unsupported and partly contradicted:
 
 - The one bulk figure available shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
-- @Editor(chicago): supporting titration data is reported to exist but has not been located. Confirm with the Chicago Node.
+- **The coexistence hypothesis above is now evidenced.** Chicago Node, Mary, 2026-09-17: theophylline inhibits β-galactosidase directly. That is a first-hand report of the inhibition half, so the two effects are no longer both hypothetical — see [Theophylline Detector](../detector-theophylline/spec.md).
+- @Editor(chicago): the **mechanism** is still open and the supporting **titration data** is reported to exist but has not been located. Confirm with the Chicago Node.
 - Every verbal source is hedged, and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
 
 See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#detector-theophylline-requirements) for more details.

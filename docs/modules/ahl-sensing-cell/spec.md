@@ -89,7 +89,7 @@ The inner solution is [S30 Lysate](../s30-lysate/spec.md) at reaction concentrat
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [London Chassis](../london-chassis/spec.md) | S30 Lysate at reaction concentration, in a 100% POPC synthetic cell membrane | Transcription, translation, and encapsulation. The 27.2 µL recipe on that page carries over unchanged, except that 0.95 µL of the nuclease-free water is displaced by sensor plasmid. |
-| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-deGFP` sensor plasmid at 37 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | The `p70`-driven LuxR cassette is expressed in-reaction at an unrecorded concentration. See the DNA tab for what is missing. |
+| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-deGFP` sensor plasmid at 40 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | The `p70`-driven LuxR cassette is expressed in-reaction at an unrecorded concentration. See the DNA tab for what is missing. |
 
 :::
 
@@ -147,9 +147,7 @@ In [S30 Lysate](../s30-lysate/spec.md), the AHL-gated [colorimetric](../../proce
 - Encapsulation is stochastic. Expect a GFP-positive subpopulation rather than uniform signal across synthetic cells.
 :::
 
-:::{attention} Plasmid concentration is two conflicting figures, not a range
-@Editor(london): the source gives 37 ng/µL in its reaction table and 80 ng/µL in its prose. The [Reference Composition](#ahl-sensing-cell-reference-composition) above uses 37 ng/µL. Confirm with the London Node which applies.
-:::
+
 
 ## Gels
 

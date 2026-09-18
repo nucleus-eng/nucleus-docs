@@ -75,7 +75,7 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [S30 Lysate](../s30-lysate/spec.md) | At reaction concentration, per kit | Transcription and translation. **Requires circular DNA** — no GamS is added, so a linear template is degraded |
-| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-deGFP` sensor plasmid at 37 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | One molecule carries constitutive `BBa_J23101`→`luxR` and the `pLux`-driven payload, so LuxR is never supplied separately |
+| [AHL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-deGFP` sensor plasmid at 40 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | One molecule carries constitutive `BBa_J23101`→`luxR` and the `pLux`-driven payload, so LuxR is never supplied separately |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | Covered by the sensor plasmid | The `LuxR-PLA1` variant puts the effector on the same molecule as the detector |
 :::
 
@@ -83,9 +83,7 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 
 :::::
 
-:::{attention} Two source values for the sensor plasmid
-@Editor(london): the source gives 37 ng/µL in its reaction table and 80 ng/µL in its prose. The table above uses 37 ng/µL, matching [AHL Sensing Cell](../ahl-sensing-cell/spec.md). Confirm with the London Node.
-:::
+
 
 **The analyte is not part of this composition.** 3OC6-HSL reaches the sensing cell from the outer solution after encapsulation, so it appears on [AHL Sensing Cell](../ahl-sensing-cell/spec.md), not here.
 
