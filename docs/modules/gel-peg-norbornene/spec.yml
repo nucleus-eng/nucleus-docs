@@ -1,0 +1,85 @@
+# Composition source for Gel: PEG-Norbornene.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Every step here is `mixing`, and that is a claim rather than a default. A gel's
+# own composition is polymer plus solvent ending in one phase. `packing` arises
+# when a compartment is put INTO a gel, which is a step on the cascade pages, not
+# here — so nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and hold one operation?".
+
+module: gel-peg-norbornene
+title: "Gel: PEG-Norbornene"
+
+inputs:
+  peg4nb:
+    title: "4-arm PEG-norbornene, 5 kDa"
+    page: null            # Creative PEGWorks PSB-4110-5g; the backbone
+  peg4sh:
+    title: "PEG4SH, 2 kDa"
+    page: null            # Creative PEGWorks PSB-440-5g; the thiol crosslinker here
+  lap:
+    title: "LAP photoinitiator"
+    page: null            # lithium phenyl-2,4,6-trimethylbenzoylphosphinate
+  solvent:
+    title: "PBS, deionized water or buffer"
+    page: null
+    range: "1 mL, any of the three; the protocol does not choose"
+
+process_steps:
+  - id: assemble-precursor
+    process:
+      title: "Photodevelop Gel: PEG-Norbornene"
+      page: ../../processes/photodevelop-peg-norbornene/main.md
+      abstract: photodevelop-gel
+    operator: mixing
+    operands: [peg4nb, peg4sh, lap, solvent]
+    produces:
+      id: peg-norbornene-precursor
+      title: "PEG-norbornene precursor solution"
+      page: null
+    ratio: "4:1 ene-to-thiol — 320 mM norbornene against 80 mM thiol"
+    parameters:
+      peg4nb: "80 mM"
+      peg4sh: "20 mM"
+      lap: "16.9 mM"
+      preparation: "vortex 2000 rpm 1 min, rest (3-5) min, vortex (2-4) min, repeat until clear; prepare under red light or in the dark"
+    notes: >
+      The ratio is a property of this step and is provisional. Step-growth
+      thiol-ene normally runs near 1:1; a four-fold norbornene excess gives a
+      loosely crosslinked network, which may be deliberate.
+
+  - id: photopattern
+    process:
+      title: "Photodevelop Gel: PEG-Norbornene"
+      page: ../../processes/photodevelop-peg-norbornene/main.md
+      abstract: photodevelop-gel
+    operator: mixing
+    operands: [peg-norbornene-precursor]
+    produces:
+      id: gel-peg-norbornene
+      title: "Gel: PEG-Norbornene"
+      page: ../gel-peg-norbornene/spec.md
+    parameters:
+      exposure: "60 s at 405 nm"
+    notes: >
+      This is the live route for cell-carrying gels, where PEGDA is canceled. Its
+      UV exposure raises a Conflict with CPRG, which photobleaches: pre-add LacZ
+      and add CPRG as a free dye after crosslinking rather than preloading it.
+
+open:
+  - id: arm-ratio-intent
+    question: >
+      Is 4:1 ene-to-thiol intended or a transcription slip? It is on the page as
+      provisional, so an answer either confirms a live figure or corrects one,
+      which makes it more urgent than it was as a blank. Ojaswita Pant owns it.
+  - id: no-qc-data
+    question: >
+      No QC data exists for this route — feature size, mechanical integrity, and
+      whether embedded cells survive are all unreported.

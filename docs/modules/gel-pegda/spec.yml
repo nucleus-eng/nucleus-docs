@@ -1,0 +1,85 @@
+# Composition source for Gel: PEGDA.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Every step here is `mixing`, and that is a claim rather than a default. A gel's
+# own composition is polymer plus solvent ending in one phase. `packing` arises
+# when a compartment is put INTO a gel, which is a step on the cascade pages, not
+# here — so nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and hold one operation?".
+
+module: gel-pegda
+title: "Gel: PEGDA"
+
+inputs:
+  pegda575:
+    title: "PEGDA monomer, PEGDA575"
+    page: null
+  peg4sh:
+    title: "PEG4SH"
+    page: null            # chain-transfer agent in this route, not the crosslinker
+  lap:
+    title: "LAP photoinitiator"
+    page: null            # lithium phenyl-2,4,6-trimethylbenzoylphosphinate
+  pbs:
+    title: "PBS"
+    page: null
+
+process_steps:
+  - id: assemble-precursor
+    process:
+      title: "Photodevelop Gel: PEGDA"
+      page: ../../processes/photodevelop-pegda/main.md
+      abstract: photodevelop-gel
+    operator: mixing
+    operands: [pegda575, peg4sh, lap, pbs]
+    produces:
+      id: pegda-precursor
+      title: "PEGDA precursor solution"
+      page: null
+    parameters:
+      pegda575: "20 wt%"
+      peg4sh: "0.3 wt%"
+      lap: "0.03 wt%"
+      preparation: "vortex 2000 rpm (3-5) min; keep dark until patterning"
+    notes: >
+      PEG4SH is the same reagent as in the PEG-norbornene route and does a
+      different job. There it is the crosslinker at roughly 4 wt%; here it is
+      0.3 wt%, thirteen-fold lower, in a system where the acrylate self-polymerizes
+      and needs no thiol partner. At this loading it is a chain-transfer agent.
+
+  - id: photopattern
+    process:
+      title: "Photodevelop Gel: PEGDA"
+      page: ../../processes/photodevelop-pegda/main.md
+      abstract: photodevelop-gel
+    operator: mixing
+    operands: [pegda-precursor]
+    produces:
+      id: gel-pegda
+      title: "Gel: PEGDA"
+      page: ../gel-pegda/spec.md
+    parameters:
+      exposure: "(15-30) s at 405 nm"
+    notes: >
+      Canceled as a cell-carrying gel — radical acrylate polymerization destroys
+      the lipid membranes. It stays live as a structural frame, where the cells go
+      into a PEG4Nb inset and never enter the PEGDA.
+
+open:
+  - id: precursor-concentration-conflict
+    question: >
+      Protocol 2 makes a 20 wt% PEGDA575 precursor and protocol 3 calls for 15 wt%
+      for the alginate-composite frame, in one document. 20 wt% is what this file
+      and the page carry. Ojaswita Pant owns the answer.
+  - id: patterning-setup
+    question: >
+      The mold or patterning-chamber setup is not established. Exposure time
+      depends on it, so the (15-30) s window is reproducible only for whoever
+      already has the rig.
