@@ -49,6 +49,8 @@ The first two constructs are this Module's Reference Composition. The other two 
 Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the three formats below — and aTc inducer. See [aTc](../analyte-atc/spec.md) for the dose, which depends on the cytosol.
 
 :::{table} Cytosolic components of the tetR-aTc Detector in Base Cytosol, at reaction concentration.
+:label: comp-detector-tetr-atc-base-cytosol
+
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
@@ -144,7 +146,7 @@ Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated 
 The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#reporter-xyle-expected-behavior) spec.
 
 :::{attention} Inducer concentration not recorded
-@Editor(chicago): the aTc concentration used for this particular induced condition is not recorded. The Node's current working window in Nucleus Cytosol is 0.1 µM to 0.5 µM with an optimum near 0.25–0.35 µM, but that was established after this result. The construct gap is noted in the DNA tab under Reference Composition.
+@Editor(chicago): the aTc concentration used for this particular induced condition is not recorded. The Node's current working window is in the [Reference Composition](#comp-detector-tetr-atc-base-cytosol) table above, and does **not** answer this — it was established after this result. What is missing is the dose actually used here. The construct gap is noted in the DNA tab under Reference Composition.
 
 :::{attention} TetR arrives in three formats, and they are not interchangeable
 The corpus offered two — purified protein, or `pT7-tetR` DNA expressed in situ. A third is in use, and as of 2026-09-11 it is **the only one that has demonstrated induction** in Nucleus Cytosol.
