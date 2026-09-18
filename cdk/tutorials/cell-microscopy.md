@@ -29,7 +29,7 @@ from cdk.analysis import cell as m
 data = m.load(PARQUET_URL, PLATEMAP_PATH)
 ```
 
-`load` reads local paths or `https://` URLs, and accepts either format. The platemap is merged on `Well`; wells that fail to match are named in a warning. This returns a `DataFrame` you can work with in pandas.
+`load` reads local paths or `https://` URLs, and accepts either format. The platemap is merged on `Well`. This returns a `DataFrame` you can work with in pandas.
 
 ### Real timepoints
 
@@ -77,19 +77,34 @@ m.plot_cell_grid(example_subset, ZARR_URL, n=5, channels=["Alexa Fluor 647"])
 `plot_cell_grid` reads the image data rather than the measurement table, so it needs the zarr as well. Doing this for many cells could take quite some time.
 :::
 
-## How did general cells and segmentation channel come out?
+## How did the acquisition hold up?
 
-`plot_qc` tracks membrane channel intensity and object count across time.
+`plot_summary` draws one panel per metric: the object count, then the median cell intensity in each channel over time.
 
 ```python
-_ = m.plot_qc(data)
+_ = m.plot_summary(data, channels=["GFP", "Alexa Fluor 647"])
 ```
 
-:::{figure} ./resources/plot-qc.png
+:::{figure} ./resources/plot-summary.png
 :align: center
-:label: fig:qc
+:label: fig:summary
 
-Membrane channel intensity and object count over time.
+Object count and the per-channel median over time. Here GFP is the reporter and Alexa Fluor 647 the membrane dye, and the panels are grouped by the platemap's `Name` column.
+:::
+
+`channels` takes one channel name or a list of them, in the order the panels should read, and defaults to your reporter alone — name the segmentation channel too to check the acquisition itself. It stands in for the `value` argument the other plots take, since this is the one view drawing several measurements at once.
+
+Absolute medians are hard to compare across conditions that start at different brightnesses, which is what makes the drift above easy to miss. Pass `normalize=True` to divide every intensity panel by its condition's earliest timepoint, turning brightness into fold change; the object count is left raw.
+
+```python
+_ = m.plot_summary(data, channels=["GFP", "Alexa Fluor 647"], normalize=True)
+```
+
+:::{figure} ./resources/plot-summary-normalized.png
+:align: center
+:label: fig:summary-normalized
+
+The same run as fold change off each condition's first timepoint, with the dotted line at 1.0 as the baseline. The membrane channel loses 15–25% of its median signal over 90 minutes — that is bleaching — while the object count climbs over the first 40 minutes before flattening.
 :::
 
 ## How did the population shift?
@@ -150,7 +165,7 @@ Per-object reporter intensity against volume, as a hexbin with a fit line per pa
 
 ## Splitting figures by experimental factor
 
-Every plotting function takes the same four arguments (`hue`, `facet`, `time`, and `value`), and all four default to `None`. This is where a platemap is very useful.
+Every plotting function takes the same four arguments (`hue`, `facet`, `time`, and `value`), and all four default to `None`. This is where a platemap is very useful. `plot_summary` is the one exception on `value`: it draws several measurements at once, so it takes `channels=` instead.
 
 ```python
 m.plot_quantile_ribbon(data)                                       # groups by well
@@ -168,21 +183,8 @@ The default values are:
 
 Numeric factors get a sequential color ramp automatically; categorical ones get distinct colors.
 
-## Caveats 
-
-:::{danger} `Label` is not stable across timepoints
-:icon: false
-:class: simple
-
-Each frame is segmented independently and objects are renumbered `1..N` every time. The object called `Label 7` at timepoint 0 is almost certainly **not** the object called `Label 7` at timepoint 1.
-
-Grouping by `Label` produces smooth, convincing single-object traces that are fiction. On a measured dataset, a label's centroid moves 190–1600 µm between consecutive frames while the nearest real object sits 13–21 µm away — and that nearest object carries the same id only 0–15% of the time.
-
-Until a tracking step exists, **every time-series view must be a population aggregate**. That is exactly what the functions on this page do.
-:::
-
 ## Other views
 
-`plot_ecdf` gives the empirical CDF at a few timepoints, which shows the full distribution where the quantile views show summary percentiles. `plot_summary`, `plot_size`, `plot_intensity`, `plot_fogplot`, and `plot_fogplot_compare` are the earlier generation of overview plots. They still work, and will be deprecated once the quantile and gated views above cover their use cases.
+`plot_ecdf` gives the empirical CDF at a few timepoints, which shows the full distribution where the quantile views show summary percentiles. `plot_size`, `plot_intensity`, `plot_fogplot`, and `plot_fogplot_compare` are the earlier generation of overview plots. They still work, and will be deprecated once the quantile and gated views above cover their use cases.
 
 Full signatures for all of them are in the [cell API reference](../api/cell.md).

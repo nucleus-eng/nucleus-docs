@@ -21,7 +21,7 @@ The modules are named for the biology rather than the instrument. *Cell* analysi
 :header: 🔬 **Cell**
 :link: ./cell.md
 
-`load`, `plot_cell_grid`, `plot_qc`, `plot_quantile_ribbon`, `plot_positive_fraction`, `plot_size_expression`, `plot_ecdf`, and the segmentation pipeline.
+`load`, `plot_cell_grid`, `plot_summary`, `plot_quantile_ribbon`, `plot_positive_fraction`, `plot_size_expression`, `plot_ecdf`, and the segmentation pipeline.
 :::
 
 :::{card}

@@ -12,21 +12,19 @@ This page documents CDK 0.6.1 [on PyPI](https://pypi.org/project/nucleus-cdk/). 
 
 # Overview
 
-Segmentation and single-object analysis of high-content microscopy data.
+Segmentation and cell analysis of microscopy data.
 
 ```python
 from cdk.analysis import cell as m
 ```
 
-The package has three modules, one per pipeline stage:
+The package has three modules:
 
-| Module | Role                                                                                               |
-| --- |----------------------------------------------------------------------------------------------------|
-| `raw_image_process` | Per-object measurements, appended to a CSV beside the dataset.                                     |
-| `analysis` | Segmented data CSV → population plots                                                            |
-| `segmentation_qc` | Segmented CSV and zarr → per-object image crops with mask outlines, for checking the segmentation. |
-
-`raw_image_process` and `analysis` communicate only through the file on disk. `segmentation_qc` needs both: it reads the table to pick objects and the zarr to get pixels.
+| Module | Role                                                                         |
+| --- |------------------------------------------------------------------------------|
+| `raw_image_process` | Process cell segmentation into a CSV                                         |
+| `analysis` | Plot segmented cells in a variety of ways                                    |
+| `segmentation_qc` | Check how good segmentation did by visual check with masks over images |
 
 ```python
 from cdk.analysis.cell import analysis as m
@@ -37,7 +35,7 @@ from cdk.analysis.cell import analysis as m
 
 :::{card} `load(data_path, platemap_path=None, sample=None, minutes_per_timepoint=None)`
 
-Read a measurement table, optionally merged with a platemap.
+Read a segmentation table, optionally (but ideally) merged with a platemap.
 
 - **`data_path`** — `.csv` or `.parquet`, a local path or an `https://` URL. An unrecognized extension returns `None`; no exception is raised.
 - **`platemap_path`** — CSV merged on `Well`. Unmatched wells are named in a warning.
@@ -49,23 +47,24 @@ Returns a `DataFrame`.
 
 ## Checking the data
 
-Two QC functions, which check different things:
+:::{card} `plot_summary(data, channels=None, hue=None, facet=None, time=None, normalize=False)`
 
-:::{card} `plot_qc(data, membrane=None, hue=None, facet=None, time=None)`
+**Acquisition** QC. One panel per metric: the object count, then the median of each channel in `channels` over time. 
 
-**Acquisition** QC. Tracks membrane channel intensity and object count over time, which catches photobleaching and object loss. Reads the measurement table only.
+- **`channels`** — one channel name or a list of them, in the order the panels should populate. Either a channel (`"Alexa Fluor 647"`) or the full column (`"Intensity Mean (Alexa Fluor 647)"`) works. 
+- **`normalize`** — divide every channel by intensity at t=0. 
 :::
 
 :::{card} `plot_cell_grid(data, image_path, n=12, channels=None, info=None, crop_um=None, ncols=4, pyramid_level=None, field=0, segment_channel=None, mask_source="auto", contrast="shared", random_state=None, tile_size=2.2)`
 
 **Segmentation** QC. A grid of segmented objects with mask outlines drawn on the image crops. Red is the selected object and teal are its neighbors.
 
-Needs the zarr as well as the table, so it is much slower than anything else on this page. `image_path` accepts a local path or a URL. `pyramid_level` defaults to the level the run was measured at.
+`pyramid_level` should be set to the pyramid level segmentation was run at.
 :::
 
 ## Population views
 
-These are the current plotting functions. All of them take `hue`, `facet`, `time`, and `value`, and all four default to `None`. See [splitting figures by factor](../tutorials/cell-microscopy.md#splitting-figures-by-experimental-factor) for how each one resolves when unset.
+These are the current plotting functions. All of them take `hue`, `facet`, `time`, and `value`. All default to `None`. See [splitting figures by factor](../tutorials/cell-microscopy.md#splitting-figures-by-experimental-factor) for more info on using them.
 
 :::{card} `plot_quantile_ribbon(data, value=None, quantiles=None, hue=None, facet=None, time=None, channel=None, show_p99=True, logy=True)`
 
@@ -95,7 +94,6 @@ Still supported. These will likely be deprecated.
 
 | Function | Output |
 | --- | --- |
-| `plot_summary(data, value=None, hue=None, time=None, channel=None)` | Intensity, object count and size in one three-panel figure |
 | `plot_intensity(data, value=None, hue=None, time=None, channel=None, **kwargs)` | Mean intensity over time, one line per condition |
 | `plot_size(data, timepoints=None, hue=None, time=None)` | Diameter histograms, one column per condition and row per timepoint |
 | `plot_fogplot(data, value=None, hue=None, time=None, channel=None)` | Per-object intensity against time, one row per condition |
@@ -111,26 +109,16 @@ Walks an OME-NGFF plate zarr (wells → fields → timepoints), segments each fr
 
 `segment_channel` defaults to the first match among `Rhodamine` and `Alexa Fluor 647`. Both are membrane dyes, so segmentation runs on the membrane channel and not on the reporter. If neither is present, the function logs an error and skips the dataset.
 
-`pyramid_level` is the only segmentation parameter that has much effect. Measurements stay in real units at any level, but object size *in pixels* changes fourfold per level, and pixel size is what Cellpose responds to.
 :::
 
-| Function | Role |
-| --- | --- |
-| `process_datasets(dataset_paths, pyramid_level=2)` | Wrap a list of datasets. Note the differing default. |
-| `process_frame(data, segment_channel, model, spacing, pbar)` | Segment and measure a single frame. |
-| `write_label_zarr(group, labels, coordinateTransformations, axes="tyx", name="Labels")` | Write a label array back into the plate zarr. |
-| `release_model()` | Drop the cached model so its GPU memory can be reclaimed. |
-
-:::{danger} `Label` is not stable across timepoints
-:icon: false
-:class: simple
-
-Each frame is segmented independently and objects are renumbered `1..N`. Grouping by `Label` produces single-object traces that look smooth and are not real. Until a tracking step exists, every time-series view has to be a population aggregate, which is what all the plotting functions above do.
-:::
+| Function | Role                                                       |
+| --- |------------------------------------------------------------|
+| `process_datasets(dataset_paths, pyramid_level=2)` | Run the full segmentation                                  |
+| `process_frame(data, segment_channel, model, spacing, pbar)` | Segment and measure a single frame.                        |
+| `write_label_zarr(group, labels, coordinateTransformations, axes="tyx", name="Labels")` | Write a label array back into the plate zarr.              |
+| `release_model()` | Drop the cached model to free GPU memory. |
 
 ## Naming and axis helpers
-
-The plotting functions call these to resolve their defaults. Call them directly to check what a plot will pick, or to build a column name.
 
 | Name | Returns |
 | --- | --- |
