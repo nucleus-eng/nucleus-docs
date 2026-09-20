@@ -128,7 +128,3 @@ Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](
 # Credits
 
 Developed by Surendra Yadav (b.next).
-
-:::{attention} Credits are draft
-Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
-:::

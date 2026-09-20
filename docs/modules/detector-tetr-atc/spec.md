@@ -242,6 +242,8 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Developed by Yen-Yu Hsu (b.next), with the encapsulated LacZ/CPRG configuration by Mary Kelly (Chicago Node, Kamat Lab).
 
-:::{attention} Credits are draft
-Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::{attention} One credit needs confirming before this merges
+This page went from 725 words to 2077 in the DevStudio pass and the new material is not all from the same hands. **Yen-Yu Hsu (b.next) developed the Module; Mary Kelly (Chicago Node, Kamat Lab) contributed the encapsulated LacZ/CPRG configuration and both figures below.** @Editor(chicago): confirm that split with the Node before this merges to `main`.
+
+The other eleven pages in this tranche were developed before the DevStudio and their credits stand as written — Jon, 2026-09-20. This one is the exception because the data is new.
 :::
