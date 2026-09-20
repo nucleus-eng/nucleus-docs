@@ -1,0 +1,59 @@
+# Composition source for Substrate: X-Gal.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. One chromogenic molecule, bought rather than composed.
+# `process_steps` is empty and that is a claim. Jon ruled `minItems: 1` off
+# `process_steps` on 2026-09-20.
+#
+# ITS TABLE IS NOT A COMPOSITION. The first column is `Format` and one of its two
+# rows is a negative — X-Gal cannot be encapsulated at all. A row saying "not
+# possible" is a Requirement, not an ingredient.
+
+module: substrate-xgal
+title: "Substrate: X-Gal"
+
+inputs:
+  xgal:
+    title: "5-bromo-4-chloro-3-indolyl-beta-D-galactopyranoside"
+    page: null
+  dmso:
+    title: "DMSO"
+    page: null
+    optional: true        # the carrier X-Gal needs, and the reason it cannot be encapsulated
+
+process_steps: []
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: the-working-concentration-is-not-established
+    question: >
+      The page carries an open @Editor(chicago) tag and a twelve-and-a-half-fold
+      disagreement inside one document: sources give X-Gal free in the gel as
+      2.5 mg/mL (6.12 mM), but the protocol stating that figure adds 1 uL of a 1%
+      stock to a 50 uL gel, which is 0.2 mg/mL (0.49 mM). The stated final is the
+      likelier error, so 0.49 mM is the working figure pending the Node, and the page
+      says to treat 0.49 to 6.12 mM as a bracket and cite no single value. **No
+      parameter is recorded here for that reason** — a machine-readable single value
+      is exactly what the page forbids.
+  - id: dmso-is-an-input-and-a-blocker
+    question: >
+      X-Gal needs DMSO, and DMSO ruins liposome formation — ../substrate-xgal/spec.md
+      records that attempts to make SUVs with it gave poor vesicles. So the carrier is
+      listed above as an operand-level fact and is also the reason the encapsulated
+      row reads "not possible". **The schema has no way to say that an input rules out
+      a format.** Marked `optional` because the gel route may not need it at the
+      stated dilution, which is itself unconfirmed.
+  - id: a-negative-row-is-not-a-composition
+    question: >
+      "Encapsulated in a liposome — not possible" is one of two rows in this Module's
+      Reference Composition. It is a Requirement expressed as a table row. That is the
+      clearest case in the corpus of the Band/Context/Format heading carrying
+      something other than composition.
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.

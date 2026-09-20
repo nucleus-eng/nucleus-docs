@@ -1,0 +1,50 @@
+# Composition source for Substrate: CPRG.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. One chromogenic molecule, bought rather than composed.
+# `process_steps` is empty and that is a claim. Jon ruled `minItems: 1` off
+# `process_steps` on 2026-09-20.
+#
+# ITS TABLE IS NOT A COMPOSITION. The first column is `Format` and the rows are
+# loading concentrations by encapsulation route — a usage function indexed by format.
+# compositional-biology-theory `signature.md` already records this page as a known
+# bug from the other direction: its `Substrate` row reads "Function (Composition
+# unstated — known bug)" and notes that "the third member is a molecule rather than a
+# compartment". Two repos found the same page wrong from opposite ends.
+
+module: substrate-cprg
+title: "Substrate: CPRG"
+
+inputs:
+  cprg:
+    title: "Chlorophenol red-beta-D-galactopyranoside"
+    page: null
+
+process_steps: []
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: three-formats-one-figure
+    question: >
+      SUV by film hydration and extrusion, 50 mM. GUV by phase transfer, not
+      documented. Free in the gel, not documented — the photodevelopment routes, where
+      UV would bleach encapsulated CPRG. **Two of the three formats in active use have
+      no recorded loading.** The one figure that exists is carried by the Modules that
+      consume it, ../substrate-cprg-suv/spec.yml and ../guv-cprg/spec.yml, rather than
+      by this page.
+  - id: the-sort-is-wrong-and-another-repo-says-so-first
+    question: >
+      `signature.md` in compositional-biology-theory gives `Substrate` three members —
+      `substrate-cprg-suv`, `guv-cprg` and this page — and observes that the first two
+      are compartments and this one is a molecule. Its own words: "the sort name is
+      the payload's role worn by a container." So this Module is in a sort whose other
+      members are a different kind of thing, which is why its Composition is unstated
+      rather than merely unwritten.
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.

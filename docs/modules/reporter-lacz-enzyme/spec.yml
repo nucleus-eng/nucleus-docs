@@ -1,0 +1,59 @@
+# Composition source for LacZ Enzyme.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. One purified protein, supplied rather than composed here.
+# `process_steps` is empty and that is a claim: nothing in this corpus makes LacZ.
+# Jon ruled `minItems: 1` off `process_steps` on 2026-09-20.
+#
+# ITS TABLE IS NOT A COMPOSITION. The first column is `Context` and the rows are
+# working concentrations across three arrangements — a usage function indexed by
+# context, not a list of parts. There is nowhere in this schema for that; see below.
+
+module: reporter-lacz-enzyme
+title: "LacZ Enzyme"
+
+inputs:
+  lacz:
+    title: "Beta-galactosidase (LacZ), purified"
+    page: null
+
+process_steps: []
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: a-sixtyfold-range-with-nowhere-to-live
+    question: >
+      Three contexts, three figures, and the schema holds none of them: encapsulated
+      in a GUV in PEG-norbornene at 2.5 U/mL final; encapsulated in a GUV in 0.7%
+      agarose at 156 U/mL; dispersed in the gel, not documented. **Both encapsulated
+      figures are the same arrangement — enzyme inside, substrate outside — and they
+      differ about sixtyfold.** `parameters` lives inside a step and there are no
+      steps. Flattening the three into one number would pick a winner the page
+      explicitly refuses to pick: "no single figure is canonical."
+  - id: twenty-units-was-withdrawn-and-ten-pages-carried-it
+    question: >
+      Ten pages carried 20 U/mL as the encapsulated working concentration with no
+      titration, assay or reference behind it. Asked directly, the Chicago Node's
+      answer computed to 2.5 U/mL — the same arrangement, eightfold lower — so
+      20 U/mL is withdrawn rather than kept as a third entry. Recorded here because a
+      machine-readable source is exactly where a withdrawn figure would come back.
+  - id: the-gel-dispersed-figure-is-missing-and-blocks-half-a-cascade
+    question: >
+      The page carries an open @Editor(london) tag: the London Cascade disperses this
+      enzyme through the ULGA gel and no concentration is recorded anywhere. Without
+      it that half of the cascade cannot be reproduced. The Chicago figures do not
+      carry across — both are encapsulated, London's is dispersed through the matrix.
+  - id: this-module-and-reporter-lacz-are-both-real
+    question: >
+      ../reporter-lacz/spec.yml is LacZ expressed from DNA in Base Cytosol. This is
+      LacZ added as purified protein. **The documented synthetic cells use this one**,
+      and that file's own questions say so. Two Modules, one enzyme, and which a
+      composing page means is the composing page's choice.
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.

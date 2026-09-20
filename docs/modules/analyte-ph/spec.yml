@@ -1,0 +1,50 @@
+# Composition source for Analyte: pH.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS NOT A SUBSTANCE, AND THAT IS THE HARDEST CASE IN THE SET. Its page
+# says so outright: "A property has no composition. The section is kept for shape,
+# and the table records the band rather than a recipe." pH is a property of a
+# solution. It has no ingredient, so the `inputs` entry below is the solution whose
+# composition sets it — which is the thing pH is a property OF, not a constituent.
+# That is the schema forcing a shape, and it is written up under `open:` rather than
+# passed off as a reading.
+#
+# `process_steps` is empty. The page: "None. An analyte is supplied to an assay
+# rather than produced by a Nucleus process. For pH specifically, it is set by the
+# composition of the outer solution rather than dosed." Jon ruled `minItems: 1` off
+# `process_steps` on 2026-09-20.
+
+module: analyte-ph
+title: "Analyte: pH"
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    page: null            # NOT a constituent — the solution whose composition sets the pH
+
+process_steps: []
+
+open:
+  - id: a-property-is-not-a-substance-and-inputs-requires-one
+    question: >
+      `inputs` carries `minProperties: 1`, so this file must name something. There is
+      nothing to name. pH is not made of anything, and the entry above is the solution
+      it is a property of — which inverts the relation the key encodes everywhere else
+      in the corpus, where an input is a part of the product. **This is a stronger
+      case for dropping the `inputs` minimum than any of the five analytes**, because
+      those at least have a molecule to list. Here the field is filled to satisfy a
+      constraint and the comment is doing the work the schema should.
+  - id: the-band-is-a-threshold-not-a-window
+    question: >
+      Switch ON at pH 6.5 or below, switch OFF at neutral. Every other analyte's band
+      has two ends; this one has a single boundary. The page carries an open
+      @Editor(chicago) tag asking whether an acidity floor exists — the pH at which
+      the cytosol, the membrane or the PURE reaction fails before the switch does.
+      Until that is answered the band is open at one end.
+  - id: set-rather-than-dosed
+    question: >
+      Every other analyte enters through a dosing step. This one is set by the outer
+      solution's composition, so there is no dose and no dosing process. That is a
+      real difference in kind between members of one sort, and nothing in the schema
+      records it.

@@ -1,0 +1,41 @@
+# Composition source for Analyte: 3OC6-HSL.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. `process_steps` is empty and that is a claim, not an
+# omission. The page: "None. An analyte is supplied to an assay rather than produced
+# by a Nucleus process." An empty list was invalid until Jon ruled `minItems: 1` off
+# `process_steps` on 2026-09-20 — it had asserted that every Module is composed,
+# which is a third membership condition compositional-biology-theory
+# `glossary.md#T03` never carried.
+
+module: analyte-3oc6-hsl
+title: "Analyte: 3OC6-HSL"
+
+inputs:
+  3oc6-hsl:
+    title: "N-3-oxohexanoyl-L-homoserine lactone"
+    page: null
+
+process_steps: []
+
+open:
+  - id: no-dose-figures-anywhere
+    question: >
+      Both bands read "not documented" and the page carries an open @Editor(london)
+      tag saying so. Neither ../detector-3oc6-hsl/spec.md nor ../ahl-sensing-cell/spec.md
+      states an induction concentration or a working range. The tag also asks whether
+      the cascade and the sensing cell use the same one, which is a second question
+      the corpus cannot answer today.
+  - id: the-solubility-flag-bears-on-this-page
+    question: >
+      An urgent flag raised 2026-09-17 says AHL stock made in water at 2 mM may be a
+      suspension rather than a solution, because aqueous AHL may not exceed about
+      20 uM. If that holds, every dose from that stock delivered an unknown
+      concentration. It is being announced at the studio and is already with the
+      b.next team. This file records no dose, so nothing here is wrong either way —
+      but any figure that arrives must be read against that flag before it is entered.
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`, so this Module lists itself. Same
+      constraint `minItems` was, one field over. See ../analyte-iptg/spec.yml.
