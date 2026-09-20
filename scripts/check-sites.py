@@ -79,5 +79,15 @@ for sf in STAGING:
     if out:
         print(os.path.basename(sf)); [print(o) for o in out]; print()
 
+rows = sum(tally.values())
+if rows == 0:
+    print(f'NOTHING CHECKED: read {len(STAGING)} staging file(s) and found 0 checkable rows.')
+    print('A file with no `| File | Line | Current | Proposed |` table contributes nothing,')
+    print('and the header must match exactly -- any other column names and the table is')
+    print('skipped in silence, which reads like no drift. Reporting 0 rows as a clean run')
+    print('would be success over an empty input.')
+    sys.exit(2)
+
+print(f'read {len(STAGING)} staging file(s), {rows} row(s)')
 print(' | '.join(f'{k} {tally[k]}' for k in
       ('anchored','drifted','gone','described','malformed','nofile','skip') if tally[k]))
