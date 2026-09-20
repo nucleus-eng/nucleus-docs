@@ -26,6 +26,29 @@ miss.
 
 Three stale-but-correct claims on 2026-09-17 are what this is for: two in the theory
 corpus and one of ours, all accurate when written, all edited out afterwards.
+
+**It resolves against LOCAL sibling checkouts, so it cannot see reachability.** A hash
+that exists only in an unpushed local tree resolves here and 422s for everyone else;
+a hash that is on the remote but not fetched here reports the opposite. The tool
+answers *can I resolve this*, which is a different question from *can anyone*, and on
+the machine that authored the commit the two look identical.
+
+Measured 2026-09-19: twelve commits in this repo and one in `nucleus-skills` had never
+been pushed, and four tracked files in `compositional-biology-theory` pinned to one of
+them. This tool reported them fresh. It was correct and useless -- the pins were fine
+on this disk and unresolvable from anywhere else.
+
+`git ls-remote` or `git branch -r --contains` is the predicate that asks the reachable
+question; `cat-file -e` is not, because it passes for exactly the person who needs
+telling. Found by `compositional-biology-theory` session `c9d6a5`, whose own sweep
+reported 37 of 37 pins resolving because `gh api` writes its error JSON to stdout and
+the check tested for non-empty output rather than the exit code. **Branch on the exit
+code.** This file does, at every call site -- which is why it has the local-tree blind
+spot and not that one.
+
+Wiring the reachable check needs the network and a fetched remote, so it is not done
+here and is staged as an open question in
+`tmp/staging/STAGED-2026-09-19-pins-must-be-reachable.md`.
 """
 import re, os, sys, subprocess, glob, collections
 
