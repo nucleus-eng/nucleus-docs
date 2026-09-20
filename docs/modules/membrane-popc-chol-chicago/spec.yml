@@ -1,0 +1,81 @@
+# Composition source for Chicago Base Membrane: POPC/Chol.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: three lipids into one film, ending in one phase. The
+# `packing` step is where this membrane closes around a payload, which lives on the
+# consuming page and not here — so nothing in this file depends on open question O8
+# in compositional-biology-theory, "are formation and hold one operation?".
+#
+# ONE OF THE PAGE'S TWO PREPARATIONS IS HERE AND THE OTHER IS NOT. The schema cannot
+# express alternative routes to one Module — two steps producing the same id fail
+# validation with [duplicate-id]. The extrusion route is written out in full in the
+# questions at the foot of this file, so none of its figures are lost. This is a
+# limit of the schema, not a claim about the bench.
+
+module: membrane-popc-chol-chicago
+title: "Chicago Base Membrane: POPC/Chol"
+
+inputs:
+  popc:
+    title: "POPC"
+    page: null
+  cholesterol:
+    title: "Cholesterol"
+    page: null
+  liss-rhod-pe:
+    title: "Liss-Rhod PE"
+    page: null
+    optional: true        # the page marks this one "(Optional)" in the table itself
+
+process_steps:
+  - id: prepare-for-phase-transfer
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: mixing
+    operands: [popc, cholesterol, liss-rhod-pe]
+    produces:
+      id: membrane-popc-chol-chicago
+      title: "Chicago Base Membrane: POPC/Chol"
+      page: ../membrane-popc-chol-chicago/spec.md
+    parameters:
+      popc: "89.9% (mol), MW 760.076, 25 mg/mL stock, 41 uL"
+      cholesterol: "10% (mol), MW 386.66, 50 mg/mL stock, 1.16 uL"
+      liss_rhod_pe: "0.1% (mol), MW 1301.71, 1 mg/mL stock, 1.952 uL"
+      total_lipid: "0.5 mM"
+    notes: >
+      The inverted-emulsion route, for Chicago Chassis synthetic cells. The volumes
+      are the 0.5 mM total-lipid preparation named in the Preparations tab.
+
+open:
+  - id: two-routes-one-product
+    question: >
+      The page documents two preparations of this one membrane and only the first is
+      a step above. They are alternatives, not an ordered pair, and the schema has no
+      key for "either of these": process_steps is described as "Ordered composition
+      steps", and two steps producing the same id fail check-spec-schema.py with
+      duplicate-id. Measured, not assumed — it was written both ways and the
+      validator rejected the second. The missing route in full, so nothing is lost —
+      process "Encapsulation: SUV" at ../../processes/encapsulate-suv/main.md,
+      operator mixing, operands POPC and cholesterol only, POPC 25 mg/mL stock at
+      208.51 uL, cholesterol 50 mg/mL stock at 6.00 uL, for CPRG-loaded SUVs. The
+      dye is given as "-" in that row rather than as zero, and absent is not the same
+      claim as zero. Every other source in the corpus is genuinely sequential, so
+      this is the first case that needs the distinction.
+  - id: dye-differs-between-routes
+    question: >
+      Liss-Rhod PE is optional at the Module level because the composition table
+      marks it optional, but it is present in the phase-transfer route and absent
+      from the extrusion route. Optionality that depends on the route is not the same
+      as optionality of the component, and this file can state only the second.
+  - id: no-page-for-the-lipids
+    question: >
+      Neither lipid has a module page, so their figures live here by necessity rather
+      than by design. The same is true of the lipids corpus-wide.

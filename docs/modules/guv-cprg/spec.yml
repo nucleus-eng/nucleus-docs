@@ -1,0 +1,69 @@
+# Composition source for CPRG GUV.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# THE STEP IS `packing` AND THIS FILE THEREFORE DEPENDS ON O8 in
+# compositional-biology-theory — "are formation and `hold` one operation?". Phase
+# transfer forms the bilayer and closes it around the lumen in one operation, and
+# whether that is one morphism or two is exactly what O8 asks. `packing` follows the
+# precedent set by ../base-cell/spec.yml, which calls the same process by the same
+# operator. Recorded rather than resolved.
+
+module: guv-cprg
+title: "CPRG GUV"
+
+inputs:
+  membrane-popc:
+    title: "London Membrane: POPC"
+    page: ../membrane-popc/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+process_steps:
+  - id: encapsulate-cprg
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [membrane-popc, substrate-cprg]
+    produces:
+      id: guv-cprg
+      title: "CPRG GUV"
+      page: ../guv-cprg/spec.md
+    parameters:
+      bilayer: "100% POPC"
+      cprg: "50 mM at hydration, approx. 30 mg/mL"
+    notes: >
+      The same process and the same page as the sensing population, applied with a
+      different inner solution — which is what lets both populations be made by one
+      method. The 100% POPC bilayer is a choice rather than a constraint: Substrate:
+      CPRG accepts either POPC or POPC:cholesterol, and 100% POPC is taken here to
+      match the AHL Sensing Cell. The loading concentration does not depend on the
+      bilayer, so it carries over unchanged from the SUV form.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: bilayer-is-a-choice-not-a-constraint
+    question: >
+      The 100% POPC bilayer is recorded above as a parameter, which reads as though
+      the Module requires it. The page says the opposite — the bilayer is a choice
+      made to match the AHL Sensing Cell, and the Substrate accepts POPC:cholesterol
+      as well. The schema has no way to mark a parameter as "chosen here, not
+      required", so the note carries what the key cannot.
+  - id: downstream-combination-is-not-here
+    question: >
+      Hydrogel Embedding: ULGA combines this population with the sensing population
+      and the gel at 1:1:2. That is a step on the cascade page rather than part of
+      this Module's composition, so it is not a step above. Named here so a reader
+      looking for the 1:1:2 does not conclude it was missed.

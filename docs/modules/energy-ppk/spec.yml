@@ -1,0 +1,136 @@
+# Composition source for PPK Energy.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Both steps are `mixing`: buffer components into one solution, then two supplied
+# components into that solution. No `packing` step appears here, so nothing in this
+# file depends on open question O8 in compositional-biology-theory, "are formation
+# and `hold` one operation?".
+#
+# THE MODULE IS THE PURIFIED PROTEIN, NOT THE PLASMID. `pOpen-PPK-CHis` carries no
+# promoter and does not express PPK2 as filed, so it does not on its own satisfy
+# this Module's specification. It is a cloning vector, and it is not an operand.
+
+module: energy-ppk
+title: "PPK Energy"
+
+inputs:
+  hepes:
+    title: "HEPES"
+    page: null
+  potassium-glutamate:
+    title: "Potassium glutamate"
+    page: null
+  magnesium-acetate:
+    title: "Magnesium acetate"
+    page: null
+  rntps:
+    title: "rNTPs"
+    page: null
+  trna:
+    title: "tRNA"
+    page: null
+  tcep:
+    title: "TCEP"
+    page: null
+  folinic-acid:
+    title: "Folinic acid"
+    page: null
+  spermidine:
+    title: "Spermidine"
+    page: null
+  amino-acid-solution:
+    title: "Amino acid solution"
+    page: null
+  ppk2:
+    title: "Purified PPK2"
+    page: null
+  polyphosphate-100mer:
+    title: "100mer polyphosphate"
+    page: null
+
+process_steps:
+  - id: prepare-custom-smix
+    process:
+      title: "Prepare custom SMix without creatine phosphate"
+      page: null
+    operator: mixing
+    operands:
+      - hepes
+      - potassium-glutamate
+      - magnesium-acetate
+      - rntps
+      - trna
+      - tcep
+      - folinic-acid
+      - spermidine
+      - amino-acid-solution
+    produces:
+      id: smix-minus-cp
+      title: "Custom SMix (SMix -CP)"
+      page: null
+    parameters:
+      hepes: "50 mM in reaction, 150 mM in energy solution, 30.0 uL of a 1000 mM stock"
+      potassium_glutamate: "100 mM in reaction, 300 mM in energy solution, 24.0 uL of a 2500 mM stock"
+      magnesium_acetate: "11.8 mM in reaction, 35.4 mM in energy solution, 7.1 uL of a 1000 mM stock"
+      rntps_each: "2 mM in reaction, 6 mM in energy solution, 12.0 uL of a 100 mM stock"
+      trna: "3.5 mg/mL in reaction, 10.5 mg/mL in energy solution, 60.0 uL of a 35 mg/mL stock"
+      tcep: "1 mM in reaction, 3 mM in energy solution, 1.2 uL of a 500 mM stock"
+      folinic_acid: "0.02 mM in reaction, 0.06 mM in energy solution, 2.4 uL of a 5 mM stock"
+      spermidine: "2 mM in reaction, 6 mM in energy solution, 6.0 uL of a 200 mM stock"
+      amino_acid_solution: "0.3 mM in reaction, 0.9 mM in energy solution, 55.4 uL of a 3.25 mM stock"
+      water: "1.9 uL"
+      energy_solution_total: "200 uL at 3x"
+    notes: >
+      Creatine phosphate is listed in the source table at 0 mM and 0.0 uL rather than
+      omitted, which is the point of the table: normal SMix is these components plus
+      20 mM CP, and this one deliberately has none. The zero row is a claim that CP
+      was removed, not an empty cell, so it is recorded here in the note rather than
+      as an operand at zero.
+
+  - id: add-the-supplied-components
+    process:
+      title: "Assemble the PPK Energy module"
+      page: null
+    operator: mixing
+    operands: [smix-minus-cp, ppk2, polyphosphate-100mer]
+    produces:
+      id: energy-ppk
+      title: "PPK Energy"
+      page: ../energy-ppk/spec.md
+    notes: >
+      The page states the Module is supplied as two components — purified PPK2 and
+      the 100mer polyphosphate substrate — and that no additional cell components are
+      required. Neither has a concentration on the page, which is why this step has
+      no parameters; see the questions below.
+
+open:
+  - id: the-two-supplied-components-have-no-figures
+    question: >
+      The page names purified PPK2 and 100mer polyphosphate as the Module's two
+      supplied components and gives a concentration for neither. Every figure on the
+      page belongs to the custom SMix that surrounds them. So the step that makes
+      this Module what it is has no parameters, while the step that makes its buffer
+      has eleven. Without a PPK2 dose and a polyphosphate concentration the Module
+      cannot be reproduced, and that is the gap rather than the SMix.
+  - id: the-plasmid-does-not-satisfy-the-spec
+    question: >
+      `pOpen-PPK-CHis` has a confirmed file in nucleus-eng/DNA at energy/, 2915 bp,
+      and carries no promoter — so it does not express PPK2 as filed. The page is
+      explicit that it is offered as a cloning vector for downstream use and that a
+      promoter must be added, pT7 for Nucleus Cytosol. It is therefore not an operand
+      above. A tool scanning for constructs will find it on the page and should not
+      conclude this Module expresses from it.
+  - id: creatine-phosphate-is-the-whole-point
+    question: >
+      This Module exists to replace creatine phosphate as the energy source, which is
+      why its SMix has CP at zero. That relationship is stated in prose and is not
+      expressible in the schema: there is no way to say "this composition is the
+      other one with a component removed". ../base-cytosol/spec.md's SMix is the
+      other one.

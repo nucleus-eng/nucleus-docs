@@ -134,6 +134,11 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 
 - [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — the London hydrogel format
 
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
+- [Substrate: CPRG](../substrate-cprg/spec.md) — 0.6 mg/mL, the substrate this Module converts
+
 # Credits
 
 Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab), [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab), Mary Kelly (Chicago Node, Kamat Lab), and Samuel Chen (Chicago Node, Liu Lab).

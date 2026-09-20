@@ -1,0 +1,86 @@
+# Composition source for 3OC6-HSL Detector.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: one addition into S30 Lysate, sharing its resources. No
+# `packing` step appears here, so nothing in this file depends on open question O8
+# in compositional-biology-theory, "are formation and `hold` one operation?".
+#
+# THIS MODULE IS BUILT ON S30 LYSATE, NOT ON BASE CYTOSOL — the London cascade uses
+# the Promega kit. Premix, Extract and Amino acid mix are that kit's three
+# components and are named as such in ../s30-lysate/spec.yml.
+#
+# 3OC6-HSL IS EXCLUDED. It is the analyte this Module detects. See the questions.
+
+module: detector-3oc6-hsl
+title: "3OC6-HSL Detector"
+
+inputs:
+  s30-lysate:
+    title: "S30 Lysate"
+    page: ../s30-lysate/spec.md
+  sensing-plasmid:
+    title: "Sensing plasmid"
+    page: null            # pOpen-LuxR-deGFP / pOpen-LuxR-PLA1
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble the 3OC6-HSL Detector reaction"
+      page: null
+    operator: mixing
+    operands: [s30-lysate, sensing-plasmid]
+    produces:
+      id: detector-3oc6-hsl
+      title: "3OC6-HSL Detector"
+      page: ../detector-3oc6-hsl/spec.md
+    parameters:
+      premix: "1x final, from a 2.5x stock, 20 uL"
+      extract: "1x final, from a 3.33x stock, 15 uL"
+      amino_acid_mix: "1x final, from a 10x stock, 5 uL"
+      sensing_plasmid: "40 ng/uL final, from a 2000 ng/uL stock, 1 uL"
+      rnase_inhibitor: "800 U/mL final, from a 40 000 U/mL stock, 1 uL"
+    notes: >
+      The three kit figures are repeated above rather than folded into a single
+      "S30 Lysate 1x" because the RNase inhibitor does not match: 800 U/mL here
+      against 2000 U/mL on ../s30-lysate/spec.md. The page says that is genuine
+      rather than a scaling error, so this Module is not S30 Lysate at 1x plus a
+      plasmid — it is S30 Lysate with one component at a different concentration,
+      and the schema has no way to say that except by listing the figures.
+
+open:
+  - id: two-rows-are-reconstructed-not-sourced
+    question: >
+      The page carries an open @Editor(london) tag on this and it is not decorative.
+      The 3OC6-HSL stock is given as 1 mM because that is the only value yielding the
+      10 uM final stated in three places on the page; the source's 50 mM would need
+      0.01 uL. The condition columns are also swapped relative to the source, in
+      which the column headed "− AHL" was the one carrying the AHL. Two of the
+      table's rows are therefore inference rather than record, and the analyte row is
+      one of them — though it is excluded above, so this file does not depend on it.
+  - id: rnase-inhibitor-disagrees-with-the-cytosol
+    question: >
+      800 U/mL here against 2000 U/mL on ../s30-lysate/spec.md, left as sourced
+      because the page says it is genuinely lower rather than a scaling error. If
+      that is confirmed, then "S30 Lysate" means two different things in two files
+      and one of them needs a different name. If it is not confirmed, this file's
+      figures move.
+  - id: the-outer-solution-is-not-this-module
+    question: >
+      The page's Outer Solution tab gives potassium L-glutamate 578 mM, HEPES 72 mM
+      pH 7.4, glucose 300 mM and 3OC6-HSL 10 uM. That is the exterior the cell sits
+      in, not the cell's composition, and its first three components are already
+      ../../processes/assemble-outer-solution/main.md as recorded in
+      ../gel-ulga/spec.yml. Named here so a reader who sees four more rows does not
+      read them as dropped operands.
+  - id: no-process-page
+    question: >
+      No process page documents building this Module or assembling it into a
+      reaction, and the page states that outright. It is one of two such declarations
+      in the corpus — the other is ../detector-theophylline/spec.md.

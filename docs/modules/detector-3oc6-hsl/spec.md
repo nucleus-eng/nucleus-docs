@@ -118,6 +118,10 @@ Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required:
 
 No process page documents building this Module or assembling it into a reaction.
 
+# Constituent Modules
+
+- [S30 Lysate](../s30-lysate/spec.md) — the London cell-free system, at 1× from its three kit components. Note the RNase inhibitor here is 800 U/mL, not the 2000 U/mL on that page
+
 # Credits
 
 Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).

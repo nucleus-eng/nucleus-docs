@@ -234,6 +234,10 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 - [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): aTc relieves TetR repression to drive BjaI expression.
 
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at reaction concentration
+
 # Credits
 
 Developed by Yen-Yu Hsu (b.next), with the encapsulated LacZ/CPRG configuration by Mary Kelly (Chicago Node, Kamat Lab).

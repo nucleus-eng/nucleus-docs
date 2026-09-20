@@ -152,6 +152,10 @@ Requires direct exposure to pH source. Either do not encapsulate OR include H⁺
 
 :::
 
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
+
 # Credits
 
 Developed by [Samuel J. Chen](https://orcid.org/0000-0001-8501-7175), Sung-Won Hwang, and Allen Liu (Chicago Node, Liu Lab), adapted from [Chen, Hwang, et al., 2025](https://doi.org/10.1101/2025.11.16.688650).

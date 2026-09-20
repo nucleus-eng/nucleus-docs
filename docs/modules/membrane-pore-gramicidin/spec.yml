@@ -1,0 +1,68 @@
+# Composition source for Membrane Pore: Gramicidin A.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` table stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: peptide into solvent, ending in one phase. The `packing`
+# step is where this pore enters a membrane, which is a step on the consuming page
+# and not here — so nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and `hold` one operation?".
+#
+# THE PROCESS HAS NO PAGE AND THAT IS THE PAGE'S OWN CLAIM, not a missing link:
+# "None specific to this Module. It is added to a membrane-forming or encapsulation
+# step." `page: null` records that, following ../s30-lysate/spec.yml.
+
+module: membrane-pore-gramicidin
+title: "Membrane Pore: Gramicidin A"
+
+inputs:
+  gramicidin-a:
+    title: "Gramicidin A"
+    page: null
+  dmso:
+    title: "DMSO"
+    page: null
+
+process_steps:
+  - id: prepare-stock
+    process:
+      title: "Prepare Gramicidin A stock"
+      page: null
+    operator: mixing
+    operands: [gramicidin-a, dmso]
+    produces:
+      id: membrane-pore-gramicidin
+      title: "Membrane Pore: Gramicidin A"
+      page: ../membrane-pore-gramicidin/spec.md
+    parameters:
+      gramicidin_a: "not established — see the questions below"
+      solvent: "DMSO, stored frozen"
+    notes: >
+      The stock is prepared in DMSO and stored frozen. No process page documents
+      this step; the page says the Module has no process of its own and is added to
+      a membrane-forming or encapsulation step instead. The consuming composition is
+      ../ph-sensing-cell/spec.md.
+
+open:
+  - id: the-concentration-is-the-whole-gap
+    question: >
+      No working concentration for Gramicidin A is recorded anywhere in this
+      documentation, and the page carries an open @Editor(chicago) tag saying so.
+      The one result that used it — the pH cascade's GFP-expression result — does not
+      state a figure. Without it that result cannot be reproduced. This matters more
+      than an ordinary missing number because the Module's known failure mode is
+      dose-shaped: too much ruptures liposomes. The parameter above says "not
+      established" rather than carrying a guess.
+  - id: dmso-is-a-carrier-not-a-constituent
+    question: >
+      DMSO is an operand above because the stock is a solution and the schema has no
+      other place to put a solvent. Whether a carrier belongs in `operands` or in
+      `parameters` is a corpus-wide question this file cannot settle alone — the same
+      choice arises anywhere a stock is prepared. Note that DMSO is not inert here:
+      ../substrate-xgal/spec.md records that DMSO ruins liposome formation, so the
+      carrier has a documented interaction with the compartment this pore enters.

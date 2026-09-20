@@ -1,0 +1,84 @@
+# Composition source for London Membrane: POPC.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: lipids into one film, ending in one phase. The `packing`
+# step is where this membrane closes around a payload, which lives on the consuming
+# page and not here — so nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and hold one operation?".
+#
+# THE PAGE DOCUMENTS TWO PREPARATIONS AND ONLY ONE IS A STEP. They are mutually
+# exclusive by the page's own words and the schema cannot say so; the other is
+# written out in full in the questions at the foot of this file. A limit of the
+# schema, not a claim about the bench.
+
+module: membrane-popc
+title: "London Membrane: POPC"
+
+inputs:
+  popc:
+    title: "POPC"
+    page: null            # bilayer-forming lipid; in every preparation
+  dspe-peg2000:
+    title: "DSPE-PEG2000"
+    page: null            # PEGylated preparation only — see the questions below
+
+process_steps:
+  - id: form-pegylated-film
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: mixing
+    operands: [popc, dspe-peg2000]
+    produces:
+      id: membrane-popc
+      title: "London Membrane: POPC"
+      page: ../membrane-popc/spec.md
+    parameters:
+      target_composition: "99.15 mol% POPC : 0.85 mol% DSPE-PEG2000"
+      popc: "MW 760.076, 25 mg/mL stock, 130.4 uL"
+      dspe_peg2000: "MW 2805.5, 10 mg/mL stock, 10.32 uL"
+      total_lipid: "3.36 mg"
+      batch_scale: "3.5x; 1x batch is 320 uL lipid-in-oil at 3 mg/mL"
+    notes: >
+      The PEGylated preparation. DSPE-PEG2000 is a functional addition rather than a
+      label — its PEG headgroup gives steric stabilization at the bilayer surface,
+      so this membrane behaves differently from plain POPC. The page states the
+      recipe reconciles to 99.150 : 0.850 against the stocks, which is why both the
+      mole ratio and the pipetting volumes are carried here: neither is derivable
+      from the other without the molecular weights.
+
+open:
+  - id: two-preparations-are-exclusive
+    question: >
+      The page documents two preparations and only the PEGylated one is a step above.
+      They are alternatives and the page says so in its own words — "neither
+      additional lipid is optional within its own recipe — they are what distinguish
+      one preparation from the other, and they have never been combined in one
+      membrane." The schema has no key for that. Marking both lipids `optional` would
+      assert they can be freely omitted or combined, which the page denies, and two
+      steps producing the same id fail check-spec-schema.py with duplicate-id —
+      measured on membrane-popc-chol-chicago, not assumed. The missing route in full,
+      so nothing is lost — fluorescently labeled membrane, target 99.9 mol% POPC :
+      0.1 mol% 18:1 Cyanine 5 PC, POPC 25 mg/mL stock at 79.863 uL, Cyanine 5 PC
+      1 mg/mL stock at 3.423 uL, 2.00 mg total lipid, single-batch scale. It is the
+      variant hydrogel-embedded in ../../processes/embed-ulga-hydrogel/main.md.
+  - id: cyanine-5-stock-is-disputed
+    question: >
+      The labeled recipe above depends on a stock concentration the page flags as
+      disputed and has an open @Editor(london) tag against. One record gives the
+      18:1 Cyanine 5 PC stock as 25 mg/mL, which would put the dye at 2.42 mol% —
+      about 24x the 0.1 mol% target. The page uses 1 mg/mL because that reconciles
+      exactly and matches the dye-stock convention used for Liss-Rhod PE in both
+      other Nucleus membranes. This file repeats the page's figure and does not
+      resolve the dispute; the resolution is the Node's.
+  - id: no-page-for-the-lipids
+    question: >
+      Neither lipid has a module page, so their figures live here by necessity rather
+      than by design. The same is true of the lipids corpus-wide.

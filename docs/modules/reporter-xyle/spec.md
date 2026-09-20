@@ -103,6 +103,10 @@ When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR a
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the catechol conversion that produces the visible signal
 
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
+
 # Credits
 
 Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node, Lucks Lab), [Charlie Newell](https://orcid.org/0000-0001-9208-7542) and Michael Booth (London Node, Booth Lab).

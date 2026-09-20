@@ -123,6 +123,11 @@ The effect itself is no longer second-hand. Chicago Node, Mary, 2026-09-17: theo
 
 No process page documents building this Module or assembling it into a reaction.
 
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
+- [Substrate: CPRG](../substrate-cprg/spec.md) — 0.6 mg/mL, the substrate the readout converts
+
 # Credits
 
 Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node).

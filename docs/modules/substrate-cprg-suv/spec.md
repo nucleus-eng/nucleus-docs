@@ -116,6 +116,11 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 The two methods leave different residual-substrate profiles, and residual free CPRG is what produces background color.
 :::
 
+# Constituent Modules
+
+- [Chicago Base Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) — the bilayer, 90:10 POPC:cholesterol by its extrusion route
+- [Substrate: CPRG](../substrate-cprg/spec.md) — the lumen, 50 mM at hydration
+
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).

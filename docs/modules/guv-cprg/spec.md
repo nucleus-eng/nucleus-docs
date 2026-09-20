@@ -94,6 +94,11 @@ CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules 
 - [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — combines this population with the sensing population and the gel, at 1:1:2.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the readout itself.
 
+# Constituent Modules
+
+- [London Membrane: POPC](../membrane-popc/spec.md) — the bilayer, taken at 100% POPC to match the [AHL Sensing Cell](../ahl-sensing-cell/spec.md)
+- [Substrate: CPRG](../substrate-cprg/spec.md) — the lumen, 50 mM at hydration
+
 # Credits
 
 Developed by Jonah McDonald and Charlie Newell (London Node).

@@ -1,0 +1,86 @@
+# Composition source for XylE Reporter.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: two additions into Base Cytosol, sharing its resources. No
+# `packing` step appears here, so nothing in this file depends on open question O8
+# in compositional-biology-theory, "are formation and `hold` one operation?".
+#
+# THE PAGE'S TABLE IS AN ASSAY, NOT ONLY A COMPOSITION. Its three volume columns are
+# test conditions for the detector upstream, not three versions of this Module. See
+# the questions at the foot of this file.
+
+module: reporter-xyle
+title: "XylE Reporter"
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  catecholase-dna:
+    title: "Catecholase DNA template"
+    page: null            # pT7-TetO-catecholase (pMN067); not yet in nucleus-eng/DNA
+  catechol:
+    title: "Catechol"
+    page: null
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble the XylE Reporter reaction"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, catecholase-dna, catechol]
+    produces:
+      id: reporter-xyle
+      title: "XylE Reporter"
+      page: ../reporter-xyle/spec.md
+    parameters:
+      base_cytosol: "1x — SMix 1x, PMix 1.80 mg/mL, ribosomes 1.8 uM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL"
+      catecholase_dna: "20 nM final, from a 275.7 nM stock"
+      catechol: "1 mM final, from a 100 mM stock"
+      reaction_volume: "10 uL, Nucleus Cytosol"
+    notes: >
+      The five Base Cytosol figures are repeated above because the page's table lists
+      them as separate rows rather than naming the cytosol, and they match
+      ../base-cytosol/spec.yml exactly. No process page documents assembling this
+      Module into a reaction; the one process the page lists is the readout, which
+      acts on the Module rather than making it.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: three-columns-are-conditions-not-compositions
+    question: >
+      The page's table has three volume columns — unregulated, repressed, activated —
+      and they are not three versions of this Module. They differ only in TetR
+      (0 or 75 nM) and aTc (0 or 10 uM), both of which belong to the tetR-aTc
+      Detector upstream, not to this reporter. They appear on this page because the
+      construct was tested downstream of that detector. So TetR and aTc are excluded
+      from the operands above, and the exclusion is a judgement rather than a
+      reading: the page does not say which rows are the Module and which are the
+      assay around it.
+  - id: two-tetr-scales-uncharacterized
+    question: >
+      A later bulk replication runs the same chemistry at 500 nM and 1000 nM TetR
+      against the 75 nM in the reference reaction, with the same construct — two
+      conditions of one design rather than two designs. The dependence of the readout
+      on TetR across that range has not been characterized. It does not change this
+      file, because TetR is not an operand here, but it changes what a composing page
+      can assume.
+  - id: construct-not-in-the-dna-repo
+    question: >
+      `pT7-TetO-catecholase` (`pMN067`) is not in nucleus-eng/DNA. A sequence file
+      exists in the source devnote but repository convention keeps the page from
+      linking it. The London constructs `T7pro-XylE-T7term` and
+      `T7pro-UTR1-G10_leader_peptide-XylE-T7term` are not designed at all. So
+      `catecholase-dna` above is a role with a label, not an identity claim.

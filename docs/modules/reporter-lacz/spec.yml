@@ -1,0 +1,94 @@
+# Composition source for LacZ Reporter.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: three additions into Base Cytosol, sharing its resources.
+# The `packing` step is where this reporter is encapsulated, which is a step on the
+# consuming cell page and not here — so nothing in this file depends on open
+# question O8 in compositional-biology-theory, "are formation and `hold` one
+# operation?".
+#
+# EVERY FIGURE BELOW IS IMPUTED, NOT MEASURED. See the questions at the foot of this
+# file. The page carries an open @Editor(chicago) tag saying the same thing, and
+# nothing here resolves it.
+
+module: reporter-lacz
+title: "LacZ Reporter"
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  lacz-dna:
+    title: "LacZ DNA template"
+    page: null            # T7pro-LacZ-T7term; not yet in nucleus-eng/DNA
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble the LacZ Reporter reaction"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, lacz-dna, substrate-cprg, rnase-inhibitor]
+    produces:
+      id: reporter-lacz
+      title: "LacZ Reporter"
+      page: ../reporter-lacz/spec.md
+    parameters:
+      base_cytosol: "1x"
+      lacz_dna: "5 nM final; stock is prep-specific"
+      cprg: "0.6 mg/mL final, from a 10 mg/mL stock"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
+    notes: >
+      No process page documents assembling this Module into a reaction; the three
+      processes the page lists are the exterior-LacZ digest, the readout and the
+      hydrogel format, all of which act on the Module rather than make it. LacZ may
+      also be supplied as purified protein instead of expressed from DNA — see
+      ../reporter-lacz-enzyme/spec.md for the roughly sixty-fold range in use across
+      encapsulated formats. That is a different Module, not a parameter of this one.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: every-figure-is-imputed
+    question: >
+      No reaction expressing LacZ standalone is on record. Every concentration above
+      is taken from the theophylline-gated reaction on ../detector-theophylline/spec.md
+      with the analyte removed, on the reasoning that that reaction is this Module
+      plus a riboswitch. Two things follow that are assumptions rather than
+      measurements — that a constitutive LacZ construct wants the same 5 nM as a
+      riboswitch-gated one, and that the London constructs behave like the Chicago
+      one at that concentration. The page carries an open @Editor(chicago) tag asking
+      the Node to confirm both. This file repeats the figures and the caveat
+      together, because a machine-readable source that carried the figures without
+      the caveat would read as measurement.
+  - id: no-lacz-construct-is-in-the-dna-repo
+    question: >
+      None of the three named constructs has a file in nucleus-eng/DNA — checked in
+      `detectors/` and `reporters/`, none found. `pT7-theophylline-LacZ` (`pMN066`)
+      fuses LacZ downstream of the theophylline riboswitch rather than expressing it
+      standalone, so even once submitted it would not represent a bare LacZ reporter
+      part. So `lacz-dna` above is a role with a label, not an identity claim against
+      a sequence file.
+  - id: the-documented-cells-do-not-use-this-module
+    question: >
+      In the synthetic cells documented in this corpus LacZ is not expressed at all —
+      it is added as purified enzyme. So this Module as specified is the design and
+      ../reporter-lacz-enzyme/spec.md is what the cells actually contain. Both are
+      real and they are not the same thing; which one a composing page means is the
+      composing page's choice, and ../atc-sensing-cell/spec.md is the worked example.
