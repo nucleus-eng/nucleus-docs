@@ -19,20 +19,28 @@ Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-po
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
+    HPTS["HPTS dye solution"]
+    MEMBRANE_POPC_CHOL["Base Membrane"]
+
+    P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     DYE_LIPOSOMES["Dye Liposomes"]
-    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
 
-    MEMBRANE_POPC_CHOL --> DYE_LIPOSOMES
+    HPTS --> P1_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL --> P1_ENCAPSULATE_0
+    P1_ENCAPSULATE_0 --> DYE_LIPOSOMES
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class MEMBRANE_POPC_CHOL constituent;
-    class DYE_LIPOSOMES this;
 
-    click DYE_LIPOSOMES "/docs/modules/dye-liposomes/spec"
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class HPTS,MEMBRANE_POPC_CHOL leaf;
+    class DYE_LIPOSOMES composed;
+    class P1_ENCAPSULATE_0 process;
+
     click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+    click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click DYE_LIPOSOMES "/docs/modules/dye-liposomes/spec"
 ```
 
 ::::
@@ -87,7 +95,7 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 Liposomes are visible in the green channel (interior, HPTS, 480 nm ex / 520 nm em) and in the red channel (membrane, Liss-Rhodamine-PE, 540 nm ex / 580 nm em) under fluorescence microscopy.
 
-# Process
+# Processes
 
 Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
@@ -124,4 +132,3 @@ Sucrose is used in the original [Build a Cell liposome kit](https://github.com/B
 # Credits
 
 Adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
-

@@ -1,0 +1,67 @@
+# Composition source for Base Membrane: POPC/Chol.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` table stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The single step is `mixing`, and that is a claim rather than a default. Three
+# lipids go into one film and end in one phase; nothing here keeps its own
+# compartment. `packing` arises when this membrane closes around a cytosol, which
+# is a step on ../base-cell/spec.yml and not here — so this file does not depend on
+# open question O8 in compositional-biology-theory, "are formation and hold one
+# operation?".
+
+module: membrane-popc-chol
+title: "Base Membrane: POPC/Chol"
+
+inputs:
+  popc:
+    title: "POPC"
+    page: null            # 1-palmitoyl-2-oleoyl-glycero-3-phosphocholine; no module page
+  cholesterol:
+    title: "Cholesterol"
+    page: null
+  liss-rhod-pe:
+    title: "Liss-Rhod PE"
+    page: null            # Lissamine Rhodamine PE, the fluorescent tracer
+    optional: true
+
+process_steps:
+  - id: form-lipid-film
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: mixing
+    operands: [popc, cholesterol, liss-rhod-pe]
+    produces:
+      id: membrane-popc-chol
+      title: "Base Membrane: POPC/Chol"
+      page: ../membrane-popc-chol/spec.md
+    parameters:
+      popc: "70% (mol), MW 760.076, 25 mg/mL stock, 162.17 uL"
+      cholesterol: "29.95% (mol), MW 386.654, 50 mg/mL stock, 17.65 uL"
+      liss_rhod_pe: "0.05% (mol), MW 1301.71, 1 mg/mL stock, 4.96 uL"
+    notes: >
+      The three percentages are mole fractions of the lipid film, not of the
+      finished cell. The page gives stock concentrations and volumes beside them
+      because the film is made by pipetting stocks, so the ratio and the recipe
+      are both load-bearing and neither is derivable from the other without the
+      molecular weights, which is why those are stated too.
+
+open:
+  - id: liss-rhod-pe-is-a-tracer
+    question: >
+      Liss-Rhod PE is marked optional here because it is a fluorescent tracer at
+      0.05%, not a structural lipid, and a membrane without it is still this
+      Module. The page does not say that. If the Node considers the tracer part
+      of the specification rather than an instrument, the `optional` key should
+      come off.
+  - id: no-page-for-the-lipids
+    question: >
+      None of the three lipids has a module page, so their figures live here by
+      necessity rather than by design. The same is true of the lipids corpus-wide.
+      That the lipids have no pages is the finding, not this file's workaround.

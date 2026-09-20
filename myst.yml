@@ -33,9 +33,9 @@ project:
           hidden: true
         - file: ./docs/modules/reporter-degfp/spec.md
           hidden: true
-        - file: ./docs/modules/detector-tetr_atc/spec.md
+        - file: ./docs/modules/detector-tetr-atc/spec.md
           hidden: true
-        - file: ./docs/modules/detector-laci_iptg/spec.md
+        - file: ./docs/modules/detector-laci-iptg/spec.md
           hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true

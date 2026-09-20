@@ -60,6 +60,50 @@ jobs:
       - name: Check TOC
         run: python3 scripts/check-toc.py
 
+
+  composition:
+    # The prose `# Constituent Modules` list and the machine-readable `spec.yml`
+    # are two sources for one fact, and they drift: `london-cascade` listed
+    # `Substrate: CPRG` where its own source said `GUV: CPRG`, within an hour of
+    # both existing. Blocks when the prose names a module the source never does;
+    # reports without blocking when the final step has an operand the prose
+    # omits, which is a grain difference. See scripts/check-composition.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml
+        run: pip install pyyaml
+
+      - name: Check composition sources
+        run: python3 scripts/check-composition.py
+
+  spec-schema:
+    # The spec.yml files are the machine-readable half of every Module page and
+    # nothing validated them in CI on any branch until this job existed -- the
+    # checker was written, kept passing, and only ever ran when someone typed it.
+    # Two passes: shape against scripts/spec-yml-schema.yml, then the references a
+    # schema cannot express -- the module key matching its directory, operands
+    # naming something, no two steps producing one id, and every page path
+    # resolving. It does NOT compare figures against the page; see the PR.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install deps
+        run: pip install pyyaml jsonschema
+
+      - name: Check spec.yml against the schema
+        run: python3 scripts/check-spec-schema.py
+
   implementations:
     # Two rules over `# Implementations`. CATEGORY (blocking): an entry there
     # must point at docs/implementations/, not at another Module — a cascade is

@@ -1,0 +1,96 @@
+# Composition source for LacI/IPTG Detector.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: a master mix in one tube, one phase. No `packing` step
+# appears here, so nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and `hold` one operation?".
+#
+# THIS MODULE IS BUILT ON PURExpress, NOT ON BASE CYTOSOL. Solutions A and B are a
+# commercial kit and have no module page, so they are operands with `page: null`
+# rather than a reference to ../base-cytosol/spec.md. That is a real difference
+# between this Module and every other detector in the corpus, not a shortcut.
+#
+# IPTG IS EXCLUDED. It is the analyte this Module detects, not a constituent. See
+# the questions at the foot of this file.
+
+module: detector-laci-iptg
+title: "LacI/IPTG Detector"
+
+inputs:
+  purexpress-solution-a:
+    title: "PURExpress Solution A"
+    page: null
+  purexpress-solution-b:
+    title: "PURExpress Solution B"
+    page: null
+  laco-plamgfp-dna:
+    title: "pT7-lacO-plamGFP"
+    page: null            # 2958 bp; detectors/pOpen-pT7-lacO.gb in nucleus-eng/DNA
+  laci:
+    title: "LacI"
+    page: null            # purified protein, or expressed from pT7-lacI
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null
+
+process_steps:
+  - id: assemble-master-mix
+    process:
+      title: "Assemble the LacI/IPTG Detector master mix"
+      page: null
+    operator: mixing
+    operands:
+      - purexpress-solution-a
+      - purexpress-solution-b
+      - laco-plamgfp-dna
+      - laci
+      - rnase-inhibitor
+    produces:
+      id: detector-laci-iptg
+      title: "LacI/IPTG Detector"
+      page: ../detector-laci-iptg/spec.md
+    parameters:
+      purexpress_solution_a: "4 uL"
+      purexpress_solution_b: "3 uL"
+      laco_plamgfp_dna: "0.5 uL of a 10 nM stock"
+      laci: "0.5 uL of a 10 uM stock; 500 nM to 1000 nM final is the stated effective range"
+      rnase_inhibitor: "0.5 uL"
+      master_mix_total: "9 uL, made up to 10 uL per reaction by the analyte"
+    notes: >
+      Both DNA constructs have confirmed files in nucleus-eng/DNA —
+      detectors/pOpen-lacI.gb at 2877 bp and detectors/pOpen-pT7-lacO.gb at 2958 bp.
+      That is unusual in this corpus: most construct-bearing pages flag their
+      sequences as absent from that repository.
+
+open:
+  - id: iptg-is-the-analyte-not-a-constituent
+    question: >
+      The page's second table adds 1 uL of 10 uM IPTG to the 9 uL master mix. IPTG is
+      what this detector detects, so it is excluded from the operands above and the
+      master mix is what the Module is. The page does not draw that line — it
+      presents both tables as one recipe — so the exclusion is this file's judgement.
+      The effective induction range the page gives is 500 nM to 2000 nM IPTG, which
+      belongs on ../analyte-iptg/spec.md rather than here.
+  - id: laci-has-two-supply-routes
+    question: >
+      LacI may be added as purified protein at 500 nM to 1000 nM, or expressed in
+      situ from the `pT7-lacI` construct. The table takes the purified route and this
+      file follows it. The two are not equivalent — one is a fixed dose and the other
+      is an expression level — and the schema has one operand slot for either. This
+      is the same "one of these" shape flagged on ../detector-ph/spec.yml and
+      ../membrane-popc-chol-chicago/spec.yml.
+  - id: purexpress-is-not-a-module
+    question: >
+      Solutions A and B carry the whole transcription-translation system and have no
+      module page, so their composition is not machine-readable anywhere in this
+      corpus. Every other detector builds on ../base-cytosol/spec.md, whose five
+      constituents are named. This Module's equivalent is two opaque operands, and a
+      tool comparing detectors across the corpus will see the difference as missing
+      data rather than as a different kit.

@@ -96,7 +96,7 @@ HUB_SECTIONS = ("modules", "processes", "implementations")
 # DELETE BOTH ENTRIES when that branch merges; the check then has an empty
 # allowlist and enforces for everything.
 HUB_ALLOWLIST: set[str] = {
-    "docs/modules/detector-laci_iptg/spec.md",
+    "docs/modules/detector-laci-iptg/spec.md",
     "docs/implementations/emitter-ivhsl/main.md",
 }
 
