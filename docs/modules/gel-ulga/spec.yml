@@ -16,6 +16,7 @@
 
 module: gel-ulga
 title: "Gel: ULGA"
+refines: abstract-gel
 
 inputs:
   ulga:

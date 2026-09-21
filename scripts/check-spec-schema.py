@@ -46,6 +46,15 @@ def reference_findings(path, doc):
         out.append(("module-key", "module",
                     f'is "{doc.get("module")}" but the directory is "{expect}"'))
 
+    parent = doc.get("refines")
+    if parent:
+        if parent == doc.get("module"):
+            out.append(("refines", "refines",
+                        f'names its own module, "{parent}"'))
+        elif not os.path.exists(os.path.join(REPO, "docs", "modules", parent, "spec.md")):
+            out.append(("refines", "refines",
+                        f'names "{parent}" but docs/modules/{parent}/spec.md does not exist'))
+
     known = set((doc.get("inputs") or {}).keys())
     for i, s in enumerate(doc.get("process_steps") or []):
         sid = s.get("id", f"#{i}")

@@ -21,6 +21,7 @@
 
 module: detector-ph
 title: "pH Detector"
+refines: abstract-detector
 
 inputs:
   base-cytosol:
