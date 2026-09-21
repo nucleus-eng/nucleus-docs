@@ -49,15 +49,18 @@ properties:
       of. A Module with no abstract parent omits the key, and most do.
       THE PARENT MUST BE THE IMMEDIATE ONE. Pointing a Module two levels up would
       make the key mean SOME ancestor rather than THE parent, which is a different
-      key. When this field landed, three membranes carried no value, because the
-      theory corpus puts `Membrane` between them and `Container` and this corpus
-      had no Membrane page. That page landed the same day at `094fed4` and all
-      three now name it, as do the three pores against `pore`.
+      key. A Module whose immediate parent has no page on the branch it sits on
+      omits the key rather than reaching past it.
+      THIS DESCRIPTION MUST NOT STATE THE STATE OF A TREE, and an earlier version
+      did. It lives on two branches whose corpora differ, so a present-tense count
+      that is true on one is false on the other and only one of them will notice.
+      The version written the day this field landed said three membranes carried
+      no value and that nothing resolved the key. Both were true that morning on
+      docs/devcells-integration-pages, both were stale there by the evening, and
+      neither was ever true of staging/spec-yml-to-main.
       check-spec-schema.py RESOLVES EVERY VALUE, as of 2026-09-21. It fails a
       Module that names itself and one that names a directory holding no spec.md.
-      What it does not do is walk the chain, so nothing here would catch a cycle.
-      compositional-biology-theory session c9d6a5 ran that check by hand on
-      2026-09-21 over all 19 edges and found none. A hand check is not a guard.
+      It does not walk the chain, so nothing here catches a cycle.
   inputs:
     type: object
     description: >
