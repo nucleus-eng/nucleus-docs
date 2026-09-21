@@ -19,7 +19,7 @@ title: "Gel: ULGA"
 refines: abstract-gel
 
 inputs:
-  ulga:
+  ulga-powder:
     title: "Ultra low gelling temperature agarose"
     page: null            # Sigma-Aldrich A5030; A2576 is interchangeable, London Node
   potassium-glutamate:
@@ -61,7 +61,7 @@ process_steps:
       title: "Hydrogel Embedding: ULGA"
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: mixing
-    operands: [ulga, london-outer-solution]
+    operands: [ulga-powder, london-outer-solution]
     produces:
       id: gel-ulga
       title: "Gel: ULGA"

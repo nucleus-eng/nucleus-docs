@@ -140,6 +140,35 @@ jobs:
       - name: Check operator pairs
         run: python3 scripts/check-operator-pairs.py
 
+  input-aliases:
+    # An `inputs` key is an identity: operands reference it, operator_pairs name
+    # it, and a diagram draws one node per key. Two keys resolving to one page are
+    # one material under two names, and nothing compared them until 2026-09-21.
+    #
+    # It exists because of how the ULGA powder got a third name. It was `ulga` in
+    # gel-ulga and `ulga-powder` in london-cascade, and `agarose` in the two
+    # Chicago cascades carried page: null, so it could not collide with anything.
+    # Jon identifying the agarose as ULGA turned a gap into a duplicate: the
+    # corpus got worse by getting more correct, and no check noticed either event.
+    #
+    # ADVISORY. 133 of 206 input keys carry page: null and cannot collide yet, so
+    # a green run counts the identified ones and nothing else. An unpaged key is
+    # not a pass; it is a material nothing has identified.
+    # See scripts/check-input-aliases.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Check input aliases
+        run: python3 scripts/check-input-aliases.py
+
   conflicts:
     # A Conflict is DERIVED, not asserted. compositional-biology-theory
     # glossary.md#T23: "Sensitivity meeting imposition. Computed, never asserted",

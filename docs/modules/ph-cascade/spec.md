@@ -41,7 +41,7 @@ flowchart TD
     MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
-    AGAROSE["Agarose, 0.7%"]
+    ULGA_POWDER["ULGA powder, 0.7%"]
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
 
@@ -55,7 +55,7 @@ flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P6_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing)"])
+    P6_EMBED_AGAROSE_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
@@ -79,7 +79,7 @@ flowchart TD
     MEMBRANE_CHICAGO --> P5_ENCAPSULATE_SUBSTRATE_SUV_0
     P5_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
 
-    AGAROSE --> P6_EMBED_AGAROSE_0
+    ULGA_POWDER --> P6_EMBED_AGAROSE_0
     CHICAGO_OUTER_SOLUTION --> P6_EMBED_AGAROSE_0
     PH_SENSING_CELL --> P6_EMBED_AGAROSE_0
     SUBSTRATE_CPRG_SUV --> P6_EMBED_AGAROSE_0
@@ -90,7 +90,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,AGAROSE,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
     class CHICAGO_OUTER_SOLUTION,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_AGAROSE_0 process;
 
@@ -99,7 +99,7 @@ flowchart TD
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click AGAROSE "/docs/modules/gel-ulga/spec"
+    click ULGA_POWDER "/docs/modules/gel-ulga/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click P2_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"

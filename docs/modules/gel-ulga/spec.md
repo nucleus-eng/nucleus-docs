@@ -27,7 +27,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
-    ULGA["Ultra low gelling temperature agarose"]
+    ULGA_POWDER["Ultra low gelling temperature agarose"]
     POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
     HEPES["HEPES, pH 7.4"]
     GLUCOSE["Glucose"]
@@ -42,7 +42,7 @@ flowchart TD
     GLUCOSE --> P1_ASSEMBLE_OUTER_0
     P1_ASSEMBLE_OUTER_0 --> LONDON_OUTER_SOLUTION
 
-    ULGA --> P2_SET_THERMAL_0
+    ULGA_POWDER --> P2_SET_THERMAL_0
     LONDON_OUTER_SOLUTION --> P2_SET_THERMAL_0
     P2_SET_THERMAL_0 -->|"1:1 with the cell suspension, halving the ULGA to its final figure"| GEL_ULGA
 
@@ -50,7 +50,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class ULGA,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
+    class ULGA_POWDER,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
     class LONDON_OUTER_SOLUTION,GEL_ULGA composed;
     class P1_ASSEMBLE_OUTER_0,P2_SET_THERMAL_0 process;
 

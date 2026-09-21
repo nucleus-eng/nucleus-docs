@@ -71,16 +71,18 @@ inputs:
   # pH path
   ph-responsive-ssdna: { component_of: "../detector-ph/spec.md", title: "pH-responsive ssDNA", page: null }
   trigger-ssdna:       { component_of: "../detector-ph/spec.md", title: "Trigger ssDNA", page: null }
-  agarose:
-    title: "Agarose, 0.7%"
+  ulga-powder:
+    title: "ULGA powder, 0.7%"
     # IDENTIFIED 2026-09-21. Jon: "agarose is ULGA, confirmed. i know we were
     # claiming they might not be, but I've confirmed with devs." This read
     # `page: null` with an open Chicago editor ask about which agarose it was.
-    # THE KEY IS STILL `agarose` AND THAT IS NOT AN OVERSIGHT. ULGA is a grade of
-    # agarose rather than a different material, so the word was never wrong, only
-    # under-specified. Renaming would also make a third name for one powder:
-    # ../gel-ulga/spec.yml calls it `ulga` and ../london-cascade/spec.yml calls it
-    # `ulga-powder`. That is a real finding, staged rather than fixed inline.
+    # RENAMED FROM `agarose` ON JON'S RULING, 2026-09-21: "one powder, one key".
+    # The identification above made this file the THIRD name for one material,
+    # against `ulga` in ../gel-ulga/spec.yml and `ulga-powder` in
+    # ../london-cascade/spec.yml, and all three resolved to the same page. The
+    # word was never wrong, since ULGA is a grade of agarose, and the prose still
+    # says agarose where it means the material class. The KEY is an identity and
+    # now there is one. check-input-aliases.py is what would have caught it.
     page: ../gel-ulga/spec.md
 
 process_steps:
@@ -256,7 +258,7 @@ process_steps:
 
   - id: embed-agarose
     process:
-      title: "Hydrogel Embedding: Agarose"
+      title: "Hydrogel Embedding: ULGA"
       # THE PAGE FOLLOWS FROM THE IDENTIFICATION ABOVE, on the reasoning
       # ../chicago-cascade/spec.md already carried: this corpus has one agarose
       # embedding process and it is the ULGA one, so "if it is ULGA, the pH path
@@ -265,9 +267,9 @@ process_steps:
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: packing
     operator_pairs:
-      - operands: [agarose, chicago-outer-solution]
+      - operands: [ulga-powder, chicago-outer-solution]
         operator: mixing
-      - operands: [agarose, reporter-lacz-enzyme]
+      - operands: [ulga-powder, reporter-lacz-enzyme]
         operator: mixing
       - operands: [chicago-outer-solution, reporter-lacz-enzyme]
         operator: mixing
@@ -276,7 +278,7 @@ process_steps:
           pair mixes. The step's `packing` label is right for the seven pairs
           that involve a membrane-bounded operand and wrong for these three.
     operands:
-      - agarose
+      - ulga-powder
       - chicago-outer-solution
       - ph-sensing-cell
       - substrate-cprg-suv
@@ -286,7 +288,7 @@ process_steps:
       title: "pH Cascade"
       page: ../ph-cascade/spec.md
     parameters:
-      agarose: "0.7% (w/v)"   # sets thermally; no crosslinker
+      ulga-powder: "0.7% (w/v)"   # sets thermally; no crosslinker
     notes: >
       The mixing ratio of sensing cells to SUVs to LacZ is not established —
       the same gap London closed on 2026-09-09 and this path still has.
@@ -327,5 +329,5 @@ open:
       The pH path is agarose at 0.7% (2026-09-11), but no part number is
       recorded. If it is the low-gelling-temperature agarose that
       embed-ulga-hydrogel documents, that process can likely be reused with a
-      concentration change. If it is a plain agarose, this path has no process
+      concentration change. If it is a plain ulga-powder, this path has no process
       page at all. @Editor(chicago)

@@ -37,8 +37,8 @@ inputs:
   reporter-lacz-enzyme:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
-  agarose:
-    title: "Agarose, 0.7%"
+  ulga-powder:
+    title: "ULGA powder, 0.7%"
     # IDENTIFIED 2026-09-21. Jon: "agarose is ULGA, confirmed. i know we were
     # claiming they might not be, but I've confirmed with devs." This read
     # `page: null` with an open Chicago editor ask about which agarose it was.
@@ -129,7 +129,7 @@ process_steps:
 
   - id: embed-agarose
     process:
-      title: "Hydrogel Embedding: Agarose"
+      title: "Hydrogel Embedding: ULGA"
       # THE PAGE FOLLOWS FROM THE IDENTIFICATION ABOVE, on the reasoning
       # ../chicago-cascade/spec.md already carried: this corpus has one agarose
       # embedding process and it is the ULGA one, so "if it is ULGA, the pH path
@@ -138,9 +138,9 @@ process_steps:
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: packing
     operator_pairs:
-      - operands: [agarose, chicago-outer-solution]
+      - operands: [ulga-powder, chicago-outer-solution]
         operator: mixing
-      - operands: [agarose, reporter-lacz-enzyme]
+      - operands: [ulga-powder, reporter-lacz-enzyme]
         operator: mixing
       - operands: [chicago-outer-solution, reporter-lacz-enzyme]
         operator: mixing
@@ -149,7 +149,7 @@ process_steps:
           pair mixes. The step's `packing` label is right for the seven pairs
           that involve a membrane-bounded operand and wrong for these three.
     operands:
-      - agarose
+      - ulga-powder
       - chicago-outer-solution
       - ph-sensing-cell
       - substrate-cprg-suv
@@ -159,7 +159,7 @@ process_steps:
       title: "pH Cascade"
       page: ../ph-cascade/spec.md
     parameters:
-      agarose: "0.7% (w/v)"   # sets thermally; no crosslinker
+      ulga-powder: "0.7% (w/v)"   # sets thermally; no crosslinker
     notes: >
       The mixing ratio of sensing cells to SUVs to LacZ is not established —
       the same gap London closed on 2026-09-09 and this path still has.

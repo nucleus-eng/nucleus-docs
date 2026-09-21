@@ -49,7 +49,7 @@ flowchart TD
     LAP["LAP photoinitiator"]
     PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
     TRIGGER_SSDNA["Trigger ssDNA"]
-    AGAROSE["Agarose, 0.7%"]
+    ULGA_POWDER["ULGA powder, 0.7%"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     CHICAGO_OUTER_SOLUTION["Outer Solution"]
@@ -70,7 +70,7 @@ flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P10_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing)"])
+    P10_EMBED_AGAROSE_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
     PH_GEL["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]
@@ -118,7 +118,7 @@ flowchart TD
     MEMBRANE_CHICAGO --> P9_ENCAPSULATE_SUBSTRATE_SUV_0
     P9_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
 
-    AGAROSE --> P10_EMBED_AGAROSE_0
+    ULGA_POWDER --> P10_EMBED_AGAROSE_0
     CHICAGO_OUTER_SOLUTION --> P10_EMBED_AGAROSE_0
     PH_SENSING_CELL --> P10_EMBED_AGAROSE_0
     SUBSTRATE_CPRG_SUV --> P10_EMBED_AGAROSE_0
@@ -133,7 +133,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,TRIS_HEPES_STOCK,ENERGY_SOLUTION,MEMBRANE_CHICAGO,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG,DETECTOR_TETR_ATC,PEG_NORBORNENE_MONOMER,PEG4SH,LAP,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,AGAROSE leaf;
+    class BASE_CYTOSOL,TRIS_HEPES_STOCK,ENERGY_SOLUTION,MEMBRANE_CHICAGO,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG,DETECTOR_TETR_ATC,PEG_NORBORNENE_MONOMER,PEG4SH,LAP,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,ULGA_POWDER leaf;
     class CHICAGO_OUTER_SOLUTION,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_GEL_LOADED,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_GEL,CHICAGO_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_ATC_CYTOSOL_0,P3_ENCAPSULATE_ATC_0,P3_ENCAPSULATE_ATC_1,P4_PHOTODEVELOP_ATC_GEL_0,P5_DOSE_CPRG_INTO_ATC_GEL_0,P6_ANNEAL_TRIGGER_DUPLEX_0,P7_ASSEMBLE_PH_CYTOSOL_0,P8_ENCAPSULATE_PH_0,P9_ENCAPSULATE_SUBSTRATE_SUV_0,P10_EMBED_AGAROSE_0,P11_BOND_GELS_0 process;
 
@@ -144,7 +144,7 @@ flowchart TD
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click PEG_NORBORNENE_MONOMER "/docs/modules/gel-peg-norbornene/spec"
-    click AGAROSE "/docs/modules/gel-ulga/spec"
+    click ULGA_POWDER "/docs/modules/gel-ulga/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click P2_ASSEMBLE_ATC_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
