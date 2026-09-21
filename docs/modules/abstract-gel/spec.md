@@ -45,9 +45,9 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} The two ends of that window are different quantities, and the upper one is not a working temperature
-**8 °C is a gelling point and 50 °C is a melting point.** They are not the two ends of a band of gelling points, and **50 °C is not a temperature at which vesicles can be mixed into a gel.**
+**8 °C is a gelling point and 50 °C is a melting point.** They are not the two ends of a band of gelling points, and **50 °C is not a temperature at which the payload can be mixed into a gel.**
 
-**The window is still correct at this level, because the gel is not what forbids 50 °C.** The polymer is fine there. What forbids it is whatever is being embedded. **The narrower limit is a Requirement the payload imposes on its Container**, not a property of any gel, so it belongs on the page of the thing being held, pointing here. Recording a tighter window on a member page would put a fact about vesicles on a page about polysaccharide.
+**The window is still correct at this level, because the gel is not what forbids 50 °C.** The polymer is fine there. What forbids it is whatever is being embedded. **The narrower limit is a Requirement the payload imposes on its Container**, not a property of any gel, so it belongs on the page of the thing being held, pointing here. Recording a tighter window on a member page would put a fact about the payload on a page about polysaccharide.
 
 **Ruled by Jon, 2026-09-21:** *"that's the right range to put on the abstract module because the tighter temperature requirements come from the biology we put in the gels."*
 

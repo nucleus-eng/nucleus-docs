@@ -111,7 +111,8 @@ process_steps:
     notes: >
       No concentration is established for the monomer, the crosslinker or the
       photoinitiator, and exposure time depends on all three. The PEGDA route
-      was cut on 2026-09-11 — PEG-DA destroys the vesicles.
+      was cut by the Chicago Node on 2026-09-11; ../chicago-cascade/spec.md
+      carries their words and the reason.
 
   - id: dose-cprg
     process:

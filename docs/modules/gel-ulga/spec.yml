@@ -81,7 +81,7 @@ process_steps:
       supplied by Jon on 2026-09-21 from the supplier's materials specification
       page. That is a catalog figure for a nominal product, not a measurement of
       either Node's stock, and the measured gelling point is still an open ask.
-      50 IS NOT A TEMPERATURE AT WHICH VESICLES CAN BE MIXED IN. The window is
+      50 IS NOT A TEMPERATURE AT WHICH THE PAYLOAD CAN BE MIXED IN. The window is
       still correct here because the gel is not what forbids 50: the payload is,
       and that is a Requirement the payload imposes on its Container rather than a
       property of this polymer. Jon's ruling: "that's the right range to put on the

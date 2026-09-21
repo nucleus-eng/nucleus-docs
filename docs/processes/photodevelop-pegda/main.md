@@ -6,7 +6,7 @@ status: canceled
 
 # Overview
 
-:::{attention} Canceled — PEGDA destroys the vesicles
+:::{attention} Canceled — PEG-DA "destroys the vesicles"
 This route is not used by any DevCells demo. Chicago Node, 2026-09-11: the aTc path uses PEG-norbornene "because PEG-DA destroys the vesicles." See [PEG-Norbornene Photodevelopment](../photodevelop-peg-norbornene/main.md), which is the live route, and [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), the parent process, which is unaffected.
 
 This protocol is kept for reference and is not maintained.
