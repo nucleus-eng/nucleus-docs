@@ -5,10 +5,15 @@
 # THIS MODULE IS NOT A SUBSTANCE, AND THAT IS THE HARDEST CASE IN THE SET. Its page
 # says so outright: "A property has no composition. The section is kept for shape,
 # and the table records the band rather than a recipe." pH is a property of a
-# solution. It has no ingredient, so the `inputs` entry below is the solution whose
-# composition sets it — which is the thing pH is a property OF, not a constituent.
-# That is the schema forcing a shape, and it is written up under `open:` rather than
-# passed off as a reading.
+# solution. It has no ingredient, so `inputs` is EMPTY, and the empty object is the
+# claim: this Module starts from nothing nameable in this corpus.
+#
+# UNTIL 2026-09-21 THIS FILE NAMED `outer-solution` AS ITS INPUT. That was not a
+# constituent. It was the solution pH is a property OF, which inverts the relation
+# the key encodes everywhere else in the corpus, and it was written only because
+# `inputs` carried `minProperties: 1`. Jon ruled that constraint off on 2026-09-21,
+# on the argument this file's own open item made, so the entry is gone rather than
+# re-explained.
 #
 # `process_steps` is empty. The page: "None. An analyte is supplied to an assay
 # rather than produced by a Nucleus process. For pH specifically, it is set by the
@@ -18,23 +23,20 @@
 module: analyte-ph
 title: "Analyte: pH"
 
-inputs:
-  outer-solution:
-    title: "Outer solution"
-    page: null            # NOT a constituent — the solution whose composition sets the pH
+inputs: {}              # empty by claim: a property has no constituents
 
 process_steps: []
 
 open:
-  - id: a-property-is-not-a-substance-and-inputs-requires-one
+  - id: a-property-is-not-a-substance
     question: >
-      `inputs` carries `minProperties: 1`, so this file must name something. There is
-      nothing to name. pH is not made of anything, and the entry above is the solution
-      it is a property of — which inverts the relation the key encodes everywhere else
-      in the corpus, where an input is a part of the product. **This is a stronger
-      case for dropping the `inputs` minimum than any of the five analytes**, because
-      those at least have a molecule to list. Here the field is filled to satisfy a
-      constraint and the comment is doing the work the schema should.
+      CLOSED 2026-09-21, and the file changed rather than the wording. This item used
+      to say that `minProperties: 1` forced this file to name something when there was
+      nothing to name, and that the entry was doing the schema's work. Jon took the
+      constraint off on that argument. `inputs` is now empty and the claim is the
+      emptiness. What stays open is one level up: the schema cannot distinguish an
+      empty `inputs` that is a claim from one nobody filled in, which is the cost the
+      schema's own description now records.
   - id: the-band-is-a-threshold-not-a-window
     question: >
       Switch ON at pH 6.5 or below, switch OFF at neutral. Every other analyte's band

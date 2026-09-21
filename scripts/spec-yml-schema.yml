@@ -34,7 +34,23 @@ properties:
     description: >
       Everything the module starts from, keyed by id. Ids are referenced by
       process_steps[].operands. 49 of 49 sources at `d611bda`, a required key.
-    minProperties: 1
+      MAY BE EMPTY, and an empty object is a claim rather than an omission: it
+      says this Module starts from nothing nameable in this corpus.
+      `minProperties: 1` was removed on Jon's ruling, 2026-09-21. It had asserted
+      that every Module is made of something nameable, which is a second
+      membership condition beside the one `minItems` carried and which
+      compositional-biology-theory `glossary.md#T03` does not include. Two page
+      classes were working around it and a third was blocked by it. Six atoms
+      listed themselves as their only input, which reads circularly. `analyte-ph`
+      listed the solution it is a property OF, which inverts the relation this key
+      encodes everywhere else, because pH is a property and there was no substance
+      to name. And an abstract Module has no inputs by construction: its members
+      have inputs and it classifies them, which is `glossary.md#T13` membership
+      against `#T34` constituency.
+      THE COST, STATED. An empty `inputs` and an unfilled one now look identical.
+      The key stays in the top-level `required` list, so it must be present, but
+      its emptiness is a claim the schema no longer distinguishes from an
+      oversight. That is the same trade `minItems` made on process_steps.
     additionalProperties:
       type: object
       additionalProperties: false
