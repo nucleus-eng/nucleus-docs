@@ -128,6 +128,10 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 - [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
 - [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — the London hydrogel format
 
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, for the ungated configuration
+
 # Credits
 
 Developed by Jonah McDonald and Charlie Newell (London Node) and Mary Kelly (Chicago Node, Kamat Lab).
