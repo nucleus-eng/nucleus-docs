@@ -70,6 +70,12 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 **Expected to be light-sensitive**, as CPRG is, so a photodeveloped gel should add it after crosslinking rather than before. @Editor(chicago): this has not been tested — CPRG's UV bleaching is documented and X-Gal's is inferred from it.
 
+**X-Gal is half of a pair, and the pair is the parameter.** Its enzyme is
+[LacZ](../reporter-lacz-enzyme/spec.md), the same enzyme as
+[CPRG](../substrate-cprg/spec.md), which is why the pair and not the substrate is the unit. The
+valid pairs are listed on the enzyme page. X-Gal does not pair with
+[XylE](../reporter-xyle/spec.md).
+
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.

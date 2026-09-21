@@ -57,6 +57,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
 | Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
+| Reporter | [Abstract: Color Change Module](./abstract-color-change/spec.md) | - |
 | Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
 | Substrate | [CPRG GUV](./guv-cprg/spec.md) | ★ |
 | Substrate | [CPRG](./substrate-cprg/spec.md) | ★ |
@@ -84,6 +85,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cytosol (Base) | [S30 Lysate](./s30-lysate/spec.md) | ★ |
 | Detector | [AHL](./detector-3oc6-hsl/spec.md) | ★ |
 | Detector | [Abstract: Detector](./abstract-detector/spec.md) | - |
+| Detector | [Abstract: Repressor Detector](./abstract-repressor-detector/spec.md) | - |
 | Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |

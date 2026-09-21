@@ -107,6 +107,25 @@ Requires a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-pop
 
 **PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbour's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago DevCell](../../implementations/chicago-devcell/main.md) carries the same [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism, not a defect: a neighbouring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
 
+**PLA1 requires a low noise floor in whatever drives it**, and any color change module built on
+PLA1 inherits that requirement. Both Nodes met it independently on 2026-09-15, from opposite
+directions. In London, background PLA1 expression without AHL gives near-equivalent color to the
+induced state, so the dynamic range is gone. In Chicago, PLA1 takes 10 to 12 h to lyse GUVs
+and the vesicles leak on their own over the same window, so the negative control colors too:
+*"slightly purple to slightly more purple."* **One failure with two causes**, transcriptional
+leak in London and vesicle lifetime in Chicago.
+
+**The requirement is typed on PLA1 rather than on the detector**, which is where it was first
+written. A requirement on the detector is one constraint per detector. A requirement on PLA1 is
+one constraint that every PLA1-driven module carries whatever is upstream, and it is why two
+Nodes met it with different sensors. Mary's 2026-09-17 read is not a counter-claim: she
+identifies the detector as the component currently **failing** to meet the requirement, and
+calls the LacZ/CPRG reaction robust. Where a requirement is typed and which component fails it
+are different questions, and both answers hold.
+
+**No threshold is recorded.** Neither Node has stated a figure for "low", so this stays prose
+and does not enter `spec.yml`.
+
 Requires an upstream sensing circuit (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).

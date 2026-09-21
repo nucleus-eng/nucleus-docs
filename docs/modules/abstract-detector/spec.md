@@ -60,6 +60,8 @@ This page is a work in progress and not yet ready for use.
 
 ## The abstract repressor detector, and it does have a composition
 
+**It has its own page now: [Abstract: Repressor Detector](../abstract-repressor-detector/spec.md).** Jon ruled it a page on 2026-09-21, on the grounds that the aTc detector is a concrete implementation of it. What follows is the summary; the page carries the constituents and the members.
+
 **Jon's specification, 2026-09-21:** a repressor detector has **a repressor element**, typically a protein but able to be encoded as DNA and expressed in situ, and **a DNA regulatory element that the repressor binds**. The analyte relieves the repression.
 
 **Two constituents, and they are separate molecules.** That makes this class composed where its parent is not, so `Abstract Detector` has no composition and `Abstract Repressor Detector` has one. The line falls between them.

@@ -19,7 +19,11 @@ project:
         - file: ./start/contribute.md
     - file: ./docs/modules/modules-main.md
       children:
+        - file: ./docs/modules/abstract-color-change/spec.md
+          hidden: true
         - file: ./docs/modules/abstract-detector/spec.md
+          hidden: true
+        - file: ./docs/modules/abstract-repressor-detector/spec.md
           hidden: true
         - file: ./docs/modules/container/spec.md
           hidden: true

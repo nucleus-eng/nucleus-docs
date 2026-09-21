@@ -21,6 +21,22 @@ This page is a work in progress and not yet ready for use.
 [Emitter: IV-HSL](../emitter-ivhsl/spec.md) documents a *different* acyl-homoserine lactone system: it produces N-isovaleryl-L-homoserine lactone (IV-HSL, a branched-chain HSL detected by BjaR) rather than detecting it, and IV-HSL is chemically distinct from the 3OC6-HSL detected by this module. The two are not interchangeable and this page makes no claim about compatibility between them.
 :::
 
+:::{note} LuxR is one of two refinements of this detector
+This page documents the **LuxR** route. LuxR is an activator, so 3OC6-HSL switches the `pLux`
+promoter on. **EsaR is the other refinement**: a LuxR homolog that represses rather than
+activates, which inverts the logic. Repressors give lower noise floors, so EsaR may be the more
+compatible route for a PLA1-driven cascade. See
+[Effector: PLA1](../effector-pla1/spec.md) § Requirements for why the noise floor binds.
+
+**The London Node is running EsaR.** It is available as purified protein from Biocrest, which
+removes the energy cost of expressing the regulator. Energy partitioning is one of three live
+hypotheses for why this sensor gives no GFP in Nucleus Cytosol, so those two facts are related.
+
+**This corpus holds no EsaR construct and no EsaR data**, so this note names the refinement
+rather than documenting it. @Editor(london): supply the construct and a titration when the run
+reports.
+:::
+
 :::{attention} Not yet validated in Nucleus Cytosol
 All data below comes from bacterial S30 lysate (Promega) and POPC synthetic cells built from S30 lysate, not from Nucleus Cytosol. 
 :::

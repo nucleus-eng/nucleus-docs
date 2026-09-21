@@ -35,6 +35,10 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 **CPRG is UV-sensitive**, so any photodeveloped format adds it after crosslinking rather than embedding it with everything else. That reordering makes it a free dye rather than an encapsulated one, which changes what the reporter is composed of.
 
+**CPRG is half of a pair, and the pair is the parameter.** Its enzyme is
+[LacZ](../reporter-lacz-enzyme/spec.md), and the valid enzyme-substrate pairs this corpus carries
+are listed there. CPRG does not pair with [XylE](../reporter-xyle/spec.md).
+
 # Processes
 
 - [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.

@@ -55,6 +55,21 @@ Requires [CPRG](../substrate-cprg/spec.md) to produce a signal — the enzyme al
 
 Proteinase K does not distinguish one LacZ from another, so [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) cannot be applied to a format that disperses the enzyme through the matrix on purpose.
 
+**The enzyme and its substrate are one parameter, and that parameter is a set of pairs.** This
+corpus carries three: `(LacZ, CPRG)`, `(LacZ, X-Gal)` and `(XylE, catechol)`. Writing the enzyme
+and the substrate as two independent lists would give six combinations and invent three that are
+wrong chemistry: `(LacZ, catechol)`, `(XylE, CPRG)` and `(XylE, X-Gal)`. Per-component ranges are
+projections of the joint set, and a projection loses the joint.
+
+**The rule, not the enumeration, is what holds.** The valid set is every pair `(E, S)` where `S`
+is a substrate of `E`. The three pairs above are what that rule returns over the enzymes this
+corpus documents today, and a fourth enzyme joins without anything here changing. The materials
+tracker lists **tyrosinase, also called catechol oxidase**, alongside XylE, so catechol's enzyme
+may already not be unique.
+
+**This also settles how not to write it.** *"Substrate, with the enzyme derived from it"* fails
+on CPRG and X-Gal, which share an enzyme.
+
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion this enzyme performs, read at 575 nm and by eye.
