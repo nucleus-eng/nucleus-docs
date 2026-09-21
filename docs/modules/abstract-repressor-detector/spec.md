@@ -60,6 +60,14 @@ Requires an analyte that reaches the repressor element.
 Both built members take the two-construct route: `pT7-tetR` with `pT7-tetO-plamGFP`, and `pT7-lacI` with `pT7-lacO-plamGFP`. Nothing in the corpus says whether that is a design choice or an accident.
 :::
 
+:::{attention} The supply choice is not functionally free, and calling it a parameter understates it
+[tetR-aTc](../detector-tetr-atc/spec.md) records three formats, not two, and compares them: purified protein at 500 nM, expression in situ from `pT7-tetR`, and expression overnight followed by combination with a fresh reaction.
+
+**All three repressed. Only the third induced.** That page states it plainly, and as of 2026-09-11 the overnight-expression format is the only one that has demonstrated induction in Nucleus Cytosol. The two that failed were a MedChem Express SUMO-His TetR and a foundry TetR, which makes the tag and the source **functional parameters rather than sourcing detail**.
+
+**So the class leaves this open and a member cannot.** Choosing how to supply the repressor element decides how the two constituents compose, and it also decides whether the Module works at all. A page that offers the choice without saying which format has induced is offering a choice the corpus has already narrowed.
+:::
+
 :::{attention} What this class requires of its Context is not settled
 An abstract Module carries an abstract Context that its members refine, ruled 2026-09-17. **How much that Context term carries, and how much is left to Requirements, is `open.md#O21`** in the theory corpus. Its expressiveness half closed on Jon's ruling of 2026-09-21 and its selection half is live.
 :::
