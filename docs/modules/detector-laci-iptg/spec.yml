@@ -75,7 +75,7 @@ open:
       The page's second table adds 1 uL of 10 uM IPTG to the 9 uL master mix. IPTG is
       what this detector detects, so it is excluded from the operands above and the
       master mix is what the Module is. The page does not draw that line — it
-      presents both tables as one recipe — so the exclusion is this file's judgement.
+      presents both tables as one recipe — so the exclusion is this file's judgment.
       The effective induction range the page gives is 500 nM to 2000 nM IPTG, which
       belongs on ../analyte-iptg/spec.md rather than here.
   - id: laci-has-two-supply-routes

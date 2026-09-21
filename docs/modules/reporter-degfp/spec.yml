@@ -72,10 +72,10 @@ open:
       Optiprep is a density-gradient medium for phase transfer, not a component of
       the reporting chemistry, and it is marked optional above on that reading. But
       the page lists it in the Cell tab's inner solution without saying it is
-      separable, so the `optional` mark is this file's judgement rather than the
+      separable, so the `optional` mark is this file's judgment rather than the
       page's claim. Magnesium acetate is in the same table and is NOT marked
       optional, because it is a reaction cofactor rather than a handling aid — that
-      is the same kind of judgement in the other direction, and both should be
+      is the same kind of judgment in the other direction, and both should be
       confirmed.
   - id: the-cytosol-tab-is-an-xref
     question: >
