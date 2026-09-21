@@ -66,7 +66,7 @@ open:
       (0 or 75 nM) and aTc (0 or 10 uM), both of which belong to the tetR-aTc
       Detector upstream, not to this reporter. They appear on this page because the
       construct was tested downstream of that detector. So TetR and aTc are excluded
-      from the operands above, and the exclusion is a judgement rather than a
+      from the operands above, and the exclusion is a judgment rather than a
       reading: the page does not say which rows are the Module and which are the
       assay around it.
   - id: two-tetr-scales-uncharacterized

@@ -51,7 +51,7 @@ This page is a work in progress and not yet ready for use.
 
 **Ruled by Jon, 2026-09-21:** *"that's the right range to put on the abstract module because the tighter temperature requirements come from the biology we put in the gels."*
 
-**Still missing: a measured gelling point for any stock in use.** The figure above is a catalogue value for a nominal product, not a measurement of what either Node holds. @Editor(london) and @Editor(chicago): what temperature does your agarose actually set at?
+**Still missing: a measured gelling point for any stock in use.** The figure above is a catalog value for a nominal product, not a measurement of what either Node holds. @Editor(london) and @Editor(chicago): what temperature does your agarose actually set at?
 :::
 
 # Requirements

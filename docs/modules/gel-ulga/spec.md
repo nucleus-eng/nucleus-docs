@@ -95,7 +95,7 @@ A separate configuration replaces those three with 1200 mM glucose and 0.1 mM Ca
 :::
 
 :::{attention} The upper bound is not a working temperature, and this window is not the one a payload needs
-**8 °C and 50 °C are different quantities**, a gelling point and a melting point. Supplied by Jon, 2026-09-21, from the supplier's materials specification page. **That is a catalogue figure for a nominal product and not a measurement of either Node's stock**, and the measured gelling point of the agarose actually in use is still an open ask. @Editor(london): what temperature does your A5030 set at?
+**8 °C and 50 °C are different quantities**, a gelling point and a melting point. Supplied by Jon, 2026-09-21, from the supplier's materials specification page. **That is a catalog figure for a nominal product and not a measurement of either Node's stock**, and the measured gelling point of the agarose actually in use is still an open ask. @Editor(london): what temperature does your A5030 set at?
 
 **50 °C is not a temperature at which vesicles can be mixed in.** The window is still correct on this page because the gel is not what forbids it. **The payload is**, and that is a Requirement the payload imposes on its Container rather than a property of this polymer. See [Abstract: Gel](../abstract-gel/spec.md), which carries the same window for the class.
 

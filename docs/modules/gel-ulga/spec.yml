@@ -79,7 +79,7 @@ process_steps:
       gel_temperature_window_c IS THE MATERIAL'S WINDOW AND ITS TWO ENDS ARE
       DIFFERENT QUANTITIES. 8 is a gelling point and 50 is a MELTING point, both
       supplied by Jon on 2026-09-21 from the supplier's materials specification
-      page. That is a catalogue figure for a nominal product, not a measurement of
+      page. That is a catalog figure for a nominal product, not a measurement of
       either Node's stock, and the measured gelling point is still an open ask.
       50 IS NOT A TEMPERATURE AT WHICH VESICLES CAN BE MIXED IN. The window is
       still correct here because the gel is not what forbids 50: the payload is,

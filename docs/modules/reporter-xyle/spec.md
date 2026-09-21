@@ -89,6 +89,12 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR and anhydrotetracycline (aTc) as the derepressing input — see the [tetR-aTc Detector](../detector-tetr-atc/spec.md).
 
+**XylE takes catechol and nothing else this corpus documents.** It does not act on
+[CPRG](../substrate-cprg/spec.md) or [X-Gal](../substrate-xgal/spec.md), which belong to
+[LacZ](../reporter-lacz-enzyme/spec.md). The valid enzyme-substrate pairs are listed on that
+page. **Catechol's enzyme may not be unique**: the materials tracker lists tyrosinase, also
+called catechol oxidase, alongside XylE, and nothing here has tested it.
+
 
 # Implementations
 
@@ -98,12 +104,6 @@ When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR a
 :::{attention} The two Nodes' constructs may not converge
 @Editor(chicago): whether Chicago's `pMN067` and London's still-undesigned construct end up as the same DNA design is not established. Confirm with both Nodes before treating them as one construct.
 :::
-
-**XylE takes catechol and nothing else this corpus documents.** It does not act on
-[CPRG](../substrate-cprg/spec.md) or [X-Gal](../substrate-xgal/spec.md), which belong to
-[LacZ](../reporter-lacz-enzyme/spec.md). The valid enzyme-substrate pairs are listed on that
-page. **Catechol's enzyme may not be unique**: the materials tracker lists tyrosinase, also
-called catechol oxidase, alongside XylE, and nothing here has tested it.
 
 # Processes
 

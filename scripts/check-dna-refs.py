@@ -180,6 +180,24 @@ def dna_repo_candidates() -> list[Path]:
 
 
 def find_dna_repo() -> Path | None:
+    """The DNA repo, or None.
+
+    THE CONTENT GUARD APPLIES TO THE GUESSES AND NOT TO AN OVERRIDE. A guess
+    that lands on an empty directory called DNA must lose, because nobody asked
+    for it and an index of nothing reports every construct as missing. An
+    override was asked for, so existence is the only test it has to pass and
+    `main` reports separately when it holds no sequence files. "Not found" and
+    "found and empty" take different fixes, so they are different messages.
+
+    Before 2026-09-21 the guard ran on both, which made an explicit
+    NUCLEUS_DNA_REPO fail with an error telling the reader to set
+    NUCLEUS_DNA_REPO. `dna_repo_candidates` has said "NUCLEUS_DNA_REPO wins"
+    since it was written; this is the first version where it does.
+    """
+    env = os.environ.get("NUCLEUS_DNA_REPO")
+    if env:
+        override = Path(env).expanduser()
+        return override if override.is_dir() else None
     for candidate in dna_repo_candidates():
         if _looks_like_dna_repo(candidate):
             return candidate
@@ -492,6 +510,16 @@ def main(argv=None) -> int:
             "ERROR: could not find the nucleus-eng/DNA repo. Searched:\n"
             f"{searched}\n"
             "Clone it next to this repo, or set NUCLEUS_DNA_REPO to its path.",
+            file=sys.stderr,
+        )
+        return EXIT_CANNOT_RUN
+
+    if not _looks_like_dna_repo(dna_repo):
+        print(
+            f"ERROR: {dna_repo} holds no {'/'.join(sorted(SEQ_EXTENSIONS))} "
+            "files, so the index would be empty and every construct would be "
+            "reported missing. That is not a clean run. Point "
+            "NUCLEUS_DNA_REPO at the nucleus-eng/DNA checkout itself.",
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN

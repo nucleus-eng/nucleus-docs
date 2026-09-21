@@ -97,7 +97,7 @@ open:
       OptiPrep is marked optional above because the page's own Notes column says it
       "adds density for phase-transfer" — a handling aid rather than part of the
       emitting chemistry. It is present in all three columns including the positive
-      control, which is consistent with that reading. The same judgement is made on
+      control, which is consistent with that reading. The same judgment is made on
       ../reporter-degfp/spec.yml and should be confirmed once for both.
   - id: three-columns-are-one-composition-and-two-controls
     question: >
