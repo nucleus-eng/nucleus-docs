@@ -29,6 +29,29 @@ properties:
   title:
     type: string
     description: Display name, matching the page's frontmatter title.
+  refines:
+    type: string
+    pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+    description: >
+      The abstract Module this one refines, by directory name. The image of this
+      Module under `A`, which compositional-biology-theory has carried as a defined
+      map since August. NOT a new axis: `A : Modules -> Abstractions` already
+      exists, and what this corpus lacked was a field naming a Module's image
+      under it. Edit site 1 of the abstract-modules work, Jon's ruling 2026-09-21.
+      NAMED `refines` RATHER THAN `abstract` on purpose. `abstract` already exists
+      one level down, on process_steps[].process, where it names the immediate
+      parent PROCESS. Reusing the word here would be consistent in meaning and
+      confusing in reading, and `refines` is the theory corpus's own word for the
+      relation.
+      IT IS A POINTER AND NOT A CLAIM ABOUT COMPOSITION. glossary.md#T13 makes
+      membership classification and #T34 makes constituency containment, so naming
+      a parent says what classifies this Module and nothing about what it is made
+      of. A Module with no abstract parent omits the key, and most do.
+      THE PARENT MUST BE THE IMMEDIATE ONE. Three membranes have no value today
+      because the theory corpus puts `Membrane` between them and `Container` and
+      this corpus has no Membrane page. Pointing them two levels up would make the
+      key mean SOME ancestor rather than THE parent, which is a different key.
+      Nothing yet checks that the value names a page that exists.
   inputs:
     type: object
     description: >
