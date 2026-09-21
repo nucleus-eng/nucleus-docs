@@ -5,6 +5,10 @@
 # sources, which declared itself the record while being unknown to its owner.
 #
 # Derived by measurement from all 17 sources on 2026-09-15, not from that table.
+# EVERY COUNT BELOW NAMES THE TREE IT WAS TAKEN ON. A bare "5 of 46" goes stale in
+# silence. "5 of 46 at <hash>" stays true and says when to re-take it. The counts
+# were re-taken at d611bda on 2026-09-21, when the corpus had roughly tripled since
+# this schema was derived. Add the hash to any count you add.
 # Counts in each description are observed use, so a key with a low count is a key
 # that one page needed — not a key that is optional by design.
 #
@@ -29,7 +33,7 @@ properties:
     type: object
     description: >
       Everything the module starts from, keyed by id. Ids are referenced by
-      process_steps[].operands. 17 of 17 sources.
+      process_steps[].operands. 49 of 49 sources at `d611bda`, a required key.
     minProperties: 1
     additionalProperties:
       type: object
@@ -48,13 +52,13 @@ properties:
           type: string
           description: >
             Names the purchased item or mixture this is part of, where the component
-            has no page of its own. 12 of 90 inputs.
+            has no page of its own. 15 of 196 inputs at `d611bda`.
         optional:
           type: boolean
           description: >
             True where the module composes without this input. The default is
             absent, not false: an input with no `optional` key is required.
-            1 of 90 inputs — base-cytosol's RNase inhibitor, which the protocol
+            8 of 196 inputs at `d611bda`. The first was base-cytosol's RNase inhibitor, which the protocol
             adds at 0.5 uL per 10 uL and which may be left out entirely.
         range:
           type: string
@@ -64,11 +68,14 @@ properties:
             figures elsewhere.
         owner:
           type: string
-          description: The Node that supplies or maintains it. 1 of 90 inputs.
+          description: >
+            The Node that supplies or maintains it. 1 of 196 inputs at `d611bda`,
+            unchanged since it was 1 of 90. A key the corpus has decided not to use.
   process_steps:
     type: array
     description: >
-      Ordered composition steps. 46 across 17 sources when this schema was derived.
+      Ordered composition steps. 46 across 17 sources when this schema was derived,
+      76 across 49 at `d611bda`.
       MAY BE EMPTY, and an empty list is a claim rather than an omission: it says the
       Module has no constituents and is not produced by a process in this corpus. The
       five analytes say so in prose -- "an analyte is supplied to an assay rather than
@@ -87,7 +94,7 @@ properties:
     type: array
     minItems: 1
     description: >
-      The processes that measure the module's function. 4 of 17 sources, one entry
+      The processes that measure the module's function. 16 of 49 sources at `d611bda`, one entry
       each. A list because a module may be measured more than one way.
     items:
       type: object
@@ -100,7 +107,7 @@ properties:
     type: array
     description: >
       Questions this source cannot answer, carried in the file rather than left
-      implicit. 4 of 17 sources. A source with an open entry is still valid.
+      implicit. 35 of 49 sources at `d611bda`. A source with an open entry is still valid.
     items:
       type: object
       additionalProperties: false
@@ -133,7 +140,8 @@ $defs:
         description: >
           True where the module composes without performing this step. Skipping it
           rewires rather than removes: whatever consumed this step's product
-          consumes its operands instead. 0 of 46 steps today — the key exists so a
+          consumes its operands instead. 0 of 76 steps at `d611bda`, and 0 of 46 before that.
+          NOTHING HAS EVER SAID IT. The key exists so a
           source can say it, and check-composition.py reports on the consequence.
       id:
         type: string
@@ -142,7 +150,7 @@ $defs:
         description: >
           Either one process, or a chain of them run as one step with no Module
           between the links. The chain form replaces title/page, which is why
-          43 of 46 steps carry a title and 3 carry composed_of instead.
+          73 of 76 steps carry a title and 3 carry composed_of instead, at `d611bda`.
         oneOf:
           - type: object
             additionalProperties: false
@@ -151,13 +159,16 @@ $defs:
               title: {type: string}
               page:
                 type: [string, "null"]
-                description: null where the process has no page yet. 5 of 46 steps.
+                description: >
+                  null where the process has no page yet. 21 of 76 steps at `d611bda`,
+                  up from 5 of 46. This count grew faster than its denominator, so
+                  the documentation gap widened rather than tracked.
               abstract:
                 type: string
                 description: >
                   The process this one is an instance of, named by directory.
                   Ruled 2026-09-15 to be the IMMEDIATE parent, not the root.
-                  20 of 46 steps.
+                  24 of 76 steps at `d611bda`, down from 43 percent of steps to 32.
                 pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
           - type: object
             additionalProperties: false
@@ -170,7 +181,7 @@ $defs:
                   A chain of processes run as one step. The step's operator belongs
                   to whichever link performs the composition — the first, unless a
                   link declares its own. A link that composes nothing carries no
-                  operator. 3 of 46 steps.
+                  operator. 3 of 76 steps at `d611bda`, unchanged from 3 of 46.
                 items:
                   type: object
                   additionalProperties: false
@@ -193,7 +204,7 @@ $defs:
         type: object
         additionalProperties: false
         required: [id, title, page]
-        description: The module this step yields. All three keys on all 46 steps.
+        description: The module this step yields. All three keys on all 76 steps at `d611bda`.
         properties:
           id: {type: string}
           title: {type: string}
@@ -201,20 +212,20 @@ $defs:
             type: [string, "null"]
             description: >
               null where the product has no page of its own — an intermediate the
-              corpus composes but does not document. 5 of 46 steps.
+              corpus composes but does not document. 13 of 76 steps at `d611bda`.
       notes:
         type: string
-        description: Prose the step needs and no page states. 33 of 46 steps.
+        description: Prose the step needs and no page states. 63 of 76 steps at `d611bda`.
       parameters:
         type: object
         description: >
           Free parameters of this step — a choice the composer makes, where the
-          page cannot state one value. 9 of 46 steps.
+          page cannot state one value. 36 of 76 steps at `d611bda`.
       headroom:
         type: object
         additionalProperties: false
         description: >
-          A reserved slot in a pinned total. 2 of 46 steps. A number belongs here
+          A reserved slot in a pinned total. 2 of 76 steps at `d611bda`. A number belongs here
           when it states a fact no single constituent page can state.
         properties:
           provides:
@@ -238,11 +249,11 @@ $defs:
             type: string
       ratio:
         type: string
-        description: A combining ratio, a property of the step. 1 of 46 steps.
+        description: A combining ratio, a property of the step. 4 of 76 steps at `d611bda`.
 
   operator:
     enum: [mixing, packing]
     description: >
       mixing — the operands end up in one compartment. packing — each keeps its
-      own. 22 mixing, 24 packing across 46 steps. Determined by the process, not
+      own. 50 mixing, 26 packing across 76 steps at `d611bda`. Determined by the process, not
       chosen per step.
