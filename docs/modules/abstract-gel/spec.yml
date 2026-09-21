@@ -1,0 +1,62 @@
+# Composition source for Abstract: Gel.
+#
+# AN ABSTRACT MODULE WITH A REAL COMPOSITION, AND THE THEORY CORPUS WROTE IT FIRST.
+# compositional-biology-theory codimension-is-a-coordinate.md:32 states
+# `Gel = OuterSolution ⊞ polymer`, same compartment, no membrane between them. That is
+# a Composition in the glossary.md#T33 sense with both factors abstract, so this file
+# quotes it rather than deriving one.
+#
+# BOTH CONSTITUENTS CARRY `page: null` AND THAT IS ORDINARY. 124 of 195 inputs in this
+# corpus have no page. An abstract factor without a page is the normal case, not a
+# blocked one. What would be wrong is naming something that is not a constituent at
+# all, which is the mistake ../analyte-ph/spec.yml made and no longer makes.
+#
+# THE PROCESS IS `page: null` TOO, on Jon's ruling of 2026-09-21. The step that sets an
+# abstract gel is an abstract process and none exists: row 7 of the abstract-modules
+# work was ruled `leave` because the theory never returned a shape for one. 21 of 76
+# steps already name a process with no page, so the gap is recorded rather than
+# invented.
+
+module: abstract-gel
+title: "Abstract: Gel"
+refines: container
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    page: null            # the phase the polymer dissolves into and becomes
+  polymer:
+    title: "Polymer"
+    page: null            # agarose, alginate or a PEG derivative in the four members
+
+process_steps:
+  - id: set-the-gel
+    process:
+      title: "Set the gel"
+      page: null
+    operator: mixing
+    operands: [outer-solution, polymer]
+    produces:
+      id: abstract-gel
+      title: "Abstract: Gel"
+      page: ../abstract-gel/spec.md
+    notes: >
+      `mixing` and not `packing`, because the two end in one compartment with no
+      membrane between them. That is codimension-is-a-coordinate.md:32's own reading
+      and it is what separates a gel from a Membrane, the other child of Container:
+      a gel fixes position and a membrane encloses a volume.
+
+open:
+  - id: the-setting-trigger-is-the-refinement-axis-and-is-not-here
+    question: >
+      The four members differ by what makes the network set: cooling, divalent
+      calcium, or 405 nm light. That is the one axis they vary on and this source
+      does not carry it, because the trigger belongs to the step rather than to the
+      composition and no key holds it. The page carries the axis as a table.
+  - id: the-temperature-window-is-on-the-page-and-not-here
+    question: >
+      ../gel-ulga/spec.yml carries `gel_temperature_window_c`, 8 to 50, as a
+      parameter of its setting step. This class's page carries the same window,
+      because Jon ruled the material's window belongs at the class and the narrowing
+      comes from the payload. It is not a parameter here because this step has no
+      figures of its own: an abstract composition states no amounts.

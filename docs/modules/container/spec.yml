@@ -1,0 +1,33 @@
+# Composition source for Abstract: Container.
+#
+# AN ABSTRACT MODULE, AND AN EMPTY ONE BY CLAIM. Its invariant is a single operation,
+# `hold`, and an operation is not a composition. compositional-biology-theory
+# glossary.md#T33 makes a Composition an explicit expression giving an object as a
+# combination of others, and nothing gives Container as a combination of anything. So
+# `inputs: {}` and `process_steps: []` are both claims here rather than gaps.
+#
+# ITS MEMBERS ARE NOT ITS CONSTITUENTS. Membrane, the abstract gel and a Substrate row
+# the theory names all refine it. Membership is classification, glossary.md#T13;
+# constituency is containment, #T34. A class having members does not give it parts.
+
+module: container
+title: "Abstract: Container"
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: only-one-member-points-here
+    question: >
+      `refines:` landed 2026-09-21 and ten sources now take a value. Only
+      ../abstract-gel/spec.yml names this module. The theory corpus puts `Membrane`
+      and `Substrate` between their members and `Container`, and neither has a page
+      here, so three membranes and four substrates point at nothing. A `Membrane`
+      page would close the larger half.
+  - id: an-empty-source-and-an-unwritten-one-look-alike
+    question: >
+      `minProperties` came off `inputs` on 2026-09-21 and `minItems` came off
+      `process_steps` on 2026-09-20, so this file validates while asserting two
+      emptinesses. Both are deliberate. Nothing in the schema distinguishes that from
+      a file nobody finished, which is the cost both rulings recorded.

@@ -1,0 +1,62 @@
+# Composition source for Abstract: Repressor Detector.
+#
+# TWO CONSTITUENTS WHERE ITS PARENT HAS NONE, and that is where the line falls.
+# ../abstract-detector/spec.md names no composition and has no source, deliberately.
+# This class names one, from Jon's specification of 2026-09-21: a repressor element,
+# and a DNA regulatory element that the repressor binds. The analyte relieves the
+# repression.
+#
+# THE OPERATOR IS THE MAJORITY CASE AND NOT THE ONLY ONE. How the repressor element is
+# supplied is left open by the class. Supplied as protein the two are mixed; supplied
+# as DNA they are two constructs mixed, or one construct carrying both, which is a
+# different operation. Both built members take the two-construct route, so `mixing` is
+# right for the corpus as it stands and is not right by construction. See `open:`.
+#
+# The process is `page: null`: an abstract assembly process does not exist here.
+
+module: abstract-repressor-detector
+title: "Abstract: Repressor Detector"
+refines: abstract-detector
+
+inputs:
+  repressor-element:
+    title: "Repressor element"
+    page: null            # TetR or LacI in the built members, EsaR in the designed one
+  dna-regulatory-element:
+    title: "DNA regulatory element"
+    page: null            # the operator or promoter the repressor binds
+
+process_steps:
+  - id: assemble-the-repressor-pair
+    process:
+      title: "Assemble the repressor and its regulatory element"
+      page: null
+    operator: mixing
+    operands: [repressor-element, dna-regulatory-element]
+    produces:
+      id: abstract-repressor-detector
+      title: "Abstract: Repressor Detector"
+      page: ../abstract-repressor-detector/spec.md
+    notes: >
+      Both built members are two separate constructs in one reaction:
+      `pT7-tetR` with `pT7-tetO-plamGFP`, and `pT7-lacI` with `pT7-lacO-plamGFP`.
+      Nothing in the corpus says whether that is a design choice or an accident.
+
+open:
+  - id: the-supply-route-decides-the-operator
+    question: >
+      ../detector-laci-iptg/spec.md states the choice in its own prose: LacI is added
+      "either as a purified protein or by expressing it off of `pT7-lacI`". Protein
+      is mixed. DNA on one construct with the regulatory element would be stitched,
+      `⌢` in compositional-biology-theory glossary.md#T37, which is a different
+      operator and not one this schema can express at the Module level. So `mixing`
+      above is the corpus's current practice rather than a property of the class.
+  - id: the-preparation-decides-whether-it-works-and-that-is-not-the-route
+    question: >
+      ../detector-tetr-atc/spec.md compares three preparations and only one induced.
+      Its conclusion is that the tag and the source are functional parameters rather
+      than sourcing detail, reached by contrasting a purified His-tagged TetR with no
+      SUMO tag against a purified MedChem SUMO-His one. Same route, opposite
+      outcomes. So the route decides how the constituents compose and the preparation
+      decides whether the Module works, and only the first is visible in a
+      composition at all.
