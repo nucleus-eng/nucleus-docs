@@ -61,6 +61,52 @@ properties:
       check-spec-schema.py RESOLVES EVERY VALUE, as of 2026-09-21. It fails a
       Module that names itself and one that names a directory holding no spec.md.
       It does not walk the chain, so nothing here catches a cycle.
+  sensitivities:
+    type: [array, "null"]
+    description: >
+      What this Module is sensitive TO. Half of a Conflict, and only half on
+      purpose.
+      compositional-biology-theory glossary.md#T23 makes Conflict DERIVED:
+      "Sensitivity meeting imposition. Computed, never asserted", with
+      "incompatibility (as a stated fact)" as its refused spelling. Its own
+      evidence column reads "one constraint asserted on nine pages". So a field
+      saying "A excludes B" would be the spelling the glossary refuses, and the
+      two halves are declared separately while a checker computes the join.
+      ABSENCE MEANS UNDECLARED, NOT NONE. Jon, 2026-09-21: "it means that we
+      haven't declared any constraints. `constraints: null` is fine". The field
+      never claims a Module has none, so an omitted key and an explicit null say
+      the same thing and neither is a claim. Nothing may read absence as
+      evidence; check-conflicts.py reports the denominator instead.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, to, basis, why]
+      properties:
+        id:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        to:
+          type: string
+          description: >
+            The imposition this is sensitive to, by the id an `impositions`
+            entry uses. Matching is by this string and nothing else.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        basis:
+          enum: [rule, observation]
+          description: >
+            WHETHER IT GENERALISES, and this is the key nobody proposes from
+            outside. A `rule` excludes cases nobody has tried, because a
+            mechanism says so. An `observation` enumerates what was seen and
+            says nothing about the next case. free-parameters-are-tuples.md has
+            the argument. Two sessions derived the split independently on
+            2026-09-21 and returned the same singleton.
+        why:
+          type: string
+          description: The mechanism for a rule, or what was seen for an observation.
+        page:
+          type: [string, "null"]
+          description: Where the page states it, for the checker to compare against.
+
   inputs:
     type: object
     description: >
@@ -238,6 +284,33 @@ $defs:
                     title: {type: string}
                     page: {type: string}
                     operator: {$ref: "#/$defs/operator"}
+      impositions:
+        type: [array, "null"]
+        description: >
+          What this step's Process inflicts on whatever it acts on. The other
+          half of a Conflict, and it sits on the STEP rather than on the Module
+          because glossary.md#T22 makes Imposition a property of a MORPHISM,
+          against #T21 making Sensitivity a property of an OBJECT. A step is how
+          this schema names a morphism, so this is where the definition puts it.
+          A Module that seems to impose something is carrying it, and the
+          imposing happens in the step that adds the Module. X-Gal does not
+          impose DMSO; the step that doses X-Gal does.
+          Absence means undeclared, exactly as on `sensitivities`.
+        items:
+          type: object
+          additionalProperties: false
+          required: [id, why]
+          properties:
+            id:
+              type: string
+              description: >
+                Matched against a sensitivity's `to`, by this string and nothing
+                else. check-conflicts.py computes the join; nothing asserts it.
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            why:
+              type: string
+            page:
+              type: [string, "null"]
       operator:
         $ref: "#/$defs/operator"
       operator_pairs:
