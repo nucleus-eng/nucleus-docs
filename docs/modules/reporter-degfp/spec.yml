@@ -64,7 +64,12 @@ process_steps:
 measured_by:
   - process:
       title: "Colorimetric Readout"
-      page: ../../processes/colorimetric-readout/main.md
+      # null, not a path: the page exists on docs/devcells-integration-pages and was
+      # dropped from this tranche on Jon's ruling, 2026-09-21. It is not in myst.yml's
+      # toc, so it would have landed on main as a file nothing renders, and it carried
+      # 13 of the 30 links to modules main does not have. Restore the path when the
+      # page reaches main.
+      page: null
 
 open:
   - id: optiprep-is-an-encapsulation-aid

@@ -46,7 +46,7 @@ The first two constructs are this Module's Reference Composition. The other two 
 
 ::::{tab-item} Cytosol
 
-Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the three formats below — and aTc inducer. See [aTc](../analyte-atc/spec.md) for the dose, which depends on the cytosol.
+Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the three formats below — and aTc inducer. See aTc for the dose, which depends on the cytosol.
 
 :::{table} Cytosolic components of the tetR-aTc Detector in Base Cytosol, at reaction concentration.
 :label: comp-detector-tetr-atc-base-cytosol
@@ -56,7 +56,7 @@ Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the 
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
 | `T7-tetO-deGFP` template | 0.5 nM | The reporter re-run in Base Cytosol. `pT7-tetO-plamGFP` is the PURExpress reference |
 | TetR repressor | 500 nM | Saturates repression; improvable to 2000 nM. Three formats are not interchangeable — see Expected Behavior |
-| aTc inducer | 0.1 µM to 0.5 µM, optimum ~0.25–0.35 µM | **The Node's working window in this cytosol, not the dose used in the figures below, which is unrecorded.** Lysate wants 2.5 µM to 5 µM. See [aTc](../analyte-atc/spec.md) |
+| aTc inducer | 0.1 µM to 0.5 µM, optimum ~0.25–0.35 µM | **The Node's working window in this cytosol, not the dose used in the figures below, which is unrecorded.** Lysate wants 2.5 µM to 5 µM. See aTc |
 :::
 
 The PURExpress master mix that produced the reference figures is in Expected Behavior, below.
@@ -143,7 +143,7 @@ Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated 
 `T7-tetO-deGFP` in Nucleus Cytosol: unregulated, repressed with 500 nM TetR, and induced with 500 nM TetR plus aTc, alongside a cytosol control reaction. Fluorescence is normalized to 1 µM fluorescein, and shaded bands are the spread across replicates.
 :::
 
-The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#reporter-xyle-expected-behavior) spec.
+The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the XylE / C23DO Reporter Module spec.
 
 :::{attention} Inducer concentration not recorded
 @Editor(chicago): the aTc concentration used for this particular induced condition is not recorded. The Node's current working window is in the [Reference Composition](#comp-detector-tetr-atc-base-cytosol) table above, and does **not** answer this — it was established after this result. What is missing is the dose actually used here. The construct gap is noted in the DNA tab under Reference Composition.
@@ -195,7 +195,7 @@ The TetR detector cell functions when induced with low-nanomolar aTc concentrati
 
 ### TetO-PLA1 encapsulated with LacZ
 
-A second configuration replaces the plamGFP reporter with a `TetO-PLA1` construct and co-encapsulates LacZ protein at 2.5 U/mL, leaving 0.5 mM CPRG in the outer solution. aTc de-represses `TetO-PLA1`, PLA1 ruptures the membrane, and the released LacZ reaches the CPRG outside, so the readout is the [LacZ Reporter Module](../reporter-lacz/spec.md)'s color change at 575 nm rather than fluorescence. This configuration detects aTc in synthetic cells, but the response is **not graded**.
+A second configuration replaces the plamGFP reporter with a `TetO-PLA1` construct and co-encapsulates LacZ protein at 2.5 U/mL, leaving 0.5 mM CPRG in the outer solution. aTc de-represses `TetO-PLA1`, PLA1 ruptures the membrane, and the released LacZ reaches the CPRG outside, so the readout is the LacZ Reporter Module's color change at 575 nm rather than fluorescence. This configuration detects aTc in synthetic cells, but the response is **not graded**.
 
 Three DNA/TetR pairs — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — were each dosed at 0, 1, 5, and 10 µM aTc, and fold change in absorbance was measured at 5 h (n = 3). Every pair separates dosed from undosed by roughly 1.15× to 1.33×. None is monotonic in dose, and the spread across the 1, 5, and 10 µM points overlaps in all three. Expect the response to saturate at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.
 
@@ -209,7 +209,7 @@ Fold change in absorbance at 575 nm after 5 h, relative to the undosed condition
 :::{attention} This caption's 20 U/mL is left as recorded
 Every other page now states 2.5 U/mL for encapsulated LacZ, and the figure above still says 20 U/mL. That is deliberate: a caption states what an experiment did, and 2.5 U/mL is the Node's current practice rather than this run's condition.
 
-@Editor(chicago): confirm what this experiment actually used. See [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) for why the 20 U/mL figure was withdrawn elsewhere.
+@Editor(chicago): confirm what this experiment actually used. See LacZ Enzyme for why the 20 U/mL figure was withdrawn elsewhere.
 :::
 
 **The 0 µM condition is the normalization baseline, not a negative control.** Fold change is taken against it, which is why every panel's 0 µM bar sits at exactly 1.0 with no spread — that bar reports the arithmetic, not a measurement. The controls that bound the assay are on the raw absorbance trace instead, where a reaction with no DNA template reaches nearly the same absorbance at 5 h as an undosed one. Most of the signal is therefore template-independent, and aTc recovers only part of the distance to a fully de-repressed reaction.
@@ -247,3 +247,11 @@ This page went from 725 words to 2077 in the DevStudio pass and the new material
 
 The other eleven pages in this tranche were developed before the DevStudio and their credits stand as written — Jon, 2026-09-20. This one is the exception because the data is new.
 :::
+
+<!-- relink-when-merged: links removed 2026-09-21 on Jon's ruling,
+     ../analyte-atc/spec.md
+     ../reporter-lacz-enzyme/spec.md
+     ../reporter-lacz/spec.md
+     ../reporter-xyle/spec.md#reporter-xyle-expected-behavior
+     Each target is on docs/devcells-integration-pages and not on main.
+     Restore the link when the target page lands. -->

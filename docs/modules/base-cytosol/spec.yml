@@ -34,7 +34,11 @@ process_steps:
     process:
       title: "Assemble Base Cytosol"
       page: ../../processes/assemble-base-cytosol/main.md
-      abstract: assemble-cytosol
+      # `abstract: assemble-cytosol` was here and is removed for this tranche only.
+      # The checker requires the value to name a real directory under docs/processes/
+      # and that page was dropped on Jon's ruling, 2026-09-21. The parent relation is
+      # true and unrecorded here until the page reaches main. THIS IS THE ONE LOSS IN
+      # THE DROP that is not a link: an edge in the process poset stops being stated.
     operator: mixing
     operands: [smix, trna, pmix, ribosomes, rnase-inhibitor]
     produces:

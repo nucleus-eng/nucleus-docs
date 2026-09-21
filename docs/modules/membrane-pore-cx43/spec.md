@@ -152,10 +152,15 @@ Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). If u
 
 Passes molecules up to ~1 kDa. [α-Hemolysin](../membrane-pore-ahly/spec.md) passes up to ~3 kDa, so substituting this Module for it lowers the cutoff and a cargo between the two figures will stop crossing.
 
-**The figure is approximate, and this page's own assay shows by how much.** The leakage result above uses Alexa Fluor 647, about 1.3 kDa, and it crosses. So ~1 kDa is a scale rather than a ceiling, and a cargo somewhat above it is not excluded. Mass is one clause of a pore's selectivity, not the whole of it — [Gramicidin A](../membrane-pore-gramicidin/spec.md) selects on charge instead, and passes protons at 1 Da while excluding uncharged solutes many times larger.
+**The figure is approximate, and this page's own assay shows by how much.** The leakage result above uses Alexa Fluor 647, about 1.3 kDa, and it crosses. So ~1 kDa is a scale rather than a ceiling, and a cargo somewhat above it is not excluded. Mass is one clause of a pore's selectivity, not the whole of it — Gramicidin A selects on charge instead, and passes protons at 1 Da while excluding uncharged solutes many times larger.
 
 **Transport is symmetric, and that obliges the outer solution.** The cutoff is equally a statement about what leaves. Anything below it that the interior consumes equilibrates with the outside, so **it must also be present in the outer solution, or the interior runs out**. The requirement propagates to any membrane carrying this pore and to any Cell built on that membrane, and is discharged by checking the outer solution's composition rather than anything on this page.
 
 # Credits
 
 Module contributed by Ahmed Sihorwala (Belardi Lab, UT Austin). Validation data by Yen-Yu Hsu (b.next).
+
+<!-- relink-when-merged: links removed 2026-09-21 on Jon's ruling,
+     ../membrane-pore-gramicidin/spec.md
+     Each target is on docs/devcells-integration-pages and not on main.
+     Restore the link when the target page lands. -->

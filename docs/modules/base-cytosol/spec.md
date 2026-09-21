@@ -237,7 +237,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 :::
 
 :::{note} RNase inhibitor is a range, not a fixed value
-Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. A page that names one value inside that range is recording a choice, not a requirement — [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) uses 1000 U/mL, and [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) adds 0.5 µL per 10 µL reaction.
+Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. A page that names one value inside that range is recording a choice, not a requirement — pH Sensor Cytosol uses 1000 U/mL, and [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) adds 0.5 µL per 10 µL reaction.
 :::
 
 ::::
@@ -257,3 +257,8 @@ Protocols for assembling Base Cytosol and making its components from scratch can
 Reformulated from the PURE system by Yemo Ku and Jon Calles (b.next).
 
 PURE was developed by the Ueda Lab ([Shimizu et al., 2001](https://doi.org/10.1038/90802)).
+
+<!-- relink-when-merged: links removed 2026-09-21 on Jon's ruling,
+     ../ph-sensor-cytosol/spec.md
+     Each target is on docs/devcells-integration-pages and not on main.
+     Restore the link when the target page lands. -->
