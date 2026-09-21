@@ -86,16 +86,27 @@ open:
       detector's DNA, so the product is a different DNA Module that contains PLA1.
       If that is right, each of the four belongs on the detector or cascade page that
       owns the stitched construct, and this file is complete rather than partial.
-      THE READING IS EXACT FOR A LINEAR CONSTRUCT AND NEEDS A QUOTIENT FOR A CIRCULAR
-      ONE. Stitching joins operands IN ORDER, and a circle has no start, so on a
-      circular construct the order is defined only up to rotation and A stitched to B
-      equals B stitched to A. Both kinds are in play here: `LuxR-PLA1` is recorded on
-      the page as 2237 bp from LuxR-PLA1-linear.gb, and the @Editor(chicago) note on
-      ../atc-sensor-cytosol/spec.md names `pOpen-T7-tetO-PLA1` at 3140 bp as the
-      circular form the Chicago Node prefers. Raised by the compositional-biology-theory
-      session 2026-09-21, measured there over nucleus-eng/DNA at f06e12c: 12 of 17
-      constructs linear, 5 circular. Not carried into this corpus as a count; the point
-      is that the account needs the rotation quotient before it covers both.
+      A CIRCULAR CONSTRUCT DOES HAVE A FIRST BASE, AND THE CONSEQUENCE IS NOT WHAT IT
+      LOOKS LIKE. The compositional-biology-theory session raised that stitching joins
+      operands IN ORDER while a circle has no start, so the order would be defined only
+      up to rotation. Jon corrected that on 2026-09-21: plasmid DNA canonically DOES
+      carry a first index. It is the first base labelled in the file, set by the author
+      by convention rather than by the molecule, often the first base of the origin of
+      replication. Every circular file in nucleus-eng/DNA declares it, as `LOCUS ...
+      circular` over a sequence that starts at base 1.
+      SO STITCHING IS WELL DEFINED ON THE FILE AND THE THING THAT BREAKS IS CONTAINMENT
+      BY SUBSTRING SEARCH. Because the index is chosen rather than given, a feature can
+      straddle it, and then the construct contains the feature while the file's string
+      does not contain it as one run of characters. That is not hypothetical here:
+      nucleus-eng/DNA at f06e12c, pores/pOpen-Cx43-eGFP.gb line 123, carries
+      `CDS join(3297..3996,1..17)` — an EGFP coding sequence split across base 1 by 17
+      bases. reporters/pOpen-deGFP.gbk line 94 carries a promoter the same way. This
+      page links the first of those as the Cx43 construct.
+      WHAT THAT MEANS FOR THE READING ABOVE. Saying LuxR-PLA1 CONTAINS PLA1 is a claim
+      about the molecule and it holds for both topologies. Checking it by searching the
+      file for the coding sequence is a claim about the string, and on a circular file
+      that check can fail on a construct that does contain it. The two are the same
+      question only when nobody has rotated the origin into the middle of the feature.
       What is not settled is where the stitched Modules get their pages. No page in
       this corpus is currently the owner of `LuxR-PLA1` or `TetO-PLA1` as objects in
       their own right; both are listed as constructs on pages about something else.
