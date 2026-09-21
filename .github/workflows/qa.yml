@@ -82,6 +82,39 @@ jobs:
       - name: Check composition sources
         run: python3 scripts/check-composition.py
 
+  conflicts:
+    # A Conflict is DERIVED, not asserted. compositional-biology-theory
+    # glossary.md#T23: "Sensitivity meeting imposition. Computed, never asserted",
+    # with "incompatibility (as a stated fact)" as the refused spelling. #T21 puts
+    # Sensitivity on an object, so it is a Module's `sensitivities`. #T22 puts
+    # Imposition on a morphism, so it is a step's `impositions`. This walks every
+    # step and computes where the two meet.
+    #
+    # IT PRINTS ZEROS ON THIS BRANCH AND IT IS HERE ANYWAY. None of these twelve
+    # sources declares either half, checked module by module rather than assumed,
+    # and none of their constraint-shaped prose is a design constraint: they are
+    # evidence gaps and result descriptions. So the job reports "12 sources, 0
+    # declaring" until the rest of the corpus arrives.
+    #
+    # The alternative was shipping the schema key and the script to main with
+    # nothing running them, which is what this branch did until 2026-09-21. A
+    # checker nobody runs is decoration, and the denominator it prints is the
+    # honest state rather than a pass: an undeclared Module makes no claim to have
+    # no sensitivity. See scripts/check-conflicts.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Compute conflicts
+        run: python3 scripts/check-conflicts.py
+
   spec-schema:
     # The spec.yml files are the machine-readable half of every Module page and
     # nothing validated them in CI on any branch until this job existed -- the
