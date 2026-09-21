@@ -34,7 +34,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} A Pore is not a member of this class
-[Abstract: Pore](../pore/spec.md) is a **component that composes with a membrane**, not a kind of one. The theory corpus writes the operation as `transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable]; passes Cargo[φ]` (`signature.md:201`, `main` at `7b707cb`), so a pore and a membrane are two operands and the permeable membrane is the product. Jon renamed it `passive_transport` on 2026-09-21; that rename is staged in the theory repo and not applied.
+[Abstract: Pore](../pore/spec.md) is a **component that composes with a membrane**, not a kind of one. The theory corpus writes the operation as `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶ Membrane[permeable]; passes down ∇` (`signature.md:203`, `main` at `e40f3de`), so a pore and a membrane are two of three operands and the permeable membrane is the product.
 
 **The three paged pores are named `membrane-pore-*` and that naming invites the wrong reading.** They refine [Abstract: Pore](../pore/spec.md), which refines nothing here.
 :::

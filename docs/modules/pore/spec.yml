@@ -2,17 +2,18 @@
 #
 # NO `refines:` KEY, AND THAT IS THE CLAIM. A pore is not a kind of Container and not a
 # kind of Membrane. Jon, 2026-09-21: "Pore does NOT refine membrane!! it's a component
-# that can be composed with a membrane." compositional-biology-theory signature.md:201
-# reads, at main 7b707cb, `transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable];
-# passes Cargo[φ]`, so a pore and a membrane are two operands of one operation and the
-# permeable membrane is the product. This class is a root here.
+# that can be composed with a membrane." compositional-biology-theory signature.md:203
+# reads, at main e40f3de, `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶
+# Membrane[permeable]; passes down ∇`, so a pore and a membrane are two of three operands
+# and the permeable membrane is the product. This class is a root here.
 #
-# THE OPERATION NAME IS JON'S CORRECTION, STAGED THERE AND NOT APPLIED. He ruled it
-# `passive_transport` on 2026-09-21 and that repo carries it as an edit site in
-# tmp/STAGED-2026-09-21-transport-is-abstract.md. An earlier version of this comment
-# quoted `passive_transport` as the file's present content, which was a forward
-# reference to an edit nobody had made. Caught by compositional-biology-theory session
-# c9d6a5 on the day it was written.
+# QUOTE THAT FILE AS IT READS, AT A COMMIT. This comment has been wrong twice in one day
+# in the same way. It first quoted `passive_transport` before the rename existed there,
+# a forward reference to an edit nobody had made, caught by session c9d6a5. It then
+# quoted `Pore[passive]` correctly at 7b707cb and went stale within hours, because
+# e40f3de moved the bracket off the Pore and onto the Cargo on Jon's "refine the
+# argument bracket for the transported thing". A quote of another repo needs its commit
+# beside it or it is a claim about a moving file.
 #
 # ONE CONSTITUENT. A pore is the pore-forming agent. What it makes a hole IN belongs to
 # the composition the pore enters, not to the pore, which is the whole content of the
@@ -29,13 +30,17 @@ inputs:
 process_steps: []
 
 open:
-  - id: the-passive-active-split-separates-nothing-here
+  - id: the-passive-active-split-is-not-an-axis-on-this-class
     question: >
-      The theory offers `Pore[passive]` against `Pore[active]`, split by the energy
-      spent. All three paged members are passive, so the partition is correct and puts
-      them in one cell. `Pore[active]` has no paged member, which signature.md says is
-      not a defect because the abstract layer is free on the signature. So this class
-      has a refinement axis that does no work on the corpus it covers.
+      CLOSED 2026-09-21, and the class kept the finding while losing the axis. This
+      item used to say the theory offered `Pore[passive]` against `Pore[active]`, that
+      all three paged members are passive, and that the axis therefore did no work.
+      The first half is no longer true: e40f3de gives one `Pore` sort and puts the
+      passive against active distinction on the operation, with the bracket on the
+      Cargo. A class cannot be split by a property of an operation it is an argument
+      to, so the axis does no work here because it is not an axis here. What stays is
+      the measurement that made the point: zero of the three paged members mention
+      ATP, GTP, pumping or active transport.
   - id: what-does-separate-them-is-not-an-axis-yet
     question: >
       Two members select on mass and one on charge and identity, and the two that
