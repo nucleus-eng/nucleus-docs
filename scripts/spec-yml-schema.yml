@@ -47,11 +47,17 @@ properties:
       membership classification and #T34 makes constituency containment, so naming
       a parent says what classifies this Module and nothing about what it is made
       of. A Module with no abstract parent omits the key, and most do.
-      THE PARENT MUST BE THE IMMEDIATE ONE. Three membranes have no value today
-      because the theory corpus puts `Membrane` between them and `Container` and
-      this corpus has no Membrane page. Pointing them two levels up would make the
-      key mean SOME ancestor rather than THE parent, which is a different key.
-      Nothing yet checks that the value names a page that exists.
+      THE PARENT MUST BE THE IMMEDIATE ONE. Pointing a Module two levels up would
+      make the key mean SOME ancestor rather than THE parent, which is a different
+      key. When this field landed, three membranes carried no value, because the
+      theory corpus puts `Membrane` between them and `Container` and this corpus
+      had no Membrane page. That page landed the same day at `094fed4` and all
+      three now name it, as do the three pores against `pore`.
+      check-spec-schema.py RESOLVES EVERY VALUE, as of 2026-09-21. It fails a
+      Module that names itself and one that names a directory holding no spec.md.
+      What it does not do is walk the chain, so nothing here would catch a cycle.
+      compositional-biology-theory session c9d6a5 ran that check by hand on
+      2026-09-21 over all 19 edges and found none. A hand check is not a guard.
   inputs:
     type: object
     description: >
