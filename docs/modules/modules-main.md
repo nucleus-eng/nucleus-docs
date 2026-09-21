@@ -67,6 +67,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Analyte | [IPTG](./analyte-iptg/spec.md) | ★ |
 | Analyte | [pH](./analyte-ph/spec.md) | ★ |
 | Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
+| Container | [Abstract: Container](./container/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
 | Gel | [PEG-Norbornene](./gel-peg-norbornene/spec.md) | ★ |
@@ -82,12 +83,15 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | --- | --- | --- |
 | Cytosol (Base) | [S30 Lysate](./s30-lysate/spec.md) | ★ |
 | Detector | [AHL](./detector-3oc6-hsl/spec.md) | ★ |
+| Detector | [Abstract: Detector](./abstract-detector/spec.md) | - |
 | Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
 | Cytosol (Sensor) | [AHL Sensor Cytosol](./ahl-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
 | Gel | [ULGA](./gel-ulga/spec.md) | ★ |
+| Gel | [Abstract: Gel](./abstract-gel/spec.md) | - |
+| Gel | [Abstract: Photopatterned Gel](./abstract-photopatterned-gel/spec.md) | - |
 :::
 
 # Contributing a Module

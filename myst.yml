@@ -19,6 +19,14 @@ project:
         - file: ./start/contribute.md
     - file: ./docs/modules/modules-main.md
       children:
+        - file: ./docs/modules/abstract-detector/spec.md
+          hidden: true
+        - file: ./docs/modules/container/spec.md
+          hidden: true
+        - file: ./docs/modules/abstract-gel/spec.md
+          hidden: true
+        - file: ./docs/modules/abstract-photopatterned-gel/spec.md
+          hidden: true
         - file: ./docs/modules/membrane-popc-chol/spec.md
           hidden: true
         - file: ./docs/modules/membrane-popc-chol-chicago/spec.md
