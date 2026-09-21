@@ -19,7 +19,8 @@
 # other DNA variants are just the PLA1 module stitched with detector DNA." Under
 # glossary.md#T37 in compositional-biology-theory, stitching `⌢` joins operands in
 # order into one polymer, it is associative and not commutative (rulings.md#D35),
-# and it is homogeneous — DNA stitched to DNA is DNA (signature.md:286). So
+# and it is homogeneous — DNA stitched to DNA is DNA (signature.md:214, main ada4ea5;
+# this read :286 until 2026-09-21, which is a paragraph about undeclared sorts). So
 # `LuxR-PLA1` is `luxR-cassette ⌢ pla1-cds`, a DIFFERENT DNA Module that contains
 # PLA1, not this Module in a different setting. See the open entry below.
 #
