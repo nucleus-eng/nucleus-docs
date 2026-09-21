@@ -10,7 +10,7 @@ site:
 
 # Overview
 
-The pH-Sensing Module drives expression of an effector gene in acidic conditions (pH ≤ 6.5). Three sequences make up the Module, added to a reaction as two reagents: a pH-responsive single-strand DNA (ssDNA) and a trigger ssDNA, pre-annealed together into one duplex at a 3:1 ratio, plus a linear toehold-switch DNA template. At neutral pH the trigger ssDNA stays bound in the duplex and the toehold switch remains off, preventing expression of the effector gene. At acidic pH the pH-responsive ssDNA folds into a triplex, releasing the trigger ssDNA, which then binds the toehold switch and activates expression of the effector gene. The design follows [Chen, Hwang, et al., 2025](https://doi.org/10.1101/2025.11.16.688650).
+The pH-Sensing Module drives expression of an effector gene in acidic conditions (pH ≤ 6.5). Three sequences make up a build of the Module, added to a reaction as two reagents: a pH-responsive single-strand DNA (ssDNA) and a trigger ssDNA, pre-annealed together into one duplex at a 3:1 ratio, plus a linear toehold-switch DNA template. At neutral pH the trigger ssDNA stays bound in the duplex and the toehold switch remains off, preventing expression of the effector gene. At acidic pH the pH-responsive ssDNA folds into a triplex, releasing the trigger ssDNA, which then binds the toehold switch and activates expression of the effector gene. The design follows [Chen, Hwang, et al., 2025](https://doi.org/10.1101/2025.11.16.688650).
 
 :::{attention} Not yet validated
 This Module has not been validated in Nucleus Cytosol. The performance data below was measured in agarose gel.
@@ -46,17 +46,32 @@ At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toeho
 
 ::::{tab-item} DNA
 
+**This Module requires the toehold component. The toehold-switch rows below are what can be stitched behind it, not a list of parts the Module is made from.** Each template is a T7 promoter, then `toehold 9`, then the gene it actuates, in that order. Which gene is used is set by what the detector is composed with downstream, so the three templates are one family rather than three alternatives. Verified against [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) at `f06e12c`: `pT7-toehold9-PLA1-linear.gb` carries `T7 promoter`, `toehold 9`, `PLA1`, then `T7hyb6 Terminator`.
+
 | **Name**                 | **Expected Concentration** | **Status**  | **File** |
 | ------------------------ | -------------------------- | ----------- | -------- |
+| `pT7-toehold9-PLA1`      | 2 nM                       | **In use**  | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
+| `pT7-toehold9-deGFP`     | —                          | Built       | [pT7-toehold9-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-ph/pT7-toehold9-deGFP-linear.gb) |
 | `T7-toehold-LacZ-T7term` | 2 nM                       | Designed    | —        |
 | `T7-toehold-XylE-T7term` | 2 nM                       | Designed    | —        |
 | Trigger ssDNA            | 4.8 µM                     | Synthesized | —        |
 | pH-responsive ssDNA      | 14.4 µM                    | Synthesized | —        |
 
-Four sequences, two additions. The trigger and pH-responsive strands are annealed into a single duplex at a 3:1 ratio before use — see [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — so a working reaction receives that duplex and one toehold-switch template, and never the strands independently.
+**A build uses three sequences and the table lists six.** Three of the six are alternative toehold templates and a reaction takes one. So the three-per-build count and the design count are different numbers, and both are right. The trigger and pH-responsive strands are annealed into a single duplex at a 3:1 ratio before use — see [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — so a working reaction receives that duplex and one toehold-switch template, and never the strands independently.
 
-:::{attention} Sequences not yet in `nucleus-eng/DNA`
-Neither toehold construct above, nor either strand of the annealed duplex, has a corresponding file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) yet (checked `detectors/` and the repo root; none found). The DevNote lists them as "Designed" or "Synthesized" but does not link sequence files. Do not treat the names above as identity claims against any existing DNA-repo file — flag for follow-up so these sequences can be submitted to `nucleus-eng/DNA` before this page is used at the bench.
+:::{attention} All four sequences exist, and none of them is on `main`
+**This block previously said none of these sequences had a file in `nucleus-eng/DNA`, and that was wrong twice over.** It recorded the search as *"checked `detectors/` and the repo root; none found"*. All four files exist and the manifest marks all four **built**:
+
+| File | Where |
+| --- | --- |
+| [`pT7-toehold9-PLA1-linear.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | `effectors/detector-ph/` |
+| [`pT7-toehold9-deGFP-linear.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-ph/pT7-toehold9-deGFP-linear.gb) | `reporters/detector-ph/` |
+| [`trigger-ssDNA-3.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | `detectors/detector-ph/` |
+| [`pH-responsive-ssDNA-2.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | `detectors/detector-ph/` |
+
+**Two were missed because the search was not recursive and two because it was in the wrong place.** The ssDNA strands are in `detectors/detector-ph/`, a subdirectory of the directory that was searched. The toehold templates are under `effectors/` and `reporters/`, which were not searched at all.
+
+**What was right is the part that matters at the bench: none of the four is on `main`.** They sit on the branch `devcells/devstudio-constructs`, pushed at `f06e12c`, with no open pull request. **Every link above points at that branch and will keep working only until it is rebased or deleted.** @Editor(chicago): open a PR for these four, and the links here become `main` links.
 :::
 ::::
 
@@ -142,7 +157,7 @@ Requires direct exposure to pH source. Either do not encapsulate OR include H⁺
 
 | Material                                            | Description                                            | Manufacturer                       | Item #                                             | Notes                                                               |
 | --------------------------------------------------- | ------------------------------------------------------ | ---------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------- |
-| DNA template (e.g., `T7-toehold-LacZ`)              | Effector gene under a T7 promoter with toehold switch. | —                                  | —                                                  | See the DNA tab above                                               |
+| DNA template (`pT7-toehold9-PLA1` in the demo; any toehold template serves) | Effector gene under a T7 promoter with toehold switch. | —                                  | —                                                  | See the DNA tab above                                               |
 | CPRG                                                | Colorimetric substrate for LacZ                        | Roche                              | 10884308001                                        | —                                                                   |
 | Catechol                                            | Colorimetric substrate for XylE                        | TCI America                        | P031725G                                           | Phenolic compound                                                   |
 | POPC                                                | Membrane component for synthetic cell production       | Avanti Polar Lipids                | 850457                                             | —                                                                   |

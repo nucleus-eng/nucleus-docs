@@ -151,6 +151,8 @@ The same replication was also read out through catechol instead of fluorescence,
 :::{attention} TetR arrives in three formats, and they are not interchangeable
 The corpus offered two — purified protein, or `pT7-tetR` DNA expressed in situ. A third is in use, and as of 2026-09-11 it is **the only one that has demonstrated induction** in Nucleus Cytosol.
 
+**The three rows below are routes, not the three arms of the comparison described under them.**
+
 | Format | Amount | State |
 | --- | --- | --- |
 | Purified protein | 500 nM | Works at b.next with a His-tagged TetR carrying no SUMO tag — stable a week at 4 °C and three weeks at −20 °C |
@@ -158,6 +160,14 @@ The corpus offered two — purified protein, or `pT7-tetR` DNA expressed in situ
 | **Expressed overnight, then combined with a fresh reaction** | **2.5 µL of an 18 h, 30 °C reaction. Concentration unknown** | Chicago Node. The only format that has induced |
 
 **Three preparations were compared and all three repressed; only the cell-free-expressed one induced.** The two that failed were a MedChem Express SUMO-His TetR and a foundry TetR, so the tag and the source are functional parameters rather than sourcing detail.
+
+:::{attention} What that comparison can and cannot show
+**Its three arms were two purified preparations and one cell-free one. Route two was not tested.** Expression in situ from `pT7-tetR` is a row in the table above and was not in the experiment, so nothing here says whether it induces.
+
+**Route and outcome are perfectly confounded in it.** The only preparation that induced was also the only cell-free one, and both purified arms failed. So the comparison cannot separate *cell-free expression is the better route* from *those two preparations were bad*, and the discriminating arm was not run.
+
+**The conclusion about the tag is reached across experiments, not inside this one.** It compares the b.next success, a His-tagged TetR with no SUMO tag in row one, against the MedChem SUMO-His failure. Those are different runs and probably different sites. The conclusion may well be right. It is an inference rather than a controlled result, and the foundry TetR's tag is not stated anywhere on this page, so it cannot be placed on either side of it.
+:::
 
 **The third format cannot be written as a working concentration**, which is why the table above gives a volume. It specifies an amount of a reaction whose yield nobody measured, and that is a property of a process step rather than of a component.
 
