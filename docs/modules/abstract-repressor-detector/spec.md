@@ -63,9 +63,11 @@ Both built members take the two-construct route: `pT7-tetR` with `pT7-tetO-plamG
 :::{attention} The supply choice is not functionally free, and calling it a parameter understates it
 [tetR-aTc](../detector-tetr-atc/spec.md) records three formats, not two, and compares them: purified protein at 500 nM, expression in situ from `pT7-tetR`, and expression overnight followed by combination with a fresh reaction.
 
-**All three repressed. Only the third induced.** That page states it plainly, and as of 2026-09-11 the overnight-expression format is the only one that has demonstrated induction in Nucleus Cytosol. The two that failed were a MedChem Express SUMO-His TetR and a foundry TetR, which makes the tag and the source **functional parameters rather than sourcing detail**.
+**All three repressed. Only one induced.** As of 2026-09-11 the overnight-expression format is the only one that has demonstrated induction in Nucleus Cytosol.
 
-**So the class leaves this open and a member cannot.** Choosing how to supply the repressor element decides how the two constituents compose, and it also decides whether the Module works at all. A page that offers the choice without saying which format has induced is offering a choice the corpus has already narrowed.
+**The discriminating parameter is the tag and the source, not the route.** The two arms that failed were both purified protein: a MedChem Express SUMO-His TetR and a foundry TetR. The same table records purified protein **working** at b.next, with a His-tagged TetR carrying no SUMO tag. So a purified route succeeds and fails depending on the preparation, and that page's own conclusion is that **the tag and the source are functional parameters rather than sourcing detail**.
+
+**So the class leaves this open and a member cannot.** Choosing how to supply the repressor element decides how the two constituents compose. Which preparation of that supply is used decides whether the Module works. Those are two different choices and only the first is visible in a composition.
 :::
 
 :::{attention} What this class requires of its Context is not settled
