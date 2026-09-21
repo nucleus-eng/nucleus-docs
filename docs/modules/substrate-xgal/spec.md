@@ -66,7 +66,7 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 **Requires that enzyme and substrate stay apart until the readout**, as the reporter pair always does. Here that is done by keeping the substrate free in the gel and the enzyme inside a liposome, rather than the other way round.
 
-**Cannot be liposome-loaded.** X-Gal has limited aqueous solubility and is dissolved in DMSO, and DMSO ruins liposome formation — attempts to make SUVs with it gave poor vesicles. So X-Gal can only be the free half of the pair, which inverts the arrangement CPRG allows. Where CPRG can be held in a substrate liposome and released by lysis, X-Gal requires that the **enzyme** be the encapsulated half.
+**Cannot be liposome-loaded.** X-Gal has limited aqueous solubility and is dissolved in DMSO, and DMSO ruins liposome formation — the SUVs made with it were poor. So X-Gal can only be the free half of the pair, which inverts the arrangement CPRG allows. Where CPRG can be held in a substrate liposome and released by lysis, X-Gal requires that the **enzyme** be the encapsulated half.
 
 **Expected to be light-sensitive**, as CPRG is, so a photodeveloped gel should add it after crosslinking rather than before. @Editor(chicago): this has not been tested — CPRG's UV bleaching is documented and X-Gal's is inferred from it.
 

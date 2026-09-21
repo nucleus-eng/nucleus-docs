@@ -43,7 +43,7 @@ open:
   - id: dmso-is-an-input-and-a-blocker
     question: >
       X-Gal needs DMSO, and DMSO ruins liposome formation — ../substrate-xgal/spec.md
-      records that attempts to make SUVs with it gave poor vesicles. So the carrier is
+      records that the SUVs made with it were poor. So the carrier is
       listed above as an operand-level fact and is also the reason the encapsulated
       row reads "not possible". **The schema has no way to say that an input rules out
       a format.** Marked `optional` because the gel route may not need it at the

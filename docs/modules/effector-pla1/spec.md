@@ -111,9 +111,9 @@ Requires a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-pop
 PLA1 inherits that requirement. Both Nodes met it independently on 2026-09-15, from opposite
 directions. In London, background PLA1 expression without AHL gives near-equivalent color to the
 induced state, so the dynamic range is gone. In Chicago, PLA1 takes 10 to 12 h to lyse GUVs
-and the vesicles leak on their own over the same window, so the negative control colors too:
+and the GUVs leak on their own over the same window, so the negative control colors too:
 *"slightly purple to slightly more purple."* **One failure with two causes**, transcriptional
-leak in London and vesicle lifetime in Chicago.
+leak in London and GUV lifetime in Chicago.
 
 **The requirement is typed on PLA1 rather than on the detector**, which is where it was first
 written. A requirement on the detector is one constraint per detector. A requirement on PLA1 is

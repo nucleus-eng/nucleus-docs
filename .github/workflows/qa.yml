@@ -19,7 +19,18 @@ jobs:
             | tar xz -C /usr/local/bin vale
 
       - name: Run Vale
-        run: git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale
+        # `.yml` joined the list on 2026-09-21, Jon's ruling: prose now lives in
+        # spec.yml `note:` and `question:` fields and was invisible to every check.
+        # .vale.ini gives that section the terminology rules only, not the 14
+        # formatting rules, which aim at sentences rather than at identifiers.
+        #
+        # `-z` and `xargs -0`, not a bare pipeline: no tracked path under docs/
+        # holds a space today, and the DevNote repo has 266 that do. The trap is
+        # cheaper to remove than to rediscover.
+        run: |
+          set -euo pipefail
+          git ls-files -z docs/ | grep -zZ -e '\.md$' -e '\.csv$' -e '\.yml$' \
+            | xargs -0 vale
 
   dropdowns:
     runs-on: ubuntu-latest

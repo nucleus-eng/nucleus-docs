@@ -101,7 +101,7 @@ How to achieve this requirement is a design choice. Here are three example solut
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
-:::{attention} The mechanism behind LacZ and theophylline incompatibility is not established.
+:::{attention} The mechanism behind the LacZ and theophylline Conflict is not established.
 The constraint is usually explained as theophylline directly inhibiting the LacZ/CPRG conversion, "even at very low amounts." That explanation is unsupported and partly contradicted:
 
 - The one bulk figure available shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
