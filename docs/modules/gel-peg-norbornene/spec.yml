@@ -61,6 +61,10 @@ process_steps:
       title: "Photodevelop Gel: PEG-Norbornene"
       page: ../../processes/photodevelop-peg-norbornene/main.md
       abstract: photodevelop-gel
+    impositions:
+      - id: uv-exposure
+        why: >
+          Thiol-ene crosslinking is initiated by UV, so the exposure reaches the precursor.
     operator: mixing
     operands: [peg-norbornene-precursor]
     produces:

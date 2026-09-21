@@ -140,6 +140,39 @@ jobs:
       - name: Check operator pairs
         run: python3 scripts/check-operator-pairs.py
 
+  conflicts:
+    # A Conflict is DERIVED, not asserted. compositional-biology-theory
+    # glossary.md#T23: "Sensitivity meeting imposition. Computed, never asserted",
+    # with "incompatibility (as a stated fact)" as the refused spelling. #T21 puts
+    # Sensitivity on an object, so it is a Module's `sensitivities`. #T22 puts
+    # Imposition on a morphism, so it is a step's `impositions`. This walks every
+    # step and computes where the two meet.
+    #
+    # ADVISORY, on the operator-pairs precedent, and for a sharper reason. Every
+    # `reach` finding today is a true relation that a membrane correctly
+    # neutralises, and this checker has no concept of a boundary stopping an
+    # imposition. Failing CI on those would demand a fix to pages that are right.
+    #
+    # A ZERO IS NOT SAFETY. An undeclared Module makes no claim to have no
+    # sensitivity, so the job prints the denominator every run: 5 of 56 sources
+    # declare one. What the zero did buy on 2026-09-21 is real, though. CPRG is
+    # sensitive to UV, four steps impose UV, and CPRG is an operand of none of
+    # them, so "dose CPRG after crosslinking" is now checked rather than only
+    # written on eleven pages. See scripts/check-conflicts.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Compute conflicts
+        run: python3 scripts/check-conflicts.py
+
   spec-drift:
     # Does a spec.yml figure still appear on its own page? check-spec-schema.py
     # validates shape and never looks at a figure; check-composition.py checks

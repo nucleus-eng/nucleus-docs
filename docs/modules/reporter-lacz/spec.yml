@@ -92,3 +92,16 @@ open:
       ../reporter-lacz-enzyme/spec.md is what the cells actually contain. Both are
       real and they are not the same thing; which one a composing page means is the
       composing page's choice, and ../atc-sensing-cell/spec.md is the worked example.
+
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
+# Sensitivity a property of an object; #T22 makes Imposition a property of a
+# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
+# "computed, never asserted". check-conflicts.py does the computing.
+sensitivities:
+  - id: theophylline
+    to: theophylline
+    basis: observation
+    why: >
+      Theophylline is reported to interfere with LacZ activity. The mechanism is not
+      established, which is why this is an observation and does not generalize to enzymes
+      nobody has tried.

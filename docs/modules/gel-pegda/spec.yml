@@ -60,6 +60,14 @@ process_steps:
       title: "Photodevelop Gel: PEGDA"
       page: ../../processes/photodevelop-pegda/main.md
       abstract: photodevelop-gel
+    impositions:
+      - id: uv-exposure
+        why: >
+          The photopatterning step exposes whatever is in the precursor to UV.
+      - id: radical-acrylate-polymerisation
+        why: >
+          Acrylate crosslinking proceeds through free radicals, which attack what they
+          reach.
     operator: mixing
     operands: [pegda-precursor]
     produces:

@@ -57,3 +57,15 @@ open:
   - id: an-atom-is-its-own-input
     question: >
       `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.
+
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
+# Sensitivity a property of an object; #T22 makes Imposition a property of a
+# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
+# "computed, never asserted". check-conflicts.py does the computing.
+sensitivities:
+  - id: proteinase-k
+    to: proteinase-k
+    basis: rule
+    why: >
+      Proteinase K does not distinguish one LacZ from another, so a step that digests
+      exterior LacZ digests encapsulated LacZ it can reach.

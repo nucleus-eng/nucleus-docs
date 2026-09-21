@@ -52,3 +52,19 @@ open:
       the schema records it. The composition above is true and does not say the one
       thing the class is for. Same shape as ../abstract-photopatterned-gel/spec.yml's
       geometry item.
+
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
+# Sensitivity a property of an object; #T22 makes Imposition a property of a
+# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
+# "computed, never asserted". check-conflicts.py does the computing.
+sensitivities:
+  - id: radical-acrylate-polymerisation
+    to: radical-acrylate-polymerisation
+    basis: rule
+    why: >
+      Radical acrylate polymerisation is not compatible with a lipid bilayer.
+  - id: dmso
+    to: dmso
+    basis: rule
+    why: >
+      DMSO ruins liposome formation. Attempts to make SUVs in it gave poor SUVs.

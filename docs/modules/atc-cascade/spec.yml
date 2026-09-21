@@ -85,6 +85,10 @@ process_steps:
           page: ../../processes/assemble-base-cell/main.md
         - title: "Degrade Exterior LacZ"
           page: ../../processes/degrade-exterior-lacz/main.md
+    impositions:
+      - id: proteinase-k
+        why: >
+          The chained Degrade Exterior LacZ sub-process doses Proteinase K.
     operator: packing
     operands: [atc-sensor-cytosol, membrane-chicago]
     produces:
@@ -97,6 +101,10 @@ process_steps:
       title: "Photodevelop Gel: PEG-Norbornene"
       page: ../../processes/photodevelop-peg-norbornene/main.md
       abstract: photodevelop-gel
+    impositions:
+      - id: uv-exposure
+        why: >
+          The gel is crosslinked by UV with the cell already in the precursor.
     operator: packing
     operands:
       - peg-norbornene-monomer

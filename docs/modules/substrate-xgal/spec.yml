@@ -42,12 +42,17 @@ open:
       is exactly what the page forbids.
   - id: dmso-is-an-input-and-a-blocker
     question: >
-      X-Gal needs DMSO, and DMSO ruins liposome formation — ../substrate-xgal/spec.md
-      records that the SUVs made with it were poor. So the carrier is
-      listed above as an operand-level fact and is also the reason the encapsulated
-      row reads "not possible". **The schema has no way to say that an input rules out
-      a format.** Marked `optional` because the gel route may not need it at the
-      stated dilution, which is itself unconfirmed.
+      CLOSED 2026-09-21, by the thing it asked for. This item said "the schema has no
+      way to say that an input rules out a format", and that sentence is what the
+      other repo cited when it proposed the field, so the corpus asked for this and
+      someone else built it. `sensitivities` and `impositions` landed on Jon's ruling
+      the same day and ../membrane/spec.yml now declares the sensitivity to `dmso`
+      once, with check-conflicts.py computing where it meets an imposition.
+      WHAT STAYS OPEN IS THE OTHER HALF AND IT IS NOT A SCHEMA GAP. No step in this
+      corpus doses X-Gal, so nothing declares the matching imposition and no Conflict
+      is computed. The exclusion is real and unreachable by computation until X-Gal
+      enters a composition. `optional` on the carrier is unchanged and still rests on
+      the gel route maybe not needing it at the stated dilution, which is unconfirmed.
   - id: a-negative-row-is-not-a-composition
     question: >
       "Encapsulated in a liposome — not possible" is one of two rows in this Module's

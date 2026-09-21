@@ -40,3 +40,15 @@ process_steps:
     notes: >
       The kit is supplied premixed rather than formulated from individual
       reagents, so the three kit components have no pages of their own.
+
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
+# Sensitivity a property of an object; #T22 makes Imposition a property of a
+# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
+# "computed, never asserted". check-conflicts.py does the computing.
+sensitivities:
+  - id: optiprep-above-5-percent
+    to: optiprep-above-5-percent
+    basis: rule
+    why: >
+      Not compatible with Optiprep in the inner solution above about 5 percent. Use sucrose
+      for density matching instead.

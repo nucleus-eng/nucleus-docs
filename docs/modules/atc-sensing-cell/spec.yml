@@ -52,6 +52,10 @@ process_steps:
         - title: "Degrade Exterior LacZ"
           page: ../../processes/degrade-exterior-lacz/main.md
           # No operator. It composes nothing — it removes something.
+    impositions:
+      - id: proteinase-k
+        why: >
+          The chained Degrade Exterior LacZ sub-process doses Proteinase K.
     operator: packing
     operands: [atc-sensor-cytosol, membrane-chicago]
     produces:
