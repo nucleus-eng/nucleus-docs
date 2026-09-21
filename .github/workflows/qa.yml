@@ -82,7 +82,33 @@ jobs:
       - name: Check composition sources
         run: python3 scripts/check-composition.py
 
+  input-aliases:
+    # An `inputs` key is an identity, and two keys resolving to one page are one
+    # material under two names. Nothing compared them until 2026-09-21, when
+    # identifying the Chicago agarose as ULGA turned a gap into a duplicate: the
+    # corpus got worse by getting more correct and no check noticed either event.
+    # Advisory, and it prints the denominator because most keys carry page: null
+    # and cannot collide yet. See scripts/check-input-aliases.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Check input aliases
+        run: python3 scripts/check-input-aliases.py
+
   conflicts:
+    # Layer C, all four rows. #T20 Requirement is a step's `requires` and is
+    # checked for reachability; #T21 and #T22 are declared on their carriers;
+    # #T23 Conflict is computed from the last two. None of the twelve sources
+    # here declares any of them, so every figure prints zero.
+    #
     # A Conflict is DERIVED, not asserted. compositional-biology-theory
     # glossary.md#T23: "Sensitivity meeting imposition. Computed, never asserted",
     # with "incompatibility (as a stated fact)" as the refused spelling. #T21 puts

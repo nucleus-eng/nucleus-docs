@@ -284,6 +284,48 @@ $defs:
                     title: {type: string}
                     page: {type: string}
                     operator: {$ref: "#/$defs/operator"}
+      requires:
+        type: [array, "null"]
+        description: >
+          What must hold for this step to be defined. glossary.md#T20 Requirement,
+          "a condition that must hold for a morphism to be defined", and a step is
+          how this schema names a morphism.
+          IT SITS ON THE STEP EVEN THOUGH JON ASKED FOR IT THE OTHER WAY ROUND.
+          His words were "refining color reporter should imply constraints on the
+          cleanup step", which is a Module constraining a step. Stated from the
+          step it is the same claim, and #T20 puts the condition on the morphism,
+          so the carrier rule holds across all four Layer C rows rather than
+          bending for one sentence.
+          IT IS NOT A CONFLICT AND CANNOT BE ONE. A Conflict is a meet of two
+          declared halves, so it can only say two things must not co-occur. This
+          says something must be PRESENT, and a missing step declares no half, so
+          there is nothing to take a meet over. Credit to session c9d6a5 for the
+          statement.
+          THE CHECKER VERIFIES REACHABILITY AND NOT THE CONDITION. `of` must be
+          reachable in the step's composition, which is mechanical. Whether the
+          condition in `why` actually holds needs a placement model this corpus
+          does not have, exactly as check-conflicts.py cannot tell that a membrane
+          blocks an imposition. Absence means undeclared here too.
+        items:
+          type: object
+          additionalProperties: false
+          required: [id, of, why]
+          properties:
+            id:
+              type: string
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            of:
+              type: string
+              description: >
+                The Module or abstract class the condition is about, by directory
+                name. Reachability of this is what gets checked.
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            why:
+              type: string
+              description: The condition itself, in prose, and the reason it holds.
+            page:
+              type: [string, "null"]
+
       impositions:
         type: [array, "null"]
         description: >
