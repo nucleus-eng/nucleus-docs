@@ -67,8 +67,20 @@ properties:
           description: The Node that supplies or maintains it. 1 of 90 inputs.
   process_steps:
     type: array
-    description: Ordered composition steps. 46 across 17 sources.
-    minItems: 1
+    description: >
+      Ordered composition steps. 46 across 17 sources when this schema was derived.
+      MAY BE EMPTY, and an empty list is a claim rather than an omission: it says the
+      Module has no constituents and is not produced by a process in this corpus. The
+      five analytes say so in prose -- "an analyte is supplied to an assay rather than
+      produced by a Nucleus process."
+      `minItems: 1` was removed on Jon's ruling, 2026-09-20. It had asserted that every
+      Module is composed, which is a third membership condition the model never carried:
+      compositional-biology-theory `glossary.md#T03` defines a Module as "a formulation
+      the corpus has chosen to name, together with the operations its sort declares" --
+      two conditions, neither of them production. The schema was derived by measurement
+      from 17 composing sources, so it had never met an atom. Composed-ness is a grading
+      over Modules, not a condition for being one; `standing-is-a-grading.md` records the
+      same shape for committed-ness.
     items:
       $ref: "#/$defs/step"
   measured_by:
