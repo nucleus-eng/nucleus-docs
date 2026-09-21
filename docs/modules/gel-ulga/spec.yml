@@ -69,11 +69,24 @@ process_steps:
     parameters:
       ulga: "1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1"
       ulga_working_range: "0.2% to 0.5% in the set gel"
+      gel_temperature_window_c: "8 °C gelling to 50 °C melting"
     notes: >
       The ULGA dissolves into the outer solution, not into water, which is why the
       outer solution is a separate step and an operand rather than a parameter.
       The density is a dynamic-range lever: lower gives faster kinetics, higher
       holds a better on-off state. 0.2% immobilizes GUVs.
+      gel_temperature_window_c IS THE MATERIAL'S WINDOW AND ITS TWO ENDS ARE
+      DIFFERENT QUANTITIES. 8 is a gelling point and 50 is a MELTING point, both
+      supplied by Jon on 2026-09-21 from the supplier's materials specification
+      page. That is a catalogue figure for a nominal product, not a measurement of
+      either Node's stock, and the measured gelling point is still an open ask.
+      50 IS NOT A TEMPERATURE AT WHICH VESICLES CAN BE MIXED IN. The window is
+      still correct here because the gel is not what forbids 50: the payload is,
+      and that is a Requirement the payload imposes on its Container rather than a
+      property of this polymer. Jon's ruling: "that's the right range to put on the
+      abstract module because the tighter temperature requirements come from the
+      biology we put in the gels." So do not narrow this field to record a
+      payload's limit. That belongs on the payload's page, pointing here.
 
 open:
   - id: osmolarity-provenance

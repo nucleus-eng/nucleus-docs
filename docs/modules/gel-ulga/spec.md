@@ -87,6 +87,21 @@ Unlike the other three gels, ULGA is specified together with its solution rather
 A separate configuration replaces those three with 1200 mM glucose and 0.1 mM CaCl₂, used where the embedded cells carry [Base Cytosol](../base-cytosol/spec.md) rather than [S30 Lysate](../s30-lysate/spec.md). The 1200 mM figure is not arbitrary — above roughly 1200 mOsm, CPRG leakage from loaded liposomes drops sharply.
 
 (gel-ulga-expected-behavior)=
+:::{table} The material's temperature window.
+| Bound | Value | What it is |
+| --- | --- | --- |
+| Lower | **8 °C** | the gelling point |
+| Upper | **50 °C** | the **melting** point |
+:::
+
+:::{attention} The upper bound is not a working temperature, and this window is not the one a payload needs
+**8 °C and 50 °C are different quantities**, a gelling point and a melting point. Supplied by Jon, 2026-09-21, from the supplier's materials specification page. **That is a catalogue figure for a nominal product and not a measurement of either Node's stock**, and the measured gelling point of the agarose actually in use is still an open ask. @Editor(london): what temperature does your A5030 set at?
+
+**50 °C is not a temperature at which vesicles can be mixed in.** The window is still correct on this page because the gel is not what forbids it. **The payload is**, and that is a Requirement the payload imposes on its Container rather than a property of this polymer. See [Abstract: Gel](../abstract-gel/spec.md), which carries the same window for the class.
+
+**So do not narrow this field to record a payload's limit.** A tighter band belongs on the page of the thing being held, pointing here.
+:::
+
 # Expected Behavior
 
 ## Osmolarity
