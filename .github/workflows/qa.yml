@@ -129,6 +129,23 @@ jobs:
       - name: Check operator pairs
         run: python3 scripts/check-operator-pairs.py
 
+  spec-drift:
+    # Does a spec.yml figure still appear on its own page? check-spec-schema.py
+    # validates shape and never looks at a figure; check-composition.py checks
+    # the prose names the constituents and never looks at one either. So a page
+    # can be edited and its source keeps the old number with nothing to notice.
+    # Advisory: it reports three tiers and only the top one is agreement.
+    # See scripts/check-spec-drift.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Compare every spec.yml figure against its page
+        run: python3 scripts/check-spec-drift.py
+
   implementations:
     # Two rules over `# Implementations`. CATEGORY (blocking): an entry there
     # must point at docs/implementations/, not at another Module — a cascade is
