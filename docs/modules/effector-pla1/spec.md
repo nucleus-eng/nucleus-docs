@@ -31,7 +31,7 @@ No result isolates PLA1 from the CPRG/LacZ readout. Lysis is always scored by th
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `T7pro-PLA1-T7term` | not yet determined | — | pT7; Chicago theophylline cascade, and the ungated London run |
-| `LuxR-PLA1` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1, one molecule; London AHL cascade. Also referred to as `P70lux-PLA1-term`. |
+| `LuxR-PLA1` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1, one molecule; London AHL cascade. Also referred to as `P70lux-PLA1-term`. |
 :::
 
 :::{attention} `T7pro-PLA1-T7term` is not in `nucleus-eng/DNA`

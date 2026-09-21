@@ -62,7 +62,7 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `pOpen-LuxR-PLA1` | 4175 | pending — [PR #10](https://github.com/nucleus-eng/DNA/pull/10) | **Circular.** S30 Lysate degrades linear DNA, so this route takes the plasmid |
-| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Cassette form. **Not for this cytosol** — listed so the two are not confused |
+| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Cassette form. **Not for this cytosol** — listed so the two are not confused |
 :::
 
 One molecule carries the detector and the effector, so [PLA1](../effector-pla1/spec.md) has no construct of its own here.

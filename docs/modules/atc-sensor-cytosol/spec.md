@@ -64,7 +64,7 @@ flowchart TD
 :::{table} Constructs in the aTc Sensor Cytosol.
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form. Base Cytosol does not require circular DNA |
+| `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form. Base Cytosol does not require circular DNA |
 | `pOpen-T7-tetO-PLA1` | 3140 | pending — [PR #10](https://github.com/nucleus-eng/DNA/pull/10) | Circular form, preferred by the Chicago Node |
 | TetR | not documented | — | Supplied as purified protein at 50 nM, not expressed |
 | LacZ | not documented | — | Supplied as purified enzyme at 2.5 U/mL, not expressed |

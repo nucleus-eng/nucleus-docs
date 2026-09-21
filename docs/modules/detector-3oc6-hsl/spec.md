@@ -59,8 +59,8 @@ This page documents the S30 route, which [requires circular DNA](../s30-lysate/s
 | --- | --- | --- | --- |
 | `pOpen-LuxR-deGFP` | 3890 | pending — see below | **S30** |
 | `pOpen-LuxR-PLA1` | 4175 | pending — see below | **S30** |
-| `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | Base Cytosol |
-| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Base Cytosol |
+| `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | Base Cytosol |
+| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Base Cytosol |
 
 :::{attention} The circular files are not on `main` yet
 @Editor(london): `pOpen-LuxR-deGFP.gb` and `pOpen-LuxR-PLA1.gb` are on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file links when it lands.
