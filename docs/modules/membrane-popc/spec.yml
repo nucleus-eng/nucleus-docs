@@ -20,6 +20,7 @@
 
 module: membrane-popc
 title: "London Membrane: POPC"
+refines: membrane
 
 inputs:
   popc:

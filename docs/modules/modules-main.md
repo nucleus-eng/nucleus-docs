@@ -24,6 +24,7 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
 | Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
+| Membrane Pore | [Abstract: Pore](./pore/spec.md) | - |
 |                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
 |                 | [Gramicidin A](./membrane-pore-gramicidin/spec.md) | ★   |
 | Effector        | [PLA1](./effector-pla1/spec.md)             | ★          |
@@ -87,6 +88,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Detector | [Abstract: Detector](./abstract-detector/spec.md) | - |
 | Detector | [Abstract: Repressor Detector](./abstract-repressor-detector/spec.md) | - |
 | Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
+| Membrane | [Abstract: Membrane](./membrane/spec.md) | - |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
 | Cytosol (Sensor) | [AHL Sensor Cytosol](./ahl-sensor-cytosol/spec.md) | ★ |

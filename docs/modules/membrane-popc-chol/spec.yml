@@ -17,6 +17,7 @@
 
 module: membrane-popc-chol
 title: "Base Membrane: POPC/Chol"
+refines: membrane
 
 inputs:
   popc:

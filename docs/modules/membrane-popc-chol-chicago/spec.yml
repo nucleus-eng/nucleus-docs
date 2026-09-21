@@ -21,6 +21,7 @@
 
 module: membrane-popc-chol-chicago
 title: "Chicago Base Membrane: POPC/Chol"
+refines: membrane
 
 inputs:
   popc:

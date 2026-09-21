@@ -16,6 +16,7 @@
 
 module: membrane-pore-ahly
 title: "Membrane Pore: alpha-hemolysin"
+refines: pore
 
 inputs:
   solution-a:

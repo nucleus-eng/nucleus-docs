@@ -1,0 +1,42 @@
+# Composition source for Abstract: Pore.
+#
+# NO `refines:` KEY, AND THAT IS THE CLAIM. A pore is not a kind of Container and not a
+# kind of Membrane. Jon, 2026-09-21: "Pore does NOT refine membrane!! it's a component
+# that can be composed with a membrane." compositional-biology-theory signature.md:201
+# writes it as `passive_transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable]`, so a pore
+# and a membrane are two operands of one operation and the permeable membrane is the
+# product. This class is a root here.
+#
+# ONE CONSTITUENT. A pore is the pore-forming agent. What it makes a hole IN belongs to
+# the composition the pore enters, not to the pore, which is the whole content of the
+# correction above.
+
+module: pore
+title: "Abstract: Pore"
+
+inputs:
+  pore-forming-agent:
+    title: "Pore-forming agent"
+    page: null            # a protein in two members, a peptide in the third
+
+process_steps: []
+
+open:
+  - id: the-passive-active-split-separates-nothing-here
+    question: >
+      The theory offers `Pore[passive]` against `Pore[active]`, split by the energy
+      spent. All three paged members are passive, so the partition is correct and puts
+      them in one cell. `Pore[active]` has no paged member, which signature.md says is
+      not a defect because the abstract layer is free on the signature. So this class
+      has a refinement axis that does no work on the corpus it covers.
+  - id: what-does-separate-them-is-not-an-axis-yet
+    question: >
+      Two members select on mass and one on charge and identity, and the two that
+      select on mass differ about threefold in the cutoff. That is the real variation
+      and nothing states it as an axis, so it lives in a table on the page.
+  - id: empty-process-steps-with-a-nonempty-inputs
+    question: >
+      This file names a constituent and composes nothing, which is a shape no other
+      source here has. It is correct: the class has a part and no process in this
+      corpus makes a generic pore. Worth watching whether it stays the only one, since
+      an inputs-without-steps source is exactly what an unfinished file looks like.

@@ -27,6 +27,10 @@ project:
           hidden: true
         - file: ./docs/modules/container/spec.md
           hidden: true
+        - file: ./docs/modules/membrane/spec.md
+          hidden: true
+        - file: ./docs/modules/pore/spec.md
+          hidden: true
         - file: ./docs/modules/abstract-gel/spec.md
           hidden: true
         - file: ./docs/modules/abstract-photopatterned-gel/spec.md

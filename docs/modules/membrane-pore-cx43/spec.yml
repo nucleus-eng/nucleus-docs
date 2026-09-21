@@ -20,6 +20,7 @@
 
 module: membrane-pore-cx43
 title: "Membrane Pore: Cx43"
+refines: pore
 
 inputs:
   purexpress-solution-a:
