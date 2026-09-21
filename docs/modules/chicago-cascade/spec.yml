@@ -73,7 +73,15 @@ inputs:
   trigger-ssdna:       { component_of: "../detector-ph/spec.md", title: "Trigger ssDNA", page: null }
   agarose:
     title: "Agarose, 0.7%"
-    page: null            # which agarose is not established — @Editor(chicago)
+    # IDENTIFIED 2026-09-21. Jon: "agarose is ULGA, confirmed. i know we were
+    # claiming they might not be, but I've confirmed with devs." This read
+    # `page: null` with an open Chicago editor ask about which agarose it was.
+    # THE KEY IS STILL `agarose` AND THAT IS NOT AN OVERSIGHT. ULGA is a grade of
+    # agarose rather than a different material, so the word was never wrong, only
+    # under-specified. Renaming would also make a third name for one powder:
+    # ../gel-ulga/spec.yml calls it `ulga` and ../london-cascade/spec.yml calls it
+    # `ulga-powder`. That is a real finding, staged rather than fixed inline.
+    page: ../gel-ulga/spec.md
 
 process_steps:
 
@@ -249,10 +257,12 @@ process_steps:
   - id: embed-agarose
     process:
       title: "Hydrogel Embedding: Agarose"
-      # No page. Moving off alginate on 2026-09-11 took away the only process
-      # page this path had; embed-ulga-hydrogel is ULGA-specific and whether
-      # this is that agarose is not established. @Editor(chicago)
-      page: null
+      # THE PAGE FOLLOWS FROM THE IDENTIFICATION ABOVE, on the reasoning
+      # ../chicago-cascade/spec.md already carried: this corpus has one agarose
+      # embedding process and it is the ULGA one, so "if it is ULGA, the pH path
+      # can likely reuse the ULGA process with a concentration change". It is.
+      # Concentration differs and the process does not.
+      page: ../../processes/embed-ulga-hydrogel/main.md
     operator: packing
     operator_pairs:
       - operands: [agarose, chicago-outer-solution]

@@ -55,7 +55,7 @@ flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P6_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing) — no page"])
+    P6_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
@@ -99,6 +99,7 @@ flowchart TD
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click AGAROSE "/docs/modules/gel-ulga/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click P2_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
@@ -108,6 +109,7 @@ flowchart TD
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
     click P5_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click P6_EMBED_AGAROSE_0 "/docs/processes/embed-ulga-hydrogel/main"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
 ```
 
@@ -244,7 +246,7 @@ No process page documents assembling this three-part cascade end to end.
 - [pH Sensing Cell](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
-- **Agarose, 0.7%** — the matrix, dissolved into the outer solution the two populations already sit in. It has no Module page: the Node moved this path off alginate on 2026-09-11 and which agarose it uses is not established
+- [Agarose, 0.7%](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Identified 2026-09-21**: it is ULGA, confirmed with the Chicago devs, so it resolves to [Gel: ULGA](../gel-ulga/spec.md) and the path reuses [ULGA Embedding](../../processes/embed-ulga-hydrogel/main.md) at a different concentration. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.

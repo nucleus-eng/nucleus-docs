@@ -70,7 +70,7 @@ flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P10_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing) — no page"])
+    P10_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing)"])
     PH_GEL["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]
@@ -144,6 +144,7 @@ flowchart TD
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click PEG_NORBORNENE_MONOMER "/docs/modules/gel-peg-norbornene/spec"
+    click AGAROSE "/docs/modules/gel-ulga/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click P2_ASSEMBLE_ATC_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
@@ -160,6 +161,7 @@ flowchart TD
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
     click P9_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click P10_EMBED_AGAROSE_0 "/docs/processes/embed-ulga-hydrogel/main"
     click PH_GEL "/docs/modules/ph-cascade/spec"
     click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
 ```
@@ -345,12 +347,12 @@ This section previously said the cascade could not have both its spatial separat
 
 **Confirmed 2026-09-11, and both paths moved.** The Node corrected the assignment live: the pH path is agarose, not alginate, and the aTc path is PEG-norbornene specifically — *"definitely pegnorburine because PEG-DA destroys the vesicles."* [PEGDA](../gel-pegda/spec.md) is canceled as a route.
 
-:::{caution} Which agarose is not established, and it decides whether the pH path has a process page
-This corpus has one agarose embedding process, [ULGA](../../processes/embed-ulga-hydrogel/main.md), and it is specific: ultra-low-gelling-temperature agarose gelling at (8–17) °C. The Chicago work is described only as **0.7% agarose**, cast on ice for about five minutes.
+:::{note} The agarose is ULGA, and that gave the pH path its process page back
+**Answered 2026-09-21.** Jon, confirmed with the Chicago devs: the 0.7% agarose is ULGA. This corpus has one agarose embedding process, [ULGA](../../processes/embed-ulga-hydrogel/main.md), ultra-low-gelling-temperature agarose gelling at (8–17) °C, and the Chicago work was described only as **0.7% agarose** cast on ice for about five minutes.
 
-Low-gelling-temperature agarose and ULGA are the same object under different part numbers, and both nodes hold it — but that does not establish that the 0.7% gel *is* that agarose rather than a plain, non-low-temperature one.
+The consequence was written before the answer arrived, so it applies without reinterpretation: **the pH path reuses the ULGA process with a concentration change**, rather than having no process page at all. Moving off alginate on 2026-09-11 had taken away the one it had.
 
-**If it is ULGA, the pH path can likely reuse the ULGA process with a concentration change. If it is not, that path has no process page at all**, because moving off alginate took away the one it had. @Editor(chicago): a part number settles it.
+Low-gelling-temperature agarose and ULGA are the same object under different part numbers, which is why the identification changes the page and not the material. **No part number is on record**, and the answer came from the devs rather than from a catalog entry.
 :::
 :::
 
