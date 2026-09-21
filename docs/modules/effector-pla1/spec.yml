@@ -86,6 +86,16 @@ open:
       detector's DNA, so the product is a different DNA Module that contains PLA1.
       If that is right, each of the four belongs on the detector or cascade page that
       owns the stitched construct, and this file is complete rather than partial.
+      THE READING IS EXACT FOR A LINEAR CONSTRUCT AND NEEDS A QUOTIENT FOR A CIRCULAR
+      ONE. Stitching joins operands IN ORDER, and a circle has no start, so on a
+      circular construct the order is defined only up to rotation and A stitched to B
+      equals B stitched to A. Both kinds are in play here: `LuxR-PLA1` is recorded on
+      the page as 2237 bp from LuxR-PLA1-linear.gb, and the @Editor(chicago) note on
+      ../atc-sensor-cytosol/spec.md names `pOpen-T7-tetO-PLA1` at 3140 bp as the
+      circular form the Chicago Node prefers. Raised by the compositional-biology-theory
+      session 2026-09-21, measured there over nucleus-eng/DNA at f06e12c: 12 of 17
+      constructs linear, 5 circular. Not carried into this corpus as a count; the point
+      is that the account needs the rotation quotient before it covers both.
       What is not settled is where the stitched Modules get their pages. No page in
       this corpus is currently the owner of `LuxR-PLA1` or `TetO-PLA1` as objects in
       their own right; both are listed as constructs on pages about something else.
