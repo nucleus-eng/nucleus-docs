@@ -11,7 +11,7 @@ site:
 
 An abstract Module: the class of pores, of which the three paged pores are members.
 
-**It refines nothing, and that is the point.** A pore is not a kind of container and not a kind of membrane. It is a **component that composes with a membrane** to make that membrane permeable. The theory corpus writes the operation as `passive_transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable]`, so a pore and a membrane are two operands and the permeable membrane is the product.
+**It refines nothing, and that is the point.** A pore is not a kind of container and not a kind of membrane. It is a **component that composes with a membrane** to make that membrane permeable. The theory corpus writes the operation as `transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable]; passes Cargo[φ]` (`signature.md:201`, `main` at `7b707cb`), so a pore and a membrane are two operands and the permeable membrane is the product. Jon renamed that operation `passive_transport` on 2026-09-21 and the rename is staged in the theory repo, not applied. See the note under Reference Composition.
 
 **The invariant is that it lets something cross a boundary it does not itself provide.**
 
@@ -45,6 +45,8 @@ This page is a work in progress and not yet ready for use.
 So there are three operations, not one with a bracket: `transport` at the top, refined by `passive_transport` and `active_transport`. **The energy term and the selectivity are what mark the second**, and every member on this page performs the first refinement.
 
 **This is a correction to `compositional-biology-theory`'s `signature.md` and has been sent there.** That file writes the operation as `transport` with the refinement carried in the argument bracket, `Pore[active]` rather than `transport_active`, which is its `D22`. Jon's reading puts a refinement on the operation as well.
+
+**That repo read it back and says the two rulings do not conflict**, which is a better reading than the one above and is theirs, not a ruling. `D22` is stated with a condition at `signature.md:227`: *"Where no parent operation is attested, separate names stay correct"*. Its claim that `transport` is attested rests on the three paged pores, and session `c9d6a5` measured all three as passive at `0c55812`, with zero mentions of ATP, GTP, pumping or active transport. An operation whose every witness falls in one child is attested as that child. So the condition fires and `D22`'s own consequent gives the separate names. Staged there as `tmp/STAGED-2026-09-21-transport-is-abstract.md`, 11 edit sites, with the choice between "escape clause" and "`D22` narrows" left for Jon. Both readings produce the same edits.
 :::
 
 **The split the theory offers does not separate them.** `Pore[passive]` against `Pore[active]`, by the energy spent, is a correct partition that puts all three paged pores in one cell. `Pore[active]` has no paged member in this corpus and that is not a defect: the abstract layer is free on the signature.

@@ -6,8 +6,10 @@
 #
 # A PORE IS NOT A MEMBER OF THIS CLASS. Jon's correction, 2026-09-21: "Pore does NOT
 # refine membrane!! it's a component that can be composed with a membrane." The theory
-# corpus writes it as `passive_transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable]`,
-# signature.md:201, so a pore and a membrane are two operands of one operation. See
+# corpus writes it as `transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable]; passes
+# Cargo[φ]`, signature.md:201 at main 7b707cb, so a pore and a membrane are two operands of
+# one operation. Jon renamed the operation `passive_transport` on 2026-09-21 and the rename
+# is staged in that repo rather than applied, so this quotes the file as it reads. See
 # ../pore/spec.yml.
 #
 # The process is `page: null`: an abstract bilayer-forming process does not exist here.

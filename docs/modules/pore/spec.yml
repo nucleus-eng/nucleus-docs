@@ -3,9 +3,16 @@
 # NO `refines:` KEY, AND THAT IS THE CLAIM. A pore is not a kind of Container and not a
 # kind of Membrane. Jon, 2026-09-21: "Pore does NOT refine membrane!! it's a component
 # that can be composed with a membrane." compositional-biology-theory signature.md:201
-# writes it as `passive_transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable]`, so a pore
-# and a membrane are two operands of one operation and the permeable membrane is the
-# product. This class is a root here.
+# reads, at main 7b707cb, `transport : Pore[passive] ⊗ Membrane ⟶ Membrane[permeable];
+# passes Cargo[φ]`, so a pore and a membrane are two operands of one operation and the
+# permeable membrane is the product. This class is a root here.
+#
+# THE OPERATION NAME IS JON'S CORRECTION, STAGED THERE AND NOT APPLIED. He ruled it
+# `passive_transport` on 2026-09-21 and that repo carries it as an edit site in
+# tmp/STAGED-2026-09-21-transport-is-abstract.md. An earlier version of this comment
+# quoted `passive_transport` as the file's present content, which was a forward
+# reference to an edit nobody had made. Caught by compositional-biology-theory session
+# c9d6a5 on the day it was written.
 #
 # ONE CONSTITUENT. A pore is the pore-forming agent. What it makes a hole IN belongs to
 # the composition the pore enters, not to the pore, which is the whole content of the
@@ -36,7 +43,14 @@ open:
       and nothing states it as an axis, so it lives in a table on the page.
   - id: empty-process-steps-with-a-nonempty-inputs
     question: >
-      This file names a constituent and composes nothing, which is a shape no other
-      source here has. It is correct: the class has a part and no process in this
-      corpus makes a generic pore. Worth watching whether it stays the only one, since
-      an inputs-without-steps source is exactly what an unfinished file looks like.
+      This file names a constituent and composes nothing. EIGHT of the 56 sources have
+      that shape, and pore is the only abstract class among them. The other seven are
+      leaf materials: analyte-3oc6-hsl, analyte-atc, analyte-iptg, analyte-theophylline,
+      reporter-lacz-enzyme, substrate-cprg and substrate-xgal. It is correct here,
+      because the class has a part and no process in this corpus makes a generic pore.
+      An earlier version of this item called the shape unique. That was never measured
+      and was wrong; c9d6a5 counted it. The count says something narrower and more
+      useful: the shape tracks "material with no abstract parent", and two of the seven
+      are the Substrate orphans this tranche kicked out. An inputs-without-steps source
+      is still what an unfinished file looks like, so the shape cannot carry the claim
+      on its own.
