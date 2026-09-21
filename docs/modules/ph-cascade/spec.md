@@ -55,7 +55,7 @@ flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P6_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing) — no page"])
+    P6_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing) — no page"])
     PH_CASCADE["pH Cascade"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0

@@ -70,7 +70,7 @@ flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P10_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing) — no page"])
+    P10_EMBED_AGAROSE_0(["Hydrogel Embedding: Agarose (packing, 3 pairs mixing) — no page"])
     PH_GEL["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]

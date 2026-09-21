@@ -31,6 +31,7 @@ review material, not for module pages.
     python3 scripts/render-composition.py <path>/spec.yml --embed
     python3 scripts/render-composition.py <path>/spec.yml --depth 3
 """
+import collections
 import re
 import sys
 from pathlib import Path
@@ -70,8 +71,16 @@ def chain(step: dict) -> list[dict]:
     return step["process"].get("composed_of") or [step["process"]]
 
 
-def expand(doc: dict, depth: int, root: Path) -> dict:
+def expand(doc: dict, depth: int, root: Path, only: set[str] | None = None,
+           seen: set[str] | None = None) -> dict:
     """Splice each leaf's own spec.yml in, `depth - 1` times over.
+
+    `only` names the modules that may expand, by directory name. `--depth` alone
+    is a moving target: it expands whatever happens to have a source that week,
+    so the same command drew 5 process nodes for London in September and 13
+    today, purely because the corpus grew from 17 sources to 56. A diagram whose
+    shape changes when an unrelated module gains a `spec.yml` cannot be reissued.
+    Naming the module makes the command reproducible.
 
     A leaf qualifies if it names a module page and that module has a source of
     its own. Its final step produces the leaf, so that product is renamed to
@@ -79,6 +88,15 @@ def expand(doc: dict, depth: int, root: Path) -> dict:
     """
     if depth <= 1:
         return doc
+    # SPLICE EACH MODULE ONCE, ACROSS THE WHOLE RECURSION AND NOT PER LEVEL.
+    # Two sensor cytosols both take base-cytosol, so before 2026-09-21 Chicago
+    # drew THREE "Assemble Base Cytosol" stadiums with identical operands, all
+    # arrowing into one Base Cytosol box. That reads as the step running three
+    # times. It does not: one Module was expanded once per parent that consumes
+    # it. The product node carries the parent's key either way, so skipping the
+    # repeat leaves every edge pointing where it already pointed.
+    if seen is None:
+        seen = set()
     inputs = dict(doc.get("inputs") or {})
     steps = list(doc["process_steps"])
     for key, v in list(inputs.items()):
@@ -88,7 +106,20 @@ def expand(doc: dict, depth: int, root: Path) -> dict:
         sub_path = (root / page).resolve().parent / "spec.yml"
         if not sub_path.is_file():
             continue
-        sub = expand(yaml.safe_load(sub_path.read_text()), depth - 1, sub_path.parent)
+        if only is not None and sub_path.parent.name not in only:
+            continue
+        if sub_path.parent.name in seen:
+            continue
+        seen.add(sub_path.parent.name)
+        sub = expand(yaml.safe_load(sub_path.read_text()), depth - 1,
+                     sub_path.parent, only, seen)
+        # A SOURCE MAY COMPOSE NOTHING, and this crashed on the first one.
+        # `minItems: 1` came off `process_steps` on Jon's ruling, 2026-09-20,
+        # and eight sources now name inputs and run no step. There is no
+        # sub-graph to splice: the module IS a leaf however deep you ask, so it
+        # stays an input rather than becoming an empty expansion.
+        if not (sub.get("process_steps") or []):
+            continue
         # The leaf stops being an input; the sub-graph produces it instead.
         del inputs[key]
         produced = sub["process_steps"][-1]["produces"]["id"]
@@ -128,6 +159,19 @@ def render(doc: dict) -> str:
             # link in the chain that composes nothing shows no operator, which
             # is the honest reading rather than a borrowed one.
             op = sub.get("operator", s["operator"] if k == 0 else None)
+            # A STEP MAY BE HETEROGENEOUS, and until 2026-09-21 this drew it as
+            # though it were not. `operator_pairs` lists the pairs that take the
+            # OTHER operator, so any entry means the single label above is the
+            # default rather than the whole claim, and a node showing only the
+            # default asserts something the source does not.
+            #
+            # WHICH pairs is not drawable here. An arrow into a process node
+            # carries no operator, which is the same reason the operator sits on
+            # the node at all. The count is the honest summary and points a
+            # reader at the spec.yml for the pairs themselves.
+            if op and k == 0 and (ov := s.get("operator_pairs") or []):
+                by = collections.Counter(o.get("operator") for o in ov)
+                op += "".join(f", {n} pairs {name}" for name, n in sorted(by.items()))
             label = f'{sub["title"]} ({op})' if op else sub["title"]
             # "no page" is stated in words. A dashed border would say
             # "proposed", a status claim this diagram has not checked.
@@ -198,7 +242,13 @@ if __name__ == "__main__":
     depth = 1
     if "--depth" in sys.argv:
         depth = int(sys.argv[sys.argv.index("--depth") + 1])
-    doc = expand(yaml.safe_load(src.read_text()), depth, src.parent)
+    # --expand NAME, repeatable. Implies a depth deep enough to reach them, so
+    # the two flags do not have to agree by hand.
+    only = {sys.argv[i + 1] for i, a in enumerate(sys.argv) if a == "--expand"}
+    if only:
+        depth = max(depth, len(only) + 1)
+    doc = expand(yaml.safe_load(src.read_text()), depth, src.parent,
+                 only or None)
     mermaid = render(doc)
     if "--embed" in sys.argv:
         spec = src.parent / "spec.md"

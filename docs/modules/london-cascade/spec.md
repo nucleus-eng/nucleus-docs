@@ -43,7 +43,7 @@ flowchart TD
     GUV_CPRG["GUV: CPRG"]
     P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     OUTER_SOLUTION["Outer Solution"]
-    P5_EMBED_ULGA_0(["ULGA Embedding (packing)"])
+    P5_EMBED_ULGA_0(["ULGA Embedding (packing, 3 pairs mixing)"])
     LONDON_CASCADE["London Cascade"]
 
     S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
