@@ -114,7 +114,14 @@ def skippable(doc: dict) -> list[str]:
         for later in steps[i + 1:]:
             if product not in (later.get("operands") or []):
                 continue
-            if later.get("operator") == "packing":
+            # operator_pairs overrides the step label for named pairs, so the
+            # question is whether THIS product is packed rather than whether the
+            # step is labelled packing.
+            packs_product = later.get("operator") == "packing"
+            for ov in (later.get("operator_pairs") or []):
+                if product in (ov.get("operands") or []):
+                    packs_product = ov.get("operator") == "packing"
+            if packs_product:
                 out.append(
                     f"{s['id']} is optional, but {later['id']} packs its product "
                     f"'{product}'; packing cannot take {len(s.get('operands') or [])} "

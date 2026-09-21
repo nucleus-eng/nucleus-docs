@@ -192,6 +192,43 @@ $defs:
                     operator: {$ref: "#/$defs/operator"}
       operator:
         $ref: "#/$defs/operator"
+      operator_pairs:
+        type: array
+        minItems: 1
+        description: >
+          Exceptions to this step's `operator`, one entry per operand pair that
+          takes the other one. The step label stays required and remains the
+          default, so a step lists only the pairs that differ from it.
+          WHY THIS EXISTS. One label over n operands asserts the same operator on
+          all C(n,2) pairs, and one contrary pair falsifies it. 37 of 75 steps
+          carried more than two operands at 9e57b86, so half the corpus makes an
+          assertion it cannot support.
+          THE FIRST THREE USERS ARE HETEROGENEOUS IN THE SAME WAY, found by the
+          compositional-biology-theory session on 2026-09-21: chicago-cascade and
+          ph-cascade `embed-agarose`, and london-cascade `embed-ulga`. Each takes
+          five operands of which three share the outer phase and two are
+          membrane-bounded, so `packing` is the majority and wrong three times,
+          and `mixing` is not the fix either.
+          Listing exceptions rather than every pair was chosen over making
+          `operator` and `operator_pairs` alternatives. It keeps `operator`
+          required, needs no change to `required`, and costs three entries per
+          step here instead of ten.
+        items:
+          type: object
+          additionalProperties: false
+          required: [operands, operator]
+          properties:
+            operands:
+              type: array
+              minItems: 2
+              maxItems: 2
+              items: {type: string}
+              description: The two operand ids, by id, as they appear in `operands`.
+            operator:
+              $ref: "#/$defs/operator"
+            note:
+              type: string
+              description: Why this pair differs from the step's label.
       operands:
         type: array
         minItems: 1

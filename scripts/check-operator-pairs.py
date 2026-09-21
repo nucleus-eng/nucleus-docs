@@ -70,9 +70,18 @@ for f in sorted(glob.glob('docs/**/spec.yml', recursive=True)):
     key = 'process_steps' if 'process_steps' in d else 'steps'
     for s in (d.get(key) or []):
         label = s.get('operator')
+        # A step may override its label for named pairs. The label stays the
+        # default and operator_pairs lists only the exceptions, so a pair's
+        # operator is the exception where one exists and the label otherwise.
+        overrides = {}
+        for ov in (s.get('operator_pairs') or []):
+            pair = ov.get('operands') or []
+            if len(pair) == 2:
+                overrides[frozenset(pair)] = ov.get('operator')
         ops = [o if isinstance(o, str) else (o.get('module') or o)
                for o in (s.get('operands') or [])]
         for a, b in itertools.combinations(sorted(set(ops)), 2):
+            label = overrides.get(frozenset({a, b}), s.get('operator'))
             k = frozenset({sort_of(a), sort_of(b)})
             if len(k) < 2 or k not in SEED:
                 tally['unknown'] += 1; continue

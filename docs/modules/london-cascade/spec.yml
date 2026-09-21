@@ -128,6 +128,17 @@ process_steps:
       title: "ULGA Embedding"
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: packing
+    operator_pairs:
+      - operands: [ulga-powder, outer-solution]
+        operator: mixing
+      - operands: [ulga-powder, reporter-lacz-enzyme]
+        operator: mixing
+      - operands: [outer-solution, reporter-lacz-enzyme]
+        operator: mixing
+        note: >
+          Both share the outer phase and neither carries a boundary, so this
+          pair mixes. The step's `packing` label is right for the seven pairs
+          that involve a membrane-bounded operand and wrong for these three.
     operands:
       - ulga-powder
       - outer-solution

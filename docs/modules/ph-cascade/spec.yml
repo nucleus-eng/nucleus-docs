@@ -124,6 +124,17 @@ process_steps:
       # this is that agarose is not established. @Editor(chicago)
       page: null
     operator: packing
+    operator_pairs:
+      - operands: [agarose, chicago-outer-solution]
+        operator: mixing
+      - operands: [agarose, reporter-lacz-enzyme]
+        operator: mixing
+      - operands: [chicago-outer-solution, reporter-lacz-enzyme]
+        operator: mixing
+        note: >
+          Both share the outer phase and neither carries a boundary, so this
+          pair mixes. The step's `packing` label is right for the seven pairs
+          that involve a membrane-bounded operand and wrong for these three.
     operands:
       - agarose
       - chicago-outer-solution
