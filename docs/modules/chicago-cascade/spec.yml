@@ -135,6 +135,17 @@ process_steps:
         - title: "Degrade Exterior LacZ"
           page: ../../processes/degrade-exterior-lacz/main.md
           # No operator. It composes nothing — it removes something.
+    requires:
+      - id: enzyme-encapsulated-substrate-outside
+        of: reporter-lacz-enzyme
+        why: >
+          Degrade Exterior LacZ is defined only where the enzyme is encapsulated and its
+          substrate is outside. ../../processes/degrade-exterior-lacz/main.md: "Use it
+          where LacZ is encapsulated and its substrate is outside", and "do not use it
+          where LacZ sits in the outer solution or is dispersed through a gel on purpose",
+          because Proteinase K does not distinguish one LacZ from another. So refining the
+          reporter decides whether this cleanup step exists at all, which is Jon's implies
+          arrow of 2026-09-21 stated from the step.
     impositions:
       - id: proteinase-k
         why: >

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compute Conflicts from declared sensitivities and impositions. Assert none.
+"""Compute Layer C: Requirements checked, Conflicts computed, neither asserted.
 
 compositional-biology-theory `glossary.md#T23` makes Conflict **derived** —
 "Sensitivity meeting imposition. Computed, never asserted" — and files
@@ -14,8 +14,20 @@ a Module's `sensitivities:`. `#T22` puts Imposition on a morphism, which is a
 step's `impositions:`. This walks every step and reports where an operand that
 is sensitive to something meets a step that inflicts it.
 
-  CONFLICT   a step imposes what one of its operands is sensitive to
-  reach      the operand is not sensitive itself; something inside it is
+  CONFLICT     a step imposes what one of its operands is sensitive to
+  reach        the operand is not sensitive itself; something inside it is
+  UNSATISFIED  a step requires something its composition cannot reach
+
+`#T20` Requirement joins the other three on 2026-09-21: "a condition that must
+hold for a morphism to be defined", so it is a step's `requires`. **It is not a
+Conflict and cannot be one.** A Conflict is a meet of two declared halves, so it
+can only say two things must not co-occur; a Requirement says something must be
+PRESENT, and a missing step declares no half to take a meet over.
+
+**Reachability is checked and the condition is not.** `requires[].of` must be
+reachable in the step's composition, which is mechanical. Whether the prose in
+`why` actually holds needs a placement model this corpus does not have, the same
+limit as not knowing that a membrane blocks an imposition.
 
 **`reach` IS NOT A DEFECT AND MUST NOT BE READ AS ONE.** This walks containment
 and has no concept of a boundary stopping an imposition, which in a corpus built
@@ -97,11 +109,27 @@ for kind in ("CONFLICT", "reach"):
         print(f"          {s['basis']}: {s['why'].strip()[:96]}")
         print()
 
+req_rows, req_total = [], 0
+for mod, d in SRC.items():
+    for step in d.get("process_steps") or []:
+        for r in step.get("requires") or []:
+            req_total += 1
+            reach = set()
+            for operand in operand_ids(step):
+                reach |= constituents(operand)
+            if r["of"] not in reach:
+                req_rows.append((mod, step["id"], r))
+for mod, sid, r in req_rows:
+    print(f"UNSATISFIED {mod}/{sid}")
+    print(f"          requires {r['of']}, not reachable from its operands")
+    print(f"          {r['why'].strip()[:96]}\n")
+
 declared = sum(1 for m in SRC if SRC[m].get("sensitivities"))
 steps = sum(len(d.get("process_steps") or []) for d in SRC.values())
 print(f"{len(SRC)} sources: {declared} declare a sensitivity, {len(SRC) - declared} silent")
 print(f"{steps} steps: {tally['impositions']} impositions declared")
-print(f"conflicts {tally['CONFLICT']} | reach {tally['reach']}")
+print(f"conflicts {tally['CONFLICT']} | reach {tally['reach']} | "
+      f"requires {req_total} declared, {len(req_rows)} unsatisfied")
 print("\nSilence is not safety: an undeclared Module makes no claim that it has "
       "no sensitivity,\nso a zero here counts what was declared and nothing else.")
 
@@ -117,7 +145,7 @@ print("\nSilence is not safety: an undeclared Module makes no claim that it has 
 # a route the Node already canceled: failing CI would demand a fix to a page
 # that is correctly recording a dead end.
 if "--strict" in sys.argv:
-    sys.exit(1 if tally["CONFLICT"] else 0)
+    sys.exit(1 if (tally["CONFLICT"] or req_rows) else 0)
 if tally["CONFLICT"]:
     print(f"\nadvisory: {tally['CONFLICT']} conflict(s); pass --strict to fail on them.")
 sys.exit(0)

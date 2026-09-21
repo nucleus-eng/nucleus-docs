@@ -170,6 +170,13 @@ jobs:
         run: python3 scripts/check-input-aliases.py
 
   conflicts:
+    # Layer C, all four rows. #T20 Requirement is a step's `requires` and is
+    # CHECKED for reachability; #T21 Sensitivity and #T22 Imposition are declared
+    # on their carriers; #T23 Conflict is computed from the last two and asserted
+    # by nobody. A Requirement cannot be a Conflict: a Conflict is a meet of two
+    # declared halves so it can only say two things must not co-occur, and a
+    # missing step declares no half.
+    #
     # A Conflict is DERIVED, not asserted. compositional-biology-theory
     # glossary.md#T23: "Sensitivity meeting imposition. Computed, never asserted",
     # with "incompatibility (as a stated fact)" as the refused spelling. #T21 puts
