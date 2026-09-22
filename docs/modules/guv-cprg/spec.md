@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 A CPRG GUV is a giant unilamellar liposome carrying chlorophenol red-β-D-galactopyranoside (CPRG) and nothing else. It is the substrate population of the [London Cascade](../london-cascade/spec.md), and it exists so that CPRG and its enzyme never meet until something lyses the membrane.
 
 CPRG is yellow. β-galactosidase (LacZ) cleaves it to chlorophenol red, which is magenta. Holding the substrate inside a liposome makes that conversion triggerable: while the bilayer is intact, [LacZ](../reporter-lacz-enzyme/spec.md) sits outside in the gel and reaches nothing. When a neighboring sensing cell expresses [PLA1](../effector-pla1/spec.md) and lyses, it breaches these liposomes too, and the released CPRG meets the enzyme.

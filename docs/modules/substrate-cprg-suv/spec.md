@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 A Substrate SUV is a small unilamellar liposome that carries a chemical substrate of interest and nothing else. The CPRG Substrate SUV is a subcomponent of a [LacZ colorimetric cascade](../../processes/colorimetric-readout/main.md).
 
 This Substrate SUV carries chlorophenol red-β-D-galactopyranoside (CPRG). CPRG is yellow; β-galactosidase (LacZ) cleaves it to chlorophenol red, which is purple. Holding the substrate inside a liposome allows for substrate release using [PLA1](../effector-pla1/spec.md): as long as the SUV is intact, CPRG and LacZ never meet. When a neighboring Sensing Cell expresses PLA1 and lyses, it breaches these SUVs too, releasing CPRG into the surrounding LacZ solution and starting the color change.

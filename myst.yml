@@ -37,6 +37,8 @@ project:
           hidden: true
         - file: ./docs/modules/reporter/spec.md
           hidden: true
+        - file: ./docs/modules/substrate-carrier/spec.md
+          hidden: true
         - file: ./docs/modules/cytosol/spec.md
           hidden: true
         - file: ./docs/modules/sensor-cytosol/spec.md

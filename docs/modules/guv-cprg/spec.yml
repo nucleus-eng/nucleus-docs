@@ -17,6 +17,10 @@
 
 module: guv-cprg
 title: "CPRG GUV"
+refines: substrate-carrier
+# Added 2026-09-21 with the class: the giant unilamellar member, made by phase transfer. Both members pack a
+# membrane with substrate-cprg by `packing`, two of two, and the class was written
+# because a meet over London and Chicago drew the two as unrelated slots.
 
 inputs:
   membrane-popc:

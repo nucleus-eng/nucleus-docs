@@ -17,6 +17,10 @@
 
 module: substrate-cprg-suv
 title: "CPRG-loaded SUV"
+refines: substrate-carrier
+# Added 2026-09-21 with the class: the small unilamellar member, made by hydration and extrusion. Both members pack a
+# membrane with substrate-cprg by `packing`, two of two, and the class was written
+# because a meet over London and Chicago drew the two as unrelated slots.
 
 inputs:
   membrane-popc-chol-chicago:
