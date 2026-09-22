@@ -321,7 +321,7 @@ process_steps:
       compositions this corpus already had: each matched its standalone module on
       operator, operands and parameters, and each already pointed at that module's
       page and carried its title. Only the id differed, so one thing had two names
-      and a leg walk reached it twice. Found by scripts/check-aliases.py on two
+      and an integration path walk reached it twice. Found by scripts/check-aliases.py on two
       carriers at once, id-to-composition and title-to-id, which is why the count
       of five rows was three pairs.
 
