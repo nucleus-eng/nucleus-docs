@@ -307,6 +307,12 @@ if __name__ == "__main__":
                 pslots[k][leg] = d
 
     # --- the meet per slot
+    def member_slot_of(leg: str, m: str) -> str | None:
+        for kk in order:
+            if slots[kk].get(leg) == m:
+                return kk
+        return None
+
     def nid_of(k: str) -> str:
         return re.sub(r"[^A-Za-z0-9]", "_", k).upper()
 
@@ -376,6 +382,26 @@ if __name__ == "__main__":
                      f'<br/>{", ".join(members)}"])')
             unmet.append(nid); tally["proc_unmet"] += 1
 
+    # CROSS-PASS AGREEMENT, c9d6a5's, and it is the free control one level up. The two
+    # passes key differently on purpose: module slots align by the product's class,
+    # process slots by process identity in their own poset. So a process slot CAN group
+    # two steps whose products the module pass keeps apart, and that would assert one
+    # source into two positions at once. Nothing else here would notice.
+    cross_ok = cross_bad = 0
+    for k in porder:
+        prods = {}
+        for leg in pslots[k]:
+            src_name, steps = legs[leg]
+            for s in steps:
+                for pr in ((s.get("process") or {}).get("composed_of")
+                           or [s.get("process") or {}]):
+                    if (proc_dir(pr) or pr.get("title")) == pslots[k][leg]:
+                        m = to_module(s["produces"].get("page")) or s["produces"]["id"]
+                        prods[leg] = member_slot_of(leg, m)
+        if len(prods) > 1:
+            (cross_ok := cross_ok + 1) if len(set(prods.values())) == 1 else (
+                cross_bad := cross_bad + 1)
+
     # EDGES ARE CONTAINMENT PROJECTED ONTO SLOTS. Slot A feeds slot B when, in some
     # leg, A's member is an operand of the step that produces B's member. An edge that
     # only one leg has is still drawn: the meet is over the union of what the legs do,
@@ -418,6 +444,8 @@ if __name__ == "__main__":
           f"{tally['proc_concrete']} concrete, {tally['proc_abstract']} abstract, "
           f"{tally['proc_unmet']} with NO COMMON ANCESTOR, "
           f"{tally['proc_partial']} run by only some legs\n"
+          f"{cross_ok} cross-pass agreement(s), {cross_bad} disagreement(s): where a "
+          f"process slot groups two legs' steps, their products land in one module slot\n"
           f"{agree_checks} product-and-operand agreement check(s) passed: a module that "
           f"is a product of one step and an operand of the next landed in the same slot "
           f"from both passes",
