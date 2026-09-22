@@ -27,6 +27,60 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    CYTOSOL["Cytosol"]
+    MEMBRANE["Membrane"]
+
+    P1_ENCAPSULATE_0(["Close the membrane around the cytosol (packing) — no page"])
+    CELL["Cell"]
+
+    CYTOSOL --> P1_ENCAPSULATE_0
+    MEMBRANE --> P1_ENCAPSULATE_0
+    P1_ENCAPSULATE_0 --> CELL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class CYTOSOL,MEMBRANE leaf;
+    class CELL composed;
+    class P1_ENCAPSULATE_0 process;
+
+    click CYTOSOL "/docs/modules/cytosol/spec"
+    click MEMBRANE "/docs/modules/membrane/spec"
+    click CELL "/docs/modules/cell/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Membrane
+
+**The membrane slot is untouched by the refinement below it**, which is what makes [Sensing Cell](../sensing-cell/spec.md) a narrowing of the cytosol slot alone.
+
+:::{table} What the five members put in this slot.
+| Member | Membrane |
+| --- | --- |
+| [Base Cell](../base-cell/spec.md) | [POPC/Chol](../membrane-popc-chol/spec.md), 70:30 |
+| [London Chassis](../london-chassis/spec.md) | [POPC](../membrane-popc/spec.md) |
+| [Chicago Chassis](../chicago-chassis/spec.md) | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md), 9:1 |
+| [AHL Sensing Cell](../ahl-sensing-cell/spec.md) | [POPC](../membrane-popc/spec.md) |
+| the other three sensing cells | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
+:::
+
+**All of them refine [Membrane](../membrane/spec.md)**, so the slot holds across every member.
+
+::::
+
+
+:::::
+
 **Members are a different relation from constituents.** In `compositional-biology-theory`,
 `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes
 membership a matter of what a sort classifies.
@@ -63,8 +117,6 @@ Every member composes its cytosol before encapsulation.
 - [Membrane](../membrane/spec.md) — the boundary
 
 # Processes
-
-<!-- check-composition-tabs: waived, this page carries no generated diagram -->
 
 See the composition source. The step this class runs is stated there, and it has no page
 because no process in this corpus performs it at this grain.

@@ -25,6 +25,59 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    CYTOSOL["Cytosol"]
+    DETECTOR["Detector"]
+
+    P1_MIX_IN_THE_DETECTOR_0(["Mix the detector into the cytosol (mixing) — no page"])
+    SENSOR_CYTOSOL["Sensor Cytosol"]
+
+    CYTOSOL --> P1_MIX_IN_THE_DETECTOR_0
+    DETECTOR --> P1_MIX_IN_THE_DETECTOR_0
+    P1_MIX_IN_THE_DETECTOR_0 --> SENSOR_CYTOSOL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class CYTOSOL,DETECTOR leaf;
+    class SENSOR_CYTOSOL composed;
+    class P1_MIX_IN_THE_DETECTOR_0 process;
+
+    click CYTOSOL "/docs/modules/cytosol/spec"
+    click DETECTOR "/docs/modules/detector/spec"
+    click SENSOR_CYTOSOL "/docs/modules/sensor-cytosol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+**The detector is the nucleic acid or protein that gates the reaction**, and it is not always a Module.
+
+:::{table} What the four members put in this slot.
+| Member | Sensing element |
+| --- | --- |
+| [AHL Sensor Cytosol](../ahl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
+| [aTc Sensor Cytosol](../atc-sensor-cytosol/spec.md) | [Detector: TetR/aTc](../detector-tetr-atc/spec.md) |
+| [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) | **a trigger duplex annealed in file**, not a detector page |
+| [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | [Detector: Theophylline](../detector-theophylline/spec.md) |
+:::
+
+**The class invariant is a detector, not a detector page.** The pH member stitches its detection into a PLA1 template, so the operand is the sensing element either way.
+
+::::
+
+
+:::::
+
 **Members are a different relation from constituents.** In `compositional-biology-theory`,
 `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes
 membership a matter of what a sort classifies.
@@ -61,8 +114,6 @@ to all four.
 - [Detector](../detector/spec.md) — the sensing element, which is not always a Module of its own
 
 # Processes
-
-<!-- check-composition-tabs: waived, this page carries no generated diagram -->
 
 See the composition source. The step this class runs is stated there, and it has no page
 because no process in this corpus performs it at this grain.

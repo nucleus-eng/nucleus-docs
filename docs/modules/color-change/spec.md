@@ -29,6 +29,55 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    ENZYME["Enzyme"]
+    SUBSTRATE["Substrate"]
+
+    P1_SEPARATE_ENZYME_AND_SUBSTRATE_0(["Hold the enzyme and its substrate apart (packing) — no page"])
+    COLOR_CHANGE["Color Change"]
+
+    ENZYME --> P1_SEPARATE_ENZYME_AND_SUBSTRATE_0
+    SUBSTRATE --> P1_SEPARATE_ENZYME_AND_SUBSTRATE_0
+    P1_SEPARATE_ENZYME_AND_SUBSTRATE_0 --> COLOR_CHANGE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class ENZYME,SUBSTRATE leaf;
+    class COLOR_CHANGE composed;
+    class P1_SEPARATE_ENZYME_AND_SUBSTRATE_0 process;
+
+    click COLOR_CHANGE "/docs/modules/color-change/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Substrate
+
+**The substrate is half of this class and the separation is the other half.** An enzyme and its substrate in one compartment react at once, which is a readout with no off state, so every member holds them apart until the trigger.
+
+:::{table} What the members put in this slot.
+| Member | Substrate |
+| --- | --- |
+| [LacZ Reporter](../reporter-lacz/spec.md) | [CPRG](../substrate-cprg/spec.md), held apart |
+| [XylE Reporter](../reporter-xyle/spec.md) | catechol, held apart |
+:::
+
+**The substrate carries no page in this class's own source**, because a class composes abstract constituents. [X-Gal](../substrate-xgal/spec.md) is a substrate this corpus documents and no member uses.
+
+::::
+
+
+:::::
+
 An abstract Module has no reference composition of its own. Each member states its own.
 
 :::{table} The three members, and which are built.

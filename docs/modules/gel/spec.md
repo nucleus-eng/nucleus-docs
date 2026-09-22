@@ -25,6 +25,39 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    OUTER_SOLUTION["Outer solution"]
+    POLYMER["Polymer"]
+
+    P1_SET_THE_GEL_0(["Set the gel (mixing) — no page"])
+    GEL["Gel"]
+
+    OUTER_SOLUTION --> P1_SET_THE_GEL_0
+    POLYMER --> P1_SET_THE_GEL_0
+    P1_SET_THE_GEL_0 --> GEL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class OUTER_SOLUTION,POLYMER leaf;
+    class GEL composed;
+    class P1_SET_THE_GEL_0 process;
+
+    click GEL "/docs/modules/gel/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 **Members are a different relation from constituents.** In `compositional-biology-theory`, `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership a matter of what a sort classifies. **A class having members does not give it parts.** It does not give it none either: whether an abstract Module has constituents depends on whether its own class invariant names a composition, and that is decided per class rather than for abstract Modules in general.
 
 **This class does have constituents, and they are already written down.** `codimension-is-a-coordinate.md:32` in the theory corpus states `Gel = OuterSolution ⊞ polymer`, same compartment, no membrane between them. That is a Composition in the `T33` sense with both factors abstract, so a gel is a polymer mixed into the solution it will become, and every member refines both factors rather than supplying them.

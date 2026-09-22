@@ -25,6 +25,39 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    REPRESSOR_ELEMENT["Repressor element"]
+    DNA_REGULATORY_ELEMENT["DNA regulatory element"]
+
+    P1_ASSEMBLE_THE_REPRESSOR_PAIR_0(["Assemble the repressor and its regulatory element (mixing) — no page"])
+    REPRESSOR_DETECTOR["Repressor Detector"]
+
+    REPRESSOR_ELEMENT --> P1_ASSEMBLE_THE_REPRESSOR_PAIR_0
+    DNA_REGULATORY_ELEMENT --> P1_ASSEMBLE_THE_REPRESSOR_PAIR_0
+    P1_ASSEMBLE_THE_REPRESSOR_PAIR_0 --> REPRESSOR_DETECTOR
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class REPRESSOR_ELEMENT,DNA_REGULATORY_ELEMENT leaf;
+    class REPRESSOR_DETECTOR composed;
+    class P1_ASSEMBLE_THE_REPRESSOR_PAIR_0 process;
+
+    click REPRESSOR_DETECTOR "/docs/modules/repressor-detector/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 **Members are a different relation from constituents.** In `compositional-biology-theory`, `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership a matter of what a sort classifies.
 
 **This class has constituents where its parent has none.** The invariant names a composition: a repressor element together with the DNA regulatory element it binds. Two things, and they are separate molecules. [Detector](../detector/spec.md) names no composition at all, so the line between having parts and not having them falls between that page and this one.

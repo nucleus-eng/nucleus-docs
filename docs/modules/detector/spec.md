@@ -25,6 +25,39 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    RECOGNITION_ELEMENT["Recognition element"]
+    REGULATORY_ELEMENT["Regulatory element"]
+
+    P1_ASSEMBLE_THE_DETECTOR_0(["Assemble the recognition element and the element it gates (mixing) — no page"])
+    DETECTOR["Detector"]
+
+    RECOGNITION_ELEMENT --> P1_ASSEMBLE_THE_DETECTOR_0
+    REGULATORY_ELEMENT --> P1_ASSEMBLE_THE_DETECTOR_0
+    P1_ASSEMBLE_THE_DETECTOR_0 --> DETECTOR
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class RECOGNITION_ELEMENT,REGULATORY_ELEMENT leaf;
+    class DETECTOR composed;
+    class P1_ASSEMBLE_THE_DETECTOR_0 process;
+
+    click DETECTOR "/docs/modules/detector/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 **Members are a different relation from constituents.** In `compositional-biology-theory`, `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership a matter of what a sort classifies. **A class having members does not give it parts.** It does not give it none either: an abstract Module has constituents when its own class invariant names a composition, which is decided per class.
 
 **At this level the invariant names no composition**, so this page states none. **One of its refinements does**, and that is the next section.

@@ -21,6 +21,43 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    S30_PREMIX["S30 premix"]
+    S30_EXTRACT["S30 extract"]
+    AMINO_ACID_MIX["Amino acid mix (pooled)"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_ASSEMBLE_S30_LYSATE_0(["Assemble S30 Lysate (mixing) — no page"])
+    S30_LYSATE["S30 Lysate"]
+
+    S30_PREMIX --> P1_ASSEMBLE_S30_LYSATE_0
+    S30_EXTRACT --> P1_ASSEMBLE_S30_LYSATE_0
+    AMINO_ACID_MIX --> P1_ASSEMBLE_S30_LYSATE_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_S30_LYSATE_0
+    P1_ASSEMBLE_S30_LYSATE_0 --> S30_LYSATE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class S30_PREMIX,S30_EXTRACT,AMINO_ACID_MIX,RNASE_INHIBITOR leaf;
+    class S30_LYSATE composed;
+    class P1_ASSEMBLE_S30_LYSATE_0 process;
+
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rather than formulated from individual reagents ([Promega *E. coli* S30 Extract System for Circular DNA](https://www.promega.com/products/protein-expression/cell-free-protein-expression/e_-coli-s30-extract-system-for-circular-dna/), Cat. No. L1020).
 
 :::{table} Composition of the S30 Lysate.

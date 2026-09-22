@@ -24,6 +24,39 @@ This page is a work in progress and not yet ready for use. It was assembled from
 (membrane-pore-gramicidin-reference-composition)=
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    GRAMICIDIN_A["Gramicidin A"]
+    DMSO["DMSO"]
+
+    P1_PREPARE_STOCK_0(["Prepare Gramicidin A stock (mixing) — no page"])
+    MEMBRANE_PORE_GRAMICIDIN["Membrane Pore: Gramicidin A"]
+
+    GRAMICIDIN_A --> P1_PREPARE_STOCK_0
+    DMSO --> P1_PREPARE_STOCK_0
+    P1_PREPARE_STOCK_0 --> MEMBRANE_PORE_GRAMICIDIN
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class GRAMICIDIN_A,DMSO leaf;
+    class MEMBRANE_PORE_GRAMICIDIN composed;
+    class P1_PREPARE_STOCK_0 process;
+
+    click MEMBRANE_PORE_GRAMICIDIN "/docs/modules/membrane-pore-gramicidin/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 :::{table} Gramicidin A, as used.
 :label: comp-membrane-pore-gramicidin
 

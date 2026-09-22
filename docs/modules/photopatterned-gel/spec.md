@@ -27,6 +27,41 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    OUTER_SOLUTION["Outer solution"]
+    POLYMER["Polymer"]
+    PHOTOINITIATOR["Photoinitiator"]
+
+    P1_PHOTOPATTERN_THE_GEL_0(["Photopattern the gel (mixing) — no page"])
+    PHOTOPATTERNED_GEL["Photopatterned Gel"]
+
+    OUTER_SOLUTION --> P1_PHOTOPATTERN_THE_GEL_0
+    POLYMER --> P1_PHOTOPATTERN_THE_GEL_0
+    PHOTOINITIATOR --> P1_PHOTOPATTERN_THE_GEL_0
+    P1_PHOTOPATTERN_THE_GEL_0 --> PHOTOPATTERNED_GEL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class OUTER_SOLUTION,POLYMER,PHOTOINITIATOR leaf;
+    class PHOTOPATTERNED_GEL composed;
+    class P1_PHOTOPATTERN_THE_GEL_0 process;
+
+    click PHOTOPATTERNED_GEL "/docs/modules/photopatterned-gel/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 **Members are a different relation from constituents.** In `compositional-biology-theory`, `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership a matter of what a sort classifies. **A class having members does not give it parts.** It does not give it none either: whether an abstract Module has constituents depends on whether its own class invariant names a composition, and that is decided per class rather than for abstract Modules in general.
 
 **This class has constituents, inherited and extended.** It refines [abstract gel](../gel/spec.md), whose composition the theory corpus gives as `Gel = OuterSolution ⊞ polymer`. **Photopatterning adds a third factor**: a photoinitiator, which both members carry and which neither parent class requires. So the composition here is a proper extension of the parent's, and that is what makes this a class rather than a label on two members.

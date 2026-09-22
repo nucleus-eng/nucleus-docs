@@ -25,6 +25,41 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    SENSOR_CYTOSOL["Sensor Cytosol"]
+    MEMBRANE["Membrane"]
+
+    P1_ENCAPSULATE_0(["Close the membrane around the sensor cytosol (packing) — no page"])
+    SENSING_CELL["Sensing Cell"]
+
+    SENSOR_CYTOSOL --> P1_ENCAPSULATE_0
+    MEMBRANE --> P1_ENCAPSULATE_0
+    P1_ENCAPSULATE_0 --> SENSING_CELL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class SENSOR_CYTOSOL,MEMBRANE leaf;
+    class SENSING_CELL composed;
+    class P1_ENCAPSULATE_0 process;
+
+    click SENSOR_CYTOSOL "/docs/modules/sensor-cytosol/spec"
+    click MEMBRANE "/docs/modules/membrane/spec"
+    click SENSING_CELL "/docs/modules/sensing-cell/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 **Members are a different relation from constituents.** In `compositional-biology-theory`,
 `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes
 membership a matter of what a sort classifies.
@@ -54,8 +89,6 @@ chassis. Four of four do this.
 - [Membrane](../membrane/spec.md) — the boundary, unchanged from its parent
 
 # Processes
-
-<!-- check-composition-tabs: waived, this page carries no generated diagram -->
 
 See the composition source. The step this class runs is stated there, and it has no page
 because no process in this corpus performs it at this grain.

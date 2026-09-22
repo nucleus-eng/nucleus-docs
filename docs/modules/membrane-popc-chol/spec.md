@@ -24,6 +24,42 @@ Schematic of a POPC/Chol liposome.
 
 # Reference Composition
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    POPC["POPC"]
+    CHOLESTEROL["Cholesterol"]
+    LISS_RHOD_PE["Liss-Rhod PE"]
+
+    P1_FORM_LIPID_FILM_0(["Encapsulation: Phase Transfer (mixing)"])
+    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
+
+    POPC --> P1_FORM_LIPID_FILM_0
+    CHOLESTEROL --> P1_FORM_LIPID_FILM_0
+    LISS_RHOD_PE --> P1_FORM_LIPID_FILM_0
+    P1_FORM_LIPID_FILM_0 --> MEMBRANE_POPC_CHOL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class POPC,CHOLESTEROL,LISS_RHOD_PE leaf;
+    class MEMBRANE_POPC_CHOL composed;
+    class P1_FORM_LIPID_FILM_0 process;
+
+    click P1_FORM_LIPID_FILM_0 "/docs/processes/assemble-base-cell/main"
+    click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
+
 :::{table}
 :label: comp-membrane-popc-chol
 
