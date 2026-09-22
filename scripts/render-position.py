@@ -56,6 +56,59 @@ def load() -> tuple[dict[str, str], dict[str, list[str]]]:
     return parent, {k: sorted(v) for k, v in children.items()}
 
 
+def ancestors(slug: str, parent: dict) -> list[str]:
+    """`slug` first, then up to its root. A NODE IS ITS OWN ANCESTOR.
+
+    That is not a convenience. It is what makes `meet(gel, gel-ulga)` return
+    `gel` rather than `container`: where two operands agree, the meet IS the one
+    they agree on, and a chain that started at the parent would skip it.
+    """
+    out, seen = [], set()
+    while slug and slug not in seen:
+        out.append(slug)
+        seen.add(slug)
+        slug = parent.get(slug)
+    return out
+
+
+def meet(slugs, parent: dict) -> str | None:
+    """The deepest class every one of `slugs` refines, or None.
+
+    None MEANS NO COMMON ANCESTOR AT ALL, not "the root". `meet(detector-ph,
+    gel-ulga)` is None because they sit in different trees, and a caller that
+    collapses that into a root has turned a failure into an answer. The meet
+    renderer marks it; it does not fill it in.
+
+    CORRECT ONLY BECAUSE `refines:` IS A SINGLE STRING. One parent per node makes
+    this a forest, where a meet is unique or absent. The day the key becomes a
+    list this returns a plausible wrong answer and says nothing, so the
+    assumption is stated here rather than in a commit message.
+    """
+    chains = [ancestors(s, parent) for s in slugs]
+    if not chains:
+        return None
+    for cand in chains[0]:                    # deepest first
+        if all(cand in c for c in chains[1:]):
+            return cand
+    return None
+
+
+def both_parent_and_child(parent: dict, children: dict) -> list[str]:
+    """Classes in the middle of a chain. A binary label has to pick a side for
+    each of these and no pick is correct, which is the whole naming ruling."""
+    return sorted(n for n in children if n in parent)
+
+
+def one_member_classes(children: dict) -> list[str]:
+    """A class with exactly one member is a rename wearing a class page.
+
+    Jon, 2026-09-21: a gel class with one member is not a gel class. Empty today,
+    which is the point of printing the denominator beside it: an empty result is
+    a measurement only when you know what was measured.
+    """
+    return sorted(n for n, k in children.items() if len(k) == 1)
+
+
 def link(slug: str) -> str:
     return f"[`{slug}`](../{slug}/spec.md)"
 
@@ -107,3 +160,9 @@ if __name__ == "__main__":
     placed = {s for s in slugs if s in parent or s in children}
     print(f"\n{len(placed)} of {len(slugs)} sources have a declared position; "
           f"{len(slugs) - len(placed)} are placed by nothing.", file=sys.stderr)
+    both = both_parent_and_child(parent, children)
+    print(f"{len(both)} of {len(children)} parents are also children: "
+          f"{', '.join(both) or 'none'}", file=sys.stderr)
+    solo = one_member_classes(children)
+    print(f"{len(solo)} of {len(children)} classes have exactly one member: "
+          f"{', '.join(solo) or 'none'}", file=sys.stderr)
