@@ -30,14 +30,20 @@ FOUR RULES, each with the measurement that forced it.
                             and Chicago finds one instead of two.
      produces.page          LOAD-BEARING. ph-cascade BUILDS its detector at
                             anneal-trigger-duplex rather than being handed one.
-     inputs[].component_of  DEAD TODAY. Removing it changes no leg in any cascade.
+     inputs[].component_of  DEAD FOR LEGS, LOAD-BEARING FOR OPERAND SLOTS. Removing
+                            it changes no leg in any cascade, and it is the only route
+                            by which chicago-cascade's ph-responsive-ssdna and
+                            trigger-ssdna reach detector-ph when the operands are
+                            slotted. One field, two passes, opposite answers.
 
-   THE SPEC SAID component_of WAS THE ONLY ROUTE TO CHICAGO'S pH DETECTOR, and that
-   was true when it was written at 1522a3b. It is not true now: ph-trigger-duplex
-   carries `refines: detector` and is a PRODUCT of chicago-cascade, so the produces
-   route reaches it first. The field is kept, because a source can go back to
-   supplying components at any time and the cost is one lookup, but it is exercised
-   by nothing today. An untested branch is not a working branch.
+   THE SPEC SAID component_of WAS THE ONLY ROUTE TO CHICAGO'S pH DETECTOR. That was
+   true of leg extraction at 1522a3b and stopped being true when ph-trigger-duplex
+   gained `refines: detector`, because it is a product and the produces route reaches
+   it first. I recorded the field as exercised by nothing on that measurement, and
+   slotting the operands falsified it within the hour: two of Chicago's operands reach
+   the detector through component_of and through nothing else. The lesson is the
+   narrower claim rather than the field — a route can be dead on one pass and the only
+   route on another, so "exercised by nothing" needs to say by which pass.
 
 2. SLOTS ALIGN BY THE PRODUCT'S CLASS, NOT BY PROCESS TITLE OR BY `abstract:`.
    Title fails after three steps: the Chicago legs share three processes and then
@@ -217,7 +223,23 @@ if __name__ == "__main__":
     for leg in legs:
         put("detector", leg, leg.split(":", 1)[1])
 
+    # CHANGE A, 2026-09-21, on c9d6a5's addendum. THE OPERANDS ARE SLOTS TOO, and
+    # slotting only products drew the spine and nothing hanging off it: no membrane,
+    # no gel, no outer solution, no effector. Five slots where a hand-drawn meet had
+    # fifteen nodes.
+    #
+    # AND THE OPERANDS MUST GO THROUGH operand_module. This script defined that
+    # function for leg extraction and then read produces.page directly here, which is
+    # the bug they found by reading the code rather than the docstring. Resolving an
+    # operand by key or by inputs[].page alone makes Chicago's pH detector unreachable:
+    # ph-responsive-ssdna and trigger-ssdna reach it through component_of, and
+    # ph-trigger-duplex through the step that builds it. The slot would then report NO
+    # COMMON ANCESTOR for a class that exists, which is worse than missing the slot.
+    #
+    # THIS IS WHERE component_of EARNS ITS PLACE. It is dead for leg extraction,
+    # measured, and load-bearing here. One field, two passes, opposite answers.
     produced_by: dict[tuple[str, str], dict] = {}
+    agree_checks = 0
     for leg, (src_name, steps) in legs.items():
         src = S[src_name]
         for s in steps:
@@ -228,12 +250,61 @@ if __name__ == "__main__":
         for s in steps[:-1]:
             mod = to_module(s["produces"].get("page"))
             if is_detector(mod, par):
-                continue                      # already in the detector slot
+                continue
             put(slot_key(mod, par) if mod else s["produces"]["id"],
                 leg, mod or s["produces"]["id"])
         last = steps[-1]
         put("__outcome__", leg,
             to_module(last["produces"].get("page")) or last["produces"]["id"])
+        for s in steps:
+            for o in s["operands"]:
+                m = operand_module(src, o, S, par)
+                if m is None or is_detector(m, par):
+                    continue          # unresolvable, or already in the detector slot
+                k = slot_key(m, par)
+                # A FREE POSITIVE CONTROL, c9d6a5's, AND IT ONLY WORKS IN THIS ORDER.
+                # A module that is a product of one step and an operand of the next
+                # must land in the same slot from both passes. The product pass runs
+                # first for exactly this reason: run the operand pass first and the
+                # check compares against an empty dict and reports zero, which reads
+                # like a result and is an ordering bug.
+                if (leg, m) in produced_by and k in slots and slots[k].get(leg) == m:
+                    agree_checks += 1
+                put(k, leg, m)
+
+    # CHANGE B: MEET THE PROCESSES, LINK BY LINK. A step may run a chain, and the
+    # chains align on their first link. The three encapsulate steps all begin with
+    # Encapsulation: Phase Transfer; the aTc leg carries a second link the others
+    # lack, which is a cleanup obligation rather than a difference to average away.
+    #
+    # PROCESSES MEET IN THEIR OWN POSET, not the module one. A process's parent is
+    # `process.abstract`, so the meet walks that map and a process with no parent keys
+    # to itself.
+    pproc: dict[str, str] = {}
+    for d in S.values():
+        for s in d.get("process_steps") or []:
+            for pr in ((s.get("process") or {}).get("composed_of")
+                       or [s.get("process") or {}]):
+                pg, ab = pr.get("page") or "", pr.get("abstract")
+                if pg and ab:
+                    pproc[re.sub(r"/[^/]+$", "", pg).rsplit("/", 1)[-1]] = ab
+
+    def proc_dir(pr: dict) -> str | None:
+        pg = pr.get("page") or ""
+        return re.sub(r"/[^/]+$", "", pg).rsplit("/", 1)[-1] if pg else None
+
+    pslots: dict[str, dict[str, str]] = collections.defaultdict(dict)
+    porder: list[str] = []
+    for leg, (src_name, steps) in legs.items():
+        for si, s in enumerate(steps):
+            chain = ((s.get("process") or {}).get("composed_of")
+                     or [s.get("process") or {}])
+            for li, pr in enumerate(chain):
+                d = proc_dir(pr) or (pr.get("title") or "untitled")
+                k = f"proc:{slot_key(d, pproc)}:{li}"
+                if k not in pslots:
+                    porder.append(k)
+                pslots[k][leg] = d
 
     # --- the meet per slot
     def nid_of(k: str) -> str:
@@ -245,7 +316,7 @@ if __name__ == "__main__":
     L.append(f'    DOMAIN["Meet over {len(legs)} legs, partitioned by detector:'
              f'<br/>{"<br/>".join(sorted(legs))}"]')
     L.append("")
-    concrete, abstract, unmet, partial = [], [], [], []
+    concrete, abstract, unmet, partial, procs = [], [], [], [], []
     tally = collections.Counter()
     for k in order:
         members = sorted({v for v in slots[k].values()})
@@ -280,6 +351,31 @@ if __name__ == "__main__":
                      f'<br/>{", ".join(members)}"]')
             unmet.append(nid); tally["unmet"] += 1
 
+    # PROCESS NODES, drawn as stadiums per the house style and classed by the same
+    # three rules. ABSTRACTNESS DOES NOT PROPAGATE: a process every leg shares is
+    # concrete even when every module flowing into it is abstract, which is why this
+    # pass is separate rather than inherited from the operands.
+    L.append("")
+    for k in porder:
+        members = sorted(set(pslots[k].values()))
+        nid = nid_of(k)
+        link = k.rsplit(":", 1)[1]
+        tail = "" if link == "0" else f", link {int(link) + 1}"
+        if len(pslots[k]) < len(legs):
+            L.append(f'    {nid}(["{", ".join(members)}{tail}<br/>'
+                     f'only {len(pslots[k])} of {len(legs)} legs run this"])')
+            partial.append(nid); tally["proc_partial"] += 1
+        elif len(members) == 1:
+            L.append(f'    {nid}(["{members[0]}{tail}"])')
+            procs.append(nid); tally["proc_concrete"] += 1
+        elif (mt := meet(members, pproc)):
+            L.append(f'    {nid}(["{mt}{tail}<br/>({", ".join(members)})"])')
+            abstract.append(nid); tally["proc_abstract"] += 1
+        else:
+            L.append(f'    {nid}(["NO COMMON ANCESTOR{tail}'
+                     f'<br/>{", ".join(members)}"])')
+            unmet.append(nid); tally["proc_unmet"] += 1
+
     # EDGES ARE CONTAINMENT PROJECTED ONTO SLOTS. Slot A feeds slot B when, in some
     # leg, A's member is an operand of the step that produces B's member. An edge that
     # only one leg has is still drawn: the meet is over the union of what the legs do,
@@ -303,20 +399,28 @@ if __name__ == "__main__":
     L.append("")
     L.append(STYLE.rstrip("\n"))
     for nm, ids in (("concrete", concrete), ("abstract", abstract),
-                    ("unmet", unmet), ("partial", partial)):
+                    ("unmet", unmet), ("partial", partial),
+                    ("process", procs)):
         if ids:
             L.append(f"    class {','.join(ids)} {nm};")
     print("\n".join(L))
 
     # --- denominators, every run. The marker is kept from reading as a class by
     # this, not by the exit code.
-    n = sum(tally.values())
+    n = sum(v for k, v in tally.items() if not k.startswith("proc_"))
     print(f"\npartition key: detector\n"
           f"{len(legs)} leg(s): {', '.join(sorted(legs))}\n"
           f"{n} slot(s): {tally['concrete']} concrete (legs agree), "
           f"{tally['abstract']} abstract (legs differ, class found), "
           f"{tally['unmet']} with NO COMMON ANCESTOR, "
-          f"{tally['partial']} filled by only some legs",
+          f"{tally['partial']} filled by only some legs\n"
+          f"{sum(v for k, v in tally.items() if k.startswith('proc_'))} process slot(s): "
+          f"{tally['proc_concrete']} concrete, {tally['proc_abstract']} abstract, "
+          f"{tally['proc_unmet']} with NO COMMON ANCESTOR, "
+          f"{tally['proc_partial']} run by only some legs\n"
+          f"{agree_checks} product-and-operand agreement check(s) passed: a module that "
+          f"is a product of one step and an operand of the next landed in the same slot "
+          f"from both passes",
           file=sys.stderr)
     unsourced = sum(1 for k in order
                     for v in slots[k].values() if v not in S)
@@ -324,5 +428,5 @@ if __name__ == "__main__":
           f"align with nothing and cannot be met.\n"
           f"A marked slot is a finding about the sources, not about the design.",
           file=sys.stderr)
-    if strict and tally["unmet"]:
+    if strict and (tally["unmet"] or tally["proc_unmet"]):
         sys.exit(1)
