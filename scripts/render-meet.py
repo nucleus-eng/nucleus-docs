@@ -187,12 +187,45 @@ if __name__ == "__main__":
 
     # --- legs
     legs: dict[str, tuple[str, list[dict]]] = {}
+    joins: dict[str, list[dict]] = {}
     for a in args:
         name = Path(a.rstrip("/")).parent.name if a.endswith(".yml") else Path(a).name
         for det, steps in legs_of(name, S, par).items():
             if det == "__join__":
-                continue
-            legs[f"{name}:{det}"] = (name, steps)
+                joins[name] = steps
+            else:
+                legs[f"{name}:{det}"] = (name, steps)
+
+    # A STEP THAT REACHES NO DETECTOR IS SHARED, NOT ABSENT, AND DROPPING IT BROKE THE
+    # DIAGRAM. Jon, reading the first Chicago draft: "the chicago meet has both
+    # SUV: CPRG and CPRG substrate. why are both in there?"
+    #
+    # Because encapsulate-substrate-suv, the step that MAKES the SUV out of
+    # substrate-cprg and a membrane, reaches no detector and went to __join__, which
+    # this loop then threw away. So substrate-cprg appeared via the aTc leg's dosing
+    # step, substrate-cprg-suv appeared via the pH leg's embed step, and the edge
+    # showing that one is made from the other was gone. Two nodes that look unrelated
+    # and are not.
+    #
+    # THE REAL DIFFERENCE SURVIVES THE FIX AND IS WORTH SEEING. The aTc leg doses CPRG
+    # free into the set gel; the pH leg encapsulates it first. That is
+    # color-change's own axis, "what varies across the class is which component is
+    # encapsulated", showing up in a meet. Two slots is the right answer; two
+    # DISCONNECTED slots was not.
+    #
+    # A join step is attributed to every leg that consumes its product, to fixpoint,
+    # because a join step can feed another join step.
+    for src_name, steps in joins.items():
+        mine = {k: v for k, v in legs.items() if v[0] == src_name}
+        for _ in range(len(steps) + 1):
+            for s in steps:
+                pid = s["produces"]["id"]
+                pm = to_module(s["produces"].get("page")) or pid
+                for leg, (_, lsteps) in mine.items():
+                    if any(o == pid or operand_module(S[src_name], o, S, par) == pm
+                           for ls in lsteps for o in ls["operands"]):
+                        if s not in lsteps:
+                            lsteps.insert(0, s)
 
     if not legs:
         print("no legs found — every branch reached zero or many detectors",
@@ -402,22 +435,42 @@ if __name__ == "__main__":
             (cross_ok := cross_ok + 1) if len(set(prods.values())) == 1 else (
                 cross_bad := cross_bad + 1)
 
-    # EDGES ARE CONTAINMENT PROJECTED ONTO SLOTS. Slot A feeds slot B when, in some
-    # leg, A's member is an operand of the step that produces B's member. An edge that
-    # only one leg has is still drawn: the meet is over the union of what the legs do,
-    # and dropping a leg's edge would assert the others do not do it.
-    member_slot = {(leg, m): k for k in order for leg, m in slots[k].items()}
+    # EDGES RUN OPERAND -> PROCESS -> PRODUCT, the same spine render-composition.py
+    # draws, projected onto slots. Routing them operand-to-product instead left every
+    # process stadium floating unconnected on the right of the page, which is what the
+    # first rendered draft showed: seven nodes with no edges, carrying real findings
+    # nobody would read because they sat outside the graph.
+    #
+    # AN EDGE ONLY ONE LEG HAS IS STILL DRAWN. The meet is over the union of what the
+    # legs do, and dropping a leg's edge would assert the others do not do it.
+    proc_slot_of: dict[tuple[str, str, int], str] = {}
+    for k in porder:
+        li = int(k.rsplit(":", 1)[1])
+        for leg, d in pslots[k].items():
+            proc_slot_of[(leg, d, li)] = k
+
     edges: set[tuple[str, str]] = set()
-    for leg, (src_name, _) in legs.items():
+    for leg, (src_name, steps) in legs.items():
         src = S[src_name]
-        for k in order:
-            m = slots[k].get(leg)
-            if m is None or (leg, m) not in produced_by:
+        for s in steps:
+            chain = ((s.get("process") or {}).get("composed_of")
+                     or [s.get("process") or {}])
+            pk = [proc_slot_of.get(
+                    (leg, proc_dir(pr) or (pr.get("title") or "untitled"), i))
+                  for i, pr in enumerate(chain)]
+            pk = [x for x in pk if x]
+            if not pk:
                 continue
-            for o in produced_by[(leg, m)]["operands"]:
+            for o in s["operands"]:
                 om = operand_module(src, o, S, par) or o
-                if (src_k := member_slot.get((leg, om))) and src_k != k:
-                    edges.add((src_k, k))
+                if (sk := member_slot_of(leg, om)):
+                    edges.add((sk, pk[0]))
+            for a, b in zip(pk, pk[1:]):
+                edges.add((a, b))
+            pm = to_module(s["produces"].get("page")) or s["produces"]["id"]
+            if (dk := member_slot_of(leg, pm)):
+                edges.add((pk[-1], dk))
+
     L.append("")
     for a, b in sorted(edges):
         L.append(f"    {nid_of(a)} --> {nid_of(b)}")
