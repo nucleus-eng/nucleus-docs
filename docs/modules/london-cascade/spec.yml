@@ -133,7 +133,7 @@ process_steps:
         operator: mixing
       - operands: [ulga-powder, reporter-lacz-enzyme]
         operator: mixing
-      - operands: [outer-solution-london-london, reporter-lacz-enzyme]
+      - operands: [outer-solution-london, reporter-lacz-enzyme]
         operator: mixing
         note: >
           Both share the outer phase and neither carries a boundary, so this

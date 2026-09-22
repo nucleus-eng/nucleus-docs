@@ -58,7 +58,7 @@ flowchart TD
     P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["aTc Sensing Cell"]
-    P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel: PEG-Norbornene (packing)"])
+    P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel: PEG-Norbornene (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_CASCADE["aTc Cascade"]
