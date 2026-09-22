@@ -63,10 +63,32 @@ process_steps:
 
 measured_by:
   - process:
-      title: "Colorimetric Readout"
-      page: ../../processes/colorimetric-readout/main.md
+      title: "Fluorescence Readout"
+      page: null
+      # CORRECTED 2026-09-21. This said Colorimetric Readout and pointed at
+      # processes/colorimetric-readout/main.md. That page's own opening sentence
+      # scopes itself to a chromogenic substrate, CPRG or catechol, hydrolyzed by
+      # a reporter enzyme, LacZ or XylE, read by absorbance, and lists the four
+      # cascades it serves. deGFP has no chromogenic substrate, no reporter
+      # enzyme, is not one of those four, and is read on fluorescence channels.
+      # See the open item below.
 
 open:
+  - id: the-fluorescence-readout-has-no-process-page-and-should-not-get-one-to-order
+    question: >
+      OPENED 2026-09-21 on Jon's ruling, page null rather than a new page. This
+      Module is read on combined green 488 nm and red 561 nm fluorescence
+      channels, per its own page. No process directory in this corpus describes
+      that, and 21 of 76 steps already name a process with no page, so the gap is
+      recorded rather than papered over.
+      WRITING ONE TO SATISFY A VALIDATOR IS WHAT CAUSED THE DEFECT THIS REPLACES.
+      PR 262 wired the spec-schema job, the job failed because this key pointed at
+      a directory holding only generated output and no main page, and the fix was
+      to create the page. The check verified that a path resolves, which it did
+      correctly, and it never claimed to check that the process described there is
+      the process that measures this Module. A green check made a false relation
+      durable. The exit condition is somebody documenting the fluorescence readout
+      because a reader needs it, not because a key is empty.
   - id: optiprep-is-an-encapsulation-aid
     question: >
       Optiprep is a density-gradient medium for phase transfer, not a component of
