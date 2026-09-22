@@ -5,9 +5,11 @@ Reads the machine-readable composition source (#248) and writes the diagram
 into the `gen:composition-diagram` markers on that module's spec.md (#249).
 Idempotent: re-running with no source change rewrites the same block.
 
-There is a second generator, `gen-module-diagrams.py` in `nucleus-skills`,
-which derives its graph from the `# Constituent Modules` bullet list instead.
-The two will drift. See issue #250.
+This is the only generator that may write those markers here. A second one,
+`gen-module-diagrams.py` in `nucleus-skills`, derives its graph from the
+`# Constituent Modules` bullet list and writes the same markers, so running it
+against this repository reverts every page to a parts list. Issue #250 closed
+on 2026-09-21 by naming this script rather than merging the two.
 
 Follows the house style in the `mermaid-diagrams` skill:
   - Modules are boxes, processes are stadiums `([...])`. Never diamonds or
