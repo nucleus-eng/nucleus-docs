@@ -63,12 +63,22 @@ process_steps:
 
 measured_by:
   - process:
-      title: "Colorimetric Readout"
-      # null, not a path: the page exists on docs/devcells-integration-pages and was
-      # dropped from this tranche on Jon's ruling, 2026-09-21. It is not in myst.yml's
-      # toc, so it would have landed on main as a file nothing renders, and it carried
-      # 13 of the 30 links to modules main does not have. Restore the path when the
-      # page reaches main.
+      title: "Fluorescence Readout"
+      # CORRECTED 2026-09-21. The title said Colorimetric Readout and that was the
+      # false half. Jon: deGFP's output is fluorescence instead of absorbance, and it
+      # does not need enzyme and substrate because the protein itself is fluorescent.
+      # The colorimetric page scopes itself to a chromogenic substrate, CPRG or
+      # catechol, hydrolyzed by a reporter enzyme, LacZ or XylE, and lists the four
+      # cascades it serves. This Module is none of those, and its own page reads it
+      # on green 488 nm and red 561 nm fluorescence channels.
+      #
+      # THE PATH WAS ALREADY null HERE FOR AN UNRELATED REASON, AND THAT HID THIS.
+      # The colorimetric page was dropped from this tranche on Jon's ruling of
+      # 2026-09-21: it is not in myst.yml's toc, so it would have landed on main as a
+      # file nothing renders, and it carried 13 of the 30 links main does not have.
+      # So the key looked resolved while still naming the wrong process. The old
+      # comment here said to restore the path when that page reaches main. DO NOT.
+      # This Module is not measured by it.
       page: null
 
 open:
