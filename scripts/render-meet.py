@@ -23,11 +23,21 @@ FOUR RULES, each with the measurement that forced it.
    separate the paths, and wrong for London, whose `embed-ulga` has five and would
    give five branches. A leg is a branch reaching exactly one detector.
 
-   THE REACH SCANS THREE FIELDS AND EACH IS LOAD-BEARING FOR A DIFFERENT SOURCE.
-   `inputs[].page` is the ordinary case. `inputs[].component_of` is the only way to
-   reach Chicago's pH detector. `process_steps[].produces.page` is the only way to
-   reach ph-cascade's, which is BUILT at anneal-trigger-duplex rather than supplied.
-   A page-only walk finds one detector in Chicago and zero in ph-cascade.
+   THE REACH SCANS THREE FIELDS, AND ONLY TWO OF THEM STILL EARN IT. Measured by
+   disabling each in turn at this commit:
+
+     inputs[].page          LOAD-BEARING. Without it London finds no detector at all
+                            and Chicago finds one instead of two.
+     produces.page          LOAD-BEARING. ph-cascade BUILDS its detector at
+                            anneal-trigger-duplex rather than being handed one.
+     inputs[].component_of  DEAD TODAY. Removing it changes no leg in any cascade.
+
+   THE SPEC SAID component_of WAS THE ONLY ROUTE TO CHICAGO'S pH DETECTOR, and that
+   was true when it was written at 1522a3b. It is not true now: ph-trigger-duplex
+   carries `refines: detector` and is a PRODUCT of chicago-cascade, so the produces
+   route reaches it first. The field is kept, because a source can go back to
+   supplying components at any time and the cost is one lookup, but it is exercised
+   by nothing today. An untested branch is not a working branch.
 
 2. SLOTS ALIGN BY THE PRODUCT'S CLASS, NOT BY PROCESS TITLE OR BY `abstract:`.
    Title fails after three steps: the Chicago legs share three processes and then
