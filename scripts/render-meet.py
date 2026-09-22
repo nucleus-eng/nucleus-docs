@@ -346,6 +346,47 @@ if __name__ == "__main__":
                 return kk
         return None
 
+    # A PRODUCED ID WITH NO PAGE STILL HAS A TITLE, on the step that makes it. Falling
+    # back to the slug there leaked `outer-solution` and `chicago-outer-solution` into
+    # figures that named everything else properly.
+    id_titles: dict[str, str] = {}
+    for d in S.values():
+        for s in d.get("process_steps") or []:
+            pr = s["produces"]
+            id_titles.setdefault(pr["id"], pr.get("title") or pr["id"])
+    proc_titles: dict[str, str] = {}
+    for d in S.values():
+        for s in d.get("process_steps") or []:
+            for pr in ((s.get("process") or {}).get("composed_of")
+                       or [s.get("process") or {}]):
+                pg = pr.get("page") or ""
+                if pg and pr.get("title"):
+                    proc_titles.setdefault(
+                        re.sub(r"/[^/]+$", "", pg).rsplit("/", 1)[-1], pr["title"])
+
+    def title_of(m: str) -> str:
+        """A node shows the page's title, never its slug. Jon, 2026-09-21: "node names
+        should follow page titles, not their slugs." A slug is an address; a title is
+        what the page calls itself, and a figure is read by people."""
+        if m in S:
+            return S[m].get("title", m)
+        return id_titles.get(m, m)
+
+    def shared_tail(titles: list[str]) -> str | None:
+        """The trailing word every title shares, or None.
+
+        THIS IS MEASURED, NOT COINED. The spec forbids inventing a parent name for a
+        slot with no common ancestor, and it is right to. But "London Cascade", "aTc
+        Cascade" and "pH Cascade" share the word Cascade in the titles their own pages
+        carry, so reporting it states what the corpus already says rather than naming a
+        class nobody wrote. The node still leads with the warning.
+        """
+        words = [x.split() for x in titles]
+        if len(words) < 2 or not all(words):
+            return None
+        tail = words[0][-1]
+        return tail if all(w[-1] == tail for w in words) else None
+
     def nid_of(k: str) -> str:
         return re.sub(r"[^A-Za-z0-9]", "_", k).upper()
 
@@ -359,6 +400,7 @@ if __name__ == "__main__":
     tally = collections.Counter()
     for k in order:
         members = sorted({v for v in slots[k].values()})
+        shown = [title_of(m) for m in members]
         label_for = {"__outcome__": "the demo each leg produces",
                      "detector": "the sensing element"}.get(k, "")
         nid = nid_of(k)
@@ -372,29 +414,33 @@ if __name__ == "__main__":
             # payoff of having written one. Without this the label listed two members
             # and hid the fact that they now have a parent.
             got = len(slots[k])
-            head = ", ".join(members)
+            head = ", ".join(shown)
             if len(members) > 1 and (mt := meet(members, par)):
-                head = f'{(S.get(mt) or {}).get("title", mt)}<br/>({head})'
+                head = f'{title_of(mt)}<br/>({head})'
             L.append(f'    {nid}["{head}<br/>'
                      f'only {got} of {len(legs)} legs have this slot"]')
             partial.append(nid); tally["partial"] += 1
         elif len(members) == 1:
             m = members[0]
-            title = (S.get(m) or {}).get("title", m)
-            L.append(f'    {nid}["{title}"]')
+            L.append(f'    {nid}["{title_of(m)}"]')
             concrete.append(nid); tally["concrete"] += 1
             if m in S:
                 L.append(f'    click {nid} "/docs/modules/{m}/spec"')
         elif (mt := meet(members, par)):
-            title = (S.get(mt) or {}).get("title", mt)
-            L.append(f'    {nid}["{title}<br/>({", ".join(members)})"]')
+            L.append(f'    {nid}["{title_of(mt)}<br/>({", ".join(shown)})"]')
             abstract.append(nid); tally["abstract"] += 1
             if mt in S:
                 L.append(f'    click {nid} "/docs/modules/{mt}/spec"')
         else:
+            # THE FIGURE STILL NAMES THE THING. Jon, 2026-09-21: "NO COMMON
+            # ANCESTOR is a good warn level message, but the figure should still say
+            # Cascade or London Cascade slash Chicago Cascade." A node a reader cannot
+            # name is a node they skip, and the warning is worth less for it.
             tag = f" — {label_for}" if label_for else ""
-            L.append(f'    {nid}["NO COMMON ANCESTOR{tag}'
-                     f'<br/>{", ".join(members)}"]')
+            tail = shared_tail(shown)
+            lead = f"{tail}?<br/>" if tail else ""
+            L.append(f'    {nid}["{lead}{", ".join(shown)}'
+                     f'<br/>NO COMMON ANCESTOR{tag}"]')
             unmet.append(nid); tally["unmet"] += 1
 
     # PROCESS NODES, drawn as stadiums per the house style and classed by the same
@@ -404,22 +450,23 @@ if __name__ == "__main__":
     L.append("")
     for k in porder:
         members = sorted(set(pslots[k].values()))
+        pshown = [proc_titles.get(m, m) for m in members]
         nid = nid_of(k)
         link = k.rsplit(":", 1)[1]
         tail = "" if link == "0" else f", link {int(link) + 1}"
         if len(pslots[k]) < len(legs):
-            L.append(f'    {nid}(["{", ".join(members)}{tail}<br/>'
+            L.append(f'    {nid}(["{", ".join(pshown)}{tail}<br/>'
                      f'only {len(pslots[k])} of {len(legs)} legs run this"])')
             partial.append(nid); tally["proc_partial"] += 1
         elif len(members) == 1:
-            L.append(f'    {nid}(["{members[0]}{tail}"])')
+            L.append(f'    {nid}(["{pshown[0]}{tail}"])')
             procs.append(nid); tally["proc_concrete"] += 1
         elif (mt := meet(members, pproc)):
-            L.append(f'    {nid}(["{mt}{tail}<br/>({", ".join(members)})"])')
+            L.append(f'    {nid}(["{proc_titles.get(mt, mt)}{tail}<br/>({", ".join(pshown)})"])')
             abstract.append(nid); tally["proc_abstract"] += 1
         else:
-            L.append(f'    {nid}(["NO COMMON ANCESTOR{tail}'
-                     f'<br/>{", ".join(members)}"])')
+            L.append(f'    {nid}(["{", ".join(pshown)}{tail}'
+                     f'<br/>NO COMMON ANCESTOR"])')
             unmet.append(nid); tally["proc_unmet"] += 1
 
     # CROSS-PASS AGREEMENT, c9d6a5's, and it is the free control one level up. The two
