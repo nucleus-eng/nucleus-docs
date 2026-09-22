@@ -82,7 +82,7 @@ inputs:
     # ../london-cascade/spec.yml, and all three resolved to the same page. The
     # word was never wrong, since ULGA is a grade of agarose, and the prose still
     # says agarose where it means the material class. The KEY is an identity and
-    # now there is one. check-input-aliases.py is what would have caught it.
+    # now there is one. check-aliases.py is what would have caught it.
     page: ../gel-ulga/spec.md
 
 process_steps:

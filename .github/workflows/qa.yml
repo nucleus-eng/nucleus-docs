@@ -140,21 +140,39 @@ jobs:
       - name: Check operator pairs
         run: python3 scripts/check-operator-pairs.py
 
-  input-aliases:
-    # An `inputs` key is an identity: operands reference it, operator_pairs name
-    # it, and a diagram draws one node per key. Two keys resolving to one page are
-    # one material under two names, and nothing compared them until 2026-09-21.
+  aliases:
+    # ONE PREDICATE, FOUR CARRIERS. A name is an identity: operands reference it,
+    # operator_pairs name it, and a diagram draws one node per name. Two names for
+    # one thing make a leg walk reach it twice, so a slot where two demo legs AGREE
+    # counts two members and gets marked abstract. That manufactures a design
+    # decision rather than hiding one.
     #
-    # It exists because of how the ULGA powder got a third name. It was `ulga` in
-    # gel-ulga and `ulga-powder` in london-cascade, and `agarose` in the two
-    # Chicago cascades carried page: null, so it could not collide with anything.
-    # Jon identifying the agarose as ULGA turned a gap into a duplicate: the
-    # corpus got worse by getting more correct, and no check noticed either event.
+    # Replaces the input-aliases job, which asked this of one carrier. Writing the
+    # Outer Solution class on 2026-09-21 found an alias that version could not see —
+    # two produced ids, both page: null, so neither resolved to anything to collide
+    # with — and a second job for it would have been a third the week after.
     #
-    # ADVISORY. 133 of 206 input keys carry page: null and cannot collide yet, so
-    # a green run counts the identified ones and nothing else. An unpaged key is
-    # not a pass; it is a material nothing has identified.
-    # See scripts/check-input-aliases.py.
+    #   key→page        two input keys naming one module page
+    #   id→composition  two produced ids from the same operands AND parameters.
+    #                   Parameters are in the comparison because membrane-popc-chol
+    #                   and membrane-popc-chol-chicago compose the identical three
+    #                   lipids at 70:30 against 90:10 and are different Modules.
+    #   title→id        two ids under one title. This is the one a reader hits:
+    #                   nodes carry titles, so two things draw as identical boxes.
+    #   dir→title       one process directory called two things, which reaches a
+    #                   diagram because the title goes on the node.
+    #   title→module    two Modules under one title. ADDED AFTER A POSITIVE CONTROL
+    #                   FAILED: the control planted a duplicate module title, nothing
+    #                   fired, and the reason was that no carrier read the top-level
+    #                   `title:` at all. The test assumed a carrier that was not
+    #                   there, which is the cheapest way that gap was going to
+    #                   surface.
+    #
+    # ADVISORY, and the denominators print every run. A carrier at zero is not a
+    # carrier that cannot fail: dir→title was at one the morning this was written.
+    # 144 input keys carry page: null and cannot collide on the first carrier at
+    # all, so a green run counts the identified ones and nothing else.
+    # See scripts/check-aliases.py.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -166,8 +184,8 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Check input aliases
-        run: python3 scripts/check-input-aliases.py
+      - name: Check aliases
+        run: python3 scripts/check-aliases.py
 
   conflicts:
     # Layer C, all four rows. #T20 Requirement is a step's `requires` and is
