@@ -18,6 +18,7 @@
 
 module: reporter-xyle
 title: "XylE Reporter"
+refines: color-change
 
 inputs:
   base-cytosol:
@@ -30,28 +31,50 @@ inputs:
     title: "Catechol"
     page: null
 
+# TWO STEPS, AND THE SECOND ONE PACKS. Same correction as ../reporter-lacz/spec.yml,
+# 2026-09-21, and the same reason: catechol in the same compartment as the DNA that
+# expresses catecholase is a readout with no off state. Jon named both Modules.
+# ../color-change/spec.yml is the class and it packs.
+#
+# THE PARAMETERS SPLIT WITH THE STEPS. The cytosol, the template and the volume belong
+# to the expression reaction; the catechol figure belongs to the packing.
+
 process_steps:
-  - id: assemble-reaction
+  - id: express-catecholase
     process:
-      title: "Assemble the XylE Reporter reaction"
+      title: "Assemble the catecholase expression reaction"
       page: null
     operator: mixing
-    operands: [base-cytosol, catecholase-dna, catechol]
+    operands: [base-cytosol, catecholase-dna]
+    produces:
+      id: catecholase-expression-reaction
+      title: "Catecholase expression reaction"
+      page: null
+    parameters:
+      base_cytosol: "1x — SMix 1x, PMix 1.80 mg/mL, ribosomes 1.8 uM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL"
+      catecholase_dna: "20 nM final, from a 275.7 nM stock"
+      reaction_volume: "10 uL, Nucleus Cytosol"
+    notes: >
+      The five Base Cytosol figures are repeated because the page's table lists them as
+      separate rows rather than naming the cytosol, and they match
+      ../base-cytosol/spec.yml exactly.
+
+  - id: hold-substrate-apart
+    process:
+      title: "Hold the substrate apart from the enzyme"
+      page: null
+    operator: packing
+    operands: [catecholase-expression-reaction, catechol]
     produces:
       id: reporter-xyle
       title: "XylE Reporter"
       page: ../reporter-xyle/spec.md
     parameters:
-      base_cytosol: "1x — SMix 1x, PMix 1.80 mg/mL, ribosomes 1.8 uM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL"
-      catecholase_dna: "20 nM final, from a 275.7 nM stock"
       catechol: "1 mM final, from a 100 mM stock"
-      reaction_volume: "10 uL, Nucleus Cytosol"
     notes: >
-      The five Base Cytosol figures are repeated above because the page's table lists
-      them as separate rows rather than naming the cytosol, and they match
-      ../base-cytosol/spec.yml exactly. No process page documents assembling this
-      Module into a reaction; the one process the page lists is the readout, which
-      acts on the Module rather than making it.
+      Separate compartments. Bringing the two together is the reporting event. No
+      process page documents either step; the one process the page lists is the
+      readout, which acts on the Module rather than making it.
 
 measured_by:
   - process:

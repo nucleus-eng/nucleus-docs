@@ -15,6 +15,8 @@
 
 module: color-change
 title: "Color Change"
+refines: reporter
+# Added 2026-09-21 with the Reporter class: the colour half, see the open item on ../reporter/spec.yml.
 
 inputs:
   enzyme:

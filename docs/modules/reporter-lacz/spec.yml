@@ -20,6 +20,7 @@
 
 module: reporter-lacz
 title: "LacZ Reporter"
+refines: color-change
 
 inputs:
   base-cytosol:
@@ -35,29 +36,65 @@ inputs:
     title: "RNase inhibitor"
     page: null
 
+# TWO STEPS, AND THE SECOND ONE PACKS. This was one mixing step over four operands
+# until 2026-09-21, which put the enzyme and its substrate in one compartment at
+# assembly. Jon: "they should compose by packing, not by mixing, and that bringing the
+# substrate and the enzyme together is what causes the reporting behavior."
+#
+# THE PAGE SAID SO ALREADY AND THE SOURCE CONTRADICTED IT. spec.md reads "LacZ converts
+# CPRG on contact, so a reaction colocalizing both is in the ON state", and its overview
+# calls this the shared colorimetric reporter across the cascades. A reporter that is ON
+# at assembly reports nothing. check-composition.py compares the prose constituent list
+# and never reads operator, so nothing caught it.
+#
+# PACKING NEEDS NO NAMED BOUNDARY HERE, and ../color-change/spec.yml is the precedent:
+# that class packs a bare enzyme with a bare substrate and names no membrane. The
+# operator states that the two must stay apart, and an implementation supplies the
+# compartment. The eleven packing steps across the five cascades are what that looks
+# like once an implementation exists.
+#
+# THE PARAMETERS SPLIT WITH THE STEPS, re-read against the split rather than copied:
+# the three expression figures belong to the reaction, the CPRG figure belongs to the
+# packing.
+
 process_steps:
-  - id: assemble-reaction
+  - id: express-lacz
     process:
-      title: "Assemble the LacZ Reporter reaction"
+      title: "Assemble the LacZ expression reaction"
       page: null
     operator: mixing
-    operands: [base-cytosol, lacz-dna, substrate-cprg, rnase-inhibitor]
+    operands: [base-cytosol, lacz-dna, rnase-inhibitor]
+    produces:
+      id: lacz-expression-reaction
+      title: "LacZ expression reaction"
+      page: null
+    parameters:
+      base_cytosol: "1x"
+      lacz_dna: "5 nM final; stock is prep-specific"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
+    notes: >
+      One compartment, and correctly so. The template, the machinery and the
+      protectant must share a phase for expression to run.
+
+  - id: hold-substrate-apart
+    process:
+      title: "Hold the substrate apart from the enzyme"
+      page: null
+    operator: packing
+    operands: [lacz-expression-reaction, substrate-cprg]
     produces:
       id: reporter-lacz
       title: "LacZ Reporter"
       page: ../reporter-lacz/spec.md
     parameters:
-      base_cytosol: "1x"
-      lacz_dna: "5 nM final; stock is prep-specific"
       cprg: "0.6 mg/mL final, from a 10 mg/mL stock"
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
     notes: >
-      No process page documents assembling this Module into a reaction; the three
-      processes the page lists are the exterior-LacZ digest, the readout and the
-      hydrogel format, all of which act on the Module rather than make it. LacZ may
-      also be supplied as purified protein instead of expressed from DNA — see
-      ../reporter-lacz-enzyme/spec.md for the roughly sixty-fold range in use across
-      encapsulated formats. That is a different Module, not a parameter of this one.
+      Separate compartments. Bringing the two together is the reporting event, so a
+      Module that mixes them at assembly has no off state and reports nothing. The
+      figure is the concentration on contact, not a concentration in the reaction.
+      LacZ may also be supplied as purified protein instead of expressed from DNA.
+      That is ../reporter-lacz-enzyme/spec.md, which refines this Module on Jon's
+      ruling of 2026-09-21 rather than sitting beside it.
 
 measured_by:
   - process:

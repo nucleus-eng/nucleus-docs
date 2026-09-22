@@ -101,6 +101,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cell | [Cell](./cell/spec.md) | - |
 | Cell (Sensing) | [Sensing Cell](./sensing-cell/spec.md) | - |
 | Cytosol (Sensor) | [Theophylline Sensor Cytosol](./theophylline-sensor-cytosol/spec.md) | - |
+| Reporter | [Reporter](./reporter/spec.md) | - |
 :::
 
 # Contributing a Module

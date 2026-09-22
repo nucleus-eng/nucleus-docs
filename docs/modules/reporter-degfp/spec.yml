@@ -21,6 +21,8 @@
 
 module: reporter-degfp
 title: "deGFP Reporter"
+refines: reporter
+# Added 2026-09-21 with the Reporter class: the fluorescence half, and the only member of it.
 
 inputs:
   base-cytosol:

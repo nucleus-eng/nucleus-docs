@@ -35,6 +35,8 @@ project:
           hidden: true
         - file: ./docs/modules/photopatterned-gel/spec.md
           hidden: true
+        - file: ./docs/modules/reporter/spec.md
+          hidden: true
         - file: ./docs/modules/cytosol/spec.md
           hidden: true
         - file: ./docs/modules/sensor-cytosol/spec.md

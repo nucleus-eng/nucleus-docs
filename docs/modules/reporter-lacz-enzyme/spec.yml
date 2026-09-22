@@ -12,6 +12,17 @@
 
 module: reporter-lacz-enzyme
 title: "LacZ Enzyme"
+refines: reporter-lacz
+# THE SUPPLY FORM IS THE REFINEMENT, ruled by Jon 2026-09-21: "reporter-lacz should be
+# the abstraction, and reporter-lacz-enzyme the specific protein". LacZ arrives either
+# expressed from a template or as purified protein, and the two differ in what they
+# require rather than in what they do. This is the purified form.
+#
+# WHY THE DNA FORM HAS NO PAGE AND THIS ONE DOES. A form earns a page when the corpus
+# actually builds it. Measured 2026-09-21: of eight molecules that could be supplied
+# either way, LacZ is the only one the corpus uses both ways. PPK and ClpXP are not
+# inputs to anything, so no form has been chosen for either. So this is one extra page
+# for one molecule, not two pages per Module.
 
 inputs:
   lacz:

@@ -1,0 +1,71 @@
+# Composition source for Reporter.
+#
+# WRITTEN 2026-09-21 on Jon's ruling, after he found that deGFP refines this class
+# differently from the colorimetric ones: "its output is fluorescence instead of
+# absorbance" and "it doesn't need enzyme and substrate, the protein itself is just
+# fluorescent".
+#
+# ONE CLASS AND NOT THREE, which is the second half of the ruling. Colour against
+# fluorescence is a real bisection and it is recorded in the open block below rather
+# than written as two child classes. Writing both would have put a one-member class on
+# the tree; writing only the colour half would have left the fluorescence half implied,
+# which is the Pore[active] shape. Recording the split writes neither and loses nothing,
+# because nothing today asks for a meet over reporters that stays on one side.
+#
+# THE INVARIANT IS EXPRESSION, MEASURED ACROSS THREE OF THREE. Every sourced reporter
+# mixes a cytosol with a template encoding the reporter. What varies is whether a second
+# molecule is needed to make a signal.
+
+module: reporter
+title: "Reporter"
+
+inputs:
+  cytosol:
+    title: "Cytosol"
+    page: ../cytosol/spec.md
+  reporter-template:
+    title: "Reporter template"
+    page: null            # DNA encoding the reporting protein
+
+process_steps:
+  - id: express-the-reporter
+    process:
+      title: "Express the reporting protein"
+      page: null
+    operator: mixing
+    operands: [cytosol, reporter-template]
+    produces:
+      id: reporter
+      title: "Reporter"
+      page: ../reporter/spec.md
+    notes: >
+      One compartment, three of three. The template and the machinery must share a
+      phase for expression to run. Whether a substrate is then held apart is what
+      divides the class, and that is the open item below rather than a step here.
+
+open:
+  - id: colour-against-fluorescence-is-a-bisection-and-it-is-recorded-not-written
+    question: >
+      RULED 2026-09-21, record rather than write. The members split on whether a second
+      molecule is needed to produce a signal. reporter-lacz and reporter-xyle each hold
+      a chromogenic substrate apart from an enzyme, and bringing the two together is the
+      reporting event. reporter-degfp needs nothing: the protein is the signal.
+      compositional-biology-theory reaches the same split from the operation rather than
+      from the constituents, at reference/reporter, where report takes an optional
+      Substrate and the arity varies. deGFP is the arity-zero member.
+      THE COLOUR HALF ALREADY HAS A CLASS AND IT WAS NOT WRITTEN FOR THIS.
+      ../color-change/spec.yml refines this class and holds reporter-lacz and
+      reporter-xyle. Its own invariant is separation rather than colour, so it is
+      functioning as the colour half without having been designed as it. Worth revisiting
+      if the fluorescence half is ever written, because a bisection whose two sides were
+      drawn for different reasons is not a bisection.
+      THE EXIT CONDITION IS NAMED RATHER THAN HYPOTHETICAL. Jon, 2026-09-21: "we could
+      also add mScarlet if we'd like. we have red proteins as well". mScarlet is not in
+      the corpus today, so the fluorescence half has one member and writing it would trip
+      the one-member rule. A second fluorescent reporter is the trigger.
+  - id: reporter-lacz-enzyme-is-two-levels-down-and-that-is-deliberate
+    question: >
+      reporter-lacz-enzyme refines reporter-lacz rather than this class, because it is a
+      supply form of one reporter and not a reporter of its own. The chain is
+      reporter, color-change, reporter-lacz, reporter-lacz-enzyme. Each link is the
+      immediate parent, which is what the schema requires.

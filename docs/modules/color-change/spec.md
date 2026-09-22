@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`reporter`](../reporter/spec.md). Refined by [`reporter-lacz`](../reporter-lacz/spec.md), [`reporter-xyle`](../reporter-xyle/spec.md).
+<!-- /gen:position -->
+
 An abstract Module: the class of color change modules, of which the built readouts are members.
 An abstract Module is a Module, and its members refine it.
 

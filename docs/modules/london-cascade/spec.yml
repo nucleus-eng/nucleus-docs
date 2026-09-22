@@ -125,7 +125,7 @@ process_steps:
   # 5 ────────────────────────────────────────────────────────────────────
   - id: embed-ulga
     process:
-      title: "ULGA Embedding"
+      title: "Hydrogel Embedding: ULGA"
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: packing
     operator_pairs:

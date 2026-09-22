@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`color-change`](../color-change/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The XylE / C23DO Reporter Module produces a visible color change by expressing catechol 2,3-dioxygenase (C23DO, the *xylE* gene product), which oxidises catechol (colorless) into 2-hydroxymuconate semialdehyde (yellow) and can be detectable by absorbance near (375–385) nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). 
 
 :::{attention} 🚧 Draft

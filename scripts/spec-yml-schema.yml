@@ -157,6 +157,20 @@ properties:
           description: >
             Names the purchased item or mixture this is part of, where the component
             has no page of its own. 15 of 196 inputs at `d611bda`.
+          # TWO KINDS OF VALUE ARE LEGAL, ruled by Jon 2026-09-21. A path names a page;
+          # a part number names a product. An earlier reading treated the part number as
+          # a broken path, and it is not.
+          # THE RULE THAT PICKS BETWEEN THEM, in his words: a component gets a page when
+          # it can come from more than one source. "LacZ from MedChem Express vs home made
+          # are both refinements of LacZ enzyme. we have pages for the LacZ enzyme
+          # abstracted, and correctly don't for both of the refinements." So a part number
+          # names a refinement and belongs in the value rather than in a page of its own.
+          # SUPPLY FORM IS A SECOND AND ORTHOGONAL AXIS, and it is a Module rather than an
+          # input key. A protein supplied purified and the same protein expressed from a
+          # template differ in what they REQUIRE, which is what a page states, so the form
+          # gets a page and not a field. It earns one only when the corpus builds both
+          # ways: of eight candidate molecules on 2026-09-21, LacZ is the only one, and its
+          # two pages are reporter-lacz and reporter-lacz-enzyme.
         optional:
           type: boolean
           description: >

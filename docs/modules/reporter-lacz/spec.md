@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`color-change`](../color-change/spec.md). Refined by [`reporter-lacz-enzyme`](../reporter-lacz-enzyme/spec.md).
+<!-- /gen:position -->
+
 The LacZ Reporter Module produces β-galactosidase (LacZ), an enzyme that hydrolyzes the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) from a yellow compound into a magenta/red product, giving a colorimetric readout visible to the naked eye. It is the shared colorimetric reporter across the DevCells cascades, paired with a different sensing Module in each; sensor-specific behavior is on that Module's own page.
 
 :::{attention} 🚧 Draft
