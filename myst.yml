@@ -45,6 +45,10 @@ project:
           hidden: true
         - file: ./docs/modules/outer-solution-chicago/spec.md
           hidden: true
+        - file: ./docs/modules/lacz/spec.md
+          hidden: true
+        - file: ./docs/modules/lacz-dna/spec.md
+          hidden: true
         - file: ./docs/modules/cytosol/spec.md
           hidden: true
         - file: ./docs/modules/sensor-cytosol/spec.md

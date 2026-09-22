@@ -26,9 +26,13 @@ inputs:
   base-cytosol:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
-  lacz-dna:
-    title: "LacZ DNA template"
-    page: null            # T7pro-LacZ-T7term; not yet in nucleus-eng/DNA
+  lacz:
+    title: "LacZ"
+    page: ../lacz/spec.md
+    # EITHER FORM SATISFIES THIS OPERAND, which is Jon's ruling of 2026-09-21 and needs
+    # no disjunction syntax: an operand naming a class takes any member. ../lacz has two,
+    # the template and the purified protein, and they differ in what they require rather
+    # than in what they do.
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
@@ -58,30 +62,32 @@ inputs:
 # packing.
 
 process_steps:
-  - id: express-lacz
+  - id: assemble-lacz-reaction
     process:
-      title: "Assemble the LacZ expression reaction"
+      title: "Assemble the LacZ reaction"
       page: null
     operator: mixing
-    operands: [base-cytosol, lacz-dna, rnase-inhibitor]
+    operands: [base-cytosol, lacz, rnase-inhibitor]
     produces:
-      id: lacz-expression-reaction
-      title: "LacZ expression reaction"
+      id: lacz-reaction
+      title: "LacZ reaction"
       page: null
     parameters:
       base_cytosol: "1x"
-      lacz_dna: "5 nM final; stock is prep-specific"
+      lacz: "5 nM final as the template; stock is prep-specific. No figure on record for the purified form"
       rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
     notes: >
-      One compartment, and correctly so. The template, the machinery and the
-      protectant must share a phase for expression to run.
+      One compartment. THE STEP IS NO LONGER CALLED `express`, because the operand
+      now accepts the purified protein as well and nothing is expressed in that case.
+      What is invariant is that the enzyme, the machinery and the protectant share a
+      phase; whether the enzyme arrives made or gets made here is the member's business.
 
   - id: hold-substrate-apart
     process:
       title: "Hold the substrate apart from the enzyme"
       page: null
     operator: packing
-    operands: [lacz-expression-reaction, substrate-cprg]
+    operands: [lacz-reaction, substrate-cprg]
     produces:
       id: reporter-lacz
       title: "LacZ Reporter"

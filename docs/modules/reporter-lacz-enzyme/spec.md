@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`reporter-lacz`](../reporter-lacz/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`lacz`](../lacz/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The LacZ Enzyme is β-galactosidase from *E. coli*, the hydrolase half of the [LacZ Reporter](../reporter-lacz/spec.md) colorimetric pair. It cleaves [CPRG](../substrate-cprg/spec.md) from yellow chlorophenol red-β-D-galactopyranoside to magenta chlorophenol red.

@@ -12,11 +12,18 @@
 
 module: reporter-lacz-enzyme
 title: "LacZ Enzyme"
-refines: reporter-lacz
-# THE SUPPLY FORM IS THE REFINEMENT, ruled by Jon 2026-09-21: "reporter-lacz should be
-# the abstraction, and reporter-lacz-enzyme the specific protein". LacZ arrives either
-# expressed from a template or as purified protein, and the two differ in what they
-# require rather than in what they do. This is the purified form.
+refines: lacz
+# THE PURIFIED FORM OF ../lacz, one of two. Jon, 2026-09-21: "reporter lacZ operand
+# should have lacz-DNA OR lacz-protein! not sure how to represent that, but it MUST
+# abstract over both". The representation is a class operand and this is a member of
+# that class.
+#
+# IT POINTED AT reporter-lacz FOR PART OF A DAY AND THAT WAS THE WRONG SHAPE. Jon's
+# earlier wording made the reaction the abstraction, which put an EQUIVALENCE inside an
+# ORDER: session c9d6a5 identified the pair as co-satisfying, glossary.md#T28, two
+# Formulations of one Specification separated by a formulation predicate. Co-satisfying
+# things sit at the same height, so a refinement edge between them is not an order edge.
+# Moving the abstraction down to the operand makes this a real membership.
 #
 # WHY THE DNA FORM HAS NO PAGE AND THIS ONE DOES. A form earns a page when the corpus
 # actually builds it. Measured 2026-09-21: of eight molecules that could be supplied

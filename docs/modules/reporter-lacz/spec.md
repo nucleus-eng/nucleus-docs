@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`color-change`](../color-change/spec.md). Refined by [`reporter-lacz-enzyme`](../reporter-lacz-enzyme/spec.md).
+**Position.** Refines [`color-change`](../color-change/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The LacZ Reporter Module produces β-galactosidase (LacZ), an enzyme that hydrolyzes the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) from a yellow compound into a magenta/red product, giving a colorimetric readout visible to the naked eye. It is the shared colorimetric reporter across the DevCells cascades, paired with a different sensing Module in each; sensor-specific behavior is on that Module's own page.
@@ -36,21 +36,21 @@ Photograph of the LacZ/CPRG colorimetric reaction in an agarose hydrogel well, t
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    LACZ_DNA["LacZ DNA template"]
+    LACZ["LacZ"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
     RNASE_INHIBITOR["RNase inhibitor"]
 
-    P1_EXPRESS_LACZ_0(["Assemble the LacZ expression reaction (mixing) — no page"])
-    LACZ_EXPRESSION_REACTION["LacZ expression reaction"]
+    P1_ASSEMBLE_LACZ_REACTION_0(["Assemble the LacZ reaction (mixing) — no page"])
+    LACZ_REACTION["LacZ reaction"]
     P2_HOLD_SUBSTRATE_APART_0(["Hold the substrate apart from the enzyme (packing) — no page"])
     REPORTER_LACZ["LacZ Reporter"]
 
-    BASE_CYTOSOL --> P1_EXPRESS_LACZ_0
-    LACZ_DNA --> P1_EXPRESS_LACZ_0
-    RNASE_INHIBITOR --> P1_EXPRESS_LACZ_0
-    P1_EXPRESS_LACZ_0 --> LACZ_EXPRESSION_REACTION
+    BASE_CYTOSOL --> P1_ASSEMBLE_LACZ_REACTION_0
+    LACZ --> P1_ASSEMBLE_LACZ_REACTION_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_LACZ_REACTION_0
+    P1_ASSEMBLE_LACZ_REACTION_0 --> LACZ_REACTION
 
-    LACZ_EXPRESSION_REACTION --> P2_HOLD_SUBSTRATE_APART_0
+    LACZ_REACTION --> P2_HOLD_SUBSTRATE_APART_0
     SUBSTRATE_CPRG --> P2_HOLD_SUBSTRATE_APART_0
     P2_HOLD_SUBSTRATE_APART_0 --> REPORTER_LACZ
 
@@ -58,11 +58,12 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,LACZ_DNA,SUBSTRATE_CPRG,RNASE_INHIBITOR leaf;
-    class LACZ_EXPRESSION_REACTION,REPORTER_LACZ composed;
-    class P1_EXPRESS_LACZ_0,P2_HOLD_SUBSTRATE_APART_0 process;
+    class BASE_CYTOSOL,LACZ,SUBSTRATE_CPRG,RNASE_INHIBITOR leaf;
+    class LACZ_REACTION,REPORTER_LACZ composed;
+    class P1_ASSEMBLE_LACZ_REACTION_0,P2_HOLD_SUBSTRATE_APART_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click LACZ "/docs/modules/lacz/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
 ```
@@ -197,6 +198,7 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 
 - [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
 - [Substrate: CPRG](../substrate-cprg/spec.md) — 0.6 mg/mL, the substrate this Module converts
+- [LacZ](../lacz/spec.md) — the enzyme, as a template or purified. Either form satisfies this operand
 
 # Credits
 
