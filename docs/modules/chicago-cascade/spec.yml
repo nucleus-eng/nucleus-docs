@@ -200,7 +200,7 @@ process_steps:
     operator: packing
     operands: [atc-gel, substrate-cprg]
     produces:
-      id: atc-gel-loaded
+      id: atc-cascade
       title: "aTc Cascade"
       page: ../atc-cascade/spec.md
     notes: >
@@ -295,7 +295,7 @@ process_steps:
       - substrate-cprg-suv
       - reporter-lacz-enzyme
     produces:
-      id: ph-gel
+      id: ph-cascade
       title: "pH Cascade"
       page: ../ph-cascade/spec.md
     parameters:
@@ -310,12 +310,21 @@ process_steps:
       title: "Bond the two gels"
       page: null
     operator: packing
-    operands: [atc-gel-loaded, ph-gel]
+    operands: [atc-cascade, ph-cascade]
     produces:
       id: chicago-cascade
       title: "Chicago Cascade"
       page: ../chicago-cascade/spec.md
     notes: >
+      THE OPERANDS ARE THE TWO STANDALONE CASCADES AND NOW SAY SO. They were
+      `atc-gel-loaded` and `ph-gel` until 2026-09-21, which coined two ids for
+      compositions this corpus already had: each matched its standalone module on
+      operator, operands and parameters, and each already pointed at that module's
+      page and carried its title. Only the id differed, so one thing had two names
+      and a leg walk reached it twice. Found by scripts/check-aliases.py on two
+      carriers at once, id-to-composition and title-to-id, which is why the count
+      of five rows was three pairs.
+
       Spatial separation comes from the two gels being separate pieces, not
       from patterning one gel. This is the step the cascade is named for and
       the only combination step with no page.

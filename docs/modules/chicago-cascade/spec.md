@@ -61,7 +61,7 @@ flowchart TD
     P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel: PEG-Norbornene (packing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
-    ATC_GEL_LOADED["aTc Cascade"]
+    ATC_CASCADE["aTc Cascade"]
     P6_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P7_ASSEMBLE_PH_CYTOSOL_0(["Assemble Cytosol (mixing)"])
@@ -71,7 +71,7 @@ flowchart TD
     P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
     P10_EMBED_AGAROSE_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
-    PH_GEL["pH Cascade"]
+    PH_CASCADE["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]
 
@@ -99,7 +99,7 @@ flowchart TD
 
     ATC_GEL --> P5_DOSE_CPRG_INTO_ATC_GEL_0
     SUBSTRATE_CPRG --> P5_DOSE_CPRG_INTO_ATC_GEL_0
-    P5_DOSE_CPRG_INTO_ATC_GEL_0 --> ATC_GEL_LOADED
+    P5_DOSE_CPRG_INTO_ATC_GEL_0 --> ATC_CASCADE
 
     PH_RESPONSIVE_SSDNA --> P6_ANNEAL_TRIGGER_DUPLEX_0
     TRIGGER_SSDNA --> P6_ANNEAL_TRIGGER_DUPLEX_0
@@ -123,10 +123,10 @@ flowchart TD
     PH_SENSING_CELL --> P10_EMBED_AGAROSE_0
     SUBSTRATE_CPRG_SUV --> P10_EMBED_AGAROSE_0
     REPORTER_LACZ_ENZYME --> P10_EMBED_AGAROSE_0
-    P10_EMBED_AGAROSE_0 --> PH_GEL
+    P10_EMBED_AGAROSE_0 --> PH_CASCADE
 
-    ATC_GEL_LOADED --> P11_BOND_GELS_0
-    PH_GEL --> P11_BOND_GELS_0
+    ATC_CASCADE --> P11_BOND_GELS_0
+    PH_CASCADE --> P11_BOND_GELS_0
     P11_BOND_GELS_0 --> CHICAGO_CASCADE
 
 
@@ -134,7 +134,7 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,TRIS_HEPES_STOCK,ENERGY_SOLUTION,MEMBRANE_CHICAGO,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG,DETECTOR_TETR_ATC,PEG_NORBORNENE_MONOMER,PEG4SH,LAP,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,ULGA_POWDER leaf;
-    class OUTER_SOLUTION_CHICAGO,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_GEL_LOADED,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_GEL,CHICAGO_CASCADE composed;
+    class OUTER_SOLUTION_CHICAGO,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE,CHICAGO_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_ATC_CYTOSOL_0,P3_ENCAPSULATE_ATC_0,P3_ENCAPSULATE_ATC_1,P4_PHOTODEVELOP_ATC_GEL_0,P5_DOSE_CPRG_INTO_ATC_GEL_0,P6_ANNEAL_TRIGGER_DUPLEX_0,P7_ASSEMBLE_PH_CYTOSOL_0,P8_ENCAPSULATE_PH_0,P9_ENCAPSULATE_SUBSTRATE_SUV_0,P10_EMBED_AGAROSE_0,P11_BOND_GELS_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
@@ -153,7 +153,7 @@ flowchart TD
     click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
     click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/photodevelop-peg-norbornene/main"
-    click ATC_GEL_LOADED "/docs/modules/atc-cascade/spec"
+    click ATC_CASCADE "/docs/modules/atc-cascade/spec"
     click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click P7_ASSEMBLE_PH_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
@@ -163,7 +163,7 @@ flowchart TD
     click P9_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
     click P10_EMBED_AGAROSE_0 "/docs/processes/embed-ulga-hydrogel/main"
-    click PH_GEL "/docs/modules/ph-cascade/spec"
+    click PH_CASCADE "/docs/modules/ph-cascade/spec"
     click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
 ```
 
