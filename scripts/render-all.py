@@ -64,9 +64,25 @@ def main() -> int:
     check = "--check" in sys.argv
     stale: list[str] = []
 
+    # THE DENOMINATOR IS THE GENERATORS THEMSELVES, BECAUSE THIS SCRIPT MUST RUN
+    # ON A BRANCH THAT DOES NOT HAVE ALL FOUR. The generators live on the
+    # integration branch; `main` has none and the spec.yml tranche has a subset.
+    # A driver that crashes on the branch it is meant to protect protects
+    # nothing, and one that silently runs fewer checks is worse. So it reports
+    # which generators it found, every run, and skips the rest by name.
+    present = [s for s in ("render-composition.py", "render-position.py",
+                           "render-meet.py", "render-posets.py")
+               if (REPO / "scripts" / s).is_file()]
+    absent = [s for s in ("render-composition.py", "render-position.py",
+                          "render-meet.py", "render-posets.py") if s not in present]
+    print(f"{len(present)} of 4 generators present"
+          + (f"; absent on this branch: {', '.join(absent)}" if absent else ""))
+
     # --- the two that write into page markers
     for script, label in (("render-composition.py", "composition diagram"),
                           ("render-position.py", "position line")):
+        if script not in present:
+            continue
         counts: dict[str, int] = {}
         mode = "--check" if check else "--embed"
         if script == "render-composition.py":
@@ -99,9 +115,13 @@ def main() -> int:
     # which then swallowed a `mv` of the real directory into itself.
     if not check:
         OUT.mkdir(parents=True, exist_ok=True)
-    jobs = [(name, ["scripts/render-meet.py", *args], note) for name, args, note in MEETS]
-    jobs.append(("posets.md", ["scripts/render-posets.py"],
-                 "Every order this corpus generates, and the relations that are not orders."))
+    jobs = ([(name, ["scripts/render-meet.py", *args], note)
+             for name, args, note in MEETS]
+            if "render-meet.py" in present else [])
+    if "render-posets.py" in present:
+        jobs.append(("posets.md", ["scripts/render-posets.py"],
+                     "Every order this corpus generates, and the relations that are "
+                     "not orders."))
     for name, args, note in jobs:
         rc, out, err = run(args)
         if rc:
@@ -134,7 +154,7 @@ def main() -> int:
         print(f"\n{len(stale)} generated artifact(s) are stale: " + ", ".join(stale),
               file=sys.stderr)
         return 1
-    print(f"\n4 generators run. "
+    print(f"\n{len(present)} of 4 generators run. "
           + (f"{len(stale)} artifact group(s) changed: " + ", ".join(stale) if stale
              else "Nothing changed; every generated artifact was already current."))
     return 0
