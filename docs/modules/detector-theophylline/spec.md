@@ -24,6 +24,54 @@ The theophylline riboswitch expresses its effector without theophylline present,
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    SENSOR_DNA["Sensor DNA template"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the Theophylline Detector reaction (mixing) — no page"])
+    DETECTOR_THEOPHYLLINE["Theophylline Detector"]
+
+    BASE_CYTOSOL --> P1_ASSEMBLE_REACTION_0
+    SENSOR_DNA --> P1_ASSEMBLE_REACTION_0
+    SUBSTRATE_CPRG --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> DETECTOR_THEOPHYLLINE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,SENSOR_DNA,SUBSTRATE_CPRG leaf;
+    class DETECTOR_THEOPHYLLINE composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Substrate
+
+[CPRG](../substrate-cprg/spec.md) is present in this Module's reaction, and **here it is mixed in rather than held apart**. That is correct for this Module and it is the exception to the [Color Change](../color-change/spec.md) invariant: the off state comes from the riboswitch holding the ribosome binding site closed, not from keeping the enzyme and the substrate in separate compartments. Something else supplies the gate, so colocalizing the pair removes no switch.
+
+:::{table} CPRG for the theophylline sensing reaction.
+| Component | Working concentration | Notes |
+| --- | --- | --- |
+| CPRG | 0.6 mg/mL final | from a 10 mg/mL stock. Read at 570 nm |
+:::
+
+**This is the bulk-cytosol validation assay** rather than an encapsulated format, so the reaction reports a rate difference with and without theophylline rather than an on-off signal.
+
+::::
+
+
 ::::{tab-item} Schematic
 
 ```mermaid

@@ -53,6 +53,36 @@ Schematic representation of the AHL Detector mechanism. LuxR, constitutively exp
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    S30_LYSATE["S30 Lysate"]
+    SENSING_PLASMID["Sensing plasmid"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the 3OC6-HSL Detector reaction (mixing) — no page"])
+    DETECTOR_3OC6_HSL["3OC6-HSL Detector"]
+
+    S30_LYSATE --> P1_ASSEMBLE_REACTION_0
+    SENSING_PLASMID --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> DETECTOR_3OC6_HSL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class S30_LYSATE,SENSING_PLASMID leaf;
+    class DETECTOR_3OC6_HSL composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+    click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 
 This Module detects 3OC6-HSL and drives whatever sits downstream of `pLux`. The sensing plasmid is a parameter, not part of the Module: `LuxR-deGFP` is the reporter variant used to characterize it, and `LuxR-PLA1` is the variant the DevCells demo uses. Both put a constitutive `BBa_J23101`→`luxR` cassette and the `pLux`-driven payload on one molecule, so LuxR is never supplied separately.

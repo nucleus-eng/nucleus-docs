@@ -28,6 +28,38 @@ The London Node moved this population from small unilamellar vesicles to GUVs on
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    MEMBRANE_POPC["London Membrane: POPC"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+
+    P1_ENCAPSULATE_CPRG_0(["Encapsulation: Phase Transfer (packing)"])
+    GUV_CPRG["CPRG GUV"]
+
+    MEMBRANE_POPC --> P1_ENCAPSULATE_CPRG_0
+    SUBSTRATE_CPRG --> P1_ENCAPSULATE_CPRG_0
+    P1_ENCAPSULATE_CPRG_0 --> GUV_CPRG
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class MEMBRANE_POPC,SUBSTRATE_CPRG leaf;
+    class GUV_CPRG composed;
+    class P1_ENCAPSULATE_CPRG_0 process;
+
+    click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click P1_ENCAPSULATE_CPRG_0 "/docs/processes/assemble-base-cell/main"
+    click GUV_CPRG "/docs/modules/guv-cprg/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Membrane
 
 :::{table} CPRG GUV bilayer — [London Membrane: POPC](../membrane-popc/spec.md).

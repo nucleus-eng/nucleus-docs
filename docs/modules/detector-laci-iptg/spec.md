@@ -22,6 +22,41 @@ Schematic of the LacI-IPTG detector module. IPTG relieves LacI repression of `pT
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PUREXPRESS_SOLUTION_A["PURExpress Solution A"]
+    PUREXPRESS_SOLUTION_B["PURExpress Solution B"]
+    LACO_PLAMGFP_DNA["pT7-lacO-plamGFP"]
+    LACI["LacI"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_ASSEMBLE_MASTER_MIX_0(["Assemble the LacI/IPTG Detector master mix (mixing) — no page"])
+    DETECTOR_LACI_IPTG["LacI/IPTG Detector"]
+
+    PUREXPRESS_SOLUTION_A --> P1_ASSEMBLE_MASTER_MIX_0
+    PUREXPRESS_SOLUTION_B --> P1_ASSEMBLE_MASTER_MIX_0
+    LACO_PLAMGFP_DNA --> P1_ASSEMBLE_MASTER_MIX_0
+    LACI --> P1_ASSEMBLE_MASTER_MIX_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_MASTER_MIX_0
+    P1_ASSEMBLE_MASTER_MIX_0 --> DETECTOR_LACI_IPTG
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PUREXPRESS_SOLUTION_A,PUREXPRESS_SOLUTION_B,LACO_PLAMGFP_DNA,LACI,RNASE_INHIBITOR leaf;
+    class DETECTOR_LACI_IPTG composed;
+    class P1_ASSEMBLE_MASTER_MIX_0 process;
+
+    click DETECTOR_LACI_IPTG "/docs/modules/detector-laci-iptg/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 :::{table}
 | **Name** | **Length (bp)** | **File** |

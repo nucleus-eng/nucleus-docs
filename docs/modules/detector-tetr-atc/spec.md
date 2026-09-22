@@ -25,6 +25,38 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    TETO_TEMPLATE["T7-tetO-deGFP template"]
+    TETR["TetR repressor"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the tetR-aTc Detector reaction (mixing) — no page"])
+    DETECTOR_TETR_ATC["tetR-aTc Detector"]
+
+    BASE_CYTOSOL --> P1_ASSEMBLE_REACTION_0
+    TETO_TEMPLATE --> P1_ASSEMBLE_REACTION_0
+    TETR --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> DETECTOR_TETR_ATC
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,TETO_TEMPLATE,TETR leaf;
+    class DETECTOR_TETR_ATC composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 
 :::{table}

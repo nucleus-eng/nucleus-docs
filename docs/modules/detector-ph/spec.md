@@ -33,6 +33,48 @@ Schematic of the pH-Sensing Module, drawn inside the cell that carries it. **The
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    TOEHOLD_SWITCH_DNA["Toehold-switch DNA template"]
+    TRIGGER_SSDNA["Trigger ssDNA"]
+    PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_ANNEAL_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
+    PH_TRIGGER_DUPLEX["pH-responsive : trigger ssDNA duplex"]
+    P2_ASSEMBLE_REACTION_0(["Assemble the pH Detector reaction (mixing) — no page"])
+    DETECTOR_PH["pH Detector"]
+
+    PH_RESPONSIVE_SSDNA --> P1_ANNEAL_DUPLEX_0
+    TRIGGER_SSDNA --> P1_ANNEAL_DUPLEX_0
+    P1_ANNEAL_DUPLEX_0 -->|"3:1 pH-responsive to trigger"| PH_TRIGGER_DUPLEX
+
+    BASE_CYTOSOL --> P2_ASSEMBLE_REACTION_0
+    PH_TRIGGER_DUPLEX --> P2_ASSEMBLE_REACTION_0
+    TOEHOLD_SWITCH_DNA --> P2_ASSEMBLE_REACTION_0
+    RNASE_INHIBITOR --> P2_ASSEMBLE_REACTION_0
+    P2_ASSEMBLE_REACTION_0 --> DETECTOR_PH
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,TOEHOLD_SWITCH_DNA,TRIGGER_SSDNA,PH_RESPONSIVE_SSDNA,RNASE_INHIBITOR leaf;
+    class PH_TRIGGER_DUPLEX,DETECTOR_PH composed;
+    class P1_ANNEAL_DUPLEX_0,P2_ASSEMBLE_REACTION_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click P1_ANNEAL_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
+    click DETECTOR_PH "/docs/modules/detector-ph/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Schematic
 
 ```mermaid

@@ -23,6 +23,43 @@ This Module has not been validated in Nucleus Cytosol. Expected performance data
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PUREXPRESS_SOLUTION_A["NEB PURExpress Solution A"]
+    PUREXPRESS_SOLUTION_B["NEB PURExpress Solution B"]
+    CX43_EGFP_DNA["pOpen-pT7-Cx43-eGFP"]
+    OPTIPREP["OptiPrep"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+    WATER["Nuclease-free water"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the Cx43 expression reaction (mixing) — no page"])
+    MEMBRANE_PORE_CX43["Membrane Pore: Cx43"]
+
+    PUREXPRESS_SOLUTION_A --> P1_ASSEMBLE_REACTION_0
+    PUREXPRESS_SOLUTION_B --> P1_ASSEMBLE_REACTION_0
+    CX43_EGFP_DNA --> P1_ASSEMBLE_REACTION_0
+    OPTIPREP --> P1_ASSEMBLE_REACTION_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_REACTION_0
+    WATER --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> MEMBRANE_PORE_CX43
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PUREXPRESS_SOLUTION_A,PUREXPRESS_SOLUTION_B,CX43_EGFP_DNA,OPTIPREP,RNASE_INHIBITOR,WATER leaf;
+    class MEMBRANE_PORE_CX43 composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click MEMBRANE_PORE_CX43 "/docs/modules/membrane-pore-cx43/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Schematic
 
 :::{figure} xref:devnote-cx43#fig:scheme

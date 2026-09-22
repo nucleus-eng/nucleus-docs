@@ -21,6 +21,45 @@ Design schematic of the IV-HSL Emitter module. `pT7-bjaI` expresses the BjaI enz
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PURE_SOLUTION_A["PURE Solution A"]
+    PURE_SOLUTION_B["PURE Solution B"]
+    BJAI_DNA["pOpen-pT7-bjaI"]
+    SAM["SAM"]
+    IV_COA["IV-CoA"]
+    OPTIPREP["OptiPrep"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the IV-HSL Emitter reaction (mixing) — no page"])
+    EMITTER_IVHSL["IV-HSL Emitter"]
+
+    PURE_SOLUTION_A --> P1_ASSEMBLE_REACTION_0
+    PURE_SOLUTION_B --> P1_ASSEMBLE_REACTION_0
+    BJAI_DNA --> P1_ASSEMBLE_REACTION_0
+    SAM --> P1_ASSEMBLE_REACTION_0
+    IV_COA --> P1_ASSEMBLE_REACTION_0
+    OPTIPREP --> P1_ASSEMBLE_REACTION_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> EMITTER_IVHSL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PURE_SOLUTION_A,PURE_SOLUTION_B,BJAI_DNA,SAM,IV_COA,OPTIPREP,RNASE_INHIBITOR leaf;
+    class EMITTER_IVHSL composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click EMITTER_IVHSL "/docs/modules/emitter-ivhsl/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 :::{table}
 | **Name** | **Length (bp)** | **File** |

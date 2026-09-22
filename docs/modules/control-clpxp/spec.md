@@ -21,6 +21,45 @@ The module can be implemented from purified proteins alone, from *in situ* expre
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PUREXPRESS_SOLUTION_A["NEB PURExpress Solution A"]
+    PUREXPRESS_SOLUTION_B["NEB PURExpress Solution B"]
+    CLPX["Purified ClpX"]
+    CLPP["Purified ClpP"]
+    DEGFP_SSRA["Purified deGFP-ssrA"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+    WATER["Nuclease-free water"]
+
+    P1_ASSEMBLE_PURIFIED_REACTION_0(["Assemble the ClpXP Control reaction from purified proteins (mixing) — no page"])
+    CONTROL_CLPXP["ClpXP Control"]
+
+    PUREXPRESS_SOLUTION_A --> P1_ASSEMBLE_PURIFIED_REACTION_0
+    PUREXPRESS_SOLUTION_B --> P1_ASSEMBLE_PURIFIED_REACTION_0
+    CLPX --> P1_ASSEMBLE_PURIFIED_REACTION_0
+    CLPP --> P1_ASSEMBLE_PURIFIED_REACTION_0
+    DEGFP_SSRA --> P1_ASSEMBLE_PURIFIED_REACTION_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_PURIFIED_REACTION_0
+    WATER --> P1_ASSEMBLE_PURIFIED_REACTION_0
+    P1_ASSEMBLE_PURIFIED_REACTION_0 --> CONTROL_CLPXP
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PUREXPRESS_SOLUTION_A,PUREXPRESS_SOLUTION_B,CLPX,CLPP,DEGFP_SSRA,RNASE_INHIBITOR,WATER leaf;
+    class CONTROL_CLPXP composed;
+    class P1_ASSEMBLE_PURIFIED_REACTION_0 process;
+
+    click CONTROL_CLPXP "/docs/modules/control-clpxp/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 :::{table}
 | **Name** | **Length (bp)** | **File** |

@@ -22,6 +22,38 @@ This page is a work in progress and not yet ready for use.
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Base Membrane: POPC/Chol"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+
+    P1_HYDRATE_AND_EXTRUDE_0(["Encapsulation: SUV (packing)"])
+    SUBSTRATE_CPRG_SUV["CPRG-loaded SUV"]
+
+    MEMBRANE_POPC_CHOL_CHICAGO --> P1_HYDRATE_AND_EXTRUDE_0
+    SUBSTRATE_CPRG --> P1_HYDRATE_AND_EXTRUDE_0
+    P1_HYDRATE_AND_EXTRUDE_0 --> SUBSTRATE_CPRG_SUV
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class MEMBRANE_POPC_CHOL_CHICAGO,SUBSTRATE_CPRG leaf;
+    class SUBSTRATE_CPRG_SUV composed;
+    class P1_HYDRATE_AND_EXTRUDE_0 process;
+
+    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click P1_HYDRATE_AND_EXTRUDE_0 "/docs/processes/encapsulate-suv/main"
+    click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Membrane
 
 :::{table} Substrate SUV bilayer, as prepared for the Chicago colorimetric work.

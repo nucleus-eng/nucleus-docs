@@ -27,6 +27,43 @@ This module's chemistry is confirmed only at bulk-cytosol scale, with one constr
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    CATECHOLASE_DNA["Catecholase DNA template"]
+    CATECHOL["Catechol"]
+
+    P1_EXPRESS_CATECHOLASE_0(["Assemble the catecholase expression reaction (mixing) — no page"])
+    CATECHOLASE_EXPRESSION_REACTION["Catecholase expression reaction"]
+    P2_HOLD_SUBSTRATE_APART_0(["Hold the substrate apart from the enzyme (packing) — no page"])
+    REPORTER_XYLE["XylE Reporter"]
+
+    BASE_CYTOSOL --> P1_EXPRESS_CATECHOLASE_0
+    CATECHOLASE_DNA --> P1_EXPRESS_CATECHOLASE_0
+    P1_EXPRESS_CATECHOLASE_0 --> CATECHOLASE_EXPRESSION_REACTION
+
+    CATECHOLASE_EXPRESSION_REACTION --> P2_HOLD_SUBSTRATE_APART_0
+    CATECHOL --> P2_HOLD_SUBSTRATE_APART_0
+    P2_HOLD_SUBSTRATE_APART_0 --> REPORTER_XYLE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,CATECHOLASE_DNA,CATECHOL leaf;
+    class CATECHOLASE_EXPRESSION_REACTION,REPORTER_XYLE composed;
+    class P1_EXPRESS_CATECHOLASE_0,P2_HOLD_SUBSTRATE_APART_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click REPORTER_XYLE "/docs/modules/reporter-xyle/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 
 :::{attention} Not yet in `nucleus-eng/DNA`

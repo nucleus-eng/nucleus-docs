@@ -25,6 +25,38 @@ No result isolates PLA1 from the CPRG/LacZ readout. Lysis is always scored by th
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    PLA1_DNA["T7pro-PLA1-T7term"]
+    OPTIPREP["Optiprep"]
+
+    P1_ASSEMBLE_PLA1_INNER_SOLUTION_0(["Assemble the ungated PLA1 inner solution (mixing) — no page"])
+    EFFECTOR_PLA1["Effector: PLA1"]
+
+    BASE_CYTOSOL --> P1_ASSEMBLE_PLA1_INNER_SOLUTION_0
+    PLA1_DNA --> P1_ASSEMBLE_PLA1_INNER_SOLUTION_0
+    OPTIPREP --> P1_ASSEMBLE_PLA1_INNER_SOLUTION_0
+    P1_ASSEMBLE_PLA1_INNER_SOLUTION_0 --> EFFECTOR_PLA1
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,PLA1_DNA,OPTIPREP leaf;
+    class EFFECTOR_PLA1 composed;
+    class P1_ASSEMBLE_PLA1_INNER_SOLUTION_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 
 :::{table}

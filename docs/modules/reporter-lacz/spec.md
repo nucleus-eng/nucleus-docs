@@ -30,6 +30,61 @@ Photograph of the LacZ/CPRG colorimetric reaction in an agarose hydrogel well, t
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    LACZ_DNA["LacZ DNA template"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_EXPRESS_LACZ_0(["Assemble the LacZ expression reaction (mixing) — no page"])
+    LACZ_EXPRESSION_REACTION["LacZ expression reaction"]
+    P2_HOLD_SUBSTRATE_APART_0(["Hold the substrate apart from the enzyme (packing) — no page"])
+    REPORTER_LACZ["LacZ Reporter"]
+
+    BASE_CYTOSOL --> P1_EXPRESS_LACZ_0
+    LACZ_DNA --> P1_EXPRESS_LACZ_0
+    RNASE_INHIBITOR --> P1_EXPRESS_LACZ_0
+    P1_EXPRESS_LACZ_0 --> LACZ_EXPRESSION_REACTION
+
+    LACZ_EXPRESSION_REACTION --> P2_HOLD_SUBSTRATE_APART_0
+    SUBSTRATE_CPRG --> P2_HOLD_SUBSTRATE_APART_0
+    P2_HOLD_SUBSTRATE_APART_0 --> REPORTER_LACZ
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,LACZ_DNA,SUBSTRATE_CPRG,RNASE_INHIBITOR leaf;
+    class LACZ_EXPRESSION_REACTION,REPORTER_LACZ composed;
+    class P1_EXPRESS_LACZ_0,P2_HOLD_SUBSTRATE_APART_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click REPORTER_LACZ "/docs/modules/reporter-lacz/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Substrate
+
+[CPRG](../substrate-cprg/spec.md) is the chromogenic substrate this reporter acts on. **It is held apart from the enzyme rather than mixed in**, which is the invariant this Module inherits from [Color Change](../color-change/spec.md): an enzyme and its substrate sharing one compartment give a readout with no off state, so bringing them together is the reporting event.
+
+:::{table} CPRG for the LacZ reporter.
+| Component | Working concentration | Notes |
+| --- | --- | --- |
+| CPRG | 0.6 mg/mL final | from a 10 mg/mL stock. The concentration on contact, not a concentration in the expression reaction |
+:::
+
+**This figure is imputed rather than measured**, like every other on this page. See the `open:` block in `spec.yml`.
+
+::::
+
+
 ::::{tab-item} DNA
 
 :::{attention} Not yet in `nucleus-eng/DNA`
