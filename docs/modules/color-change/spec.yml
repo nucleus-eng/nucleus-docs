@@ -1,4 +1,4 @@
-# Composition source for Abstract: Color Change Module.
+# Composition source for Color Change.
 #
 # THE INVARIANT IS SEPARATION AND THE OPERATOR CARRIES IT. An enzyme and its substrate
 # in one compartment react at once, which is a readout with no off state. Every member
@@ -13,8 +13,8 @@
 #
 # The process is `page: null`: an abstract encapsulation process does not exist here.
 
-module: abstract-color-change
-title: "Abstract: Color Change Module"
+module: color-change
+title: "Color Change"
 
 inputs:
   enzyme:
@@ -32,9 +32,9 @@ process_steps:
     operator: packing
     operands: [enzyme, substrate]
     produces:
-      id: abstract-color-change
-      title: "Abstract: Color Change Module"
-      page: ../abstract-color-change/spec.md
+      id: color-change
+      title: "Color Change"
+      page: ../color-change/spec.md
     notes: >
       `packing` is the invariant rather than a reading of one arrangement. Which of
       the two is encapsulated is what varies across the members, and that choice does

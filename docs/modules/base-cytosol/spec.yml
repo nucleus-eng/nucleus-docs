@@ -9,6 +9,7 @@
 
 module: base-cytosol
 title: Base Cytosol
+refines: cytosol
 
 inputs:
   pmix:

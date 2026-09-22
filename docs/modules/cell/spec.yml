@@ -1,0 +1,45 @@
+# Composition source for Cell.
+#
+# WRITTEN 2026-09-21 on Jon's ruling: Sensing Cell refines Cell, and Cell is a Cytosol
+# packed with a Membrane.
+#
+# THE INVARIANT IS `packing` OVER EXACTLY TWO OPERANDS, FIVE OF FIVE. base-cell,
+# ahl-sensing-cell, atc-sensing-cell, ph-sensing-cell and theophylline-sensing-cell all
+# run a final step whose operator is packing and whose operands are a cytosol and a
+# membrane. No member has an exception.
+#
+# base-cell IS THE CONTROL AND IT IS WHY THIS CLASS IS NOT JUST SENSING CELL WITH A
+# SHORTER NAME. It sits directly under Cell because its cytosol carries no detector. That
+# is what makes the Sensing Cell refinement a real narrowing of one slot rather than a
+# rename of this one.
+#
+# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED. Container is the obvious
+# candidate and a cell is not a kind of container: it is a container with something in it.
+# That is the hold question at compositional-biology-theory open.md#O8 and it is not
+# settled here. Left a root, on the pore precedent.
+
+module: cell
+title: "Cell"
+
+inputs:
+  cytosol:
+    title: "Cytosol"
+    page: ../cytosol/spec.md
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+
+process_steps:
+  - id: encapsulate
+    process:
+      title: "Close the membrane around the cytosol"
+      page: null
+    operator: packing
+    operands: [cytosol, membrane]
+    produces:
+      id: cell
+      title: "Cell"
+      page: ../cell/spec.md
+    notes: >
+      Packing and never mixing. The cytosol and the membrane keep separate compartments,
+      which is the whole point of a boundary.

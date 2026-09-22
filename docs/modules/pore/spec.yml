@@ -1,4 +1,4 @@
-# Composition source for Abstract: Pore.
+# Composition source for Pore.
 #
 # NO `refines:` KEY, AND THAT IS THE CLAIM. A pore is not a kind of Container and not a
 # kind of Membrane. Jon, 2026-09-21: "Pore does NOT refine membrane!! it's a component
@@ -20,7 +20,7 @@
 # correction above.
 
 module: pore
-title: "Abstract: Pore"
+title: "Pore"
 
 inputs:
   pore-forming-agent:

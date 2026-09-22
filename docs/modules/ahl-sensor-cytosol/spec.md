@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The AHL Sensor Cytosol is the aqueous phase of the [AHL Sensing Cell](../ahl-sensing-cell/spec.md): [S30 Lysate](../s30-lysate/spec.md) carrying the [AHL Sensing Module](../detector-3oc6-hsl/spec.md) and, through it, the [PLA1 Lysis Module](../effector-pla1/spec.md). It is mixed before encapsulation, not added to a closed compartment.
 
 It exists as its own Module because the London decomposition assembles the cytosol first and then performs one encapsulation. Compare [Base Cytosol](../base-cytosol/spec.md), which is PURE-based and carries no sensing function, and the [aTc](../atc-sensor-cytosol/spec.md) and [pH](../ph-sensor-cytosol/spec.md) sensor cytosols, which fill the same role for the Chicago Node on a Base Cytosol background.

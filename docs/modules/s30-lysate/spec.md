@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`cytosol`](../cytosol/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 S30 Lysate is a commercially available *E. coli* cell-free expression system with undefined composition. S30 Lysate and [Base Cytosol](../base-cytosol/spec.md) are not drop-in replacements for one another. Base Cytosol supplies T7 RNA polymerase and transcribes T7-driven constructs; S30 Lysate carries *E. coli*'s native machinery and transcribes sigma-70-driven ones. A Module moves between the two only if its construct carries the matching promoter, which is the condition stated under Requirements.
 
 :::{attention} 🚧 Draft

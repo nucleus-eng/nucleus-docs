@@ -24,7 +24,7 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
 | Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
-| Membrane Pore | [Abstract: Pore](./pore/spec.md) | - |
+| Membrane Pore | [Pore](./pore/spec.md) | - |
 |                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
 |                 | [Gramicidin A](./membrane-pore-gramicidin/spec.md) | ★   |
 | Effector        | [PLA1](./effector-pla1/spec.md)             | ★          |
@@ -58,7 +58,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
 | Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
-| Reporter | [Abstract: Color Change Module](./abstract-color-change/spec.md) | - |
+| Reporter | [Color Change](./color-change/spec.md) | - |
 | Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
 | Substrate | [CPRG GUV](./guv-cprg/spec.md) | ★ |
 | Substrate | [CPRG](./substrate-cprg/spec.md) | ★ |
@@ -69,7 +69,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Analyte | [IPTG](./analyte-iptg/spec.md) | ★ |
 | Analyte | [pH](./analyte-ph/spec.md) | ★ |
 | Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
-| Container | [Abstract: Container](./container/spec.md) | - |
+| Container | [Container](./container/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
 | Gel | [PEG-Norbornene](./gel-peg-norbornene/spec.md) | ★ |
@@ -85,17 +85,22 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | --- | --- | --- |
 | Cytosol (Base) | [S30 Lysate](./s30-lysate/spec.md) | ★ |
 | Detector | [AHL](./detector-3oc6-hsl/spec.md) | ★ |
-| Detector | [Abstract: Detector](./abstract-detector/spec.md) | - |
-| Detector | [Abstract: Repressor Detector](./abstract-repressor-detector/spec.md) | - |
+| Detector | [Detector](./detector/spec.md) | - |
+| Detector | [Repressor Detector](./repressor-detector/spec.md) | - |
 | Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
-| Membrane | [Abstract: Membrane](./membrane/spec.md) | - |
+| Membrane | [Membrane](./membrane/spec.md) | - |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [AHL Sensing Cell](./ahl-sensing-cell/spec.md) | ★ |
 | Cytosol (Sensor) | [AHL Sensor Cytosol](./ahl-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
 | Gel | [ULGA](./gel-ulga/spec.md) | ★ |
-| Gel | [Abstract: Gel](./abstract-gel/spec.md) | - |
-| Gel | [Abstract: Photopatterned Gel](./abstract-photopatterned-gel/spec.md) | - |
+| Gel | [Gel](./gel/spec.md) | - |
+| Gel | [Photopatterned Gel](./photopatterned-gel/spec.md) | - |
+| Cytosol | [Cytosol](./cytosol/spec.md) | - |
+| Cytosol (Sensor) | [Sensor Cytosol](./sensor-cytosol/spec.md) | - |
+| Cell | [Cell](./cell/spec.md) | - |
+| Cell (Sensing) | [Sensing Cell](./sensing-cell/spec.md) | - |
+| Cytosol (Sensor) | [Theophylline Sensor Cytosol](./theophylline-sensor-cytosol/spec.md) | - |
 :::
 
 # Contributing a Module

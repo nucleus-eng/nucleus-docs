@@ -1,4 +1,4 @@
-# Composition source for Abstract: Gel.
+# Composition source for Gel.
 #
 # AN ABSTRACT MODULE WITH A REAL COMPOSITION, AND THE THEORY CORPUS WROTE IT FIRST.
 # compositional-biology-theory codimension-is-a-coordinate.md:32 states
@@ -17,8 +17,8 @@
 # steps already name a process with no page, so the gap is recorded rather than
 # invented.
 
-module: abstract-gel
-title: "Abstract: Gel"
+module: gel
+title: "Gel"
 refines: container
 
 inputs:
@@ -37,9 +37,9 @@ process_steps:
     operator: mixing
     operands: [outer-solution, polymer]
     produces:
-      id: abstract-gel
-      title: "Abstract: Gel"
-      page: ../abstract-gel/spec.md
+      id: gel
+      title: "Gel"
+      page: ../gel/spec.md
     notes: >
       `mixing` and not `packing`, because the two end in one compartment with no
       membrane between them. That is codimension-is-a-coordinate.md:32's own reading

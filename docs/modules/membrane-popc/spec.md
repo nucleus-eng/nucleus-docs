@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The London Membrane uses a pure POPC bilayer without cholesterol and is used for every synthetic cell in the London demo. Compare to [Base Membrane](../membrane-popc-chol/spec.md) (70:30 POPC:cholesterol) and [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) (90:10 POPC:cholesterol), which include cholesterol. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
 
 :::{attention} 🚧 Draft

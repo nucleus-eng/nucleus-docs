@@ -1,7 +1,7 @@
-# Composition source for Abstract: Repressor Detector.
+# Composition source for Repressor Detector.
 #
 # TWO CONSTITUENTS WHERE ITS PARENT HAS NONE, and that is where the line falls.
-# ../abstract-detector/spec.md names no composition and has no source, deliberately.
+# ../detector/spec.md names no composition and has no source, deliberately.
 # This class names one, from Jon's specification of 2026-09-21: a repressor element,
 # and a DNA regulatory element that the repressor binds. The analyte relieves the
 # repression.
@@ -14,9 +14,9 @@
 #
 # The process is `page: null`: an abstract assembly process does not exist here.
 
-module: abstract-repressor-detector
-title: "Abstract: Repressor Detector"
-refines: abstract-detector
+module: repressor-detector
+title: "Repressor Detector"
+refines: detector
 
 inputs:
   repressor-element:
@@ -34,9 +34,9 @@ process_steps:
     operator: mixing
     operands: [repressor-element, dna-regulatory-element]
     produces:
-      id: abstract-repressor-detector
-      title: "Abstract: Repressor Detector"
-      page: ../abstract-repressor-detector/spec.md
+      id: repressor-detector
+      title: "Repressor Detector"
+      page: ../repressor-detector/spec.md
     notes: >
       Both built members are two separate constructs in one reaction:
       `pT7-tetR` with `pT7-tetO-plamGFP`, and `pT7-lacI` with `pT7-lacO-plamGFP`.

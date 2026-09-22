@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Container"
+title: "Container"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -9,7 +9,11 @@ site:
 
 # Overview
 
-An abstract Module: the class of things that hold other things. It is the parent of the Membranes and of the [abstract gel](../abstract-gel/spec.md), and it is the most general class this corpus names.
+<!-- gen:position -->
+**Position.** Refines nothing declared. Refined by [`gel`](../gel/spec.md), [`membrane`](../membrane/spec.md).
+<!-- /gen:position -->
+
+An abstract Module: the class of things that hold other things. It is the parent of the Membranes and of the [abstract gel](../gel/spec.md), and it is the most general class this corpus names.
 
 **The invariant is `hold`.** A Container keeps what is inside it in a defined relation to what is outside, and to the other things inside. Nothing in the class fixes what the boundary is made of, whether it is a surface or a network, or whether the inside is a volume or a position.
 
@@ -29,7 +33,7 @@ This page is a work in progress and not yet ready for use.
 | Child | How it holds | Members in this corpus |
 | --- | --- | --- |
 | Membrane | a closed lipid bilayer, so the inside is a volume | [London POPC](../membrane-popc/spec.md), [Base POPC/Chol](../membrane-popc-chol/spec.md), [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
-| [Abstract gel](../abstract-gel/spec.md) | a polymer network, so the inside is a position rather than a volume | four, listed on that page |
+| [Abstract gel](../gel/spec.md) | a polymer network, so the inside is a position rather than a volume | four, listed on that page |
 | Substrate | **named in the theory corpus, not mapped here** | see below |
 :::
 
@@ -53,7 +57,10 @@ An abstract Module carries an abstract Context that its members refine, ruled 20
 
 # Processes
 
-None. An abstract Module names a class; the processes belong to its members.
+**None, and here the source agrees.** `spec.yml` declares no `process_steps`.
+
+**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
+
 
 # Credits
 

@@ -18,7 +18,7 @@
 
 module: detector-theophylline
 title: "Theophylline Detector"
-refines: abstract-detector
+refines: detector
 
 inputs:
   base-cytosol:

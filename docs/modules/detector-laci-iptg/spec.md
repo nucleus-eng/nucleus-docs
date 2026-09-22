@@ -8,6 +8,10 @@ site:
 ---
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`repressor-detector`](../repressor-detector/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The LacI-IPTG Detector Module is a set of two genetic constructs that encode IPTG-inducible gene expression. `pT7-lacI` encodes the lac operon repressor protein LacI. `pT7-lacO-plamGFP` is a GFP reporter construct under a T7 promoter controlled by a lacO operator site. In the absence of LacI, `pT7-lacO-plamGFP` expresses plamGFP. Adding LacI — either as a purified protein or by expressing it off of `pT7-lacI` — binds the lacO operator site and represses transcription by sterically occluding the promoter from its polymerase. Isopropyl β-d-1-thiogalactopyranoside (IPTG) recovers expression by allosterically binding LacI and causing it to release lacO. The `pT7-lacO` promoter is also a MoClo Level 0 'P' part and may be assembled into a Level 1 transcription unit with other MoClo-compatible genes.
 
 :::{figure} mechanism-schematic.png

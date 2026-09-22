@@ -1,4 +1,4 @@
-# Composition source for Abstract: Container.
+# Composition source for Container.
 #
 # AN ABSTRACT MODULE, AND AN EMPTY ONE BY CLAIM. Its invariant is a single operation,
 # `hold`, and an operation is not a composition. compositional-biology-theory
@@ -11,7 +11,7 @@
 # constituency is containment, #T34. A class having members does not give it parts.
 
 module: container
-title: "Abstract: Container"
+title: "Container"
 
 inputs: {}
 
@@ -21,7 +21,7 @@ open:
   - id: only-one-member-points-here
     question: >
       `refines:` landed 2026-09-21 and ten sources now take a value. Only
-      ../abstract-gel/spec.yml names this module. The theory corpus puts `Membrane`
+      ../gel/spec.yml names this module. The theory corpus puts `Membrane`
       and `Substrate` between their members and `Container`, and neither has a page
       here, so three membranes and four substrates point at nothing. A `Membrane`
       page would close the larger half.

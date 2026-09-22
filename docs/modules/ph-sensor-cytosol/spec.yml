@@ -13,6 +13,7 @@
 
 module: ph-sensor-cytosol
 title: pH Sensor Cytosol
+refines: sensor-cytosol
 
 inputs:
   base-cytosol:

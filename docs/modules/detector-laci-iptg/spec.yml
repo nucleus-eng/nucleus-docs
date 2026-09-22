@@ -22,7 +22,7 @@
 
 module: detector-laci-iptg
 title: "LacI/IPTG Detector"
-refines: abstract-repressor-detector
+refines: repressor-detector
 
 inputs:
   purexpress-solution-a:

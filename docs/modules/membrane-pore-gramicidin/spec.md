@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`pore`](../pore/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 Gramicidin A is a linear pentadecapeptide from *Bacillus brevis* that dimerizes across a lipid bilayer to form a narrow channel conducting monovalent cations and protons. In this documentation it is used for one job: letting H⁺ cross the membrane of a synthetic cell so that an encapsulated [pH-Sensing Module](../detector-ph/spec.md) can see the pH of the outer solution.
 
 **It selects on charge and identity, not on size.** This makes it the odd member of the pore family. [α-Hemolysin](../membrane-pore-ahly/spec.md) and [Cx43](../membrane-pore-cx43/spec.md) are geometric apertures, and what they pass is governed by a mass figure — roughly 3 kDa and 1 kDa. Gramicidin passes a proton at 1 Da and excludes uncharged solutes many times larger. A mass cutoff cannot describe it, which is why selectivity rather than size is the property a pore Module states.

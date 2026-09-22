@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Photopatterned Gel"
+title: "Photopatterned Gel"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -9,7 +9,11 @@ site:
 
 # Overview
 
-An abstract Module: the class of gels whose shape is set by projected light. It refines [abstract gel](../abstract-gel/spec.md), which refines [Container](../container/spec.md).
+<!-- gen:position -->
+**Position.** Refines [`gel`](../gel/spec.md). Refined by [`gel-peg-norbornene`](../gel-peg-norbornene/spec.md), [`gel-pegda`](../gel-pegda/spec.md).
+<!-- /gen:position -->
+
+An abstract Module: the class of gels whose shape is set by projected light. It refines [abstract gel](../gel/spec.md), which refines [Container](../container/spec.md).
 
 **The invariant is that geometry comes from an image rather than from a container.** A thermally or ionically set gel takes the shape of whatever it is poured into. A photopatterned gel sets only where the light falls, so its shape is chosen at the moment of casting and can be different in two places in the same well.
 
@@ -25,7 +29,7 @@ This page is a work in progress and not yet ready for use.
 
 **Members are a different relation from constituents.** In `compositional-biology-theory`, `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership a matter of what a sort classifies. **A class having members does not give it parts.** It does not give it none either: whether an abstract Module has constituents depends on whether its own class invariant names a composition, and that is decided per class rather than for abstract Modules in general.
 
-**This class has constituents, inherited and extended.** It refines [abstract gel](../abstract-gel/spec.md), whose composition the theory corpus gives as `Gel = OuterSolution ⊞ polymer`. **Photopatterning adds a third factor**: a photoinitiator, which both members carry and which neither parent class requires. So the composition here is a proper extension of the parent's, and that is what makes this a class rather than a label on two members.
+**This class has constituents, inherited and extended.** It refines [abstract gel](../gel/spec.md), whose composition the theory corpus gives as `Gel = OuterSolution ⊞ polymer`. **Photopatterning adds a third factor**: a photoinitiator, which both members carry and which neither parent class requires. So the composition here is a proper extension of the parent's, and that is what makes this a class rather than a label on two members.
 
 :::{table} The two members, by crosslinking chemistry.
 | Member | Chemistry | Network |
@@ -52,7 +56,12 @@ An abstract Module carries an abstract Context that its members refine, ruled 20
 
 # Processes
 
-None at this level. Photopatterning belongs to the members.
+**One, and it has no page.** `spec.yml` declares `photopattern-the-gel`: *"Photopattern the gel"*, `mixing` over `outer-solution`, `polymer`, `photoinitiator`.
+
+**The process is as abstract as its operands**, and no page in this corpus describes it, which is why the source carries `page: null`.
+
+**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
+
 
 # Credits
 

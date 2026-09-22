@@ -1,0 +1,48 @@
+# Composition source for Cytosol.
+#
+# WRITTEN 2026-09-21. A class, and a root here. Two members, base-cytosol and s30-lysate.
+#
+# WHY THE CLASS HAS TO EXIST. The three demo integration paths build their sensor cytosols on TWO
+# different bases: the AHL integration path on s30-lysate, the aTc and pH integration paths on base-cytosol. So a
+# meet over the three integration paths reaches a slot with two occupants and nothing naming what they
+# have in common. That is the whole argument for this page.
+#
+# NO SHARED COMPOSITION, AND THAT IS THE FINDING. base-cytosol mixes smix, trna, pmix,
+# ribosomes and rnase-inhibitor. s30-lysate mixes s30-premix, s30-extract, amino-acid-mix
+# and rnase-inhibitor. Both operators are mixing, two of two. The only shared operand is
+# rnase-inhibitor, which is a protectant rather than expression machinery. The class names
+# what its members are FOR rather than what they are made of, so the one input here sits
+# above both ingredient lists.
+
+module: cytosol
+title: "Cytosol"
+
+inputs:
+  expression-machinery:
+    title: "Expression machinery"
+    page: null            # a defined mix in one member, a cell extract in the other
+
+process_steps:
+  - id: assemble-the-cytosol
+    process:
+      title: "Combine the expression machinery in one compartment"
+      page: null
+    operator: mixing
+    operands: [expression-machinery]
+    produces:
+      id: cytosol
+      title: "Cytosol"
+      page: ../cytosol/spec.md
+    notes: >
+      One compartment. Both members mix, two of two, and a cell-free reaction that kept
+      its machinery in separate compartments would not run.
+
+open:
+  - id: both-members-also-take-rnase-inhibitor-and-this-class-does-not-name-it
+    question: >
+      MEASURED 2026-09-21, two of two. base-cytosol and s30-lysate both take
+      rnase-inhibitor as an operand of their final step. It is the only constituent they
+      share. This source does not name it, on the reading that it protects the reaction
+      rather than performing it, so it belongs to the members rather than to what the
+      class is for. That reading is a judgement and it is recorded here rather than
+      asserted on the page. If a third member lands without it, this item is answered.

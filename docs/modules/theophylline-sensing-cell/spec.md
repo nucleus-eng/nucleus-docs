@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
 
 :::{attention} Canceled — not part of the DevCells demo
@@ -53,6 +57,7 @@ flowchart TD
     click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
+    click THEOPHYLLINE_SENSOR_CYTOSOL "/docs/modules/theophylline-sensor-cytosol/spec"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click THEOPHYLLINE_SENSING_CELL "/docs/modules/theophylline-sensing-cell/spec"
 ```
@@ -179,12 +184,10 @@ Not used in a documented Implementation. The [Chicago DevCell](../../implementat
 
 # Constituent Modules
 
-- [Theophylline Sensing Module](../detector-theophylline/spec.md) — theophylline riboswitch, in [Base Cytosol](../base-cytosol/spec.md)
+- [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) mixed with the [Theophylline Sensing Module](../detector-theophylline/spec.md)
 - [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
-:::{attention} Cytosol intermediate not yet specified
-The cytosolic components are composed before encapsulation, not added to a closed chassis. The intermediate that names that composition does not yet have a page. @Editor: link it here when it lands.
-:::
+**The cytosol is composed before encapsulation, not added to a closed chassis.** The intermediate that names that composition got its page on 2026-09-21, and this section links it above. An editorial hook asking for that link once stood here and is resolved.
 
 # Credits
 

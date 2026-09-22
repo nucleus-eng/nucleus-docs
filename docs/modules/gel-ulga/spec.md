@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`gel`](../gel/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 ULGA Gel is an ultra-low-gelling-temperature agarose hydrogel, dissolved directly into the outer solution it will become and set by cooling. It is the matrix the London demo runs in. Compare to [Alginate Gel](../gel-alginate/spec.md), which reaches an equivalent result by ionic crosslinking instead of a thermal set, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.
 
 The property that makes ULGA usable with synthetic cells is its gel point. It sets at (8–17)°C, far below standard agarose, so the window between "still liquid enough to mix" and "cold enough to damage the contents" is wide.
@@ -97,7 +101,7 @@ A separate configuration replaces those three with 1200 mM glucose and 0.1 mM Ca
 :::{attention} The upper bound is not a working temperature, and this window is not the one a payload needs
 **8 °C and 50 °C are different quantities**, a gelling point and a melting point. Supplied by Jon, 2026-09-21, from the supplier's materials specification page. **That is a catalog figure for a nominal product and not a measurement of either Node's stock**, and the measured gelling point of the agarose actually in use is still an open ask. @Editor(london): what temperature does your A5030 set at?
 
-**50 °C is not a temperature at which the payload can be mixed in.** The window is still correct on this page because the gel is not what forbids it. **The payload is**, and that is a Requirement the payload imposes on its Container rather than a property of this polymer. See [Abstract: Gel](../abstract-gel/spec.md), which carries the same window for the class.
+**50 °C is not a temperature at which the payload can be mixed in.** The window is still correct on this page because the gel is not what forbids it. **The payload is**, and that is a Requirement the payload imposes on its Container rather than a property of this polymer. See [Gel](../gel/spec.md), which carries the same window for the class.
 
 **So do not narrow this field to record a payload's limit.** A tighter band belongs on the page of the thing being held, pointing here.
 :::

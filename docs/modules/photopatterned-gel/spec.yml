@@ -1,4 +1,4 @@
-# Composition source for Abstract: Photopatterned Gel.
+# Composition source for Photopatterned Gel.
 #
 # INHERITS ABSTRACT GEL'S COMPOSITION AND ADDS ONE FACTOR. The parent is
 # `OuterSolution ⊞ polymer`, from compositional-biology-theory
@@ -9,9 +9,9 @@
 # The process is `page: null` for the same reason as the parent's: an abstract
 # patterning process does not exist here.
 
-module: abstract-photopatterned-gel
-title: "Abstract: Photopatterned Gel"
-refines: abstract-gel
+module: photopatterned-gel
+title: "Photopatterned Gel"
+refines: gel
 
 inputs:
   outer-solution:
@@ -32,9 +32,9 @@ process_steps:
     operator: mixing
     operands: [outer-solution, polymer, photoinitiator]
     produces:
-      id: abstract-photopatterned-gel
-      title: "Abstract: Photopatterned Gel"
-      page: ../abstract-photopatterned-gel/spec.md
+      id: photopatterned-gel
+      title: "Photopatterned Gel"
+      page: ../photopatterned-gel/spec.md
     notes: >
       One `mixing` label over three operands is safe here: all three end in one
       compartment and none carries a boundary, so every pair mixes and no

@@ -1,5 +1,6 @@
 module: s30-lysate
 title: "S30 Lysate"
+refines: cytosol
 
 inputs:
   s30-premix:

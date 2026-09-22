@@ -16,7 +16,7 @@
 
 module: gel-alginate
 title: "Gel: Alginate"
-refines: abstract-gel
+refines: gel
 
 inputs:
   sodium-alginate:

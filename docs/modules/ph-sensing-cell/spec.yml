@@ -13,6 +13,7 @@
 
 module: ph-sensing-cell
 title: pH Sensing Cell
+refines: sensing-cell
 
 inputs:
   base-cytosol:

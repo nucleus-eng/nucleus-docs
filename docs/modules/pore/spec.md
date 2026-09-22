@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Pore"
+title: "Pore"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -8,6 +8,10 @@ site:
 ---
 
 # Overview
+
+<!-- gen:position -->
+**Position.** Refines nothing declared. Refined by [`membrane-pore-ahly`](../membrane-pore-ahly/spec.md), [`membrane-pore-cx43`](../membrane-pore-cx43/spec.md), [`membrane-pore-gramicidin`](../membrane-pore-gramicidin/spec.md).
+<!-- /gen:position -->
 
 An abstract Module: the class of pores, of which the three paged pores are members.
 
@@ -18,7 +22,7 @@ An abstract Module: the class of pores, of which the three paged pores are membe
 **What varies is what gets through**, and the three members do not agree on how to say it.
 
 :::{attention} The `membrane-pore-*` naming invites a wrong reading
-All three members are named `membrane-pore-<something>` and none of them is a Membrane. The name reads as a kind of membrane and means a pore for a membrane. [Abstract: Membrane](../membrane/spec.md) says the same thing from the other side. The pages are not renamed here: the names are load-bearing in links, sources and the DNA repo.
+All three members are named `membrane-pore-<something>` and none of them is a Membrane. The name reads as a kind of membrane and means a pore for a membrane. [Membrane](../membrane/spec.md) says the same thing from the other side. The pages are not renamed here: the names are load-bearing in links, sources and the DNA repo.
 :::
 
 :::{attention} 🚧 Draft
@@ -71,7 +75,14 @@ An abstract Module carries an abstract Context that its members refine, ruled 20
 
 # Processes
 
-None. An abstract Module names a class; the processes belong to its members.
+**None here, and that is this class rather than a rule about classes.** No process in this
+corpus makes a generic pore, so `spec.yml` carries one constituent and no step.
+
+**An earlier version of this line said the processes belong to a class's members, as though a
+class could not run one.** Five of the seven sourced classes do. `membrane` closes a bilayer
+from a `lipid`, and `gel` sets from an `outer-solution` and a `polymer`. Their operands carry
+`page: null`, so a class composes abstract constituents. **Composition is not what separates a
+class from a member.** Position in the refinement order is, which the line below states.
 
 # Credits
 

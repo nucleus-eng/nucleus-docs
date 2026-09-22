@@ -1,0 +1,78 @@
+# Composition source for Detector.
+#
+# WRITTEN 2026-09-21, and it was a deliberate omission that outlived its reason. The page
+# existed with no source pending its constituents question, recorded as a decision rather
+# than a defect. Two things then made the cost visible. The meet renderer cannot read a
+# class it cannot load, and render-position.py could not emit this class's own position
+# line. FOUR Modules declare `refines: detector`, so this is the most-pointed-at class in
+# the corpus and was the only one that could not show where it sits.
+#
+# NO `refines:` KEY. A detector is not a kind of container, membrane or gel. It is a root
+# here, the way pore is.
+#
+# THE INVARIANT IS `mixing`, FOUR OF FOUR. Every direct member's final step mixes, so a
+# detector is one compartment and never two. Measured across repressor-detector,
+# detector-3oc6-hsl, detector-ph and detector-theophylline.
+#
+# THE CONSTITUENTS ARE NAMED AT THE GRAIN THE CLASS SHARES, which is a recognition element
+# and the regulatory element it acts on. Both carry `page: null`, because a class composes
+# abstract constituents and no page in this corpus describes a generic one. That is the
+# shape every sourced class here has: see gel and color-change.
+
+module: detector
+title: "Detector"
+
+inputs:
+  recognition-element:
+    title: "Recognition element"
+    page: null            # a repressor protein, an activator, a toehold, an aptamer
+  regulatory-element:
+    title: "Regulatory element"
+    page: null            # the promoter, operator or RBS the recognition element gates
+
+process_steps:
+  - id: assemble-the-detector
+    process:
+      title: "Assemble the recognition element and the element it gates"
+      page: null
+    operator: mixing
+    operands: [recognition-element, regulatory-element]
+    produces:
+      id: detector
+      title: "Detector"
+      page: ../detector/spec.md
+    notes: >
+      One compartment. The two elements must share a phase for the gate to act, which is
+      what makes this mixing rather than packing in all four members.
+
+open:
+  - id: three-of-four-members-bundle-a-cytosol-and-one-does-not
+    question: >
+      MEASURED 2026-09-21, and it is a grain disagreement rather than an error.
+      detector-3oc6-hsl takes s30-lysate, detector-ph takes base-cytosol and
+      detector-theophylline takes base-cytosol, so three members carry the expression mix
+      inside the detector. repressor-detector does not: it is the protein and its DNA
+      element and nothing else. So the class cannot name a cytosol as a constituent
+      without contradicting one member, and cannot forbid one without contradicting three.
+      This source names neither, which is why its two inputs sit above that split. The
+      question is whether a detector is the sensing pair or the reaction that runs it, and
+      it is not settled by anything in the corpus today.
+  - id: where-the-gate-acts-bisects-this-class-and-the-classes-are-not-written
+    question: >
+      RECORDED RATHER THAN WRITTEN, with an exit condition rather than a hope. The four
+      members split cleanly by where the gate acts. repressor-detector with its two
+      children and detector-3oc6-hsl gate TRANSCRIPTION. detector-ph and
+      detector-theophylline gate TRANSLATION, one through a toehold and one through an
+      aptamer in the 5-prime UTR. Two intermediate classes would name that split.
+      THEY ARE OFF THE CRITICAL PATH, traced both ways. The three demo integration paths use
+      detector-3oc6-hsl, detector-tetr-atc and detector-ph, which span both sides, so
+      their least common ancestor is this root whether or not the two classes exist.
+      WRITE THEM WHEN SOMEONE ASKS FOR A MEET OVER A DOMAIN THAT STAYS ON ONE SIDE. There
+      are exactly two such domains: London plus aTc, and pH plus theophylline. The trigger
+      is the asking, not a ruling about theophylline.
+      ONE ASYMMETRY TO CARRY IN. detector-3oc6-hsl sits on the transcription side and is
+      not a repressor, and its page names an unbuilt repressing counterpart. So the
+      opposite number of a riboregulator class is not repressor-detector. It is an unnamed
+      transcriptional class holding both the repressor class and the activator. Naming
+      only the riboregulator half would put the attested side on the tree and leave the
+      side with a known gap implied.

@@ -12,6 +12,7 @@
 
 module: base-cell
 title: Base Cell
+refines: cell
 
 inputs:
   base-cytosol:

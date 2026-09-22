@@ -16,7 +16,7 @@
 
 module: gel-peg-norbornene
 title: "Gel: PEG-Norbornene"
-refines: abstract-photopatterned-gel
+refines: photopatterned-gel
 
 inputs:
   peg4nb:

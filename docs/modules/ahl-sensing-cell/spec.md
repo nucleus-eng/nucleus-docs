@@ -8,6 +8,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The AHL Sensing Cell combines the [London Chassis](../london-chassis/spec.md) with the [AHL Sensing Module](../detector-3oc6-hsl/spec.md), encapsulating the LuxR/pLux AHL sensor plasmid (`LuxR-deGFP`) inside a POPC synthetic cell filled with S30 Lysate. AHL supplied in the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome. This composed synthetic cell is used in the London quorum-sensing demo.
 
 :::{attention} 🚧 Draft

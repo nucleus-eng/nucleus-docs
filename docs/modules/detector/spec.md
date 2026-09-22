@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Detector"
+title: "Detector"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -8,6 +8,10 @@ site:
 ---
 
 # Overview
+
+<!-- gen:position -->
+**Position.** Refines nothing declared. Refined by [`detector-3oc6-hsl`](../detector-3oc6-hsl/spec.md), [`detector-ph`](../detector-ph/spec.md), [`detector-theophylline`](../detector-theophylline/spec.md), [`repressor-detector`](../repressor-detector/spec.md).
+<!-- /gen:position -->
 
 An abstract Module: the class of Detectors, of which the paged detectors are members. An abstract Module is a Module, and its members refine it.
 
@@ -60,7 +64,7 @@ This page is a work in progress and not yet ready for use.
 
 ## The abstract repressor detector, and it does have a composition
 
-**It has its own page now: [Abstract: Repressor Detector](../abstract-repressor-detector/spec.md).** Jon ruled it a page on 2026-09-21, on the grounds that the aTc detector is a concrete implementation of it. What follows is the summary; the page carries the constituents and the members.
+**It has its own page now: [Repressor Detector](../repressor-detector/spec.md).** Jon ruled it a page on 2026-09-21, on the grounds that the aTc detector is a concrete implementation of it. What follows is the summary; the page carries the constituents and the members.
 
 **Jon's specification, 2026-09-21:** a repressor detector has **a repressor element**, typically a protein but able to be encoded as DNA and expressed in situ, and **a DNA regulatory element that the repressor binds**. The analyte relieves the repression.
 
@@ -126,7 +130,7 @@ An abstract Module carries an abstract Context that its members refine, ruled 20
 
 # Processes
 
-None. An abstract Module names a class; the processes belong to its members.
+**Not stated, because this class has no `spec.yml`.** Four Modules declare `refines: detector` and the source that would say what this class composes does not exist yet. **An earlier version of this line said `None`**, which was a claim nothing backed. **Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
 
 # Credits
 

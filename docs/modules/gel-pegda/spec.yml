@@ -16,7 +16,7 @@
 
 module: gel-pegda
 title: "Gel: PEGDA"
-refines: abstract-photopatterned-gel
+refines: photopatterned-gel
 
 inputs:
   pegda575:

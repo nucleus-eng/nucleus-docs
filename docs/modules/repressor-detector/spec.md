@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Repressor Detector"
+title: "Repressor Detector"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -9,7 +9,11 @@ site:
 
 # Overview
 
-An abstract Module: the class of Detectors in which a repressor holds a gene off until the analyte relieves it. It refines [Abstract: Detector](../abstract-detector/spec.md), and an abstract Module is a Module.
+<!-- gen:position -->
+**Position.** Refines [`detector`](../detector/spec.md). Refined by [`detector-laci-iptg`](../detector-laci-iptg/spec.md), [`detector-tetr-atc`](../detector-tetr-atc/spec.md).
+<!-- /gen:position -->
+
+An abstract Module: the class of Detectors in which a repressor holds a gene off until the analyte relieves it. It refines [Detector](../detector/spec.md), and an abstract Module is a Module.
 
 **The invariant is two elements and a release.** A repressor element binds a DNA regulatory element and holds expression down. The analyte binds the repressor and the repressor lets go. Expression goes up.
 
@@ -23,7 +27,7 @@ This page is a work in progress and not yet ready for use.
 
 **Members are a different relation from constituents.** In `compositional-biology-theory`, `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership a matter of what a sort classifies.
 
-**This class has constituents where its parent has none.** The invariant names a composition: a repressor element together with the DNA regulatory element it binds. Two things, and they are separate molecules. [Abstract: Detector](../abstract-detector/spec.md) names no composition at all, so the line between having parts and not having them falls between that page and this one.
+**This class has constituents where its parent has none.** The invariant names a composition: a repressor element together with the DNA regulatory element it binds. Two things, and they are separate molecules. [Detector](../detector/spec.md) names no composition at all, so the line between having parts and not having them falls between that page and this one.
 
 :::{table} The constituents, abstractly.
 | Constituent | What it is | Supplied as |
@@ -42,7 +46,7 @@ This page is a work in progress and not yet ready for use.
 
 **The aTc detector is the concrete implementation to read first.** Jon, 2026-09-21. It is the member where every part of the invariant is present and built, so it is what this class is abstracted from rather than an example chosen after the fact.
 
-**The third row is a position, not a Module.** It is where this class meets [Abstract: Detector](../abstract-detector/spec.md)'s AHL branch, and nothing occupies it yet. EsaR is a LuxR homolog that represses rather than activates, and it is available as purified protein, which is why the redesign can take the protein route.
+**The third row is a position, not a Module.** It is where this class meets [Detector](../detector/spec.md)'s AHL branch, and nothing occupies it yet. EsaR is a LuxR homolog that represses rather than activates, and it is available as purified protein, which is why the redesign can take the protein route.
 
 # Requirements
 
@@ -76,7 +80,12 @@ An abstract Module carries an abstract Context that its members refine, ruled 20
 
 # Processes
 
-None. An abstract Module names a class; the processes belong to its members.
+**One, and it has no page.** `spec.yml` declares `assemble-the-repressor-pair`: *"Assemble the repressor and its regulatory element"*, `mixing` over `repressor-element`, `dna-regulatory-element`.
+
+**The process is as abstract as its operands**, and no page in this corpus describes it, which is why the source carries `page: null`.
+
+**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
+
 
 # Credits
 

@@ -12,6 +12,7 @@
 
 module: atc-sensor-cytosol
 title: aTc Sensor Cytosol
+refines: sensor-cytosol
 
 inputs:
   base-cytosol:

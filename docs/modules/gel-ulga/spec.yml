@@ -16,7 +16,7 @@
 
 module: gel-ulga
 title: "Gel: ULGA"
-refines: abstract-gel
+refines: gel
 
 inputs:
   ulga-powder:

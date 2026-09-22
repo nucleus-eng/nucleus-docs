@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The aTc Sensor Cytosol is the aqueous phase of the [aTc Sensing Cell](../atc-sensing-cell/spec.md): [Base Cytosol](../base-cytosol/spec.md) carrying the [aTc Sensing Module](../detector-tetr-atc/spec.md), the [PLA1 Lysis Module](../effector-pla1/spec.md) it gates, and the LacZ enzyme that reports the result. It is mixed before encapsulation, not added to a closed compartment.
 
 Compare the [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md), which shares the Base Cytosol background and swaps the detector, and the [AHL Sensor Cytosol](../ahl-sensor-cytosol/spec.md), which is built on S30 Lysate instead.

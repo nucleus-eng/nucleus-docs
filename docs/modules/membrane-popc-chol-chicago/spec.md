@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The Chicago Membrane is a 90:10 POPC:cholesterol phospholipid bilayer used in every liposome in the [Chicago DevCell](../../implementations/chicago-devcell/main.md) demo. Compare to [Base Membrane](../membrane-popc-chol/spec.md) (70:30 POPC:cholesterol) which uses more cholesterol, and [London Membrane](../membrane-popc/spec.md) which uses pure POPC. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
 
 :::{attention} 🚧 Draft

@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`detector`](../detector/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. 
 
 :::{attention} Canceled — not part of the DevCells demo

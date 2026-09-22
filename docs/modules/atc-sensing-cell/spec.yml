@@ -12,6 +12,7 @@
 
 module: atc-sensing-cell
 title: aTc Sensing Cell
+refines: sensing-cell
 
 inputs:
   base-cytosol:

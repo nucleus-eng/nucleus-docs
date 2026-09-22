@@ -12,6 +12,7 @@
 
 module: ahl-sensor-cytosol
 title: AHL Sensor Cytosol
+refines: sensor-cytosol
 
 inputs:
   s30-lysate:

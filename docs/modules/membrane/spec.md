@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Membrane"
+title: "Membrane"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -9,9 +9,13 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`container`](../container/spec.md). Refined by [`membrane-popc`](../membrane-popc/spec.md), [`membrane-popc-chol`](../membrane-popc-chol/spec.md), [`membrane-popc-chol-chicago`](../membrane-popc-chol-chicago/spec.md).
+<!-- /gen:position -->
+
 An abstract Module: the class of lipid bilayers, of which the three paged membranes are members. It refines [Container](../container/spec.md), and an abstract Module is a Module.
 
-**The invariant is a closed lipid bilayer, so what it holds is a volume.** That is what separates it from the [abstract gel](../abstract-gel/spec.md), the other child of Container with members here: a gel fixes a position and leaves what it holds in contact with the outer solution, and a membrane encloses.
+**The invariant is a closed lipid bilayer, so what it holds is a volume.** That is what separates it from the [abstract gel](../gel/spec.md), the other child of Container with members here: a gel fixes a position and leaves what it holds in contact with the outer solution, and a membrane encloses.
 
 **What varies is the lipid composition**, and in this corpus that is the only axis.
 
@@ -34,9 +38,9 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} A Pore is not a member of this class
-[Abstract: Pore](../pore/spec.md) is a **component that composes with a membrane**, not a kind of one. The theory corpus writes the operation as `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶ Membrane[permeable]; passes down ∇` (`signature.md:203`, `main` at `e40f3de`), so a pore and a membrane are two of three operands and the permeable membrane is the product.
+[Pore](../pore/spec.md) is a **component that composes with a membrane**, not a kind of one. The theory corpus writes the operation as `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶ Membrane[permeable]; passes down ∇` (`signature.md:203`, `main` at `e40f3de`), so a pore and a membrane are two of three operands and the permeable membrane is the product.
 
-**The three paged pores are named `membrane-pore-*` and that naming invites the wrong reading.** They refine [Abstract: Pore](../pore/spec.md), which refines nothing here.
+**The three paged pores are named `membrane-pore-*` and that naming invites the wrong reading.** They refine [Pore](../pore/spec.md), which refines nothing here.
 :::
 
 # Requirements
@@ -49,7 +53,12 @@ An abstract Module carries an abstract Context that its members refine, ruled 20
 
 # Processes
 
-None. An abstract Module names a class; the processes belong to its members.
+**One, and it has no page.** `spec.yml` declares `close-the-bilayer`: *"Close the bilayer"*, `mixing` over `lipid`.
+
+**The process is as abstract as its operands**, and no page in this corpus describes it, which is why the source carries `page: null`.
+
+**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
+
 
 # Credits
 

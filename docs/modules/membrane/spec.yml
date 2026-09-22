@@ -1,4 +1,4 @@
-# Composition source for Abstract: Membrane.
+# Composition source for Membrane.
 #
 # ONE CONSTITUENT, AND IT IS THE ONLY ONE THE CLASS NEEDS. A bilayer is lipid in a
 # bilayer arrangement. Every difference between the three members is which lipids, so
@@ -14,7 +14,7 @@
 # The process is `page: null`: an abstract bilayer-forming process does not exist here.
 
 module: membrane
-title: "Abstract: Membrane"
+title: "Membrane"
 refines: container
 
 inputs:
@@ -31,7 +31,7 @@ process_steps:
     operands: [lipid]
     produces:
       id: membrane
-      title: "Abstract: Membrane"
+      title: "Membrane"
       page: ../membrane/spec.md
     notes: >
       A one-operand step, which is unusual here and is the honest shape: the class has
@@ -50,7 +50,7 @@ open:
       What makes this a Membrane rather than a pile of lipid is that the bilayer is
       closed, so the inside is a volume. That is the class invariant and nothing in
       the schema records it. The composition above is true and does not say the one
-      thing the class is for. Same shape as ../abstract-photopatterned-gel/spec.yml's
+      thing the class is for. Same shape as ../photopatterned-gel/spec.yml's
       geometry item.
 
 # WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes

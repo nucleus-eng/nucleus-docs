@@ -19,11 +19,11 @@ project:
         - file: ./start/contribute.md
     - file: ./docs/modules/modules-main.md
       children:
-        - file: ./docs/modules/abstract-color-change/spec.md
+        - file: ./docs/modules/color-change/spec.md
           hidden: true
-        - file: ./docs/modules/abstract-detector/spec.md
+        - file: ./docs/modules/detector/spec.md
           hidden: true
-        - file: ./docs/modules/abstract-repressor-detector/spec.md
+        - file: ./docs/modules/repressor-detector/spec.md
           hidden: true
         - file: ./docs/modules/container/spec.md
           hidden: true
@@ -31,9 +31,19 @@ project:
           hidden: true
         - file: ./docs/modules/pore/spec.md
           hidden: true
-        - file: ./docs/modules/abstract-gel/spec.md
+        - file: ./docs/modules/gel/spec.md
           hidden: true
-        - file: ./docs/modules/abstract-photopatterned-gel/spec.md
+        - file: ./docs/modules/photopatterned-gel/spec.md
+          hidden: true
+        - file: ./docs/modules/cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/sensor-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/cell/spec.md
+          hidden: true
+        - file: ./docs/modules/sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/theophylline-sensor-cytosol/spec.md
           hidden: true
         - file: ./docs/modules/membrane-popc-chol/spec.md
           hidden: true

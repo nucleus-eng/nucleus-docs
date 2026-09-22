@@ -122,9 +122,19 @@ properties:
       listed themselves as their only input, which reads circularly. `analyte-ph`
       listed the solution it is a property OF, which inverts the relation this key
       encodes everywhere else, because pH is a property and there was no substance
-      to name. And an abstract Module has no inputs by construction: its members
-      have inputs and it classifies them, which is `glossary.md#T13` membership
-      against `#T34` constituency.
+      to name. AND A CLASS MAY START FROM NOTHING NAMEABLE, which is the case this
+      key's emptiness now records.
+      AN EARLIER VERSION OF THIS SENTENCE SAID A CLASS HAS NO INPUTS BY
+      CONSTRUCTION. That was false against the corpus it describes and it was
+      false when written. Six of the seven sourced classes name inputs and five
+      run a process step: `gel` composes `outer-solution` with `polymer` by
+      mixing, `color-change` packs `enzyme` with `substrate`, and every one of
+      those operands carries `page: null`. A class composes abstract
+      constituents, so composition is not what separates a class from a member.
+      Position in the refinement order is, and `refines` is where that lives.
+      Corrected 2026-09-21 with the `Abstract:` prefix, whose removal surfaced it.
+      `container` is the only sourced class with an empty `inputs`, and it is one
+      case rather than a construction.
       THE COST, STATED. An empty `inputs` and an unfilled one now look identical.
       The key stays in the top-level `required` list, so it must be present, but
       its emptiness is a claim the schema no longer distinguishes from an

@@ -20,7 +20,7 @@
 
 module: detector-3oc6-hsl
 title: "3OC6-HSL Detector"
-refines: abstract-detector
+refines: detector
 
 inputs:
   s30-lysate:

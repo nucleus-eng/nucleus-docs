@@ -9,6 +9,10 @@ thumbnail: cell-gfp-quench.png
 ---
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`pore`](../pore/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that allows passive transport of small molecules between the cytosol of a synthetic cell and its external environment ([Noireaux and Libchaber, 2004](https://doi.org/10.1073/pnas.0408236101),  [Harjung et al., 2023](https://doi.org/10.1101/2023.10.06.561148)). The pore is assembled from seven monomers (33.2 kDa each, 293 amino acids) with an outer diameter of 10 nm and an inner diameter of (1.6–4.6) nm — sufficient for molecules up to ~3 kDa. The height of the 3 nm hydrophobic patch along the pore matches the thickness of the non-polar layer of a typical phospholipid membrane, making aHly a useful tool for confirming bilayer (as opposed to multilayer) formation in synthetic cells ([Song et al., 1996](https://doi.org/10.1126/science.274.5294.1859)).
 
 aHly is a toxin derived from *Staphylococcus aureus* and requires BSL-2 handling. The [Cx43 Module](../membrane-pore-cx43/spec.md) provides a functionally comparable alternative that does not.

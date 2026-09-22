@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Color Change Module"
+title: "Color Change"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -61,7 +61,12 @@ the enzyme encapsulated, and both satisfy every line above.
 
 # Processes
 
-None. An abstract Module names a class; the processes belong to its members.
+**One, and it has no page.** `spec.yml` declares `separate-enzyme-and-substrate`: *"Hold the enzyme and its substrate apart"*, `packing` over `enzyme`, `substrate`.
+
+**The process is as abstract as its operands**, and no page in this corpus describes it, which is why the source carries `page: null`.
+
+**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
+
 
 # Credits
 

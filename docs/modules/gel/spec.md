@@ -1,5 +1,5 @@
 ---
-title: "Abstract: Gel"
+title: "Gel"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -8,6 +8,10 @@ site:
 ---
 
 # Overview
+
+<!-- gen:position -->
+**Position.** Refines [`container`](../container/spec.md). Refined by [`gel-alginate`](../gel-alginate/spec.md), [`gel-ulga`](../gel-ulga/spec.md), [`photopatterned-gel`](../photopatterned-gel/spec.md).
+<!-- /gen:position -->
 
 An abstract Module: the class of hydrogels, of which the four paged gels are members. It refines [Container](../container/spec.md), and an abstract Module is a Module.
 
@@ -36,7 +40,7 @@ This page is a work in progress and not yet ready for use.
 | Photopatterned | [PEGDA](../gel-pegda/spec.md) | 405 nm light, radical acrylate |
 :::
 
-**The two photopatterned members form a subclass of their own**, because light does something the other two triggers do not: it sets the gel's geometry from a projected image rather than from the shape of its container. See [abstract photopatterned gel](../abstract-photopatterned-gel/spec.md).
+**The two photopatterned members form a subclass of their own**, because light does something the other two triggers do not: it sets the gel's geometry from a projected image rather than from the shape of its container. See [abstract photopatterned gel](../photopatterned-gel/spec.md).
 
 :::{table} The temperature window.
 | Band | Value | Source |
@@ -66,7 +70,12 @@ An abstract Module carries an abstract Context that its members refine, ruled 20
 
 # Processes
 
-None at this level. The embedding processes belong to the members: [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) and [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md).
+**One, and it has no page.** `spec.yml` declares `set-the-gel`: *"Set the gel"*, `mixing` over `outer-solution`, `polymer`.
+
+**The process is as abstract as its operands**, and no page in this corpus describes it, which is why the source carries `page: null`.
+
+**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
+
 
 # Credits
 

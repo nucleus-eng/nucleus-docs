@@ -17,7 +17,7 @@
 
 module: detector-tetr-atc
 title: "tetR-aTc Detector"
-refines: abstract-repressor-detector
+refines: repressor-detector
 
 inputs:
   base-cytosol:

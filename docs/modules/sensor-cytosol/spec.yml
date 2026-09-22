@@ -1,0 +1,52 @@
+# Composition source for Sensor Cytosol.
+#
+# WRITTEN 2026-09-21. Refines cytosol, and the refinement is ONE INPUT: a cytosol with a
+# detector mixed into it.
+#
+# THE INVARIANT IS `mixing`, THREE OF THREE. ahl-sensor-cytosol mixes s30-lysate with
+# detector-3oc6-hsl, atc-sensor-cytosol mixes base-cytosol with detector-tetr-atc, and
+# ph-sensor-cytosol mixes base-cytosol with a ph-trigger-duplex. One compartment in all
+# three, which is what makes the detector able to act on the reaction around it.
+#
+# THE DETECTOR IS NOT ALWAYS A MODULE, AND THE CLASS INVARIANT IS A DETECTOR RATHER THAN A
+# DETECTOR PAGE. ph-sensor-cytosol anneals its own trigger duplex in file instead of
+# taking a detector-ph, because the pH detection is stitched into a PLA1 template. The
+# operand is the sensing element either way.
+
+module: sensor-cytosol
+title: "Sensor Cytosol"
+refines: cytosol
+
+inputs:
+  cytosol:
+    title: "Cytosol"
+    page: ../cytosol/spec.md
+  detector:
+    title: "Detector"
+    page: ../detector/spec.md
+
+process_steps:
+  - id: mix-in-the-detector
+    process:
+      title: "Mix the detector into the cytosol"
+      page: null
+    operator: mixing
+    operands: [cytosol, detector]
+    produces:
+      id: sensor-cytosol
+      title: "Sensor Cytosol"
+      page: ../sensor-cytosol/spec.md
+    notes: >
+      One compartment, three of three. A detector held apart from the reaction it gates
+      could not gate it, so packing is not available to this class.
+
+open:
+  - id: all-three-sourced-members-also-carry-an-effector-and-it-is-the-same-one
+    question: >
+      MEASURED 2026-09-21, three of three. Every sourced member mixes in effector-pla1
+      alongside its detector, and atc-sensor-cytosol adds reporter-lacz-enzyme as well.
+      This source names neither. Three of three is an invariant of the DEMO rather than of
+      the class: all three integration paths drive the same effector because the colorimetric readout
+      is shared, not because a sensor cytosol needs one. A sensing reaction with no
+      effector wired to it is still a sensor cytosol, which is exactly what
+      theophylline-sensor-cytosol is. Recorded rather than promoted to a constituent.
