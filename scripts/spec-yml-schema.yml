@@ -122,9 +122,22 @@ properties:
       listed themselves as their only input, which reads circularly. `analyte-ph`
       listed the solution it is a property OF, which inverts the relation this key
       encodes everywhere else, because pH is a property and there was no substance
-      to name. And an abstract Module has no inputs by construction: its members
-      have inputs and it classifies them, which is `glossary.md#T13` membership
-      against `#T34` constituency.
+      to name. AND A CLASS MAY START FROM NOTHING NAMEABLE, which is the case this
+      key's emptiness now records.
+      AN EARLIER VERSION OF THIS SENTENCE SAID A CLASS HAS NO INPUTS BY
+      CONSTRUCTION. It was false when written and the correction is a claim about
+      the world rather than about a tree: a class composes ABSTRACT CONSTITUENTS,
+      operands that carry `page: null` because no page describes a generic one.
+      So composition is not what separates a class from a member. Position in the
+      refinement order is, and `refines` is where that lives.
+      THE MEASUREMENT IS PINNED RATHER THAN STATED IN THE PRESENT TENSE, under the
+      rule on `refines` above, which this description broke on the day it was
+      written. At `docs/devcells-integration-pages` `1c889d3`, six of seven sourced
+      classes named inputs and five ran a step; `gel` composed `outer-solution`
+      with `polymer` by mixing and `color-change` packed `enzyme` with `substrate`.
+      That count was already stale on its own branch within the day and was never
+      true of `staging/spec-yml-to-main`, which carries no class pages at all.
+      Corrected 2026-09-21 with the `Abstract:` prefix, whose removal surfaced it.
       THE COST, STATED. An empty `inputs` and an unfilled one now look identical.
       The key stays in the top-level `required` list, so it must be present, but
       its emptiness is a claim the schema no longer distinguishes from an
@@ -147,6 +160,20 @@ properties:
           description: >
             Names the purchased item or mixture this is part of, where the component
             has no page of its own. 15 of 196 inputs at `d611bda`.
+          # TWO KINDS OF VALUE ARE LEGAL, ruled by Jon 2026-09-21. A path names a page;
+          # a part number names a product. An earlier reading treated the part number as
+          # a broken path, and it is not.
+          # THE RULE THAT PICKS BETWEEN THEM, in his words: a component gets a page when
+          # it can come from more than one source. "LacZ from MedChem Express vs home made
+          # are both refinements of LacZ enzyme. we have pages for the LacZ enzyme
+          # abstracted, and correctly don't for both of the refinements." So a part number
+          # names a refinement and belongs in the value rather than in a page of its own.
+          # SUPPLY FORM IS A SECOND AND ORTHOGONAL AXIS, and it is a Module rather than an
+          # input key. A protein supplied purified and the same protein expressed from a
+          # template differ in what they REQUIRE, which is what a page states, so the form
+          # gets a page and not a field. It earns one only when the corpus builds both
+          # ways: of eight candidate molecules on 2026-09-21, LacZ is the only one, and its
+          # two pages are reporter-lacz and reporter-lacz-enzyme.
         optional:
           type: boolean
           description: >
