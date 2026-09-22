@@ -8,6 +8,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`cell`](../cell/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The Chicago Chassis is used for the Chicago Node's DevStudio Demo and combines [Base Cytosol](../base-cytosol/spec.md) with the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) (9:1 POPC:cholesterol). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [Theophylline Sensing Module](../detector-theophylline/spec.md) driving the [PLA1 Lysis Module](../effector-pla1/spec.md), giving the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft

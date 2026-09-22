@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`base-cell`](../base-cell/spec.md), [`sensing-cell`](../sensing-cell/spec.md).
+**Position.** Refines nothing declared. Refined by [`base-cell`](../base-cell/spec.md), [`chicago-chassis`](../chicago-chassis/spec.md), [`london-chassis`](../london-chassis/spec.md), [`sensing-cell`](../sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cytosol](../cytosol/spec.md) closed inside a [Membrane](../membrane/spec.md).

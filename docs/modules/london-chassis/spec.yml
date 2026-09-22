@@ -12,6 +12,15 @@
 
 module: london-chassis
 title: London Chassis
+refines: cell
+# A CHASSIS IS A CELL, ruled by Jon 2026-09-21: "Chassis == Cell btw". Not a judgement
+# call: this Module's final step is `encapsulate`, `packing`, over exactly two operands,
+# a cytosol and a membrane, which is ../cell/spec.yml's invariant with no exception.
+# base-cell, chicago-chassis and london-chassis are the same step over the same sorts.
+#
+# IT SITS UNDER Cell RATHER THAN UNDER Sensing Cell BECAUSE ITS CYTOSOL CARRIES NO
+# DETECTOR. That is what makes the Sensing Cell refinement a narrowing of one slot, and
+# there are three such controls rather than one.
 
 inputs:
   s30-lysate:

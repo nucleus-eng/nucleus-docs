@@ -7,6 +7,10 @@ site:
 ---
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`cell`](../cell/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The London Chassis is used for the London Node's DevStudio Demo and combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [AHL Sensing Module](../detector-3oc6-hsl/spec.md), giving the [AHL Sensing Cell](../ahl-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft
