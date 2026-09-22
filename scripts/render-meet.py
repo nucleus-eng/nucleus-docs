@@ -367,8 +367,15 @@ if __name__ == "__main__":
         # painting it concrete reports agreement among legs that never met. That is
         # the same error as the three cascade roots, one category down.
         if len(slots[k]) < len(legs):
+            # A PARTIAL SLOT CAN STILL BE A MEET. The legs that DO fill it may put
+            # different modules in it, and naming the class they meet at is the whole
+            # payoff of having written one. Without this the label listed two members
+            # and hid the fact that they now have a parent.
             got = len(slots[k])
-            L.append(f'    {nid}["{", ".join(members)}<br/>'
+            head = ", ".join(members)
+            if len(members) > 1 and (mt := meet(members, par)):
+                head = f'{(S.get(mt) or {}).get("title", mt)}<br/>({head})'
+            L.append(f'    {nid}["{head}<br/>'
                      f'only {got} of {len(legs)} legs have this slot"]')
             partial.append(nid); tally["partial"] += 1
         elif len(members) == 1:
