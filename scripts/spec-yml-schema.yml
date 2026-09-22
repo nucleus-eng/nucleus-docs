@@ -173,7 +173,11 @@ properties:
           # template differ in what they REQUIRE, which is what a page states, so the form
           # gets a page and not a field. It earns one only when the corpus builds both
           # ways: of eight candidate molecules on 2026-09-21, LacZ is the only one, and its
-          # two pages are reporter-lacz and reporter-lacz-enzyme.
+          # two forms are lacz-dna and reporter-lacz-enzyme, both members of the lacz class.
+          # AN OPERAND NAMING A CLASS TAKES EITHER FORM AND NEEDS NO NEW SYNTAX. That is how
+          # reporter-lacz asks for LacZ without choosing a form, the same way cell asks for
+          # cytosol. An earlier revision of this comment named reporter-lacz as one of the
+          # two forms; it is the reporter Module, not a supply form.
         optional:
           type: boolean
           description: >
