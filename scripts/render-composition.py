@@ -222,7 +222,7 @@ def page_block(mermaid: str) -> str:
             f"```mermaid\n{mermaid}\n```\n\n::::\n{END}")
 
 
-def embed(spec: Path, mermaid: str) -> bool | None:
+def embed(spec: Path, mermaid: str, write: bool = True) -> bool | None:
     """Rewrite the marked block. None if the page carries no markers.
 
     A page with a composition source but no markers is a real finding, not a
@@ -235,7 +235,8 @@ def embed(spec: Path, mermaid: str) -> bool | None:
     new = t[:i] + page_block(mermaid) + t[j:]
     if new == t:
         return False
-    spec.write_text(new)
+    if write:
+        spec.write_text(new)
     return True
 
 
@@ -252,11 +253,18 @@ if __name__ == "__main__":
     doc = expand(yaml.safe_load(src.read_text()), depth, src.parent,
                  only or None)
     mermaid = render(doc)
-    if "--embed" in sys.argv:
+    # --check IS --embed WITHOUT THE WRITE, AND IT EXISTS BECAUSE A CHECK THAT
+    # CANNOT SEE THE BIGGEST GENERATOR IS WORSE THAN NO CHECK. Same comparison,
+    # same tri-state, no file touched, exit 1 when the page is behind its source.
+    check = "--check" in sys.argv
+    if "--embed" in sys.argv or check:
         spec = src.parent / "spec.md"
-        r = embed(spec, mermaid)
+        r = embed(spec, mermaid, write=not check)
         verdict = {None: "NO MARKERS — nowhere to put it",
-                   True: "updated", False: "unchanged"}[r]
+                   True: "STALE" if check else "updated",
+                   False: "unchanged"}[r]
         print(f"{verdict}: {spec}")
+        if check and r:
+            sys.exit(1)
     else:
         print(mermaid)

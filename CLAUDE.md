@@ -196,6 +196,23 @@ python3 scripts/render-composition.py docs/modules/<module>/spec.yml --embed    
 python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  # expand the leaves too
 ```
 
+### Regenerating everything
+
+`python3 scripts/render-all.py` runs all four generators and reports what changed. Add `--check` to change nothing and exit 1 when an artifact is behind its source.
+
+| Generator | Writes | Where |
+| --- | --- | --- |
+| `render-composition.py` | `gen:composition-diagram` markers | one module page each |
+| `render-position.py` | `gen:position` markers | one module page each |
+| `render-meet.py` | the cross-demo meets | `tmp/generated/` |
+| `render-posets.py` | the poset draft | `tmp/generated/` |
+
+**The last two write to `tmp/` because their subject is not one module.** A meet spans several integration paths and the poset draft spans the corpus, so neither has a page to sit on. The cross-demo meet's outcome slot reports NO COMMON ANCESTOR over aTc Cascade, London Cascade and pH Cascade: the class that would hold them is deliberately unwritten, and giving the figure a home would settle that by making a generator convenient.
+
+**A meet over one integration path is the composition diagram restated.** Three of the four cascades have exactly one integration path, so only `chicago-cascade` is worth rendering alone. The set `render-all.py` renders is Chicago plus London, which is three integration paths and every detector in the corpus.
+
+**Run `render-all.py` after any `spec.yml` change.** A source change that leaves the rendered diagram behind is drift one level down.
+
 **Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page is *not* the test: `aTc Sensor Cytosol` has a page and is still expanded on the cascade that builds it. Deeper renders are for review material, never for a docs page. A module whose composition is a single box gets no diagram at all.
 
 **The composition steps are `process_steps:`** (Jon, 2026-09-15). Each entry applies one Process

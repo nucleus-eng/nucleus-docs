@@ -122,7 +122,7 @@ def line(slug: str, parent: dict, children: dict) -> str:
     return f"**Position.** {up} {down}"
 
 
-def embed(slug: str, text: str) -> bool | None:
+def embed(slug: str, text: str, write: bool = True) -> bool | None:
     """Rewrite the marked block. None if the page carries no markers, which is a
     finding rather than a crash: nobody decided where the line goes."""
     page = ROOT / slug / "spec.md"
@@ -135,7 +135,8 @@ def embed(slug: str, text: str) -> bool | None:
     new = t[:i] + f"{BEGIN}\n{text}\n{END}" + t[j:]
     if new == t:
         return False
-    page.write_text(new)
+    if write:
+        page.write_text(new)
     return True
 
 
@@ -145,14 +146,20 @@ if __name__ == "__main__":
     slugs = ([Path(a.rstrip("/")).name for a in args] if args
              else sorted(d.name for d in ROOT.iterdir()
                          if (d / "spec.yml").is_file()))
-    if "--embed" in sys.argv:
+    # --check IS --embed WITHOUT THE WRITE. See the note in render-composition.py.
+    check = "--check" in sys.argv
+    if "--embed" in sys.argv or check:
         counts: collections.Counter = collections.Counter()
         for s in slugs:
-            counts[{None: "no markers", True: "updated",
-                    False: "unchanged"}[embed(s, line(s, parent, children))]] += 1
+            counts[{None: "no markers",
+                    True: "STALE" if check else "updated",
+                    False: "unchanged"}[
+                        embed(s, line(s, parent, children), write=not check)]] += 1
         for k, v in sorted(counts.items()):
             print(f"{v:4}  {k}")
+        stale = check and counts["STALE"]
     else:
+        stale = 0
         for s in slugs:
             print(f"{s}\n  {line(s, parent, children)}")
     # THE DENOMINATOR, EVERY RUN. A module with no position is not a leaf and is
@@ -166,3 +173,5 @@ if __name__ == "__main__":
     solo = one_member_classes(children)
     print(f"{len(solo)} of {len(children)} classes have exactly one member: "
           f"{', '.join(solo) or 'none'}", file=sys.stderr)
+    if stale:
+        sys.exit(1)

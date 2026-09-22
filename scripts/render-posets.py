@@ -178,10 +178,17 @@ if __name__ == "__main__":
     print(f"  nodes         : {len(nodes3)}")
     print(f"  edges         : {sum(len(v) for v in p3.values())}")
     print(f"  widest        : " + ", ".join(
-        f"{k} ({len(v)})" for k, v in sorted(p3.items(), key=lambda x: -len(x[1]))[:3]))
+        f"{k} ({len(v)})" for k, v in sorted(p3.items(), key=lambda x: (-len(x[1]), x[0]))[:3]))
+    # TIES BREAK BY NAME, NOT BY HASH ORDER. `p3`'s values are sets, so the
+    # flattened stream arrives in hash order and `most_common` keeps ties in the
+    # order it met them. substrate-cprg and membrane-popc-chol-chicago are each
+    # consumed 8 times, so this line printed two different third places across
+    # runs. Measured 2026-09-21: 12 runs, 2 distinct outputs, this line the only
+    # difference. Found by render-all.py diffing its own output, not by reading.
     print(f"  most consumed : " + ", ".join(
-        f"{k} ({v})" for k, v in collections.Counter(
-            x for v in p3.values() for x in v).most_common(3)))
+        f"{k} ({v})" for k, v in sorted(collections.Counter(
+            x for v in p3.values() for x in v).items(),
+            key=lambda kv: (-kv[1], kv[0]))[:3]))
 
     # --- P4. Ingredient containment, from `component_of`.
     p4 = {}
