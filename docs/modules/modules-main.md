@@ -103,6 +103,9 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cytosol (Sensor) | [Theophylline Sensor Cytosol](./theophylline-sensor-cytosol/spec.md) | - |
 | Reporter | [Reporter](./reporter/spec.md) | - |
 | Substrate | [Substrate Carrier](./substrate-carrier/spec.md) | - |
+| Outer Solution | [Outer Solution](./outer-solution/spec.md) | - |
+| Outer Solution | [London Outer Solution](./outer-solution-london/spec.md) | ★ |
+| Outer Solution | [Chicago Outer Solution](./outer-solution-chicago/spec.md) | ★ |
 :::
 
 # Contributing a Module

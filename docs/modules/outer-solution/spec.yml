@@ -1,0 +1,54 @@
+# Composition source for Outer Solution.
+#
+# WRITTEN 2026-09-21 on Jon's ruling, after the meet drew two nodes with the SAME LABEL.
+# Both demos suspend their cells in an outer solution, both call it Outer Solution, and
+# the two are different formulations with no class between them, so a figure showed two
+# identical-looking boxes that a reader could not tell apart.
+#
+# THE INVARIANT IS AN OSMOLARITY, NOT AN INGREDIENT LIST, and that is why this class has
+# one abstract input rather than three. The two members share no solute: London mixes
+# potassium glutamate, HEPES and glucose; Chicago mixes a Tris-HEPES stock with an
+# energy solution. What both declare, and the only parameter on all four steps that
+# produce one, is `osmolarity`. It is a RELATION rather than a property of any
+# component: it has to match across the membrane of whatever is suspended in it.
+#
+# `mixing`, FOUR OF FOUR. Every step producing an outer solution mixes, and a suspension
+# whose solutes sat in separate compartments would not be one.
+#
+# NO `refines:` KEY. An outer solution is not a container, a gel or a membrane. It is
+# the phase those things sit in, and nothing in this corpus names that sort.
+
+module: outer-solution
+title: "Outer Solution"
+
+inputs:
+  solutes:
+    title: "Solutes"
+    page: null            # a salt, a buffer and a sugar in one member; a buffer stock
+                          # and an energy solution in the other
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-aqueous-solution
+    operator: mixing
+    operands: [solutes]
+    produces:
+      id: outer-solution
+      title: "Outer Solution"
+      page: ../outer-solution/spec.md
+    notes: >
+      One compartment. The class states the step and not the formulation, because the
+      two members share no solute and agree only on what the result must do.
+
+open:
+  - id: the-osmolarity-is-the-class-and-the-two-members-disagree-on-its-value
+    question: >
+      MEASURED 2026-09-21. London runs at about 920 mOsm and Chicago at about 1180.
+      Both are correct: each matches the inner solution of the cells IT suspends, so the
+      figure is a relation to a different thing in each case rather than a constant this
+      class could state. A class that fixed the number would be wrong for one member,
+      and a class that omits it says nothing about the one property both share. This
+      file names the relation in prose and declares no value.

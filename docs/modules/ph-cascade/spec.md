@@ -46,7 +46,7 @@ flowchart TD
     ENERGY_SOLUTION["Energy solution"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    CHICAGO_OUTER_SOLUTION["Outer Solution"]
+    OUTER_SOLUTION_CHICAGO["Chicago Outer Solution"]
     P2_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P3_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
@@ -60,7 +60,7 @@ flowchart TD
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
     ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
-    P1_ASSEMBLE_OUTER_SOLUTION_0 --> CHICAGO_OUTER_SOLUTION
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_CHICAGO
 
     PH_RESPONSIVE_SSDNA --> P2_ANNEAL_TRIGGER_DUPLEX_0
     TRIGGER_SSDNA --> P2_ANNEAL_TRIGGER_DUPLEX_0
@@ -80,7 +80,7 @@ flowchart TD
     P5_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
 
     ULGA_POWDER --> P6_EMBED_AGAROSE_0
-    CHICAGO_OUTER_SOLUTION --> P6_EMBED_AGAROSE_0
+    OUTER_SOLUTION_CHICAGO --> P6_EMBED_AGAROSE_0
     PH_SENSING_CELL --> P6_EMBED_AGAROSE_0
     SUBSTRATE_CPRG_SUV --> P6_EMBED_AGAROSE_0
     REPORTER_LACZ_ENZYME --> P6_EMBED_AGAROSE_0
@@ -91,7 +91,7 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
-    class CHICAGO_OUTER_SOLUTION,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
+    class OUTER_SOLUTION_CHICAGO,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_AGAROSE_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
@@ -101,6 +101,7 @@ flowchart TD
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click ULGA_POWDER "/docs/modules/gel-ulga/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
+    click OUTER_SOLUTION_CHICAGO "/docs/modules/outer-solution-chicago/spec"
     click P2_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click P3_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
@@ -247,6 +248,7 @@ No process page documents assembling this three-part cascade end to end.
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
 - [Agarose, 0.7%](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Identified 2026-09-21**: it is ULGA, confirmed with the Chicago devs, so it resolves to [Gel: ULGA](../gel-ulga/spec.md) and the path reuses [ULGA Embedding](../../processes/embed-ulga-hydrogel/main.md) at a different concentration. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now
+- [Chicago Outer Solution](../outer-solution-chicago/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.

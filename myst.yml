@@ -39,6 +39,12 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-carrier/spec.md
           hidden: true
+        - file: ./docs/modules/outer-solution/spec.md
+          hidden: true
+        - file: ./docs/modules/outer-solution-london/spec.md
+          hidden: true
+        - file: ./docs/modules/outer-solution-chicago/spec.md
+          hidden: true
         - file: ./docs/modules/cytosol/spec.md
           hidden: true
         - file: ./docs/modules/sensor-cytosol/spec.md

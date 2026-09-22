@@ -112,9 +112,9 @@ process_steps:
     operator: mixing
     operands: [potassium-glutamate, hepes, glucose]
     produces:
-      id: outer-solution
-      title: "Outer Solution"
-      page: null
+      id: outer-solution-london
+      title: "London Outer Solution"
+      page: ../outer-solution-london/spec.md
     parameters:
       osmolarity: "~920 mOsm"     # measured or calculated is not recorded in any source
     notes: >
@@ -129,11 +129,11 @@ process_steps:
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: packing
     operator_pairs:
-      - operands: [ulga-powder, outer-solution]
+      - operands: [ulga-powder, outer-solution-london]
         operator: mixing
       - operands: [ulga-powder, reporter-lacz-enzyme]
         operator: mixing
-      - operands: [outer-solution, reporter-lacz-enzyme]
+      - operands: [outer-solution-london-london, reporter-lacz-enzyme]
         operator: mixing
         note: >
           Both share the outer phase and neither carries a boundary, so this
@@ -141,7 +141,7 @@ process_steps:
           that involve a membrane-bounded operand and wrong for these three.
     operands:
       - ulga-powder
-      - outer-solution
+      - outer-solution-london
       - reporter-lacz-enzyme
       - ahl-sensing-cell
       - guv-cprg

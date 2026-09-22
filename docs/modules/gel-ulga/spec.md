@@ -37,17 +37,17 @@ flowchart TD
     GLUCOSE["Glucose"]
 
     P1_ASSEMBLE_OUTER_0(["Assemble Outer Solution (mixing)"])
-    LONDON_OUTER_SOLUTION["London outer solution"]
+    OUTER_SOLUTION_LONDON["London outer solution"]
     P2_SET_THERMAL_0(["Hydrogel Embedding: ULGA (mixing)"])
     GEL_ULGA["Gel: ULGA"]
 
     POTASSIUM_GLUTAMATE --> P1_ASSEMBLE_OUTER_0
     HEPES --> P1_ASSEMBLE_OUTER_0
     GLUCOSE --> P1_ASSEMBLE_OUTER_0
-    P1_ASSEMBLE_OUTER_0 --> LONDON_OUTER_SOLUTION
+    P1_ASSEMBLE_OUTER_0 --> OUTER_SOLUTION_LONDON
 
     ULGA_POWDER --> P2_SET_THERMAL_0
-    LONDON_OUTER_SOLUTION --> P2_SET_THERMAL_0
+    OUTER_SOLUTION_LONDON --> P2_SET_THERMAL_0
     P2_SET_THERMAL_0 -->|"1:1 with the cell suspension, halving the ULGA to its final figure"| GEL_ULGA
 
 
@@ -55,7 +55,7 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class ULGA_POWDER,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
-    class LONDON_OUTER_SOLUTION,GEL_ULGA composed;
+    class OUTER_SOLUTION_LONDON,GEL_ULGA composed;
     class P1_ASSEMBLE_OUTER_0,P2_SET_THERMAL_0 process;
 
     click P1_ASSEMBLE_OUTER_0 "/docs/processes/assemble-outer-solution/main"

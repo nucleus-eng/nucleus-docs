@@ -42,7 +42,7 @@ flowchart TD
     P3_ENCAPSULATE_SUBSTRATE_0(["Encapsulation: Phase Transfer (packing)"])
     GUV_CPRG["GUV: CPRG"]
     P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION["Outer Solution"]
+    OUTER_SOLUTION_LONDON["London Outer Solution"]
     P5_EMBED_ULGA_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
     LONDON_CASCADE["London Cascade"]
 
@@ -62,10 +62,10 @@ flowchart TD
     POTASSIUM_GLUTAMATE --> P4_ASSEMBLE_OUTER_SOLUTION_0
     HEPES --> P4_ASSEMBLE_OUTER_SOLUTION_0
     GLUCOSE --> P4_ASSEMBLE_OUTER_SOLUTION_0
-    P4_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION
+    P4_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_LONDON
 
     ULGA_POWDER --> P5_EMBED_ULGA_0
-    OUTER_SOLUTION --> P5_EMBED_ULGA_0
+    OUTER_SOLUTION_LONDON --> P5_EMBED_ULGA_0
     REPORTER_LACZ_ENZYME --> P5_EMBED_ULGA_0
     AHL_SENSING_CELL --> P5_EMBED_ULGA_0
     GUV_CPRG --> P5_EMBED_ULGA_0
@@ -76,7 +76,7 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class S30_LYSATE,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,MEMBRANE_POPC,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
-    class AHL_SENSOR_CYTOSOL,AHL_SENSING_CELL,GUV_CPRG,OUTER_SOLUTION,LONDON_CASCADE composed;
+    class AHL_SENSOR_CYTOSOL,AHL_SENSING_CELL,GUV_CPRG,OUTER_SOLUTION_LONDON,LONDON_CASCADE composed;
     class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_SENSING_0,P3_ENCAPSULATE_SUBSTRATE_0,P4_ASSEMBLE_OUTER_SOLUTION_0,P5_EMBED_ULGA_0 process;
 
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
@@ -93,6 +93,7 @@ flowchart TD
     click P3_ENCAPSULATE_SUBSTRATE_0 "/docs/processes/assemble-base-cell/main"
     click GUV_CPRG "/docs/modules/guv-cprg/spec"
     click P4_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
+    click OUTER_SOLUTION_LONDON "/docs/modules/outer-solution-london/spec"
     click P5_EMBED_ULGA_0 "/docs/processes/embed-ulga-hydrogel/main"
     click LONDON_CASCADE "/docs/modules/london-cascade/spec"
 ```
@@ -278,6 +279,7 @@ The five inputs to the embedding step, which is where the cascade is made.
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — dispersed free in the gel, not encapsulated
 - [Gel: ULGA](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution at embedding
 - **Outer Solution** — potassium L-glutamate, HEPES and glucose, assembled first. No page yet
+- [London Outer Solution](../outer-solution-london/spec.md) — the phase the gel sets in, matched at about 920 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.

@@ -59,9 +59,9 @@ process_steps:
     operator: mixing
     operands: [tris-hepes-stock, energy-solution]
     produces:
-      id: chicago-outer-solution
-      title: "Outer Solution"
-      page: null
+      id: outer-solution-chicago
+      title: "Chicago Outer Solution"
+      page: ../outer-solution-chicago/spec.md
     parameters:
       tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
@@ -121,7 +121,7 @@ process_steps:
       - peg-norbornene-monomer
       - peg4sh
       - lap
-      - chicago-outer-solution
+      - outer-solution-chicago
       - atc-sensing-cell
     produces:
       id: atc-gel

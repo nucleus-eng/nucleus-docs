@@ -96,9 +96,9 @@ process_steps:
     operator: mixing
     operands: [tris-hepes-stock, energy-solution]
     produces:
-      id: chicago-outer-solution
-      title: "Outer Solution"
-      page: null
+      id: outer-solution-chicago
+      title: "Chicago Outer Solution"
+      page: ../outer-solution-chicago/spec.md
     parameters:
       tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
@@ -178,7 +178,7 @@ process_steps:
       - peg-norbornene-monomer
       - peg4sh
       - lap
-      - chicago-outer-solution
+      - outer-solution-chicago
       - atc-sensing-cell
     produces:
       id: atc-gel
@@ -278,11 +278,11 @@ process_steps:
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: packing
     operator_pairs:
-      - operands: [ulga-powder, chicago-outer-solution]
+      - operands: [ulga-powder, outer-solution-chicago]
         operator: mixing
       - operands: [ulga-powder, reporter-lacz-enzyme]
         operator: mixing
-      - operands: [chicago-outer-solution, reporter-lacz-enzyme]
+      - operands: [outer-solution-chicago, reporter-lacz-enzyme]
         operator: mixing
         note: >
           Both share the outer phase and neither carries a boundary, so this
@@ -290,7 +290,7 @@ process_steps:
           that involve a membrane-bounded operand and wrong for these three.
     operands:
       - ulga-powder
-      - chicago-outer-solution
+      - outer-solution-chicago
       - ph-sensing-cell
       - substrate-cprg-suv
       - reporter-lacz-enzyme

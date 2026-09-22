@@ -438,7 +438,11 @@ if __name__ == "__main__":
             # name is a node they skip, and the warning is worth less for it.
             tag = f" — {label_for}" if label_for else ""
             tail = shared_tail(shown)
-            lead = f"{tail}?<br/>" if tail else ""
+            # NO PUNCTUATION. Jon, 2026-09-21: "cascade? with question mark is
+            # incorrect. cascade no punctuation." The question mark was doing work the
+            # warning line below already does, and a name with a query on it reads as
+            # uncertainty about the name rather than about the class.
+            lead = f"{tail}<br/>" if tail else ""
             L.append(f'    {nid}["{lead}{", ".join(shown)}'
                      f'<br/>NO COMMON ANCESTOR{tag}"]')
             unmet.append(nid); tally["unmet"] += 1
