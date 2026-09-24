@@ -23,7 +23,7 @@ from pathlib import Path
 CONTENT_EXTENSIONS = {".md", ".csv", ".pdf", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".ico"}
 
 ALLOWED_ROOTS = {
-    "docs", "guides", "about", "start", "templates", "styles", "assets",
+    "docs", "guides", "about", "start", "templates", "styles", "assets", "cdk",
     # The prose style guide. Not site content — it is never built or published,
     # but it is Markdown, so this checker sees it.
     "style-guide",
