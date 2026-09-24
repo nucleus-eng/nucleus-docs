@@ -46,14 +46,19 @@ def reference_findings(path, doc):
         out.append(("module-key", "module",
                     f'is "{doc.get("module")}" but the directory is "{expect}"'))
 
-    parent = doc.get("refines")
-    if parent:
+    # `refines:` MAY BE A LIST since 2026-09-24. Every entry is checked, because a
+    # schema that only validates the first would let a typo through on the second.
+    refines = doc.get("refines")
+    parents = ([refines] if isinstance(refines, str) else list(refines or []))
+    for parent in parents:
         if parent == doc.get("module"):
             out.append(("refines", "refines",
                         f'names its own module, "{parent}"'))
         elif not os.path.exists(os.path.join(REPO, "docs", "modules", parent, "spec.md")):
             out.append(("refines", "refines",
                         f'names "{parent}" but docs/modules/{parent}/spec.md does not exist'))
+    if len(parents) != len(set(parents)):
+        out.append(("refines", "refines", "names the same parent twice"))
 
     known = set((doc.get("inputs") or {}).keys())
     for i, s in enumerate(doc.get("process_steps") or []):
@@ -69,6 +74,25 @@ def reference_findings(path, doc):
                 out.append(("duplicate-id", f"process_steps/{sid}/produces/id",
                             f'"{pid}" is already an input or an earlier product'))
             known.add(pid)
+
+    # operator_pairs operands must be operands OF THE STEP. Nothing checked this
+    # until 2026-09-21 and a typo proved it: a rename turned
+    # `outer-solution-london` into `outer-solution-london-london` inside a pair
+    # exception, the name matched no operand, and the exception silently stopped
+    # applying. check-operator-pairs.py reads the list and has no way to know a
+    # name in it is not in the step, so a disabled exception reads as a step that
+    # never had one. A pair naming a non-operand is a claim about a pair that does
+    # not exist.
+    for i, s in enumerate(doc.get("process_steps") or []):
+        sid = s.get("id", f"#{i}")
+        ops = set(s.get("operands") or [])
+        for j, ov in enumerate(s.get("operator_pairs") or []):
+            for name in (ov.get("operands") or []):
+                if name not in ops:
+                    out.append((
+                        "operator_pairs",
+                        f"process_steps/{sid}/operator_pairs/{j}",
+                        f'"{name}" is not an operand of this step'))
 
     # abstract: must name a real process directory. Existence only — whether it is
     # the IMMEDIATE parent needs the process tree, which lives in prose in
