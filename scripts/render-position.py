@@ -42,17 +42,20 @@ END = "<!-- /gen:position -->"
 def load() -> tuple[dict[str, str], dict[str, list[str]]]:
     """(parent by module, children by module). Sources only; a page with no
     source has no declared position and is reported as such rather than skipped."""
-    parent: dict[str, str] = {}
+    parent: dict[str, list[str]] = {}
     for d in sorted(ROOT.iterdir()):
         f = d / "spec.yml"
         if not f.is_file():
             continue
         doc = yaml.safe_load(f.read_text()) or {}
-        if doc.get("refines"):
-            parent[d.name] = doc["refines"]
+        r = doc.get("refines")
+        if r:
+            # A LIST IS LEGAL SINCE 2026-09-24 and means two incomparable parents.
+            parent[d.name] = [r] if isinstance(r, str) else list(r)
     children: dict[str, list[str]] = collections.defaultdict(list)
-    for k, v in parent.items():
-        children[v].append(k)
+    for k, vs in parent.items():
+        for v in vs:
+            children[v].append(k)
     return parent, {k: sorted(v) for k, v in children.items()}
 
 
@@ -63,11 +66,14 @@ def ancestors(slug: str, parent: dict) -> list[str]:
     `gel` rather than `container`: where two operands agree, the meet IS the one
     they agree on, and a chain that started at the parent would skip it.
     """
-    out, seen = [], set()
-    while slug and slug not in seen:
-        out.append(slug)
-        seen.add(slug)
-        slug = parent.get(slug)
+    out, seen, queue = [], set(), [slug]
+    while queue:
+        s = queue.pop(0)
+        if not s or s in seen:
+            continue
+        out.append(s)
+        seen.add(s)
+        queue.extend(parent.get(s, []))
     return out
 
 
@@ -79,18 +85,29 @@ def meet(slugs, parent: dict) -> str | None:
     collapses that into a root has turned a failure into an answer. The meet
     renderer marks it; it does not fill it in.
 
-    CORRECT ONLY BECAUSE `refines:` IS A SINGLE STRING. One parent per node makes
-    this a forest, where a meet is unique or absent. The day the key becomes a
-    list this returns a plausible wrong answer and says nothing, so the
-    assumption is stated here rather than in a commit message.
+    THAT DAY CAME, 2026-09-24. This used to say it was correct only because
+    `refines:` is a single string, and that the day the key became a list it would
+    return a plausible wrong answer and say nothing. Jon ruled the list legal, so
+    the order is a DAG and a meet need not be unique. IT NOW REFUSES INSTEAD OF
+    GUESSING: where several common ancestors are maximal, it raises rather than
+    picking whichever the traversal met first.
     """
     chains = [ancestors(s, parent) for s in slugs]
     if not chains:
         return None
-    for cand in chains[0]:                    # deepest first
-        if all(cand in c for c in chains[1:]):
-            return cand
-    return None
+    common = [c for c in chains[0] if all(c in ch for ch in chains[1:])]
+    if not common:
+        return None
+    # Maximal = refined by no other common ancestor. In a forest exactly one
+    # survives, which is why the old single-candidate loop was right until today.
+    maximal = [c for c in common
+               if not any(c in ancestors(o, parent) and o != c for o in common)]
+    if len(maximal) > 1:
+        raise ValueError(
+            f"meet({', '.join(sorted(slugs))}) is not unique: "
+            f"{', '.join(sorted(maximal))} are all maximal common ancestors. "
+            "A DAG has no single meet here and this will not choose one.")
+    return maximal[0] if maximal else common[0]
 
 
 def both_parent_and_child(parent: dict, children: dict) -> list[str]:
@@ -114,8 +131,12 @@ def link(slug: str) -> str:
 
 
 def line(slug: str, parent: dict, children: dict) -> str:
-    up = f"Refines {link(parent[slug])}." if slug in parent else \
-         "Refines nothing declared."
+    # TWO PARENTS READ AS "AND", NOT AS A LIST OF ALTERNATIVES. A Module with a
+    # list refines every one of them, which is the whole reason the list exists:
+    # a repressor AHL detector is both, and neither parent refines the other.
+    ps = parent.get(slug) or []
+    up = ("Refines " + " and ".join(link(x) for x in ps) + "." if ps
+          else "Refines nothing declared.")
     kids = children.get(slug) or []
     down = ("Refined by " + ", ".join(link(k) for k in kids) + "."
             if kids else "Refined by nothing on this branch.")

@@ -46,14 +46,19 @@ def reference_findings(path, doc):
         out.append(("module-key", "module",
                     f'is "{doc.get("module")}" but the directory is "{expect}"'))
 
-    parent = doc.get("refines")
-    if parent:
+    # `refines:` MAY BE A LIST since 2026-09-24. Every entry is checked, because a
+    # schema that only validates the first would let a typo through on the second.
+    refines = doc.get("refines")
+    parents = ([refines] if isinstance(refines, str) else list(refines or []))
+    for parent in parents:
         if parent == doc.get("module"):
             out.append(("refines", "refines",
                         f'names its own module, "{parent}"'))
         elif not os.path.exists(os.path.join(REPO, "docs", "modules", parent, "spec.md")):
             out.append(("refines", "refines",
                         f'names "{parent}" but docs/modules/{parent}/spec.md does not exist'))
+    if len(parents) != len(set(parents)):
+        out.append(("refines", "refines", "names the same parent twice"))
 
     known = set((doc.get("inputs") or {}).keys())
     for i, s in enumerate(doc.get("process_steps") or []):

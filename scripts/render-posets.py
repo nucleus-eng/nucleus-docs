@@ -106,10 +106,21 @@ if __name__ == "__main__":
     print("#" * 74)
 
     # --- P1. Module refinement.
-    p1 = {m: d["refines"] for m, d in S.items() if d.get("refines")}
+    # A LIST MEANS SEVERAL PARENTS, so P1 is a DAG whenever any source uses one.
+    p1 = {m: (d["refines"] if isinstance(d["refines"], str) else None)
+          for m, d in S.items() if d.get("refines")}
+    multi = sorted(m for m, v in p1.items() if v is None)
+    p1 = {m: v for m, v in p1.items() if v is not None}
+    # THE DENOMINATOR, EVERY RUN. A multi-parent source is not in the forest below
+    # and saying nothing about it would overstate what P1 covers.
+    print(f"\n  multi-parent  : {len(multi)} of {len(p1) + len(multi)} sources "
+          f"declare several parents and are not in the forest below — "
+          f"{', '.join(multi) or 'none'}")
     dangling = {v for v in p1.values() if v not in S}
     report("P1. Module refinement, from `refines:`",
-           "A Module refines the class that classifies it. One parent per node, so a forest.",
+           "A Module refines the class that classifies it. One parent per node is a "
+           "forest; `refines:` may be a list since 2026-09-24, and any list makes "
+           "this a DAG.",
            p1,
            f"placed        : {len(set(p1) | set(p1.values()))} of {len(S)} sources; "
            f"{len(S) - len(set(p1) | set(p1.values()))} placed by nothing"

@@ -106,7 +106,27 @@ def to_module(page: str | None) -> str | None:
 
 
 def parents(S: dict) -> dict[str, str]:
-    return {m: d["refines"] for m, d in S.items() if d.get("refines")}
+    """One parent per module, and it REFUSES a list rather than picking from it.
+
+    `refines:` may be a list since 2026-09-24. `slot_key` below aligns two
+    products when they share an immediate parent, and with two parents there is
+    no "the" parent to compare -- two products could share one parent each and
+    align or not depending on which this function happened to keep. That is the
+    silent wrong answer `render-position.py` warned about, in a worse place,
+    because here it changes a drawn figure rather than a printed line.
+    """
+    out = {}
+    for m, d in S.items():
+        r = d.get("refines")
+        if not r:
+            continue
+        if not isinstance(r, str):
+            raise ValueError(
+                f"{m} refines {list(r)}. The meet renderer aligns slots by the "
+                "immediate parent and cannot choose between two. Give this "
+                "renderer a rule for multi-parent alignment before using one.")
+        out[m] = r
+    return out
 
 
 def ancestors(slug: str, par: dict) -> list[str]:

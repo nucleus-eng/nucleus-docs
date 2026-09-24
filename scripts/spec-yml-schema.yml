@@ -30,10 +30,30 @@ properties:
     type: string
     description: Display name, matching the page's frontmatter title.
   refines:
-    type: string
-    pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+    oneOf:
+      - type: string
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      - type: array
+        minItems: 2
+        uniqueItems: true
+        items:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
     description: >
-      The abstract Module this one refines, by directory name. The image of this
+      The abstract Module or Modules this one refines, by directory name.
+      A LIST IS LEGAL AND MEANS TWO INCOMPARABLE PARENTS, Jon's ruling 2026-09-24:
+      "yes, modules should be able to refine multiple modules." The case that
+      forced it is a sensor with two axes, what it senses and how -- an EsaR
+      detector is a repressor detector AND an AHL detector, and neither of those
+      refines the other. A single string stays the normal form and every source
+      uses one today; `minItems: 2` keeps a one-element list from being a second
+      spelling of the same thing.
+      A LIST MAKES THE REFINEMENT ORDER A DAG RATHER THAN A FOREST, and a meet in
+      a DAG need not be unique. `render-position.py` said so before this key
+      changed: "the day the key becomes a list this returns a plausible wrong
+      answer and says nothing." The readers now refuse rather than guess. Nothing
+      in this corpus yet guarantees a lattice, so the non-unique case is reported
+      and not resolved. The image of this
       Module under `A`, which compositional-biology-theory has carried as a defined
       map since August. NOT a new axis: `A : Modules -> Abstractions` already
       exists, and what this corpus lacked was a field naming a Module's image
