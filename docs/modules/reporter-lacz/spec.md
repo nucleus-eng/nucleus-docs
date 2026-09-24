@@ -159,7 +159,16 @@ How to achieve this requirement is a design choice. Here are three example solut
 - **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior. CPRG can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
 - **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) co-encapsulates CPRG and DNA encoding LacZ rather than LacZ protein.
 
-**The first two solutions are not interchangeable, and the masses say why.** CPRG is 0.59 kDa and the active LacZ tetramer is 465 kDa. Enclosing the substrate leaves a second release route open, because a pore passes CPRG. Enclosing the enzyme does not, because no pore in this corpus passes 465 kDa. **So "enclose the enzyme" commits the design to lysis and "enclose the substrate" does not.** Both bullets above use [PLA1](../effector-pla1/spec.md) today, which is why the difference has not bitten.
+**The first two solutions are not interchangeable, and it is "enclose the enzyme" that has the second route.** The readout needs the two to meet, and the one that moves is the small one: CPRG is 0.59 kDa and the active LacZ tetramer is 465 kDa.
+
+- **Enclose the enzyme.** A [pore](../membrane-pore-ahly/spec.md) in the sensing cell lets CPRG in at 0.59 kDa, below both the ~3 kDa and ~1 kDa cutoffs. **A pore substitutes for lysis.** The enzyme's 465 kDa never enters the argument, because nothing needs the enzyme to cross.
+- **Enclose the substrate.** A pore does not substitute, and the reason is reach rather than mass. A pore inserts into the membrane of the cell that expressed it, and a [CPRG liposome](../substrate-cprg-suv/spec.md) expresses nothing, so nothing opens it. Only lysis reaches across.
+
+Both bullets above use [PLA1](../effector-pla1/spec.md) today, which is why the difference has not bitten.
+
+:::{attention} The reach half is reasoned, not measured
+That a pore cannot open a neighboring liposome follows from pores inserting into the membrane of the expressing cell. **No page here states it and no experiment tests it.** The mass half is now measured on both sides; this half is not.
+:::
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
