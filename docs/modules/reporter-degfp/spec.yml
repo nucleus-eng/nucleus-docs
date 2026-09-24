@@ -1,0 +1,109 @@
+# Composition source for deGFP Reporter.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: three additions into Base Cytosol, sharing its resources.
+# The `packing` step is where this reporter is encapsulated, which is a step on
+# ../base-cell/spec.yml and not here — so nothing in this file depends on open
+# question O8 in compositional-biology-theory, "are formation and `hold` one
+# operation?".
+#
+# THE FIGURES ARE THE ENCAPSULATION-SCALE INNER SOLUTION. The page's Cytosol tab
+# carries no local table — it is an xref to a DevNote — so the composition here is
+# read from the Cell tab, which includes two components that serve encapsulation
+# rather than reporting. See the questions at the foot of this file.
+
+module: reporter-degfp
+title: "deGFP Reporter"
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  degfp-dna:
+    title: "pOpen-deGFP"
+    page: null            # 2812 bp; reporters/pOpen-deGFP.gbk in nucleus-eng/DNA
+  magnesium-acetate:
+    title: "Magnesium acetate"
+    page: null
+  optiprep:
+    title: "Optiprep"
+    page: null
+    optional: true        # encapsulation aid — see the questions below
+
+process_steps:
+  - id: assemble-inner-solution
+    process:
+      title: "Assemble the deGFP Reporter inner solution"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, degfp-dna, magnesium-acetate, optiprep]
+    produces:
+      id: reporter-degfp
+      title: "deGFP Reporter"
+      page: ../reporter-degfp/spec.md
+    parameters:
+      base_cytosol: "1x — SMix 1x, PMix 1.80 mg/mL, ribosomes 1.8 uM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL"
+      degfp_dna: "3 nM final, from a 124 nM stock"
+      magnesium_acetate: "8 mM final, from a 200 mM stock"
+      optiprep: "0.043 mg/uL final, from a 1.32 mg/uL stock"
+      reaction_volume: "40 uL"
+    notes: >
+      This construct has a confirmed file in nucleus-eng/DNA —
+      reporters/pOpen-deGFP.gbk, 2812 bp — which puts it in the minority. Most
+      construct-bearing pages in this corpus flag their sequences as absent from that
+      repository. ../detector-laci-iptg/spec.yml is the other page written in this
+      pass whose constructs resolve.
+
+measured_by:
+  - process:
+      title: "Fluorescence Readout"
+      # CORRECTED 2026-09-21. The title said Colorimetric Readout and that was the
+      # false half. Jon: deGFP's output is fluorescence instead of absorbance, and it
+      # does not need enzyme and substrate because the protein itself is fluorescent.
+      # The colorimetric page scopes itself to a chromogenic substrate, CPRG or
+      # catechol, hydrolyzed by a reporter enzyme, LacZ or XylE, and lists the four
+      # cascades it serves. This Module is none of those, and its own page reads it
+      # on green 488 nm and red 561 nm fluorescence channels.
+      #
+      # THE PATH WAS ALREADY null HERE FOR AN UNRELATED REASON, AND THAT HID THIS.
+      # The colorimetric page was dropped from this tranche on Jon's ruling of
+      # 2026-09-21: it is not in myst.yml's toc, so it would have landed on main as a
+      # file nothing renders, and it carried 13 of the 30 links main does not have.
+      # So the key looked resolved while still naming the wrong process. The old
+      # comment here said to restore the path when that page reaches main. DO NOT.
+      # This Module is not measured by it.
+      page: null
+
+open:
+  - id: optiprep-is-an-encapsulation-aid
+    question: >
+      Optiprep is a density-gradient medium for phase transfer, not a component of
+      the reporting chemistry, and it is marked optional above on that reading. But
+      the page lists it in the Cell tab's inner solution without saying it is
+      separable, so the `optional` mark is this file's judgment rather than the
+      page's claim. Magnesium acetate is in the same table and is NOT marked
+      optional, because it is a reaction cofactor rather than a handling aid — that
+      is the same kind of judgment in the other direction, and both should be
+      confirmed.
+  - id: the-cytosol-tab-is-an-xref
+    question: >
+      The page's Cytosol tab carries no local table. It renders a cross-reference to
+      a DevNote at doi 10.63765/fppr8928 instead, so the bulk-reaction composition
+      for this Module lives outside this repository and cannot be checked by
+      scripts/check-composition.py. The figures above come from the Cell tab, which
+      is the encapsulated form. A reader wanting the bulk form has to leave the
+      corpus to get it.
+  - id: this-is-the-cell-not-only-the-module
+    question: >
+      The Cell tab also has a Membrane section, so what that tab describes is a
+      Base Cell carrying this reporter, not the reporter alone. The split taken above
+      is that the inner solution is the Module and the membrane belongs to
+      ../base-cell/spec.md, which already composes ../membrane-popc-chol/spec.md.
+      That split is not stated on the page.

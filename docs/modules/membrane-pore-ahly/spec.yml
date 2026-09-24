@@ -1,0 +1,82 @@
+# Composition source for Membrane Pore: alpha-hemolysin.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: a reaction in one tube, one phase. The `packing` step is
+# where the expressed pore inserts into a membrane, which is not a composition step
+# at all — the pore is made by the reaction and then enters a bilayer that already
+# exists. So nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and `hold` one operation?".
+
+module: membrane-pore-ahly
+title: "Membrane Pore: alpha-hemolysin"
+
+inputs:
+  solution-a:
+    title: "Solution A"
+    page: null
+  solution-b:
+    title: "Solution B"
+    page: null
+  ahly-dna:
+    title: "pT7-aHly"
+    page: null            # not in nucleus-eng/DNA
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null
+  water:
+    title: "Nuclease-free water"
+    page: null
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble Base Cytosol"
+      page: ../../processes/assemble-base-cytosol/main.md
+    operator: mixing
+    operands: [solution-a, solution-b, ahly-dna, rnase-inhibitor, water]
+    produces:
+      id: membrane-pore-ahly
+      title: "Membrane Pore: alpha-hemolysin"
+      page: ../membrane-pore-ahly/spec.md
+    parameters:
+      solution_a: "4 uL"
+      solution_b: "3 uL"
+      ahly_dna: "1 uL of a 10 nM stock"
+      rnase_inhibitor: "1 uL"
+      water: "1 uL"
+      reaction_volume: "10 uL"
+    notes: >
+      aHly is expressed in situ from `pT7-aHly` rather than supplied as protein, so
+      this Module is a reaction rather than a reagent. The page names Assemble Base
+      Cytosol as the protocol followed.
+
+open:
+  - id: solution-a-and-b-versus-base-cytosol
+    question: >
+      The page's table names Solution A and Solution B — the two-part commercial
+      PURExpress kit — while pointing at ../../processes/assemble-base-cytosol/main.md
+      as the protocol. But ../base-cytosol/spec.yml composes five named constituents,
+      SMix, PMix, ribosomes, tRNA and RNase inhibitor, not two solutions. Those are
+      two different systems and the page uses one name for both. The operands above
+      follow the table rather than the process link, because the table is the thing
+      with volumes in it. ../detector-laci-iptg/spec.yml has the same two operands
+      and does not point at Base Cytosol, so the corpus is inconsistent about this
+      and this file cannot settle it.
+  - id: construct-not-in-the-dna-repo
+    question: >
+      `pT7-aHly` is not in nucleus-eng/DNA. So `ahly-dna` above is a role with a
+      label, not an identity claim against a sequence file.
+  - id: the-cell-demonstration-is-not-this-module
+    question: >
+      The Cell tab co-expresses aHly with a `pT7-eGFP` reporter in an
+      osmolarity-matched outer solution of 10 mM HEPES and 790 mM glucose, with no
+      energy molecules, so that leak quenches GFP production. That is an assay
+      demonstrating functional pore insertion, not this Module's composition, and the
+      reporter and outer solution are excluded above for that reason.

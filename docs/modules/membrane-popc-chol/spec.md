@@ -35,7 +35,7 @@ Schematic of a POPC/Chol liposome.
 
 The behavior of Base Membrane is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
 
-# Process
+# Processes
 
 Protocols for assembling Base Cell and making its components from scratch are described in the Process [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 

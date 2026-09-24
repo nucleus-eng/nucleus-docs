@@ -1,0 +1,107 @@
+# Composition source for IV-HSL Emitter.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: a reaction in one tube, one phase. No `packing` step appears
+# here, so nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and `hold` one operation?".
+#
+# THE PAGE'S THREE COLUMNS ARE ONE COMPOSITION AND TWO CONTROLS. Only the Sample
+# column is this Module. See the questions at the foot of this file.
+
+module: emitter-ivhsl
+title: "IV-HSL Emitter"
+
+inputs:
+  pure-solution-a:
+    title: "PURE Solution A"
+    page: null            # energy solution: small molecules
+  pure-solution-b:
+    title: "PURE Solution B"
+    page: null            # proteins and ribosomes
+  bjai-dna:
+    title: "pOpen-pT7-bjaI"
+    page: null            # 2752 bp; detectors/quorum-sensing/pOpen-pT7-bjaI.gb
+  sam:
+    title: "SAM"
+    page: null            # S-adenosyl methionine, substrate for IV-HSL production
+  iv-coa:
+    title: "IV-CoA"
+    page: null            # substrate for IV-HSL production
+  optiprep:
+    title: "OptiPrep"
+    page: null
+    optional: true        # density for phase transfer — see the questions below
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble the IV-HSL Emitter reaction"
+      page: null
+    operator: mixing
+    operands:
+      - pure-solution-a
+      - pure-solution-b
+      - bjai-dna
+      - sam
+      - iv-coa
+      - optiprep
+      - rnase-inhibitor
+    produces:
+      id: emitter-ivhsl
+      title: "IV-HSL Emitter"
+      page: ../emitter-ivhsl/spec.md
+    parameters:
+      pure_solution_a: "12 uL"
+      pure_solution_b: "9 uL"
+      bjai_dna: "1.5 uL at approximately 200 ng/uL"
+      sam: "0.3 uM final, 1.8 uL of a 5 mM stock"
+      iv_coa: "0.08 uM final, 0.48 uL of a 5 mM stock"
+      optiprep: "1.5 uL"
+      rnase_inhibitor: "1.5 uL"
+      water: "2.22 uL"
+      reaction_volume: "30 uL"
+    notes: >
+      SAM and IV-CoA are the two substrates BjaI acts on, added at 0.3 uM and
+      0.08 uM. The page calls these equimolar; the two final concentrations differ by
+      about 3.75x, so "equimolar" describes the stocks — both 5 mM — rather than the
+      finals. Both constructs have confirmed files in nucleus-eng/DNA.
+
+open:
+  - id: equimolar-describes-the-stocks-not-the-finals
+    question: >
+      The page says "add equimolar amounts of SAM and IV-CoA at 0.3 uM and 0.08 uM
+      final concentration, respectively". Those two finals are not equimolar and
+      differ by about 3.75-fold. Both stocks are 5 mM, so the sentence is true of the
+      stocks and false of the finals as written. This file carries the two finals
+      because they are the numbers a reaction receives, and flags the wording rather
+      than silently picking a reading.
+  - id: the-second-construct-is-not-in-this-reaction
+    question: >
+      `pOpen-bjaR-GFP-native` is in the DNA tab with a confirmed file but does not
+      appear in the reaction table at all. It encodes the receiver side — BjaR with
+      GFP — so it likely belongs to a detecting Module rather than this emitting one.
+      The page does not say which, and it has no entry of its own anywhere, so it is
+      listed here and used nowhere.
+  - id: optiprep-is-an-encapsulation-aid
+    question: >
+      OptiPrep is marked optional above because the page's own Notes column says it
+      "adds density for phase-transfer" — a handling aid rather than part of the
+      emitting chemistry. It is present in all three columns including the positive
+      control, which is consistent with that reading. The same judgment is made on
+      ../reporter-degfp/spec.yml and should be confirmed once for both.
+  - id: three-columns-are-one-composition-and-two-controls
+    question: >
+      The Negative Control column is the Sample with the DNA dropped; the Positive
+      Control is commercial IV-HSL with no PURE system at all, 0.3 uL at 10 uM with
+      glucose and water. Neither is a composition of this Module, so both are
+      excluded above. The positive control's IV-HSL is the product, not an input.
