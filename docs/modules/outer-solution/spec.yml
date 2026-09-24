@@ -15,11 +15,21 @@
 # `mixing`, FOUR OF FOUR. Every step producing an outer solution mixes, and a suspension
 # whose solutes sat in separate compartments would not be one.
 #
-# NO `refines:` KEY. An outer solution is not a container, a gel or a membrane. It is
-# the phase those things sit in, and nothing in this corpus names that sort.
+# REFINES `solution`, ADDED 2026-09-24 on Jon's ruling: "outer-solution refines solution.
+# solution refines container." This file previously said there was NO `refines:` key,
+# because "an outer solution is not a container, a gel or a membrane. It is the phase
+# those things sit in, AND NOTHING IN THIS CORPUS NAMES THAT SORT." That last clause was
+# the exit condition and it is now discharged: ../solution/spec.md names it. The earlier
+# reading was right about everything except its own permanence.
+#
+# A SOLUTION IS A CONTAINER, which the old comment denied. It holds by dissolution rather
+# than by a barrier or a network, so what it holds is free to move. That is the third way
+# of holding and it is what separates this branch from Membrane and from Gel.
 
 module: outer-solution
 title: "Outer Solution"
+
+refines: solution
 
 inputs:
   solutes:

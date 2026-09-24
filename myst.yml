@@ -27,6 +27,8 @@ project:
           hidden: true
         - file: ./docs/modules/container/spec.md
           hidden: true
+        - file: ./docs/modules/solution/spec.md
+          hidden: true
         - file: ./docs/modules/membrane/spec.md
           hidden: true
         - file: ./docs/modules/pore/spec.md

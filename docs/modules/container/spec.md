@@ -10,10 +10,10 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`gel`](../gel/spec.md), [`membrane`](../membrane/spec.md).
+**Position.** Refines nothing declared. Refined by [`gel`](../gel/spec.md), [`membrane`](../membrane/spec.md), [`solution`](../solution/spec.md).
 <!-- /gen:position -->
 
-An abstract Module: the class of things that hold other things. It is the parent of the Membranes and of the [abstract gel](../gel/spec.md), and it is the most general class this corpus names.
+An abstract Module: the class of things that hold other things. It is the parent of the [Membranes](../membrane/spec.md), the [abstract gel](../gel/spec.md) and the [Solutions](../solution/spec.md), and it is the most general class this corpus names.
 
 **The invariant is `hold`.** A Container keeps what is inside it in a defined relation to what is outside, and to the other things inside. Nothing in the class fixes what the boundary is made of, whether it is a surface or a network, or whether the inside is a volume or a position.
 
@@ -34,10 +34,13 @@ This page is a work in progress and not yet ready for use.
 | --- | --- | --- |
 | Membrane | a closed lipid bilayer, so the inside is a volume | [London POPC](../membrane-popc/spec.md), [Base POPC/Chol](../membrane-popc-chol/spec.md), [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
 | [Abstract gel](../gel/spec.md) | a polymer network, so the inside is a position rather than a volume | four, listed on that page |
+| [Solution](../solution/spec.md) | dissolution, so what it holds is free to move | one, the Outer Solution |
 | Substrate | **named in the theory corpus, not mapped here** | see below |
 :::
 
-**The two ways of holding are genuinely different and the difference has consequences.** A Membrane encloses a volume, so what it holds is separated from the outside by a barrier that something must cross. A gel fixes a position, so what it holds is still in contact with the outer solution and is separated only in space. **The corpus depends on that difference**: the colorimetric cascades put an enzyme and its substrate in one gel and rely on them not reacting, which works only because the gel holds position and not contents.
+**The three ways of holding are genuinely different and the difference has consequences.** A Membrane encloses a volume, so what it holds is separated from the outside by a barrier that something must cross. A gel fixes a position, so what it holds is still in contact with the outer solution and is separated only in space. A Solution separates nothing at all. **The corpus depends on the middle one**: the colorimetric cascades put an enzyme and its substrate in one gel and rely on them not reacting, which works only because the gel holds position and not contents.
+
+**Gel does not refine Solution, and the near miss is worth stating.** The theory corpus writes `Gel = OuterSolution + polymer`, which is a composition rather than a refinement. Being made of a Solution does not entail standing in for one, and a gel holds its solutes in place where a solution does not. Jon ruled both halves on 2026-09-24: *"gel definitely refines container, but I agree that it may not refine solution."*
 
 :::{attention} `Substrate` has no mapping into this corpus yet
 The theory corpus names `Substrate` as the third child of `Container`. **Which pages here are its members is not settled.** [CPRG](../substrate-cprg/spec.md) and [X-Gal](../substrate-xgal/spec.md) are named Substrate and are chemicals rather than containers. [CPRG SUV](../substrate-cprg-suv/spec.md) and [CPRG GUV](../guv-cprg/spec.md) are loaded compartments and do hold something, but they hold it in a membrane, which would make them Membranes carrying a payload rather than a third kind of Container. **Naming this row is not the same as filling it**, and filling it is a judgment about the corpus rather than about the theory.

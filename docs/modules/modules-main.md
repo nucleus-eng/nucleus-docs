@@ -70,6 +70,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Analyte | [pH](./analyte-ph/spec.md) | ★ |
 | Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
 | Container | [Container](./container/spec.md) | - |
+| Container | [Solution](./solution/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
 | Gel | [PEG-Norbornene](./gel-peg-norbornene/spec.md) | ★ |

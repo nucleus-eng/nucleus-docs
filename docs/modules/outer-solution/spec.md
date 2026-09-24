@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`outer-solution-chicago`](../outer-solution-chicago/spec.md), [`outer-solution-london`](../outer-solution-london/spec.md).
+**Position.** Refines [`solution`](../solution/spec.md). Refined by [`outer-solution-chicago`](../outer-solution-chicago/spec.md), [`outer-solution-london`](../outer-solution-london/spec.md).
 <!-- /gen:position -->
 
 A class: the aqueous phase a synthetic cell is suspended in. Two members.

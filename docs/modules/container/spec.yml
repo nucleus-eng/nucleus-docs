@@ -18,13 +18,13 @@ inputs: {}
 process_steps: []
 
 open:
-  - id: only-one-member-points-here
+  - id: substrate-is-the-last-unmapped-child
     question: >
-      `refines:` landed 2026-09-21 and ten sources now take a value. Only
-      ../gel/spec.yml names this module. The theory corpus puts `Membrane`
-      and `Substrate` between their members and `Container`, and neither has a page
-      here, so three membranes and four substrates point at nothing. A `Membrane`
-      page would close the larger half.
+      CLOSED IN PART 2026-09-24. This asked for a `Membrane` page because only
+      ../gel/spec.yml named this module. ../membrane/spec.yml now does, and
+      ../solution/spec.yml joins them on Jon's ruling the same day. `Substrate` is the
+      one child the theory corpus names that has no page here, and the Reference
+      Composition section states why naming that row is not the same as filling it.
   - id: an-empty-source-and-an-unwritten-one-look-alike
     question: >
       `minProperties` came off `inputs` on 2026-09-21 and `minItems` came off

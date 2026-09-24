@@ -1,0 +1,52 @@
+# Composition source for Solution.
+#
+# WRITTEN 2026-09-24 on Jon's ruling: "outer-solution refines solution. solution refines
+# container. membrane refines container. gel definitely refines container, but I agree
+# that it may not refine solution."
+#
+# THE THIRD WAY OF HOLDING, and that is why it is a sibling of Membrane and Gel rather
+# than a parent or a child of either. A Membrane holds by a barrier, so what it holds is
+# a volume. A Gel holds by a network, so what it holds is a position. A Solution holds by
+# dissolution, so what it holds is free to move and is separated from nothing.
+#
+# GEL DOES NOT REFINE THIS, ruled the same day, and the reason is worth keeping. The
+# theory corpus writes `Gel = OuterSolution + polymer`, which is a COMPOSITION and not a
+# refinement: being made of a Solution does not entail standing in for one. A gel holds
+# its solutes in place and a solution does not.
+#
+# AN ABSTRACT MODULE AND AN EMPTY ONE BY CLAIM, on the Container precedent. Its invariant
+# is an operation rather than a composition, so `inputs: {}` and `process_steps: []` are
+# claims and not gaps.
+
+module: solution
+title: "Solution"
+
+refines: container
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: one-member-and-the-guard-says-so
+    question: >
+      `outer-solution` is the only member today, so `one_member_classes()` in
+      scripts/render-position.py fires on this class. That query went 1 to 0 on
+      2026-09-21 when the LacZ restructure dissolved the last one, and this puts it
+      back to 1. Recorded rather than suppressed: the guard is right that a
+      one-member class is worth looking at, and the answer here is the exit condition
+      below rather than a change to the tree.
+  - id: whether-cytosol-refines-this
+    question: >
+      ../cytosol/spec.yml is a root and a cytosol is an aqueous phase holding solutes,
+      which is this class's invariant. If it refines this, the class has two members and
+      the guard above is satisfied. NOT RULED, and it is not obvious: the theory corpus's
+      cytosol-does-double-duty.md finds four axioms surviving for Cytosol against one for
+      the outer phase, so Cytosol is the richer class and may sit apart rather than under.
+  - id: what-the-single-axiom-is
+    question: >
+      The theory corpus measured the outer phase's axioms and exactly one survived,
+      osmolarity matched to the interior, which it calls a compatibility condition
+      between adjacent strata. ../outer-solution/spec.yml reached the same figure from
+      the corpus side, independently. Whether that one axiom belongs to this class or
+      only to the outer member is not settled.
