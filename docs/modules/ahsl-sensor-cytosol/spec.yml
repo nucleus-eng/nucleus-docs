@@ -1,4 +1,4 @@
-# Composition source for the AHL Sensor Cytosol.
+# Composition source for the AHSL Sensor Cytosol.
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Constituent
 # Modules` prose stays for humans; this file is the contract for tooling, and
@@ -10,8 +10,8 @@
 #
 # Depth 1. Anything you can obtain is a leaf.
 
-module: ahl-sensor-cytosol
-title: AHL Sensor Cytosol
+module: ahsl-sensor-cytosol
+title: AHSL Sensor Cytosol
 refines: sensor-cytosol
 
 inputs:
@@ -34,9 +34,9 @@ process_steps:
     operator: mixing
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
     produces:
-      id: ahl-sensor-cytosol
-      title: "AHL Sensor Cytosol"
-      page: ../ahl-sensor-cytosol/spec.md
+      id: ahsl-sensor-cytosol
+      title: "AHSL Sensor Cytosol"
+      page: ../ahsl-sensor-cytosol/spec.md
     notes: >
       S30 Lysate is supplied as a kit, so this is a reconstitution rather than
       a build from a protocol. Its headroom is 3.75 uL of 25, implied by the

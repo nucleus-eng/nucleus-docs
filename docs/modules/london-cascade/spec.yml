@@ -67,9 +67,9 @@ process_steps:
     operator: mixing
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
     produces:
-      id: ahl-sensor-cytosol
-      title: "AHL Sensor Cytosol"
-      page: ../ahl-sensor-cytosol/spec.md
+      id: ahsl-sensor-cytosol
+      title: "AHSL Sensor Cytosol"
+      page: ../ahsl-sensor-cytosol/spec.md
     notes: >
       S30 Lysate is supplied as a kit, so this is a reconstitution rather than a
       build from a protocol. Its headroom is 3.75 uL of 25, implied by the total
@@ -81,11 +81,11 @@ process_steps:
       title: "Encapsulation: Phase Transfer"
       page: ../../processes/assemble-base-cell/main.md
     operator: packing
-    operands: [ahl-sensor-cytosol, membrane-popc]
+    operands: [ahsl-sensor-cytosol, membrane-popc]
     produces:
-      id: ahl-sensing-cell
-      title: "AHL Sensing Cell"
-      page: ../ahl-sensing-cell/spec.md
+      id: ahsl-sensing-cell
+      title: "AHSL Sensing Cell"
+      page: ../ahsl-sensing-cell/spec.md
 
   # 3 ────────────────────────────────────────────────────────────────────
   # Same process page as step 2. Two applications, one page — the call-site
@@ -118,7 +118,7 @@ process_steps:
     parameters:
       osmolarity: "~920 mOsm"     # measured or calculated is not recorded in any source
     notes: >
-      Matched to the AHL Sensing Cell inner solution at about 920 mOsm. AHL is
+      Matched to the AHSL Sensing Cell inner solution at about 920 mOsm. AHSL is
       excluded — it is the analyte, present in the induced condition only, and
       belongs to the assay rather than the composition.
 
@@ -143,7 +143,7 @@ process_steps:
       - ulga-powder
       - outer-solution-london
       - reporter-lacz-enzyme
-      - ahl-sensing-cell
+      - ahsl-sensing-cell
       - guv-cprg
     ratio: "1:1:2"                        # sensing cells : substrate cells : gel
     produces:

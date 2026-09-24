@@ -10,7 +10,7 @@ Assemble Cytosol combines a cytosol base with whatever a particular reaction nee
 Its derivatives, all attested in this documentation:
 
 - [Assemble Base Cytosol](../assemble-base-cytosol/main.md) — the unit case, where nothing is added and the slot is filled with water.
-- **Assemble aTc Sensor Cytosol**, **Assemble pH Sensor Cytosol**, **Assemble AHL Sensor Cytosol**, **Assemble Theophylline Sensor Cytosol** — no pages yet. Each is specified in the `spec.yml` of the Module it produces.
+- **Assemble aTc Sensor Cytosol**, **Assemble pH Sensor Cytosol**, **Assemble AHSL Sensor Cytosol**, **Assemble Theophylline Sensor Cytosol** — no pages yet. Each is specified in the `spec.yml` of the Module it produces.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -54,7 +54,7 @@ A derivative is identified by the **pair** of base and filling. Neither alone na
 | [aTc Sensor Cytosol](../../modules/atc-sensor-cytosol/spec.md) | Base Cytosol | `TetO-PLA1` · TetR · LacZ at 2.5 U/mL |
 | [pH Sensor Cytosol](../../modules/ph-sensor-cytosol/spec.md) | Base Cytosol | trigger duplex · toehold-gated template · Optiprep · Sulfo-Cy5 |
 | [Theophylline Sensor Cytosol](../../modules/theophylline-sensing-cell/spec.md) | Base Cytosol | riboswitch construct at 5 nM |
-| [AHL Sensor Cytosol](../../modules/ahl-sensor-cytosol/spec.md) | S30 Lysate | `LuxR-PLA1` or `LuxR-deGFP` |
+| [AHSL Sensor Cytosol](../../modules/ahsl-sensor-cytosol/spec.md) | S30 Lysate | `LuxR-PLA1` or `LuxR-deGFP` |
 
 **The base carries the headroom, not this process.** [Base Cytosol](../../modules/base-cytosol/spec.md) reserves 2.0 µL of 10. [S30 Lysate](../../modules/s30-lysate/spec.md) reserves 3.75 µL of 25, implied by its total rather than named, so a composer adding to that base has to derive the capacity.
 
@@ -74,4 +74,4 @@ Every Module produced by a derivative of this process:
 - [Base Cytosol](../../modules/base-cytosol/spec.md)
 - [aTc Sensor Cytosol](../../modules/atc-sensor-cytosol/spec.md)
 - [pH Sensor Cytosol](../../modules/ph-sensor-cytosol/spec.md)
-- [AHL Sensor Cytosol](../../modules/ahl-sensor-cytosol/spec.md)
+- [AHSL Sensor Cytosol](../../modules/ahsl-sensor-cytosol/spec.md)

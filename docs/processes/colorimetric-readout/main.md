@@ -12,7 +12,7 @@ This page is a work in progress and not yet ready for use.
 
 Colorimetric Readout converts a completed sensing/lysis cascade into a visible, measurable color signal. A chromogenic substrate — chlorophenol red-β-D-galactopyranoside (CPRG) or, in an alternate chemistry, catechol — is hydrolyzed by a reporter enzyme (β-galactosidase, LacZ, or catechol 2,3-dioxygenase, XylE/C23DO) that has been released or exposed by upstream lysis. This page covers the readout step itself: the substrate/enzyme chemistry, the absorbance wavelengths used to read it, and the plate-reader and visual-scoring protocols used across the DevCells cascades. It does not repeat each cascade's own sensing mechanism, encapsulation format, or quantitative result — those are documented on the Module pages that feed into this process and are cited below rather than duplicated.
 
-This is the shared downstream step for both the Chicago and London programs: every sensing cascade in `docs/modules/` that produces a visible signal (theophylline, pH, aTc, and AHL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or hydrogel format feeds it.
+This is the shared downstream step for both the Chicago and London programs: every sensing cascade in `docs/modules/` that produces a visible signal (theophylline, pH, aTc, and AHSL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or hydrogel format feeds it.
 
 :::::::{card}
 :header: **Important Information**
@@ -88,7 +88,7 @@ Some cascades co-encapsulate LacZ inside the same synthetic cell as the sensing 
 
 - [ ] Load the completed reaction (solution, hydrogel, or embedded format) into a clear-bottom or glass-bottom plate. Use a 96-well plate for bulk/hydrogel-in-well formats or a 384-well glass-bottom plate for imaged liposome/hydrogel preparations.
 - [ ] Set the plate reader to read absorbance at 570 nm to 575 nm (LacZ/CPRG) or 375 nm to 385 nm (XylE/catechol), matching the chemistry in use.
-- [ ] Incubate at 37 °C and take kinetic reads over the timescale established for that cascade — reported response times across cascades range from about 3 h (constitutive PLA1/CPRG, no sensing gate) to about 16 h (theophylline and ULGA-embedded AHL cascades) and up to several hours for solution-phase pH sensing. Do not assume a single fixed read window applies to every cascade; check the specific Module page.
+- [ ] Incubate at 37 °C and take kinetic reads over the timescale established for that cascade — reported response times across cascades range from about 3 h (constitutive PLA1/CPRG, no sensing gate) to about 16 h (theophylline and ULGA-embedded AHSL cascades) and up to several hours for solution-phase pH sensing. Do not assume a single fixed read window applies to every cascade; check the specific Module page.
 - [ ] Include the controls specified by that cascade's own protocol (e.g., minus-inducer, minus-DNA, Triton X-100 positive lysis control) in the same plate read.
 
 ## Endpoint visual scoring
@@ -97,14 +97,14 @@ For formats read by eye rather than by plate reader (e.g., a hydrogel photograph
 
 - [ ] Photograph the reaction at the timepoints specified by the cascade's protocol under consistent, diffuse lighting against a white background.
 - [ ] Score color qualitatively: LacZ/CPRG reactions progress from yellow toward pink/magenta/purple; XylE/catechol reactions progress from colorless toward yellow.
-- [ ] Where a quantitative comparison is needed, follow up with the plate-reader protocol above rather than relying on visual scoring alone — several cascades (pH sensing, London AHL) report visually subtle ("slight pink," "temperamental") signals that are easier to distinguish by absorbance than by eye.
+- [ ] Where a quantitative comparison is needed, follow up with the plate-reader protocol above rather than relying on visual scoring alone — several cascades (pH sensing, London AHSL) report visually subtle ("slight pink," "temperamental") signals that are easier to distinguish by absorbance than by eye.
 
 # Quality Control
 
 A positive color change alone does not confirm specific detection — several cascades that use this readout process report background or leak issues that affect interpretation, and this page's readout chemistry cannot distinguish specific signal from these known confounds on its own:
 
 - The Chicago theophylline cascade shows the same ~16 h color change with or without theophylline present (riboswitch leak) — see the [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) spec.
-- The London AHL cascade shows only a slightly discernible, "temperamental" difference between +AHL and −AHL conditions, with inconsistent liposome rupture reported across repeats — see the [London Cascade](../../modules/london-cascade/spec.md) spec.
+- The London AHSL cascade shows only a slightly discernible, "temperamental" difference between +AHSL and −AHSL conditions, with inconsistent liposome rupture reported across repeats — see the [London Cascade](../../modules/london-cascade/spec.md) spec.
 - The pH-sensing bulk hydrogel result shows a real but modest absorbance gap (Abs₅₇₀ ≈0.31 at pH 7.4 vs. ≈0.39 at pH 6.5, against a ≈0.46 positive control) — see the [pH-Sensing Module](../../modules/detector-ph/spec.md) spec.
 
 Always include the negative/uninduced control specified by the cascade's own Module page alongside the induced condition in the same read, and treat this process's absorbance values as relative to that same-plate control rather than against an absolute threshold.

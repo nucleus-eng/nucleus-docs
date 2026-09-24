@@ -65,7 +65,7 @@ flowchart TD
 
 ::::{tab-item} Cytosol
 
-[Base Cytosol](../base-cytosol/spec.md) at reaction concentration. The same base the aTc and pH sensor cytosols use. The AHL one uses [S30 Lysate](../s30-lysate/spec.md) instead, which is why [Cytosol](../cytosol/spec.md) exists as a class.
+[Base Cytosol](../base-cytosol/spec.md) at reaction concentration. The same base the aTc and pH sensor cytosols use. The AHSL one uses [S30 Lysate](../s30-lysate/spec.md) instead, which is why [Cytosol](../cytosol/spec.md) exists as a class.
 
 :::{table} The base, at the figures its detector's page records.
 | Component | Working concentration | Notes |

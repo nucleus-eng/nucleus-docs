@@ -1,5 +1,5 @@
 ---
-title: "Detector: AHL"
+title: "Detector: AHSL"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -13,9 +13,9 @@ site:
 **Position.** Refines [`detector`](../detector/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The AHL Detector module is a LuxR/pLux genetic sensor that detects the _E. coli_ quorum-sensing molecule 3-oxohexanoyl-L-homoserine lactone or 3OC6-HSL. LuxR binds AHL and activates the pLux promoter, driving expression of a downstream effector gene (e.g., [deGFP](../reporter-degfp/spec.md)). 
+The AHSL Detector module is a LuxR/pLux genetic sensor that detects the _E. coli_ quorum-sensing molecule 3-oxohexanoyl-L-homoserine lactone or 3OC6-HSL. LuxR binds AHSL and activates the pLux promoter, driving expression of a downstream effector gene (e.g., [deGFP](../reporter-degfp/spec.md)). 
 
-This Module is composed into the [AHL Sensing Cell](../ahl-sensing-cell/spec.md), driving GFP expression, and the [London Cascade](../london-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
+This Module is composed into the [AHSL Sensing Cell](../ahsl-sensing-cell/spec.md), driving GFP expression, and the [London Cascade](../london-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -46,7 +46,7 @@ All data below comes from bacterial S30 lysate (Promega) and POPC synthetic cell
 :::
 
 :::{figure} mechanism-schematic.png
-Schematic representation of the AHL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-AHL as it diffuses in from outside the synthetic cell. LuxR–AHL activates the pLux promoter, driving gene expression (here: GFP). The phospholipid-bilayer inset of the original panel is cropped out as unrelated to the sensing mechanism.
+Schematic representation of the AHSL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-AHSL as it diffuses in from outside the synthetic cell. LuxR–AHSL activates the pLux promoter, driving gene expression (here: GFP). The phospholipid-bilayer inset of the original panel is cropped out as unrelated to the sensing mechanism.
 :::
 
 # Reference Composition
@@ -106,7 +106,7 @@ This page documents the S30 route, which [requires circular DNA](../s30-lysate/s
 
 ::::{tab-item} Cytosol
 
-| **Component**   | **Stock**   | **Final** | **− AHL (µL)** | **+ 10 µM AHL (µL)** |
+| **Component**   | **Stock**   | **Final** | **− AHSL (µL)** | **+ 10 µM AHSL (µL)** |
 | --------------- | ----------- | --------- | --------- | --------------- |
 | Premix          | 2.5x        | 1×        | 20        | 20              |
 | Extract         | 3.33x       | 1×        | 15        | 15              |
@@ -117,7 +117,7 @@ This page documents the S30 route, which [requires circular DNA](../s30-lysate/s
 | Water           | —           | —         | 8         | 7.5             |
 
 :::{attention} Composition reconstructed, needs verification
-Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior; the source's 50 mM would require 0.01 µL. The condition columns are also swapped relative to the source, in which the column headed **− AHL** was the one carrying the AHL. The RNase inhibitor is left as sourced at 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor(london): confirm all three with the London Node before bench use.
+Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior; the source's 50 mM would require 0.01 µL. The condition columns are also swapped relative to the source, in which the column headed **− AHSL** was the one carrying the AHSL. The RNase inhibitor is left as sourced at 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor(london): confirm all three with the London Node before bench use.
 :::
 
 ::::
@@ -162,7 +162,7 @@ Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required:
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): this Module supplies AHL sensing for the London quorum-sensing demo.
+- [London DevCell](../../implementations/london-devcell/main.md): this Module supplies AHSL sensing for the London quorum-sensing demo.
 
 # Processes
 

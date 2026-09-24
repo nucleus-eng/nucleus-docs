@@ -8,7 +8,7 @@
 # an encapsulate step, packing a sensor cytosol with a membrane. No member has an
 # exception and no member has a third operand.
 #
-# WHAT VARIES IS THE MEMBRANE, NOT THE SHAPE. The AHL integration path packs membrane-popc and the
+# WHAT VARIES IS THE MEMBRANE, NOT THE SHAPE. The AHSL integration path packs membrane-popc and the
 # other three pack membrane-chicago. Both refine membrane, so the slot holds.
 
 module: sensing-cell

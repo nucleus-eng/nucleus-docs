@@ -82,12 +82,12 @@ S30 Lysate's expected behavior is characterized by expressing a reporter module 
 
 # Requirements
 
-Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
+Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: AHSL](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
 
 :::{important} Reactions receive the circular form, and the distinction is not cosmetic
 Confirmed with the London Node, 2026-09-09: **S30 Lysate requires circular DNA.** Nothing is done to protect a linear template — no GamS is added — so linear DNA is exposed to exonuclease activity in an *E. coli* extract and the circular form is used instead.
 
-Each London construct exists in both presentations. The linear form is the expression cassette alone, used in [Base Cytosol](../base-cytosol/spec.md); the circular form is that same cassette in a pOpen backbone, and is what goes into an S30 reaction. **They are functionally equivalent but not sequence-identical**, so a page citing one is not citing the other — see [Detector: AHL](../detector-3oc6-hsl/spec.md).
+Each London construct exists in both presentations. The linear form is the expression cassette alone, used in [Base Cytosol](../base-cytosol/spec.md); the circular form is that same cassette in a pOpen backbone, and is what goes into an S30 reaction. **They are functionally equivalent but not sequence-identical**, so a page citing one is not citing the other — see [Detector: AHSL](../detector-3oc6-hsl/spec.md).
 :::
 
 For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
@@ -95,9 +95,9 @@ For encapsulated use, additionally requires a membrane (e.g. [London Membrane](.
 Not compatible with Optiprep in the inner solution above ~5%; use sucrose for density matching instead (e.g. [London Chassis](../london-chassis/spec.md)).
 
 :::{caution} Optiprep may block expression. 
-Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold. Without Optiprep in the inner solution, the encapsulated AHL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
+Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold. Without Optiprep in the inner solution, the encapsulated AHSL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
 
-**Not yet controlled.** The Optiprep-free expression result above has no minus-AHL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run.
+**Not yet controlled.** The Optiprep-free expression result above has no minus-AHSL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run.
 :::
 
 # Implementations

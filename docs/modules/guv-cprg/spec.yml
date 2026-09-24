@@ -49,7 +49,7 @@ process_steps:
       different inner solution — which is what lets both populations be made by one
       method. The 100% POPC bilayer is a choice rather than a constraint: Substrate:
       CPRG accepts either POPC or POPC:cholesterol, and 100% POPC is taken here to
-      match the AHL Sensing Cell. The loading concentration does not depend on the
+      match the AHSL Sensing Cell. The loading concentration does not depend on the
       bilayer, so it carries over unchanged from the SUV form.
 
 measured_by:
@@ -62,7 +62,7 @@ open:
     question: >
       The 100% POPC bilayer is recorded above as a parameter, which reads as though
       the Module requires it. The page says the opposite — the bilayer is a choice
-      made to match the AHL Sensing Cell, and the Substrate accepts POPC:cholesterol
+      made to match the AHSL Sensing Cell, and the Substrate accepts POPC:cholesterol
       as well. The schema has no way to mark a parameter as "chosen here, not
       required", so the note carries what the key cannot.
   - id: downstream-combination-is-not-here

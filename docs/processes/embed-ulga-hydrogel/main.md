@@ -10,7 +10,7 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
-ULGA hydrogel embedding immobilizes synthetic-cell-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC synthetic cells carrying the AHL Sensing Module (S30 Lysate plus the `LuxR-deGFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing synthetic cells fixed while AHL from an external bacterial source diffuses in through the gel and triggers a response.
+ULGA hydrogel embedding immobilizes synthetic-cell-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC synthetic cells carrying the AHSL Sensing Module (S30 Lysate plus the `LuxR-deGFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing synthetic cells fixed while AHSL from an external bacterial source diffuses in through the gel and triggers a response.
 
 In the process-dependency diagram, Hydrogel Embedding: ULGA is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Hydrogel Embedding: Alginate](../embed-alginate-hydrogel/main.md), which is fed by both phase transfer and [Encapsulation: SUV](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
 
@@ -46,7 +46,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} GFP readout
 
-:::{table} Outer solution used to embed AHL Sensing Cell synthetic cells for the GFP readout. ULGA at 1% (w/v) in the prepared solution.
+:::{table} Outer solution used to embed AHSL Sensing Cell synthetic cells for the GFP readout. ULGA at 1% (w/v) in the prepared solution.
 :label: comp-ulga-gfp
 
 | Component | Concentration |
@@ -70,13 +70,13 @@ Please read this section carefully. It contains important notes, resources, and 
 | Potassium L-glutamate | 578 mM |
 | HEPES (pH 7.4) | 72 mM |
 | Glucose | 300 mM |
-| AHL (3OC6-HSL, + condition only) | (5-10) µM |
-| AHL-producing bacteria supernatant | 10:1 dilution (20 µL per 200 µL hydrogel) |
+| AHSL (3OC6-HSL, + condition only) | (5-10) µM |
+| AHSL-producing bacteria supernatant | 10:1 dilution (20 µL per 200 µL hydrogel) |
 | ULGA | 1% (w/v) |
 
 :::
 
-This variant feeds the Colorimetric Readout process; see the [AHL Sensing Cell](../../modules/ahl-sensing-cell/spec.md) spec for the sensing synthetic cell composition and the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) and [LacZ Reporter](../../modules/reporter-lacz/spec.md) specs for the downstream lysis and colorimetric chemistry — this process page covers embedding only, not the readout itself.
+This variant feeds the Colorimetric Readout process; see the [AHSL Sensing Cell](../../modules/ahsl-sensing-cell/spec.md) spec for the sensing synthetic cell composition and the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) and [LacZ Reporter](../../modules/reporter-lacz/spec.md) specs for the downstream lysis and colorimetric chemistry — this process page covers embedding only, not the readout itself.
 
 ::::
 
@@ -128,7 +128,7 @@ No exact dissolution temperature or hold time is established for this step. Stan
 
 ## Form Hydrogel-Embedded synthetic cells
 
-- [ ] Combine the cooled, still-liquid ULGA solution with phase-transfer synthetic cells (e.g., AHL Sensing Cell POPC synthetic cells carrying `LuxR-deGFP` in S30 Lysate) to a total volume of 100 µL per reaction.
+- [ ] Combine the cooled, still-liquid ULGA solution with phase-transfer synthetic cells (e.g., AHSL Sensing Cell POPC synthetic cells carrying `LuxR-deGFP` in S30 Lysate) to a total volume of 100 µL per reaction.
 - [ ] Dispense the synthetic cell/ULGA mixture into wells or onto a plate and allow the gel to set by cooling below the ULGA gel point.
 
 ## Add Bacterial Input
@@ -136,10 +136,10 @@ No exact dissolution temperature or hold time is established for this step. Stan
 Where a component is sensitive to anything the formation step imposes (e.g., temperature), add at this step — noting that it is applied on top of the set gel and reaches the interior only by diffusion, so this suits an analyte rather than a component that must sit with the cells.
 
 - [ ] Add 10 µL of one of the following on top of the set gel, per condition:
-    - [ ] Overnight bacterial culture (AHL-producing).
-    - [ ] Bacterial culture supernatant (AHL-producing, cell-free).
+    - [ ] Overnight bacterial culture (AHSL-producing).
+    - [ ] Bacterial culture supernatant (AHSL-producing, cell-free).
     - [ ] LB medium only (negative control).
-- [ ] Include a positive control gel using a constitutively expressed GFP construct (not the AHL-gated sensor) to confirm the encapsulated lysate is expressing independent of AHL exposure.
+- [ ] Include a positive control gel using a constitutively expressed GFP construct (not the AHSL-gated sensor) to confirm the encapsulated lysate is expressing independent of AHSL exposure.
 - [ ] Incubate 2.5 h.
 
 # Quality Control

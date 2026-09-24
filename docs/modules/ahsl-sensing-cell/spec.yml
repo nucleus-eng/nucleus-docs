@@ -1,4 +1,4 @@
-# Composition source for the AHL Sensing Cell.
+# Composition source for the AHSL Sensing Cell.
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Constituent
 # Modules` prose stays for humans; this file is the contract for tooling, and
@@ -11,8 +11,8 @@
 # Depth 1. The sensor cytosol is expanded because this Cell builds it; S30
 # Lysate, the detector, the effector and the membrane are all obtained.
 
-module: ahl-sensing-cell
-title: AHL Sensing Cell
+module: ahsl-sensing-cell
+title: AHSL Sensing Cell
 refines: sensing-cell
 
 inputs:
@@ -38,20 +38,20 @@ process_steps:
     operator: mixing
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
     produces:
-      id: ahl-sensor-cytosol
-      title: "AHL Sensor Cytosol"
-      page: ../ahl-sensor-cytosol/spec.md
+      id: ahsl-sensor-cytosol
+      title: "AHSL Sensor Cytosol"
+      page: ../ahsl-sensor-cytosol/spec.md
 
   - id: encapsulate
     process:
       title: "Encapsulation: Phase Transfer"
       page: ../../processes/assemble-base-cell/main.md
     operator: packing
-    operands: [ahl-sensor-cytosol, membrane-popc]
+    operands: [ahsl-sensor-cytosol, membrane-popc]
     produces:
-      id: ahl-sensing-cell
-      title: "AHL Sensing Cell"
-      page: ../ahl-sensing-cell/spec.md
+      id: ahsl-sensing-cell
+      title: "AHSL Sensing Cell"
+      page: ../ahsl-sensing-cell/spec.md
     notes: >
       The cytosol is composed before encapsulation, not added to a closed
       chassis. Inner and outer osmolarity are matched at about 920 mOsm.

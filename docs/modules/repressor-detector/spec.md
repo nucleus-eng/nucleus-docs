@@ -74,12 +74,12 @@ flowchart TD
 | --- | --- | --- | --- |
 | [tetR-aTc](../detector-tetr-atc/spec.md) | aTc | TetR at a `tetO` operator | yes |
 | [LacI-IPTG](../detector-laci-iptg/spec.md) | IPTG | LacI at a `lacO` operator | yes |
-| Repressor AHL detector | 3OC6-HSL | EsaR | **no. London is designing it** |
+| Repressor AHSL detector | 3OC6-HSL | EsaR | **no. London is designing it** |
 :::
 
 **The aTc detector is the concrete implementation to read first.** Jon, 2026-09-21. It is the member where every part of the invariant is present and built, so it is what this class is abstracted from rather than an example chosen after the fact.
 
-**The third row is a position, not a Module.** It is where this class meets [Detector](../detector/spec.md)'s AHL branch, and nothing occupies it yet. EsaR is a LuxR homolog that represses rather than activates, and it is available as purified protein, which is why the redesign can take the protein route.
+**The third row is a position, not a Module.** It is where this class meets [Detector](../detector/spec.md)'s AHSL branch, and nothing occupies it yet. EsaR is a LuxR homolog that represses rather than activates, and it is available as purified protein, which is why the redesign can take the protein route.
 
 # Requirements
 

@@ -196,7 +196,7 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 # Implementations
 
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the colorimetric readout for the aTc and pH cascades. LacZ is encapsulated as purified enzyme alongside the sensing construct rather than expressed from DNA, and converts CPRG released from a neighboring Substrate SUV. Sources: [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd), [`chicago-colorimetric-validation`](https://devnotes.nucleus.engineering/articles/019b140b-4888-74fd-b8c9-c2b79a64601e).
-- [London DevCell](../../implementations/london-devcell/main.md): supplies the colorimetric readout for the AHL cascade. LacZ is the enzyme in use and XylE/C23DO is the proposed alternative, not yet run. Both linear-DNA formats have been synthesized and templates prepared; no encapsulated result has been reported. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
+- [London DevCell](../../implementations/london-devcell/main.md): supplies the colorimetric readout for the AHSL cascade. LacZ is the enzyme in use and XylE/C23DO is the proposed alternative, not yet run. Both linear-DNA formats have been synthesized and templates prepared; no encapsulated result has been reported. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
 
 # Processes
 

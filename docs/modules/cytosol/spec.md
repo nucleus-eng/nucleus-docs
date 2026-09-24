@@ -16,7 +16,7 @@ site:
 A class: a cell-free expression mix, holding everything a transcription and translation
 reaction needs. Two members.
 
-**It refines nothing, and it exists because the demo integration paths disagree.** The AHL integration path builds its
+**It refines nothing, and it exists because the demo integration paths disagree.** The AHSL integration path builds its
 sensor cytosol on [S30 Lysate](../s30-lysate/spec.md). The aTc and pH integration paths build theirs on
 [Base Cytosol](../base-cytosol/spec.md). A meet over the three integration paths reaches that slot and finds
 two occupants, so the slot needs a name.

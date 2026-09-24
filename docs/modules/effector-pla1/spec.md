@@ -63,7 +63,7 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `T7pro-PLA1-T7term` | not yet determined | — | pT7; Chicago theophylline cascade, and the ungated London run |
-| `LuxR-PLA1` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1, one molecule; London AHL cascade. Also referred to as `P70lux-PLA1-term`. |
+| `LuxR-PLA1` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1, one molecule; London AHSL cascade. Also referred to as `P70lux-PLA1-term`. |
 :::
 
 :::{attention} `T7pro-PLA1-T7term` is not in `nucleus-eng/DNA`
@@ -87,12 +87,12 @@ PLA1 is expressed from one of the constructs above rather than added as a reagen
 | --- | --- | --- |
 | London constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in a 20 µL reaction with 5% Optiprep |
 | Chicago aTc | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
-| London AHL | `LuxR-PLA1` | 15 ng/µL |
+| London AHSL | `LuxR-PLA1` | 15 ng/µL |
 | Chicago pH | Toehold-switch-gated PLA1 template | 2 nM |
 | Chicago theophylline | `T7pro-PLA1-T7term` | Not documented |
 :::
 
-The cytosol itself is whichever the host configuration uses — [Base Cytosol](../base-cytosol/spec.md) for the Chicago cascades and for the ungated London run, [S30 Lysate](../s30-lysate/spec.md) for the London AHL cascade.
+The cytosol itself is whichever the host configuration uses — [Base Cytosol](../base-cytosol/spec.md) for the Chicago cascades and for the ungated London run, [S30 Lysate](../s30-lysate/spec.md) for the London AHSL cascade.
 
 ::::
 
@@ -118,7 +118,7 @@ PLA1 lyses synthetic cells in which this module is expressed, as well as synthet
 - **Chicago theophylline cascade.** A [theophylline riboswitch](../detector-theophylline/spec.md) gates PLA1 expression. PLA1 ruptures its own synthetic cell and a neighboring [CPRG-loaded synthetic cell](../substrate-cprg-suv/spec.md), releasing CPRG to an external [LacZ](../reporter-lacz/spec.md) solution and producing a visible color change after ~16 h in an alginate hydrogel. Confirmed at the synthetic cell/hydrogel level, with a known caveat: the color change currently occurs with or without theophylline present (riboswitch leak), so target specificity is not yet solved.
 - **[Chicago pH cascade](../ph-cascade/spec.md).** A [pH-responsive toehold switch](../detector-ph/spec.md) gates PLA1. The same two-liposome CPRG/LacZ handoff produces a visible yellow-to-purple change at pH 6.5 in solution. Confirmed at the solution level only; not yet moved into the hydrogel-embedded chassis.
 - **[Chicago aTc cascade](../atc-cascade/spec.md).** See the [tetR-aTc Detector Module](../detector-tetr-atc/spec.md) spec, "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section: a `TetO-PLA1` construct is co-encapsulated with LacZ in a synthetic cell, with CPRG outside so that lysis is what brings them together, showing a detectable but **non-graded** absorbance response to aTc (saturating at or below 1 µM). This is the only PLA1 result reduced to numbers; the rest are scored by eye.
-- **[London AHL cascade](../london-cascade/spec.md).** A [LuxR/pLux quorum-sensing promoter](../detector-3oc6-hsl/spec.md) gates PLA1 expression in [S30 Lysate](../s30-lysate/spec.md). PLA1 lysis again triggers the CPRG/LacZ handoff. As of the latest report, this shows a discernible but still leaky difference in color change between +AHL and −AHL conditions; the team is optimizing DNA and AHL concentrations to widen this gap.
+- **[London AHSL cascade](../london-cascade/spec.md).** A [LuxR/pLux quorum-sensing promoter](../detector-3oc6-hsl/spec.md) gates PLA1 expression in [S30 Lysate](../s30-lysate/spec.md). PLA1 lysis again triggers the CPRG/LacZ handoff. As of the latest report, this shows a discernible but still leaky difference in color change between +AHSL and −AHSL conditions; the team is optimizing DNA and AHSL concentrations to widen this gap.
 
 :::{attention} Four of these five are cascade results
 Only the ungated configuration reports on PLA1 by itself. In the other four, PLA1 and the sensing circuit that gates it cannot be told apart — a weak result there may be either. None of the five isolates PLA1 from the CPRG/LacZ readout it drives.
@@ -141,7 +141,7 @@ Requires a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-pop
 
 **PLA1 requires a low noise floor in whatever drives it**, and any color change module built on
 PLA1 inherits that requirement. Both Nodes met it independently on 2026-09-15, from opposite
-directions. In London, background PLA1 expression without AHL gives near-equivalent color to the
+directions. In London, background PLA1 expression without AHSL gives near-equivalent color to the
 induced state, so the dynamic range is gone. In Chicago, PLA1 takes 10 to 12 h to lyse GUVs
 and the GUVs leak on their own over the same window, so the negative control colors too:
 *"slightly purple to slightly more purple."* **One failure with two causes**, transcriptional
@@ -158,7 +158,7 @@ are different questions, and both answers hold.
 **No threshold is recorded.** Neither Node has stated a figure for "low", so this stays prose
 and does not enter `spec.yml`.
 
-Requires an upstream sensing circuit (e.g. [Detector: AHL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
+Requires an upstream sensing circuit (e.g. [Detector: AHSL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
@@ -170,7 +170,7 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 # Implementations
 
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): PLA1 drives the aTc, pH and theophylline colorimetric readouts.
-- [London DevCell](../../implementations/london-devcell/main.md): PLA1 drives the AHL quorum-sensing colorimetric readout.
+- [London DevCell](../../implementations/london-devcell/main.md): PLA1 drives the AHSL quorum-sensing colorimetric readout.
 
 # Processes
 

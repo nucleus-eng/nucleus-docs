@@ -62,7 +62,7 @@ open:
       The 3OC6-HSL stock is given as 1 mM because that is the only value yielding the
       10 uM final stated in three places on the page; the source's 50 mM would need
       0.01 uL. The condition columns are also swapped relative to the source, in
-      which the column headed "− AHL" was the one carrying the AHL. Two of the
+      which the column headed "− AHSL" was the one carrying the AHSL. Two of the
       table's rows are therefore inference rather than record, and the analyte row is
       one of them — though it is excluded above, so this file does not depend on it.
   - id: rnase-inhibitor-disagrees-with-the-cytosol

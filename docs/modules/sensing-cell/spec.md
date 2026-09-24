@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cell`](../cell/spec.md). Refined by [`ahl-sensing-cell`](../ahl-sensing-cell/spec.md), [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
+**Position.** Refines [`cell`](../cell/spec.md). Refined by [`ahsl-sensing-cell`](../ahsl-sensing-cell/spec.md), [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cell](../cell/spec.md) whose cytosol is a
@@ -70,7 +70,7 @@ four**, and the final step is the same step in all four.
 :::{table} What varies is the membrane, not the shape.
 | Member | Sensor cytosol | Membrane |
 | --- | --- | --- |
-| [AHL Sensing Cell](../ahl-sensing-cell/spec.md) | AHL | [POPC](../membrane-popc/spec.md) |
+| [AHSL Sensing Cell](../ahsl-sensing-cell/spec.md) | AHSL | [POPC](../membrane-popc/spec.md) |
 | [aTc Sensing Cell](../atc-sensing-cell/spec.md) | aTc | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
 | [pH Sensing Cell](../ph-sensing-cell/spec.md) | pH | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
 | [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) | Theophylline | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |

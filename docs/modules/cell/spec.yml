@@ -4,7 +4,7 @@
 # packed with a Membrane.
 #
 # THE INVARIANT IS `packing` OVER EXACTLY TWO OPERANDS, FIVE OF FIVE. base-cell,
-# ahl-sensing-cell, atc-sensing-cell, ph-sensing-cell and theophylline-sensing-cell all
+# ahsl-sensing-cell, atc-sensing-cell, ph-sensing-cell and theophylline-sensing-cell all
 # run a final step whose operator is packing and whose operands are a cytosol and a
 # membrane. No member has an exception.
 #

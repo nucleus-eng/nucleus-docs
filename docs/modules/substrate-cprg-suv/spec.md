@@ -126,7 +126,7 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 # Implementations
 
 - [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the substrate for the theophylline and pH colorimetric readouts.
-- [London DevCell](../../implementations/london-devcell/main.md): supplies the substrate for the AHL colorimetric readout.
+- [London DevCell](../../implementations/london-devcell/main.md): supplies the substrate for the AHSL colorimetric readout.
 
 # Processes
 

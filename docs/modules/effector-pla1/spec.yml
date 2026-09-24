@@ -78,7 +78,7 @@ open:
   - id: the-four-gated-variants-are-stitched-dna-modules
     question: >
       The page lists five configurations and this file writes one. The other four are
-      London AHL (`LuxR-PLA1`, 15 ng/uL, in S30 Lysate), Chicago aTc (`TetO-PLA1`,
+      London AHSL (`LuxR-PLA1`, 15 ng/uL, in S30 Lysate), Chicago aTc (`TetO-PLA1`,
       1 nM, also tested at 0.5 nM), Chicago pH (a toehold-switch-gated PLA1 template,
       2 nM) and Chicago theophylline (`T7pro-PLA1-T7term`, dose not documented).
       They are recorded here so the omission is a claim rather than a gap.

@@ -3,7 +3,7 @@
 # WRITTEN 2026-09-21. Refines cytosol, and the refinement is ONE INPUT: a cytosol with a
 # detector mixed into it.
 #
-# THE INVARIANT IS `mixing`, THREE OF THREE. ahl-sensor-cytosol mixes s30-lysate with
+# THE INVARIANT IS `mixing`, THREE OF THREE. ahsl-sensor-cytosol mixes s30-lysate with
 # detector-3oc6-hsl, atc-sensor-cytosol mixes base-cytosol with detector-tetr-atc, and
 # ph-sensor-cytosol mixes base-cytosol with a ph-trigger-duplex. One compartment in all
 # three, which is what makes the detector able to act on the reaction around it.

@@ -18,4 +18,4 @@ Implementations are combinations of useful Processes and Modules. This section i
 The final, fully integrated demo devices from the DevCells program. Both are drafts — the integrated results are the deliverable of DevStudio (23 Sep – 13 Oct 2026), not of this documentation.
 
 - [Chicago DevCell: Patterned Multiplexed Biosensor](./chicago-devcell/main.md)
-- [London DevCell: AHL Colorimetric Reporter](./london-devcell/main.md)
+- [London DevCell: AHSL Colorimetric Reporter](./london-devcell/main.md)

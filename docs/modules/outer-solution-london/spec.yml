@@ -44,5 +44,5 @@ process_steps:
     notes: >
       The osmolarity stays here even though each solute above is also stated, because it
       is a relation rather than a property of any one of them: it has to match across
-      the membrane of whatever is suspended in it. Matched to the AHL Sensing Cell inner
+      the membrane of whatever is suspended in it. Matched to the AHSL Sensing Cell inner
       solution.

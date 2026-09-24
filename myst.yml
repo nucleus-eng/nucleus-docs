@@ -153,9 +153,9 @@ project:
           hidden: true
         - file: ./docs/modules/chicago-cascade/spec.md
           hidden: true
-        - file: ./docs/modules/ahl-sensing-cell/spec.md
+        - file: ./docs/modules/ahsl-sensing-cell/spec.md
           hidden: true
-        - file: ./docs/modules/ahl-sensor-cytosol/spec.md
+        - file: ./docs/modules/ahsl-sensor-cytosol/spec.md
           hidden: true
         - file: ./docs/modules/london-cascade/spec.md
           hidden: true
