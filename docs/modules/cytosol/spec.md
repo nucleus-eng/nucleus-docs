@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`base-cytosol`](../base-cytosol/spec.md), [`s30-lysate`](../s30-lysate/spec.md), [`sensor-cytosol`](../sensor-cytosol/spec.md).
+**Position.** Refines [`solution`](../solution/spec.md). Refined by [`base-cytosol`](../base-cytosol/spec.md), [`s30-lysate`](../s30-lysate/spec.md), [`sensor-cytosol`](../sensor-cytosol/spec.md).
 <!-- /gen:position -->
 
 A class: a cell-free expression mix, holding everything a transcription and translation

@@ -28,25 +28,20 @@ inputs: {}
 process_steps: []
 
 open:
-  - id: one-member-and-the-guard-says-so
+  - id: the-osmolarity-axiom-belongs-to-the-member
     question: >
-      `outer-solution` is the only member today, so `one_member_classes()` in
-      scripts/render-position.py fires on this class. That query went 1 to 0 on
-      2026-09-21 when the LacZ restructure dissolved the last one, and this puts it
-      back to 1. Recorded rather than suppressed: the guard is right that a
-      one-member class is worth looking at, and the answer here is the exit condition
-      below rather than a change to the tree.
-  - id: whether-cytosol-refines-this
+      SETTLED 2026-09-24, and by a ruling about something else. The theory corpus
+      measured the outer phase's axioms and exactly one survived, osmolarity matched to
+      the interior. ../outer-solution/spec.yml reached the same figure independently.
+      Whether that axiom belonged to this class or only to that member was open until
+      Jon ruled ../cytosol/spec.yml a member too. A CYTOSOL IS THE INTERIOR, so it
+      cannot carry an axiom about matching across a membrane to one. The axiom is
+      ../outer-solution/spec.yml's and this class does not state it.
+      Left as a record because the reasoning is not recoverable from the tree.
+  - id: what-this-class-does-state
     question: >
-      ../cytosol/spec.yml is a root and a cytosol is an aqueous phase holding solutes,
-      which is this class's invariant. If it refines this, the class has two members and
-      the guard above is satisfied. NOT RULED, and it is not obvious: the theory corpus's
-      cytosol-does-double-duty.md finds four axioms surviving for Cytosol against one for
-      the outer phase, so Cytosol is the richer class and may sit apart rather than under.
-  - id: what-the-single-axiom-is
-    question: >
-      The theory corpus measured the outer phase's axioms and exactly one survived,
-      osmolarity matched to the interior, which it calls a compatibility condition
-      between adjacent strata. ../outer-solution/spec.yml reached the same figure from
-      the corpus side, independently. Whether that one axiom belongs to this class or
-      only to the outer member is not settled.
+      Nothing yet, and that is the live gap rather than the settled one. Both members
+      hold solutes in one phase and separate them from nothing, which is the invariant
+      in prose, and no axiom is written for it. The theory corpus gives Cytosol four
+      surviving axioms against the outer phase's one; whether any is shared, and
+      therefore belongs here, has not been measured.

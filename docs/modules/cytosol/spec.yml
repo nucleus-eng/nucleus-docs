@@ -1,6 +1,13 @@
 # Composition source for Cytosol.
 #
-# WRITTEN 2026-09-21. A class, and a root here. Two members, base-cytosol and s30-lysate.
+# WRITTEN 2026-09-21. A class, and a root until 2026-09-24. Three members now:
+# base-cytosol, s30-lysate and sensor-cytosol.
+#
+# REFINES `solution`, 2026-09-24 on Jon's ruling. A cytosol holds its solutes in one phase
+# and separates them from nothing, which is that class's whole invariant. The parent is the
+# THINNER of the two: compositional-biology-theory's cytosol-does-double-duty.md finds four
+# axioms surviving for Cytosol against one for the outer phase. A richer class refining a
+# poorer one is what refinement is -- more axioms, fewer models.
 #
 # WHY THE CLASS HAS TO EXIST. The three demo integration paths build their sensor cytosols on TWO
 # different bases: the AHL integration path on s30-lysate, the aTc and pH integration paths on base-cytosol. So a
@@ -16,6 +23,8 @@
 
 module: cytosol
 title: "Cytosol"
+
+refines: solution
 
 inputs:
   expression-machinery:

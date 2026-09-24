@@ -34,7 +34,7 @@ This page is a work in progress and not yet ready for use.
 | --- | --- | --- |
 | Membrane | a closed lipid bilayer, so the inside is a volume | [London POPC](../membrane-popc/spec.md), [Base POPC/Chol](../membrane-popc-chol/spec.md), [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
 | [Abstract gel](../gel/spec.md) | a polymer network, so the inside is a position rather than a volume | four, listed on that page |
-| [Solution](../solution/spec.md) | dissolution, so what it holds is free to move | one, the Outer Solution |
+| [Solution](../solution/spec.md) | dissolution, so what it holds is free to move | two, the Outer Solution and the Cytosol |
 | Substrate | **named in the theory corpus, not mapped here** | see below |
 :::
 

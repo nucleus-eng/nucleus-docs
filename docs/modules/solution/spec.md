@@ -10,10 +10,10 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`container`](../container/spec.md). Refined by [`outer-solution`](../outer-solution/spec.md).
+**Position.** Refines [`container`](../container/spec.md). Refined by [`cytosol`](../cytosol/spec.md), [`outer-solution`](../outer-solution/spec.md).
 <!-- /gen:position -->
 
-An abstract Module: the class of things that hold other things in dissolution. One member today, the [Outer Solution](../outer-solution/spec.md), which has two of its own.
+An abstract Module: the class of things that hold other things in dissolution. Two members: the [Outer Solution](../outer-solution/spec.md) and the [Cytosol](../cytosol/spec.md), each with members of its own.
 
 **The invariant is that what it holds is free to move.** A Solution keeps its solutes in one phase and separates them from nothing. That is the whole of the class, and it is what distinguishes it from its two siblings.
 
@@ -39,20 +39,20 @@ This page is a work in progress and not yet ready for use.
 
 None stated at this level.
 
-:::{attention} One axiom may belong here, and it is not settled whether it does
-`compositional-biology-theory`'s `cytosol-does-double-duty.md` measured what survives when the outer phase's axioms are written out. **Exactly one did**: osmolarity matched to the interior, which that file calls a compatibility condition between adjacent strata.
+:::{attention} The one measured axiom belongs to a member, not to this class
+`compositional-biology-theory`'s `cytosol-does-double-duty.md` measured what survives when the outer phase's axioms are written out. **Exactly one did**: osmolarity matched to the interior, which that file calls a compatibility condition between adjacent strata. [Outer Solution](../outer-solution/spec.md) reached the same figure from this corpus's side and independently.
 
-[Outer Solution](../outer-solution/spec.md) reached the same figure from this corpus's side and independently, and its source records the invariant as *"an osmolarity, not an ingredient list"*. **Whether that axiom belongs to this class or only to that member is open**, and it turns on whether every Solution is suspended around something.
+**It belongs to that member and not to this class**, and the second member is what settles it. A [Cytosol](../cytosol/spec.md) *is* the interior, so it cannot carry an axiom about matching osmolarity across a membrane to one. **What this class does state has not been written**, which is the live gap: both members hold solutes in one phase and separate them from nothing, and no axiom captures it.
 :::
 
 # Processes
 
 **None, and the source agrees.** `spec.yml` declares no `process_steps`.
 
-:::{attention} This class has one member, and the guard says so
-`one_member_classes()` in [`scripts/render-position.py`](../../../scripts/render-position.py) reports a class with exactly one member. That query went from 1 to 0 on 2026-09-21, when a LacZ restructure dissolved the last one, and **this class puts it back to 1**.
+:::{note} The one-member guard fired on this class for about an hour
+`one_member_classes()` in [`scripts/render-position.py`](../../../scripts/render-position.py) reported this class when [Outer Solution](../outer-solution/spec.md) was its only member. **Jon ruled [Cytosol](../cytosol/spec.md) a second member the same afternoon and the query is back to 0 of 17.**
 
-**Recorded rather than suppressed.** The guard is right that a one-member class is worth a second look. The answer here is an exit condition rather than a change to the tree: [Cytosol](../cytosol/spec.md) is a root today and is an aqueous phase holding solutes, which is this invariant. **Whether it refines this class is not ruled and is not obvious** — the theory corpus finds four axioms surviving for Cytosol against one for the outer phase, so Cytosol is the richer class and may sit beside this one rather than under it.
+**Worth keeping because the guard did its job.** It was recorded here rather than suppressed, with Cytosol named as the exit condition and explicitly not assumed, and the exit arrived. **The parent is the thinner of the two classes** — the theory corpus finds four axioms surviving for Cytosol against one for the outer phase — and a richer class refining a poorer one is what refinement is.
 :::
 
 # Credits
