@@ -4,7 +4,7 @@ title: "Analyzing Plate Reader Data"
 
 :::{attention}
 :class: simple
-This tutorial applies to CDK version >=0.6.0. For older versions, see the tutorial [here](../../guides/platereader_tutorial.md).
+This tutorial applies to CDK version >=0.6.0. For older versions, see the tutorial [here](../platereader_tutorial.md).
 :::
 
 # Overview
@@ -12,7 +12,7 @@ This guide explains how to analyze time-series fluorescence data from plate read
 
 The CDK is available [on PyPi](https://pypi.org/project/nucleus-cdk/) for install on your own computer (requires Python 3.11+ and the `poetry` package).
 
-It is the cytosol counterpart to [Analyzing Microscopy Data](./cell-microscopy.md). Reference material is in the [cytosol API reference](../api/cytosol.md).
+It is the cytosol counterpart to [Analyzing Microscopy Data](../../cdk/tutorials/cell-microscopy.md). Reference material is in the [cytosol API reference](../../cdk/api/cytosol.md).
 
 <!-- This tutorial walks through analyzing time-series data from plate reader experiments using the `cdk` platereader module. We'll cover loading data, picking the read you care about, plotting raw curves, normalizing to a standard, fitting kinetic parameters, and visualizing results.
 
@@ -64,7 +64,7 @@ from cdk.instruments import platereader as pr
 Load your plate reader output and merge it with the platemap (see [DevNote](https://devnotes.nucleus.engineering/articles/Bhasin-20260421)) that describes your experimental conditions.
 
 - `data_file`: path to the output file from a plate reader experiment. Currently only **BioTek** plate readers are supported.
-- `platemap_file`: path to a platemap CSV mapping each `Well` to its experimental conditions. See the [platemap tutorial](../../guides/platemap_tutorial.md) for the expected format.
+- `platemap_file`: path to a platemap CSV mapping each `Well` to its experimental conditions. See the [platemap tutorial](../platemap_tutorial.md) for the expected format.
 - 
 <!-- `load_platereader_data()` parses the file, integrates the platemap, and returns a **`PlateReaderResult`** — a collection of blocks corresponding to the reads made by the plate reader. -->
 

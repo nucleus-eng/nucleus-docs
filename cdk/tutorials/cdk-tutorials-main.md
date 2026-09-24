@@ -19,7 +19,7 @@ Load segmented single-object measurements, check the segmentation, and read popu
 
 :::{card}
 :header: 🧪 **Analyzing Plate Reader Data**
-:link: ./cytosol-kinetics.md
+:link: ../../guides/kinetics-tutorial/main.md
 
 Load a kinetic read, blank it, normalize to a standard, and fit steady state.
 :::

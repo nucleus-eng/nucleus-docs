@@ -24,7 +24,7 @@ Guides provide tutorials, how-tos, and reference documentation to help you get t
 
 - [Cell Development Kit](../cdk/cdk-main.md) — Python library for analyzing synthetic cell experiments, with installation and API reference
 - [Tutorial: Analyzing Microscopy Data](../cdk/tutorials/cell-microscopy.md) — single-object measurements from a plate zarr, and how a population shifts over time
-- [Tutorial: Analyzing Plate Reader Data](../cdk/tutorials/cytosol-kinetics.md) — load, normalize, and kinetically fit plate reader time series with the CDK
+- [Tutorial: Analyzing Plate Reader Data](kinetics-tutorial/main.md) — load, normalize, and kinetically fit plate reader time series with the CDK
 - [Reference: CDK API](../cdk/api/api-main.md) — every public function, grouped by analysis stage
 
 ## Workshops

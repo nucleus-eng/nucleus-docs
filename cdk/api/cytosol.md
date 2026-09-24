@@ -7,7 +7,7 @@ subtitle: "cdk.instruments.platereader, cdk.analysis.cytosol — plate reader"
 :class: simple
 :icon: false
 
-This page is an outline awaiting content. It mirrors the structure of the [cell API reference](./cell.md), but the sections below only name the entry points; they do not describe them yet. The code itself is released and working. See the [kinetics tutorial](../tutorials/cytosol-kinetics.md) for usage.
+This page is an outline awaiting content. It mirrors the structure of the [cell API reference](./cell.md), but the sections below only name the entry points; they do not describe them yet. The code itself is released and working. See the [kinetics tutorial](../../guides/kinetics-tutorial/main.md) for usage.
 :::
 
 # Overview
