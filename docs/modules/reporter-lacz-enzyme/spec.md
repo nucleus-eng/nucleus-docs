@@ -15,6 +15,8 @@ site:
 
 The LacZ Enzyme is β-galactosidase from *E. coli*, the hydrolase half of the [LacZ Reporter](../reporter-lacz/spec.md) colorimetric pair. It cleaves [CPRG](../substrate-cprg/spec.md) from yellow chlorophenol red-β-D-galactopyranoside to magenta chlorophenol red.
 
+**The monomer is 116.3 kDa and the active form is the tetramer at 465 kDa** (Jon, 2026-09-24; no vendor page cited for these two figures). **The active form is two orders of magnitude above the largest pore cutoff in this corpus**, ~3 kDa for [α-hemolysin](../membrane-pore-ahly/spec.md). No pore releases this enzyme, so a format that encloses it has lysis as its only release route.
+
 **It is a separate Module from its substrate because the two are routinely in different compartments.** In the London Cascade the enzyme is dispersed free in the gel while CPRG is held inside a liposome population; in the aTc path the enzyme is encapsulated with the sensing reaction and CPRG stays outside. Which compartment each occupies is set by the process that places it, not by the reporter chemistry — so a page describing the pair cannot state a single location for either.
 
 :::{attention} 🚧 Draft

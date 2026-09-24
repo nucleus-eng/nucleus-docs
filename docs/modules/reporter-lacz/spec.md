@@ -159,6 +159,8 @@ How to achieve this requirement is a design choice. Here are three example solut
 - **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior. CPRG can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
 - **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) co-encapsulates CPRG and DNA encoding LacZ rather than LacZ protein.
 
+**The first two solutions are not interchangeable, and the masses say why.** CPRG is 0.59 kDa and the active LacZ tetramer is 465 kDa. Enclosing the substrate leaves a second release route open, because a pore passes CPRG. Enclosing the enzyme does not, because no pore in this corpus passes 465 kDa. **So "enclose the enzyme" commits the design to lysis and "enclose the substrate" does not.** Both bullets above use [PLA1](../effector-pla1/spec.md) today, which is why the difference has not bitten.
+
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
 :::{attention} The mechanism behind the LacZ and theophylline Conflict is not established.
