@@ -41,7 +41,7 @@ flowchart TD
     MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
-    ULGA_POWDER["ULGA powder, 0.7%"]
+    LGA_POWDER["LGA powder, 0.7%"]
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
 
@@ -55,7 +55,7 @@ flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P6_EMBED_AGAROSE_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
+    P6_EMBED_AGAROSE_0(["Hydrogel Embedding (packing, 3 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
@@ -79,7 +79,7 @@ flowchart TD
     MEMBRANE_CHICAGO --> P5_ENCAPSULATE_SUBSTRATE_SUV_0
     P5_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
 
-    ULGA_POWDER --> P6_EMBED_AGAROSE_0
+    LGA_POWDER --> P6_EMBED_AGAROSE_0
     OUTER_SOLUTION_CHICAGO --> P6_EMBED_AGAROSE_0
     PH_SENSING_CELL --> P6_EMBED_AGAROSE_0
     SUBSTRATE_CPRG_SUV --> P6_EMBED_AGAROSE_0
@@ -90,7 +90,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,LGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
     class OUTER_SOLUTION_CHICAGO,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_AGAROSE_0 process;
 
@@ -99,7 +99,7 @@ flowchart TD
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click ULGA_POWDER "/docs/modules/gel-ulga/spec"
+    click LGA_POWDER "/docs/modules/gel-lga/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
     click OUTER_SOLUTION_CHICAGO "/docs/modules/outer-solution-chicago/spec"
     click P2_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
@@ -110,7 +110,7 @@ flowchart TD
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
     click P5_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
-    click P6_EMBED_AGAROSE_0 "/docs/processes/embed-ulga-hydrogel/main"
+    click P6_EMBED_AGAROSE_0 "/docs/processes/embed-hydrogel/main"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
 ```
 
@@ -247,7 +247,7 @@ No process page documents assembling this three-part cascade end to end.
 - [pH Sensing Cell](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
-- [Agarose, 0.7%](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Identified 2026-09-21**: it is ULGA, confirmed with the Chicago devs, so it resolves to [Gel: ULGA](../gel-ulga/spec.md) and the path reuses [ULGA Embedding](../../processes/embed-ulga-hydrogel/main.md) at a different concentration. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now
+- [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Corrected 2026-09-24**: it is **low-gelling agarose**, not ULGA, confirmed by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md)**, and its step names the abstract [Hydrogel Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry. This reverses an identification of 2026-09-21 that read *"it is ULGA, confirmed with the Chicago devs"*. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now
 - [Chicago Outer Solution](../outer-solution-chicago/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it

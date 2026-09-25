@@ -23,7 +23,7 @@ refines: gel
 inputs:
   lga-powder:
     title: "Low gelling temperature agarose"
-    page: null            # no part number recorded; see the open item below
+    page: null            # no module page for the polymer; the grade is below
   outer-solution:
     title: "Outer solution"
     page: ../outer-solution/spec.md
@@ -42,6 +42,9 @@ process_steps:
       page: ../gel-lga/spec.md
     parameters:
       lga: "0.7% (w/v) in the pH path"
+      gel_temperature_window_c: "26-30 °C congealing to ≤65 °C melting"
+      eeo: "≤0.10"
+      gel_strength: "≥200 g/cm² (1% gel)"
     notes: >
       The process names the ABSTRACT parent, because no embedding process is written for
       this chemistry. ../../processes/embed-alginate-hydrogel/main.md is alginate and
@@ -58,12 +61,19 @@ open:
       the cascade to this page is a ruling about that page rather than about this one, so
       it is recorded and not applied. ../chicago-cascade/spec.yml's `which-agarose` asks
       the same question and carries an @Editor(chicago) tag.
-  - id: no-part-number-and-no-gelling-temperature
+  - id: the-two-agaroses-are-different-products
     question: >
-      ../gel-ulga/spec.yml names Sigma-Aldrich A5030 and a window of 8 °C gelling to
-      50 °C melting. Neither figure exists for this grade in any source here. Until one
-      does, the only thing separating the two modules on the page is the word the Node
-      used, and the word is what the board supplied.
+      CLOSED 2026-09-24 by vendor datasheets Jon supplied: "confirmed by part number,
+      they're different gels with different properties!" The two grades share an InChI
+      key, MJQHZNBUODTQTK-WKGBVCLCSA-N, so the polymer is the same and the grades are
+      not. This one congeals at 26-30 °C and melts at ≤65 °C, EEO ≤0.10, gel strength
+      ≥200 g/cm² at 1%, molecular-biology grade, from red algae. ../gel-ulga/spec.yml's
+      grade is Type IX from marine algae, gel point 8-17 °C, melting ≤50 °C at 0.8%,
+      EEO ≤0.05. THE GEL POINTS DO NOT OVERLAP AND THE MELTING POINTS DIFFER BY 15 °C,
+      which is what makes them non-interchangeable rather than two names for one powder.
+      THE CATALOG NUMBERS ARE STILL NOT RECORDED HERE. Jon confirmed by part number and
+      the numbers themselves were not captured, so this file states the properties and
+      not the SKU.
   - id: which-outer-solution-dissolves-it
     question: >
       ../gel-ulga/spec.yml makes the outer solution a separate step with its own recipe,
