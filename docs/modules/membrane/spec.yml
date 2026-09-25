@@ -58,11 +58,11 @@ open:
 # morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
 # "computed, never asserted". check-conflicts.py does the computing.
 sensitivities:
-  - id: radical-acrylate-polymerisation
-    to: radical-acrylate-polymerisation
+  - id: radical-acrylate-polymerization
+    to: radical-acrylate-polymerization
     basis: rule
     why: >
-      Radical acrylate polymerisation is not compatible with a lipid bilayer.
+      Radical acrylate polymerization is not compatible with a lipid bilayer.
   - id: dmso
     to: dmso
     basis: rule

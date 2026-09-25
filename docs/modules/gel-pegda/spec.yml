@@ -64,7 +64,7 @@ process_steps:
       - id: uv-exposure
         why: >
           The photopatterning step exposes whatever is in the precursor to UV.
-      - id: radical-acrylate-polymerisation
+      - id: radical-acrylate-polymerization
         why: >
           Acrylate crosslinking proceeds through free radicals, which attack what they
           reach.

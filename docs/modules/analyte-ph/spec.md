@@ -38,7 +38,7 @@ Every other analyte's band has two ends. This one has a single boundary, and the
 
 Requires a [pH-Sensing Detector](../detector-ph/spec.md) to be sensed at all.
 
-**Requires the outer solution to be buffered where the readout is not the pH change itself.** The [Chicago Cascade](../chicago-cascade/spec.md) states its own outer solution at 42.5% (v/v) Tris-HEPES, and the pH path needs a neutralisation step before color develops while the aTc path reads out directly. So the analyte and the buffer that holds it are coupled in a way the other four analytes are not.
+**Requires the outer solution to be buffered where the readout is not the pH change itself.** The [Chicago Cascade](../chicago-cascade/spec.md) states its own outer solution at 42.5% (v/v) Tris-HEPES, and the pH path needs a neutralization step before color develops while the aTc path reads out directly. So the analyte and the buffer that holds it are coupled in a way the other four analytes are not.
 
 # Processes
 

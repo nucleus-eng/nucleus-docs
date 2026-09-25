@@ -5,10 +5,10 @@
 # absorbance" and "it doesn't need enzyme and substrate, the protein itself is just
 # fluorescent".
 #
-# ONE CLASS AND NOT THREE, which is the second half of the ruling. Colour against
+# ONE CLASS AND NOT THREE, which is the second half of the ruling. Color against
 # fluorescence is a real bisection and it is recorded in the open block below rather
 # than written as two child classes. Writing both would have put a one-member class on
-# the tree; writing only the colour half would have left the fluorescence half implied,
+# the tree; writing only the color half would have left the fluorescence half implied,
 # which is the Pore[active] shape. Recording the split writes neither and loses nothing,
 # because nothing today asks for a meet over reporters that stays on one side.
 #
@@ -44,7 +44,7 @@ process_steps:
       divides the class, and that is the open item below rather than a step here.
 
 open:
-  - id: colour-against-fluorescence-is-a-bisection-and-it-is-recorded-not-written
+  - id: color-against-fluorescence-is-a-bisection-and-it-is-recorded-not-written
     question: >
       RULED 2026-09-21, record rather than write. The members split on whether a second
       molecule is needed to produce a signal. reporter-lacz and reporter-xyle each hold
@@ -53,10 +53,10 @@ open:
       compositional-biology-theory reaches the same split from the operation rather than
       from the constituents, at reference/reporter, where report takes an optional
       Substrate and the arity varies. deGFP is the arity-zero member.
-      THE COLOUR HALF ALREADY HAS A CLASS AND IT WAS NOT WRITTEN FOR THIS.
+      THE COLOR HALF ALREADY HAS A CLASS AND IT WAS NOT WRITTEN FOR THIS.
       ../color-change/spec.yml refines this class and holds reporter-lacz and
-      reporter-xyle. Its own invariant is separation rather than colour, so it is
-      functioning as the colour half without having been designed as it. Worth revisiting
+      reporter-xyle. Its own invariant is separation rather than color, so it is
+      functioning as the color half without having been designed as it. Worth revisiting
       if the fluorescence half is ever written, because a bisection whose two sides were
       drawn for different reasons is not a bisection.
       THE EXIT CONDITION IS NAMED RATHER THAN HYPOTHETICAL. Jon, 2026-09-21: "we could
