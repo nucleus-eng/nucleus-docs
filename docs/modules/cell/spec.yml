@@ -43,3 +43,44 @@ process_steps:
     notes: >
       Packing and never mixing. The cytosol and the membrane keep separate compartments,
       which is the whole point of a boundary.
+
+# WHAT THIS CLASS IS SUBJECT TO. glossary.md#T21 puts Sensitivity on an OBJECT and
+# #T22 puts Imposition on a MORPHISM, so these sit here and the imposing step
+# declares the other half. #T23 makes the Conflict COMPUTED; check-conflicts.py
+# does the computing and nothing below asserts one.
+#
+# TWO RANGES, NOT ONE, AND THE DIFFERENCE IS THE POINT. Jon, 2026-09-24:
+# "synthetic cells are spec'ed to operate between 30C and 37C, but are stable from
+# 4C to 37C." A cell being embedded is not a cell working, so an embedding step
+# meets the stability range and a sensing step meets the operating one. Collapsing
+# them would make every cold-setting gel look like a conflict.
+#
+# PROVISIONAL AND SAID SO. Supplied by Jon on 2026-09-24 with no source cited and
+# the words "for now". `basis: observation` for that reason: it enumerates what is
+# specified and claims nothing about a case nobody has run.
+sensitivities:
+  - id: thermal-stability
+    to: thermal-hold
+    basis: observation
+    bound:
+      quantity: temperature
+      sense: at-most
+      unit: C
+      value: 37
+    why: >
+      Stable from 4 °C to 37 °C. The upper end is the one an imposition can cross:
+      a step that holds a cell above 37 °C is outside what this class is specified
+      for. The lower end is recorded in prose because a single bound carries one
+      sense, and nothing in this corpus imposes a floor.
+  - id: thermal-operating
+    to: thermal-hold
+    basis: observation
+    bound:
+      quantity: temperature
+      sense: at-most
+      unit: C
+      value: 37
+    why: >
+      Specified to OPERATE between 30 °C and 37 °C, which is narrower than stability
+      and applies while the cell is sensing rather than while it is being handled.
+      Same upper bound and a different reason, so the two are separate ids.

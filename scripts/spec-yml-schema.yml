@@ -126,6 +126,8 @@ properties:
         page:
           type: [string, "null"]
           description: Where the page states it, for the checker to compare against.
+        bound:
+          $ref: "#/$defs/bound"
 
   inputs:
     type: object
@@ -265,6 +267,63 @@ properties:
           type: string
 
 $defs:
+
+  bound:
+    type: object
+    additionalProperties: false
+    required: [quantity, sense]
+    description: >
+      A QUANTITY ON ONE SIDE OF A CONFLICT. An imposition's bound is what the step
+      inflicts; a sensitivity's bound is what the object tolerates. check-conflicts.py
+      compares the two where both are declared, on Jon's ruling 2026-09-24: "the checker
+      should check the value bound then, yes?"
+      `quantity` IS DECLARED ONCE PER IMPOSITION ID, CORPUS-WIDE, and check-spec-schema.py
+      enforces that rather than this file, because JSON Schema cannot express it. Without
+      the rule one `thermal-hold` could carry °C on one step and mM on another, and the
+      comparison would be between different dimensions. Same discipline as
+      check-operator-pairs.py's seed table: the meaning belongs to the id, not to the use.
+      EITHER `value` OR `from`, NEVER BOTH AND NEVER NEITHER. A literal states the bound
+      here; `from` reads it off an operand, which is what lets one step bind a different
+      bound per polymer instead of needing one step per polymer.
+      ABSENCE IS UNDECLARED, as everywhere else in this schema. A bound meeting an
+      unbounded counterpart is reported `incomparable` and is NOT a pass.
+    properties:
+      quantity:
+        type: string
+        description: What is measured. One per imposition id across the whole corpus.
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      sense:
+        enum: [at-least, at-most]
+        description: >
+          Which way the bound runs. An imposition `at-least 30` and a sensitivity
+          `at-most 25` conflict. An imposition `at-least 20` against the same
+          sensitivity does not.
+      unit:
+        type: string
+        description: >
+          Required with `value`. Compared literally, so two spellings of one unit do
+          not compare. There is no unit registry and this schema does not pretend to one.
+      value:
+        type: number
+      from:
+        type: object
+        additionalProperties: false
+        required: [operand, key]
+        description: >
+          Read the bound off an operand's `parameters:` instead of stating it. THE KEY
+          MUST NAME A SINGLE QUANTITY. `gel_temperature_window_c` packs a congealing
+          point and a melting point into one string and cannot be read this way.
+        properties:
+          operand:
+            type: string
+            pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          key:
+            type: string
+    oneOf:
+      - required: [value, unit]
+        not: { required: [from] }
+      - required: [from]
+        not: { anyOf: [ { required: [value] }, { required: [unit] } ] }
   processRef:
     type: object
     additionalProperties: false
@@ -404,6 +463,8 @@ $defs:
               type: string
             page:
               type: [string, "null"]
+            bound:
+              $ref: "#/$defs/bound"
       operator:
         $ref: "#/$defs/operator"
       operator_pairs:

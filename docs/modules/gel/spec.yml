@@ -55,7 +55,7 @@ open:
       composition and no key holds it. The page carries the axis as a table.
   - id: the-temperature-window-is-on-the-page-and-not-here
     question: >
-      ../gel-ulga/spec.yml carries `gel_temperature_window_c`, 8 to 50, as a
+      ../gel-ulga/spec.yml carries `gel_point_max_c` and `melting_point_c`, 17 and 50, as a
       parameter of its setting step. This class's page carries the same window,
       because Jon ruled the material's window belongs at the class and the narrowing
       comes from the payload. It is not a parameter here because this step has no

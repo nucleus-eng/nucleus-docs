@@ -15,7 +15,7 @@ site:
 
 Low-gelling-temperature agarose set into an outer solution. It is the matrix the pH path embeds in, and it is a different material from [Gel: ULGA](../gel-ulga/spec.md) rather than another name for it.
 
-**The two agaroses are ordered separately and gel at different temperatures.** ULGA is the ultra-low-gelling grade, and this documentation records 8 °C gelling to 50 °C melting for it. **No equivalent figure is recorded for this grade**, which is stated below rather than guessed at.
+**The two agaroses are ordered separately and gel at different temperatures.** This grade congeals over (26–30) °C and melts at ≤65 °C. [Gel: ULGA](../gel-ulga/spec.md) has a gel point of (8–17) °C and melts at ≤50 °C. **The gel points do not overlap**, which is what makes them non-interchangeable rather than two names for one powder.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

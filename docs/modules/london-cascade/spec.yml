@@ -127,6 +127,18 @@ process_steps:
     process:
       title: "Hydrogel Embedding: ULGA"
       page: ../../processes/embed-ulga-hydrogel/main.md
+    impositions:
+      - id: thermal-hold
+        bound:
+          quantity: temperature
+          sense: at-least
+          from: { operand: ulga-powder, key: gel_point_max_c }
+        why: >
+          The polymer must be liquid when the cells go in, so this step holds them at
+          or above its gelling point until the gel sets. THE BOUND IS READ OFF THE
+          POLYMER RATHER THAN WRITTEN HERE, which is what lets one embedding process
+          carry both agaroses: ULGA holds at 17 °C and LGA at 30 °C. A literal would need one
+          step per polymer, and one step per polymer is two processes.
     operator: packing
     operator_pairs:
       - operands: [ulga-powder, outer-solution-london]

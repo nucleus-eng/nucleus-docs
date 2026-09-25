@@ -42,8 +42,13 @@ process_steps:
       page: ../gel-lga/spec.md
     parameters:
       lga: "0.7% (w/v) in the pH path"
-      gel_temperature_window_c: "26-30 °C congealing to ≤65 °C melting"
+      gel_point_max_c: 30
+      melting_point_c: 65
       eeo: "≤0.10"
+      # gel_point_max_c IS THE TOP OF THE CONGEALING RANGE, 26-30 °C on the vendor
+      # datasheet. 30 is the figure an embedding step needs, because at or above it
+      # the polymer is liquid and the payload can go in. melting_point_c is the
+      # other end and a different quantity, which is why they are two keys.
       gel_strength: "≥200 g/cm² (1% gel)"
     notes: >
       The process names the ABSTRACT parent, because no embedding process is written for

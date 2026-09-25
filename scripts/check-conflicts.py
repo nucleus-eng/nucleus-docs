@@ -81,8 +81,110 @@ def constituents(mod, seen=None):
     return seen
 
 
-SENS = {m: {x["to"]: x for x in (d.get("sensitivities") or [])}
+def resolve_bound(b, step, home):
+    """A bound's value, or (None, reason) when it cannot be got.
+
+    A literal states its own. A `from` reads the figure off an operand: resolve the
+    operand to its module and search that module's step `parameters:` for the key.
+    Ruled 2026-09-24 -- a literal would need one step per polymer, and one step per
+    polymer is two processes, which is the thing the binding exists to avoid.
+
+    NOT FINDING IT IS NOT A PASS. Every failure here returns a reason and the caller
+    reports `incomparable`, because absence means undeclared everywhere else in this
+    schema and a comparator that reads silence as agreement is worse than no
+    comparator.
+    """
+    if "value" in b:
+        return (b["value"], b.get("unit"), None)
+    f = b.get("from") or {}
+    operand, key = f.get("operand"), f.get("key")
+    if operand not in operand_ids(step):
+        return (None, None, f"`from` names {operand}, which is not an operand of this step")
+    target = ((SRC.get(home, {}).get("inputs") or {}).get(operand) or {}).get("page")
+    mod = None
+    if target:
+        mod = target.rstrip("/").split("/")[-2] if target.endswith("spec.md") else None
+    if mod is None or mod not in SRC:
+        return (None, None, f"{operand} resolves to no module page, so {key} cannot be read")
+    for st in (SRC[mod].get("process_steps") or []):
+        params = st.get("parameters") or {}
+        if key in params:
+            v = params[key]
+            if not isinstance(v, (int, float)):
+                return (None, None, f"{mod}.{key} is {v!r}, not a number")
+            return (v, "C", None)
+    return (None, None, f"{mod} declares no {key}")
+
+
+def compare(imp_b, sens_b, iv, iu, sv, su):
+    """CONFLICT, ok, or a reason it cannot be decided."""
+    if imp_b.get("quantity") != sens_b.get("quantity"):
+        return None, "different quantities"
+    if iu != su:
+        return None, f"units {iu!r} against {su!r} do not compare"
+    isense, ssense = imp_b.get("sense"), sens_b.get("sense")
+    if isense == "at-least" and ssense == "at-most":
+        return (iv > sv), None
+    if isense == "at-most" and ssense == "at-least":
+        return (iv < sv), None
+    return None, f"senses {isense} and {ssense} do not bracket"
+
+
+_OWN = {m: {x["to"]: x for x in (d.get("sensitivities") or [])}
         for m, d in SRC.items()}
+
+
+def _parents(m):
+    r = (SRC.get(m) or {}).get("refines")
+    return [] if not r else ([r] if isinstance(r, str) else list(r))
+
+
+def _inherited(m, seen=None):
+    """A sensitivity on a class is a claim about every member of it.
+
+    ADDED 2026-09-24. This walked constituents only, which is glossary.md#T34
+    containment, and missed glossary.md#T13 membership entirely. A sensitivity
+    declared on the abstract `cell` reached none of the five cells that refine it,
+    because refining is not containing. The class invariant is exactly the thing
+    every member has, so the lookup follows `refines:` as well.
+
+    A member's own entry wins over an inherited one, because a member may narrow
+    what it tolerates and must not be widened by its parent.
+    """
+    seen = seen if seen is not None else set()
+    if m in seen:
+        return {}
+    seen.add(m)
+    out = {}
+    for par in _parents(m):
+        out.update(_inherited(par, seen))
+    out.update(_OWN.get(m, {}))
+    return out
+
+
+SENS = {m: _inherited(m) for m in SRC}
+
+def verdict(imp, sens, step, home):
+    """Unvalued on either side keeps the old string-match answer, CONFLICT."""
+    ib, sb = imp.get("bound"), sens.get("bound")
+    if not ib or not sb:
+        return "CONFLICT"
+    iv, iu, why = resolve_bound(ib, step, home)
+    if why:
+        REASONS.append((home, step["id"], imp["id"], why))
+        return "incomparable"
+    sv, su, why = resolve_bound(sb, step, home)
+    if why:
+        REASONS.append((home, step["id"], imp["id"], why))
+        return "incomparable"
+    bad, why = compare(ib, sb, iv, iu, sv, su)
+    if bad is None:
+        REASONS.append((home, step["id"], imp["id"], why))
+        return "incomparable"
+    return "CONFLICT" if bad else "ok"
+
+
+REASONS = []
 
 rows, tally = [], collections.Counter()
 for mod, d in SRC.items():
@@ -92,12 +194,19 @@ for mod, d in SRC.items():
             for operand in operand_ids(step):
                 inside = constituents(operand) - {operand}
                 if imp["id"] in SENS.get(operand, {}):
-                    rows.append(("CONFLICT", mod, step["id"], imp["id"], operand, None))
+                    rows.append((verdict(imp, SENS[operand][imp["id"]], step, mod),
+                                 mod, step["id"], imp["id"], operand, None))
                 for held in sorted(inside):
                     if imp["id"] in SENS.get(held, {}):
-                        rows.append(("reach", mod, step["id"], imp["id"], operand, held))
+                        v = verdict(imp, SENS[held][imp["id"]], step, mod)
+                        rows.append(("reach" if v == "CONFLICT" else v,
+                                     mod, step["id"], imp["id"], operand, held))
 
-for kind in ("CONFLICT", "reach"):
+for k, *_ in rows:
+    if k == "ok":
+        tally["ok"] += 1
+
+for kind in ("CONFLICT", "reach", "incomparable"):
     for k, mod, sid, iid, operand, held in rows:
         if k != kind:
             continue
@@ -128,7 +237,8 @@ declared = sum(1 for m in SRC if SRC[m].get("sensitivities"))
 steps = sum(len(d.get("process_steps") or []) for d in SRC.values())
 print(f"{len(SRC)} sources: {declared} declare a sensitivity, {len(SRC) - declared} silent")
 print(f"{steps} steps: {tally['impositions']} impositions declared")
-print(f"conflicts {tally['CONFLICT']} | reach {tally['reach']} | "
+print(f"conflicts {tally['CONFLICT']} | ok {tally['ok']} | "
+      f"incomparable {tally['incomparable']} | reach {tally['reach']} | "
       f"requires {req_total} declared, {len(req_rows)} unsatisfied")
 print("\nSilence is not safety: an undeclared Module makes no claim that it has "
       "no sensitivity,\nso a zero here counts what was declared and nothing else.")

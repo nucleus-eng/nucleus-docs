@@ -121,6 +121,35 @@ def reference_findings(path, doc):
     return out
 
 
+def quantity_findings(docs):
+    """One `quantity` per imposition id, across the whole corpus.
+
+    JSON Schema validates a file at a time and this is a claim about the set, so it
+    lives here. Without it one `thermal-hold` could carry °C on one step and mM on
+    another, and check-conflicts.py would compare different dimensions and report a
+    number. Same discipline as check-operator-pairs.py's seed table: the meaning
+    belongs to the id rather than to the use.
+    """
+    seen = {}          # imposition id -> (quantity, first file, first step)
+    out = []
+    for path, doc in docs:
+        for step in (doc.get("process_steps") or []):
+            for imp in (step.get("impositions") or []):
+                b = imp.get("bound")
+                if not b:
+                    continue
+                iid, q = imp["id"], b["quantity"]
+                if iid not in seen:
+                    seen[iid] = (q, path, step.get("id"))
+                elif seen[iid][0] != q:
+                    q0, f0, s0 = seen[iid]
+                    out.append((path, "quantity",
+                                f"impositions/{iid}",
+                                f"quantity '{q}' here against '{q0}' at "
+                                f"{f0}:{s0}. One quantity per imposition id."))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("paths", nargs="*", default=None,
@@ -138,6 +167,7 @@ def main():
 
     schema = yaml.safe_load(open(SCHEMA))
     total, checked, no_jsonschema = 0, 0, False
+    loaded = []
 
     for f in files:
         try:
@@ -154,6 +184,11 @@ def main():
         for kind, where, msg in sf + reference_findings(f, doc):
             print(f"⛔️ {os.path.relpath(f, REPO)} [{kind}] {where}: {msg}")
             total += 1
+        loaded.append((os.path.relpath(f, REPO), doc))
+
+    for path, kind, where, msg in quantity_findings(loaded):
+        print(f"⛔️ {path} [{kind}] {where}: {msg}")
+        total += 1
 
     # scope, always — a clean run over the wrong scope reads the same as a clean run
     print(f"\nsearched: {searched}")
