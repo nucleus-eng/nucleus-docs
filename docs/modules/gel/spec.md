@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`container`](../container/spec.md). Refined by [`gel-alginate`](../gel-alginate/spec.md), [`gel-ulga`](../gel-ulga/spec.md), [`photopatterned-gel`](../photopatterned-gel/spec.md).
+**Position.** Refines [`container`](../container/spec.md). Refined by [`gel-alginate`](../gel-alginate/spec.md), [`gel-lga`](../gel-lga/spec.md), [`gel-ulga`](../gel-ulga/spec.md), [`photopatterned-gel`](../photopatterned-gel/spec.md).
 <!-- /gen:position -->
 
 An abstract Module: the class of hydrogels, of which the four paged gels are members. It refines [Container](../container/spec.md), and an abstract Module is a Module.

@@ -89,6 +89,8 @@ project:
           hidden: true
         - file: ./docs/modules/gel-ulga/spec.md
           hidden: true
+        - file: ./docs/modules/gel-lga/spec.md
+          hidden: true
         - file: ./docs/modules/gel-pegda/spec.md
           hidden: true
         - file: ./docs/modules/gel-peg-norbornene/spec.md
@@ -161,8 +163,13 @@ project:
           hidden: true
     - file: ./docs/processes/processes-main.md
       children:
-        - file: ./docs/processes/assemble-base-cell/main.md
+        - file: ./docs/processes/encapsulate/main.md
           hidden: true
+          children:
+            - file: ./docs/processes/assemble-base-cell/main.md
+              hidden: true
+            - file: ./docs/processes/encapsulate-suv/main.md
+              hidden: true
         - file: ./docs/processes/photodevelop-gel/photodevelop-gel-main.md
           hidden: true
           children:
@@ -170,15 +177,18 @@ project:
               hidden: true
             - file: ./docs/processes/photodevelop-peg-norbornene/main.md
               hidden: true
-        - file: ./docs/processes/embed-alginate-hydrogel/main.md
+        - file: ./docs/processes/embed-hydrogel/main.md
           hidden: true
-        - file: ./docs/processes/encapsulate-suv/main.md
+          children:
+            - file: ./docs/processes/embed-alginate-hydrogel/main.md
+              hidden: true
+            - file: ./docs/processes/embed-ulga-hydrogel/main.md
+              hidden: true
+        - file: ./docs/processes/color-development/main.md
           hidden: true
         - file: ./docs/processes/colorimetric-readout/main.md
           hidden: true
         - file: ./docs/processes/anneal-ph-trigger-duplex/main.md
-          hidden: true
-        - file: ./docs/processes/embed-ulga-hydrogel/main.md
           hidden: true
         - file: ./docs/processes/degrade-exterior-lacz/main.md
           hidden: true

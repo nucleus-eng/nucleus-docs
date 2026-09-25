@@ -40,12 +40,15 @@ flowchart TB
 
 DevCell integrations (e.g., the Chicago colorimetric readout system) build on two liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in [Encapsulation: SUV](./encapsulate-suv/main.md), a genuinely different technique. Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
 
-- [Encapsulation: SUV](./encapsulate-suv/main.md)
+- [Encapsulation](./encapsulate/main.md) — the abstraction both routes below are instances of. Closes a bilayer around an aqueous payload, and packs rather than mixes.
+  - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md) — emulsion and transfer through an interface; produces synthetic cells.
+  - [Encapsulation: SUV](./encapsulate-suv/main.md) — film hydration and extrusion; produces SUVs, which are never interchangeable with synthetic cells.
 
 ## DevCell Readout Processes
 
 Every DevCells sensing cascade (Chicago and London alike) ends at the same downstream step: a chromogenic substrate hydrolyzed by a reporter enzyme to give a visible, absorbance-measurable signal.
 
+- [Color Development](./color-development/main.md) — brings a gel to the pH its reporter enzyme needs, after a sensing step that ran where the enzyme cannot work. **The pH path alone uses it.** Not the readout.
 - [Colorimetric Readout](./colorimetric-readout/main.md)
 - [Anneal pH-Responsive Trigger Duplex](./anneal-ph-trigger-duplex/main.md) — anneals the pH-responsive and trigger ssDNA into the single duplex reagent the pH-Sensing Module uses
 - [Degrade Exterior LacZ](./degrade-exterior-lacz/main.md) — proteinase K treatment to cut background signal from LacZ that has leaked outside a liposome; concentrations and volumes not yet specified.
@@ -107,8 +110,9 @@ flowchart LR
 
 Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are embedded together in a hydrogel matrix to couple a lysis-triggered colorimetric handoff between them. Different DevCells demos use different hydrogel chemistries — see each process page for the chemistry it covers and how it differs from the others.
 
-- [Hydrogel Embedding: Alginate](./embed-alginate-hydrogel/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
-- [Hydrogel Embedding: ULGA](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
+- [Hydrogel Embedding](./embed-hydrogel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
+  - [Hydrogel Embedding: Alginate](./embed-alginate-hydrogel/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
+  - [Hydrogel Embedding: ULGA](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
 
 ## Photopatterning Processes
 

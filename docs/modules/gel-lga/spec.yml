@@ -1,0 +1,72 @@
+# Composition source for Gel: LGA.
+#
+# WRITTEN 2026-09-24 on Jon's instruction, after three independent routes arrived at the
+# same missing page in one afternoon: the pH board's `Hydrogel: LGA` node, its gel-embed
+# stadium, and ../chicago-cascade/spec.yml's open item `which-agarose`.
+#
+# LOW-GELLING IS NOT ULTRA-LOW-GELLING. They are ordered as different products and they
+# gel at different temperatures. The pH presenter, DevStudio day one: "I used the low
+# gelling." The same session gives 14 °C for the ultra-low grade.
+#
+# THE SHAPE IS ../gel-ulga/spec.yml's AND THE FIGURES ARE NOT. Both set a polymer into an
+# outer solution by cooling. What this file cannot state is which outer solution, because
+# no source records one for the pH path.
+#
+# `mixing`, ONE OF ONE. A gel's own composition is polymer plus solvent ending in one
+# phase. `packing` arises when a compartment is put INTO a gel, which is a step on the
+# cascade pages and not here.
+
+module: gel-lga
+title: "Gel: LGA"
+refines: gel
+
+inputs:
+  lga-powder:
+    title: "Low gelling temperature agarose"
+    page: null            # no part number recorded; see the open item below
+  outer-solution:
+    title: "Outer solution"
+    page: ../outer-solution/spec.md
+
+process_steps:
+  - id: set-thermal
+    process:
+      title: "Hydrogel Embedding"
+      page: ../../processes/embed-hydrogel/main.md
+      abstract: embed-hydrogel
+    operator: mixing
+    operands: [lga-powder, outer-solution]
+    produces:
+      id: gel-lga
+      title: "Gel: LGA"
+      page: ../gel-lga/spec.md
+    parameters:
+      lga: "0.7% (w/v) in the pH path"
+    notes: >
+      The process names the ABSTRACT parent, because no embedding process is written for
+      this chemistry. ../../processes/embed-alginate-hydrogel/main.md is alginate and
+      ../../processes/embed-ulga-hydrogel/main.md is ULGA. Naming either would assert the
+      wrong one.
+
+open:
+  - id: two-sources-disagree-about-which-agarose-the-ph-path-uses
+    question: >
+      MEASURED 2026-09-24 AND NOT RESOLVED HERE. ../ph-sensing-cell/spec.md:147 says
+      "Embedded directly in 0.7% low-gelling agarose". ../ph-cascade/spec.yml:41 names the
+      same 0.7% operand "ULGA powder, 0.7%". Same path, same figure, two different
+      polymers. The DevStudio board answers it — "I used the low gelling" — and rewiring
+      the cascade to this page is a ruling about that page rather than about this one, so
+      it is recorded and not applied. ../chicago-cascade/spec.yml's `which-agarose` asks
+      the same question and carries an @Editor(chicago) tag.
+  - id: no-part-number-and-no-gelling-temperature
+    question: >
+      ../gel-ulga/spec.yml names Sigma-Aldrich A5030 and a window of 8 °C gelling to
+      50 °C melting. Neither figure exists for this grade in any source here. Until one
+      does, the only thing separating the two modules on the page is the word the Node
+      used, and the word is what the board supplied.
+  - id: which-outer-solution-dissolves-it
+    question: >
+      ../gel-ulga/spec.yml makes the outer solution a separate step with its own recipe,
+      because ULGA dissolves into it rather than into water. The same must be true here
+      and no source records which outer solution the pH path uses, so this file names the
+      abstract class and states no recipe.

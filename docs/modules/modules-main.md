@@ -95,6 +95,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cytosol (Sensor) | [AHSL Sensor Cytosol](./ahsl-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
 | Gel | [ULGA](./gel-ulga/spec.md) | ★ |
+| Gel | [LGA](./gel-lga/spec.md) | - |
 | Gel | [Gel](./gel/spec.md) | - |
 | Gel | [Photopatterned Gel](./photopatterned-gel/spec.md) | - |
 | Cytosol | [Cytosol](./cytosol/spec.md) | - |
