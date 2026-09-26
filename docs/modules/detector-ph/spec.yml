@@ -75,7 +75,7 @@ process_steps:
       base_cytosol: "1x"
       toehold_switch_dna: "2 nM"
       trigger_ssdna_in_duplex: "4.8 uM"
-      rnase_inhibitor: "2000 U/mL"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
     notes: >
       Two additions to Base Cytosol: the annealed duplex and one toehold-switch
       template. Which template is used sets the effector and so the readout. These

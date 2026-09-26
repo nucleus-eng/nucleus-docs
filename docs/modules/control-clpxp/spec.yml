@@ -71,7 +71,7 @@ process_steps:
       clpx: "0.5 uL of a 53.7 uM stock"
       clpp: "0.5 uL of a 79.9 uM stock"
       degfp_ssra: "0.5 uL of a 41.2 uM stock"
-      rnase_inhibitor: "0.5 uL"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 0.5 uL"
       water: "1 uL"
       reaction_volume: "10 uL"
     notes: >

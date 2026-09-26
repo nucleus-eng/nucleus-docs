@@ -67,7 +67,7 @@ process_steps:
       sam: "0.3 uM final, 1.8 uL of a 5 mM stock"
       iv_coa: "0.08 uM final, 0.48 uL of a 5 mM stock"
       optiprep: "1.5 uL"
-      rnase_inhibitor: "1.5 uL"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 1.5 uL"
       water: "2.22 uL"
       reaction_volume: "30 uL"
     notes: >

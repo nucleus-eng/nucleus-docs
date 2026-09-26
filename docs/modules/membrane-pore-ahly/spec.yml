@@ -50,7 +50,7 @@ process_steps:
       solution_a: "4 uL"
       solution_b: "3 uL"
       ahly_dna: "1 uL of a 10 nM stock"
-      rnase_inhibitor: "1 uL"
+      rnase_inhibitor: "4000 U/mL final, from a 40 000 U/mL stock, 1 uL"
       water: "1 uL"
       reaction_volume: "10 uL"
     notes: >

@@ -62,7 +62,7 @@ process_steps:
       purexpress_solution_b: "3 uL"
       laco_plamgfp_dna: "0.5 uL of a 10 nM stock"
       laci: "0.5 uL of a 10 uM stock; 500 nM to 1000 nM final is the stated effective range"
-      rnase_inhibitor: "0.5 uL"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 0.5 uL"
       master_mix_total: "9 uL, made up to 10 uL per reaction by the analyte"
     notes: >
       Both DNA constructs have confirmed files in nucleus-eng/DNA —

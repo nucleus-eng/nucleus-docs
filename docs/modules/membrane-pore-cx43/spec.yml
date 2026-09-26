@@ -65,7 +65,7 @@ process_steps:
       purexpress_solution_b: "6 uL"
       cx43_egfp_dna: "2 uL of a 100 ng/uL stock"
       optiprep: "0.67 uL"
-      rnase_inhibitor: "1 uL"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 1 uL"
       water: "2.33 uL"
       reaction_volume: "20 uL"
     notes: >
