@@ -77,7 +77,7 @@ Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentrat
 | --- | --- | --- | --- | --- |
 | PURE Solution A | 12 | 12 | 0 | Energy solution: small molecules |
 | PURE Solution B | 9 | 9 | 0 | Proteins and ribosomes |
-| RNase Inhibitor | 1.5 | 1.5 | 0 | Prevents RNase activity |
+| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 1.5 | 1.5 | 0 | Prevents RNase activity |
 | `pOpen-pT7-bjaI` (~200 ng/µL) | 1.5 | 0 | 0 | DNA encoding BjaI |
 | SAM (5 mM) | 1.8 | 1.8 | 0 | Substrate for IV-HSL production |
 | IV-CoA (5 mM) | 0.48 | 0.48 | 0 | Substrate for IV-HSL production |

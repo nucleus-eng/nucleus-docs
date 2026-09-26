@@ -87,6 +87,28 @@ Design files for the constructs below are available [Nucleus DNA repository](htt
 
 ::::
 
+::::{tab-item} Reaction
+
+The reaction this Module is assembled as. Volumes in µL.
+
+| Component | Volume (µL) |
+| --- | --- |
+| NEB PURExpress Solution A | 8 |
+| NEB PURExpress Solution B | 6 |
+| `pOpen-pT7-Cx43-eGFP` (100 ng/µL) | 2 |
+| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 1 |
+| OptiPrep | 0.67 |
+| Nuclease-free water | 2.33 |
+| **Total** | **20** |
+
+RNase inhibitor reaches 2000 U/mL at this volume. OptiPrep is optional and adds density for phase transfer.
+
+:::{attention} These figures were in `spec.yml` and on no page until 2026-09-25
+This page carried a DNA table and no reaction table, so `check-spec-drift.py` reported six figures the source states and the page did not. **The figures are the source's, transcribed rather than derived**, and they sum to the 20 µL the source declares.
+:::
+
+::::
+
 :::::
 
 # Expected Behavior

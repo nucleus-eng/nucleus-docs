@@ -80,7 +80,7 @@ flowchart TD
 | Purified ClpX (53.7 µM) | 0.5 | 0 | 0.5 | 0 |
 | NEB PURExpress Solution A | 4 | 4 | 4 | 4 |
 | NEB PURExpress Solution B | 3 | 3 | 3 | 3 |
-| RNase Inhibitor | 0.5 | 0.5 | 0.5 | 0.5 |
+| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 0.5 | 0.5 | 0.5 | 0.5 |
 | Nucleus Free Water | 1 | 1.5 | 1.5 | 2 |
 | **Total** | **10** | **10** | **10** | **10** |
 ::::
@@ -95,7 +95,7 @@ flowchart TD
 | pT7-ClpX (17.5 ng/µL) | 0.4 | 0.4 | 0.6 | 0.8 |
 | NEB PURExpress Solution A | 4 | 4 | 4 | 4 |
 | NEB PURExpress Solution B | 3 | 3 | 3 | 3 |
-| RNase Inhibitor | 0.5 | 0.5 | 0.5 | 0.5 |
+| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 0.5 | 0.5 | 0.5 | 0.5 |
 | Nucleus Free Water | 1.6 | 1.2 | 0.8 | 0.4 |
 | **Total** | **10** | **10** | **10** | **10** |
 ::::

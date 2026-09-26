@@ -131,7 +131,7 @@ At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toeho
 | [Base Cytosol](../base-cytosol/spec.md)                                    | 1×                   |
 | Toehold-switch DNA template (`pT7-toehold9-PLA1`; also designed with LacZ and XylE effectors) | 2 nM         |
 | pH-responsive ssDNA : trigger ssDNA (3:1, annealed)                        | 4.8 µM trigger ssDNA |
-| RNase inhibitor                                                            | 2000 U/mL            |
+| RNase inhibitor (40 000 U/mL stock)                                        | 2000 U/mL            |
 
 :::
 
