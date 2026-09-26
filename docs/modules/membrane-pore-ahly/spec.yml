@@ -40,8 +40,16 @@ inputs:
 process_steps:
   - id: assemble-reaction
     process:
-      title: "Assemble Base Cytosol"
-      page: ../../processes/assemble-base-cytosol/main.md
+      # THE PROTOCOL IS THE KIT'S, Jon's ruling 2026-09-25: "ahly protocol link should
+      # point at the kit, not base cytosol." This step assembles the NEB PURExpress kit,
+      # which composes two solutions; ../base-cytosol/spec.yml is the Nucleus system and
+      # composes five constituents. They are different systems and this file named one
+      # of them after the other. The corpus gives the kit's own protocol no page, so this
+      # is null like the four other kit reactions -- control-clpxp, detector-laci-iptg,
+      # membrane-pore-cx43 and emitter-ivhsl all carry null here. THIS FILE WAS THE ONLY
+      # ONE OF THE FIVE THAT LINKED ANYWHERE, and it linked to the wrong system.
+      title: "Assemble the PURExpress reaction"
+      page: null
     operator: mixing
     operands: [purexpress-solution-a, purexpress-solution-b, ahly-dna, rnase-inhibitor, water]
     produces:
@@ -61,21 +69,6 @@ process_steps:
       Cytosol as the protocol followed.
 
 open:
-  - id: solution-a-and-b-versus-base-cytosol
-    question: >
-      NAMING HALF CLOSED 2026-09-25. The keys are now `purexpress-solution-a` and `-b` and
-      carry `component_of: NEB PURExpress ... E6800`, on this file's own evidence: the
-      sentence below, and the Cell table's "NEB Solution A". THE PROTOCOL HALF BELOW IS
-      STILL OPEN.
-      The page's table names Solution A and Solution B — the two-part commercial
-      PURExpress kit — while pointing at ../../processes/assemble-base-cytosol/main.md
-      as the protocol. But ../base-cytosol/spec.yml composes five named constituents,
-      SMix, PMix, ribosomes, tRNA and RNase inhibitor, not two solutions. Those are
-      two different systems and the page uses one name for both. The operands above
-      follow the table rather than the process link, because the table is the thing
-      with volumes in it. ../detector-laci-iptg/spec.yml has the same two operands
-      and does not point at Base Cytosol, so the corpus is inconsistent about this
-      and this file cannot settle it.
   - id: construct-not-in-the-dna-repo
     question: >
       `pT7-aHly` is not in nucleus-eng/DNA. So `ahly-dna` above is a role with a

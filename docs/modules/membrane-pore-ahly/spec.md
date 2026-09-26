@@ -42,7 +42,7 @@ flowchart TD
     RNASE_INHIBITOR["RNase inhibitor"]
     WATER["Nuclease-free water"]
 
-    P1_ASSEMBLE_REACTION_0(["Assemble Base Cytosol (mixing)"])
+    P1_ASSEMBLE_REACTION_0(["Assemble the PURExpress reaction (mixing) — no page"])
     MEMBRANE_PORE_AHLY["Membrane Pore: alpha-hemolysin"]
 
     PUREXPRESS_SOLUTION_A --> P1_ASSEMBLE_REACTION_0
@@ -60,7 +60,6 @@ flowchart TD
     class MEMBRANE_PORE_AHLY composed;
     class P1_ASSEMBLE_REACTION_0 process;
 
-    click P1_ASSEMBLE_REACTION_0 "/docs/processes/assemble-base-cytosol/main"
     click MEMBRANE_PORE_AHLY "/docs/modules/membrane-pore-ahly/spec"
 ```
 
@@ -81,7 +80,7 @@ flowchart TD
 
 ::::{tab-item} Cytosol
 
-Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as a template. Reactions are assembled following the [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) protocol.
+Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as a template. Reactions are assembled following the protocol for the [NEB PURExpress kit](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit), not the [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) protocol for the Nucleus system. The two compose different things: the kit is two solutions and Base Cytosol is five constituents.
 
 | Component | Stock | Final | Volume (µL) |
 | --- | --- | --- | --- |
