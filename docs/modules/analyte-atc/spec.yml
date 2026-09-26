@@ -1,0 +1,52 @@
+# Composition source for Analyte: aTc.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. `process_steps` is empty and that is a claim, not an
+# omission. The page: "None. An analyte is supplied to an assay rather than produced
+# by a Nucleus process. It enters through whatever dosing step the readout protocol
+# specifies." An empty list was invalid until Jon ruled `minItems: 1` off
+# `process_steps` on 2026-09-20.
+#
+# THIS IS THE ONE ANALYTE WITH REAL FIGURES, and they are four bands rather than one
+# window. They are on the page and not repeated here — see the questions below for
+# why a `parameters` block would be the wrong place for them.
+
+module: analyte-atc
+title: "Analyte: aTc"
+
+inputs:
+  atc:
+    title: "Anhydrotetracycline"
+    page: null
+
+process_steps: []
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: four-bands-and-nowhere-to-put-them
+    question: >
+      This page carries the corpus's only documented analyte bands and they are four,
+      not one — effective induction in Nucleus Cytosol at 0.1 to 0.5 uM with an
+      optimum near 0.25 to 0.35; expression poisoning above about 1 uM, cutting
+      baseline expression by 30 to 40%; effective induction in lysate at 2.5 to 5 uM;
+      and interference above 50 to 100 uM where aTc's own yellow overwhelms GFP.
+      **The schema has no home for them.** `parameters` lives inside a step and there
+      are no steps. They are not composition — they are the Module's response
+      function, indexed by cytosol and by what goes wrong. Recorded here as a question
+      rather than forced into a shape that would call them ingredients.
+  - id: two-cytosols-two-windows
+    question: >
+      0.1 to 0.5 uM in Nucleus Cytosol against 2.5 to 5 uM in lysate is a 25-fold
+      difference for the same molecule, and the page says the lysate figure is what
+      it previously gave without qualification. So "the aTc dose" is not a property
+      of aTc; it is a property of the pair. ../detector-tetr-atc/spec.md states the
+      window and says plainly it is not the dose used in its own figures, which are
+      unrecorded.
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.

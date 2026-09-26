@@ -1,0 +1,47 @@
+# Composition source for Solution.
+#
+# WRITTEN 2026-09-24 on Jon's ruling: "outer-solution refines solution. solution refines
+# container. membrane refines container. gel definitely refines container, but I agree
+# that it may not refine solution."
+#
+# THE THIRD WAY OF HOLDING, and that is why it is a sibling of Membrane and Gel rather
+# than a parent or a child of either. A Membrane holds by a barrier, so what it holds is
+# a volume. A Gel holds by a network, so what it holds is a position. A Solution holds by
+# dissolution, so what it holds is free to move and is separated from nothing.
+#
+# GEL DOES NOT REFINE THIS, ruled the same day, and the reason is worth keeping. The
+# theory corpus writes `Gel = OuterSolution + polymer`, which is a COMPOSITION and not a
+# refinement: being made of a Solution does not entail standing in for one. A gel holds
+# its solutes in place and a solution does not.
+#
+# AN ABSTRACT MODULE AND AN EMPTY ONE BY CLAIM, on the Container precedent. Its invariant
+# is an operation rather than a composition, so `inputs: {}` and `process_steps: []` are
+# claims and not gaps.
+
+module: solution
+title: "Solution"
+
+refines: container
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: the-osmolarity-axiom-belongs-to-the-member
+    question: >
+      SETTLED 2026-09-24, and by a ruling about something else. The theory corpus
+      measured the outer phase's axioms and exactly one survived, osmolarity matched to
+      the interior. ../outer-solution/spec.yml reached the same figure independently.
+      Whether that axiom belonged to this class or only to that member was open until
+      Jon ruled ../cytosol/spec.yml a member too. A CYTOSOL IS THE INTERIOR, so it
+      cannot carry an axiom about matching across a membrane to one. The axiom is
+      ../outer-solution/spec.yml's and this class does not state it.
+      Left as a record because the reasoning is not recoverable from the tree.
+  - id: what-this-class-does-state
+    question: >
+      Nothing yet, and that is the live gap rather than the settled one. Both members
+      hold solutes in one phase and separate them from nothing, which is the invariant
+      in prose, and no axiom is written for it. The theory corpus gives Cytosol four
+      surviving axioms against the outer phase's one; whether any is shared, and
+      therefore belongs here, has not been measured.

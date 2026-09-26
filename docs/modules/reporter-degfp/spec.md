@@ -9,6 +9,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`reporter`](../reporter/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The deGFP Reporter Module produces deGFP, a green fluorescent protein.
 
 :::{figure} schematic.png
@@ -21,6 +25,40 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 # Reference Composition
 
 :::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    DEGFP_DNA["pOpen-deGFP"]
+    MAGNESIUM_ACETATE["Magnesium acetate"]
+    OPTIPREP["Optiprep"]
+
+    P1_ASSEMBLE_INNER_SOLUTION_0(["Assemble the deGFP Reporter inner solution (mixing) — no page"])
+    REPORTER_DEGFP["deGFP Reporter"]
+
+    BASE_CYTOSOL --> P1_ASSEMBLE_INNER_SOLUTION_0
+    DEGFP_DNA --> P1_ASSEMBLE_INNER_SOLUTION_0
+    MAGNESIUM_ACETATE --> P1_ASSEMBLE_INNER_SOLUTION_0
+    OPTIPREP --> P1_ASSEMBLE_INNER_SOLUTION_0
+    P1_ASSEMBLE_INNER_SOLUTION_0 --> REPORTER_DEGFP
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,DEGFP_DNA,MAGNESIUM_ACETATE,OPTIPREP leaf;
+    class REPORTER_DEGFP composed;
+    class P1_ASSEMBLE_INNER_SOLUTION_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click REPORTER_DEGFP "/docs/modules/reporter-degfp/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
 
 ::::{tab-item} DNA
 :::{table}
@@ -167,6 +205,10 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 :::
 
 ::::
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
 
 # Credits
 

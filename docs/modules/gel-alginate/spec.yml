@@ -1,0 +1,73 @@
+# Composition source for Gel: Alginate.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Every step here is `mixing`, and that is a claim rather than a default. A gel's
+# own composition is polymer plus solvent ending in one phase. `packing` arises
+# when a compartment is put INTO a gel, which is a step on the cascade pages, not
+# here — so nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and hold one operation?".
+
+module: gel-alginate
+title: "Gel: Alginate"
+refines: gel
+
+inputs:
+  sodium-alginate:
+    title: "Sodium alginate"
+    page: null            # Sigma-Aldrich A0682, alginic acid sodium salt, low viscosity
+  calcium-chloride:
+    title: "Calcium chloride (CaCl2)"
+    page: null            # Sigma-Aldrich C1016
+  embedding-buffer:
+    title: "Buffer compatible with what is being embedded"
+    page: null
+    range: "normally the embedded population's own outer solution"
+
+process_steps:
+  - id: dissolve
+    process:
+      title: "Hydrogel Embedding: Alginate"
+      page: ../../processes/embed-alginate-hydrogel/main.md
+    operator: mixing
+    operands: [sodium-alginate, embedding-buffer]
+    produces:
+      id: alginate-precursor
+      title: "Alginate precursor solution"
+      page: null
+    parameters:
+      sodium_alginate: "~1% (w/v)"
+    notes: >
+      The buffer is not fixed by this module. It is chosen to match whatever is
+      embedded — normally that population's own outer solution — which makes it an
+      operand with a range rather than a parameter with a value.
+
+  - id: crosslink-ionic
+    process:
+      title: "Hydrogel Embedding: Alginate"
+      page: ../../processes/embed-alginate-hydrogel/main.md
+    operator: mixing
+    operands: [alginate-precursor, calcium-chloride]
+    produces:
+      id: gel-alginate
+      title: "Gel: Alginate"
+      page: ../gel-alginate/spec.md
+    parameters:
+      calcium_chloride: "200 mM"
+    notes: >
+      Applied as a separate crosslinking bath after the precursor is in place, not
+      premixed — a premixed divalent cation sets the gel before it can be shaped.
+      The operator is still mixing: the Ca2+ enters the gel phase and stays there.
+
+open:
+  - id: exposure-time
+    question: >
+      How long the CaCl2 bath runs is not recorded anywhere. The 200 mM figure
+      arrived with the Chicago protocols of 2026-09-14; a bath needs a duration and
+      no source states one.

@@ -1,0 +1,120 @@
+# Composition source for Membrane Pore: Cx43.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tab stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: a reaction in one tube, one phase. The pore inserts into a
+# bilayer that already exists rather than forming one, so no `packing` step appears
+# here and nothing in this file depends on open question O8 in
+# compositional-biology-theory, "are formation and `hold` one operation?".
+#
+# EVERY FIGURE HERE COMES FROM THE DEVNOTE, NOT FROM THE PAGE. The page's Reference
+# Composition is a DNA inventory and carries no reaction at all. The source is
+# "Cx43 Cell: DNA Validation", doi 10.63765/xvxu3274, validation data by Yen-Yu Hsu,
+# Insertion Assay, Liposome (+Cx43) column. See the questions at the foot.
+
+module: membrane-pore-cx43
+title: "Membrane Pore: Cx43"
+refines: pore
+
+inputs:
+  purexpress-solution-a:
+    title: "NEB PURExpress Solution A"
+    page: null
+  purexpress-solution-b:
+    title: "NEB PURExpress Solution B"
+    page: null
+  cx43-egfp-dna:
+    title: "pOpen-pT7-Cx43-eGFP"
+    page: null            # 3996 bp; pores/pOpen-Cx43-eGFP.gb in nucleus-eng/DNA
+  optiprep:
+    title: "OptiPrep"
+    page: null
+    optional: true        # density for phase transfer — see the questions below
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null
+  water:
+    title: "Nuclease-free water"
+    page: null
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble the Cx43 expression reaction"
+      page: null
+    operator: mixing
+    operands:
+      - purexpress-solution-a
+      - purexpress-solution-b
+      - cx43-egfp-dna
+      - optiprep
+      - rnase-inhibitor
+      - water
+    produces:
+      id: membrane-pore-cx43
+      title: "Membrane Pore: Cx43"
+      page: ../membrane-pore-cx43/spec.md
+    parameters:
+      purexpress_solution_a: "8 uL"
+      purexpress_solution_b: "6 uL"
+      cx43_egfp_dna: "2 uL of a 100 ng/uL stock"
+      optiprep: "0.67 uL"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 1 uL"
+      water: "2.33 uL"
+      reaction_volume: "20 uL"
+    notes: >
+      Cx43 is expressed in situ from the plasmid rather than supplied as protein, so
+      this Module is a reaction. Connexins are membrane-spanning proteins and six of
+      them form a connexon, so the expressed product oligomerises in the bilayer
+      rather than inserting as a finished pore. Both constructs have confirmed files
+      in nucleus-eng/DNA under pores/, pinned in the devnote at commit f7654f7.
+
+open:
+  - id: the-page-carries-no-reaction
+    question: >
+      This Module's page has a DNA inventory and no reaction anywhere on it, so every
+      figure above is imported from the devnote rather than read from the page. That
+      means scripts/check-composition.py cannot compare the two: there is no prose
+      composition to disagree with. The page should gain the reaction, and until it
+      does this source is the only machine-readable record of it in the corpus.
+  - id: two-assays-two-constructs
+    question: >
+      The devnote runs two assays and they use different constructs. The Insertion
+      Assay above uses `pOpen-pT7-Cx43-eGFP`, the fusion. The Leakage Assay uses
+      "Cx43 in pOpen Plasmid" — the wild type `pOpen-pT7-Cx43` — and adds Alexa Fluor
+      647 at 0.1 uL of a 1 mM stock, with water at 2.23 uL instead of 2.33 to hold
+      20 uL. Both also run a minus-Cx43 control that drops the plasmid and makes the
+      volume up with water. Only the Insertion Assay is a step above, for the same
+      reason recorded on ../membrane-popc-chol-chicago/spec.yml: two steps producing
+      the same id fail check-spec-schema.py with duplicate-id.
+  - id: the-other-devnote-uses-a-different-backbone
+    question: >
+      The earlier devnote by Ahmed Sihorwala, the Module's contributor, gives a
+      12.75 uL reaction with "Cx43-GFP in pRSET Plasmid" at 70 ng total — a pRSET
+      backbone, not pOpen, and a different scale. It also carries Alexa Fluor 647 at
+      1.25 uL from 100 uM and tops off with 25 mM HEPES, 150 mM NaCl. That reaction
+      is not represented here because the page's own constructs are the pOpen pair.
+      Whether the pRSET reaction is the same Module at an earlier stage or a
+      different one is not something this file can decide.
+  - id: two-molecular-weights-disagree-with-this-repo
+    question: >
+      The validation devnote's lipid table gives cholesterol as MW 286.66 and Rhod PE
+      as 1249.65. ../membrane-popc-chol/spec.yml gives 386.654 and 1301.71 for the
+      same two lipids at the same percentages, 70 / 29.95 / 0.05. Cholesterol is
+      C27H46O at 386.65, so 286.66 is a transcription error in the devnote rather
+      than a different compound. The Rhod PE pair is likelier a salt-versus-free-acid
+      difference and is not resolved here. Recorded because the two documents will be
+      read side by side and neither says the other is wrong.
+  - id: optiprep-is-an-encapsulation-aid
+    question: >
+      OptiPrep is marked optional above on the same reading taken in
+      ../reporter-degfp/spec.yml and ../emitter-ivhsl/spec.yml — a density aid for
+      phase transfer rather than part of the chemistry. It is present in both the
+      plus- and minus-Cx43 columns, which is consistent with that. The judgment is
+      now made in three files and should be confirmed once for all three.

@@ -23,6 +23,58 @@ This Module has not been validated in Nucleus Cytosol. Documentation can be foun
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    HEPES["HEPES"]
+    POTASSIUM_GLUTAMATE["Potassium glutamate"]
+    MAGNESIUM_ACETATE["Magnesium acetate"]
+    RNTPS["rNTPs"]
+    TRNA["tRNA"]
+    TCEP["TCEP"]
+    FOLINIC_ACID["Folinic acid"]
+    SPERMIDINE["Spermidine"]
+    AMINO_ACID_SOLUTION["Amino acid solution"]
+    PPK2["Purified PPK2"]
+    POLYPHOSPHATE_100MER["100mer polyphosphate"]
+
+    P1_PREPARE_CUSTOM_SMIX_0(["Prepare custom SMix without creatine phosphate (mixing) — no page"])
+    SMIX_MINUS_CP["Custom SMix (SMix -CP)"]
+    P2_ADD_THE_SUPPLIED_COMPONENTS_0(["Assemble the PPK Energy module (mixing) — no page"])
+    ENERGY_PPK["PPK Energy"]
+
+    HEPES --> P1_PREPARE_CUSTOM_SMIX_0
+    POTASSIUM_GLUTAMATE --> P1_PREPARE_CUSTOM_SMIX_0
+    MAGNESIUM_ACETATE --> P1_PREPARE_CUSTOM_SMIX_0
+    RNTPS --> P1_PREPARE_CUSTOM_SMIX_0
+    TRNA --> P1_PREPARE_CUSTOM_SMIX_0
+    TCEP --> P1_PREPARE_CUSTOM_SMIX_0
+    FOLINIC_ACID --> P1_PREPARE_CUSTOM_SMIX_0
+    SPERMIDINE --> P1_PREPARE_CUSTOM_SMIX_0
+    AMINO_ACID_SOLUTION --> P1_PREPARE_CUSTOM_SMIX_0
+    P1_PREPARE_CUSTOM_SMIX_0 --> SMIX_MINUS_CP
+
+    SMIX_MINUS_CP --> P2_ADD_THE_SUPPLIED_COMPONENTS_0
+    PPK2 --> P2_ADD_THE_SUPPLIED_COMPONENTS_0
+    POLYPHOSPHATE_100MER --> P2_ADD_THE_SUPPLIED_COMPONENTS_0
+    P2_ADD_THE_SUPPLIED_COMPONENTS_0 --> ENERGY_PPK
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class HEPES,POTASSIUM_GLUTAMATE,MAGNESIUM_ACETATE,RNTPS,TRNA,TCEP,FOLINIC_ACID,SPERMIDINE,AMINO_ACID_SOLUTION,PPK2,POLYPHOSPHATE_100MER leaf;
+    class SMIX_MINUS_CP,ENERGY_PPK composed;
+    class P1_PREPARE_CUSTOM_SMIX_0,P2_ADD_THE_SUPPLIED_COMPONENTS_0 process;
+
+    click ENERGY_PPK "/docs/modules/energy-ppk/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Reaction Mechanism
 
 :::{figure} reaction-schematic.png

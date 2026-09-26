@@ -1,0 +1,45 @@
+# Composition source for the Theophylline Sensor Cytosol.
+#
+# WRITTEN 2026-09-21 on Jon's ruling that this intermediate refines Sensor Cytosol. It was
+# produced by theophylline-sensing-cell and had no page, so four Modules named a thing the
+# corpus never defined. Its own parent's open block said so first.
+#
+# THE COMPOSITION IS ITS PARENT'S FIRST STEP, NOT A NEW CLAIM. theophylline-sensing-cell
+# declares assemble-cytosol as mixing over base-cytosol and detector-theophylline,
+# producing this id. This file records that step and nothing more.
+#
+# NO EFFECTOR, AND THAT IS THE POINT OF THE MEMBERSHIP RULING. The other three sourced
+# members carry effector-pla1. This one carries none, because the riboswitch drives
+# whichever effector gene sits downstream and no page specifies one. A sensing reaction
+# with no output wired to it is still a sensor cytosol.
+#
+# CANCELED, MATCHING ITS PARENT. The theophylline riboswitch expresses without theophylline
+# present, so it does not discriminate, and it was cut from the demo.
+
+module: theophylline-sensor-cytosol
+title: "Theophylline Sensor Cytosol"
+refines: sensor-cytosol
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  detector-theophylline:
+    title: "Detector: Theophylline"
+    page: ../detector-theophylline/spec.md
+
+process_steps:
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, detector-theophylline]
+    produces:
+      id: theophylline-sensor-cytosol
+      title: "Theophylline Sensor Cytosol"
+      page: ../theophylline-sensor-cytosol/spec.md
+    notes: >
+      One compartment. Copied from theophylline-sensing-cell rather than derived, so the
+      two sources cannot disagree about what this intermediate is.

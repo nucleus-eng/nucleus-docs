@@ -1,0 +1,86 @@
+# Composition source for Cell.
+#
+# WRITTEN 2026-09-21 on Jon's ruling: Sensing Cell refines Cell, and Cell is a Cytosol
+# packed with a Membrane.
+#
+# THE INVARIANT IS `packing` OVER EXACTLY TWO OPERANDS, FIVE OF FIVE. base-cell,
+# ahsl-sensing-cell, atc-sensing-cell, ph-sensing-cell and theophylline-sensing-cell all
+# run a final step whose operator is packing and whose operands are a cytosol and a
+# membrane. No member has an exception.
+#
+# base-cell IS THE CONTROL AND IT IS WHY THIS CLASS IS NOT JUST SENSING CELL WITH A
+# SHORTER NAME. It sits directly under Cell because its cytosol carries no detector. That
+# is what makes the Sensing Cell refinement a real narrowing of one slot rather than a
+# rename of this one.
+#
+# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED. Container is the obvious
+# candidate and a cell is not a kind of container: it is a container with something in it.
+# That is the hold question at compositional-biology-theory open.md#O8 and it is not
+# settled here. Left a root, on the pore precedent.
+
+module: cell
+title: "Cell"
+
+inputs:
+  cytosol:
+    title: "Cytosol"
+    page: ../cytosol/spec.md
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+
+process_steps:
+  - id: encapsulate
+    process:
+      title: "Close the membrane around the cytosol"
+      page: null
+    operator: packing
+    operands: [cytosol, membrane]
+    produces:
+      id: cell
+      title: "Cell"
+      page: ../cell/spec.md
+    notes: >
+      Packing and never mixing. The cytosol and the membrane keep separate compartments,
+      which is the whole point of a boundary.
+
+# WHAT THIS CLASS IS SUBJECT TO. glossary.md#T21 puts Sensitivity on an OBJECT and
+# #T22 puts Imposition on a MORPHISM, so these sit here and the imposing step
+# declares the other half. #T23 makes the Conflict COMPUTED; check-conflicts.py
+# does the computing and nothing below asserts one.
+#
+# TWO RANGES, NOT ONE, AND THE DIFFERENCE IS THE POINT. Jon, 2026-09-24:
+# "synthetic cells are spec'ed to operate between 30C and 37C, but are stable from
+# 4C to 37C." A cell being embedded is not a cell working, so an embedding step
+# meets the stability range and a sensing step meets the operating one. Collapsing
+# them would make every cold-setting gel look like a conflict.
+#
+# PROVISIONAL AND SAID SO. Supplied by Jon on 2026-09-24 with no source cited and
+# the words "for now". `basis: observation` for that reason: it enumerates what is
+# specified and claims nothing about a case nobody has run.
+sensitivities:
+  - id: thermal-stability
+    to: thermal-hold
+    basis: observation
+    bound:
+      quantity: temperature
+      sense: at-most
+      unit: C
+      value: 37
+    why: >
+      Stable from 4 °C to 37 °C. The upper end is the one an imposition can cross:
+      a step that holds a cell above 37 °C is outside what this class is specified
+      for. The lower end is recorded in prose because a single bound carries one
+      sense, and nothing in this corpus imposes a floor.
+  - id: thermal-operating
+    to: thermal-hold
+    basis: observation
+    bound:
+      quantity: temperature
+      sense: at-most
+      unit: C
+      value: 37
+    why: >
+      Specified to OPERATE between 30 °C and 37 °C, which is narrower than stability
+      and applies while the cell is sensing rather than while it is being handled.
+      Same upper bound and a different reason, so the two are separate ids.

@@ -19,7 +19,18 @@ jobs:
             | tar xz -C /usr/local/bin vale
 
       - name: Run Vale
-        run: git ls-files docs/ | grep -E '\.(md|csv)$' | xargs vale
+        # `.yml` joined the list on 2026-09-21, Jon's ruling: prose now lives in
+        # spec.yml `note:` and `question:` fields and was invisible to every check.
+        # .vale.ini gives that section the terminology rules only, not the 14
+        # formatting rules, which aim at sentences rather than at identifiers.
+        #
+        # `-z` and `xargs -0`, not a bare pipeline: no tracked path under docs/
+        # holds a space today, and the DevNote repo has 266 that do. The trap is
+        # cheaper to remove than to rediscover.
+        run: |
+          set -euo pipefail
+          git ls-files -z docs/ | grep -zZ -e '\.md$' -e '\.csv$' -e '\.yml$' \
+            | xargs -0 vale
 
   dropdowns:
     runs-on: ubuntu-latest
@@ -59,6 +70,179 @@ jobs:
 
       - name: Check TOC
         run: python3 scripts/check-toc.py
+
+  composition:
+    # The prose `# Constituent Modules` list and the machine-readable `spec.yml`
+    # are two sources for one fact, and they drift: `london-cascade` listed
+    # `Substrate: CPRG` where its own source said `GUV: CPRG`, within an hour of
+    # both existing. Blocks when the prose names a module the source never does;
+    # reports without blocking when the final step has an operand the prose
+    # omits, which is a grain difference. See scripts/check-composition.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml
+        run: pip install pyyaml
+
+      - name: Check composition sources
+        run: python3 scripts/check-composition.py
+
+  composition-tabs:
+    # A Module's Reference Composition must cover everything its own dependency
+    # graph contains. Absence is a claim — a page with no Membrane tab reads as
+    # "this Module has no membrane", not "we did not write it down". Checks the
+    # pages carrying a generated composition diagram, and names any Module page
+    # it cannot reach so the count never overstates its coverage. A page may
+    # waive a tab with an HTML comment. See scripts/check-composition-tabs.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Check composition tabs
+        run: python3 scripts/check-composition-tabs.py
+
+  operator-pairs:
+    # The `operator` key records one value per step, and a step can have many
+    # operands. One label over n operands asserts all C(n,2) pairs carry it, and a
+    # single contrary pair falsifies it. This derives each pair's operator from the
+    # operand sorts and reports where the step's label disagrees.
+    #
+    # ADVISORY, on the implementations precedent. The current violations are not
+    # editable defects: those steps genuinely both form a gel phase and hold
+    # compartments in it, so no single value is correct and a fix needs the schema
+    # question settled first. Pass --strict to enforce once it is.
+    #
+    # The seed table is never extended by reading step labels. Sort predicts the
+    # recorded operator on all 59 sort-pairs here and at least one of those labels is
+    # wrong, so a table fitted to the corpus scores on the error and reports it as
+    # confirmation. Every row cites a claim argued independently of any spec.yml.
+    # See scripts/check-operator-pairs.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Check operator pairs
+        run: python3 scripts/check-operator-pairs.py
+
+  aliases:
+    # ONE PREDICATE, FOUR CARRIERS. A name is an identity: operands reference it,
+    # operator_pairs name it, and a diagram draws one node per name. Two names for
+    # one thing make a leg walk reach it twice, so a slot where two demo legs AGREE
+    # counts two members and gets marked abstract. That manufactures a design
+    # decision rather than hiding one.
+    #
+    # Replaces the input-aliases job, which asked this of one carrier. Writing the
+    # Outer Solution class on 2026-09-21 found an alias that version could not see —
+    # two produced ids, both page: null, so neither resolved to anything to collide
+    # with — and a second job for it would have been a third the week after.
+    #
+    #   key→page        two input keys naming one module page
+    #   id→composition  two produced ids from the same operands AND parameters.
+    #                   Parameters are in the comparison because membrane-popc-chol
+    #                   and membrane-popc-chol-chicago compose the identical three
+    #                   lipids at 70:30 against 90:10 and are different Modules.
+    #   title→id        two ids under one title. This is the one a reader hits:
+    #                   nodes carry titles, so two things draw as identical boxes.
+    #   dir→title       one process directory called two things, which reaches a
+    #                   diagram because the title goes on the node.
+    #   title→module    two Modules under one title. ADDED AFTER A POSITIVE CONTROL
+    #                   FAILED: the control planted a duplicate module title, nothing
+    #                   fired, and the reason was that no carrier read the top-level
+    #                   `title:` at all. The test assumed a carrier that was not
+    #                   there, which is the cheapest way that gap was going to
+    #                   surface.
+    #
+    # ADVISORY, and the denominators print every run. A carrier at zero is not a
+    # carrier that cannot fail: dir→title was at one the morning this was written.
+    # 144 input keys carry page: null and cannot collide on the first carrier at
+    # all, so a green run counts the identified ones and nothing else.
+    # See scripts/check-aliases.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Check aliases
+        run: python3 scripts/check-aliases.py
+
+  conflicts:
+    # Layer C, all four rows. #T20 Requirement is a step's `requires` and is
+    # CHECKED for reachability; #T21 Sensitivity and #T22 Imposition are declared
+    # on their carriers; #T23 Conflict is computed from the last two and asserted
+    # by nobody. A Requirement cannot be a Conflict: a Conflict is a meet of two
+    # declared halves so it can only say two things must not co-occur, and a
+    # missing step declares no half.
+    #
+    # A Conflict is DERIVED, not asserted. compositional-biology-theory
+    # glossary.md#T23: "Sensitivity meeting imposition. Computed, never asserted",
+    # with "incompatibility (as a stated fact)" as the refused spelling. #T21 puts
+    # Sensitivity on an object, so it is a Module's `sensitivities`. #T22 puts
+    # Imposition on a morphism, so it is a step's `impositions`. This walks every
+    # step and computes where the two meet.
+    #
+    # ADVISORY, on the operator-pairs precedent, and for a sharper reason. Every
+    # `reach` finding today is a true relation that a membrane correctly
+    # neutralises, and this checker has no concept of a boundary stopping an
+    # imposition. Failing CI on those would demand a fix to pages that are right.
+    #
+    # A ZERO IS NOT SAFETY. An undeclared Module makes no claim to have no
+    # sensitivity, so the job prints the denominator every run: 5 of 56 sources
+    # declare one. What the zero did buy on 2026-09-21 is real, though. CPRG is
+    # sensitive to UV, four steps impose UV, and CPRG is an operand of none of
+    # them, so "dose CPRG after crosslinking" is now checked rather than only
+    # written on eleven pages. See scripts/check-conflicts.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Compute conflicts
+        run: python3 scripts/check-conflicts.py
+
+  spec-drift:
+    # Does a spec.yml figure still appear on its own page? check-spec-schema.py
+    # validates shape and never looks at a figure; check-composition.py checks
+    # the prose names the constituents and never looks at one either. So a page
+    # can be edited and its source keeps the old number with nothing to notice.
+    # Advisory: it reports three tiers and only the top one is agreement.
+    # See scripts/check-spec-drift.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Compare every spec.yml figure against its page
+        run: python3 scripts/check-spec-drift.py
 
   implementations:
     # Two rules over `# Implementations`. CATEGORY (blocking): an entry there

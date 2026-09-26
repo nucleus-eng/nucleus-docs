@@ -92,6 +92,24 @@ FILENAME_RE = re.compile(r"^([\w.\-]+\.(?:gb|gbk|dna|fasta|fa))$", re.IGNORECASE
 LOCUS_RE = re.compile(r"^LOCUS\s+(\S+)\s+(\d+)\s+bp", re.IGNORECASE)
 SEP_ROW_RE = re.compile(r"^[\s|:-]+$")
 
+# --------------------------------------------------------------------------- #
+# Stale absence claims
+# --------------------------------------------------------------------------- #
+# A page can assert that a construct is NOT in the DNA repo. That claim goes
+# stale the moment the file lands, and nothing sees it: every other check here
+# validates rows that DO cite a file. Six such claims sat wrong for twelve days.
+ABSENCE_RE = re.compile(
+    r"(?:not (?:yet )?(?:been )?(?:in|submitted to)\b"
+    r"|no sequence file\b"
+    r"|has no sequence file\b"
+    r"|no recorded length\b"
+    r"|not yet determined\b)",
+    re.IGNORECASE,
+)
+# Construct names are written in backticks; skip prose words that happen to be
+# code-formatted (paths, file extensions, bare English).
+NAME_CANDIDATE_RE = re.compile(r"^[A-Za-z0-9][\w.\-]{2,}$")
+
 
 @dataclass
 class Finding:
@@ -128,10 +146,62 @@ class Claim:
 # --------------------------------------------------------------------------- #
 
 
-def find_dna_repo() -> Path | None:
+def _looks_like_dna_repo(path: Path) -> bool:
+    """A directory is the DNA repo only if it actually holds sequence files.
+
+    Without this, any empty directory called DNA satisfies the search and the
+    check reports a clean run over an index of nothing.
+    """
+    if not path.is_dir():
+        return False
+    return any(
+        p.suffix.lower() in SEQ_EXTENSIONS
+        for p in path.rglob("*")
+        if p.is_file()
+    )
+
+
+def dna_repo_candidates() -> list[Path]:
+    """Where the DNA repo might be, most explicit first.
+
+    NUCLEUS_DNA_REPO wins. Otherwise the sibling of this repo is tried before
+    the documented ~/src/nucleus-eng/DNA, because a checkout that nests the org
+    under an employer directory keeps the two repos side by side but puts
+    neither at the documented path.
+    """
     env = os.environ.get("NUCLEUS_DNA_REPO")
-    candidate = Path(env) if env else Path.home() / "src" / "nucleus-eng" / "DNA"
-    return candidate if candidate.is_dir() else None
+    if env:
+        return [Path(env).expanduser()]
+    repo_root = Path(__file__).resolve().parent.parent
+    return [
+        repo_root.parent / "DNA",
+        Path.home() / "src" / "nucleus-eng" / "DNA",
+    ]
+
+
+def find_dna_repo() -> Path | None:
+    """The DNA repo, or None.
+
+    THE CONTENT GUARD APPLIES TO THE GUESSES AND NOT TO AN OVERRIDE. A guess
+    that lands on an empty directory called DNA must lose, because nobody asked
+    for it and an index of nothing reports every construct as missing. An
+    override was asked for, so existence is the only test it has to pass and
+    `main` reports separately when it holds no sequence files. "Not found" and
+    "found and empty" take different fixes, so they are different messages.
+
+    Before 2026-09-21 the guard ran on both, which made an explicit
+    NUCLEUS_DNA_REPO fail with an error telling the reader to set
+    NUCLEUS_DNA_REPO. `dna_repo_candidates` has said "NUCLEUS_DNA_REPO wins"
+    since it was written; this is the first version where it does.
+    """
+    env = os.environ.get("NUCLEUS_DNA_REPO")
+    if env:
+        override = Path(env).expanduser()
+        return override if override.is_dir() else None
+    for candidate in dna_repo_candidates():
+        if _looks_like_dna_repo(candidate):
+            return candidate
+    return None
 
 
 def _parse_locus(path: Path) -> tuple[str | None, int | None]:
@@ -364,6 +434,47 @@ def validate_claim(claim: Claim, dna_index: dict, dna_repo_root: Path) -> list[F
 # --------------------------------------------------------------------------- #
 
 
+def find_stale_absence_claims(
+    md_file: Path, text: str, dna_index: dict[str, ConstructFile]
+) -> list[Finding]:
+    """Flag lines claiming a construct is absent from the DNA repo when a file
+    of that name is now present.
+
+    Deliberately reports a *finding*, never a fix. A filename match is not an
+    identity claim — the linear/circular pairs in this corpus share a cassette
+    and differ by kilobases. Saying "closeable" here would automate the exact
+    mistake this check exists to catch.
+    """
+    by_stem: dict[str, list[str]] = {}
+    for rel, cf in dna_index.items():
+        by_stem.setdefault(_normalize(Path(rel).stem), []).append(rel)
+        if cf.locus_name:
+            by_stem.setdefault(_normalize(cf.locus_name), []).append(rel)
+
+    findings = []
+    for lineno, line in enumerate(text.splitlines(), start=1):
+        if not ABSENCE_RE.search(line):
+            continue
+        for raw in BACKTICK_RE.findall(line):
+            if not NAME_CANDIDATE_RE.match(raw) or "/" in raw:
+                continue
+            hits = by_stem.get(_normalize(raw))
+            if not hits:
+                continue
+            where = ", ".join(sorted(set(hits))[:3])
+            findings.append(
+                Finding(
+                    WARN,
+                    str(md_file),
+                    lineno,
+                    f"this line says `{raw}` is absent from {CANONICAL_REPO}, "
+                    f"but a file of that name exists there ({where}) — "
+                    f"verify it is the same construct, then update or remove the claim",
+                )
+            )
+    return findings
+
+
 def collect_markdown_files(paths: list[str]) -> list[Path]:
     files = []
     for raw in paths:
@@ -380,6 +491,7 @@ def check(paths: list[str], dna_repo: Path) -> list[Finding]:
     findings: list[Finding] = []
     for md_file in collect_markdown_files(paths):
         text = md_file.read_text(errors="ignore")
+        findings.extend(find_stale_absence_claims(md_file, text, dna_index))
         for header_cells, rows in find_tables(text):
             for claim in extract_claims(header_cells, rows, str(md_file)):
                 findings.extend(validate_claim(claim, dna_index, dna_repo))
@@ -393,9 +505,21 @@ def main(argv=None) -> int:
 
     dna_repo = find_dna_repo()
     if dna_repo is None:
+        searched = "\n".join(f"  {c}" for c in dna_repo_candidates())
         print(
-            "ERROR: could not find the nucleus-eng/DNA repo. Clone it to "
-            "~/src/nucleus-eng/DNA, or set NUCLEUS_DNA_REPO to its path.",
+            "ERROR: could not find the nucleus-eng/DNA repo. Searched:\n"
+            f"{searched}\n"
+            "Clone it next to this repo, or set NUCLEUS_DNA_REPO to its path.",
+            file=sys.stderr,
+        )
+        return EXIT_CANNOT_RUN
+
+    if not _looks_like_dna_repo(dna_repo):
+        print(
+            f"ERROR: {dna_repo} holds no {'/'.join(sorted(SEQ_EXTENSIONS))} "
+            "files, so the index would be empty and every construct would be "
+            "reported missing. That is not a clean run. Point "
+            "NUCLEUS_DNA_REPO at the nucleus-eng/DNA checkout itself.",
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN

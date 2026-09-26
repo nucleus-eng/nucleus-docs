@@ -1,0 +1,50 @@
+# Composition source for Analyte: IPTG.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. `process_steps` is empty and that is a claim, not an
+# omission: IPTG is bought, not made, and nothing in this corpus composes it. The
+# page says so in its own words — "This is an Analyte, so it is not a constituent of
+# anything. It reaches a sensing cell from outside, after the cell is closed" — and
+# its `# Processes` section reads "None. An analyte is supplied to an assay rather
+# than produced by a Nucleus process."
+#
+# An empty list was invalid until 2026-09-20. `minItems: 1` on `process_steps`
+# asserted that every Module is produced by a process, which is a third membership
+# condition the model never carried: compositional-biology-theory `glossary.md#T03`
+# gives two, a named formulation and the operations its sort declares. Jon ruled the
+# constraint off. Composed-ness is a grading over Modules, not a condition for being
+# one.
+
+module: analyte-iptg
+title: "Analyte: IPTG"
+
+inputs:
+  iptg:
+    title: "Isopropyl beta-d-1-thiogalactopyranoside (IPTG)"
+    page: null
+
+process_steps: []
+
+open:
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`, so this Module lists itself as its
+      only input. That is defensible for a purchased reagent — it is the substance,
+      and nothing is done to it here — but it reads circularly and it is the same
+      constraint `minItems` was, one field over. If an empty `inputs` is the better
+      encoding for an atom, the rule should come off both together rather than be
+      worked around here.
+  - id: no-dose-figures-exist
+    question: >
+      Both bands on the page read "not documented" and the page carries an open
+      @Editor tag saying so. ../detector-laci-iptg/spec.md describes the mechanism
+      and states no induction concentration, and this Module is composed into no
+      DevCells demo. So there is nothing to record beyond the substance itself, and
+      the absence is the page's own finding rather than a gap in this file.
+  - id: transport-is-unestablished
+    question: >
+      Nothing in the corpus says whether IPTG crosses a POPC bilayer unaided.
+      ../analyte-atc/spec.md does cross, which is why its sensing cell needs no pore;
+      whether this one needs a transport route is open. That is a Requirement rather
+      than a composition fact, so it is named here and lives on the page.

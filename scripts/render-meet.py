@@ -1,0 +1,591 @@
+#!/usr/bin/env python3
+"""Compute the meet of several demo legs and draw it.
+
+Implements the spec in compositional-biology-theory
+tmp/STAGED-2026-09-21-what-the-meet-renderer-must-compute.md, written by session
+c9d6a5 and handed to this repo. Their four rules are the deliverable; this is
+the implementation.
+
+THE DELTA FROM render-composition.py IS ARITY, NOT FEATURES. That script's input
+is a module and it draws one graph. A meet's input is a SET OF LEGS, and every
+computation here exists because the second has no meaning for the first. The
+house style, the shapes, the click targets and the "— no page" wording are
+reused unchanged.
+
+    python3 scripts/render-meet.py docs/modules/london-cascade/spec.yml \
+                                   docs/modules/chicago-cascade/spec.yml
+
+FOUR RULES, each with the measurement that forced it.
+
+1. A LEG IS NOT A FILE, AND THE PARTITION KEY IS THE DETECTOR. chicago-cascade
+   holds two legs and london-cascade holds one. Walking back from each operand of
+   the final step is right for Chicago, whose `bond-gels` has two operands that
+   separate the paths, and wrong for London, whose `embed-ulga` has five and would
+   give five branches. A leg is a branch reaching exactly one detector.
+
+   THE REACH SCANS THREE FIELDS, AND ONLY TWO OF THEM STILL EARN IT. Measured by
+   disabling each in turn at this commit:
+
+     inputs[].page          LOAD-BEARING. Without it London finds no detector at all
+                            and Chicago finds one instead of two.
+     produces.page          LOAD-BEARING. ph-cascade BUILDS its detector at
+                            anneal-trigger-duplex rather than being handed one.
+     inputs[].component_of  DEAD FOR LEGS, LOAD-BEARING FOR OPERAND SLOTS. Removing
+                            it changes no leg in any cascade, and it is the only route
+                            by which chicago-cascade's ph-responsive-ssdna and
+                            trigger-ssdna reach detector-ph when the operands are
+                            slotted. One field, two passes, opposite answers.
+
+   THE SPEC SAID component_of WAS THE ONLY ROUTE TO CHICAGO'S pH DETECTOR. That was
+   true of leg extraction at 1522a3b and stopped being true when ph-trigger-duplex
+   gained `refines: detector`, because it is a product and the produces route reaches
+   it first. I recorded the field as exercised by nothing on that measurement, and
+   slotting the operands falsified it within the hour: two of Chicago's operands reach
+   the detector through component_of and through nothing else. The lesson is the
+   narrower claim rather than the field — a route can be dead on one pass and the only
+   route on another, so "exercised by nothing" needs to say by which pass.
+
+2. SLOTS ALIGN BY THE PRODUCT'S CLASS, NOT BY PROCESS TITLE OR BY `abstract:`.
+   Title fails after three steps: the Chicago legs share three processes and then
+   diverge by design. `abstract:` is too coarse and merges the outer-solution slot
+   with the cytosol slot, because assemble-solution sits on both.
+
+3. A NODE IS ABSTRACT IFF THE LEGS DISAGREE. Jon's rule: "we should only be using
+   abstract pages when there's a design decision to be made between different
+   implementations." Where the legs agree the meet IS that module and labelling it
+   abstract asserts a choice nobody has.
+
+   ABSTRACTNESS DOES NOT PROPAGATE ALONG EDGES. Seven of seven sensing-cell steps
+   run Encapsulation: Phase Transfer, so that process node is concrete while every
+   module flowing into it may be abstract.
+
+4. RESOLVE EVERY OPERAND TO ITS PAGE, NEVER TO ITS KEY. `membrane-chicago` and
+   `membrane-popc-chol-chicago` name one module, so a key-based walk reaches it
+   twice and marks a slot abstract where the legs in fact agree. That failure
+   manufactures a design decision rather than hiding one.
+
+MARK, DO NOT FAIL, on four existing advisory checkers. A slot whose legs differ
+with no common ancestor draws a marked node and the run still succeeds; --strict
+fails on it. The marker is kept from reading as a class by printing the
+denominators every run, not by the exit code.
+"""
+import collections
+import re
+import sys
+from pathlib import Path
+
+import yaml
+
+ROOT = Path(__file__).resolve().parent.parent / "docs" / "modules"
+
+STYLE = """
+    classDef concrete fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef abstract fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    classDef unmet    fill:#ffffff,stroke:#111827,color:#111827,stroke-dasharray:0;
+    classDef partial  fill:#ffffff,stroke:#6b7280,color:#6b7280;
+"""
+
+
+def load_sources() -> dict[str, dict]:
+    out = {}
+    for d in sorted(ROOT.iterdir()):
+        f = d / "spec.yml"
+        if f.is_file():
+            out[d.name] = yaml.safe_load(f.read_text()) or {}
+    return out
+
+
+def to_module(page: str | None) -> str | None:
+    """A page path to the module it names. RULE 4 lives here: every operand goes
+    through this before it is counted, so two keys for one module collapse."""
+    if not page:
+        return None
+    m = re.match(r"\.\./([^/]+)/spec\.md$", page)
+    return m.group(1) if m else None
+
+
+def parents(S: dict) -> dict[str, str]:
+    """One parent per module, and it REFUSES a list rather than picking from it.
+
+    `refines:` may be a list since 2026-09-24. `slot_key` below aligns two
+    products when they share an immediate parent, and with two parents there is
+    no "the" parent to compare -- two products could share one parent each and
+    align or not depending on which this function happened to keep. That is the
+    silent wrong answer `render-position.py` warned about, in a worse place,
+    because here it changes a drawn figure rather than a printed line.
+    """
+    out = {}
+    for m, d in S.items():
+        r = d.get("refines")
+        if not r:
+            continue
+        if not isinstance(r, str):
+            raise ValueError(
+                f"{m} refines {list(r)}. The meet renderer aligns slots by the "
+                "immediate parent and cannot choose between two. Give this "
+                "renderer a rule for multi-parent alignment before using one.")
+        out[m] = r
+    return out
+
+
+def ancestors(slug: str, par: dict) -> list[str]:
+    """Self first, then up. A node is its own ancestor, so where legs agree the
+    meet is that node rather than its parent."""
+    out, seen = [], set()
+    while slug and slug not in seen:
+        out.append(slug); seen.add(slug); slug = par.get(slug)
+    return out
+
+
+def meet(slugs, par: dict) -> str | None:
+    """Deepest common ancestor, or None for no common ancestor at all. None is a
+    failure marker and must never collapse into a root."""
+    chains = [ancestors(s, par) for s in slugs]
+    if not chains:
+        return None
+    for cand in chains[0]:
+        if all(cand in c for c in chains[1:]):
+            return cand
+    return None
+
+
+def is_detector(mod: str | None, par: dict) -> bool:
+    return bool(mod) and "detector" in ancestors(mod, par)
+
+
+def operand_module(src: dict, key: str, S: dict, par: dict) -> str | None:
+    """RULE 1's three fields, in one place. An operand key resolves through its
+    own `page`, then through `component_of`, then through whatever step produced
+    it. Each field is the only route for at least one source."""
+    v = (src.get("inputs") or {}).get(key) or {}
+    if (m := to_module(v.get("page"))):
+        return m
+    if (m := to_module(v.get("component_of"))):
+        return m
+    for s in src.get("process_steps") or []:
+        if s["produces"]["id"] == key:
+            return to_module(s["produces"].get("page")) or key
+    return None
+
+
+def legs_of(name: str, S: dict, par: dict) -> dict[str, list[dict]]:
+    """Partition one source's steps by the detector each reaches. RULE 1."""
+    src = S[name]
+    reach: dict[str, set[str]] = {}
+    for key in (src.get("inputs") or {}):
+        m = operand_module(src, key, S, par)
+        reach[key] = {m} if is_detector(m, par) else set()
+    steps_by_leg: dict[str, list[dict]] = collections.defaultdict(list)
+    shared: list[dict] = []
+    for s in src.get("process_steps") or []:
+        got: set[str] = set()
+        for o in s["operands"]:
+            got |= reach.get(o, set())
+        pm = to_module(s["produces"].get("page"))
+        if is_detector(pm, par):
+            got |= {pm}
+        reach[s["produces"]["id"]] = got
+        (steps_by_leg[next(iter(got))] if len(got) == 1 else shared).append(s)
+    if shared:
+        steps_by_leg["__join__"] = shared
+    return dict(steps_by_leg)
+
+
+def slot_key(mod: str | None, par: dict) -> str:
+    """RULE 2. Two products share a slot when they are the same module or share an
+    immediate parent. An unsourced product keys to itself and aligns with nothing,
+    which is a finding rather than a merge."""
+    return par.get(mod, mod) if mod else "__unresolved__"
+
+
+if __name__ == "__main__":
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    strict = "--strict" in sys.argv
+    S = load_sources()
+    par = parents(S)
+
+    # --- legs
+    legs: dict[str, tuple[str, list[dict]]] = {}
+    joins: dict[str, list[dict]] = {}
+    for a in args:
+        name = Path(a.rstrip("/")).parent.name if a.endswith(".yml") else Path(a).name
+        for det, steps in legs_of(name, S, par).items():
+            if det == "__join__":
+                joins[name] = steps
+            else:
+                legs[f"{name}:{det}"] = (name, steps)
+
+    # A STEP THAT REACHES NO DETECTOR IS SHARED, NOT ABSENT, AND DROPPING IT BROKE THE
+    # DIAGRAM. Jon, reading the first Chicago draft: "the chicago meet has both
+    # SUV: CPRG and CPRG substrate. why are both in there?"
+    #
+    # Because encapsulate-substrate-suv, the step that MAKES the SUV out of
+    # substrate-cprg and a membrane, reaches no detector and went to __join__, which
+    # this loop then threw away. So substrate-cprg appeared via the aTc leg's dosing
+    # step, substrate-cprg-suv appeared via the pH leg's embed step, and the edge
+    # showing that one is made from the other was gone. Two nodes that look unrelated
+    # and are not.
+    #
+    # THE REAL DIFFERENCE SURVIVES THE FIX AND IS WORTH SEEING. The aTc leg doses CPRG
+    # free into the set gel; the pH leg encapsulates it first. That is
+    # color-change's own axis, "what varies across the class is which component is
+    # encapsulated", showing up in a meet. Two slots is the right answer; two
+    # DISCONNECTED slots was not.
+    #
+    # A join step is attributed to every leg that consumes its product, to fixpoint,
+    # because a join step can feed another join step.
+    for src_name, steps in joins.items():
+        mine = {k: v for k, v in legs.items() if v[0] == src_name}
+        for _ in range(len(steps) + 1):
+            for s in steps:
+                pid = s["produces"]["id"]
+                pm = to_module(s["produces"].get("page")) or pid
+                for leg, (_, lsteps) in mine.items():
+                    if any(o == pid or operand_module(S[src_name], o, S, par) == pm
+                           for ls in lsteps for o in ls["operands"]):
+                        if s not in lsteps:
+                            lsteps.insert(0, s)
+
+    if not legs:
+        print("no legs found — every branch reached zero or many detectors",
+              file=sys.stderr)
+        sys.exit(2)
+
+    # --- slots
+    #
+    # A SLOT IS FILLED BY WHATEVER OCCUPIES THAT POSITION, WHICH IS NOT ALWAYS A
+    # PRODUCT. The pH leg BUILDS its detector at anneal-trigger-duplex; the other two
+    # are SUPPLIED as inputs. A product-only pass sees one detector and calls the slot
+    # concrete, which is the alias failure in a different costume: it reports agreement
+    # where the legs in fact differ. So the detector slot is taken from the partition
+    # keys, which already name one detector per leg by construction.
+    #
+    # AND THE OUTCOME SLOT IS STRUCTURAL RATHER THAN SEMANTIC. Each leg's terminal
+    # product is that leg's answer, whatever its class, so the three align by position.
+    # Keying them by class instead gave three concrete boxes, each asserting that the
+    # legs agree, when what is true is that no Cascade class exists to meet them at.
+    slots: dict[str, dict[str, str]] = collections.defaultdict(dict)
+    order: list[str] = []
+
+    def put(key: str, leg: str, member: str) -> None:
+        if key not in slots:
+            order.append(key)
+        slots[key][leg] = member
+
+    for leg in legs:
+        put("detector", leg, leg.split(":", 1)[1])
+
+    # CHANGE A, 2026-09-21, on c9d6a5's addendum. THE OPERANDS ARE SLOTS TOO, and
+    # slotting only products drew the spine and nothing hanging off it: no membrane,
+    # no gel, no outer solution, no effector. Five slots where a hand-drawn meet had
+    # fifteen nodes.
+    #
+    # AND THE OPERANDS MUST GO THROUGH operand_module. This script defined that
+    # function for leg extraction and then read produces.page directly here, which is
+    # the bug they found by reading the code rather than the docstring. Resolving an
+    # operand by key or by inputs[].page alone makes Chicago's pH detector unreachable:
+    # ph-responsive-ssdna and trigger-ssdna reach it through component_of, and
+    # ph-trigger-duplex through the step that builds it. The slot would then report NO
+    # COMMON ANCESTOR for a class that exists, which is worse than missing the slot.
+    #
+    # THIS IS WHERE component_of EARNS ITS PLACE. It is dead for leg extraction,
+    # measured, and load-bearing here. One field, two passes, opposite answers.
+    produced_by: dict[tuple[str, str], dict] = {}
+    agree_checks = 0
+    for leg, (src_name, steps) in legs.items():
+        src = S[src_name]
+        for s in steps:
+            mod = to_module(s["produces"].get("page")) or s["produces"]["id"]
+            produced_by[(leg, mod)] = s
+        if not steps:
+            continue
+        for s in steps[:-1]:
+            mod = to_module(s["produces"].get("page"))
+            if is_detector(mod, par):
+                continue
+            put(slot_key(mod, par) if mod else s["produces"]["id"],
+                leg, mod or s["produces"]["id"])
+        last = steps[-1]
+        put("__outcome__", leg,
+            to_module(last["produces"].get("page")) or last["produces"]["id"])
+        for s in steps:
+            for o in s["operands"]:
+                m = operand_module(src, o, S, par)
+                if m is None or is_detector(m, par):
+                    continue          # unresolvable, or already in the detector slot
+                k = slot_key(m, par)
+                # A FREE POSITIVE CONTROL, c9d6a5's, AND IT ONLY WORKS IN THIS ORDER.
+                # A module that is a product of one step and an operand of the next
+                # must land in the same slot from both passes. The product pass runs
+                # first for exactly this reason: run the operand pass first and the
+                # check compares against an empty dict and reports zero, which reads
+                # like a result and is an ordering bug.
+                if (leg, m) in produced_by and k in slots and slots[k].get(leg) == m:
+                    agree_checks += 1
+                put(k, leg, m)
+
+    # CHANGE B: MEET THE PROCESSES, LINK BY LINK. A step may run a chain, and the
+    # chains align on their first link. The three encapsulate steps all begin with
+    # Encapsulation: Phase Transfer; the aTc leg carries a second link the others
+    # lack, which is a cleanup obligation rather than a difference to average away.
+    #
+    # PROCESSES MEET IN THEIR OWN POSET, not the module one. A process's parent is
+    # `process.abstract`, so the meet walks that map and a process with no parent keys
+    # to itself.
+    pproc: dict[str, str] = {}
+    for d in S.values():
+        for s in d.get("process_steps") or []:
+            for pr in ((s.get("process") or {}).get("composed_of")
+                       or [s.get("process") or {}]):
+                pg, ab = pr.get("page") or "", pr.get("abstract")
+                if pg and ab:
+                    pproc[re.sub(r"/[^/]+$", "", pg).rsplit("/", 1)[-1]] = ab
+
+    def proc_dir(pr: dict) -> str | None:
+        pg = pr.get("page") or ""
+        return re.sub(r"/[^/]+$", "", pg).rsplit("/", 1)[-1] if pg else None
+
+    pslots: dict[str, dict[str, str]] = collections.defaultdict(dict)
+    porder: list[str] = []
+    for leg, (src_name, steps) in legs.items():
+        for si, s in enumerate(steps):
+            chain = ((s.get("process") or {}).get("composed_of")
+                     or [s.get("process") or {}])
+            for li, pr in enumerate(chain):
+                d = proc_dir(pr) or (pr.get("title") or "untitled")
+                k = f"proc:{slot_key(d, pproc)}:{li}"
+                if k not in pslots:
+                    porder.append(k)
+                pslots[k][leg] = d
+
+    # --- the meet per slot
+    def member_slot_of(leg: str, m: str) -> str | None:
+        for kk in order:
+            if slots[kk].get(leg) == m:
+                return kk
+        return None
+
+    # A PRODUCED ID WITH NO PAGE STILL HAS A TITLE, on the step that makes it. Falling
+    # back to the slug there leaked `outer-solution` and `chicago-outer-solution` into
+    # figures that named everything else properly.
+    id_titles: dict[str, str] = {}
+    for d in S.values():
+        for s in d.get("process_steps") or []:
+            pr = s["produces"]
+            id_titles.setdefault(pr["id"], pr.get("title") or pr["id"])
+    proc_titles: dict[str, str] = {}
+    for d in S.values():
+        for s in d.get("process_steps") or []:
+            for pr in ((s.get("process") or {}).get("composed_of")
+                       or [s.get("process") or {}]):
+                pg = pr.get("page") or ""
+                if pg and pr.get("title"):
+                    proc_titles.setdefault(
+                        re.sub(r"/[^/]+$", "", pg).rsplit("/", 1)[-1], pr["title"])
+
+    def title_of(m: str) -> str:
+        """A node shows the page's title, never its slug. Jon, 2026-09-21: "node names
+        should follow page titles, not their slugs." A slug is an address; a title is
+        what the page calls itself, and a figure is read by people."""
+        if m in S:
+            return S[m].get("title", m)
+        return id_titles.get(m, m)
+
+    def shared_tail(titles: list[str]) -> str | None:
+        """The trailing word every title shares, or None.
+
+        THIS IS MEASURED, NOT COINED. The spec forbids inventing a parent name for a
+        slot with no common ancestor, and it is right to. But "London Cascade", "aTc
+        Cascade" and "pH Cascade" share the word Cascade in the titles their own pages
+        carry, so reporting it states what the corpus already says rather than naming a
+        class nobody wrote. The node still leads with the warning.
+        """
+        words = [x.split() for x in titles]
+        if len(words) < 2 or not all(words):
+            return None
+        tail = words[0][-1]
+        return tail if all(w[-1] == tail for w in words) else None
+
+    def nid_of(k: str) -> str:
+        return re.sub(r"[^A-Za-z0-9]", "_", k).upper()
+
+    L = ["flowchart TD"]
+    # RULE: THE DOMAIN IS PART OF THE OUTPUT, NOT A CAPTION. A meet is only
+    # defined against the legs it was taken over, so the leg list is a node.
+    L.append(f'    DOMAIN["Meet over {len(legs)} legs, partitioned by detector:'
+             f'<br/>{"<br/>".join(sorted(legs))}"]')
+    L.append("")
+    concrete, abstract, unmet, partial, procs = [], [], [], [], []
+    tally = collections.Counter()
+    for k in order:
+        members = sorted({v for v in slots[k].values()})
+        shown = [title_of(m) for m in members]
+        label_for = {"__outcome__": "the demo each leg produces",
+                     "detector": "the sensing element"}.get(k, "")
+        nid = nid_of(k)
+        # A CONCRETE BOX MEANS EVERY LEG IN THE DOMAIN USES THIS EXACT MODULE.
+        # A slot only some legs fill has one member for a different reason, and
+        # painting it concrete reports agreement among legs that never met. That is
+        # the same error as the three cascade roots, one category down.
+        if len(slots[k]) < len(legs):
+            # A PARTIAL SLOT CAN STILL BE A MEET. The legs that DO fill it may put
+            # different modules in it, and naming the class they meet at is the whole
+            # payoff of having written one. Without this the label listed two members
+            # and hid the fact that they now have a parent.
+            got = len(slots[k])
+            head = ", ".join(shown)
+            if len(members) > 1 and (mt := meet(members, par)):
+                head = f'{title_of(mt)}<br/>({head})'
+            L.append(f'    {nid}["{head}<br/>'
+                     f'only {got} of {len(legs)} legs have this slot"]')
+            partial.append(nid); tally["partial"] += 1
+        elif len(members) == 1:
+            m = members[0]
+            L.append(f'    {nid}["{title_of(m)}"]')
+            concrete.append(nid); tally["concrete"] += 1
+            if m in S:
+                L.append(f'    click {nid} "/docs/modules/{m}/spec"')
+        elif (mt := meet(members, par)):
+            L.append(f'    {nid}["{title_of(mt)}<br/>({", ".join(shown)})"]')
+            abstract.append(nid); tally["abstract"] += 1
+            if mt in S:
+                L.append(f'    click {nid} "/docs/modules/{mt}/spec"')
+        else:
+            # THE FIGURE STILL NAMES THE THING. Jon, 2026-09-21: "NO COMMON
+            # ANCESTOR is a good warn level message, but the figure should still say
+            # Cascade or London Cascade slash Chicago Cascade." A node a reader cannot
+            # name is a node they skip, and the warning is worth less for it.
+            tag = f" — {label_for}" if label_for else ""
+            tail = shared_tail(shown)
+            # NO PUNCTUATION. Jon, 2026-09-21: "cascade? with question mark is
+            # incorrect. cascade no punctuation." The question mark was doing work the
+            # warning line below already does, and a name with a query on it reads as
+            # uncertainty about the name rather than about the class.
+            lead = f"{tail}<br/>" if tail else ""
+            L.append(f'    {nid}["{lead}{", ".join(shown)}'
+                     f'<br/>NO COMMON ANCESTOR{tag}"]')
+            unmet.append(nid); tally["unmet"] += 1
+
+    # PROCESS NODES, drawn as stadiums per the house style and classed by the same
+    # three rules. ABSTRACTNESS DOES NOT PROPAGATE: a process every leg shares is
+    # concrete even when every module flowing into it is abstract, which is why this
+    # pass is separate rather than inherited from the operands.
+    L.append("")
+    for k in porder:
+        members = sorted(set(pslots[k].values()))
+        pshown = [proc_titles.get(m, m) for m in members]
+        nid = nid_of(k)
+        link = k.rsplit(":", 1)[1]
+        tail = "" if link == "0" else f", link {int(link) + 1}"
+        if len(pslots[k]) < len(legs):
+            L.append(f'    {nid}(["{", ".join(pshown)}{tail}<br/>'
+                     f'only {len(pslots[k])} of {len(legs)} legs run this"])')
+            partial.append(nid); tally["proc_partial"] += 1
+        elif len(members) == 1:
+            L.append(f'    {nid}(["{pshown[0]}{tail}"])')
+            procs.append(nid); tally["proc_concrete"] += 1
+        elif (mt := meet(members, pproc)):
+            L.append(f'    {nid}(["{proc_titles.get(mt, mt)}{tail}<br/>({", ".join(pshown)})"])')
+            abstract.append(nid); tally["proc_abstract"] += 1
+        else:
+            L.append(f'    {nid}(["{", ".join(pshown)}{tail}'
+                     f'<br/>NO COMMON ANCESTOR"])')
+            unmet.append(nid); tally["proc_unmet"] += 1
+
+    # CROSS-PASS AGREEMENT, c9d6a5's, and it is the free control one level up. The two
+    # passes key differently on purpose: module slots align by the product's class,
+    # process slots by process identity in their own poset. So a process slot CAN group
+    # two steps whose products the module pass keeps apart, and that would assert one
+    # source into two positions at once. Nothing else here would notice.
+    cross_ok = cross_bad = 0
+    for k in porder:
+        prods = {}
+        for leg in pslots[k]:
+            src_name, steps = legs[leg]
+            for s in steps:
+                for pr in ((s.get("process") or {}).get("composed_of")
+                           or [s.get("process") or {}]):
+                    if (proc_dir(pr) or pr.get("title")) == pslots[k][leg]:
+                        m = to_module(s["produces"].get("page")) or s["produces"]["id"]
+                        prods[leg] = member_slot_of(leg, m)
+        if len(prods) > 1:
+            (cross_ok := cross_ok + 1) if len(set(prods.values())) == 1 else (
+                cross_bad := cross_bad + 1)
+
+    # EDGES RUN OPERAND -> PROCESS -> PRODUCT, the same spine render-composition.py
+    # draws, projected onto slots. Routing them operand-to-product instead left every
+    # process stadium floating unconnected on the right of the page, which is what the
+    # first rendered draft showed: seven nodes with no edges, carrying real findings
+    # nobody would read because they sat outside the graph.
+    #
+    # AN EDGE ONLY ONE LEG HAS IS STILL DRAWN. The meet is over the union of what the
+    # legs do, and dropping a leg's edge would assert the others do not do it.
+    proc_slot_of: dict[tuple[str, str, int], str] = {}
+    for k in porder:
+        li = int(k.rsplit(":", 1)[1])
+        for leg, d in pslots[k].items():
+            proc_slot_of[(leg, d, li)] = k
+
+    edges: set[tuple[str, str]] = set()
+    for leg, (src_name, steps) in legs.items():
+        src = S[src_name]
+        for s in steps:
+            chain = ((s.get("process") or {}).get("composed_of")
+                     or [s.get("process") or {}])
+            pk = [proc_slot_of.get(
+                    (leg, proc_dir(pr) or (pr.get("title") or "untitled"), i))
+                  for i, pr in enumerate(chain)]
+            pk = [x for x in pk if x]
+            if not pk:
+                continue
+            for o in s["operands"]:
+                om = operand_module(src, o, S, par) or o
+                if (sk := member_slot_of(leg, om)):
+                    edges.add((sk, pk[0]))
+            for a, b in zip(pk, pk[1:]):
+                edges.add((a, b))
+            pm = to_module(s["produces"].get("page")) or s["produces"]["id"]
+            if (dk := member_slot_of(leg, pm)):
+                edges.add((pk[-1], dk))
+
+    L.append("")
+    for a, b in sorted(edges):
+        L.append(f"    {nid_of(a)} --> {nid_of(b)}")
+
+    L.append("")
+    L.append(STYLE.rstrip("\n"))
+    for nm, ids in (("concrete", concrete), ("abstract", abstract),
+                    ("unmet", unmet), ("partial", partial),
+                    ("process", procs)):
+        if ids:
+            L.append(f"    class {','.join(ids)} {nm};")
+    print("\n".join(L))
+
+    # --- denominators, every run. The marker is kept from reading as a class by
+    # this, not by the exit code.
+    n = sum(v for k, v in tally.items() if not k.startswith("proc_"))
+    print(f"\npartition key: detector\n"
+          f"{len(legs)} leg(s): {', '.join(sorted(legs))}\n"
+          f"{n} slot(s): {tally['concrete']} concrete (legs agree), "
+          f"{tally['abstract']} abstract (legs differ, class found), "
+          f"{tally['unmet']} with NO COMMON ANCESTOR, "
+          f"{tally['partial']} filled by only some legs\n"
+          f"{sum(v for k, v in tally.items() if k.startswith('proc_'))} process slot(s): "
+          f"{tally['proc_concrete']} concrete, {tally['proc_abstract']} abstract, "
+          f"{tally['proc_unmet']} with NO COMMON ANCESTOR, "
+          f"{tally['proc_partial']} run by only some legs\n"
+          f"{cross_ok} cross-pass agreement(s), {cross_bad} disagreement(s): where a "
+          f"process slot groups two legs' steps, their products land in one module slot\n"
+          f"{agree_checks} product-and-operand agreement check(s) passed: a module that "
+          f"is a product of one step and an operand of the next landed in the same slot "
+          f"from both passes",
+          file=sys.stderr)
+    unsourced = sum(1 for k in order
+                    for v in slots[k].values() if v not in S)
+    print(f"{unsourced} product(s) across all legs resolve to no spec.yml, so they "
+          f"align with nothing and cannot be met.\n"
+          f"A marked slot is a finding about the sources, not about the design.",
+          file=sys.stderr)
+    if strict and (tally["unmet"] or tally["proc_unmet"]):
+        sys.exit(1)

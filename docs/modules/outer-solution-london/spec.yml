@@ -1,0 +1,48 @@
+# Composition source for the London Outer Solution.
+#
+# WRITTEN 2026-09-21 with ../outer-solution/spec.yml. This formulation had no page and
+# TWO produced ids: london-cascade called it `outer-solution` and gel-ulga called it
+# `london-outer-solution`, with the same three operands and the same osmolarity in both.
+# One formulation, two names, and nothing compared them, which is the membrane-chicago
+# alias in a second place.
+#
+# THE FIGURES COME FROM gel-ulga, which is the source that carried them. london-cascade
+# recorded only the osmolarity and left the three solutes to the page.
+
+module: outer-solution-london
+title: "London Outer Solution"
+refines: outer-solution
+
+inputs:
+  potassium-glutamate:
+    title: "Potassium glutamate"
+    page: null
+  hepes:
+    title: "HEPES"
+    page: null
+  glucose:
+    title: "Glucose"
+    page: null
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [potassium-glutamate, hepes, glucose]
+    produces:
+      id: outer-solution-london
+      title: "London Outer Solution"
+      page: ../outer-solution-london/spec.md
+    parameters:
+      potassium_glutamate: "578 mM"
+      hepes: "72 mM, pH 7.4"
+      glucose: "300 mM"
+      osmolarity: "~920 mOsm"
+    notes: >
+      The osmolarity stays here even though each solute above is also stated, because it
+      is a relation rather than a property of any one of them: it has to match across
+      the membrane of whatever is suspended in it. Matched to the AHSL Sensing Cell inner
+      solution.

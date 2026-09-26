@@ -1,0 +1,87 @@
+# Composition source for Gel: LGA.
+#
+# WRITTEN 2026-09-24 on Jon's instruction, after three independent routes arrived at the
+# same missing page in one afternoon: the pH board's `Hydrogel: LGA` node, its gel-embed
+# stadium, and ../chicago-cascade/spec.yml's open item `which-agarose`.
+#
+# LOW-GELLING IS NOT ULTRA-LOW-GELLING. They are ordered as different products and they
+# gel at different temperatures. The pH presenter, DevStudio day one: "I used the low
+# gelling." The same session gives 14 °C for the ultra-low grade.
+#
+# THE SHAPE IS ../gel-ulga/spec.yml's AND THE FIGURES ARE NOT. Both set a polymer into an
+# outer solution by cooling. What this file cannot state is which outer solution, because
+# no source records one for the pH path.
+#
+# `mixing`, ONE OF ONE. A gel's own composition is polymer plus solvent ending in one
+# phase. `packing` arises when a compartment is put INTO a gel, which is a step on the
+# cascade pages and not here.
+
+module: gel-lga
+title: "Gel: LGA"
+refines: gel
+
+inputs:
+  lga-powder:
+    title: "Low gelling temperature agarose"
+    page: null            # no module page for the polymer; the grade is below
+  outer-solution:
+    title: "Outer solution"
+    page: ../outer-solution/spec.md
+
+process_steps:
+  - id: set-thermal
+    process:
+      title: "Hydrogel Embedding"
+      page: ../../processes/embed-hydrogel/main.md
+      abstract: embed-hydrogel
+    operator: mixing
+    operands: [lga-powder, outer-solution]
+    produces:
+      id: gel-lga
+      title: "Gel: LGA"
+      page: ../gel-lga/spec.md
+    parameters:
+      lga: "0.7% (w/v) in the pH path"
+      gel_point_max_c: 30
+      melting_point_c: 65
+      eeo: "≤0.10"
+      # gel_point_max_c IS THE TOP OF THE CONGEALING RANGE, 26-30 °C on the vendor
+      # datasheet. 30 is the figure an embedding step needs, because at or above it
+      # the polymer is liquid and the payload can go in. melting_point_c is the
+      # other end and a different quantity, which is why they are two keys.
+      gel_strength: "≥200 g/cm² (1% gel)"
+    notes: >
+      The process names the ABSTRACT parent, because no embedding process is written for
+      this chemistry. ../../processes/embed-alginate-hydrogel/main.md is alginate and
+      ../../processes/embed-ulga-hydrogel/main.md is ULGA. Naming either would assert the
+      wrong one.
+
+open:
+  - id: two-sources-disagree-about-which-agarose-the-ph-path-uses
+    question: >
+      MEASURED 2026-09-24 AND NOT RESOLVED HERE. ../ph-sensing-cell/spec.md:147 says
+      "Embedded directly in 0.7% low-gelling agarose". ../ph-cascade/spec.yml:41 names the
+      same 0.7% operand "ULGA powder, 0.7%". Same path, same figure, two different
+      polymers. The DevStudio board answers it — "I used the low gelling" — and rewiring
+      the cascade to this page is a ruling about that page rather than about this one, so
+      it is recorded and not applied. ../chicago-cascade/spec.yml's `which-agarose` asks
+      the same question and carries an @Editor(chicago) tag.
+  - id: the-two-agaroses-are-different-products
+    question: >
+      CLOSED 2026-09-24 by vendor datasheets Jon supplied: "confirmed by part number,
+      they're different gels with different properties!" The two grades share an InChI
+      key, MJQHZNBUODTQTK-WKGBVCLCSA-N, so the polymer is the same and the grades are
+      not. This one congeals at 26-30 °C and melts at ≤65 °C, EEO ≤0.10, gel strength
+      ≥200 g/cm² at 1%, molecular-biology grade, from red algae. ../gel-ulga/spec.yml's
+      grade is Type IX from marine algae, gel point 8-17 °C, melting ≤50 °C at 0.8%,
+      EEO ≤0.05. THE GEL POINTS DO NOT OVERLAP AND THE MELTING POINTS DIFFER BY 15 °C,
+      which is what makes them non-interchangeable rather than two names for one powder.
+      THE CATALOG NUMBERS ARE STILL NOT RECORDED HERE. Jon confirmed by part number and
+      the numbers themselves were not captured, so this file states the properties and
+      not the SKU.
+  - id: which-outer-solution-dissolves-it
+    question: >
+      ../gel-ulga/spec.yml makes the outer solution a separate step with its own recipe,
+      because ULGA dissolves into it rather than into water. The same must be true here
+      and no source records which outer solution the pH path uses, so this file names the
+      abstract class and states no recipe.

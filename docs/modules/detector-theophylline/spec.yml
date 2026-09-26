@@ -1,0 +1,93 @@
+# Composition source for Theophylline Detector.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: two additions into Base Cytosol, sharing its resources. No
+# `packing` step appears here, so nothing in this file depends on open question O8
+# in compositional-biology-theory, "are formation and `hold` one operation?".
+#
+# THEOPHYLLINE IS EXCLUDED. It is the analyte this Module detects, and the page's
+# two volume columns are minus- and plus-analyte conditions rather than two
+# compositions. See the questions at the foot of this file.
+
+module: detector-theophylline
+title: "Theophylline Detector"
+refines: detector
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  sensor-dna:
+    title: "Sensor DNA template"
+    page: null            # pT7-theophylline-LacZ (pMN066); not in nucleus-eng/DNA
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble the Theophylline Detector reaction"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, sensor-dna, substrate-cprg]
+    produces:
+      id: detector-theophylline
+      title: "Theophylline Detector"
+      page: ../detector-theophylline/spec.md
+    parameters:
+      base_cytosol: 1x
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
+      sensor_dna: "5 nM final, from a 49.55 nM stock"
+      cprg: "0.6 mg/mL final, from a 10 mg/mL stock"
+      reaction_volume: "10 uL stated — but see the questions below"
+    notes: >
+      The riboswitch binds theophylline at its aptamer domain in the 5' UTR, which
+      exposes the ribosome binding site and turns on translation of the downstream
+      effector. So the Module is the switch and the template; the analyte is what it
+      responds to. No process page documents assembling it into a reaction, and the
+      page says as much: "No process page documents building this Module or
+      assembling it into a reaction."
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: volumes-do-not-sum
+    question: >
+      The page carries an open @Editor(chicago) tag on this. With CPRG included the
+      columns sum to 10.05 uL against a stated total of 10 uL. The CPRG row is
+      required — the reaction is read by CPRG conversion — but was absent from the
+      source table, and its 0.6 uL does not close the gap exactly. The reaction
+      volume above repeats the stated 10 uL and flags it rather than silently
+      carrying 10.05, because a machine-readable total that disagrees with its own
+      rows is worse than one that says it is disputed.
+  - id: construct-not-in-the-dna-repo
+    question: >
+      `pT7-theophylline-LacZ` (`pMN066`) is not in nucleus-eng/DNA. The Chicago
+      Cascade's PLA1-linked riboswitch construct is a separate and not-yet-identified
+      design, and is not represented on the page at all. So `sensor-dna` above is a
+      role with a label, not an identity claim, and the PLA1 variant has no entry
+      anywhere.
+  - id: this-module-is-the-source-of-reporter-lacz-figures
+    question: >
+      ../reporter-lacz/spec.yml takes every one of its concentrations from this
+      reaction with the analyte removed, on the reasoning that this reaction is that
+      Module plus a riboswitch. If any figure here is corrected, that file's figures
+      move with it and its own open question says so. Named here so the dependency is
+      visible from both ends rather than only from the borrower's.
+  - id: no-process-page
+    question: >
+      The page states that no process page documents building this Module or
+      assembling it into a reaction. It is one of two such declarations in the corpus
+      — the other is ../detector-3oc6-hsl/spec.md — and they are declared gaps rather
+      than broken links.

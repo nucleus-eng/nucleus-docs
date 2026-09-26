@@ -21,6 +21,45 @@ Design schematic of the IV-HSL Emitter module. `pT7-bjaI` expresses the BjaI enz
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PURE_SOLUTION_A["PURE Solution A"]
+    PURE_SOLUTION_B["PURE Solution B"]
+    BJAI_DNA["pOpen-pT7-bjaI"]
+    SAM["SAM"]
+    IV_COA["IV-CoA"]
+    OPTIPREP["OptiPrep"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the IV-HSL Emitter reaction (mixing) — no page"])
+    EMITTER_IVHSL["IV-HSL Emitter"]
+
+    PURE_SOLUTION_A --> P1_ASSEMBLE_REACTION_0
+    PURE_SOLUTION_B --> P1_ASSEMBLE_REACTION_0
+    BJAI_DNA --> P1_ASSEMBLE_REACTION_0
+    SAM --> P1_ASSEMBLE_REACTION_0
+    IV_COA --> P1_ASSEMBLE_REACTION_0
+    OPTIPREP --> P1_ASSEMBLE_REACTION_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> EMITTER_IVHSL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PURE_SOLUTION_A,PURE_SOLUTION_B,BJAI_DNA,SAM,IV_COA,OPTIPREP,RNASE_INHIBITOR leaf;
+    class EMITTER_IVHSL composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click EMITTER_IVHSL "/docs/modules/emitter-ivhsl/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 :::{table}
 | **Name** | **Length (bp)** | **File** |
@@ -32,21 +71,21 @@ Design schematic of the IV-HSL Emitter module. `pT7-bjaI` expresses the BjaI enz
 
 ::::{tab-item} Cytosol
 
-Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively, to a standard PURE reaction containing `pT7-bjaI`. Volumes in µL.
+Add SAM and IV-CoA at 0.3 mM and 0.08 mM final concentration, respectively, to a standard PURE reaction containing `pT7-bjaI`. Volumes in µL. Both come from one 5 mM stock, so the two are not equimolar: SAM is dosed at nearly four times IV-CoA.
 
-| **Component** | **Sample** | **Negative Control** | **Positive Control** | **Notes** |
-| --- | --- | --- | --- | --- |
-| PURE Solution A | 12 | 12 | 0 | Energy solution: small molecules |
-| PURE Solution B | 9 | 9 | 0 | Proteins and ribosomes |
-| RNase Inhibitor | 1.5 | 1.5 | 0 | Prevents RNase activity |
-| `pOpen-pT7-bjaI` (~200 ng/µL) | 1.5 | 0 | 0 | DNA encoding BjaI |
-| SAM (5 mM) | 1.8 | 1.8 | 0 | Substrate for IV-HSL production |
-| IV-CoA (5 mM) | 0.48 | 0.48 | 0 | Substrate for IV-HSL production |
-| OptiPrep | 1.5 | 1.5 | 1.5 | Adds density for phase-transfer |
-| IV-HSL (10 µM) | 0 | 0 | 0.3 | Commercial IV-HSL for positive control |
-| 3M Glucose | 0 | 0 | 8.46 | |
-| ddH₂O | 2.22 | 3.72 | 19.74 | |
-| **Total** | **30** | **30** | **30** | |
+| **Component** | **Stock** | **Final** | **Sample** | **Negative Control** | **Positive Control** | **Notes** |
+| --- | --- | --- | --- | --- | --- | --- |
+| PURE Solution A | | 40% (v/v) | 12 | 12 | 0 | Energy solution: small molecules |
+| PURE Solution B | | 30% (v/v) | 9 | 9 | 0 | Proteins and ribosomes |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 1.5 | 1.5 | 0 | Prevents RNase activity |
+| `pOpen-pT7-bjaI` | ~200 ng/µL | 10 ng/µL | 1.5 | 0 | 0 | DNA encoding BjaI |
+| SAM | 5 mM | 0.3 mM | 1.8 | 1.8 | 0 | Substrate for IV-HSL production |
+| IV-CoA | 5 mM | 0.08 mM | 0.48 | 0.48 | 0 | Substrate for IV-HSL production |
+| OptiPrep | | | 1.5 | 1.5 | 1.5 | Adds density for phase-transfer |
+| IV-HSL | 10 µM | 0.1 µM, positive control only | 0 | 0 | 0.3 | Commercial IV-HSL for positive control |
+| 3M Glucose | 3 M | 0.846 M, positive control only | 0 | 0 | 8.46 | |
+| ddH₂O | | | 2.22 | 3.72 | 19.74 | |
+| **Total** | | | **30** | **30** | **30** | |
 
 ::::
 

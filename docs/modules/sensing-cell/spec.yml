@@ -1,0 +1,39 @@
+# Composition source for Sensing Cell.
+#
+# WRITTEN 2026-09-21. Refines cell, and the refinement is ONE SLOT: the cytosol is a
+# sensor cytosol rather than any cytosol. The membrane slot is untouched.
+#
+# THE INVARIANT IS `packing` OVER EXACTLY TWO OPERANDS, FOUR OF FOUR, AND THE FINAL STEP
+# IS THE SAME STEP IN ALL FOUR. ahl-, atc-, ph- and theophylline-sensing-cell each end in
+# an encapsulate step, packing a sensor cytosol with a membrane. No member has an
+# exception and no member has a third operand.
+#
+# WHAT VARIES IS THE MEMBRANE, NOT THE SHAPE. The AHSL integration path packs membrane-popc and the
+# other three pack membrane-chicago. Both refine membrane, so the slot holds.
+
+module: sensing-cell
+title: "Sensing Cell"
+refines: cell
+
+inputs:
+  sensor-cytosol:
+    title: "Sensor Cytosol"
+    page: ../sensor-cytosol/spec.md
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+
+process_steps:
+  - id: encapsulate
+    process:
+      title: "Close the membrane around the sensor cytosol"
+      page: null
+    operator: packing
+    operands: [sensor-cytosol, membrane]
+    produces:
+      id: sensing-cell
+      title: "Sensing Cell"
+      page: ../sensing-cell/spec.md
+    notes: >
+      Packing, four of four. The cytosol is composed before encapsulation rather than
+      added to a closed chassis, which is what every member does.

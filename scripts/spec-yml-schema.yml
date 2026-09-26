@@ -1,0 +1,571 @@
+# Schema for docs/modules/<module>/spec.yml — the machine-readable composition source.
+#
+# Standalone by ruling (Jon, 2026-09-13): "my sense is that a schema should be a
+# standalone thing". It replaces the "keys in use" table in CLAUDE.md §Composition
+# sources, which declared itself the record while being unknown to its owner.
+#
+# Derived by measurement from all 17 sources on 2026-09-15, not from that table.
+# EVERY COUNT BELOW NAMES THE TREE IT WAS TAKEN ON. A bare "5 of 46" goes stale in
+# silence. "5 of 46 at <hash>" stays true and says when to re-take it. The counts
+# were re-taken at d611bda on 2026-09-21, when the corpus had roughly tripled since
+# this schema was derived. Add the hash to any count you add.
+# Counts in each description are observed use, so a key with a low count is a key
+# that one page needed — not a key that is optional by design.
+#
+# JSON Schema draft 2020-12, written in YAML.
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://docs.nucleus.engineering/schema/spec-yml/v1"
+title: Module composition source
+type: object
+additionalProperties: false
+required: [module, title, inputs, process_steps]
+
+properties:
+  module:
+    type: string
+    description: Directory name under docs/modules/. Must equal the parent directory.
+    pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+  title:
+    type: string
+    description: Display name, matching the page's frontmatter title.
+  refines:
+    oneOf:
+      - type: string
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      - type: array
+        minItems: 2
+        uniqueItems: true
+        items:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+    description: >
+      The abstract Module or Modules this one refines, by directory name.
+      A LIST IS LEGAL AND MEANS TWO INCOMPARABLE PARENTS, Jon's ruling 2026-09-24:
+      "yes, modules should be able to refine multiple modules." The case that
+      forced it is a sensor with two axes, what it senses and how -- an EsaR
+      detector is a repressor detector AND an AHL detector, and neither of those
+      refines the other. A single string stays the normal form and every source
+      uses one today; `minItems: 2` keeps a one-element list from being a second
+      spelling of the same thing.
+      A LIST MAKES THE REFINEMENT ORDER A DAG RATHER THAN A FOREST, and a meet in
+      a DAG need not be unique. `render-position.py` said so before this key
+      changed: "the day the key becomes a list this returns a plausible wrong
+      answer and says nothing." The readers now refuse rather than guess. Nothing
+      in this corpus yet guarantees a lattice, so the non-unique case is reported
+      and not resolved. The image of this
+      Module under `A`, which compositional-biology-theory has carried as a defined
+      map since August. NOT a new axis: `A : Modules -> Abstractions` already
+      exists, and what this corpus lacked was a field naming a Module's image
+      under it. Edit site 1 of the abstract-modules work, Jon's ruling 2026-09-21.
+      NAMED `refines` RATHER THAN `abstract` on purpose. `abstract` already exists
+      one level down, on process_steps[].process, where it names the immediate
+      parent PROCESS. Reusing the word here would be consistent in meaning and
+      confusing in reading, and `refines` is the theory corpus's own word for the
+      relation.
+      IT IS A POINTER AND NOT A CLAIM ABOUT COMPOSITION. glossary.md#T13 makes
+      membership classification and #T34 makes constituency containment, so naming
+      a parent says what classifies this Module and nothing about what it is made
+      of. A Module with no abstract parent omits the key, and most do.
+      THE PARENT MUST BE THE IMMEDIATE ONE. Pointing a Module two levels up would
+      make the key mean SOME ancestor rather than THE parent, which is a different
+      key. A Module whose immediate parent has no page on the branch it sits on
+      omits the key rather than reaching past it.
+      THIS DESCRIPTION MUST NOT STATE THE STATE OF A TREE, and an earlier version
+      did. It lives on two branches whose corpora differ, so a present-tense count
+      that is true on one is false on the other and only one of them will notice.
+      The version written the day this field landed said three membranes carried
+      no value and that nothing resolved the key. Both were true that morning on
+      docs/devcells-integration-pages, both were stale there by the evening, and
+      neither was ever true of staging/spec-yml-to-main.
+      check-spec-schema.py RESOLVES EVERY VALUE, as of 2026-09-21. It fails a
+      Module that names itself and one that names a directory holding no spec.md.
+      It does not walk the chain, so nothing here catches a cycle.
+  sensitivities:
+    type: [array, "null"]
+    description: >
+      What this Module is sensitive TO. Half of a Conflict, and only half on
+      purpose.
+      compositional-biology-theory glossary.md#T23 makes Conflict DERIVED:
+      "Sensitivity meeting imposition. Computed, never asserted", with
+      "incompatibility (as a stated fact)" as its refused spelling. Its own
+      evidence column reads "one constraint asserted on nine pages". So a field
+      saying "A excludes B" would be the spelling the glossary refuses, and the
+      two halves are declared separately while a checker computes the join.
+      ABSENCE MEANS UNDECLARED, NOT NONE. Jon, 2026-09-21: "it means that we
+      haven't declared any constraints. `constraints: null` is fine". The field
+      never claims a Module has none, so an omitted key and an explicit null say
+      the same thing and neither is a claim. Nothing may read absence as
+      evidence; check-conflicts.py reports the denominator instead.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, to, basis, why]
+      properties:
+        id:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        to:
+          type: string
+          description: >
+            The imposition this is sensitive to, by the id an `impositions`
+            entry uses. Matching is by this string and nothing else.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        basis:
+          enum: [rule, observation]
+          description: >
+            WHETHER IT GENERALISES, and this is the key nobody proposes from
+            outside. A `rule` excludes cases nobody has tried, because a
+            mechanism says so. An `observation` enumerates what was seen and
+            says nothing about the next case. free-parameters-are-tuples.md has
+            the argument. Two sessions derived the split independently on
+            2026-09-21 and returned the same singleton.
+        why:
+          type: string
+          description: The mechanism for a rule, or what was seen for an observation.
+        page:
+          type: [string, "null"]
+          description: Where the page states it, for the checker to compare against.
+        bound:
+          $ref: "#/$defs/bound"
+
+  inputs:
+    type: object
+    description: >
+      Everything the module starts from, keyed by id. Ids are referenced by
+      process_steps[].operands. 49 of 49 sources at `d611bda`, a required key.
+      MAY BE EMPTY, and an empty object is a claim rather than an omission: it
+      says this Module starts from nothing nameable in this corpus.
+      `minProperties: 1` was removed on Jon's ruling, 2026-09-21. It had asserted
+      that every Module is made of something nameable, which is a second
+      membership condition beside the one `minItems` carried and which
+      compositional-biology-theory `glossary.md#T03` does not include. Two page
+      classes were working around it and a third was blocked by it. Six atoms
+      listed themselves as their only input, which reads circularly. `analyte-ph`
+      listed the solution it is a property OF, which inverts the relation this key
+      encodes everywhere else, because pH is a property and there was no substance
+      to name. AND A CLASS MAY START FROM NOTHING NAMEABLE, which is the case this
+      key's emptiness now records.
+      AN EARLIER VERSION OF THIS SENTENCE SAID A CLASS HAS NO INPUTS BY
+      CONSTRUCTION. It was false when written and the correction is a claim about
+      the world rather than about a tree: a class composes ABSTRACT CONSTITUENTS,
+      operands that carry `page: null` because no page describes a generic one.
+      So composition is not what separates a class from a member. Position in the
+      refinement order is, and `refines` is where that lives.
+      THE MEASUREMENT IS PINNED RATHER THAN STATED IN THE PRESENT TENSE, under the
+      rule on `refines` above, which this description broke on the day it was
+      written. At `docs/devcells-integration-pages` `1c889d3`, six of seven sourced
+      classes named inputs and five ran a step; `gel` composed `outer-solution`
+      with `polymer` by mixing and `color-change` packed `enzyme` with `substrate`.
+      That count was already stale on its own branch within the day and was never
+      true of `staging/spec-yml-to-main`, which carries no class pages at all.
+      Corrected 2026-09-21 with the `Abstract:` prefix, whose removal surfaced it.
+      THE COST, STATED. An empty `inputs` and an unfilled one now look identical.
+      The key stays in the top-level `required` list, so it must be present, but
+      its emptiness is a claim the schema no longer distinguishes from an
+      oversight. That is the same trade `minItems` made on process_steps.
+    additionalProperties:
+      type: object
+      additionalProperties: false
+      required: [title]
+      properties:
+        title:
+          type: string
+        page:
+          type: [string, "null"]
+          description: >
+            Relative path to the input's own spec page, or null where it has none.
+            Present on all 90 inputs measured; null is the normal value for a
+            component the corpus does not give a page.
+        component_of:
+          type: string
+          description: >
+            Names the purchased item or mixture this is part of, where the component
+            has no page of its own. 15 of 196 inputs at `d611bda`.
+          # TWO KINDS OF VALUE ARE LEGAL, ruled by Jon 2026-09-21. A path names a page;
+          # a part number names a product. An earlier reading treated the part number as
+          # a broken path, and it is not.
+          # THE RULE THAT PICKS BETWEEN THEM, in his words: a component gets a page when
+          # it can come from more than one source. "LacZ from MedChem Express vs home made
+          # are both refinements of LacZ enzyme. we have pages for the LacZ enzyme
+          # abstracted, and correctly don't for both of the refinements." So a part number
+          # names a refinement and belongs in the value rather than in a page of its own.
+          # SUPPLY FORM IS A SECOND AND ORTHOGONAL AXIS, and it is a Module rather than an
+          # input key. A protein supplied purified and the same protein expressed from a
+          # template differ in what they REQUIRE, which is what a page states, so the form
+          # gets a page and not a field. It earns one only when the corpus builds both
+          # ways: of eight candidate molecules on 2026-09-21, LacZ is the only one, and its
+          # two forms are lacz-dna and reporter-lacz-enzyme, both members of the lacz class.
+          # AN OPERAND NAMING A CLASS TAKES EITHER FORM AND NEEDS NO NEW SYNTAX. That is how
+          # reporter-lacz asks for LacZ without choosing a form, the same way cell asks for
+          # cytosol. An earlier revision of this comment named reporter-lacz as one of the
+          # two forms; it is the reporter Module, not a supply form.
+        optional:
+          type: boolean
+          description: >
+            True where the module composes without this input. The default is
+            absent, not false: an input with no `optional` key is required.
+            8 of 196 inputs at `d611bda`. The first was base-cytosol's RNase inhibitor, which the protocol
+            adds at 0.5 uL per 10 uL and which may be left out entirely.
+        range:
+          type: string
+          description: >
+            The span an optional or variable input may take, where a single figure
+            would be wrong. Free text carrying its unit, as the corpus writes
+            figures elsewhere.
+        owner:
+          type: string
+          description: >
+            The Node that supplies or maintains it. 1 of 196 inputs at `d611bda`,
+            unchanged since it was 1 of 90. A key the corpus has decided not to use.
+  process_steps:
+    type: array
+    description: >
+      Ordered composition steps. 46 across 17 sources when this schema was derived,
+      76 across 49 at `d611bda`.
+      MAY BE EMPTY, and an empty list is a claim rather than an omission: it says the
+      Module has no constituents and is not produced by a process in this corpus. The
+      five analytes say so in prose -- "an analyte is supplied to an assay rather than
+      produced by a Nucleus process."
+      `minItems: 1` was removed on Jon's ruling, 2026-09-20. It had asserted that every
+      Module is composed, which is a third membership condition the model never carried:
+      compositional-biology-theory `glossary.md#T03` defines a Module as "a formulation
+      the corpus has chosen to name, together with the operations its sort declares" --
+      two conditions, neither of them production. The schema was derived by measurement
+      from 17 composing sources, so it had never met an atom. Composed-ness is a grading
+      over Modules, not a condition for being one; `standing-is-a-grading.md` records the
+      same shape for committed-ness.
+    items:
+      $ref: "#/$defs/step"
+  measured_by:
+    type: array
+    minItems: 1
+    description: >
+      The processes that measure the module's function. 16 of 49 sources at `d611bda`, one entry
+      each. A list because a module may be measured more than one way.
+    items:
+      type: object
+      additionalProperties: false
+      required: [process]
+      properties:
+        process:
+          $ref: "#/$defs/processRef"
+  open:
+    type: array
+    description: >
+      Questions this source cannot answer, carried in the file rather than left
+      implicit. 35 of 49 sources at `d611bda`. A source with an open entry is still valid.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, question]
+      properties:
+        id:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        question:
+          type: string
+
+$defs:
+
+  bound:
+    type: object
+    additionalProperties: false
+    required: [quantity, sense]
+    description: >
+      A QUANTITY ON ONE SIDE OF A CONFLICT. An imposition's bound is what the step
+      inflicts; a sensitivity's bound is what the object tolerates. check-conflicts.py
+      compares the two where both are declared, on Jon's ruling 2026-09-24: "the checker
+      should check the value bound then, yes?"
+      `quantity` IS DECLARED ONCE PER IMPOSITION ID, CORPUS-WIDE, and check-spec-schema.py
+      enforces that rather than this file, because JSON Schema cannot express it. Without
+      the rule one `thermal-hold` could carry °C on one step and mM on another, and the
+      comparison would be between different dimensions. Same discipline as
+      check-operator-pairs.py's seed table: the meaning belongs to the id, not to the use.
+      EITHER `value` OR `from`, NEVER BOTH AND NEVER NEITHER. A literal states the bound
+      here; `from` reads it off an operand, which is what lets one step bind a different
+      bound per polymer instead of needing one step per polymer.
+      ABSENCE IS UNDECLARED, as everywhere else in this schema. A bound meeting an
+      unbounded counterpart is reported `incomparable` and is NOT a pass.
+    properties:
+      quantity:
+        type: string
+        description: What is measured. One per imposition id across the whole corpus.
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      sense:
+        enum: [at-least, at-most]
+        description: >
+          Which way the bound runs. An imposition `at-least 30` and a sensitivity
+          `at-most 25` conflict. An imposition `at-least 20` against the same
+          sensitivity does not.
+      unit:
+        type: string
+        description: >
+          Required with `value`. Compared literally, so two spellings of one unit do
+          not compare. There is no unit registry and this schema does not pretend to one.
+      value:
+        type: number
+      from:
+        type: object
+        additionalProperties: false
+        required: [operand, key]
+        description: >
+          Read the bound off an operand's `parameters:` instead of stating it. THE KEY
+          MUST NAME A SINGLE QUANTITY. `gel_temperature_window_c` packs a congealing
+          point and a melting point into one string and cannot be read this way.
+        properties:
+          operand:
+            type: string
+            pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          key:
+            type: string
+    oneOf:
+      - required: [value, unit]
+        not: { required: [from] }
+      - required: [from]
+        not: { anyOf: [ { required: [value] }, { required: [unit] } ] }
+  processRef:
+    type: object
+    additionalProperties: false
+    required: [title, page]
+    properties:
+      title: {type: string}
+      page:
+        type: [string, "null"]
+        description: null where the corpus names the process but gives it no page.
+
+  step:
+    type: object
+    additionalProperties: false
+    required: [id, process, operator, operands, produces]
+    properties:
+      optional:
+        type: boolean
+        description: >
+          True where the module composes without performing this step. Skipping it
+          rewires rather than removes: whatever consumed this step's product
+          consumes its operands instead. 0 of 76 steps at `d611bda`, and 0 of 46 before that.
+          NOTHING HAS EVER SAID IT. The key exists so a
+          source can say it, and check-composition.py reports on the consequence.
+      id:
+        type: string
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      process:
+        description: >
+          Either one process, or a chain of them run as one step with no Module
+          between the links. The chain form replaces title/page, which is why
+          73 of 76 steps carry a title and 3 carry composed_of instead, at `d611bda`.
+        oneOf:
+          - type: object
+            additionalProperties: false
+            required: [title, page]
+            properties:
+              title: {type: string}
+              page:
+                type: [string, "null"]
+                description: >
+                  null where the process has no page yet. 21 of 76 steps at `d611bda`,
+                  up from 5 of 46. This count grew faster than its denominator, so
+                  the documentation gap widened rather than tracked.
+              abstract:
+                type: string
+                description: >
+                  The process this one is an instance of, named by directory.
+                  Ruled 2026-09-15 to be the IMMEDIATE parent, not the root.
+                  24 of 76 steps at `d611bda`, down from 43 percent of steps to 32.
+                pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          - type: object
+            additionalProperties: false
+            required: [composed_of]
+            properties:
+              composed_of:
+                type: array
+                minItems: 2
+                description: >
+                  A chain of processes run as one step. The step's operator belongs
+                  to whichever link performs the composition — the first, unless a
+                  link declares its own. A link that composes nothing carries no
+                  operator. 3 of 76 steps at `d611bda`, unchanged from 3 of 46.
+                items:
+                  type: object
+                  additionalProperties: false
+                  required: [title, page]
+                  properties:
+                    title: {type: string}
+                    page: {type: string}
+                    operator: {$ref: "#/$defs/operator"}
+      requires:
+        type: [array, "null"]
+        description: >
+          What must hold for this step to be defined. glossary.md#T20 Requirement,
+          "a condition that must hold for a morphism to be defined", and a step is
+          how this schema names a morphism.
+          IT SITS ON THE STEP EVEN THOUGH JON ASKED FOR IT THE OTHER WAY ROUND.
+          His words were "refining color reporter should imply constraints on the
+          cleanup step", which is a Module constraining a step. Stated from the
+          step it is the same claim, and #T20 puts the condition on the morphism,
+          so the carrier rule holds across all four Layer C rows rather than
+          bending for one sentence.
+          IT IS NOT A CONFLICT AND CANNOT BE ONE. A Conflict is a meet of two
+          declared halves, so it can only say two things must not co-occur. This
+          says something must be PRESENT, and a missing step declares no half, so
+          there is nothing to take a meet over. Credit to session c9d6a5 for the
+          statement.
+          THE CHECKER VERIFIES REACHABILITY AND NOT THE CONDITION. `of` must be
+          reachable in the step's composition, which is mechanical. Whether the
+          condition in `why` actually holds needs a placement model this corpus
+          does not have, exactly as check-conflicts.py cannot tell that a membrane
+          blocks an imposition. Absence means undeclared here too.
+        items:
+          type: object
+          additionalProperties: false
+          required: [id, of, why]
+          properties:
+            id:
+              type: string
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            of:
+              type: string
+              description: >
+                The Module or abstract class the condition is about, by directory
+                name. Reachability of this is what gets checked.
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            why:
+              type: string
+              description: The condition itself, in prose, and the reason it holds.
+            page:
+              type: [string, "null"]
+
+      impositions:
+        type: [array, "null"]
+        description: >
+          What this step's Process inflicts on whatever it acts on. The other
+          half of a Conflict, and it sits on the STEP rather than on the Module
+          because glossary.md#T22 makes Imposition a property of a MORPHISM,
+          against #T21 making Sensitivity a property of an OBJECT. A step is how
+          this schema names a morphism, so this is where the definition puts it.
+          A Module that seems to impose something is carrying it, and the
+          imposing happens in the step that adds the Module. X-Gal does not
+          impose DMSO; the step that doses X-Gal does.
+          Absence means undeclared, exactly as on `sensitivities`.
+        items:
+          type: object
+          additionalProperties: false
+          required: [id, why]
+          properties:
+            id:
+              type: string
+              description: >
+                Matched against a sensitivity's `to`, by this string and nothing
+                else. check-conflicts.py computes the join; nothing asserts it.
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            why:
+              type: string
+            page:
+              type: [string, "null"]
+            bound:
+              $ref: "#/$defs/bound"
+      operator:
+        $ref: "#/$defs/operator"
+      operator_pairs:
+        type: array
+        minItems: 1
+        description: >
+          Exceptions to this step's `operator`, one entry per operand pair that
+          takes the other one. The step label stays required and remains the
+          default, so a step lists only the pairs that differ from it.
+          WHY THIS EXISTS. One label over n operands asserts the same operator on
+          all C(n,2) pairs, and one contrary pair falsifies it. 37 of 75 steps
+          carried more than two operands at 9e57b86, so half the corpus makes an
+          assertion it cannot support.
+          THE FIRST THREE USERS ARE HETEROGENEOUS IN THE SAME WAY, found by the
+          compositional-biology-theory session on 2026-09-21: chicago-cascade and
+          ph-cascade `embed-agarose`, and london-cascade `embed-ulga`. Each takes
+          five operands of which three share the outer phase and two are
+          membrane-bounded, so `packing` is the majority and wrong three times,
+          and `mixing` is not the fix either.
+          Listing exceptions rather than every pair was chosen over making
+          `operator` and `operator_pairs` alternatives. It keeps `operator`
+          required, needs no change to `required`, and costs three entries per
+          step here instead of ten.
+        items:
+          type: object
+          additionalProperties: false
+          required: [operands, operator]
+          properties:
+            operands:
+              type: array
+              minItems: 2
+              maxItems: 2
+              items: {type: string}
+              description: The two operand ids, by id, as they appear in `operands`.
+            operator:
+              $ref: "#/$defs/operator"
+            note:
+              type: string
+              description: Why this pair differs from the step's label.
+      operands:
+        type: array
+        minItems: 1
+        description: >
+          Ids from inputs, or the produces.id of an earlier step. Referential
+          integrity is checked by the validator, not expressible here.
+        items:
+          type: string
+      produces:
+        type: object
+        additionalProperties: false
+        required: [id, title, page]
+        description: The module this step yields. All three keys on all 76 steps at `d611bda`.
+        properties:
+          id: {type: string}
+          title: {type: string}
+          page:
+            type: [string, "null"]
+            description: >
+              null where the product has no page of its own — an intermediate the
+              corpus composes but does not document. 13 of 76 steps at `d611bda`.
+      notes:
+        type: string
+        description: Prose the step needs and no page states. 63 of 76 steps at `d611bda`.
+      parameters:
+        type: object
+        description: >
+          Free parameters of this step — a choice the composer makes, where the
+          page cannot state one value. 36 of 76 steps at `d611bda`.
+      headroom:
+        type: object
+        additionalProperties: false
+        description: >
+          A reserved slot in a pinned total. 2 of 76 steps at `d611bda`. A number belongs here
+          when it states a fact no single constituent page can state.
+        properties:
+          provides:
+            type: string
+            description: >
+              The capacity this module gives, e.g. "2.0 uL of 10". Named provides
+              by ruling (Jon, 2026-09-15) because the slot belongs to the module
+              offering it, not to the process that fills it.
+          requires:
+            type: string
+            description: >
+              The capacity a module takes from a slot someone else provides.
+              Reserved and unused as of 2026-09-15 — the four consumers that spend
+              headroom still state it in free-text notes.
+          balance:
+            type: string
+            description: >
+              The term that absorbs the slack, e.g. "Nuclease Free Water, 2.0 - X".
+              Neither provided nor required, which is why it keeps its own name.
+          notes:
+            type: string
+      ratio:
+        type: string
+        description: A combining ratio, a property of the step. 4 of 76 steps at `d611bda`.
+
+  operator:
+    enum: [mixing, packing]
+    description: >
+      mixing — the operands end up in one compartment. packing — each keeps its
+      own. 50 mixing, 26 packing across 76 steps at `d611bda`. Determined by the process, not
+      chosen per step.

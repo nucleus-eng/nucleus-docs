@@ -9,6 +9,10 @@ thumbnail: cell-gfp-quench.png
 ---
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [`pore`](../pore/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that allows passive transport of small molecules between the cytosol of a synthetic cell and its external environment ([Noireaux and Libchaber, 2004](https://doi.org/10.1073/pnas.0408236101),  [Harjung et al., 2023](https://doi.org/10.1101/2023.10.06.561148)). The pore is assembled from seven monomers (33.2 kDa each, 293 amino acids) with an outer diameter of 10 nm and an inner diameter of (1.6–4.6) nm — sufficient for molecules up to ~3 kDa. The height of the 3 nm hydrophobic patch along the pore matches the thickness of the non-polar layer of a typical phospholipid membrane, making aHly a useful tool for confirming bilayer (as opposed to multilayer) formation in synthetic cells ([Song et al., 1996](https://doi.org/10.1126/science.274.5294.1859)).
 
 aHly is a toxin derived from *Staphylococcus aureus* and requires BSL-2 handling. The [Cx43 Module](../membrane-pore-cx43/spec.md) provides a functionally comparable alternative that does not.
@@ -27,6 +31,42 @@ aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    SOLUTION_A["Solution A"]
+    SOLUTION_B["Solution B"]
+    AHLY_DNA["pT7-aHly"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+    WATER["Nuclease-free water"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble Base Cytosol (mixing)"])
+    MEMBRANE_PORE_AHLY["Membrane Pore: alpha-hemolysin"]
+
+    SOLUTION_A --> P1_ASSEMBLE_REACTION_0
+    SOLUTION_B --> P1_ASSEMBLE_REACTION_0
+    AHLY_DNA --> P1_ASSEMBLE_REACTION_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_REACTION_0
+    WATER --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> MEMBRANE_PORE_AHLY
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class SOLUTION_A,SOLUTION_B,AHLY_DNA,RNASE_INHIBITOR,WATER leaf;
+    class MEMBRANE_PORE_AHLY composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click P1_ASSEMBLE_REACTION_0 "/docs/processes/assemble-base-cytosol/main"
+    click MEMBRANE_PORE_AHLY "/docs/modules/membrane-pore-ahly/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} DNA
 
 :::{attention}
@@ -43,14 +83,16 @@ aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE
 
 Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as a template. Reactions are assembled following the [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) protocol.
 
-| Component          | Volume (µL) |
-| ------------------ | ----------- |
-| Solution A         | 4           |
-| Solution B         | 3           |
-| RNase Inhibitor    | 1           |
-| `pT7-aHly` (10 nM) | 1           |
-| Nucleus-Free Water | 1           |
-| **Total**          | **10**      |
+| Component | Stock | Final | Volume (µL) |
+| --- | --- | --- | --- |
+| Solution A | | 40% (v/v) | 4 |
+| Solution B | | 30% (v/v) | 3 |
+| RNase Inhibitor | 40 000 U/mL | 4000 U/mL | 1 |
+| `pT7-aHly` | 10 nM | 1 nM | 1 |
+| Nucleus-Free Water | | | 1 |
+| **Total** | | | **10** |
+
+RNase inhibitor runs at 4000 U/mL here, double the 2000 U/mL of the Cell reaction below and of every other reaction in the corpus. That is what was run, not a transcription slip. Jon, 2026-09-25: *"we ran it at double."*
 
 ::::
 
@@ -60,21 +102,21 @@ To demonstrate functional pore insertion, co-express aHly with a reporter (`pT7-
 
 Prepare master mix for 3 reactions to account for dead volume.
 
-| Component | Per Reaction (µL) | Master Mix ×3 (µL) |
-| --- | --- | --- |
-| *Master Mix* | | |
-| NEB Solution A | 4 | 12 |
-| NEB Solution B | 3 | 9 |
-| RNase Inhibitor | 0.5 | 1.5 |
-| Sucrose (2 M) | 1.5 | 4.5 |
-| **Subtotal** | **9** | **27** |
-| | | |
-| | +aHly | −aHly |
-| Master Mix | 9 | 9 |
-| `pT7-aHly` | 0.5 | 0 |
-| `pT7-eGFP` | 0.5 | 0.5 |
-| Nucleus-Free Water | 0 | 0.5 |
-| **Total** | **10** | **10** |
+| Component | Stock | Final | Per Reaction (µL) | Master Mix ×3 (µL) |
+| --- | --- | --- | --- | --- |
+| *Master Mix* | | | | |
+| NEB Solution A | | 40% (v/v) | 4 | 12 |
+| NEB Solution B | | 30% (v/v) | 3 | 9 |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 1.5 |
+| Sucrose | 2 M | 0.3 M | 1.5 | 4.5 |
+| **Subtotal** | | | **9** | **27** |
+| | | | | |
+| | | | **+aHly** | **−aHly** |
+| Master Mix | | | 9 | 9 |
+| `pT7-aHly` | | | 0.5 | 0 |
+| `pT7-eGFP` | | | 0.5 | 0.5 |
+| Nucleus-Free Water | | | 0 | 0.5 |
+| **Total** | | | **10** | **10** |
 
 ::::
 
@@ -102,13 +144,23 @@ Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production
 
 Using purified aHly protein only requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
+Passes molecules up to ~3 kDa, through an inner diameter of (1.6–4.6) nm. A payload well above that mass needs a different transport route. This is the figure that governs a swap to [Cx43](../membrane-pore-cx43/spec.md), which passes only ~1 kDa — the alternative recommended above is the more restrictive pore, not an equivalent one.
+
+**The mass figure is a scale, not a filter.** What a pore passes is set by a selectivity property of the pore, and mass is one clause of that property rather than the whole of it. This one is a geometric aperture, so mass is the clause that governs — but the figure is approximate at both ends. A cargo a little above it may still cross: Cx43's ~1 kDa aperture passes a ~1.3 kDa dye, measured on its own page. And a cargo far below it may not cross at all: a proton is 1 Da and does not cross a bare bilayer, which is why an encapsulated [pH sensor](../detector-ph/spec.md) needs its own transport route. Neither bound is sharp.
+
+**Transport is symmetric, and that obliges the outer solution.** The cutoff is equally a statement about what leaves. Once this pore is in a membrane, anything below the cutoff that the interior consumes equilibrates with the outside, so **it must also be present in the outer solution, or the interior runs out**. Base Cytosol's substrates are almost all below 3 kDa — NTPs, amino acids, phosphoenolpyruvate, the salts — while its machinery is not. So adding this Module is a change to the outer solution's composition, not an addition to the membrane.
+
+This requirement propagates: a membrane carrying this pore has it, and so does any Cell built on that membrane. It is discharged by checking the outer solution's own composition, not by anything on this page.
+
+**How fast is not established.** Equilibration competes with consumption, and no rate is recorded for any transport Module in this corpus. A reaction that finishes quickly may be untouched by a pore that equilibrates slowly. Dye loss through a pore is measured — see [Cx43](../membrane-pore-cx43/spec.md) — but that time course is limited by expression of the pore, not by transport through it.
+
 # Materials
 
 We recommend purchasing aHly as purified protein (e.g., MedChemExpress Cat. No. HY-P2967) and resuspending to 10 µM in ultrapure water. Introduce purified protein to the outer solution of synthetic cells rather than expressing from DNA to avoid variability in expression efficiency.
 
 | Material | Description | Manufacturer | Part # |
 | --- | --- | --- | --- |
-| α-Hemolysin | Purified α-hemolysin protein, resuspended to 10 µM in milliQ water | MedChemExpress | HY-P2967 |
+| α-Hemolysin | Purified α-hemolysin protein, resuspended to 10 µM in ultrapure water | MedChemExpress | HY-P2967 |
 
 :::{hint} Note: aggregation at high concentrations
 :class: dropdown

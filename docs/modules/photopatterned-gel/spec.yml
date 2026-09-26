@@ -1,0 +1,57 @@
+# Composition source for Photopatterned Gel.
+#
+# INHERITS ABSTRACT GEL'S COMPOSITION AND ADDS ONE FACTOR. The parent is
+# `OuterSolution ⊞ polymer`, from compositional-biology-theory
+# codimension-is-a-coordinate.md:32. A photopatterned gel needs a photoinitiator as
+# well, which neither parent class requires, and both members carry it. That third
+# factor is what makes this a class rather than a label on two members.
+#
+# The process is `page: null` for the same reason as the parent's: an abstract
+# patterning process does not exist here.
+
+module: photopatterned-gel
+title: "Photopatterned Gel"
+refines: gel
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    page: null
+  polymer:
+    title: "Polymer"
+    page: null            # 4-arm PEG-norbornene with a PEG4SH crosslinker, or PEGDA
+  photoinitiator:
+    title: "Photoinitiator"
+    page: null            # LAP in the PEG-norbornene member
+
+process_steps:
+  - id: photopattern-the-gel
+    process:
+      title: "Photopattern the gel"
+      page: null
+    operator: mixing
+    operands: [outer-solution, polymer, photoinitiator]
+    produces:
+      id: photopatterned-gel
+      title: "Photopatterned Gel"
+      page: ../photopatterned-gel/spec.md
+    notes: >
+      One `mixing` label over three operands is safe here: all three end in one
+      compartment and none carries a boundary, so every pair mixes and no
+      `operator_pairs` exception is needed. Compare the three cascade embed steps,
+      which take five operands at two compartments and do need them.
+
+open:
+  - id: geometry-is-the-invariant-and-no-key-holds-it
+    question: >
+      What distinguishes this class is that geometry comes from a projected image
+      rather than from a container. That is a property of how the step is performed
+      and nothing in the schema records it. The composition above is true and does
+      not say the one thing the class is for.
+  - id: harshness-is-a-relation-and-sits-nowhere
+    question: >
+      ../gel-peg-norbornene/spec.md records itself as the less harsh of the two
+      members, which is a claim about what survives being embedded. That is a
+      relation between the gel and its payload rather than a property of either, so
+      it belongs on neither page as written. Same shape as the temperature window,
+      and unresolved for the same reason: open.md#O21 in the theory corpus.

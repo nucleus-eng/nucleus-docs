@@ -1,0 +1,189 @@
+---
+title: "Detector: Theophylline"
+subtitle: "Module Specification"
+status: canceled
+site:
+    hide-toc: true
+    numbered_references: false
+---
+
+# Overview
+
+<!-- gen:position -->
+**Position.** Refines [`detector`](../detector/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
+The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. 
+
+:::{attention} Canceled — not part of the DevCells demo
+The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It was cut from the demo, and its constructs are recorded as no longer in use. This specification is kept for reference and is not maintained.
+:::
+
+(detector-theophylline-reference-composition)=
+# Reference Composition
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    SENSOR_DNA["Sensor DNA template"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the Theophylline Detector reaction (mixing) — no page"])
+    DETECTOR_THEOPHYLLINE["Theophylline Detector"]
+
+    BASE_CYTOSOL --> P1_ASSEMBLE_REACTION_0
+    SENSOR_DNA --> P1_ASSEMBLE_REACTION_0
+    SUBSTRATE_CPRG --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> DETECTOR_THEOPHYLLINE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,SENSOR_DNA,SUBSTRATE_CPRG leaf;
+    class DETECTOR_THEOPHYLLINE composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Substrate
+
+[CPRG](../substrate-cprg/spec.md) is present in this Module's reaction, and **here it is mixed in rather than held apart**. That is correct for this Module and it is the exception to the [Color Change](../color-change/spec.md) invariant: the off state comes from the riboswitch holding the ribosome binding site closed, not from keeping the enzyme and the substrate in separate compartments. Something else supplies the gate, so colocalizing the pair removes no switch.
+
+:::{table} CPRG for the theophylline sensing reaction.
+| Component | Working concentration | Notes |
+| --- | --- | --- |
+| CPRG | 0.6 mg/mL final | from a 10 mg/mL stock. Read at 570 nm |
+:::
+
+**This is the bulk-cytosol validation assay** rather than an encapsulated format, so the reaction reports a rate difference with and without theophylline rather than an on-off signal.
+
+::::
+
+
+::::{tab-item} Schematic
+
+```mermaid
+flowchart LR
+    T["Theophylline"] --> BOUND
+	FREE["Unbound Aptamer<br/>(riboswitch 5' UTR)"] --> BOUND
+	BOUND["Bound Aptamer"] -->|"Conformational change<br/>exposes RBS"| ACTIVE 
+	ACTIVE["mRNA Transcript"] -->|"Translation"| E["Downstream effector expressed"]
+```
+
+The theophylline riboswitch binds theophylline at its aptamer domain in the 5' UTR. This triggers a conformational change that exposes the ribosome binding site (RBS), turning on translation of the downstream effector gene.
+::::
+
+::::{tab-item} DNA
+
+:::{attention} Not yet in `nucleus-eng/DNA`
+The bulk-cytosol validation construct `pT7-theophylline-LacZ` (internally referenced as `pMN066`) is not present in `nucleus-eng/DNA` as of this writing. The Chicago Cascade's PLA1-linked riboswitch construct is a separate, not-yet-identified design and is also not represented below.
+:::
+
+| **Name**                           | **Length (bp)**                     | **File** |
+| ---------------------------------- | ----------------------------------- | -------- |
+| `pT7-theophylline-LacZ` (`pMN066`) | TODO — not yet in `nucleus-eng/DNA` | TODO     |
+::::
+
+::::{tab-item} Cytosol
+:::{table} Composition of Module in Base Cytosol at reaction concentration
+:label: comp-theophylline-sensor
+
+| Component           | Stock Concentration | Final Concentration | − theophylline (µL) | + 1.5 mM theophylline (µL) |
+| ------------------- | ------------------- | ------------------- | ------------------- | -------------------------- |
+| SMix                | 3.33x               | 1x                  | 3                   | 3                          |
+| PMix                | 15 mg/mL            | 1.80 mg/mL          | 1.2                 | 1.2                        |
+| Ribosomes           | 10 µM               | 1.8 µM              | 1.8                 | 1.8                        |
+| tRNA                | 35 mg/mL            | 3.5 mg/mL           | 1                   | 1                          |
+| Sensor DNA Template | 49.55 nM            | 5 nM                | 1                   | 1                          |
+| CPRG                | 10 mg/mL            | 0.6 mg/mL           | 0.6                 | 0.6                        |
+| Theophylline        | 10 mM               | 1.5 mM              | 0                   | 0.95                       |
+| RNase Inhibitor     | 40 000 U/mL         | 2000 U/mL           | 0.5                 | 0.5                        |
+| Water               | —                   | —                   | 0.95                | 0                          |
+| **Total**           |                     |                     | **10**              | **10**                     |
+
+:::{attention} Volumes do not sum to the stated total
+@Editor(chicago): with CPRG included the columns sum to 10.05 µL against a stated total of 10 µL. The CPRG row is required — this reaction is read by CPRG conversion — but was absent from the source table, and its 0.6 µL does not close the gap exactly. Confirm the intended volumes with the Chicago Node.
+:::
+
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cytosols
+
+In Base Cytosol supplemented with CPRG, the riboswitch-LacZ sensor converts CPRG from yellow to red faster with theophylline present than without. The [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) DevNote reports a single 10 µL reaction per condition at 5 nM sensor DNA and 0.6 mg/mL CPRG, incubated at 37 °C and read at 570 nm.
+
+:::{figure} kinetics-cprg.png
+:label: fig-theophylline-cprg-kinetics
+:width: 85%
+
+Absorbance kinetics for the colorimetric conversion of CPRG by the theophylline riboswitch-LacZ sensor in Base Cytosol, with and without 1.5 mM theophylline. Reproduced from the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) DevNote (experiment MN.08.04).
+:::
+
+With 1.5 mM theophylline the curve rise above baseline at about 0.7 h and reaches Abs₅₇₀ ≈ 3.7 by 4 h; without theophylline, the reaciton lags by roughly 0.5 h and reaches ≈ 2.6 at 4 h. This module is leaky, as demonstrated by the uninduced condition rising as much as it does. This sets a practical noise floor in using this module: the two conditions differ in reaction rate, not in output signal.
+
+:::{attention} Missing Details
+This is a single preliminary experiment with no replicates and no positive control. Sensitivity to theophylline, dynamic range, and a signal-to-noise figure are all still missing — the DevNote reports only the two conditions shown above. No positive control (for example, a constitutive LacZ reaction) was run alongside it, and none was found in the DevNote or [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924).
+:::
+
+## Cells
+
+:::{warning} Not yet validated
+This Module has not been validated in synthetic cells.
+:::
+
+(detector-theophylline-requirements)=
+# Requirements
+
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). Requires the effector gene positioned downstream of the riboswitch, and presence of theophylline to switch on effector gene expression.
+
+This Module MUST NOT include [LacZ / CPRG](../reporter-lacz/spec.md) as a reporter system as theophylline is reported to interfere with LacZ activity.
+
+:::{attention} The mechanism behind that requirement is not established
+The requirement itself is settled. The explanation usually given for it — that theophylline inhibits the LacZ/CPRG conversion "even at very low amounts" — is hedged in every source and is not supported by any data available here.
+
+Caveats:
+- **The supporting titration data has not been seen.** The 2026-08-14 meeting notes state that "titration data exists showing even very low theophylline concentrations inhibit CPRG-lacZ conversion," and that it should go into a devnote. That data is not yet in this corpus.
+- **Every verbal source is hedged** ("somewhat inhibit", "kind of inhibiting"), and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
+
+The effect itself is no longer second-hand. Chicago Node, Mary, 2026-09-17: theophylline inhibits β-galactosidase directly, so it works against the reporter as well as failing to gate the effector. That confirms the coexistence hypothesis on [LacZ Reporter](../reporter-lacz/spec.md).
+
+@Editor(chicago): two things are still open — the **mechanism**, and the **titration data**, which is reported to exist and has not been located. Until the titration is in hand, cite the requirement, not the inhibition mechanism.
+
+**This does not reopen the cancellation.** That stands on its own reason, recorded above: the riboswitch expresses its effector without theophylline present, so it does not discriminate. Mary's result is a second and independent reason, not a replacement.
+:::
+
+# Implementations
+
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): a queued sensing option for the Chicago demo.
+
+# Processes
+
+No process page documents building this Module or assembling it into a reaction.
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
+- [Substrate: CPRG](../substrate-cprg/spec.md) — 0.6 mg/mL, the substrate the readout converts
+
+# Credits
+
+Developed by [Maram Naji](https://orcid.org/0000-0003-1409-4194) (Chicago Node).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

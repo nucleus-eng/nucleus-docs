@@ -1,0 +1,372 @@
+# Composition source for the Chicago Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling.
+# Nothing checks that the two agree yet.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The operator is determined by the process, not chosen per step. `abstract:`
+# names the process this one is an instance of.
+#
+# `composed_of:` is a chain of processes run as one step, with no Module
+# between them. The step's operator belongs to whichever link performs the
+# composition — the first, unless a link declares its own. A link that composes
+# nothing carries no operator.
+
+module: chicago-cascade
+title: Chicago Cascade
+
+# Depth 1. Anything you can obtain is a leaf; only what this cascade builds on
+# the way to its own result is expanded. Base Cytosol is a leaf for the same
+# reason S30 Lysate is one in the London cascade — it is a thing you can have,
+# and its own page says how. Render deeper with `--depth 2`, which follows a
+# leaf's own spec.yml where one exists.
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+
+  # Agarose dissolves into this, and both cell populations sit in it.
+  tris-hepes-stock:
+    title: "Tris-HEPES buffer stock"
+    component_of: ../../processes/assemble-outer-solution/main.md
+    page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
+  energy-solution:
+    title: "Energy solution"
+    component_of: ../../processes/assemble-outer-solution/main.md
+    page: null            # @Editor(chicago): contents not recorded
+
+  membrane-chicago:
+    title: "Chicago Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+  effector-pla1:
+    title: "Effector: PLA1"
+    page: ../effector-pla1/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+  # aTc path
+  detector-tetr-atc:
+    title: "Detector: tetR-aTc"
+    page: ../detector-tetr-atc/spec.md
+  peg-norbornene-monomer:
+    title: "4-arm PEG-norbornene"
+    page: ../gel-peg-norbornene/spec.md
+  peg4sh:
+    title: "PEG4SH crosslinker"
+    component_of: ../gel-peg-norbornene/spec.md
+    page: null            # also used by the canceled PEGDA route
+  lap:
+    title: "LAP photoinitiator"
+    component_of: ../gel-peg-norbornene/spec.md
+    page: null            # keep dark until patterning
+
+  # pH path
+  ph-responsive-ssdna: { component_of: "../detector-ph/spec.md", title: "pH-responsive ssDNA", page: null }
+  trigger-ssdna:       { component_of: "../detector-ph/spec.md", title: "Trigger ssDNA", page: null }
+  ulga-powder:
+    title: "ULGA powder, 0.7%"
+    # IDENTIFIED 2026-09-21. Jon: "agarose is ULGA, confirmed. i know we were
+    # claiming they might not be, but I've confirmed with devs." This read
+    # `page: null` with an open Chicago editor ask about which agarose it was.
+    # RENAMED FROM `agarose` ON JON'S RULING, 2026-09-21: "one powder, one key".
+    # The identification above made this file the THIRD name for one material,
+    # against `ulga` in ../gel-ulga/spec.yml and `ulga-powder` in
+    # ../london-cascade/spec.yml, and all three resolved to the same page. The
+    # word was never wrong, since ULGA is a grade of agarose, and the prose still
+    # says agarose where it means the material class. The KEY is an identity and
+    # now there is one. check-aliases.py is what would have caught it.
+    page: ../gel-ulga/spec.md
+
+process_steps:
+
+  # ── Shared ──────────────────────────────────────────────────────────────
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution]
+    produces:
+      id: outer-solution-chicago
+      title: "Chicago Outer Solution"
+      page: ../outer-solution-chicago/spec.md
+    parameters:
+      tris-hepes: "42.5% (v/v) in water"
+      osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
+    notes: >
+      The agarose dissolves into this and both populations sit in it.
+      Osmolarity is additive; the polymer's own term is negligible at about
+      0.7% (w/v), so this value sets the gel's. Same shape as
+      the London cascade's outer solution.
+
+  # ── aTc path ────────────────────────────────────────────────────────────
+  - id: assemble-atc-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
+    produces:
+      id: atc-sensor-cytosol
+      title: "aTc Sensor Cytosol"
+      page: ../atc-sensor-cytosol/spec.md
+    notes: >
+      PLA1 rides on the same molecule as the detector, so it is not supplied
+      separately. LacZ is encapsulated here — the opposite arrangement to the
+      pH path, where the enzyme goes in the gel and the substrate is
+      encapsulated. Fills the Base Cytosol headroom.
+
+  - id: encapsulate-atc
+    process:
+      # A chain: two processes run as one step, with no Module between them.
+      composed_of:
+        - title: "Encapsulation: Phase Transfer"
+          page: ../../processes/assemble-base-cell/main.md
+        - title: "Degrade Exterior LacZ"
+          page: ../../processes/degrade-exterior-lacz/main.md
+          # No operator. It composes nothing — it removes something.
+    requires:
+      - id: enzyme-encapsulated-substrate-outside
+        of: reporter-lacz-enzyme
+        why: >
+          Degrade Exterior LacZ is defined only where the enzyme is encapsulated and its
+          substrate is outside. ../../processes/degrade-exterior-lacz/main.md: "Use it
+          where LacZ is encapsulated and its substrate is outside", and "do not use it
+          where LacZ sits in the outer solution or is dispersed through a gel on purpose",
+          because Proteinase K does not distinguish one LacZ from another. So refining the
+          reporter decides whether this cleanup step exists at all, which is Jon's implies
+          arrow of 2026-09-21 stated from the step.
+    impositions:
+      - id: proteinase-k
+        why: >
+          The chained Degrade Exterior LacZ sub-process doses Proteinase K.
+    operator: packing
+    operands: [atc-sensor-cytosol, membrane-chicago]
+    produces:
+      id: atc-sensing-cell
+      title: "aTc Sensing Cell"
+      page: ../atc-sensing-cell/spec.md
+    notes: >
+      One step, two processes. Proteinase K digests LacZ that escaped the
+      cells, which would otherwise meet CPRG with no lysis and add background.
+      It is a process reagent rather than an operand — nothing of it is in the
+      result. This pair applies to this path only: proteinase K cannot tell one
+      LacZ from another, so it cannot be used on the pH path, which disperses
+      LacZ through the gel on purpose.
+
+  - id: photodevelop-atc-gel
+    process:
+      title: "Photodevelop Gel: PEG-Norbornene"
+      page: ../../processes/photodevelop-peg-norbornene/main.md
+      abstract: photodevelop-gel
+    impositions:
+      - id: uv-exposure
+        why: >
+          The gel is crosslinked by UV with the cell already in the precursor.
+    operator: packing
+    operator_pairs:
+      # THE STEP DOES TWO THINGS AND ONE LABEL CANNOT SAY BOTH. It forms a gel phase
+      # AND holds membrane-bounded cells in it. `packing` is right for every pair
+      # involving atc-sensing-cell, which keeps its own compartment, and wrong for the
+      # two below: a polymer and the outer solution share one phase with no boundary
+      # between them, which is what codimension-is-a-coordinate.md:32 states as
+      # "Gel = OuterSolution (+) polymer, same compartment, no membrane between them".
+      #
+      # SAME SHAPE AS embed-agarose AND embed-ulga, which have carried these exceptions
+      # since they were written. These two steps were the ones that never got them, and
+      # they are the four violations check-operator-pairs.py has been reporting.
+      #
+      # lap is NOT here. It is a photoinitiator, the checker gives it its own sort on
+      # purpose, and stretching `polymer` to cover a small-molecule initiator would
+      # extend the seed by a sort assignment. Its pairs report unknown and should.
+      - operands: [peg-norbornene-monomer, outer-solution-chicago]
+        operator: mixing
+      - operands: [peg4sh, outer-solution-chicago]
+        operator: mixing
+    operands:
+      - peg-norbornene-monomer
+      - peg4sh
+      - lap
+      - outer-solution-chicago
+      - atc-sensing-cell
+    produces:
+      id: atc-gel
+      title: "aTc gel piece"
+      page: null
+    notes: >
+      Same shape as the agarose step: gel components plus the Outer Solution
+      they dissolve into, plus what is being embedded. No concentration is
+      established for the monomer, the crosslinker or the photoinitiator, and
+      exposure time depends on all three. The PEGDA route was cut by the Chicago
+      Node on 2026-09-11; ../chicago-cascade/spec.md carries their words and the
+      reason. This route carries a UV step, so CPRG is dosed after crosslinking
+      rather than before.
+
+  - id: dose-cprg-into-atc-gel
+    process:
+      title: "Dose CPRG into the set gel"
+      page: null
+    operator: packing
+    operands: [atc-gel, substrate-cprg]
+    produces:
+      id: atc-cascade
+      title: "aTc Cascade"
+      page: ../atc-cascade/spec.md
+    notes: >
+      After crosslinking, not before. UV bleaches CPRG, so this path cannot
+      carry the substrate through photodevelopment and cannot use a substrate
+      liposome. That is why the two paths differ in where CPRG lives.
+
+  # ── pH path ─────────────────────────────────────────────────────────────
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+    notes: >
+      Two strands at 3:1 forming one duplex, annealed before it enters the
+      cytosol.
+
+  - id: assemble-ph-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
+    produces:
+      id: ph-sensor-cytosol
+      title: "pH Sensor Cytosol"
+      page: ../ph-sensor-cytosol/spec.md
+    notes: >
+      The pT7-toehold9-PLA1 template is Effector: PLA1 — the switch and the
+      effector are one molecule, so there is no separate template operand. The
+      headroom also carries Optiprep at 4.5% (v/v), which the encapsulation
+      step needs rather than the sensing function: a downstream process
+      spending the cytosol's slot.
+
+  - id: encapsulate-ph
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [ph-sensor-cytosol, membrane-chicago]
+    produces:
+      id: ph-sensing-cell
+      title: "pH Sensing Cell"
+      page: ../ph-sensing-cell/spec.md
+
+  - id: encapsulate-substrate-suv
+    process:
+      title: "Encapsulation: SUV"
+      page: ../../processes/encapsulate-suv/main.md
+    operator: packing
+    operands: [substrate-cprg, membrane-chicago]
+    produces:
+      id: substrate-cprg-suv
+      title: "Substrate SUV: CPRG"
+      page: ../substrate-cprg-suv/spec.md
+    notes: >
+      This path keeps the substrate liposome because agarose imposes no UV.
+      Confirmed 2026-09-11: the Liu Lab runs the pH solution and still uses
+      SUVs.
+
+  - id: embed-agarose
+    process:
+      title: "Hydrogel Embedding: ULGA"
+      # THE PAGE FOLLOWS FROM THE IDENTIFICATION ABOVE, on the reasoning
+      # ../chicago-cascade/spec.md already carried: this corpus has one agarose
+      # embedding process and it is the ULGA one, so "if it is ULGA, the pH path
+      # can likely reuse the ULGA process with a concentration change". It is.
+      # Concentration differs and the process does not.
+      page: ../../processes/embed-ulga-hydrogel/main.md
+    operator: packing
+    operator_pairs:
+      - operands: [ulga-powder, outer-solution-chicago]
+        operator: mixing
+      - operands: [ulga-powder, reporter-lacz-enzyme]
+        operator: mixing
+      - operands: [outer-solution-chicago, reporter-lacz-enzyme]
+        operator: mixing
+        note: >
+          Both share the outer phase and neither carries a boundary, so this
+          pair mixes. The step's `packing` label is right for the seven pairs
+          that involve a membrane-bounded operand and wrong for these three.
+    operands:
+      - ulga-powder
+      - outer-solution-chicago
+      - ph-sensing-cell
+      - substrate-cprg-suv
+      - reporter-lacz-enzyme
+    produces:
+      id: ph-cascade
+      title: "pH Cascade"
+      page: ../ph-cascade/spec.md
+    parameters:
+      ulga-powder: "0.7% (w/v)"   # sets thermally; no crosslinker
+    notes: >
+      The mixing ratio of sensing cells to SUVs to LacZ is not established —
+      the same gap London closed on 2026-09-09 and this path still has.
+
+  # ── The bond ────────────────────────────────────────────────────────────
+  - id: bond-gels
+    process:
+      title: "Bond the two gels"
+      page: null
+    operator: packing
+    operands: [atc-cascade, ph-cascade]
+    produces:
+      id: chicago-cascade
+      title: "Chicago Cascade"
+      page: ../chicago-cascade/spec.md
+    notes: >
+      THE OPERANDS ARE THE TWO STANDALONE CASCADES AND NOW SAY SO. They were
+      `atc-gel-loaded` and `ph-gel` until 2026-09-21, which coined two ids for
+      compositions this corpus already had: each matched its standalone module on
+      operator, operands and parameters, and each already pointed at that module's
+      page and carried its title. Only the id differed, so one thing had two names
+      and an integration path walk reached it twice. Found by scripts/check-aliases.py on two
+      carriers at once, id-to-composition and title-to-id, which is why the count
+      of five rows was three pairs.
+
+      Spatial separation comes from the two gels being separate pieces, not
+      from patterning one gel. This is the step the cascade is named for and
+      the only combination step with no page.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+# ── Open ─────────────────────────────────────────────────────────────────
+open:
+  - id: peg-norbornene-precursor-solvent
+    question: >
+      Settled here in favor of the Outer Solution (Jon, 2026-09-09) when this
+      step was PEGDA. No page states what the PEG-Norbornene precursor
+      dissolves in, so the question survives the route change. The osmotic
+      argument does too: anything less than the Outer Solution would put a
+      large gradient across the membrane at the moment of embedding — the aTc
+      cells sit at about 1180 mOsm. @Editor(chicago) to confirm.
+  - id: which-agarose
+    question: >
+      The pH path is agarose at 0.7% (2026-09-11), but no part number is
+      recorded. If it is the low-gelling-temperature agarose that
+      embed-ulga-hydrogel documents, that process can likely be reused with a
+      concentration change. If it is a plain ulga-powder, this path has no process
+      page at all. @Editor(chicago)

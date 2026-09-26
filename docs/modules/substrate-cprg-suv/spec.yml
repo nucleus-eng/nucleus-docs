@@ -1,0 +1,83 @@
+# Composition source for CPRG-loaded SUV.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# THE STEP IS `packing` AND THIS FILE THEREFORE DEPENDS ON O8 in
+# compositional-biology-theory — "are formation and `hold` one operation?". Film
+# hydration forms the bilayer and closes it around the lumen in one operation, and
+# whether that is one morphism or two is what O8 asks. `packing` follows
+# ../base-cell/spec.yml and ../guv-cprg/spec.yml, which call encapsulation by the
+# same operator. Recorded rather than resolved.
+
+module: substrate-cprg-suv
+title: "CPRG-loaded SUV"
+refines: substrate-carrier
+# Added 2026-09-21 with the class: the small unilamellar member, made by hydration and extrusion. Both members pack a
+# membrane with substrate-cprg by `packing`, two of two, and the class was written
+# because a meet over London and Chicago drew the two as unrelated slots.
+
+inputs:
+  membrane-popc-chol-chicago:
+    title: "Chicago Base Membrane: POPC/Chol"
+    page: ../membrane-popc-chol-chicago/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+process_steps:
+  - id: hydrate-and-extrude
+    process:
+      title: "Encapsulation: SUV"
+      page: ../../processes/encapsulate-suv/main.md
+    operator: packing
+    operands: [membrane-popc-chol-chicago, substrate-cprg]
+    produces:
+      id: substrate-cprg-suv
+      title: "CPRG-loaded SUV"
+      page: ../substrate-cprg-suv/spec.md
+    parameters:
+      bilayer: "90% POPC : 10% cholesterol"
+      popc: "MW 760.076, 25 mg/mL stock, 208.51 uL"
+      cholesterol: "MW 386.654, 50 mg/mL stock, 6.00 uL"
+      cprg_at_hydration: "50 mM, approx. 30 mg/mL"
+      target_diameter: "400 nm, extruded through a 400 nm polycarbonate membrane"
+      extrusion_passes: "at least 21, and an odd number"
+      storage_before_use: "on ice or at 4 C, until combining with Sensing Cells and LacZ"
+    notes: >
+      The bilayer figures reconcile against the extrusion route recorded in the
+      Chicago Membrane source, which gives the same 208.51 uL POPC and 6.00 uL
+      cholesterol and no dye. The odd extrusion count is not a preference: an even
+      number ends with unextruded material retained in the final syringe.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: purification-method-is-unresolved
+    question: >
+      The page carries an open @Editor(chicago) tag on this and it is not decorative.
+      One record purifies the SUVs twice by size-exclusion chromatography to remove
+      unencapsulated CPRG; another washes them by centrifugation. The two leave
+      different residual-substrate profiles and residual free CPRG is what produces
+      background color, so the choice changes the readout rather than only the
+      protocol. No purification parameter is stated above because stating one would
+      pick a side.
+  - id: second-cprg-concentration-is-not-this-module
+    question: >
+      The Inner Solution tab documents two CPRG concentrations. Only 50 mM is this
+      Module's loading; 15 mg/mL is CPRG free in a patterned inner gel, which is a
+      different arrangement on a different page. Named here so a reader who sees two
+      figures and one parameter does not read it as a dropped row.
+  - id: the-second-and-third-processes-are-downstream
+    question: >
+      Hydrogel Embedding: Alginate co-embeds this Module with Sensing Cells and LacZ.
+      That is a cascade step rather than part of this Module's composition, so it is
+      not a step above.

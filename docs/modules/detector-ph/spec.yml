@@ -1,0 +1,115 @@
+# Composition source for pH Detector.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Both steps are `mixing` and that is a claim rather than a default: strands anneal
+# in one solution, and the additions go into Base Cytosol and share its resources.
+# The `packing` step is where this detector is encapsulated, which is a step on
+# ../ph-sensing-cell/spec.md and not here — so nothing in this file depends on open
+# question O8 in compositional-biology-theory, "are formation and `hold` one
+# operation?".
+#
+# STEP 2 HAS NO PROCESS PAGE AND THE PAGE SAYS SO: "No process page covers
+# assembling the full Module into a reaction." `page: null` records that claim
+# rather than inventing a link, following ../s30-lysate/spec.yml.
+
+module: detector-ph
+title: "pH Detector"
+refines: detector
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  toehold-switch-dna:
+    title: "Toehold-switch DNA template"
+    page: null            # pT7-toehold9-PLA1; LacZ and XylE effectors also designed
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    page: null
+
+process_steps:
+  - id: anneal-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH-responsive : trigger ssDNA duplex"
+      page: null
+    ratio: "3:1 pH-responsive to trigger"
+    parameters:
+      ph_responsive_ssdna: "14.4 uM"
+      trigger_ssdna: "4.8 uM"
+    notes: >
+      The 3:1 ratio is visible in the two figures — 14.4 is three times 4.8 — and the
+      page states it independently, so the arithmetic is a check rather than the
+      source. A working reaction receives this duplex and never the strands
+      separately, which is why annealing is its own step with its own process page.
+
+  - id: assemble-reaction
+    process:
+      title: "Assemble the pH Detector reaction"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, toehold-switch-dna, rnase-inhibitor]
+    produces:
+      id: detector-ph
+      title: "pH Detector"
+      page: ../detector-ph/spec.md
+    parameters:
+      base_cytosol: "1x"
+      toehold_switch_dna: "2 nM"
+      trigger_ssdna_in_duplex: "4.8 uM"
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
+    notes: >
+      Two additions to Base Cytosol: the annealed duplex and one toehold-switch
+      template. Which template is used sets the effector and so the readout. These
+      are design values from the chicago-ph-sensor-plan DevNote; the reaction as
+      actually assembled, with Optiprep and at encapsulation scale, is on
+      ../ph-sensing-cell/spec.md. The 4.8 uM here and the 4.625 uM there are not in
+      conflict — that reaction was assembled above its specified volume, which
+      dilutes every component in proportion, and the relative molarities match.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: sequences-are-not-in-the-dna-repo
+    question: >
+      Neither toehold construct nor either strand of the annealed duplex has a file
+      in nucleus-eng/DNA — checked in `detectors/` and at the repo root, none found.
+      The DevNote lists them as "Designed" or "Synthesized" and links no sequence
+      files. So the names above are labels, not identity claims against any existing
+      DNA-repo file, and they should not be treated as one until the sequences are
+      submitted. The page carries this flag and this file repeats it rather than
+      resolving it.
+  - id: three-templates-one-used
+    question: >
+      `T7-toehold-LacZ-T7term` and `T7-toehold-XylE-T7term` are designed and not used
+      for the demo, which uses `pT7-toehold9-PLA1`. The schema has one operand slot
+      for the template and no way to say "one of these three", so `toehold-switch-dna`
+      above is the role and the comment names the variants. The same shape as the
+      alternative-route question on ../membrane-popc-chol-chicago/spec.yml.
+  - id: no-process-page-for-the-assembly
+    question: >
+      Step 2 has `page: null` because the page states no process page covers
+      assembling the full Module into a reaction. That is a declared gap rather than
+      a broken link, and it is one of two such declarations in the corpus — the other
+      is ../detector-3oc6-hsl/spec.md. A process page here would close both.

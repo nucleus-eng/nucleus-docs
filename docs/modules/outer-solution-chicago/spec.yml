@@ -1,0 +1,41 @@
+# Composition source for the Chicago Outer Solution.
+#
+# WRITTEN 2026-09-21 with ../outer-solution/spec.yml. Produced by three sources under
+# one id, `chicago-outer-solution`, and never given a page. Unlike the London
+# formulation it had exactly one name, so no alias to resolve here.
+#
+# THE AGAROSE DISSOLVES INTO THIS AND BOTH POPULATIONS SIT IN IT, which is why the
+# osmolarity below sets the gel's. The polymer's own term is negligible at about 0.7
+# percent by weight.
+
+module: outer-solution-chicago
+title: "Chicago Outer Solution"
+refines: outer-solution
+
+inputs:
+  tris-hepes-stock:
+    title: "Tris-HEPES stock"
+    page: null
+  energy-solution:
+    title: "Energy solution"
+    page: null
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution]
+    produces:
+      id: outer-solution-chicago
+      title: "Chicago Outer Solution"
+      page: ../outer-solution-chicago/spec.md
+    parameters:
+      tris-hepes: "42.5% (v/v) in water"
+      osmolarity: "~1180 mOsm"
+    notes: >
+      Osmolarity is additive and this value sets the gel's. It is a relation rather than
+      a property of any component, matched across the membranes of the cells embedded in
+      it, which is why it stays even though the Tris-HEPES term is also stated.
