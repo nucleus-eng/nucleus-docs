@@ -35,6 +35,7 @@ process_steps:
     process:
       title: "Assemble the tetR-aTc Detector reaction"
       page: null
+      abstract: assemble-cytosol
     operator: mixing
     operands: [base-cytosol, teto-template, tetr]
     produces:

@@ -130,13 +130,59 @@ def compare(imp_b, sens_b, iv, iu, sv, su):
     return None, f"senses {isense} and {ssense} do not bracket"
 
 
-_OWN = {m: {x["to"]: x for x in (d.get("sensitivities") or [])}
-        for m, d in SRC.items()}
+def _own(m, entries):
+    """One Module may declare two sensitivities to the same imposition.
+
+    `cell` does: `thermal-stability` and `thermal-operating` both point at
+    `thermal-hold`, because a cell being held is not a cell working. Keyed by
+    `to` alone the second silently replaced the first. They carry the same figure
+    today, so nothing was lost and nothing said so either. The strictest wins
+    here too, and a pair that does not compare is reported rather than dropped.
+    """
+    out = {}
+    for x in entries:
+        sid = x["to"]
+        if sid in out:
+            keep, why = _tighter(x.get("bound"), out[sid].get("bound"))
+            if keep is None:
+                INHERIT.append(("incomparable", m, sid,
+                                f"its own {out[sid]['id']}", why))
+                continue
+            if keep == "b":
+                continue
+        out[sid] = x
+    return out
 
 
 def _parents(m):
     r = (SRC.get(m) or {}).get("refines")
     return [] if not r else ([r] if isinstance(r, str) else list(r))
+
+
+INHERIT = []
+
+
+def _tighter(a, b):
+    """Of two bounds on one quantity, which tolerates less: "a", "b", or neither.
+
+    A bound that reads its figure off an operand has no value until a step
+    resolves it, so it cannot be ordered here. Returns (None, why) for every
+    pair that does not compare, and the caller reports rather than guesses.
+    """
+    if not a or not b:
+        return ("a" if a else "b"), None          # specificity, not tolerance
+    if a.get("quantity") != b.get("quantity"):
+        return None, (f"quantity {a.get('quantity')!r} against "
+                      f"{b.get('quantity')!r}")
+    if a.get("sense") != b.get("sense"):
+        return None, f"sense {a.get('sense')} against {b.get('sense')}"
+    if "value" not in a or "value" not in b:
+        return None, "one side reads its figure off an operand and has no value yet"
+    if a.get("unit") != b.get("unit"):
+        return None, f"unit {a.get('unit')!r} against {b.get('unit')!r}"
+    if a["sense"] == "at-most":
+        return ("a" if a["value"] <= b["value"] else "b"), None
+    return ("a" if a["value"] >= b["value"] else "b"), None
 
 
 def _inherited(m, seen=None):
@@ -148,8 +194,21 @@ def _inherited(m, seen=None):
     because refining is not containing. The class invariant is exactly the thing
     every member has, so the lookup follows `refines:` as well.
 
-    A member's own entry wins over an inherited one, because a member may narrow
-    what it tolerates and must not be widened by its parent.
+    THE STRICTEST BOUND WINS, by every route. `refines:` may be a list, so a
+    Module may sit under two classes at once and must satisfy both invariants;
+    the intersection is the only safe read. Ruled 2026-09-25 after the theory
+    session found the hole in the first rule, which let a member's own entry win
+    outright: if strictest-wins exists because a silent widening is unsafe, then
+    a member widening locally is the same failure one level down.
+
+    A MEMBER NARROWING IS CONSISTENT AND SILENT. The class says every member
+    tolerates at most 37, this one reaches 30, and both statements hold.
+
+    A MEMBER WIDENING CONTRADICTS ITS CLASS AND IS REPORTED. Either the class
+    invariant is false or that Module is not a member, and swallowing the wider
+    figure hides which. `basis` decides the repair: an observation against a rule
+    says the mechanism claim is wrong, and an observation against an observation
+    says the class enumerated and missed a case.
     """
     seen = seen if seen is not None else set()
     if m in seen:
@@ -157,10 +216,30 @@ def _inherited(m, seen=None):
     seen.add(m)
     out = {}
     for par in _parents(m):
-        out.update(_inherited(par, seen))
-    out.update(_OWN.get(m, {}))
+        for sid, s in _inherited(par, seen).items():
+            if sid not in out:
+                out[sid] = s
+                continue
+            keep, why = _tighter(out[sid].get("bound"), s.get("bound"))
+            if keep is None:
+                INHERIT.append(("incomparable", m, sid, par, why))
+            elif keep == "b":
+                out[sid] = s
+    for sid, s in (_OWN.get(m) or {}).items():
+        if sid in out:
+            keep, why = _tighter(s.get("bound"), out[sid].get("bound"))
+            if keep is None:
+                INHERIT.append(("incomparable", m, sid, "its class", why))
+            elif keep == "b":
+                INHERIT.append(("widened", m, sid, "its class",
+                                f"{s.get('basis')} here against "
+                                f"{out[sid].get('basis')} on the class"))
+                continue                      # the strictest still wins
+        out[sid] = s
     return out
 
+
+_OWN = {m: _own(m, d.get("sensitivities") or []) for m, d in SRC.items()}
 
 SENS = {m: _inherited(m) for m in SRC}
 
@@ -218,6 +297,17 @@ for kind in ("CONFLICT", "reach", "incomparable"):
         print(f"          {s['basis']}: {s['why'].strip()[:96]}")
         print()
 
+for kind, m, sid, par, why in INHERIT:
+    if kind == "widened":
+        print(f"WIDENED   {m}")
+        print(f"          declares {sid} wider than {par} allows, so one of the two is wrong")
+        print(f"          {why}")
+    else:
+        print(f"INHERIT?  {m}")
+        print(f"          {sid} from {par} does not compare with what it already has")
+        print(f"          {why}")
+    print()
+
 req_rows, req_total = [], 0
 for mod, d in SRC.items():
     for step in d.get("process_steps") or []:
@@ -237,9 +327,11 @@ declared = sum(1 for m in SRC if SRC[m].get("sensitivities"))
 steps = sum(len(d.get("process_steps") or []) for d in SRC.values())
 print(f"{len(SRC)} sources: {declared} declare a sensitivity, {len(SRC) - declared} silent")
 print(f"{steps} steps: {tally['impositions']} impositions declared")
+wide = sum(1 for k, *_ in INHERIT if k == "widened")
 print(f"conflicts {tally['CONFLICT']} | ok {tally['ok']} | "
       f"incomparable {tally['incomparable']} | reach {tally['reach']} | "
-      f"requires {req_total} declared, {len(req_rows)} unsatisfied")
+      f"requires {req_total} declared, {len(req_rows)} unsatisfied | "
+      f"inheritance {wide} widened, {len(INHERIT) - wide} incomparable")
 print("\nSilence is not safety: an undeclared Module makes no claim that it has "
       "no sensitivity,\nso a zero here counts what was declared and nothing else.")
 

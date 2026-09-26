@@ -29,7 +29,7 @@ This page is a work in progress and not yet ready for use.
 
 **One compartment throughout, and the register says so with its operator.** The two profiles read `transcribe : Cytosol ⊞ DNA[promoter p] ⟶ Cytosol′ ⊞ RNA` and `translate : Cytosol ⊞ RNA ⟶ Cytosol′ ⊞ Protein`. **`⊞` is mixing**, so the product is in the reaction and not behind a boundary. **All three steps in this corpus use `mixing`**, which agrees.
 
-**The cytosol survives and is altered.** `Cytosol′` is the register's mark for *present and changed*, `signature.md:161`. The reaction that expressed a protein is not the reaction it started as. Its nucleotides are spent and its transcript is in it.
+**The cytosol survives and is altered.** `Cytosol′` is the register's mark for *present and changed*, `signature.md:162`. The reaction that expressed a protein is not the reaction it started as. Its nucleotides are spent and its transcript is in it.
 
 **The guard sits on transcription.** `p ∈ P(cytosol)`: the template's promoter must be one this cytosol's polymerase reads. A T7 promoter needs a cytosol carrying T7 polymerase. **The translation guard is declared and empty**, so nothing in the register restricts what may be translated.
 

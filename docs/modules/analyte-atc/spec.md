@@ -41,7 +41,7 @@ Chicago Node, 2026-09-11. Lysate work — including the lab that has run this se
 **The first two bands are different kinds of claim.** The effective window is a property of what the Detector responds to. The interference threshold is a property of the *assay* — it says the readout stops working, not that the Module does. They are recorded together because they arrive together on the detector page, not because they are the same thing.
 
 :::{attention} The two dose statements in the corpus do not obviously agree
-[tetR-aTc Detector](../detector-tetr-atc/spec.md) gives (2.5–5) µM as the effective window. [aTc Sensing Cell](../atc-sensing-cell/spec.md) reports its own configuration as **not graded**, saturating at or below 1 µM with no resolvable dose-dependence from 1 to 10 µM.
+[tetR-aTc Detector](../detector-tetr-atc/spec.md) gives (2.5–5) µM as the effective window in lysate, and 0.1–0.5 µM in Nucleus Cytosol. [aTc Sensing Cell](../atc-sensing-cell/spec.md) reports its own configuration as **not graded**, saturating at or below 1 µM with no resolvable dose-dependence from 1 to 10 µM.
 
 These are different configurations — `pT7-tetO-plamGFP` with a fluorescent readout against `TetO-PLA1` with a LacZ color readout — so they need not agree.
 
