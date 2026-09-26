@@ -48,7 +48,7 @@ FOUR RULES, each with the measurement that forced it.
 2. SLOTS ALIGN BY THE PRODUCT'S CLASS, NOT BY PROCESS TITLE OR BY `abstract:`.
    Title fails after three steps: the Chicago legs share three processes and then
    diverge by design. `abstract:` is too coarse and merges the outer-solution slot
-   with the cytosol slot, because assemble-aqueous-solution sits on both.
+   with the cytosol slot, because assemble-solution sits on both.
 
 3. A NODE IS ABSTRACT IFF THE LEGS DISAGREE. Jon's rule: "we should only be using
    abstract pages when there's a design decision to be made between different

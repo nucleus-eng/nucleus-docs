@@ -29,7 +29,7 @@ process_steps:
     process:
       title: "Assemble Outer Solution"
       page: ../../processes/assemble-outer-solution/main.md
-      abstract: assemble-aqueous-solution
+      abstract: assemble-solution
     operator: mixing
     operands: [potassium-glutamate, hepes, glucose]
     produces:

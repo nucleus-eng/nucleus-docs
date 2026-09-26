@@ -23,7 +23,7 @@ The DevStudio day-one boards label this step `Encapsulation`, without naming a r
 
 # What every instance shares
 
-**The result keeps two compartments, so this process packs.** The inner solution and the bilayer do not mix into one phase. That is the whole point of a boundary, and it is what separates this process from [Assemble Aqueous Solution](../assemble-aqueous-solution/assemble-aqueous-solution-main.md), whose result shares one volume.
+**The result keeps two compartments, so this process packs.** The inner solution and the bilayer do not mix into one phase. That is the whole point of a boundary, and it is what separates this process from [Assemble Solution](../assemble-solution/assemble-solution-main.md), whose result shares one volume.
 
 **The operator lives here, not on the routes.** Because the result keeps its parts separate, this process packs; and because both routes are instances of it, both pack too. A newly written route needs no decision about which operator applies.
 

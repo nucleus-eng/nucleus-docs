@@ -92,7 +92,7 @@ process_steps:
     process:
       title: "Assemble Outer Solution"
       page: ../../processes/assemble-outer-solution/main.md
-      abstract: assemble-aqueous-solution
+      abstract: assemble-solution
     operator: mixing
     operands: [tris-hepes-stock, energy-solution]
     produces:
@@ -113,7 +113,7 @@ process_steps:
     process:
       title: "Assemble Cytosol"
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
-      abstract: assemble-aqueous-solution
+      abstract: assemble-solution
     operator: mixing
     operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
     produces:
@@ -246,7 +246,7 @@ process_steps:
     process:
       title: "Assemble Cytosol"
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
-      abstract: assemble-aqueous-solution
+      abstract: assemble-solution
     operator: mixing
     operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
     produces:

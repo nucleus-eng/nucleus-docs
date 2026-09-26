@@ -1,11 +1,11 @@
 ---
-title: Assemble Aqueous Solution
+title: Assemble Solution
 status: draft
 ---
 
 # Overview
 
-Assemble Aqueous Solution combines aqueous components into a single compartment, where they share the volume and each other's resources. It is the most general mixing act in this documentation, and every process below it inherits its behavior rather than choosing one.
+Assemble Solution combines aqueous components into a single compartment, where they share the volume and each other's resources. It is the most general mixing act in this documentation, and every process below it inherits its behavior rather than choosing one.
 
 Its two instances:
 

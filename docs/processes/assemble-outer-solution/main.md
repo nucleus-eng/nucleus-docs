@@ -6,7 +6,7 @@ status: draft
 
 # Overview
 
-Assemble Outer Solution mixes the salts, buffer and sugar that synthetic cells are suspended in. It is one of the two instances of [Assemble Aqueous Solution](../assemble-aqueous-solution/assemble-aqueous-solution-main.md), so it mixes into a single compartment, and it reserves no headroom — unlike [Assemble Cytosol](../assemble-cytosol/assemble-cytosol-main.md), it is made to a composition and used.
+Assemble Outer Solution mixes the salts, buffer and sugar that synthetic cells are suspended in. It is one of the two instances of [Assemble Solution](../assemble-solution/assemble-solution-main.md), so it mixes into a single compartment, and it reserves no headroom — unlike [Assemble Cytosol](../assemble-cytosol/assemble-cytosol-main.md), it is made to a composition and used.
 
 The outer solution does two jobs at once, and the second is easy to overlook. It sets the osmotic environment the cells sit in, and it is also **what the gel is made from** — a hydrogel polymer is dissolved into this solution rather than into water, so the gel has no osmolarity of its own and inherits this one.
 

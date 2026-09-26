@@ -31,7 +31,7 @@ process_steps:
     process:
       title: "Assemble Cytosol"
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
-      abstract: assemble-aqueous-solution
+      abstract: assemble-solution
     operator: mixing
     operands: [base-cytosol, detector-theophylline]
     produces:

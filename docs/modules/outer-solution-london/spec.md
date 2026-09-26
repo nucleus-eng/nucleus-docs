@@ -93,7 +93,7 @@ rather than to the composition.
 
 # Processes
 
-See the composition source. The step is [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Aqueous Solution](../../processes/assemble-aqueous-solution/assemble-aqueous-solution-main.md).
+See the composition source. The step is [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
 
 # Credits
 

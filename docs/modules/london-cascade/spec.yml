@@ -15,7 +15,7 @@ title: London Cascade
 #
 # The operator is determined by the process, not chosen per step. `abstract:`
 # names the process this one is an instance of — Assemble Cytosol and Assemble
-# Outer Solution are both Assemble Aqueous Solution, which is why both mix.
+# Outer Solution are both Assemble Solution, which is why both mix.
 
 # Objects the graph names that are not produced by a step here.
 # `page: null` means no spec page exists yet — the generator renders the node
@@ -63,7 +63,7 @@ process_steps:
     process:
       title: "Assemble Cytosol"
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md                    # abstract; no London derivative page yet
-      abstract: assemble-aqueous-solution
+      abstract: assemble-solution
     operator: mixing
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
     produces:
@@ -108,7 +108,7 @@ process_steps:
     process:
       title: "Assemble Outer Solution"
       page: ../../processes/assemble-outer-solution/main.md
-      abstract: assemble-aqueous-solution
+      abstract: assemble-solution
     operator: mixing
     operands: [potassium-glutamate, hepes, glucose]
     produces:

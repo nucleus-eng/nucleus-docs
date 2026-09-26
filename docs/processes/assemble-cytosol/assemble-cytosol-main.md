@@ -17,7 +17,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{note} This is one of two instances of a wider process
-Assemble Cytosol and **Assemble Outer Solution** are both instances of **Assemble Aqueous Solution** — combining aqueous components into one compartment. That is why both mix, and why neither one chooses its operator. Assemble Aqueous Solution has no page of its own; module composition sources name it in their `abstract:` field.
+Assemble Cytosol and **Assemble Outer Solution** are both instances of **Assemble Solution** — combining aqueous components into one compartment. That is why both mix, and why neither one chooses its operator. Assemble Solution has no page of its own; module composition sources name it in their `abstract:` field.
 
 What distinguishes a cytosol from any other aqueous solution is the headroom below. An outer solution reserves nothing.
 :::
@@ -26,7 +26,7 @@ What distinguishes a cytosol from any other aqueous solution is the headroom bel
 
 **Every derivative is a base plus a filling, combined into one compartment.** Nothing else varies, and that is what makes the family generable rather than merely similar.
 
-**The result shares one compartment**, so this process mixes. The operator is not a per-derivative choice — it follows from what the process does, and it is inherited by everything under Assemble Aqueous Solution.
+**The result shares one compartment**, so this process mixes. The operator is not a per-derivative choice — it follows from what the process does, and it is inherited by everything under Assemble Solution.
 
 ## The headroom
 
