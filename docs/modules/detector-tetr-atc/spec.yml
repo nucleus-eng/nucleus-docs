@@ -43,7 +43,7 @@ process_steps:
       title: "tetR-aTc Detector"
       page: ../detector-tetr-atc/spec.md
     parameters:
-      base_cytosol: "at reaction concentration"
+      base_cytosol: 1x
       teto_template: "0.5 nM"
       tetr: "500 nM — saturates repression; improvable to 2000 nM"
     notes: >

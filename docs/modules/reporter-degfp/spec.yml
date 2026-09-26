@@ -51,7 +51,8 @@ process_steps:
       title: "deGFP Reporter"
       page: ../reporter-degfp/spec.md
     parameters:
-      base_cytosol: "1x — SMix 1x, PMix 1.80 mg/mL, ribosomes 1.8 uM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL"
+      base_cytosol: 1x
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
       degfp_dna: "3 nM final, from a 124 nM stock"
       magnesium_acetate: "8 mM final, from a 200 mM stock"
       optiprep: "0.043 mg/uL final, from a 1.32 mg/uL stock"

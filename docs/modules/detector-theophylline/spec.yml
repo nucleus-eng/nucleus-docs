@@ -43,7 +43,8 @@ process_steps:
       title: "Theophylline Detector"
       page: ../detector-theophylline/spec.md
     parameters:
-      base_cytosol: "1x — SMix 1x, PMix 1.80 mg/mL, ribosomes 1.8 uM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL"
+      base_cytosol: 1x
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
       sensor_dna: "5 nM final, from a 49.55 nM stock"
       cprg: "0.6 mg/mL final, from a 10 mg/mL stock"
       reaction_volume: "10 uL stated — but see the questions below"

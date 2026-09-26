@@ -51,7 +51,8 @@ process_steps:
       title: "Catecholase expression reaction"
       page: null
     parameters:
-      base_cytosol: "1x — SMix 1x, PMix 1.80 mg/mL, ribosomes 1.8 uM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL"
+      base_cytosol: 1x
+      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
       catecholase_dna: "20 nM final, from a 275.7 nM stock"
       reaction_volume: "10 uL, Nucleus Cytosol"
     notes: >
