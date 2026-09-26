@@ -29,7 +29,7 @@ This Module has not been validated in Nucleus Cytosol. Documentation can be foun
 ```mermaid
 flowchart TD
     HEPES["HEPES"]
-    POTASSIUM_GLUTAMATE["Potassium glutamate"]
+    POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
     MAGNESIUM_ACETATE["Magnesium acetate"]
     RNTPS["rNTPs"]
     TRNA["tRNA"]

@@ -23,7 +23,7 @@ inputs:
     title: "PEGDA monomer, PEGDA575"
     page: null
   peg4sh:
-    title: "PEG4SH"
+    title: "PEG4SH crosslinker"
     page: null            # chain-transfer agent in this route, not the crosslinker
   lap:
     title: "LAP photoinitiator"

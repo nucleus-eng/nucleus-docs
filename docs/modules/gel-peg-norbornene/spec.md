@@ -32,7 +32,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     PEG4NB["4-arm PEG-norbornene, 5 kDa"]
-    PEG4SH["PEG4SH, 2 kDa"]
+    PEG4SH["PEG4SH crosslinker"]
     LAP["LAP photoinitiator"]
     SOLVENT["PBS, deionized water or buffer"]
 

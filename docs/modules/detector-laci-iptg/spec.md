@@ -27,8 +27,8 @@ Schematic of the LacI-IPTG detector module. IPTG relieves LacI repression of `pT
 
 ```mermaid
 flowchart TD
-    PUREXPRESS_SOLUTION_A["PURExpress Solution A"]
-    PUREXPRESS_SOLUTION_B["PURExpress Solution B"]
+    PUREXPRESS_SOLUTION_A["NEB PURExpress Solution A"]
+    PUREXPRESS_SOLUTION_B["NEB PURExpress Solution B"]
     LACO_PLAMGFP_DNA["pT7-lacO-plamGFP"]
     LACI["LacI"]
     RNASE_INHIBITOR["RNase inhibitor"]

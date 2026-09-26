@@ -15,7 +15,7 @@ refines: outer-solution
 
 inputs:
   potassium-glutamate:
-    title: "Potassium glutamate"
+    title: "Potassium L-glutamate"
     page: null
   hepes:
     title: "HEPES"

@@ -32,7 +32,7 @@ flowchart TD
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     ULGA_POWDER["ULGA powder"]
     POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
-    HEPES["HEPES, pH 7.4"]
+    HEPES["HEPES"]
     GLUCOSE["Glucose"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])

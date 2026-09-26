@@ -32,7 +32,7 @@ No result isolates PLA1 from the CPRG/LacZ readout. Lysis is always scored by th
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     PLA1_DNA["T7pro-PLA1-T7term"]
-    OPTIPREP["Optiprep"]
+    OPTIPREP["OptiPrep"]
 
     P1_ASSEMBLE_PLA1_INNER_SOLUTION_0(["Assemble the ungated PLA1 inner solution (mixing) — no page"])
     EFFECTOR_PLA1["Effector: PLA1"]

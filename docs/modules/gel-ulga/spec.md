@@ -33,7 +33,7 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     ULGA_POWDER["Ultra low gelling temperature agarose"]
     POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
-    HEPES["HEPES, pH 7.4"]
+    HEPES["HEPES"]
     GLUCOSE["Glucose"]
 
     P1_ASSEMBLE_OUTER_0(["Assemble Outer Solution (mixing)"])

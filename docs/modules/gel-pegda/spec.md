@@ -41,7 +41,7 @@ This specification is kept for reference and is not maintained.
 ```mermaid
 flowchart TD
     PEGDA575["PEGDA monomer, PEGDA575"]
-    PEG4SH["PEG4SH"]
+    PEG4SH["PEG4SH crosslinker"]
     LAP["LAP photoinitiator"]
     PBS["PBS"]
 

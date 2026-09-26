@@ -27,7 +27,7 @@ inputs:
     page: null
     component_of: ../../processes/assemble-outer-solution/main.md
   hepes:
-    title: "HEPES, pH 7.4"
+    title: "HEPES"
     page: null
     component_of: ../../processes/assemble-outer-solution/main.md
   glucose:

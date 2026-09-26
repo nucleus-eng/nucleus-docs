@@ -33,7 +33,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
-    POTASSIUM_GLUTAMATE["Potassium glutamate"]
+    POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
     HEPES["HEPES"]
     GLUCOSE["Glucose"]
 

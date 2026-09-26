@@ -36,7 +36,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
-    TRIS_HEPES_STOCK["Tris-HEPES stock"]
+    TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])

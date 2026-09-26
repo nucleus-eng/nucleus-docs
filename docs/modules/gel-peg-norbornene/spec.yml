@@ -23,7 +23,7 @@ inputs:
     title: "4-arm PEG-norbornene, 5 kDa"
     page: null            # Creative PEGWorks PSB-4110-5g; the backbone
   peg4sh:
-    title: "PEG4SH, 2 kDa"
+    title: "PEG4SH crosslinker"
     page: null            # Creative PEGWorks PSB-440-5g; the thiol crosslinker here
   lap:
     title: "LAP photoinitiator"

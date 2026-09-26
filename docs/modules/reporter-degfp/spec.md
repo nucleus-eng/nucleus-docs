@@ -34,7 +34,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     DEGFP_DNA["pOpen-deGFP"]
     MAGNESIUM_ACETATE["Magnesium acetate"]
-    OPTIPREP["Optiprep"]
+    OPTIPREP["OptiPrep"]
 
     P1_ASSEMBLE_INNER_SOLUTION_0(["Assemble the deGFP Reporter inner solution (mixing) — no page"])
     REPORTER_DEGFP["deGFP Reporter"]
