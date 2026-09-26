@@ -93,6 +93,15 @@ measured_by:
 open:
   - id: sequences-are-not-in-the-dna-repo
     question: >
+      WITHDRAWN 2026-09-26. ALL THREE FILES EXIST, on `devcells/devstudio-constructs`:
+      detectors/detector-ph/trigger-ssDNA-3.gb,
+      detectors/detector-ph/pH-responsive-ssDNA-2.gb and
+      effectors/detector-ph/pT7-toehold9-PLA1-linear.gb. This page's own table has
+      linked all three all along. THE SEARCH THAT FOUND NOTHING WAS RUN ON THE WRONG
+      BRANCH, and check-dna-refs.py agreed with it for a different wrong reason: it
+      could not parse a branch name containing a slash, so it reported the files
+      missing. Both faults fixed 2026-09-26. The names above ARE identity claims
+      against existing files. The superseded text follows.
       Neither toehold construct nor either strand of the annealed duplex has a file
       in nucleus-eng/DNA — checked in `detectors/` and at the repo root, none found.
       The DevNote lists them as "Designed" or "Synthesized" and links no sequence

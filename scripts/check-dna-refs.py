@@ -60,6 +60,7 @@ Exit codes:
 import argparse
 import os
 import re
+import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -84,8 +85,46 @@ PREFIX_STRIP = ("pOpen-", "pET28a-")
 
 LINK_RE = re.compile(
     r"\[([^\]]*)\]\(https://github\.com/(nucleus-eng/DNA|bnext-bio/nucleus)"
-    r"/(blob|tree)/([^/]+)/([^)\s]+)\)"
+    r"/(blob|tree)/([^)\s]+)\)"
 )
+# A GITHUB BLOB URL CANNOT BE SPLIT INTO REF AND PATH BY STRING ALONE, because both
+# halves may contain slashes. The ref was `[^/]+` here until 2026-09-26, which assumes
+# a branch name has none, and `devcells/devstudio-constructs` has one. Every citation
+# to that branch was read as ref `devcells` and path `devstudio-constructs/...`, so the
+# path did not exist and the file reported as missing. TWENTY-THREE BLOCKING FINDINGS,
+# all false, one cause -- and the message said "file not found in DNA repo" about files
+# that were on disk the whole time.
+#
+# The repo settles it: try every split and take the one whose ref the repo knows. Longest
+# first, because `devcells` is not a ref and `devcells/devstudio-constructs` is, and a
+# shorter accidental match would put repo directories into the ref.
+def split_ref_path(tail: str, refs: set[str]) -> tuple[str, str]:
+    """Split `<ref>/<path>` using the refs the repo actually has."""
+    parts = tail.split("/")
+    for i in range(len(parts) - 1, 0, -1):
+        ref = "/".join(parts[:i])
+        if ref in refs:
+            return ref, "/".join(parts[i:])
+    return parts[0], "/".join(parts[1:])   # unknown ref: the old reading, one segment
+
+
+REFS: set[str] = set()
+
+
+def repo_refs(repo_dir) -> set[str]:
+    """Branch and tag names, local and remote, with the remote prefix dropped."""
+    out = {"main", "master", "HEAD"}
+    try:
+        r = subprocess.run(
+            ["git", "-C", str(repo_dir), "for-each-ref", "--format=%(refname:short)"],
+            capture_output=True, text=True, timeout=10)
+        for line in r.stdout.split():
+            out.add(line)
+            if line.startswith("origin/"):
+                out.add(line[len("origin/"):])
+    except Exception:
+        pass
+    return out
 BACKTICK_RE = re.compile(r"`([^`]+)`")
 BP_SUFFIX_RE = re.compile(r"^(\d[\d,]*)\s*bp$", re.IGNORECASE)
 FILENAME_RE = re.compile(r"^([\w.\-]+\.(?:gb|gbk|dna|fasta|fa))$", re.IGNORECASE)
@@ -302,7 +341,8 @@ def extract_claims(header_cells: list[str], rows, filename: str) -> list[Claim]:
                     break
 
         for cell in cells:
-            for link_text, repo, kind, ref, path in LINK_RE.findall(cell):
+            for link_text, repo, kind, tail in LINK_RE.findall(cell):
+                ref, path = split_ref_path(tail, REFS)
                 claims.append(
                     Claim(
                         file=filename,
@@ -340,6 +380,13 @@ def _names_related(claim_name: str, locus_name: str | None, filename: str) -> bo
     considered related: that shape is exactly how a greedy link drops or
     invents a genetic element, so it is left for a human to confirm rather
     than passed automatically."""
+    # A NAME THAT IS THE FILE CANNOT MISMATCH THE FILE. Where a table cell carries
+    # the filename rather than a construct name, comparing it against the stem
+    # reported a mismatch between a string and itself. Four such warnings appeared
+    # on 2026-09-26, the moment the ref-parsing fix let the checker see these files
+    # at all, which is why nobody had met it before.
+    if FILENAME_RE.match(claim_name):
+        claim_name = Path(claim_name).stem
     a = _normalize(claim_name)
     if not a:
         return True
@@ -513,6 +560,8 @@ def main(argv=None) -> int:
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN
+
+    REFS.update(repo_refs(dna_repo))
 
     if not _looks_like_dna_repo(dna_repo):
         print(
