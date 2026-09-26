@@ -36,8 +36,8 @@ aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE
 
 ```mermaid
 flowchart TD
-    SOLUTION_A["Solution A"]
-    SOLUTION_B["Solution B"]
+    PUREXPRESS_SOLUTION_A["NEB PURExpress Solution A"]
+    PUREXPRESS_SOLUTION_B["NEB PURExpress Solution B"]
     AHLY_DNA["pT7-aHly"]
     RNASE_INHIBITOR["RNase inhibitor"]
     WATER["Nuclease-free water"]
@@ -45,8 +45,8 @@ flowchart TD
     P1_ASSEMBLE_REACTION_0(["Assemble Base Cytosol (mixing)"])
     MEMBRANE_PORE_AHLY["Membrane Pore: alpha-hemolysin"]
 
-    SOLUTION_A --> P1_ASSEMBLE_REACTION_0
-    SOLUTION_B --> P1_ASSEMBLE_REACTION_0
+    PUREXPRESS_SOLUTION_A --> P1_ASSEMBLE_REACTION_0
+    PUREXPRESS_SOLUTION_B --> P1_ASSEMBLE_REACTION_0
     AHLY_DNA --> P1_ASSEMBLE_REACTION_0
     RNASE_INHIBITOR --> P1_ASSEMBLE_REACTION_0
     WATER --> P1_ASSEMBLE_REACTION_0
@@ -56,7 +56,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class SOLUTION_A,SOLUTION_B,AHLY_DNA,RNASE_INHIBITOR,WATER leaf;
+    class PUREXPRESS_SOLUTION_A,PUREXPRESS_SOLUTION_B,AHLY_DNA,RNASE_INHIBITOR,WATER leaf;
     class MEMBRANE_PORE_AHLY composed;
     class P1_ASSEMBLE_REACTION_0 process;
 

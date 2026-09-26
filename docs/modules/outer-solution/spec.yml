@@ -62,3 +62,21 @@ open:
       class could state. A class that fixed the number would be wrong for one member,
       and a class that omits it says nothing about the one property both share. This
       file names the relation in prose and declares no value.
+
+  - id: a-buffer-states-a-ph-point-and-wants-a-range
+    question: >
+      DEFERRED ON JON'S RULING 2026-09-25, and the confirmation half is closed. Six sites
+      state pH 7.4 across two buffers -- London's 72 mM HEPES in ../outer-solution-london
+      and ../gel-ulga, read back in ../detector-3oc6-hsl, and Chicago's Tris-HEPES stock
+      in the three cascade comments. It looked like one figure copied six times because
+      the house default is 7.6. IT IS NOT A COPY. Jon: "7.4 is real for both, they
+      formulated differently."
+      WHAT STAYS OPEN IS THE SHAPE, NOT THE NUMBER. Every buffer in this corpus states a
+      pH as a point, and a buffer works over a range. Jon: "there's no meaningful
+      difference of 0.2 +/- pH units. but, because putting a pH range on every buffer
+      spec is hard and also requires experimentation, flag for later."
+      So a tolerance is the right form and nobody has measured one. Until then a reader
+      cannot tell a formulated target from a requirement, which is the same gap
+      ../gel-ulga records for its own figures and the one `range` already exists for on
+      an input. The cost of guessing is higher than the cost of waiting: a range written
+      without an experiment would be a requirement the corpus invented.

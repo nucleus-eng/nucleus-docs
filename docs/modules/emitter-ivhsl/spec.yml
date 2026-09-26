@@ -105,3 +105,17 @@ open:
       Control is commercial IV-HSL with no PURE system at all, 0.3 uL at 10 uM with
       glucose and water. Neither is a composition of this Module, so both are
       excluded above. The positive control's IV-HSL is the product, not an input.
+
+  - id: which-pure-system-these-two-solutions-are
+    question: >
+      RAISED 2026-09-25 when four other Modules were identified as the NEB PURExpress kit
+      and this one was not. Five sources take a two-part cell-free system. Four name NEB
+      somewhere on their own page, so `purexpress-solution-a` now carries
+      `component_of: NEB PURExpress ... E6800L`. THIS PAGE NAMES NO VENDOR. Its table says
+      only "PURE Solution A" and "PURE Solution B", with the notes "Energy solution: small
+      molecules" and "Proteins and ribosomes".
+      A TWO-SOLUTION FORMAT IS NOT ENOUGH TO IDENTIFY ONE. ../base-cytosol/spec.yml is the
+      Nucleus system and composes five constituents rather than two, so a two-part kit is
+      commercial -- and NEB is not the only vendor of one. Renaming this key to match the
+      other four would assert a purchase this page does not record, so the key stays
+      `pure-solution-a` until someone who ran it says which kit it was.

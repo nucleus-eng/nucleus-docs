@@ -19,11 +19,13 @@ title: "Membrane Pore: alpha-hemolysin"
 refines: pore
 
 inputs:
-  solution-a:
-    title: "Solution A"
+  purexpress-solution-a:
+    title: "NEB PURExpress Solution A"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
     page: null
-  solution-b:
-    title: "Solution B"
+  purexpress-solution-b:
+    title: "NEB PURExpress Solution B"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
     page: null
   ahly-dna:
     title: "pT7-aHly"
@@ -41,14 +43,14 @@ process_steps:
       title: "Assemble Base Cytosol"
       page: ../../processes/assemble-base-cytosol/main.md
     operator: mixing
-    operands: [solution-a, solution-b, ahly-dna, rnase-inhibitor, water]
+    operands: [purexpress-solution-a, purexpress-solution-b, ahly-dna, rnase-inhibitor, water]
     produces:
       id: membrane-pore-ahly
       title: "Membrane Pore: alpha-hemolysin"
       page: ../membrane-pore-ahly/spec.md
     parameters:
-      solution_a: "4 uL"
-      solution_b: "3 uL"
+      purexpress_solution_a: "4 uL"
+      purexpress_solution_b: "3 uL"
       ahly_dna: "1 uL of a 10 nM stock"
       rnase_inhibitor: "4000 U/mL final, from a 40 000 U/mL stock, 1 uL"
       water: "1 uL"
@@ -61,6 +63,10 @@ process_steps:
 open:
   - id: solution-a-and-b-versus-base-cytosol
     question: >
+      NAMING HALF CLOSED 2026-09-25. The keys are now `purexpress-solution-a` and `-b` and
+      carry `component_of: NEB PURExpress ... E6800L`, on this file's own evidence: the
+      sentence below, and the Cell table's "NEB Solution A". THE PROTOCOL HALF BELOW IS
+      STILL OPEN.
       The page's table names Solution A and Solution B — the two-part commercial
       PURExpress kit — while pointing at ../../processes/assemble-base-cytosol/main.md
       as the protocol. But ../base-cytosol/spec.yml composes five named constituents,
