@@ -150,6 +150,48 @@ def quantity_findings(docs):
     return out
 
 
+def restated_findings(docs):
+    """A step that restates a parameter of the module it PRODUCES, and disagrees.
+
+    A second claim about the set, so it lives beside the one above rather than in
+    the schema. Four cascade steps each state the osmolarity and the Tris-HEPES
+    fraction of the outer solution they produce, and the outer solution states them
+    too. SEVEN RESTATEMENTS AT `27e7abc` AND ZERO DISAGREEMENTS, which is exactly
+    why this reports only the disagreement: a step describing what it makes is
+    legitimate documentation, and the same figure in two files with nothing keeping
+    them equal is the hazard. The hazard becomes a defect the day one is edited.
+
+    IT IS QUIET UNTIL THEN, DELIBERATELY. Reporting seven agreeing copies every run
+    would train a reader to skip the line that matters. The restatement count prints
+    as scope instead, the way this file prints the search path: a zero here means
+    nothing diverged, not that nothing is duplicated.
+    """
+    S = {d.get("module"): d for _, d in docs}
+    def params_of(m):
+        out = {}
+        for st in (S.get(m, {}).get("process_steps") or []):
+            out.update(st.get("parameters") or {})
+        return out
+    out, restated = [], 0
+    for path, doc in docs:
+        for step in (doc.get("process_steps") or []):
+            page = (step.get("produces") or {}).get("page")
+            tgt = page.rstrip("/").split("/")[-2] if page and page.endswith("spec.md") else None
+            if not tgt or tgt == doc.get("module") or tgt not in S:
+                continue
+            theirs = params_of(tgt)
+            for k, v in (step.get("parameters") or {}).items():
+                if k not in theirs:
+                    continue
+                restated += 1
+                if str(v) != str(theirs[k]):
+                    out.append((path, "restated",
+                                f"process_steps/{step.get('id')}/parameters/{k}",
+                                f"'{v}' here against '{theirs[k]}' on {tgt}, "
+                                f"which this step produces."))
+    return out, restated
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("paths", nargs="*", default=None,
@@ -190,9 +232,16 @@ def main():
         print(f"⛔️ {path} [{kind}] {where}: {msg}")
         total += 1
 
+    restated_out, restated_n = restated_findings(loaded)
+    for path, kind, where, msg in restated_out:
+        print(f"⛔️ {path} [{kind}] {where}: {msg}")
+        total += 1
+
     # scope, always — a clean run over the wrong scope reads the same as a clean run
     print(f"\nsearched: {searched}")
     print(f"{checked} source(s) checked against {os.path.relpath(SCHEMA, REPO)}")
+    print(f"{restated_n} step parameter(s) restate one of the module they produce; "
+          f"{len(restated_out)} disagree")
     if no_jsonschema:
         print("⚠️  jsonschema not installed — shape pass SKIPPED, reference pass ran")
     print("✅ no findings." if total == 0 else f"⛔️ {total} finding(s).")
