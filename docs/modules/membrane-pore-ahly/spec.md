@@ -92,6 +92,8 @@ Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as
 | Nucleus-Free Water | | | 1 |
 | **Total** | | | **10** |
 
+RNase inhibitor runs at 4000 U/mL here, double the 2000 U/mL of the Cell reaction below and of every other reaction in the corpus. That is what was run, not a transcription slip. Jon, 2026-09-25: *"we ran it at double."*
+
 ::::
 
 ::::{tab-item} Cell
