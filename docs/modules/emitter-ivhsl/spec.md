@@ -71,21 +71,21 @@ flowchart TD
 
 ::::{tab-item} Cytosol
 
-Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively, to a standard PURE reaction containing `pT7-bjaI`. Volumes in µL.
+Add SAM and IV-CoA at 0.3 mM and 0.08 mM final concentration, respectively, to a standard PURE reaction containing `pT7-bjaI`. Volumes in µL. Both come from one 5 mM stock, so the two are not equimolar: SAM is dosed at nearly four times IV-CoA.
 
-| **Component** | **Sample** | **Negative Control** | **Positive Control** | **Notes** |
-| --- | --- | --- | --- | --- |
-| PURE Solution A | 12 | 12 | 0 | Energy solution: small molecules |
-| PURE Solution B | 9 | 9 | 0 | Proteins and ribosomes |
-| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 1.5 | 1.5 | 0 | Prevents RNase activity |
-| `pOpen-pT7-bjaI` (~200 ng/µL) | 1.5 | 0 | 0 | DNA encoding BjaI |
-| SAM (5 mM) | 1.8 | 1.8 | 0 | Substrate for IV-HSL production |
-| IV-CoA (5 mM) | 0.48 | 0.48 | 0 | Substrate for IV-HSL production |
-| OptiPrep | 1.5 | 1.5 | 1.5 | Adds density for phase-transfer |
-| IV-HSL (10 µM) | 0 | 0 | 0.3 | Commercial IV-HSL for positive control |
-| 3M Glucose | 0 | 0 | 8.46 | |
-| ddH₂O | 2.22 | 3.72 | 19.74 | |
-| **Total** | **30** | **30** | **30** | |
+| **Component** | **Stock** | **Final** | **Sample** | **Negative Control** | **Positive Control** | **Notes** |
+| --- | --- | --- | --- | --- | --- | --- |
+| PURE Solution A | | 40% (v/v) | 12 | 12 | 0 | Energy solution: small molecules |
+| PURE Solution B | | 30% (v/v) | 9 | 9 | 0 | Proteins and ribosomes |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 1.5 | 1.5 | 0 | Prevents RNase activity |
+| `pOpen-pT7-bjaI` | ~200 ng/µL | 10 ng/µL | 1.5 | 0 | 0 | DNA encoding BjaI |
+| SAM | 5 mM | 0.3 mM | 1.8 | 1.8 | 0 | Substrate for IV-HSL production |
+| IV-CoA | 5 mM | 0.08 mM | 0.48 | 0.48 | 0 | Substrate for IV-HSL production |
+| OptiPrep | | | 1.5 | 1.5 | 1.5 | Adds density for phase-transfer |
+| IV-HSL | 10 µM | 0.1 µM, positive control only | 0 | 0 | 0.3 | Commercial IV-HSL for positive control |
+| 3M Glucose | 3 M | 0.846 M, positive control only | 0 | 0 | 8.46 | |
+| ddH₂O | | | 2.22 | 3.72 | 19.74 | |
+| **Total** | | | **30** | **30** | **30** | |
 
 ::::
 

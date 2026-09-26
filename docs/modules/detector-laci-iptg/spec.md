@@ -70,20 +70,20 @@ flowchart TD
 
 Assemble `pT7-lacO-plamGFP` into a standard PURE reaction. Add purified LacI protein to a final concentration of 500 nM to 1000 nM, or include the `pT7-lacI` DNA construct. Add IPTG inducer at 500 nM to 2000 nM for effective induction.
 
-| **Component**              | **Master Mix (µL)** |
-| -------------------------- | ------------------- |
-| PURExpress Solution A      | 4                   |
-| PURExpress Solution B      | 3                   |
-| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 0.5                 |
-| `pT7-lacO-plamGFP` (10 nM) | 0.5                 |
-| LacI (10 µM)               | 0.5                 |
-| **Master Mix Total**       | **9**               |
+| **Component** | **Stock** | **Final** | **Master Mix (µL)** |
+| --- | --- | --- | --- |
+| PURExpress Solution A | | 40% (v/v) | 4 |
+| PURExpress Solution B | | 30% (v/v) | 3 |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 |
+| `pT7-lacO-plamGFP` | 10 nM | 0.5 nM | 0.5 |
+| LacI | 10 µM | 500 nM | 0.5 |
+| **Master Mix Total** | | | **9** |
 
-| **Component** | **Per Reaction (µL)** |
-| ------------- | --------------------- |
-| Master Mix    | 9                     |
-| IPTG (10 µM)  | 1                     |
-| **Total**     | **10**                |
+| **Component** | **Stock** | **Final** | **Per Reaction (µL)** |
+| --- | --- | --- | --- |
+| Master Mix | | | 9 |
+| IPTG | 10 µM | 1000 nM | 1 |
+| **Total** | | | **10** |
 
 ::::
 

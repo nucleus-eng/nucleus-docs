@@ -126,12 +126,12 @@ At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toeho
 :::{table} Composition of the pH-Sensing Module in Base Cytosol at reaction concentration.
 :label: comp-ph-sensor
 
-| Component                                                                | Final Concentration  |
-| ------------------------------------------------------------------------ | -------------------- |
-| [Base Cytosol](../base-cytosol/spec.md)                                    | 1×                   |
-| Toehold-switch DNA template (`pT7-toehold9-PLA1`; also designed with LacZ and XylE effectors) | 2 nM         |
-| pH-responsive ssDNA : trigger ssDNA (3:1, annealed)                        | 4.8 µM trigger ssDNA |
-| RNase inhibitor (40 000 U/mL stock)                                        | 2000 U/mL            |
+| Component | Stock | Final Concentration |
+| --- | --- | --- |
+| [Base Cytosol](../base-cytosol/spec.md) | | 1× |
+| Toehold-switch DNA template (`pT7-toehold9-PLA1`; also designed with LacZ and XylE effectors) | | 2 nM |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | | 4.8 µM trigger ssDNA |
+| RNase inhibitor | 40 000 U/mL | 2000 U/mL |
 
 :::
 

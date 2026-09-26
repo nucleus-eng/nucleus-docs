@@ -83,14 +83,14 @@ flowchart TD
 
 Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as a template. Reactions are assembled following the [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) protocol.
 
-| Component          | Volume (µL) |
-| ------------------ | ----------- |
-| Solution A         | 4           |
-| Solution B         | 3           |
-| RNase Inhibitor (40 000 U/mL; 4000 U/mL final) | 1           |
-| `pT7-aHly` (10 nM) | 1           |
-| Nucleus-Free Water | 1           |
-| **Total**          | **10**      |
+| Component | Stock | Final | Volume (µL) |
+| --- | --- | --- | --- |
+| Solution A | | 40% (v/v) | 4 |
+| Solution B | | 30% (v/v) | 3 |
+| RNase Inhibitor | 40 000 U/mL | 4000 U/mL | 1 |
+| `pT7-aHly` | 10 nM | 1 nM | 1 |
+| Nucleus-Free Water | | | 1 |
+| **Total** | | | **10** |
 
 ::::
 
@@ -100,21 +100,21 @@ To demonstrate functional pore insertion, co-express aHly with a reporter (`pT7-
 
 Prepare master mix for 3 reactions to account for dead volume.
 
-| Component | Per Reaction (µL) | Master Mix ×3 (µL) |
-| --- | --- | --- |
-| *Master Mix* | | |
-| NEB Solution A | 4 | 12 |
-| NEB Solution B | 3 | 9 |
-| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 0.5 | 1.5 |
-| Sucrose (2 M) | 1.5 | 4.5 |
-| **Subtotal** | **9** | **27** |
-| | | |
-| | +aHly | −aHly |
-| Master Mix | 9 | 9 |
-| `pT7-aHly` | 0.5 | 0 |
-| `pT7-eGFP` | 0.5 | 0.5 |
-| Nucleus-Free Water | 0 | 0.5 |
-| **Total** | **10** | **10** |
+| Component | Stock | Final | Per Reaction (µL) | Master Mix ×3 (µL) |
+| --- | --- | --- | --- | --- |
+| *Master Mix* | | | | |
+| NEB Solution A | | 40% (v/v) | 4 | 12 |
+| NEB Solution B | | 30% (v/v) | 3 | 9 |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 1.5 |
+| Sucrose | 2 M | 0.3 M | 1.5 | 4.5 |
+| **Subtotal** | | | **9** | **27** |
+| | | | | |
+| | | | **+aHly** | **−aHly** |
+| Master Mix | | | 9 | 9 |
+| `pT7-aHly` | | | 0.5 | 0 |
+| `pT7-eGFP` | | | 0.5 | 0.5 |
+| Nucleus-Free Water | | | 0 | 0.5 |
+| **Total** | | | **10** | **10** |
 
 ::::
 

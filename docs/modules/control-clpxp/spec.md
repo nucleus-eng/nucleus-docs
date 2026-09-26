@@ -73,31 +73,31 @@ flowchart TD
 ::::{tab-item} Purified Proteins
 **Reaction Table 1.** The control module implemented from purified proteins. Volumes in µL.
 
-| **Component** | **Sample 1** | **Sample 2** | **Sample 3** | **Control** |
-| --- | --- | --- | --- | --- |
-| Purified deGFP-ssrA (41.2 µM) | 0.5 | 0.5 | 0.5 | 0.5 |
-| Purified ClpP (79.9 µM) | 0.5 | 0.5 | 0 | 0 |
-| Purified ClpX (53.7 µM) | 0.5 | 0 | 0.5 | 0 |
-| NEB PURExpress Solution A | 4 | 4 | 4 | 4 |
-| NEB PURExpress Solution B | 3 | 3 | 3 | 3 |
-| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 0.5 | 0.5 | 0.5 | 0.5 |
-| Nucleus Free Water | 1 | 1.5 | 1.5 | 2 |
-| **Total** | **10** | **10** | **10** | **10** |
+| **Component** | **Stock** | **Final** | **Sample 1** | **Sample 2** | **Sample 3** | **Control** |
+| --- | --- | --- | --- | --- | --- | --- |
+| Purified deGFP-ssrA | 41.2 µM | 2.06 µM | 0.5 | 0.5 | 0.5 | 0.5 |
+| Purified ClpP | 79.9 µM | varies, 3.995 µM where present | 0.5 | 0.5 | 0 | 0 |
+| Purified ClpX | 53.7 µM | varies, 2.685 µM where present | 0.5 | 0 | 0.5 | 0 |
+| NEB PURExpress Solution A | | 40% (v/v) | 4 | 4 | 4 | 4 |
+| NEB PURExpress Solution B | | 30% (v/v) | 3 | 3 | 3 | 3 |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 0.5 | 0.5 | 0.5 |
+| Nucleus Free Water | | | 1 | 1.5 | 1.5 | 2 |
+| **Total** | | | **10** | **10** | **10** | **10** |
 ::::
 
 ::::{tab-item} In Situ Expression
 **Reaction Table 2.** The control module implemented from *in situ* expressed proteins. Steady-state levels can be tuned by varying the concentration of *in situ* expressed ClpXP proteins. Volumes in µL.
 
-| **Component** | **Sample 1** | **Sample 2** | **Sample 3** | **Sample 4** |
-| --- | --- | --- | --- | --- |
-| pT7-deGFP-ssrA (63.5 ng/µL) | 0.5 | 0.5 | 0.5 | 0.5 |
-| pT7-ClpP (17.5 ng/µL) | 0.4 | 0.4 | 0.6 | 0.8 |
-| pT7-ClpX (17.5 ng/µL) | 0.4 | 0.4 | 0.6 | 0.8 |
-| NEB PURExpress Solution A | 4 | 4 | 4 | 4 |
-| NEB PURExpress Solution B | 3 | 3 | 3 | 3 |
-| RNase Inhibitor (40 000 U/mL; 2000 U/mL final) | 0.5 | 0.5 | 0.5 | 0.5 |
-| Nucleus Free Water | 1.6 | 1.2 | 0.8 | 0.4 |
-| **Total** | **10** | **10** | **10** | **10** |
+| **Component** | **Stock** | **Final** | **Sample 1** | **Sample 2** | **Sample 3** | **Sample 4** |
+| --- | --- | --- | --- | --- | --- | --- |
+| pT7-deGFP-ssrA | 63.5 ng/µL | 3.175 ng/µL | 0.5 | 0.5 | 0.5 | 0.5 |
+| pT7-ClpP | 17.5 ng/µL | varies, 0.7 to 1.4 ng/µL | 0.4 | 0.4 | 0.6 | 0.8 |
+| pT7-ClpX | 17.5 ng/µL | varies, 0.7 to 1.4 ng/µL | 0.4 | 0.4 | 0.6 | 0.8 |
+| NEB PURExpress Solution A | | 40% (v/v) | 4 | 4 | 4 | 4 |
+| NEB PURExpress Solution B | | 30% (v/v) | 3 | 3 | 3 | 3 |
+| RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 0.5 | 0.5 | 0.5 |
+| Nucleus Free Water | | | 1.6 | 1.2 | 0.8 | 0.4 |
+| **Total** | | | **10** | **10** | **10** | **10** |
 ::::
 
 :::::
