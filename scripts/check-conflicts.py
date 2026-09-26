@@ -138,6 +138,22 @@ def _own(m, entries):
     `to` alone the second silently replaced the first. They carry the same figure
     today, so nothing was lost and nothing said so either. The strictest wins
     here too, and a pair that does not compare is reported rather than dropped.
+
+    THE MERGE IS SAFE AND IT IS NOT RIGHT, and the gap has a name. `cell`'s two
+    entries carry the same figure, so the strictest is either one. THE DAY THEY
+    DIFFER THIS PICKS THE STRICTEST AND SAYS NOTHING, which would check an
+    embedding step against an operating tolerance. That is never too permissive
+    and it is the wrong predicate.
+
+    WHAT IS MISSING IS ON THE STEP, NOT ON THE SENSITIVITY: which regime the step
+    puts the Module in. The `compositional-biology-theory` session proposed this
+    on 2026-09-25 and it reads right. MEASURED HERE THE SAME DAY, IT HAS ONE
+    REGIME AND NOT TWO: all 10 declared impositions are `proteinase-k`,
+    `uv-exposure`, `radical-acrylate-polymerization` or `thermal-hold`, and BOTH
+    `thermal-hold` steps are embedding steps -- `ph-cascade/embed-agarose` and
+    `london-cascade/embed-ulga`. No step imposes anything during operation, so
+    `cell`'s `thermal-operating` is unreachable by any imposition in this corpus.
+    A field with one attested value is not sized yet.
     """
     out = {}
     for x in entries:

@@ -33,6 +33,27 @@ This page is a work in progress and not yet ready for use.
 
 **The guard sits on transcription.** `p ∈ P(cytosol)`: the template's promoter must be one this cytosol's polymerase reads. A T7 promoter needs a cytosol carrying T7 polymerase. **The translation guard is declared and empty**, so nothing in the register restricts what may be translated.
 
+# The two instances are two compositions of one generator
+
+**The difference is not in the operation.** It is an identity question about two operands, and a
+composition graph already states it.
+
+**In situ is one cytosol.** `express` runs and the protein is used in the compartment that made it.
+The producing and the consuming cytosol are the same object.
+
+**Standalone is two.** `express` runs in the first, and a `mixing` step carries `Cytosol′ ⊞ Protein`
+into a fresh one. **One node against two, with a mixing step between them.**
+
+**So naming the split on `express` would record in the operation what the composition says**, which
+is the mistake this corpus refuses elsewhere: an operator is selected per instance and not per type.
+The `compositional-biology-theory` session reaches the same reading and reports Jon reaching it
+first, 2026-09-25, in their words: *"the output of that process is just the input into another
+assemble cytosol step, using some of the headroom of the fresh Cytosol."*
+
+**One half of the difference does not dissolve, and no schema records it.** Standalone expression
+spends the receiving cytosol's headroom. `spec.yml` has `headroom.provides` for what a Module
+**gives**, used on 2 of 95 steps, and **no key for what an operand takes.**
+
 # What the instances do not share
 
 | | In situ | Standalone |
