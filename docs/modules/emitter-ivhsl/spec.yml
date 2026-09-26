@@ -19,11 +19,13 @@ module: emitter-ivhsl
 title: "IV-HSL Emitter"
 
 inputs:
-  pure-solution-a:
-    title: "PURE Solution A"
+  purexpress-solution-a:
+    title: "NEB PURExpress Solution A"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null            # energy solution: small molecules
-  pure-solution-b:
-    title: "PURE Solution B"
+  purexpress-solution-b:
+    title: "NEB PURExpress Solution B"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null            # proteins and ribosomes
   bjai-dna:
     title: "pOpen-pT7-bjaI"
@@ -42,6 +44,15 @@ inputs:
     title: "RNase inhibitor"
     page: null
 
+# ALL FIVE PURE SOURCES ARE ONE KIT, Jon's ruling 2026-09-25: "NEB PURE E6800L and
+# E6800S are the same kit, just different amounts of tubes. it was that one. there's
+# only one NEB PURE." This page named no vendor and was the one source left
+# unidentified on 2026-09-25; the ruling identifies it.
+#
+# THE CATALOG NUMBER IS E6800 AND NOT E6800L. The suffix is a pack size, so it names
+# how much was bought rather than what the material is. A BOM records the purchase --
+# ../../processes/make-1pot/main.md carries E6800L -- and an input records the material.
+
 process_steps:
   - id: assemble-reaction
     process:
@@ -49,8 +60,8 @@ process_steps:
       page: null
     operator: mixing
     operands:
-      - pure-solution-a
-      - pure-solution-b
+      - purexpress-solution-a
+      - purexpress-solution-b
       - bjai-dna
       - sam
       - iv-coa
@@ -61,8 +72,8 @@ process_steps:
       title: "IV-HSL Emitter"
       page: ../emitter-ivhsl/spec.md
     parameters:
-      pure_solution_a: "12 uL"
-      pure_solution_b: "9 uL"
+      purexpress_solution_a: "12 uL"
+      purexpress_solution_b: "9 uL"
       bjai_dna: "1.5 uL at approximately 200 ng/uL"
       sam: "0.3 mM final, 1.8 uL of a 5 mM stock"
       iv_coa: "0.08 mM final, 0.48 uL of a 5 mM stock"
@@ -105,17 +116,3 @@ open:
       Control is commercial IV-HSL with no PURE system at all, 0.3 uL at 10 uM with
       glucose and water. Neither is a composition of this Module, so both are
       excluded above. The positive control's IV-HSL is the product, not an input.
-
-  - id: which-pure-system-these-two-solutions-are
-    question: >
-      RAISED 2026-09-25 when four other Modules were identified as the NEB PURExpress kit
-      and this one was not. Five sources take a two-part cell-free system. Four name NEB
-      somewhere on their own page, so `purexpress-solution-a` now carries
-      `component_of: NEB PURExpress ... E6800L`. THIS PAGE NAMES NO VENDOR. Its table says
-      only "PURE Solution A" and "PURE Solution B", with the notes "Energy solution: small
-      molecules" and "Proteins and ribosomes".
-      A TWO-SOLUTION FORMAT IS NOT ENOUGH TO IDENTIFY ONE. ../base-cytosol/spec.yml is the
-      Nucleus system and composes five constituents rather than two, so a two-part kit is
-      commercial -- and NEB is not the only vendor of one. Renaming this key to match the
-      other four would assert a purchase this page does not record, so the key stays
-      `pure-solution-a` until someone who ran it says which kit it was.

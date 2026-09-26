@@ -27,11 +27,11 @@ refines: repressor-detector
 inputs:
   purexpress-solution-a:
     title: "NEB PURExpress Solution A"
-    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null
   purexpress-solution-b:
     title: "NEB PURExpress Solution B"
-    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null
   laco-plamgfp-dna:
     title: "pT7-lacO-plamGFP"

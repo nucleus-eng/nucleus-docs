@@ -21,11 +21,11 @@ refines: pore
 inputs:
   purexpress-solution-a:
     title: "NEB PURExpress Solution A"
-    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null
   purexpress-solution-b:
     title: "NEB PURExpress Solution B"
-    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null
   ahly-dna:
     title: "pT7-aHly"
@@ -64,7 +64,7 @@ open:
   - id: solution-a-and-b-versus-base-cytosol
     question: >
       NAMING HALF CLOSED 2026-09-25. The keys are now `purexpress-solution-a` and `-b` and
-      carry `component_of: NEB PURExpress ... E6800L`, on this file's own evidence: the
+      carry `component_of: NEB PURExpress ... E6800`, on this file's own evidence: the
       sentence below, and the Cell table's "NEB Solution A". THE PROTOCOL HALF BELOW IS
       STILL OPEN.
       The page's table names Solution A and Solution B — the two-part commercial

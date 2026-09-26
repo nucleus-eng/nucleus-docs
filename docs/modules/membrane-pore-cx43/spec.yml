@@ -25,11 +25,11 @@ refines: pore
 inputs:
   purexpress-solution-a:
     title: "NEB PURExpress Solution A"
-    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null
   purexpress-solution-b:
     title: "NEB PURExpress Solution B"
-    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800L"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
     page: null
   cx43-egfp-dna:
     title: "pOpen-pT7-Cx43-eGFP"
