@@ -90,6 +90,7 @@ flowchart LR
   - [Assemble Cytosol](./assemble-cytosol/assemble-cytosol-main.md) — a reaction that will be encapsulated; reserves headroom for what a particular reaction adds.
     - [Assemble Base Cytosol](./assemble-base-cytosol/main.md) — the unit case, with the headroom filled by water.
   - [Assemble Outer Solution](./assemble-outer-solution/main.md) — what cells sit in, and what a gel dissolves into.
+- [Expression](./express/main.md) — the abstraction both supply routes are instances of. Makes a protein from a template in the reaction, and mixes rather than packs. Neither instance is written.
 
 ### Make Base Cytosol Components
 

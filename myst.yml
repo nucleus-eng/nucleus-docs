@@ -177,6 +177,8 @@ project:
               hidden: true
             - file: ./docs/processes/photodevelop-peg-norbornene/main.md
               hidden: true
+        - file: ./docs/processes/express/main.md
+          hidden: true
         - file: ./docs/processes/embed-hydrogel/main.md
           hidden: true
           children:
