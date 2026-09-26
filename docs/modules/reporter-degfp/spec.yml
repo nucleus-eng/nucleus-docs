@@ -35,7 +35,7 @@ inputs:
     title: "Magnesium acetate"
     page: null
   optiprep:
-    title: "Optiprep"
+    title: "OptiPrep"
     page: null
     optional: true        # encapsulation aid — see the questions below
 

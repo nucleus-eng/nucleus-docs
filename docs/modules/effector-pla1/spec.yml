@@ -40,7 +40,7 @@ inputs:
     title: "T7pro-PLA1-T7term"
     page: null            # no confirmed sequence file in nucleus-eng/DNA; see below
   optiprep:
-    title: "Optiprep"
+    title: "OptiPrep"
     page: null
     optional: true        # encapsulation aid, not lysis chemistry — same judgment
                           # as ../reporter-degfp/spec.yml, and the same open item

@@ -26,10 +26,10 @@ refines: repressor-detector
 
 inputs:
   purexpress-solution-a:
-    title: "PURExpress Solution A"
+    title: "NEB PURExpress Solution A"
     page: null
   purexpress-solution-b:
-    title: "PURExpress Solution B"
+    title: "NEB PURExpress Solution B"
     page: null
   laco-plamgfp-dna:
     title: "pT7-lacO-plamGFP"

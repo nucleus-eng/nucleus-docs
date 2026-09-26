@@ -14,7 +14,7 @@ refines: outer-solution
 
 inputs:
   tris-hepes-stock:
-    title: "Tris-HEPES stock"
+    title: "Tris-HEPES buffer stock"
     page: null
   energy-solution:
     title: "Energy solution"

@@ -80,6 +80,20 @@ def proc_dir(pr):
 by_page = collections.defaultdict(set)
 key_uses = collections.Counter()
 unpaged = collections.Counter()
+# --- carrier 6: unpaged key -> title
+# THE CHECK'S OWN NOTE NAMED THIS BLIND SPOT BEFORE THIS CARRIER EXISTED: "146
+# input key(s) carry page: null and cannot collide on the first carrier. An
+# unpaged key is not a pass." A key with no page cannot alias by page, and it can
+# still be written two ways. One key carrying two titles is an exact collision
+# needing no matching rule, which is why this carrier is cheap and why it waited.
+#
+# WHAT IT DOES NOT CATCH, stated so a zero is not misread: two DIFFERENT keys for
+# one material. `purexpress-solution-a`, `pure-solution-a` and `solution-a` are
+# three keys for the two NEB solutions, and nothing here relates them. Deciding
+# they are one material is identification, which is the job this file says an
+# unpaged key is waiting for.
+by_unpaged = collections.defaultdict(set)
+unpaged_uses = collections.Counter()
 keys = 0
 for mod, d in docs.items():
     here = os.path.join("docs/modules", mod)
@@ -88,6 +102,8 @@ for mod, d in docs.items():
         page = (v or {}).get("page")
         if not page:
             unpaged[key] += 1
+            by_unpaged[key].add(str((v or {}).get("title")))
+            unpaged_uses[(key, str((v or {}).get("title")))] += 1
             continue
         target = os.path.normpath(os.path.join(here, page))
         by_page[target].add(key)
@@ -179,6 +195,8 @@ found["dir→title"] = report(
     "dir→title", by_dir, dir_uses, lambda d: d)
 found["title→module"] = report(
     "title→module", by_modtitle, modtitle_uses, lambda t_: repr(t_))
+found["key→title"] = report(
+    "key→title", by_unpaged, unpaged_uses, lambda k: k)
 
 # TWO CARRIERS FLAGGING ONE PAIR IS CORROBORATION, NOT TWO PROBLEMS. Saying so
 # keeps the count honest: today's five rows are four distinct pairs, and a reader
@@ -190,7 +208,7 @@ for car, rows in found.items():
 doubled = {p: n for p, n in pairs.items() if n > 1}
 
 total = sum(len(v) for v in found.values())
-print(f"{len(SOURCES)} source(s). One predicate, five carriers:\n")
+print(f"{len(SOURCES)} source(s). One predicate, six carriers:\n")
 print(f"  key→page         {len(by_page):4} page(s) referenced, "
       f"{len(found['key→page'])} with more than one name   ({keys} keys)")
 print(f"  id→composition   {len(by_comp):4} composition(s), "
@@ -203,10 +221,18 @@ print(f"  dir→title        {len(by_dir):4} process dir(s), "
 print(f"  title→module     {len(by_modtitle):4} module title(s), "
       f"{len(found['title→module'])} naming more than one module   "
       f"({modtitles} sources with a title)")
-print(f"\n{sum(unpaged.values())} input key(s) carry page: null and cannot collide "
-      f"on the first carrier.")
+print(f"  key→title       {len(by_unpaged):4} unpaged key(s), "
+      f"{len(found['key→title'])} carrying more than one title   "
+      f"({sum(unpaged.values())} unpaged inputs)")
+
+print(f"\n{sum(unpaged.values())} input key(s) carry page: null, so they cannot "
+      "collide on the first carrier.")
 print("An unpaged key is not a pass. It is a material nothing has identified, and\n"
       "identifying one is exactly what created the first alias this check caught.\n"
+      "THE SIXTH CARRIER SEES HALF OF WHAT THE FIRST CANNOT: one key written two\n"
+      "ways is an exact collision. Two different keys for one material is not, and\n"
+      "three keys name the two NEB PURExpress solutions today. Relating those is\n"
+      "identification, which is the job an unpaged key is waiting for.\n"
       "A carrier at zero is not a carrier that cannot fail: dir→title was at one\n"
       "the morning this was written.")
 
