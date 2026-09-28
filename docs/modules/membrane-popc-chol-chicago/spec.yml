@@ -1,4 +1,4 @@
-# Composition source for Chicago Base Membrane: POPC/Chol.
+# Composition source for Membrane: POPC/Chol (9:1).
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Reference
 # Composition` tabs stay for humans; this file is the contract for tooling, and
@@ -20,7 +20,7 @@
 # limit of the schema, not a claim about the bench.
 
 module: membrane-popc-chol-chicago
-title: "Chicago Base Membrane: POPC/Chol"
+title: "Membrane: POPC/Chol (9:1)"
 refines: membrane
 
 inputs:
@@ -44,7 +44,7 @@ process_steps:
     operands: [popc, cholesterol, liss-rhod-pe]
     produces:
       id: membrane-popc-chol-chicago
-      title: "Chicago Base Membrane: POPC/Chol"
+      title: "Membrane: POPC/Chol (9:1)"
       page: ../membrane-popc-chol-chicago/spec.md
     parameters:
       popc: "89.9% (mol), MW 760.076, 25 mg/mL stock, 41 uL"

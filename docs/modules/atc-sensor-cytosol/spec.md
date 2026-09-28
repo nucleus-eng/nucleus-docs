@@ -111,7 +111,7 @@ One molecule carries the operator and the effector, so [PLA1](../effector-pla1/s
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) — produces the Base Cytosol background.
 - Assemble Cytosol — the mixing step that adds the detector, effector and enzyme. Every constituent above enters the same compartment.
 
-This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) to form the [aTc Sensing Cell](../atc-sensing-cell/spec.md).
+This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) to form the [aTc Sensing Cell](../atc-sensing-cell/spec.md).
 
 :::{attention} No process page for the general mixing step
 @Editor(chicago): `Assemble Base Cytosol` documents the Base case, where the added component is water. No page documents the abstract mixing step that adds arbitrary aqueous components. Every combination step needs a Process page.

@@ -29,7 +29,7 @@ The distinguishing feature against the Chicago device is the analyte source: the
 | Role | Module | State |
 | --- | --- | --- |
 | Cytosol | [S30 Lysate](../../modules/s30-lysate/spec.md) | ★ |
-| Membrane | [London Membrane: POPC](../../modules/membrane-popc/spec.md) | ★ |
+| Membrane | [Membrane: POPC](../../modules/membrane-popc/spec.md) | ★ |
 | Chassis | [London Chassis](../../modules/london-chassis/spec.md) | ★ |
 | Sensing | [3OC6-HSL Detector](../../modules/detector-3oc6-hsl/spec.md) → [3OC6-HSL Sensing Cell](../../modules/ahsl-sensing-cell/spec.md) | characterized in lysate; leaky |
 | Lysis | [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) | ★ |

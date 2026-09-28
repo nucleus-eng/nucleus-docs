@@ -99,7 +99,7 @@ The cytosol itself is whichever the host configuration uses — [Base Cytosol](.
 <!-- composition-tabs: no-table (PLA1 acts on any phospholipid membrane in reach, so a single lipid table would be wrong) -->
 ::::{tab-item} Membrane
 
-PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module. The membranes it has been used with are [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) and [London Membrane: POPC](../membrane-popc/spec.md).
+PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module. The membranes it has been used with are [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) and [Membrane: POPC](../membrane-popc/spec.md).
 
 Both a self-lysis target and, in the two-liposome cascades, a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) membrane are required.
 
@@ -135,9 +135,9 @@ Account for both routes rather than assuming a liposome stays intact until the i
 (effector-pla1-requirements)=
 # Requirements
 
-Requires a phospholipid membrane to lyse (e.g. [London Membrane](../membrane-popc/spec.md), [Chicago Membrane](../membrane-popc-chol-chicago/spec.md)).
+Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)).
 
-**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbour's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago DevCell](../../implementations/chicago-devcell/main.md) carries the same [Chicago Membrane](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism, not a defect: a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
+**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbour's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago DevCell](../../implementations/chicago-devcell/main.md) carries the same [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism, not a defect: a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
 
 **PLA1 requires a low noise floor in whatever drives it**, and any color change module built on
 PLA1 inherits that requirement. Both Nodes met it independently on 2026-09-15, from opposite

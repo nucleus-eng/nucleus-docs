@@ -13,13 +13,13 @@ site:
 **Position.** Refines [`cell`](../cell/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Base Membrane](../membrane-popc-chol/spec.md) via [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The Base Cell is deployed in a glucose outer solution and represents the default synthetic cell for the Nucleus distribution. Base Cells have red fluorescent membranes (Liss-Rhod PE) and express GFP over time if functioning correctly.
+The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) via [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The Base Cell is deployed in a glucose outer solution and represents the default synthetic cell for the Nucleus distribution. Base Cells have red fluorescent membranes (Liss-Rhod PE) and express GFP over time if functioning correctly.
 
 :::{figure} schematic.png
 :width: 100%
 :align: center
 
-Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spec.md) encapsulated with [Base Membrane](/docs/modules/membrane-popc-chol/spec.md). Constitutive components of each module schematically depicted.
+Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spec.md) encapsulated with [Membrane: POPC/Chol (7:3)](/docs/modules/membrane-popc-chol/spec.md). Constitutive components of each module schematically depicted.
 :::
 
 # Reference Composition
@@ -32,7 +32,7 @@ Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spe
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    MEMBRANE_POPC_CHOL["Base Membrane"]
+    MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
 
     P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     BASE_CELL["Base Cell"]
@@ -92,7 +92,7 @@ The inner solution encapsulated into the Base Cell is [Base Cytosol](/docs/modul
 
 :::
 
-See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
+See [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 ::::
 
@@ -127,7 +127,7 @@ Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — inner solution, encapsulated at reaction concentration
-- [Base Membrane](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer
+- [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer
 
 # Credits
 

@@ -54,7 +54,7 @@ This is specific to PEG-norbornene. Agarose, alginate, and ULGA hydrogel embeddi
 
 :::
 
-See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the lipid source. This process uses a 9:1 POPC:cholesterol ratio, matching the Chicago colorimetric readout system's SUV composition, rather than the Base Membrane's default 70:29.95:0.05 POPC:cholesterol:Liss-Rhod PE ratio used for synthetic cells.
+See [Membrane: POPC/Chol (7:3)](../../modules/membrane-popc-chol/spec.md) for the lipid source. This process uses a 9:1 POPC:cholesterol ratio, matching the Chicago colorimetric readout system's SUV composition, rather than that module's default 70:29.95:0.05 POPC:cholesterol:Liss-Rhod PE ratio used for synthetic cells.
 
 ::::::
 

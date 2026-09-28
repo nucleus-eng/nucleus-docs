@@ -30,7 +30,7 @@ The theophylline riboswitch expresses its effector without theophylline present,
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
-    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     THEOPHYLLINE_SENSOR_CYTOSOL["Theophylline Sensor Cytosol"]
@@ -113,7 +113,7 @@ Every result below was nonetheless produced with `pT7-theophylline-LacZ`, the on
 
 ::::{tab-item} Membrane
 
-:::{table} Synthetic cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:::{table} Synthetic cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 :label: comp-theov-membrane
 
 | Component | Target percentage (%) |
@@ -185,7 +185,7 @@ Not used in a documented Implementation. The [Chicago DevCell](../../implementat
 # Constituent Modules
 
 - [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) mixed with the [Theophylline Sensing Module](../detector-theophylline/spec.md)
-- [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 **The cytosol is composed before encapsulation, not added to a closed chassis.** The intermediate that names that composition got its page on 2026-09-21, and this section links it above. An editorial hook asking for that link once stood here and is resolved.
 

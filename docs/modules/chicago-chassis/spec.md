@@ -12,7 +12,7 @@ site:
 **Position.** Refines [`cell`](../cell/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The Chicago Chassis is used for the Chicago Node's DevStudio Demo and combines [Base Cytosol](../base-cytosol/spec.md) with the [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) (9:1 POPC:cholesterol). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [Theophylline Sensing Module](../detector-theophylline/spec.md) driving the [PLA1 Lysis Module](../effector-pla1/spec.md), giving the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md)).
+The Chicago Chassis is used for the Chicago Node's DevStudio Demo and combines [Base Cytosol](../base-cytosol/spec.md) with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) (9:1 POPC:cholesterol). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [Theophylline Sensing Module](../detector-theophylline/spec.md) driving the [PLA1 Lysis Module](../effector-pla1/spec.md), giving the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -29,7 +29,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
 
     P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     CHICAGO_CHASSIS["Chicago Chassis"]
@@ -88,7 +88,7 @@ Below is an approximate composition table for the cytosolic components in the Ch
 
 :::
 
-Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) for the full membrane spec and the SUV preparation.
+Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) for the full membrane spec and the SUV preparation.
 
 ::::
 
@@ -125,7 +125,7 @@ The chassis is formed by encapsulating [Base Cytosol](../base-cytosol/spec.md) i
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md)
-- [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md)
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)
 
 # Implementations
 

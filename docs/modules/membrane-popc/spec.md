@@ -1,5 +1,5 @@
 ---
-title: "London Membrane: POPC"
+title: "Membrane: POPC"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The London Membrane uses a pure POPC bilayer without cholesterol and is used for every synthetic cell in the London demo. Compare to [Base Membrane](../membrane-popc-chol/spec.md) (70:30 POPC:cholesterol) and [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) (90:10 POPC:cholesterol), which include cholesterol. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
+This membrane is a pure POPC bilayer with no cholesterol, used for every synthetic cell in the London demo. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md), which both include cholesterol. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -32,7 +32,7 @@ flowchart TD
     DSPE_PEG2000["DSPE-PEG2000"]
 
     P1_FORM_PEGYLATED_FILM_0(["Encapsulation: Phase Transfer (mixing)"])
-    MEMBRANE_POPC["London Membrane: POPC"]
+    MEMBRANE_POPC["Membrane: POPC"]
 
     POPC --> P1_FORM_PEGYLATED_FILM_0
     DSPE_PEG2000 --> P1_FORM_PEGYLATED_FILM_0
@@ -55,7 +55,7 @@ flowchart TD
 
 ::::{tab-item} Lipid Composition
 
-:::{table} London Membrane lipids.
+:::{table} Membrane: POPC lipids.
 :label: comp-membrane-popc-base
 
 | Component                    | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Notes                |
@@ -98,7 +98,7 @@ One record gives the 18:1 Cyanine 5 PC stock as **25 mg/mL**. At 25 mg/mL the vo
 
 # Expected Behavior
 
-The London Membrane is used in all synthetic cell preps in the London Demo. This membrane module can be used generally to encapsulate Cytosolic modules. See [London Chassis](../london-chassis/spec.md) for more information.
+This membrane is used in all synthetic cell preps in the London Demo. This membrane module can be used generally to encapsulate Cytosolic modules. See [London Chassis](../london-chassis/spec.md) for more information.
 
 # Processes
 

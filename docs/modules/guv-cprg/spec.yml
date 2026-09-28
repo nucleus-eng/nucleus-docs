@@ -24,7 +24,7 @@ refines: substrate-carrier
 
 inputs:
   membrane-popc:
-    title: "London Membrane: POPC"
+    title: "Membrane: POPC"
     page: ../membrane-popc/spec.md
   substrate-cprg:
     title: "Substrate: CPRG"

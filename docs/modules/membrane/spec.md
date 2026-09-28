@@ -32,9 +32,9 @@ This page is a work in progress and not yet ready for use.
 :::{table} The three members.
 | Member | Lipids | Node |
 | --- | --- | --- |
-| [London Membrane: POPC](../membrane-popc/spec.md) | POPC with DSPE-PEG2000 | London |
-| [Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md) | POPC with cholesterol | shared |
-| [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) | POPC with cholesterol and Liss Rhod PE | Chicago |
+| [Membrane: POPC](../membrane-popc/spec.md) | POPC with DSPE-PEG2000 | London |
+| [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) | POPC with cholesterol | shared |
+| [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) | POPC with cholesterol and Liss Rhod PE | Chicago |
 :::
 
 :::{attention} A Pore is not a member of this class

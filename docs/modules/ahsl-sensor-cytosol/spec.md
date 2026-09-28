@@ -101,7 +101,7 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 
 - [Assemble Cytosol](../../processes/assemble-base-cytosol/main.md) — the mixing step that produces this Module. Every constituent above enters the same compartment.
 
-This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [London Membrane](../membrane-popc/spec.md) to form the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md).
+This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC](../membrane-popc/spec.md) to form the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md).
 
 # Credits
 

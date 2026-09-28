@@ -1,4 +1,4 @@
-# Composition source for Base Membrane: POPC/Chol.
+# Composition source for Membrane: POPC/Chol (7:3).
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Reference
 # Composition` table stays for humans; this file is the contract for tooling, and
@@ -16,7 +16,7 @@
 # operation?".
 
 module: membrane-popc-chol
-title: "Base Membrane: POPC/Chol"
+title: "Membrane: POPC/Chol (7:3)"
 refines: membrane
 
 inputs:
@@ -40,7 +40,7 @@ process_steps:
     operands: [popc, cholesterol, liss-rhod-pe]
     produces:
       id: membrane-popc-chol
-      title: "Base Membrane: POPC/Chol"
+      title: "Membrane: POPC/Chol (7:3)"
       page: ../membrane-popc-chol/spec.md
     parameters:
       popc: "70% (mol), MW 760.076, 25 mg/mL stock, 162.17 uL"

@@ -37,7 +37,7 @@ The London Node moved this population from small unilamellar vesicles to GUVs on
 
 ```mermaid
 flowchart TD
-    MEMBRANE_POPC["London Membrane: POPC"]
+    MEMBRANE_POPC["Membrane: POPC"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
     P1_ENCAPSULATE_CPRG_0(["Encapsulation: Phase Transfer (packing)"])
@@ -66,7 +66,7 @@ flowchart TD
 
 ::::{tab-item} Membrane
 
-:::{table} CPRG GUV bilayer — [London Membrane: POPC](../membrane-popc/spec.md).
+:::{table} CPRG GUV bilayer — [Membrane: POPC](../membrane-popc/spec.md).
 :label: comp-guv-cprg-membrane
 
 | Component | Target percentage (%) |
@@ -132,7 +132,7 @@ CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules 
 
 # Constituent Modules
 
-- [London Membrane: POPC](../membrane-popc/spec.md) — the bilayer, taken at 100% POPC to match the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md)
+- [Membrane: POPC](../membrane-popc/spec.md) — the bilayer, taken at 100% POPC to match the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md)
 - [Substrate: CPRG](../substrate-cprg/spec.md) — the lumen, 50 mM at hydration
 
 # Credits

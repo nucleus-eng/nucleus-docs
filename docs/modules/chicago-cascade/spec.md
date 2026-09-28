@@ -39,7 +39,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
-    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
     EFFECTOR_PLA1["Effector: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
@@ -192,7 +192,7 @@ Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](http
 
 **All three populations carry the same membrane.** Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), and the Substrate SUV uses the same lipid composition, so one table covers the aTc Sensing Cell, the pH Sensing Cell and the Substrate SUV alike. That identity is load-bearing — see [Requirements](#chicago-cascade-requirements).
 
-:::{table} Synthetic cell and SUV membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:::{table} Synthetic cell and SUV membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 :label: comp-chicago-cascade-membrane
 
 | Component | Target percentage (%) |

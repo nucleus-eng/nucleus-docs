@@ -40,7 +40,7 @@ inputs:
     page: null            # @Editor(chicago): contents not recorded
 
   membrane-chicago:
-    title: "Chicago Membrane: POPC/Chol"
+    title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-chicago/spec.md
   effector-pla1:
     title: "Effector: PLA1"

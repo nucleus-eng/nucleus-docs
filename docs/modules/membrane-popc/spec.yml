@@ -1,4 +1,4 @@
-# Composition source for London Membrane: POPC.
+# Composition source for Membrane: POPC.
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Reference
 # Composition` tabs stay for humans; this file is the contract for tooling, and
@@ -19,7 +19,7 @@
 # schema, not a claim about the bench.
 
 module: membrane-popc
-title: "London Membrane: POPC"
+title: "Membrane: POPC"
 refines: membrane
 
 inputs:
@@ -39,7 +39,7 @@ process_steps:
     operands: [popc, dspe-peg2000]
     produces:
       id: membrane-popc
-      title: "London Membrane: POPC"
+      title: "Membrane: POPC"
       page: ../membrane-popc/spec.md
     parameters:
       target_composition: "99.15 mol% POPC : 0.85 mol% DSPE-PEG2000"

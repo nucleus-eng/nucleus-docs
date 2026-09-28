@@ -27,7 +27,7 @@ inputs:
     title: "Cytosol: S30 Lysate"
     page: ../s30-lysate/spec.md
   membrane-popc:
-    title: "London Membrane"
+    title: "Membrane: POPC"
     page: ../membrane-popc/spec.md
 
 process_steps:

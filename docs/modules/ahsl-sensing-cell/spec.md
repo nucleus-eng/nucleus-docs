@@ -31,7 +31,7 @@ flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
     DETECTOR_3OC6_HSL["3OC6-HSL Detector Module"]
     EFFECTOR_PLA1["PLA1 Lysis Module"]
-    MEMBRANE_POPC["London Membrane"]
+    MEMBRANE_POPC["Membrane: POPC"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     AHSL_SENSOR_CYTOSOL["3OC6-HSL Sensor Cytosol"]
@@ -110,7 +110,7 @@ The inner solution is [S30 Lysate](../s30-lysate/spec.md) at reaction concentrat
 
 :::
 
-See [London Membrane: POPC](../membrane-popc/spec.md) for details.
+See [Membrane: POPC](../membrane-popc/spec.md) for details.
 
 ::::
 
@@ -173,7 +173,7 @@ Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate
 
 Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)).
 
-Requires a membrane permeable to 3OC6-HSL (e.g. [London Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
+Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
 
 # Implementations
 
@@ -191,7 +191,7 @@ Requires a membrane permeable to 3OC6-HSL (e.g. [London Membrane: POPC](../membr
 # Constituent Modules
 
 - [3OC6-HSL Sensor Cytosol](../ahsl-sensor-cytosol/spec.md) — [S30 Lysate](../s30-lysate/spec.md) carrying the LuxR/3OC6-HSL sensing construct and the PLA1 effector on the same molecule
-- [London Membrane: POPC](../membrane-popc/spec.md)
+- [Membrane: POPC](../membrane-popc/spec.md)
 
 # Credits
 

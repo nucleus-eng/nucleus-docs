@@ -32,7 +32,7 @@ flowchart TD
     PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
     TRIGGER_SSDNA["Trigger ssDNA"]
     EFFECTOR_PLA1["Effector: PLA1"]
-    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
 
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
@@ -111,7 +111,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 ::::{tab-item} Membrane
 
-:::{table} The [Chicago Membrane](../membrane-popc-chol-chicago/spec.md).
+:::{table} The [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 :label: comp-sensing-cell-membrane
 
 | Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) |
@@ -130,7 +130,7 @@ See each Module's spec for its own reference composition and requirements.
 (ph-sensing-cell-expected-behavior)=
 # Expected Behavior
 
-The pH Sensing Cell is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Chicago Membrane — in solution. Neither has been embedded into a hydrogel.
+The pH Sensing Cell is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Membrane: POPC/Chol (9:1) — in solution. Neither has been embedded into a hydrogel.
 
 ## Cells
 
@@ -175,7 +175,7 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 # Constituent Modules
 
 - [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
-- [Chicago Membrane](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 # Implementations
 

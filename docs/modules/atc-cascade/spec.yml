@@ -29,7 +29,7 @@ inputs:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
   membrane-chicago:
-    title: "Chicago Membrane: POPC/Chol"
+    title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-chicago/spec.md
   substrate-cprg:
     title: "Substrate: CPRG"

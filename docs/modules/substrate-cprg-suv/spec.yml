@@ -24,7 +24,7 @@ refines: substrate-carrier
 
 inputs:
   membrane-popc-chol-chicago:
-    title: "Chicago Base Membrane: POPC/Chol"
+    title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-chicago/spec.md
   substrate-cprg:
     title: "Substrate: CPRG"
@@ -51,7 +51,7 @@ process_steps:
       storage_before_use: "on ice or at 4 C, until combining with Sensing Cells and LacZ"
     notes: >
       The bilayer figures reconcile against the extrusion route recorded in the
-      Chicago Membrane source, which gives the same 208.51 uL POPC and 6.00 uL
+      Membrane: POPC/Chol (9:1) source, which gives the same 208.51 uL POPC and 6.00 uL
       cholesterol and no dye. The odd extrusion count is not a preference: an even
       number ends with unextruded material retained in the final syringe.
 

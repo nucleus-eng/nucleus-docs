@@ -38,7 +38,7 @@ flowchart TD
     PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
     TRIGGER_SSDNA["Trigger ssDNA"]
     EFFECTOR_PLA1["Effector: PLA1"]
-    MEMBRANE_CHICAGO["Chicago Membrane: POPC/Chol"]
+    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     LGA_POWDER["LGA powder, 0.7%"]
@@ -146,7 +146,7 @@ The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsula
 | Base Cytosol components | At reaction concentration; not separately documented for this pairing |
 :::
 
-:::{table} pH Sensing Cell membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:::{table} pH Sensing Cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 :label: comp-ph-cascade-sensing-membrane
 
 | Component | Target percentage (%) |
@@ -170,7 +170,7 @@ A second liposome population carrying the chromogenic substrate. See [Substrate 
 | CPRG substrate | Not documented at a reaction concentration for this two-liposome pairing |
 :::
 
-:::{table} Substrate SUV membrane — [Chicago Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md).
+:::{table} Substrate SUV membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 :label: comp-ph-cascade-suv-membrane
 
 | Component | Target percentage (%) |

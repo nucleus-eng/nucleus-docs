@@ -90,7 +90,7 @@ Carried over from [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-exp
 (membrane-pore-gramicidin-requirements)=
 # Requirements
 
-Requires a membrane (e.g. [Base Membrane](../membrane-popc-chol/spec.md)) to insert into.
+Requires a membrane (e.g. [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md)) to insert into.
 
 **Requires that nothing in the same compartment depends on retaining a small cation**, which is the general form of the lysis finding above.
 

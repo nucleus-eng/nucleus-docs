@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
-    MEMBRANE_POPC_CHOL_CHICAGO["Chicago Base Membrane: POPC/Chol"]
+    MEMBRANE_POPC_CHOL_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
     P1_HYDRATE_AND_EXTRUDE_0(["Encapsulation: SUV (packing)"])
@@ -70,7 +70,7 @@ flowchart TD
 
 :::
 
-See [Chicago Membrane](../membrane-popc-chol-chicago/spec.md).
+See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 
 ::::
 
@@ -154,7 +154,7 @@ The two methods leave different residual-substrate profiles, and residual free C
 
 # Constituent Modules
 
-- [Chicago Base Membrane: POPC/Chol](../membrane-popc-chol-chicago/spec.md) — the bilayer, 90:10 POPC:cholesterol by its extrusion route
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — the bilayer, 90:10 POPC:cholesterol by its extrusion route
 - [Substrate: CPRG](../substrate-cprg/spec.md) — the lumen, 50 mM at hydration
 
 # Credits

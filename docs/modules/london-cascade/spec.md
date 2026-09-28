@@ -27,7 +27,7 @@ flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
     DETECTOR_3OC6_HSL["3OC6-HSL Detector Module"]
     EFFECTOR_PLA1["PLA1 Lysis Module"]
-    MEMBRANE_POPC["London Membrane"]
+    MEMBRANE_POPC["Membrane: POPC"]
     SUBSTRATE_CPRG["CPRG Substrate"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     ULGA_POWDER["ULGA powder"]
@@ -130,12 +130,12 @@ The [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), carrying `LuxR-PLA1` 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [3OC6-HSL Sensor Cytosol](../ahsl-sensor-cytosol/spec.md) | S30 Lysate at reaction concentration | Transcription and translation. Composed before encapsulation, not added to a closed chassis |
-| [London Membrane: POPC](../membrane-popc/spec.md) | 100% POPC | Closes the cytosol in one encapsulation step |
+| [Membrane: POPC](../membrane-popc/spec.md) | 100% POPC | Closes the cytosol in one encapsulation step |
 | [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-PLA1` plasmid at 15 ng/µL final | The payload swap. The Sensing Cell carries `LuxR-deGFP` at 37 ng/µL instead. LuxR is not supplied separately — it is on this same molecule, under a constitutive promoter. |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by `LuxR-PLA1` | PLA1 is expressed from the plasmid above, not supplied separately. |
 :::
 
-:::{table} 3OC6-HSL Sensing Cell membrane — [London Membrane: POPC](../membrane-popc/spec.md).
+:::{table} 3OC6-HSL Sensing Cell membrane — [Membrane: POPC](../membrane-popc/spec.md).
 :label: comp-london-cascade-sensing-membrane
 
 | Component | Target percentage (%) |
@@ -159,7 +159,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | CPRG substrate | 50 mM at hydration, approx. 30 mg/mL — per [Substrate: CPRG](../substrate-cprg/spec.md) |
 :::
 
-:::{table} Substrate liposome membrane — [London Membrane: POPC](../membrane-popc/spec.md).
+:::{table} Substrate liposome membrane — [Membrane: POPC](../membrane-popc/spec.md).
 :label: comp-london-cascade-suv-membrane
 
 | Component | Target percentage (%) |

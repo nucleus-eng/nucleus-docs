@@ -141,7 +141,7 @@ Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production
 
 # Requirements
 
-Using purified aHly protein only requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+Using purified aHly protein only requires a membrane (e.g., [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md)). Using DNA (e.g., `pT7-aHly`) additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
 Passes molecules up to ~3 kDa, through an inner diameter of (1.6–4.6) nm. A payload well above that mass needs a different transport route. This is the figure that governs a swap to [Cx43](../membrane-pore-cx43/spec.md), which passes only ~1 kDa — the alternative recommended above is the more restrictive pore, not an equivalent one.
 

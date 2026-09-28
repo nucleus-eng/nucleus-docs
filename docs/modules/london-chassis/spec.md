@@ -27,7 +27,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
-    MEMBRANE_POPC["London Membrane"]
+    MEMBRANE_POPC["Membrane: POPC"]
 
     P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     LONDON_CHASSIS["London Chassis"]
@@ -73,9 +73,9 @@ The inner solution encapsulated into the London Chassis is [S30 Lysate](../s30-l
 
 ::::{tab-item} Membrane
 
-The membrane is the [London Membrane](../membrane-popc/spec.md) (100% POPC), optionally functionalized with red fluorescent Cyanine 5 PC, or DSPE-PEG2000. The two optional lipids come from two separate documented preparations and are not combined in one membrane.
+The membrane is the [Membrane: POPC](../membrane-popc/spec.md) (100% POPC), optionally functionalized with red fluorescent Cyanine 5 PC, or DSPE-PEG2000. The two optional lipids come from two separate documented preparations and are not combined in one membrane.
 
-:::{table} London Membrane preparations, as documented on the [London Membrane](../membrane-popc/spec.md) spec.
+:::{table} Membrane: POPC preparations, as documented on the [Membrane: POPC](../membrane-popc/spec.md) spec.
 :label: comp-london-membrane
 
 | Preparation                    | Target composition (mol %)     | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |
@@ -123,7 +123,7 @@ Cell size is recorded only as the ≥5 µm cutoff used for counting. @Editor(lon
 
 # Requirements
 
-Requires a membrane to encapsulate the cytosol (e.g. [London Membrane: POPC](../membrane-popc/spec.md)).
+Requires a membrane to encapsulate the cytosol (e.g. [Membrane: POPC](../membrane-popc/spec.md)).
 
 # Processes
 
@@ -134,7 +134,7 @@ The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a 
 # Constituent Modules
 
 - [S30 Lysate](../s30-lysate/spec.md)
-- [London Membrane: POPC](../membrane-popc/spec.md)
+- [Membrane: POPC](../membrane-popc/spec.md)
 
 # Implementations
 

@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-popc-chol/spec.md) and use a simple, glucose outer solution. Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation and microscopy. This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
+Dye Liposomes encapsulate HPTS dye in  [Membrane: POPC/Chol (7:3)](/docs/modules/membrane-popc-chol/spec.md) and use a simple, glucose outer solution. Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation and microscopy. This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
 
 # Reference Composition
 
@@ -21,7 +21,7 @@ Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-po
 ```mermaid
 flowchart TD
     HPTS["HPTS dye solution"]
-    MEMBRANE_POPC_CHOL["Base Membrane"]
+    MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
 
     P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     DYE_LIPOSOMES["Dye Liposomes"]
@@ -74,7 +74,7 @@ flowchart TD
 
 :::
 
-See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
+See [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) for the full membrane spec.
 ::::
 
 ::::{tab-item} Outer Solution
@@ -127,7 +127,7 @@ Sucrose is used in the original [Build a Cell liposome kit](https://github.com/B
 
 # Constituent Modules
 
-- [Base Membrane](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer encapsulating the HPTS dye solution
+- [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer encapsulating the HPTS dye solution
 
 # Credits
 

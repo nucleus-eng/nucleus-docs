@@ -44,7 +44,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
 | Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
-| Membrane | [Chicago Membrane: POPC/Chol](./membrane-popc-chol-chicago/spec.md) | ★ |
+| Membrane | [Membrane: POPC/Chol (9:1)](./membrane-popc-chol-chicago/spec.md) | ★ |
 | Cell (Chassis) | [Chicago Chassis](./chicago-chassis/spec.md) | ★ |
 | Cell (Sensing) | [aTc Sensing Cell](./atc-sensing-cell/spec.md) | ★ |
 | Cell (Sensing) | [Theophylline Sensing Cell](./theophylline-sensing-cell/spec.md) | ★ |
@@ -88,7 +88,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Detector | [3OC6-HSL](./detector-3oc6-hsl/spec.md) | ★ |
 | Detector | [Detector](./detector/spec.md) | - |
 | Detector | [Repressor Detector](./repressor-detector/spec.md) | - |
-| Membrane | [London Membrane: POPC](./membrane-popc/spec.md) | ★ |
+| Membrane | [Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Membrane | [Membrane](./membrane/spec.md) | - |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
 | Cell (Sensing) | [3OC6-HSL Sensing Cell](./ahsl-sensing-cell/spec.md) | ★ |

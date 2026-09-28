@@ -91,7 +91,7 @@ member has an exception and no member has a third operand.
 :::{table} Every member ends in the same step.
 | Member | Cytosol | Membrane |
 | --- | --- | --- |
-| [Base Cell](../base-cell/spec.md) | Base Cytosol | Base Membrane |
+| [Base Cell](../base-cell/spec.md) | Base Cytosol | Membrane: POPC/Chol (7:3) |
 | [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) | 3OC6-HSL Sensor Cytosol | POPC |
 | [aTc Sensing Cell](../atc-sensing-cell/spec.md) | aTc Sensor Cytosol | Chicago |
 | [pH Sensing Cell](../ph-sensing-cell/spec.md) | pH Sensor Cytosol | Chicago |

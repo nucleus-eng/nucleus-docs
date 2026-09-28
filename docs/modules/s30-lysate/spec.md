@@ -90,7 +90,7 @@ Confirmed with the London Node, 2026-09-09: **S30 Lysate requires circular DNA.*
 Each London construct exists in both presentations. The linear form is the expression cassette alone, used in [Base Cytosol](../base-cytosol/spec.md); the circular form is that same cassette in a pOpen backbone, and is what goes into an S30 reaction. **They are functionally equivalent but not sequence-identical**, so a page citing one is not citing the other — see [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md).
 :::
 
-For encapsulated use, additionally requires a membrane (e.g. [London Membrane](../membrane-popc/spec.md)).
+For encapsulated use, additionally requires a membrane (e.g. [Membrane: POPC](../membrane-popc/spec.md)).
 
 Not compatible with Optiprep in the inner solution above ~5%; use sucrose for density matching instead (e.g. [London Chassis](../london-chassis/spec.md)).
 

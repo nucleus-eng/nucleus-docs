@@ -1,5 +1,5 @@
 ---
-title: "Base Membrane: POPC/Chol"
+title: "Membrane: POPC/Chol (7:3)"
 subtitle: "Module Specification"
 thumbnail: schematic.png
 site:
@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The Base Membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE). The Base Membrane is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+This membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE). It is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
 :::{figure} schematic.png
 :width: 50%
@@ -36,7 +36,7 @@ flowchart TD
     LISS_RHOD_PE["Liss-Rhod PE"]
 
     P1_FORM_LIPID_FILM_0(["Encapsulation: Phase Transfer (mixing)"])
-    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
+    MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
 
     POPC --> P1_FORM_LIPID_FILM_0
     CHOLESTEROL --> P1_FORM_LIPID_FILM_0
@@ -73,7 +73,7 @@ flowchart TD
 
 # Expected Behavior
 
-The behavior of Base Membrane is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
+The behavior of Membrane: POPC/Chol (7:3) is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
 
 # Processes
 

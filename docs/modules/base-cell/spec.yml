@@ -19,7 +19,7 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   membrane-popc-chol:
-    title: "Base Membrane"
+    title: "Membrane: POPC/Chol (7:3)"
     page: ../membrane-popc-chol/spec.md
 
 process_steps:

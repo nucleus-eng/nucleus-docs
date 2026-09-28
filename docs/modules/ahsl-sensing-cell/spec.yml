@@ -26,7 +26,7 @@ inputs:
     title: "PLA1 Lysis Module"
     page: ../effector-pla1/spec.md
   membrane-popc:
-    title: "London Membrane"
+    title: "Membrane: POPC"
     page: ../membrane-popc/spec.md
 
 process_steps:
