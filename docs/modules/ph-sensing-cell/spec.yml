@@ -1,4 +1,4 @@
-# Composition source for the pH Sensing Cell.
+# Composition source for the SensorCell[pH ⟶ PLA1].
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Constituent
 # Modules` prose stays for humans; this file is the contract for tooling, and
@@ -12,7 +12,7 @@
 # Cell builds them.
 
 module: ph-sensing-cell
-title: pH Sensing Cell
+title: SensorCell[pH ⟶ PLA1]
 refines: sensing-cell
 
 inputs:
@@ -53,7 +53,7 @@ process_steps:
     operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
     produces:
       id: ph-sensor-cytosol
-      title: "pH Sensor Cytosol"
+      title: "SensorCytosol[pH ⟶ PLA1]"
       page: ../ph-sensor-cytosol/spec.md
 
   - id: encapsulate
@@ -64,7 +64,7 @@ process_steps:
     operands: [ph-sensor-cytosol, membrane-chicago]
     produces:
       id: ph-sensing-cell
-      title: "pH Sensing Cell"
+      title: "SensorCell[pH ⟶ PLA1]"
       page: ../ph-sensing-cell/spec.md
     notes: >
       The cytosol is composed before encapsulation, not added to a closed

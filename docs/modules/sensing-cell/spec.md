@@ -70,9 +70,9 @@ four**, and the final step is the same step in all four.
 :::{table} What varies is the membrane, not the shape.
 | Member | Sensor cytosol | Membrane |
 | --- | --- | --- |
-| [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) | 3OC6-HSL | [POPC](../membrane-popc/spec.md) |
-| [aTc Sensing Cell](../atc-sensing-cell/spec.md) | aTc | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
-| [pH Sensing Cell](../ph-sensing-cell/spec.md) | pH | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
+| [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) | 3OC6-HSL | [POPC](../membrane-popc/spec.md) |
+| [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) | aTc | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
+| [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) | pH | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
 | [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) | Theophylline | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
 :::
 

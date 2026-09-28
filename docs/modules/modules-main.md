@@ -46,13 +46,13 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
 | Membrane | [Membrane: POPC/Chol (9:1)](./membrane-popc-chol-chicago/spec.md) | ★ |
 | Cell (Chassis) | [Chicago Chassis](./chicago-chassis/spec.md) | ★ |
-| Cell (Sensing) | [aTc Sensing Cell](./atc-sensing-cell/spec.md) | ★ |
+| Cell (Sensing) | [SensorCell[aTc ⟶ PLA1]](./atc-sensing-cell/spec.md) | ★ |
 | Cell (Sensing) | [Theophylline Sensing Cell](./theophylline-sensing-cell/spec.md) | ★ |
 | Detector | [Theophylline](./detector-theophylline/spec.md) | ★ |
 | Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
-| Cell (Sensing) | [pH Sensing Cell](./ph-sensing-cell/spec.md) | ★ |
-| Cytosol (Sensor) | [aTc Sensor Cytosol](./atc-sensor-cytosol/spec.md) | ★ |
-| Cytosol (Sensor) | [pH Sensor Cytosol](./ph-sensor-cytosol/spec.md) | ★ |
+| Cell (Sensing) | [SensorCell[pH ⟶ PLA1]](./ph-sensing-cell/spec.md) | ★ |
+| Cytosol (Sensor) | [SensorCytosol[aTc ⟶ PLA1]](./atc-sensor-cytosol/spec.md) | ★ |
+| Cytosol (Sensor) | [SensorCytosol[pH ⟶ PLA1]](./ph-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [pH Cascade](./ph-cascade/spec.md) | ★ |
 | Cell (Cascade) | [aTc Cascade](./atc-cascade/spec.md) | ★ |
 | Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
@@ -91,8 +91,8 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Membrane | [Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Membrane | [Membrane](./membrane/spec.md) | - |
 | Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
-| Cell (Sensing) | [3OC6-HSL Sensing Cell](./ahsl-sensing-cell/spec.md) | ★ |
-| Cytosol (Sensor) | [3OC6-HSL Sensor Cytosol](./ahsl-sensor-cytosol/spec.md) | ★ |
+| Cell (Sensing) | [SensorCell[3OC6-HSL ⟶ PLA1]](./ahsl-sensing-cell/spec.md) | ★ |
+| Cytosol (Sensor) | [SensorCytosol[3OC6-HSL ⟶ PLA1]](./ahsl-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
 | Gel | [ULGA](./gel-ulga/spec.md) | ★ |
 | Gel | [LGA](./gel-lga/spec.md) | - |

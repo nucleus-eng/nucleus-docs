@@ -54,10 +54,10 @@ flowchart TD
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     OUTER_SOLUTION_CHICAGO["Chicago Outer Solution"]
     P2_ASSEMBLE_ATC_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
+    ATC_SENSOR_CYTOSOL["SensorCytosol[aTc ⟶ PLA1]"]
     P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
-    ATC_SENSING_CELL["aTc Sensing Cell"]
+    ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
     P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel: PEG-Norbornene (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
@@ -65,9 +65,9 @@ flowchart TD
     P6_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P7_ASSEMBLE_PH_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+    PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
     P8_ENCAPSULATE_PH_0(["Encapsulation: Phase Transfer (packing)"])
-    PH_SENSING_CELL["pH Sensing Cell"]
+    PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
     P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
     P10_EMBED_AGAROSE_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
@@ -175,7 +175,7 @@ flowchart TD
 The constructs are those of the two integration paths; no construct is specific to the merge.
 
 :::{attention} Constructs not yet in `nucleus-eng/DNA`
-Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. `TetO-PLA1` carries the same gap where it is specified, on [aTc Sensing Cell](../atc-sensing-cell/spec.md). The toehold-switch-gated template is not separately recorded, and whether it is one of the two constructs listed on [Effector: PLA1](../effector-pla1/spec.md) or a third design is not established — do not assume it from the name. Do not add a length or file entry here until each construct is confirmed and its length verified against the source file.
+Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. `TetO-PLA1` carries the same gap where it is specified, on [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md). The toehold-switch-gated template is not separately recorded, and whether it is one of the two constructs listed on [Effector: PLA1](../effector-pla1/spec.md) or a third design is not established — do not assume it from the name. Do not add a length or file entry here until each construct is confirmed and its length verified against the source file.
 :::
 
 :::{table}
@@ -190,7 +190,7 @@ Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](http
 
 ::::{tab-item} Membrane
 
-**All three populations carry the same membrane.** Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), and the Substrate SUV uses the same lipid composition, so one table covers the aTc Sensing Cell, the pH Sensing Cell and the Substrate SUV alike. That identity is load-bearing — see [Requirements](#chicago-cascade-requirements).
+**All three populations carry the same membrane.** Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), and the Substrate SUV uses the same lipid composition, so one table covers the SensorCell[aTc ⟶ PLA1], the SensorCell[pH ⟶ PLA1] and the Substrate SUV alike. That identity is load-bearing — see [Requirements](#chicago-cascade-requirements).
 
 :::{table} Synthetic cell and SUV membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 :label: comp-chicago-cascade-membrane
@@ -204,11 +204,11 @@ Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](http
 
 ::::
 
-::::{tab-item} aTc Sensing Cell
+::::{tab-item} SensorCell[aTc ⟶ PLA1]
 
 The aTc integration path uses one liposome population. It carries its own LacZ, but not the CPRG that LacZ acts on — that stays in the outer solution, so lysis is what produces color.
 
-:::{table} aTc Sensing Cell cytosol — as on [aTc Cascade](../atc-cascade/spec.md#atc-cascade-reference-composition).
+:::{table} SensorCell[aTc ⟶ PLA1] cytosol — as on [aTc Cascade](../atc-cascade/spec.md#atc-cascade-reference-composition).
 :label: comp-chicago-cascade-atc-cell
 
 | Component | Working concentration |
@@ -221,11 +221,11 @@ The aTc integration path uses one liposome population. It carries its own LacZ, 
 
 ::::
 
-::::{tab-item} pH Sensing Cell
+::::{tab-item} SensorCell[pH ⟶ PLA1]
 
 The pH integration path is two compartments. This population carries sensing and lysis only; its substrate is in the Substrate SUV and its LacZ is in the outer solution.
 
-:::{table} pH Sensing Cell cytosol — as on [pH Cascade](../ph-cascade/spec.md#ph-cascade-reference-composition).
+:::{table} SensorCell[pH ⟶ PLA1] cytosol — as on [pH Cascade](../ph-cascade/spec.md#ph-cascade-reference-composition).
 :label: comp-chicago-cascade-ph-cell
 
 | Component | Working concentration |
@@ -320,7 +320,7 @@ Every step below has a Process page. They are listed in the order they are perfo
 
 **aTc integration path**
 
-2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the aTc Sensing Cell, carrying `TetO-PLA1`, TetR and LacZ in one compartment.
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the SensorCell[aTc ⟶ PLA1], carrying `TetO-PLA1`, TetR and LacZ in one compartment.
 
 **pH integration path**
 

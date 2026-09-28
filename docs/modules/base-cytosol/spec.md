@@ -241,7 +241,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 :::
 
 :::{note} RNase inhibitor is a range, not a fixed value
-Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. A page that names one value inside that range is recording a choice, not a requirement — [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) uses 1000 U/mL, and [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) adds 0.5 µL per 10 µL reaction.
+Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. A page that names one value inside that range is recording a choice, not a requirement — [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) uses 1000 U/mL, and [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) adds 0.5 µL per 10 µL reaction.
 :::
 
 ::::

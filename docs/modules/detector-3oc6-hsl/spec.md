@@ -15,7 +15,7 @@ site:
 
 The 3OC6-HSL Detector module is a LuxR/pLux genetic sensor that detects the _E. coli_ quorum-sensing molecule 3-oxohexanoyl-L-homoserine lactone or 3OC6-HSL. LuxR binds 3OC6-HSL and activates the pLux promoter, driving expression of a downstream effector gene (e.g., [deGFP](../reporter-degfp/spec.md)). 
 
-This Module is composed into the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), driving GFP expression, and the [London Cascade](../london-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
+This Module is composed into the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), driving GFP expression, and the [London Cascade](../london-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

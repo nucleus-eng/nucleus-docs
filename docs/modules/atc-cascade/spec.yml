@@ -75,7 +75,7 @@ process_steps:
     operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
     produces:
       id: atc-sensor-cytosol
-      title: "aTc Sensor Cytosol"
+      title: "SensorCytosol[aTc ⟶ PLA1]"
       page: ../atc-sensor-cytosol/spec.md
 
   - id: encapsulate
@@ -104,7 +104,7 @@ process_steps:
     operands: [atc-sensor-cytosol, membrane-chicago]
     produces:
       id: atc-sensing-cell
-      title: "aTc Sensing Cell"
+      title: "SensorCell[aTc ⟶ PLA1]"
       page: ../atc-sensing-cell/spec.md
 
   - id: photodevelop-gel

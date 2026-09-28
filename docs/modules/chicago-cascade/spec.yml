@@ -118,7 +118,7 @@ process_steps:
     operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
     produces:
       id: atc-sensor-cytosol
-      title: "aTc Sensor Cytosol"
+      title: "SensorCytosol[aTc ⟶ PLA1]"
       page: ../atc-sensor-cytosol/spec.md
     notes: >
       PLA1 rides on the same molecule as the detector, so it is not supplied
@@ -154,7 +154,7 @@ process_steps:
     operands: [atc-sensor-cytosol, membrane-chicago]
     produces:
       id: atc-sensing-cell
-      title: "aTc Sensing Cell"
+      title: "SensorCell[aTc ⟶ PLA1]"
       page: ../atc-sensing-cell/spec.md
     notes: >
       One step, two processes. Proteinase K digests LacZ that escaped the
@@ -251,7 +251,7 @@ process_steps:
     operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
     produces:
       id: ph-sensor-cytosol
-      title: "pH Sensor Cytosol"
+      title: "SensorCytosol[pH ⟶ PLA1]"
       page: ../ph-sensor-cytosol/spec.md
     notes: >
       The pT7-toehold9-PLA1 template is Effector: PLA1 — the switch and the
@@ -268,7 +268,7 @@ process_steps:
     operands: [ph-sensor-cytosol, membrane-chicago]
     produces:
       id: ph-sensing-cell
-      title: "pH Sensing Cell"
+      title: "SensorCell[pH ⟶ PLA1]"
       page: ../ph-sensing-cell/spec.md
 
   - id: encapsulate-substrate-suv

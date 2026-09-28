@@ -1,4 +1,4 @@
-# Composition source for the 3OC6-HSL Sensing Cell.
+# Composition source for the SensorCell[3OC6-HSL ⟶ PLA1].
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Constituent
 # Modules` prose stays for humans; this file is the contract for tooling, and
@@ -12,7 +12,7 @@
 # Lysate, the detector, the effector and the membrane are all obtained.
 
 module: ahsl-sensing-cell
-title: 3OC6-HSL Sensing Cell
+title: SensorCell[3OC6-HSL ⟶ PLA1]
 refines: sensing-cell
 
 inputs:
@@ -39,7 +39,7 @@ process_steps:
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
     produces:
       id: ahsl-sensor-cytosol
-      title: "3OC6-HSL Sensor Cytosol"
+      title: "SensorCytosol[3OC6-HSL ⟶ PLA1]"
       page: ../ahsl-sensor-cytosol/spec.md
 
   - id: encapsulate
@@ -50,7 +50,7 @@ process_steps:
     operands: [ahsl-sensor-cytosol, membrane-popc]
     produces:
       id: ahsl-sensing-cell
-      title: "3OC6-HSL Sensing Cell"
+      title: "SensorCell[3OC6-HSL ⟶ PLA1]"
       page: ../ahsl-sensing-cell/spec.md
     notes: >
       The cytosol is composed before encapsulation, not added to a closed

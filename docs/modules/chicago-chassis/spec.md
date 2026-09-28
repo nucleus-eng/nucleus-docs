@@ -105,7 +105,7 @@ Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Membrane:
 
 Match outer and inner solution osmolarities empirically with a vapor-pressure osmometer where possible.
 
-:::{attention} Recorded for the pH Sensing Cell, assumed for the chassis
+:::{attention} Recorded for the SensorCell[pH ⟶ PLA1], assumed for the chassis
 @Editor(chicago): the buffer above is the outer solution recorded for the pH sensor. Confirm it is the chassis default rather than specific to that cell, and confirm what the energy solution supplement contains.
 :::
 

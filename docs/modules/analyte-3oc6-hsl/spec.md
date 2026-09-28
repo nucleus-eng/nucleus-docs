@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-3-oxohexanoyl-L-homoserine lactone (**3OC6-HSL** in this documentation; the literature usually writes **AHL** for the acyl-homoserine lactone family this belongs to) is the *E. coli* quorum-sensing molecule the [3OC6-HSL Detector](../detector-3oc6-hsl/spec.md) responds to. LuxR binds it and activates the `pLux` promoter, driving whatever effector gene sits downstream — [deGFP](../reporter-degfp/spec.md) in the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), PLA1 in the [London Cascade](../london-cascade/spec.md).
+3-oxohexanoyl-L-homoserine lactone (**3OC6-HSL** in this documentation; the literature usually writes **AHL** for the acyl-homoserine lactone family this belongs to) is the *E. coli* quorum-sensing molecule the [3OC6-HSL Detector](../detector-3oc6-hsl/spec.md) responds to. LuxR binds it and activates the `pLux` promoter, driving whatever effector gene sits downstream — [deGFP](../reporter-degfp/spec.md) in the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), PLA1 in the [London Cascade](../london-cascade/spec.md).
 
 **This is an Analyte, so it is not a constituent of anything.** [London Cascade](../london-cascade/spec.md) states the position for this molecule directly: *"3OC6-HSL is the analyte rather than a component of the cascade, so it is listed here for completeness but is not part of the composition."* This page does not change that.
 
@@ -27,7 +27,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} No dose figures are recorded anywhere in the corpus
-Neither [3OC6-HSL Detector](../detector-3oc6-hsl/spec.md) nor [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) states an induction concentration or a working range. @Editor(london): supply the 3OC6-HSL concentration used for induction, and say whether the cascade and the sensing cell use the same one.
+Neither [3OC6-HSL Detector](../detector-3oc6-hsl/spec.md) nor [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) states an induction concentration or a working range. @Editor(london): supply the 3OC6-HSL concentration used for induction, and say whether the cascade and the sensing cell use the same one.
 :::
 
 # Requirements

@@ -14,7 +14,7 @@ site:
 <!-- /gen:position -->
 
 A member of [Outer Solution](../outer-solution/spec.md): potassium glutamate, HEPES and glucose,
-matched to the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) inner solution.
+matched to the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) inner solution.
 
 **This formulation had two names and no page.** [London Cascade](../london-cascade/spec.md)
 produced it as `outer-solution` and [Gel: ULGA](../gel-ulga/spec.md) produced it as
@@ -68,7 +68,7 @@ flowchart TD
 | Potassium glutamate | 578 mM | |
 | HEPES | 72 mM | pH 7.4 |
 | Glucose | 300 mM | |
-| Osmolarity | ~920 mOsm | a relation, matched to the 3OC6-HSL Sensing Cell inner solution |
+| Osmolarity | ~920 mOsm | a relation, matched to the SensorCell[3OC6-HSL ⟶ PLA1] inner solution |
 :::
 
 **The osmolarity stays even though each solute is stated**, because it has to match across a

@@ -1,4 +1,4 @@
-# Composition source for the aTc Sensing Cell.
+# Composition source for the SensorCell[aTc ⟶ PLA1].
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Constituent
 # Modules` prose stays for humans; this file is the contract for tooling, and
@@ -11,7 +11,7 @@
 # Depth 1. The sensor cytosol is expanded because this Cell builds it.
 
 module: atc-sensing-cell
-title: aTc Sensing Cell
+title: SensorCell[aTc ⟶ PLA1]
 refines: sensing-cell
 
 inputs:
@@ -41,7 +41,7 @@ process_steps:
     operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
     produces:
       id: atc-sensor-cytosol
-      title: "aTc Sensor Cytosol"
+      title: "SensorCytosol[aTc ⟶ PLA1]"
       page: ../atc-sensor-cytosol/spec.md
 
   - id: encapsulate
@@ -72,7 +72,7 @@ process_steps:
     operands: [atc-sensor-cytosol, membrane-chicago]
     produces:
       id: atc-sensing-cell
-      title: "aTc Sensing Cell"
+      title: "SensorCell[aTc ⟶ PLA1]"
       page: ../atc-sensing-cell/spec.md
     notes: >
       Proteinase K digests LacZ that escaped the cells, which would otherwise

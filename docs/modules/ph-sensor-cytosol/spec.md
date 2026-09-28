@@ -1,5 +1,5 @@
 ---
-title: "pH Sensor Cytosol"
+title: "SensorCytosol[pH ⟶ PLA1]"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -13,9 +13,9 @@ site:
 **Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The pH Sensor Cytosol is the aqueous phase of the [pH Sensing Cell](../ph-sensing-cell/spec.md): [Base Cytosol](../base-cytosol/spec.md) carrying the [pH-Sensing Module](../detector-ph/spec.md) — an annealed trigger duplex and a toehold-gated template — together with the [PLA1 Lysis Module](../effector-pla1/spec.md) the toehold switch gates. It is mixed before encapsulation, not added to a closed compartment.
+The SensorCytosol[pH ⟶ PLA1] is the aqueous phase of the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md): [Base Cytosol](../base-cytosol/spec.md) carrying the [pH-Sensing Module](../detector-ph/spec.md) — an annealed trigger duplex and a toehold-gated template — together with the [PLA1 Lysis Module](../effector-pla1/spec.md) the toehold switch gates. It is mixed before encapsulation, not added to a closed compartment.
 
-Compare the [aTc Sensor Cytosol](../atc-sensor-cytosol/spec.md), which shares the Base Cytosol background and swaps the detector. This cytosol carries **no** reporter enzyme: the pH path reports through CPRG released on lysis, and the LacZ that converts it is dispersed in the gel.
+Compare the [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md), which shares the Base Cytosol background and swaps the detector. This cytosol carries **no** reporter enzyme: the pH path reports through CPRG released on lysis, and the LacZ that converts it is dispersed in the gel.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -38,7 +38,7 @@ flowchart TD
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+    PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
 
     PH_RESPONSIVE_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
     TRIGGER_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
@@ -70,7 +70,7 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{table} Constructs in the pH Sensor Cytosol.
+:::{table} Constructs in the SensorCytosol[pH ⟶ PLA1].
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `pT7-toehold9-PLA1` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed in the cytosol at 2 nM |
@@ -84,7 +84,7 @@ The toehold switch and the effector are on one molecule, so [PLA1](../effector-p
 
 ::::{tab-item} Cytosol
 
-:::{table} Cytosolic components of the pH Sensor Cytosol, at reaction concentration.
+:::{table} Cytosolic components of the SensorCytosol[pH ⟶ PLA1], at reaction concentration.
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
@@ -112,7 +112,7 @@ The toehold switch and the effector are on one molecule, so [PLA1](../effector-p
 - [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — anneals the sensing and trigger strands into the single duplex reagent, **before** this cytosol is mixed.
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) — produces the Base Cytosol background.
 
-This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) to form the [pH Sensing Cell](../ph-sensing-cell/spec.md).
+This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) to form the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
 
 # Credits
 

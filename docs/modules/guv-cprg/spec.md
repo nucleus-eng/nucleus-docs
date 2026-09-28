@@ -74,7 +74,7 @@ flowchart TD
 | POPC | 100 |
 :::
 
-[Substrate: CPRG](../substrate-cprg/spec.md) accepts either POPC or POPC:cholesterol, so the 100% POPC bilayer here is a choice rather than a constraint. It matches the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), which is what lets both populations be made by one method.
+[Substrate: CPRG](../substrate-cprg/spec.md) accepts either POPC or POPC:cholesterol, so the 100% POPC bilayer here is a choice rather than a constraint. It matches the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), which is what lets both populations be made by one method.
 
 ::::
 
@@ -132,7 +132,7 @@ CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules 
 
 # Constituent Modules
 
-- [Membrane: POPC](../membrane-popc/spec.md) — the bilayer, taken at 100% POPC to match the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md)
+- [Membrane: POPC](../membrane-popc/spec.md) — the bilayer, taken at 100% POPC to match the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md)
 - [Substrate: CPRG](../substrate-cprg/spec.md) — the lumen, 50 mM at hydration
 
 # Credits

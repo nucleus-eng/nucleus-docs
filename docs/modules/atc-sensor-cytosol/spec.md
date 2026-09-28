@@ -1,5 +1,5 @@
 ---
-title: "aTc Sensor Cytosol"
+title: "SensorCytosol[aTc ⟶ PLA1]"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -13,9 +13,9 @@ site:
 **Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The aTc Sensor Cytosol is the aqueous phase of the [aTc Sensing Cell](../atc-sensing-cell/spec.md): [Base Cytosol](../base-cytosol/spec.md) carrying the [aTc Sensing Module](../detector-tetr-atc/spec.md), the [PLA1 Lysis Module](../effector-pla1/spec.md) it gates, and the LacZ enzyme that reports the result. It is mixed before encapsulation, not added to a closed compartment.
+The SensorCytosol[aTc ⟶ PLA1] is the aqueous phase of the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md): [Base Cytosol](../base-cytosol/spec.md) carrying the [aTc Sensing Module](../detector-tetr-atc/spec.md), the [PLA1 Lysis Module](../effector-pla1/spec.md) it gates, and the LacZ enzyme that reports the result. It is mixed before encapsulation, not added to a closed compartment.
 
-Compare the [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md), which shares the Base Cytosol background and swaps the detector, and the [3OC6-HSL Sensor Cytosol](../ahsl-sensor-cytosol/spec.md), which is built on S30 Lysate instead.
+Compare the [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md), which shares the Base Cytosol background and swaps the detector, and the [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md), which is built on S30 Lysate instead.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -36,7 +36,7 @@ flowchart TD
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
+    ATC_SENSOR_CYTOSOL["SensorCytosol[aTc ⟶ PLA1]"]
 
     BASE_CYTOSOL --> P1_ASSEMBLE_CYTOSOL_0
     DETECTOR_TETR_ATC --> P1_ASSEMBLE_CYTOSOL_0
@@ -65,7 +65,7 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{table} Constructs in the aTc Sensor Cytosol.
+:::{table} Constructs in the SensorCytosol[aTc ⟶ PLA1].
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form. Base Cytosol does not require circular DNA |
@@ -80,11 +80,11 @@ One molecule carries the operator and the effector, so [PLA1](../effector-pla1/s
 
 ::::{tab-item} Cytosol
 
-:::{table} Cytosolic components of the aTc Sensor Cytosol, at reaction concentration.
+:::{table} Cytosolic components of the SensorCytosol[aTc ⟶ PLA1], at reaction concentration.
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
-| [aTc Sensing Module](../detector-tetr-atc/spec.md) | 1 nM `TetO-PLA1` DNA + 50 nM TetR | Two other DNA/TetR ratios have been characterized — see [aTc Sensing Cell](../atc-sensing-cell/spec.md) |
+| [aTc Sensing Module](../detector-tetr-atc/spec.md) | 1 nM `TetO-PLA1` DNA + 50 nM TetR | Two other DNA/TetR ratios have been characterized — see [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | Covered by 1 nM `TetO-PLA1` DNA | The operator and the effector are on one molecule |
 | [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | 2.5 U/mL | Enzyme only. CPRG stays in the outer solution — co-encapsulating the two makes the readout constitutive |
 :::
@@ -111,7 +111,7 @@ One molecule carries the operator and the effector, so [PLA1](../effector-pla1/s
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) — produces the Base Cytosol background.
 - Assemble Cytosol — the mixing step that adds the detector, effector and enzyme. Every constituent above enters the same compartment.
 
-This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) to form the [aTc Sensing Cell](../atc-sensing-cell/spec.md).
+This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) to form the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md).
 
 :::{attention} No process page for the general mixing step
 @Editor(chicago): `Assemble Base Cytosol` documents the Base case, where the added component is water. No page documents the abstract mixing step that adds arbitrary aqueous components. Every combination step needs a Process page.

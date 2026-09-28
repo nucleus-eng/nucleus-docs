@@ -1,5 +1,5 @@
 ---
-title: "3OC6-HSL Sensor Cytosol"
+title: "SensorCytosol[3OC6-HSL ⟶ PLA1]"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The 3OC6-HSL Sensor Cytosol is the aqueous phase of the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md): [S30 Lysate](../s30-lysate/spec.md) carrying the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) and, through it, the [PLA1 Lysis Module](../effector-pla1/spec.md). It is mixed before encapsulation, not added to a closed compartment.
+The SensorCytosol[3OC6-HSL ⟶ PLA1] is the aqueous phase of the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md): [S30 Lysate](../s30-lysate/spec.md) carrying the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) and, through it, the [PLA1 Lysis Module](../effector-pla1/spec.md). It is mixed before encapsulation, not added to a closed compartment.
 
 It exists as its own Module because the London decomposition assembles the cytosol first and then performs one encapsulation. Compare [Base Cytosol](../base-cytosol/spec.md), which is PURE-based and carries no sensing function, and the [aTc](../atc-sensor-cytosol/spec.md) and [pH](../ph-sensor-cytosol/spec.md) sensor cytosols, which fill the same role for the Chicago Node on a Base Cytosol background.
 
@@ -35,7 +35,7 @@ flowchart TD
     EFFECTOR_PLA1["PLA1 Lysis Module"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    AHSL_SENSOR_CYTOSOL["3OC6-HSL Sensor Cytosol"]
+    AHSL_SENSOR_CYTOSOL["SensorCytosol[3OC6-HSL ⟶ PLA1]"]
 
     S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
     DETECTOR_3OC6_HSL --> P1_ASSEMBLE_CYTOSOL_0
@@ -62,7 +62,7 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{table} Constructs in the 3OC6-HSL Sensor Cytosol.
+:::{table} Constructs in the SensorCytosol[3OC6-HSL ⟶ PLA1].
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `pOpen-LuxR-PLA1` | 4175 | pending — [PR #10](https://github.com/nucleus-eng/DNA/pull/10) | **Circular.** S30 Lysate degrades linear DNA, so this route takes the plasmid |
@@ -75,7 +75,7 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 
 ::::{tab-item} Cytosol
 
-:::{table} Cytosolic components of the 3OC6-HSL Sensor Cytosol, at reaction concentration.
+:::{table} Cytosolic components of the SensorCytosol[3OC6-HSL ⟶ PLA1], at reaction concentration.
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [S30 Lysate](../s30-lysate/spec.md) | At reaction concentration, per kit | Transcription and translation. **Requires circular DNA** — no GamS is added, so a linear template is degraded |
@@ -89,7 +89,7 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 
 
 
-**The analyte is not part of this composition.** 3OC6-HSL reaches the sensing cell from the outer solution after encapsulation, so it appears on [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), not here.
+**The analyte is not part of this composition.** 3OC6-HSL reaches the sensing cell from the outer solution after encapsulation, so it appears on [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), not here.
 
 # Constituent Modules
 
@@ -101,7 +101,7 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 
 - [Assemble Cytosol](../../processes/assemble-base-cytosol/main.md) — the mixing step that produces this Module. Every constituent above enters the same compartment.
 
-This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC](../membrane-popc/spec.md) to form the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md).
+This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC](../membrane-popc/spec.md) to form the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
 
 # Credits
 

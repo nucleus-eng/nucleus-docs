@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The London Cascade combines the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter](../reporter-lacz/spec.md) to turn 3OC6-HSL exposure into a visible color change. 3OC6-HSL activates the LuxR/pLux promoter inside the sensing cell, driving expression of PLA1 which then lyses its own liposome and a neighboring CPRG-loaded liposome, releasing CPRG into an outer solution containing β-galactosidase (LacZ), which then converts yellow CPRG into magenta chlorophenol red.
+The London Cascade combines the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter](../reporter-lacz/spec.md) to turn 3OC6-HSL exposure into a visible color change. 3OC6-HSL activates the LuxR/pLux promoter inside the sensing cell, driving expression of PLA1 which then lyses its own liposome and a neighboring CPRG-loaded liposome, releasing CPRG into an outer solution containing β-galactosidase (LacZ), which then converts yellow CPRG into magenta chlorophenol red.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -36,9 +36,9 @@ flowchart TD
     GLUCOSE["Glucose"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    AHSL_SENSOR_CYTOSOL["3OC6-HSL Sensor Cytosol"]
+    AHSL_SENSOR_CYTOSOL["SensorCytosol[3OC6-HSL ⟶ PLA1]"]
     P2_ENCAPSULATE_SENSING_0(["Encapsulation: Phase Transfer (packing)"])
-    AHSL_SENSING_CELL["3OC6-HSL Sensing Cell"]
+    AHSL_SENSING_CELL["SensorCell[3OC6-HSL ⟶ PLA1]"]
     P3_ENCAPSULATE_SUBSTRATE_0(["Encapsulation: Phase Transfer (packing)"])
     GUV_CPRG["GUV: CPRG"]
     P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
@@ -106,7 +106,7 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `LuxR-PLA1` | 2237 | — | Expressed in the 3OC6-HSL Sensing Cell. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. London's own documents call it `P70lux-PLA1-term`. |
+| `LuxR-PLA1` | 2237 | — | Expressed in the SensorCell[3OC6-HSL ⟶ PLA1]. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. London's own documents call it `P70lux-PLA1-term`. |
 | LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
 :::
 
@@ -120,22 +120,22 @@ LuxR is not supplied as purified protein. Each London sensing construct carries 
 
 ::::
 
-::::{tab-item} 3OC6-HSL Sensing Cell
+::::{tab-item} SensorCell[3OC6-HSL ⟶ PLA1]
 
-The [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), carrying `LuxR-PLA1` as its payload in place of `LuxR-deGFP`.
+The [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), carrying `LuxR-PLA1` as its payload in place of `LuxR-deGFP`.
 
-:::{table} 3OC6-HSL Sensing Cell inner solution, one level deep.
+:::{table} SensorCell[3OC6-HSL ⟶ PLA1] inner solution, one level deep.
 :label: comp-london-cascade-sensing
 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
-| [3OC6-HSL Sensor Cytosol](../ahsl-sensor-cytosol/spec.md) | S30 Lysate at reaction concentration | Transcription and translation. Composed before encapsulation, not added to a closed chassis |
+| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | S30 Lysate at reaction concentration | Transcription and translation. Composed before encapsulation, not added to a closed chassis |
 | [Membrane: POPC](../membrane-popc/spec.md) | 100% POPC | Closes the cytosol in one encapsulation step |
 | [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-PLA1` plasmid at 15 ng/µL final | The payload swap. The Sensing Cell carries `LuxR-deGFP` at 37 ng/µL instead. LuxR is not supplied separately — it is on this same molecule, under a constitutive promoter. |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by `LuxR-PLA1` | PLA1 is expressed from the plasmid above, not supplied separately. |
 :::
 
-:::{table} 3OC6-HSL Sensing Cell membrane — [Membrane: POPC](../membrane-popc/spec.md).
+:::{table} SensorCell[3OC6-HSL ⟶ PLA1] membrane — [Membrane: POPC](../membrane-popc/spec.md).
 :label: comp-london-cascade-sensing-membrane
 
 | Component | Target percentage (%) |
@@ -197,7 +197,7 @@ Two things, assembled at different steps. The Outer Solution is mixed first; eve
 
 3OC6-HSL is the analyte rather than a component of the cascade, so it is listed here for completeness but is not part of the composition.
 
-The first three components are the same salts and sugar at the same concentrations as the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), which matches its inner and outer solutions at ≈ 920 mOsm. Matching them here keeps encapsulated contents from being driven across the bilayer by an osmotic gradient before the cascade fires. Because both halves carry the same salts, combining them does not dilute the salts — only the ULGA, which is present in this half alone.
+The first three components are the same salts and sugar at the same concentrations as the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), which matches its inner and outer solutions at ≈ 920 mOsm. Matching them here keeps encapsulated contents from being driven across the bilayer by an osmotic gradient before the cascade fires. Because both halves carry the same salts, combining them does not dilute the salts — only the ULGA, which is present in this half alone.
 
 3OC6-HSL may instead be supplied as supernatant from an 3OC6-HSL-producing bacterial culture, diluted 10:1 — 20 µL into 200 µL of hydrogel.
 
@@ -244,8 +244,8 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 
 **Sensing population**
 
-1. **Assemble Cytosol** (mixing) — [S30 Lysate](../s30-lysate/spec.md) carrying `LuxR-PLA1`, which supplies both the LuxR receiver and the PLA1 payload, giving the [3OC6-HSL Sensor Cytosol](../ahsl-sensor-cytosol/spec.md). S30 Lysate is supplied as a kit — premix, extract and amino acid mix — so it is reconstituted rather than built from a protocol. **No Process page covers this step.**
-2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — forms the [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md), the cytosol inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
+1. **Assemble Cytosol** (mixing) — [S30 Lysate](../s30-lysate/spec.md) carrying `LuxR-PLA1`, which supplies both the LuxR receiver and the PLA1 payload, giving the [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md). S30 Lysate is supplied as a kit — premix, extract and amino acid mix — so it is reconstituted rather than built from a protocol. **No Process page covers this step.**
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — forms the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), the cytosol inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
 
 **Reporter population**
 
@@ -254,7 +254,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 **The gel**
 
 4. [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) (mixing) — potassium L-glutamate, HEPES and glucose, matched to the sensing cell's inner solution at ≈ 920 mOsm.
-5. [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md).
+5. [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
 
 [Colorimetric Readout](../../processes/colorimetric-readout/main.md) measures the result — the CPRG conversion, yellow to magenta, read by absorbance and by eye. It is not a composition step, because it produces no Module.
 
@@ -274,7 +274,7 @@ Confirmed with the London Node, 2026-09-09: the two populations are mixed **1:1*
 
 The five inputs to the embedding step, which is where the cascade is made.
 
-- [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) — the sensing population
+- [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) — the sensing population
 - [GUV: CPRG](../guv-cprg/spec.md) — the substrate population. [Substrate: CPRG](../substrate-cprg/spec.md) is what it carries, one level further down
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — dispersed free in the gel, not encapsulated
 - [Gel: ULGA](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution at embedding

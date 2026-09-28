@@ -70,7 +70,7 @@ flowchart TD
 | [Base Cell](../base-cell/spec.md) | [POPC/Chol](../membrane-popc-chol/spec.md), 70:30 |
 | [London Chassis](../london-chassis/spec.md) | [POPC](../membrane-popc/spec.md) |
 | [Chicago Chassis](../chicago-chassis/spec.md) | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md), 9:1 |
-| [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) | [POPC](../membrane-popc/spec.md) |
+| [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) | [POPC](../membrane-popc/spec.md) |
 | the other three sensing cells | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) |
 :::
 
@@ -92,9 +92,9 @@ member has an exception and no member has a third operand.
 | Member | Cytosol | Membrane |
 | --- | --- | --- |
 | [Base Cell](../base-cell/spec.md) | Base Cytosol | Membrane: POPC/Chol (7:3) |
-| [3OC6-HSL Sensing Cell](../ahsl-sensing-cell/spec.md) | 3OC6-HSL Sensor Cytosol | POPC |
-| [aTc Sensing Cell](../atc-sensing-cell/spec.md) | aTc Sensor Cytosol | Chicago |
-| [pH Sensing Cell](../ph-sensing-cell/spec.md) | pH Sensor Cytosol | Chicago |
+| [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) | SensorCytosol[3OC6-HSL ⟶ PLA1] | POPC |
+| [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) | SensorCytosol[aTc ⟶ PLA1] | Chicago |
+| [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) | SensorCytosol[pH ⟶ PLA1] | Chicago |
 | [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) | Theophylline Sensor Cytosol | Chicago |
 :::
 

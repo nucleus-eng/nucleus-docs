@@ -11,7 +11,7 @@ site:
 
 Anhydrotetracycline (aTc) is the inducer the [tetR-aTc Detector](../detector-tetr-atc/spec.md) responds to. It binds TetR allosterically, releasing the repressor from the `tetO` operator and recovering expression of whatever sits downstream.
 
-**aTc is membrane-permeable.** It crosses a POPC bilayer without help, which is why the [aTc Sensing Cell](../atc-sensing-cell/spec.md) needs no membrane pore to be induced — the analyte reaches the cytosol on its own. That property is what makes aTc the easiest of the five analytes to use in an encapsulated format.
+**aTc is membrane-permeable.** It crosses a POPC bilayer without help, which is why the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) needs no membrane pore to be induced — the analyte reaches the cytosol on its own. That property is what makes aTc the easiest of the five analytes to use in an encapsulated format.
 
 **This is an Analyte, so it is not a constituent of anything.** It reaches a sensing cell from outside, after the cell is closed. The pages that compose aTc-sensing Modules say so explicitly and this page does not change that.
 
@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
-:::{table} Working concentrations. Bands are from [tetR-aTc Detector](../detector-tetr-atc/spec.md); the cell-context figures are from [aTc Sensing Cell](../atc-sensing-cell/spec.md).
+:::{table} Working concentrations. Bands are from [tetR-aTc Detector](../detector-tetr-atc/spec.md); the cell-context figures are from [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md).
 | Band | Value | What it governs |
 | --- | --- | --- |
 | **Effective induction, Nucleus Cytosol** | **0.1 µM to 0.5 µM**, optimum ~0.25 µM to 0.35 µM | The working window in this cytosol |
@@ -41,7 +41,7 @@ Chicago Node, 2026-09-11. Lysate work — including the lab that has run this se
 **The first two bands are different kinds of claim.** The effective window is a property of what the Detector responds to. The interference threshold is a property of the *assay* — it says the readout stops working, not that the Module does. They are recorded together because they arrive together on the detector page, not because they are the same thing.
 
 :::{attention} The two dose statements in the corpus do not obviously agree
-[tetR-aTc Detector](../detector-tetr-atc/spec.md) gives (2.5–5) µM as the effective window. [aTc Sensing Cell](../atc-sensing-cell/spec.md) reports its own configuration as **not graded**, saturating at or below 1 µM with no resolvable dose-dependence from 1 to 10 µM.
+[tetR-aTc Detector](../detector-tetr-atc/spec.md) gives (2.5–5) µM as the effective window. [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) reports its own configuration as **not graded**, saturating at or below 1 µM with no resolvable dose-dependence from 1 to 10 µM.
 
 These are different configurations — `pT7-tetO-plamGFP` with a fluorescent readout against `TetO-PLA1` with a LacZ color readout — so they need not agree.
 

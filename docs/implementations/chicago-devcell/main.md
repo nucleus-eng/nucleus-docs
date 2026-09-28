@@ -28,8 +28,8 @@ This is an Implementation rather than a Module because it is a cascade Module pl
 | --- | --- | --- |
 | Chassis | [Chicago Chassis](../../modules/chicago-chassis/spec.md) | ★ |
 | Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-chicago/spec.md) | ★ |
-| Sensing (aTc) | [aTc Sensing Cell](../../modules/atc-sensing-cell/spec.md) → [aTc Cascade](../../modules/atc-cascade/spec.md) | detectable response, not dose-graded |
-| Sensing (pH) | [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md) → [pH Cascade](../../modules/ph-cascade/spec.md) | integration paths confirmed separately; chain not run end to end |
+| Sensing (aTc) | [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md) → [aTc Cascade](../../modules/atc-cascade/spec.md) | detectable response, not dose-graded |
+| Sensing (pH) | [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md) → [pH Cascade](../../modules/ph-cascade/spec.md) | integration paths confirmed separately; chain not run end to end |
 | Lysis | [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) | ★ |
 | Substrate | [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md) | ★ |
 | Readout | [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) | ★ |

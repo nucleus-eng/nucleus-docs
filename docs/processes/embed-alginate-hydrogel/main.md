@@ -20,7 +20,7 @@ This page is a work in progress and not yet ready for use.
 Two separate Chicago results both get loosely described as "hydrogel embedding," but they use different hydrogel chemistries and should not be treated as interchangeable:
 
 - **This process (alginate):** the Theophylline Sensing Cell result — theophylline-responsive synthetic cells, CPRG-loaded SUVs, and commercial LacZ co-embedded in ~1% (w/v) **alginate**, crosslinked with 200 mM CaCl₂, showing a yellow-to-purple color change after ~16 h. See [Effector: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) for the module-level summary of this result.
-- **A different result (agarose):** the pH-Sensing Module's bulk-reaction test embedded the pH-sensing circuit directly in 0.7% low-gelling **agarose** (no synthetic cells or SUVs at all), not alginate. See [pH-Sensing Module](../../modules/detector-ph/spec.md) and [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) for that result. It does not belong on this page and this page's alginate protocol does not apply to it.
+- **A different result (agarose):** the pH-Sensing Module's bulk-reaction test embedded the pH-sensing circuit directly in 0.7% low-gelling **agarose** (no synthetic cells or SUVs at all), not alginate. See [pH-Sensing Module](../../modules/detector-ph/spec.md) and [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) for that result. It does not belong on this page and this page's alginate protocol does not apply to it.
 
 Both are real, confirmed results, but they are not the same hydrogel chemistry, the same experiment, or interchangeable evidence for one another.
 :::

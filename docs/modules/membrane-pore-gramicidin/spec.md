@@ -100,7 +100,7 @@ Requires a membrane (e.g. [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec
 
 # Processes
 
-None specific to this Module. It is added to a membrane-forming or encapsulation step; see [pH Sensing Cell](../ph-sensing-cell/spec.md) for the composition that uses it.
+None specific to this Module. It is added to a membrane-forming or encapsulation step; see [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) for the composition that uses it.
 
 # Materials
 

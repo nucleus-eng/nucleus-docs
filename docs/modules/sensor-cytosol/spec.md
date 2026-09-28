@@ -65,9 +65,9 @@ flowchart TD
 :::{table} What the four members put in this slot.
 | Member | Sensing element |
 | --- | --- |
-| [3OC6-HSL Sensor Cytosol](../ahsl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
-| [aTc Sensor Cytosol](../atc-sensor-cytosol/spec.md) | [Detector: TetR/aTc](../detector-tetr-atc/spec.md) |
-| [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) | **a trigger duplex annealed in file**, not a detector page |
+| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
+| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Detector: TetR/aTc](../detector-tetr-atc/spec.md) |
+| [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | **a trigger duplex annealed in file**, not a detector page |
 | [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | [Detector: Theophylline](../detector-theophylline/spec.md) |
 :::
 
@@ -104,9 +104,9 @@ not available here.
 :::{table} The four members, and what each mixes in.
 | Member | Base | Sensing element |
 | --- | --- | --- |
-| [3OC6-HSL Sensor Cytosol](../ahsl-sensor-cytosol/spec.md) | S30 Lysate | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
-| [aTc Sensor Cytosol](../atc-sensor-cytosol/spec.md) | Base Cytosol | [Detector: TetR/aTc](../detector-tetr-atc/spec.md) |
-| [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) | Base Cytosol | a trigger duplex annealed in file |
+| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | S30 Lysate | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
+| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | Base Cytosol | [Detector: TetR/aTc](../detector-tetr-atc/spec.md) |
+| [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | Base Cytosol | a trigger duplex annealed in file |
 | [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | Base Cytosol | [Detector: Theophylline](../detector-theophylline/spec.md) |
 :::
 

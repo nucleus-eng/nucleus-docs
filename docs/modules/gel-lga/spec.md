@@ -24,7 +24,7 @@ This page is a work in progress and not yet ready for use.
 :::{attention} Written 2026-09-24, and two existing sources disagree about it
 This page exists because three separate routes arrived at the same gap in one afternoon: a DevStudio whiteboard node, its gel-embedding step, and [Chicago Cascade](../chicago-cascade/spec.md)'s open question about which agarose the pH path uses.
 
-**The disagreement is live and this page does not settle it.** [pH Sensing Cell](../ph-sensing-cell/spec.md) says *"0.7% low-gelling agarose"*. [pH Cascade](../ph-cascade/spec.md)'s composition source names the same 0.7% operand *"ULGA powder"*. Same path, same figure, two different polymers. The board answers it — the presenter said they used the low-gelling grade — and pointing the cascade here is a decision about that page rather than this one.
+**The disagreement is live and this page does not settle it.** [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) says *"0.7% low-gelling agarose"*. [pH Cascade](../ph-cascade/spec.md)'s composition source names the same 0.7% operand *"ULGA powder"*. Same path, same figure, two different polymers. The board answers it — the presenter said they used the low-gelling grade — and pointing the cascade here is a decision about that page rather than this one.
 :::
 
 # Reference Composition

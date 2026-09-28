@@ -106,7 +106,7 @@ process_steps:
     operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
     produces:
       id: ph-sensor-cytosol
-      title: "pH Sensor Cytosol"
+      title: "SensorCytosol[pH ⟶ PLA1]"
       page: ../ph-sensor-cytosol/spec.md
 
   - id: encapsulate
@@ -117,7 +117,7 @@ process_steps:
     operands: [ph-sensor-cytosol, membrane-chicago]
     produces:
       id: ph-sensing-cell
-      title: "pH Sensing Cell"
+      title: "SensorCell[pH ⟶ PLA1]"
       page: ../ph-sensing-cell/spec.md
 
   - id: encapsulate-substrate-suv

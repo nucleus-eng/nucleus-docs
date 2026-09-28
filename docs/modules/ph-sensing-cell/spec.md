@@ -1,5 +1,5 @@
 ---
-title: "pH Sensing Cell"
+title: "SensorCell[pH ⟶ PLA1]"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`sensing-cell`](../sensing-cell/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The pH Sensing Cell is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Chicago Chassis](../chicago-chassis/spec.md). On its own, the pH-Sensing Module is an cytosolic ssDNA/toehold-switch circuit that turns on a downstream effector gene (e.g., a colorimetric reporter) when pH drops to about 6.5. The pH Sensing Cell encapsulates this module in a synthetic cell.
+The SensorCell[pH ⟶ PLA1] is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Chicago Chassis](../chicago-chassis/spec.md). On its own, the pH-Sensing Module is an cytosolic ssDNA/toehold-switch circuit that turns on a downstream effector gene (e.g., a colorimetric reporter) when pH drops to about 6.5. The SensorCell[pH ⟶ PLA1] encapsulates this module in a synthetic cell.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -37,9 +37,9 @@ flowchart TD
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+    PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
-    PH_SENSING_CELL["pH Sensing Cell"]
+    PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
 
     PH_RESPONSIVE_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
     TRIGGER_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
@@ -130,7 +130,7 @@ See each Module's spec for its own reference composition and requirements.
 (ph-sensing-cell-expected-behavior)=
 # Expected Behavior
 
-The pH Sensing Cell is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Membrane: POPC/Chol (9:1) — in solution. Neither has been embedded into a hydrogel.
+The SensorCell[pH ⟶ PLA1] is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Membrane: POPC/Chol (9:1) — in solution. Neither has been embedded into a hydrogel.
 
 ## Cells
 
@@ -174,7 +174,7 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
 # Constituent Modules
 
-- [pH Sensor Cytosol](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
+- [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
 - [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 # Implementations

@@ -34,7 +34,7 @@ Three formulations are attested, and they are not interchangeable — each is ma
 
 # Requirements
 
-**Requires matching to the interior it will surround.** [3OC6-HSL Sensing Cell](../../modules/ahsl-sensing-cell/spec.md) matches inner to outer at about 920 mOsm; a mismatch drives encapsulated contents across the bilayer before the system does anything else. Match empirically with a vapor-pressure osmometer where the figure is not already established.
+**Requires matching to the interior it will surround.** [SensorCell[3OC6-HSL ⟶ PLA1]](../../modules/ahsl-sensing-cell/spec.md) matches inner to outer at about 920 mOsm; a mismatch drives encapsulated contents across the bilayer before the system does anything else. Match empirically with a vapor-pressure osmometer where the figure is not already established.
 
 **Above roughly 1200 mOsm, CPRG stops leaking.** In glucose-based outer solutions, dye leakage from loaded liposomes falls sharply above that osmolarity. That is the reason for the high-glucose configuration: leaked CPRG meets external enzyme with no lysis and raises background before the cascade fires. See [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md).
 

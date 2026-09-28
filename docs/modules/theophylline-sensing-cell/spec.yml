@@ -62,7 +62,7 @@ open:
     question: >
       CLOSED 2026-09-21. The page landed at docs/modules/theophylline-sensor-cytosol,
       on Jon's ruling that this intermediate refines Sensor Cytosol. The name this
-      file coined is the name it kept, matching aTc Sensor Cytosol and pH Sensor
+      file coined is the name it kept, matching SensorCytosol[aTc ⟶ PLA1] and pH Sensor
       Cytosol, and produces now points at the page rather than carrying page null.
       The new source copies this step rather than deriving it, so the two files
       cannot disagree about what the intermediate is.

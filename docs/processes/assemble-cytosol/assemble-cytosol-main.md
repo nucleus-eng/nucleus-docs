@@ -10,7 +10,7 @@ Assemble Cytosol combines a cytosol base with whatever a particular reaction nee
 Its derivatives, all attested in this documentation:
 
 - [Assemble Base Cytosol](../assemble-base-cytosol/main.md) — the unit case, where nothing is added and the slot is filled with water.
-- **Assemble aTc Sensor Cytosol**, **Assemble pH Sensor Cytosol**, **Assemble 3OC6-HSL Sensor Cytosol**, **Assemble Theophylline Sensor Cytosol** — no pages yet. Each is specified in the `spec.yml` of the Module it produces.
+- **Assemble SensorCytosol[aTc ⟶ PLA1]**, **Assemble SensorCytosol[pH ⟶ PLA1]**, **Assemble SensorCytosol[3OC6-HSL ⟶ PLA1]**, **Assemble Theophylline Sensor Cytosol** — no pages yet. Each is specified in the `spec.yml` of the Module it produces.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -51,10 +51,10 @@ A derivative is identified by the **pair** of base and filling. Neither alone na
 | Derivative | Base | Filling |
 | --- | --- | --- |
 | [Base Cytosol](../../modules/base-cytosol/spec.md) | Base | water |
-| [aTc Sensor Cytosol](../../modules/atc-sensor-cytosol/spec.md) | Base Cytosol | `TetO-PLA1` · TetR · LacZ at 2.5 U/mL |
-| [pH Sensor Cytosol](../../modules/ph-sensor-cytosol/spec.md) | Base Cytosol | trigger duplex · toehold-gated template · Optiprep · Sulfo-Cy5 |
+| [SensorCytosol[aTc ⟶ PLA1]](../../modules/atc-sensor-cytosol/spec.md) | Base Cytosol | `TetO-PLA1` · TetR · LacZ at 2.5 U/mL |
+| [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md) | Base Cytosol | trigger duplex · toehold-gated template · Optiprep · Sulfo-Cy5 |
 | [Theophylline Sensor Cytosol](../../modules/theophylline-sensing-cell/spec.md) | Base Cytosol | riboswitch construct at 5 nM |
-| [3OC6-HSL Sensor Cytosol](../../modules/ahsl-sensor-cytosol/spec.md) | S30 Lysate | `LuxR-PLA1` or `LuxR-deGFP` |
+| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../../modules/ahsl-sensor-cytosol/spec.md) | S30 Lysate | `LuxR-PLA1` or `LuxR-deGFP` |
 
 **The base carries the headroom, not this process.** [Base Cytosol](../../modules/base-cytosol/spec.md) reserves 2.0 µL of 10. [S30 Lysate](../../modules/s30-lysate/spec.md) reserves 3.75 µL of 25, implied by its total rather than named, so a composer adding to that base has to derive the capacity.
 
@@ -64,7 +64,7 @@ Requires a base whose recipe pins a total volume and reserves part of it. Withou
 
 **Two things spend the headroom that are not sensing components**, and both are easy to miss:
 
-- **A downstream process can claim it.** [pH Sensor Cytosol](../../modules/ph-sensor-cytosol/spec.md) carries Optiprep at 4.5% (v/v) — about 0.45 µL of a 10 µL reaction, or a fifth of the slot — because of how the cell is later encapsulated, not because the sensing function needs it. The reagent is spent before the step that needs it runs.
+- **A downstream process can claim it.** [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md) carries Optiprep at 4.5% (v/v) — about 0.45 µL of a 10 µL reaction, or a fifth of the slot — because of how the cell is later encapsulated, not because the sensing function needs it. The reagent is spent before the step that needs it runs.
 - **A base component may be a range rather than a figure.** Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. A derivative naming one value inside that range is recording a choice, not a requirement.
 
 # Modules
@@ -72,6 +72,6 @@ Requires a base whose recipe pins a total volume and reserves part of it. Withou
 Every Module produced by a derivative of this process:
 
 - [Base Cytosol](../../modules/base-cytosol/spec.md)
-- [aTc Sensor Cytosol](../../modules/atc-sensor-cytosol/spec.md)
-- [pH Sensor Cytosol](../../modules/ph-sensor-cytosol/spec.md)
-- [3OC6-HSL Sensor Cytosol](../../modules/ahsl-sensor-cytosol/spec.md)
+- [SensorCytosol[aTc ⟶ PLA1]](../../modules/atc-sensor-cytosol/spec.md)
+- [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md)
+- [SensorCytosol[3OC6-HSL ⟶ PLA1]](../../modules/ahsl-sensor-cytosol/spec.md)

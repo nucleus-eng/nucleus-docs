@@ -10,7 +10,7 @@ site:
 (ph-cascade-overview)=
 # Overview
 
-The pH Cascade combines the [pH Sensing Cell](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md) to turn a drop in pH into a visible colorimetric readout. The pH Sensing Cell's toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome. The released CPRG reacts with LacZ in the exterior solution upon contact to produce the yellow-to-purple color change. Compare with the [aTc Cascade](../atc-cascade/spec.md), which releases the encapsulated enzyme into an outer solution with the substrate instead.
+The pH Cascade combines the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter Module](../reporter-lacz/spec.md) to turn a drop in pH into a visible colorimetric readout. The SensorCell[pH ⟶ PLA1]'s toehold switch gates expression of PLA1, which lyses its own liposome and a neighboring CPRG-loaded liposome. The released CPRG reacts with LacZ in the exterior solution upon contact to produce the yellow-to-purple color change. Compare with the [aTc Cascade](../atc-cascade/spec.md), which releases the encapsulated enzyme into an outer solution with the substrate instead.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 
 The pH Cascade combines its Modules as follows:
 
-- **Sensing input:** [pH Sensing Cell](../ph-sensing-cell/spec.md) — the pH-responsive toehold switch encapsulated in the Chicago Chassis synthetic cell, gating downstream expression at pH ≈ 6.5.
+- **Sensing input:** [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — the pH-responsive toehold switch encapsulated in the Chicago Chassis synthetic cell, gating downstream expression at pH ≈ 6.5.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the pH switch fires; ruptures its own liposome and a neighboring CPRG-loaded liposome, coupling sensing to readout.
 - **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — reacts with the released CPRG substrate to produce the visible yellow-to-purple color change.
 
@@ -50,9 +50,9 @@ flowchart TD
     P2_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P3_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    PH_SENSOR_CYTOSOL["pH Sensor Cytosol"]
+    PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
     P4_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
-    PH_SENSING_CELL["pH Sensing Cell"]
+    PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
     P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
     P6_EMBED_AGAROSE_0(["Hydrogel Embedding (packing, 3 pairs mixing)"])
@@ -122,7 +122,7 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| Toehold-switch-gated PLA1 template | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed in the pH Sensing Cell |
+| Toehold-switch-gated PLA1 template | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed in the SensorCell[pH ⟶ PLA1] |
 | pH-responsive ssDNA | 49 | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | Synthesized oligonucleotide, added directly |
 | trigger ssDNA | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, added directly |
 :::
@@ -132,11 +132,11 @@ See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design
 
 ::::
 
-::::{tab-item} pH Sensing Cell
+::::{tab-item} SensorCell[pH ⟶ PLA1]
 
 The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsulated in one liposome, in [Base Cytosol](../base-cytosol/spec.md).
 
-:::{table} pH Sensing Cell cytosol, confirmed solution-phase integration path.
+:::{table} SensorCell[pH ⟶ PLA1] cytosol, confirmed solution-phase integration path.
 :label: comp-ph-cascade-sensing
 
 | Component | Working concentration |
@@ -146,7 +146,7 @@ The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsula
 | Base Cytosol components | At reaction concentration; not separately documented for this pairing |
 :::
 
-:::{table} pH Sensing Cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:::{table} SensorCell[pH ⟶ PLA1] membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
 :label: comp-ph-cascade-sensing-membrane
 
 | Component | Target percentage (%) |
@@ -205,16 +205,16 @@ The pH Cascade is expected to turn a drop to pH ≈ 6.5 into a visible yellow-to
 
 ## Cells
 
-- **pH-sensing color change, solution-phase, two-liposome system:** a visible yellow-to-purple color change at pH 6.5, using separate pH-sensing and CPRG-loaded liposome populations in solution. See [pH Sensing Cell](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) for detail.
+- **pH-sensing color change, solution-phase, two-liposome system:** a visible yellow-to-purple color change at pH 6.5, using separate pH-sensing and CPRG-loaded liposome populations in solution. See [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) for detail.
 - **PLA1-driven lysis coupling to CPRG/LacZ readout:** confirmed at the solution level for the Chicago pH cascade — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-implementations), "Chicago pH cascade."
 
 :::{warning} Not yet validated as a combined cascade
-The three Modules above have run in partial combinations, never together in one format. The pH Sensing Cell's own integration into the Chicago Chassis synthetic cell and hydrogel format is itself proposed rather than confirmed — see [pH Sensing Cell](../ph-sensing-cell/spec.md).
+The three Modules above have run in partial combinations, never together in one format. The SensorCell[pH ⟶ PLA1]'s own integration into the Chicago Chassis synthetic cell and hydrogel format is itself proposed rather than confirmed — see [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
 :::
 
 ## Gels
 
-- **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected (Sung-Won Hwang, Liu Lab). The concentration-dependent absorbance data is on the [pH Sensing Cell](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) spec.
+- **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected (Sung-Won Hwang, Liu Lab). The concentration-dependent absorbance data is on the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) spec.
 
 :::{attention} Premature lysis has two independent causes
 **Gramicidin A causes premature lysis; it does not prevent it.** Used as a proton channel for the GFP-expression result, it was left out of the colorimetric demonstration because it ruptured a portion of the CPRG-loaded liposomes, producing nonspecific color. Its absence can reduce pH-sensing efficiency, but proton diffusion into the more permeable liposomes was enough to drive PLA1 expression.
@@ -244,7 +244,7 @@ No process page documents assembling this three-part cascade end to end.
 
 # Constituent Modules
 
-- [pH Sensing Cell](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
+- [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
 - [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Corrected 2026-09-24**: it is **low-gelling agarose**, not ULGA, confirmed by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md)**, and its step names the abstract [Hydrogel Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry. This reverses an identification of 2026-09-21 that read *"it is ULGA, confirmed with the Chicago devs"*. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now

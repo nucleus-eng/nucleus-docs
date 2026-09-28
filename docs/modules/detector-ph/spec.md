@@ -138,7 +138,7 @@ At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toeho
 Two additions to Base Cytosol: the annealed duplex and one toehold-switch template. Which template is used sets the effector and so the readout. The DevCells demo uses `pT7-toehold9-PLA1`, so the switch drives lysis and the color comes from a neighboring substrate liposome. The LacZ and XylE templates were designed and are not used for the demo.
 
 :::{note} These are design values; the assembled reaction is on the Sensing Cell
-The concentrations above are the design values from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote. The reaction as actually assembled — with Optiprep, and at encapsulation scale — is on [pH Sensing Cell](../ph-sensing-cell/spec.md).
+The concentrations above are the design values from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote. The reaction as actually assembled — with Optiprep, and at encapsulation scale — is on [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
 
 The 4.8 µM here and the 4.625 µM there are not in conflict: that reaction was assembled above its specified volume, which dilutes every component in proportion. The relative molarities match.
 :::
@@ -161,7 +161,7 @@ The assembled three-component Module — pH-responsive ssDNA, trigger ssDNA, and
 ## Cells
 
 :::{warning} Not yet validated
-Two demonstrations exist in liposomes in solution: pH-responsive GFP expression, and a two-liposome system giving a visible yellow-to-purple color change at pH 6.5. Both used Base Cytosol in a Membrane: POPC/Chol (9:1) — the [pH Sensing Cell](../ph-sensing-cell/spec.md) format — so the Module is demonstrated in a synthetic cell. Neither has been run in a hydrogel.
+Two demonstrations exist in liposomes in solution: pH-responsive GFP expression, and a two-liposome system giving a visible yellow-to-purple color change at pH 6.5. Both used Base Cytosol in a Membrane: POPC/Chol (9:1) — the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) format — so the Module is demonstrated in a synthetic cell. Neither has been run in a hydrogel.
 :::
 
 ## Gels

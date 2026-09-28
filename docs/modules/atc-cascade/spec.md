@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The aTc Cascade turns anhydrotetracycline (aTc) exposure into a visible colorimetric readout. The [aTc Sensing Cell](../atc-sensing-cell/spec.md) supplies the `TetO-PLA1` sensing circuit, the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger, and [LacZ Reporter Module](../reporter-lacz/spec.md) provides a visible color change as a signal.
+The aTc Cascade turns anhydrotetracycline (aTc) exposure into a visible colorimetric readout. The [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) supplies the `TetO-PLA1` sensing circuit, the [PLA1 Lysis Module](../effector-pla1/spec.md) supplies the lysis trigger, and [LacZ Reporter Module](../reporter-lacz/spec.md) provides a visible color change as a signal.
 
 The sensing cell encapsulates `TetO-PLA1` and LacZ, with aTc and CPRG in the surrounding outer solution. aTc transits the membrane to the interior of the synthetic cell, activating expression of PLA1, which then ruptures the membrane and releases LacZ into the outer solution that then reacts with CPRG. Compare with the [pH Cascade](../ph-cascade/spec.md), which encapsulates the substrate and leaves the enzyme in the outer solution instead.
 
@@ -22,7 +22,7 @@ This page is a work in progress and not yet ready for use.
 
 The aTc Cascade combines its Modules as follows:
 
-- **Sensing input:** [aTc Sensing Cell](../atc-sensing-cell/spec.md) — the `TetO-PLA1` sensing construct, gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell.
+- **Sensing input:** [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — the `TetO-PLA1` sensing construct, gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the aTc/TetR sensing circuit fires; couples sensing to readout. In the confirmed result, this is co-encapsulated in the same synthetic cell as the sensing construct rather than triggering a separate neighboring liposome.
 - **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG chemistry, with the enzyme encapsulated and the substrate outside, so color appears only once lysis brings them together.
 
@@ -48,10 +48,10 @@ flowchart TD
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     OUTER_SOLUTION_CHICAGO["Chicago Outer Solution"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    ATC_SENSOR_CYTOSOL["aTc Sensor Cytosol"]
+    ATC_SENSOR_CYTOSOL["SensorCytosol[aTc ⟶ PLA1]"]
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_1(["Degrade Exterior LacZ"])
-    ATC_SENSING_CELL["aTc Sensing Cell"]
+    ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
     P4_PHOTODEVELOP_GEL_0(["Photodevelop Gel: PEG-Norbornene (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_0(["Dose CPRG into the set gel (packing) — no page"])
@@ -121,7 +121,7 @@ flowchart TD
 :::
 
 :::{attention} Construct not yet in `nucleus-eng/DNA`
-`TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. The same gap is recorded on [aTc Sensing Cell](../atc-sensing-cell/spec.md). Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
+`TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. The same gap is recorded on [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md). Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
 :::
 
 ::::
@@ -200,7 +200,7 @@ The [aTc Sensing Module](../detector-tetr-atc/spec.md#teto-pla1-encapsulated-wit
 ## Gels
 
 :::{warning} Not yet validated
-This Module has not been validated in hydrogels. The aTc-response result above is confirmed in synthetic cells only. Hydrogel integration has not been completed — see the [aTc Sensing Cell](../atc-sensing-cell/spec.md#atc-sensing-cell-expected-behavior) spec for the same caveat. Do not treat this cascade as validated for hydrogel-embedded use.
+This Module has not been validated in hydrogels. The aTc-response result above is confirmed in synthetic cells only. Hydrogel integration has not been completed — see the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md#atc-sensing-cell-expected-behavior) spec for the same caveat. Do not treat this cascade as validated for hydrogel-embedded use.
 :::
 
 # Requirements
@@ -227,7 +227,7 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 
 # Constituent Modules
 
-- [aTc Sensing Cell](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell
+- [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the sensing reaction at 2.5 U/mL
 - [Substrate: CPRG](../substrate-cprg/spec.md) — dosed free into the gel after crosslinking, because UV bleaches it. This path carries no substrate liposome
 

@@ -46,7 +46,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} GFP readout
 
-:::{table} Outer solution used to embed 3OC6-HSL Sensing Cell synthetic cells for the GFP readout. ULGA at 1% (w/v) in the prepared solution.
+:::{table} Outer solution used to embed SensorCell[3OC6-HSL ⟶ PLA1] synthetic cells for the GFP readout. ULGA at 1% (w/v) in the prepared solution.
 :label: comp-ulga-gfp
 
 | Component | Concentration |
@@ -76,7 +76,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::
 
-This variant feeds the Colorimetric Readout process; see the [3OC6-HSL Sensing Cell](../../modules/ahsl-sensing-cell/spec.md) spec for the sensing synthetic cell composition and the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) and [LacZ Reporter](../../modules/reporter-lacz/spec.md) specs for the downstream lysis and colorimetric chemistry — this process page covers embedding only, not the readout itself.
+This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HSL ⟶ PLA1]](../../modules/ahsl-sensing-cell/spec.md) spec for the sensing synthetic cell composition and the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) and [LacZ Reporter](../../modules/reporter-lacz/spec.md) specs for the downstream lysis and colorimetric chemistry — this process page covers embedding only, not the readout itself.
 
 ::::
 
@@ -128,7 +128,7 @@ No exact dissolution temperature or hold time is established for this step. Stan
 
 ## Form Hydrogel-Embedded synthetic cells
 
-- [ ] Combine the cooled, still-liquid ULGA solution with phase-transfer synthetic cells (e.g., 3OC6-HSL Sensing Cell POPC synthetic cells carrying `LuxR-deGFP` in S30 Lysate) to a total volume of 100 µL per reaction.
+- [ ] Combine the cooled, still-liquid ULGA solution with phase-transfer synthetic cells (e.g., SensorCell[3OC6-HSL ⟶ PLA1] POPC synthetic cells carrying `LuxR-deGFP` in S30 Lysate) to a total volume of 100 µL per reaction.
 - [ ] Dispense the synthetic cell/ULGA mixture into wells or onto a plate and allow the gel to set by cooling below the ULGA gel point.
 
 ## Add Bacterial Input

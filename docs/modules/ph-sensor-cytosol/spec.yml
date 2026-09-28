@@ -1,4 +1,4 @@
-# Composition source for the pH Sensor Cytosol.
+# Composition source for the SensorCytosol[pH ⟶ PLA1].
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Constituent
 # Modules` prose stays for humans; this file is the contract for tooling, and
@@ -12,7 +12,7 @@
 # the two strands are annealed before they enter the cytosol.
 
 module: ph-sensor-cytosol
-title: pH Sensor Cytosol
+title: SensorCytosol[pH ⟶ PLA1]
 refines: sensor-cytosol
 
 inputs:
@@ -53,7 +53,7 @@ process_steps:
     operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
     produces:
       id: ph-sensor-cytosol
-      title: "pH Sensor Cytosol"
+      title: "SensorCytosol[pH ⟶ PLA1]"
       page: ../ph-sensor-cytosol/spec.md
     notes: >
       The pT7-toehold9-PLA1 template is Effector: PLA1 — the switch and the
