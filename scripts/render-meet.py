@@ -84,6 +84,7 @@ STYLE = """
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     classDef unmet    fill:#ffffff,stroke:#111827,color:#111827,stroke-dasharray:0;
     classDef partial  fill:#ffffff,stroke:#6b7280,color:#6b7280;
+    classDef domain   fill:#ffffff,stroke:#6b7280,color:#6b7280,stroke-dasharray:4 3;
 """
 
 
@@ -555,9 +556,13 @@ if __name__ == "__main__":
 
     L.append("")
     L.append(STYLE.rstrip("\n"))
+    # THE DOMAIN NODE CARRIES A CLASS LIKE EVERY OTHER NODE. Without one it took
+    # Mermaid's default fill, which is lavender, against the grayscale the
+    # mermaid-diagrams skill sets as house style. It is drawn dashed because it
+    # states what the figure is taken over rather than being a thing in it.
     for nm, ids in (("concrete", concrete), ("abstract", abstract),
                     ("unmet", unmet), ("partial", partial),
-                    ("process", procs)):
+                    ("process", procs), ("domain", ["DOMAIN"])):
         if ids:
             L.append(f"    class {','.join(ids)} {nm};")
     print("\n".join(L))
