@@ -82,6 +82,7 @@ open:
       The effective induction range the page gives is 500 nM to 2000 nM IPTG, which
       belongs on ../analyte-iptg/spec.md rather than here.
   - id: laci-has-two-supply-routes
+    kind: choice
     question: >
       LacI may be added as purified protein at 500 nM to 1000 nM, or expressed in
       situ from the `pT7-lacI` construct. The table takes the purified route and this

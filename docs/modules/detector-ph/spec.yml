@@ -110,6 +110,7 @@ open:
       submitted. The page carries this flag and this file repeats it rather than
       resolving it.
   - id: three-templates-one-used
+    kind: choice
     question: >
       `T7-toehold-LacZ-T7term` and `T7-toehold-XylE-T7term` are designed and not used
       for the demo, which uses `pT7-toehold9-PLA1`. The schema has one operand slot

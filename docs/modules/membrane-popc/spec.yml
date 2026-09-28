@@ -57,6 +57,7 @@ process_steps:
 
 open:
   - id: two-preparations-are-exclusive
+    kind: choice
     question: >
       The page documents two preparations and only the PEGylated one is a step above.
       They are alternatives and the page says so in its own words — "neither

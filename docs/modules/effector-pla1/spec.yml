@@ -76,6 +76,7 @@ measured_by:
 
 open:
   - id: the-four-gated-variants-are-stitched-dna-modules
+    kind: choice
     question: >
       The page lists five configurations and this file writes one. The other four are
       London AHSL (`LuxR-PLA1`, 15 ng/uL, in S30 Lysate), Chicago aTc (`TetO-PLA1`,

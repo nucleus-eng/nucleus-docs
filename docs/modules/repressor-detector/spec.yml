@@ -44,6 +44,7 @@ process_steps:
 
 open:
   - id: the-supply-route-decides-the-operator
+    kind: choice
     question: >
       ../detector-laci-iptg/spec.md states the choice in its own prose: LacI is added
       "either as a purified protein or by expressing it off of `pT7-lacI`". Protein

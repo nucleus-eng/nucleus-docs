@@ -57,6 +57,7 @@ process_steps:
 
 open:
   - id: two-routes-one-product
+    kind: choice
     question: >
       The page documents two preparations of this one membrane and only the first is
       a step above. They are alternatives, not an ordered pair, and the schema has no

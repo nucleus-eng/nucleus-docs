@@ -265,6 +265,26 @@ properties:
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
         question:
           type: string
+        kind:
+          enum: [question, choice]
+          description: >
+            WHICH OF TWO THINGS THIS ENTRY IS, Jon 2026-09-25: "this problem may just
+            be a conflation of the idea of an 'open question' (doesn't have a place in
+            a .yml representation of a specification page) vs an 'open design choice'
+            (does belong here)". A `question` is something this source cannot answer and
+            somebody must go and find out. A `choice` is a decision the design has not
+            made yet, and it belongs in a specification because the specification is
+            what leaves it open.
+            OPTIONAL, AND ABSENCE IS NOT `question`. 133 entries predate this key and
+            none was written with the distinction in mind, so an untagged entry is
+            untriaged rather than classified. Nothing may count untagged entries as
+            questions.
+            THE KEY WAS ADDED RATHER THAN THE ENTRIES BEING MOVED. Acting on the
+            distinction fully would relocate 133 entries across 52 of 71 sources and
+            reverse this field's stated purpose. Several are load-bearing where they
+            are: substrate-carrier's two are why that class is written narrow. Moving
+            them to prose loses the one thing this key buys, which is that a script can
+            count them.
 
 $defs:
 

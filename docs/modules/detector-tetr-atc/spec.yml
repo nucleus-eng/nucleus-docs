@@ -53,6 +53,37 @@ process_steps:
       PURExpress reference and the master mix that produced the reference figures is
       in Expected Behavior rather than in the composition.
 
+# WHAT THIS MODULE TOLERATES. Half of a Conflict; glossary.md#T23 makes Conflict
+# DERIVED, "computed, never asserted", so the other half sits on a morphism and
+# check-conflicts.py does the join. ABSENCE MEANS UNDECLARED, NOT NONE.
+sensitivities:
+  - id: atc-window
+    to: atc-dose
+    basis: observation
+    bound:
+      quantity: concentration
+      sense: at-most
+      unit: uM
+      value: 0.5
+    why: >
+      Above about 0.5 uM aTc in this cytosol the response stops being graded.
+      ../atc-sensing-cell/spec.md reports its own configuration saturating at or
+      below 1 uM with no resolvable dose-dependence from 1 uM to 10 uM, which is the
+      one observation the corpus has of this end being crossed.
+      THE LOWER END IS IN PROSE AND NOT HERE, same discipline as ../cell/spec.yml:
+      a single bound carries one sense, and the end an imposition can cross is the
+      upper one. The window is 0.1 uM to 0.5 uM with an optimum near 0.25 to 0.35 uM.
+      THIS IS A WINDOW IN THIS CYTOSOL AND NOT A PROPERTY OF THE DETECTOR ALONE.
+      Lysate wants 2.5 uM to 5 uM, roughly ten times more. A bound written without
+      its cytosol would be false in the other one.
+      NOTHING COMPUTES AGAINST THIS YET, AND THAT IS THE FINDING. `atc-dose` is not
+      declared as an imposition anywhere in the corpus. Nine impositions exist across
+      all sources and they are `thermal-hold`, `uv-exposure` and `proteinase-k`;
+      `temperature` is the only quantity any of them declares. The step that would
+      raise `atc-dose` is the aTc trigger, and IT CANNOT BE WRITTEN, because the dose
+      the demo uses is unrecorded — the page says so in its own words. So this entry
+      is a declared half waiting on a figure from the bench, not on a schema change.
+
 open:
   - id: three-tetr-formats-are-not-interchangeable
     question: >

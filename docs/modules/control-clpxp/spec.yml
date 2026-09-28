@@ -84,6 +84,7 @@ process_steps:
 
 open:
   - id: three-routes-one-module
+    kind: choice
     question: >
       The page opens by saying the Module can be implemented from purified proteins
       alone, from in situ expressed proteins encoded on DNA templates, or from
