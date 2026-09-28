@@ -86,6 +86,21 @@ membership a matter of what a sort classifies.
 members.** A detector held apart from the reaction it gates could not gate it, so `packing` is
 not available here.
 
+## What a bracket on this class binds
+
+**This class declares its parameters too, so `SensorCytosol[…]` says which axis it restricts.** Same pattern as [Detector](../detector/spec.md) and, behind that, [Pore](../pore/spec.md).
+
+:::{table} The parameters this class declares.
+| Parameter | Ranges over | Written |
+| --- | --- | --- |
+| `α`, the analyte | the four members' sensing elements | `SensorCytosol[α]` |
+| `ε`, the effector it actuates | an effector Module | `SensorCytosol[α ⟶ ε]` |
+:::
+
+**Prefer the arrow form, and Jon gave the reason** on 2026-09-28: *"the signature shows the analyte and the actuated effector gene."* `SensorCytosol[aTc]` says what the cytosol responds to and not what it does about it. Two members can share an analyte and actuate different effectors, so the analyte alone does not identify one.
+
+**The base is not a parameter.** Members differ in base, S30 Lysate against Base Cytosol, and the bracket does not bind it. A reader choosing a sensor cytosol chooses by what it senses. The base is in the members table below.
+
 :::{table} The four members, and what each mixes in.
 | Member | Base | Sensing element |
 | --- | --- | --- |

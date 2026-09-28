@@ -62,6 +62,24 @@ flowchart TD
 
 **At this level the invariant names no composition**, so this page states none. **One of its refinements does**, and that is the next section.
 
+## What a bracket on this class binds
+
+**This class declares its parameters, so `Detector[…]` says which axis it restricts.** The pattern is [Pore](../pore/spec.md)'s: that class writes `Cargo[φ]` in its signature and says what `φ` ranges over, so a reader never has to guess. Without a declaration a bare bracket binds one axis silently, and this class has more than one.
+
+:::{table} The parameters this class declares.
+| Parameter | Ranges over | Written |
+| --- | --- | --- |
+| `α`, the analyte | the rows of the table below | `Detector[α]`, for example `Detector[aTc]` |
+| `μ`, the mechanism | the columns of the table below | `Detector[μ]`, for example `Detector[repressor]` |
+| `ε`, the effector the detector actuates | an effector Module | the arrow form, `Detector[α ⟶ ε]` |
+:::
+
+**A bare `Detector[X]` binds `α`.** The analyte is the axis every member has a value on, and it is the axis the whiteboards write. `μ` has no value for two of six members, which is what the section after next is about.
+
+**The arrow form is registered and is not new here.** In `compositional-biology-theory`, `glossary.md#T42` on `rulings.md#D165`, 2026-09-25: `X[A ⟶ B]` restricts by behavior rather than by constituent. **So `Detector[α ⟶ ε]` names what the detector senses and what it turns on**, which is the form the demo figures use.
+
+**A third free parameter is named further down and is deliberately not in this table.** How the repressor element is supplied, as protein or as DNA, is a parameter of [Repressor Detector](../repressor-detector/spec.md) and not of this class, because this class has members with no repressor element at all.
+
 ## The two axes
 
 :::{table} Refining by analyte, and refining by mechanism.
