@@ -94,24 +94,24 @@ flowchart TD
 
 **The third column is not a third mechanism.** It holds the two members for which the mechanism question has no single answer, for two different reasons. Treating it as a value would hide that.
 
-**Jon's path through this, 2026-09-21**, taking the analyte first: Abstract Detector, then abstract AHSL detector, which forks into an **abstract repressor AHSL detector** and an **abstract activator AHSL detector**. **The mechanism-first path reaches the same place**: Abstract Detector, then abstract repressor detector, then its aTc, IPTG and AHSL members.
+**Jon's path through this, 2026-09-21**, taking the analyte first: Abstract Detector, then abstract 3OC6-HSL detector, which forks into an **abstract repressor 3OC6-HSL detector** and an **abstract activator 3OC6-HSL detector**. **The mechanism-first path reaches the same place**: Abstract Detector, then abstract repressor detector, then its aTc, IPTG and 3OC6-HSL members.
 
-**The two paths meet, and their middles are incomparable.** Jon, 2026-09-21: *"Abstract Repressor AHSL detector refines both Abstract Repressor Detector and Abstract AHSL Detector, even though neither of the later refine each other."*
+**The two paths meet, and their middles are incomparable.** Jon, 2026-09-21: *"Abstract Repressor 3OC6-HSL detector refines both Abstract Repressor Detector and Abstract 3OC6-HSL Detector, even though neither of the later refine each other."*
 
 ```
                 Abstract Detector
                  /             \
-   Abstract Repressor      Abstract AHSL
+   Abstract Repressor      Abstract 3OC6-HSL
        Detector               Detector
                  \             /
-           Abstract Repressor AHSL Detector
+           Abstract Repressor 3OC6-HSL Detector
 ```
 
-**Neither middle entails the other.** There are repressor detectors that sense something other than AHSL, and there is an AHSL detector that is not a repressor. **A tree cannot hold this**, because the bottom node has two parents and neither dominates. That is why this page is written as two axes and a table rather than as a hierarchy.
+**Neither middle entails the other.** There are repressor detectors that sense something other than 3OC6-HSL, and there is an 3OC6-HSL detector that is not a repressor. **A tree cannot hold this**, because the bottom node has two parents and neither dominates. That is why this page is written as two axes and a table rather than as a hierarchy.
 
 **The bottom node has no built member.** EsaR is the intended one and the London Node is redesigning around it. So the meet exists as a specification before it exists as a thing, which is the abstraction predicting a Module rather than recording one.
 
-**The AHSL row is the only one with both mechanisms**, and it is the reason the fork is worth naming. LuxR activates. EsaR is a LuxR homolog that represses, the London Node is redesigning around it, and it has no page here yet.
+**The 3OC6-HSL row is the only one with both mechanisms**, and it is the reason the fork is worth naming. LuxR activates. EsaR is a LuxR homolog that represses, the London Node is redesigning around it, and it has no page here yet.
 
 ## The abstract repressor detector, and it does have a composition
 
@@ -121,7 +121,7 @@ flowchart TD
 
 **Two constituents, and they are separate molecules.** That makes this class composed where its parent is not, so `Abstract Detector` has no composition and `Abstract Repressor Detector` has one. The line falls between them.
 
-**How the repressor element is supplied is a free parameter of the class**, and [LacI-IPTG](../detector-laci-iptg/spec.md) states it outright: LacI is added *"either as a purified protein or by expressing it off of `pT7-lacI`."* EsaR is available as purified protein from Biocrest, which is why the AHSL redesign can take that route and skip the energy cost of expressing a regulator.
+**How the repressor element is supplied is a free parameter of the class**, and [LacI-IPTG](../detector-laci-iptg/spec.md) states it outright: LacI is added *"either as a purified protein or by expressing it off of `pT7-lacI`."* EsaR is available as purified protein from Biocrest, which is why the 3OC6-HSL redesign can take that route and skip the energy cost of expressing a regulator.
 
 :::{attention} That parameter decides how the two constituents compose
 If the repressor element is supplied as protein, the two are mixed. If it is supplied as DNA, they can be two constructs mixed or one construct with both, which is a different operation. **So the same pair of Modules composes differently depending on a choice the class leaves open**, and the operator is not fixed by the class.
@@ -158,7 +158,7 @@ Both built members take the two-construct route. [tetR-aTc](../detector-tetr-atc
 | --- | --- | --- |
 | Member with a working witness | the spec is in the class and something built meets it | LuxR, tetR-aTc, LacI-IPTG, pH-Sensing |
 | **Member whose witness failed** | the spec is in the class, the built instance does not meet it | **Theophylline** |
-| **Slot with no member** | the class position is defined and nothing occupies it | **Abstract Repressor AHSL Detector** |
+| **Slot with no member** | the class position is defined and nothing occupies it | **Abstract Repressor 3OC6-HSL Detector** |
 
 **The theophylline spec stays in the fiber and its construct is not a witness.** The design is published, [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), and it does satisfy the invariant as designed. What failed is the instance, not the classification.
 

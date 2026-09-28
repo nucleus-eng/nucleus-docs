@@ -68,7 +68,7 @@ process_steps:
     operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
     produces:
       id: ahsl-sensor-cytosol
-      title: "AHSL Sensor Cytosol"
+      title: "3OC6-HSL Sensor Cytosol"
       page: ../ahsl-sensor-cytosol/spec.md
     notes: >
       S30 Lysate is supplied as a kit, so this is a reconstitution rather than a
@@ -84,7 +84,7 @@ process_steps:
     operands: [ahsl-sensor-cytosol, membrane-popc]
     produces:
       id: ahsl-sensing-cell
-      title: "AHSL Sensing Cell"
+      title: "3OC6-HSL Sensing Cell"
       page: ../ahsl-sensing-cell/spec.md
 
   # 3 ────────────────────────────────────────────────────────────────────
@@ -118,7 +118,7 @@ process_steps:
     parameters:
       osmolarity: "~920 mOsm"     # measured or calculated is not recorded in any source
     notes: >
-      Matched to the AHSL Sensing Cell inner solution at about 920 mOsm. AHSL is
+      Matched to the 3OC6-HSL Sensing Cell inner solution at about 920 mOsm. 3OC6-HSL is
       excluded — it is the analyte, present in the induced condition only, and
       belongs to the assay rather than the composition.
 
