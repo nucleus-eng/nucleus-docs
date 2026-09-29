@@ -127,10 +127,6 @@ The chassis is formed by encapsulating [Base Cytosol](../base-cytosol/spec.md) i
 - [Base Cytosol](../base-cytosol/spec.md)
 - [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)
 
-# Implementations
-
-- **Nothing composes this page.** It describes the cell the Chicago demo builds on — Base Cytosol with the 9:1 membrane — but no cascade's composition source names it, and the [Chicago DevCell](../../implementations/chicago-devcell/main.md) is a placeholder that has not been built. The cascades assemble that cell from its two constituents directly.
-
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).

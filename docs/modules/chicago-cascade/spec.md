@@ -321,10 +321,6 @@ colors — still spatially separated, since the populations are separate either 
 different demos and want separate specifications.
 :::
 
-# Implementations
-
-This cascade is the sensing core of the [Chicago DevCell](../../implementations/chicago-devcell/main.md), the device that would place it in a hydrogel and add spatial patterning. **That device has not been built**, so the page carries the demo's design rather than a result.
-
 # Processes
 
 Every step below has a Process page. They are listed in the order they are performed.

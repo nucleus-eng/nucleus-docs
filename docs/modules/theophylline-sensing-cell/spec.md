@@ -173,10 +173,6 @@ Must not use [LacZ / CPRG](../reporter-lacz/spec.md) as its reporter: theophylli
 Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly that pairing, so every result on this page was produced with the reporter the constraint rules out. That is part of why the leak above is hard to attribute — it could be riboswitch leak, or theophylline acting on LacZ. A XylE readout would separate the two, and none has been run. Confirm with the Chicago Node before building on either reading.
 :::
 
-# Implementations
-
-Not used in a documented Implementation. The [Chicago DevCell](../../implementations/chicago-devcell/main.md) dropped the theophylline sensor, and no cascade names this Cell. **The demo was never built either**, so this records two absences rather than one.
-
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal

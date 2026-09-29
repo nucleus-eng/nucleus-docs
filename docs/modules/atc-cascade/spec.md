@@ -219,10 +219,6 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 Must not be exposed to theophylline, which is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#reporter-lacz-requirements) for the constraint and the state of the evidence behind it.
 
-# Implementations
-
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the device that would place this cascade in a hydrogel with spatial patterning. **No implementation has been built.** That page is a placeholder and says so: *"the integrated result does not exist yet and will be written up during DevStudio."*
-
 # Processes
 
 Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). Hydrogel embedding of this cascade is not documented.

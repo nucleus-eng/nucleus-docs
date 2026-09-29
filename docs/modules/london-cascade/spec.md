@@ -238,10 +238,6 @@ The readout depends on PLA1 lysing both compartments to release CPRG, so this ca
 
 Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (see [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
-# Implementations
-
-- [London DevCell](../../implementations/london-devcell/main.md): the device that would place this cascade in its operating context. **No implementation has been built.** That page is a placeholder and says so: *"the integrated result does not exist yet and will be written up during DevStudio."*
-
 # Processes
 
 Five steps, listed in the order they are performed. Each one combines its inputs under a single operator: **mixing**, where the result shares one compartment, or **packing**, where each input keeps its own. The operator follows from the process rather than being chosen per step.

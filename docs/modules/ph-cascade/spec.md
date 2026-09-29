@@ -234,10 +234,6 @@ Do not add gramicidin A to the colorimetric configuration. It ruptures a portion
 
 Requires a control that separates sensing-driven color from acid-driven leakage. Acidic conditions rupture some CPRG-loaded liposomes on their own, with no PLA1 involved, so color at pH 6.5 is not by itself attributable to the sensing pathway.
 
-# Implementations
-
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the device that would place this cascade in a hydrogel with spatial patterning. **No implementation has been built.** That page is a placeholder and says so: *"the integrated result does not exist yet and will be written up during DevStudio."*
-
 # Processes
 
 No process page documents assembling this three-part cascade end to end.
