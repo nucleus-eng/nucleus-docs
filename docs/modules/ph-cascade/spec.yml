@@ -51,8 +51,13 @@ inputs:
     # WHAT REVERSES IT. ../ph-sensing-cell/spec.md:147 says "0.7% low-gelling
     # agarose", and the DevStudio board of 2026-09-23 has the pH presenter saying
     # "I used the low gelling" with ultra-low raised separately as a possible
-    # substitution. The same session gives 14 °C for the ultra-low grade, so the
-    # two are different products and not two words for one.
+    # substitution. THE TWO ARE DIFFERENT PRODUCTS AND NOT TWO WORDS FOR ONE:
+    # ../gel-lga/spec.yml gives LGA a gel point of 30 °C and ../gel-ulga/spec.yml
+    # gives ULGA 8-17 °C, both from vendor datasheets Jon supplied 2026-09-24.
+    # THE SESSION'S OWN FIGURE FOR THE ULTRA-LOW GRADE WAS 14 °C AND IT IS
+    # SUPERSEDED, not contradicted: 14 falls inside the datasheet's 8-17 range,
+    # and 17 is the end an embedding step needs because it bounds "still liquid".
+    # The distinction this comment draws holds under either figure.
     #
     # THE KEY IS RENAMED AND THAT IS NEW. The old comment declined to rename it on
     # the grounds that ULGA is a grade of agarose rather than another material, so

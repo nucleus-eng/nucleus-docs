@@ -6,7 +6,11 @@
 #
 # LOW-GELLING IS NOT ULTRA-LOW-GELLING. They are ordered as different products and they
 # gel at different temperatures. The pH presenter, DevStudio day one: "I used the low
-# gelling." The same session gives 14 °C for the ultra-low grade.
+# gelling." The same session gives 14 °C for the ultra-low grade, WHICH IS
+# SUPERSEDED BY THE VENDOR DATASHEET Jon supplied 2026-09-24: 8-17 °C. The
+# session figure falls inside that range, so this is a sharpening rather than a
+# correction, and `gel_point_max_c: 17` on ../gel-ulga/spec.yml is the figure an
+# embedding step reads.
 #
 # THE SHAPE IS ../gel-ulga/spec.yml's AND THE FIGURES ARE NOT. Both set a polymer into an
 # outer solution by cooling. What this file cannot state is which outer solution, because
