@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`chicago-chassis`](../chicago-chassis/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.

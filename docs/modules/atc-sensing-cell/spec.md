@@ -11,7 +11,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`chicago-chassis`](../chicago-chassis/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The SensorCell[aTc ⟶ PLA1] combines the [Chicago Chassis](../chicago-chassis/spec.md) with a `TetO-PLA1` sensing circuit and encapsulated LacZ, giving a synthetic cell that reports anhydrotetracycline (aTc) dose as a colorimetric (absorbance) signal. The [aTc Sensing Module](../detector-tetr-atc/spec.md) supplies the `TetO-PLA1` sensing construct and the [PLA1 Lysis Module](../effector-pla1/spec.md) the lysis trigger, both inside the cell along with LacZ from the [LacZ Reporter Module](../reporter-lacz/spec.md). That Module's CPRG substrate stays outside, so the cell starts colorless and lysis is what produces the signal.

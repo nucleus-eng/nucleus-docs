@@ -120,26 +120,38 @@ def to_module(page: str | None) -> str | None:
 
 
 def parents(S: dict) -> dict[str, str]:
-    """One parent per module, and it REFUSES a list rather than picking from it.
+    """One parent per module. A list aligns by its FIRST entry, and the source
+    declares which that is.
 
-    `refines:` may be a list since 2026-09-24. `slot_key` below aligns two
-    products when they share an immediate parent, and with two parents there is
-    no "the" parent to compare -- two products could share one parent each and
-    align or not depending on which this function happened to keep. That is the
-    silent wrong answer `render-position.py` warned about, in a worse place,
-    because here it changes a drawn figure rather than a printed line.
+    `refines:` may be a list since 2026-09-24. This function refused a list until
+    2026-09-29, because `slot_key` below aligns two products when they share an
+    immediate parent, and picking one of two arbitrarily makes two products align
+    or not depending on which this function happened to keep.
+
+    Jon's ruling of 2026-09-29 removes the arbitrariness rather than the choice:
+    "align by the functional parent", on the reasoning that a chassis is what
+    DIFFERS between two demos, so the axis they can be compared on is the other
+    one. The convention that carries it is positional -- the first entry of the
+    list is the alignment parent -- so the source states it and this function
+    reads it. Nothing here sniffs a name to guess which parent is functional.
+
+    A one-element list is still refused, because `minItems: 2` in the schema
+    means it can only be a second spelling of the string form.
     """
     out = {}
     for m, d in S.items():
         r = d.get("refines")
         if not r:
             continue
-        if not isinstance(r, str):
+        if isinstance(r, str):
+            out[m] = r
+            continue
+        r = list(r)
+        if len(r) < 2:
             raise ValueError(
-                f"{m} refines {list(r)}. The meet renderer aligns slots by the "
-                "immediate parent and cannot choose between two. Give this "
-                "renderer a rule for multi-parent alignment before using one.")
-        out[m] = r
+                f"{m} refines {r}. A one-element list is a second spelling of the "
+                "string form; the schema requires at least two entries.")
+        out[m] = r[0]
     return out
 
 

@@ -48,6 +48,12 @@ properties:
       refines the other. A single string stays the normal form and every source
       uses one today; `minItems: 2` keeps a one-element list from being a second
       spelling of the same thing.
+      THE FIRST ENTRY IS THE ALIGNMENT PARENT, Jon's ruling 2026-09-29: "align by
+      the functional parent". A chassis is what DIFFERS between two demos, so the
+      axis two cells can be compared on is the other one. The convention is
+      positional so that the source states it and no reader has to guess which
+      parent is functional by sniffing its name. `render-meet.py` reads entry one
+      and ignores the rest.
       A LIST MAKES THE REFINEMENT ORDER A DAG RATHER THAN A FOREST, and a meet in
       a DAG need not be unique. `render-position.py` said so before this key
       changed: "the day the key becomes a list this returns a plausible wrong
