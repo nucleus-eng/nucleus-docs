@@ -19,7 +19,7 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   detector-tetr-atc:
-    title: "Sensor: tetR-aTc"
+    title: "Detector: tetR-aTc"
     page: ../detector-tetr-atc/spec.md
   effector-pla1:
     title: "Lysis: PLA1"

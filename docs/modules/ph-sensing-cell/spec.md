@@ -86,7 +86,7 @@ flowchart TD
 | trigger ssDNA | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, added directly |
 :::
 
-See [Sensor: pH-Sensing](../detector-ph/spec.md) for the design.
+See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
 
 ::::
 
@@ -165,7 +165,7 @@ See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
 
-Requires pH detection — see [Sensor: pH-Sensing](../detector-ph/spec.md).
+Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
 # Processes
 

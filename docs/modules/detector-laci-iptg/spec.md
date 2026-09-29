@@ -1,5 +1,5 @@
 ---
-title: "Sensor: LacI-IPTG"
+title: "Detector: LacI-IPTG"
 subtitle: "Module Specification"
 thumbnail: mechanism-schematic.png
 site:

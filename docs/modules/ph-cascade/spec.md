@@ -127,7 +127,7 @@ flowchart TD
 | trigger ssDNA | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, added directly |
 :::
 
-See [Sensor: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Lysis: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
+See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Lysis: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
 
 
 ::::
@@ -224,7 +224,7 @@ The three Modules above have run in partial combinations, never together in one 
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the toehold-switch-gated PLA1 construct, and a drop to pH ≈ 6.5 to open the toehold switch (e.g. [Sensor: pH-Sensing](../detector-ph/spec.md)).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the toehold-switch-gated PLA1 construct, and a drop to pH ≈ 6.5 to open the toehold switch (e.g. [Detector: pH-Sensing](../detector-ph/spec.md)).
 
 Requires two lipid compartments — a sensing/PLA1 liposome and a separate CPRG-loaded liposome (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout depends on lysis releasing CPRG from one compartment into another, so this cascade has no bulk-cytosol route.
 

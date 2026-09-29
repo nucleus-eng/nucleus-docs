@@ -1,5 +1,5 @@
 ---
-title: "Sensor: 3OC6-HSL"
+title: "Detector: 3OC6-HSL"
 subtitle: "Module Specification"
 status: draft
 site:

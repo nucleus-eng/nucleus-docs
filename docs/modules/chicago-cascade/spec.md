@@ -43,7 +43,7 @@ flowchart TD
     EFFECTOR_PLA1["Lysis: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
-    DETECTOR_TETR_ATC["Sensor: tetR-aTc"]
+    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
     PEG_NORBORNENE_MONOMER["4-arm PEG-norbornene"]
     PEG4SH["PEG4SH crosslinker"]
     LAP["LAP photoinitiator"]

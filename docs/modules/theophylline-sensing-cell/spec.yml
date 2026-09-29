@@ -20,7 +20,7 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   detector-theophylline:
-    title: "Sensor: Theophylline"
+    title: "Detector: Theophylline"
     page: ../detector-theophylline/spec.md
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"

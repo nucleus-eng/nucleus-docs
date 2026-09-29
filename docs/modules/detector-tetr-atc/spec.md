@@ -1,5 +1,5 @@
 ---
-title: "Sensor: tetR-aTc"
+title: "Detector: tetR-aTc"
 subtitle: "Module Specification"
 thumbnail: mechanism-schematic.png
 site:
