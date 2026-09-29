@@ -94,6 +94,8 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cell (Sensing) | [SensorCell[3OC6-HSL ⟶ PLA1]](./ahsl-sensing-cell/spec.md) | ★ |
 | Cytosol: 3OC6-HSL Sensor | [SensorCytosol[3OC6-HSL ⟶ PLA1]](./ahsl-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
+| Cell (Cascade) | [LuxR-GFP Sensor Cascade](./luxr-gfp-cascade/spec.md) | - |
+| Cell (Cascade) | [CRAIC](./craic-cascade/spec.md) | - |
 | Gel | [ULGA](./gel-ulga/spec.md) | ★ |
 | Gel | [LGA](./gel-lga/spec.md) | - |
 | Gel | [Gel](./gel/spec.md) | - |

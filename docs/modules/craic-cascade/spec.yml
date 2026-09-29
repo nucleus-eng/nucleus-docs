@@ -1,0 +1,165 @@
+# Composition source for CRAIC.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Source: the DevStudio whiteboard of 2026-09-24, transcribed at
+# devstudio-readiness/src/20260924-demo-ahl-cytosol-craic.md, "CRAIC —
+# Colorimetric Reporter for AHL In Cytosol". Written 2026-09-29 on Jon's ruling
+# that the board is the record of what is being built.
+#
+# THIS IS ONE OF TWO 3OC6-HSL DEMOS. The other is luxr-gfp-cascade, which senses
+# the same analyte in S30 lysate and reports fluorescence.
+#
+# THE BOARD'S NAME CARRIES A RETIRED ACRONYM. CRAIC expands to "Colorimetric
+# Reporter for AHL In Cytosol", and AHL became 3OC6-HSL on 2026-09-24. The name
+# is kept because it is the demo's name and the board's, not a description.
+
+module: craic-cascade
+title: CRAIC
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  esar-dna:
+    title: "Sensor: EsaR DNA template"
+    page: null            # no EsaR page exists; detector-3oc6-hsl documents LuxR
+  effector-pla1:
+    title: "Lysis: PLA1"
+    page: ../effector-pla1/spec.md
+  membrane-craic:
+    title: "Membrane"
+    page: null            # the board writes Membrane_i and Membrane_j and names no formulation
+  outer-solution:
+    title: "Outer Solution"
+    page: ../outer-solution/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  ulga-powder:
+    title: "ULGA powder"
+    owner: vendor
+    page: ../gel-ulga/spec.md
+  analyte-3oc6-hsl:
+    title: "Analyte: 3OC6-HSL"
+    page: ../analyte-3oc6-hsl/spec.md
+
+process_steps:
+  - id: express-repressor
+    process:
+      title: "Assemble Solution"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, esar-dna]
+    produces:
+      id: esar-repressor
+      title: "Sensor: EsaR Repressor"
+      page: null
+    notes: >
+      The board splits expression from sensing: `P1A` makes the repressor
+      protein from its template, and `P1B` below mixes that protein into a
+      second cytosol. No other cascade here names the protein as its own object.
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-cytosol
+    operator: mixing
+    operands: [base-cytosol, esar-repressor, effector-pla1]
+    produces:
+      id: craic-sensor-cytosol
+      title: "SensorCytosol[3OC6-HSL ⟶ PLA1]"
+      page: null
+    notes: >
+      `ahsl-sensor-cytosol` carries the same title and is built on S30 Lysate,
+      so it is not this object. Same type expression, different chassis.
+
+  - id: encapsulate-sensing
+    process:
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    operands: [craic-sensor-cytosol, membrane-craic, outer-solution]
+    produces:
+      id: craic-sensing-cell
+      title: "SensorCell[3OC6-HSL ⟶ PLA1]"
+      page: null
+
+  - id: encapsulate-substrate
+    process:
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    operands: [substrate-cprg, membrane-craic, outer-solution]
+    produces:
+      id: craic-substrate-carrier
+      title: "Substrate Carrier{CPRG}"
+      page: null
+    notes: >
+      The board's `j` branch. This is the only demo that builds two bounded
+      compartments and merges them, which is the separation invariant of
+      color-change drawn
+      concretely: the enzyme and its substrate reach one gel in two compartments.
+
+  - id: embed-ulga
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+      abstract: embed-hydrogel
+    operator: packing
+    operands: [craic-sensing-cell, craic-substrate-carrier, reporter-lacz-enzyme, ulga-powder]
+    produces:
+      id: craic-cascade
+      title: "CRAIC"
+      page: ../craic-cascade/spec.md
+
+  - id: develop
+    process:
+      title: "Color Development"
+      page: ../../processes/color-development/main.md
+    operator: mixing
+    operands: [craic-cascade, analyte-3oc6-hsl]
+    produces:
+      id: craic-cascade-developed
+      title: "CRAIC′"
+      page: null
+    notes: >
+      The board's `P4 · Incubate / Detection`, producing the device in its On
+      state. The prime is the registered mark for the same thing changed,
+      signature.md:161. It sits in the title rather than the id because the
+      schema's id pattern admits no prime.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - kind: question
+    id: esar-has-no-page
+    question: >
+      EsaR has no module page. `detector-3oc6-hsl` documents LuxR and mentions
+      EsaR four times. This demo and luxr-gfp-cascade sense the same analyte
+      through different proteins, so one detector page cannot serve both.
+  - kind: choice
+    id: membrane-unchosen
+    question: >
+      The board writes `Membrane_i` and `Membrane_j` and names no formulation
+      for either. Whether the two branches share one membrane is also unstated.
+  - kind: question
+    id: observation-leg
+    question: >
+      The board draws `P5 · Obs` producing an Observation and this file has no
+      step for it. Every cascade here has the same hole, and `observe` carries
+      no profile on the theory side.

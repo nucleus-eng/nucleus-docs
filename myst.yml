@@ -161,6 +161,10 @@ project:
           hidden: true
         - file: ./docs/modules/london-cascade/spec.md
           hidden: true
+        - file: ./docs/modules/luxr-gfp-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/craic-cascade/spec.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/encapsulate/main.md

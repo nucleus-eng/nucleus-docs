@@ -1,0 +1,125 @@
+# Composition source for the LuxR-GFP Sensor Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Source: the DevStudio whiteboard of 2026-09-24, transcribed at
+# devstudio-readiness/src/20260924-demo-ahl-lysate.md, "LuxR-GFP Sensor Demo —
+# Demo 1, 3OC6-HSL in lysate". Written 2026-09-29 on Jon's ruling that the board
+# is the record of what is being built: "the board! always the board!"
+#
+# THIS IS ONE OF TWO 3OC6-HSL DEMOS. The other is craic-cascade, which senses the
+# same analyte in Base Cytosol and reports colour. Both were pitched; the corpus
+# had one London Cascade because two were expected and four were pitched.
+
+module: luxr-gfp-cascade
+title: LuxR-GFP Sensor Cascade
+
+inputs:
+  s30-lysate:
+    title: "Cytosol: S30 Lysate"
+    page: ../s30-lysate/spec.md
+  detector-3oc6-hsl:
+    title: "Detector: 3OC6-HSL"
+    page: ../detector-3oc6-hsl/spec.md
+  reporter-degfp:
+    title: "Reporter: deGFP"
+    page: ../reporter-degfp/spec.md
+  membrane-popc:
+    title: "Membrane: POPC"
+    page: ../membrane-popc/spec.md
+  outer-solution-london:
+    title: "London Outer Solution"
+    page: ../outer-solution-london/spec.md
+  ulga-powder:
+    title: "ULGA powder"
+    owner: vendor
+    page: ../gel-ulga/spec.md
+
+process_steps:
+  - id: assemble-plasmid
+    process:
+      title: "Plasmid assemble"
+      page: null
+      abstract: assemble-solution
+    operator: mixing
+    operands: [detector-3oc6-hsl, reporter-degfp]
+    produces:
+      id: luxr-gfp-plasmid
+      title: "Plasmid"
+      page: null
+    notes: >
+      The board draws this as its own step, `P1 · Plasmid assemble`, and no
+      process page documents it. It is kept because the board keeps it: the two
+      coding sequences are combined before either meets the lysate. No other
+      cascade in this corpus names a plasmid-assembly step.
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-cytosol
+    operator: mixing
+    operands: [s30-lysate, luxr-gfp-plasmid]
+    produces:
+      id: luxr-gfp-sensor-cytosol
+      title: "SensorCytosol[3OC6-HSL ⟶ GFP]"
+      page: null
+    notes: >
+      The board's `(M6)` reads `SensorCytosol[3OC6-HSL ⟶ PLA1] in S30 Lysate`
+      while its `(M7)` reads `SensorCell[3OC6-HSL ⟶ GFP]`. The two disagree on
+      the same board, and this demo reports fluorescence rather than lysis, so
+      the codomain here follows `(M7)`. Flagged rather than resolved.
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+    operator: packing
+    operands: [luxr-gfp-sensor-cytosol, membrane-popc, outer-solution-london]
+    produces:
+      id: luxr-gfp-sensing-cell
+      title: "SensorCell[3OC6-HSL ⟶ GFP]"
+      page: null
+
+  - id: embed-ulga
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+      abstract: embed-hydrogel
+    operator: packing
+    operands: [luxr-gfp-sensing-cell, ulga-powder]
+    produces:
+      id: luxr-gfp-cascade
+      title: "LuxR-GFP Sensor Cascade"
+      page: ../luxr-gfp-cascade/spec.md
+    notes: >
+      The board marks ULGA `2×` and does not say what the factor is against.
+      `embed-thermal-setting/main.md` records 1.5% (w/v) at the original
+      colorimetric run and a 1:1:2 combining ratio confirmed by the London Node
+      on 2026-09-09.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - kind: question
+    id: observation-leg
+    question: >
+      The board draws an observation leg — `(M11) Spectrometer` under
+      `(M12) UV lamp` reading `(M10) deGFP Reporter` — and this file has no step
+      for it. Every cascade in this corpus has the same hole, and the theory
+      side reports it too: `observe` appears once in signature.md and carries no
+      profile. Fixing it here needs the profile first.
+  - kind: question
+    id: codomain-disagreement
+    question: >
+      The board's own `(M6)` and `(M7)` disagree on whether this cascade's
+      cytosol expresses PLA1 or GFP. `assemble-cytosol` above follows `(M7)`.
