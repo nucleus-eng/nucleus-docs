@@ -106,7 +106,7 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `LuxR-PLA1` | 2237 | — | Expressed in the SensorCell[3OC6-HSL ⟶ PLA1]. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. London's own documents call it `P70lux-PLA1-term`. |
+| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Expressed in the SensorCell[3OC6-HSL ⟶ PLA1]. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. London's own documents call it `P70lux-PLA1-term`. **The linear form, for Base Cytosol**: `pOpen-LuxR-PLA1.gb` at 4175 bp is the circular form for S30 and is a different construct. |
 | LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
 :::
 

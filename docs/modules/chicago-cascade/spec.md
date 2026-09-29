@@ -185,7 +185,7 @@ The constructs are those of the two integration paths; no construct is specific 
 
 **The question this block raised about the third one is also answered.** It asked whether the toehold template *"is one of the two constructs listed on Effector: PLA1 or a third design"*. It is a third: 1203 bp against PLA1's 1202 bp linear and 2237 bp LuxR forms, on its own path under `detector-ph`.
 
-**The rows below can be filled, and this file does not fill them**, because a Designs-table row is an identity claim and belongs with a human reading the construct.
+**The rows above are filled**, on Jon's word of 2026-09-29. Each construct was verified by its features rather than by its name: `TetO` plus PLA1 for the first, `T7 promoter` plus `toehold 9` plus PLA1 for the second.
 
 **The superseded text follows.**
 
@@ -195,9 +195,10 @@ Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](http
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `TetO-PLA1` | not documented | — | Expressed; see [aTc Cascade](../atc-cascade/spec.md) |
-| Toehold-switch-gated PLA1 template | not documented | — | Expressed; see [pH Cascade](../ph-cascade/spec.md) |
-| pH-responsive ssDNA : trigger ssDNA | not documented | — | Synthesized oligonucleotides |
+| `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed; see [aTc Cascade](../atc-cascade/spec.md) |
+| `pT7-toehold9-PLA1-linear` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed; see [pH Cascade](../ph-cascade/spec.md). **A third design**, not either construct on [Effector: PLA1](../effector-pla1/spec.md) |
+| `pH-responsive-ssDNA-2` | 49 | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | Synthesized oligonucleotide |
+| `trigger-ssDNA-3` | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, annealed to the above at 3:1 |
 :::
 
 ::::
