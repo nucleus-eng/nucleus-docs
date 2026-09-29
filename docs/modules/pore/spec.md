@@ -67,7 +67,7 @@ active_transport  : Pore ⊗ Membrane ⊗ Cargo[φₐ] ⊗ ATP|GTP ⟶ Membrane[
 
 Requires a membrane to make permeable. It is not one, and it does nothing on its own.
 
-**Requires that the membrane survive it.** [Gramicidin A](../membrane-pore-gramicidin/spec.md) is the case: it caused premature lysis in the pH cascade, rupturing CPRG-loaded liposomes and producing nonspecific color, and was left out of the colorimetric demonstration for that reason. See [Effector: PLA1](../effector-pla1/spec.md) § Expected Behavior.
+**Requires that the membrane survive it.** [Gramicidin A](../membrane-pore-gramicidin/spec.md) is the case: it caused premature lysis in the pH cascade, rupturing CPRG-loaded liposomes and producing nonspecific color, and was left out of the colorimetric demonstration for that reason. See [Lysis: PLA1](../effector-pla1/spec.md) § Expected Behavior.
 
 :::{attention} What this class requires of its Context is not settled
 An abstract Module carries an abstract Context that its members refine, ruled 2026-09-17. **How much that Context term carries, and how much is left to Requirements, is `open.md#O21`** in the theory corpus, whose expressiveness half closed on Jon's ruling of 2026-09-21 and whose selection half is live.

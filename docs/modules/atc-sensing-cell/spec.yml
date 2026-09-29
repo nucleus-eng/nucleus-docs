@@ -22,7 +22,7 @@ inputs:
     title: "Detector: tetR-aTc"
     page: ../detector-tetr-atc/spec.md
   effector-pla1:
-    title: "Effector: PLA1"
+    title: "Lysis: PLA1"
     page: ../effector-pla1/spec.md
   reporter-lacz-enzyme:
     title: "LacZ Enzyme"

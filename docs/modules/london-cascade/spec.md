@@ -115,7 +115,7 @@ LuxR is not supplied as purified protein. Each London sensing construct carries 
 :::
 
 :::{attention} WITHDRAWN 2026-09-29 — the construct is in `nucleus-eng/DNA`
-**The condition this block set has been met.** The file is `effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb`, **2237 bp**, and [Effector: PLA1](../effector-pla1/spec.md) carries it as a checked row. **Note which form**: the linear one, for Base Cytosol. `pOpen-LuxR-PLA1.gb` at 4175 bp is the circular form for S30 and is a different construct.
+**The condition this block set has been met.** The file is `effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb`, **2237 bp**, and [Lysis: PLA1](../effector-pla1/spec.md) carries it as a checked row. **Note which form**: the linear one, for Base Cytosol. `pOpen-LuxR-PLA1.gb` at 4175 bp is the circular form for S30 and is a different construct.
 
 **The superseded text follows.**
 
@@ -286,7 +286,7 @@ The five inputs to the embedding step, which is where the cascade is made.
 - [London Outer Solution](../outer-solution-london/spec.md) — the phase the gel sets in, matched at about 920 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
-The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
+The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
 
 `spec.yml` in this directory carries the same structure in machine-readable form, with the process and operator for each step. Nothing checks that the two agree.

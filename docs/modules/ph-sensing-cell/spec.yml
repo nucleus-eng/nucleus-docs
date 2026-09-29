@@ -26,7 +26,7 @@ inputs:
     title: "Trigger ssDNA"
     page: null
   effector-pla1:
-    title: "Effector: PLA1"
+    title: "Lysis: PLA1"
     page: ../effector-pla1/spec.md
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"

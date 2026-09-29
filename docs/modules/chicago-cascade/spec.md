@@ -40,7 +40,7 @@ flowchart TD
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
-    EFFECTOR_PLA1["Effector: PLA1"]
+    EFFECTOR_PLA1["Lysis: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
@@ -183,20 +183,20 @@ The constructs are those of the two integration paths; no construct is specific 
 | Toehold-switch-gated PLA1 template | `effectors/detector-ph/pT7-toehold9-PLA1-linear.gb` | 1203 bp |
 | pH-responsive ssDNA : trigger ssDNA | `detectors/detector-ph/pH-responsive-ssDNA-2.gb`, `trigger-ssDNA-3.gb` | 49 bp, 36 bp |
 
-**The question this block raised about the third one is also answered.** It asked whether the toehold template *"is one of the two constructs listed on Effector: PLA1 or a third design"*. It is a third: 1203 bp against PLA1's 1202 bp linear and 2237 bp LuxR forms, on its own path under `detector-ph`.
+**The question this block raised about the third one is also answered.** It asked whether the toehold template *"is one of the two constructs listed on Lysis: PLA1 or a third design"*. It is a third: 1203 bp against PLA1's 1202 bp linear and 2237 bp LuxR forms, on its own path under `detector-ph`.
 
 **The rows above are filled**, on Jon's word of 2026-09-29. Each construct was verified by its features rather than by its name: `TetO` plus PLA1 for the first, `T7 promoter` plus `toehold 9` plus PLA1 for the second.
 
 **The superseded text follows.**
 
-Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. `TetO-PLA1` carries the same gap where it is specified, on [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md). The toehold-switch-gated template is not separately recorded, and whether it is one of the two constructs listed on [Effector: PLA1](../effector-pla1/spec.md) or a third design is not established — do not assume it from the name. Do not add a length or file entry here until each construct is confirmed and its length verified against the source file.
+Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. `TetO-PLA1` carries the same gap where it is specified, on [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md). The toehold-switch-gated template is not separately recorded, and whether it is one of the two constructs listed on [Lysis: PLA1](../effector-pla1/spec.md) or a third design is not established — do not assume it from the name. Do not add a length or file entry here until each construct is confirmed and its length verified against the source file.
 :::
 
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed; see [aTc Cascade](../atc-cascade/spec.md) |
-| `pT7-toehold9-PLA1-linear` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed; see [pH Cascade](../ph-cascade/spec.md). **A third design**, not either construct on [Effector: PLA1](../effector-pla1/spec.md) |
+| `pT7-toehold9-PLA1-linear` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed; see [pH Cascade](../ph-cascade/spec.md). **A third design**, not either construct on [Lysis: PLA1](../effector-pla1/spec.md) |
 | `pH-responsive-ssDNA-2` | 49 | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | Synthesized oligonucleotide |
 | `trigger-ssDNA-3` | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, annealed to the above at 3:1 |
 :::

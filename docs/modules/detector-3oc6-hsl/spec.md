@@ -30,7 +30,7 @@ This page documents the **LuxR** route. LuxR is an activator, so 3OC6-HSL switch
 promoter on. **EsaR is the other refinement**: a LuxR homolog that represses rather than
 activates, which inverts the logic. Repressors give lower noise floors, so EsaR may be the more
 compatible route for a PLA1-driven cascade. See
-[Effector: PLA1](../effector-pla1/spec.md) § Requirements for why the noise floor binds.
+[Lysis: PLA1](../effector-pla1/spec.md) § Requirements for why the noise floor binds.
 
 **The London Node is running EsaR.** It is available as purified protein from Biocrest, which
 removes the energy cost of expressing the regulator. Energy partitioning is one of three live

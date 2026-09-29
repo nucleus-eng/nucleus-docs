@@ -97,7 +97,7 @@ Requires that the enzyme and the substrate stay in separate compartments until t
 is the class invariant and every member inherits it.
 
 Requires a trigger that breaks the separation. Every member built so far uses
-[Effector: PLA1](../effector-pla1/spec.md), so every member built so far also inherits **PLA1's
+[Lysis: PLA1](../effector-pla1/spec.md), so every member built so far also inherits **PLA1's
 low noise floor requirement**. That inheritance is through the implementation, not through this
 class: a color change module triggered some other way would not carry it.
 

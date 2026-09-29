@@ -19,7 +19,7 @@ This page is a work in progress and not yet ready for use.
 :::{attention} Alginate, not agarose — do not conflate the two hydrogel-embedded results
 Two separate Chicago results both get loosely described as "hydrogel embedding," but they use different hydrogel chemistries and should not be treated as interchangeable:
 
-- **This process (alginate):** the Theophylline Sensing Cell result — theophylline-responsive synthetic cells, CPRG-loaded SUVs, and commercial LacZ co-embedded in ~1% (w/v) **alginate**, crosslinked with 200 mM CaCl₂, showing a yellow-to-purple color change after ~16 h. See [Effector: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) for the module-level summary of this result.
+- **This process (alginate):** the Theophylline Sensing Cell result — theophylline-responsive synthetic cells, CPRG-loaded SUVs, and commercial LacZ co-embedded in ~1% (w/v) **alginate**, crosslinked with 200 mM CaCl₂, showing a yellow-to-purple color change after ~16 h. See [Lysis: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) for the module-level summary of this result.
 - **A different result (agarose):** the pH-Sensing Module's bulk-reaction test embedded the pH-sensing circuit directly in 0.7% low-gelling **agarose** (no synthetic cells or SUVs at all), not alginate. See [pH-Sensing Module](../../modules/detector-ph/spec.md) and [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) for that result. It does not belong on this page and this page's alginate protocol does not apply to it.
 
 Both are real, confirmed results, but they are not the same hydrogel chemistry, the same experiment, or interchangeable evidence for one another.
@@ -44,7 +44,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-This process does not itself encode anything — the Sensing Cells and CPRG-loaded SUVs it embeds already carry whatever DNA and reporter chemistry their own encapsulation processes gave them (for example, the theophylline riboswitch driving PLA1 in the sensing synthetic cell). See [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) and [Effector: PLA1](../../modules/effector-pla1/spec.md) for those constructs and their status in `nucleus-eng/DNA`.
+This process does not itself encode anything — the Sensing Cells and CPRG-loaded SUVs it embeds already carry whatever DNA and reporter chemistry their own encapsulation processes gave them (for example, the theophylline riboswitch driving PLA1 in the sensing synthetic cell). See [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) and [Lysis: PLA1](../../modules/effector-pla1/spec.md) for those constructs and their status in `nucleus-eng/DNA`.
 
 ::::
 
@@ -134,7 +134,7 @@ Whether crosslinking was performed by immersing the liposome/alginate mixture in
 - [ ] Proceed to [Colorimetric Readout](../colorimetric-readout/main.md) for quantitative readout methodology.
 
 :::{attention} Known background/leak caveat
-The color change occurs in both 0 mM and 1 mM theophylline conditions, indicating PLA1 expression (and therefore lysis and color change) even without the target analyte present. This is attributed to leak from the theophylline riboswitch, not a failure of the alginate embedding process itself — see [Effector: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) and [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) for the full discussion. Do not read a color change alone as confirmation of analyte-specific detection.
+The color change occurs in both 0 mM and 1 mM theophylline conditions, indicating PLA1 expression (and therefore lysis and color change) even without the target analyte present. This is attributed to leak from the theophylline riboswitch, not a failure of the alginate embedding process itself — see [Lysis: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) and [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) for the full discussion. Do not read a color change alone as confirmation of analyte-specific detection.
 :::
 
 # Quality Control

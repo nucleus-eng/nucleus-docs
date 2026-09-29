@@ -26,7 +26,7 @@ inputs:
     title: "Trigger ssDNA"
     page: null
   effector-pla1:
-    title: "Effector: PLA1"
+    title: "Lysis: PLA1"
     page: ../effector-pla1/spec.md
 
 process_steps:
@@ -56,7 +56,7 @@ process_steps:
       title: "SensorCytosol[pH ⟶ PLA1]"
       page: ../ph-sensor-cytosol/spec.md
     notes: >
-      The pT7-toehold9-PLA1 template is Effector: PLA1 — the switch and the
+      The pT7-toehold9-PLA1 template is Lysis: PLA1 — the switch and the
       effector are one molecule, so there is no separate template operand. The
       headroom also carries Optiprep at 4.5% (v/v), which the encapsulation
       step needs rather than the sensing function: a downstream process

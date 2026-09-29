@@ -100,7 +100,7 @@ flowchart TD
 step and adds nothing, so the two sources cannot disagree about what this intermediate is.
 
 **No effector, and that is why the membership ruling matters.** The other three members of
-[Sensor Cytosol](../sensor-cytosol/spec.md) each mix in [Effector: PLA1](../effector-pla1/spec.md).
+[Sensor Cytosol](../sensor-cytosol/spec.md) each mix in [Lysis: PLA1](../effector-pla1/spec.md).
 This one carries none, because the riboswitch drives whichever effector gene sits downstream and
 no page specifies one. **A sensing reaction with no output wired to it is still a sensor
 cytosol**, which is what makes the class invariant a detector rather than a detector plus an

@@ -33,7 +33,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
     TRIGGER_SSDNA["Trigger ssDNA"]
-    EFFECTOR_PLA1["Effector: PLA1"]
+    EFFECTOR_PLA1["Lysis: PLA1"]
 
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]

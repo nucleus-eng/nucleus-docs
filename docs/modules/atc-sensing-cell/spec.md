@@ -38,7 +38,7 @@ Schematic representation of the SensorCell[aTc ⟶ PLA1] mechanism. Inside the s
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
-    EFFECTOR_PLA1["Effector: PLA1"]
+    EFFECTOR_PLA1["Lysis: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
 

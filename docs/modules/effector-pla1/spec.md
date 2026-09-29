@@ -1,5 +1,5 @@
 ---
-title: "Effector: PLA1"
+title: "Lysis: PLA1"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -35,7 +35,7 @@ flowchart TD
     OPTIPREP["OptiPrep"]
 
     P1_ASSEMBLE_PLA1_INNER_SOLUTION_0(["Assemble the ungated PLA1 inner solution (mixing) — no page"])
-    EFFECTOR_PLA1["Effector: PLA1"]
+    EFFECTOR_PLA1["Lysis: PLA1"]
 
     BASE_CYTOSOL --> P1_ASSEMBLE_PLA1_INNER_SOLUTION_0
     PLA1_DNA --> P1_ASSEMBLE_PLA1_INNER_SOLUTION_0

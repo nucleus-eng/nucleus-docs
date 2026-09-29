@@ -37,7 +37,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
     TRIGGER_SSDNA["Trigger ssDNA"]
-    EFFECTOR_PLA1["Effector: PLA1"]
+    EFFECTOR_PLA1["Lysis: PLA1"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
@@ -127,7 +127,7 @@ flowchart TD
 | trigger ssDNA | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, added directly |
 :::
 
-See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Effector: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
+See [Detector: pH-Sensing](../detector-ph/spec.md) for the toehold-switch design and [Lysis: PLA1](../effector-pla1/spec.md) for the PLA1 constructs.
 
 
 ::::
@@ -251,7 +251,7 @@ No process page documents assembling this three-part cascade end to end.
 - [Chicago Outer Solution](../outer-solution-chicago/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
-The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
+The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
 
 # Credits

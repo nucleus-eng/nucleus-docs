@@ -1,4 +1,4 @@
-# Composition source for Effector: PLA1.
+# Composition source for Lysis: PLA1.
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Reference
 # Composition` tabs stay for humans; this file is the contract for tooling, and
@@ -30,7 +30,7 @@
 # compositional-biology-theory, "are formation and `hold` one operation?".
 
 module: effector-pla1
-title: "Effector: PLA1"
+title: "Lysis: PLA1"
 
 inputs:
   base-cytosol:
@@ -54,7 +54,7 @@ process_steps:
     operands: [base-cytosol, pla1-dna, optiprep]
     produces:
       id: effector-pla1
-      title: "Effector: PLA1"
+      title: "Lysis: PLA1"
       page: ../effector-pla1/spec.md
     parameters:
       pla1_dna: "14 ng/uL"

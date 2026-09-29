@@ -35,7 +35,7 @@ The aTc Cascade combines its Modules as follows:
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
-    EFFECTOR_PLA1["Effector: PLA1"]
+    EFFECTOR_PLA1["Lysis: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
@@ -238,7 +238,7 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 - [Substrate: CPRG](../substrate-cprg/spec.md) — dosed free into the gel after crosslinking, because UV bleaches it. This path carries no substrate liposome
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
-The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Effector: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
+The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
 
 # Credits
