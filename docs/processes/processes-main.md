@@ -107,19 +107,19 @@ flowchart LR
 - [Protein Gel](./protein-gel/main.md)
 - [Pierce660 Assay](./pierce660/main.md)
 
-## Hydrogel Embedding Processes
+## Embedding Processes
 
 Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are embedded together in a hydrogel matrix to couple a lysis-triggered colorimetric handoff between them. Different DevCells demos use different hydrogel chemistries — see each process page for the chemistry it covers and how it differs from the others.
 
-- [Hydrogel Embedding](./embed-hydrogel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
-  - [Hydrogel Embedding: Alginate](./embed-alginate-hydrogel/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
-  - [Hydrogel Embedding: ULGA](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
+- [Embedding](./embed-hydrogel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
+  - [Embedding: Alginate](./embed-alginate-hydrogel/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
+  - [Embedding: ULGA](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
 
 ## Photopatterning Processes
 
 Beyond simple hydrogel embedding, spatial patterning within the hydrogel matrix can compartmentalize multiple sensing modules. PEGDA is one hydrogel chemistry explored for this — see the process page for its current status and open gaps.
 
 - [Photodevelop Gel](./photodevelop-gel/photodevelop-gel-main.md) — what the two photocrosslinking routes share, and the table of what they do not.
-  - [Embed: PEGDA](./embed-pegda/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
-  - [Embed: PEG-Norbornene](./embed-peg-norbornene/main.md) — step-growth thiol-ene route; a stub.
+  - [Embedding: PEGDA](./embed-pegda/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
+  - [Embedding: PEG-Norbornene](./embed-peg-norbornene/main.md) — step-growth thiol-ene route; a stub.
 

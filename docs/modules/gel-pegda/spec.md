@@ -45,9 +45,9 @@ flowchart TD
     LAP["LAP photoinitiator"]
     PBS["PBS"]
 
-    P1_ASSEMBLE_PRECURSOR_0(["Embed: PEGDA (mixing)"])
+    P1_ASSEMBLE_PRECURSOR_0(["Embedding: PEGDA (mixing)"])
     PEGDA_PRECURSOR["PEGDA precursor solution"]
-    P2_PHOTOPATTERN_0(["Embed: PEGDA (mixing)"])
+    P2_PHOTOPATTERN_0(["Embedding: PEGDA (mixing)"])
     GEL_PEGDA["Gel: PEGDA"]
 
     PEGDA575 --> P1_ASSEMBLE_PRECURSOR_0
@@ -136,7 +136,7 @@ Requires that no UV-sensitive component is present during crosslinking. [CPRG](.
 
 # Processes
 
-Prepared and patterned by [Embed: PEGDA](../../processes/embed-pegda/main.md). [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with the [PEG-norbornene route](../../processes/embed-peg-norbornene/main.md).
+Prepared and patterned by [Embedding: PEGDA](../../processes/embed-pegda/main.md). [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with the [PEG-norbornene route](../../processes/embed-peg-norbornene/main.md).
 
 # Materials
 

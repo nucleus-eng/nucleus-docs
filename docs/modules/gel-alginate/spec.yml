@@ -33,7 +33,7 @@ inputs:
 process_steps:
   - id: dissolve
     process:
-      title: "Hydrogel Embedding: Alginate"
+      title: "Embedding: Alginate"
       page: ../../processes/embed-alginate-hydrogel/main.md
     operator: mixing
     operands: [sodium-alginate, embedding-buffer]
@@ -50,7 +50,7 @@ process_steps:
 
   - id: crosslink-ionic
     process:
-      title: "Hydrogel Embedding: Alginate"
+      title: "Embedding: Alginate"
       page: ../../processes/embed-alginate-hydrogel/main.md
     operator: mixing
     operands: [alginate-precursor, calcium-chloride]

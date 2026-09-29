@@ -35,9 +35,9 @@ flowchart TD
     CALCIUM_CHLORIDE["Calcium chloride (CaCl2)"]
     EMBEDDING_BUFFER["Buffer compatible with what is being embedded"]
 
-    P1_DISSOLVE_0(["Hydrogel Embedding: Alginate (mixing)"])
+    P1_DISSOLVE_0(["Embedding: Alginate (mixing)"])
     ALGINATE_PRECURSOR["Alginate precursor solution"]
-    P2_CROSSLINK_IONIC_0(["Hydrogel Embedding: Alginate (mixing)"])
+    P2_CROSSLINK_IONIC_0(["Embedding: Alginate (mixing)"])
     GEL_ALGINATE["Gel: Alginate"]
 
     SODIUM_ALGINATE --> P1_DISSOLVE_0
@@ -109,7 +109,7 @@ Imposes no heat and no illumination on its contents, which is what distinguishes
 
 # Processes
 
-Prepared and set by [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md), which also covers co-embedding the sensing cells, SUVs and LacZ.
+Prepared and set by [Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md), which also covers co-embedding the sensing cells, SUVs and LacZ.
 
 # Materials
 

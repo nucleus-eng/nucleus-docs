@@ -142,7 +142,7 @@ process_steps:
 
   - id: embed-agarose
     process:
-      title: "Hydrogel Embedding"
+      title: "Embedding"
       # THE PAGE NAMES THE ABSTRACT PARENT, 2026-09-24. The old reasoning here was
       # ../chicago-cascade/spec.md's: this corpus has one agarose embedding process
       # and it is the ULGA one, so "if it is ULGA, the pH path can likely reuse the

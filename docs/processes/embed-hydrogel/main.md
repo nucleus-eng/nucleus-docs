@@ -1,17 +1,24 @@
 ---
-title: Hydrogel Embedding
+title: Embedding
 subtitle: "Process"
 status: draft
 ---
 
 # Overview
 
-Hydrogel Embedding sets a polymer network around compartments that already exist, so they are held in place instead of settling or diffusing apart. The gel dissolves into the outer solution the compartments were already suspended in, so it adds a position without adding a barrier.
+Embedding sets a polymer network around compartments that already exist, so they are held in place instead of settling or diffusing apart. The gel dissolves into the outer solution the compartments were already suspended in, so it adds a position without adding a barrier.
 
-Its two instances:
+Its instances, grouped by what sets the gel. Jon ruled on 2026-09-29 that Gel refines by formation route rather than per material, and these are the three routes:
 
-- [Hydrogel Embedding: Alginate](../embed-alginate-hydrogel/main.md) — sodium alginate set ionically by calcium.
-- [Hydrogel Embedding: ULGA](../embed-ulga-hydrogel/main.md) — ultra-low-gelling agarose set by cooling.
+- **Set ionically.** [Embedding: Alginate](../embed-alginate-hydrogel/main.md) — sodium alginate set by calcium.
+- **Set thermally.** [Embedding: ULGA](../embed-ulga-hydrogel/main.md) — ultra-low-gelling agarose set by cooling. Low-gelling agarose is the same route at a different gel point and has no page yet.
+- **Set by light.** [Embedding: PEGDA](../embed-pegda/main.md) and [Embedding: PEG-Norbornene](../embed-peg-norbornene/main.md). [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md) states what those two share, including the one conflict this corpus has confirmed: the exposure bleaches CPRG.
+
+:::{attention} Two parents name the same two pages, and that is not settled
+Written 2026-09-29. The photo-set pair now carries `Embedding: X` like the other routes, so under the `Type: Member` form it belongs to this page. It is also listed on [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), which states what the two chemistries share and is the only place the UV-and-CPRG conflict lives.
+
+**Nothing is deleted while that is open.** The two readings are that Photodevelop Gel becomes a middle node for the light-set route under this page, or that its content moves here and the page retires.
+:::
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -58,5 +65,5 @@ Requires that whatever is embedded tolerates the setting trigger. **Neither trig
 
 # Processes
 
-- [Hydrogel Embedding: Alginate](../embed-alginate-hydrogel/main.md)
-- [Hydrogel Embedding: ULGA](../embed-ulga-hydrogel/main.md)
+- [Embedding: Alginate](../embed-alginate-hydrogel/main.md)
+- [Embedding: ULGA](../embed-ulga-hydrogel/main.md)

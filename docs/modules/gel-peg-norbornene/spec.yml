@@ -36,7 +36,7 @@ inputs:
 process_steps:
   - id: assemble-precursor
     process:
-      title: "Embed: PEG-Norbornene"
+      title: "Embedding: PEG-Norbornene"
       page: ../../processes/embed-peg-norbornene/main.md
       abstract: photodevelop-gel
     operator: mixing
@@ -58,7 +58,7 @@ process_steps:
 
   - id: photopattern
     process:
-      title: "Embed: PEG-Norbornene"
+      title: "Embedding: PEG-Norbornene"
       page: ../../processes/embed-peg-norbornene/main.md
       abstract: photodevelop-gel
     impositions:

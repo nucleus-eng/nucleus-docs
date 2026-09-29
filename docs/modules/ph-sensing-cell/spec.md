@@ -170,7 +170,7 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
-- [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
+- [Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
 
 # Constituent Modules
 

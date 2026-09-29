@@ -58,7 +58,7 @@ process_steps:
 
   - id: set-thermal
     process:
-      title: "Hydrogel Embedding: ULGA"
+      title: "Embedding: ULGA"
       page: ../../processes/embed-ulga-hydrogel/main.md
     operator: mixing
     operands: [ulga-powder, outer-solution-london]

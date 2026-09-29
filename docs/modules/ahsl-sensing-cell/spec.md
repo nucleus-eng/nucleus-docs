@@ -182,7 +182,7 @@ Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-pop
 # Processes
 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the synthetic cell, encapsulating [S30 Lysate](../s30-lysate/spec.md) plus the `LuxR-deGFP` sensor plasmid in a POPC membrane
-- [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — immobilizes the Cell in gel, for the gel-format configurations
+- [Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — immobilizes the Cell in gel, for the gel-format configurations
 
 :::{attention} The London encapsulation route may be a variant
 @Editor(london): this Cell is formed by an Elani-lab mineral-oil phase-transfer protocol, the same route described on the [London Chassis](../london-chassis/spec.md) spec. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) documents emulsion phase transfer as a general method, but it is not confirmed that the London mineral-oil route is that protocol rather than a variant needing its own page. Confirm with the London Node.

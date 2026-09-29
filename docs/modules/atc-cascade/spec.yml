@@ -109,7 +109,7 @@ process_steps:
 
   - id: photodevelop-gel
     process:
-      title: "Embed: PEG-Norbornene"
+      title: "Embedding: PEG-Norbornene"
       page: ../../processes/embed-peg-norbornene/main.md
       abstract: photodevelop-gel
     impositions:

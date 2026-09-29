@@ -1,5 +1,5 @@
 ---
-title: "Hydrogel Embedding: ULGA"
+title: "Embedding: ULGA"
 subtitle: "Process"
 status: draft
 ---
@@ -12,7 +12,7 @@ This page is a work in progress and not yet ready for use.
 
 ULGA hydrogel embedding immobilizes synthetic-cell-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC synthetic cells carrying the 3OC6-HSL Sensing Module (S30 Lysate plus the `LuxR-deGFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing synthetic cells fixed while 3OC6-HSL from an external bacterial source diffuses in through the gel and triggers a response.
 
-In the process-dependency diagram, Hydrogel Embedding: ULGA is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Hydrogel Embedding: Alginate](../embed-alginate-hydrogel/main.md), which is fed by both phase transfer and [Encapsulation: SUV](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
+In the process-dependency diagram, Embedding: ULGA is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Embedding: Alginate](../embed-alginate-hydrogel/main.md), which is fed by both phase transfer and [Encapsulation: SUV](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
 
 :::::::{card}
 :header: **Important Information**

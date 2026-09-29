@@ -1,5 +1,5 @@
 ---
-title: "Embed: PEGDA"
+title: "Embedding: PEGDA"
 subtitle: "Process"
 status: canceled
 ---

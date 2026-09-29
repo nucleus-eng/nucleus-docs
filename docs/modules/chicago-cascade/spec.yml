@@ -166,7 +166,7 @@ process_steps:
 
   - id: photodevelop-atc-gel
     process:
-      title: "Embed: PEG-Norbornene"
+      title: "Embedding: PEG-Norbornene"
       page: ../../processes/embed-peg-norbornene/main.md
       abstract: photodevelop-gel
     impositions:
@@ -288,7 +288,7 @@ process_steps:
 
   - id: embed-agarose
     process:
-      title: "Hydrogel Embedding: ULGA"
+      title: "Embedding: ULGA"
       # THE PAGE FOLLOWS FROM THE IDENTIFICATION ABOVE, on the reasoning
       # ../chicago-cascade/spec.md already carried: this corpus has one agarose
       # embedding process and it is the ULGA one, so "if it is ULGA, the pH path

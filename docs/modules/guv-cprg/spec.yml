@@ -67,7 +67,7 @@ open:
       required", so the note carries what the key cannot.
   - id: downstream-combination-is-not-here
     question: >
-      Hydrogel Embedding: ULGA combines this population with the sensing population
+      Embedding: ULGA combines this population with the sensing population
       and the gel at 1:1:2. That is a step on the cascade page rather than part of
       this Module's composition, so it is not a step above. Named here so a reader
       looking for the 1:1:2 does not conclude it was missed.

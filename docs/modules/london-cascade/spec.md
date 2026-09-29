@@ -43,7 +43,7 @@ flowchart TD
     GUV_CPRG["GUV: CPRG"]
     P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     OUTER_SOLUTION_LONDON["London Outer Solution"]
-    P5_EMBED_ULGA_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
+    P5_EMBED_ULGA_0(["Embedding: ULGA (packing, 3 pairs mixing)"])
     LONDON_CASCADE["London Cascade"]
 
     S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
@@ -254,7 +254,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 **The gel**
 
 4. [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) (mixing) — potassium L-glutamate, HEPES and glucose, matched to the sensing cell's inner solution at ≈ 920 mOsm.
-5. [Hydrogel Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
+5. [Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
 
 [Colorimetric Readout](../../processes/colorimetric-readout/main.md) measures the result — the CPRG conversion, yellow to magenta, read by absorbance and by eye. It is not a composition step, because it produces no Module.
 

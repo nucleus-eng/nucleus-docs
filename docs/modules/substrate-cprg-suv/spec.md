@@ -131,7 +131,7 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 # Processes
 
 - [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) — lipid film, CPRG hydration, extrusion, purification.
-- [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — co-embedding with Sensing Cells and LacZ.
+- [Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — co-embedding with Sensing Cells and LacZ.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the readout step itself.
 
 :::{table} Standard preparation parameters.

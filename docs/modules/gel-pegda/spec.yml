@@ -35,7 +35,7 @@ inputs:
 process_steps:
   - id: assemble-precursor
     process:
-      title: "Embed: PEGDA"
+      title: "Embedding: PEGDA"
       page: ../../processes/embed-pegda/main.md
       abstract: photodevelop-gel
     operator: mixing
@@ -57,7 +57,7 @@ process_steps:
 
   - id: photopattern
     process:
-      title: "Embed: PEGDA"
+      title: "Embedding: PEGDA"
       page: ../../processes/embed-pegda/main.md
       abstract: photodevelop-gel
     impositions:

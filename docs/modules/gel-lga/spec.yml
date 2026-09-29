@@ -35,7 +35,7 @@ inputs:
 process_steps:
   - id: set-thermal
     process:
-      title: "Hydrogel Embedding"
+      title: "Embedding"
       page: ../../processes/embed-hydrogel/main.md
       abstract: embed-hydrogel
     operator: mixing

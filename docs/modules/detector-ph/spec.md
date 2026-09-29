@@ -194,7 +194,7 @@ Requires direct exposure to pH source. Either do not encapsulate OR include H⁺
 [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) prepares the pH-responsive : trigger ssDNA duplex. No process page covers assembling the full Module into a reaction.
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
-- [Hydrogel Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
+- [Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — the Chicago hydrogel format
 
 # Materials
 

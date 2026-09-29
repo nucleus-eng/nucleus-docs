@@ -36,9 +36,9 @@ flowchart TD
     LAP["LAP photoinitiator"]
     SOLVENT["PBS, deionized water or buffer"]
 
-    P1_ASSEMBLE_PRECURSOR_0(["Embed: PEG-Norbornene (mixing)"])
+    P1_ASSEMBLE_PRECURSOR_0(["Embedding: PEG-Norbornene (mixing)"])
     PEG_NORBORNENE_PRECURSOR["PEG-norbornene precursor solution"]
-    P2_PHOTOPATTERN_0(["Embed: PEG-Norbornene (mixing)"])
+    P2_PHOTOPATTERN_0(["Embedding: PEG-Norbornene (mixing)"])
     GEL_PEG_NORBORNENE["Gel: PEG-Norbornene"]
 
     PEG4NB --> P1_ASSEMBLE_PRECURSOR_0
@@ -120,7 +120,7 @@ Requires the PEG4SH crosslinker, as the PEGDA route does.
 
 # Processes
 
-Formed by [Embed: PEG-Norbornene](../../processes/embed-peg-norbornene/main.md), which is a stub — it records the chemistry and the **Conflict** its UV exposure raises with CPRG, but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Embed: PEGDA](../../processes/embed-pegda/main.md).
+Formed by [Embedding: PEG-Norbornene](../../processes/embed-peg-norbornene/main.md), which is a stub — it records the chemistry and the **Conflict** its UV exposure raises with CPRG, but no precursor recipe or exposure conditions. [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with [Embedding: PEGDA](../../processes/embed-pegda/main.md).
 
 # Materials
 

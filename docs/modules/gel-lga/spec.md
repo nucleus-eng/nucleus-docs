@@ -39,7 +39,7 @@ flowchart TD
     LGA_POWDER["Low gelling temperature agarose"]
     OUTER_SOLUTION["Outer solution"]
 
-    P1_SET_THERMAL_0(["Hydrogel Embedding (mixing)"])
+    P1_SET_THERMAL_0(["Embedding (mixing)"])
     GEL_LGA["Gel: LGA"]
 
     LGA_POWDER --> P1_SET_THERMAL_0
@@ -66,7 +66,7 @@ flowchart TD
 
 **One polymer and one solvent, in one phase.** A gel's own composition is the polymer dissolved into the solution it becomes, which is why the step mixes. Putting a compartment *into* the set gel is a different step and belongs to whatever cascade does it.
 
-**The process names the abstract parent on purpose.** [Hydrogel Embedding](../../processes/embed-hydrogel/main.md) has two written instances, alginate and ULGA, and neither is this chemistry. Naming either would assert the wrong one.
+**The process names the abstract parent on purpose.** [Embedding](../../processes/embed-hydrogel/main.md) has two written instances, alginate and ULGA, and neither is this chemistry. Naming either would assert the wrong one.
 
 # Constituent Modules
 
@@ -83,7 +83,7 @@ Requires that whatever is embedded survives the temperature at which the polymer
 
 # Processes
 
-- [Hydrogel Embedding](../../processes/embed-hydrogel/main.md) — the abstract parent. No instance is written for this chemistry.
+- [Embedding](../../processes/embed-hydrogel/main.md) — the abstract parent. No instance is written for this chemistry.
 
 # Credits
 

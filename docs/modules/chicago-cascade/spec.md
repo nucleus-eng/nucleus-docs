@@ -58,7 +58,7 @@ flowchart TD
     P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
-    P4_PHOTODEVELOP_ATC_GEL_0(["Embed: PEG-Norbornene (packing, 2 pairs mixing)"])
+    P4_PHOTODEVELOP_ATC_GEL_0(["Embedding: PEG-Norbornene (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_CASCADE["aTc Cascade"]
@@ -70,7 +70,7 @@ flowchart TD
     PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
     P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P10_EMBED_AGAROSE_0(["Hydrogel Embedding: ULGA (packing, 3 pairs mixing)"])
+    P10_EMBED_AGAROSE_0(["Embedding: ULGA (packing, 3 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]
