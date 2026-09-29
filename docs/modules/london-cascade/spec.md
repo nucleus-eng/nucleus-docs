@@ -236,7 +236,7 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): places this cascade in its demo operating context.
+- [London DevCell](../../implementations/london-devcell/main.md): the device that would place this cascade in its operating context. **No implementation has been built.** That page is a placeholder and says so: *"the integrated result does not exist yet and will be written up during DevStudio."*
 
 # Processes
 

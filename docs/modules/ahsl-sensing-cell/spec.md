@@ -177,7 +177,7 @@ Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-pop
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): places this Cell in the London quorum-sensing demo.
+- [London Cascade](../london-cascade/spec.md): this Cell is the sensing element of that cascade.
 
 # Processes
 

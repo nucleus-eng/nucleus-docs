@@ -122,7 +122,7 @@ CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules 
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): supplies the substrate for the 3OC6-HSL colorimetric readout.
+- [London Cascade](../london-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
 
 # Processes
 

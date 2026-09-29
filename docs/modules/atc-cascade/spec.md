@@ -215,7 +215,7 @@ Must not be exposed to theophylline, which is reported to interfere with LacZ ac
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): places the Chicago cascades in a hydrogel with spatial patterning.
+- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the device that would place this cascade in a hydrogel with spatial patterning. **No implementation has been built.** That page is a placeholder and says so: *"the integrated result does not exist yet and will be written up during DevStudio."*
 
 # Processes
 

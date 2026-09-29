@@ -137,7 +137,7 @@ Account for both routes rather than assuming a liposome stays intact until the i
 
 Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)).
 
-**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbour's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago DevCell](../../implementations/chicago-devcell/main.md) carries the same [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism, not a defect: a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
+**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbour's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago Cascade](../chicago-cascade/spec.md) carries the same [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism, not a defect: a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
 
 **PLA1 requires a low noise floor in whatever drives it**, and any color change module built on
 PLA1 inherits that requirement. Both Nodes met it independently on 2026-09-15, from opposite
@@ -169,8 +169,8 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 (effector-pla1-implementations)=
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): PLA1 drives the aTc, pH and theophylline colorimetric readouts.
-- [London DevCell](../../implementations/london-devcell/main.md): PLA1 drives the 3OC6-HSL quorum-sensing colorimetric readout.
+- [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md): PLA1 drives both colorimetric readouts.
+- [London Cascade](../london-cascade/spec.md): PLA1 drives the 3OC6-HSL colorimetric readout.
 
 # Processes
 

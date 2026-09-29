@@ -139,8 +139,8 @@ called catechol oxidase, alongside XylE, and nothing here has tested it.
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): a proposed alternate colorimetric readout. The construct is `pT7-TetO-catecholase` (`pMN067`), expressing C23DO under a TetO/aTc promoter; it is validated in bulk Nucleus Cytosol and has no synthetic cell result. Source: [`chicago-teto-catecholase`](https://devnotes.nucleus.engineering/articles/019e0429-3749-72ce-a062-7d2a7cf18c20).
-- [London DevCell](../../implementations/london-devcell/main.md): a proposed alternate to LacZ, in two linear-DNA formats — `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is still to be designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
+- **Proposed, never adopted by a cascade.** The construct is `pT7-TetO-catecholase` (`pMN067`), expressing C23DO under a TetO/aTc promoter; it is validated in bulk Nucleus Cytosol and has no synthetic cell result. Source: [`chicago-teto-catecholase`](https://devnotes.nucleus.engineering/articles/019e0429-3749-72ce-a062-7d2a7cf18c20).
+- **Proposed as an alternate to LacZ, never adopted.** Two linear-DNA formats, — `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is still to be designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
 
 :::{attention} The two Nodes' constructs may not converge
 @Editor(chicago): whether Chicago's `pMN067` and London's still-undesigned construct end up as the same DNA design is not established. Confirm with both Nodes before treating them as one construct.

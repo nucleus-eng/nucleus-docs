@@ -187,7 +187,7 @@ Requires direct exposure to pH source. Either do not encapsulate OR include H⁺
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies one of the device's two sensing paths, reaching the shared LacZ/CPRG colorimetric readout.
+- [pH Cascade](../ph-cascade/spec.md): supplies that cascade's sensing, reaching the shared LacZ/CPRG colorimetric readout.
 
 # Processes
 

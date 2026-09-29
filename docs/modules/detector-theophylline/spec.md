@@ -169,7 +169,7 @@ The effect itself is no longer second-hand. Chicago Node, Mary, 2026-09-17: theo
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): a queued sensing option for the Chicago demo.
+- **Not used by any cascade, and not implemented.** It was a queued sensing option for the Chicago demo and no cascade names it. [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) records that the demo dropped it.
 
 # Processes
 

@@ -125,8 +125,8 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): supplies the substrate for the theophylline and pH colorimetric readouts.
-- [London DevCell](../../implementations/london-devcell/main.md): supplies the substrate for the 3OC6-HSL colorimetric readout.
+- [pH Cascade](../ph-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
+- [London Cascade](../london-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
 
 # Processes
 

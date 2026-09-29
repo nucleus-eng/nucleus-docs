@@ -138,7 +138,7 @@ The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a 
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): the chassis for the London demo's synthetic cells.
+- **Nothing composes this page.** It describes the cell the London demo builds on, but no cascade's composition source names it, and the [London DevCell](../../implementations/london-devcell/main.md) is a placeholder that has not been built. The cascade assembles that cell from its constituents directly.
 
 # Credits
 

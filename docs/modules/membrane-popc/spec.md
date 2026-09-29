@@ -108,7 +108,7 @@ To prepare this membrane, assemble 2 mg total lipids (e.g., 80 µL of a 25 mg/mL
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): the membrane of the London demo's synthetic cells.
+- [London Cascade](../london-cascade/spec.md): the membrane of that cascade's synthetic cells.
 
 # Credits
 

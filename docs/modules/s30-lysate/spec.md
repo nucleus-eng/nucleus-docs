@@ -102,7 +102,7 @@ Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): S30 Lysate is the cytosol of the London quorum-sensing demo.
+- [London Cascade](../london-cascade/spec.md): S30 Lysate is that cascade's cytosol.
 
 # Processes
 

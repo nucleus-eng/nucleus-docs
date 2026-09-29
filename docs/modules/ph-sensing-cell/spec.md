@@ -179,7 +179,7 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the pH sensing element of the Chicago demo.
+- [pH Cascade](../ph-cascade/spec.md): the sensing element of that cascade.
 
 # Credits
 

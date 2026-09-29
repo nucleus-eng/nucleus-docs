@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-This membrane is a 90:10 POPC:cholesterol phospholipid bilayer, used in every liposome in the [Chicago DevCell](../../implementations/chicago-devcell/main.md) demo. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md), which uses more cholesterol, and [Membrane: POPC](../membrane-popc/spec.md), which uses none. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
+This membrane is a 90:10 POPC:cholesterol phospholipid bilayer, used in every liposome of the [Chicago Cascade](../chicago-cascade/spec.md), on both of its integration paths. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md), which uses more cholesterol, and [Membrane: POPC](../membrane-popc/spec.md), which uses none. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -103,7 +103,7 @@ Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-trans
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): the membrane of the Chicago demo's synthetic cells.
+- [Chicago Cascade](../chicago-cascade/spec.md): the membrane of every liposome in that cascade, on both integration paths.
 
 # Credits
 

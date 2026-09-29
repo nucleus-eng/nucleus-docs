@@ -175,7 +175,7 @@ Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly 
 
 # Implementations
 
-Not used in a documented Implementation. The [Chicago DevCell](../../implementations/chicago-devcell/main.md) dropped the theophylline sensor before the demo was built.
+Not used in a documented Implementation. The [Chicago DevCell](../../implementations/chicago-devcell/main.md) dropped the theophylline sensor, and no cascade names this Cell. **The demo was never built either**, so this records two absences rather than one.
 
 # Processes
 

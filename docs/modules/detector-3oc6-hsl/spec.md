@@ -162,7 +162,7 @@ Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required:
 
 # Implementations
 
-- [London DevCell](../../implementations/london-devcell/main.md): this Module supplies 3OC6-HSL sensing for the London quorum-sensing demo.
+- [London Cascade](../london-cascade/spec.md): supplies the 3OC6-HSL sensing for that cascade.
 
 # Processes
 

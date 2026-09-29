@@ -170,7 +170,7 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 # Implementations
 
-- [Chicago DevCell](../../implementations/chicago-devcell/main.md): this Cell is the aTc sensing element of the Chicago demo.
+- [aTc Cascade](../atc-cascade/spec.md): this Cell is the sensing element of that cascade.
 
 # Constituent Modules
 

@@ -285,7 +285,7 @@ No experiment has run the two integration paths together. The merge is not block
 
 Requires both integration paths in one system — [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md) — on a shared [Chicago Chassis](../chicago-chassis/spec.md) membrane, reporting through one shared [LacZ Reporter](../reporter-lacz/spec.md).
 
-Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation; the pattern itself is an Implementation-level choice, documented on [Chicago DevCell](../../implementations/chicago-devcell/main.md).
+Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation. **The pattern itself is an Implementation-level choice and no implementation has made it** — [Chicago DevCell](../../implementations/chicago-devcell/main.md) is a placeholder whose own banner says the integrated result does not exist yet.
 
 
 :::{note} The paths are multiplexed in space, not combined in logic
@@ -308,7 +308,7 @@ different demos and want separate specifications.
 
 # Implementations
 
-This cascade is the sensing core of the [Chicago DevCell](../../implementations/chicago-devcell/main.md), which places it in a hydrogel and adds spatial patterning. That page carries the demo-level status.
+This cascade is the sensing core of the [Chicago DevCell](../../implementations/chicago-devcell/main.md), the device that would place it in a hydrogel and add spatial patterning. **That device has not been built**, so the page carries the demo's design rather than a result.
 
 # Processes
 
