@@ -45,7 +45,7 @@ flowchart TD
     ANALYTE_3OC6_HSL["Analyte: 3OC6-HSL"]
 
     P1_EXPRESS_REPRESSOR_0(["Assemble Solution (mixing)"])
-    ESAR_REPRESSOR["Sensor: EsaR Repressor"]
+    DETECTOR_ESAR["Detector: EsaR"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     CRAIC_SENSOR_CYTOSOL["SensorCytosol[3OC6-HSL ⟶ PLA1]"]
     P3_ENCAPSULATE_SENSING_0(["Encapsulation (packing)"])
@@ -59,10 +59,10 @@ flowchart TD
 
     BASE_CYTOSOL --> P1_EXPRESS_REPRESSOR_0
     ESAR_DNA --> P1_EXPRESS_REPRESSOR_0
-    P1_EXPRESS_REPRESSOR_0 --> ESAR_REPRESSOR
+    P1_EXPRESS_REPRESSOR_0 --> DETECTOR_ESAR
 
     BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
-    ESAR_REPRESSOR --> P2_ASSEMBLE_CYTOSOL_0
+    DETECTOR_ESAR --> P2_ASSEMBLE_CYTOSOL_0
     EFFECTOR_PLA1 --> P2_ASSEMBLE_CYTOSOL_0
     P2_ASSEMBLE_CYTOSOL_0 --> CRAIC_SENSOR_CYTOSOL
 
@@ -91,7 +91,7 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,ESAR_DNA,EFFECTOR_PLA1,MEMBRANE_CRAIC,OUTER_SOLUTION,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,ANALYTE_3OC6_HSL leaf;
-    class ESAR_REPRESSOR,CRAIC_SENSOR_CYTOSOL,CRAIC_SENSING_CELL,CRAIC_SUBSTRATE_CARRIER,CRAIC_CASCADE,CRAIC_CASCADE_DEVELOPED composed;
+    class DETECTOR_ESAR,CRAIC_SENSOR_CYTOSOL,CRAIC_SENSING_CELL,CRAIC_SUBSTRATE_CARRIER,CRAIC_CASCADE,CRAIC_CASCADE_DEVELOPED composed;
     class P1_EXPRESS_REPRESSOR_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_SENSING_0,P4_ENCAPSULATE_SUBSTRATE_0,P5_EMBED_ULGA_0,P6_DEVELOP_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
@@ -102,6 +102,7 @@ flowchart TD
     click ULGA_POWDER "/docs/modules/gel-ulga/spec"
     click ANALYTE_3OC6_HSL "/docs/modules/analyte-3oc6-hsl/spec"
     click P1_EXPRESS_REPRESSOR_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
+    click DETECTOR_ESAR "/docs/modules/detector-esar/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click P3_ENCAPSULATE_SENSING_0 "/docs/processes/encapsulate/main"
     click P4_ENCAPSULATE_SUBSTRATE_0 "/docs/processes/encapsulate/main"

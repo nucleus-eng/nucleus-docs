@@ -127,6 +127,8 @@ project:
           hidden: true
         - file: ./docs/modules/detector-3oc6-hsl/spec.md
           hidden: true
+        - file: ./docs/modules/detector-esar/spec.md
+          hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true
         - file: ./docs/modules/base-cell/spec.md

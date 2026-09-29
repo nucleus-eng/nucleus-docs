@@ -234,13 +234,37 @@ if __name__ == "__main__":
     # --- legs
     legs: dict[str, tuple[str, list[dict]]] = {}
     joins: dict[str, list[dict]] = {}
+    asked: list[str] = []
     for a in args:
         name = Path(a.rstrip("/")).parent.name if a.endswith(".yml") else Path(a).name
+        asked.append(name)
         for det, steps in legs_of(name, S, par).items():
             if det == "__join__":
                 joins[name] = steps
             else:
                 legs[f"{name}:{det}"] = (name, steps)
+
+    # A CASCADE THAT CONTRIBUTES NO LEG IS REPORTED, NOT SWALLOWED. Jon, 2026-09-29:
+    # "agree. warn, not refuse."
+    #
+    # The partition is by detector, so a cascade whose detector input carries
+    # `page: null` resolves to nothing, produces only `__join__`, and adds no leg.
+    # Before this, asking for four cascades and getting three printed "3 leg(s)",
+    # exited 0, and never named the one that did not arrive -- which is the
+    # false-clean shape this corpus has four recorded instances of in greps. The
+    # run is still useful, so this warns and continues rather than refusing.
+    contributed = {src for src, _ in legs.values()}
+    dropped = [n for n in dict.fromkeys(asked) if n not in contributed]
+    if dropped:
+        print(
+            "WARNING: %d of %d cascade(s) named on the command line contributed no leg "
+            "and are absent from this meet:" % (len(dropped), len(dict.fromkeys(asked))),
+            file=sys.stderr)
+        for n in dropped:
+            why = ("it resolves to no source" if n not in S
+                   else "no step of it reaches a detector, so the partition key finds nothing "
+                        "-- usually a detector input with `page: null`")
+            print("  %s: %s" % (n, why), file=sys.stderr)
 
     # A STEP THAT REACHES NO DETECTOR IS SHARED, NOT ABSENT, AND DROPPING IT BROKE THE
     # DIAGRAM. Jon, reading the first Chicago draft: "the chicago meet has both

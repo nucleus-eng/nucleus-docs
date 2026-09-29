@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`detector`](../detector/spec.md). Refined by [`detector-laci-iptg`](../detector-laci-iptg/spec.md), [`detector-tetr-atc`](../detector-tetr-atc/spec.md).
+**Position.** Refines [`detector`](../detector/spec.md). Refined by [`detector-esar`](../detector-esar/spec.md), [`detector-laci-iptg`](../detector-laci-iptg/spec.md), [`detector-tetr-atc`](../detector-tetr-atc/spec.md).
 <!-- /gen:position -->
 
 An abstract Module: the class of Detectors in which a repressor holds a gene off until the analyte relieves it. It refines [Detector](../detector/spec.md), and an abstract Module is a Module.

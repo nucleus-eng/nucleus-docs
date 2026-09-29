@@ -29,7 +29,7 @@ inputs:
     page: ../base-cytosol/spec.md
   esar-dna:
     title: "Sensor: EsaR DNA template"
-    page: null            # no EsaR page exists; detector-3oc6-hsl documents LuxR
+    page: null            # the template. The expressed repressor is ../detector-esar/
   effector-pla1:
     title: "Lysis: PLA1"
     page: ../effector-pla1/spec.md
@@ -62,9 +62,9 @@ process_steps:
     operator: mixing
     operands: [base-cytosol, esar-dna]
     produces:
-      id: esar-repressor
-      title: "Sensor: EsaR Repressor"
-      page: null
+      id: detector-esar
+      title: "Detector: EsaR"
+      page: ../detector-esar/spec.md
     notes: >
       The board splits expression from sensing: `P1A` makes the repressor
       protein from its template, and `P1B` below mixes that protein into a
@@ -76,7 +76,7 @@ process_steps:
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-cytosol
     operator: mixing
-    operands: [base-cytosol, esar-repressor, effector-pla1]
+    operands: [base-cytosol, detector-esar, effector-pla1]
     produces:
       id: craic-sensor-cytosol
       title: "SensorCytosol[3OC6-HSL ⟶ PLA1]"
@@ -146,12 +146,6 @@ measured_by:
       page: ../../processes/colorimetric-readout/main.md
 
 open:
-  - kind: question
-    id: esar-has-no-page
-    question: >
-      EsaR has no module page. `detector-3oc6-hsl` documents LuxR and mentions
-      EsaR four times. This demo and luxr-gfp-cascade sense the same analyte
-      through different proteins, so one detector page cannot serve both.
   - kind: choice
     id: membrane-unchosen
     question: >
