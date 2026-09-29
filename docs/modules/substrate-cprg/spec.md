@@ -43,7 +43,7 @@ are listed there. CPRG does not pair with [XylE](../reporter-xyle/spec.md).
 
 # Processes
 
-- [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
+- [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format, since the move to GUVs.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
 

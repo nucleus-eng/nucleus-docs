@@ -65,7 +65,7 @@ open:
       steps", and two steps producing the same id fail check-spec-schema.py with
       duplicate-id. Measured, not assumed — it was written both ways and the
       validator rejected the second. The missing route in full, so nothing is lost —
-      process "Encapsulation: SUV" at ../../processes/encapsulate-suv/main.md,
+      process "Encapsulation: Extrusion" at ../../processes/encapsulate-suv/main.md,
       operator mixing, operands POPC and cholesterol only, POPC 25 mg/mL stock at
       208.51 uL, cholesterol 50 mg/mL stock at 6.00 uL, for CPRG-loaded SUVs. The
       dye is given as "-" in that row rather than as zero, and absent is not the same

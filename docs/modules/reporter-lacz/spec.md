@@ -203,7 +203,7 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 - [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — reduces background from LacZ outside the liposome, before the readout
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion this Module performs
 
-- [Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — the London hydrogel format
+- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — the London hydrogel format
 
 # Constituent Modules
 

@@ -79,7 +79,7 @@ valid pairs are listed on the enzyme page. X-Gal does not pair with
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
-- [Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) and the agarose routes — where the substrate is dosed free into the matrix.
+- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) and the agarose routes — where the substrate is dosed free into the matrix.
 
 # Credits
 

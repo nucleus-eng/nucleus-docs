@@ -52,7 +52,7 @@ flowchart TD
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
-    P4_PHOTODEVELOP_GEL_0(["Embedding: PEG-Norbornene (packing, 2 pairs mixing)"])
+    P4_EMBED_PHOTODEVELOPMENT_0(["Embedding: Photodevelopment (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_CASCADE["aTc Cascade"]
@@ -72,12 +72,12 @@ flowchart TD
     P3_ENCAPSULATE_0 --> P3_ENCAPSULATE_1
     P3_ENCAPSULATE_1 --> ATC_SENSING_CELL
 
-    PEG_NORBORNENE_MONOMER --> P4_PHOTODEVELOP_GEL_0
-    PEG4SH --> P4_PHOTODEVELOP_GEL_0
-    LAP --> P4_PHOTODEVELOP_GEL_0
-    OUTER_SOLUTION_CHICAGO --> P4_PHOTODEVELOP_GEL_0
-    ATC_SENSING_CELL --> P4_PHOTODEVELOP_GEL_0
-    P4_PHOTODEVELOP_GEL_0 --> ATC_GEL
+    PEG_NORBORNENE_MONOMER --> P4_EMBED_PHOTODEVELOPMENT_0
+    PEG4SH --> P4_EMBED_PHOTODEVELOPMENT_0
+    LAP --> P4_EMBED_PHOTODEVELOPMENT_0
+    OUTER_SOLUTION_CHICAGO --> P4_EMBED_PHOTODEVELOPMENT_0
+    ATC_SENSING_CELL --> P4_EMBED_PHOTODEVELOPMENT_0
+    P4_EMBED_PHOTODEVELOPMENT_0 --> ATC_GEL
 
     ATC_GEL --> P5_DOSE_CPRG_0
     SUBSTRATE_CPRG --> P5_DOSE_CPRG_0
@@ -89,7 +89,7 @@ flowchart TD
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,TRIS_HEPES_STOCK,ENERGY_SOLUTION,PEG_NORBORNENE_MONOMER,PEG4SH,LAP leaf;
     class OUTER_SOLUTION_CHICAGO,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE composed;
-    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P3_ENCAPSULATE_1,P4_PHOTODEVELOP_GEL_0,P5_DOSE_CPRG_0 process;
+    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P3_ENCAPSULATE_1,P4_EMBED_PHOTODEVELOPMENT_0,P5_DOSE_CPRG_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
@@ -105,7 +105,7 @@ flowchart TD
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click P4_PHOTODEVELOP_GEL_0 "/docs/processes/embed-peg-norbornene/main"
+    click P4_EMBED_PHOTODEVELOPMENT_0 "/docs/processes/embed-photodevelopment/main"
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
 ```
 
@@ -182,7 +182,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 | aTc | 1 µM — the response saturates at or below this, so higher doses add nothing. See [Expected Behavior](#atc-cascade-expected-behavior) for the dose series. |
 :::
 
-In the photodeveloped format CPRG is added to the gel **after** crosslinking rather than pre-loaded, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes — see [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md).
+In the photodeveloped format CPRG is added to the gel **after** crosslinking rather than pre-loaded, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes — see [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md).
 
 ::::
 

@@ -34,7 +34,7 @@ flowchart TD
     MEMBRANE_POPC_CHOL_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
-    P1_HYDRATE_AND_EXTRUDE_0(["Encapsulation: SUV (packing)"])
+    P1_HYDRATE_AND_EXTRUDE_0(["Encapsulation: Extrusion (packing)"])
     SUBSTRATE_CPRG_SUV["CPRG-loaded SUV"]
 
     MEMBRANE_POPC_CHOL_CHICAGO --> P1_HYDRATE_AND_EXTRUDE_0
@@ -130,8 +130,8 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 
 # Processes
 
-- [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) — lipid film, CPRG hydration, extrusion, purification.
-- [Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) — co-embedding with Sensing Cells and LacZ.
+- [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — lipid film, CPRG hydration, extrusion, purification.
+- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — co-embedding with Sensing Cells and LacZ.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the readout step itself.
 
 :::{table} Standard preparation parameters.

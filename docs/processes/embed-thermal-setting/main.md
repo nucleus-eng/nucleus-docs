@@ -1,5 +1,5 @@
 ---
-title: "Embedding: ULGA"
+title: "Embedding: Thermal Setting"
 subtitle: "Process"
 status: draft
 ---
@@ -12,7 +12,7 @@ This page is a work in progress and not yet ready for use.
 
 ULGA hydrogel embedding immobilizes synthetic-cell-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC synthetic cells carrying the 3OC6-HSL Sensing Module (S30 Lysate plus the `LuxR-deGFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing synthetic cells fixed while 3OC6-HSL from an external bacterial source diffuses in through the gel and triggers a response.
 
-In the process-dependency diagram, Embedding: ULGA is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Embedding: Alginate](../embed-alginate-hydrogel/main.md), which is fed by both phase transfer and [Encapsulation: SUV](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
+In the process-dependency diagram, Embedding: Thermal Setting is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md), which is fed by both phase transfer and [Encapsulation: Extrusion](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
 
 :::::::{card}
 :header: **Important Information**
@@ -89,7 +89,7 @@ This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HS
 # Materials and Equipment
 
 :::{table}
-:label: bom-embed-ulga-hydrogel
+:label: bom-embed-thermal-setting
 :align: center
 
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
@@ -164,13 +164,13 @@ Developed by Julia Purrinos De Oliveira (London Node), with the PLA1 colorimetri
 :::{card}
 :header: **Lab-ready Protocol**
 
-{button}`download <generated/embed-ulga-hydrogel-protocol.pdf>`
+{button}`download <generated/embed-thermal-setting-protocol.pdf>`
 :::
 
 :::{card}
 :header: **Bill of Materials**
 
-{button}`download <generated/embed-ulga-hydrogel-bom.pdf>`
+{button}`download <generated/embed-thermal-setting-bom.pdf>`
 :::
 
 ::::

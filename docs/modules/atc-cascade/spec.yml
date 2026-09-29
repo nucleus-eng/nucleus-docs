@@ -107,11 +107,11 @@ process_steps:
       title: "SensorCell[aTc ⟶ PLA1]"
       page: ../atc-sensing-cell/spec.md
 
-  - id: photodevelop-gel
+  - id: embed-photodevelopment
     process:
-      title: "Embedding: PEG-Norbornene"
-      page: ../../processes/embed-peg-norbornene/main.md
-      abstract: photodevelop-gel
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-photodevelopment
     impositions:
       - id: uv-exposure
         why: >

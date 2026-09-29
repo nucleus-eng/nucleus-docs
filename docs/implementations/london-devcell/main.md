@@ -46,8 +46,8 @@ The distribution's existing homoserine-lactone work is the [IV-HSL Emitter](../.
 | Step | Process |
 | --- | --- |
 | Form synthetic cells | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) |
-| Form substrate liposomes | [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) |
-| Embed | [Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) |
+| Form substrate liposomes | [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) |
+| Embed | [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) |
 | Read out | [Colorimetric Readout](../../processes/colorimetric-readout/main.md) |
 | Reduce background | [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — proposed, never run |
 

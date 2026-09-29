@@ -38,11 +38,11 @@ flowchart TB
 
 ## DevCell Encapsulation Processes
 
-DevCell integrations (e.g., the Chicago colorimetric readout system) build on two liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in [Encapsulation: SUV](./encapsulate-suv/main.md), a genuinely different technique. Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
+DevCell integrations (e.g., the Chicago colorimetric readout system) build on two liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in [Encapsulation: Extrusion](./encapsulate-suv/main.md), a genuinely different technique. Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
 
 - [Encapsulation](./encapsulate/main.md) — the abstraction both routes below are instances of. Closes a bilayer around an aqueous payload, and packs rather than mixes.
   - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md) — emulsion and transfer through an interface; produces synthetic cells.
-  - [Encapsulation: SUV](./encapsulate-suv/main.md) — film hydration and extrusion; produces SUVs, which are never interchangeable with synthetic cells.
+  - [Encapsulation: Extrusion](./encapsulate-suv/main.md) — film hydration and extrusion; produces SUVs, which are never interchangeable with synthetic cells.
 
 ## DevCell Readout Processes
 
@@ -112,14 +112,14 @@ flowchart LR
 Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are embedded together in a hydrogel matrix to couple a lysis-triggered colorimetric handoff between them. Different DevCells demos use different hydrogel chemistries — see each process page for the chemistry it covers and how it differs from the others.
 
 - [Embedding](./embed-hydrogel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
-  - [Embedding: Alginate](./embed-alginate-hydrogel/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
-  - [Embedding: ULGA](./embed-ulga-hydrogel/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
+  - [Embedding: Ionic Crosslinking](./embed-ionic-crosslinking/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
+  - [Embedding: Thermal Setting](./embed-thermal-setting/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
 
 ## Photopatterning Processes
 
 Beyond simple hydrogel embedding, spatial patterning within the hydrogel matrix can compartmentalize multiple sensing modules. PEGDA is one hydrogel chemistry explored for this — see the process page for its current status and open gaps.
 
-- [Photodevelop Gel](./photodevelop-gel/photodevelop-gel-main.md) — what the two photocrosslinking routes share, and the table of what they do not.
-  - [Embedding: PEGDA](./embed-pegda/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
-  - [Embedding: PEG-Norbornene](./embed-peg-norbornene/main.md) — step-growth thiol-ene route; a stub.
+- [Embedding: Photodevelopment](./embed-photodevelopment/main.md) — what the two photocrosslinking routes share, and the table of what they do not.
+  - [Embedding: Photodevelopment](./embed-photodevelopment/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
+  - [Embedding: Photodevelopment](./embed-photodevelopment/main.md) — step-growth thiol-ene route; a stub.
 

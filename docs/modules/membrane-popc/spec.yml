@@ -70,7 +70,7 @@ open:
       so nothing is lost — fluorescently labeled membrane, target 99.9 mol% POPC :
       0.1 mol% 18:1 Cyanine 5 PC, POPC 25 mg/mL stock at 79.863 uL, Cyanine 5 PC
       1 mg/mL stock at 3.423 uL, 2.00 mg total lipid, single-batch scale. It is the
-      variant hydrogel-embedded in ../../processes/embed-ulga-hydrogel/main.md.
+      variant hydrogel-embedded in ../../processes/embed-thermal-setting/main.md.
   - id: cyanine-5-stock-is-disputed
     question: >
       The labeled recipe above depends on a stock concentration the page flags as

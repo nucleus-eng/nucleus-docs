@@ -44,6 +44,6 @@ Three formulations are attested, and they are not interchangeable — each is ma
 
 Every process that takes an outer solution as an operand:
 
-- [Embedding: ULGA](../embed-ulga-hydrogel/main.md)
-- [Embedding: Alginate](../embed-alginate-hydrogel/main.md)
-- [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md)
+- [Embedding: Thermal Setting](../embed-thermal-setting/main.md)
+- [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md)
+- [Embedding: Photodevelopment](../embed-photodevelopment/main.md)

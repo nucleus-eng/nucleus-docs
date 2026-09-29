@@ -35,9 +35,9 @@ inputs:
 process_steps:
   - id: assemble-precursor
     process:
-      title: "Embedding: PEGDA"
-      page: ../../processes/embed-pegda/main.md
-      abstract: photodevelop-gel
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-photodevelopment
     operator: mixing
     operands: [pegda575, peg4sh, lap, pbs]
     produces:
@@ -57,9 +57,9 @@ process_steps:
 
   - id: photopattern
     process:
-      title: "Embedding: PEGDA"
-      page: ../../processes/embed-pegda/main.md
-      abstract: photodevelop-gel
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-photodevelopment
     impositions:
       - id: uv-exposure
         why: >

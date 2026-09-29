@@ -129,7 +129,7 @@ Requires a membrane to encapsulate the cytosol (e.g. [Membrane: POPC](../membran
 
 The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 
 
-- [Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md) — the London hydrogel format
+- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — the London hydrogel format
 
 # Constituent Modules
 

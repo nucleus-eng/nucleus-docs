@@ -56,8 +56,8 @@ process_steps:
       gel_strength: "≥200 g/cm² (1% gel)"
     notes: >
       The process names the ABSTRACT parent, because no embedding process is written for
-      this chemistry. ../../processes/embed-alginate-hydrogel/main.md is alginate and
-      ../../processes/embed-ulga-hydrogel/main.md is ULGA. Naming either would assert the
+      this chemistry. ../../processes/embed-ionic-crosslinking/main.md is alginate and
+      ../../processes/embed-thermal-setting/main.md is ULGA. Naming either would assert the
       wrong one.
 
 open:

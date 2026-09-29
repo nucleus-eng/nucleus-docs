@@ -127,7 +127,7 @@ process_steps:
 
   - id: encapsulate-substrate-suv
     process:
-      title: "Encapsulation: SUV"
+      title: "Encapsulation: Extrusion"
       page: ../../processes/encapsulate-suv/main.md
     operator: packing
     operands: [substrate-cprg, membrane-chicago]

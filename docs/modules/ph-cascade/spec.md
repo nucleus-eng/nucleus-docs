@@ -53,7 +53,7 @@ flowchart TD
     PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
     P4_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
-    P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
+    P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: Extrusion (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
     P6_EMBED_AGAROSE_0(["Embedding (packing, 3 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
@@ -247,7 +247,7 @@ No process page documents assembling this three-part cascade end to end.
 - [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
-- [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Corrected 2026-09-24**: it is **low-gelling agarose**, not ULGA, confirmed by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md)**, and its step names the abstract [Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry. This reverses an identification of 2026-09-21 that read *"it is ULGA, confirmed with the Chicago devs"*. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now
+- [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Corrected 2026-09-24**: it is **low-gelling agarose**, not ULGA, confirmed by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)**, and its step names the abstract [Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry. This reverses an identification of 2026-09-21 that read *"it is ULGA, confirmed with the Chicago devs"*. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now
 - [Chicago Outer Solution](../outer-solution-chicago/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it

@@ -47,9 +47,9 @@ Two colorimetric readouts are available. **LacZ is the one this demo uses.** It 
 | Step | Process |
 | --- | --- |
 | Form synthetic cells | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) |
-| Form substrate liposomes | [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) |
-| Embed | [Embedding: Alginate](../../processes/embed-alginate-hydrogel/main.md) |
-| Pattern | [Embedding: PEGDA](../../processes/embed-pegda/main.md) |
+| Form substrate liposomes | [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) |
+| Embed | [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) |
+| Pattern | [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md) |
 | Read out | [Colorimetric Readout](../../processes/colorimetric-readout/main.md) |
 | Reduce background | [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — proposed, never run |
 

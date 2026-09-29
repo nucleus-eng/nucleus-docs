@@ -10,14 +10,14 @@ Embedding sets a polymer network around compartments that already exist, so they
 
 Its instances, grouped by what sets the gel. Jon ruled on 2026-09-29 that Gel refines by formation route rather than per material, and these are the three routes:
 
-- **Set ionically.** [Embedding: Alginate](../embed-alginate-hydrogel/main.md) — sodium alginate set by calcium.
-- **Set thermally.** [Embedding: ULGA](../embed-ulga-hydrogel/main.md) — ultra-low-gelling agarose set by cooling. Low-gelling agarose is the same route at a different gel point and has no page yet.
-- **Set by light.** [Embedding: PEGDA](../embed-pegda/main.md) and [Embedding: PEG-Norbornene](../embed-peg-norbornene/main.md). [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md) states what those two share, including the one conflict this corpus has confirmed: the exposure bleaches CPRG.
+- **Set ionically.** [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md) — sodium alginate set by calcium.
+- **Set thermally.** [Embedding: Thermal Setting](../embed-thermal-setting/main.md) — ultra-low-gelling agarose set by cooling. Low-gelling agarose is the same route at a different gel point and has no page yet.
+- **Set by light.** [Embedding: Photodevelopment](../embed-photodevelopment/main.md) — PEG-norbornene, with PEGDA kept on the same page as a canceled chemistry. It carries the one conflict this corpus has confirmed: the exposure bleaches CPRG.
 
 :::{attention} Two parents name the same two pages, and that is not settled
-Written 2026-09-29. The photo-set pair now carries `Embedding: X` like the other routes, so under the `Type: Member` form it belongs to this page. It is also listed on [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), which states what the two chemistries share and is the only place the UV-and-CPRG conflict lives.
+Written 2026-09-29. The photo-set pair now carries `Embedding: X` like the other routes, so under the `Type: Member` form it belongs to this page. It is also listed on [Embedding: Photodevelopment](../embed-photodevelopment/main.md), which states what the two chemistries share and is the only place the UV-and-CPRG conflict lives.
 
-**Nothing is deleted while that is open.** The two readings are that Photodevelop Gel becomes a middle node for the light-set route under this page, or that its content moves here and the page retires.
+**Nothing is deleted while that is open.** The two readings are that Embedding: Photodevelopment becomes a middle node for the light-set route under this page, or that its content moves here and the page retires.
 :::
 
 :::{attention} 🚧 Draft
@@ -25,7 +25,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Written 2026-09-24 because three whiteboards reached for it
-The DevStudio day-one boards label this step `Gel embed`, without naming a chemistry. Both chemistries had a page and the thing they are chemistries of did not, which is the same gap [Encapsulation](../encapsulate/main.md) had and the opposite of [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), which has carried its parent page all along.
+The DevStudio day-one boards label this step `Gel embed`, without naming a chemistry. Both chemistries had a page and the thing they are chemistries of did not, which is the same gap [Encapsulation](../encapsulate/main.md) had and the opposite of [Embedding: Photodevelopment](../embed-photodevelopment/main.md), which has carried its parent page all along.
 :::
 
 # What every instance shares
@@ -36,7 +36,7 @@ The DevStudio day-one boards label this step `Gel embed`, without naming a chemi
 
 **The result keeps its parts' compartments, so this process packs.** A liposome embedded in a gel is still a liposome.
 
-**No instance illuminates its contents.** This is the distinction [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md) draws against itself: the photodeveloped routes impose UV on whatever is present at crosslinking, and neither route here does. A UV-sensitive payload can be embedded and cannot be photopatterned.
+**No instance illuminates its contents.** This is the distinction [Embedding: Photodevelopment](../embed-photodevelopment/main.md) draws against itself: the photodeveloped routes impose UV on whatever is present at crosslinking, and neither route here does. A UV-sensitive payload can be embedded and cannot be photopatterned.
 
 # What the instances do not share
 
@@ -65,5 +65,5 @@ Requires that whatever is embedded tolerates the setting trigger. **Neither trig
 
 # Processes
 
-- [Embedding: Alginate](../embed-alginate-hydrogel/main.md)
-- [Embedding: ULGA](../embed-ulga-hydrogel/main.md)
+- [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md)
+- [Embedding: Thermal Setting](../embed-thermal-setting/main.md)

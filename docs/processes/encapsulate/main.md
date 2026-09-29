@@ -11,7 +11,7 @@ Encapsulation closes a lipid bilayer around an aqueous inner solution, so the re
 Its two instances:
 
 - [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) — an inner solution is emulsified in a lipid-in-oil phase and drawn through an interface into an outer solution. Produces synthetic cells.
-- [Encapsulation: SUV](../encapsulate-suv/main.md) — a dried lipid film is hydrated with the payload and extruded to a target size. Produces small unilamellar vesicles.
+- [Encapsulation: Extrusion](../encapsulate-suv/main.md) — a dried lipid film is hydrated with the payload and extruded to a target size. Produces small unilamellar vesicles.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -38,7 +38,7 @@ The DevStudio day-one boards label this step `Encapsulation`, without naming a r
 | Target size | set by the emulsion | set by the extrusion membrane |
 | Solvent exposure | the payload meets an oil phase | none |
 
-**The size classes are never interchangeable.** [Encapsulation: SUV](../encapsulate-suv/main.md) says so on its own page, and a cascade that specifies one and receives the other is a different device. The routes are alternatives only where the size does not carry a function.
+**The size classes are never interchangeable.** [Encapsulation: Extrusion](../encapsulate-suv/main.md) says so on its own page, and a cascade that specifies one and receives the other is a different device. The routes are alternatives only where the size does not carry a function.
 
 # Requirements
 
@@ -57,4 +57,4 @@ Requires an outer solution whose osmolarity is matched to the interior. A mismat
 # Processes
 
 - [Encapsulation: Phase Transfer](../assemble-base-cell/main.md)
-- [Encapsulation: SUV](../encapsulate-suv/main.md)
+- [Encapsulation: Extrusion](../encapsulate-suv/main.md)

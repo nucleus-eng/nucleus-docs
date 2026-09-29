@@ -33,7 +33,7 @@ inputs:
 process_steps:
   - id: hydrate-and-extrude
     process:
-      title: "Encapsulation: SUV"
+      title: "Encapsulation: Extrusion"
       page: ../../processes/encapsulate-suv/main.md
     operator: packing
     operands: [membrane-popc-chol-chicago, substrate-cprg]
@@ -78,6 +78,6 @@ open:
       figures and one parameter does not read it as a dropped row.
   - id: the-second-and-third-processes-are-downstream
     question: >
-      Embedding: Alginate co-embeds this Module with Sensing Cells and LacZ.
+      Embedding: Ionic Crosslinking co-embeds this Module with Sensing Cells and LacZ.
       That is a cascade step rather than part of this Module's composition, so it is
       not a step above.

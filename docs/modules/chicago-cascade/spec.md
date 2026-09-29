@@ -58,7 +58,7 @@ flowchart TD
     P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
-    P4_PHOTODEVELOP_ATC_GEL_0(["Embedding: PEG-Norbornene (packing, 2 pairs mixing)"])
+    P4_PHOTODEVELOP_ATC_GEL_0(["Embedding: Photodevelopment (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_CASCADE["aTc Cascade"]
@@ -68,9 +68,9 @@ flowchart TD
     PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
     P8_ENCAPSULATE_PH_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
-    P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: SUV (packing)"])
+    P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: Extrusion (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P10_EMBED_AGAROSE_0(["Embedding: ULGA (packing, 3 pairs mixing)"])
+    P10_EMBED_AGAROSE_0(["Embedding: Thermal Setting (packing, 3 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
     P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
     CHICAGO_CASCADE["Chicago Cascade"]
@@ -152,7 +152,7 @@ flowchart TD
     click P3_ENCAPSULATE_ATC_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/embed-peg-norbornene/main"
+    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/embed-photodevelopment/main"
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
     click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
@@ -162,7 +162,7 @@ flowchart TD
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
     click P9_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
-    click P10_EMBED_AGAROSE_0 "/docs/processes/embed-ulga-hydrogel/main"
+    click P10_EMBED_AGAROSE_0 "/docs/processes/embed-thermal-setting/main"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
     click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
 ```
@@ -326,12 +326,12 @@ Every step below has a Process page. They are listed in the order they are perfo
 
 3. [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — anneals the sensing and trigger strands into the single duplex reagent, before encapsulation.
 4. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the same method as the aTc cell, with a different inner solution: the duplex and the toehold-gated PLA1 template, and no LacZ.
-5. [Encapsulation: SUV](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by film hydration and extrusion, then purifies away unencapsulated CPRG.
+5. [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by film hydration and extrusion, then purifies away unencapsulated CPRG.
 
 **Shared, once the populations exist**
 
 6. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests LacZ that escaped the aTc cells, which would otherwise meet CPRG with no lysis and add background color. Proteinase K does not distinguish one LacZ from another, so this step suits a format where the enzyme is encapsulated. It cannot be applied to the hydrogel format described above, which disperses commercial LacZ through the matrix on purpose.
-7. **Embedding — two steps, one per path, then a bond.** The pH path uses an **agarose** gel; the aTc path uses [PEG-Norbornene](../../processes/embed-peg-norbornene/main.md) photodevelopment. The two gels are then bonded into one piece. **No process page covers the bond**, and **no process page covers the agarose route either** — see the caution below.
+7. **Embedding — two steps, one per path, then a bond.** The pH path uses an **agarose** gel; the aTc path uses [PEG-Norbornene](../../processes/embed-photodevelopment/main.md) photodevelopment. The two gels are then bonded into one piece. **No process page covers the bond**, and **no process page covers the agarose route either** — see the caution below.
 8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
 
 The photodeveloped path adds CPRG after crosslinking rather than embedding it with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes, and it is why that path carries CPRG as a free dye rather than in a liposome.
@@ -349,7 +349,7 @@ This section previously said the cascade could not have both its spatial separat
 **Confirmed 2026-09-11, and both paths moved.** The Node corrected the assignment live: the pH path is agarose, not alginate, and the aTc path is PEG-norbornene specifically — *"definitely pegnorburine because PEG-DA destroys the vesicles."* [PEGDA](../gel-pegda/spec.md) is canceled as a route.
 
 :::{note} The agarose is ULGA, and that gave the pH path its process page back
-**Answered 2026-09-21.** Jon, confirmed with the Chicago devs: the 0.7% agarose is ULGA. This corpus has one agarose embedding process, [ULGA](../../processes/embed-ulga-hydrogel/main.md), ultra-low-gelling-temperature agarose gelling at (8–17) °C, and the Chicago work was described only as **0.7% agarose** cast on ice for about five minutes.
+**Answered 2026-09-21.** Jon, confirmed with the Chicago devs: the 0.7% agarose is ULGA. This corpus has one agarose embedding process, [ULGA](../../processes/embed-thermal-setting/main.md), ultra-low-gelling-temperature agarose gelling at (8–17) °C, and the Chicago work was described only as **0.7% agarose** cast on ice for about five minutes.
 
 The consequence was written before the answer arrived, so it applies without reinterpretation: **the pH path reuses the ULGA process with a concentration change**, rather than having no process page at all. Moving off alginate on 2026-09-11 had taken away the one it had.
 

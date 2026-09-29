@@ -45,9 +45,9 @@ flowchart TD
     LAP["LAP photoinitiator"]
     PBS["PBS"]
 
-    P1_ASSEMBLE_PRECURSOR_0(["Embedding: PEGDA (mixing)"])
+    P1_ASSEMBLE_PRECURSOR_0(["Embedding: Photodevelopment (mixing)"])
     PEGDA_PRECURSOR["PEGDA precursor solution"]
-    P2_PHOTOPATTERN_0(["Embedding: PEGDA (mixing)"])
+    P2_PHOTOPATTERN_0(["Embedding: Photodevelopment (mixing)"])
     GEL_PEGDA["Gel: PEGDA"]
 
     PEGDA575 --> P1_ASSEMBLE_PRECURSOR_0
@@ -67,8 +67,8 @@ flowchart TD
     class PEGDA_PRECURSOR,GEL_PEGDA composed;
     class P1_ASSEMBLE_PRECURSOR_0,P2_PHOTOPATTERN_0 process;
 
-    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/embed-pegda/main"
-    click P2_PHOTOPATTERN_0 "/docs/processes/embed-pegda/main"
+    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/embed-photodevelopment/main"
+    click P2_PHOTOPATTERN_0 "/docs/processes/embed-photodevelopment/main"
     click GEL_PEGDA "/docs/modules/gel-pegda/spec"
 ```
 
@@ -136,7 +136,7 @@ Requires that no UV-sensitive component is present during crosslinking. [CPRG](.
 
 # Processes
 
-Prepared and patterned by [Embedding: PEGDA](../../processes/embed-pegda/main.md). [Photodevelop Gel](../../processes/photodevelop-gel/photodevelop-gel-main.md) carries the steps this route shares with the [PEG-norbornene route](../../processes/embed-peg-norbornene/main.md).
+Prepared and patterned by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md), which carries this chemistry as a canceled variant beside the live PEG-norbornene one, and the four steps they share.
 
 # Materials
 

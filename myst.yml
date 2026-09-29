@@ -170,21 +170,16 @@ project:
               hidden: true
             - file: ./docs/processes/encapsulate-suv/main.md
               hidden: true
-        - file: ./docs/processes/photodevelop-gel/photodevelop-gel-main.md
-          hidden: true
-          children:
-            - file: ./docs/processes/embed-pegda/main.md
-              hidden: true
-            - file: ./docs/processes/embed-peg-norbornene/main.md
-              hidden: true
         - file: ./docs/processes/express/main.md
           hidden: true
         - file: ./docs/processes/embed-hydrogel/main.md
           hidden: true
           children:
-            - file: ./docs/processes/embed-alginate-hydrogel/main.md
+            - file: ./docs/processes/embed-ionic-crosslinking/main.md
               hidden: true
-            - file: ./docs/processes/embed-ulga-hydrogel/main.md
+            - file: ./docs/processes/embed-thermal-setting/main.md
+              hidden: true
+            - file: ./docs/processes/embed-photodevelopment/main.md
               hidden: true
         - file: ./docs/processes/color-development/main.md
           hidden: true

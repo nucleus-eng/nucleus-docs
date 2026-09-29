@@ -1,5 +1,5 @@
 ---
-title: "Encapsulation: SUV"
+title: "Encapsulation: Extrusion"
 subtitle: "Process"
 status: draft
 ---

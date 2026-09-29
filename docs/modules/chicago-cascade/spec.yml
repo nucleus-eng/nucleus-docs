@@ -166,9 +166,9 @@ process_steps:
 
   - id: photodevelop-atc-gel
     process:
-      title: "Embedding: PEG-Norbornene"
-      page: ../../processes/embed-peg-norbornene/main.md
-      abstract: photodevelop-gel
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-photodevelopment
     impositions:
       - id: uv-exposure
         why: >
@@ -273,7 +273,7 @@ process_steps:
 
   - id: encapsulate-substrate-suv
     process:
-      title: "Encapsulation: SUV"
+      title: "Encapsulation: Extrusion"
       page: ../../processes/encapsulate-suv/main.md
     operator: packing
     operands: [substrate-cprg, membrane-chicago]
@@ -288,13 +288,13 @@ process_steps:
 
   - id: embed-agarose
     process:
-      title: "Embedding: ULGA"
+      title: "Embedding: Thermal Setting"
       # THE PAGE FOLLOWS FROM THE IDENTIFICATION ABOVE, on the reasoning
       # ../chicago-cascade/spec.md already carried: this corpus has one agarose
       # embedding process and it is the ULGA one, so "if it is ULGA, the pH path
       # can likely reuse the ULGA process with a concentration change". It is.
       # Concentration differs and the process does not.
-      page: ../../processes/embed-ulga-hydrogel/main.md
+      page: ../../processes/embed-thermal-setting/main.md
     operator: packing
     operator_pairs:
       - operands: [ulga-powder, outer-solution-chicago]
@@ -367,6 +367,6 @@ open:
     question: >
       The pH path is agarose at 0.7% (2026-09-11), but no part number is
       recorded. If it is the low-gelling-temperature agarose that
-      embed-ulga-hydrogel documents, that process can likely be reused with a
+      embed-thermal-setting documents, that process can likely be reused with a
       concentration change. If it is a plain ulga-powder, this path has no process
       page at all. @Editor(chicago)

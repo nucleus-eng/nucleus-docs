@@ -38,7 +38,7 @@ flowchart TD
 
     P1_ASSEMBLE_OUTER_0(["Assemble Outer Solution (mixing)"])
     OUTER_SOLUTION_LONDON["London outer solution"]
-    P2_SET_THERMAL_0(["Embedding: ULGA (mixing)"])
+    P2_SET_THERMAL_0(["Embedding: Thermal Setting (mixing)"])
     GEL_ULGA["Gel: ULGA"]
 
     POTASSIUM_GLUTAMATE --> P1_ASSEMBLE_OUTER_0
@@ -59,7 +59,7 @@ flowchart TD
     class P1_ASSEMBLE_OUTER_0,P2_SET_THERMAL_0 process;
 
     click P1_ASSEMBLE_OUTER_0 "/docs/processes/assemble-outer-solution/main"
-    click P2_SET_THERMAL_0 "/docs/processes/embed-ulga-hydrogel/main"
+    click P2_SET_THERMAL_0 "/docs/processes/embed-thermal-setting/main"
     click GEL_ULGA "/docs/modules/gel-ulga/spec"
 ```
 
@@ -148,7 +148,7 @@ Imposes no divalent load and no illumination on its contents.
 
 # Processes
 
-Prepared and set by [Embedding: ULGA](../../processes/embed-ulga-hydrogel/main.md).
+Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
 
 # Materials
 

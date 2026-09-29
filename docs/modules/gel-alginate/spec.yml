@@ -33,8 +33,8 @@ inputs:
 process_steps:
   - id: dissolve
     process:
-      title: "Embedding: Alginate"
-      page: ../../processes/embed-alginate-hydrogel/main.md
+      title: "Embedding: Ionic Crosslinking"
+      page: ../../processes/embed-ionic-crosslinking/main.md
     operator: mixing
     operands: [sodium-alginate, embedding-buffer]
     produces:
@@ -50,8 +50,8 @@ process_steps:
 
   - id: crosslink-ionic
     process:
-      title: "Embedding: Alginate"
-      page: ../../processes/embed-alginate-hydrogel/main.md
+      title: "Embedding: Ionic Crosslinking"
+      page: ../../processes/embed-ionic-crosslinking/main.md
     operator: mixing
     operands: [alginate-precursor, calcium-chloride]
     produces:

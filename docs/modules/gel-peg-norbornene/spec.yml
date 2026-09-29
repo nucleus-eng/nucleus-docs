@@ -36,9 +36,9 @@ inputs:
 process_steps:
   - id: assemble-precursor
     process:
-      title: "Embedding: PEG-Norbornene"
-      page: ../../processes/embed-peg-norbornene/main.md
-      abstract: photodevelop-gel
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-photodevelopment
     operator: mixing
     operands: [peg4nb, peg4sh, lap, solvent]
     produces:
@@ -58,9 +58,9 @@ process_steps:
 
   - id: photopattern
     process:
-      title: "Embedding: PEG-Norbornene"
-      page: ../../processes/embed-peg-norbornene/main.md
-      abstract: photodevelop-gel
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-photodevelopment
     impositions:
       - id: uv-exposure
         why: >
