@@ -166,6 +166,12 @@ class ConstructFile:
     rel_path: str
     locus_name: str | None
     length_bp: int | None
+    # EVERY NAME THE FILE GIVES ITSELF, not only its LOCUS. A GenBank file names
+    # its parts in /label= and DEFINITION, and that is where a full construct
+    # name usually lives — `pOpen-pT7-lacO.gb` has LOCUS `pT7-lacO` and a feature
+    # labelled `pT7-lacO-UTR1-plamGFP-t7hyb6`. Comparing only against LOCUS and
+    # filename asked two of the three places the answer could be.
+    self_names: tuple[str, ...] = ()
 
 
 @dataclass
@@ -257,6 +263,21 @@ def _parse_locus(path: Path) -> tuple[str | None, int | None]:
     return m.group(1), int(m.group(2))
 
 
+def _self_names(path: Path) -> tuple[str, ...]:
+    """Names a GenBank file gives itself, beyond its LOCUS: feature labels and
+    the DEFINITION line. Binary formats (.dna) yield nothing and that is fine —
+    absence of evidence stays absence, and the caller falls back to warning."""
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        return ()
+    names = re.findall(r'/label="([^"]+)"', text)
+    d = re.search(r"^DEFINITION\s+(.+)$", text, re.M)
+    if d:
+        names.append(d.group(1))
+    return tuple(names)
+
+
 def index_dna_repo(repo_root: Path) -> dict[str, ConstructFile]:
     index = {}
     for path in repo_root.rglob("*"):
@@ -264,7 +285,7 @@ def index_dna_repo(repo_root: Path) -> dict[str, ConstructFile]:
             continue
         rel = path.relative_to(repo_root).as_posix()
         locus_name, length_bp = _parse_locus(path)
-        index[rel] = ConstructFile(rel, locus_name, length_bp)
+        index[rel] = ConstructFile(rel, locus_name, length_bp, _self_names(path))
     return index
 
 
@@ -371,7 +392,54 @@ def _normalize(name: str) -> str:
     return n
 
 
-def _names_related(claim_name: str, locus_name: str | None, filename: str) -> bool:
+def _tokens(s: str) -> list[str]:
+    return [x for x in re.split(r"[-_\s./]+", s.lower()) if x and x not in ("gb", "gbk", "dna")]
+
+
+def _subsequence(claim: list[str], target: list[str]) -> bool:
+    """Every token of the claim appears in the target, IN ORDER. Order matters
+    because a promoter, an operator and a coding sequence appear in that order in
+    a construct name, so `lacO-pT7` must not match `pT7-lacO`. Subsequence rather
+    than substring, so this can confirm an element the target carries and can
+    never invent one."""
+    it = iter(target)
+    return all(any(x == y for y in it) for x in claim)
+
+
+def _unique_in_repo(claim_name: str, dna_index: dict, rel_path: str) -> bool:
+    """True when exactly one file in the DNA repo has a name the claim is a
+    subsequence of.
+
+    THIS IS THE WHOLE GUARD, AND IT IS CLAUDE.md's WORKED EXAMPLE. A claim that
+    drops a qualifier is safe only when no sibling carries the same stem.
+    `LuxR-PLA1` matches BOTH `LuxR-PLA1-linear.gb` (2237 bp) and
+    `pOpen-LuxR-PLA1.gb` (4175 bp), which share a cassette and differ by a whole
+    backbone. `pT7-toehold9-PLA1` matches one file and nothing else, so there is
+    no second construct for it to be confused with.
+
+    Measured 2026-09-29: of the nine distinct warned names, three are unique and
+    two match two files each. The two are exactly the linear-against-circular
+    pairs this repo has always warned about."""
+    claim = _tokens(claim_name)
+    if len(claim) < 2:
+        return False
+    hits = set()
+    for rel, cf in dna_index.items():
+        names = [Path(rel).name]
+        if cf.locus_name:
+            names.append(cf.locus_name)
+        if any(_subsequence(claim, _tokens(n)) for n in names):
+            hits.add(rel)
+    # AND THE ONE HIT MUST BE THE FILE THE DOCS LINK. `pT7-deGFP-ssrA` matches
+    # exactly one file in the repo and it is `pOpen-deGFP-ssrA.gb`, while the docs
+    # link `pOpen-deGFP-CHis-ssrA.gb`. Clearing on uniqueness alone would have
+    # silenced a claim whose name points at a different construct from its link.
+    return hits == {rel_path}
+
+
+def _names_related(claim_name: str, locus_name: str | None, filename: str,
+                   self_names: tuple[str, ...] = (),
+                   unique: bool = False) -> bool:
     """A claim name is related to a target identifier if it is the identifier
     itself, optionally with a prefix decoration (promoter/vector context, e.g.
     `pT7-lacI` for target `lacI`). A *suffix* difference — the claim naming an
@@ -399,6 +467,28 @@ def _names_related(claim_name: str, locus_name: str | None, filename: str) -> bo
             continue
         if a == c or a.endswith("-" + c):
             return True
+
+    # THE FILE'S OWN NAMES FOR ITS PARTS, checked last and only as an ordered
+    # token subsequence. `pT7-lacO-plamGFP` is a subsequence of the feature label
+    # `pT7-lacO-UTR1-plamGFP-t7hyb6`, so the file confirms the element the claim
+    # names and the suffix refusal above was refusing a name the target does
+    # carry — in a field this function never read.
+    #
+    # ORDER IS LOAD-BEARING AND SO IS SUBSEQUENCE RATHER THAN SUBSTRING. A
+    # promoter, an operator and a coding sequence appear in that order in a
+    # construct name, so `lacO-pT7` must not match `pT7-lacO`. And every token of
+    # the claim must appear: this cannot invent an element, only confirm one.
+    claim_tokens = _tokens(claim_name)
+    if len(claim_tokens) >= 2:
+        for n in self_names:
+            if _subsequence(claim_tokens, _tokens(n)):
+                return True
+        # AND THE LOCUS AND FILENAME, but only when no sibling could be meant.
+        # `unique` is the guard; without it this would pass the greedy link.
+        if unique:
+            for c in ([locus_name] if locus_name else []) + [Path(filename).stem]:
+                if _subsequence(claim_tokens, _tokens(c)):
+                    return True
     return False
 
 
@@ -461,7 +551,9 @@ def validate_claim(claim: Claim, dna_index: dict, dna_repo_root: Path) -> list[F
             )
         )
 
-    if claim.name and not _names_related(claim.name, entry.locus_name, actual_basename):
+    if claim.name and not _names_related(claim.name, entry.locus_name, actual_basename,
+                                         entry.self_names,
+                                         _unique_in_repo(claim.name, dna_index, entry.rel_path)):
         findings.append(
             Finding(
                 WARN,
