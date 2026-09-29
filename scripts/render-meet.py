@@ -78,6 +78,19 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent / "docs" / "modules"
 
+# A CANDIDATE SET IS A BARE BRACE, NOT A PARENTHESIS. Jon ruled 2026-09-29,
+# accepting the attachment rule: a brace attached to a type contains, a bare
+# brace with commas is a set. `(…)` applies a morphism — glossary.md and
+# signature.md:189 — so `Detector(pH Detector, tetR-aTc Detector)` parsed as
+# applying Detector to two arguments. That was wrong before the brace sweep and
+# the sweep did not cause it.
+#
+# The rule is a measurement, not an invention: 127 headed `X{…}` uses across
+# nucleus-docs and compositional-biology-theory, zero of them containing a comma.
+#
+# Three sites carry it, all of them a meet title over its members. The four that
+# emit a bare comma-separated list with no wrapper were already the set form.
+
 STYLE = """
     classDef concrete fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef abstract fill:#6b7280,stroke:#374151,color:#ffffff;
@@ -437,7 +450,7 @@ if __name__ == "__main__":
             got = len(slots[k])
             head = ", ".join(shown)
             if len(members) > 1 and (mt := meet(members, par)):
-                head = f'{title_of(mt)}<br/>({head})'
+                head = f'{title_of(mt)}<br/>{{{head}}}'
             L.append(f'    {nid}["{head}<br/>'
                      f'only {got} of {len(legs)} legs have this slot"]')
             partial.append(nid); tally["partial"] += 1
@@ -448,7 +461,7 @@ if __name__ == "__main__":
             if m in S:
                 L.append(f'    click {nid} "/docs/modules/{m}/spec"')
         elif (mt := meet(members, par)):
-            L.append(f'    {nid}["{title_of(mt)}<br/>({", ".join(shown)})"]')
+            L.append(f'    {nid}["{title_of(mt)}<br/>{{{", ".join(shown)}}}"]')
             abstract.append(nid); tally["abstract"] += 1
             if mt in S:
                 L.append(f'    click {nid} "/docs/modules/{mt}/spec"')
@@ -487,7 +500,7 @@ if __name__ == "__main__":
             L.append(f'    {nid}(["{pshown[0]}{tail}"])')
             procs.append(nid); tally["proc_concrete"] += 1
         elif (mt := meet(members, pproc)):
-            L.append(f'    {nid}(["{proc_titles.get(mt, mt)}{tail}<br/>({", ".join(pshown)})"])')
+            L.append(f'    {nid}(["{proc_titles.get(mt, mt)}{tail}<br/>{{{", ".join(pshown)}}}"])')
             abstract.append(nid); tally["proc_abstract"] += 1
         else:
             L.append(f'    {nid}(["{", ".join(pshown)}{tail}'
