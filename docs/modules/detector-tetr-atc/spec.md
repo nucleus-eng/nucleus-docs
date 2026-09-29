@@ -31,7 +31,7 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    TETO_TEMPLATE["T7-tetO-deGFP template"]
+    TETO_TEMPLATE["pT7-tetO-deGFP template"]
     TETR["TetR repressor"]
 
     P1_ASSEMBLE_REACTION_0(["Assemble the tetR-aTc Detector reaction (mixing) — no page"])
@@ -64,8 +64,8 @@ flowchart TD
 | --- | --- | --- |
 | `pT7-tetR` | 2877 | [pOpen-tetR.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-tetR.gb) |
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
-| `T7-tetO-deGFP` | 917 | [pT7-tetO-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-tetr-atc/pT7-tetO-deGFP-linear.gb) |
-| `TetO-PLA1` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) |
+| `pT7-tetO-deGFP` | 917 | [pT7-tetO-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-tetr-atc/pT7-tetO-deGFP-linear.gb) |
+| `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) |
 | `pOpen-T7-tetO-PLA1` | 3140 | pending — see below |
 | `pOpen-T7-tetO-C23DO` | 3101 | pending — see below |
 :::
@@ -90,7 +90,7 @@ Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
-| `T7-tetO-deGFP` template | 0.5 nM | The reporter re-run in Base Cytosol. `pT7-tetO-plamGFP` is the PURExpress reference |
+| `pT7-tetO-deGFP` template | 0.5 nM | The reporter re-run in Base Cytosol. `pT7-tetO-plamGFP` is the PURExpress reference |
 | TetR repressor | 500 nM | Saturates repression; improvable to 2000 nM. Three formats are not interchangeable — see Expected Behavior |
 | aTc inducer | 0.1 µM to 0.5 µM, optimum ~0.25–0.35 µM | **The Node's working window in this cytosol, not the dose used in the figures below, which is unrecorded.** Lysate wants 2.5 µM to 5 µM. See [aTc](../analyte-atc/spec.md) |
 :::
@@ -176,7 +176,7 @@ Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated 
 :name: fig-tetr-atc-nucleus-degfp
 :align: center
 
-`T7-tetO-deGFP` in Nucleus Cytosol: unregulated, repressed with 500 nM TetR, and induced with 500 nM TetR plus aTc, alongside a cytosol control reaction. Fluorescence is normalized to 1 µM fluorescein, and shaded bands are the spread across replicates.
+`pT7-tetO-deGFP` in Nucleus Cytosol: unregulated, repressed with 500 nM TetR, and induced with 500 nM TetR plus aTc, alongside a cytosol control reaction. Fluorescence is normalized to 1 µM fluorescein, and shaded bands are the spread across replicates.
 :::
 
 The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#reporter-xyle-expected-behavior) spec.

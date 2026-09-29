@@ -120,7 +120,13 @@ flowchart TD
 | `TetO-PLA1` | not documented | — | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP` |
 :::
 
-:::{attention} Construct not yet in `nucleus-eng/DNA`
+:::{attention} WITHDRAWN 2026-09-29 — the construct is in `nucleus-eng/DNA`
+**This block's own condition has been met and nobody noticed.** It said not to add a length or file entry *"until the construct is confirmed and its length verified against the source file"*. The file is `effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb` on `devcells/devstudio-constructs`, **1202 bp**, and three pages now carry it as a checked row — [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md), [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) and [Detector: tetR-aTc](../detector-tetr-atc/spec.md). `scripts/check-dna-refs.py` verifies the length against the file on each.
+
+**The row below can be filled, and this file does not fill it**, because adding a Designs-table row is an identity claim and belongs with a human reading the construct.
+
+**The superseded text follows.**
+
 `TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. The same gap is recorded on [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md). Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
 :::
 

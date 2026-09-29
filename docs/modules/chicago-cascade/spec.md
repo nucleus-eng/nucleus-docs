@@ -174,7 +174,21 @@ flowchart TD
 
 The constructs are those of the two integration paths; no construct is specific to the merge.
 
-:::{attention} Constructs not yet in `nucleus-eng/DNA`
+:::{attention} WITHDRAWN 2026-09-29 — all three constructs are in `nucleus-eng/DNA`
+**Every construct this block said was missing now has a file with a recorded length**, on `devcells/devstudio-constructs`:
+
+| Row below | File | Length |
+| --- | --- | --- |
+| `TetO-PLA1` | `effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb` | 1202 bp |
+| Toehold-switch-gated PLA1 template | `effectors/detector-ph/pT7-toehold9-PLA1-linear.gb` | 1203 bp |
+| pH-responsive ssDNA : trigger ssDNA | `detectors/detector-ph/pH-responsive-ssDNA-2.gb`, `trigger-ssDNA-3.gb` | 49 bp, 36 bp |
+
+**The question this block raised about the third one is also answered.** It asked whether the toehold template *"is one of the two constructs listed on Effector: PLA1 or a third design"*. It is a third: 1203 bp against PLA1's 1202 bp linear and 2237 bp LuxR forms, on its own path under `detector-ph`.
+
+**The rows below can be filled, and this file does not fill them**, because a Designs-table row is an identity claim and belongs with a human reading the construct.
+
+**The superseded text follows.**
+
 Neither PLA1-expressing construct below is confirmed in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), and neither has a recorded length. `TetO-PLA1` carries the same gap where it is specified, on [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md). The toehold-switch-gated template is not separately recorded, and whether it is one of the two constructs listed on [Effector: PLA1](../effector-pla1/spec.md) or a third design is not established — do not assume it from the name. Do not add a length or file entry here until each construct is confirmed and its length verified against the source file.
 :::
 

@@ -114,7 +114,11 @@ flowchart TD
 LuxR is not supplied as purified protein. Each London sensing construct carries a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving the payload, on one molecule — so `LuxR-PLA1` and `LuxR-deGFP` each express their own receiver. The DevCells demo uses `LuxR-PLA1`; `LuxR-deGFP` is the reporter variant under test.
 :::
 
-:::{attention} Construct not yet in `nucleus-eng/DNA`
+:::{attention} WITHDRAWN 2026-09-29 — the construct is in `nucleus-eng/DNA`
+**The condition this block set has been met.** The file is `effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb`, **2237 bp**, and [Effector: PLA1](../effector-pla1/spec.md) carries it as a checked row. **Note which form**: the linear one, for Base Cytosol. `pOpen-LuxR-PLA1.gb` at 4175 bp is the circular form for S30 and is a different construct.
+
+**The superseded text follows.**
+
 `LuxR-PLA1` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) DNA tab for the same gap. Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
 :::
 

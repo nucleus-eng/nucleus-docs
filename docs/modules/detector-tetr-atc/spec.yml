@@ -24,7 +24,7 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   teto-template:
-    title: "T7-tetO-deGFP template"
+    title: "pT7-tetO-deGFP template"
     page: null            # pT7-tetO-plamGFP is the PURExpress reference
   tetr:
     title: "TetR repressor"

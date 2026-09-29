@@ -66,7 +66,7 @@ flowchart TD
 | --- | --- | --- |
 | `pT7-ClpX` | 3394 | [pOpen-ClpX-CHis.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-ClpX-CHis.gb) |
 | `pT7-ClpP` | 2746 | [pOpen-ClpP-CHis.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-ClpP-CHis.gb) |
-| `pT7-deGFP-ssrA` | 2863 | [pOpen-deGFP-CHis-ssrA.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-deGFP-CHis-ssrA.gb) |
+| `pOpen-deGFP-CHis-ssrA` | 2863 | [pOpen-deGFP-CHis-ssrA.gb](https://github.com/nucleus-eng/DNA/blob/main/control/pOpen-deGFP-CHis-ssrA.gb) |
 :::
 ::::
 
