@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    DETECTOR_TETR_ATC["Sensor: tetR-aTc"]
     EFFECTOR_PLA1["Lysis: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
 

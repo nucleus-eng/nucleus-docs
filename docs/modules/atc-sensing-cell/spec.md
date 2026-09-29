@@ -37,7 +37,7 @@ Schematic representation of the SensorCell[aTc ⟶ PLA1] mechanism. Inside the s
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    DETECTOR_TETR_ATC["Sensor: tetR-aTc"]
     EFFECTOR_PLA1["Lysis: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
@@ -97,7 +97,7 @@ flowchart TD
 Chicago prefers the circular form and both are expected to work. They are **not sequence-identical** — the linear entry is the expression cassette, the circular one is that cassette in a pOpen backbone — so the row a page cites follows the route it documents.
 :::
 
-See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct.
+See [Sensor: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct.
 
 ::::
 

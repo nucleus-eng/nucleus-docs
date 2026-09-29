@@ -14,7 +14,7 @@ site:
 <!-- /gen:position -->
 
 [Base Cytosol](../base-cytosol/spec.md) mixed with
-[Detector: Theophylline](../detector-theophylline/spec.md). A member of
+[Sensor: Theophylline](../detector-theophylline/spec.md). A member of
 [Sensor Cytosol](../sensor-cytosol/spec.md).
 
 **This page exists because four Modules named this intermediate and nothing defined it.** It was
@@ -37,7 +37,7 @@ This specification is kept for reference and is not maintained.
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
+    DETECTOR_THEOPHYLLINE["Sensor: Theophylline"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     THEOPHYLLINE_SENSOR_CYTOSOL["Theophylline Sensor Cytosol"]
@@ -73,13 +73,13 @@ flowchart TD
 | [Base Cytosol](../base-cytosol/spec.md) | 1x | S-Mix 1x, P-Mix 1.80 mg/mL, ribosomes 1.8 µM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL |
 :::
 
-**These figures come from [Detector: Theophylline](../detector-theophylline/spec.md)'s own reaction**, because no run of this intermediate alone is on record. That is the same imputation the LacZ reporter page carries and it is recorded rather than presented as measurement.
+**These figures come from [Sensor: Theophylline](../detector-theophylline/spec.md)'s own reaction**, because no run of this intermediate alone is on record. That is the same imputation the LacZ reporter page carries and it is recorded rather than presented as measurement.
 
 ::::
 
 ::::{tab-item} DNA
 
-[Detector: Theophylline](../detector-theophylline/spec.md), a translational riboswitch whose aptamer sits in the 5-prime UTR.
+[Sensor: Theophylline](../detector-theophylline/spec.md), a translational riboswitch whose aptamer sits in the 5-prime UTR.
 
 :::{table} The sensing template.
 | Component | Working concentration | Notes |
@@ -96,7 +96,7 @@ flowchart TD
 
 **One step, `mixing`, copied from its parent rather than derived.**
 [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) declares `assemble-cytosol` as
-`mixing` over Base Cytosol and Detector: Theophylline, producing this id. This page records that
+`mixing` over Base Cytosol and Sensor: Theophylline, producing this id. This page records that
 step and adds nothing, so the two sources cannot disagree about what this intermediate is.
 
 **No effector, and that is why the membership ruling matters.** The other three members of
@@ -114,7 +114,7 @@ this Module rather than a property of its class.
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — the base
-- [Detector: Theophylline](../detector-theophylline/spec.md) — the riboswitch
+- [Sensor: Theophylline](../detector-theophylline/spec.md) — the riboswitch
 
 # Processes
 

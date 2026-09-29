@@ -158,7 +158,7 @@ are different questions, and both answers hold.
 **No threshold is recorded.** Neither Node has stated a figure for "low", so this stays prose
 and does not enter `spec.yml`.
 
-Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
+Requires an upstream sensing circuit (e.g. [Sensor: 3OC6-HSL](../detector-3oc6-hsl/spec.md), [Sensor: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 

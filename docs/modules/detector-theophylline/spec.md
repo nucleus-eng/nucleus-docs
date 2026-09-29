@@ -1,5 +1,5 @@
 ---
-title: "Detector: Theophylline"
+title: "Sensor: Theophylline"
 subtitle: "Module Specification"
 status: canceled
 site:

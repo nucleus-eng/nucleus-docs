@@ -25,7 +25,7 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   detector-theophylline:
-    title: "Detector: Theophylline"
+    title: "Sensor: Theophylline"
     page: ../detector-theophylline/spec.md
 
 process_steps:

@@ -54,7 +54,7 @@ inputs:
 
   # aTc path
   detector-tetr-atc:
-    title: "Detector: tetR-aTc"
+    title: "Sensor: tetR-aTc"
     page: ../detector-tetr-atc/spec.md
   peg-norbornene-monomer:
     title: "4-arm PEG-norbornene"

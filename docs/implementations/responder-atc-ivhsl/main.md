@@ -179,7 +179,7 @@ Responder Cell sample timeseries (uninduced). EggPC liposomes containing PURE, r
 
 # Modules
 
-- [Detector: TetR-aTc](../../modules/detector-tetr-atc/spec.md)
+- [Sensor: TetR-aTc](../../modules/detector-tetr-atc/spec.md)
 - [Emitter: IV-HSL](../../modules/emitter-ivhsl/spec.md)
 
 # Credits

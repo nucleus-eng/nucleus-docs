@@ -29,7 +29,7 @@ The theophylline riboswitch expresses its effector without theophylline present,
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
+    DETECTOR_THEOPHYLLINE["Sensor: Theophylline"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
@@ -77,7 +77,7 @@ flowchart TD
 @Editor(chicago): no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
 :::
 
-See [Detector: Theophylline](../detector-theophylline/spec.md) for the design.
+See [Sensor: Theophylline](../detector-theophylline/spec.md) for the design.
 
 ::::
 

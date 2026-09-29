@@ -80,7 +80,7 @@ flowchart TD
 The construct exists and its sequence is in hand — `luxR` and the `pLux`-driven payload are on one molecule, so there is no second plasmid and no missing row. It has not yet been submitted to [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA), so this table cites no file.
 :::
 
-See [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) for sensor specification.
+See [Sensor: 3OC6-HSL](../detector-3oc6-hsl/spec.md) for sensor specification.
 
 ::::
 
@@ -171,7 +171,7 @@ A single agar-pad 3OC6-HSL-diffusion test of lysate synthetic cells alongside li
 
 Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `LuxR-deGFP` construct is driven by the *E. coli* pLux promoter, not pT7, so it does not express in a T7-only cytosol.
 
-Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)).
+Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Sensor: 3OC6-HSL](../detector-3oc6-hsl/spec.md)).
 
 Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
 

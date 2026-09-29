@@ -1,5 +1,5 @@
 ---
-title: "Detector: pH-Sensing"
+title: "Sensor: pH-Sensing"
 subtitle: "Module Specification"
 status: unvalidated-published
 thumbnail: schematic.png

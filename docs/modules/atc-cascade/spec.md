@@ -34,7 +34,7 @@ The aTc Cascade combines its Modules as follows:
 ```mermaid
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
-    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    DETECTOR_TETR_ATC["Sensor: tetR-aTc"]
     EFFECTOR_PLA1["Lysis: PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
@@ -121,7 +121,7 @@ flowchart TD
 :::
 
 :::{attention} WITHDRAWN 2026-09-29 — the construct is in `nucleus-eng/DNA`
-**This block's own condition has been met and nobody noticed.** It said not to add a length or file entry *"until the construct is confirmed and its length verified against the source file"*. The file is `effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb` on `devcells/devstudio-constructs`, **1202 bp**, and three pages now carry it as a checked row — [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md), [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) and [Detector: tetR-aTc](../detector-tetr-atc/spec.md). `scripts/check-dna-refs.py` verifies the length against the file on each.
+**This block's own condition has been met and nobody noticed.** It said not to add a length or file entry *"until the construct is confirmed and its length verified against the source file"*. The file is `effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb` on `devcells/devstudio-constructs`, **1202 bp**, and three pages now carry it as a checked row — [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md), [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) and [Sensor: tetR-aTc](../detector-tetr-atc/spec.md). `scripts/check-dna-refs.py` verifies the length against the file on each.
 
 **The row above is filled**, on Jon's word of 2026-09-29. The construct was verified by its features rather than by its name: the file carries `TetO` and `PLA1 (codon-optimized to E. coli)`.
 
@@ -211,7 +211,7 @@ This Module has not been validated in hydrogels. The aTc-response result above i
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the `TetO-PLA1` construct, and TetR as the repressor holding it off in the absence of aTc (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the `TetO-PLA1` construct, and TetR as the repressor holding it off in the absence of aTc (e.g. [Sensor: tetR-aTc](../detector-tetr-atc/spec.md)).
 
 Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout is produced by lysis releasing CPRG to LacZ, so this cascade has no bulk-cytosol route.
 
