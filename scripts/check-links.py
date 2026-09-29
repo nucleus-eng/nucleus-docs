@@ -17,11 +17,21 @@ Two passes, both over the whole corpus:
 The classification axis is what the response says about the *link*, not which
 vendor served it:
 
-  * A 404/410, or a hostname that does not resolve, means the link is wrong.
-    Deterministic and actionable — hard failure.
+  * A 404/410 means the link is wrong. It comes from the authoritative server,
+    so it is deterministic and actionable — hard failure.
   * A 403/429/5xx/timeout/TLS error/HTTP-2 reset means the crawler was refused
     or the server had a bad moment. It says nothing about whether the link is
     valid, and it is not reproducible — tolerated, but reported.
+  * A HOSTNAME THAT DOES NOT RESOLVE IS ALSO TOLERATED, and this rule used to
+    read the other way. It is not deterministic: it is a fact about the resolver
+    the checker happens to be using, not about the link. Measured 2026-09-29 —
+    `ecgrc.net` returned NXDOMAIN here while `google.com`, `github.com`,
+    `sigmaaldrich.com` and `doi.org` all resolved on the same resolver, and Jon
+    confirmed the host resolves on the internet. Four correct links had been the
+    only red on this check for days, and the message said "does not resolve",
+    which reads as a statement about the corpus.
+    A dead domain does still need finding. The report says so rather than the
+    exit code, the same way this script already handles a blocked crawler.
 
 This replaces an earlier per-domain allowlist keyed on the literal string
 "HTTP/2 protocol error", which meant every newly crawler-hostile vendor turned
@@ -258,7 +268,10 @@ def classify(entry: dict) -> tuple[str, str]:
         return HARD_FAIL, "no host in URL"
 
     if not host_resolves(host):
-        return HARD_FAIL, f"{host} does not resolve"
+        # NOT A HARD FAIL. See the classification note at the top: a resolver
+        # failure is evidence about this machine's DNS, not about the link, and
+        # no response was received to classify. It is reported and does not block.
+        return TOLERATED, f"{host} did not resolve from here — DNS, not the link"
 
     detail = status.get("details") or status.get("text") or "network error"
     return TOLERATED, detail
