@@ -48,13 +48,14 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 python3 scripts/check-dropdowns.py      # (CI) flag placeholder-only lists
 python3 scripts/check-file-placement.py # (CI) flag content files outside allowed dirs
 python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
+python3 scripts/check-table-shape.py    # (CI) flag table rows whose column count differs from their header
 python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
 python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
 python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page
 python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
-**The four marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
+**The five marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
 also runs Vale and `check-composition-tabs.py`. **The three marked `(local)` run in no
 workflow** — `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
 turn it red with no change here (see the DNA section below); `check-anchors.py` because it

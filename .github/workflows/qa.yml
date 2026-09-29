@@ -44,6 +44,21 @@ jobs:
       - name: Check empty dropdowns
         run: python3 scripts/check-dropdowns.py
 
+  # A row whose column count does not match its header renders as a dropped or
+  # shifted cell, which reads as a missing figure rather than as a broken table.
+  # Nothing asserted table shape until 2026-09-29. See scripts/check-table-shape.py.
+  table-shape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Check table shape
+        run: python3 scripts/check-table-shape.py
+
   file-placement:
     runs-on: ubuntu-latest
     steps:
