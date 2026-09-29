@@ -36,8 +36,8 @@ inputs:
 process_steps:
   - id: assemble-precursor
     process:
-      title: "Photodevelop Gel: PEG-Norbornene"
-      page: ../../processes/photodevelop-peg-norbornene/main.md
+      title: "Embed: PEG-Norbornene"
+      page: ../../processes/embed-peg-norbornene/main.md
       abstract: photodevelop-gel
     operator: mixing
     operands: [peg4nb, peg4sh, lap, solvent]
@@ -58,8 +58,8 @@ process_steps:
 
   - id: photopattern
     process:
-      title: "Photodevelop Gel: PEG-Norbornene"
-      page: ../../processes/photodevelop-peg-norbornene/main.md
+      title: "Embed: PEG-Norbornene"
+      page: ../../processes/embed-peg-norbornene/main.md
       abstract: photodevelop-gel
     impositions:
       - id: uv-exposure

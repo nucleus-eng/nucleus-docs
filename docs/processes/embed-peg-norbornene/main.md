@@ -1,11 +1,11 @@
 ---
-title: "Photodevelop Gel: PEG-Norbornene"
+title: "Embed: PEG-Norbornene"
 status: draft
 ---
 
 # Overview
 
-PEG-norbornene photodevelopment crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. It is one of the two routes under [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md); see that page for the steps the two share, and [Photodevelop Gel: PEGDA](../photodevelop-pegda/main.md) for the other.
+PEG-norbornene photodevelopment crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. It is one of the two routes under [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md); see that page for the steps the two share, and [Embed: PEGDA](../embed-pegda/main.md) for the other.
 
 Step-growth thiol-ene addition gives a more uniform network than PEGDA's chain-growth acrylate polymerization and is less prone to oxygen inhibition at the gel surface.
 
@@ -24,7 +24,7 @@ The side-by-side comparison behind it — exposed sample visibly bleached agains
 Precursor composition and preparation are on [PEG-Norbornene Gel](../../modules/gel-peg-norbornene/spec.md). Patterning runs **60 s at 405 nm**.
 
 :::{table} Bill of Materials
-:label: bom-photodevelop-peg-norbornene
+:label: bom-embed-peg-norbornene
 
 | Name | Category | Product | Manufacturer | Part # |
 | --- | --- | --- | --- | --- |

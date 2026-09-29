@@ -173,9 +173,9 @@ project:
         - file: ./docs/processes/photodevelop-gel/photodevelop-gel-main.md
           hidden: true
           children:
-            - file: ./docs/processes/photodevelop-pegda/main.md
+            - file: ./docs/processes/embed-pegda/main.md
               hidden: true
-            - file: ./docs/processes/photodevelop-peg-norbornene/main.md
+            - file: ./docs/processes/embed-peg-norbornene/main.md
               hidden: true
         - file: ./docs/processes/express/main.md
           hidden: true

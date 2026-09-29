@@ -109,8 +109,8 @@ process_steps:
 
   - id: photodevelop-gel
     process:
-      title: "Photodevelop Gel: PEG-Norbornene"
-      page: ../../processes/photodevelop-peg-norbornene/main.md
+      title: "Embed: PEG-Norbornene"
+      page: ../../processes/embed-peg-norbornene/main.md
       abstract: photodevelop-gel
     impositions:
       - id: uv-exposure

@@ -58,7 +58,7 @@ flowchart TD
     P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
-    P4_PHOTODEVELOP_ATC_GEL_0(["Photodevelop Gel: PEG-Norbornene (packing, 2 pairs mixing)"])
+    P4_PHOTODEVELOP_ATC_GEL_0(["Embed: PEG-Norbornene (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_CASCADE["aTc Cascade"]
@@ -152,7 +152,7 @@ flowchart TD
     click P3_ENCAPSULATE_ATC_0 "/docs/processes/assemble-base-cell/main"
     click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
     click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
-    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/photodevelop-peg-norbornene/main"
+    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/embed-peg-norbornene/main"
     click ATC_CASCADE "/docs/modules/atc-cascade/spec"
     click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
@@ -331,7 +331,7 @@ Every step below has a Process page. They are listed in the order they are perfo
 **Shared, once the populations exist**
 
 6. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests LacZ that escaped the aTc cells, which would otherwise meet CPRG with no lysis and add background color. Proteinase K does not distinguish one LacZ from another, so this step suits a format where the enzyme is encapsulated. It cannot be applied to the hydrogel format described above, which disperses commercial LacZ through the matrix on purpose.
-7. **Embedding — two steps, one per path, then a bond.** The pH path uses an **agarose** gel; the aTc path uses [PEG-Norbornene](../../processes/photodevelop-peg-norbornene/main.md) photodevelopment. The two gels are then bonded into one piece. **No process page covers the bond**, and **no process page covers the agarose route either** — see the caution below.
+7. **Embedding — two steps, one per path, then a bond.** The pH path uses an **agarose** gel; the aTc path uses [PEG-Norbornene](../../processes/embed-peg-norbornene/main.md) photodevelopment. The two gels are then bonded into one piece. **No process page covers the bond**, and **no process page covers the agarose route either** — see the caution below.
 8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
 
 The photodeveloped path adds CPRG after crosslinking rather than embedding it with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes, and it is why that path carries CPRG as a free dye rather than in a liposome.

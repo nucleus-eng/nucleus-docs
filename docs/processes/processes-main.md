@@ -120,6 +120,6 @@ Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are em
 Beyond simple hydrogel embedding, spatial patterning within the hydrogel matrix can compartmentalize multiple sensing modules. PEGDA is one hydrogel chemistry explored for this — see the process page for its current status and open gaps.
 
 - [Photodevelop Gel](./photodevelop-gel/photodevelop-gel-main.md) — what the two photocrosslinking routes share, and the table of what they do not.
-  - [Photodevelop Gel: PEGDA](./photodevelop-pegda/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
-  - [Photodevelop Gel: PEG-Norbornene](./photodevelop-peg-norbornene/main.md) — step-growth thiol-ene route; a stub.
+  - [Embed: PEGDA](./embed-pegda/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
+  - [Embed: PEG-Norbornene](./embed-peg-norbornene/main.md) — step-growth thiol-ene route; a stub.
 

@@ -1,5 +1,5 @@
 ---
-title: "Photodevelop Gel: PEGDA"
+title: "Embed: PEGDA"
 subtitle: "Process"
 status: canceled
 ---
@@ -7,7 +7,7 @@ status: canceled
 # Overview
 
 :::{attention} Canceled — PEG-DA "destroys the vesicles"
-This route is not used by any DevCells demo. Chicago Node, 2026-09-11: the aTc path uses PEG-norbornene "because PEG-DA destroys the vesicles." See [PEG-Norbornene Photodevelopment](../photodevelop-peg-norbornene/main.md), which is the live route, and [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), the parent process, which is unaffected.
+This route is not used by any DevCells demo. Chicago Node, 2026-09-11: the aTc path uses PEG-norbornene "because PEG-DA destroys the vesicles." See [PEG-Norbornene Photodevelopment](../embed-peg-norbornene/main.md), which is the live route, and [Photodevelop Gel](../photodevelop-gel/photodevelop-gel-main.md), the parent process, which is unaffected.
 
 This protocol is kept for reference and is not maintained.
 :::
@@ -59,7 +59,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 <!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
-:label: bom-photodevelop-pegda
+:label: bom-embed-pegda
 :align: center
 
 | Name             | Category    | Product                                              | Manufacturer  | Part #                     | Price   | Storage                  | Link                                                                                                                                                                                                                   |
@@ -128,13 +128,13 @@ Developed by Ojaswita Pant (Chicago Node, Truby Lab).
 :::{card}
 :header: **Lab-ready Protocol**
 
-{button}`download <generated/photodevelop-pegda-protocol.pdf>`
+{button}`download <generated/embed-pegda-protocol.pdf>`
 :::
 
 :::{card}
 :header: **Bill of Materials**
 
-{button}`download <generated/photodevelop-pegda-bom.pdf>`
+{button}`download <generated/embed-pegda-bom.pdf>`
 :::
 
 ::::
