@@ -66,7 +66,7 @@ flowchart TD
 | Member | Sensing element |
 | --- | --- |
 | [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
-| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Detector: TetR/aTc](../detector-tetr-atc/spec.md) |
+| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) |
 | [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | **a trigger duplex annealed in file**, not a detector page |
 | [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | [Detector: Theophylline](../detector-theophylline/spec.md) |
 :::
@@ -105,14 +105,14 @@ not available here.
 | Member | Base | Sensing element |
 | --- | --- | --- |
 | [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | S30 Lysate | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
-| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | Base Cytosol | [Detector: TetR/aTc](../detector-tetr-atc/spec.md) |
+| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | Base Cytosol | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) |
 | [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | Base Cytosol | a trigger duplex annealed in file |
 | [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | Base Cytosol | [Detector: Theophylline](../detector-theophylline/spec.md) |
 :::
 
 **The detector is not always a Module, and the class invariant is a detector rather than a
 detector page.** The pH member anneals its own trigger duplex instead of taking a
-[Detector: pH](../detector-ph/spec.md), because that integration path's pH detection is stitched into a PLA1
+[Detector: pH-Sensing](../detector-ph/spec.md), because that integration path's pH detection is stitched into a PLA1
 template. The operand is the sensing element either way.
 
 **The base is not the same across members**, which is the reason [Cytosol](../cytosol/spec.md)
