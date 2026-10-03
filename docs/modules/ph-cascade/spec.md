@@ -214,7 +214,11 @@ The three Modules above have run in partial combinations, never together in one 
 
 ## Gels
 
-- **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected (Sung-Won Hwang, Liu Lab). The concentration-dependent absorbance data is on the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) spec.
+- **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected. The concentration-dependent absorbance data is on the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) spec.
+
+:::{attention} Source needed for the agarose result
+@Editor(chicago): cite the document that reports the "slight pink" color in 0.7% low-gelling agarose.
+:::
 
 :::{attention} Premature lysis has two independent causes
 **Gramicidin A causes premature lysis; it does not prevent it.** Used as a proton channel for the GFP-expression result, it was left out of the colorimetric demonstration because it ruptured a portion of the CPRG-loaded liposomes, producing nonspecific color. Its absence can reduce pH-sensing efficiency, but proton diffusion into the more permeable liposomes was enough to drive PLA1 expression.
@@ -243,7 +247,7 @@ No process page documents assembling this three-part cascade end to end.
 - [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
-- [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. **Corrected 2026-09-24**: it is **low-gelling agarose**, not ULGA, confirmed by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)**, and its step names the abstract [Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry. This reverses an identification of 2026-09-21 that read *"it is ULGA, confirmed with the Chicago devs"*. The Node moved this path off alginate on 2026-09-11 and which agarose replaced it was open until now
+- [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. It is **low-gelling agarose**, not ULGA, identified by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)**, and its step names the abstract [Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry.
 - [Chicago Outer Solution](../outer-solution-chicago/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it

@@ -66,7 +66,7 @@ flowchart TD
 
 :::
 
-This is the parts list. The two recipes that use them are in Documented Preparations, and neither additional lipid is optional within its own recipe — they are what distinguish one preparation from the other, and they have never been combined in one membrane.
+Neither additional lipid is optional within its own recipe: each distinguishes one preparation from the other. They are not combined in one membrane.
 
 The two are not the same kind of addition. DSPE-PEG2000's PEG headgroup provides steric stabilization at the bilayer surface, which is a functional change rather than a labeling one, so the PEGylated membrane behaves differently from plain POPC. 18:1 Cyanine 5 PC is a red fluorescently-tagged lipid used the way Liss-Rhod PE is used elsewhere in Nucleus: to see the membrane, not to change it.
 
@@ -84,10 +84,10 @@ The two are not the same kind of addition. DSPE-PEG2000's PEG headgroup provides
 
 :::
 
-Both rows reconcile against the stocks in the Lipid Composition tab. The PEGylated recipe gives 99.150 mol% POPC and 0.850 mol% DSPE-PEG2000; the labeled recipe gives 99.901 mol% POPC and 0.099 mol% Cyanine 5 PC. The PEGylated preparation is a 3.5× batch (1× batch = 320 µL lipid-in-oil at 3 mg/mL); the labeled preparation is the 2 mg single-batch scale described under Process below.
+The PEGylated recipe gives 99.150 mol% POPC and 0.850 mol% DSPE-PEG2000; the labeled recipe gives 99.901 mol% POPC and 0.099 mol% Cyanine 5 PC, from the stocks in the Lipid Composition tab. The PEGylated preparation is a 3.5× batch (1× batch = 320 µL lipid-in-oil at 3 mg/mL); the labeled preparation is the 2 mg single-batch scale described under Process below.
 
-:::{warning} Cyanine 5 stock concentration is disputed
-One record gives the 18:1 Cyanine 5 PC stock as **25 mg/mL**. At 25 mg/mL the volumes above give 2.42 mol% dye — about 24× the 0.1 mol% target. At **1 mg/mL** they give 0.099 mol%, matching the target exactly, and 1 mg/mL is the dye-stock convention used for Liss-Rhod PE in both other Nucleus membranes. The table above uses 1 mg/mL on that reasoning.
+:::{attention} Cyanine 5 PC stock concentration unconfirmed
+The volumes above assume an 18:1 Cyanine 5 PC stock of 1 mg/mL, which gives 0.099 mol% dye against the 0.1 mol% target. At 25 mg/mL the same volumes would give 2.42 mol% dye, about 24× the target. 1 mg/mL is also the dye-stock convention used for Liss-Rhod PE in both other Nucleus membranes.
 
 @Editor(london): confirm the Cyanine 5 PC stock concentration with the London Node before bench use.
 :::

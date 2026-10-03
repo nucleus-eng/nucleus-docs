@@ -22,8 +22,8 @@ Do not use it where LacZ sits in the outer solution or is dispersed through a ge
 The protocol also assumes a liposome suspension, since it removes the protease by pelleting and resuspending. It has no route to an already-embedded gel.
 :::
 
-:::{attention} Concentrations and volumes not yet specified
-@Editor(chicago): no proteinase K concentration, reaction volume, or buffer is established for this protocol. This is a real gap, not an oversight — confirm working values before this protocol is used at the bench.
+:::{attention} Concentrations and volumes not specified
+@Editor(chicago): no proteinase K concentration, reaction volume, or buffer is established for this protocol. Confirm working values before this protocol is used at the bench.
 :::
 
 :::::::{card}
@@ -35,7 +35,11 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-Proteinase K is a broad-spectrum serine protease: it digests LacZ (and other exterior protein) without needing to enter the liposome, since the target is already outside. The reported protocol uses two temperature steps — 50 °C for 10 min, then 40 °C for about 1 h — with no stated rationale for the split: whether 50 °C is a faster digestion step and 40 °C a lower-temperature hold to protect liposome integrity, or the reverse, is not documented. Treat this as the reported protocol, not a mechanistically justified one, until that rationale is established.
+Proteinase K is a broad-spectrum serine protease: it digests LacZ (and other exterior protein) without needing to enter the liposome, since the target is already outside. The protocol uses two temperature steps: 50 °C for 10 min, then 40 °C for about 1 h.
+
+:::::{attention} Rationale for the two temperatures not documented
+@Editor(chicago): state why the protocol splits digestion into 50 °C and 40 °C steps. Whether 50 °C is a faster digestion step and 40 °C a lower-temperature hold to protect liposome integrity, or the reverse, is not documented.
+:::::
 
 ::::::
 
@@ -45,7 +49,7 @@ Proteinase K is a broad-spectrum serine protease: it digests LacZ (and other ext
 
 No result from running this exact proteinase K protocol exists yet — it is a proposed protocol, not a completed one. The closest existing data point is a prior, separate attempt using Trypsin (a different protease) instead of proteinase K: this reduced background signal but was not run at a fully optimized concentration. Treat the Trypsin result as a weak, related precedent for "digesting exterior protein reduces background," not as validation of the proteinase K steps below.
 
-A chemical inhibitor of proteinase K has also been proposed, to stop digestion at a defined point (e.g., before it starts affecting intact liposomes) rather than relying on temperature or timing alone. This has not been tried. Do not assume an inhibitor is currently part of the protocol.
+No chemical inhibitor of proteinase K is part of this protocol.
 
 ::::::
 
@@ -53,8 +57,7 @@ A chemical inhibitor of proteinase K has also been proposed, to stop digestion a
 :class: dropdown
 :icon: false
 
-- **Proteinase K** — the digestion enzyme. Concentration not yet specified (see gap flagged above).
-- A chemical inhibitor of proteinase K (e.g., PMSF or a similar serine-protease inhibitor) has been proposed for a future revision of this protocol, to give a controlled stopping point. It has not been selected or tested; do not add one without confirmation.
+- **Proteinase K** — the digestion enzyme. Concentration not specified.
 
 ::::::
 
@@ -78,10 +81,6 @@ A chemical inhibitor of proteinase K has also been proposed, to stop digestion a
 :::
 
 # Protocol
-
-:::{attention} Steps below are as reported, not independently optimized
-These steps are reported, not independently optimized. Where a concentration, volume, or buffer is missing, the step says so explicitly rather than proposing a placeholder value.
-:::
 
 ## Digest Exterior LacZ
 

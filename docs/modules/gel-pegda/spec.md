@@ -92,17 +92,11 @@ flowchart TD
 :::::
 
 :::{note} PEG4SH does a different job here
-Same reagent as the [PEG-norbornene route](../gel-peg-norbornene/spec.md), different function.
-There it is the crosslinker at 20 mM of a 2 kDa four-arm polymer — roughly 4 wt%. Here it is
-**0.3 wt%**, thirteen-fold lower, in a system where the acrylate self-polymerizes and needs no
-thiol partner. At that loading it acts as a chain-transfer agent. "Shared with" is true of the
-bottle and misleading about the chemistry.
+The same reagent is the crosslinker in the [PEG-norbornene route](../gel-peg-norbornene/spec.md), at 20 mM of a 2 kDa four-arm polymer — roughly 4 wt%. Here it is **0.3 wt%**, thirteen-fold lower, in a system where the acrylate self-polymerizes and needs no thiol partner. At that loading it acts as a chain-transfer agent.
 
-Vortex 2000 rpm (3–5) min. Photopattern (15–30) s at 405 nm — the window already on this page is
-correct.
 :::
 
-A multimaterial variant mixes 1.6 wt% alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. So the mixture names the ingredients and not the product — the product is a structure. See [Alginate Gel](../gel-alginate/spec.md). The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm.
+A multimaterial variant mixes 1.6 wt% alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. See [Alginate Gel](../gel-alginate/spec.md). The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm.
 
 Chicago compared this against the punch-out method — gel surrounded by air — and prefers the punch-out method: the frame route shows "more color bleed into the white frame, reducing spatial resolution" (Chicago Node, 2026-09-17). Recorded, not recommended. The punch-out method has no protocol on record.
 
@@ -136,7 +130,7 @@ Requires that no UV-sensitive component is present during crosslinking. [CPRG](.
 
 # Processes
 
-Prepared and patterned by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md), which carries this chemistry as a canceled variant beside the live PEG-norbornene one, and the four steps they share.
+Prepared and patterned by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md), which carries this chemistry as a canceled variant beside the live PEG-norbornene one, and the four steps they share. Vortex the precursor at 2000 rpm for (3–5) min.
 
 # Materials
 

@@ -99,8 +99,6 @@ The toehold switch and the effector are on one molecule, so [PLA1](../effector-p
 
 :::::
 
-**Optiprep is a process reagent that has to sit in the composition.** It is present because of how the cell is encapsulated, not because the sensing function needs it, and it is absent from the bulk reaction. It is listed here because it is in the tube.
-
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — transcription and translation

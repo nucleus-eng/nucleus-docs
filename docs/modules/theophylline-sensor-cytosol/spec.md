@@ -17,14 +17,8 @@ site:
 [Detector: Theophylline](../detector-theophylline/spec.md). A member of
 [Sensor Cytosol](../sensor-cytosol/spec.md).
 
-**This page exists because four Modules named this intermediate and nothing defined it.** It was
-produced by [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) with `page: null`,
-and that page's own source said so first.
-
 :::{attention} Canceled — not part of the DevCells demo
-The theophylline riboswitch expresses its effector without theophylline present, so it does not
-discriminate. It was cut from the demo, and its constructs are recorded as no longer in use.
-This specification is kept for reference and is not maintained.
+The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It is not part of the DevCells demo, and its constructs are no longer in use.
 :::
 
 # Reference Composition
@@ -65,7 +59,7 @@ flowchart TD
 
 ::::{tab-item} Cytosol
 
-[Base Cytosol](../base-cytosol/spec.md) at reaction concentration. The same base the aTc and pH sensor cytosols use. The 3OC6-HSL one uses [S30 Lysate](../s30-lysate/spec.md) instead, which is why [Cytosol](../cytosol/spec.md) exists as a class.
+[Base Cytosol](../base-cytosol/spec.md) at reaction concentration. The aTc and pH sensor cytosols use the same base. The 3OC6-HSL one uses [S30 Lysate](../s30-lysate/spec.md) instead.
 
 :::{table} The base, at the figures its detector's page records.
 | Component | Working concentration | Notes |
@@ -73,7 +67,7 @@ flowchart TD
 | [Base Cytosol](../base-cytosol/spec.md) | 1x | S-Mix 1x, P-Mix 1.80 mg/mL, ribosomes 1.8 µM, tRNA 3.5 mg/mL, RNase inhibitor 2000 U/mL |
 :::
 
-**These figures come from [Detector: Theophylline](../detector-theophylline/spec.md)'s own reaction**, because no run of this intermediate alone is on record. That is the same imputation the LacZ reporter page carries and it is recorded rather than presented as measurement.
+**These figures are taken from [Detector: Theophylline](../detector-theophylline/spec.md)'s own reaction**, because this intermediate has not been run alone.
 
 ::::
 
@@ -87,24 +81,18 @@ flowchart TD
 | Sensor DNA | 5 nM final | from a 49.55 nM stock. `pT7-theophylline-LacZ` (`pMN066`), not in `nucleus-eng/DNA` |
 :::
 
-**No effector template is specified**, and that is a gap in this Module rather than a property of its class. The riboswitch drives whichever effector gene sits downstream and no page names one, so this is a sensing reaction with no output wired to it.
+**No effector template is specified.** The riboswitch drives whichever effector gene sits downstream, and no page names one, so this is a sensing reaction with no output wired to it.
 
 ::::
 
 
 :::::
 
-**One step, `mixing`, copied from its parent rather than derived.**
-[Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) declares `assemble-cytosol` as
-`mixing` over Base Cytosol and Detector: Theophylline, producing this id. This page records that
-step and adds nothing, so the two sources cannot disagree about what this intermediate is.
-
 **This member carries no effector.** The other three members of [Sensor Cytosol](../sensor-cytosol/spec.md) each mix in [Lysis: PLA1](../effector-pla1/spec.md). This one carries none, because the riboswitch drives whichever effector gene sits downstream and no page specifies one. A sensing reaction with no output wired to it is still a sensor cytosol: the class invariant is a detector, not a detector plus an effector.
 
 # Requirements
 
-Requires an effector gene downstream of the riboswitch. None is specified, which is a gap in
-this Module rather than a property of its class.
+Requires an effector gene downstream of the riboswitch. None is specified.
 
 # Constituent Modules
 
@@ -113,7 +101,7 @@ this Module rather than a property of its class.
 
 # Processes
 
-See the composition source.
+[Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) mixes [Base Cytosol](../base-cytosol/spec.md) with [Detector: Theophylline](../detector-theophylline/spec.md).
 
 # Credits
 

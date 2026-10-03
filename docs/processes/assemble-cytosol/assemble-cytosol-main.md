@@ -5,19 +5,19 @@ status: draft
 
 # Overview
 
-Assemble Cytosol combines a cytosol base with whatever a particular reaction needs — a sensing construct, an effector, a reporter enzyme, a density agent — into one compartment. Every derivative is the same act with a different filling, which is why they share a page rather than repeating a protocol each time.
+Assemble Cytosol combines a cytosol base with whatever a particular reaction needs — a sensing construct, an effector, a reporter enzyme, a density agent — into one compartment. Every derivative is the same act with a different filling.
 
-Its derivatives, all attested in this documentation:
+Its derivatives:
 
 - [Assemble Base Cytosol](../assemble-base-cytosol/main.md) — the unit case, where nothing is added and the slot is filled with water.
-- **Assemble SensorCytosol[aTc ⟶ PLA1]**, **Assemble SensorCytosol[pH ⟶ PLA1]**, **Assemble SensorCytosol[3OC6-HSL ⟶ PLA1]**, **Assemble Theophylline Sensor Cytosol** — no pages yet. Each is specified in the `spec.yml` of the Module it produces.
+- **Assemble SensorCytosol[aTc ⟶ PLA1]**, **Assemble SensorCytosol[pH ⟶ PLA1]**, **Assemble SensorCytosol[3OC6-HSL ⟶ PLA1]**, **Assemble Theophylline Sensor Cytosol** — each is the assembly step of the Module it produces; see the table below.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
 :::{note} This is one of two instances of a wider process
-Assemble Cytosol and **Assemble Outer Solution** are both instances of **Assemble Solution** — combining aqueous components into one compartment. That is why both mix, and why neither one chooses its operator. Assemble Solution has no page of its own; module composition sources name it in their `abstract:` field.
+Assemble Cytosol and [Assemble Outer Solution](../assemble-outer-solution/main.md) are both instances of [Assemble Solution](../assemble-solution/assemble-solution-main.md) — combining aqueous components into one compartment. That is why both mix, and why neither one chooses its operator.
 
 What distinguishes a cytosol from any other aqueous solution is the headroom below. An outer solution reserves nothing.
 :::
@@ -42,7 +42,7 @@ A cytosol recipe pins its total volume and reserves part of it. [Assemble Base C
 
 The protocol already uses the law. The same reaction run with and without a DNA template carries 7 µL and 8.75 µL of water, and the 1.75 µL difference is exactly the template volume, with the total held at 35 µL.
 
-**The slot is finite, and nothing checks it.** `2.0 - X` goes negative above 2.0 µL, so `X ≤ 2.0 µL` is a hard constraint the table imposes by construction. It cannot be evaluated today, because module pages state concentrations while the headroom states a volume — see issue #224.
+**The slot is finite.** `2.0 - X` goes negative above 2.0 µL, so `X ≤ 2.0 µL` is a hard constraint the table imposes by construction. Module pages state concentrations while the headroom states a volume, so convert a filling to a volume before comparing it with the 2.0 µL limit.
 
 # What the derivatives do not share
 

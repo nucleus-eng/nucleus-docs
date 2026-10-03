@@ -16,7 +16,7 @@ site:
 The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
 
 :::{attention} Canceled — not part of the DevCells demo
-The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It was cut from the demo, and its constructs are recorded as no longer in use. This specification is kept for reference and is not maintained.
+The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It is not part of the DevCells demo, and its constructs are no longer in use.
 :::
 
 # Reference Composition
@@ -74,7 +74,7 @@ flowchart TD
 :::
 
 :::{attention} Constructs not in `nucleus-eng/DNA`
-@Editor(chicago): no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
+No riboswitch construct for this Module has a sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), including `pT7-theophylline-LacZ` (`pMN066`), the only characterized one. @Editor(chicago): no sequence file is confirmed for these constructs. Confirm with the Chicago Node.
 :::
 
 See [Detector: Theophylline](../detector-theophylline/spec.md) for the design.
@@ -93,10 +93,6 @@ The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concen
 | [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [Theophylline Sensing Module](../detector-theophylline/spec.md) | Riboswitch construct at 5 nM final DNA | The riboswitch drives whichever effector gene sits downstream of it. No effector is specified here — see the note below. |
 
-:::
-
-:::{attention} Construct not yet in `nucleus-eng/DNA`
-No riboswitch construct for this Module has a sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA), including `pT7-theophylline-LacZ` (`pMN066`), the one the results below used — the same gap is recorded on [Theophylline Sensing Module](../detector-theophylline/spec.md). Do not link a placeholder or add a length until a construct is submitted and its length verified against the source file.
 :::
 
 
@@ -170,7 +166,7 @@ Requires theophylline to cross the membrane and reach the encapsulated riboswitc
 Must not use [LacZ / CPRG](../reporter-lacz/spec.md) as its reporter: theophylline is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#reporter-lacz-requirements) for the constraint and the state of the evidence behind it.
 
 :::{warning} Only characterized with incompatible LacZ reporter!
-Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly that pairing, so every result on this page was produced with the reporter the constraint rules out. That is part of why the leak above is hard to attribute — it could be riboswitch leak, or theophylline acting on LacZ. A XylE readout would separate the two, and none has been run. Confirm with the Chicago Node before building on either reading.
+Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly that pairing, so every result on this page was produced with the reporter the constraint rules out. That is part of why the leak above is hard to attribute — it could be riboswitch leak, or theophylline acting on LacZ. A XylE readout would separate the two, and none has been run. @Editor(chicago): state which reading the data support.
 :::
 
 # Processes
@@ -183,7 +179,7 @@ Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly 
 - [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) mixed with the [Theophylline Sensing Module](../detector-theophylline/spec.md)
 - [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
-**The cytosol is composed before encapsulation, not added to a closed chassis.** The intermediate that names that composition got its page on 2026-09-21, and this section links it above. An editorial hook asking for that link once stood here and is resolved.
+**The cytosol is composed before encapsulation, not added to a closed chassis.**
 
 # Credits
 

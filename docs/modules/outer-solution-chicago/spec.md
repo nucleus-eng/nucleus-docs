@@ -67,7 +67,7 @@ flowchart TD
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | Tris-HEPES | 42.5% (v/v) in water | from a stock |
-| Energy solution | — | no figure on record |
+| Energy solution | — | not documented. @Editor(chicago): give the composition of the energy solution. |
 | Osmolarity | ~1180 mOsm | a relation, and it sets the gel's |
 :::
 
@@ -82,7 +82,7 @@ this value carries the gel.
 # Constituent Modules
 
 - Tris-HEPES stock — 42.5% (v/v) in water
-- Energy solution — no figure on record
+- Energy solution — not documented
 
 # Requirements
 
@@ -91,7 +91,7 @@ in the gel it forms.
 
 # Processes
 
-See the composition source. The step is [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
+Made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
 
 # Credits
 

@@ -106,20 +106,12 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Expressed in the SensorCell[3OC6-HSL ⟶ PLA1]. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. London's own documents call it `P70lux-PLA1-term`. **The linear form, for Base Cytosol**: `pOpen-LuxR-PLA1.gb` at 4175 bp is the circular form for S30 and is a different construct. |
+| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Expressed in the SensorCell[3OC6-HSL ⟶ PLA1]. One molecule: constitutive `BBa_J23101`→`luxR`, plus `pLux` driving PLA1. Replaces the `LuxR-deGFP` reporter variant. Also named `P70lux-PLA1-term`. **The linear form, for Base Cytosol**: `pOpen-LuxR-PLA1.gb` at 4175 bp is the circular form for S30 and is a different construct. |
 | LuxR receiver | not documented | — | Not documented — expressed or supplied as protein |
 :::
 
 :::{note} LuxR is expressed from the same plasmid as its target
-LuxR is not supplied as purified protein. Each London sensing construct carries a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving the payload, on one molecule — so `LuxR-PLA1` and `LuxR-deGFP` each express their own receiver. The DevCells demo uses `LuxR-PLA1`; `LuxR-deGFP` is the reporter variant under test.
-:::
-
-:::{attention} WITHDRAWN 2026-09-29 — the construct is in `nucleus-eng/DNA`
-**The condition this block set has been met.** The file is `effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb`, **2237 bp**, and [Lysis: PLA1](../effector-pla1/spec.md) carries it as a checked row. **Note which form**: the linear one, for Base Cytosol. `pOpen-LuxR-PLA1.gb` at 4175 bp is the circular form for S30 and is a different construct.
-
-**The superseded text follows.**
-
-`LuxR-PLA1` is not yet confirmed in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA) — see the [PLA1 Lysis Module](../effector-pla1/spec.md) DNA tab for the same gap. Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
+LuxR is not supplied as purified protein. Each London sensing construct carries a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving the payload, on one molecule — so `LuxR-PLA1` and `LuxR-deGFP` each express their own receiver. The DevCells demo uses `LuxR-PLA1`; `LuxR-deGFP` is the reporter variant.
 :::
 
 ::::
@@ -153,7 +145,7 @@ The [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), carrying `Lux
 
 A second, dedicated liposome population carrying the chromogenic substrate. See [Substrate: CPRG](../substrate-cprg/spec.md).
 
-**The London Node has moved from SUVs to GUVs** (2026-09-09), so this population is now made by the same phase-transfer route as the sensing cells rather than by film hydration and extrusion. It is slower, and it removes a whole process from the cascade.
+This population is made as GUVs by the same phase-transfer route as the sensing cells, not by film hydration and extrusion. It is slower, and it removes a whole process from the cascade.
 
 :::{table} Substrate liposome lumen.
 :label: comp-london-cascade-suv
@@ -171,7 +163,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 | POPC | 100 |
 :::
 
-[Substrate: CPRG](../substrate-cprg/spec.md)'s Requirements accept either lipid composition — POPC, or POPC:cholesterol — so the 100% POPC bilayer here is not a discrepancy with the Module. The loading concentration is bilayer-independent and carries over either way.
+The 100% POPC bilayer meets the Requirements of [Substrate: CPRG](../substrate-cprg/spec.md), which accept either lipid composition — POPC, or POPC:cholesterol. The loading concentration is bilayer-independent and carries over either way.
 
 ::::
 
@@ -195,7 +187,7 @@ Two things, assembled at different steps. The Outer Solution is mixed first; eve
 | Component | Working concentration |
 | --- | --- |
 | ULGA | 1% (w/v) dissolved in the Outer Solution; 0.5% (w/v) in the set gel once both cell populations are combined in at 1:1:2 |
-| β-galactosidase (LacZ) | not documented, added as purified protein. London supplies LacZ purified rather than expressing it in-reaction. @Editor(london): this row previously carried 20 U/mL, borrowed from a figure since withdrawn — see [LacZ Enzyme](../reporter-lacz-enzyme/spec.md). The gel-dispersed concentration has never been recorded and the Chicago figures are for encapsulated enzyme, so they do not carry across. |
+| β-galactosidase (LacZ) | not documented, added as purified protein. London supplies LacZ purified rather than expressing it in-reaction. @Editor(london): give the LacZ concentration dispersed in the gel. The Chicago figures are for encapsulated enzyme, so they do not carry across; see [LacZ Enzyme](../reporter-lacz-enzyme/spec.md). |
 | 3OC6-HSL inducer | 10 µM; 5 µM is also used, and both appear in reported results. Present in the induced condition only. |
 :::
 
@@ -240,7 +232,7 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 # Processes
 
-Five steps, listed in the order they are performed. Each one combines its inputs under a single operator: **mixing**, where the result shares one compartment, or **packing**, where each input keeps its own. The operator follows from the process rather than being chosen per step.
+Five steps, listed in the order they are performed. Each one combines its inputs under a single operator: **mixing**, where the result shares one compartment, or **packing**, where each input keeps its own.
 
 **Sensing population**
 
@@ -249,7 +241,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 
 **Reporter population**
 
-3. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — prepares the substrate liposomes carrying [CPRG](../substrate-cprg/spec.md), by the same route as the sensing population. This is the same Process page as step 2, applied a second time with different inputs. **It replaces SUV encapsulation**, which the London Node stopped using in favor of GUVs (2026-09-09): the cascade is slower to make and has one fewer process to track, because both populations now come from one method.
+3. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — prepares the substrate liposomes carrying [CPRG](../substrate-cprg/spec.md), by the same route as the sensing population. This is the same Process page as step 2, applied a second time with different inputs. It is used in place of SUV encapsulation: both populations come from one method, so the cascade has one process fewer, and it is slower to make.
 
 **The gel**
 
@@ -259,7 +251,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 [Colorimetric Readout](../../processes/colorimetric-readout/main.md) measures the result — the CPRG conversion, yellow to magenta, read by absorbance and by eye. It is not a composition step, because it produces no Module.
 
 :::{note} Steps 1 and 4 are the same process
-Both assemble an aqueous solution by mixing components into one compartment, and both are instances of the same abstract process. That is why both are mixing: the operator follows from what the process does, not from what it happens to be combining.
+Both mix components into one compartment, and both are instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
 :::
 
 :::{important} The combining ratio
@@ -276,14 +268,11 @@ The five inputs to the embedding step, which is where the cascade is made.
 - [GUV: CPRG](../guv-cprg/spec.md) — the substrate population. [Substrate: CPRG](../substrate-cprg/spec.md) is what it carries, one level further down
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — dispersed free in the gel, not encapsulated
 - [Gel: ULGA](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution at embedding
-- **Outer Solution** — potassium L-glutamate, HEPES and glucose, assembled first. No page yet
-- [London Outer Solution](../outer-solution-london/spec.md) — the phase the gel sets in, matched at about 920 mOsm
+- [London Outer Solution](../outer-solution-london/spec.md) — potassium L-glutamate, HEPES and glucose, assembled first; the phase the gel sets in, matched at about 920 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
-
-`spec.yml` in this directory carries the same structure in machine-readable form, with the process and operator for each step. Nothing checks that the two agree.
 
 # Credits
 

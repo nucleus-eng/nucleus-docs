@@ -6,23 +6,10 @@ status: draft
 
 # Overview
 
-Alginate hydrogel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~1% (w/v) sodium alginate hydrogel, ionically crosslinked with 200 mM CaCl₂. The hydrogel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific — it is the `ALG` node in the process-dependency diagram, fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeding into [Embedding: Photodevelopment](../embed-photodevelopment/main.md).
-
-:::{note} Diagram does not draw a direct Alginate → Readout edge
-The current process-dependency diagram routes Embedding: Ionic Crosslinking only into [Embedding: Photodevelopment](../embed-photodevelopment/main.md) (a confirmed/solid edge), not directly into [Colorimetric Readout](../colorimetric-readout/main.md). The unpatterned alginate-embedded result documented on this page ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a real, separately confirmed colorimetric outcome, but it is not represented as its own edge into the Colorimetric Readout node in the diagram as currently drawn — see [Colorimetric Readout](../colorimetric-readout/main.md) for the same note from that page's side.
-:::
+Alginate hydrogel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~1% (w/v) sodium alginate hydrogel, ionically crosslinked with 200 mM CaCl₂. The hydrogel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific. It is fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeds into [Embedding: Photodevelopment](../embed-photodevelopment/main.md).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
-:::
-
-:::{attention} Alginate, not agarose — do not conflate the two hydrogel-embedded results
-Two separate Chicago results both get loosely described as "hydrogel embedding," but they use different hydrogel chemistries and should not be treated as interchangeable:
-
-- **This process (alginate):** the Theophylline Sensing Cell result — theophylline-responsive synthetic cells, CPRG-loaded SUVs, and commercial LacZ co-embedded in ~1% (w/v) **alginate**, crosslinked with 200 mM CaCl₂, showing a yellow-to-purple color change after ~16 h. See [Lysis: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) for the module-level summary of this result.
-- **A different result (agarose):** the pH-Sensing Module's bulk-reaction test embedded the pH-sensing circuit directly in 0.7% low-gelling **agarose** (no synthetic cells or SUVs at all), not alginate. See [pH-Sensing Module](../../modules/detector-ph/spec.md) and [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) for that result. It does not belong on this page and this page's alginate protocol does not apply to it.
-
-Both are real, confirmed results, but they are not the same hydrogel chemistry, the same experiment, or interchangeable evidence for one another.
 :::
 
 :::::{card}
@@ -36,7 +23,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 - Alginate crosslinks ionically: divalent Ca²⁺ ions bridge adjacent alginate polymer chains (an "egg-box" junction), gelling the matrix without the heat or UV exposure that agarose or PEGDA-based hydrogels require. This is compatible with pre-formed Sensing Cells and CPRG-loaded SUVs in the gel at the time of crosslinking, unlike UV-crosslinked chemistries (see the PEG-norbornene caveat below).
 - This process assumes the Sensing Cells and CPRG-loaded SUVs are already formed and purified by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md) before this step. It does not cover liposome formation itself.
-- A separate, higher-concentration alginate formulation — 1.6 wt% alginate (Kamat lab) combined with PEGDA for photodevelopment — appears on the [Embedding: Photodevelopment](../embed-photodevelopment/main.md) page. That is a distinct multimaterial construct for spatial patterning, not this process's ~1% (w/v) co-encapsulation formulation. Do not conflate the two concentrations or assume this page's protocol produces the PEGDA-frame/alginate-core construct described there.
 
 ::::
 
@@ -61,7 +47,7 @@ This process does not itself encode anything — the Sensing Cells and CPRG-load
 | Sodium alginate | ~1% (w/v) |
 | Calcium chloride (CaCl₂) crosslinker | 200 mM |
 | CPRG (in SUVs) | see [Encapsulation: Extrusion](../encapsulate-suv/main.md) |
-| LacZ (commercial, free in gel) | not yet specified — see gap note below |
+| LacZ (commercial, free in gel) | not documented — see Reagent gaps below |
 
 :::
 
@@ -70,7 +56,7 @@ This process does not itself encode anything — the Sensing Cells and CPRG-load
 :::::
 
 :::{attention} Bench-level protocol parameters not fully specified
-The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the outcome (yellow-to-purple color change after ~16 h, monitored at 570 nm–575 nm) are established, but several bench-level parameters needed to reproduce this result are not: the exact Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio, gel volume or well format, order of addition (liposomes mixed into alginate before or after partial gelation), and precise CaCl₂ exposure method (bath immersion vs. direct addition). The protocol below follows standard ionic-gelation practice for alginate and states each such step as a general method — flagged inline — rather than inventing specific numbers that have not been established.
+The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the outcome (yellow-to-purple color change after ~16 h, monitored at 570 nm–575 nm) are established, but several bench-level parameters needed to reproduce this result are not: the exact Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio, gel volume or well format, order of addition (liposomes mixed into alginate before or after partial gelation), and precise CaCl₂ exposure method (bath immersion vs. direct addition). The protocol below follows standard ionic-gelation practice for alginate and states each such step as a general method, flagged inline.
 
 @Editor(chicago): confirm these parameters with the Chicago Node before treating this page as bench-ready.
 :::
@@ -102,7 +88,7 @@ The commercial enzyme is β-galactosidase from *E. coli*. London sources it as S
 
 :::{hint} Note: exact buffer and mixing conditions not confirmed
 :class: dropdown
-The buffer the alginate stock was prepared in, and the exact mixing time/temperature used to fully dissolve it, are not established. Use a buffer compatible with liposome osmolarity and confirm gel behavior before scaling up.
+@Editor(chicago): the buffer the alginate stock was prepared in, and the exact mixing time and temperature used to dissolve it, are not established. Use a buffer compatible with liposome osmolarity and confirm gel behavior before scaling up.
 :::
 
 ## Prepare Crosslinking Solution
@@ -124,7 +110,7 @@ The buffer the alginate stock was prepared in, and the exact mixing time/tempera
 
 :::{hint} Note: crosslinking method not confirmed
 :class: dropdown
-Whether crosslinking was performed by immersing the liposome/alginate mixture in a CaCl₂ bath, by layering CaCl₂ on top of a cast gel, or by direct addition and mixing is not established. Standard alginate ionic gelation tolerates any of these approaches, but the specific method used for this result is not documented — do not treat one as canonical.
+@Editor(chicago): the crosslinking method used for this result is not established: a CaCl₂ bath, CaCl₂ layered on a cast gel, or direct addition and mixing. Standard alginate ionic gelation tolerates any of these approaches; do not treat one as canonical.
 :::
 
 ## Incubate and Monitor for Colorimetric Readout

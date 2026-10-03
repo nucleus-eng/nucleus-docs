@@ -5,7 +5,7 @@ status: draft
 
 # Overview
 
-Assemble Solution combines aqueous components into a single compartment, where they share the volume and each other's resources. It is the most general mixing act in this documentation, and every process below it inherits its behavior rather than choosing one.
+Assemble Solution combines aqueous components into a single compartment, where they share the volume and each other's resources. It is the most general mixing process, and every process below it inherits its behavior rather than choosing one.
 
 Its two instances:
 
@@ -20,9 +20,9 @@ This page is a work in progress and not yet ready for use.
 
 **The result is one compartment.** Everything combined shares the volume, the buffer and whatever else is in it. Nothing is separated by a boundary, which is what distinguishes this from encapsulation and gel embedding — those produce results whose parts keep their own compartments.
 
-**The operator lives here, not on the derivatives.** Because the result is one compartment, this process mixes; and because every derivative is an instance of it, every derivative mixes too. That is inherited rather than decided. A newly written derivative needs no decision about which operator applies — the question is already answered by what it is an instance of.
+**The operator lives here, not on the derivatives.** Because the result is one compartment, this process mixes; and because every derivative is an instance of it, every derivative mixes too.
 
-This matters when reading a composition: a step's operator is a fact about its process, not a property of the particular things being combined. Module composition sources record it in an `abstract:` field naming this process.
+This matters when reading a composition: a step's operator is a fact about its process, not a property of the particular things being combined.
 
 # What the two instances do not share
 

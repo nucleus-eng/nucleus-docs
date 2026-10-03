@@ -17,10 +17,6 @@ Its two instances:
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Written 2026-09-24 because four whiteboards reached for it
-The DevStudio day-one boards label this step `Encapsulation`, without naming a route, and the two routes each had a page while the thing they are routes of did not. This page is that parent. It states what both share and it is not a protocol: each route's own page is.
-:::
-
 # What every instance shares
 
 **The result keeps two compartments, so this process packs.** The inner solution and the bilayer do not mix into one phase. That is the whole point of a boundary, and it is what separates this process from [Assemble Solution](../assemble-solution/assemble-solution-main.md), whose result shares one volume.
@@ -38,7 +34,7 @@ The DevStudio day-one boards label this step `Encapsulation`, without naming a r
 | Target size | set by the emulsion | set by the extrusion membrane |
 | Solvent exposure | the payload meets an oil phase | none |
 
-**The size classes are never interchangeable.** [Encapsulation: Extrusion](../encapsulate-suv/main.md) says so on its own page, and a cascade that specifies one and receives the other is a different device. The routes are alternatives only where the size does not carry a function.
+**The size classes are never interchangeable.** A cascade that specifies one and receives the other is a different device. The routes are alternatives only where the size does not carry a function.
 
 # Requirements
 
