@@ -113,7 +113,7 @@ The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentrat
 :::
 
 :::{note} Molecular weight calculations
-Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state. See GitHub issue #160.
+Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state.
 
 \* **GlyRS, PheRS** — both are α₂β₂ heterotetramers of two different subunits (GlyRS: GlyQ 34.8 kDa + GlyS 76.8 kDa; PheRS: PheS 36.8 kDa + PheT 87.4 kDa). The Molecular Weight column reports the combined complex mass (2 × (α + β)); molarity is mass concentration ÷ this combined mass, since the two subunits cannot be reduced to one monomer MW times a single n.
 :::
@@ -241,7 +241,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 :::
 
 :::{note} RNase inhibitor is a range, not a fixed value
-Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. A page that names one value inside that range is recording a choice, not a requirement — [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) uses 1000 U/mL, and [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) adds 0.5 µL per 10 µL reaction.
+Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) uses 1000 U/mL, and [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) adds 0.5 µL per 10 µL reaction.
 :::
 
 ::::

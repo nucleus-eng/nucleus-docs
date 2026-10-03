@@ -125,8 +125,6 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 :::::
 
-See each Module's spec for its own reference composition and requirements.
-
 (ph-sensing-cell-expected-behavior)=
 # Expected Behavior
 
@@ -139,7 +137,7 @@ A two-liposome system — separate pH-sensing and CPRG-loaded populations in sol
 A separate result shows pH-responsive GFP expression in liposomes in solution. That one used gramicidin A, which was left out of the colorimetric demonstration because it ruptured CPRG-loaded liposomes and produced nonspecific color.
 
 :::{warning} Not yet validated in a hydrogel
-Both results are in solution. The Chicago demo embeds this Cell in a hydrogel, and that step has not been run — the source states the system will be tested in a gel next. The [pH Cascade](../ph-cascade/spec.md) records the gel step as the open integration gap for this path.
+Both results are in solution. Embedding this Cell in a hydrogel, as the Chicago demo does, has not been run.
 :::
 
 ## Gels

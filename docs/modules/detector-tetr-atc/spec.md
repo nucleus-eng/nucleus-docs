@@ -66,8 +66,8 @@ flowchart TD
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
 | `pT7-tetO-deGFP` | 917 | [pT7-tetO-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-tetr-atc/pT7-tetO-deGFP-linear.gb) |
 | `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) |
-| `pOpen-T7-tetO-PLA1` | 3140 | pending — see below |
-| `pOpen-T7-tetO-C23DO` | 3101 | pending — see below |
+| `pOpen-T7-tetO-PLA1` | 3140 | not yet in `nucleus-eng/DNA` — see below |
+| `pOpen-T7-tetO-C23DO` | 3101 | not yet in `nucleus-eng/DNA` — see below |
 :::
 
 :::{attention} The circular forms are not on `main` yet
@@ -92,7 +92,7 @@ Assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Add TetR — see the 
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
 | `pT7-tetO-deGFP` template | 0.5 nM | The reporter re-run in Base Cytosol. `pT7-tetO-plamGFP` is the PURExpress reference |
 | TetR repressor | 500 nM | Saturates repression; improvable to 2000 nM. Three formats are not interchangeable — see Expected Behavior |
-| aTc inducer | 0.1 µM to 0.5 µM, optimum ~0.25–0.35 µM | **The Node's working window in this cytosol, not the dose used in the figures below, which is unrecorded.** Lysate wants 2.5 µM to 5 µM. See [aTc](../analyte-atc/spec.md) |
+| aTc inducer | 0.1 µM to 0.5 µM, optimum ~0.25–0.35 µM | **The Node's working window in this cytosol, not the dose used in the figures below.** Lysate wants 2.5 µM to 5 µM. See [aTc](../analyte-atc/spec.md) |
 :::
 
 The PURExpress master mix that produced the reference figures is in Expected Behavior, below.
@@ -168,7 +168,7 @@ Induction of `pT7-tetO-plamGFP` by aTc at steady state. TetR repressor protein i
 
 ### Replicated in Nucleus Cytosol
 
-The results above are from NEB PURExpress. The Module has since been re-run in [Base Cytosol](../base-cytosol/spec.md), swapping the plamGFP reporter for deGFP, and both repression and aTc induction carry over.
+The results above are from NEB PURExpress. The Module was re-run in [Base Cytosol](../base-cytosol/spec.md) with deGFP in place of the plamGFP reporter, and both repression and aTc induction carry over.
 
 Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated reporter to under a tenth of its plateau, and adding aTc recovers about two thirds of it — so repression is close to complete at this TetR concentration, while induction is substantial but partial.
 
@@ -185,9 +185,9 @@ The same replication was also read out through catechol instead of fluorescence,
 @Editor(chicago): the aTc concentration used for this particular induced condition is not recorded. The Node's current working window is in the [Reference Composition](#comp-detector-tetr-atc-base-cytosol) table above, and does **not** answer this — it was established after this result. What is missing is the dose actually used here. The construct gap is noted in the DNA tab under Reference Composition.
 
 :::{attention} TetR arrives in three formats, and they are not interchangeable
-The corpus offered two — purified protein, or `pT7-tetR` DNA expressed in situ. A third is in use, and as of 2026-09-11 it is **the only one that has demonstrated induction** in Nucleus Cytosol.
+TetR reaches the reaction in one of three formats: purified protein, `pT7-tetR` DNA expressed in situ, or an overnight cell-free expression combined with a fresh reaction. The third is **the only format that has demonstrated induction** in Nucleus Cytosol.
 
-**The three rows below are routes, not the three arms of the comparison described under them.**
+**The three rows below are routes. The comparison described under them tested three different preparations.**
 
 | Format | Amount | State |
 | --- | --- | --- |
@@ -198,11 +198,11 @@ The corpus offered two — purified protein, or `pT7-tetR` DNA expressed in situ
 **Three preparations were compared and all three repressed; only the cell-free-expressed one induced.** The two that failed were a MedChem Express SUMO-His TetR and a foundry TetR, so the tag and the source are functional parameters rather than sourcing detail.
 
 :::{attention} What that comparison can and cannot show
-**Its three arms were two purified preparations and one cell-free one. Route two was not tested.** Expression in situ from `pT7-tetR` is a row in the table above and was not in the experiment, so nothing here says whether it induces.
+In situ expression from `pT7-tetR` is a row in the table above and was not in the experiment, so the comparison does not show whether it induces.
 
-**Route and outcome are perfectly confounded in it.** The only preparation that induced was also the only cell-free one, and both purified arms failed. So the comparison cannot separate *cell-free expression is the better route* from *those two preparations were bad*, and the discriminating arm was not run.
+The only preparation that induced was also the only cell-free one, and both purified preparations failed. The comparison therefore cannot separate cell-free expression as the better route from the two purified preparations being poor. The discriminating arm was not run.
 
-**The conclusion about the tag is reached across experiments, not inside this one.** It compares the b.next success, a His-tagged TetR with no SUMO tag in row one, against the MedChem SUMO-His failure. **Both are purified protein, so that contrast does remove the route** and it is the only place on this page where route is held fixed while outcome changes. What it does not hold fixed is the run and probably the site. So the tag conclusion is a same-route contrast across experiments rather than a controlled result inside one, which is a good inference and not a demonstration. The foundry TetR's tag is not stated anywhere on this page, so it cannot be placed on either side of it.
+The conclusion about the tag comes from a contrast across experiments. A His-tagged TetR with no SUMO tag (row one, purified protein) works at b.next, and the MedChem SUMO-His TetR does not. Both are purified protein, so that contrast holds the route fixed. It does not hold the run fixed, or probably the site, so it is an inference rather than a controlled result. The foundry TetR's tag is not stated on this page, so it falls on neither side of the contrast.
 :::
 
 **The third format cannot be written as a working concentration**, which is why the table above gives a volume. It specifies an amount of a reaction whose yield nobody measured, and that is a property of a process step rather than of a component.
@@ -252,10 +252,8 @@ Three DNA/TetR pairs — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, a
 Fold change in absorbance at 575 nm after 5 h, relative to the undosed condition, for three DNA/TetR pairs dosed at 0, 1, 5, and 10 µM aTc. Points are the three replicates. LacZ is encapsulated at 20 U/mL, with CPRG at 0.5 mM outside. Figure by Mary Kelly (Chicago Node, Kamat Lab).
 :::
 
-:::{attention} This caption's 20 U/mL is left as recorded
-Every other page now states 2.5 U/mL for encapsulated LacZ, and the figure above still says 20 U/mL. That is deliberate: a caption states what an experiment did, and 2.5 U/mL is the Node's current practice rather than this run's condition.
-
-@Editor(chicago): confirm what this experiment actually used. See [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) for why the 20 U/mL figure was withdrawn elsewhere.
+:::{attention} The caption and the text give different LacZ concentrations
+@Editor(chicago): confirm the encapsulated LacZ concentration this experiment used. The caption of the figure above states 20 U/mL, and the text above states 2.5 U/mL, the Node's current practice. See [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) for the 20 U/mL figure.
 :::
 
 **The 0 µM condition is the normalization baseline, not a negative control.** Fold change is taken against it, which is why every panel's 0 µM bar sits at exactly 1.0 with no spread — that bar reports the arithmetic, not a measurement. The controls that bound the assay are on the raw absorbance trace instead, where a reaction with no DNA template reaches nearly the same absorbance at 5 h as an undosed one. Most of the signal is therefore template-independent, and aTc recovers only part of the distance to a fully de-repressed reaction.

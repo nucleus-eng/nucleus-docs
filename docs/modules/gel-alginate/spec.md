@@ -94,8 +94,8 @@ Calcium bridges adjacent alginate chains into "egg-box" junctions, setting the m
 
 The confirmed result at this composition is the Chicago theophylline readout: theophylline-responsive synthetic cells, CPRG-loaded SUVs and commercial LacZ co-embedded in the same gel give a yellow-to-purple color change after about 16 h, read at (570–575) nm and by eye.
 
-:::{attention} The gel is not what was varied
-That result confirms the cascade in this gel. No experiment varies the alginate concentration, the calcium concentration or the set time and reports what changes, so the numbers above are the one condition that has been run rather than an optimum.
+:::{attention} The conditions are not optimized
+That result confirms the cascade in this gel. The alginate concentration, the calcium concentration and the set time above are the one condition that has been run. No experiment varies them, so they are not an optimum.
 :::
 
 (gel-alginate-requirements)=

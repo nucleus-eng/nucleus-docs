@@ -14,7 +14,7 @@ SUV encapsulation prepares small unilamellar vesicles (SUVs) by lipid-film hydra
 
 SUVs and synthetic cells are distinct particle-size classes and are never interchangeable. This process produces SUVs only. For synthetic cell production, see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md).
 
-This process feeds only the alginate hydrogel embedding step of the process-dependency diagram. This differs from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md), whose synthetic cells feed both alginate hydrogel embedding and ULGA hydrogel embedding.
+SUVs from this process feed alginate hydrogel embedding only. The synthetic cells from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) feed both alginate hydrogel embedding and ULGA hydrogel embedding.
 
 :::::::{card}
 :header: **Important Information**

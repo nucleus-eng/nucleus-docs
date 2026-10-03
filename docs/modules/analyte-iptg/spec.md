@@ -27,14 +27,16 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} No dose figures are recorded
-[LacI-IPTG Detector](../detector-laci-iptg/spec.md) describes the mechanism but states no induction concentration or working range, and the Module is not composed into any DevCells demo. @Editor: supply the IPTG concentration if this Module is used, or leave the bands empty and say so.
+No induction concentration or working range is documented. @Editor: supply the IPTG concentration if this Module is used, or leave the bands empty and say so.
 :::
 
 # Requirements
 
 Requires a [LacI-IPTG Detector](../detector-laci-iptg/spec.md) to be sensed at all.
 
-**Whether it requires a transport route is not established.** Nothing in the corpus says whether IPTG crosses a POPC bilayer unaided. Compare [aTc](../analyte-atc/spec.md), which does, and which is the reason its sensing cell needs no pore.
+:::{attention} Transport across a bilayer is not documented
+@Editor: establish whether IPTG crosses a POPC bilayer unaided or needs a transport route. [aTc](../analyte-atc/spec.md) crosses unaided, which is why its sensing cell needs no pore.
+:::
 
 # Processes
 

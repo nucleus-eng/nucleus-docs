@@ -74,7 +74,7 @@ S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rathe
 
 :::
 
-S30 Lysate has a headroom of 3.75 µL of 25. See [`spec.yml`](./spec.yml) for what provides it and what spends it.
+S30 Lysate has a headroom of 3.75 µL of 25. It is the volume left once the premix, extract, amino acid mix and RNase inhibitor are added.
 
 # Expected Behavior
 
@@ -97,7 +97,7 @@ Not compatible with Optiprep in the inner solution above ~5%; use sucrose for de
 :::{caution} Optiprep may block expression. 
 Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold. Without Optiprep in the inner solution, the encapsulated 3OC6-HSL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
 
-**Not yet controlled.** The Optiprep-free expression result above has no minus-3OC6-HSL or no-DNA negative controls yet, and no biological replicates. Treat the GFP signal as promising but unattributed until those controls are run.
+**Not controlled.** The Optiprep-free expression result above has no minus-3OC6-HSL or no-DNA negative controls and no biological replicates. Treat the GFP signal as promising but unattributed.
 :::
 
 # Implementations

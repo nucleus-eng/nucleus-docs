@@ -67,7 +67,7 @@ flowchart TD
 :::
 
 :::{attention} `T7pro-PLA1-T7term` is not in `nucleus-eng/DNA`
-It has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Do not add a length or file entry until one lands there and its identity is confirmed against the construct name.
+@Editor: `T7pro-PLA1-T7term` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Once one lands there and its identity is confirmed against the construct name, add its length and file to the table above.
 :::
 
 **The enzyme has two coding sequences.** Every construct carrying PLA1 carries 963 bp of it, and all of them encode the same protein — but not all from the same DNA. Chicago's two gated constructs, `pT7-tetO-PLA1` and `pT7-toehold9-PLA1`, are identical across the whole coding sequence. London's `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of residues, which makes it a separate codon optimization of the same enzyme.
@@ -116,9 +116,9 @@ PLA1 lyses synthetic cells in which this module is expressed, as well as synthet
 
 - **London constitutive expression, ungated.** `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes, with no sensing circuit, drives the two-liposome CPRG/LacZ handoff. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run, and has been reproduced across multiple days. Expect a visible result on that timescale at this dose. The recorded outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 1.5% ULGA, so this is the hydrogel format — see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
 - **Chicago theophylline cascade.** A [theophylline riboswitch](../detector-theophylline/spec.md) gates PLA1 expression. PLA1 ruptures its own synthetic cell and a neighboring [CPRG-loaded synthetic cell](../substrate-cprg-suv/spec.md), releasing CPRG to an external [LacZ](../reporter-lacz/spec.md) solution and producing a visible color change after ~16 h in an alginate hydrogel. Confirmed at the synthetic cell/hydrogel level, with a known caveat: the color change currently occurs with or without theophylline present (riboswitch leak), so target specificity is not yet solved.
-- **[Chicago pH cascade](../ph-cascade/spec.md).** A [pH-responsive toehold switch](../detector-ph/spec.md) gates PLA1. The same two-liposome CPRG/LacZ handoff produces a visible yellow-to-purple change at pH 6.5 in solution. Confirmed at the solution level only; not yet moved into the hydrogel-embedded chassis.
+- **[Chicago pH cascade](../ph-cascade/spec.md).** A [pH-responsive toehold switch](../detector-ph/spec.md) gates PLA1. The same two-liposome CPRG/LacZ handoff produces a visible yellow-to-purple change at pH 6.5 in solution. Confirmed at the solution level only; not demonstrated in the hydrogel-embedded chassis.
 - **[Chicago aTc cascade](../atc-cascade/spec.md).** See the [tetR-aTc Detector Module](../detector-tetr-atc/spec.md) spec, "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section: a `TetO-PLA1` construct is co-encapsulated with LacZ in a synthetic cell, with CPRG outside so that lysis is what brings them together, showing a detectable but **non-graded** absorbance response to aTc (saturating at or below 1 µM). This is the only PLA1 result reduced to numbers; the rest are scored by eye.
-- **[London 3OC6-HSL cascade](../london-cascade/spec.md).** A [LuxR/pLux quorum-sensing promoter](../detector-3oc6-hsl/spec.md) gates PLA1 expression in [S30 Lysate](../s30-lysate/spec.md). PLA1 lysis again triggers the CPRG/LacZ handoff. As of the latest report, this shows a discernible but still leaky difference in color change between +3OC6-HSL and −3OC6-HSL conditions; the team is optimizing DNA and 3OC6-HSL concentrations to widen this gap.
+- **[London 3OC6-HSL cascade](../london-cascade/spec.md).** A [LuxR/pLux quorum-sensing promoter](../detector-3oc6-hsl/spec.md) gates PLA1 expression in [S30 Lysate](../s30-lysate/spec.md). PLA1 lysis again triggers the CPRG/LacZ handoff. This shows a discernible but leaky difference in color change between +3OC6-HSL and −3OC6-HSL conditions. DNA and 3OC6-HSL concentrations are not yet optimized.
 
 :::{attention} Four of these five are cascade results
 Only the ungated configuration reports on PLA1 by itself. In the other four, PLA1 and the sensing circuit that gates it cannot be told apart — a weak result there may be either. None of the five isolates PLA1 from the CPRG/LacZ readout it drives.
@@ -137,26 +137,19 @@ Account for both routes rather than assuming a liposome stays intact until the i
 
 Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)).
 
-**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbour's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago Cascade](../chicago-cascade/spec.md) carries the same [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism, not a defect: a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
+**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbor's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago Cascade](../chicago-cascade/spec.md) carries the same [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism: a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
 
-**PLA1 requires a low noise floor in whatever drives it**, and any color change module built on
-PLA1 inherits that requirement. Both Nodes met it independently on 2026-09-15, from opposite
-directions. In London, background PLA1 expression without 3OC6-HSL gives near-equivalent color to the
-induced state, so the dynamic range is gone. In Chicago, PLA1 takes 10 to 12 h to lyse GUVs
-and the GUVs leak on their own over the same window, so the negative control colors too:
-*"slightly purple to slightly more purple."* **One failure with two causes**, transcriptional
-leak in London and GUV lifetime in Chicago.
+**PLA1 requires a low noise floor in whatever drives it**, and any color change module built on PLA1 inherits that requirement. In London, background PLA1 expression without 3OC6-HSL gives near-equivalent color to the induced state, so the dynamic range is gone. In Chicago, PLA1 takes 10 to 12 h to lyse GUVs and the GUVs leak on their own over the same window, so the negative control also colors: slightly purple against slightly more purple when induced. **One failure with two causes**: transcriptional leak in London and GUV lifetime in Chicago.
 
-**The requirement is typed on PLA1 rather than on the detector**, which is where it was first
-written. A requirement on the detector is one constraint per detector. A requirement on PLA1 is
-one constraint that every PLA1-driven module carries whatever is upstream, and it is why two
-Nodes met it with different sensors. Mary's 2026-09-17 read is not a counter-claim: she
-identifies the detector as the component currently **failing** to meet the requirement, and
-calls the LacZ/CPRG reaction robust. Where a requirement is typed and which component fails it
-are different questions, and both answers hold.
+The detector is the component that currently fails this requirement. The LacZ/CPRG reaction is robust.
 
-**No threshold is recorded.** Neither Node has stated a figure for "low", so this stays prose
-and does not enter `spec.yml`.
+No numeric threshold is defined for how low the noise floor must be.
+
+:::{attention} Sources for the noise-floor observations
+@Editor(london): cite the DevNote or data for the background PLA1 expression without 3OC6-HSL.
+
+@Editor(chicago): cite the DevNote or data for the GUV leak and the negative-control color, and for the statement that the detector, not the LacZ/CPRG reaction, fails the requirement. State whether that statement covers the GUV leak, which is not a detector failure.
+:::
 
 Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
 

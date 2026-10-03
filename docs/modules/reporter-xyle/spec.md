@@ -20,7 +20,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Proposed module requires validation
-This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Behavior below). No synthetic cell/liposome encapsulation or hydrogel-embedded data exist for this reporter, and it is not part of any confirmed cascade result. Do not read this module as being at the same readiness level as its sibling [LacZ Reporter](../reporter-lacz/spec.md), which does have confirmed synthetic cell/hydrogel-level results.
+This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Behavior below). No synthetic cell/liposome encapsulation or hydrogel-embedded data exist for this reporter, and it is not part of any confirmed cascade result.
 :::
 
 # Reference Composition
@@ -67,7 +67,9 @@ flowchart TD
 ::::{tab-item} DNA
 
 :::{attention} Not yet in `nucleus-eng/DNA`
-`pT7-TetO-catecholase` (`pMN067`) is not present in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA). A sequence file exists in the source devnote (`chicago-teto-catecholase/experiments/sequences/pMN067_T7_TetO_C23DO_entireconstruct.dna`), but per repository convention this page does not link to or copy it directly — flag for follow-up so the construct can be submitted to `nucleus-eng/DNA` before this page is used at the bench. The London-specific `T7pro-XylE-T7term` and `T7pro-UTR1-G10_leader_peptide-XylE-T7term` constructs are not yet designed at all (per the London devnote), so no equivalent DNA-table entry exists for them.
+`pT7-TetO-catecholase` (`pMN067`) is not in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA). The London-specific `T7pro-XylE-T7term` and `T7pro-UTR1-G10_leader_peptide-XylE-T7term` constructs are not yet designed ([`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13)), so no equivalent DNA-table entry exists for them.
+
+@Editor(chicago): submit the `pMN067` sequence to `nucleus-eng/DNA` before this Module is used at the bench. The source DevNote `chicago-teto-catecholase` holds the sequence file, `experiments/sequences/pMN067_T7_TetO_C23DO_entireconstruct.dna`.
 :::
 
 | **Name** | **Length (bp)** | **File** |
@@ -96,7 +98,7 @@ The Chicago Node construct was tested downstream of the tetR-aTc Detector at thr
 :::
 
 :::{note} Two TetR scales, one construct
-A later bulk-reaction replication re-runs the same TetR/aTc/C23DO-catechol chemistry and reports clean induced/repressed/unregulated separation, but at 500 nM and 1000 nM TetR against the 75 nM used in the reference reaction above. Both use the same construct, so these are two conditions of one design rather than two designs. The dependence of the readout on TetR concentration across that range has not been characterized.
+A bulk-reaction replication re-runs the same TetR/aTc/C23DO-catechol chemistry and reports clean induced/repressed/unregulated separation, but at 500 nM and 1000 nM TetR against the 75 nM used in the reference reaction above. Both use the same construct, so these are two conditions of one design rather than two designs. The dependence of the readout on TetR concentration across that range has not been characterized.
 :::
 
 ::::
@@ -130,17 +132,17 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 When driven from `pT7-TetO-catecholase` (`pMN067`), additionally requires TetR and anhydrotetracycline (aTc) as the derepressing input — see the [tetR-aTc Detector](../detector-tetr-atc/spec.md).
 
-**XylE takes catechol and nothing else this corpus documents.** It does not act on
-[CPRG](../substrate-cprg/spec.md) or [X-Gal](../substrate-xgal/spec.md), which belong to
-[LacZ](../reporter-lacz-enzyme/spec.md). The valid enzyme-substrate pairs are listed on that
-page. **Catechol's enzyme may not be unique**: the materials tracker lists tyrosinase, also
-called catechol oxidase, alongside XylE, and nothing here has tested it.
+XylE takes catechol as its substrate. It does not act on [CPRG](../substrate-cprg/spec.md) or [X-Gal](../substrate-xgal/spec.md), which belong to [LacZ](../reporter-lacz-enzyme/spec.md). The valid enzyme-substrate pairs are listed on that page.
+
+:::{attention} Tyrosinase is untested
+@Editor: tyrosinase, also called catechol oxidase, is a second candidate enzyme for catechol, and no result on this page tests it. Cite a source for that, and decide whether it belongs on an Implementation page that chooses between readouts.
+:::
 
 
 # Implementations
 
-- **Proposed, never adopted by a cascade.** The construct is `pT7-TetO-catecholase` (`pMN067`), expressing C23DO under a TetO/aTc promoter; it is validated in bulk Nucleus Cytosol and has no synthetic cell result. Source: [`chicago-teto-catecholase`](https://devnotes.nucleus.engineering/articles/019e0429-3749-72ce-a062-7d2a7cf18c20).
-- **Proposed as an alternate to LacZ, never adopted.** Two linear-DNA formats, — `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is still to be designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
+- **Not adopted by any cascade.** The construct is `pT7-TetO-catecholase` (`pMN067`), expressing C23DO under a TetO/aTc promoter; it is validated in bulk Nucleus Cytosol and has no synthetic cell result. Source: [`chicago-teto-catecholase`](https://devnotes.nucleus.engineering/articles/019e0429-3749-72ce-a062-7d2a7cf18c20).
+- **Proposed as an alternate to LacZ; not adopted.** Two linear-DNA formats: `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is not designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
 
 :::{attention} The two Nodes' constructs may not converge
 @Editor(chicago): whether Chicago's `pMN067` and London's still-undesigned construct end up as the same DNA design is not established. Confirm with both Nodes before treating them as one construct.

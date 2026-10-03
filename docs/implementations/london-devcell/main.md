@@ -8,21 +8,25 @@ site:
 
 # Overview
 
-:::{attention} 🚧 Draft — stub
-This page is a placeholder for the London demo device. It records what the demo is composed of and what is confirmed as of 2026-08-19; the integrated result does not exist yet and will be written up during DevStudio (23 Sep – 13 Oct 2026).
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
 :::
 
 The London DevCell detects a bacterial quorum-sensing signal and reports it as a visible color change from inside a hydrogel. Synthetic cells built on [S30 Lysate](../../modules/s30-lysate/spec.md) carry a LuxR/pLux circuit; 3OC6-HSL diffusing in from an external bacterial source drives expression of phospholipase A1 (PLA1), which lyses the cell and its neighboring [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md), releasing CPRG to LacZ and turning the gel purple.
 
 The distinguishing feature against the Chicago device is the analyte source: the input is a **living bacterial culture**, not a dosed small molecule. That makes this a bacteria-detection device rather than a chemical sensor.
 
-## What the demo is, as of 2026-08-19
+## What the demo is
 
-**Polymersomes are out.** London is not pursuing diblock-copolymer polymersomes. The device is lipid-based throughout. This invalidates [`london-quorum-sensing-polymersome`](https://devnotes.nucleus.engineering/articles/019b13f8-9a25-7553-a88d-fa4f19790d13) as a source document, which leaves the [3OC6-HSL Detector](../../modules/detector-3oc6-hsl/spec.md) with no backing document at all.
+**Lipid-based.** The device uses lipid membranes throughout.
+
+:::{attention} The 3OC6-HSL Detector has no source document
+@Editor(london): name the DevNote or paper that backs the [3OC6-HSL Detector](../../modules/detector-3oc6-hsl/spec.md). The polymersome DevNote [`london-quorum-sensing-polymersome`](https://devnotes.nucleus.engineering/articles/019b13f8-9a25-7553-a88d-fa4f19790d13) describes a diblock-copolymer design and does not apply to this device.
+:::
 
 **Two readouts, at different maturity.** GFP output in ULGA hydrogel is confirmed with Z-stack imaging. The PLA1-driven color change is confirmed in bulk over repeated runs, but the two have not been combined into one device.
 
-**The readout is leaky.** Discernible but incomplete separation between +3OC6-HSL and −3OC6-HSL, with DNA and 3OC6-HSL concentrations still being optimized. Exterior LacZ leakage is a known contributor, and its mitigation ([Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md)) has never been run.
+**The readout is leaky.** Discernible but incomplete separation between +3OC6-HSL and −3OC6-HSL. DNA and 3OC6-HSL concentrations are not yet optimized. Exterior LacZ leakage is a known contributor, and its mitigation ([Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md)) has never been run.
 
 # Modules
 
@@ -58,13 +62,16 @@ No integrated performance data exists. Confirmed results sit at the level of ind
 :::{attention} Open integration steps
 1. **GFP and color-change integration paths have not been combined.** Each works; the device needs both in one construct.
 2. **Encapsulated expression is not fully controlled.** The Optiprep-free result that restores expression has no minus-inducer or no-DNA controls and no biological replicates.
-3. **A synthetic cell + SUV + 3OC6-HSL result has not been reproduced.** Negative controls in that test turned purple, attributed to leaky old-stock liposomes. Reproducing it is an open action item.
-4. **Source-document arithmetic is unresolved.** The 3OC6-HSL reaction table in `Demo Status - London.docx` does not reconcile — the 3OC6-HSL row is off by 50× — and the plasmid dose appears as both 37 and 80 ng/µL.
+3. **A synthetic cell + SUV + 3OC6-HSL result has not been reproduced.** Negative controls in that test turned purple, attributed to leaky old-stock liposomes.
+:::
+
+:::{attention} Reaction conditions do not reconcile
+@Editor(london): reconcile the integrated-reaction conditions in the London demo status document. The 3OC6-HSL row of its reaction table is off by 50×, and the plasmid dose appears as both 37 and 80 ng/µL. Give the final values and cite the DevNote that holds them.
 :::
 
 # Credits
 
-Developed by the London Node — Elani Lab. Contributors named in the source material: Ion Ioannou, Jonah McDonald, Charlie Newell, Manuel. Individual results are credited on their own Module pages.
+Developed by the London Node (Elani Lab), with contributions from Ion Ioannou, Jonah McDonald, Charlie Newell and Manuel.
 
 :::{attention} Credits are draft
 Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.

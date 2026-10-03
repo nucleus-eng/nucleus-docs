@@ -10,25 +10,22 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
-Colorimetric Readout converts a completed sensing/lysis cascade into a visible, measurable color signal. A chromogenic substrate — chlorophenol red-β-D-galactopyranoside (CPRG) or, in an alternate chemistry, catechol — is hydrolyzed by a reporter enzyme (β-galactosidase, LacZ, or catechol 2,3-dioxygenase, XylE/C23DO) that has been released or exposed by upstream lysis. This page covers the readout step itself: the substrate/enzyme chemistry, the absorbance wavelengths used to read it, and the plate-reader and visual-scoring protocols used across the DevCells cascades. It does not repeat each cascade's own sensing mechanism, encapsulation format, or quantitative result — those are documented on the Module pages that feed into this process and are cited below rather than duplicated.
+Colorimetric Readout converts a completed sensing/lysis cascade into a visible, measurable color signal. A chromogenic substrate — chlorophenol red-β-D-galactopyranoside (CPRG) or, in an alternate chemistry, catechol — is hydrolyzed by a reporter enzyme (β-galactosidase, LacZ, or catechol 2,3-dioxygenase, XylE/C23DO) that has been released or exposed by upstream lysis. The readout step comprises the substrate/enzyme chemistry, the absorbance wavelengths used to read it, and the plate-reader and visual-scoring protocols used across the DevCells cascades.
 
-This is the shared downstream step for both the Chicago and London programs: every sensing cascade in `docs/modules/` that produces a visible signal (theophylline, pH, aTc, and 3OC6-HSL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or hydrogel format feeds it.
+This is the shared downstream step for both the Chicago and London programs: every sensing cascade that produces a visible signal (theophylline, pH, aTc, and 3OC6-HSL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or hydrogel format feeds it.
 
 :::::::{card}
 :header: **Important Information**
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-::::::{attention} Upstream hydrogel status is not uniform — read the diagram precisely
+::::::{attention} Upstream hydrogel status is not uniform
 :class: dropdown
 :icon: false
 
-The process-dependency diagram draws two edges into this process, with different confirmation status, and they should not be treated as equally solid:
-
-- **Embedding: Thermal Setting → Colorimetric Readout is solid (confirmed).** The London ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
-- **Embedding: Photodevelopment → Colorimetric Readout is dashed (proposed, not yet demonstrated).** Chicago's PEGDA-patterned hydrogel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are currently too small to produce macroscopically visible QR-code pattern changes — a functional colorimetric readout from a PEGDA-patterned hydrogel has not been shown.
-
-The diagram does **not** draw a direct edge from Embedding: Ionic Crosslinking to this process — alginate embedding feeds into PEGDA patterning (Alginate → PEGDA is itself solid/confirmed), not directly into Colorimetric Readout. The unpatterned alginate-embedded readout ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a real, separately confirmed result, but it is not represented as its own edge into this node in the current diagram.
+- **Embedding: Thermal Setting → Colorimetric Readout is confirmed.** The London ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
+- **Embedding: Photodevelopment → Colorimetric Readout is proposed and not demonstrated.** Chicago's PEGDA-patterned hydrogel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned hydrogel has not been shown.
+- **Embedding: Ionic Crosslinking → Colorimetric Readout is confirmed for the unpatterned gel.** The unpatterned alginate-embedded readout ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a confirmed result. Alginate embedding also feeds PEGDA patterning, which is confirmed.
 
 ::::::
 
@@ -36,7 +33,7 @@ The diagram does **not** draw a direct edge from Embedding: Ionic Crosslinking t
 :class: dropdown
 :icon: false
 
-CPRG pre-loaded into liposomes photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route. This does not affect agarose, alginate, or ULGA embedding, where CPRG is pre-loaded into liposomes as usual. For PEG-norbornene, add CPRG as a free dye *after* UV crosslinking, and pre-add LacZ to the gel rather than encapsulating it — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md#reporter-lacz-requirements) Requirements section for the confirmed four-condition comparison behind this workaround. PEG-norbornene has no node yet in the process-dependency diagram; this note is included here because it directly affects how this readout process is run in that hydrogel chemistry.
+CPRG pre-loaded into liposomes photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route. This does not affect agarose, alginate, or ULGA embedding, where CPRG is pre-loaded into liposomes as usual. For PEG-norbornene, add CPRG as a free dye *after* UV crosslinking, and pre-add LacZ to the gel rather than encapsulating it — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md#reporter-lacz-requirements) Requirements section for the confirmed four-condition comparison behind this workaround.
 
 ::::::
 
@@ -54,11 +51,11 @@ CPRG pre-loaded into liposomes photobleaches under the UV exposure used to cross
 
 ## Primary chemistry: LacZ / CPRG
 
-CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is a yellow compound that β-galactosidase (LacZ) hydrolyzes into chlorophenol red (CPR), a magenta/purple product. The reaction is read by absorbance near 570 nm to 575 nm, or by eye. This is the chemistry used across all confirmed and in-progress DevCells cascades — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) spec for substrate handling, the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) spec for how lysis releases CPRG or exposes it to LacZ, and the individual sensing-cascade pages ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md), [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md), [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md), [London Cascade](../../modules/london-cascade/spec.md)) for each cascade's own quantitative result. This page does not duplicate those data tables.
+CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is a yellow compound that β-galactosidase (LacZ) hydrolyzes into chlorophenol red (CPR), a magenta/purple product. The reaction is read by absorbance near 570 nm to 575 nm, or by eye. This is the chemistry used across the DevCells cascades — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) spec for substrate handling, the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) spec for how lysis releases CPRG or exposes it to LacZ, and the individual sensing-cascade pages ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md), [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md), [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md), [London Cascade](../../modules/london-cascade/spec.md)) for each cascade's own quantitative result.
 
 ## Alternate chemistry: XylE / catechol
 
-Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless catechol into 2-hydroxymuconate semialdehyde, a yellow ring-fission product read by absorbance near 375 nm to 385 nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). This is documented as an orthogonal reporter chemistry for the Chicago Node, alongside LacZ/CPRG, intended to give a second colorimetric channel for multiplexed sensing. As of this writing it is confirmed only at bulk-cytosol scale — no synthetic cell/liposome-encapsulated or hydrogel-embedded XylE result exists — and it is not the chemistry used in any confirmed cascade result to date (the confirmed aTc Cascade dose-response uses the LacZ integration path, not XylE). See the [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) spec for the bulk-cytosol reaction composition and result; do not read this alternate chemistry as being at the same readiness level as LacZ/CPRG.
+Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless catechol into 2-hydroxymuconate semialdehyde, a yellow ring-fission product read by absorbance near 375 nm to 385 nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). This is an orthogonal reporter chemistry for the Chicago Node, alongside LacZ/CPRG, intended to give a second colorimetric channel for multiplexed sensing. It is confirmed only at bulk-cytosol scale — no synthetic cell/liposome-encapsulated or hydrogel-embedded XylE result exists — and no confirmed cascade result uses it (the aTc Cascade dose-response uses the LacZ integration path, not XylE). See the [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) spec for the bulk-cytosol reaction composition and result.
 
 # Materials and Equipment
 
@@ -101,7 +98,7 @@ For formats read by eye rather than by plate reader (e.g., a hydrogel photograph
 
 # Quality Control
 
-A positive color change alone does not confirm specific detection — several cascades that use this readout process report background or leak issues that affect interpretation, and this page's readout chemistry cannot distinguish specific signal from these known confounds on its own:
+A positive color change alone does not confirm specific detection — several cascades that use this readout process report background or leak issues that affect interpretation, and the readout chemistry cannot distinguish specific signal from these known confounds on its own:
 
 - The Chicago theophylline cascade shows the same ~16 h color change with or without theophylline present (riboswitch leak) — see the [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) spec.
 - The London 3OC6-HSL cascade shows only a slightly discernible, "temperamental" difference between +3OC6-HSL and −3OC6-HSL conditions, with inconsistent liposome rupture reported across repeats — see the [London Cascade](../../modules/london-cascade/spec.md) spec.

@@ -15,7 +15,7 @@ site:
 
 A sensing cascade that detects 3OC6-HSL in S30 lysate and reports fluorescence. LuxR binds the analyte and relieves repression of deGFP, which a spectrometer reads under a UV lamp.
 
-**This is one of two 3OC6-HSL demos, and they are not variants of one design.** The other is [CRAIC](../craic-cascade/spec.md), which senses the same analyte in [Base Cytosol](../base-cytosol/spec.md) and reports color through LacZ and CPRG. This one uses [S30 Lysate](../s30-lysate/spec.md) and reports fluorescence. They share the analyte and the detector family and nothing downstream of that.
+[CRAIC](../craic-cascade/spec.md) senses the same analyte in [Base Cytosol](../base-cytosol/spec.md) and reports color through LacZ and CPRG.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -101,11 +101,15 @@ flowchart TD
 
 # Expected Behavior
 
-3OC6-HSL crosses the membrane, LuxR binds it, and deGFP is expressed. The readout is fluorescence rather than a color change, which is what separates this cascade from every other one in this corpus.
+3OC6-HSL crosses the membrane, LuxR binds it, and deGFP is expressed. The readout is fluorescence rather than a color change.
 
 # Requirements
 
-Requires an observation step that this corpus does not yet describe. The board draws a spectrometer under a UV lamp; no process page documents that reading, and `observe` carries no profile on the theory side, so the leg is named here and not composed.
+Requires a spectrometer reading of deGFP fluorescence under a UV lamp.
+
+:::{attention} No process page documents the reading
+@Editor: add a process page for the spectrometer reading under a UV lamp and link it here. The reading is not yet a step in the composition above.
+:::
 
 # Processes
 
@@ -115,4 +119,6 @@ Requires an observation step that this corpus does not yet describe. The board d
 
 # Credits
 
-Transcribed from the DevStudio whiteboard of 2026-09-24. Structure follows that board.
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

@@ -15,7 +15,7 @@ site:
 
 The SensorCytosol[3OC6-HSL ⟶ PLA1] is the aqueous phase of the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md): [S30 Lysate](../s30-lysate/spec.md) carrying the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) and, through it, the [PLA1 Lysis Module](../effector-pla1/spec.md). It is mixed before encapsulation, not added to a closed compartment.
 
-It exists as its own Module because the London decomposition assembles the cytosol first and then performs one encapsulation. Compare [Base Cytosol](../base-cytosol/spec.md), which is PURE-based and carries no sensing function, and the [aTc](../atc-sensor-cytosol/spec.md) and [pH](../ph-sensor-cytosol/spec.md) sensor cytosols, which fill the same role for the Chicago Node on a Base Cytosol background.
+The [aTc](../atc-sensor-cytosol/spec.md) and [pH](../ph-sensor-cytosol/spec.md) sensor cytosols fill the same role for the Chicago Node, on a [Base Cytosol](../base-cytosol/spec.md) background instead of S30 Lysate.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -65,7 +65,7 @@ flowchart TD
 :::{table} Constructs in the SensorCytosol[3OC6-HSL ⟶ PLA1].
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `pOpen-LuxR-PLA1` | 4175 | pending — [PR #10](https://github.com/nucleus-eng/DNA/pull/10) | **Circular.** S30 Lysate degrades linear DNA, so this route takes the plasmid |
+| `pOpen-LuxR-PLA1` | 4175 | not yet in `nucleus-eng/DNA` — [PR #10](https://github.com/nucleus-eng/DNA/pull/10). @Editor(london): link the file when it merges. | **Circular.** S30 Lysate degrades linear DNA, so this route takes the plasmid |
 | `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Cassette form. **Not for this cytosol** — listed so the two are not confused |
 :::
 
@@ -88,8 +88,6 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 :::::
 
 
-
-**The analyte is not part of this composition.** 3OC6-HSL reaches the sensing cell from the outer solution after encapsulation, so it appears on [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), not here.
 
 # Constituent Modules
 

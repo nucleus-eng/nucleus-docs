@@ -15,7 +15,7 @@ site:
 
 A member of [LacZ](../lacz/spec.md): the `T7pro-LacZ-T7term` construct.
 
-**A template, not an enzyme.** It carries no activity itself and requires an expression system to produce any. That requirement is the whole difference between this member and [LacZ Enzyme](../reporter-lacz-enzyme/spec.md), which needs a supplier instead.
+**A DNA template.** It carries no activity itself and requires an expression system to produce any.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -28,12 +28,16 @@ One construct, obtained rather than composed.
 :::{table} The construct.
 | Component | Notes |
 | --- | --- |
-| `T7pro-LacZ-T7term` | **not present in `nucleus-eng/DNA`** as of 2026-09-21 |
+| `T7pro-LacZ-T7term` | **not in `nucleus-eng/DNA`** |
+:::
+
+:::{attention} Sequence file missing
+@Editor: add the sequence file for `T7pro-LacZ-T7term` to `nucleus-eng/DNA` and link it here.
 :::
 
 # Constituent Modules
 
-- `T7pro-LacZ-T7term` — the construct. No page: it is not in the DNA repository
+- `T7pro-LacZ-T7term` — the construct
 
 # Requirements
 

@@ -16,7 +16,7 @@ site:
 The Theophylline Sensing Module is a translational riboswitch, designed by [Lynch and Gallivan](https://doi.org/10.1093/nar/gkn924), that controls expression of a downstream effector gene in response to theophylline, a xanthine derivative. 
 
 :::{attention} Canceled — not part of the DevCells demo
-The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It was cut from the demo, and its constructs are recorded as no longer in use. This specification is kept for reference and is not maintained.
+The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. Its constructs are no longer in use.
 :::
 
 (detector-theophylline-reference-composition)=
@@ -59,7 +59,7 @@ flowchart TD
 
 ::::{tab-item} Substrate
 
-[CPRG](../substrate-cprg/spec.md) is present in this Module's reaction, and **here it is mixed in rather than held apart**. That is correct for this Module and it is the exception to the [Color Change](../color-change/spec.md) invariant: the off state comes from the riboswitch holding the ribosome binding site closed, not from keeping the enzyme and the substrate in separate compartments. Something else supplies the gate, so colocalizing the pair removes no switch.
+[CPRG](../substrate-cprg/spec.md) is present in this Module's reaction, and **here it is mixed in rather than held apart**. This is the exception to the [Color Change](../color-change/spec.md) invariant: the off state comes from the riboswitch holding the ribosome binding site closed, not from keeping the enzyme and the substrate in separate compartments, so colocalizing the pair removes no switch.
 
 :::{table} CPRG for the theophylline sensing reaction.
 | Component | Working concentration | Notes |
@@ -88,12 +88,12 @@ The theophylline riboswitch binds theophylline at its aptamer domain in the 5' U
 ::::{tab-item} DNA
 
 :::{attention} Not yet in `nucleus-eng/DNA`
-The bulk-cytosol validation construct `pT7-theophylline-LacZ` (internally referenced as `pMN066`) is not present in `nucleus-eng/DNA` as of this writing. The Chicago Cascade's PLA1-linked riboswitch construct is a separate, not-yet-identified design and is also not represented below.
+@Editor(chicago): add the sequence file for the bulk-cytosol validation construct `pT7-theophylline-LacZ` (`pMN066`) to `nucleus-eng/DNA`. The Chicago Cascade's PLA1-linked riboswitch construct is a separate design that is not yet identified and is not represented below.
 :::
 
 | **Name**                           | **Length (bp)**                     | **File** |
 | ---------------------------------- | ----------------------------------- | -------- |
-| `pT7-theophylline-LacZ` (`pMN066`) | TODO — not yet in `nucleus-eng/DNA` | TODO     |
+| `pT7-theophylline-LacZ` (`pMN066`) | not documented | not in `nucleus-eng/DNA` |
 ::::
 
 ::::{tab-item} Cytosol
@@ -166,10 +166,6 @@ The effect itself is no longer second-hand. Chicago Node, Mary, 2026-09-17: theo
 
 **This does not reopen the cancellation.** That stands on its own reason, recorded above: the riboswitch expresses its effector without theophylline present, so it does not discriminate. Mary's result is a second and independent reason, not a replacement.
 :::
-
-# Implementations
-
-- **Not used by any cascade, and not implemented.** It was a queued sensing option for the Chicago demo and no cascade names it. [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) records that the demo dropped it.
 
 # Processes
 

@@ -24,8 +24,6 @@ Color development is a separate step from [Colorimetric Readout](../colorimetric
 
 **The resolution is order, not formulation.** The enzyme is withheld until after embedding and arrives with a neutralizing buffer. Nothing about either chemistry changes; only when each one is present.
 
-**This is a requirement shape rather than a one-off.** A condition on state whose required value differs between two steps, discharged by a step that changes the state. Separation is the other instance this corpus carries: an enzyme and its substrate must be apart, and then must not be, and a breach discharges it.
-
 # The step
 
 1. Confirm the sensing incubation is complete. Developing early reads an unfinished reaction.
@@ -34,7 +32,7 @@ Color development is a separate step from [Colorimetric Readout](../colorimetric
 4. Read the result. See [Colorimetric Readout](../colorimetric-readout/main.md).
 
 :::{attention} No figures are recorded for any of these steps
-No buffer composition, no enzyme concentration, no incubation time and no target pH after neutralization appear in any source here. **The gel-dispersed LacZ concentration is already an open ask** on the enzyme's own page and this process is a second place it is needed. Treat the four steps above as the shape of the process and not as a protocol.
+No buffer composition, enzyme concentration, incubation time or target pH after neutralization is documented. The four steps above give the shape of the process, not a protocol. @Editor: supply them, starting with the gel-dispersed LacZ concentration, which [LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) also needs.
 :::
 
 # Requirements
