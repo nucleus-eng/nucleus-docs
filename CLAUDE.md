@@ -50,12 +50,13 @@ python3 scripts/check-file-placement.py # (CI) flag content files outside allowe
 python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
 python3 scripts/check-table-shape.py    # (CI) flag table rows whose column count differs from their header
 python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
+python3 scripts/check-reference-voice.py # (CI) flag who-decided text and pointers into our working notes
 python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
 python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page
 python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
-**The five marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
+**The six marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
 also runs Vale and `check-composition-tabs.py`. **The three marked `(local)` run in no
 workflow** — `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
 turn it red with no change here (see the DNA section below); `check-anchors.py` because it
@@ -76,6 +77,8 @@ pre-commit run --all-files  # run all hooks manually
 **Name a staging file's dependencies.** One review pass can produce edits that land in several files, and applying them in the wrong order can make a correct proposal wrong — line numbers in particular are only valid against an unchanged file. This one is not in the skill.
 
 **Open questions go at the top of the file**, ahead of the drafted edits, each with space for a ruling written inline beside it. A reviewer reads a staging file once, top to bottom; with the questions last, they read every proposed edit before reaching the one thing the drafter needs from them, and a long file buries the ask. The block is a running ledger of decided versus open, updated as rulings arrive — and a ruling written beside its question is the record. See `nucleus-eng/nucleus-skills#24`.
+
+**Provenance stays off the page.** A staging file records who ruled and when, and so does the commit message that folds it in. The proposed page text does not: it states the result in the page's own voice. A page that says who decided reads as a decision log, not reference. `scripts/check-reference-voice.py` blocks the commonest forms.
 
 ## Architecture
 

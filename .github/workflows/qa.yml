@@ -276,3 +276,27 @@ jobs:
 
       - name: Check Implementations sections
         run: python3 scripts/check-implementations.py
+
+  reference-voice:
+    # Pages are reference documentation: they describe the Module, not our work
+    # on it. ERRORS (blocking): a contributor named as the source of a decision,
+    # a ruling, a pointer into our working notes, a stray review tag. WARNINGS
+    # (advisory): dates, "this corpus", tooling as the subject, commit hashes.
+    # A net for the commonest markers, not the rule; reading finds the rest.
+    # See style-guide/conventions.md#what-never-appears.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Test the check
+        run: python3 -m pytest tests/test_check_reference_voice.py
+
+      - name: Check reference voice
+        run: python3 scripts/check-reference-voice.py
