@@ -40,7 +40,7 @@ Anything that is not for the public — status, hedging, provenance of internal 
 
 Where a page has a gap, tag it: an attention block naming what is missing and who should find it, marked `@Editor:` or `@Developer:`. A cell reading "not documented" records a gap; a tagged block asks someone to close it.
 
-**A person is not a source.** A reader cannot check a ruling, a conversation or someone's word. If a fact needs support, cite the document it came from: a paper, a DevNote, a supplier page. If there is none, keep the fact and tag the gap `@Editor:`. An Editor may decide to cite it as personal communication. An agent must not make that choice.
+**A person is not a source.** A reader cannot check a ruling, a conversation or someone's word. If a fact needs support, cite the document it came from: a paper, a DevNote, a supplier page. If there is none, keep the fact and tag the gap `@Editor:`. An Editor may cite a result presented at a group meeting as *(Group Meeting, contributor, date)*, or a private exchange as personal communication. An agent must not make either choice.
 
 ## Say it once
 
