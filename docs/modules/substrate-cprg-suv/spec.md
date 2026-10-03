@@ -141,7 +141,7 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 | --- | --- | --- |
 | Target diameter | 400 nm | Extruded through a 400 nm polycarbonate membrane |
 | Extrusion passes | ≥21, odd number | Odd count avoids retaining unextruded material in the final syringe |
-| Free-substrate removal | see the flag below | Two methods are recorded |
+| Free-substrate removal | size-exclusion chromatography or centrifugation wash | Two methods are described; see the note below |
 | Storage before use | on ice or at 4 °C | Hold until combining with Sensing Cells and LacZ |
 
 :::

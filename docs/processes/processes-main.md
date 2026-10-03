@@ -48,10 +48,10 @@ DevCell integrations (e.g., the Chicago colorimetric readout system) build on tw
 
 Every DevCells sensing cascade (Chicago and London alike) ends at the same downstream step: a chromogenic substrate hydrolyzed by a reporter enzyme to give a visible, absorbance-measurable signal.
 
-- [Color Development](./color-development/main.md) — brings a gel to the pH its reporter enzyme needs, after a sensing step that ran where the enzyme cannot work. **The pH path alone uses it.** Not the readout.
+- [Color Development](./color-development/main.md) — brings a gel to the pH its reporter enzyme needs, after a sensing step that ran where the enzyme cannot work. Only the pH path uses it.
 - [Colorimetric Readout](./colorimetric-readout/main.md)
 - [Anneal pH-Responsive Trigger Duplex](./anneal-ph-trigger-duplex/main.md) — anneals the pH-responsive and trigger ssDNA into the single duplex reagent the pH-Sensing Module uses
-- [Degrade Exterior LacZ](./degrade-exterior-lacz/main.md) — proteinase K treatment to cut background signal from LacZ that has leaked outside a liposome; concentrations and volumes not yet specified.
+- [Degrade Exterior LacZ](./degrade-exterior-lacz/main.md) — proteinase K treatment to cut background signal from LacZ that has leaked outside a liposome.
 
 ## Base Cytosol Processes
 
@@ -90,7 +90,7 @@ flowchart LR
   - [Assemble Cytosol](./assemble-cytosol/assemble-cytosol-main.md) — a reaction that will be encapsulated; reserves headroom for what a particular reaction adds.
     - [Assemble Base Cytosol](./assemble-base-cytosol/main.md) — the unit case, with the headroom filled by water.
   - [Assemble Outer Solution](./assemble-outer-solution/main.md) — what cells sit in, and what a gel dissolves into.
-- [Expression](./express/main.md) — the abstraction both supply routes are instances of. Makes a protein from a template in the reaction, and mixes rather than packs. Neither instance is written.
+- [Expression](./express/main.md) — the abstraction both supply routes are instances of. Makes a protein from a template in the reaction, and mixes rather than packs.
 
 ### Make Base Cytosol Components
 
@@ -117,9 +117,9 @@ Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are em
 
 ## Photopatterning Processes
 
-Beyond simple hydrogel embedding, spatial patterning within the hydrogel matrix can compartmentalize multiple sensing modules. PEGDA is one hydrogel chemistry explored for this — see the process page for its current status and open gaps.
+Beyond simple hydrogel embedding, spatial patterning within the hydrogel matrix can compartmentalize multiple sensing modules.
 
 - [Embedding: Photodevelopment](./embed-photodevelopment/main.md) — what the two photocrosslinking routes share, and the table of what they do not.
   - [Embedding: Photodevelopment](./embed-photodevelopment/main.md) — 405 nm-crosslinked PEGDA hydrogel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
-  - [Embedding: Photodevelopment](./embed-photodevelopment/main.md) — step-growth thiol-ene route; a stub.
+- [Embedding: Photodevelopment](./embed-photodevelopment/main.md) — step-growth thiol-ene route (PEG-norbornene).
 

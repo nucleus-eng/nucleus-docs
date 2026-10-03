@@ -25,7 +25,7 @@ This page is a work in progress and not yet ready for use.
 :align: center
 :width: 75%
 
-Schematic representation of the SensorCell[aTc ⟶ PLA1] mechanism. Inside the synthetic cell, the `TetO-PLA1` construct is transcribed and translated to produce PLA1; LacZ is co-encapsulated as purified enzyme, with its CPRG substrate outside the cell. Membrane-permeable aTc (ATC) enters the synthetic cell and (via TetR, not shown) de-represses `TetO-PLA1` expression. PLA1 then ruptures the membrane, releasing LacZ to the CPRG outside. Figure by Mary Kelly (Chicago Node, Kamat Lab); the data panels of the original are omitted.
+Schematic representation of the SensorCell[aTc ⟶ PLA1] mechanism. Inside the synthetic cell, the `TetO-PLA1` construct is transcribed and translated to produce PLA1; LacZ is co-encapsulated as purified enzyme, with its CPRG substrate outside the cell. Membrane-permeable aTc (ATC) enters the synthetic cell and (via TetR, not shown) de-represses `TetO-PLA1` expression. PLA1 then ruptures the membrane, releasing LacZ to the CPRG outside. Figure by Mary Kelly (Chicago Node, Kamat Lab).
 :::
 
 # Reference Composition
@@ -88,7 +88,7 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form; expressed in the synthetic cell. Distinct from `pT7-tetO-plamGFP` |
-| `pOpen-T7-tetO-PLA1` | 3140 | pending — see below | Circular form, preferred by the Chicago Node |
+| `pOpen-T7-tetO-PLA1` | 3140 | — | Circular form, preferred by the Chicago Node |
 :::
 
 :::{attention} The circular forms are not on `main` yet
@@ -154,9 +154,9 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 This configuration detects aTc in synthetic cells, but the response is **not graded**. Fold change in absorbance at 5 h (n = 3) separates dosed from undosed at roughly 1.15× to 1.33×, across three DNA/TetR combinations — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — each dosed at 0, 1, 5, and 10 µM aTc. The response is non-monotonic in two of the three combinations, and the error bars across the 1, 5, and 10 µM points overlap in all three. Treat it as saturating at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.
 
-Full detail, including the reading of the source figure and why the 0 µM point is a normalization baseline rather than a negative control, is documented in the [aTc Sensing Module](../detector-tetr-atc/spec.md#teto-pla1-encapsulated-with-lacz) spec and is not duplicated here.
+See the [aTc Sensing Module](../detector-tetr-atc/spec.md#teto-pla1-encapsulated-with-lacz) spec for the full result, including why the 0 µM point is a normalization baseline rather than a negative control.
 
-:::{caution} Gel integration not yet complete.
+:::{caution} Not yet validated in gels
 This result is confirmed in synthetic cells only.
 :::
 

@@ -127,10 +127,10 @@ Expect a gel that stays liquid while warm, tolerates mixing with intact syntheti
 
 Two results are confirmed in this matrix. At 1.5%, the two-liposome PLA1/CPRG/LacZ chemistry gives a visible color change from about 3 h at 37 °C, easily discernible by 16 h — see [PLA1 Lysis Module](../effector-pla1/spec.md). At 1%, encapsulated cells give a GFP readout scored after 2.5 h.
 
-:::{note} The colorimetric result was measured at a superseded concentration
-The 1.5% above is the condition that experiment ran at, and it is kept for that reason. New work uses 1% (w/v) in the prepared solution, which gives 0.5% (w/v) in the set gel.
+:::{note} The colorimetric result was measured outside the working range
+The 1.5% above is the condition that experiment ran at. The current concentration is 1% (w/v) in the prepared solution, which gives 0.5% (w/v) in the set gel.
 
-The London Node confirmed the 1:1:2 combining ratio on 2026-09-09. Under that ratio 1.5% gives 0.75% (w/v) in the set gel, above the 0.2% to 0.5% working range — so the confirmed colorimetric result comes from a condition current practice does not use.
+Under the 1:1:2 combining ratio, 1.5% gives 0.75% (w/v) in the set gel, above the 0.2% to 0.5% working range, so the confirmed colorimetric result comes from a condition outside that range.
 :::
 
 :::{attention} The temperatures are not established
@@ -159,7 +159,11 @@ Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-s
 | ULGA | Reagent | Ultra low gelling temperature agarose | Sigma-Aldrich | A5030 | [link](https://www.sigmaaldrich.com/GB/en/product/sial/a5030) |
 :::
 
-The source records this agarose as both Sigma-Aldrich A5030 and A2576, "Agarose, Type IX-A, ultra low gelling temperature". London Node: they are interchangeable.
+This agarose appears under two Sigma-Aldrich part numbers, A5030 and A2576, "Agarose, Type IX-A, ultra low gelling temperature". The two are interchangeable.
+
+:::{attention} Source needed for the interchangeability of A5030 and A2576
+@Editor(london): cite the document that shows A5030 and A2576 are interchangeable.
+:::
 
 # Credits
 

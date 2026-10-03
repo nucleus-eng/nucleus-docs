@@ -23,8 +23,8 @@ This Module is not a reporter on its own. It supplies one half of a two-part col
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{note} This population replaced an SUV population
-The London Node moved this population from small unilamellar vesicles to GUVs on 2026-09-09. Both cell populations in the cascade now come from the same phase-transfer route, which removes a whole process from the build. Compare [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md), which the Chicago pH path still uses, made by film hydration and extrusion.
+:::{note} A CPRG SUV form also exists
+Both cell populations in the [London Cascade](../london-cascade/spec.md) come from the same phase-transfer route, which removes a whole process from the build. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is the SUV form, made by film hydration and extrusion, and the Chicago pH path uses it.
 :::
 
 (guv-cprg-reference-composition)=
@@ -88,7 +88,7 @@ flowchart TD
 | CPRG | 50 mM at hydration, approx. 30 mg/mL — per [Substrate: CPRG](../substrate-cprg/spec.md) |
 :::
 
-The loading concentration does not depend on the bilayer, so it carries over unchanged from the SUV form.
+The loading concentration does not depend on the bilayer, so the [SUV form](../substrate-cprg-suv/spec.md) loads CPRG at the same 50 mM.
 
 ::::
 
@@ -102,7 +102,7 @@ An intact CPRG GUV produces no signal. That is the whole function: the populatio
 On PLA1-triggered lysis of a neighboring sensing cell, released CPRG meets LacZ in the surrounding gel and gives a yellow-to-magenta change, read by absorbance and by eye.
 
 :::{attention} Not yet characterized in this form
-This population has no performance data of its own. The [London Cascade](../london-cascade/spec.md) results were obtained with the SUV form it replaces, and rupture in that cascade is temperamental — the cells do not always lyse. Treat the GUV form as unvalidated until the cascade is re-run with it.
+This population has no performance data of its own. The [London Cascade](../london-cascade/spec.md) results were obtained with the [SUV form](../substrate-cprg-suv/spec.md), and rupture in that cascade is temperamental — the cells do not always lyse. Treat the GUV form as unvalidated.
 :::
 
 (guv-cprg-requirements)=

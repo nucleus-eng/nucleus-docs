@@ -73,11 +73,11 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `LuxR-deGFP` | 1952 | — | Expressed in the sensing cell. One molecule: a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving deGFP. Previously referred to here as `pLux-GFP`. |
+| `LuxR-deGFP` | 1952 | — | Expressed in the sensing cell. One molecule: a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving deGFP. |
 :::
 
 :::{attention} Sequence file not yet in `nucleus-eng/DNA`
-The construct exists and its sequence is in hand — `luxR` and the `pLux`-driven payload are on one molecule, so there is no second plasmid and no missing row. It has not yet been submitted to [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA), so this table cites no file.
+`LuxR-deGFP` has no sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA), so the table above cites none. @Editor: submit the sequence to `nucleus-eng/DNA` and link the file here.
 :::
 
 See [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) for sensor specification.
@@ -145,7 +145,7 @@ Without Optiprep in the inner solution, the encapsulated sensor expresses GFP on
 In [S30 Lysate](../s30-lysate/spec.md), the 3OC6-HSL-gated [colorimetric](../../processes/colorimetric-readout/main.md) sensor works in solution as well as in gel. An SensorCell[3OC6-HSL ⟶ PLA1] combined with a [CPRG-loaded SUV](../../processes/encapsulate-suv/main.md) and 3OC6-HSL has not been reproduced. Negative controls in that test turned purple, attributed to leaky old-stock liposomes rather than an 3OC6-HSL response.
 
 :::{attention} Caveats
-- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the 3OC6-HSL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
+- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the 3OC6-HSL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10%.
 - Plasmid dose is critical — roughly seven-fold under-dosing accounts for early failures. Use ~1000 ng per reaction.
 - Fold-induction is strongest near 25 °C and drops at 37 °C. Incubate at 25 °C where minimal background matters.
 - Encapsulation is stochastic. Expect a GFP-positive subpopulation rather than uniform signal across synthetic cells.
@@ -173,7 +173,11 @@ Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate
 
 Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)).
 
-Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10% (London Node, 26 August).
+Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10%.
+
+:::{attention} Source needed for the Optiprep ceiling in dye populations
+@Editor(london): cite the document that gives the London CPRG population's 10% Optiprep, which this page states under Expected Behavior and here.
+:::
 
 # Implementations
 

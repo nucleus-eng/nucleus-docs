@@ -47,7 +47,7 @@ Exposure time depends on monomer concentration, layer thickness and feature size
 
 | | PEG-Norbornene | PEGDA |
 | --- | --- | --- |
-| Status | **live**, the aTc path | **canceled**, *"destroys the vesicles"* — the source does not say which class |
+| Status | **live**, the aTc path | **canceled**: PEGDA destroys the liposomes; the liposome class is not stated |
 | Mechanism | step-growth thiol-ene | radical polymerization of acrylates |
 | Oxygen inhibition at the surface | less prone | prone |
 | Network uniformity | more uniform | more heterogeneous |
@@ -57,15 +57,15 @@ Exposure time depends on monomer concentration, layer thickness and feature size
 
 Crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. Precursor composition and preparation are on [Gel: PEG-Norbornene](../../modules/gel-peg-norbornene/spec.md). Patterning runs **60 s at 405 nm**.
 
-:::{attention} No protocol is recorded for this chemistry
-The four shared steps are above. What this section would add — the precursor recipe and the exposure conditions specific to thiol-ene crosslinking — does not exist in any source available to this documentation.
+:::{attention} No protocol for this chemistry
+The four shared steps are above. The precursor recipe and the exposure conditions specific to thiol-ene crosslinking are not established. @Editor(chicago): add the precursor recipe and the exposure conditions for thiol-ene crosslinking.
 :::
 
 ### Expected Behavior
 
 One spatial-patterning result is recorded. A block-pattern color change, first produced in agarose, was repeated with a PEG-norbornene outer gel and LacZ added on top, with the color change still visible after roughly 1.5 h.
 
-## PEGDA, the canceled chemistry — kept for reference
+## PEGDA, the canceled chemistry
 
 Crosslinks poly(ethylene glycol) diacrylate into spatially defined patterns using 405 nm light through a DLP projector. Precursor is 20 wt% PEGDA575, 0.3 wt% PEG4SH and 0.03 wt% LAP in PBS — see [Gel: PEGDA](../../modules/gel-pegda/spec.md). Patterning runs (15–30) s.
 
@@ -119,7 +119,7 @@ DevCell component volumes are too small to produce macroscopically visible patte
 
 # Requirements
 
-Requires a 405 nm light source, normally a DLP projector. **This is the only gel-forming route in this documentation with an equipment requirement beyond ordinary labware.**
+Requires a 405 nm light source, normally a DLP projector. **This is the only one of the three Embedding routes with an equipment requirement beyond ordinary labware.**
 
 Requires the PEG4SH crosslinker and the LAP photoinitiator, on either chemistry.
 

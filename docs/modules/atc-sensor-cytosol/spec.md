@@ -69,9 +69,13 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form. Base Cytosol does not require circular DNA |
-| `pOpen-T7-tetO-PLA1` | 3140 | pending — [PR #10](https://github.com/nucleus-eng/DNA/pull/10) | Circular form, preferred by the Chicago Node |
+| `pOpen-T7-tetO-PLA1` | 3140 | — | Circular form, preferred by the Chicago Node |
 | TetR | not documented | — | Supplied as purified protein at 50 nM, not expressed |
 | LacZ | not documented | — | Supplied as purified enzyme at 2.5 U/mL, not expressed |
+:::
+
+:::{attention} The circular form is not on `main` yet
+@Editor(chicago): `pOpen-T7-tetO-PLA1.gb` is on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file link to the table above when it lands.
 :::
 
 One molecule carries the operator and the effector, so [PLA1](../effector-pla1/spec.md) has no construct of its own here.

@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`color-change`](../color-change/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The LacZ Reporter Module produces β-galactosidase (LacZ), an enzyme that hydrolyzes the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) from a yellow compound into a magenta/red product, giving a colorimetric readout visible to the naked eye. It is the shared colorimetric reporter across the DevCells cascades, paired with a different sensing Module in each; sensor-specific behavior is on that Module's own page.
+The LacZ Reporter Module produces β-galactosidase (LacZ), an enzyme that hydrolyzes the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) from a yellow compound into a magenta/red product, giving a colorimetric readout visible to the naked eye. It is the shared colorimetric reporter across the DevCells cascades, paired with a different sensing Module in each.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -81,7 +81,7 @@ flowchart TD
 | CPRG | 0.6 mg/mL final | from a 10 mg/mL stock. The concentration on contact, not a concentration in the expression reaction |
 :::
 
-**This figure is imputed rather than measured**, like every other on this page. See the `open:` block in `spec.yml`.
+**This figure is imputed rather than measured**, like every other composition value on this page. The Cytosol tab says where the values come from.
 
 ::::
 
@@ -89,7 +89,7 @@ flowchart TD
 ::::{tab-item} DNA
 
 :::{attention} Not yet in `nucleus-eng/DNA`
-No LacZ-encoding construct referenced by either node has a corresponding file in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA) as of this writing (checked `detectors/` and `reporters/`; none found). The Chicago bulk-cytosol construct `pT7-theophylline-LacZ` (`pMN066`) fuses LacZ downstream of the theophylline riboswitch rather than expressing it standalone, so even once submitted it would not represent a bare LacZ reporter part. The London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) are reported as synthesized in the source devnote but no sequence file or DNA-repo submission is cited. Do not link to a placeholder or guess a filename — flag for follow-up so a standalone LacZ construct can be submitted to `nucleus-eng/DNA` before this table can cite a real sequence file.
+No LacZ-encoding construct referenced by either Node has a corresponding file in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA). The Chicago bulk-cytosol construct `pT7-theophylline-LacZ` (`pMN066`) fuses LacZ downstream of the theophylline riboswitch rather than expressing it standalone, so even once submitted it would not represent a bare LacZ reporter part. The London constructs (`T7pro-LacZ-T7term`, `T7pro-UTR1-G10_leader_peptide-LacZ-T7term`) are reported as synthesized, with no sequence file or DNA-repo submission cited. @Editor: have a standalone LacZ construct submitted to `nucleus-eng/DNA`, then cite its sequence file in the table below. Do not link a placeholder or guess a filename.
 :::
 
 | **Name** | **Length (bp)** | **File** |
@@ -164,10 +164,10 @@ How to achieve this requirement is a design choice. Here are three example solut
 - **Enclose the enzyme.** A [pore](../membrane-pore-ahly/spec.md) in the sensing cell lets CPRG in at 0.59 kDa, below both the ~3 kDa and ~1 kDa cutoffs. **A pore substitutes for lysis.** The enzyme's 465 kDa never enters the argument, because nothing needs the enzyme to cross.
 - **Enclose the substrate.** A pore does not substitute, and the reason is reach rather than mass. A pore inserts into the membrane of the cell that expressed it, and a [CPRG liposome](../substrate-cprg-suv/spec.md) expresses nothing, so nothing opens it. Only lysis reaches across.
 
-Both bullets above use [PLA1](../effector-pla1/spec.md) today, which is why the difference has not bitten.
+Both bullets above use [PLA1](../effector-pla1/spec.md) as the lysis trigger, so the difference does not arise.
 
 :::{attention} The reach half is reasoned, not measured
-That a pore cannot open a neighboring liposome follows from pores inserting into the membrane of the expressing cell. **No page here states it and no experiment tests it.** The mass half is now measured on both sides; this half is not.
+That a pore cannot open a neighboring liposome follows from pores inserting into the membrane of the expressing cell. **No experiment tests it.** The mass half is measured on both sides; this half is not.
 :::
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
@@ -184,7 +184,7 @@ See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.
 :::
 
 :::{warning} Gels requiring UV crosslinking require post-exposure addition of CPRG
-CPRG is UV-sensitive: preloaded into liposomes it photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-liposome preloaded-CPRG method works as expected. So this is a **Conflict** between a Process and a Component: photodevelopment imposes UV, and CPRG is sensitive to it. It is a property of CPRG under UV, which both photodevelopment routes impose, and not a defect in the LacZ/CPRG reaction itself.
+CPRG is UV-sensitive: preloaded into liposomes it photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-liposome preloaded-CPRG method works as expected. So this is a **Conflict** between a Process and a Component: photodevelopment imposes UV, and CPRG is sensitive to it. It is a property of CPRG under UV, which both photodevelopment routes impose.
 
 **Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
 :::

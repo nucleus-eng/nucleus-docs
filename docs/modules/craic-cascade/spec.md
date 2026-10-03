@@ -15,9 +15,9 @@ site:
 
 A sensing cascade that detects 3OC6-HSL in [Base Cytosol](../base-cytosol/spec.md) and reports a color change. EsaR relieves repression of PLA1, PLA1 lyses the compartments, and LacZ reaches CPRG to produce chlorophenol red.
 
-**CRAIC expands to "Colorimetric Reporter for AHL In Cytosol".** AHL became 3OC6-HSL on 2026-09-24, so the acronym carries a retired name. It is kept because it is the demo's own name.
+**CRAIC expands to "Colorimetric Reporter for AHL In Cytosol".** The "AHL" in the name stands for the analyte, 3OC6-HSL.
 
-**This is one of two 3OC6-HSL demos, and they are not variants of one design.** The other is [LuxR-GFP Sensor Cascade](../luxr-gfp-cascade/spec.md), which senses the same analyte in S30 lysate and reports fluorescence.
+**This is one of two 3OC6-HSL demos.** The other is [LuxR-GFP Sensor Cascade](../luxr-gfp-cascade/spec.md), which senses the same analyte in S30 lysate and reports fluorescence.
 
 **This is the only demo that builds two bounded compartments and merges them.** One branch makes the sensing cell and the other makes the substrate carrier. Both reach one gel embed, which is the separation invariant of [Color Change](../color-change/spec.md) drawn concretely: the enzyme and its substrate arrive in one gel in two compartments.
 
@@ -117,9 +117,9 @@ flowchart TD
 ::::{tab-item} Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md)
-- Sensor: EsaR DNA template — no page
+- Sensor: EsaR DNA template
 - [Lysis: PLA1](../effector-pla1/spec.md)
-- Membrane — formulation not chosen on the board
+- Membrane — formulation not specified
 - [Outer Solution](../outer-solution/spec.md)
 - [Substrate: CPRG](../substrate-cprg/spec.md)
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md)
@@ -136,9 +136,13 @@ flowchart TD
 
 # Requirements
 
-Requires EsaR, which has no module page. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) documents LuxR and mentions EsaR only in passing, so it does not specify this cascade's sensing leg.
+Requires EsaR as the 3OC6-HSL-responsive repressor (see [Detector: EsaR](../detector-esar/spec.md)).
 
-Requires an observation step this corpus does not describe. The board draws one and `observe` carries no profile on the theory side.
+Requires an observation step to read the color change.
+
+:::{attention} Gaps in this cascade's specification
+@Editor: name the membrane formulation, add a Module page for the EsaR DNA template, and add a Process page for the observation step.
+:::
 
 # Processes
 
@@ -149,4 +153,6 @@ Requires an observation step this corpus does not describe. The board draws one 
 
 # Credits
 
-Transcribed from the DevStudio whiteboard of 2026-09-24. Structure follows that board.
+:::{attention} Credits missing
+@Editor: name the developers of this cascade, with their Node and Lab.
+:::

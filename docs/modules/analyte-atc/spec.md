@@ -13,7 +13,7 @@ Anhydrotetracycline (aTc) is the inducer the [tetR-aTc Detector](../detector-tet
 
 **aTc is membrane-permeable.** It crosses a POPC bilayer without help, which is why the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) needs no membrane pore to be induced — the analyte reaches the cytosol on its own. That property is what makes aTc the easiest of the five analytes to use in an encapsulated format.
 
-**This is an Analyte, so it is not a constituent of anything.** It reaches a sensing cell from outside, after the cell is closed. The pages that compose aTc-sensing Modules say so explicitly and this page does not change that.
+**This is an Analyte, so it is not a constituent of anything.** It reaches a sensing cell from outside, after the cell is closed.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -26,7 +26,7 @@ This page is a work in progress and not yet ready for use.
 | --- | --- | --- |
 | **Effective induction, Nucleus Cytosol** | **0.1 µM to 0.5 µM**, optimum ~0.25 µM to 0.35 µM | The working window in this cytosol |
 | **Expression poisoning** | **above ~1 µM** | aTc inhibits the cell-free reaction itself, cutting baseline expression by 30–40% |
-| Effective induction, lysate | 2.5 µM to 5 µM | The figure this page previously gave without qualification. It is a lysate figure |
+| Effective induction, lysate | 2.5 µM to 5 µM | The working window in lysate |
 | Interference | above 50 µM to 100 µM | aTc's own yellow color overwhelms GFP fluorescence |
 :::
 
@@ -38,15 +38,9 @@ Chicago Node, 2026-09-11. Lysate work — including the lab that has run this se
 **One thing that follows and is not measured:** TetR binds aTc, so a repressed reaction may see less free aTc than an unrepressed one at the same nominal dose. That would make the poisoning threshold depend on TetR concentration. @Editor(chicago): confirm.
 :::
 
-**The first two bands are different kinds of claim.** The effective window is a property of what the Detector responds to. The interference threshold is a property of the *assay* — it says the readout stops working, not that the Module does. They are recorded together because they arrive together on the detector page, not because they are the same thing.
+**The effective-induction bands and the interference threshold are different kinds of claim.** The effective window is a property of what the Detector responds to. The interference threshold is a property of the *assay* — it says the readout stops working, not that the Module does.
 
-:::{attention} The two dose statements in the corpus do not obviously agree
-[tetR-aTc Detector](../detector-tetr-atc/spec.md) gives (2.5–5) µM as the effective window. [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) reports its own configuration as **not graded**, saturating at or below 1 µM with no resolvable dose-dependence from 1 to 10 µM.
-
-These are different configurations — `pT7-tetO-plamGFP` with a fluorescent readout against `TetO-PLA1` with a LacZ color readout — so they need not agree.
-
-**Resolved 2026-09-11, and the split is cytosol against lysate rather than fluorescent against colorimetric.** The (2.5–5) µM band is a lysate figure. Nucleus Cytosol wants roughly ten times less, in both readouts: the fluorescent system peaked near 0.35 µM in encapsulated imaging, and the colorimetric one worked at 0.25–0.35 µM in a patterned gel.
-:::
+**Nucleus Cytosol needs about ten times less aTc than lysate, in both readouts.** The (2.5–5) µM band that [tetR-aTc Detector](../detector-tetr-atc/spec.md) gives as the effective window is a lysate figure. In Nucleus Cytosol the fluorescent system (`pT7-tetO-plamGFP`) peaked near 0.35 µM in encapsulated imaging. The colorimetric system (`TetO-PLA1` with a LacZ color readout) worked at 0.25–0.35 µM in a patterned gel; its response in [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) is not graded, saturating at or below 1 µM with no resolvable dose-dependence from 1 to 10 µM.
 
 # Requirements
 
