@@ -1,0 +1,56 @@
+# Composition source for LacZ.
+#
+# WRITTEN 2026-09-21 on Jon's ruling: "reporter lacZ operand should have lacz-DNA OR
+# lacz-protein! not sure how to represent that, but it MUST abstract over both".
+#
+# THE REPRESENTATION IS A CLASS OPERAND, AND THE CORPUS ALREADY USES IT EVERYWHERE.
+# An operand naming a class means any member satisfies it: ../cell/spec.yml takes
+# `cytosol` and either base-cytosol or s30-lysate answers. So "DNA or protein" needs no
+# new key, no disjunction syntax and no schema change. It needs this page to exist and
+# the operand to point at it.
+#
+# TWO MEMBERS, AND THEY DIFFER IN WHAT THEY REQUIRE RATHER THAN IN WHAT THEY DO.
+# ../lacz-dna is a template and requires an expression system. ../reporter-lacz-enzyme is
+# the purified protein and requires a supplier. Both deliver beta-galactosidase activity,
+# which is why an operand can take either.
+#
+# THIS ALSO FIXES A STRUCTURAL DEFECT AND THAT IS WORTH RECORDING. Until today
+# reporter-lacz-enzyme declared `refines: reporter-lacz`, which put an EQUIVALENCE inside
+# an ORDER: session c9d6a5 identified the pair as co-satisfying, glossary.md#T28
+# `=_sat(S)`, two Formulations of one Specification separated by a formulation predicate.
+# Co-satisfying things sit at the same height, so a refinement edge between them is not
+# an order edge and meet() walking it could return a parent for a pair that has none. It
+# never bit, because the enzyme is a leaf and nothing meets through it. Moving the
+# abstraction down to the operand makes both forms members of THIS class, which is a
+# real membership, and removes the equality from the order.
+#
+# NO `refines:`. An enzyme is not a container, a cytosol or a reporter. It is a component
+# a reporter reaction takes.
+
+module: lacz
+title: "LacZ"
+
+inputs:
+  lacz-source:
+    title: "A source of beta-galactosidase"
+    page: null            # a template in one member, the purified protein in the other
+
+process_steps: []
+# NO STEPS, AND THAT IS THIS CLASS RATHER THAN A RULE ABOUT CLASSES. Most classes here
+# compose: thirteen of fourteen name inputs and twelve run a step. This one does not,
+# because its two members are obtained rather than made — one is ordered from a supplier
+# and the other is a DNA construct. ../pore/spec.yml has the same shape for the same
+# reason.
+
+open:
+  - id: the-two-members-are-co-satisfying-and-that-is-the-point
+    question: >
+      RECORDED 2026-09-21. glossary.md#T28 calls two Formulations of one Specification
+      co-satisfying, and what separates these two is a formulation predicate under #T20:
+      the template requires an expression system, the protein requires a supplier. So
+      the members are equal in what they satisfy and unequal in what they demand. A
+      class over them is the right shape precisely BECAUSE they are co-satisfying: the
+      class says an operand does not care which, and the members say what each costs.
+      Whether that generalises to every supply-form pair is not settled here. Measured
+      2026-09-21: of eight molecules that could be supplied either way, LacZ is the only
+      one this corpus builds both ways, so it is the only place the question has arisen.

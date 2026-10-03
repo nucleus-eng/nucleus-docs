@@ -1,0 +1,367 @@
+---
+title: "Chicago Cascade"
+subtitle: "Module Specification"
+status: draft
+site:
+    hide-toc: true
+    numbered_references: false
+---
+
+# Overview
+
+The Chicago Cascade is the top-level, multiplexed demo from the Chicago Node of DevCells: two integrated synthetic cell detectors embedded in parallel in one system, each detecting a different analyte, both reporting through a shared colorimetric readout. The two module integration paths are the [aTc Cascade](../atc-cascade/spec.md) and the [pH Cascade](../ph-cascade/spec.md).
+
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
+
+:::{note} The theophylline path is not part of this cascade
+The theophylline sensor is not part of the demo: its riboswitch drives the reporter with no analyte present, so it does not discriminate. See [Theophylline Sensing Module](../detector-theophylline/spec.md). A constraint on colocalizing theophylline with aTc remains plausible and is untested.
+:::
+
+# Reference Composition
+:::{attention} Merged recipe not documented
+@Editor(chicago): no combined recipe exists for the two paths together. The per-population tables below are each path's own composition, carried over unchanged; nothing records what changes when they share one reaction. Confirm with the Chicago Node.
+:::
+
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
+    ENERGY_SOLUTION["Energy solution"]
+    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
+    EFFECTOR_PLA1["Lysis: PLA1"]
+    REPORTER_LACZ_ENZYME["LacZ Enzyme"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+    DETECTOR_TETR_ATC["Detector: tetR-aTc"]
+    PEG_NORBORNENE_MONOMER["4-arm PEG-norbornene"]
+    PEG4SH["PEG4SH crosslinker"]
+    LAP["LAP photoinitiator"]
+    PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
+    TRIGGER_SSDNA["Trigger ssDNA"]
+    ULGA_POWDER["ULGA powder, 0.7%"]
+
+    P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
+    OUTER_SOLUTION_CHICAGO["Chicago Outer Solution"]
+    P2_ASSEMBLE_ATC_CYTOSOL_0(["Assemble Cytosol (mixing)"])
+    ATC_SENSOR_CYTOSOL["SensorCytosol[aTc ⟶ PLA1]"]
+    P3_ENCAPSULATE_ATC_0(["Encapsulation: Phase Transfer (packing)"])
+    P3_ENCAPSULATE_ATC_1(["Degrade Exterior LacZ"])
+    ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
+    P4_PHOTODEVELOP_ATC_GEL_0(["Embedding: Photodevelopment (packing, 2 pairs mixing)"])
+    ATC_GEL["aTc gel piece"]
+    P5_DOSE_CPRG_INTO_ATC_GEL_0(["Dose CPRG into the set gel (packing) — no page"])
+    ATC_CASCADE["aTc Cascade"]
+    P6_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
+    PH_TRIGGER_DUPLEX["pH trigger duplex"]
+    P7_ASSEMBLE_PH_CYTOSOL_0(["Assemble Cytosol (mixing)"])
+    PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
+    P8_ENCAPSULATE_PH_0(["Encapsulation: Phase Transfer (packing)"])
+    PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
+    P9_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: Extrusion (packing)"])
+    SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
+    P10_EMBED_AGAROSE_0(["Embedding: Thermal Setting (packing, 3 pairs mixing)"])
+    PH_CASCADE["pH Cascade"]
+    P11_BOND_GELS_0(["Bond the two gels (packing) — no page"])
+    CHICAGO_CASCADE["Chicago Cascade"]
+
+    TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_CHICAGO
+
+    BASE_CYTOSOL --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    DETECTOR_TETR_ATC --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    EFFECTOR_PLA1 --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    REPORTER_LACZ_ENZYME --> P2_ASSEMBLE_ATC_CYTOSOL_0
+    P2_ASSEMBLE_ATC_CYTOSOL_0 --> ATC_SENSOR_CYTOSOL
+
+    ATC_SENSOR_CYTOSOL --> P3_ENCAPSULATE_ATC_0
+    MEMBRANE_CHICAGO --> P3_ENCAPSULATE_ATC_0
+    P3_ENCAPSULATE_ATC_0 --> P3_ENCAPSULATE_ATC_1
+    P3_ENCAPSULATE_ATC_1 --> ATC_SENSING_CELL
+
+    PEG_NORBORNENE_MONOMER --> P4_PHOTODEVELOP_ATC_GEL_0
+    PEG4SH --> P4_PHOTODEVELOP_ATC_GEL_0
+    LAP --> P4_PHOTODEVELOP_ATC_GEL_0
+    OUTER_SOLUTION_CHICAGO --> P4_PHOTODEVELOP_ATC_GEL_0
+    ATC_SENSING_CELL --> P4_PHOTODEVELOP_ATC_GEL_0
+    P4_PHOTODEVELOP_ATC_GEL_0 --> ATC_GEL
+
+    ATC_GEL --> P5_DOSE_CPRG_INTO_ATC_GEL_0
+    SUBSTRATE_CPRG --> P5_DOSE_CPRG_INTO_ATC_GEL_0
+    P5_DOSE_CPRG_INTO_ATC_GEL_0 --> ATC_CASCADE
+
+    PH_RESPONSIVE_SSDNA --> P6_ANNEAL_TRIGGER_DUPLEX_0
+    TRIGGER_SSDNA --> P6_ANNEAL_TRIGGER_DUPLEX_0
+    P6_ANNEAL_TRIGGER_DUPLEX_0 --> PH_TRIGGER_DUPLEX
+
+    BASE_CYTOSOL --> P7_ASSEMBLE_PH_CYTOSOL_0
+    PH_TRIGGER_DUPLEX --> P7_ASSEMBLE_PH_CYTOSOL_0
+    EFFECTOR_PLA1 --> P7_ASSEMBLE_PH_CYTOSOL_0
+    P7_ASSEMBLE_PH_CYTOSOL_0 --> PH_SENSOR_CYTOSOL
+
+    PH_SENSOR_CYTOSOL --> P8_ENCAPSULATE_PH_0
+    MEMBRANE_CHICAGO --> P8_ENCAPSULATE_PH_0
+    P8_ENCAPSULATE_PH_0 --> PH_SENSING_CELL
+
+    SUBSTRATE_CPRG --> P9_ENCAPSULATE_SUBSTRATE_SUV_0
+    MEMBRANE_CHICAGO --> P9_ENCAPSULATE_SUBSTRATE_SUV_0
+    P9_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
+
+    ULGA_POWDER --> P10_EMBED_AGAROSE_0
+    OUTER_SOLUTION_CHICAGO --> P10_EMBED_AGAROSE_0
+    PH_SENSING_CELL --> P10_EMBED_AGAROSE_0
+    SUBSTRATE_CPRG_SUV --> P10_EMBED_AGAROSE_0
+    REPORTER_LACZ_ENZYME --> P10_EMBED_AGAROSE_0
+    P10_EMBED_AGAROSE_0 --> PH_CASCADE
+
+    ATC_CASCADE --> P11_BOND_GELS_0
+    PH_CASCADE --> P11_BOND_GELS_0
+    P11_BOND_GELS_0 --> CHICAGO_CASCADE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,TRIS_HEPES_STOCK,ENERGY_SOLUTION,MEMBRANE_CHICAGO,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,SUBSTRATE_CPRG,DETECTOR_TETR_ATC,PEG_NORBORNENE_MONOMER,PEG4SH,LAP,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,ULGA_POWDER leaf;
+    class OUTER_SOLUTION_CHICAGO,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE,CHICAGO_CASCADE composed;
+    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_ATC_CYTOSOL_0,P3_ENCAPSULATE_ATC_0,P3_ENCAPSULATE_ATC_1,P4_PHOTODEVELOP_ATC_GEL_0,P5_DOSE_CPRG_INTO_ATC_GEL_0,P6_ANNEAL_TRIGGER_DUPLEX_0,P7_ASSEMBLE_PH_CYTOSOL_0,P8_ENCAPSULATE_PH_0,P9_ENCAPSULATE_SUBSTRATE_SUV_0,P10_EMBED_AGAROSE_0,P11_BOND_GELS_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
+    click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
+    click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
+    click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
+    click PEG_NORBORNENE_MONOMER "/docs/modules/gel-peg-norbornene/spec"
+    click ULGA_POWDER "/docs/modules/gel-ulga/spec"
+    click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
+    click OUTER_SOLUTION_CHICAGO "/docs/modules/outer-solution-chicago/spec"
+    click P2_ASSEMBLE_ATC_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
+    click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
+    click P3_ENCAPSULATE_ATC_0 "/docs/processes/assemble-base-cell/main"
+    click P3_ENCAPSULATE_ATC_1 "/docs/processes/degrade-exterior-lacz/main"
+    click ATC_SENSING_CELL "/docs/modules/atc-sensing-cell/spec"
+    click P4_PHOTODEVELOP_ATC_GEL_0 "/docs/processes/embed-photodevelopment/main"
+    click ATC_CASCADE "/docs/modules/atc-cascade/spec"
+    click P6_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
+    click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click P7_ASSEMBLE_PH_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+    click P8_ENCAPSULATE_PH_0 "/docs/processes/assemble-base-cell/main"
+    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
+    click P9_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
+    click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click P10_EMBED_AGAROSE_0 "/docs/processes/embed-thermal-setting/main"
+    click PH_CASCADE "/docs/modules/ph-cascade/spec"
+    click CHICAGO_CASCADE "/docs/modules/chicago-cascade/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+The constructs are those of the two integration paths; no construct is specific to the merge.
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed; see [aTc Cascade](../atc-cascade/spec.md) |
+| `pT7-toehold9-PLA1-linear` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed; see [pH Cascade](../ph-cascade/spec.md). **A third design**, not either construct on [Lysis: PLA1](../effector-pla1/spec.md) |
+| `pH-responsive-ssDNA-2` | 49 | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | Synthesized oligonucleotide |
+| `trigger-ssDNA-3` | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, annealed to the above at 3:1 |
+:::
+
+::::
+
+::::{tab-item} Membrane
+
+**All three populations carry the same membrane.** Both integration paths are built on the [Chicago Chassis](../chicago-chassis/spec.md), and the Substrate SUV uses the same lipid composition, so one table covers the SensorCell[aTc ⟶ PLA1], the SensorCell[pH ⟶ PLA1] and the Substrate SUV alike. That identity is load-bearing — see [Requirements](#chicago-cascade-requirements).
+
+:::{table} Synthetic cell and SUV membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:label: comp-chicago-cascade-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
+:::
+
+::::
+
+::::{tab-item} SensorCell[aTc ⟶ PLA1]
+
+The aTc integration path uses one liposome population. It carries its own LacZ, but not the CPRG that LacZ acts on — that stays in the outer solution, so lysis is what produces color.
+
+:::{table} SensorCell[aTc ⟶ PLA1] cytosol — as on [aTc Cascade](../atc-cascade/spec.md#atc-cascade-reference-composition).
+:label: comp-chicago-cascade-atc-cell
+
+| Component | Working concentration |
+| --- | --- |
+| `TetO-PLA1` DNA | 1 nM |
+| TetR | 50 nM |
+| LacZ enzyme | 2.5 U/mL |
+| Base Cytosol components | At reaction concentration |
+:::
+
+::::
+
+::::{tab-item} SensorCell[pH ⟶ PLA1]
+
+The pH integration path is two compartments. This population carries sensing and lysis only; its substrate is in the Substrate SUV and its LacZ is in the outer solution.
+
+:::{table} SensorCell[pH ⟶ PLA1] cytosol — as on [pH Cascade](../ph-cascade/spec.md#ph-cascade-reference-composition).
+:label: comp-chicago-cascade-ph-cell
+
+| Component | Working concentration |
+| --- | --- |
+| pH-responsive ssDNA : trigger ssDNA (3:1, annealed) | 4.625 µM trigger ssDNA, final |
+| Toehold-switch-gated PLA1 DNA template | 2 nM, final |
+| Base Cytosol components | At reaction concentration |
+:::
+
+::::
+
+::::{tab-item} Substrate SUV
+
+A second liposome population carrying the chromogenic substrate, entering this cascade through the [pH Cascade](../ph-cascade/spec.md). See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+
+:::{table} Substrate SUV lumen.
+:label: comp-chicago-cascade-suv
+
+| Component | Working concentration |
+| --- | --- |
+| CPRG substrate | 50 mM at hydration, approx. 30 mg/mL — per [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
+:::
+
+The aTc integration path keeps its CPRG free in the outer solution instead, so it contributes no SUV population.
+
+::::
+
+::::{tab-item} Outer Solution
+
+The medium all three populations sit in, the only compartment with no membrane of its own, and where both analytes are presented. Both paths depend on it, in opposite directions: the pH path keeps its LacZ out here and its CPRG in an SUV, while the aTc path keeps its LacZ in the cell and its CPRG out here. Each arrangement is OFF until lysis.
+
+The hydrogel format keeps one enzyme and sequesters every substrate. Commercial LacZ is dispersed through the matrix; CPRG is loaded into SUVs and the preparation is SEC-purified twice specifically to remove unencapsulated CPRG, so no free substrate meets the enzyme before lysis. A second sensing path is intended to bring its own output SUVs carrying an orthogonal substrate — X-gal or catechol rather than CPRG — so that two analytes give two distinguishable colors rather than competing for one.
+
+:::{table} Outer solution.
+:label: comp-chicago-cascade-outer
+
+| Component | Working concentration |
+| --- | --- |
+| aTc | 1 µM — the aTc path's analyte, per [aTc Cascade](../atc-cascade/spec.md#atc-cascade-reference-composition) |
+| H⁺ | pH 7.4 at rest; a drop to ≈ 6.5 opens the pH path's toehold switch |
+| β-galactosidase (LacZ) | Commercial enzyme dispersed through the matrix; not documented at a working concentration for the multiplexed cascade. One enzyme pool serves the whole gel. |
+| Osmotic balance | Matched to the inner solutions, per [Chicago Chassis](../chicago-chassis/spec.md#chicago-chassis-reference-composition) |
+:::
+
+::::
+
+:::::
+
+# Expected Behavior
+
+:::{warning} Not attempted!
+No experiment has run the two integration paths together. The merge is not blocked; it has not been tried.
+:::
+
+(chicago-cascade-requirements)=
+# Requirements
+
+Requires both integration paths in one system — [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md) — on a shared [Chicago Chassis](../chicago-chassis/spec.md) membrane, reporting through one shared [LacZ Reporter](../reporter-lacz/spec.md).
+
+Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation. **The pattern itself is an Implementation-level choice** — see [Chicago DevCell](../../implementations/chicago-devcell/main.md).
+
+
+:::{note} The paths are multiplexed in space, not combined in logic
+The two integration paths are not wired into one signal. They are separate populations of
+synthetic cells embedded at different places in one gel — one sensing aTc, one sensing pH —
+and what distinguishes one analyte from both from neither is **the geometry of the color
+signal**, not a rule for combining them. There is no coincidence mechanism to build, because
+there is no combining step.
+
+That makes spatial separation the whole design, rather than a workaround. It is also what the
+Requirement above is protecting: PLA1 lyses any membrane it reaches, so two populations sharing
+a region would destroy each other regardless of which analyte fired.
+
+**The demo can show one color or two.** Both paths can read out through LacZ on CPRG, giving one color in two places. The [XylE / C23DO](../reporter-xyle/spec.md) reporter converts catechol to a different colored product, which would give two distinguishable colors — still spatially separated, since the populations are separate either way.
+:::
+
+:::{attention} Two readout configurations
+@Editor(chicago): the one-color and two-color demos are different configurations. Give each its own specification.
+:::
+
+# Processes
+
+Every step below has a Process page. They are listed in the order they are performed.
+
+**Shared**
+
+1. [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) — the cell-free reaction both integration paths run on.
+
+**aTc integration path**
+
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the SensorCell[aTc ⟶ PLA1], carrying `TetO-PLA1`, TetR and LacZ in one compartment.
+
+**pH integration path**
+
+3. [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — anneals the sensing and trigger strands into the single duplex reagent, before encapsulation.
+4. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the same method as the aTc cell, with a different inner solution: the duplex and the toehold-gated PLA1 template, and no LacZ.
+5. [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — prepares the [Substrate SUVs](../substrate-cprg-suv/spec.md) by film hydration and extrusion, then purifies away unencapsulated CPRG.
+
+**Shared, once the populations exist**
+
+6. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests LacZ that escaped the aTc cells, which would otherwise meet CPRG with no lysis and add background color. Proteinase K does not distinguish one LacZ from another, so this step suits a format where the enzyme is encapsulated. It cannot be applied to the hydrogel format described above, which disperses commercial LacZ through the matrix on purpose.
+7. **Embedding — two steps, one per path, then a bond.** The pH path uses an **agarose** gel; the aTc path uses [PEG-Norbornene](../../processes/embed-photodevelopment/main.md) photodevelopment. The two gels are then bonded into one piece. **No process page covers the bond**, and **no process page covers the agarose route either** — see the caution below.
+8. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion, read at 575 nm and by eye.
+
+The photodeveloped path adds CPRG after crosslinking rather than embedding it with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes, and it is why that path carries CPRG as a free dye rather than in a liposome.
+
+:::{important} Each path takes the combination that works for it
+The two integration paths are embedded separately, in different gels, so UV and liposome-held CPRG never meet:
+
+| Path | Gel | CPRG |
+| --- | --- | --- |
+| pH | **Agarose**, 0.7% | Held in [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — no UV, so the substrate survives |
+| aTc | **PEG-Norbornene**, photodeveloped | Dosed **free into the gel after crosslinking** at 0.5 mM, because UV bleaches it |
+
+**Spatial separation comes from the two gels being separate pieces**, not from patterning one gel. The photodeveloped path can use UV precisely because it carries no liposome-held substrate to bleach.
+
+**Confirmed 2026-09-11, and both paths moved.** The Node corrected the assignment live: the pH path is agarose, not alginate, and the aTc path is PEG-norbornene specifically — *"definitely pegnorburine because PEG-DA destroys the vesicles."* [PEGDA](../gel-pegda/spec.md) is canceled as a route.
+
+:::{note} The agarose is ULGA, and that gave the pH path its process page back
+**Answered 2026-09-21.** Jon, confirmed with the Chicago devs: the 0.7% agarose is ULGA. This corpus has one agarose embedding process, [ULGA](../../processes/embed-thermal-setting/main.md), ultra-low-gelling-temperature agarose gelling at (8–17) °C, and the Chicago work was described only as **0.7% agarose** cast on ice for about five minutes.
+
+The consequence was written before the answer arrived, so it applies without reinterpretation: **the pH path reuses the ULGA process with a concentration change**, rather than having no process page at all. Moving off alginate on 2026-09-11 had taken away the one it had.
+
+Low-gelling-temperature agarose and ULGA are the same object under different part numbers, which is why the identification changes the page and not the material. **No part number is on record**, and the answer came from the devs rather than from a catalog entry.
+:::
+:::
+
+:::{attention} Process gap
+Two gels are embedded separately and then joined into one piece, and no Process documents the joining. Every technique above is documented for one path or the other. The step that makes this cascade one system rather than two has no page.
+
+@Editor(chicago): the bonding step needs a Process page. Every combination step requires one, and this is the combination the whole cascade is named for.
+:::
+# Constituent Modules
+
+- [aTc Cascade](../atc-cascade/spec.md) — the aTc integration path, confirmed in synthetic cells; not yet validated in hydrogels. The detector alone is separately replicated in bulk Nucleus Cytosol with a deGFP reporter standing in for the lysis and colorimetric steps, so that result does not extend to the chain.
+- [pH Cascade](../ph-cascade/spec.md) — the pH integration path; its individual results are confirmed but the three-part chain has not been run end to end
+
+Both integration paths terminate at the [LacZ Reporter Module](../reporter-lacz/spec.md), which is shared rather than duplicated.
+
+# Credits
+
+Developed by the Chicago Node (Kamat Lab and Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

@@ -12,3 +12,10 @@ Implementations are combinations of useful Processes and Modules. This section i
 
 - [Responder Cell: aTc-detection IVHSL-emission](./responder-atc-ivhsl/main.md)
 - [Emitter Cell: IV-HSL emission](./emitter-ivhsl/main.md)
+
+## DevCells
+
+The final, fully integrated demo devices from the DevCells program.
+
+- [Chicago DevCell: Patterned Multiplexed Biosensor](./chicago-devcell/main.md)
+- [London DevCell: 3OC6-HSL Colorimetric Reporter](./london-devcell/main.md)

@@ -31,9 +31,15 @@ ALLOWED_ROOTS = {
 
 ALLOWED_ROOT_FILES = {
     "intro.md", "readme.md", "claude.md",
-    "contributors.md", "license.md", "fixme.md",
+    "contributors.md", "license.md", "fixme.md", "style-guide.md",
     "favicon.ico",
     "style-guide.md",
+    # TEMPORARY — remove together with CREDITS-TRACKING.md before merging the
+    # devcells-integration-pages branch to main. That file is a working model of
+    # who did what, not documentation, and it carries the same instruction at its
+    # own head. An allowlist entry outliving the file it permits would silently
+    # re-open the root to a content file.
+    "credits-tracking.md",
 }
 
 # Scratch and tooling directories. Nothing in them is site content.

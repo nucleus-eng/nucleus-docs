@@ -1,5 +1,5 @@
 ---
-title: "Base Membrane: POPC/Chol"
+title: "Membrane: POPC/Chol (7:3)"
 subtitle: "Module Specification"
 thumbnail: schematic.png
 site:
@@ -9,7 +9,11 @@ site:
 
 # Overview
 
-The Base Membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE). The Base Membrane is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+<!-- gen:position -->
+**Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
+This membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE). It is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
 :::{figure} schematic.png
 :width: 50%
@@ -19,6 +23,42 @@ Schematic of a POPC/Chol liposome.
 :::
 
 # Reference Composition
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    POPC["POPC"]
+    CHOLESTEROL["Cholesterol"]
+    LISS_RHOD_PE["Liss-Rhod PE"]
+
+    P1_FORM_LIPID_FILM_0(["Encapsulation: Phase Transfer (mixing)"])
+    MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
+
+    POPC --> P1_FORM_LIPID_FILM_0
+    CHOLESTEROL --> P1_FORM_LIPID_FILM_0
+    LISS_RHOD_PE --> P1_FORM_LIPID_FILM_0
+    P1_FORM_LIPID_FILM_0 --> MEMBRANE_POPC_CHOL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class POPC,CHOLESTEROL,LISS_RHOD_PE leaf;
+    class MEMBRANE_POPC_CHOL composed;
+    class P1_FORM_LIPID_FILM_0 process;
+
+    click P1_FORM_LIPID_FILM_0 "/docs/processes/assemble-base-cell/main"
+    click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
 
 :::{table}
 :label: comp-membrane-popc-chol
@@ -33,9 +73,9 @@ Schematic of a POPC/Chol liposome.
 
 # Expected Behavior
 
-The behavior of Base Membrane is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
+The behavior of Membrane: POPC/Chol (7:3) is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
 
-# Process
+# Processes
 
 Protocols for assembling Base Cell and making its components from scratch are described in the Process [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 

@@ -1,0 +1,61 @@
+# Composition source for Pore.
+#
+# NO `refines:` KEY, AND THAT IS THE CLAIM. A pore is not a kind of Container and not a
+# kind of Membrane. Jon, 2026-09-21: "Pore does NOT refine membrane!! it's a component
+# that can be composed with a membrane." compositional-biology-theory signature.md:203
+# reads, at main e40f3de, `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶
+# Membrane[permeable]; passes down ∇`, so a pore and a membrane are two of three operands
+# and the permeable membrane is the product. This class is a root here.
+#
+# QUOTE THAT FILE AS IT READS, AT A COMMIT. This comment has been wrong twice in one day
+# in the same way. It first quoted `passive_transport` before the rename existed there,
+# a forward reference to an edit nobody had made, caught by session c9d6a5. It then
+# quoted `Pore[passive]` correctly at 7b707cb and went stale within hours, because
+# e40f3de moved the bracket off the Pore and onto the Cargo on Jon's "refine the
+# argument bracket for the transported thing". A quote of another repo needs its commit
+# beside it or it is a claim about a moving file.
+#
+# ONE CONSTITUENT. A pore is the pore-forming agent. What it makes a hole IN belongs to
+# the composition the pore enters, not to the pore, which is the whole content of the
+# correction above.
+
+module: pore
+title: "Pore"
+
+inputs:
+  pore-forming-agent:
+    title: "Pore-forming agent"
+    page: null            # a protein in two members, a peptide in the third
+
+process_steps: []
+
+open:
+  - id: the-passive-active-split-is-not-an-axis-on-this-class
+    question: >
+      CLOSED 2026-09-21, and the class kept the finding while losing the axis. This
+      item used to say the theory offered `Pore[passive]` against `Pore[active]`, that
+      all three paged members are passive, and that the axis therefore did no work.
+      The first half is no longer true: e40f3de gives one `Pore` sort and puts the
+      passive against active distinction on the operation, with the bracket on the
+      Cargo. A class cannot be split by a property of an operation it is an argument
+      to, so the axis does no work here because it is not an axis here. What stays is
+      the measurement that made the point: zero of the three paged members mention
+      ATP, GTP, pumping or active transport.
+  - id: what-does-separate-them-is-not-an-axis-yet
+    question: >
+      Two members select on mass and one on charge and identity, and the two that
+      select on mass differ about threefold in the cutoff. That is the real variation
+      and nothing states it as an axis, so it lives in a table on the page.
+  - id: empty-process-steps-with-a-nonempty-inputs
+    question: >
+      This file names a constituent and composes nothing. EIGHT of the 56 sources have
+      that shape, and pore is the only abstract class among them. The other seven are
+      leaf materials: analyte-3oc6-hsl, analyte-atc, analyte-iptg, analyte-theophylline,
+      reporter-lacz-enzyme, substrate-cprg and substrate-xgal. It is correct here,
+      because the class has a part and no process in this corpus makes a generic pore.
+      An earlier version of this item called the shape unique. That was never measured
+      and was wrong; c9d6a5 counted it. The count says something narrower and more
+      useful: the shape tracks "material with no abstract parent", and two of the seven
+      are the Substrate orphans this tranche kicked out. An inputs-without-steps source
+      is still what an unfinished file looks like, so the shape cannot carry the claim
+      on its own.

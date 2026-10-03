@@ -1,0 +1,61 @@
+# Composition source for Detector: EsaR.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THE COMPOSITION IS THE PARENT'S INVARIANT WITH ONE OPERAND NAMED. No EsaR
+# construct and no EsaR data exist in this corpus, so nothing below is a recipe.
+# ../repressor-detector/spec.yml states the class as a repressor element and the
+# DNA element it binds; this file says only that the repressor is EsaR. The
+# operator site is not named anywhere in this corpus and is not guessed at here.
+
+module: detector-esar
+title: "Detector: EsaR"
+
+refines: repressor-detector
+
+inputs:
+  esar:
+    title: "EsaR repressor"
+    page: null            # available as purified protein from Biocrest, per ../detector-3oc6-hsl/
+  dna-regulatory-element:
+    title: "DNA regulatory element"
+    page: null            # the operator EsaR binds; TetR has tetO and LacI has lacO, this one is unnamed here
+
+process_steps:
+  - id: assemble-the-repressor-pair
+    process:
+      title: "Assemble the repressor and its regulatory element"
+      page: null
+    operator: mixing
+    operands: [esar, dna-regulatory-element]
+    produces:
+      id: detector-esar
+      title: "Detector: EsaR"
+      page: ../detector-esar/spec.md
+    notes: >
+      This is ../repressor-detector/spec.yml's own step with the repressor named.
+      It is stated so the module has a composition at all, not because a protocol
+      exists. The CRAIC board builds its sensing leg in two steps, expressing
+      EsaR in one cytosol and mixing the protein into a second, and whether that
+      split belongs here is the open question below.
+
+open:
+  - kind: question
+    id: second-parent-has-no-page
+    question: >
+      `scripts/spec-yml-schema.yml` gives this exact Module as its reason for
+      allowing a list: "an EsaR detector is a repressor detector AND an AHL
+      detector, and neither of those refines the other." The list form cannot be
+      written here, because the second parent has no page. `detector-3oc6-hsl` is
+      the ACTIVATOR cell of the 3OC6-HSL row in `detector/spec.md`'s Analyte by
+      Mechanism table, so refining it would claim EsaR is a kind of LuxR
+      detector, which is false. The analyte axis is a position in that table and
+      not a Module. So the schema's own motivating example is, today,
+      unwriteable as stated.
+  - kind: question
+    id: expression-split-ownership
+    question: >
+      The CRAIC board expresses EsaR in one cytosol and mixes the protein into a
+      second. Every other detector here is one step. Whether that split belongs
+      to this Module or to the cascade is unsettled, which is why no
+      `process_steps` are stated.

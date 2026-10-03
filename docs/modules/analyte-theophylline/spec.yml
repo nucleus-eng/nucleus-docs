@@ -1,0 +1,32 @@
+# Composition source for Analyte: Theophylline.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. `process_steps` is empty and that is a claim, not an
+# omission. The page: "None. An analyte is supplied to an assay rather than produced
+# by a Nucleus process." An empty list was invalid until Jon ruled `minItems: 1` off
+# `process_steps` on 2026-09-20 — it had asserted that every Module is composed,
+# which is a third membership condition compositional-biology-theory
+# `glossary.md#T03` never carried.
+
+module: analyte-theophylline
+title: "Analyte: Theophylline"
+
+inputs:
+  theophylline:
+    title: "Theophylline"
+    page: null
+
+process_steps: []
+
+open:
+  - id: the-two-documented-figures-are-not-induction
+    question: >
+      The riboswitch induction band reads "not documented". The only figures on the
+      page — 1 mM and 2 mM tested — are its effect on the LacZ/CPRG reaction, which
+      is interference rather than dose. ../detector-theophylline/spec.yml carries
+      1.5 mM in its plus-analyte column. So the corpus has three numbers for this
+      analyte and none of them is a stated working window.
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.

@@ -1,0 +1,83 @@
+# Composition source for Substrate Carrier.
+#
+# THE SLUG AVOIDS THE WORD JON NAMED THE CLASS WITH, AND THAT IS A LINTER FINDING
+# RATHER THAN A DESIGN ONE. He asked for the substrate unilamellar vesicle class. The
+# glossary narrows rule fires on the bare word anywhere, including inside an
+# identifier, so the slug he named failed CI in every source declaring it. A
+# slug is not prose and the rule's purpose, making an author pick GUV, SUV or LUV, has
+# no bearing on a directory name. Renamed rather than suppressed, and raised rather
+# than worked around silently.
+#
+# WRITTEN 2026-09-21 on Jon's ruling, after the meet renderer drew its two members as
+# two unrelated partial slots. Both demos make the same design choice at that position
+# and neither had a name for the position, so a meet over London and Chicago could not
+# report the choice as a choice.
+#
+# THE INVARIANT IS `packing` OVER A MEMBRANE AND A SUBSTRATE, TWO OF TWO. guv-cprg packs
+# membrane-popc with substrate-cprg; substrate-cprg-suv packs
+# membrane-popc-chol-chicago with the same substrate. Two operands, never three, and
+# packing rather than mixing because the whole point is that the substrate stays inside
+# until the unilamellar vesicle is breached.
+#
+# WHAT VARIES IS THE MEMBRANE AND THE SIZE REGIME, AND THE MEMBERS' OWN TITLES NAME IT.
+# GUV: CPRG is a giant unilamellar vesicle made by phase transfer. Substrate SUV: CPRG is
+# a small unilamellar vesicle made by hydration and extrusion. SAME SLOT, DIFFERENT
+# PROCESS, BY DESIGN, which is the case the meet renderer exists to draw.
+#
+# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED. A unilamellar vesicle is a membrane with
+# something in it, which is the `hold` question at compositional-biology-theory
+# open.md#O8, unsettled there. ../cell/spec.yml is left a root for the same reason and
+# by the same precedent. If O8 lands, this class and Cell get the same parent on the
+# same day.
+
+module: substrate-carrier
+title: "Substrate Carrier"
+
+inputs:
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+  substrate:
+    title: "Substrate"
+    page: null            # no class page; see the open item below
+
+process_steps:
+  - id: encapsulate-the-substrate
+    process:
+      title: "Close a membrane around the substrate"
+      page: null
+    operator: packing
+    operands: [membrane, substrate]
+    produces:
+      id: substrate-carrier
+      title: "Substrate Carrier"
+      page: ../substrate-carrier/spec.md
+    notes: >
+      Packing, two of two. A substrate mixed into the phase it is meant to report on
+      would react on contact with the enzyme, which is the no-off-state failure
+      ../color-change/spec.md is defined against. This class is one way of holding them
+      apart, and the other is holding the enzyme instead.
+
+open:
+  - id: the-substrate-operand-has-no-page-because-substrate-is-not-a-class
+    question: >
+      Both members pack substrate-cprg specifically. The operand is written at the class
+      grain and carries page null, because Substrate is not a class in this corpus and
+      compositional-biology-theory's reference/substrate page says so in its own words,
+      that the class does not hold together. Measured here from the other side on
+      2026-09-21: of the four Modules the substrate group named, two have no steps and
+      two are these unilamellar vesicles, which PACK one of the other two. Two of four contain a
+      third, so it is containment wearing a sibling group's clothes. If a Substrate class
+      is ever written, this operand points at it and nothing else here changes.
+  - id: dye-liposomes-has-this-exact-shape-with-a-dye-instead
+    question: >
+      MEASURED 2026-09-21, and it is the question that decides whether this class is two
+      members or three. dye-liposomes packs membrane-popc-chol with hpts, which is the
+      same operator over the same sorts, and HPTS is a pH-sensitive dye rather than an
+      enzyme substrate. So the wider class is a loaded unilamellar vesicle and this one is its
+      substrate-carrying half.
+      A TWO-MEMBER CLASS IS THE CASE MOST LIKELY TO COLLAPSE, which rulings.md#D152 did
+      to two of three pore pages, so the count matters. This file writes the narrow
+      class on Jon's wording and records the wider one rather than assuming it. The exit
+      condition is somebody needing a meet over a domain that includes the dye, which
+      nothing does today because no cascade uses dye-liposomes.

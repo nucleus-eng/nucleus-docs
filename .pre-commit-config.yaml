@@ -21,6 +21,14 @@ repos:
         pass_filenames: false
         additional_dependencies: [pyyaml]
 
+      - id: check-reference-voice
+        # Checks only the pages being committed, so touching a page means cleaning it.
+        name: Check reference voice
+        entry: python3 scripts/check-reference-voice.py
+        language: python
+        types: [markdown]
+        files: ^docs/
+
       - id: vale
         name: Vale lint
         entry: vale docs/

@@ -1,0 +1,27 @@
+# Composition source for the LacZ DNA template.
+#
+# WRITTEN 2026-09-21 with ../lacz/spec.yml. It was an input key with no page in one
+# source, and it earns a page now because it is one of two forms an operand must accept
+# and the other form already had one.
+#
+# A TEMPLATE, NOT AN ENZYME. It carries no activity itself and requires an expression
+# system to produce any. That requirement is the whole difference between this member
+# and ../reporter-lacz-enzyme, which needs a supplier instead.
+
+module: lacz-dna
+title: "LacZ DNA template"
+refines: lacz
+
+inputs:
+  t7pro-lacz-t7term:
+    title: "T7pro-LacZ-T7term construct"
+    page: null            # not yet in nucleus-eng/DNA
+
+process_steps: []
+
+open:
+  - id: the-construct-is-not-in-the-dna-repo
+    question: >
+      T7pro-LacZ-T7term is named by ../reporter-lacz/spec.yml and is not present in
+      nucleus-eng/DNA as of 2026-09-21. The absence is recorded here rather than on the
+      reaction page, because it is a property of this material.

@@ -1,0 +1,52 @@
+# Composition source for Analyte: pH.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS NOT A SUBSTANCE, AND THAT IS THE HARDEST CASE IN THE SET. Its page
+# says so outright: "A property has no composition. The section is kept for shape,
+# and the table records the band rather than a recipe." pH is a property of a
+# solution. It has no ingredient, so `inputs` is EMPTY, and the empty object is the
+# claim: this Module starts from nothing nameable in this corpus.
+#
+# UNTIL 2026-09-21 THIS FILE NAMED `outer-solution` AS ITS INPUT. That was not a
+# constituent. It was the solution pH is a property OF, which inverts the relation
+# the key encodes everywhere else in the corpus, and it was written only because
+# `inputs` carried `minProperties: 1`. Jon ruled that constraint off on 2026-09-21,
+# on the argument this file's own open item made, so the entry is gone rather than
+# re-explained.
+#
+# `process_steps` is empty. The page: "None. An analyte is supplied to an assay
+# rather than produced by a Nucleus process. For pH specifically, it is set by the
+# composition of the outer solution rather than dosed." Jon ruled `minItems: 1` off
+# `process_steps` on 2026-09-20.
+
+module: analyte-ph
+title: "Analyte: pH"
+
+inputs: {}              # empty by claim: a property has no constituents
+
+process_steps: []
+
+open:
+  - id: a-property-is-not-a-substance
+    question: >
+      CLOSED 2026-09-21, and the file changed rather than the wording. This item used
+      to say that `minProperties: 1` forced this file to name something when there was
+      nothing to name, and that the entry was doing the schema's work. Jon took the
+      constraint off on that argument. `inputs` is now empty and the claim is the
+      emptiness. What stays open is one level up: the schema cannot distinguish an
+      empty `inputs` that is a claim from one nobody filled in, which is the cost the
+      schema's own description now records.
+  - id: the-band-is-a-threshold-not-a-window
+    question: >
+      Switch ON at pH 6.5 or below, switch OFF at neutral. Every other analyte's band
+      has two ends; this one has a single boundary. The page carries an open
+      @Editor(chicago) tag asking whether an acidity floor exists — the pH at which
+      the cytosol, the membrane or the PURE reaction fails before the switch does.
+      Until that is answered the band is open at one end.
+  - id: set-rather-than-dosed
+    question: >
+      Every other analyte enters through a dosing step. This one is set by the outer
+      solution's composition, so there is no dose and no dosing process. That is a
+      real difference in kind between members of one sort, and nothing in the schema
+      records it.

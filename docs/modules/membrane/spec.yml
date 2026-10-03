@@ -1,0 +1,70 @@
+# Composition source for Membrane.
+#
+# ONE CONSTITUENT, AND IT IS THE ONLY ONE THE CLASS NEEDS. A bilayer is lipid in a
+# bilayer arrangement. Every difference between the three members is which lipids, so
+# `lipid` is the constituent and the arrangement is the invariant rather than a part.
+#
+# A PORE IS NOT A MEMBER OF THIS CLASS. Jon's correction, 2026-09-21: "Pore does NOT
+# refine membrane!! it's a component that can be composed with a membrane." The theory
+# corpus writes it as `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶
+# Membrane[permeable]; passes down ∇`, signature.md:203 at main e40f3de, so a pore and a
+# membrane are two of three operands of one operation. See
+# ../pore/spec.yml.
+#
+# The process is `page: null`: an abstract bilayer-forming process does not exist here.
+
+module: membrane
+title: "Membrane"
+refines: container
+
+inputs:
+  lipid:
+    title: "Lipid"
+    page: null            # POPC in all three members, with cholesterol, DSPE-PEG2000 or Liss Rhod PE
+
+process_steps:
+  - id: close-the-bilayer
+    process:
+      title: "Close the bilayer"
+      page: null
+    operator: mixing
+    operands: [lipid]
+    produces:
+      id: membrane
+      title: "Membrane"
+      page: ../membrane/spec.md
+    notes: >
+      A one-operand step, which is unusual here and is the honest shape: the class has
+      one constituent and the closure is the operation rather than a second part.
+      `mixing` because the lipids end in one phase, the bilayer itself.
+
+open:
+  - id: a-one-operand-step-asserts-nothing-about-pairs
+    question: >
+      `operator` on a step with one operand makes no pairwise claim, so `mixing` here
+      is a label with nothing to falsify. scripts/check-operator-pairs.py will count
+      it as `unknown` rather than as agreement, which is correct and worth knowing:
+      this step is not evidence for the operator vocabulary either way.
+  - id: the-closure-is-the-invariant-and-no-key-holds-it
+    question: >
+      What makes this a Membrane rather than a pile of lipid is that the bilayer is
+      closed, so the inside is a volume. That is the class invariant and nothing in
+      the schema records it. The composition above is true and does not say the one
+      thing the class is for. Same shape as ../photopatterned-gel/spec.yml's
+      geometry item.
+
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
+# Sensitivity a property of an object; #T22 makes Imposition a property of a
+# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
+# "computed, never asserted". check-conflicts.py does the computing.
+sensitivities:
+  - id: radical-acrylate-polymerization
+    to: radical-acrylate-polymerization
+    basis: rule
+    why: >
+      Radical acrylate polymerization is not compatible with a lipid bilayer.
+  - id: dmso
+    to: dmso
+    basis: rule
+    why: >
+      DMSO ruins liposome formation. Attempts to make SUVs in it gave poor SUVs.

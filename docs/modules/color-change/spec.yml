@@ -1,0 +1,59 @@
+# Composition source for Color Change.
+#
+# THE INVARIANT IS SEPARATION AND THE OPERATOR CARRIES IT. An enzyme and its substrate
+# in one compartment react at once, which is a readout with no off state. Every member
+# holds them apart until the trigger, so the operator is `packing` and never `mixing`.
+# That is the class, and it is not a rule anyone writes separately: it follows from the
+# compartments.
+#
+# THIS CLASS HAS CONSTITUENTS AND ITS SIBLINGS DO NOT ALL HAVE THEM. The
+# compositional-biology-theory session made the point that a class has constituents
+# exactly when its own invariant names a composition. This one's invariant names the
+# operator, so it does.
+#
+# The process is `page: null`: an abstract encapsulation process does not exist here.
+
+module: color-change
+title: "Color Change"
+refines: reporter
+# Added 2026-09-21 with the Reporter class: the color half, see the open item on ../reporter/spec.yml.
+
+inputs:
+  enzyme:
+    title: "Enzyme"
+    page: null            # LacZ or XylE in the members
+  substrate:
+    title: "Substrate"
+    page: null            # CPRG, X-Gal or catechol, paired to the enzyme
+
+process_steps:
+  - id: separate-enzyme-and-substrate
+    process:
+      title: "Hold the enzyme and its substrate apart"
+      page: null
+    operator: packing
+    operands: [enzyme, substrate]
+    produces:
+      id: color-change
+      title: "Color Change"
+      page: ../color-change/spec.md
+    notes: >
+      `packing` is the invariant rather than a reading of one arrangement. Which of
+      the two is encapsulated is what varies across the members, and that choice does
+      not change the operator: each keeps its own compartment either way.
+
+open:
+  - id: the-pair-is-one-parameter-and-this-file-writes-it-as-two
+    question: >
+      The enzyme and its substrate are a set of pairs, not two independent lists.
+      ../reporter-lacz-enzyme/spec.md carries the three valid pairs and says why
+      ranges would invent three wrong ones. `inputs` has no way to say that two keys
+      are jointly constrained, so this file lists them separately and the joint
+      lives only in prose. Same shape as free-parameters-are-tuples.md's finding, one
+      level up.
+  - id: pla1-location-is-a-third-coordinate-and-is-not-here
+    question: >
+      Every member built so far is triggered by ../effector-pla1/spec.md, and where
+      PLA1 sits is not free: it lyses the substrate compartment. Whether the valid
+      (encapsulation, PLA1 location) pairs form a rectangle has never been checked,
+      and the answer decides whether this class needs a third input or a tuple set.

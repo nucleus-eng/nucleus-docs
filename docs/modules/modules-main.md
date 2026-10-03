@@ -18,13 +18,16 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Module Class    | Specification                               | Validation |
 | --------------- | ------------------------------------------- | ---------- |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        |
-| Detector        | [tetR-aTc](./detector-tetr_atc/spec.md)     | ★★         |
-|                 | [LacI-IPTG](./detector-laci_iptg/spec.md)   | ★★         |
+| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | ★★         |
+|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | ★★         |
 | Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         |
 | Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
 | Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
 | Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
+| Membrane Pore | [Pore](./pore/spec.md) | - |
 |                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
+|                 | [Gramicidin A](./membrane-pore-gramicidin/spec.md) | ★   |
+| Lysis           | [PLA1](./effector-pla1/spec.md)             | ★          |
 
 :::
 
@@ -36,18 +39,87 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 
 | Module Class | Specification | Validation |
 | --- | --- | --- |
-| Cytosol (Base) | [Cytosol](./base-cytosol/spec.md) | ★★★ |
+| Cytosol: Base | [Cytosol](./base-cytosol/spec.md) | ★★★ |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★ |
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
 | Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
+| Membrane | [Membrane: POPC/Chol (9:1)](./membrane-popc-chol-chicago/spec.md) | ★ |
+| Cell (Chassis) | [Chicago Chassis](./chicago-chassis/spec.md) | ★ |
+| Cell (Sensing) | [SensorCell[aTc ⟶ PLA1]](./atc-sensing-cell/spec.md) | ★ |
+| Cell (Sensing) | [Theophylline Sensing Cell](./theophylline-sensing-cell/spec.md) | ★ |
+| Detector | [Theophylline](./detector-theophylline/spec.md) | ★ |
+| Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
+| Cell (Sensing) | [SensorCell[pH ⟶ PLA1]](./ph-sensing-cell/spec.md) | ★ |
+| Cytosol: aTc Sensor | [SensorCytosol[aTc ⟶ PLA1]](./atc-sensor-cytosol/spec.md) | ★ |
+| Cytosol: pH Sensor | [SensorCytosol[pH ⟶ PLA1]](./ph-sensor-cytosol/spec.md) | ★ |
+| Cell (Cascade) | [pH Cascade](./ph-cascade/spec.md) | ★ |
+| Cell (Cascade) | [aTc Cascade](./atc-cascade/spec.md) | ★ |
+| Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
+| Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
+| Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
+| Reporter | [Color Change](./color-change/spec.md) | - |
+| Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
+| Substrate | [CPRG GUV](./guv-cprg/spec.md) | ★ |
+| Substrate | [CPRG](./substrate-cprg/spec.md) | ★ |
+| Substrate | [X-Gal](./substrate-xgal/spec.md) | ★ |
+| Analyte | [aTc](./analyte-atc/spec.md) | ★ |
+| Analyte | [3OC6-HSL](./analyte-3oc6-hsl/spec.md) | ★ |
+| Analyte | [Theophylline](./analyte-theophylline/spec.md) | ★ |
+| Analyte | [IPTG](./analyte-iptg/spec.md) | ★ |
+| Analyte | [pH](./analyte-ph/spec.md) | ★ |
+| Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
+| Container | [Container](./container/spec.md) | - |
+| Container | [Solution](./solution/spec.md) | - |
+| Gel | [Alginate](./gel-alginate/spec.md) | ★ |
+| Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
+| Gel | [PEG-Norbornene](./gel-peg-norbornene/spec.md) | ★ |
+:::
+
+## S30 Lysate
+
+Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London demo's cytosol-equivalent, based on the Promega E. coli S30 Extract System).
+
+:::{table}
+
+| Module Class | Specification | Validation |
+| --- | --- | --- |
+| Cytosol: S30 Lysate | [S30 Lysate](./s30-lysate/spec.md) | ★ |
+| Detector | [3OC6-HSL](./detector-3oc6-hsl/spec.md) | ★ |
+| Detector | [EsaR](./detector-esar/spec.md) | - |
+| Detector | [Detector](./detector/spec.md) | - |
+| Detector | [Repressor Detector](./repressor-detector/spec.md) | - |
+| Membrane | [Membrane: POPC](./membrane-popc/spec.md) | ★ |
+| Membrane | [Membrane](./membrane/spec.md) | - |
+| Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
+| Cell (Sensing) | [SensorCell[3OC6-HSL ⟶ PLA1]](./ahsl-sensing-cell/spec.md) | ★ |
+| Cytosol: 3OC6-HSL Sensor | [SensorCytosol[3OC6-HSL ⟶ PLA1]](./ahsl-sensor-cytosol/spec.md) | ★ |
+| Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
+| Cell (Cascade) | [LuxR-GFP Sensor Cascade](./luxr-gfp-cascade/spec.md) | - |
+| Cell (Cascade) | [CRAIC](./craic-cascade/spec.md) | - |
+| Gel | [ULGA](./gel-ulga/spec.md) | ★ |
+| Gel | [LGA](./gel-lga/spec.md) | - |
+| Gel | [Gel](./gel/spec.md) | - |
+| Gel | [Photopatterned Gel](./photopatterned-gel/spec.md) | - |
+| Cytosol | [Cytosol](./cytosol/spec.md) | - |
+| Cytosol: Sensor | [Sensor Cytosol](./sensor-cytosol/spec.md) | - |
+| Cell | [Cell](./cell/spec.md) | - |
+| Cell (Sensing) | [Sensing Cell](./sensing-cell/spec.md) | - |
+| Cytosol: Theophylline Sensor | [Theophylline Sensor Cytosol](./theophylline-sensor-cytosol/spec.md) | - |
+| Reporter | [Reporter](./reporter/spec.md) | - |
+| Substrate | [Substrate Carrier](./substrate-carrier/spec.md) | - |
+| Outer Solution | [Outer Solution](./outer-solution/spec.md) | - |
+| Outer Solution | [London Outer Solution](./outer-solution-london/spec.md) | ★ |
+| Outer Solution | [Chicago Outer Solution](./outer-solution-chicago/spec.md) | ★ |
+| Reporter | [LacZ](./lacz/spec.md) | - |
+| Reporter | [LacZ DNA template](./lacz-dna/spec.md) | ★ |
 :::
 
 # Contributing a Module
 
 Modules specifications are derived from DevNotes that follow the adhere to the [Module Contribution Guidelines](../../guides/contribution-guide.md).
 
-<!-- # List of Modules
+(delete lines 122–206 and the blank line 121 above them)
 
 ## Reporter: deGFP
 - [Specification](./reporter-degfp/spec.md)
@@ -65,7 +137,7 @@ Modules specifications are derived from DevNotes that follow the adhere to the [
 - Status: Cell
 
 ## Detector: tetR-aTc
-- [Specification](./detector-tetr_atc/spec.md)
+- [Specification](./detector-tetr-atc/spec.md)
 - Base Module: PURExpress
 - Status: Cell
   
@@ -120,7 +192,7 @@ Modules can be combined with Process Protocols to create Implementations.
 | Membrane | POPC/Chol | PURExpress Cell | Distribution |
 | Membrane Pore | [alpha-Hemolysin](./membrane-pore-ahly/spec.md) | PURExpress Cell  | Distribution |
 |  | [Cx43](./membrane-pore-cx43/spec.md) | PURExpress Cell | DevNote |
-| Detector | [tetR-aTc](./detector-tetr_atc/spec.md) | PURExpress Cell | Distribution |
+| Detector | [tetR-aTc](./detector-tetr-atc/spec.md) | PURExpress Cell | Distribution |
 | Emitter | [IV-HSL](./emitter-ivhsl/spec.md) | PURExpress Cell | Distribution |
 | Energy | [PPK](./energy-ppk/spec.md) | PURExpress Cell | Distribution |
 | Control | [ClpXP](./control-clpxp/spec.md) | PURExpress Cytosol | Distribution |
