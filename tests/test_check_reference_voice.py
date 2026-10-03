@@ -72,6 +72,8 @@ def test_fires(tmp_path, contributors, line, expected):
     "Load the sample in tranches of 10 mL at a time.",
     "The 3.2 kDa cutoff is set by the pore, not the membrane.",
     "Chicago Node, Mary, 2026-09-17, personal communication: theophylline inhibits LacZ.",
+    "Theophylline inhibits β-galactosidase directly (Group Meeting, Mary Kelly, Chicago Node, 2026-09-17).",
+    "PEGDA destroys the vesicles (Group Meeting, Chicago Node, 2026-09-11).",
 ])
 def test_clean(tmp_path, contributors, line):
     assert rules_for(tmp_path, contributors, line + "\n") == set()

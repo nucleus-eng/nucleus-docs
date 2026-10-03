@@ -13,9 +13,10 @@ Tier 1 — errors, exit 1:
   person        a contributor's first name without their surname ("Jon ruled",
                 "on Jon's word"), or "<Name>, <date>". A full name is fine, so
                 Credits pass. Names come from about/contributors.md. A line
-                citing "personal communication" passes this rule and the date
-                rule: that form is an Editor's choice, and an agent must not
-                write it (see style-guide/principles.md).
+                citing "(Group Meeting, contributor, date)" or "personal
+                communication" passes this rule and the date rule: those
+                forms are an Editor's choice, and an agent must not write
+                them (see style-guide/principles.md).
   ruling        "ruled" or "ruling". "ruled out" is fine.
   working-notes a pointer into our working notes: compositional-biology-theory,
                 "the theory corpus", open.md / rulings.md / glossary.md /
@@ -96,6 +97,9 @@ TIER2 = {
         "cites a commit. Git records it; the reader cannot use it.",
     ),
 }
+
+# The two citation forms an Editor may choose for a fact with no document behind it.
+EDITOR_CITATION = re.compile(r"\(Group Meeting,|personal communication")
 
 PERSON_MESSAGE = "says who decided or who said so. State the result; the commit message records who decided."
 
@@ -185,7 +189,7 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
         line = _URL.sub(" ", _LINK_TARGET.sub("]()", line))
         for level, rules in (("error", tier1), ("warning", TIER2)):
             for rule, (pattern, message) in rules.items():
-                if rule in ("person", "date") and "personal communication" in line:
+                if rule in ("person", "date") and EDITOR_CITATION.search(line):
                     continue
                 for m in pattern.finditer(line):
                     findings.append((lineno, level, rule, m.group(0), message))
