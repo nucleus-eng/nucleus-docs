@@ -63,12 +63,17 @@ The test is the question in [principles.md](principles.md#every-page-is-world-re
 
 - **Internal documents** — questionnaires, status decks, meeting transcripts, `.docx` filenames, slide numbers. Including inside `# Credits`.
 - **Project management** — milestones, open action items, "still at the planning stage", "waiting for Twist", "mitigation in progress", "tracked separately", "pending".
-- **How a decision got made** — "the 2026-08-14 meeting resolved to…", "that requirement is settled". State the requirement; the meeting that produced it is ours, not the reader's.
+- **Who decided, and how** — "*name* ruled on *date* that…", "on *name*'s word", "*name*, *date*: …", "the 2026-08-14 meeting resolved to…", "that requirement is settled". State the result. The commit message that applied it records who decided and when.
 - **Our own records** — "Figure not yet migrated", "not yet transcribed", "interim source", "no dedicated devnote", "documented on each Module's own page". If a figure has not been migrated, migrate it.
 - **Editor-directed text** — use an `@Editor:` or `@Developer:` tag, never prose.
-- **Revision history** — "Earlier revisions of this page…" describes the document.
-- **Meta-commentary** — "flattened one level deep", "not duplicated here", "this page specifies it".
+- **Revision history** — "Earlier revisions of this page…", "Written *date* because…", "Corrected *date*", "until *date*, when…", "previously referred to here as…". These describe the document, and git records them.
+- **Meta-commentary** — "flattened one level deep", "not duplicated here", "this page specifies it", "this corpus", "this page cannot tell them apart".
 - **Hedged attribution** — never "attribution is pending confirmation".
+- **Pointers into our working notes** — `compositional-biology-theory`, "the theory corpus", `open.md#O21`, `rulings.md#D04`, commit hashes. A reader cannot follow them. State the content, or leave it out.
+- **Our tooling** — a script, a generator, `spec.yml` or "the composition source" as the subject of a sentence: "`one_member_classes()` reported this class", "`spec.yml` declares no `process_steps`". Tooling keeps the pages right. It is not what a page describes.
+- **Argument aimed at a reviewer** — a defense of a choice against an alternative the reader never proposed: "Gel does not refine Solution, and the near miss is worth stating", "this does not reopen the cancellation". State what the Module is; see [principles.md](principles.md#write-for-an-unknown-composer).
+
+`check-reference-voice.py` blocks the commonest markers of these: a contributor named as the source of a decision, a ruling, a pointer into our working notes, a stray review tag. It warns on dates, "this corpus", tooling and commit hashes. It is a net, not the rule: a page can pass it and still read as a decision log.
 
 ## Before a PR
 
@@ -81,6 +86,7 @@ python3 scripts/check-links.py --offline-only docs/
 python3 scripts/check-anchors.py
 python3 scripts/check-dna-refs.py
 python3 scripts/check-dropdowns.py && python3 scripts/check-toc.py && python3 scripts/check-file-placement.py
+python3 scripts/check-reference-voice.py
 grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):'
 ```
 
