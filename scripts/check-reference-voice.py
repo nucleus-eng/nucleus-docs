@@ -37,7 +37,8 @@ Usage:
     python3 scripts/check-reference-voice.py docs/modules  # check specific path(s)
     python3 scripts/check-reference-voice.py --strict      # warnings fail too
 
-Exit codes: 0 clean (warnings allowed), 1 findings, 2 no contributor names read.
+Exit codes: 0 clean (warnings allowed), 1 findings, 2 nothing was checked: no
+contributor names read, a path that does not exist, or no markdown file found.
 """
 
 import argparse
@@ -214,8 +215,15 @@ def main(argv=None) -> int:
     person = person_pattern(names)
 
     paths = args.paths or [REPO / "docs"]
-    errors = warnings = 0
+    missing = [p for p in paths if not p.exists()]
+    if missing:
+        # A path that is not there checks nothing, and a clean run over nothing is not a pass.
+        for p in missing:
+            print(f"check-reference-voice: no such file or directory: {p}", file=sys.stderr)
+        return 2
+    errors = warnings = checked = 0
     for path in iter_markdown(paths):
+        checked += 1
         for lineno, level, rule, match, message in check_file(path, person):
             try:
                 shown = path.resolve().relative_to(REPO)
@@ -227,7 +235,10 @@ def main(argv=None) -> int:
             else:
                 warnings += 1
 
-    print(f"check-reference-voice: {errors} error(s), {warnings} warning(s)", file=sys.stderr)
+    if not checked:
+        print("check-reference-voice: no markdown files found in the given paths", file=sys.stderr)
+        return 2
+    print(f"check-reference-voice: {errors} error(s), {warnings} warning(s) in {checked} file(s)", file=sys.stderr)
     if errors or (args.strict and warnings):
         return 1
     return 0
