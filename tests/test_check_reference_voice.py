@@ -128,3 +128,17 @@ def test_reads_the_real_contributors_list():
     names = crv.read_contributors(crv.CONTRIBUTORS)
     assert ("Jon", "Calles") in names
     assert len(names) > 10
+
+
+def test_a_missing_path_is_not_a_pass(tmp_path, contributors):
+    # The failure this guards: a shell passed several paths as one argument, the
+    # one path did not exist, and the check reported 0 errors over 0 files.
+    missing = tmp_path / "a.md\nb.md"
+    assert crv.main([str(missing), "--contributors", str(contributors)]) == 2
+
+
+def test_no_markdown_files_is_not_a_pass(tmp_path, contributors):
+    empty = tmp_path / "empty"
+    empty.mkdir()
+    (empty / "notes.txt").write_text("Jon ruled.\n")
+    assert crv.main([str(empty), "--contributors", str(contributors)]) == 2
