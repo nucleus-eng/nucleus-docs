@@ -119,7 +119,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 
 Modules specifications are derived from DevNotes that follow the adhere to the [Module Contribution Guidelines](../../guides/contribution-guide.md).
 
-<!-- # List of Modules
+(delete lines 122–206 and the blank line 121 above them)
 
 ## Reporter: deGFP
 - [Specification](./reporter-degfp/spec.md)

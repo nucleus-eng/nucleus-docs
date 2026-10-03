@@ -93,9 +93,13 @@ Assemble `pT7-lacO-plamGFP` into a standard PURE reaction. Add purified LacI pro
 
 ## Cytosols
 
-We've validated the LacI-IPTG module in NEB PURExpress reactions by adding purified LacI repressor protein (MedChemExpress HY-P70247) at the final concentrations indicated, with `pT7-lacO-plamGFP` plasmid DNA at 5 nM to 10 nM.
+The LacI-IPTG Detector Module is validated in NEB PURExpress reactions with purified LacI repressor protein (MedChemExpress HY-P70247) at the final concentrations indicated and `pT7-lacO-plamGFP` plasmid DNA at 5 nM to 10 nM.
 
-We observe repression across a wide range of LacI concentrations (15.63 nM –1000 nM), with 1000 nM showing strong repression and suitable dynamic range for use in an inducible system. We saw a small increase in expression around 62.5 nM repressor; we saw a similar effect in TetR data and may reflect a shared mechanism (e.g., preserving PURE translational capacity under moderate transcriptional repression). The 250 nM datapoint is likely a technical failure. IPTG induction is effective across 500 nM to 2000 nM, consistent with concentrations used in cellular and cell-free systems ([Garamella et al., 2016](https://doi.org/10.1021/acssynbio.5b00296)). All induced samples show expression at or above the unrepressed positive control, a behavior that we've replicated across multiple experiments and is worth of further investigation.
+Repression is observed across a wide range of LacI concentrations (15.63 nM –1000 nM), with 1000 nM showing strong repression and suitable dynamic range for use in an inducible system. Expression rises slightly near 62.5 nM repressor; a similar effect appears in TetR data and may reflect a shared mechanism (e.g., preserving PURE translational capacity under moderate transcriptional repression). The 250 nM datapoint is likely a technical failure. IPTG induction is effective across 500 nM to 2000 nM, consistent with concentrations used in cellular and cell-free systems ([Garamella et al., 2016](https://doi.org/10.1021/acssynbio.5b00296)). All induced samples show expression at or above the unrepressed positive control, a behavior replicated across multiple experiments.
+
+:::{attention} Unexplained result
+@Editor: explain why induced samples reach or exceed the unrepressed positive control.
+:::
 
 ***In vitro* repression with LacI**
 
@@ -139,7 +143,9 @@ Induction of `pT7-lacO-plamGFP` by IPTG at steady state. LacI repressor protein 
 Schematic representation of LacI-IPTG Detector module in the Base Cell.
 :::
 
-Cell performance data is not yet available for this module.
+:::{warning} Not yet validated
+This Module has not been validated in cells.
+:::
 
 # Requirements
 

@@ -15,12 +15,8 @@ The Chicago Cascade is the top-level, multiplexed demo from the Chicago Node of 
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Rewritten 2026-08-19 — the integration paths have changed
-Theophylline interferes with the LacZ/CPRG readout, so the theophylline path is not part of this cascade.
-
-That is superseded. Chicago is now focused on the aTc and pH sensors (14 Aug 2026 deck, slides 2 and 34, which lists "Two sensors (aTC/pH)"), and the theophylline sensor has been removed from the demo — its riboswitch drives the reporter with no analyte present, so it does not discriminate. See [Theophylline Sensing Module](../detector-theophylline/spec.md).
-
-The theophylline/aTc colocalization constraint remains plausible but requires testing and is still documented on the affected Modules. 
+:::{note} The theophylline path is not part of this cascade
+The theophylline sensor is not part of the demo: its riboswitch drives the reporter with no analyte present, so it does not discriminate. See [Theophylline Sensing Module](../detector-theophylline/spec.md). A constraint on colocalizing theophylline with aTc remains plausible and is untested.
 :::
 
 # Reference Composition
@@ -282,7 +278,7 @@ No experiment has run the two integration paths together. The merge is not block
 
 Requires both integration paths in one system — [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md) — on a shared [Chicago Chassis](../chicago-chassis/spec.md) membrane, reporting through one shared [LacZ Reporter](../reporter-lacz/spec.md).
 
-Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation. **The pattern itself is an Implementation-level choice and no implementation has made it** — [Chicago DevCell](../../implementations/chicago-devcell/main.md) is a placeholder whose own banner says the integrated result does not exist yet.
+Requires spatial separation between the two integration paths. PLA1 lyses any phospholipid membrane it reaches, not only the membrane of the cell that expressed it — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-requirements) — and all three populations here carry the same membrane. Co-locating the paths in one region therefore lets either analyte lyse every compartment in that region. Spatial patterning of the hydrogel supplies the separation. **The pattern itself is an Implementation-level choice** — see [Chicago DevCell](../../implementations/chicago-devcell/main.md).
 
 
 :::{note} The paths are multiplexed in space, not combined in logic
@@ -296,11 +292,11 @@ That makes spatial separation the whole design, rather than a workaround. It is 
 Requirement above is protecting: PLA1 lyses any membrane it reaches, so two populations sharing
 a region would destroy each other regardless of which analyte fired.
 
-**Whether the demo shows one color or two is not yet settled.** Both paths can read out through
-LacZ on CPRG, giving one color in two places. The [XylE / C23DO](../reporter-xyle/spec.md)
-reporter converts catechol to a different colored product, which would give two distinguishable
-colors — still spatially separated, since the populations are separate either way. These are
-different demos and want separate specifications.
+**The demo can show one color or two.** Both paths can read out through LacZ on CPRG, giving one color in two places. The [XylE / C23DO](../reporter-xyle/spec.md) reporter converts catechol to a different colored product, which would give two distinguishable colors — still spatially separated, since the populations are separate either way.
+:::
+
+:::{attention} Two readout configurations
+@Editor(chicago): the one-color and two-color demos are different configurations. Give each its own specification.
 :::
 
 # Processes
@@ -329,8 +325,8 @@ Every step below has a Process page. They are listed in the order they are perfo
 
 The photodeveloped path adds CPRG after crosslinking rather than embedding it with everything else, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes, and it is why that path carries CPRG as a free dye rather than in a liposome.
 
-:::{important} The tension resolves: each path takes the combination that works for it
-This section previously said the cascade could not have both its spatial separation and its two-liposome readout, and asked which gives. **Neither gives.** The two integration paths are embedded separately, in different gels, and the incompatible pair never meets:
+:::{important} Each path takes the combination that works for it
+The two integration paths are embedded separately, in different gels, so UV and liposome-held CPRG never meet:
 
 | Path | Gel | CPRG |
 | --- | --- | --- |
@@ -350,15 +346,17 @@ Low-gelling-temperature agarose and ULGA are the same object under different par
 :::
 :::
 
-**The missing step is a bond, and now it has a name.** Two gels are embedded separately and then joined into one piece; nothing documents the joining. Every technique above is documented for one path or the other, and the step that makes this cascade one system rather than two is the one with no page.
+:::{attention} Process gap
+Two gels are embedded separately and then joined into one piece, and no Process documents the joining. Every technique above is documented for one path or the other. The step that makes this cascade one system rather than two has no page.
 
 @Editor(chicago): the bonding step needs a Process page. Every combination step requires one, and this is the combination the whole cascade is named for.
+:::
 # Constituent Modules
 
-- [aTc Cascade](../atc-cascade/spec.md) — the aTc integration path, confirmed in synthetic cells; hydrogel embedding still in progress. The detector alone is separately replicated in bulk Nucleus Cytosol with a deGFP reporter standing in for the lysis and colorimetric steps, so that result does not extend to the chain.
+- [aTc Cascade](../atc-cascade/spec.md) — the aTc integration path, confirmed in synthetic cells; not yet validated in hydrogels. The detector alone is separately replicated in bulk Nucleus Cytosol with a deGFP reporter standing in for the lysis and colorimetric steps, so that result does not extend to the chain.
 - [pH Cascade](../ph-cascade/spec.md) — the pH integration path; its individual results are confirmed but the three-part chain has not been run end to end
 
-Both integration paths terminate at the [LacZ Reporter Module](../reporter-lacz/spec.md), which is shared rather than duplicated. That sharing is the subject of the Requirements section above.
+Both integration paths terminate at the [LacZ Reporter Module](../reporter-lacz/spec.md), which is shared rather than duplicated.
 
 # Credits
 

@@ -117,7 +117,7 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP`. Verified 2026-09-29 by its `TetO` and `PLA1 (codon-optimized to E. coli)` features, not by name |
+| `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP`. The file carries the `TetO` and `PLA1 (codon-optimized to E. coli)` features |
 :::
 
 ::::
@@ -162,8 +162,6 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 | --- | --- | --- |
 | CPRG | 0.5 mM final in the gel | about 11 µL of a 5 mM stock per 100 µL of gel |
 :::
-
-**This path carries no substrate liposome.** The pH path does — see [pH Cascade](../ph-cascade/spec.md). The difference follows from the gel, not from the reporter chemistry.
 
 ::::
 

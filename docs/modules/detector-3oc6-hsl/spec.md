@@ -22,23 +22,15 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Not the same molecule as the IV-HSL Emitter module
-[Emitter: IV-HSL](../emitter-ivhsl/spec.md) documents a *different* acyl-homoserine lactone system: it produces N-isovaleryl-L-homoserine lactone (IV-HSL, a branched-chain HSL detected by BjaR) rather than detecting it, and IV-HSL is chemically distinct from the 3OC6-HSL detected by this module. The two are not interchangeable and this page makes no claim about compatibility between them.
+[Emitter: IV-HSL](../emitter-ivhsl/spec.md) documents a *different* acyl-homoserine lactone system: it produces N-isovaleryl-L-homoserine lactone (IV-HSL, a branched-chain HSL detected by BjaR) rather than detecting it, and IV-HSL is chemically distinct from the 3OC6-HSL detected by this module. The two are not interchangeable.
 :::
 
 :::{note} LuxR is one of two refinements of this detector
-This page documents the **LuxR** route. LuxR is an activator, so 3OC6-HSL switches the `pLux`
-promoter on. **EsaR is the other refinement**: a LuxR homolog that represses rather than
-activates, which inverts the logic. Repressors give lower noise floors, so EsaR may be the more
-compatible route for a PLA1-driven cascade. See
-[Lysis: PLA1](../effector-pla1/spec.md) § Requirements for why the noise floor binds.
+This page documents the **LuxR** route. LuxR is an activator, so 3OC6-HSL switches the `pLux` promoter on. **EsaR is the other refinement**: a LuxR homolog that represses rather than activates, which inverts the logic. Repressors give lower noise floors, so EsaR may be the more compatible route for a PLA1-driven cascade. See [Lysis: PLA1](../effector-pla1/spec.md) § Requirements for why the noise floor binds.
 
-**The London Node is running EsaR.** It is available as purified protein from Biocrest, which
-removes the energy cost of expressing the regulator. Energy partitioning is one of three live
-hypotheses for why this sensor gives no GFP in Nucleus Cytosol, so those two facts are related.
+EsaR is available as purified protein from Biocrest, which removes the energy cost of expressing the regulator. Energy partitioning is one candidate explanation for why this sensor gives no GFP in Nucleus Cytosol.
 
-**This corpus holds no EsaR construct and no EsaR data**, so this note names the refinement
-rather than documenting it. @Editor(london): supply the construct and a titration when the run
-reports.
+@Editor(london): supply the EsaR construct and a titration when the run reports.
 :::
 
 :::{attention} Not yet validated in Nucleus Cytosol
@@ -46,7 +38,7 @@ All data below comes from bacterial S30 lysate (Promega) and POPC synthetic cell
 :::
 
 :::{figure} mechanism-schematic.png
-Schematic representation of the 3OC6-HSL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-3OC6-HSL as it diffuses in from outside the synthetic cell. LuxR–3OC6-HSL activates the pLux promoter, driving gene expression (here: GFP). The phospholipid-bilayer inset of the original panel is cropped out as unrelated to the sensing mechanism.
+Schematic representation of the 3OC6-HSL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-3OC6-HSL as it diffuses in from outside the synthetic cell. LuxR–3OC6-HSL activates the pLux promoter, driving gene expression (here: GFP).
 :::
 
 # Reference Composition
@@ -91,15 +83,15 @@ This page documents the S30 route, which [requires circular DNA](../s30-lysate/s
 
 | **Name** | **Length (bp)** | **File** | **Route** |
 | --- | --- | --- | --- |
-| `pOpen-LuxR-deGFP` | 3890 | pending — see below | **S30** |
-| `pOpen-LuxR-PLA1` | 4175 | pending — see below | **S30** |
+| `pOpen-LuxR-deGFP` | 3890 | not linked — see below | **S30** |
+| `pOpen-LuxR-PLA1` | 4175 | not linked — see below | **S30** |
 | `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | Base Cytosol |
 | `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Base Cytosol |
 
 :::{attention} The circular files are not on `main` yet
 @Editor(london): `pOpen-LuxR-deGFP.gb` and `pOpen-LuxR-PLA1.gb` are on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file links when it lands.
 
-**Until then, do not substitute the linear file.** The two share a cassette and differ by a whole pOpen backbone — functionally equivalent, **not sequence-identical**. The lengths above were previously recorded as 1952 and 2237 for the S30 constructs; those are the cassette lengths, and were wrong for this route.
+**Do not substitute the linear file.** The two share a cassette and differ by a whole pOpen backbone — functionally equivalent, **not sequence-identical**.
 :::
 
 ::::
@@ -117,7 +109,7 @@ This page documents the S30 route, which [requires circular DNA](../s30-lysate/s
 | Water           | —           | —         | 8         | 7.5             |
 
 :::{attention} Composition reconstructed, needs verification
-Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior; the source's 50 mM would require 0.01 µL. The condition columns are also swapped relative to the source, in which the column headed **− 3OC6-HSL** was the one carrying the 3OC6-HSL. The RNase inhibitor is left as sourced at 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor(london): confirm all three with the London Node before bench use.
+Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior. The condition columns are also inferred: the column carrying the 3OC6-HSL is the **+ 10 µM 3OC6-HSL** column. The RNase inhibitor is 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor(london): confirm all three with the London Node before bench use.
 :::
 
 ::::
@@ -151,7 +143,7 @@ Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM,
 This module has been validated in [S30 Lysate Synthetic Cells](../london-chassis/spec.md) with extracellular target molecule at 10 µM.
 
 :::{attention} Missing Characterization Data
-Needs microscopy image of cells with (+) and without (-) target molecule.
+@Editor(london): supply a microscopy image of cells with (+) and without (-) target molecule.
 :::
 
 # Requirements

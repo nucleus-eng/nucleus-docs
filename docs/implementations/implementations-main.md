@@ -15,7 +15,7 @@ Implementations are combinations of useful Processes and Modules. This section i
 
 ## DevCells
 
-The final, fully integrated demo devices from the DevCells program. Both are drafts — the integrated results are the deliverable of DevStudio (23 Sep – 13 Oct 2026), not of this documentation.
+The final, fully integrated demo devices from the DevCells program.
 
 - [Chicago DevCell: Patterned Multiplexed Biosensor](./chicago-devcell/main.md)
 - [London DevCell: 3OC6-HSL Colorimetric Reporter](./london-devcell/main.md)

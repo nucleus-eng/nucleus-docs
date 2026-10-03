@@ -103,10 +103,6 @@ The reaction this Module is assembled as. Volumes in µL.
 
 OptiPrep is optional and adds density for phase transfer.
 
-:::{attention} These figures were in `spec.yml` and on no page until 2026-09-25
-This page carried a DNA table and no reaction table, so `check-spec-drift.py` reported six figures the source states and the page did not. **The figures are the source's, transcribed rather than derived**, and they sum to the 20 µL the source declares.
-:::
-
 ::::
 
 :::::
@@ -146,7 +142,7 @@ Higher-magnification views of individual Cx43-eGFP-expressing liposomes are avai
 
 **Cx43 is expressed in situ** from the co-encapsulated plasmid, not reconstituted from purified protein. So the six-hour decay is limited by transcription, translation and channel assembly, and a rate fitted from it is an expression constant rather than a transport one. Equilibration through an assembled channel is expected to be far faster than the reaction it is measured against.
 
-**The captions below say "Cx43-reconstituted", and that word is wrong.** In membrane biophysics it names insertion of purified protein into a preformed membrane. Five statements on this page say otherwise — the methods sentence above, the construct's own row in the Designs table, the Insertion Assay, its control ("without Cx43 plasmid"), and the leakage control ("leakage requires Cx43 expression"). The captions are left as recorded rather than silently edited. @Editor(chicago): confirm, then fix the three captions.
+@Editor(chicago): the captions below say "Cx43-reconstituted", which in membrane biophysics names insertion of purified protein into a preformed membrane, whereas Cx43 is expressed in situ here. Confirm, then fix the three captions.
 :::
 
 :::{figure} cell-leakage-kinetics.png
@@ -215,7 +211,7 @@ Requires a membrane (e.g., [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spe
 
 Passes molecules up to ~1 kDa. [α-Hemolysin](../membrane-pore-ahly/spec.md) passes up to ~3 kDa, so substituting this Module for it lowers the cutoff and a cargo between the two figures will stop crossing.
 
-**The figure is approximate, and this page's own assay shows by how much.** The leakage result above uses Alexa Fluor 647, about 1.3 kDa, and it crosses. So ~1 kDa is a scale rather than a ceiling, and a cargo somewhat above it is not excluded. Mass is one clause of a pore's selectivity, not the whole of it — [Gramicidin A](../membrane-pore-gramicidin/spec.md) selects on charge instead, and passes protons at 1 Da while excluding uncharged solutes many times larger.
+**The figure is approximate.** The leakage result above uses Alexa Fluor 647, about 1.3 kDa, and it crosses. So ~1 kDa is a scale rather than a ceiling, and a cargo somewhat above it is not excluded. Mass is one clause of a pore's selectivity, not the whole of it — [Gramicidin A](../membrane-pore-gramicidin/spec.md) selects on charge instead, and passes protons at 1 Da while excluding uncharged solutes many times larger.
 
 **Transport is symmetric, and that obliges the outer solution.** The cutoff is equally a statement about what leaves. Anything below it that the interior consumes equilibrates with the outside, so **it must also be present in the outer solution, or the interior runs out**. The requirement propagates to any membrane carrying this pore and to any Cell built on that membrane, and is discharged by checking the outer solution's composition rather than anything on this page.
 

@@ -16,10 +16,6 @@ site:
 A member of [Outer Solution](../outer-solution/spec.md): potassium glutamate, HEPES and glucose,
 matched to the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) inner solution.
 
-**This formulation had two names and no page.** [London Cascade](../london-cascade/spec.md)
-produced it as `outer-solution` and [Gel: ULGA](../gel-ulga/spec.md) produced it as
-`london-outer-solution`, with the same three components and the same osmolarity in both.
-
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
@@ -62,7 +58,7 @@ flowchart TD
 
 ::::{tab-item} Solutes
 
-:::{table} The London formulation, from `gel-ulga`, which is the source that carried the figures.
+:::{table} The London formulation, as used in [Gel: ULGA](../gel-ulga/spec.md).
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | Potassium glutamate | 578 mM | |
@@ -70,9 +66,6 @@ flowchart TD
 | Glucose | 300 mM | |
 | Osmolarity | ~920 mOsm | a relation, matched to the SensorCell[3OC6-HSL ⟶ PLA1] inner solution |
 :::
-
-**The osmolarity stays even though each solute is stated**, because it has to match across a
-membrane and no component page can say that.
 
 ::::
 
@@ -87,13 +80,11 @@ membrane and no component page can say that.
 
 # Requirements
 
-Requires an osmolarity of about 920 mOsm, matched to the cells suspended in it. **3OC6-HSL is
-excluded**: it is the analyte, present in the induced condition only, and belongs to the assay
-rather than to the composition.
+Requires an osmolarity of about 920 mOsm, matched to the cells suspended in it.
 
 # Processes
 
-See the composition source. The step is [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
+The step is [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
 
 # Credits
 

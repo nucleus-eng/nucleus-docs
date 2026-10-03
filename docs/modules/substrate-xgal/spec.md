@@ -27,17 +27,17 @@ This page is a work in progress and not yet ready for use. One result from one l
 
 | Format | Working concentration | Notes |
 | --- | --- | --- |
-| Free in the gel | 0.49–6.12 mM | Chicago Node, Liu Lab, in 0.7% agarose. Two sources disagree with the arithmetic — see the note below. Do not cite a single value |
+| Free in the gel | 0.49–6.12 mM | In 0.7% agarose. The stated final and the protocol's own arithmetic disagree — see the note below. Do not cite a single value |
 | Encapsulated in a liposome | **not possible** | see Requirements — X-Gal needs DMSO, and DMSO ruins liposome formation |
 :::
 
 :::{attention} The working concentration is not established
-Sources give X-Gal free in the gel as **2.5 mg/mL (6.12 mM)**, but the protocol that states that figure adds 1 µL of a 1% stock to a 50 µL gel, which is **0.2 mg/mL (0.49 mM)** — a 12.5-fold disagreement inside one document. The stated final is the likelier error, so **0.49 mM** is the working figure pending the Node. Until it is resolved, treat **0.49 mM to 6.12 mM** as the bracket and do not cite a single value.
-
-Specify X-Gal in **molar units**. A mass concentration hides the comparison with [CPRG](../substrate-cprg/spec.md), which is specified molar, and the two are substrates for the same enzyme.
-:::
+Sources give X-Gal free in the gel as **2.5 mg/mL (6.12 mM)**, but the protocol that states that figure adds 1 µL of a 1% stock to a 50 µL gel, which is **0.2 mg/mL (0.49 mM)** — a 12.5-fold disagreement inside one document. The stated final is the likelier error, so **0.49 mM** is the working figure. Treat **0.49 mM to 6.12 mM** as the bracket and do not cite a single value.
 
 @Editor(chicago): is the dye line 1 µL or 5 µL? At 1 µL of a 1% stock the inset gel gets 0.49 mM, not the 2.5 stated in either unit. 5.11 µL would give 2.5 mM. Also say whether the figure carries to gels other than 0.7% agarose.
+
+@Editor(chicago): cite the protocol that states 2.5 mg/mL.
+:::
 
 (substrate-xgal-expected-behavior)=
 # Expected Behavior
@@ -70,11 +70,7 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 **Expected to be light-sensitive**, as CPRG is, so a photodeveloped gel should add it after crosslinking rather than before. @Editor(chicago): this has not been tested — CPRG's UV bleaching is documented and X-Gal's is inferred from it.
 
-**X-Gal is half of a pair, and the pair is the parameter.** Its enzyme is
-[LacZ](../reporter-lacz-enzyme/spec.md), the same enzyme as
-[CPRG](../substrate-cprg/spec.md), which is why the pair and not the substrate is the unit. The
-valid pairs are listed on the enzyme page. X-Gal does not pair with
-[XylE](../reporter-xyle/spec.md).
+**X-Gal is half of an enzyme-substrate pair.** Its enzyme is [LacZ](../reporter-lacz-enzyme/spec.md), the same enzyme as [CPRG](../substrate-cprg/spec.md). The valid pairs are listed on the enzyme page. X-Gal does not pair with [XylE](../reporter-xyle/spec.md).
 
 # Processes
 

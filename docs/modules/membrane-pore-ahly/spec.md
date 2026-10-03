@@ -151,7 +151,11 @@ Passes molecules up to ~3 kDa, through an inner diameter of (1.6–4.6) nm. A pa
 
 This requirement propagates: a membrane carrying this pore has it, and so does any Cell built on that membrane. It is discharged by checking the outer solution's own composition, not by anything on this page.
 
-**How fast is not established.** Equilibration competes with consumption, and no rate is recorded for any transport Module in this corpus. A reaction that finishes quickly may be untouched by a pore that equilibrates slowly. Dye loss through a pore is measured — see [Cx43](../membrane-pore-cx43/spec.md) — but that time course is limited by expression of the pore, not by transport through it.
+**Equilibration competes with consumption.** A reaction that finishes quickly may be untouched by a pore that equilibrates slowly. Dye loss through a pore is measured — see [Cx43](../membrane-pore-cx43/spec.md) — but that time course is limited by expression of the pore, not by transport through it.
+
+:::{attention} Transport rate not recorded
+@Editor: record the equilibration rate through this pore. No rate is recorded for any transport Module.
+:::
 
 # Materials
 

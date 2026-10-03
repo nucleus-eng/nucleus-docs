@@ -11,11 +11,11 @@ site:
 
 CPRG is chlorophenol red-β-D-galactopyranoside, the chromogenic substrate half of the [LacZ Reporter](../reporter-lacz/spec.md) pair. It is yellow; [LacZ](../reporter-lacz-enzyme/spec.md) cleaves it to chlorophenol red, which is magenta.
 
-**CPRG is 585.41 g/mol**, which is 0.59 kDa ([Roche 10884308001](https://www.sigmaaldrich.com/US/en/product/roche/10884308001)). **That is below both pore cutoffs this corpus carries**, ~3 kDa for [α-hemolysin](../membrane-pore-ahly/spec.md) and ~1 kDa for [Cx43](../membrane-pore-cx43/spec.md). **So CPRG can cross into a cell that carries a pore**, which is what makes a pore an alternative to lysis wherever the enzyme is the enclosed half. See [LacZ Reporter](../reporter-lacz/spec.md) for why that does not run the other way. The pore page warns that the mass figure is a scale rather than a filter, so this says a pore is worth testing and not that it works.
+**CPRG is 585.41 g/mol**, which is 0.59 kDa ([Roche 10884308001](https://www.sigmaaldrich.com/US/en/product/roche/10884308001)). **That is below both pore cutoffs**, ~3 kDa for [α-hemolysin](../membrane-pore-ahly/spec.md) and ~1 kDa for [Cx43](../membrane-pore-cx43/spec.md). **So CPRG can cross into a cell that carries a pore**, which is what makes a pore an alternative to lysis wherever the enzyme is the enclosed half. See [LacZ Reporter](../reporter-lacz/spec.md) for why that does not run the other way. The mass figure is a scale rather than a filter, so a pore route is inferred from mass alone and has not been shown to work.
 
 **A second substrate exists.** [X-Gal](../substrate-xgal/spec.md) works with the same enzyme and precipitates rather than diffusing, so it holds a pattern where CPRG smears. It cannot be liposome-loaded, so the two are not interchangeable in every format — see that page.
 
-**This page is about the substrate, not about a container for it.** Holding CPRG inside a liposome keeps it away from the enzyme until a lysis event releases it, but the liposome format is the business of the process that encapsulates it: the London Node uses GUVs made by phase transfer, and the Chicago Node uses SUVs made by film hydration and extrusion. Both hold the same substrate. See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) for the SUV format specifically.
+Holding CPRG inside a liposome keeps it away from the enzyme until a lysis event releases it. The London Node uses GUVs made by phase transfer, and the Chicago Node uses SUVs made by film hydration and extrusion. Both hold the same substrate. See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) for the SUV format specifically.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -27,7 +27,7 @@ This page is a work in progress and not yet ready for use.
 | Format | Loading concentration | Notes |
 | --- | --- | --- |
 | SUV, film hydration and extrusion | 50 mM | Chicago Node. 400 nm target size |
-| GUV, phase transfer | Not documented | London Node, since the move away from SUVs |
+| GUV, phase transfer | Not documented | London Node |
 | Free in the gel | Not documented | Photodevelopment routes, where UV would bleach encapsulated CPRG |
 :::
 
@@ -37,14 +37,12 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 **CPRG is UV-sensitive**, so any photodeveloped format adds it after crosslinking rather than embedding it with everything else. That reordering makes it a free dye rather than an encapsulated one, which changes what the reporter is composed of.
 
-**CPRG is half of a pair, and the pair is the parameter.** Its enzyme is
-[LacZ](../reporter-lacz-enzyme/spec.md), and the valid enzyme-substrate pairs this corpus carries
-are listed there. CPRG does not pair with [XylE](../reporter-xyle/spec.md).
+**CPRG is half of an enzyme-substrate pair.** Its enzyme is [LacZ](../reporter-lacz-enzyme/spec.md), which lists the valid pairs. CPRG does not pair with [XylE](../reporter-xyle/spec.md).
 
 # Processes
 
 - [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
-- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format, since the move to GUVs.
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
 
 # Credits
