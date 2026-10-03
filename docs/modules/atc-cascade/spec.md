@@ -120,16 +120,6 @@ flowchart TD
 | `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Expressed in the synthetic cell; distinct from `pT7-tetO-plamGFP`. Verified 2026-09-29 by its `TetO` and `PLA1 (codon-optimized to E. coli)` features, not by name |
 :::
 
-:::{attention} WITHDRAWN 2026-09-29 — the construct is in `nucleus-eng/DNA`
-**This block's own condition has been met and nobody noticed.** It said not to add a length or file entry *"until the construct is confirmed and its length verified against the source file"*. The file is `effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb` on `devcells/devstudio-constructs`, **1202 bp**, and three pages now carry it as a checked row — [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md), [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) and [Detector: tetR-aTc](../detector-tetr-atc/spec.md). `scripts/check-dna-refs.py` verifies the length against the file on each.
-
-**The row above is filled**, on Jon's word of 2026-09-29. The construct was verified by its features rather than by its name: the file carries `TetO` and `PLA1 (codon-optimized to E. coli)`.
-
-**The superseded text follows.**
-
-`TetO-PLA1` has no sequence file in [`nucleus-eng/DNA`](https://github.com/nucleus-eng/DNA) and no recorded length. It is distinct from `pT7-tetO-plamGFP`, so that file cannot stand in for it. The same gap is recorded on [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md). Do not add a length or file entry here until the construct is confirmed and its length verified against the source file.
-:::
-
 ::::
 
 ::::{tab-item} Cytosol
@@ -170,7 +160,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 :::{table} CPRG in the aTc path.
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| CPRG | 0.5 mM final in the gel | about 11 µL of a 5 mM stock per 100 µL of gel. Chicago Node, 2026-09-11 |
+| CPRG | 0.5 mM final in the gel | about 11 µL of a 5 mM stock per 100 µL of gel |
 :::
 
 **This path carries no substrate liposome.** The pH path does — see [pH Cascade](../ph-cascade/spec.md). The difference follows from the gel, not from the reporter chemistry.

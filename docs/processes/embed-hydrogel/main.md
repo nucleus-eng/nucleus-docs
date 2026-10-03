@@ -8,7 +8,7 @@ status: draft
 
 Embedding sets a polymer network around compartments that already exist, so they are held in place instead of settling or diffusing apart. The gel dissolves into the outer solution the compartments were already suspended in, so it adds a position without adding a barrier.
 
-Its instances, grouped by what sets the gel. Jon ruled on 2026-09-29 that Gel refines by formation route rather than per material, and these are the three routes:
+Its instances, grouped by formation route — what sets the gel:
 
 - **Set ionically.** [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md) — sodium alginate set by calcium.
 - **Set thermally.** [Embedding: Thermal Setting](../embed-thermal-setting/main.md) — ultra-low-gelling agarose set by cooling. Low-gelling agarose is the same route at a different gel point and has no page yet.

@@ -14,10 +14,8 @@ Color Development brings a gel to the conditions its reporter enzyme needs, afte
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} One demo needs this and three do not, and that is the point
-Written 2026-09-24. Jon: *"color development is distinct from colorimetric readout. that's a step only for the pH sensor because LacZ doesn't work as well in acidic conditions. doesn't affect other demos."*
-
-The aTc, LuxR and EsaR paths all run at a pH their reporter tolerates, so their trigger and their readout are adjacent. **The pH path is the one whose sensing chemistry and whose reporting chemistry want incompatible conditions**, which is why it alone has a step between them.
+:::{note} Only the pH path needs this step
+Color development is a separate step from [Colorimetric Readout](../colorimetric-readout/main.md). The pH path needs it because its sensing chemistry and its reporting chemistry want incompatible conditions: β-galactosidase works less well at the acidic pH the sensor uses ([Baltin et al., 2017](https://doi.org/10.11134/btp.2.2017.11), measured for the *Streptococcus thermophilus* enzyme). The aTc, LuxR and EsaR paths run at a pH their reporter tolerates, so their trigger and their readout are adjacent and need no step between them.
 :::
 
 # Why the step exists

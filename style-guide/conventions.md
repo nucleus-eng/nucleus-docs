@@ -10,7 +10,7 @@
 | DevStudio | DevCell Studio | the three-week hackathon |
 | liposome | vesicle | never an umbrella term; GUV, SUV and LUV are distinct and must not collapse |
 | synthetic cell | liposome | wherever the liposome can reasonably be called a synthetic cell |
-| integration path | — | `leg` is an accepted synonym for a path on a graph, not a refused spelling. Jon, 2026-09-28. `integration path` stays preferred |
+| integration path | — | `leg` is an accepted synonym for a path on a graph, not a refused spelling. `integration path` stays preferred |
 | colorimetric | colormetric | |
 | ultrapure water | milliQ water | vendor-neutral |
 | `SMix -CP` | `SMixΔCP` | prefer plain characters |

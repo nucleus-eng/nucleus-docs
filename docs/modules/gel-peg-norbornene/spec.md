@@ -82,16 +82,10 @@ flowchart TD
 
 :::::
 
-:::{note} The composition is recorded; the arm ratio is provisional
-Chicago Node, Ojaswita Pant, 2026-09-14. Dissolve in 1 mL PBS, deionized water or buffer.
-Vortex 2000 rpm 1 min, rest (3–5) min at room temperature, vortex (2–4) min, repeat until clear.
-Prepare under red light or in the dark.
+:::{note} Preparing the precursor, and the arm ratio
+Dissolve in 1 mL PBS, deionized water or buffer. Vortex at 2000 rpm for 1 min, rest (3–5) min at room temperature, then vortex (2–4) min. Repeat until clear. Prepare under red light or in the dark.
 
-**The arm ratio is 4:1 ene-to-thiol** — 320 mM norbornene against 80 mM thiol — where
-step-growth thiol-ene normally runs near 1:1. A four-fold norbornene excess gives a loosely
-crosslinked network, which may be deliberate: the same protocol specifies photopatterning for
-"exactly 60 s". @Editor(chicago): confirm the 4:1 ratio is intended rather than a transcription
-slip.
+**The arm ratio is 4:1 ene-to-thiol** — 320 mM norbornene against 80 mM thiol — where step-growth thiol-ene normally runs near 1:1. A four-fold norbornene excess gives a loosely crosslinked network, which may be deliberate: the same protocol specifies photopatterning for exactly 60 s. @Editor(chicago): confirm the 4:1 ratio is intended rather than a transcription slip.
 :::
 
 (gel-peg-norbornene-expected-behavior)=

@@ -262,12 +262,10 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 Both assemble an aqueous solution by mixing components into one compartment, and both are instances of the same abstract process. That is why both are mixing: the operator follows from what the process does, not from what it happens to be combining.
 :::
 
-:::{important} The combining ratio, confirmed at the bench
-Step 5 was previously recorded as a gap: a reader could make each population from the pages linked here and still not know how much of each to use.
+:::{important} The combining ratio
+The two populations are mixed **1:1**, then that mixture is combined **1:1 with 1% (w/v) ULGA** for a **0.5% final** gel — an overall **1:1:2**.
 
-Confirmed with the London Node, 2026-09-09: the two populations are mixed **1:1**, then that mixture is combined **1:1 with 1% (w/v) ULGA** for a **0.5% final** gel — an overall **1:1:2**.
-
-**Two of the five steps have no Process page** — steps 1 and 4. Every combination step needs one, so these are missing pages rather than missing numbers.
+@Editor: steps 1 and 4 have no Process page.
 :::
 
 # Constituent Modules

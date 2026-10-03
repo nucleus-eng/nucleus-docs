@@ -53,12 +53,6 @@ Exposure time depends on monomer concentration, layer thickness and feature size
 | Network uniformity | more uniform | more heterogeneous |
 | Exposure | 60 s at 405 nm | (15–30) s at 405 nm |
 
-:::{attention} This table was the argument for two pages, and it is now one page's table
-Written 2026-09-29. The page this replaces said the uniformity row *"is the one that decides which route a colorimetric cascade can use, and it is the reason these are two pages rather than one page with a parameter."*
-
-**Jon ruled the merge anyway, on the ground that the member slot names the route.** The distinction is not lost, it moved from two titles into one table. **If a cascade ever has to select between these two chemistries by name, this table is where that choice lives** and the ruling would want revisiting.
-:::
-
 ## PEG-Norbornene, the live chemistry
 
 Crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. Precursor composition and preparation are on [Gel: PEG-Norbornene](../../modules/gel-peg-norbornene/spec.md). Patterning runs **60 s at 405 nm**.

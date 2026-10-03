@@ -84,8 +84,8 @@ S30 Lysate's expected behavior is characterized by expressing a reporter module 
 
 Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
 
-:::{important} Reactions receive the circular form, and the distinction is not cosmetic
-Confirmed with the London Node, 2026-09-09: **S30 Lysate requires circular DNA.** Nothing is done to protect a linear template — no GamS is added — so linear DNA is exposed to exonuclease activity in an *E. coli* extract and the circular form is used instead.
+:::{important} Reactions use the circular form
+**S30 Lysate requires circular DNA.** Nothing protects a linear template — no GamS is added — so linear DNA is exposed to exonuclease activity in an *E. coli* extract, and the circular form is used instead.
 
 Each London construct exists in both presentations. The linear form is the expression cassette alone, used in [Base Cytosol](../base-cytosol/spec.md); the circular form is that same cassette in a pOpen backbone, and is what goes into an S30 reaction. **They are functionally equivalent but not sequence-identical**, so a page citing one is not citing the other — see [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md).
 :::
