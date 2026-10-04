@@ -13,15 +13,17 @@ house style, the shapes, the click targets and the "— no page" wording are
 reused unchanged.
 
     python3 scripts/render-meet.py docs/modules/london-cascade/spec.yml \
-                                   docs/modules/chicago-cascade/spec.yml
+                                   docs/modules/atc-cascade/spec.yml
 
 FOUR RULES, each with the measurement that forced it.
 
-1. A LEG IS NOT A FILE, AND THE PARTITION KEY IS THE DETECTOR. chicago-cascade
-   holds two legs and london-cascade holds one. Walking back from each operand of
-   the final step is right for Chicago, whose `bond-gels` has two operands that
-   separate the paths, and wrong for London, whose `embed-ulga` has five and would
-   give five branches. A leg is a branch reaching exactly one detector.
+1. A LEG IS NOT A FILE, AND THE PARTITION KEY IS THE DETECTOR. Measured against a
+   multiplex source that held two legs while london-cascade holds one: walking back
+   from each operand of the final step was right for the multiplex, whose `bond-gels`
+   had two operands that separated the paths, and wrong for London, whose
+   `embed-ulga` has five and would give five branches. A leg is a branch reaching
+   exactly one detector. The multiplex source was retired 2026-10-03 and the rule
+   outlives it: a meet is now asked for its legs by name.
 
    THE REACH SCANS THREE FIELDS, AND ONLY TWO OF THEM STILL EARN IT. Measured by
    disabling each in turn at this commit:
@@ -32,7 +34,7 @@ FOUR RULES, each with the measurement that forced it.
                             anneal-trigger-duplex rather than being handed one.
      inputs[].component_of  DEAD FOR LEGS, LOAD-BEARING FOR OPERAND SLOTS. Removing
                             it changes no leg in any cascade, and it is the only route
-                            by which chicago-cascade's ph-responsive-ssdna and
+                            by which ph-cascade's ph-responsive-ssdna and
                             trigger-ssdna reach detector-ph when the operands are
                             slotted. One field, two passes, opposite answers.
 

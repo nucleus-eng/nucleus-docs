@@ -34,7 +34,6 @@ The device is a cascade Module placed in a physical operating context: a specifi
 | Substrate | [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md) | ★ |
 | Readout | [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) | ★ |
 | Readout (alternate) | [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) | proposed, not used |
-| Multiplex | [Chicago Cascade](../../modules/chicago-cascade/spec.md) | not built |
 
 ## Choosing the colorimetric readout
 

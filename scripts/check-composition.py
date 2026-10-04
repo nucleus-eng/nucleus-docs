@@ -17,7 +17,7 @@ Two findings, and they are not the same severity.
             Reported, not blocking. The final step's operands are the direct
             constituents, so the prose should usually name them — but a page
             may legitimately describe its constituents at a different grain.
-            `chicago-cascade` names two Cascades where the source names the two
+            A multiplex page named two Cascades where the source named the two
             gel pieces they end as, and neither is wrong.
 
   SKIPPABLE a step marked `optional: true` whose product a later step consumes

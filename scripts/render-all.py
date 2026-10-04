@@ -30,10 +30,15 @@ a modeling question by making a generator convenient. So the meet is review
 material next to the poset draft, regenerated on every run and diffable.
 
 WHICH MEETS ARE WORTH RENDERING, MEASURED RATHER THAN LISTED. A meet over one
-leg is the composition diagram restated, and three of the four cascades have
-exactly one leg. Only chicago-cascade is multi-leg on its own. The set below is
-Jon's, 2026-09-21: the two Chicago integration paths plus the London demo, which
-is three legs and every detector in the corpus.
+leg is the composition diagram restated, and every cascade source has exactly
+one leg. So each set below names the legs it meets over. The sets are Jon's,
+2026-09-21: the two Chicago integration paths plus the London demo, which is
+three legs and every detector in the corpus.
+
+NAMED BY LEG SINCE 2026-10-03. Both sets were one argument, chicago-cascade,
+which carried the two Chicago paths inside it and was retired because nobody is
+building it. Naming atc-cascade and ph-cascade gives the same three legs and the
+same partition, and it no longer depends on a module that bonds them.
 """
 import subprocess
 import sys
@@ -46,10 +51,10 @@ OUT = REPO / "tmp" / "generated"
 # Each entry is an output file and the arguments that produce it. A meet over one
 # leg is omitted: it restates that module's own composition diagram.
 MEETS = [
-    ("meet-chicago-london.md", ["chicago-cascade", "london-cascade"],
+    ("meet-chicago-london.md", ["atc-cascade", "ph-cascade", "london-cascade"],
      "The two Chicago integration paths and the London demo. Three legs, "
      "one per detector in the corpus."),
-    ("meet-chicago.md", ["chicago-cascade"],
+    ("meet-chicago.md", ["atc-cascade", "ph-cascade"],
      "Chicago alone. Two legs, the pH path and the aTc path."),
 ]
 

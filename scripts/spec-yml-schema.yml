@@ -544,7 +544,7 @@ $defs:
           carried more than two operands at 9e57b86, so half the corpus makes an
           assertion it cannot support.
           THE FIRST THREE USERS ARE HETEROGENEOUS IN THE SAME WAY, found by the
-          compositional-biology-theory session on 2026-09-21: chicago-cascade and
+          compositional-biology-theory session on 2026-09-21: a multiplex cascade and
           ph-cascade `embed-agarose`, and london-cascade `embed-ulga`. Each takes
           five operands of which three share the outer phase and two are
           membrane-bounded, so `packing` is the majority and wrong three times,

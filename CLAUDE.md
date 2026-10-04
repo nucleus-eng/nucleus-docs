@@ -215,7 +215,7 @@ python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  
 
 **The last two write to `tmp/` because their subject is not one module.** A meet spans several integration paths and the poset draft spans the corpus, so neither has a page to sit on. The cross-demo meet's outcome slot reports NO COMMON ANCESTOR over aTc Cascade, London Cascade and pH Cascade: the class that would hold them is deliberately unwritten, and giving the figure a home would settle that by making a generator convenient.
 
-**A meet over one integration path is the composition diagram restated.** Three of the four cascades have exactly one integration path, so only `chicago-cascade` is worth rendering alone. The set `render-all.py` renders is Chicago plus London, which is three integration paths and every detector in the corpus.
+**A meet over one integration path is the composition diagram restated.** Every cascade source has exactly one integration path, so a meet is asked for the paths it spans, by name. The set `render-all.py` renders is `atc-cascade` and `ph-cascade` alone, then those two with `london-cascade`, which is three integration paths and every detector in the corpus.
 
 **Run `render-all.py` after any `spec.yml` change.** A source change that leaves the rendered diagram behind is drift one level down.
 

@@ -38,7 +38,7 @@ The band has one boundary, pH 6.5. No lower bound is documented — the pH at wh
 
 Requires a [pH-Sensing Detector](../detector-ph/spec.md) to be sensed at all.
 
-**Requires the outer solution to be buffered where the readout is not the pH change itself.** The [Chicago Cascade](../chicago-cascade/spec.md) states its own outer solution at 42.5% (v/v) Tris-HEPES, and the pH path needs a neutralization step before color develops while the aTc path reads out directly. So the analyte and the buffer that holds it are coupled in a way the other four analytes are not.
+**Requires the outer solution to be buffered where the readout is not the pH change itself.** A colorimetric readout runs on an enzyme with its own pH optimum, so a composition that senses pH and reports by color needs a neutralization step between the two. The analyte and the buffer that holds it are coupled in a way the other four analytes are not.
 
 # Processes
 

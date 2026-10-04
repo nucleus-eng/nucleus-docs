@@ -8,9 +8,8 @@
 #   mixing   both at once, in one compartment, sharing its resources
 #   packing  both at once, each keeping its own compartment
 #
-# Depth 1. This is the aTc integration path of the Chicago Cascade, entire.
-# chicago-cascade/spec.yml builds the same path and bonds the result to
-# the pH one.
+# Depth 1. This is the aTc integration path, entire. A module that bonded it to
+# the pH path was retired 2026-10-03, because nobody is building that device.
 
 module: atc-cascade
 title: aTc Cascade
@@ -154,8 +153,8 @@ process_steps:
     notes: >
       No concentration is established for the monomer, the crosslinker or the
       photoinitiator, and exposure time depends on all three. The PEGDA route
-      was cut by the Chicago Node on 2026-09-11; ../chicago-cascade/spec.md
-      carries their words and the reason.
+      was cut by the Chicago Node on 2026-09-11, because PEGDA destroys the
+      liposomes; ../gel-pegda/spec.md carries the reason.
 
   - id: dose-cprg
     process:
@@ -183,5 +182,5 @@ open:
       No page states what the PEG-Norbornene precursor dissolves in. This file
       dissolves it in the Outer Solution; anything less would put a large
       osmotic gradient across the membrane at the moment of embedding — the
-      cells sit at about 1180 mOsm. Same item as in
-      chicago-cascade/spec.yml. @Editor(chicago).
+      cells sit at about 1180 mOsm. ../ph-cascade/spec.yml carries the same
+      item for its own path. @Editor(chicago).

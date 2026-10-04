@@ -68,7 +68,6 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Analyte | [Theophylline](./analyte-theophylline/spec.md) | ★ |
 | Analyte | [IPTG](./analyte-iptg/spec.md) | ★ |
 | Analyte | [pH](./analyte-ph/spec.md) | ★ |
-| Cell (Cascade) | [Chicago Cascade](./chicago-cascade/spec.md) | ★ |
 | Container | [Container](./container/spec.md) | - |
 | Container | [Solution](./solution/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |

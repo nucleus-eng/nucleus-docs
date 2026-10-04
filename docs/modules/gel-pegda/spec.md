@@ -103,7 +103,7 @@ Expect a gel that forms only where the light falls, so the pattern is set by the
 Chain-growth acrylate polymerization is prone to oxygen inhibition at the gel surface and produces more heterogeneous networks than a step-growth chemistry would.
 
 :::{warning} Not yet validated with a cascade
-No result embeds a working sensing cascade in this gel. It is documented as a route to the spatial separation the [Chicago Cascade](../chicago-cascade/spec.md) Requirements section calls for, but that combination has not been run.
+No result embeds a working sensing cascade in this gel. It is documented as a route to spatial separation, which a composition needs when two populations would otherwise act on each other, but that combination has not been run.
 :::
 
 :::{attention} No feature-size or mechanical data
