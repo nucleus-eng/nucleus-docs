@@ -223,7 +223,7 @@ if __name__ == "__main__":
     # placed by nothing is not a leaf and not a root. It is unplaced, and the
     # difference matters most for a CLASS page, which is a parent with no
     # children — a class nothing declares membership in.
-    unplaced = sorted(set(S) - set(p1) - set(p1.values()))
+    unplaced = sorted(set(S) - _placed)
     print("\n  PLACED BY NOTHING, listed because a tree cannot show an absent node:")
     for i in range(0, len(unplaced), 3):
         print("    " + "  ".join(f"{u:30}" for u in unplaced[i:i + 3]).rstrip())
