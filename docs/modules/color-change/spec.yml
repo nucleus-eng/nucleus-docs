@@ -24,7 +24,7 @@ inputs:
     page: null            # one of the enzyme's substrates:
   trigger:
     title: "Trigger"
-    page: null            # THE THIRD COORDINATE, added 2026-10-04 on Jon's ruling. What ends
+    page: null            # THE THIRD COORDINATE. What ends
                           # the separation this class holds. It is NOT an operand of the step
                           # below: `packing` is what creates the separation, and the trigger is
                           # what later destroys it, so it enters at the cascade and not here.
@@ -71,18 +71,18 @@ open:
   - id: pla1-location-is-a-third-coordinate-and-is-not-here
     kind: choice
     question: >
-      RULED 2026-10-04 AND HALF CLOSED. A third input, not a tuple set. `trigger` is
+      HALF CLOSED. A third input, not a tuple set. `trigger` is
       declared above. A tuple set would assert that the valid (encapsulation, trigger
       location) pairs are a restricted subset correlated by rule, and nothing in this
-      corpus asserts that correlation: the combinations nobody has built are untested
+      source asserts that correlation: the combinations nobody has built are untested
       or designed, not forbidden. One of them is designed and recorded --
       ../detector-ph/spec.md lists `T7-toehold-XylE-T7term` at 2 nM, status Designed --
       so a tuple set would exclude a combination somebody drew.
-      WHAT IS STILL OPEN IS THE RECTANGLE, which the ruling did not touch. Whether the
+      WHAT IS STILL OPEN IS THE RECTANGLE, which that does not touch. Whether the
       valid (encapsulation, trigger location) pairs form one has still never been
       checked. Where the trigger sits is not free -- it lyses the substrate
       compartment -- so the pairs could be correlated in fact while not being correlated
-      by any rule the corpus states. Measuring it needs every cascade's encapsulation
+      by any rule stated anywhere. Measuring it needs every cascade's encapsulation
       choice read against its trigger's compartment, which no generator does today.
       NEITHER MEMBER DECLARES A TRIGGER, which is not an omission. ../reporter-lacz/
       and ../reporter-xyle/ are the two members and each is an enzyme-and-substrate
