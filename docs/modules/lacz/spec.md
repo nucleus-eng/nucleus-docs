@@ -13,38 +13,28 @@ site:
 **Position.** Refines nothing declared. Refined by [`lacz-dna`](../lacz-dna/spec.md), [`reporter-lacz-enzyme`](../reporter-lacz-enzyme/spec.md).
 <!-- /gen:position -->
 
-A class: beta-galactosidase, however it is supplied. Two members.
+A class: β-galactosidase, however it is supplied.
 
-**It exists because an operand must accept either form.** [LacZ Reporter](../reporter-lacz/spec.md) can be built by expressing the enzyme from a template or by adding it purified, and its operand should not have to choose. An operand naming a class means any member satisfies it, which is how [Cell](../cell/spec.md) takes a [Cytosol](../cytosol/spec.md) and either base cytosol or S30 lysate answers.
-
-**It refines nothing.** An enzyme is not a container, a cytosol or a reporter. It is a component a reporter reaction takes.
+Every member delivers β-galactosidase activity. An operand that names LacZ takes either member, so a Module that needs the enzyme does not have to choose how it is supplied. [LacZ Reporter](../reporter-lacz/spec.md) can express the enzyme from a template or add it purified.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-# Reference Composition
+# Members
 
-:::{table} The two members differ in what they require, not in what they do.
-| Member | Form | Requires |
-| --- | --- | --- |
-| [LacZ DNA template](../lacz-dna/spec.md) | a construct | an expression system |
-| [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | purified protein | a supplier |
-:::
+| Member | What makes it a member |
+| --- | --- |
+| [LacZ DNA template](../lacz-dna/spec.md) | A DNA construct, `T7pro-LacZ-T7term`, that carries no activity itself. It requires an expression system to make the enzyme. |
+| [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | Purified β-galactosidase from *E. coli*. It requires a supplier. |
 
-**Both deliver beta-galactosidase activity**, which is why an operand can take either. In `compositional-biology-theory` they are **co-satisfying**, `glossary.md#T28`: two Formulations of one Specification, separated by a formulation predicate.
+# Expected Behavior
+
+Either member gives β-galactosidase activity, which converts [CPRG](../substrate-cprg/spec.md) from yellow to red. The members differ in what they require, not in what they do.
 
 # Constituent Modules
 
-- A source of beta-galactosidase — a template in one member, the purified protein in the other. No page: a class composes abstract constituents
-
-# Requirements
-
-Requires nothing of a Context that its members do not. What each member requires is the whole difference between them and is stated on their own pages.
-
-# Processes
-
-None here. Its two members are obtained rather than made: one is ordered from a supplier and the other is a DNA construct. [Pore](../pore/spec.md) has the same shape for the same reason.
+- A source of β-galactosidase — a template in one member, the purified protein in the other
 
 # Credits
 

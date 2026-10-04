@@ -13,13 +13,9 @@ site:
 **Position.** Refines [`gel`](../gel/spec.md). Refined by [`gel-peg-norbornene`](../gel-peg-norbornene/spec.md), [`gel-pegda`](../gel-pegda/spec.md).
 <!-- /gen:position -->
 
-An abstract Module: the class of gels whose shape is set by projected light. It refines [abstract gel](../gel/spec.md), which refines [Container](../container/spec.md).
+A class: a [Gel](../gel/spec.md) whose shape is set by projected light.
 
-**The invariant is that geometry comes from an image rather than from a container.** A thermally or ionically set gel takes the shape of whatever it is poured into. A photopatterned gel sets only where the light falls, so its shape is chosen at the moment of casting and can be different in two places in the same well.
-
-**That is a capability and not a detail.** It is the corpus's route to spatial separation, which is what the Chicago Cascade needs so that two PLA1-gated paths do not lyse each other's compartments. See [Chicago Cascade](../chicago-cascade/spec.md) § Requirements.
-
-**What varies between the two members is the crosslinking chemistry**, and it is not a cosmetic difference.
+Every member sets only where the light falls, so its geometry comes from an image rather than from a container. A thermally or ionically set gel takes the shape of whatever it is poured into. A photopatterned gel is shaped when it is cast, and its shape can differ between two places in the same well.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -60,43 +56,60 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-:::::
+::::{tab-item} Outer Solution
 
-**Members are a different relation from constituents.** In `compositional-biology-theory`, `glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership a matter of what a sort classifies. **A class having members does not give it parts.** It does not give it none either: whether an abstract Module has constituents depends on whether its own class invariant names a composition, and that is decided per class rather than for abstract Modules in general.
-
-**This class has constituents, inherited and extended.** It refines [abstract gel](../gel/spec.md), whose composition the theory corpus gives as `Gel = OuterSolution ⊞ polymer`. **Photopatterning adds a third factor**: a photoinitiator, which both members carry and which neither parent class requires. So the composition here is a proper extension of the parent's, and that is what makes this a class rather than a label on two members.
-
-:::{table} The two members, by crosslinking chemistry.
-| Member | Chemistry | Network |
-| --- | --- | --- |
-| [PEG-Norbornene](../gel-peg-norbornene/spec.md) | step-growth thiol-ene, 4-arm PEG-norbornene with a PEG4SH crosslinker | defined by the arms and the crosslinker |
-| [PEGDA](../gel-pegda/spec.md) | radical acrylate chain-growth | defined by chain propagation |
+:::{table} What each member puts in the outer solution slot.
+| Member | Outer solution |
+| --- | --- |
+| [PEG-Norbornene](../gel-peg-norbornene/spec.md) | PBS, deionized water or buffer |
+| [PEGDA](../gel-pegda/spec.md) | PBS |
 :::
 
-**Both need a photoinitiator and both use 405 nm.** The light source is the same and the chemistry underneath it is not. Step-growth builds a network of known connectivity from components of known functionality. Chain-growth builds one whose connectivity depends on how far each chain propagates before it terminates.
+::::
 
-**The corpus already treats these as unequal for a reason that is not chemistry.** The [PEG-Norbornene](../gel-peg-norbornene/spec.md) page records it as the less harsh of the two. That is a claim about what survives being embedded, which makes it a payload Requirement rather than a gel property, the same shape as the temperature window on the parent page.
+::::{tab-item} Polymer
+
+:::{table} What each member puts in the polymer slot, by crosslinking chemistry.
+| Member | Polymer | Chemistry |
+| --- | --- | --- |
+| [PEG-Norbornene](../gel-peg-norbornene/spec.md) | 4-arm PEG-norbornene with a PEG4SH crosslinker | step-growth thiol-ene, with the network defined by the arms and the crosslinker |
+| [PEGDA](../gel-pegda/spec.md) | PEGDA575 | radical acrylate chain-growth, with the network defined by chain propagation |
+:::
+
+::::
+
+::::{tab-item} Photoinitiator
+
+A photoinitiator is the constituent this class adds to the outer solution and polymer of a [Gel](../gel/spec.md).
+
+:::{table} What each member puts in the photoinitiator slot.
+| Member | Photoinitiator | Light |
+| --- | --- | --- |
+| [PEG-Norbornene](../gel-peg-norbornene/spec.md) | LAP | 405 nm |
+| [PEGDA](../gel-pegda/spec.md) | LAP | 405 nm |
+:::
+
+::::
+
+:::::
+
+# Expected Behavior
+
+A Photopatterned Gel is expected to set only where the light falls, so the pattern is the projected image. That is a route to spatial separation: the [Chicago Cascade](../chicago-cascade/spec.md#chicago-cascade-requirements) needs its two PLA1-gated paths held apart so that neither lyses the other's compartments.
+
+What an embedded payload survives depends on the chemistry. Radical acrylate polymerization is not compatible with lipid membranes, so [Gel: PEGDA](../gel-pegda/spec.md) is canceled as a cell-carrying gel. [Gel: PEG-Norbornene](../gel-peg-norbornene/spec.md) is the live chemistry, as [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md) records.
 
 # Requirements
 
-Requires a photoinitiator, and requires 405 nm light delivered as a pattern rather than as flood illumination. Flood illumination sets the gel and gives up the only thing this class has.
+Requires a photoinitiator (e.g. LAP, which both members use).
 
-Requires that whatever is being embedded survives the initiator and the light. **That is the constraint that separates the two members in practice**, and neither member page states it as a number.
+Requires 405 nm light projected as a pattern rather than as flood illumination.
 
-:::{attention} What this class requires of its Context is not settled
-An abstract Module carries an abstract Context that its members refine, ruled 2026-09-17. **How much that Context term carries, and how much is left to Requirements, is `open.md#O21`** in the theory corpus, whose expressiveness half closed on Jon's ruling of 2026-09-21 and whose selection half is live.
-
-**Here the open question has teeth.** The difference the corpus actually cares about between these two members is how harsh each is on what it holds. That is not a property of either gel alone. It is a relation between the gel and its payload, and until `O21` settles where such a relation is written, this page can name it and cannot type it.
-:::
+Requires that anything embedded tolerate the light exposure and the radicals the photoinitiator generates.
 
 # Processes
 
-**One, and it has no page.** `spec.yml` declares `photopattern-the-gel`: *"Photopattern the gel"*, `mixing` over `outer-solution`, `polymer`, `photoinitiator`.
-
-**The process is as abstract as its operands**, and no page in this corpus describes it, which is why the source carries `page: null`.
-
-**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
-
+[Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md) is the one step: it mixes the outer solution, the polymer and the photoinitiator, and exposes the result as a pattern. Both members form by it.
 
 # Credits
 

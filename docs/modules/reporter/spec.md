@@ -13,12 +13,9 @@ site:
 **Position.** Refines nothing declared. Refined by [`color-change`](../color-change/spec.md), [`reporter-degfp`](../reporter-degfp/spec.md).
 <!-- /gen:position -->
 
-A class: a [Cytosol](../cytosol/spec.md) expressing a protein that makes a signal. Three sourced
-members, and one of them is itself a class.
+A class: a [Cytosol](../cytosol/spec.md) expressing a protein that makes a signal.
 
-**It refines nothing, and it exists because the members do not agree on what a signal costs.**
-Two of the three need a second molecule to produce one. The third does not, because the protein
-is the signal.
+Every member expresses its reporting protein from a DNA template. Members differ in whether the protein needs a second molecule to make a signal. [Color Change](../color-change/spec.md) and its members need a substrate. [deGFP Reporter](../reporter-degfp/spec.md) does not, because the protein is the signal.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -36,7 +33,7 @@ flowchart TD
     CYTOSOL["Cytosol"]
     REPORTER_TEMPLATE["Reporter template"]
 
-    P1_EXPRESS_THE_REPORTER_0(["Express the reporting protein (mixing) — no page"])
+    P1_EXPRESS_THE_REPORTER_0(["Expression (mixing)"])
     REPORTER["Reporter"]
 
     CYTOSOL --> P1_EXPRESS_THE_REPORTER_0
@@ -52,17 +49,28 @@ flowchart TD
     class P1_EXPRESS_THE_REPORTER_0 process;
 
     click CYTOSOL "/docs/modules/cytosol/spec"
+    click P1_EXPRESS_THE_REPORTER_0 "/docs/processes/express/main"
     click REPORTER "/docs/modules/reporter/spec"
 ```
 
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} Cytosol
+
+:::{table} What each member puts in the cytosol slot.
+| Member | Cytosol |
+| --- | --- |
+| [LacZ Reporter](../reporter-lacz/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+| [XylE Reporter](../reporter-xyle/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+| [deGFP Reporter](../reporter-degfp/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+:::
+
+::::
+
 ::::{tab-item} DNA
 
-**Every member expresses its reporting protein from a template**, three of three, and that is the class invariant.
-
-:::{table} What the members put in this slot.
+:::{table} What each member puts in the template slot.
 | Member | Template |
 | --- | --- |
 | [LacZ Reporter](../reporter-lacz/spec.md) | `T7pro-LacZ-T7term`, not yet in `nucleus-eng/DNA` |
@@ -70,47 +78,38 @@ flowchart TD
 | [deGFP Reporter](../reporter-degfp/spec.md) | `pOpen-deGFP` |
 :::
 
-**The template is not the only supply route.** [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) is the purified protein and refines [LacZ Reporter](../reporter-lacz/spec.md) rather than this class, because a supply form is a form of one reporter and not a reporter of its own.
+The template is not the only way to supply the protein. LacZ can also be added as purified enzyme. See [LacZ](../lacz/spec.md).
 
 ::::
 
-
 :::::
 
-**Members are a different relation from constituents.** In `compositional-biology-theory`,
-`glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes membership
-a matter of what a sort classifies.
+# Expected Behavior
 
-**The invariant is expression, three of three.** Every sourced member mixes a cytosol with a
-template encoding the reporting protein. That much is shared and it is all that is shared.
+A Reporter is expected to give a signal that a reader can measure, once its cytosol has expressed the template. What the signal is, and whether it needs a second molecule, depends on the member.
 
-:::{table} What varies is whether a second molecule is needed.
+:::{table} What each member signals, and whether it needs a substrate.
 | Member | Signal | Needs a substrate? |
 | --- | --- | --- |
-| [Color Change](../color-change/spec.md) | absorbance | **yes**, and holding it apart is that class's invariant |
-| [LacZ Reporter](../reporter-lacz/spec.md) | absorbance, via Color Change | yes, CPRG |
-| [XylE Reporter](../reporter-xyle/spec.md) | absorbance, via Color Change | yes, catechol |
-| [deGFP Reporter](../reporter-degfp/spec.md) | **fluorescence**, 488 nm and 561 nm | **no** |
+| [LacZ Reporter](../reporter-lacz/spec.md) | absorbance | yes, CPRG |
+| [XylE Reporter](../reporter-xyle/spec.md) | absorbance | yes, catechol |
+| [deGFP Reporter](../reporter-degfp/spec.md) | fluorescence, 488 nm channel | no |
 :::
 
-**deGFP is the case that forced this page.** It was declared `measured_by` the Colorimetric
-Readout, whose own page scopes itself to a chromogenic substrate hydrolyzed by a reporter enzyme
-and read by absorbance. deGFP has neither. Corrected 2026-09-21.
+The two members that need a substrate go through [Color Change](../color-change/spec.md), which holds the enzyme and the substrate apart until a trigger. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) reads their absorbance. deGFP is read by fluorescence.
 
 # Constituent Modules
 
 - [Cytosol](../cytosol/spec.md) — the expression machinery
-- Reporter template — DNA encoding the reporting protein. No page: a class composes abstract constituents
+- Reporter template — DNA encoding the reporting protein
 
 # Requirements
 
-Requires a cytosol that can express the template. **Whether it also requires a substrate is what
-divides the class**, so the class itself requires none.
+Requires a cytosol that can express the template. A member whose signal comes from a substrate also requires that substrate. See [Color Change](../color-change/spec.md).
 
 # Processes
 
-See the composition source. One step, `mixing`, and it has no page because no process in this
-corpus expresses a generic reporter.
+A member is made by [Expression](../../processes/express/main.md): the cytosol supplies the machinery and the template supplies the sequence, in one compartment.
 
 # Credits
 

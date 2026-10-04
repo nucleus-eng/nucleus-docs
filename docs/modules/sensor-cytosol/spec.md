@@ -13,11 +13,11 @@ site:
 **Position.** Refines [`cytosol`](../cytosol/spec.md). Refined by [`ahsl-sensor-cytosol`](../ahsl-sensor-cytosol/spec.md), [`atc-sensor-cytosol`](../atc-sensor-cytosol/spec.md), [`ph-sensor-cytosol`](../ph-sensor-cytosol/spec.md), [`theophylline-sensor-cytosol`](../theophylline-sensor-cytosol/spec.md).
 <!-- /gen:position -->
 
-A class: a [Cytosol](../cytosol/spec.md) with a [Detector](../detector/spec.md) mixed into
-it. Four members.
+A class: a [Cytosol](../cytosol/spec.md) with a [Detector](../detector/spec.md) mixed into it.
 
-**The refinement from its parent is one input.** A cytosol expresses. A sensor cytosol expresses
-and responds, because something in the same compartment gates it.
+A cytosol expresses. A sensor cytosol expresses and responds, because a detector in the same compartment gates it. The detector is mixed in and never packed, because a detector held apart from the reaction it gates could not gate it.
+
+A member is named by what it senses and what it actuates, written `SensorCytosol[α ⟶ ε]`, where `α` is the analyte the detector senses and `ε` is the effector the cytosol actuates. An example is [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md). The analyte alone does not identify a member, because two members can share an analyte and actuate different effectors. The base is not part of the name. Members differ in base, S30 Lysate or Base Cytosol, and the Cytosol tab gives it.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -58,80 +58,52 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} Cytosol
+
+:::{table} What each member puts in the cytosol slot.
+| Member | Base |
+| --- | --- |
+| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [S30 Lysate](../s30-lysate/spec.md) |
+| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+| [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+| [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+:::
+
+::::
+
 ::::{tab-item} DNA
 
-**The detector is the nucleic acid or protein that gates the reaction**, and it is not always a Module.
+The detector is the nucleic acid or protein that gates the reaction.
 
-:::{table} What the four members put in this slot.
+:::{table} What each member puts in the detector slot.
 | Member | Sensing element |
 | --- | --- |
 | [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
 | [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) |
-| [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | **a trigger duplex annealed in file**, not a detector page |
+| [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | [Detector: pH-Sensing](../detector-ph/spec.md), a trigger duplex annealed before mixing |
 | [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | [Detector: Theophylline](../detector-theophylline/spec.md) |
 :::
 
-**The class invariant is a detector, not a detector page.** The pH member stitches its detection into a PLA1 template, so the operand is the sensing element either way.
-
 ::::
-
 
 :::::
 
-**Members are a different relation from constituents.** In `compositional-biology-theory`,
-`glossary.md#T34` makes Constituent a containment relation and `glossary.md#T13` makes
-membership a matter of what a sort classifies.
+# Expected Behavior
 
-**`SensorCytosol = Cytosol ⊞ Detector`, one compartment, `mixing` in three of three sourced
-members.** A detector held apart from the reaction it gates could not gate it, so `packing` is
-not available here.
-
-## What a bracket on this class binds
-
-**This class declares its parameters too, so `SensorCytosol[…]` says which axis it restricts.** Same pattern as [Detector](../detector/spec.md) and, behind that, [Pore](../pore/spec.md).
-
-:::{table} The parameters this class declares.
-| Parameter | Ranges over | Written |
-| --- | --- | --- |
-| `α`, the analyte | the four members' sensing elements | `SensorCytosol[α]` |
-| `ε`, the effector it actuates | an effector Module | `SensorCytosol[α ⟶ ε]` |
-:::
-
-**Prefer the arrow form, and Jon gave the reason** on 2026-09-28: *"the signature shows the analyte and the actuated effector gene."* `SensorCytosol[aTc]` says what the cytosol responds to and not what it does about it. Two members can share an analyte and actuate different effectors, so the analyte alone does not identify one.
-
-**The base is not a parameter.** Members differ in base, S30 Lysate against Base Cytosol, and the bracket does not bind it. A reader choosing a sensor cytosol chooses by what it senses. The base is in the members table below.
-
-:::{table} The four members, and what each mixes in.
-| Member | Base | Sensing element |
-| --- | --- | --- |
-| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | S30 Lysate | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
-| [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | Base Cytosol | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) |
-| [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | Base Cytosol | a trigger duplex annealed in file |
-| [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | Base Cytosol | [Detector: Theophylline](../detector-theophylline/spec.md) |
-:::
-
-**The detector is not always a Module, and the class invariant is a detector rather than a
-detector page.** The pH member anneals its own trigger duplex instead of taking a
-[Detector: pH-Sensing](../detector-ph/spec.md), because that integration path's pH detection is stitched into a PLA1
-template. The operand is the sensing element either way.
-
-**The base is not the same across members**, which is the reason [Cytosol](../cytosol/spec.md)
-has to exist as a class rather than being folded in here.
+A Sensor Cytosol is expected to express as any [Cytosol](../cytosol/spec.md) does, and to gate that expression on its analyte through the detector mixed into it. A member needs no effector to be a sensor cytosol: [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) is a sensing reaction with no output wired to it.
 
 # Requirements
 
-Requires that the detector act in the phase the cytosol provides. Nothing else is common
-to all four.
+Requires that the detector act in the phase the cytosol provides.
 
 # Constituent Modules
 
 - [Cytosol](../cytosol/spec.md) — the base the detector is mixed into
-- [Detector](../detector/spec.md) — the sensing element, which is not always a Module of its own
+- [Detector](../detector/spec.md) — the sensing element
 
 # Processes
 
-See the composition source. The step this class runs is stated there, and it has no page
-because no process in this corpus performs it at this grain.
+[Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) mixes the detector into the cytosol, so both share one compartment.
 
 # Credits
 

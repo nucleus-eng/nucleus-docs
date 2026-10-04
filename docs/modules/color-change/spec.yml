@@ -10,8 +10,6 @@
 # compositional-biology-theory session made the point that a class has constituents
 # exactly when its own invariant names a composition. This one's invariant names the
 # operator, so it does.
-#
-# The process is `page: null`: an abstract encapsulation process does not exist here.
 
 module: color-change
 title: "Color Change"
@@ -29,8 +27,8 @@ inputs:
 process_steps:
   - id: separate-enzyme-and-substrate
     process:
-      title: "Hold the enzyme and its substrate apart"
-      page: null
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
     operator: packing
     operands: [enzyme, substrate]
     produces:

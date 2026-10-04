@@ -13,17 +13,9 @@ site:
 **Position.** Refines nothing declared. Refined by [`guv-cprg`](../guv-cprg/spec.md), [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md).
 <!-- /gen:position -->
 
-A class: a substrate closed inside a [Membrane](../membrane/spec.md). Two members.
+A class: a substrate closed inside a [Membrane](../membrane/spec.md).
 
-**It exists because both demos make the same design choice here and neither had a name for
-it.** London encapsulates CPRG in a POPC unilamellar vesicle; Chicago encapsulates the same CPRG in a
-POPC/cholesterol one. A meet over the two legs drew them as two unrelated slots, so the choice
-could not be reported as a choice.
-
-**It refines nothing here, and that is flagged rather than settled.** A unilamellar vesicle is a membrane
-with something in it, which is the `hold` question at `open.md#O8` in the theory corpus.
-[Cell](../cell/spec.md) is left a root for the same reason. If `O8` lands, both get a parent on
-the same day.
+Every member packs a membrane and a substrate, and the substrate stays inside until the membrane is breached.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -65,60 +57,42 @@ flowchart TD
 
 ::::{tab-item} Membrane
 
-**Both members pack a membrane and they do not pack the same one.**
-
-:::{table} The two members, and what each packs.
+:::{table} What each member puts in the membrane slot.
 | Member | Membrane | Size regime | Made by |
 | --- | --- | --- | --- |
 | [GUV: CPRG](../guv-cprg/spec.md) | [POPC](../membrane-popc/spec.md) | giant unilamellar | phase transfer |
-| [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) | [Chicago POPC/Chol](../membrane-popc-chol-chicago/spec.md) | small unilamellar | hydration and extrusion |
+| [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) | small unilamellar | hydration and extrusion |
 :::
-
-**Both refine [Membrane](../membrane/spec.md)**, so the slot holds across both members.
 
 ::::
 
 ::::{tab-item} Substrate
 
-**Both members pack [CPRG](../substrate-cprg/spec.md)**, and the class operand is written one
-grain up with no page.
-
-:::{table} The payload, which is the same in both.
-| Component | Member | Notes |
-| --- | --- | --- |
-| [CPRG](../substrate-cprg/spec.md) | both | the class names a substrate because a second one could be packed; nothing packs X-Gal today |
+:::{table} What each member puts in the substrate slot.
+| Member | Substrate |
+| --- | --- |
+| [GUV: CPRG](../guv-cprg/spec.md) | [CPRG](../substrate-cprg/spec.md) |
+| [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) | [CPRG](../substrate-cprg/spec.md) |
 :::
-
-**There is no Substrate class to point at**, and that is a finding rather than an omission. See
-the composition source.
 
 ::::
 
 :::::
 
-**`packing` and never `mixing`, two of two.** A substrate mixed into the phase it is meant to
-report on reacts on contact with the enzyme, which is the no-off-state failure
-[Color Change](../color-change/spec.md) is defined against. **This class is one way of holding
-the pair apart; holding the enzyme instead is the other.**
+# Expected Behavior
 
-**Same slot, different process, by design.** The members' own titles name the axis: a giant
-unilamellar vesicle made by phase transfer against a small one made by extrusion. The operator and the
-operand sorts are identical and the process is not.
+A Substrate Carrier is expected to keep its substrate inside until the membrane is breached. A carrier that leaks gives a readout with no off state.
+
+The substrate is packed and never mixed. A substrate in the same phase as its enzyme reacts on contact, which is the failure [Color Change](../color-change/spec.md) is defined against. A Substrate Carrier is one way to hold the pair apart, and holding the enzyme apart instead is the other.
 
 # Constituent Modules
 
 - [Membrane](../membrane/spec.md) — the boundary, POPC in one member and POPC/cholesterol in the other
-- Substrate — CPRG in both. No page: Substrate is not a class in this corpus
-
-# Requirements
-
-Requires that the substrate stay inside until the unilamellar vesicle is breached. **That is the whole
-function**, and a unilamellar vesicle that leaks is a readout with no off state.
+- Substrate — CPRG in both members
 
 # Processes
 
-See the composition source. One step, `packing`, and it has no page because the two members use
-two different processes and no page describes the class-level move.
+[Encapsulation](../../processes/encapsulate/main.md) closes a membrane around the substrate. The members use different routes: [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) for GUV: CPRG and [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) for Substrate SUV: CPRG.
 
 # Credits
 

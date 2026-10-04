@@ -30,8 +30,8 @@ inputs:
 process_steps:
   - id: express-the-reporter
     process:
-      title: "Express the reporting protein"
-      page: null
+      title: "Expression"
+      page: ../../processes/express/main.md
     operator: mixing
     operands: [cytosol, reporter-template]
     produces:

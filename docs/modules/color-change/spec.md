@@ -13,15 +13,9 @@ site:
 **Position.** Refines [`reporter`](../reporter/spec.md). Refined by [`reporter-lacz`](../reporter-lacz/spec.md), [`reporter-xyle`](../reporter-xyle/spec.md).
 <!-- /gen:position -->
 
-An abstract Module: the class of color change modules, of which the built readouts are members.
-An abstract Module is a Module, and its members refine it.
+A class: a [Reporter](../reporter/spec.md) that holds an enzyme and its substrate apart until a trigger brings them together.
 
-**The invariant is separation.** An enzyme and its substrate in one compartment react at once,
-which is a readout with no off state. Every member of this class holds them apart until the
-trigger, so the composition operator is `⊗` and never `⊞`. That is the class, and it is not a rule
-anyone has to write down separately: the operator follows from the compartments.
-
-**What varies across the class is which component is encapsulated.**
+Every member keeps the enzyme and the substrate in separate compartments. In one compartment they react at once, which gives a readout with no off state. The two are packed, never mixed. Members differ in which component is enclosed.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -39,7 +33,7 @@ flowchart TD
     ENZYME["Enzyme"]
     SUBSTRATE["Substrate"]
 
-    P1_SEPARATE_ENZYME_AND_SUBSTRATE_0(["Hold the enzyme and its substrate apart (packing) — no page"])
+    P1_SEPARATE_ENZYME_AND_SUBSTRATE_0(["Encapsulation (packing)"])
     COLOR_CHANGE["Color Change"]
 
     ENZYME --> P1_SEPARATE_ENZYME_AND_SUBSTRATE_0
@@ -54,72 +48,67 @@ flowchart TD
     class COLOR_CHANGE composed;
     class P1_SEPARATE_ENZYME_AND_SUBSTRATE_0 process;
 
+    click P1_SEPARATE_ENZYME_AND_SUBSTRATE_0 "/docs/processes/encapsulate/main"
     click COLOR_CHANGE "/docs/modules/color-change/spec"
 ```
 
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} Enzyme
+
+:::{table} What each member puts in the enzyme slot.
+| Member | Enzyme |
+| --- | --- |
+| [LacZ Reporter](../reporter-lacz/spec.md) | [LacZ](../lacz/spec.md): β-galactosidase, expressed from a DNA template or added as purified protein |
+| [XylE Reporter](../reporter-xyle/spec.md) | XylE: catechol 2,3-dioxygenase, expressed from a DNA template |
+:::
+
+::::
+
 ::::{tab-item} Substrate
 
-**The substrate is half of this class and the separation is the other half.** An enzyme and its substrate in one compartment react at once, which is a readout with no off state, so every member holds them apart until the trigger.
-
-:::{table} What the members put in this slot.
+:::{table} What each member puts in the substrate slot.
 | Member | Substrate |
 | --- | --- |
 | [LacZ Reporter](../reporter-lacz/spec.md) | [CPRG](../substrate-cprg/spec.md), held apart |
 | [XylE Reporter](../reporter-xyle/spec.md) | catechol, held apart |
 :::
 
-**The substrate carries no page in this class's own source**, because a class composes abstract constituents. [X-Gal](../substrate-xgal/spec.md) is a substrate this corpus documents and no member uses.
+LacZ also acts on [X-Gal](../substrate-xgal/spec.md), which no member uses.
 
 ::::
 
-
 :::::
 
-An abstract Module has no reference composition of its own. Each member states its own.
+What varies across members is which component is enclosed. A third arrangement, a membrane around each, would also keep the pair apart.
 
-:::{table} The three members, and which are built.
-| Member | Encapsulated | Outside | Built by |
-| --- | --- | --- | --- |
-| Substrate encapsulated | CPRG, in an SUV | LacZ, in the gel | Chicago Node |
-| Enzyme encapsulated | LacZ, in the cell | CPRG, in the gel | London Node |
-| Double encapsulated | a membrane each | — | **no Node runs this** |
+:::{table} Ways to hold the pair apart.
+| Arrangement | Enzyme | Substrate |
+| --- | --- | --- |
+| Enclose the substrate | free in the gel | inside a liposome, as in a [Substrate Carrier](../substrate-carrier/spec.md) |
+| Enclose the enzyme | inside a cell, as in a [Cell](../cell/spec.md) | free in the gel |
+| Enclose both | inside a membrane of its own | inside a membrane of its own |
 :::
 
-**The pair itself is a parameter of the class, and it is a set of pairs rather than two lists.**
-See [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md) § Requirements.
+# Expected Behavior
+
+A member shows no signal until its trigger brings the enzyme and the substrate together. The enzyme then converts the substrate and a color appears. [LacZ Reporter](../reporter-lacz/spec.md) turns CPRG from yellow to red, and [XylE Reporter](../reporter-xyle/spec.md) turns catechol from colorless to yellow. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) describes how the color is read.
 
 # Requirements
 
-Requires that the enzyme and the substrate stay in separate compartments until the trigger. This
-is the class invariant and every member inherits it.
+Requires a trigger that breaks the separation. The built members use [Lysis: PLA1](../effector-pla1/spec.md), so they inherit its requirement for a low noise floor in whatever drives it. A member triggered another way would not.
 
-Requires a trigger that breaks the separation. Every member built so far uses
-[Lysis: PLA1](../effector-pla1/spec.md), so every member built so far also inherits **PLA1's
-low noise floor requirement**. That inheritance is through the implementation, not through this
-class: a color change module triggered some other way would not carry it.
+Requires that the enzyme act on the substrate. The valid pairs are LacZ with CPRG, LacZ with X-Gal, and XylE with catechol. A cross pair such as LacZ with catechol is wrong chemistry. See [LacZ Enzyme](../reporter-lacz-enzyme/spec.md).
 
-:::{attention} What this class requires of its Context is not settled
-An abstract Module carries an abstract Context that its members refine, ruled 2026-09-17. **How
-much that Context term carries, and how much is left to Requirements, is an open question in the
-theory corpus** — `open.md#O21`, narrowed by `D96` and still live. Until it closes, this section
-states Requirements only, and the Context this class needs is not written down.
+# Constituent Modules
 
-**This is a real gap and not a formality.** The two built members differ in their Context in a way
-no Requirement here separates: one runs in a gel with the enzyme dispersed, the other in a gel with
-the enzyme encapsulated, and both satisfy every line above.
-:::
+- Enzyme — LacZ in one member, XylE in the other
+- Substrate — CPRG or catechol, paired to the enzyme
 
 # Processes
 
-**One, and it has no page.** `spec.yml` declares `separate-enzyme-and-substrate`: *"Hold the enzyme and its substrate apart"*, `packing` over `enzyme`, `substrate`.
-
-**The process is as abstract as its operands**, and no page in this corpus describes it, which is why the source carries `page: null`.
-
-**Corrected 2026-09-21.** Seven class pages asserted an empty Processes section while five of their sources ran a step. A class composes abstract constituents, so composing is not what separates a class from a member. Position in the refinement order is.
-
+A member holds its enzyme and substrate apart by [Encapsulation](../../processes/encapsulate/main.md), which closes a membrane around the component that is enclosed.
 
 # Credits
 
