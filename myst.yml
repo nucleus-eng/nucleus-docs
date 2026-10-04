@@ -15,6 +15,7 @@ project:
     - file: ./start/first-guide.md
       children:
         - file: ./guides/nucleus-hub/nucleus-hub.md
+        - file: ./docs/type-system.md
         - file: ./docs/dna-distro.md
         - file: ./start/contribute.md
     - file: ./docs/modules/modules-main.md
