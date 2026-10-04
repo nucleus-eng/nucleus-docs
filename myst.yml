@@ -248,6 +248,8 @@ project:
           hidden: true
         - file: ./docs/implementations/london-devcell/main.md
           hidden: true
+        - file: ./docs/implementations/devstudio-ph-demo/main.md
+          hidden: true
         - file: ./docs/implementations/emitter-ivhsl/main.md
           hidden: true
     - file: ./cdk/cdk-main.md

@@ -19,3 +19,4 @@ The final, fully integrated demo devices from the DevCells program.
 
 - [Chicago DevCell: Patterned Multiplexed Biosensor](./chicago-devcell/main.md)
 - [London DevCell: 3OC6-HSL Colorimetric Reporter](./london-devcell/main.md)
+- [pH Demo](./devstudio-ph-demo/main.md)
