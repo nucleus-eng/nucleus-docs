@@ -14,7 +14,7 @@
 # what is being built.
 #
 # THIS IS ONE OF TWO 3OC6-HSL DEMOS. The other is craic-cascade, which senses the
-# same analyte in Base Cytosol and reports colour. Both were pitched; the corpus
+# same analyte in Base Cytosol and reports color. Both were pitched; the corpus
 # had one LuxR-LacZ Sensor Cascade because two were expected and four were pitched.
 
 module: luxr-gfp-cascade
