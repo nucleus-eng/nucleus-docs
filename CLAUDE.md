@@ -50,7 +50,7 @@ python3 scripts/check-file-placement.py # (CI) flag content files outside allowe
 python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
 python3 scripts/check-table-shape.py    # (CI) flag table rows whose column count differs from their header
 python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
-python3 scripts/check-reference-voice.py # (CI) flag who-decided text and pointers into our working notes
+python3 scripts/check-reference-voice.py # (CI) flag who-decided text in a .md or a spec.yml
 python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
 python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page
 python3 scripts/check-page-layering.py  # (local) flag Module pages that explain themselves through what uses them
@@ -82,6 +82,8 @@ pre-commit run --all-files  # run all hooks manually
 **Open questions go at the top of the file**, ahead of the drafted edits, each with space for a ruling written inline beside it. A reviewer reads a staging file once, top to bottom; with the questions last, they read every proposed edit before reaching the one thing the drafter needs from them, and a long file buries the ask. The block is a running ledger of decided versus open, updated as rulings arrive — and a ruling written beside its question is the record. See `nucleus-eng/nucleus-skills#24`.
 
 **Provenance stays off the page.** A staging file records who ruled and when, and so does the commit message that folds it in. The proposed page text does not: it states the result in the page's own voice. A page that says who decided reads as a decision log, not reference. `scripts/check-reference-voice.py` blocks the commonest forms.
+
+**It reads a `spec.yml` too, including its `#` headers** — a source file is a docs page's other half, and the rule has always applied to both. Two rules are exempt there: `tooling`, because the word `spec.yml` inside a `spec.yml` is unavoidable, and `working-notes`, which is right and waits on a sweep of its own. **`.py` is not read at all**, so a comment in `scripts/` is checked by nobody; keep who-decided text out of it by hand.
 
 ## Architecture
 
