@@ -665,8 +665,29 @@ $defs:
         description: A combining ratio, a property of the step. 4 of 76 steps at `d611bda`.
 
   operator:
-    enum: [mixing, packing]
+    enum: [mixing, packing, stitching]
     description: >
       mixing — the operands end up in one compartment. packing — each keeps its
-      own. 50 mixing, 26 packing across 76 steps at `d611bda`. Determined by the process, not
-      chosen per step.
+      own. stitching — the operands are joined in order into one polymer, and the product
+      is a single molecule rather than a mixture or a pair of compartments.
+      72 mixing, 39 packing, 0 stitching across 111 steps on this branch, read with
+      `yaml.safe_load` over every `spec.yml` under `docs/`. The earlier count, 50 and 26
+      across 76 at `d611bda`, is kept because it is what the first version of this line said.
+      Determined by the process, not chosen per step.
+      STITCHING HAS NO USER YET AND IS STILL IN THE ENUM. The process that realizes it is DNA
+      assembly. The value exists so that a source CAN say it, not because one does: every gated
+      PLA1 construct in this corpus was synthesized directly rather than assembled, so each
+      enters its cascade as an input and no step performs the join. A source that assembles
+      rather than orders is what will use this.
+      WHAT THE THEORY HAS SETTLED AND WHAT IT HAS NOT, read at `compositional-biology-theory`
+      `5e1100d`. `glossary.md#T37` is stitching, operands "joined in order into one new object",
+      and it says the structure is OPEN and `::` is a PLACEHOLDER spelling, Jon's ruling of
+      2026-09-24. `rulings.md#D35` is live: associative, not commutative, which makes it a
+      SEMIGROUP — "and a monoid if it has a unit". `#D37` asks whether the null polymer is that
+      unit and is posed as a question, so the monoid is NOT settled and is not claimed here.
+      IT IS HOMOGENEOUS, WHICH THE OTHER TWO ARE NOT. `signature.md:485` at that same commit:
+      "stitching is homogeneous, and DNA stitched to DNA is DNA", from the profile `P ⊗ P ⟶ P`
+      with `P` refining `Polymer`. So a stitching step's operands and its product are all one
+      sort, and `check-operator-pairs.py`'s seed table — which keys on a frozenset of TWO sorts
+      — cannot score it. A one-element key is counted `unknown` there, and that file states
+      `unknown` is not a pass. Seeding it is a separate change.
