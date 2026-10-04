@@ -45,6 +45,12 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
 
+# Implementations
+
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its substrate — dosed into the set gel.
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its substrate — held in its own carrier population.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its substrate — 14.25 mg/mL inside the LUVs.
+
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).

@@ -151,6 +151,10 @@ Requires an observation step to read the color change.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)
 - [Color Development](../../processes/color-development/main.md)
 
+# Implementations
+
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): the cascade that demo builds.
+
 # Credits
 
 :::{attention} Credits missing

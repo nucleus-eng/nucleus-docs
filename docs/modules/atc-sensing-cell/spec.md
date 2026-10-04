@@ -170,7 +170,7 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 # Implementations
 
-- [aTc Cascade](../atc-cascade/spec.md): this Cell is the sensing element of that cascade.
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its sensing cell — set in the gel.
 
 # Constituent Modules
 

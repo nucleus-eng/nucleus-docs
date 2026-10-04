@@ -161,6 +161,11 @@ This agarose appears under two Sigma-Aldrich part numbers, A5030 and A2576, "Aga
 @Editor(london): cite the document that shows A5030 and A2576 are interchangeable.
 :::
 
+# Implementations
+
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its gel — set by cooling.
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its gel — 1% (w/v), set by cooling.
+
 # Credits
 
 Developed by Julia Purrinos De Oliveira (London Node), with the PLA1 colorimetric variant by Jonah McDonald and Charlie Newell.

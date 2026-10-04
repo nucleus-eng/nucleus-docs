@@ -165,6 +165,12 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 
 - [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, for the ungated configuration
 
+# Implementations
+
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its lysis — expressed from `TetO-PLA1`.
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its lysis — expressed once repression lifts.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its lysis — expressed from the `pT7-toehold9-PLA1` template.
+
 # Credits
 
 Developed by Jonah McDonald and Charlie Newell (London Node) and Mary Kelly (Chicago Node, Kamat Lab).

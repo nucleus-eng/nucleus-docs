@@ -108,7 +108,7 @@ To prepare this membrane, assemble 2 mg total lipids (e.g., 80 µL of a 25 mg/mL
 
 # Implementations
 
-- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): the membrane of that cascade's synthetic cells.
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its membrane — around the synthetic cells.
 
 # Credits
 

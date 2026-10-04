@@ -154,7 +154,7 @@ Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required:
 
 # Implementations
 
-- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies the 3OC6-HSL sensing for that cascade.
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its detector — LuxR with its pLux promoter.
 
 # Processes
 

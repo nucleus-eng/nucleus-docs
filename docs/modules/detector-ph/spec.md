@@ -185,7 +185,7 @@ Requires direct exposure to pH source. Either do not encapsulate OR include H⁺
 
 # Implementations
 
-- [pH Cascade](../ph-cascade/spec.md): supplies that cascade's sensing, reaching the shared LacZ/CPRG colorimetric readout.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its detector — the pH-responsive and trigger strands, annealed 3:1.
 
 # Processes
 

@@ -15,6 +15,8 @@ site:
 
 The LacZ Reporter Module produces β-galactosidase (LacZ), an enzyme that hydrolyzes the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) from a yellow compound into a magenta/red product, giving a colorimetric readout visible to the naked eye. It is the shared colorimetric reporter across the DevCells cascades, paired with a different sensing Module in each.
 
+This Module supplies the colorimetric readout of the [aTc Cascade](../atc-cascade/spec.md), the [pH Cascade](../ph-cascade/spec.md) and the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md). How the enzyme is supplied differs between them, and each cascade states its own.
+
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
@@ -193,11 +195,6 @@ CPRG is UV-sensitive: preloaded into liposomes it photobleaches under the UV exp
 :::{caution} Exterior LacZ leakage confounds the readout
 LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can confound readout, independent of the photobleaching issue above. A proteinase K treatment (50 °C for 10 min, then 40 °C for 1 h, then spin down) was proposed as a mitigation for exterior LacZ leakage after PLA1-triggered lysis. The protocol is documented at [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). Treat it as proposed, not validated: no result from running it has been reported.
 :::
-
-# Implementations
-
-- [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md): supplies the colorimetric readout for both. LacZ is encapsulated as purified enzyme alongside the sensing construct rather than expressed from DNA, and converts CPRG released from a neighboring Substrate SUV. Sources: [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/mn-260508-02), [`chicago-colorimetric-validation`](https://devnotes.nucleus.engineering/articles/chicago-m1-1-1).
-- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies its colorimetric readout. LacZ is the enzyme in use and XylE/C23DO is the proposed alternative, not yet run. Both linear-DNA formats have been synthesized and templates prepared; no encapsulated result has been reported. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/london-m2-1).
 
 # Processes
 

@@ -42,6 +42,10 @@ Whether 3OC6-HSL crosses a POPC bilayer unaided is not documented. [aTc](../anal
 
 None. An analyte is supplied to an assay rather than produced by a Nucleus process.
 
+# Implementations
+
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its analyte — the input.
+
 # Credits
 
 :::{attention} Credits are draft

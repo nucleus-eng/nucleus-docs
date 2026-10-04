@@ -102,7 +102,7 @@ Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean
 
 # Implementations
 
-- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): S30 Lysate is that cascade's cytosol.
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its cytosol — inside the synthetic cells.
 
 # Processes
 

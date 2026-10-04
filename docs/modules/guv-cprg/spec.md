@@ -120,10 +120,6 @@ Requires an outer solution matched to the lumen. The [Cell: S30 Lysate, POPC](..
 CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules out any photodeveloped gel for this population. ULGA sets thermally and involves no illumination, so it is compatible — see [Gel: ULGA](../gel-ulga/spec.md).
 :::
 
-# Implementations
-
-- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
-
 # Processes
 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the population. The same process and the same page as the sensing population, applied with a different inner solution.

@@ -102,6 +102,11 @@ This membrane closes around an aqueous interior and holds it apart from the solu
 Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-transfer method](../../processes/assemble-base-cell/main.md). SUVs are prepared using [lipid-film hydration and extrusion](../../processes/encapsulate-suv/main.md).
 
 
+# Implementations
+
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its membrane — around the synthetic cells.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its membrane — with 0.1 mol% Liss Rhod PE, on both the synthetic cells and the LUVs.
+
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab, Northwestern).

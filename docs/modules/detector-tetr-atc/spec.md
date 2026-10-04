@@ -276,7 +276,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 # Implementations
 
-- [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): aTc relieves TetR repression to drive BjaI expression.
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its detector — TetR, holding `TetO-PLA1` off until aTc arrives.
 
 # Constituent Modules
 

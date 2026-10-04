@@ -254,6 +254,10 @@ No process page documents assembling this three-part cascade end to end.
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
 
+# Implementations
+
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): the cascade that demo builds.
+
 # Credits
 
 Developed by Sung-Won Hwang and Samuel Chen (Chicago Node, Liu Lab).

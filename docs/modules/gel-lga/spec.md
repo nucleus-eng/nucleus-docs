@@ -86,6 +86,10 @@ Requires that whatever is embedded survives the temperature at which the polymer
 
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — sets the agarose by cooling. Hold it above its (26–30) °C congealing range while the payload goes in, then set it below that range.
 
+# Implementations
+
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its gel — 0.7% (w/v) in the set gel.
+
 # Credits
 
 :::{attention} Credits are draft

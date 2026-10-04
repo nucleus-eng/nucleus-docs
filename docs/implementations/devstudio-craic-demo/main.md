@@ -56,7 +56,7 @@ Encapsulation appears twice and is the abstract process both times: neither the 
 @Editor(chicago): record the run when it happens: its date, its conditions and what the readout showed.
 :::
 
-The nearest confirmed result is a different composition. [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md) runs the same PLA1-to-LacZ handoff from the same analyte, with LuxR in S30 lysate rather than EsaR in Base Cytosol, and its page carries what that produced.
+The nearest confirmed result is a different composition: the LuxR-LacZ Sensor Cascade runs the same PLA1-to-LacZ handoff from the same analyte, with LuxR in S30 lysate rather than EsaR in Base Cytosol. It is not part of this demo, so it is named here and not linked — a Module link on this page reads as a claim that the demo is built from it.
 
 # Credits
 

@@ -140,6 +140,10 @@ The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a 
 - [S30 Lysate](../s30-lysate/spec.md)
 - [Membrane: POPC](../membrane-popc/spec.md)
 
+# Implementations
+
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its chassis — the empty chassis this builds on.
+
 # Credits
 
 Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).

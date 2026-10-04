@@ -39,6 +39,10 @@ The composition is not established. The [CRAIC](../craic-cascade/spec.md) cascad
 
 Requires the analyte to reach the repressor.
 
+# Implementations
+
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its detector — expressed from its own template, then gating PLA1.
+
 # Credits
 
 :::{attention} Credits are draft

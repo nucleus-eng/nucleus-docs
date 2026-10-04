@@ -86,6 +86,10 @@ Requires an osmolarity of about 920 mOsm, matched to the cells suspended in it.
 
 The step is [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
 
+# Implementations
+
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its outer solution — the phase the gel sets in.
+
 # Credits
 
 :::{attention} Credits are draft

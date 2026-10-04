@@ -54,7 +54,7 @@ This is the readout furthest along of the four demos: it is the only one confirm
 
 :::{attention} What this does not show
 - **No dose response.** Two positive conditions and one negative. Nothing establishes how the signal varies with the amount of 3OC6-HSL, or how little the cells can detect.
-- **No colorimetric readout.** This demo reports fluorescence. The LuxR path that reports color instead is a different composition, [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md), and its results stay there.
+- **No colorimetric readout.** This demo reports fluorescence. The LuxR path that reports color instead is a different composition, the LuxR-LacZ Sensor Cascade, and its results stay on that Module's page. It is named and not linked, because a Module link on this page reads as a claim that the demo is built from it.
 - **Encapsulated expression is not fully controlled.** The Optiprep-free result that restores expression has no minus-inducer control, no no-DNA control, and no biological replicates.
 :::
 

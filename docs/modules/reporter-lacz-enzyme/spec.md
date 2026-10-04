@@ -64,6 +64,12 @@ A new enzyme adds its own pairs without changing these.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion this enzyme performs, read at 575 nm and by eye.
 - [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — digests enzyme that escaped the sensing cells, for encapsulated formats only.
 
+# Implementations
+
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its reporter — encapsulated with the circuit, at 2.5 U/mL.
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its reporter — in the gel, meeting CPRG only after lysis.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its reporter — in the basic buffer, added after the sensing step.
+
 # Credits
 
 Developed by the Chicago Node (Kamat Lab and Liu Lab).

@@ -117,6 +117,10 @@ Requires a spectrometer reading of deGFP fluorescence under a UV lamp.
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md)
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)
 
+# Implementations
+
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): the cascade that demo builds.
+
 # Credits
 
 :::{attention} Credits are draft

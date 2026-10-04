@@ -52,6 +52,10 @@ Requires a [tetR-aTc Detector](../detector-tetr-atc/spec.md) to be sensed at all
 
 None. An analyte is supplied to an assay rather than produced by a Nucleus process. It enters through whatever dosing step the readout protocol specifies — for the colorimetric route, [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
+# Implementations
+
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its analyte — dosed at 0, 1, 5 and 10 µM.
+
 # Credits
 
 :::{attention} Credits are draft

@@ -15,6 +15,8 @@ site:
 
 A Substrate SUV is a small unilamellar liposome that carries a chemical substrate of interest and nothing else. The CPRG Substrate SUV is a subcomponent of a [LacZ colorimetric cascade](../../processes/colorimetric-readout/main.md).
 
+This population supplies the substrate for the [pH Cascade](../ph-cascade/spec.md) and the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) colorimetric readouts.
+
 This Substrate SUV carries chlorophenol red-β-D-galactopyranoside (CPRG). CPRG is yellow; β-galactosidase (LacZ) cleaves it to chlorophenol red, which is purple. Holding the substrate inside a liposome allows for substrate release using [PLA1](../effector-pla1/spec.md): as long as the SUV is intact, CPRG and LacZ never meet. When a neighboring Sensing Cell expresses PLA1 and lyses, it breaches these SUVs too, releasing CPRG into the surrounding LacZ solution and starting the color change.
 
 This module is not a reporter in and of itself, requiring [LacZ Reporter Module](../reporter-lacz/spec.md) to produce an output.
@@ -122,11 +124,6 @@ Requires encapsulation within a lipid membrane (e.g. POPC, or POPC:cholesterol) 
 
 The confirmed workaround for PEG-norbornene is to invert the order — pre-add LacZ to the gel, crosslink, then add CPRG as a free dye afterwards. That path does not use this module. Agarose, alginate, and ULGA embedding involve no UV step and are compatible with pre-loading as described here.
 :::
-
-# Implementations
-
-- [pH Cascade](../ph-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
-- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
 
 # Processes
 

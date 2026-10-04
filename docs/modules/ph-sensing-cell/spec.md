@@ -179,7 +179,7 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
 # Implementations
 
-- [pH Cascade](../ph-cascade/spec.md): the sensing element of that cascade.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its sensing cell — set in the gel.
 
 # Credits
 

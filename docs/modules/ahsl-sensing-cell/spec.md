@@ -14,6 +14,8 @@ site:
 
 The SensorCell[3OC6-HSL ⟶ PLA1] combines the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) with the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), encapsulating the LuxR/pLux 3OC6-HSL sensor plasmid (`LuxR-deGFP`) inside a POPC synthetic cell filled with S30 Lysate. 3OC6-HSL supplied in the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome. This composed synthetic cell is used in the London quorum-sensing demo.
 
+This Cell is the sensing element of the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), which reports colorimetrically, and of the [LuxR-GFP Sensor Cascade](../luxr-gfp-cascade/spec.md), which reports fluorescence.
+
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
@@ -178,10 +180,6 @@ Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-pop
 :::{attention} Source needed for the Optiprep ceiling in dye populations
 @Editor(london): cite the document that gives the London CPRG population's 10% Optiprep, which this page states under Expected Behavior and here.
 :::
-
-# Implementations
-
-- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): this Cell is the sensing element of that cascade.
 
 # Processes
 

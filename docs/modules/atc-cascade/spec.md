@@ -225,6 +225,10 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
 
+# Implementations
+
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): the cascade that demo builds.
+
 # Credits
 
 Developed by Mary Kelly (Chicago Node, Kamat Lab).
