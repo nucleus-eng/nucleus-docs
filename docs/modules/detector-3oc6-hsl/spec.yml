@@ -19,7 +19,7 @@
 # 3OC6-HSL IS EXCLUDED. It is the analyte this Module detects. See the questions.
 
 module: detector-3oc6-hsl
-title: "3OC6-HSL Detector"
+title: "Detector: 3OC6-HSL (LuxR)"
 refines: detector
 
 inputs:
@@ -39,7 +39,7 @@ process_steps:
     operands: [s30-lysate, sensing-plasmid]
     produces:
       id: detector-3oc6-hsl
-      title: "3OC6-HSL Detector"
+      title: "Detector: 3OC6-HSL (LuxR)"
       page: ../detector-3oc6-hsl/spec.md
     parameters:
       premix: "1x final, from a 2.5x stock, 20 uL"

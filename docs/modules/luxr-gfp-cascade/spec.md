@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
-    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL"]
+    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
     REPORTER_DEGFP["Reporter: deGFP"]
     MEMBRANE_POPC["Membrane: POPC"]
     OUTER_SOLUTION_GLUTAMATE["Outer Solution: Glutamate-HEPES-Glucose"]
@@ -89,7 +89,7 @@ flowchart TD
 ::::{tab-item} Constituent Modules
 
 - [Cytosol: S30 Lysate](../s30-lysate/spec.md)
-- [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)
+- [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)
 - [Reporter: deGFP](../reporter-degfp/spec.md)
 - [Membrane: POPC](../membrane-popc/spec.md)
 - [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md)

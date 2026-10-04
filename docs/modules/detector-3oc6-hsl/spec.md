@@ -1,5 +1,5 @@
 ---
-title: "Detector: 3OC6-HSL"
+title: "Detector: 3OC6-HSL (LuxR)"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -56,7 +56,7 @@ flowchart TD
     SENSING_PLASMID["Sensing plasmid"]
 
     P1_ASSEMBLE_REACTION_0(["Assemble the 3OC6-HSL Detector reaction (mixing) — no page"])
-    DETECTOR_3OC6_HSL["3OC6-HSL Detector"]
+    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
 
     S30_LYSATE --> P1_ASSEMBLE_REACTION_0
     SENSING_PLASMID --> P1_ASSEMBLE_REACTION_0

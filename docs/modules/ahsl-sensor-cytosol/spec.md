@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
-    DETECTOR_3OC6_HSL["3OC6-HSL Detector Module"]
+    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
     EFFECTOR_PLA1["PLA1 Lysis Module"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])

@@ -145,7 +145,7 @@ No numeric threshold is defined for how low the noise floor must be.
 @Editor(chicago): cite the DevNote or data for the GUV leak and the negative-control color, and for the statement that the detector, not the LacZ/CPRG reaction, fails the requirement. State whether that statement covers the GUV leak, which is not a detector failure.
 :::
 
-Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
+Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 

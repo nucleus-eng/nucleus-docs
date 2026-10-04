@@ -24,7 +24,7 @@ What the embedding step builds is [LuxR-GFP Sensor Cascade](../../modules/luxr-g
 | --- | --- | --- |
 | Cascade | [LuxR-GFP Sensor Cascade](../../modules/luxr-gfp-cascade/spec.md) | what the embedding step builds |
 | Cytosol | [Cytosol: S30 Lysate](../../modules/s30-lysate/spec.md) | inside the synthetic cells |
-| Detector | [Detector: 3OC6-HSL](../../modules/detector-3oc6-hsl/spec.md) | LuxR with its pLux promoter |
+| Detector | [Detector: 3OC6-HSL (LuxR)](../../modules/detector-3oc6-hsl/spec.md) | LuxR with its pLux promoter |
 | Reporter | [Reporter: deGFP](../../modules/reporter-degfp/spec.md) | the fluorescent output |
 | Membrane | [Membrane: POPC](../../modules/membrane-popc/spec.md) | around the synthetic cells |
 | Chassis | [Cell: S30 Lysate, POPC](../../modules/cell-s30-popc/spec.md) | the empty chassis this builds on |
@@ -32,7 +32,7 @@ What the embedding step builds is [LuxR-GFP Sensor Cascade](../../modules/luxr-g
 | Gel | [Gel: ULGA](../../modules/gel-ulga/spec.md) | 1% (w/v), set by cooling |
 
 :::{attention} The detector has no source document
-@Editor(london): name the DevNote or paper that backs [Detector: 3OC6-HSL](../../modules/detector-3oc6-hsl/spec.md).
+@Editor(london): name the DevNote or paper that backs [Detector: 3OC6-HSL (LuxR)](../../modules/detector-3oc6-hsl/spec.md).
 :::
 
 # Processes

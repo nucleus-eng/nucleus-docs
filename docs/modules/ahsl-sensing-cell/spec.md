@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
-    DETECTOR_3OC6_HSL["3OC6-HSL Detector Module"]
+    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
     EFFECTOR_PLA1["PLA1 Lysis Module"]
     MEMBRANE_POPC["Membrane: POPC"]
 
@@ -82,7 +82,7 @@ flowchart TD
 `LuxR-deGFP` has no sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA), so the table above cites none. @Editor: submit the sequence to `nucleus-eng/DNA` and link the file here.
 :::
 
-See [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) for sensor specification.
+See [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md) for sensor specification.
 
 ::::
 
@@ -173,7 +173,7 @@ A single agar-pad 3OC6-HSL-diffusion test of lysate synthetic cells alongside li
 
 Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `LuxR-deGFP` construct is driven by the *E. coli* pLux promoter, not pT7, so it does not express in a T7-only cytosol.
 
-Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)).
+Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)).
 
 Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10%.
 

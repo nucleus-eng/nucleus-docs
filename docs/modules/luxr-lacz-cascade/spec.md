@@ -25,7 +25,7 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
-    DETECTOR_3OC6_HSL["3OC6-HSL Detector Module"]
+    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
     EFFECTOR_PLA1["PLA1 Lysis Module"]
     MEMBRANE_POPC["Membrane: POPC"]
     SUBSTRATE_CPRG["CPRG Substrate"]
@@ -222,7 +222,7 @@ Run in Nucleus Cytosol without quorum sensing, the same PLA1/CPRG two-liposome c
 
 Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `LuxR-PLA1` construct is driven by the *E. coli* P70/pLux promoter, not pT7, so it does not express in a T7-only cytosol.
 
-Requires 3OC6-HSL as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)).
+Requires 3OC6-HSL as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)).
 
 Requires two separate liposome populations — the PLA1-payload sensing population and a CPRG-loaded population (e.g. [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md)).
 

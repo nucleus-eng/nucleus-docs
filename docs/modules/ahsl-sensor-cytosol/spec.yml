@@ -19,7 +19,7 @@ inputs:
     title: "Cytosol: S30 Lysate"
     page: ../s30-lysate/spec.md
   detector-3oc6-hsl:
-    title: "3OC6-HSL Detector Module"
+    title: "Detector: 3OC6-HSL (LuxR)"
     page: ../detector-3oc6-hsl/spec.md
   effector-pla1:
     title: "PLA1 Lysis Module"

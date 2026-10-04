@@ -78,7 +78,7 @@ The detector is the nucleic acid or protein that gates the reaction.
 :::{table} What each member puts in the detector slot.
 | Member | Sensing element |
 | --- | --- |
-| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
+| [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md) |
 | [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) |
 | [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | [Detector: pH-Sensing](../detector-ph/spec.md), a trigger duplex annealed before mixing |
 | [SensorCytosol[theophylline ⟶ LacZ]](../theophylline-sensor-cytosol/spec.md) | [Detector: Theophylline](../detector-theophylline/spec.md) |
