@@ -48,6 +48,7 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 python3 scripts/check-dropdowns.py      # flag placeholder-only lists
 python3 scripts/check-file-placement.py # flag content files outside allowed dirs
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
+python3 scripts/check-reference-voice.py # flag who-decided text and pointers into our working notes
 python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
@@ -64,6 +65,8 @@ pre-commit run --all-files  # run all hooks manually
 **Scope in this repo:** every committed file — `docs/`, `CLAUDE.md`, `STYLE-GUIDE.md`, `myst.yml`, `scripts/`. Files under `tmp/` are gitignored and may be edited directly. **This repo's staging location is declared in [`tmp/README.md`](tmp/README.md).**
 
 **Name a staging file's dependencies.** One review pass can produce edits that land in several files, and applying them in the wrong order can make a correct proposal wrong — line numbers in particular are only valid against an unchanged file. This one is not in the skill.
+
+**Provenance stays off the page.** A staging file records who ruled and when, and so does the commit message that folds it in. The proposed page text does not: it states the result in the page's own voice. A page that says who decided reads as a decision log, not reference. `scripts/check-reference-voice.py` blocks the commonest forms.
 
 ## Architecture
 

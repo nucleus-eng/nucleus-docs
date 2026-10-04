@@ -21,6 +21,16 @@ repos:
         pass_filenames: false
         additional_dependencies: [pyyaml]
 
+      - id: check-reference-voice
+        # Checks only the pages being committed, so touching a page means cleaning it.
+        # `types_or` and not `types`: `types` is an AND, so listing both would match
+        # nothing. A spec.yml is a docs page's other half and was never checked.
+        name: Check reference voice
+        entry: python3 scripts/check-reference-voice.py
+        language: python
+        types_or: [markdown, yaml]
+        files: ^docs/
+
       - id: vale
         name: Vale lint
         entry: vale docs/

@@ -36,9 +36,11 @@ The test is one question asked of every prose block: **does this describe the Mo
 
 A list of banned phrases will not find it — every page invents new wording. The categories, with examples seen so far, are in [conventions.md](conventions.md#what-never-appears). The examples are a seed, never a checklist.
 
-Anything that is not for the public — status, hedging, provenance of internal documents, notes between agents and editors — lives in `tmp/`. Preliminary data is published behind the `status:` banner and an `:::{attention}` block. That is what carries the doubt.
+Anything that is not for the public — status, hedging, provenance of internal documents, who decided what and when, notes between agents and editors — lives in `tmp/` or in the commit message. Preliminary data is published behind the `status:` banner and an `:::{attention}` block. That is what carries the doubt.
 
 Where a page has a gap, tag it: an attention block naming what is missing and who should find it, marked `@Editor:` or `@Developer:`. A cell reading "not documented" records a gap; a tagged block asks someone to close it.
+
+**A person is not a source.** A reader cannot check a ruling, a conversation or someone's word. If a fact needs support, cite the document it came from: a paper, a DevNote, a supplier page. If there is none, keep the fact and tag the gap `@Editor:`. An Editor may cite a result presented at a group meeting as *(Group Meeting, contributor, date)*, or a private exchange as personal communication. An agent must not make either choice.
 
 ## Say it once
 
