@@ -8,7 +8,7 @@
 # pack a membrane with substrate-cprg, so both are substrate-carrier members, and
 # they differ only in the process that closes the membrane: extrusion there,
 # freeze-thaw here. Both routes are live, and the pH run used LUVs first and SUVs
-# second, so neither page can be retired in favour of the other.
+# second, so neither page can be retired in favor of the other.
 #
 # THE OPERATOR IS `packing`, as it is on every member of the class: each of the
 # two keeps its own compartment, which is what gives the readout an off state.

@@ -19,7 +19,7 @@ refines:
   # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
   # the first entry is the alignment parent and must be the FUNCTIONAL one;
   # size is form, not function.
-# A CHASSIS IS A CELL, and that is not a judgement
+# A CHASSIS IS A CELL, and that is not a judgment
 # call: this Module's final step is `encapsulate`, `packing`, over exactly two operands,
 # a cytosol and a membrane, which is ../cell/spec.yml's invariant with no exception.
 # base-cell, cell-base-cytosol-popc-chol and cell-s30-popc are the same step over the same sorts.
