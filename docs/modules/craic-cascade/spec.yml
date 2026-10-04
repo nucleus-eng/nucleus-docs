@@ -39,7 +39,7 @@ inputs:
     page: null            # [EsaO]2-PLA1, two tandem EsaO sites driving PLA1. NO SEQUENCE FILE EXISTS.
                           # nucleus-eng/DNA at f06e12c has no esa* file, no esar string and no manifest row, while it
                           # carries the gated construct for all three other demos. The name appears
-                          # in this corpus only here, so nothing outside this file supports it.
+                          # only here, so nothing outside this file supports it.
                           # Do not link or invent one; see ../detector-esar/spec.yml.
   membrane-craic:
     title: "Membrane"

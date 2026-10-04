@@ -25,6 +25,8 @@ Nothing on this page has been built. It is written so that this design and the t
 
 # Reference Composition
 
+:::::{tab-set}
+
 <!-- gen:composition-diagram -->
 ::::{tab-item} Module Dependencies
 
@@ -105,6 +107,72 @@ flowchart TD
 
 ::::
 <!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+:::{table} The gated construct. The strands that open it are documented on the Detector page.
+:label: comp-ph-cascade-one-vesicle-dna
+
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `pT7-toehold9-PLA1` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Expressed inside the cell. The toehold switch and PLA1 are one molecule, so PLA1 is not a separate addition |
+| LacZ | — | — | Not DNA here. Added as purified enzyme, inside the cell, which is this design's change |
+:::
+
+See [Detector: pH-Sensing](../detector-ph/spec.md) for the pH-responsive and trigger strands, which the source names as two halves annealed 3:1.
+
+::::
+
+::::{tab-item} Cytosol
+
+The one liposome's interior. It carries the enzyme as well as the sensor, which is what separates this design from the two-liposome one.
+
+:::{table} Inner solution. No working concentration is documented for this design.
+:label: comp-ph-cascade-one-vesicle-cytosol
+
+| Component | Working concentration |
+| --- | --- |
+| [Base Cytosol](../base-cytosol/spec.md) components | At reaction concentration; not separately documented |
+| `pT7-toehold9-PLA1` | not documented for this design |
+| pH-responsive ssDNA : trigger ssDNA, annealed 3:1 | not documented for this design |
+| [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | not documented for this design |
+:::
+
+**This design is specified and has not run**, so no figure here is measured. The [two-liposome cascade](../ph-cascade/spec.md) states doses for the first two components, and they are not copied across: that design keeps the enzyme outside, and whether these figures survive putting it inside is the first open item below.
+
+::::
+
+::::{tab-item} Membrane
+
+:::{table} The one bilayer in the system — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
+:label: comp-ph-cascade-one-vesicle-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| POPC | 89.9 |
+| Cholesterol | 10 |
+| Liss-Rhod PE | 0.1 |
+:::
+
+**The membrane is the off state.** While the cell is intact it is the only thing keeping the enzyme from its substrate, so this bilayer carries the whole readout rather than only containing a reaction.
+
+::::
+
+::::{tab-item} Substrate
+
+:::{table} CPRG in the one-liposome path.
+:label: comp-ph-cascade-one-vesicle-substrate
+
+| Component | Working concentration | Notes |
+| --- | --- | --- |
+| [Substrate: CPRG](../substrate-cprg/spec.md) | not documented | **Not encapsulated.** It arrives in the trigger solution after the gel is set, carried in with the analyte |
+:::
+
+**Whether one solution can carry both is open.** The analyte is an acid, and whether CPRG tolerates being carried in it is recorded nowhere. See the open items below.
+
+::::
+
+:::::
 
 # Expected Behavior
 

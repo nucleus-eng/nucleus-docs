@@ -115,15 +115,91 @@ flowchart TD
 
 ::::{tab-item} Constituent Modules
 
-- [Base Cytosol](../base-cytosol/spec.md)
-- Sensor: EsaR DNA template
-- [Lysis: PLA1](../effector-pla1/spec.md)
-- Membrane — formulation not specified
-- [Outer Solution](../outer-solution/spec.md)
-- [Substrate: CPRG](../substrate-cprg/spec.md)
-- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md)
-- [Gel: ULGA](../gel-ulga/spec.md)
-- [Analyte: 3OC6-HSL](../analyte-3oc6-hsl/spec.md)
+:::{table} The Modules this cascade is built from.
+:label: comp-craic-cascade-modules
+
+| Module | Role in this cascade |
+| --- | --- |
+| [Base Cytosol](../base-cytosol/spec.md) | Transcription and translation |
+| Sensor: EsaR DNA template | Expresses the EsaR repressor. No page |
+| `[EsaO]2-PLA1` | The gated lysis construct. Two tandem EsaO operator sites driving PLA1, on one molecule. No page and no sequence file |
+| Membrane | Closes the cytosol. Formulation not specified |
+| [Outer Solution](../outer-solution/spec.md) | The phase the cell is formed into |
+| [Substrate: CPRG](../substrate-cprg/spec.md) | Held in a second population of carriers, apart from the enzyme |
+| [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | Added as purified enzyme, not expressed |
+| [Gel: ULGA](../gel-ulga/spec.md) | Holds both populations |
+| [Analyte: 3OC6-HSL](../analyte-3oc6-hsl/spec.md) | The trigger, supplied at development |
+:::
+
+**PLA1 is not a separate addition.** It is carried on `[EsaO]2-PLA1` together with the operator that gates it, so the protein is expressed inside the cell rather than mixed in. The protein itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`.
+
+::::
+
+::::{tab-item} DNA
+
+:::{warning} No sequence file exists for either construct
+Neither construct below is in the Nucleus DNA repository. There is no `esa` file, no `esar` entry and no manifest row for this demo, while the equivalent gated construct is present for each of the other three. **Do not link a file on a name resemblance.**
+
+@Editor: submit both sequences before this Module is used at the bench.
+:::
+
+:::{table} Constructs named by the design. Lengths are unknown because no file exists to read one from.
+:label: comp-craic-cascade-dna
+
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `[EsaO]2-PLA1` | not documented | none | The gated lysis construct. Two tandem EsaO sites driving PLA1. Expressed in the sensing cell |
+| Sensor: EsaR DNA template | not documented | none | Expresses the EsaR repressor, which binds the operator above until the analyte arrives |
+| LacZ | — | — | Not DNA here. Added as purified enzyme |
+:::
+
+:::{note} The second construct on the detector page characterizes rather than builds
+`[EsaO]2-mNG` puts the same operator on a fluorescent reporter. It measures the detector and is not part of this cascade, which is colorimetric.
+:::
+
+::::
+
+::::{tab-item} Cytosol
+
+The sensing cell interior.
+
+:::{table} Sensing cell interior. No working concentration is documented for this cascade.
+:label: comp-craic-cascade-cytosol
+
+| Component | Working concentration |
+| --- | --- |
+| [Base Cytosol](../base-cytosol/spec.md) components | At reaction concentration; not separately documented for this cascade |
+| EsaR DNA template | not documented |
+| `[EsaO]2-PLA1` | not documented |
+:::
+
+**No dose is recorded for this cascade.** The other three demos each state one for their gated construct. This tab lists the components so the composition is stated, and says the figures are absent rather than leaving the tab out.
+
+::::
+
+::::{tab-item} Membrane
+
+:::{table} Synthetic cell membrane. The formulation is not specified.
+:label: comp-craic-cascade-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| not documented | — |
+:::
+
+**The source names two membranes and no formulation for either.** They are written only as distinct, one for the sensing cell and one for the substrate carrier, so this tab records that a membrane exists and that its composition is unstated.
+
+::::
+
+::::{tab-item} Substrate
+
+:::{table} CPRG in the CRAIC path.
+:label: comp-craic-cascade-substrate
+
+| Component | Working concentration | Notes |
+| --- | --- | --- |
+| [Substrate: CPRG](../substrate-cprg/spec.md) | not documented | Held in its own carrier population, separate from the LacZ enzyme, until lysis releases it |
+:::
 
 ::::
 
