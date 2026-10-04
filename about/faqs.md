@@ -20,7 +20,7 @@ Open source describes content — of any kind, not just software — that is doc
 
 ### How do I get started with Nucleus?
 
-Most people will contribute to Nucleus by submitting a Developer Note (DevNote), a way to share ideas, specifications, processes, and results with the developer community. This can ultimately result in changes to Nucleus Docs including the introduction of new modules. Nucleus Docs and technical tools are maintained in several repositories across GitHub. We use GitHub’s pull request system to support review and acceptance of changes to these systems. For more information see our Get Started guide. 
+Most people will contribute to Nucleus by submitting a Developer Note (DevNote), a way to share ideas, specifications, processes, and results with the developer community. This can ultimately result in changes to Nucleus Docs including the introduction of new modules. Nucleus Docs and technical tools are maintained in several repositories across GitHub. We use GitHub’s pull request system to support review and acceptance of changes to these systems. For more information see our [Get Started guide](../start/first-guide.md). 
 
 ### What license applies to my DevNote?
 
@@ -28,7 +28,7 @@ A DevNote’s license depends on what it contains, not on the fact that it’s a
 
 ### Who decides what content lives on Nucleus?
 
-Anyone can contribute to Nucleus today — submitting a DevNote or opening a pull request doesn't require any special status. Currently, the core development team at b.next serves as the primary maintainer of Nucleus, responsible for merging and approving DevNote releases, submitting pull requests against Nucleus repositories, making key architectural decisions, and identifying enabling partnerships to support the community. The core team works closely with the broader community and takes their feedback seriously in shaping these decisions. As Nucleus matures and its architecture and practices stabilize, the goal is to open up decision-making and governance to a dedicated community of cell builders outside of b.next — including inviting others to take on maintainer roles themselves. To learn more about how b.next and Nucleus relate, read here.
+Anyone can contribute to Nucleus today — submitting a DevNote or opening a pull request doesn't require any special status. Currently, the core development team at b.next serves as the primary maintainer of Nucleus, responsible for merging and approving DevNote releases, submitting pull requests against Nucleus repositories, making key architectural decisions, and identifying enabling partnerships to support the community. The core team works closely with the broader community and takes their feedback seriously in shaping these decisions. As Nucleus matures and its architecture and practices stabilize, the goal is to open up decision-making and governance to a dedicated community of cell builders outside of b.next — including inviting others to take on maintainer roles themselves. To learn more about how b.next and Nucleus relate, see ["How does b.next currently support Nucleus?"](#how-does-b-next-currently-support-nucleus).
 
 ### How do I contact the core development team?
 
