@@ -138,6 +138,7 @@ Note that `hidden: true` is used pervasively for *every* non-sidebar child page 
 - `process-template/process-make_template.md` — full example of a process page including admonition blocks, protocol steps with checkboxes, and a Downloads section
 - `module-template/spec-formulation.md` — for a module you **mix**: cytosols, membranes, chassis, cells. Sections: Overview / Reference Composition / Expected Behavior / Process / Materials / Credits
 - `module-template/spec-functional.md` — for a module you **add to someone else's recipe**: detectors, reporters, effectors, emitters, controls, pores, energy. Sections: Overview / Reference Composition / Expected Behavior (with per-context subsections) / Requirements / Implementations / Materials / Downloads / Credits
+- `module-template/spec-class.md` — for a **class**: an abstract Module that other Modules refine (Cell, Detector, Gel). Sections: Overview / Reference Composition or Members / Expected Behavior / Requirements / Constituent Modules / Processes / Credits
 
   Pick by what the page documents, not by where the module sits in the composition tree — Base Cell is a composed module but reads as a recipe, and a membrane pore is a membrane but reads as a function. Omit a section rather than stubbing it empty.
 - `implementation-template/implementation-template.md` — combined implementation format

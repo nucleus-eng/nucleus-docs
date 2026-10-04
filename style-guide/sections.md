@@ -171,7 +171,7 @@ Every Nucleus construct uses a pT7 promoter unless the page says otherwise, beca
 
 State requirements; do not argue for them.
 
-**Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines, written with the trailing-clause form above. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. Nucleus has not adopted abstract Modules yet. Until it does, the one-page workaround is accepted.
+**Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines, written with the trailing-clause form above. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. The intended resolution is a class page for PLA1 (see [Class pages](#class-pages)). Until PLA1 has one, the one-page workaround is accepted.
 
 ## Implementations
 
@@ -206,3 +206,16 @@ Adapted from [<source>](<URL>) ([Author et al., year](https://doi.org/...)).
 ```
 
 The DevNote author is the authoritative contributor. Never invent a name, Node, or Lab, and never cite an internal status document here.
+
+## Class pages
+
+A class is an abstract Module: other Modules refine it, and it states what they all share. Its page answers three questions — what the class is, what every member does, and which Modules are members — and nothing else.
+
+- **Overview.** One sentence that defines the class: "A class: …". Then what every member shares: the one thing every member is or does. Say it in plain words. Do not write "invariant" on the page. Do not count the members: the count changes when a member is added, and the page goes stale.
+- **Reference Composition.** Only when what the members share is a composition, as Cell's is: a Cytosol closed inside a Membrane. Give one tab per slot, each with a table of what each member puts in that slot. A class whose members share only an operation, such as Container's `hold`, has no composition, so omit the section.
+- **Members.** Only when there is no Reference Composition: a table, `Member | What makes it a member`. When there is one, the slot tables already list the members.
+- **Expected Behavior.** What every member does, as Function: what a reader will see from any member. A result belongs on the member that produced it.
+- **Requirements.** Only what every member requires. If the members share none, omit the section. Do not write "none stated".
+- **Constituent Modules** and **Processes.** As for any Module, when the class's composition source declares them.
+
+A class page does not say how the class was arrived at, why it exists, or which questions about its position are still open. Those belong in the theory corpus or in `tmp/`. The generated **Position** line already says what the class refines. A class that refines nothing says so there and nowhere else.
