@@ -9,8 +9,8 @@
 #   packing  both at once, each keeping its own compartment
 #
 # The step is `mixing`: two additions into Base Cytosol, sharing its resources. No
-# `packing` step appears here, so nothing in this file depends on open question O8
-# in compositional-biology-theory, "are formation and `hold` one operation?".
+# `packing` step appears here, so nothing in this file depends on whether forming a
+# boundary and holding something in it are one operation, which is unsettled.
 #
 # THE PAGE'S TABLE IS AN ASSAY, NOT ONLY A COMPOSITION. Its three volume columns are
 # test conditions for the detector upstream, not three versions of this Module. See

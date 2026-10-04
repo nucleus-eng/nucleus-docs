@@ -6,10 +6,9 @@
 # That is the class, and it is not a rule anyone writes separately: it follows from the
 # compartments.
 #
-# THIS CLASS HAS CONSTITUENTS AND ITS SIBLINGS DO NOT ALL HAVE THEM. The
-# compositional-biology-theory session made the point that a class has constituents
-# exactly when its own invariant names a composition. This one's invariant names the
-# operator, so it does.
+# THIS CLASS HAS CONSTITUENTS AND ITS SIBLINGS DO NOT ALL HAVE THEM. A class has
+# constituents exactly when its own invariant names a composition. This one's
+# invariant names the operator, so it does.
 
 module: color-change
 title: "Color Change"

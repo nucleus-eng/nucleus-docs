@@ -1,14 +1,14 @@
 # Composition source for Container.
 #
 # AN ABSTRACT MODULE, AND AN EMPTY ONE BY CLAIM. Its invariant is a single operation,
-# `hold`, and an operation is not a composition. compositional-biology-theory
-# glossary.md#T33 makes a Composition an explicit expression giving an object as a
-# combination of others, and nothing gives Container as a combination of anything. So
+# `hold`, and an operation is not a composition. A Composition is an explicit
+# expression giving an object as a combination of others, and nothing gives Container
+# as a combination of anything. So
 # `inputs: {}` and `process_steps: []` are both claims here rather than gaps.
 #
 # ITS MEMBERS ARE NOT ITS CONSTITUENTS. Membrane, the abstract gel and a Substrate row
-# the theory names all refine it. Membership is classification, glossary.md#T13;
-# constituency is containment, #T34. A class having members does not give it parts.
+# all refine it. Membership is classification and constituency is containment, which
+# are different relations: a class having members does not give it parts.
 
 module: container
 title: "Container"
@@ -23,7 +23,7 @@ open:
       CLOSED IN PART 2026-09-24. This asked for a `Membrane` page because only
       ../gel/spec.yml named this module. ../membrane/spec.yml now does, and
       ../solution/spec.yml joins them now too. `Substrate` is the
-      one child the theory corpus names that has no page here, and the Reference
+      one child named anywhere that has no page here, and the Reference
       Composition section states why naming that row is not the same as filling it.
   - id: an-empty-source-and-an-unwritten-one-look-alike
     question: >

@@ -13,13 +13,13 @@
 module: reporter-lacz-enzyme
 title: "LacZ Enzyme"
 refines: lacz
-# THE PURIFIED FORM OF ../lacz, one of two. The LacZ operand must abstract over
-# both the DNA and the protein. The representation is a class operand and this is a member of
+# THE PURIFIED FORM OF ../lacz, one of two. The LacZ operand must abstract over both the
+# DNA and the protein. The representation is a class operand and this is a member of
 # that class.
 #
 # IT POINTED AT reporter-lacz FOR PART OF A DAY AND THAT WAS THE WRONG SHAPE. The
 # earlier wording made the reaction the abstraction, which put an EQUIVALENCE inside an
-# ORDER: session c9d6a5 identified the pair as co-satisfying, glossary.md#T28, two
+# ORDER: session c9d6a5 identified the pair as co-satisfying, two
 # Formulations of one Specification separated by a formulation predicate. Co-satisfying
 # things sit at the same height, so a refinement edge between them is not an order edge.
 # Moving the abstraction down to the operand makes this a real membership.
@@ -75,10 +75,10 @@ open:
     question: >
       `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.
 
-# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
-# Sensitivity a property of an object; #T22 makes Imposition a property of a
-# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
-# "computed, never asserted". check-conflicts.py does the computing.
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. Sensitivity is a property of an
+# object and Imposition a property of a morphism, so an imposition sits on a step. A
+# Conflict is derived from the two and is computed, never asserted. check-conflicts.py
+# does the computing.
 sensitivities:
   - id: proteinase-k
     to: proteinase-k

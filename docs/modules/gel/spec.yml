@@ -3,7 +3,7 @@
 # AN ABSTRACT MODULE WITH A REAL COMPOSITION, AND THE THEORY CORPUS WROTE IT FIRST.
 # compositional-biology-theory codimension-is-a-coordinate.md:41 at main 29842a1 states
 # `Gel = OuterSolution ⊞ polymer`, same compartment, no membrane between them. That is
-# a Composition in the glossary.md#T33 sense with both factors abstract, so this file
+# a Composition in the strict sense, with both factors abstract, so this file
 # quotes it rather than deriving one.
 #
 # BOTH CONSTITUENTS CARRY `page: null` AND THAT IS ORDINARY. 124 of 195 inputs in this

@@ -116,6 +116,5 @@ open:
     question: >
       The board draws an observation leg — `(M11) Spectrometer` under
       `(M12) UV lamp` reading `(M10) deGFP Reporter` — and this file has no step
-      for it. Every cascade in this corpus has the same hole, and the theory
-      side reports it too: `observe` appears once in signature.md and carries no
-      profile. Fixing it here needs the profile first.
+      for it. Every cascade in this corpus has the same hole, and `observe` has no
+      profile written for it anywhere. Fixing it here needs the profile first.

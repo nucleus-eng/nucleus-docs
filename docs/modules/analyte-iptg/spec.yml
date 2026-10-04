@@ -9,13 +9,12 @@
 # its `# Processes` section reads "None. An analyte is supplied to an assay rather
 # than produced by a Nucleus process."
 #
-# An empty list was invalid until 2026-09-20. `minItems: 1` on `process_steps`
-# asserted that every Module is produced by a process, which is a third membership
-# condition the model never carried: compositional-biology-theory `glossary.md#T03`
-# gives two, a named formulation and the operations its type declares --
-# glossary.md:45 at main 29842a1. The
-# constraint came off. Composed-ness is a grading over Modules, not a condition for being
-# one.
+# An empty list was invalid until 2026-09-20. `minItems: 1` on `process_steps` asserted
+# that every Module is produced by a process, which is a third membership condition the
+# model never carried: a Module is a named formulation together with the operations its
+# type declares, which is two conditions and neither of them is production. The
+# constraint came off. Composed-ness is a grading over Modules, not a condition for
+# being one.
 
 module: analyte-iptg
 title: "Analyte: IPTG"

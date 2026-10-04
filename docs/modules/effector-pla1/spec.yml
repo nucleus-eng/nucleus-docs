@@ -8,25 +8,25 @@
 #   mixing   both at once, in one compartment, sharing its resources
 #   packing  both at once, each keeping its own compartment
 #
-# THIS FILE WRITES THE UNGATED CONFIGURATION AND ONLY THAT ONE. The page's Cytosol tab carries five configurations, and this file
-# is the first of them: constitutive expression with no sensing circuit. The page
-# itself says why that is the defensible reference rather than an arbitrary pick —
-# "the first is the only one with no upstream gate, so it is the only one that
-# reports on PLA1 rather than on a cascade."
+# THIS FILE WRITES THE UNGATED CONFIGURATION AND ONLY THAT ONE. The page's Cytosol tab
+# carries five configurations, and this file is the first of them: constitutive
+# expression with no sensing circuit. The page itself says why that is the defensible
+# reference rather than an arbitrary pick — "the first is the only one with no upstream
+# gate, so it is the only one that reports on PLA1 rather than on a cascade."
 #
 # THE OTHER FOUR ARE NOT CONFIGURATIONS OF THIS MODULE. Each is this Module's
 # coding sequence stitched to a detector's DNA. Under
-# glossary.md#T37 in compositional-biology-theory, stitching `::` joins operands in
-# order into one polymer, it is associative and not commutative (rulings.md#D35),
+# stitching, written `::`, joins operands in order into one polymer; it is
+# associative and not commutative,
 # and it is homogeneous — DNA stitched to DNA is DNA (signature.md:214, main ada4ea5;
 # this read :286 until 2026-09-21, which is a paragraph about undeclared types). So
 # `LuxR-PLA1` is `luxR-cassette :: pla1-cds`, a DIFFERENT DNA Module that contains
 # PLA1, not this Module in a different setting. See the open entry below.
 #
-# The step is `mixing`: two additions into Base Cytosol, sharing its resources.
-# No `packing` step appears here — encapsulation is a step on ../base-cell/spec.yml —
-# so nothing in this file depends on open question O8 in
-# compositional-biology-theory, "are formation and `hold` one operation?".
+# The step is `mixing`: two additions into Base Cytosol, sharing its resources. No
+# `packing` step appears here — encapsulation is a step on ../base-cell/spec.yml — so
+# nothing in this file depends on whether forming a boundary and holding something in it
+# are one operation, which is unsettled.
 
 module: effector-pla1
 title: "Lysis: PLA1"
@@ -87,8 +87,8 @@ open:
       If that is right, each of the four belongs on the detector or cascade page that
       owns the stitched construct, and this file is complete rather than partial.
       A CIRCULAR CONSTRUCT DOES HAVE A FIRST BASE, AND THE CONSEQUENCE IS NOT WHAT IT
-      LOOKS LIKE. The compositional-biology-theory session raised that stitching joins
-      operands IN ORDER while a circle has no start, so the order would be defined only
+      LOOKS LIKE. Stitching joins operands IN ORDER while a circle has no start, so
+      the order would be defined only
       up to rotation. That does not hold: plasmid DNA canonically DOES carry a first
       index. It is the first base labeled in the file, set by the author
       by convention rather than by the molecule, often the first base of the origin of

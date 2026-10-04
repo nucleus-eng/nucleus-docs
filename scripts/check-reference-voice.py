@@ -190,19 +190,25 @@ def visible_lines(text: str) -> list[tuple[int, str]]:
     return out
 
 
-# TWO RULES ARE EXEMPT IN A `spec.yml`, FOR DIFFERENT REASONS.
+# `tooling` IS EXEMPT IN A `spec.yml`. It complains that our tooling has become the
+# subject of a page. Almost every hit in a source file is the word `spec.yml`
+# written inside a `spec.yml`, where the file IS the tooling and naming it is the
+# only way to say anything. Keeping it would mean 114 findings nobody can act on,
+# which is how a check stops being read.
+EXEMPT_IN_SOURCE = {"tooling"}
+
+# A PINNED POINTER IS NOT A WORKING NOTE. `working-notes` exists because a reader
+# cannot follow "see open.md" -- there is no open.md to follow and no telling what
+# it said. A pointer that carries a commit hash is a different thing: it is
+# checkable, which is the whole argument the citation rule makes, and the few that
+# survive are verbatim quotations of a formal expression or a recorded disagreement
+# between two repos. So the rule fires on an UNPINNED pointer only.
 #
-# `tooling` complains that our tooling has become the subject of a page. Almost
-# every hit in a source file is the word `spec.yml` written inside a `spec.yml`,
-# where the file IS the tooling and naming it is the only way to say anything.
-# Keeping it would mean 114 findings nobody can act on, which is how a check
-# stops being read.
-#
-# `working-notes` is right and is not ready. A pointer to `rulings.md#D35` is as
-# unfollowable for a source reader as for a page reader, so the rule belongs
-# here eventually. But it is 85 findings, which is a sweep of its own, and
-# turning it on before that sweep would block every `spec.yml` change.
-EXEMPT_IN_SOURCE = {"tooling", "working-notes"}
+# THE WINDOW IS THE SAME 90 CHARACTERS `check-citations.py` USES, deliberately: two
+# rules reading the same text should not disagree about what counts as pinned. A
+# hash anywhere on the line satisfies it, because a source comment wraps and the
+# pin is often on the line after the name it pins.
+HASH_NEARBY = re.compile(r"`[0-9a-f]{7,40}`|\b(?:main|at)\s+`?[0-9a-f]{7,40}`?\b")
 
 
 def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str, str]]:
@@ -214,11 +220,15 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
     findings = []
     tier1 = {"person": (person, PERSON_MESSAGE), **TIER1}
     source = path.suffix == ".yml"
-    for lineno, line in visible_lines(text):
+    lines = visible_lines(text)
+    pinned = {n for n, l in lines if HASH_NEARBY.search(l)}
+    for lineno, line in lines:
         line = _URL.sub(" ", _LINK_TARGET.sub("]()", line))
         for level, rules in (("error", tier1), ("warning", TIER2)):
             for rule, (pattern, message) in rules.items():
                 if source and rule in EXEMPT_IN_SOURCE:
+                    continue
+                if rule == "working-notes" and pinned & {lineno - 1, lineno, lineno + 1}:
                     continue
                 if rule in ("person", "date") and EDITOR_CITATION.search(line):
                     continue

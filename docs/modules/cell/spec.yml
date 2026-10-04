@@ -9,14 +9,14 @@
 # membrane. No member has an exception.
 #
 # base-cell IS THE CONTROL AND IT IS WHY THIS CLASS IS NOT JUST SENSING CELL WITH A
-# SHORTER NAME. It sits directly under Cell because its cytosol carries no detector. That
-# is what makes the Sensing Cell refinement a real narrowing of one slot rather than a
-# rename of this one.
+# SHORTER NAME. It sits directly under Cell because its cytosol carries no detector.
+# That is what makes the Sensing Cell refinement a real narrowing of one slot rather
+# than a rename of this one.
 #
 # NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED. Container is the obvious
-# candidate and a cell is not a kind of container: it is a container with something in it.
-# That is the hold question at compositional-biology-theory open.md#O8 and it is not
-# settled here. Left a root, on the pore precedent.
+# candidate and a cell is not a kind of container: it is a container with something in
+# it. Whether forming a boundary and holding something in it are one operation is
+# unsettled, and it is not settled here. Left a root, on the pore precedent.
 
 module: cell
 title: "Cell"
@@ -44,10 +44,10 @@ process_steps:
       Packing and never mixing. The cytosol and the membrane keep separate compartments,
       which is the whole point of a boundary.
 
-# WHAT THIS CLASS IS SUBJECT TO. glossary.md#T21 puts Sensitivity on an OBJECT and
-# #T22 puts Imposition on a MORPHISM, so these sit here and the imposing step
-# declares the other half. #T23 makes the Conflict COMPUTED; check-conflicts.py
-# does the computing and nothing below asserts one.
+# WHAT THIS CLASS IS SUBJECT TO. Sensitivity is a property of an OBJECT and Imposition a
+# property of a MORPHISM, so these sit here and the imposing step declares the other
+# half. a Conflict is COMPUTED from the two; check-conflicts.py does the computing and
+# nothing below asserts one.
 #
 # TWO RANGES, NOT ONE, AND THE DIFFERENCE IS THE POINT. Synthetic cells are
 # specified to operate between 30 °C and 37 °C, and are stable from 4 °C to

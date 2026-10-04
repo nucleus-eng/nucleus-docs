@@ -9,8 +9,8 @@
 #   packing  both at once, each keeping its own compartment
 #
 # The step is `mixing`: two additions into Base Cytosol, sharing its resources. No
-# `packing` step appears here, so nothing in this file depends on open question O8
-# in compositional-biology-theory, "are formation and `hold` one operation?".
+# `packing` step appears here, so nothing in this file depends on whether forming a
+# boundary and holding something in it are one operation, which is unsettled.
 #
 # aTc IS EXCLUDED. It is the analyte this Module detects, and its dose depends on
 # the cytosol rather than on this Module. See ../analyte-atc/spec.md.
@@ -53,8 +53,8 @@ process_steps:
       PURExpress reference and the master mix that produced the reference figures is
       in Expected Behavior rather than in the composition.
 
-# WHAT THIS MODULE TOLERATES. Half of a Conflict; glossary.md#T23 makes Conflict
-# DERIVED, "computed, never asserted", so the other half sits on a morphism and
+# WHAT THIS MODULE TOLERATES. Half of a Conflict, which is derived and never
+# asserted, so the other half sits on a morphism and
 # check-conflicts.py does the join. ABSENCE MEANS UNDECLARED, NOT NONE.
 sensitivities:
   - id: atc-window

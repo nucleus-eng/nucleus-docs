@@ -8,11 +8,10 @@
 #   mixing   both at once, in one compartment, sharing its resources
 #   packing  both at once, each keeping its own compartment
 #
-# The step is `mixing`: three additions into Base Cytosol, sharing its resources.
-# The `packing` step is where this reporter is encapsulated, which is a step on the
-# consuming cell page and not here — so nothing in this file depends on open
-# question O8 in compositional-biology-theory, "are formation and `hold` one
-# operation?".
+# The step is `mixing`: three additions into Base Cytosol, sharing its resources. The
+# `packing` step is where this reporter is encapsulated, which is a step on the
+# consuming cell page and not here — so nothing in this file depends on whether forming
+# a boundary and holding something in it are one operation, which is unsettled.
 #
 # EVERY FIGURE BELOW IS IMPUTED, NOT MEASURED. See the questions at the foot of this
 # file. The page carries an open @Editor(chicago) tag saying the same thing, and
@@ -135,10 +134,10 @@ open:
       real and they are not the same thing; which one a composing page means is the
       composing page's choice, and ../atc-sensing-cell/spec.md is the worked example.
 
-# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
-# Sensitivity a property of an object; #T22 makes Imposition a property of a
-# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
-# "computed, never asserted". check-conflicts.py does the computing.
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. Sensitivity is a property of an
+# object and Imposition a property of a morphism, so an imposition sits on a step. A
+# Conflict is derived from the two and is computed, never asserted. check-conflicts.py
+# does the computing.
 sensitivities:
   - id: theophylline
     to: theophylline

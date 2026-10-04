@@ -9,8 +9,8 @@
 #   packing  both at once, each keeping its own compartment
 #
 # The step is `mixing`: a reaction in one tube, one phase. No `packing` step appears
-# here, so nothing in this file depends on open question O8 in
-# compositional-biology-theory, "are formation and `hold` one operation?".
+# here, so nothing in this file depends on whether forming a boundary and holding
+# something in it are one operation, which is unsettled.
 #
 # THE PURIFIED-PROTEIN ROUTE IS HERE AND THE IN-SITU ROUTE IS NOT. The page says the
 # Module can be implemented from purified proteins, from DNA templates expressed in

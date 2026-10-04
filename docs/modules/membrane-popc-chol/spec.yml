@@ -8,12 +8,11 @@
 #   mixing   both at once, in one compartment, sharing its resources
 #   packing  both at once, each keeping its own compartment
 #
-# The single step is `mixing`, and that is a claim rather than a default. Three
-# lipids go into one film and end in one phase; nothing here keeps its own
-# compartment. `packing` arises when this membrane closes around a cytosol, which
-# is a step on ../base-cell/spec.yml and not here — so this file does not depend on
-# open question O8 in compositional-biology-theory, "are formation and hold one
-# operation?".
+# The single step is `mixing`, and that is a claim rather than a default. Three lipids
+# go into one film and end in one phase; nothing here keeps its own compartment.
+# `packing` arises when this membrane closes around a cytosol, which is a step on
+# ../base-cell/spec.yml and not here — so this file does not depend on whether forming a
+# boundary and holding something in it are one operation, which is unsettled.
 
 module: membrane-popc-chol
 title: "Membrane: POPC/Chol (7:3)"

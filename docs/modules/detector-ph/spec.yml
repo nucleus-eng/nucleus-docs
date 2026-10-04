@@ -8,12 +8,11 @@
 #   mixing   both at once, in one compartment, sharing its resources
 #   packing  both at once, each keeping its own compartment
 #
-# Both steps are `mixing` and that is a claim rather than a default: strands anneal
-# in one solution, and the additions go into Base Cytosol and share its resources.
-# The `packing` step is where this detector is encapsulated, which is a step on
-# ../ph-sensing-cell/spec.md and not here — so nothing in this file depends on open
-# question O8 in compositional-biology-theory, "are formation and `hold` one
-# operation?".
+# Both steps are `mixing` and that is a claim rather than a default: strands anneal in
+# one solution, and the additions go into Base Cytosol and share its resources. The
+# `packing` step is where this detector is encapsulated, which is a step on
+# ../ph-sensing-cell/spec.md and not here — so nothing in this file depends on whether
+# forming a boundary and holding something in it are one operation, which is unsettled.
 #
 # STEP 2 HAS NO PROCESS PAGE AND THE PAGE SAYS SO: "No process page covers
 # assembling the full Module into a reaction." `page: null` records that claim

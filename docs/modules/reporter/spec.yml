@@ -50,9 +50,9 @@ open:
       molecule is needed to produce a signal. reporter-lacz and reporter-xyle each hold
       a chromogenic substrate apart from an enzyme, and bringing the two together is the
       reporting event. reporter-degfp needs nothing: the protein is the signal.
-      compositional-biology-theory reaches the same split from the operation rather than
-      from the constituents, at reference/reporter, where report takes an optional
-      Substrate and the arity varies. deGFP is the arity-zero member.
+      The same split falls out of the operation rather than the constituents: report
+      takes an optional Substrate and its arity varies. deGFP is the arity-zero
+      member.
       THE COLOR HALF ALREADY HAS A CLASS AND IT WAS NOT WRITTEN FOR THIS.
       ../color-change/spec.yml refines this class and holds reporter-lacz and
       reporter-xyle. Its own invariant is separation rather than color, so it is

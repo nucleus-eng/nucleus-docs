@@ -5,11 +5,10 @@
 # `lipid` is the constituent and the arrangement is the invariant rather than a part.
 #
 # A PORE IS NOT A MEMBER OF THIS CLASS. A Pore does not refine Membrane; it is a
-# component that can be composed with one. The theory
-# corpus writes it as `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶
-# Membrane[permeable]; passes down ∇`, signature.md:203 at main `e40f3de`, so a pore and a
-# membrane are two of three operands of one operation. See
-# ../pore/spec.yml.
+# component that can be composed with one. It is written as
+# `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶ Membrane[permeable]; passes down
+# ∇`, signature.md:203 at main `e40f3de`, so a pore and a membrane are two of three
+# operands of one operation. See ../pore/spec.yml.
 #
 # The process is `page: null`: an abstract bilayer-forming process does not exist here.
 
@@ -64,10 +63,10 @@ open:
       thing the class is for. Same shape as ../photopatterned-gel/spec.yml's
       geometry item.
 
-# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
-# Sensitivity a property of an object; #T22 makes Imposition a property of a
-# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
-# "computed, never asserted". check-conflicts.py does the computing.
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. Sensitivity is a property of an
+# object and Imposition a property of a morphism, so an imposition sits on a step. A
+# Conflict is derived from the two and is computed, never asserted. check-conflicts.py
+# does the computing.
 sensitivities:
   - id: radical-acrylate-polymerization
     to: radical-acrylate-polymerization

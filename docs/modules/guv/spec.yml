@@ -4,12 +4,12 @@
 # produced by Encapsulation: Phase Transfer, which is the rule the Editor
 # gave: determine the class by the process that generates the page.
 #
-# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED, on the same precedent
-# as ../substrate-carrier/spec.yml and ../cell/spec.yml. A unilamellar vesicle is a
-# membrane with something in it, which is the `hold` question at
-# compositional-biology-theory open.md#O8, unsettled there. THIS CLASS DOES NOT NEED
-# O8 SETTLED: it divides by size and lamellarity, which is not the hold question. But
-# the two meet on these pages, so if O8 lands this class and Cell get a parent on the
+# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED, on the same precedent as
+# ../substrate-carrier/spec.yml and ../cell/spec.yml. A unilamellar vesicle is a
+# membrane with something in it, and whether forming a boundary and holding something
+# in it are one operation is unsettled. THIS CLASS DOES NOT NEED THAT SETTLED: it
+# divides by size and lamellarity, which is a different question. But the two meet on
+# these pages, so if the hold question lands, this class and Cell get a parent on the
 # same day.
 #
 # THE COMPOSITION IS THE ROUTE AND NOTHING ELSE. Members differ in both the

@@ -8,12 +8,12 @@
 #   mixing   both at once, in one compartment, sharing its resources
 #   packing  both at once, each keeping its own compartment
 #
-# THE STEP IS `packing` AND THIS FILE THEREFORE DEPENDS ON O8 in
-# compositional-biology-theory — "are formation and `hold` one operation?". Film
-# hydration forms the bilayer and closes it around the lumen in one operation, and
-# whether that is one morphism or two is what O8 asks. `packing` follows
-# ../base-cell/spec.yml and ../guv-cprg/spec.yml, which call encapsulation by the
-# same operator. Recorded rather than resolved.
+# THE STEP IS `packing`, SO THIS FILE DEPENDS ON THE HOLD QUESTION: whether forming a
+# boundary and holding something in it are one operation, which is unsettled. Film hydration
+# forms the bilayer and closes it around the lumen in one operation, and whether that is
+# one morphism or two is what that question asks. `packing` follows ../base-cell/spec.yml and
+# ../guv-cprg/spec.yml, which call encapsulation by the same operator. Recorded rather
+# than resolved.
 
 module: substrate-cprg-suv
 title: "Substrate SUV: CPRG"
@@ -24,9 +24,10 @@ refines:
   # produces this page, and that is Encapsulation: Extrusion. It is LAST because
   # the first entry is the alignment parent and must be the FUNCTIONAL one;
   # size is form, not function.
-# Added 2026-09-21 with the class: the small unilamellar member, made by hydration and extrusion. Both members pack a
-# membrane with substrate-cprg by `packing`, two of two, and the class was written
-# because a meet over London and Chicago drew the two as unrelated slots.
+# Added 2026-09-21 with the class: the small unilamellar member, made by hydration and
+# extrusion. Both members pack a membrane with substrate-cprg by `packing`, two of two,
+# and the class was written because a meet over London and Chicago drew the two as
+# unrelated slots.
 
 inputs:
   membrane-popc-chol-9-1:

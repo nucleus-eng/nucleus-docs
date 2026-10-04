@@ -8,8 +8,8 @@
 #
 # ITS TABLE IS NOT A COMPOSITION. The first column is `Format` and the rows are
 # loading concentrations by encapsulation route — a usage function indexed by format.
-# compositional-biology-theory `signature.md` already records this page as a known
-# bug from the other direction: its `Substrate` row reads "Function (Composition
+# THIS PAGE IS ALREADY RECORDED AS A KNOWN BUG from the other direction: the
+# `Substrate` row that lists it reads "Function (Composition
 # unstated — known bug)" and notes that "the third member is a molecule rather than a
 # compartment". Two repos found the same page wrong from opposite ends.
 
@@ -39,8 +39,8 @@ open:
       by this page.
   - id: the-sort-is-wrong-and-another-repo-says-so-first
     question: >
-      `signature.md` in compositional-biology-theory gives `Substrate` three members —
-      `substrate-cprg-suv`, `guv-cprg` and this page — and observes that the first two
+      `Substrate` has three members — `substrate-cprg-suv`, `guv-cprg` and this
+      page — and the first two
       are compartments and this one is a molecule. Its own words: "the type name is
       the payload's role worn by a container" — signature.md:92 at main 29842a1. So
       this Module is in a type whose other members are a different kind of thing,
@@ -50,10 +50,10 @@ open:
     question: >
       `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.
 
-# WHAT THIS MODULE IS SUBJECT TO, and only that half. glossary.md#T21 makes
-# Sensitivity a property of an object; #T22 makes Imposition a property of a
-# morphism, so it sits on a step. #T23 makes Conflict DERIVED from the two,
-# "computed, never asserted". check-conflicts.py does the computing.
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. Sensitivity is a property of an
+# object and Imposition a property of a morphism, so an imposition sits on a step. A
+# Conflict is derived from the two and is computed, never asserted. check-conflicts.py
+# does the computing.
 sensitivities:
   - id: uv-exposure
     to: uv-exposure
