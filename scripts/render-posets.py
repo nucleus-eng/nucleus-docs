@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Draft every partial order the corpus carries, and name the ones it does not.
 
-Jon, 2026-09-21: "everything is some amount of Abstract. it's not a binary
-yes/no. it's a set of partially ordered sets." This enumerates that set.
+Everything is some amount of Abstract. It is not a binary yes or no, but a set
+of partially ordered sets, and this enumerates that set.
 
 THE GUARD THIS SCRIPT IS BUILT AROUND. A report titled "all the posets" that
 quietly contains only the ones a script could reach is a partial check filling

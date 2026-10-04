@@ -2,9 +2,9 @@
 # copy in nucleus-skills either — both come from one table in the glossary.
 #
 # Source  nucleus-eng/nucleus-skills, branch glossary/leg-is-an-accepted-synonym,
-#         b39b75e — NOT YET ON main. The branch drops the `leg` swap on Jon's ruling
-#         of 2026-09-28, "let's just make 'leg' a synonym (not preferred) of a path
-#         on a graph". This copy is ahead of upstream main until that branch merges.
+#         b39b75e — NOT YET ON main. The branch drops the `leg` swap, making
+#         "leg" an accepted synonym for a path on a graph rather than a
+#         dispreferred one. This copy is ahead of upstream main until that branch merges.
 #         plugins/nucleus/references/glossary.md, section "Refused spellings"
 #
 # To change a rule: edit the glossary row there, run scripts/generate-vale-rules.py,

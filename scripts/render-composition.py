@@ -116,7 +116,7 @@ def expand(doc: dict, depth: int, root: Path, only: set[str] | None = None,
         sub = expand(yaml.safe_load(sub_path.read_text()), depth - 1,
                      sub_path.parent, only, seen)
         # A SOURCE MAY COMPOSE NOTHING, and this crashed on the first one.
-        # `minItems: 1` came off `process_steps` on Jon's ruling, 2026-09-20,
+        # `minItems: 1` came off `process_steps`,
         # and eight sources now name inputs and run no step. There is no
         # sub-graph to splice: the module IS a leaf however deep you ask, so it
         # stays an input rather than becoming an empty expansion.

@@ -17,7 +17,7 @@ FOUR CARRIERS, each found the hard way.
   KEY -> PAGE          Two input keys resolving to one module page. ULGA powder
                        was `ulga`, `ulga-powder` and `agarose` across four
                        sources. The third name was invisible while it carried
-                       page: null, so Jon identifying the agarose as ULGA turned
+                       page: null, so identifying the agarose as ULGA turned
                        a gap into a duplicate and no check noticed either event.
 
   ID -> COMPOSITION    Two produced ids from the same operands AND the same
@@ -35,8 +35,8 @@ FOUR CARRIERS, each found the hard way.
 
   TITLE -> ID          Two ids carrying one title. This is the one a reader hits:
                        nodes are labelled with titles, so two different things
-                       draw as two identical boxes. Jon, 2026-09-21, reading a
-                       meet: "why are both in there?"
+                       draw as two identical boxes, which is what a reader of the
+                       first meet asked about: why are both in there?
 
   DIR -> TITLE         One process directory called two things.
                        embed-ulga-hydrogel was `Hydrogel Embedding: ULGA` in three

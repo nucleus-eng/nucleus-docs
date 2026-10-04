@@ -19,7 +19,7 @@ jobs:
             | tar xz -C /usr/local/bin vale
 
       - name: Run Vale
-        # `.yml` joined the list on 2026-09-21, Jon's ruling: prose now lives in
+        # `.yml` joined the list because prose now lives in
         # spec.yml `note:` and `question:` fields and was invisible to every check.
         # .vale.ini gives that section the terminology rules only, not the 14
         # formatting rules, which aim at sentences rather than at identifiers.

@@ -26,8 +26,8 @@ vendor served it:
     read the other way. It is not deterministic: it is a fact about the resolver
     the checker happens to be using, not about the link. Measured 2026-09-29 —
     `ecgrc.net` returned NXDOMAIN here while `google.com`, `github.com`,
-    `sigmaaldrich.com` and `doi.org` all resolved on the same resolver, and Jon
-    confirmed the host resolves on the internet. Four correct links had been the
+    `sigmaaldrich.com` and `doi.org` all resolved on the same resolver, and the
+    host was confirmed to resolve on the internet. Four correct links had been the
     only red on this check for days, and the message said "does not resolve",
     which reads as a statement about the corpus.
     A dead domain does still need finding. The report says so rather than the

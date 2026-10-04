@@ -221,7 +221,7 @@ python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  
 
 **Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page is *not* the test: `aTc Sensor Cytosol` has a page and is still expanded on the cascade that builds it. Deeper renders are for review material, never for a docs page. A module whose composition is a single box gets no diagram at all.
 
-**The composition steps are `process_steps:`** (Jon, 2026-09-15). Each entry applies one Process
+**The composition steps are `process_steps:`.** Each entry applies one Process
 to named operands and yields a named product — *"`step` isn't the right language. These are
 Processes, are they not?"* Two entries may name the same Process, so an entry is an application of
 one, not the Process itself.
@@ -242,7 +242,7 @@ nothing, a duplicated product id, an `abstract:` naming no process, and a `page:
 resolve.
 
 **A number belongs in `spec.yml` when it states a fact no single constituent page can
-state** (Jon, 2026-09-11). `headroom.provides` is a property of the Module that provides
+state.** `headroom.provides` is a property of the Module that provides
 the slot, not of the process that filled it, and not of any additive. A combining `ratio`
 is a property of the step. An osmolarity that has to match across a membrane is a relation.
 Those belong here.
@@ -266,7 +266,7 @@ only because `gel-ulga`'s own page says *"Works from 0.2% to 0.5% in the set gel
 for that range missed it, because the page writes `0.2% to 0.5%` and the pattern allowed no `%`
 between. **A search that finds nothing is not evidence; widen it before you act on it.**
 
-**`# Constituent Modules` stays as prose and the yml is the contract for tooling** (Jon, 2026-09-09). Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `luxr-lacz-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
+**`# Constituent Modules` stays as prose and the yml is the contract for tooling.** Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `luxr-lacz-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
 
 Two generators currently read two different sources into the same markers; see issue #250 before running the other one.
 

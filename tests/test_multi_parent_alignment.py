@@ -6,7 +6,7 @@ parent, so with two parents it had no "the" parent and refused rather than
 pick, on the ground that picking arbitrarily makes two products align or not
 depending on which entry survived.
 
-Jon's ruling of 2026-09-29 removes the arbitrariness rather than the choice:
+Aligning by the functional parent removes the arbitrariness rather than the choice:
 "align by the functional parent". The convention carrying it is positional --
 entry one is the alignment parent -- so the source declares it and the reader
 does not guess. These tests pin that it reads entry one, that it still accepts

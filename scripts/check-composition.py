@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Check each module's `# Constituent Modules` prose against its spec.yml.
 
-Jon ruled on 2026-09-09 that the prose section stays for humans while the yml
-is the contract for tooling (#248). Two sources for one fact drift, and this one
+The prose section stays for humans while the yml is the contract for tooling
+(#248). Two sources for one fact drift, and this one
 already did: `luxr-lacz-cascade` listed `Substrate: CPRG` where its own source said
 `GUV: CPRG`, within an hour of both existing. Nothing caught it, because every
 other check in this repo validates one file against itself.
@@ -23,8 +23,8 @@ Two findings, and they are not the same severity.
   SKIPPABLE a step marked `optional: true` whose product a later step consumes
             through an operator that cannot take its operands instead.
             Reported, not blocking. Skipping an optional step rewires rather
-            than removes — whatever consumed the product consumes the operands
-            (Jon, 2026-09-15). A `mixing` consumer usually survives that: the
+            than removes — whatever consumed the product consumes the operands.
+            A `mixing` consumer usually survives that: the
             operands land in one compartment either way. A `packing` consumer
             usually does not, because the product was the thing with its own
             boundary and the operands are two things without one.

@@ -52,9 +52,9 @@ FOUR RULES, each with the measurement that forced it.
    diverge by design. `abstract:` is too coarse and merges the outer-solution slot
    with the cytosol slot, because assemble-solution sits on both.
 
-3. A NODE IS ABSTRACT IFF THE LEGS DISAGREE. Jon's rule: "we should only be using
-   abstract pages when there's a design decision to be made between different
-   implementations." Where the legs agree the meet IS that module and labelling it
+3. A NODE IS ABSTRACT IFF THE LEGS DISAGREE. An abstract page earns its place
+   only where there is a design decision to be made between implementations.
+   Where the legs agree the meet IS that module and labelling it
    abstract asserts a choice nobody has.
 
    ABSTRACTNESS DOES NOT PROPAGATE ALONG EDGES. Seven of seven sensing-cell steps
@@ -80,8 +80,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent / "docs" / "modules"
 
-# A CANDIDATE SET IS A BARE BRACE, NOT A PARENTHESIS. Jon ruled 2026-09-29,
-# accepting the attachment rule: a brace attached to a type contains, a bare
+# A CANDIDATE SET IS A BARE BRACE, NOT A PARENTHESIS, under the attachment rule: a brace attached to a type contains, a bare
 # brace with commas is a set. `(…)` applies a morphism — glossary.md and
 # signature.md:189 — so `Detector(pH Detector, tetR-aTc Detector)` parsed as
 # applying Detector to two arguments. That was wrong before the brace sweep and
@@ -132,8 +131,8 @@ def parents(S: dict) -> dict[str, str]:
     immediate parent, and picking one of two arbitrarily makes two products align
     or not depending on which this function happened to keep.
 
-    Jon's ruling of 2026-09-29 removes the arbitrariness rather than the choice:
-    "align by the functional parent", on the reasoning that a chassis is what
+    Aligning by the FUNCTIONAL parent removes the arbitrariness rather than the
+    choice, on the reasoning that a chassis is what
     DIFFERS between two demos, so the axis they can be compared on is the other
     one. The convention that carries it is positional -- the first entry of the
     list is the alignment parent -- so the source states it and this function
@@ -248,8 +247,8 @@ if __name__ == "__main__":
             else:
                 legs[f"{name}:{det}"] = (name, steps)
 
-    # A CASCADE THAT CONTRIBUTES NO LEG IS REPORTED, NOT SWALLOWED. Jon, 2026-09-29:
-    # "agree. warn, not refuse."
+    # A CASCADE THAT CONTRIBUTES NO LEG IS REPORTED, NOT SWALLOWED. It warns and
+    # does not refuse.
     #
     # The partition is by detector, so a cascade whose detector input carries
     # `page: null` resolves to nothing, produces only `__join__`, and adds no leg.
@@ -271,8 +270,8 @@ if __name__ == "__main__":
             print("  %s: %s" % (n, why), file=sys.stderr)
 
     # A STEP THAT REACHES NO DETECTOR IS SHARED, NOT ABSENT, AND DROPPING IT BROKE THE
-    # DIAGRAM. Jon, reading the first Chicago draft: "the chicago meet has both
-    # SUV: CPRG and CPRG substrate. why are both in there?"
+    # DIAGRAM. The first Chicago draft drew both SUV: CPRG and CPRG substrate, and
+    # a reader asked why both were in there.
     #
     # Because encapsulate-substrate-suv, the step that MAKES the SUV out of
     # substrate-cprg and a membrane, reaches no detector and went to __join__, which
@@ -521,8 +520,7 @@ if __name__ == "__main__":
                         re.sub(r"/[^/]+$", "", pg).rsplit("/", 1)[-1], pr["title"])
 
     def title_of(m: str) -> str:
-        """A node shows the page's title, never its slug. Jon, 2026-09-21: "node names
-        should follow page titles, not their slugs." A slug is an address; a title is
+        """A node shows the page's title, never its slug. A slug is an address; a title is
         what the page calls itself, and a figure is read by people."""
         if m in S:
             return S[m].get("title", m)
@@ -588,14 +586,13 @@ if __name__ == "__main__":
             if mt in S:
                 L.append(f'    click {nid} "/docs/modules/{mt}/spec"')
         else:
-            # THE FIGURE STILL NAMES THE THING. Jon, 2026-09-21: "NO COMMON
-            # ANCESTOR is a good warn level message, but the figure should still say
-            # Cascade or LuxR-LacZ Sensor Cascade slash Chicago Cascade." A node a reader cannot
+            # THE FIGURE STILL NAMES THE THING. NO COMMON ANCESTOR is a good warning, but
+            # the figure should still say Cascade, or name the cascades it spans.
+            # A node a reader cannot
             # name is a node they skip, and the warning is worth less for it.
             tag = f" — {label_for}" if label_for else ""
             tail = shared_tail(shown)
-            # NO PUNCTUATION. Jon, 2026-09-21: "cascade? with question mark is
-            # incorrect. cascade no punctuation." The question mark was doing work the
+            # NO PUNCTUATION: "Cascade", not "Cascade?". The question mark was doing work the
             # warning line below already does, and a name with a query on it reads as
             # uncertainty about the name rather than about the class.
             lead = f"{tail}<br/>" if tail else ""

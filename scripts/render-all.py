@@ -31,9 +31,9 @@ material next to the poset draft, regenerated on every run and diffable.
 
 WHICH MEETS ARE WORTH RENDERING, MEASURED RATHER THAN LISTED. A meet over one
 leg is the composition diagram restated, and every cascade source has exactly
-one leg. So each set below names the legs it meets over. The sets are Jon's,
-2026-09-21: the two Chicago integration paths plus the London demo, which is
-three legs and every detector in the corpus.
+one leg. So each set below names the legs it meets over: the two Chicago
+integration paths, then those plus the London demo, which is three legs and
+every detector in the corpus.
 
 NAMED BY LEG SINCE 2026-10-03. Both sets were one argument, chicago-cascade,
 which carried the two Chicago paths inside it and was retired because nobody is

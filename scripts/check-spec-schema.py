@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Validate docs/modules/*/spec.yml against scripts/spec-yml-schema.yml.
 
-Local-only, deliberately — per Jon's Q6 ruling on
-STAGED-2026-09-11-spec-yml-drift-check: "build the tooling to generate the
-warnings, but let's not use it yet." Wiring it into qa.yml is phase 4, and needs
+Local-only, deliberately: the tooling is built before it is enforced. Wiring it
+into qa.yml is phase 4, and needs
 jsonschema added beside pyyaml there.
 
 Two passes. The schema pass catches shape. The reference pass catches what a schema

@@ -29,7 +29,7 @@ below are new. That file moves under every commit, and a reader following a bare
 the same class in its own tree on the same day and found 5 of 16 wrong, 31 percent;
 this file was 3 of 9. Repoint against a stated commit or the number is decoration.
 
-Ruled by Jon 2026-09-17 as option D: derive the pair, check the label, change no schema.
+Option D of four: derive the pair, check the label, change no schema.
 """
 import yaml, glob, itertools, collections, os, sys
 

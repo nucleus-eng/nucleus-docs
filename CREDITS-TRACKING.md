@@ -111,7 +111,7 @@ Slide 24 is footered twice, both times: `Ojaswita Pant | Truby Lab | Chicago Nod
 
 The all-hands transcript introduces the same work with "Are you here, Archie Sweeney?", and a person answers and presents it.
 
-**Jon, 2026-09-11: "Archie Sweeney is a garble of some kind."**
+**"Archie Sweeney" is a garble of some kind.**
 
 So there is **no second contributor**. The transcript mangled a name, as it does throughout — the same transcript renders homoserine lactone as "homicidal lactone" and PEG-norbornene as "Pegnor boronene".
 

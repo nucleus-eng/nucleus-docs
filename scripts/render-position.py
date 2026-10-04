@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """Render a Module's position in the refinement order, from `refines:`.
 
-WHY THIS EXISTS. `Abstract:` came off the class titles on Jon's ruling of
-2026-09-21: "they all exist within their own poset somewhere, so they're all
-some level of abstract vs concrete, not some binary." The prefix did one job a
+WHY THIS EXISTS. `Abstract:` came off the class titles, because every Module
+sits somewhere in its own poset and is some level of abstract against concrete,
+not one side of a binary. The prefix did one job a
 bare title does not, which is warn a reader on arrival that the page has no
 implementation. Removing it and putting nothing back would be a net loss of
-signal, so the replacement ships in the same tranche. Jon: "both, and ship the
-position line with it."
+signal, so the replacement ships in the same tranche.
 
 WHAT IT REPLACES THE WORD WITH IS MORE THAN THE WORD CARRIED. A title prefix is
 one bit. A position names the parent above and every child below, which is the
@@ -87,7 +86,7 @@ def meet(slugs, parent: dict) -> str | None:
 
     THAT DAY CAME, 2026-09-24. This used to say it was correct only because
     `refines:` is a single string, and that the day the key became a list it would
-    return a plausible wrong answer and say nothing. Jon ruled the list legal, so
+    return a plausible wrong answer and say nothing. A list is legal, so
     the order is a DAG and a meet need not be unique. IT NOW REFUSES INSTEAD OF
     GUESSING: where several common ancestors are maximal, it raises rather than
     picking whichever the traversal met first.
@@ -119,7 +118,7 @@ def both_parent_and_child(parent: dict, children: dict) -> list[str]:
 def one_member_classes(children: dict) -> list[str]:
     """A class with exactly one member is a rename wearing a class page.
 
-    Jon, 2026-09-21: a gel class with one member is not a gel class. Empty today,
+    A gel class with one member is not a gel class. Empty today,
     which is the point of printing the denominator beside it: an empty result is
     a measurement only when you know what was measured.
     """

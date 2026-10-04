@@ -1,7 +1,6 @@
 # Schema for docs/modules/<module>/spec.yml — the machine-readable composition source.
 #
-# Standalone by ruling (Jon, 2026-09-13): "my sense is that a schema should be a
-# standalone thing". It replaces the "keys in use" table in CLAUDE.md §Composition
+# STANDALONE ON PURPOSE, because a schema should be a standalone thing. It replaces the "keys in use" table in CLAUDE.md §Composition
 # sources, which declared itself the record while being unknown to its owner.
 #
 # Derived by measurement from all 17 sources on 2026-09-15, not from that table.
@@ -41,15 +40,14 @@ properties:
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
     description: >
       The abstract Module or Modules this one refines, by directory name.
-      A LIST IS LEGAL AND MEANS TWO INCOMPARABLE PARENTS, Jon's ruling 2026-09-24:
-      "yes, modules should be able to refine multiple modules." The case that
+      A LIST IS LEGAL AND MEANS TWO INCOMPARABLE PARENTS: a Module may refine more
+      than one. The case that
       forced it is a sensor with two axes, what it senses and how -- an EsaR
       detector is a repressor detector AND an AHL detector, and neither of those
       refines the other. A single string stays the normal form and every source
       uses one today; `minItems: 2` keeps a one-element list from being a second
       spelling of the same thing.
-      THE FIRST ENTRY IS THE ALIGNMENT PARENT, Jon's ruling 2026-09-29: "align by
-      the functional parent". A chassis is what DIFFERS between two demos, so the
+      THE FIRST ENTRY IS THE ALIGNMENT PARENT, which is the FUNCTIONAL one. A chassis is what DIFFERS between two demos, so the
       axis two cells can be compared on is the other one. The convention is
       positional so that the source states it and no reader has to guess which
       parent is functional by sniffing its name. `render-meet.py` reads entry one
@@ -63,7 +61,7 @@ properties:
       Module under `A`, which compositional-biology-theory has carried as a defined
       map since August. NOT a new axis: `A : Modules -> Abstractions` already
       exists, and what this corpus lacked was a field naming a Module's image
-      under it. Edit site 1 of the abstract-modules work, Jon's ruling 2026-09-21.
+      under it. Edit site 1 of the abstract-modules work.
       NAMED `refines` RATHER THAN `abstract` on purpose. `abstract` already exists
       one level down, on process_steps[].process, where it names the immediate
       parent PROCESS. Reusing the word here would be consistent in meaning and
@@ -98,8 +96,8 @@ properties:
       evidence column reads "one constraint asserted on nine pages". So a field
       saying "A excludes B" would be the spelling the glossary refuses, and the
       two halves are declared separately while a checker computes the join.
-      ABSENCE MEANS UNDECLARED, NOT NONE. Jon, 2026-09-21: "it means that we
-      haven't declared any constraints. `constraints: null` is fine". The field
+      ABSENCE MEANS UNDECLARED, NOT NONE. An omitted key means no constraints have
+      been declared, and an explicit `null` is equally fine. The field
       never claims a Module has none, so an omitted key and an explicit null say
       the same thing and neither is a claim. Nothing may read absence as
       evidence; check-conflicts.py reports the denominator instead.
@@ -142,7 +140,7 @@ properties:
       process_steps[].operands. 49 of 49 sources at `d611bda`, a required key.
       MAY BE EMPTY, and an empty object is a claim rather than an omission: it
       says this Module starts from nothing nameable in this corpus.
-      `minProperties: 1` was removed on Jon's ruling, 2026-09-21. It had asserted
+      `minProperties: 1` was removed. It had asserted
       that every Module is made of something nameable, which is a second
       membership condition beside the one `minItems` carried and which
       compositional-biology-theory `glossary.md#T03` does not include. Two page
@@ -188,7 +186,7 @@ properties:
           description: >
             Names the purchased item or mixture this is part of, where the component
             has no page of its own. 15 of 196 inputs at `d611bda`.
-          # TWO KINDS OF VALUE ARE LEGAL, ruled by Jon 2026-09-21. A path names a page;
+          # TWO KINDS OF VALUE ARE LEGAL. A path names a page;
           # a part number names a product. An earlier reading treated the part number as
           # a broken path, and it is not.
           # THE RULE THAT PICKS BETWEEN THEM, in his words: a component gets a page when
@@ -272,7 +270,7 @@ properties:
       Module has no constituents and is not produced by a process in this corpus. The
       five analytes say so in prose -- "an analyte is supplied to an assay rather than
       produced by a Nucleus process."
-      `minItems: 1` was removed on Jon's ruling, 2026-09-20. It had asserted that every
+      `minItems: 1` was removed. It had asserted that every
       Module is composed, which is a third membership condition the model never carried:
       compositional-biology-theory `glossary.md#T03` defines a Module as "a formulation
       the corpus has chosen to name, together with the operations its sort declares" --
@@ -313,10 +311,10 @@ properties:
         kind:
           enum: [question, choice]
           description: >
-            WHICH OF TWO THINGS THIS ENTRY IS, Jon 2026-09-25: "this problem may just
-            be a conflation of the idea of an 'open question' (doesn't have a place in
-            a .yml representation of a specification page) vs an 'open design choice'
-            (does belong here)". A `question` is something this source cannot answer and
+            WHICH OF TWO THINGS THIS ENTRY IS. The difficulty may be a conflation of an
+            'open question', which has no place in a .yml representation of a
+            specification page, with an 'open design choice', which does belong
+            here. A `question` is something this source cannot answer and
             somebody must go and find out. A `choice` is a decision the design has not
             made yet, and it belongs in a specification because the specification is
             what leaves it open.
@@ -340,8 +338,8 @@ $defs:
     description: >
       A QUANTITY ON ONE SIDE OF A CONFLICT. An imposition's bound is what the step
       inflicts; a sensitivity's bound is what the object tolerates. check-conflicts.py
-      compares the two where both are declared, on Jon's ruling 2026-09-24: "the checker
-      should check the value bound then, yes?"
+      compares the two where both are declared, which means checking the value bound
+      and not only the presence of a key.
       `quantity` IS DECLARED ONCE PER IMPOSITION ID, CORPUS-WIDE, and check-spec-schema.py
       enforces that rather than this file, because JSON Schema cannot express it. Without
       the rule one `thermal-hold` could carry °C on one step and mM on another, and the
@@ -621,9 +619,8 @@ $defs:
           provides:
             type: string
             description: >
-              The capacity this module gives, e.g. "2.0 uL of 10". Named provides
-              by ruling (Jon, 2026-09-15) because the slot belongs to the module
-              offering it, not to the process that fills it.
+              The capacity this module gives, e.g. "2.0 uL of 10". Named `provides`
+              because the slot belongs to the module offering it, not to the process that fills it.
           requires:
             type: string
             description: >

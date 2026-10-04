@@ -10,8 +10,8 @@ script finds the commonest markers of it. It is a net, not the rule: a page can
 pass this check and still read as a decision log, and only reading finds that.
 
 Tier 1 — errors, exit 1:
-  person        a contributor's first name without their surname ("Jon ruled",
-                "on Jon's word"), or "<Name>, <date>". A full name is fine, so
+  person        a contributor's first name without their surname ("Ashford ruled",
+                "on Ashford's word"), or "<Name>, <date>". A full name is fine, so
                 Credits pass. Names come from about/contributors.md. A line
                 citing "(Group Meeting, contributor, date)" or "personal
                 communication" passes this rule and the date rule: those
@@ -50,7 +50,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 CONTRIBUTORS = REPO / "about" / "contributors.md"
 
-# "- Jon Calles — b.next" -> ("Jon", "Calles")
+# "- Robin Ashford — b.next" -> ("Robin", "Ashford")
 _CONTRIBUTOR_RE = re.compile(r"^-\s+(\S+)\s+(.+?)\s+—\s")
 
 _ISO_DATE = r"20\d\d-\d\d-\d\d"

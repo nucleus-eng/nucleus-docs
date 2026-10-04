@@ -15,11 +15,14 @@ _spec = importlib.util.spec_from_file_location("check_reference_voice", SCRIPT)
 crv = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(crv)
 
+# FICTIONAL ON PURPOSE. A fixture that names real colleagues puts the thing this
+# check exists to remove into the test that proves it works, and `git grep` for a
+# name then lands here. These four are invented and appear nowhere else.
 CONTRIBUTORS = """\
-- Jon Calles — b.next
-- Anton Jackson-Smith — b.next
-- Anton Molina — b.next
-- Yemo Ku — b.next
+- Robin Ashford — b.next
+- Dana Okonkwo — b.next
+- Dana Fairweather — b.next
+- Lee Varga — b.next
 """
 
 
@@ -39,11 +42,11 @@ def rules_for(tmp_path, contributors, body):
 
 @pytest.mark.parametrize("line, expected", [
     # Tier 1: who decided
-    ("Jon ruled on 2026-09-29 that Gel refines by formation route.", {"person", "ruling", "date"}),
-    ("**The rows above are filled**, on Jon's word.", {"person"}),
-    ("Jon, 2026-09-21: *\"that's the right range.\"*", {"person", "date"}),
-    ("Chicago Node, Mary, 2026-09-17: theophylline inhibits LacZ.", {"person", "date"}),
-    ("Anton said the pore is passive.", {"person"}),
+    ("Ashford ruled on 2026-09-29 that Gel refines by formation route.", {"ruling", "date"}),
+    ("**The rows above are filled**, on Robin's word.", {"person"}),
+    ("Robin, 2026-09-21: *\"that's the right range.\"*", {"person", "date"}),
+    ("Chicago Node, Marsh, 2026-09-17: theophylline inhibits LacZ.", {"person", "date"}),
+    ("Dana said the pore is passive.", {"person"}),
     ("An abstract Module carries an abstract Context, ruled 2026-09-17.", {"ruling", "date"}),
     ("That is why the membership ruling matters.", {"ruling"}),
     # Tier 1: working notes and review tags
@@ -62,8 +65,8 @@ def test_fires(tmp_path, contributors, line, expected):
 
 
 @pytest.mark.parametrize("line", [
-    "Reformulated from the PURE system by Yemo Ku and Jon Calles (b.next).",
-    "Anton Jackson-Smith and Anton Molina designed the pore.",
+    "Reformulated from the PURE system by Lee Varga and Robin Ashford (b.next).",
+    "Dana Okonkwo and Dana Fairweather designed the pore.",
     "With membrane stability ruled out, the block sits in expression.",
     "@Editor(chicago): what temperature is the gel set at?",
     "@Editor: add the vendor page. @Developer: confirm the stock.",
@@ -82,12 +85,12 @@ def test_clean(tmp_path, contributors, line):
 def test_skips_frontmatter_code_and_comments(tmp_path, contributors):
     body = (
         "---\n"
-        "title: Jon ruled\n"
+        "title: Robin ruled\n"
         "---\n"
         "```\n"
-        "Jon ruled on 2026-09-29\n"
+        "Robin ruled on 2026-09-29\n"
         "```\n"
-        "<!-- Jon ruled\n"
+        "<!-- Robin ruled\n"
         "on 2026-09-29 -->\n"
         "<!-- gen:position -->\n"
         "Refines nothing declared.\n"
@@ -97,13 +100,13 @@ def test_skips_frontmatter_code_and_comments(tmp_path, contributors):
 
 
 def test_checks_text_between_gen_markers(tmp_path, contributors):
-    body = "<!-- gen:position -->\nJon ruled this.\n<!-- /gen:position -->\n"
+    body = "<!-- gen:position -->\nRobin ruled this.\n<!-- /gen:position -->\n"
     assert rules_for(tmp_path, contributors, body) == {"person", "ruling"}
 
 
 def test_reports_line_numbers(tmp_path, contributors):
     page = tmp_path / "page.md"
-    page.write_text("---\ntitle: x\n---\n\nFine.\n\nJon ruled.\n")
+    page.write_text("---\ntitle: x\n---\n\nFine.\n\nRobin ruled.\n")
     person = crv.person_pattern(crv.read_contributors(contributors))
     assert {n for n, *_ in crv.check_file(page, person)} == {7}
 
@@ -114,13 +117,13 @@ def test_exit_codes(tmp_path, contributors):
     page.write_text("Written 2026-09-24.\n")
     assert crv.main(args) == 0                  # warnings alone pass
     assert crv.main(args + ["--strict"]) == 1   # unless --strict
-    page.write_text("Jon ruled.\n")
+    page.write_text("Robin ruled.\n")
     assert crv.main(args) == 1                  # errors fail
 
 
 def test_no_contributors_is_not_a_pass(tmp_path):
     page = tmp_path / "page.md"
-    page.write_text("Jon ruled.\n")
+    page.write_text("Robin ruled.\n")
     empty = tmp_path / "contributors.md"
     empty.write_text("No list here.\n")
     assert crv.main([str(page), "--contributors", str(empty)]) == 2
@@ -128,8 +131,10 @@ def test_no_contributors_is_not_a_pass(tmp_path):
 
 def test_reads_the_real_contributors_list():
     names = crv.read_contributors(crv.CONTRIBUTORS)
-    assert ("Jon", "Calles") in names
+    # ASSERT THE SHAPE, NOT A COLLEAGUE. Naming one puts them in the grep this
+    # check exists to make come back empty, and the list changes as people join.
     assert len(names) > 10
+    assert all(isinstance(n, tuple) and len(n) == 2 and all(n) for n in names)
 
 
 def test_a_missing_path_is_not_a_pass(tmp_path, contributors):
@@ -142,5 +147,5 @@ def test_a_missing_path_is_not_a_pass(tmp_path, contributors):
 def test_no_markdown_files_is_not_a_pass(tmp_path, contributors):
     empty = tmp_path / "empty"
     empty.mkdir()
-    (empty / "notes.txt").write_text("Jon ruled.\n")
+    (empty / "notes.txt").write_text("Robin ruled.\n")
     assert crv.main([str(empty), "--contributors", str(contributors)]) == 2

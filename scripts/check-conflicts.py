@@ -40,9 +40,8 @@ needing to enter the liposome". Teaching this checker that would mean deciding
 which impositions cross which boundaries, which is a modeling question and not
 a checker's to answer. So `reach` is reported, separated, and left.
 
-ABSENCE IS NOT A PASS AND IS NOT A CLAIM. Jon, 2026-09-21: an omitted
-`sensitivities` key "means that we haven't declared any constraints", not that
-the Module has none. So a clean run over an undeclared corpus is silence, not
+ABSENCE IS NOT A PASS AND IS NOT A CLAIM. An omitted `sensitivities` key means
+no constraints have been declared, not that the Module has none. So a clean run over an undeclared corpus is silence, not
 safety, and the denominator is printed every time for that reason.
 """
 import collections

@@ -6,7 +6,7 @@ The meet partitions legs by detector. A cascade whose detector input carries
 "3 leg(s)", exited 0, and never said which one did not arrive.
 
 That is the false-clean shape -- the tool answers a question you did not ask and
-calls it success. Jon ruled the remedy on 2026-09-29: "agree. warn, not refuse."
+calls it success. The remedy is to warn and not refuse.
 So the run still succeeds and still draws the meet it can draw. What is pinned
 here is that it says so.
 
@@ -43,7 +43,7 @@ def test_the_warning_says_how_many_of_how_many():
 
 
 def test_it_warns_and_does_not_refuse():
-    """Jon's ruling. The meet over the legs that did resolve is still worth having."""
+    """The meet over the legs that did resolve is still worth having."""
     r = _run("atc-cascade", "ph-cascade", "cell-s30-popc")
     assert r.returncode == 0
     assert "flowchart TD" in r.stdout
