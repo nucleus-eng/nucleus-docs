@@ -242,9 +242,11 @@ project:
       children:
         - file: ./docs/implementations/responder-atc-ivhsl/main.md
           hidden: true
-        - file: ./docs/implementations/chicago-devcell/main.md
+        - file: ./docs/implementations/devstudio-atc-demo/main.md
           hidden: true
-        - file: ./docs/implementations/london-devcell/main.md
+        - file: ./docs/implementations/devstudio-luxr-gfp-demo/main.md
+          hidden: true
+        - file: ./docs/implementations/devstudio-craic-demo/main.md
           hidden: true
         - file: ./docs/implementations/devstudio-ph-demo/main.md
           hidden: true
