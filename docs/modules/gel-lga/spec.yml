@@ -35,8 +35,8 @@ inputs:
 process_steps:
   - id: set-thermal
     process:
-      title: "Embedding"
-      page: ../../processes/embed-hydrogel/main.md
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
       abstract: embed-hydrogel
     operator: mixing
     operands: [lga-powder, outer-solution]
@@ -55,21 +55,10 @@ process_steps:
       # other end and a different quantity, which is why they are two keys.
       gel_strength: "≥200 g/cm² (1% gel)"
     notes: >
-      The process names the ABSTRACT parent, because no embedding process is written for
-      this chemistry. ../../processes/embed-ionic-crosslinking/main.md is alginate and
-      ../../processes/embed-thermal-setting/main.md is ULGA. Naming either would assert the
-      wrong one.
+      Embedding: Thermal Setting covers both agarose grades; the grade sets the hold and
+      set temperatures.
 
 open:
-  - id: two-sources-disagree-about-which-agarose-the-ph-path-uses
-    question: >
-      MEASURED 2026-09-24 AND NOT RESOLVED HERE. ../ph-sensing-cell/spec.md:147 says
-      "Embedded directly in 0.7% low-gelling agarose". ../ph-cascade/spec.yml:41 names the
-      same 0.7% operand "ULGA powder, 0.7%". Same path, same figure, two different
-      polymers. The DevStudio board answers it — "I used the low gelling" — and rewiring
-      the cascade to this page is a ruling about that page rather than about this one, so
-      it is recorded and not applied. ../chicago-cascade/spec.yml's `which-agarose` asks
-      the same question and carries an @Editor(chicago) tag.
   - id: the-two-agaroses-are-different-products
     question: >
       CLOSED 2026-09-24 by vendor datasheets Jon supplied: "confirmed by part number,
@@ -83,9 +72,3 @@ open:
       THE CATALOG NUMBERS ARE STILL NOT RECORDED HERE. Jon confirmed by part number and
       the numbers themselves were not captured, so this file states the properties and
       not the SKU.
-  - id: which-outer-solution-dissolves-it
-    question: >
-      ../gel-ulga/spec.yml makes the outer solution a separate step with its own recipe,
-      because ULGA dissolves into it rather than into water. The same must be true here
-      and no source records which outer solution the pH path uses, so this file names the
-      abstract class and states no recipe.

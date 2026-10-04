@@ -11,7 +11,7 @@ Embedding sets a polymer network around compartments that already exist, so they
 Its instances, grouped by formation route — what sets the gel:
 
 - **Set ionically.** [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md) — sodium alginate set by calcium.
-- **Set thermally.** [Embedding: Thermal Setting](../embed-thermal-setting/main.md) — ultra-low-gelling agarose set by cooling. Low-gelling agarose is the same route at a different gel point.
+- **Set thermally.** [Embedding: Thermal Setting](../embed-thermal-setting/main.md) — agarose set by cooling: ultra-low-gelling (ULGA) or low-gelling (LGA).
 - **Set by light.** [Embedding: Photodevelopment](../embed-photodevelopment/main.md) — PEG-norbornene, with PEGDA kept on the same page as a canceled chemistry. It carries the one confirmed conflict: the exposure bleaches CPRG.
 
 :::{attention} Page hierarchy open

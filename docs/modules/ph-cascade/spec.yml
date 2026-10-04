@@ -45,8 +45,7 @@ inputs:
     # THIS REVERSES A RULING OF JON'S OWN, THREE DAYS OLD, AND THE OLD ONE IS KEPT
     # HERE RATHER THAN DELETED. 2026-09-21: "agarose is ULGA, confirmed. i know we
     # were claiming they might not be, but I've confirmed with devs." That is a
-    # stronger kind of evidence than what reverses it, so the reversal is recorded
-    # as a question in `open:` below rather than as a settled fact.
+    # stronger kind of evidence than what reverses it.
     #
     # WHAT REVERSES IT. ../ph-sensing-cell/spec.md:147 says "0.7% low-gelling
     # agarose", and the DevStudio board of 2026-09-23 has the pH presenter saying
@@ -142,15 +141,8 @@ process_steps:
 
   - id: embed-agarose
     process:
-      title: "Embedding"
-      # THE PAGE NAMES THE ABSTRACT PARENT, 2026-09-24. The old reasoning here was
-      # ../chicago-cascade/spec.md's: this corpus has one agarose embedding process
-      # and it is the ULGA one, so "if it is ULGA, the pH path can likely reuse the
-      # ULGA process with a concentration change". THE ANTECEDENT IS FALSE. The two
-      # agaroses are different products, confirmed by part number on 2026-09-24, so
-      # the ULGA process is the wrong instance and no LGA instance is written.
-      # ../../processes/embed-hydrogel/main.md is the parent both would refine.
-      page: ../../processes/embed-hydrogel/main.md
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
       abstract: embed-hydrogel
     impositions:
       - id: thermal-hold

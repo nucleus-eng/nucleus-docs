@@ -55,7 +55,7 @@ flowchart TD
     PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
     P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: Extrusion (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P6_EMBED_AGAROSE_0(["Embedding (packing, 3 pairs mixing)"])
+    P6_EMBED_AGAROSE_0(["Embedding: Thermal Setting (packing, 3 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
@@ -110,7 +110,7 @@ flowchart TD
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
     click P5_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
-    click P6_EMBED_AGAROSE_0 "/docs/processes/embed-hydrogel/main"
+    click P6_EMBED_AGAROSE_0 "/docs/processes/embed-thermal-setting/main"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
 ```
 

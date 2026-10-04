@@ -337,12 +337,8 @@ The two integration paths are embedded separately, in different gels, so UV and 
 
 The pH path embeds in agarose and the aTc path in PEG-norbornene. [PEGDA](../gel-pegda/spec.md) is not used, because it "destroys the vesicles" (Group Meeting, Chicago Node, 2026-09-11).
 
-:::{note} The agarose is ULGA, and that gave the pH path its process page back
-**Answered 2026-09-21.** Jon, confirmed with the Chicago devs: the 0.7% agarose is ULGA. This corpus has one agarose embedding process, [ULGA](../../processes/embed-thermal-setting/main.md), ultra-low-gelling-temperature agarose gelling at (8–17) °C, and the Chicago work was described only as **0.7% agarose** cast on ice for about five minutes.
-
-The consequence was written before the answer arrived, so it applies without reinterpretation: **the pH path reuses the ULGA process with a concentration change**, rather than having no process page at all. Moving off alginate on 2026-09-11 had taken away the one it had.
-
-Low-gelling-temperature agarose and ULGA are the same object under different part numbers, which is why the identification changes the page and not the material. **No part number is on record**, and the answer came from the devs rather than from a catalog entry.
+:::{note} The pH path's agarose is low-gelling agarose
+The pH path's 0.7% agarose is low-gelling agarose ([Gel: LGA](../gel-lga/spec.md)), congealing over (26–30) °C, set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md). It is a different product from the ULGA the London path uses.
 :::
 :::
 

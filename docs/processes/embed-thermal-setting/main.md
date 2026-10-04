@@ -10,9 +10,14 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
-ULGA hydrogel embedding immobilizes synthetic-cell-encapsulated London Sensing Cells in a gel matrix made from ultra-low-gelling-temperature agarose (ULGA), so that a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. In the London quorum-sensing demo, POPC synthetic cells carrying the 3OC6-HSL Sensing Module (S30 Lysate plus the `LuxR-deGFP` sensor plasmid) are dispersed into a ULGA solution before it gels, holding the sensing synthetic cells fixed while 3OC6-HSL from an external bacterial source diffuses in through the gel and triggers a response.
+Embedding: Thermal Setting holds synthetic cells in an agarose gel that sets on cooling, so a downstream colorimetric or fluorescent readout can be measured in place rather than in free solution. Two grades are in use, and the grade sets two temperatures: the hold temperature, above the grade's gel-point range, keeps the agarose liquid while the synthetic cells go in; the set temperature, below that range, forms the gel. The London quorum-sensing demo uses ultra-low-gelling agarose (ULGA): POPC synthetic cells carrying the 3OC6-HSL Sensing Module (S30 Lysate plus the `LuxR-deGFP` sensor plasmid) are dispersed into it before it gels, and 3OC6-HSL from an external bacterial source diffuses in through the gel. The pH path uses low-gelling agarose (LGA).
 
-In the process-dependency diagram, Embedding: Thermal Setting is fed only by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and feeds only into [Colorimetric Readout](../colorimetric-readout/main.md). This differs from [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md), which is fed by both phase transfer and [Encapsulation: Extrusion](../encapsulate-suv/main.md) — this process uses synthetic cells alone, with no SUV input.
+:::{table} The two grades.
+| Grade | Gel point | Melting point | Used in |
+| --- | --- | --- | --- |
+| [ULGA](../../modules/gel-ulga/spec.md) | (8–17) °C | ≤ 50 °C | [London Cascade](../../modules/london-cascade/spec.md) |
+| [LGA](../../modules/gel-lga/spec.md) | (26–30) °C | ≤ 65 °C | [pH Cascade](../../modules/ph-cascade/spec.md) |
+:::
 
 :::::::{card}
 :header: **Important Information**
@@ -23,9 +28,9 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- ULGA gels at (8-17)°C, well below the gelling temperature of standard agarose. The exact dissolution and cooling temperatures for this protocol are not established; the dissolving and cooling steps below follow standard low-melting-agarose handling as a general technique, not values confirmed for this specific preparation.
+- Both grades gel well below standard agarose. The exact dissolution and cooling temperatures are not established for either; the steps below follow standard low-melting-agarose handling, not values confirmed for these preparations.
 - Dissolve ULGA to 1% (w/v) in the prepared outer solution. Combined 1:1 with the synthetic cell suspension, that gives 0.5% (w/v) in the set gel, which is the top of the 0.2% to 0.5% working range. Lower concentrations gel more slowly and give faster kinetics. Both readouts on this page use the same concentration.
-- The colorimetric demonstration was originally run at 1.5% (w/v). The London Node confirmed the 1:1:2 combining ratio on 2026-09-09, and 1.5% gives 0.75% (w/v) in the set gel under that ratio, above the working range. Use 1% for new work. The result measured at 1.5% is kept on the [Gel: ULGA](../../modules/gel-ulga/spec.md) spec, because it records the condition the experiment ran at.
+- The colorimetric demonstration ran at 1.5% (w/v), which gives 0.75% (w/v) in the set gel under the 1:1:2 combining ratio, above the working range. Use 1% for new work. The result measured at 1.5% is kept on the [Gel: ULGA](../../modules/gel-ulga/spec.md) spec, because it records the condition the experiment ran at.
 - This protocol has so far been tested with liquid bacterial culture and supernatant; testing with solid agar bacterial media has not yet been completed.
 
 ::::::
@@ -34,7 +39,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-**Hot ULGA solution** - Dissolving agarose requires heating near boiling. Handle hot glass vessels and solution with appropriate heat-resistant gloves; allow to cool before combining with heat-sensitive synthetic cells or lysate.
+**Hot agarose solution** - Dissolving agarose requires heating near boiling. Handle hot glass vessels and solution with appropriate heat-resistant gloves; allow to cool before combining with heat-sensitive synthetic cells or lysate.
 
 ::::::
 
@@ -80,6 +85,17 @@ This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HS
 
 ::::
 
+::::{tab-item} pH path
+
+:::{table} Gel used to embed the pH-path populations. LGA at 0.7% (w/v) in the set gel.
+| Component | Concentration |
+| --- | --- |
+| LGA | 0.7% (w/v) |
+| [Outer Solution](../../modules/outer-solution/spec.md) | 1× |
+:::
+
+::::
+
 :::::
 
 ::::::
@@ -95,6 +111,7 @@ This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HS
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ULGA | Reagent | Ultra low gelling temperature agarose | Sigma-Aldrich | A5030 | £52.00 | RT | [link](https://www.sigmaaldrich.com/GB/en/product/sial/a5030) |
+| LGA | Reagent | Low gelling temperature agarose | — | — | — | RT | — |
 | RNase inhibitor | Reagent | Murine RNase Inhibitor | New England Biolabs | M0314S | £87.00 | -20 °C | [link](https://www.neb.com/en-gb/products/m0314-rnase-inhibitor-murine) |
 | Potassium L-glutamate | Chemical | Potassium L-glutamate | — | — | — | RT | — |
 | HEPES | Chemical | HEPES, free acid | — | — | — | RT | — |
@@ -109,27 +126,27 @@ No manufacturer, part number, price or storage data is established for glucose, 
 @Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
 :::
 
-The source records this agarose as both Sigma-Aldrich A5030 and A2576, "Agarose, Type IX-A, ultra low gelling temperature". London Node: they are interchangeable.
+Two part numbers are recorded for the ULGA: Sigma-Aldrich A5030 and A2576, "Agarose, Type IX-A, ultra low gelling temperature". They are interchangeable. @Editor(london): cite the source for treating A5030 and A2576 as interchangeable.
 
 # Protocol
 
-## Prepare ULGA Outer Solution
+## Prepare the Agarose Solution
 
 - [ ] Prepare the base outer solution: (578 mM) potassium L-glutamate, (72 mM) HEPES, (300 mM) glucose in water.
-- [ ] Dissolve ULGA into the base outer solution to 1% (w/v), by heating near boiling with stirring until fully dissolved. This gives 0.5% (w/v) in the set gel after the 1:1 combination in the next section.
+- [ ] Dissolve the agarose into the outer solution by heating near boiling with stirring until fully dissolved: ULGA to 1% (w/v), which gives 0.5% (w/v) in the set gel after the 1:1 combination below; LGA to its set-gel concentration (0.7% (w/v) in the pH path).
 
 :::{hint} Note
 :class: simple
 :icon: false
-No exact dissolution temperature or hold time is established for this step. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold above the gel point (above ~17 °C for ULGA) until combined with the synthetic cell suspension, and only then cool below the gel point to set.
+No exact dissolution temperature or hold time is established for either grade. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold above the top of the grade's gel-point range until combined with the synthetic cell suspension, and only then cool below the bottom of that range to set.
 :::
 
-- [ ] Cool the dissolved ULGA solution to a temperature that keeps it liquid (above its (8-17)°C gel point) but is safe to mix with synthetic cells without damaging them, before proceeding.
+- [ ] Cool the dissolved agarose to a temperature that keeps it liquid (above the top of its gel-point range, in the table above) but is safe to mix with synthetic cells, before proceeding.
 
 ## Form Hydrogel-Embedded synthetic cells
 
-- [ ] Combine the cooled, still-liquid ULGA solution with phase-transfer synthetic cells (e.g., SensorCell[3OC6-HSL ⟶ PLA1] POPC synthetic cells carrying `LuxR-deGFP` in S30 Lysate) to a total volume of 100 µL per reaction.
-- [ ] Dispense the synthetic cell/ULGA mixture into wells or onto a plate and allow the gel to set by cooling below the ULGA gel point.
+- [ ] Combine the cooled, still-liquid agarose with the synthetic cells (e.g., SensorCell[3OC6-HSL ⟶ PLA1] POPC synthetic cells carrying `LuxR-deGFP` in S30 Lysate) to a total volume of 100 µL per reaction.
+- [ ] Dispense the mixture into wells or onto a plate, and set the gel by cooling below the bottom of the grade's gel-point range.
 
 ## Add Bacterial Input
 
