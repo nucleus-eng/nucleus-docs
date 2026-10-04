@@ -224,6 +224,45 @@ properties:
           description: >
             The Node that supplies or maintains it. 1 of 196 inputs at `d611bda`,
             unchanged since it was 1 of 90. A key the corpus has decided not to use.
+  member_properties:
+    type: [array, "null"]
+    description: >
+      Quantities every member of this class must state. Each entry names one key,
+      or two for a range (low end first), that every module refining this one,
+      directly or through a subclass, carries in a step's `parameters:`, which is
+      where impositions already read such figures. The class names the quantity
+      and the members state the values, so no figure is written twice. Absence
+      means the class requires none. check-spec-schema.py checks every member.
+    items:
+      type: object
+      additionalProperties: false
+      required: [keys, title]
+      properties:
+        keys:
+          type: array
+          minItems: 1
+          maxItems: 2
+          uniqueItems: true
+          items: {type: string, pattern: "^[a-z0-9_]+$"}
+        title: {type: string}
+        unit: {type: string}
+        why: {type: string}
+  substrates:
+    type: [array, "null"]
+    description: >
+      The substrates this module's enzyme acts on, for a module that is or supplies
+      an enzyme. A member of Color Change must pair its enzyme with a substrate on
+      that enzyme's list, and check-spec-schema.py checks it. The list states the
+      rule (a substrate of that enzyme), so a new enzyme brings its own list and the
+      pairing class never changes. A module that refines one with a list inherits
+      it. Absence means the module declares none.
+    items:
+      type: object
+      additionalProperties: false
+      required: [title]
+      properties:
+        title: {type: string}
+        page: {type: [string, "null"]}
   process_steps:
     type: array
     description: >
