@@ -56,11 +56,14 @@ python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to th
 python3 scripts/check-page-layering.py  # (local) flag Module pages that explain themselves through what uses them
 python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 python3 scripts/check-protein-refs.py   # (local) if you cited a UniProt entry: verify the claim against the entry
+python3 <nucleus-skills>/scripts/check-citations.py . --repos=compositional-biology-theory  # (local) every cross-repo line citation carries a pin
 ```
 
 **The six marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
-also runs Vale and `check-composition-tabs.py`. **The five marked `(local)` run in no
-workflow** — `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
+also runs Vale and `check-composition-tabs.py`. **The six marked `(local)` run in no
+workflow** — `check-citations.py` because it lives in `nucleus-skills` and is shared by
+three repos, so a commit there must not be able to turn a PR here red, which is
+`check-dna-refs.py`'s reason as well; `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
 turn it red with no change here (see the DNA section below); `check-anchors.py` because it
 is not wired up yet; `check-spec-schema.py` deliberately, per the ruling that the composition
 tooling is built before it is enforced; `check-protein-refs.py` because it needs the network
@@ -84,6 +87,10 @@ pre-commit run --all-files  # run all hooks manually
 **Provenance stays off the page.** A staging file records who ruled and when, and so does the commit message that folds it in. The proposed page text does not: it states the result in the page's own voice. A page that says who decided reads as a decision log, not reference. `scripts/check-reference-voice.py` blocks the commonest forms.
 
 **It reads a `spec.yml` too, including its `#` headers** — a source file is a docs page's other half, and the rule has always applied to both. Two rules are exempt there: `tooling`, because the word `spec.yml` inside a `spec.yml` is unavoidable, and `working-notes`, which is right and waits on a sweep of its own. **`.py` is not read at all**, so a comment in `scripts/` is checked by nobody; keep who-decided text out of it by hand.
+
+**A cross-repo line citation carries a pin, and `check-citations.py` checks that it does.** The script is in `nucleus-skills` and shared by three repos; run it by hand with `--repos=compositional-biology-theory`, because its default list names this repo and would report every self-reference. **It checks presence, never resolution** — whether the hash is there, not whether the line still says what you quoted. **A pin is what makes a citation checkable at all:** `pore/spec.yml` and `membrane/spec.yml` both cite `signature.md:203` and both pin `e40f3de`, and both are correct at that pin while reading as drifted against the other repo's `main`. Ten sites with no pin had drifted by 2026-10-04.
+
+**Run it against a git ref, not against whatever branch that checkout happens to be on.** `compositional-biology-theory`'s `scripts/guards.sh` extracts `scripts/` from a named ref for exactly this reason. A local `nucleus-skills` on an older branch has no `check-citations.py` at all, and a local `main` there can be weeks behind `origin/main` — which is how a first check of whether the script even existed returned the wrong answer. **`check-citations.py` today reads only `.md`, so it sees almost nothing here**; widening it is `nucleus-skills` work.
 
 ## Architecture
 
