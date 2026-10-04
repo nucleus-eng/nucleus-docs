@@ -52,6 +52,16 @@ DevNotes are never a status source. They carry methodology prose only.
 
 A construct-to-file identity claim requires evidence, minimally a matching GenBank `LOCUS` length. Name similarity is not evidence. `check-dna-refs.py` checks this.
 
+A page whose subject is one molecule cites its UniProt entry, as `[UniProt P00722](https://www.uniprot.org/uniprotkb/P00722/entry)`, with the entry's own name, organism and length beside it. The entry is authoritative for mass and sequence length, so where the page and the entry disagree the entry wins and the page says it changed.
+
+**An accession is an identity claim and name similarity is not evidence**, the same rule the DNA constructs follow. Three ways it goes wrong, all of them found on the first pass through this corpus:
+
+- **The first hit is the wrong class.** Searching "Tetracycline repressor" returns class D, `P0ACT4`. The TetR this corpus uses is class B from transposon Tn10, `P04483`. Both are *E. coli*, both are 200-odd residues, and only one is right.
+- **The entry disagrees with the corpus about what the protein does.** `P54293` is titled *Transcriptional activator protein EsaR* and carries no alternative name, while every page here treats EsaR as a repressor that the analyte de-represses. Cite it and say so; do not quietly adopt either name.
+- **An engineered variant is not its parent.** **deGFP is not wild-type GFP** and must not be cited as `P42212`. mNeonGreen is engineered from a *Branchiostoma* protein and is not that protein. A variant page cites the parent only when it says which part is the parent's.
+
+**Cite nothing when the subject is a preparation rather than a gene product.** "Tyrosinase from mushroom" is a supplier's preparation and *Agaricus bisporus* has several polyphenol oxidases; there is no single entry to name.
+
 ## Mechanics
 
 - A new module spec needs two TOC updates: `myst.yml` and `docs/modules/modules-main.md`.
