@@ -1,6 +1,5 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
-level: error
 ignorecase: false
 # Order specific/longer keys FIRST so e.g. H2O2 matches before H2O.
 swap:

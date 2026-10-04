@@ -1,6 +1,5 @@
 extends: substitution
 message: "Use '%s' instead of '%s' (house casing)."
-level: error
 swap:
   RPM: rpm
   KAN: Kan

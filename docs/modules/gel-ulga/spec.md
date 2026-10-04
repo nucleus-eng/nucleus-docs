@@ -155,10 +155,10 @@ Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-s
 | ULGA | Reagent | Ultra low gelling temperature agarose | Sigma-Aldrich | A5030 | [link](https://www.sigmaaldrich.com/GB/en/product/sial/a5030) |
 :::
 
-This agarose appears under two Sigma-Aldrich part numbers, A5030 and A2576, "Agarose, Type IX-A, ultra low gelling temperature". The two are interchangeable.
+This agarose is Sigma-Aldrich A5030, and every figure on this page is that product's.
 
-:::{attention} Source needed for the interchangeability of A5030 and A2576
-@Editor(london): cite the document that shows A5030 and A2576 are interchangeable.
+:::{attention} Was A2576 ever used?
+A second part number, A2576, was recorded here as interchangeable with A5030. **They are different products**: A5030 is Type IX and melts at ≤ 50 °C, A2576 is Type IX-A, molecular biology grade, and melts at ≤ 62 °C. @Editor(london): was A2576 ever used on the bench, or is A5030 the only one?
 :::
 
 # Implementations

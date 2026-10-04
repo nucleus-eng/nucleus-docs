@@ -1,5 +1,4 @@
 extends: existence
 message: "Add a space before the degree symbol per NIST SP 811 §7.2: '%s' should be e.g. '55 °C'."
-level: warning
 raw:
   - '\d°C'

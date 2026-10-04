@@ -126,7 +126,7 @@ No manufacturer, part number, price or storage data is established for glucose, 
 @Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
 :::
 
-Two part numbers are recorded for the ULGA: Sigma-Aldrich A5030 and A2576, "Agarose, Type IX-A, ultra low gelling temperature". They are interchangeable. @Editor(london): cite the source for treating A5030 and A2576 as interchangeable.
+The ULGA on this page is Sigma-Aldrich A5030, and the figures in the table above are its. @Editor(london): a second part number, A2576, was recorded here as interchangeable with it. The two are different products — A5030 is Type IX and melts at ≤ 50 °C; A2576 is Type IX-A, molecular biology grade, and melts at ≤ 62 °C. Was A2576 ever used on the bench, or is A5030 the only one?
 
 # Protocol
 

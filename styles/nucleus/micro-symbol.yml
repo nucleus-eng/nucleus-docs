@@ -1,5 +1,4 @@
 extends: existence
 message: "Use the micro symbol (mu): '%s' should be written with 'µ' not 'u' (e.g., uL -> µL, uM -> µM, um -> µm, ug -> µg)."
-level: error
 raw:
   - '(?:\d+\.?\d*\s*|/\s*)u[LMmg]\b'

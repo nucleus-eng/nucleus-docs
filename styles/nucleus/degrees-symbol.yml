@@ -1,5 +1,4 @@
 extends: existence
 message: "Use the degree symbol: '°C' instead of '%s'."
-level: error
 raw:
   - '(?<!%)(?<![Ff]igure )(?<![Ss]tep )(?<![Ll]ane )(?<![Pp]anel )(?<![Ww]ell )\d+\s*C\b'
