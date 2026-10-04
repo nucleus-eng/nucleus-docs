@@ -67,7 +67,7 @@ flowchart TD
 ::::{tab-item} DNA
 
 :::{attention} Not yet in `nucleus-eng/DNA`
-`pT7-TetO-catecholase` (`pMN067`) is not in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA). The London-specific `T7pro-XylE-T7term` and `T7pro-UTR1-G10_leader_peptide-XylE-T7term` constructs are not yet designed ([`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13)), so no equivalent DNA-table entry exists for them.
+`pT7-TetO-catecholase` (`pMN067`) is not in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA). The London-specific `T7pro-XylE-T7term` and `T7pro-UTR1-G10_leader_peptide-XylE-T7term` constructs are not yet designed ([`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/london-m2-1)), so no equivalent DNA-table entry exists for them.
 
 @Editor(chicago): submit the `pMN067` sequence to `nucleus-eng/DNA` before this Module is used at the bench. The source DevNote `chicago-teto-catecholase` holds the sequence file, `experiments/sequences/pMN067_T7_TetO_C23DO_entireconstruct.dna`.
 :::
@@ -141,8 +141,8 @@ XylE takes catechol as its substrate. It does not act on [CPRG](../substrate-cpr
 
 # Implementations
 
-- **Not adopted by any cascade.** The construct is `pT7-TetO-catecholase` (`pMN067`), expressing C23DO under a TetO/aTc promoter; it is validated in bulk Nucleus Cytosol and has no synthetic cell result. Source: [`chicago-teto-catecholase`](https://devnotes.nucleus.engineering/articles/019e0429-3749-72ce-a062-7d2a7cf18c20).
-- **Proposed as an alternate to LacZ; not adopted.** Two linear-DNA formats: `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is not designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13).
+- **Not adopted by any cascade.** The construct is `pT7-TetO-catecholase` (`pMN067`), expressing C23DO under a TetO/aTc promoter; it is validated in bulk Nucleus Cytosol and has no synthetic cell result. Source: [`chicago-teto-catecholase`](https://devnotes.nucleus.engineering/articles/mn-260508-01).
+- **Proposed as an alternate to LacZ; not adopted.** Two linear-DNA formats: `T7pro-XylE-T7term` and a higher-expression `T7pro-UTR1-G10_leader_peptide-XylE-T7term` variant. The London XylE DNA is not designed. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/london-m2-1).
 
 :::{attention} The two Nodes' constructs may not converge
 @Editor(chicago): whether Chicago's `pMN067` and London's still-undesigned construct end up as the same DNA design is not established. Confirm with both Nodes before treating them as one construct.

@@ -125,13 +125,13 @@ The theophylline riboswitch binds theophylline at its aptamer domain in the 5' U
 
 ## Cytosols
 
-In Base Cytosol supplemented with CPRG, the riboswitch-LacZ sensor converts CPRG from yellow to red faster with theophylline present than without. The [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) DevNote reports a single 10 µL reaction per condition at 5 nM sensor DNA and 0.6 mg/mL CPRG, incubated at 37 °C and read at 570 nm.
+In Base Cytosol supplemented with CPRG, the riboswitch-LacZ sensor converts CPRG from yellow to red faster with theophylline present than without. The [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/mn-260508-02) DevNote reports a single 10 µL reaction per condition at 5 nM sensor DNA and 0.6 mg/mL CPRG, incubated at 37 °C and read at 570 nm.
 
 :::{figure} kinetics-cprg.png
 :label: fig-theophylline-cprg-kinetics
 :width: 85%
 
-Absorbance kinetics for the colorimetric conversion of CPRG by the theophylline riboswitch-LacZ sensor in Base Cytosol, with and without 1.5 mM theophylline. Reproduced from the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) DevNote (experiment MN.08.04).
+Absorbance kinetics for the colorimetric conversion of CPRG by the theophylline riboswitch-LacZ sensor in Base Cytosol, with and without 1.5 mM theophylline. Reproduced from the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/mn-260508-02) DevNote (experiment MN.08.04).
 :::
 
 With 1.5 mM theophylline the curve rise above baseline at about 0.7 h and reaches Abs₅₇₀ ≈ 3.7 by 4 h; without theophylline, the reaciton lags by roughly 0.5 h and reaches ≈ 2.6 at 4 h. This module is leaky, as demonstrated by the uninduced condition rising as much as it does. This sets a practical noise floor in using this module: the two conditions differ in reaction rate, not in output signal.

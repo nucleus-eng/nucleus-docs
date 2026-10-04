@@ -146,7 +146,7 @@ The Theophylline Sensing Cell drives expression of an effector gene downstream o
 
 ## Cytosols
 
-In bulk Base Cytosol, LacZ expressed from the riboswitch construct converts CPRG to chlorophenol red faster with 1.5 mM theophylline than without, read by absorbance at 570 nm — see [Colorimetric Readout](../../processes/colorimetric-readout/main.md) and the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd) devnote. That establishes the riboswitch works in Nucleus Cytosol.
+In bulk Base Cytosol, LacZ expressed from the riboswitch construct converts CPRG to chlorophenol red faster with 1.5 mM theophylline than without, read by absorbance at 570 nm — see [Colorimetric Readout](../../processes/colorimetric-readout/main.md) and the [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/mn-260508-02) devnote. That establishes the riboswitch works in Nucleus Cytosol.
 
 **Expect leak.** A later bulk replication found the riboswitch expressing its effector without theophylline at close to the induced level: Abs₅₇₀ ≈ 3.0 by 3.5 h undosed, against ≈ 3.9 by 1.7 h at 1 mM or 2 mM. Dose separates from no-dose in rate rather than in endpoint.
 

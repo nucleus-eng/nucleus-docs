@@ -21,7 +21,7 @@ The distinguishing feature against the Chicago device is the analyte source: the
 **Lipid-based.** The device uses lipid membranes throughout.
 
 :::{attention} The 3OC6-HSL Detector has no source document
-@Editor(london): name the DevNote or paper that backs the [3OC6-HSL Detector](../../modules/detector-3oc6-hsl/spec.md). The polymersome DevNote [`london-quorum-sensing-polymersome`](https://devnotes.nucleus.engineering/articles/019b13f8-9a25-7553-a88d-fa4f19790d13) describes a diblock-copolymer design and does not apply to this device.
+@Editor(london): name the DevNote or paper that backs the [3OC6-HSL Detector](../../modules/detector-3oc6-hsl/spec.md). The polymersome DevNote [`london-quorum-sensing-polymersome`](https://devnotes.nucleus.engineering/articles/london-m3-1) describes a diblock-copolymer design and does not apply to this device.
 :::
 
 **Two readouts, at different maturity.** GFP output in ULGA hydrogel is confirmed with Z-stack imaging. The PLA1-driven color change is confirmed in bulk over repeated runs, but the two have not been combined into one device.

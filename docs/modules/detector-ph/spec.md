@@ -25,7 +25,7 @@ This Module has not been validated in Nucleus Cytosol. The performance data belo
 :align: center
 :width: 75%
 
-Schematic of the pH-Sensing Module, drawn inside the cell that carries it. **The bilayer, Gramicidin A, the colorimetric enzyme and the color change belong to that cell and are shown for context; this Module is the pH-responsive ssDNA, the trigger ssDNA and the toehold switch.** At neutral pH, trigger ssDNA is bound to pH-responsive ssDNA and the toehold switch stays closed. At acidic pH, trigger ssDNA releases and opens the toehold switch, allowing translation of the effector gene (e.g., a colorimetric reporter). Reproduced from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote.
+Schematic of the pH-Sensing Module, drawn inside the cell that carries it. **The bilayer, Gramicidin A, the colorimetric enzyme and the color change belong to that cell and are shown for context; this Module is the pH-responsive ssDNA, the trigger ssDNA and the toehold switch.** At neutral pH, trigger ssDNA is bound to pH-responsive ssDNA and the toehold switch stays closed. At acidic pH, trigger ssDNA releases and opens the toehold switch, allowing translation of the effector gene (e.g., a colorimetric reporter). Reproduced from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1) DevNote.
 :::
 
 (detector-ph-reference-composition)=
@@ -136,7 +136,7 @@ All four sequences have a file in [`nucleus-eng/DNA`](https://github.com/nucleus
 Two additions to Base Cytosol: the annealed duplex and one toehold-switch template. Which template is used sets the effector and so the readout. The DevCells demo uses `pT7-toehold9-PLA1`, so the switch drives lysis and the color comes from a neighboring substrate liposome. The LacZ and XylE templates were designed and are not used for the demo.
 
 :::{note} These are design values; the assembled reaction is on the Sensing Cell
-The concentrations above are the design values from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998) DevNote. The reaction as actually assembled — with Optiprep, and at encapsulation scale — is on [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
+The concentrations above are the design values from the [`chicago-ph-sensor-plan`](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1) DevNote. The reaction as actually assembled — with Optiprep, and at encapsulation scale — is on [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
 
 The 4.8 µM here and the 4.625 µM there differ because that reaction was assembled above its specified volume, which dilutes every component in proportion. The relative molarities match.
 :::
@@ -151,7 +151,7 @@ Target pH sensing is 6.5 ± 0.1, with effector gene expression expected within 1
 
 ## Cytosols
 
-The toehold-switch component of this module has been run in Base Cytosol. The [`chicago-toehold-switch`](https://devnotes.nucleus.engineering/articles/019bdd1d-8bf9-77e1-abaf-44b5b0f7a9d5) DevNote reports that a linear toehold-pHtdGFP DNA template produced pHtdGFP only when trigger ssDNA was present, across three 10 µL replicates incubated 6 h at 37 °C. That result establishes that the toehold switch works in Base Cytosol; it was run at neutral pH, with no pH-responsive ssDNA, so it says nothing about pH gating.
+The toehold-switch component of this module has been run in Base Cytosol. The [`chicago-toehold-switch`](https://devnotes.nucleus.engineering/articles/chicago-m1-5-2) DevNote reports that a linear toehold-pHtdGFP DNA template produced pHtdGFP only when trigger ssDNA was present, across three 10 µL replicates incubated 6 h at 37 °C. That result establishes that the toehold switch works in Base Cytosol; it was run at neutral pH, with no pH-responsive ssDNA, so it says nothing about pH gating.
 :::{warning} Not yet validated
 The assembled three-component Module — pH-responsive ssDNA, trigger ssDNA, and toehold switch together — has not been validated in synthetic cytosols.
 :::
