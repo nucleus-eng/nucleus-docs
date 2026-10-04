@@ -98,7 +98,7 @@ The volumes above assume an 18:1 Cyanine 5 PC stock of 1 mg/mL, which gives 0.09
 
 # Expected Behavior
 
-This membrane is used in all synthetic cell preps in the London Demo. This membrane module can be used generally to encapsulate Cytosolic modules. See [London Chassis](../london-chassis/spec.md) for more information.
+This membrane closes around an aqueous interior and holds it apart from the solution outside. Pure POPC with no cholesterol, it is the least stiff of the three membranes here, and it encapsulates a cytosol of any composition: nothing in the bilayer depends on what is inside it.
 
 # Processes
 

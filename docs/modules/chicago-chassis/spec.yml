@@ -41,6 +41,15 @@ process_steps:
       id: chicago-chassis
       title: "Chicago Chassis"
       page: ../chicago-chassis/spec.md
+    parameters:
+      # MOVED HERE 2026-10-03 from the Preparations table on
+      # ../membrane-popc-chol-chicago/spec.md, which keyed its rows by the Modules
+      # that take the membrane. The membrane is 89.9/10/0.1 mol% whoever takes it;
+      # the volumes are this chassis's dose of it, at 0.5 mM total lipid.
+      popc: "25 mg/mL stock, 41 uL"
+      cholesterol: "50 mg/mL stock, 1.16 uL"
+      liss_rhod_pe: "1 mg/mL stock, 1.952 uL"
+      total_lipid: "0.5 mM"
     notes: >
       The empty chassis — Base Cytosol with no sensing payload, closed in a 9:1
       POPC:cholesterol bilayer. The sensing cells built on this membrane are

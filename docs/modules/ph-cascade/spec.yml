@@ -180,6 +180,10 @@ process_steps:
       page: ../ph-cascade/spec.md
     parameters:
       lga-powder: "0.7% (w/v)"   # sets thermally; no crosslinker
+      # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table,
+      # which keyed its rows by cascade. The enzyme's own page states the range;
+      # this is the dose this path used, encapsulated in a GUV in 0.7% agarose.
+      lacz_enzyme: "156 U/mL"
     notes: >
       The mixing ratio of sensing cells to SUVs to LacZ is not established —
       the same gap London closed on 2026-09-09 and this path still has.

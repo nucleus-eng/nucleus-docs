@@ -28,11 +28,11 @@ This page is a work in progress and not yet ready for use.
 **This Module has been used across a roughly sixty-fold range, and no single figure is canonical.** A Module that composes the enzyme states the figure its own result used.
 
 :::{table} LacZ Enzyme — the range in use.
-| Context | Working concentration | Used in |
-| --- | --- | --- |
-| Encapsulated in a GUV, in PEG-norbornene | **2.5 U/mL** final — 0.5 µL of a 125 U/mL stock into a 25 µL cell-free reaction | [aTc Cascade](../atc-cascade/spec.md) |
-| Encapsulated in a GUV, in 0.7% agarose | **156 U/mL** | [pH Cascade](../ph-cascade/spec.md) |
-| Dispersed in the gel | not documented | [London Cascade](../london-cascade/spec.md) |
+| Context | Working concentration |
+| --- | --- |
+| Encapsulated in a GUV, in PEG-norbornene | **2.5 U/mL** final — 0.5 µL of a 125 U/mL stock into a 25 µL cell-free reaction |
+| Encapsulated in a GUV, in 0.7% agarose | **156 U/mL** |
+| Dispersed in the gel | not documented |
 :::
 
 **Both encapsulated figures are for the same arrangement** — enzyme inside the cell, substrate outside — and they differ by about 60×. Co-encapsulating the enzyme with its substrate would make the readout constitutive, which is why neither format does it.

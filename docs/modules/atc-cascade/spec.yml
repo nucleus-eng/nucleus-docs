@@ -77,6 +77,11 @@ process_steps:
       id: atc-sensor-cytosol
       title: "SensorCytosol[aTc ⟶ PLA1]"
       page: ../atc-sensor-cytosol/spec.md
+    parameters:
+      # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table,
+      # which keyed its rows by cascade. The enzyme's own page states the range;
+      # this is the dose this path used, encapsulated in a GUV in PEG-norbornene.
+      lacz_enzyme: "2.5 U/mL final; 0.5 uL of a 125 U/mL stock into a 25 uL reaction"
 
   - id: encapsulate
     process:

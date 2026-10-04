@@ -112,17 +112,11 @@ Both a self-lysis target and, in the two-liposome cascades, a neighboring [Subst
 
 ## Cells
 
-PLA1 lyses synthetic cells in which this module is expressed, as well as synthetic cells in their vicinity. This module has been used in five (5) documented contexts. The first is the only one with no upstream gate, so it is the only one that reports on PLA1 rather than on a cascade:
+PLA1 lyses the synthetic cell that expresses it, and synthetic cells near it. One documented configuration reports on PLA1 rather than on a cascade, because nothing gates it:
 
 - **London constitutive expression, ungated.** `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes, with no sensing circuit, drives the two-liposome CPRG/LacZ handoff. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run, and has been reproduced across multiple days. Expect a visible result on that timescale at this dose. The recorded outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 1.5% ULGA, so this is the hydrogel format — see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
-- **Chicago theophylline cascade.** A [theophylline riboswitch](../detector-theophylline/spec.md) gates PLA1 expression. PLA1 ruptures its own synthetic cell and a neighboring [CPRG-loaded synthetic cell](../substrate-cprg-suv/spec.md), releasing CPRG to an external [LacZ](../reporter-lacz/spec.md) solution and producing a visible color change after ~16 h in an alginate hydrogel. Confirmed at the synthetic cell/hydrogel level, with a known caveat: the color change currently occurs with or without theophylline present (riboswitch leak), so target specificity is not yet solved.
-- **[Chicago pH cascade](../ph-cascade/spec.md).** A [pH-responsive toehold switch](../detector-ph/spec.md) gates PLA1. The same two-liposome CPRG/LacZ handoff produces a visible yellow-to-purple change at pH 6.5 in solution. Confirmed at the solution level only; not demonstrated in the hydrogel-embedded chassis.
-- **[Chicago aTc cascade](../atc-cascade/spec.md).** See the [tetR-aTc Detector Module](../detector-tetr-atc/spec.md) spec, "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)" section: a `TetO-PLA1` construct is co-encapsulated with LacZ in a synthetic cell, with CPRG outside so that lysis is what brings them together, showing a detectable but **non-graded** absorbance response to aTc (saturating at or below 1 µM). This is the only PLA1 result reduced to numbers; the rest are scored by eye.
-- **[London 3OC6-HSL cascade](../london-cascade/spec.md).** A [LuxR/pLux quorum-sensing promoter](../detector-3oc6-hsl/spec.md) gates PLA1 expression in [S30 Lysate](../s30-lysate/spec.md). PLA1 lysis again triggers the CPRG/LacZ handoff. This shows a discernible but leaky difference in color change between +3OC6-HSL and −3OC6-HSL conditions. DNA and 3OC6-HSL concentrations are not yet optimized.
 
-:::{attention} Four of these five are cascade results
-Only the ungated configuration reports on PLA1 by itself. In the other four, PLA1 and the sensing circuit that gates it cannot be told apart — a weak result there may be either. None of the five isolates PLA1 from the CPRG/LacZ readout it drives.
-:::
+Every other configuration on record puts a sensing circuit in front of PLA1, so PLA1 and its gate cannot be told apart: a weak result there may be either. Those are results of the cascades that produced them, and each cascade's own page carries them.
 
 :::{attention} Premature lysis has two independent causes
 **Gramicidin A causes premature lysis; it does not prevent it.** Used as a proton channel for the pH cascade's GFP-expression result, it was left out of the colorimetric demonstration because it ruptured a portion of the CPRG-loaded liposomes, producing nonspecific color. Its absence can reduce pH-sensing efficiency, but proton diffusion into the more permeable liposomes was enough to drive PLA1 expression and initiate the lysis cascade.
@@ -137,7 +131,7 @@ Account for both routes rather than assuming a liposome stays intact until the i
 
 Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)).
 
-**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbor's, and it cannot distinguish populations that share a composition — every liposome in the [Chicago Cascade](../chicago-cascade/spec.md) carries the same [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). That promiscuity is the mechanism: a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is a required lysis target. The consequence is that co-locating two PLA1-gated paths lets either analyte lyse every compartment in reach of both — see [Chicago Cascade](../chicago-cascade/spec.md), which requires spatial separation for this reason.
+**PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbor's, and it cannot distinguish populations that share a composition. Where a sensing cell and a substrate carrier are built on one membrane formulation, PLA1 reaching the carrier is the intended path and PLA1 reaching another sensing cell is not, and nothing in the chemistry separates them. A composition that needs them separated states that requirement itself.
 
 **PLA1 requires a low noise floor in whatever drives it**, and any color change module built on PLA1 inherits that requirement. In London, background PLA1 expression without 3OC6-HSL gives near-equivalent color to the induced state, so the dynamic range is gone. In Chicago, PLA1 takes 10 to 12 h to lyse GUVs and the GUVs leak on their own over the same window, so the negative control also colors: slightly purple against slightly more purple when induced. **One failure with two causes**: transcriptional leak in London and GUV lifetime in Chicago.
 
@@ -160,11 +154,6 @@ Requires sigma-70 transcription and translation, when using `LuxR-PLA1` (e.g. [S
 Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effector-pla1-expected-behavior) for why.
 
 (effector-pla1-implementations)=
-# Implementations
-
-- [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md): PLA1 drives both colorimetric readouts.
-- [London Cascade](../london-cascade/spec.md): PLA1 drives the 3OC6-HSL colorimetric readout.
-
 # Processes
 
 - [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — applies only where LacZ is encapsulated. Proteinase K does not distinguish one LacZ from another, so in a configuration that puts LacZ in the outer solution it digests the reporter.

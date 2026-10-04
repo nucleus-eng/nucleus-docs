@@ -95,7 +95,7 @@ A photoinitiator is the constituent this class adds to the outer solution and po
 
 # Expected Behavior
 
-A Photopatterned Gel is expected to set only where the light falls, so the pattern is the projected image. That is a route to spatial separation: the [Chicago Cascade](../chicago-cascade/spec.md#chicago-cascade-requirements) needs its two PLA1-gated paths held apart so that neither lyses the other's compartments.
+A Photopatterned Gel is expected to set only where the light falls, so the pattern is the projected image. That makes it a route to spatial separation: two populations set into separate regions of one piece stay apart, which is what a composition needs when each would otherwise act on the other.
 
 What an embedded payload survives depends on the chemistry. Radical acrylate polymerization is not compatible with lipid membranes, so [Gel: PEGDA](../gel-pegda/spec.md) is canceled as a cell-carrying gel. [Gel: PEG-Norbornene](../gel-peg-norbornene/spec.md) is the live chemistry, as [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md) records.
 

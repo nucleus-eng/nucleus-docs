@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 
 # Expected Behavior
 
-XylE turns catechol yellow. Its documented substrate is catechol. [XylE Reporter](../reporter-xyle/spec.md) carries the measured kinetics.
+XylE oxidizes catechol to 2-hydroxymuconate semialdehyde, which is yellow and absorbs near 375 nm to 385 nm. Catechol is its one documented substrate. @Editor: no rate or yield is recorded for the enzyme on its own.
 
 # Requirements
 
