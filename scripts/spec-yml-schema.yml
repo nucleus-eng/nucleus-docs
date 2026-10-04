@@ -48,6 +48,12 @@ properties:
       refines the other. A single string stays the normal form and every source
       uses one today; `minItems: 2` keeps a one-element list from being a second
       spelling of the same thing.
+      THE FIRST ENTRY IS THE ALIGNMENT PARENT, Jon's ruling 2026-09-29: "align by
+      the functional parent". A chassis is what DIFFERS between two demos, so the
+      axis two cells can be compared on is the other one. The convention is
+      positional so that the source states it and no reader has to guess which
+      parent is functional by sniffing its name. `render-meet.py` reads entry one
+      and ignores the rest.
       A LIST MAKES THE REFINEMENT ORDER A DAG RATHER THAN A FOREST, and a meet in
       a DAG need not be unique. `render-position.py` said so before this key
       changed: "the day the key becomes a list this returns a plausible wrong
@@ -126,6 +132,8 @@ properties:
         page:
           type: [string, "null"]
           description: Where the page states it, for the checker to compare against.
+        bound:
+          $ref: "#/$defs/bound"
 
   inputs:
     type: object
@@ -216,6 +224,45 @@ properties:
           description: >
             The Node that supplies or maintains it. 1 of 196 inputs at `d611bda`,
             unchanged since it was 1 of 90. A key the corpus has decided not to use.
+  member_properties:
+    type: [array, "null"]
+    description: >
+      Quantities every member of this class must state. Each entry names one key,
+      or two for a range (low end first), that every module refining this one,
+      directly or through a subclass, carries in a step's `parameters:`, which is
+      where impositions already read such figures. The class names the quantity
+      and the members state the values, so no figure is written twice. Absence
+      means the class requires none. check-spec-schema.py checks every member.
+    items:
+      type: object
+      additionalProperties: false
+      required: [keys, title]
+      properties:
+        keys:
+          type: array
+          minItems: 1
+          maxItems: 2
+          uniqueItems: true
+          items: {type: string, pattern: "^[a-z0-9_]+$"}
+        title: {type: string}
+        unit: {type: string}
+        why: {type: string}
+  substrates:
+    type: [array, "null"]
+    description: >
+      The substrates this module's enzyme acts on, for a module that is or supplies
+      an enzyme. A member of Color Change must pair its enzyme with a substrate on
+      that enzyme's list, and check-spec-schema.py checks it. The list states the
+      rule (a substrate of that enzyme), so a new enzyme brings its own list and the
+      pairing class never changes. A module that refines one with a list inherits
+      it. Absence means the module declares none.
+    items:
+      type: object
+      additionalProperties: false
+      required: [title]
+      properties:
+        title: {type: string}
+        page: {type: [string, "null"]}
   process_steps:
     type: array
     description: >
@@ -263,8 +310,85 @@ properties:
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
         question:
           type: string
+        kind:
+          enum: [question, choice]
+          description: >
+            WHICH OF TWO THINGS THIS ENTRY IS, Jon 2026-09-25: "this problem may just
+            be a conflation of the idea of an 'open question' (doesn't have a place in
+            a .yml representation of a specification page) vs an 'open design choice'
+            (does belong here)". A `question` is something this source cannot answer and
+            somebody must go and find out. A `choice` is a decision the design has not
+            made yet, and it belongs in a specification because the specification is
+            what leaves it open.
+            OPTIONAL, AND ABSENCE IS NOT `question`. 133 entries predate this key and
+            none was written with the distinction in mind, so an untagged entry is
+            untriaged rather than classified. Nothing may count untagged entries as
+            questions.
+            THE KEY WAS ADDED RATHER THAN THE ENTRIES BEING MOVED. Acting on the
+            distinction fully would relocate 133 entries across 52 of 71 sources and
+            reverse this field's stated purpose. Several are load-bearing where they
+            are: substrate-carrier's two are why that class is written narrow. Moving
+            them to prose loses the one thing this key buys, which is that a script can
+            count them.
 
 $defs:
+
+  bound:
+    type: object
+    additionalProperties: false
+    required: [quantity, sense]
+    description: >
+      A QUANTITY ON ONE SIDE OF A CONFLICT. An imposition's bound is what the step
+      inflicts; a sensitivity's bound is what the object tolerates. check-conflicts.py
+      compares the two where both are declared, on Jon's ruling 2026-09-24: "the checker
+      should check the value bound then, yes?"
+      `quantity` IS DECLARED ONCE PER IMPOSITION ID, CORPUS-WIDE, and check-spec-schema.py
+      enforces that rather than this file, because JSON Schema cannot express it. Without
+      the rule one `thermal-hold` could carry °C on one step and mM on another, and the
+      comparison would be between different dimensions. Same discipline as
+      check-operator-pairs.py's seed table: the meaning belongs to the id, not to the use.
+      EITHER `value` OR `from`, NEVER BOTH AND NEVER NEITHER. A literal states the bound
+      here; `from` reads it off an operand, which is what lets one step bind a different
+      bound per polymer instead of needing one step per polymer.
+      ABSENCE IS UNDECLARED, as everywhere else in this schema. A bound meeting an
+      unbounded counterpart is reported `incomparable` and is NOT a pass.
+    properties:
+      quantity:
+        type: string
+        description: What is measured. One per imposition id across the whole corpus.
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      sense:
+        enum: [at-least, at-most]
+        description: >
+          Which way the bound runs. An imposition `at-least 30` and a sensitivity
+          `at-most 25` conflict. An imposition `at-least 20` against the same
+          sensitivity does not.
+      unit:
+        type: string
+        description: >
+          Required with `value`. Compared literally, so two spellings of one unit do
+          not compare. There is no unit registry and this schema does not pretend to one.
+      value:
+        type: number
+      from:
+        type: object
+        additionalProperties: false
+        required: [operand, key]
+        description: >
+          Read the bound off an operand's `parameters:` instead of stating it. THE KEY
+          MUST NAME A SINGLE QUANTITY. `gel_temperature_window_c` packs a congealing
+          point and a melting point into one string and cannot be read this way.
+        properties:
+          operand:
+            type: string
+            pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          key:
+            type: string
+    oneOf:
+      - required: [value, unit]
+        not: { required: [from] }
+      - required: [from]
+        not: { anyOf: [ { required: [value] }, { required: [unit] } ] }
   processRef:
     type: object
     additionalProperties: false
@@ -404,6 +528,8 @@ $defs:
               type: string
             page:
               type: [string, "null"]
+            bound:
+              $ref: "#/$defs/bound"
       operator:
         $ref: "#/$defs/operator"
       operator_pairs:
