@@ -20,6 +20,11 @@ refines:
   # FUNCTIONAL PARENT FIRST -- the meet renderer aligns on entry one.
   - sensing-cell
   - cell-base-cytosol-popc-chol
+  - guv
+  # GUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
 
 inputs:
   base-cytosol:

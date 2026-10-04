@@ -15,7 +15,13 @@
 
 module: substrate-cprg-luv
 title: "Substrate LUV: CPRG"
-refines: substrate-carrier
+refines:
+  - substrate-carrier
+  - luv
+  # LUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Freeze-Thaw. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
 
 inputs:
   membrane-popc-chol-9-1:

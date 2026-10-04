@@ -110,6 +110,9 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cytosol: Theophylline Sensor | [SensorCytosol[theophylline ⟶ LacZ]](./theophylline-sensor-cytosol/spec.md) | - |
 | Reporter | [Reporter](./reporter/spec.md) | - |
 | Substrate | [Substrate Carrier](./substrate-carrier/spec.md) | - |
+| Container | [GUV](./guv/spec.md) | - |
+| Container | [SUV](./suv/spec.md) | - |
+| Container | [LUV](./luv/spec.md) | - |
 | Outer Solution | [Outer Solution](./outer-solution/spec.md) | - |
 | Outer Solution | [Outer Solution: Glutamate-HEPES-Glucose](./outer-solution-glutamate/spec.md) | ★ |
 | Outer Solution | [Outer Solution: Tris-HEPES](./outer-solution-tris-hepes/spec.md) | ★ |

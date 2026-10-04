@@ -12,7 +12,13 @@
 
 module: cell-s30-popc
 title: "Cell: S30 Lysate, POPC"
-refines: cell
+refines:
+  - cell
+  - guv
+  # GUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
 # A CHASSIS IS A CELL, and that is not a judgement
 # call: this Module's final step is `encapsulate`, `packing`, over exactly two operands,
 # a cytosol and a membrane, which is ../cell/spec.yml's invariant with no exception.

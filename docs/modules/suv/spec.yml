@@ -1,0 +1,58 @@
+# Composition source for SUV.
+#
+# A SIZE AND LAMELLARITY CLASS, AND MEMBERSHIP FOLLOWS THE ROUTE. Every member is
+# produced by Encapsulation: Extrusion, which is the rule the Editor
+# gave: determine the class by the process that generates the page.
+#
+# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED, on the same precedent
+# as ../substrate-carrier/spec.yml and ../cell/spec.yml. A unilamellar vesicle is a
+# membrane with something in it, which is the `hold` question at
+# compositional-biology-theory open.md#O8, unsettled there. THIS CLASS DOES NOT NEED
+# O8 SETTLED: it divides by size and lamellarity, which is not the hold question. But
+# the two meet on these pages, so if O8 lands this class and Cell get a parent on the
+# same day.
+#
+# THE COMPOSITION IS THE ROUTE AND NOTHING ELSE. Members differ in both the
+# membrane and the payload, so the operands are the two classes and the step names
+# the one thing they share.
+
+module: suv
+title: "SUV"
+# NO `refines:` KEY. Omitted rather than set null, which the schema rejects, and
+# flagged rather than guessed -- see the note above.
+
+inputs:
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+  payload:
+    title: "Payload"
+    page: null            # it varies: a cytosol, a substrate, a dye
+
+process_steps:
+  - id: close-the-bilayer-around-the-payload
+    process:
+      title: "Encapsulation: Extrusion"
+      page: ../../processes/encapsulate-suv/main.md
+    operator: packing
+    operands: [membrane, payload]
+    produces:
+      id: suv
+      title: "SUV"
+      page: ../suv/spec.md
+    notes: >
+      THE PROCESS IS WHAT MAKES A MEMBER, which is the rule this class is written
+      on: a Module belongs here when this route produces it. The sibling classes
+      differ in exactly this line and in nothing else.
+      `packing` because the payload keeps its own compartment, which is what a
+      vesicle is for.
+
+open:
+  - kind: question
+    id: no-member-states-a-diameter
+    question: >
+      Size is what this class is for and no member states one in a form the schema
+      can read. `member_properties` is the key for exactly this -- a class naming a
+      quantity every member must state -- and it is not used here because declaring
+      it today would report every member as missing the figure rather than record a
+      fact. Worth adding when the first diameter is measured.

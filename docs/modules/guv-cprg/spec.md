@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md) and [`guv`](../guv/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A CPRG GUV is a giant unilamellar liposome carrying chlorophenol red-β-D-galactopyranoside (CPRG) and nothing else. It is the substrate population of the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), and it exists so that CPRG and its enzyme never meet until something lyses the membrane.

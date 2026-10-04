@@ -43,6 +43,12 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-carrier/spec.md
           hidden: true
+        - file: ./docs/modules/guv/spec.md
+          hidden: true
+        - file: ./docs/modules/suv/spec.md
+          hidden: true
+        - file: ./docs/modules/luv/spec.md
+          hidden: true
         - file: ./docs/modules/outer-solution/spec.md
           hidden: true
         - file: ./docs/modules/outer-solution-glutamate/spec.md

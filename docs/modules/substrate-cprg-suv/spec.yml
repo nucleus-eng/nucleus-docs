@@ -17,7 +17,13 @@
 
 module: substrate-cprg-suv
 title: "Substrate SUV: CPRG"
-refines: substrate-carrier
+refines:
+  - substrate-carrier
+  - suv
+  # SUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Extrusion. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
 # Added 2026-09-21 with the class: the small unilamellar member, made by hydration and extrusion. Both members pack a
 # membrane with substrate-cprg by `packing`, two of two, and the class was written
 # because a meet over London and Chicago drew the two as unrelated slots.
