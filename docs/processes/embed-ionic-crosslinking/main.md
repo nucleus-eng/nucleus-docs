@@ -30,7 +30,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-This process does not itself encode anything — the Sensing Cells and CPRG-loaded SUVs it embeds already carry whatever DNA and reporter chemistry their own encapsulation processes gave them (for example, the theophylline riboswitch driving PLA1 in the sensing synthetic cell). See [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) and [Lysis: PLA1](../../modules/effector-pla1/spec.md) for those constructs and their status in `nucleus-eng/DNA`.
+This process does not itself encode anything — the Sensing Cells and CPRG-loaded SUVs it embeds already carry whatever DNA and reporter chemistry their own encapsulation processes gave them (for example, the theophylline riboswitch driving PLA1 in the sensing synthetic cell). See [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) and [Lysis: PLA1](../../modules/effector-pla1/spec.md) for those constructs and their status in `nucleus-eng/DNA`.
 
 ::::
 
@@ -115,12 +115,12 @@ The commercial enzyme is β-galactosidase from *E. coli*. London sources it as S
 
 ## Incubate and Monitor for Colorimetric Readout
 
-- [ ] Incubate the crosslinked hydrogel at conditions matching the upstream sensing synthetic cell's requirements (e.g., 1 mM theophylline present or absent, per the [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) reference composition).
+- [ ] Incubate the crosslinked hydrogel at conditions matching the upstream sensing synthetic cell's requirements (e.g., 1 mM theophylline present or absent, per the [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) reference composition).
 - [ ] Monitor for a visible yellow-to-purple color change, expected at approximately 16 h. Color development can also be tracked by absorbance at 570 nm–575 nm.
 - [ ] Proceed to [Colorimetric Readout](../colorimetric-readout/main.md) for quantitative readout methodology.
 
 :::{attention} Known background/leak caveat
-The color change occurs in both 0 mM and 1 mM theophylline conditions, indicating PLA1 expression (and therefore lysis and color change) even without the target analyte present. This is attributed to leak from the theophylline riboswitch, not a failure of the alginate embedding process itself — see [Lysis: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) and [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) for the full discussion. Do not read a color change alone as confirmation of analyte-specific detection.
+The color change occurs in both 0 mM and 1 mM theophylline conditions, indicating PLA1 expression (and therefore lysis and color change) even without the target analyte present. This is attributed to leak from the theophylline riboswitch, not a failure of the alginate embedding process itself — see [Lysis: PLA1](../../modules/effector-pla1/spec.md#effector-pla1-implementations) and [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) for the full discussion. Do not read a color change alone as confirmation of analyte-specific detection.
 :::
 
 # Quality Control

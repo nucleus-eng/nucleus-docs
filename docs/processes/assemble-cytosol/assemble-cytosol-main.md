@@ -10,7 +10,7 @@ Assemble Cytosol combines a cytosol base with whatever a particular reaction nee
 Its derivatives:
 
 - [Assemble Base Cytosol](../assemble-base-cytosol/main.md) — the unit case, where nothing is added and the slot is filled with water.
-- **Assemble SensorCytosol[aTc ⟶ PLA1]**, **Assemble SensorCytosol[pH ⟶ PLA1]**, **Assemble SensorCytosol[3OC6-HSL ⟶ PLA1]**, **Assemble Theophylline Sensor Cytosol** — each is the assembly step of the Module it produces; see the table below.
+- **Assemble SensorCytosol[aTc ⟶ PLA1]**, **Assemble SensorCytosol[pH ⟶ PLA1]**, **Assemble SensorCytosol[3OC6-HSL ⟶ PLA1]**, **Assemble SensorCytosol[theophylline ⟶ LacZ]** — each is the assembly step of the Module it produces; see the table below.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -53,7 +53,7 @@ A derivative is identified by the **pair** of base and filling. Neither alone na
 | [Base Cytosol](../../modules/base-cytosol/spec.md) | Base | water |
 | [SensorCytosol[aTc ⟶ PLA1]](../../modules/atc-sensor-cytosol/spec.md) | Base Cytosol | `TetO-PLA1` · TetR · LacZ at 2.5 U/mL |
 | [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md) | Base Cytosol | trigger duplex · toehold-gated template · Optiprep · Sulfo-Cy5 |
-| [Theophylline Sensor Cytosol](../../modules/theophylline-sensing-cell/spec.md) | Base Cytosol | riboswitch construct at 5 nM |
+| [SensorCytosol[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) | Base Cytosol | riboswitch construct at 5 nM |
 | [SensorCytosol[3OC6-HSL ⟶ PLA1]](../../modules/ahsl-sensor-cytosol/spec.md) | S30 Lysate | `LuxR-PLA1` or `LuxR-deGFP` |
 
 **The base carries the headroom, not this process.** [Base Cytosol](../../modules/base-cytosol/spec.md) reserves 2.0 µL of 10. [S30 Lysate](../../modules/s30-lysate/spec.md) reserves 3.75 µL of 25, implied by its total rather than named, so a composer adding to that base has to derive the capacity.

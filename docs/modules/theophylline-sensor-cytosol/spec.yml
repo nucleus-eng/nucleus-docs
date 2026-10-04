@@ -1,23 +1,28 @@
-# Composition source for the Theophylline Sensor Cytosol.
+# Composition source for the SensorCytosol[theophylline ⟶ LacZ].
 #
-# WRITTEN 2026-09-21 on Jon's ruling that this intermediate refines Sensor Cytosol. It was
-# produced by theophylline-sensing-cell and had no page, so four Modules named a thing the
-# corpus never defined. Its own parent's open block said so first.
+# THIS INTERMEDIATE REFINES SENSOR CYTOSOL. It is produced by
+# theophylline-sensing-cell and had no page of its own, so four Modules named a
+# thing the corpus never defined. Its parent's open block said so first.
 #
 # THE COMPOSITION IS ITS PARENT'S FIRST STEP, NOT A NEW CLAIM. theophylline-sensing-cell
 # declares assemble-cytosol as mixing over base-cytosol and detector-theophylline,
 # producing this id. This file records that step and nothing more.
 #
-# NO EFFECTOR, AND THAT IS THE POINT OF THE MEMBERSHIP RULING. The other three sourced
-# members carry effector-pla1. This one carries none, because the riboswitch drives
-# whichever effector gene sits downstream and no page specifies one. A sensing reaction
-# with no output wired to it is still a sensor cytosol.
+# NO EFFECTOR, AND THAT IS WHY THE MEMBERSHIP IS WORTH STATING. The other three
+# sourced members carry effector-pla1, because all three share a colorimetric
+# readout that lysis releases. This one reaches color without lysing anything:
+# `pT7-theophylline-LacZ` fuses the enzyme straight to the riboswitch. A sensing
+# reaction that drives a reporter and no effector is still a sensor cytosol.
+#
+# WHAT SITS DOWNSTREAM IS A REPORTER, NOT AN EFFECTOR, and the distinction is what
+# keeps the title and the membership both true. The title names LacZ as the
+# codomain; `inputs` names no effector. Both hold at once.
 #
 # CANCELED, MATCHING ITS PARENT. The theophylline riboswitch expresses without theophylline
 # present, so it does not discriminate, and it was cut from the demo.
 
 module: theophylline-sensor-cytosol
-title: "Theophylline Sensor Cytosol"
+title: "SensorCytosol[theophylline ⟶ LacZ]"
 refines: sensor-cytosol
 
 inputs:
@@ -38,7 +43,7 @@ process_steps:
     operands: [base-cytosol, detector-theophylline]
     produces:
       id: theophylline-sensor-cytosol
-      title: "Theophylline Sensor Cytosol"
+      title: "SensorCytosol[theophylline ⟶ LacZ]"
       page: ../theophylline-sensor-cytosol/spec.md
     notes: >
       One compartment. Copied from theophylline-sensing-cell rather than derived, so the

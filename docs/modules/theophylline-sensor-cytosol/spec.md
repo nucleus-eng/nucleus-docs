@@ -1,5 +1,5 @@
 ---
-title: "Theophylline Sensor Cytosol"
+title: "SensorCytosol[theophylline ⟶ LacZ]"
 subtitle: "Module Specification"
 status: canceled
 site:
@@ -34,7 +34,7 @@ flowchart TD
     DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    THEOPHYLLINE_SENSOR_CYTOSOL["Theophylline Sensor Cytosol"]
+    THEOPHYLLINE_SENSOR_CYTOSOL["SensorCytosol[theophylline ⟶ LacZ]"]
 
     BASE_CYTOSOL --> P1_ASSEMBLE_CYTOSOL_0
     DETECTOR_THEOPHYLLINE --> P1_ASSEMBLE_CYTOSOL_0
@@ -81,18 +81,18 @@ flowchart TD
 | Sensor DNA | 5 nM final | from a 49.55 nM stock. `pT7-theophylline-LacZ` (`pMN066`), not in `nucleus-eng/DNA` |
 :::
 
-**No effector template is specified.** The riboswitch drives whichever effector gene sits downstream, and no page names one, so this is a sensing reaction with no output wired to it.
+**What sits downstream of the riboswitch is LacZ, and it is a reporter rather than an effector.** The one construct on record, `pT7-theophylline-LacZ` above, fuses the enzyme directly to the riboswitch, so detection produces color and not lysis. **No effector template is specified**, and none is needed for the Module to function as specified.
 
 ::::
 
 
 :::::
 
-**This member carries no effector.** The other three members of [Sensor Cytosol](../sensor-cytosol/spec.md) each mix in [Lysis: PLA1](../effector-pla1/spec.md). This one carries none, because the riboswitch drives whichever effector gene sits downstream and no page specifies one. A sensing reaction with no output wired to it is still a sensor cytosol: the class invariant is a detector, not a detector plus an effector.
+**This member carries no effector, and it is the only one that does not.** The other three members of [Sensor Cytosol](../sensor-cytosol/spec.md) each mix in [Lysis: PLA1](../effector-pla1/spec.md), because all three share a colorimetric readout that lysis releases. This one reaches color without lysing anything: the riboswitch expresses [LacZ](../reporter-lacz/spec.md) directly. A sensing reaction that drives a reporter and no effector is still a sensor cytosol, because the class invariant is a detector, not a detector plus an effector.
 
 # Requirements
 
-Requires an effector gene downstream of the riboswitch. None is specified.
+Requires a gene downstream of the riboswitch for detection to produce anything. The one construct on record puts LacZ there, which is the pairing [Detector: Theophylline](../detector-theophylline/spec.md#detector-theophylline-requirements) and [LacZ Reporter Module](../reporter-lacz/spec.md#reporter-lacz-requirements) both carry a MUST NOT against. Every result on this page was produced with it, and the MUST NOT stands.
 
 # Constituent Modules
 

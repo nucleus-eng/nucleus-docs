@@ -1,5 +1,5 @@
 ---
-title: "Theophylline Sensing Cell"
+title: "SensorCell[theophylline ⟶ LacZ]"
 subtitle: "Module Specification"
 status: canceled
 site:
@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The Theophylline Sensing Cell is the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
+The SensorCell[theophylline ⟶ LacZ] is the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch with LacZ fused downstream of it.
 
 :::{attention} Canceled — not part of the DevCells demo
 The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It is not part of the DevCells demo, and its constructs are no longer in use.
@@ -33,9 +33,9 @@ flowchart TD
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
-    THEOPHYLLINE_SENSOR_CYTOSOL["Theophylline Sensor Cytosol"]
+    THEOPHYLLINE_SENSOR_CYTOSOL["SensorCytosol[theophylline ⟶ LacZ]"]
     P2_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
-    THEOPHYLLINE_SENSING_CELL["Theophylline Sensing Cell"]
+    THEOPHYLLINE_SENSING_CELL["SensorCell[theophylline ⟶ LacZ]"]
 
     BASE_CYTOSOL --> P1_ASSEMBLE_CYTOSOL_0
     DETECTOR_THEOPHYLLINE --> P1_ASSEMBLE_CYTOSOL_0
@@ -142,7 +142,7 @@ Theophylline crosses the membrane to reach the encapsulated riboswitch.
 
 # Expected Behavior
 
-The Theophylline Sensing Cell drives expression of an effector gene downstream of the riboswitch on detection of theophylline in the outer solution at 1 mM. 
+The SensorCell[theophylline ⟶ LacZ] expresses LacZ from the riboswitch on detection of theophylline in the outer solution at 1 mM. 
 
 ## Cytosols
 
@@ -176,7 +176,7 @@ Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly 
 
 # Constituent Modules
 
-- [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) mixed with the [Theophylline Sensing Module](../detector-theophylline/spec.md)
+- [SensorCytosol[theophylline ⟶ LacZ]](../theophylline-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) mixed with the [Theophylline Sensing Module](../detector-theophylline/spec.md)
 - [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 **The cytosol is composed before encapsulation, not added to a closed chassis.**

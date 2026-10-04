@@ -66,7 +66,7 @@ flowchart TD
 | [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [S30 Lysate](../s30-lysate/spec.md) |
 | [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
 | [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
-| [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+| [SensorCytosol[theophylline ⟶ LacZ]](../theophylline-sensor-cytosol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
 :::
 
 ::::
@@ -81,7 +81,7 @@ The detector is the nucleic acid or protein that gates the reaction.
 | [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md) |
 | [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) |
 | [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) | [Detector: pH-Sensing](../detector-ph/spec.md), a trigger duplex annealed before mixing |
-| [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) | [Detector: Theophylline](../detector-theophylline/spec.md) |
+| [SensorCytosol[theophylline ⟶ LacZ]](../theophylline-sensor-cytosol/spec.md) | [Detector: Theophylline](../detector-theophylline/spec.md) |
 :::
 
 ::::
@@ -90,7 +90,7 @@ The detector is the nucleic acid or protein that gates the reaction.
 
 # Expected Behavior
 
-A Sensor Cytosol is expected to express as any [Cytosol](../cytosol/spec.md) does, and to gate that expression on its analyte through the detector mixed into it. A member needs no effector to be a sensor cytosol: [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) is a sensing reaction with no output wired to it.
+A Sensor Cytosol is expected to express as any [Cytosol](../cytosol/spec.md) does, and to gate that expression on its analyte through the detector mixed into it. A member needs no effector to be a sensor cytosol: [SensorCytosol[theophylline ⟶ LacZ]](../theophylline-sensor-cytosol/spec.md) expresses its reporter straight from the riboswitch, and lyses nothing.
 
 # Requirements
 

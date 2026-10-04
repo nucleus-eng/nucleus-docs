@@ -47,7 +47,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Membrane | [Membrane: POPC/Chol (9:1)](./membrane-popc-chol-9-1/spec.md) | ★ |
 | Cell (Chassis) | [Cell: Base Cytosol, POPC/Chol (9:1)](./cell-base-cytosol-popc-chol/spec.md) | ★ |
 | Cell (Sensing) | [SensorCell[aTc ⟶ PLA1]](./atc-sensing-cell/spec.md) | ★ |
-| Cell (Sensing) | [Theophylline Sensing Cell](./theophylline-sensing-cell/spec.md) | ★ |
+| Cell (Sensing) | [SensorCell[theophylline ⟶ LacZ]](./theophylline-sensing-cell/spec.md) | ★ |
 | Detector | [Theophylline](./detector-theophylline/spec.md) | ★ |
 | Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
 | Cell (Sensing) | [SensorCell[pH ⟶ PLA1]](./ph-sensing-cell/spec.md) | ★ |
@@ -105,7 +105,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cytosol: Sensor | [Sensor Cytosol](./sensor-cytosol/spec.md) | - |
 | Cell | [Cell](./cell/spec.md) | - |
 | Cell (Sensing) | [Sensing Cell](./sensing-cell/spec.md) | - |
-| Cytosol: Theophylline Sensor | [Theophylline Sensor Cytosol](./theophylline-sensor-cytosol/spec.md) | - |
+| Cytosol: Theophylline Sensor | [SensorCytosol[theophylline ⟶ LacZ]](./theophylline-sensor-cytosol/spec.md) | - |
 | Reporter | [Reporter](./reporter/spec.md) | - |
 | Substrate | [Substrate Carrier](./substrate-carrier/spec.md) | - |
 | Outer Solution | [Outer Solution](./outer-solution/spec.md) | - |

@@ -14,7 +14,7 @@ Theophylline is a xanthine derivative and the ligand of the translational ribosw
 **This is an Analyte, so it is not a constituent of anything.** It reaches a sensing cell from outside, after the cell is closed.
 
 :::{attention} Canceled — its detector was cut
-The [Theophylline Detector](../detector-theophylline/spec.md) and [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) are both canceled: the riboswitch expresses its effector without theophylline present, so it does not discriminate.
+The [Theophylline Detector](../detector-theophylline/spec.md) and [SensorCell[theophylline ⟶ LacZ]](../theophylline-sensing-cell/spec.md) are both canceled: the riboswitch expresses its effector without theophylline present, so it does not discriminate.
 :::
 
 # Reference Composition
