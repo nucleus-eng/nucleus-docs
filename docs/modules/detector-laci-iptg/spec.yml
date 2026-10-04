@@ -9,8 +9,8 @@
 #   packing  both at once, each keeping its own compartment
 #
 # The step is `mixing`: a master mix in one tube, one phase. No `packing` step
-# appears here, so nothing in this file depends on open question O8 in
-# compositional-biology-theory, "are formation and `hold` one operation?".
+# appears here, so nothing in this file depends on the open question of whether
+# formation and `hold` are one operation.
 #
 # THIS MODULE IS BUILT ON PURExpress, NOT ON BASE CYTOSOL. Solutions A and B are a
 # commercial kit and have no module page, so they are operands with `page: null`

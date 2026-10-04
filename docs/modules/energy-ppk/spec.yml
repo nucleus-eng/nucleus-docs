@@ -10,8 +10,8 @@
 #
 # Both steps are `mixing`: buffer components into one solution, then two supplied
 # components into that solution. No `packing` step appears here, so nothing in this
-# file depends on open question O8 in compositional-biology-theory, "are formation
-# and `hold` one operation?".
+# file depends on the open question of whether
+# formation and `hold` are one operation.
 #
 # THE MODULE IS THE PURIFIED PROTEIN, NOT THE PLASMID. `pOpen-PPK-CHis` carries no
 # promoter and does not express PPK2 as filed, so it does not on its own satisfy

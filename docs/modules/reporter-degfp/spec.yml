@@ -10,9 +10,8 @@
 #
 # The step is `mixing`: three additions into Base Cytosol, sharing its resources.
 # The `packing` step is where this reporter is encapsulated, which is a step on
-# ../base-cell/spec.yml and not here — so nothing in this file depends on open
-# question O8 in compositional-biology-theory, "are formation and `hold` one
-# operation?".
+# ../base-cell/spec.yml and not here — so nothing in this file depends on the open question of whether
+# formation and `hold` are one operation.
 #
 # THE FIGURES ARE THE ENCAPSULATION-SCALE INNER SOLUTION. The page's Cytosol tab
 # carries no local table — it is an xref to a DevNote — so the composition here is
@@ -64,17 +63,17 @@ process_steps:
 measured_by:
   - process:
       title: "Fluorescence Readout"
-      # CORRECTED 2026-09-21. The title said Colorimetric Readout and that was the
-      # false half. Jon: deGFP's output is fluorescence instead of absorbance, and it
-      # does not need enzyme and substrate because the protein itself is fluorescent.
+      # CORRECTED. The title said Colorimetric Readout and that was the false half.
+      # deGFP's output is fluorescence instead of absorbance, and it does not need
+      # enzyme and substrate because the protein itself is fluorescent.
       # The colorimetric page scopes itself to a chromogenic substrate, CPRG or
       # catechol, hydrolyzed by a reporter enzyme, LacZ or XylE, and lists the four
       # cascades it serves. This Module is none of those, and its own page reads it
       # on green 488 nm and red 561 nm fluorescence channels.
       #
       # THE PATH WAS ALREADY null HERE FOR AN UNRELATED REASON, AND THAT HID THIS.
-      # The colorimetric page was dropped from this tranche on Jon's ruling of
-      # 2026-09-21: it is not in myst.yml's toc, so it would have landed on main as a
+      # The colorimetric page was dropped from this tranche because it is not in
+      # myst.yml's toc, so it would have landed on main as a
       # file nothing renders, and it carried 13 of the 30 links main does not have.
       # So the key looked resolved while still naming the wrong process. The old
       # comment here said to restore the path when that page reaches main. DO NOT.

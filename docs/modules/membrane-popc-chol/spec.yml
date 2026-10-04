@@ -12,8 +12,8 @@
 # lipids go into one film and end in one phase; nothing here keeps its own
 # compartment. `packing` arises when this membrane closes around a cytosol, which
 # is a step on ../base-cell/spec.yml and not here — so this file does not depend on
-# open question O8 in compositional-biology-theory, "are formation and hold one
-# operation?".
+# the open question of whether
+# formation and `hold` are one operation.
 
 module: membrane-popc-chol
 title: "Base Membrane: POPC/Chol"
