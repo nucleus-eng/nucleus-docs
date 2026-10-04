@@ -53,16 +53,17 @@ python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Co
 python3 scripts/check-reference-voice.py # (CI) flag who-decided text and pointers into our working notes
 python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
 python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page
+python3 scripts/check-page-layering.py  # (local) flag Module pages that explain themselves through what uses them
 python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
 **The six marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
-also runs Vale and `check-composition-tabs.py`. **The three marked `(local)` run in no
+also runs Vale and `check-composition-tabs.py`. **The four marked `(local)` run in no
 workflow** — `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
 turn it red with no change here (see the DNA section below); `check-anchors.py` because it
 is not wired up yet; `check-spec-schema.py` deliberately, per the ruling that the composition
 tooling is built before it is enforced — wiring it up needs `jsonschema` beside `pyyaml` in
-`qa.yml`. Run both by hand before opening a PR. Install pre-commit hooks to catch violations before pushing:
+`qa.yml`; and `check-page-layering.py` because it reports rather than blocks and always exits 0, so a job running it would always be green — read its output instead. Run them by hand before opening a PR. Install pre-commit hooks to catch violations before pushing:
 ```bash
 pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually

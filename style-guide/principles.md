@@ -30,6 +30,19 @@ When you cut a statement of what a Module is not, move what it carried. An optio
 
 If a boundary feels urgent while you write, check whether it is urgent for the reader or only for you because you just wrote the adjacent page.
 
+**A Module page may point downstream. It must not depend downstream.** Reaching forward to a composite to say what this Module is inverts the dependency: the leaf then needs the composite to be legible, while the composite already needs the leaf to exist. A corpus built that way cannot retire, reuse or read a part on its own.
+
+**The test.** Delete the link to the composite. If the sentence no longer says what this Module **is**, **does** or **needs**, the content is on the wrong page.
+
+So a Reference Composition table is never keyed by the Modules that take it — a membrane is the same formulation whoever uses it, and a dose chosen by a consumer is a fact about the consumer. Put that figure in the consuming step's `parameters:`, which is where a number belongs when no single constituent page can state it. Expected Behavior describes the Module acting, not a list of the systems it has appeared in.
+
+**Two things this does not forbid.**
+
+- **One Overview sentence naming what the Module composes into.** A leaf has no generated diagram, so that sentence is a reader's only way forward. [sections.md](sections.md#implementations) sets it, and one sentence is the limit.
+- **Naming what observed the Module.** A Module with no visible behavior of its own must say what made it visible — "characterized using the deGFP Reporter" states the measurement. The result itself still belongs on the composed page.
+
+`scripts/check-page-layering.py` reports a link to a downstream Module outside Overview. It reports rather than blocks: a rule with a backlog behind it teaches people to skip the output.
+
 ## Every page is world-readable, because it is
 
 The test is one question asked of every prose block: **does this describe the Module, or does it describe our work on the Module?** The second kind comes out.
