@@ -682,9 +682,19 @@ $defs:
       WHAT THE THEORY HAS SETTLED AND WHAT IT HAS NOT, read at `compositional-biology-theory`
       `5e1100d`. `glossary.md#T37` is stitching, operands "joined in order into one new object",
       and it says the structure is OPEN and `::` is a PLACEHOLDER spelling, Jon's ruling of
-      2026-09-24. `rulings.md#D35` is live: associative, not commutative, which makes it a
-      SEMIGROUP — "and a monoid if it has a unit". `#D37` asks whether the null polymer is that
-      unit and is posed as a question, so the monoid is NOT settled and is not claimed here.
+      2026-09-24. `rulings.md#D35` is live: associative, not commutative. That alone gives a
+      SEMIGROUP, and D35's own status says so — "and a monoid if it has a unit".
+      THE MONOID IS CLAIMED, AS A HYPOTHESIS, AND THIS LINE SAID LESS THAN THAT UNTIL NOW.
+      `current-model.md#C21` reads "`::` is associative with a unit, so polymers form a monoid
+      and plausibly the free one, bounded by the circular case", graded `hypothesis (n=1)`.
+      `signature.md:443` states it in prose. `#D37` supplies the unit, the null polymer, and its
+      status is "live as a QUESTION, NOT A RULING" with a session's answer of yes rather than
+      Jon's. So: semigroup is settled, monoid is a one-instance hypothesis with a stated bound,
+      and neither is a reason for a step to behave differently.
+      THE BOUND IS THE SAME CIRCULAR CASE THIS CORPUS ALREADY HIT. See
+      `docs/modules/effector-pla1/spec.yml`'s open item: a circular construct has an
+      author-chosen first base, so a feature can straddle it and substring containment returns
+      false on a true containment.
       IT IS HOMOGENEOUS, WHICH THE OTHER TWO ARE NOT. `signature.md:485` at that same commit:
       "stitching is homogeneous, and DNA stitched to DNA is DNA", from the profile `P ⊗ P ⟶ P`
       with `P` refining `Polymer`. So a stitching step's operands and its product are all one
