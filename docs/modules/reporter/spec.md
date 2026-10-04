@@ -74,7 +74,7 @@ flowchart TD
 | Member | Template |
 | --- | --- |
 | [LacZ Reporter](../reporter-lacz/spec.md) | `T7pro-LacZ-T7term`, not yet in `nucleus-eng/DNA` |
-| [XylE Reporter](../reporter-xyle/spec.md) | `pT7-TetO-catecholase` (`pMN067`), not yet in `nucleus-eng/DNA` |
+| [XylE Reporter](../reporter-xyle/spec.md) | `pT7-TetO-catecholase` (`pMN067`). Two constructs of the same design are in `nucleus-eng/DNA` under the name `C23DO`, and whether one of them is this is unconfirmed |
 | [deGFP Reporter](../reporter-degfp/spec.md) | `pOpen-deGFP` |
 :::
 

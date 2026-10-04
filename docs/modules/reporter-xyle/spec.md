@@ -67,15 +67,19 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{attention} Not yet in `nucleus-eng/DNA`
-`pT7-TetO-catecholase` (`pMN067`) is not in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA). The London-specific `T7pro-XylE-T7term` and `T7pro-UTR1-G10_leader_peptide-XylE-T7term` constructs are not yet designed ([`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/london-m2-1)), so no equivalent DNA-table entry exists for them.
+:::{attention} Two constructs with this shape are in `nucleus-eng/DNA` under the enzyme's other name
+**Do not submit `pMN067` before checking these.** The Nucleus DNA repository holds [pT7-tetO-C23DO-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-tetr-atc/pT7-tetO-C23DO-linear.gb), 1163 bp, and [pOpen-T7-tetO-C23DO.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-tetr-atc/pOpen-T7-tetO-C23DO.gb), 3101 bp. Both declare `detector-tetr-atc,reporter-xyle` in that repository's `manifest.tsv` and both are marked `built`.
 
-@Editor(chicago): submit the `pMN067` sequence to `nucleus-eng/DNA` before this Module is used at the bench. The source DevNote `chicago-teto-catecholase` holds the sequence file, `experiments/sequences/pMN067_T7_TetO_C23DO_entireconstruct.dna`.
+**This page is not claiming they are `pMN067`.** It is a name resemblance, which is the greedy-link failure this repository keeps a separate check for, and the row below still reads `not verified` because nothing here has compared a sequence. What makes the resemblance worth acting on is that the DevNote's own file is named `pMN067_T7_TetO_C23DO_entireconstruct.dna`, so the source already calls this construct C23DO, and C23DO is what XylE expresses.
+
+@Editor(chicago): confirm whether `pMN067` is one of the two files above before submitting anything. If it is, the row below takes that file and its length. If it is not, it is a third construct of the same design and needs a name that says so.
+
+The London-specific `T7pro-XylE-T7term` and `T7pro-UTR1-G10_leader_peptide-XylE-T7term` constructs are not yet designed ([`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/london-m2-1)), so no equivalent DNA-table entry exists for them.
 :::
 
 | **Name** | **Length (bp)** | **File** |
 | --- | --- | --- |
-| `pT7-TetO-catecholase` (`pMN067`) | not verified | not yet in `nucleus-eng/DNA` |
+| `pT7-TetO-catecholase` (`pMN067`) | not verified | identity against `pT7-tetO-C23DO` not confirmed — see above |
 
 ::::
 
