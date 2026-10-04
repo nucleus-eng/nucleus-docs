@@ -1,0 +1,53 @@
+# Composition source for Vesicle.
+#
+# THE UMBRELLA, AND TWO INDEPENDENT AXES SIT UNDER IT. Size and lamellarity give
+# ../guv, ../suv and ../luv. Material gives ../liposome, and a polymersome would be
+# its sibling. The axes do not nest: a GUV may be a liposome or a polymersome, so
+# neither axis is a parent of the other and a member may take one parent from each.
+#
+# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED, on the precedent of
+# ../cell/spec.yml and ../substrate-carrier/spec.yml. A vesicle is a membrane with
+# something in it, and whether forming a boundary and holding something in it are one
+# operation is unsettled. THE QUESTION BELONGS HERE NOW. It used to sit on each of
+# the three size classes separately, which said the same thing three times about
+# three Modules that share one parent.
+#
+# THE COMPOSITION IS A MEMBRANE AROUND A PAYLOAD AND NOTHING MORE. Every narrowing
+# below this -- which route, which size, which material -- belongs to a child.
+
+module: vesicle
+title: "Vesicle"
+
+inputs:
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+  payload:
+    title: "Payload"
+    page: null            # it varies: a cytosol, a substrate, a dye
+
+process_steps:
+  - id: close-the-bilayer-around-the-payload
+    process:
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    operands: [membrane, payload]
+    produces:
+      id: vesicle
+      title: "Vesicle"
+      page: ../vesicle/spec.md
+    notes: >
+      The abstract route. Each size class names one instance of it and they differ
+      in that line and in nothing else. `packing` because the payload keeps its own
+      compartment, which is what a vesicle is for, and the operator is declared on
+      the abstract process rather than chosen per route.
+
+open:
+  - id: the-material-axis-has-one-value
+    question: >
+      Every vesicle in this corpus is a liposome. ../liposome/spec.md exists so the
+      axis is recorded and a polymersome has somewhere to attach, and it claims no
+      members for that reason: assigning eleven Modules a parent that distinguishes
+      them from nothing would report a distinction the corpus cannot yet make. The
+      same reasoning keeps `member_properties` unused on the size classes.

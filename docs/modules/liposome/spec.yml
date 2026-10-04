@@ -1,0 +1,49 @@
+# Composition source for Liposome.
+#
+# THE MATERIAL AXIS, AND IT HAS ONE VALUE SO FAR. A liposome is a vesicle whose
+# bilayer is made of lipid. Its sibling is a polymersome, whose bilayer is made of
+# block copolymer, and this corpus has none.
+#
+# NO MEMBERS ARE ASSIGNED, DELIBERATELY. Every vesicle here is a liposome, so giving
+# eleven Modules this parent would record a distinction that separates none of them
+# from any other. The page exists so the axis is written down and a polymersome has
+# somewhere to attach. Same reasoning as `member_properties` on the size classes:
+# declaring a thing before it distinguishes anything reports a gap rather than a fact.
+#
+# INDEPENDENT OF SIZE. A liposome may be a GUV, an SUV or an LUV. That is why this
+# refines ../vesicle and not one of those three.
+
+module: liposome
+title: "Liposome"
+refines: vesicle
+
+inputs:
+  lipid-membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+  payload:
+    title: "Payload"
+    page: null
+
+process_steps:
+  - id: close-a-lipid-bilayer-around-the-payload
+    process:
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    operands: [lipid-membrane, payload]
+    produces:
+      id: liposome
+      title: "Liposome"
+      page: ../liposome/spec.md
+    notes: >
+      The same step as ../vesicle/spec.yml with the membrane narrowed to a lipid one,
+      which is the whole of the refinement. ../membrane/spec.md is lipid by its own
+      definition, so naming it is what makes this class narrower than its parent.
+
+open:
+  - id: no-members-and-that-is-the-point
+    question: >
+      This class claims no members while every vesicle in the corpus is one. The page
+      records the axis rather than sorting anything by it. The first polymersome makes
+      the distinction real and gives both classes their members on the same day.

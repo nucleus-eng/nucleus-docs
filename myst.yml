@@ -45,6 +45,10 @@ project:
           hidden: true
         - file: ./docs/modules/substrate-carrier/spec.md
           hidden: true
+        - file: ./docs/modules/vesicle/spec.md
+          hidden: true
+        - file: ./docs/modules/liposome/spec.md
+          hidden: true
         - file: ./docs/modules/guv/spec.md
           hidden: true
         - file: ./docs/modules/suv/spec.md

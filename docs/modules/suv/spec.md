@@ -10,14 +10,14 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md).
+**Position.** Refines [`vesicle`](../vesicle/spec.md). Refined by [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md).
 <!-- /gen:position -->
 
 A **Small Unilamellar Vesicle** — a single lipid bilayer closed around an aqueous interior, in the size regime the name denotes. **What makes a Module a member is the process that closes it**: every member of this class is produced by [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md).
 
 **One member today**, and the one-member-class caution applies: this class is written because the glossary names it and the route produces it, not because two things needed a parent.
 
-**The house vocabulary has required this distinction for longer than the class has existed.** `glossary.narrows` refuses the bare word "vesicle" at error level and tells the author to *"name the class — GUV, SUV or LUV"*. Three names, and until now no pages behind them.
+**Size and material are independent axes.** This class is the size one; [Liposome](../liposome/spec.md) is the material one, and both refine [Vesicle](../vesicle/spec.md). A member of this class may also be a liposome, so the two parents do not compete.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

@@ -10,14 +10,14 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`ahsl-sensing-cell`](../ahsl-sensing-cell/spec.md), [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`base-cell`](../base-cell/spec.md), [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md), [`cell-s30-popc`](../cell-s30-popc/spec.md), [`dye-liposomes`](../dye-liposomes/spec.md), [`guv-cprg`](../guv-cprg/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
+**Position.** Refines [`vesicle`](../vesicle/spec.md). Refined by [`ahsl-sensing-cell`](../ahsl-sensing-cell/spec.md), [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`base-cell`](../base-cell/spec.md), [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md), [`cell-s30-popc`](../cell-s30-popc/spec.md), [`dye-liposomes`](../dye-liposomes/spec.md), [`guv-cprg`](../guv-cprg/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A **Giant Unilamellar Vesicle** — a single lipid bilayer closed around an aqueous interior, in the size regime the name denotes. **What makes a Module a member is the process that closes it**: every member of this class is produced by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
 **Every synthetic cell documented here is a GUV**, which is what makes this the largest of the three classes rather than a carrier-side detail.
 
-**The house vocabulary has required this distinction for longer than the class has existed.** `glossary.narrows` refuses the bare word "vesicle" at error level and tells the author to *"name the class — GUV, SUV or LUV"*. Three names, and until now no pages behind them.
+**Size and material are independent axes.** This class is the size one; [Liposome](../liposome/spec.md) is the material one, and both refine [Vesicle](../vesicle/spec.md). A member of this class may also be a liposome, so the two parents do not compete.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

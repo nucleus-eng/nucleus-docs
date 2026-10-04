@@ -4,13 +4,14 @@
 # produced by Encapsulation: Phase Transfer, which is the rule the Editor
 # gave: determine the class by the process that generates the page.
 #
-# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED, on the same precedent as
-# ../substrate-carrier/spec.yml and ../cell/spec.yml. A unilamellar vesicle is a
+# REFINES ../vesicle, WHICH IS WHERE THE UNSETTLED QUESTION NOW SITS. A vesicle is a
 # membrane with something in it, and whether forming a boundary and holding something
-# in it are one operation is unsettled. THIS CLASS DOES NOT NEED THAT SETTLED: it
-# divides by size and lamellarity, which is a different question. But the two meet on
-# these pages, so if the hold question lands, this class and Cell get a parent on the
-# same day.
+# in it are one operation is unsettled -- but that is the parent's question, not this
+# one's. This class divides by size and lamellarity, which is a different axis
+# entirely, and the parent carries the rest.
+#
+# SIZE IS NOT MATERIAL. ../liposome refines the same parent on the material axis, so
+# a member of this class may also be a liposome and the two parents are independent.
 #
 # THE COMPOSITION IS THE ROUTE AND NOTHING ELSE. Members differ in both the
 # membrane and the payload, so the operands are the two classes and the step names
@@ -18,8 +19,7 @@
 
 module: guv
 title: "GUV"
-# NO `refines:` KEY. Omitted rather than set null, which the schema rejects, and
-# flagged rather than guessed -- see the note above.
+refines: vesicle
 
 inputs:
   membrane:

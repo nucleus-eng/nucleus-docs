@@ -111,6 +111,8 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Cytosol: Theophylline Sensor | [SensorCytosol[theophylline ⟶ LacZ]](./theophylline-sensor-cytosol/spec.md) | - |
 | Reporter | [Reporter](./reporter/spec.md) | - |
 | Substrate | [Substrate Carrier](./substrate-carrier/spec.md) | - |
+| Container | [Vesicle](./vesicle/spec.md) | - |
+| Container | [Liposome](./liposome/spec.md) | - |
 | Container | [GUV](./guv/spec.md) | - |
 | Container | [SUV](./suv/spec.md) | - |
 | Container | [LUV](./luv/spec.md) | - |
