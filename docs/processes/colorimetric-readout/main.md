@@ -51,7 +51,7 @@ CPRG pre-loaded into liposomes photobleaches under the UV exposure used to cross
 
 ## Primary chemistry: LacZ / CPRG
 
-CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is a yellow compound that β-galactosidase (LacZ) hydrolyzes into chlorophenol red (CPR), a magenta/purple product. The reaction is read by absorbance near 570 nm to 575 nm, or by eye. This is the chemistry used across the DevCells cascades — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) spec for substrate handling, the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) spec for how lysis releases CPRG or exposes it to LacZ, and the individual sensing-cascade pages ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md), [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md), [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md), [London Cascade](../../modules/london-cascade/spec.md)) for each cascade's own quantitative result.
+CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is a yellow compound that β-galactosidase (LacZ) hydrolyzes into chlorophenol red (CPR), a magenta/purple product. The reaction is read by absorbance near 570 nm to 575 nm, or by eye. This is the chemistry used across the DevCells cascades — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md) spec for substrate handling, the [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) spec for how lysis releases CPRG or exposes it to LacZ, and the individual sensing-cascade pages ([Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md), [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md), [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md), [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md)) for each cascade's own quantitative result.
 
 ## Alternate chemistry: XylE / catechol
 
@@ -101,7 +101,7 @@ For formats read by eye rather than by plate reader (e.g., a hydrogel photograph
 A positive color change alone does not confirm specific detection — several cascades that use this readout process report background or leak issues that affect interpretation, and the readout chemistry cannot distinguish specific signal from these known confounds on its own:
 
 - The Chicago theophylline cascade shows the same ~16 h color change with or without theophylline present (riboswitch leak) — see the [Theophylline Sensing Cell](../../modules/theophylline-sensing-cell/spec.md) spec.
-- The London 3OC6-HSL cascade shows only a slightly discernible, "temperamental" difference between +3OC6-HSL and −3OC6-HSL conditions, with inconsistent liposome rupture reported across repeats — see the [London Cascade](../../modules/london-cascade/spec.md) spec.
+- The London 3OC6-HSL cascade shows only a slightly discernible, "temperamental" difference between +3OC6-HSL and −3OC6-HSL conditions, with inconsistent liposome rupture reported across repeats — see the [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md) spec.
 - The pH-sensing bulk hydrogel result shows a real but modest absorbance gap (Abs₅₇₀ ≈0.31 at pH 7.4 vs. ≈0.39 at pH 6.5, against a ≈0.46 positive control) — see the [pH-Sensing Module](../../modules/detector-ph/spec.md) spec.
 
 Always include the negative/uninduced control specified by the cascade's own Module page alongside the induced condition in the same read, and treat this process's absorbance values as relative to that same-plate control rather than against an absolute threshold.

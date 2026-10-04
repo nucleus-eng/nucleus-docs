@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`container`](../container/spec.md). Refined by [`membrane-popc`](../membrane-popc/spec.md), [`membrane-popc-chol`](../membrane-popc-chol/spec.md), [`membrane-popc-chol-chicago`](../membrane-popc-chol-chicago/spec.md).
+**Position.** Refines [`container`](../container/spec.md). Refined by [`membrane-popc`](../membrane-popc/spec.md), [`membrane-popc-chol`](../membrane-popc-chol/spec.md), [`membrane-popc-chol-9-1`](../membrane-popc-chol-9-1/spec.md).
 <!-- /gen:position -->
 
 A class: a closed lipid bilayer.
@@ -34,7 +34,7 @@ A bilayer is lipid in a bilayer arrangement, so lipid is the one constituent. Me
 | --- | --- |
 | [Membrane: POPC](../membrane-popc/spec.md) | POPC, with DSPE-PEG2000 in the PEGylated preparation |
 | [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) | POPC and cholesterol, 70:30, with optional Liss-Rhod PE |
-| [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) | POPC and cholesterol, 90:10, with optional Liss-Rhod PE |
+| [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) | POPC and cholesterol, 90:10, with optional Liss-Rhod PE |
 :::
 
 ::::

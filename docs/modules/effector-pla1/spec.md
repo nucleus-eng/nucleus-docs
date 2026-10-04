@@ -99,7 +99,7 @@ The cytosol itself is whichever the host configuration uses — [Base Cytosol](.
 <!-- composition-tabs: no-table (PLA1 acts on any phospholipid membrane in reach, so a single lipid table would be wrong) -->
 ::::{tab-item} Membrane
 
-PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module. The membranes it has been used with are [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) and [Membrane: POPC](../membrane-popc/spec.md).
+PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module. The membranes it has been used with are [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) and [Membrane: POPC](../membrane-popc/spec.md).
 
 Both a self-lysis target and, in the two-liposome cascades, a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) membrane are required.
 
@@ -129,7 +129,7 @@ Account for both routes rather than assuming a liposome stays intact until the i
 (effector-pla1-requirements)=
 # Requirements
 
-Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)).
+Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md)).
 
 **PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbor's, and it cannot distinguish populations that share a composition. Where a sensing cell and a substrate carrier are built on one membrane formulation, PLA1 reaching the carrier is the intended path and PLA1 reaching another sensing cell is not, and nothing in the chemistry separates them. A composition that needs them separated states that requirement itself.
 

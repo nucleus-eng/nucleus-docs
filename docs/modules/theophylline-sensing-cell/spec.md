@@ -10,10 +10,10 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`chicago-chassis`](../chicago-chassis/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The Theophylline Sensing Cell is the [Chicago Chassis](../chicago-chassis/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
+The Theophylline Sensing Cell is the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch driving downstream effector gene expression.
 
 :::{attention} Canceled — not part of the DevCells demo
 The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It is not part of the DevCells demo, and its constructs are no longer in use.
@@ -55,7 +55,7 @@ flowchart TD
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
     click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click THEOPHYLLINE_SENSOR_CYTOSOL "/docs/modules/theophylline-sensor-cytosol/spec"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
@@ -83,14 +83,14 @@ See [Detector: Theophylline](../detector-theophylline/spec.md) for the design.
 
 ::::{tab-item} Cytosol
 
-The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concentration, per [Chicago Chassis](../chicago-chassis/spec.md), with DNA added encoding the theophylline riboswitch upstream of an effector gene.
+The inner solution is [Base Cytosol](../base-cytosol/spec.md) at reaction concentration, per [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md), with DNA added encoding the theophylline riboswitch upstream of an effector gene.
 
 :::{table} Combined synthetic cell reaction, one level deep.
 :label: comp-theo-sensing-cell-cytosol
 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
-| [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [Theophylline Sensing Module](../detector-theophylline/spec.md) | Riboswitch construct at 5 nM final DNA | The riboswitch drives whichever effector gene sits downstream of it. No effector is specified here — see the note below. |
 
 :::
@@ -109,7 +109,7 @@ Every result below was nonetheless produced with `pT7-theophylline-LacZ`, the on
 
 ::::{tab-item} Membrane
 
-:::{table} Synthetic cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:::{table} Synthetic cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 :label: comp-theov-membrane
 
 | Component | Target percentage (%) |
@@ -120,7 +120,7 @@ Every result below was nonetheless produced with `pT7-theophylline-LacZ`, the on
 
 :::
 
-The same membrane as [Chicago Chassis](../chicago-chassis/spec.md).
+The same membrane as [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md).
 
 ::::
 
@@ -153,13 +153,13 @@ In bulk Base Cytosol, LacZ expressed from the riboswitch construct converts CPRG
 ## Cells
 
 :::{warning} Not yet validated
-No synthetic cell result for this Sensing Cell is on record. Both results above are bulk Base Cytosol, so encapsulation is expected to work by construction from [Chicago Chassis](../chicago-chassis/spec.md) rather than demonstrated.
+No synthetic cell result for this Sensing Cell is on record. Both results above are bulk Base Cytosol, so encapsulation is expected to work by construction from [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) rather than demonstrated.
 :::
 
 (theophylline-sensing-cell-requirements)=
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md).
 
 Requires theophylline to cross the membrane and reach the encapsulated riboswitch; the reported result uses 1 mM theophylline in the outer solution.
 
@@ -177,7 +177,7 @@ Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly 
 # Constituent Modules
 
 - [Theophylline Sensor Cytosol](../theophylline-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) mixed with the [Theophylline Sensing Module](../detector-theophylline/spec.md)
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 **The cytosol is composed before encapsulation, not added to a closed chassis.**
 

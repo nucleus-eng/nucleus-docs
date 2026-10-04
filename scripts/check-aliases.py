@@ -21,14 +21,14 @@ FOUR CARRIERS, each found the hard way.
                        a gap into a duplicate and no check noticed either event.
 
   ID -> COMPOSITION    Two produced ids from the same operands AND the same
-                       parameters. london-cascade produced `outer-solution` and
+                       parameters. luxr-lacz-cascade produced `outer-solution` and
                        gel-ulga produced `london-outer-solution` from the same
                        three solutes at the same osmolarity. The key check could
                        not see it: both carried page: null, so neither resolved
                        to anything to collide with.
 
                        PARAMETERS ARE PART OF THE COMPARISON AND THE MEMBRANES
-                       ARE WHY. membrane-popc-chol and membrane-popc-chol-chicago
+                       ARE WHY. membrane-popc-chol and membrane-popc-chol-9-1
                        compose the identical three lipids and are different
                        Modules at 70:30 against 90:10. Operand-set alone reports
                        a rename that is not one.

@@ -10,10 +10,10 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`chicago-chassis`](../chicago-chassis/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The SensorCell[pH ⟶ PLA1] is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Chicago Chassis](../chicago-chassis/spec.md). On its own, the pH-Sensing Module is an cytosolic ssDNA/toehold-switch circuit that turns on a downstream effector gene (e.g., a colorimetric reporter) when pH drops to about 6.5. The SensorCell[pH ⟶ PLA1] encapsulates this module in a synthetic cell.
+The SensorCell[pH ⟶ PLA1] is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md). On its own, the pH-Sensing Module is an cytosolic ssDNA/toehold-switch circuit that turns on a downstream effector gene (e.g., a colorimetric reporter) when pH drops to about 6.5. The SensorCell[pH ⟶ PLA1] encapsulates this module in a synthetic cell.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -64,7 +64,7 @@ flowchart TD
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
     click P1_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
@@ -92,14 +92,14 @@ See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
 
 ::::{tab-item} Cytosol
 
-The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the toehold-switch template and the annealed pH-responsive ssDNA : trigger ssDNA duplex from the [pH-Sensing Module](../detector-ph/spec.md).
+The inner solution follows the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) cytosol at reaction concentration, with the toehold-switch template and the annealed pH-responsive ssDNA : trigger ssDNA duplex from the [pH-Sensing Module](../detector-ph/spec.md).
 
 :::{table} Combined synthetic cell reaction, one level deep.
 :label: comp-sensing-cell-cytosol
 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
-| [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [pH-Sensing Module](../detector-ph/spec.md) | `pT7-toehold9-PLA1` template at 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.625 µM trigger ssDNA | Compare [pH-Sensing Module](../detector-ph/spec.md#detector-ph-reference-composition), whose design values are quoted at 4.8 µM. |
 | Optiprep | 4.5% (v/v) | Density agent for the phase-transfer step. Present in the encapsulated reaction and not in the bulk one. |
 | RNase inhibitor | 1000 U/mL | Half the 2000 U/mL used in the bulk module reaction. |
@@ -111,7 +111,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 ::::{tab-item} Membrane
 
-:::{table} The [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:::{table} The [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 :label: comp-sensing-cell-membrane
 
 | Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) |
@@ -163,7 +163,7 @@ See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md).
 
 Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
@@ -175,7 +175,7 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 # Constituent Modules
 
 - [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 # Implementations
 

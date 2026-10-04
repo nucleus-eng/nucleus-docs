@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`base-cell`](../base-cell/spec.md), [`chicago-chassis`](../chicago-chassis/spec.md), [`london-chassis`](../london-chassis/spec.md), [`sensing-cell`](../sensing-cell/spec.md).
+**Position.** Refines nothing declared. Refined by [`base-cell`](../base-cell/spec.md), [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md), [`cell-s30-popc`](../cell-s30-popc/spec.md), [`sensing-cell`](../sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cytosol](../cytosol/spec.md) closed inside a [Membrane](../membrane/spec.md).
@@ -64,8 +64,8 @@ Base Cell and the two chassis carry no detector. [Sensing Cell](../sensing-cell/
 | Member | Cytosol |
 | --- | --- |
 | [Base Cell](../base-cell/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
-| [London Chassis](../london-chassis/spec.md) | [S30 Lysate](../s30-lysate/spec.md) |
-| [Chicago Chassis](../chicago-chassis/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+| [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) | [S30 Lysate](../s30-lysate/spec.md) |
+| [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
 | [Sensing Cell](../sensing-cell/spec.md) | [Sensor Cytosol](../sensor-cytosol/spec.md) |
 :::
 
@@ -77,9 +77,9 @@ Base Cell and the two chassis carry no detector. [Sensing Cell](../sensing-cell/
 | Member | Membrane |
 | --- | --- |
 | [Base Cell](../base-cell/spec.md) | [POPC/Chol](../membrane-popc-chol/spec.md), 70:30 |
-| [London Chassis](../london-chassis/spec.md) | [POPC](../membrane-popc/spec.md) |
-| [Chicago Chassis](../chicago-chassis/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) |
-| [Sensing Cell](../sensing-cell/spec.md) | [Membrane](../membrane/spec.md), unchanged: [POPC](../membrane-popc/spec.md) in one member and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) in the other three |
+| [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) | [POPC](../membrane-popc/spec.md) |
+| [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
+| [Sensing Cell](../sensing-cell/spec.md) | [Membrane](../membrane/spec.md), unchanged: [POPC](../membrane-popc/spec.md) in one member and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) in the other three |
 :::
 
 ::::

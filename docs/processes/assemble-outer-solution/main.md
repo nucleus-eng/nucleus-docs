@@ -29,7 +29,7 @@ Three formulations are attested, and they are not interchangeable — each is ma
 :::
 
 :::{attention} The energy solution is not specified
-@Editor(chicago): the Chicago configuration supplements the buffer with an energy solution whose contents are not recorded anywhere in this documentation. See [Chicago Chassis](../../modules/chicago-chassis/spec.md).
+@Editor(chicago): the Chicago configuration supplements the buffer with an energy solution whose contents are not recorded anywhere in this documentation. See [Cell: Base Cytosol, POPC/Chol (9:1)](../../modules/cell-base-cytosol-popc-chol/spec.md).
 :::
 
 # Requirements

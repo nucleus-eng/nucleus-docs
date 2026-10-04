@@ -92,7 +92,7 @@ Each London construct exists in both presentations. The linear form is the expre
 
 For encapsulated use, additionally requires a membrane (e.g. [Membrane: POPC](../membrane-popc/spec.md)).
 
-Not compatible with Optiprep in the inner solution above ~5%; use sucrose for density matching instead (e.g. [London Chassis](../london-chassis/spec.md)).
+Not compatible with Optiprep in the inner solution above ~5%; use sucrose for density matching instead (e.g. [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md)).
 
 :::{caution} Optiprep may block expression. 
 Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean 80, then 66 synthetic cells per field at 1 h and 48 h) but gave no reporter signal at either timepoint. With membrane stability and plasmid dose (80 ng/µL) both ruled out as causes, the block appears to sit in expression itself. The leading interpretation is that Optiprep above ~5% of the inner solution suppresses cell-free expression, and both the 10% and 15% conditions tested exceed that threshold. Without Optiprep in the inner solution, the encapsulated 3OC6-HSL sensor expresses GFP on induction: green fluorescence appears in synthetic cells across all imaged fields, with liposome-associated puncta co-localizing with round liposomes, consistent with an active cell-free reaction inside the liposome.
@@ -102,7 +102,7 @@ Optiprep-containing synthetic cells stayed round and abundant through 48 h (mean
 
 # Implementations
 
-- [London Cascade](../london-cascade/spec.md): S30 Lysate is that cascade's cytosol.
+- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): S30 Lysate is that cascade's cytosol.
 
 # Processes
 

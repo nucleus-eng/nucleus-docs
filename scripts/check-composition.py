@@ -3,7 +3,7 @@
 
 Jon ruled on 2026-09-09 that the prose section stays for humans while the yml
 is the contract for tooling (#248). Two sources for one fact drift, and this one
-already did: `london-cascade` listed `Substrate: CPRG` where its own source said
+already did: `luxr-lacz-cascade` listed `Substrate: CPRG` where its own source said
 `GUV: CPRG`, within an hour of both existing. Nothing caught it, because every
 other check in this repo validates one file against itself.
 
@@ -11,7 +11,7 @@ Two findings, and they are not the same severity.
 
   MISSING   a module the prose lists that the source never mentions.
             Blocking. The prose is asserting a constituent the build does not
-            have, which is what went wrong on london-cascade.
+            have, which is what went wrong on luxr-lacz-cascade.
 
   UNLISTED  an operand of the final step, with a page, that the prose omits.
             Reported, not blocking. The final step's operands are the direct
@@ -37,7 +37,7 @@ Two findings, and they are not the same severity.
 Exit 0 nothing blocking, 1 a MISSING, 2 the check could not run.
 
     python3 scripts/check-composition.py
-    python3 scripts/check-composition.py docs/modules/london-cascade
+    python3 scripts/check-composition.py docs/modules/luxr-lacz-cascade
 """
 import re
 import subprocess

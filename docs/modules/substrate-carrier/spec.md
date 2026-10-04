@@ -61,7 +61,7 @@ flowchart TD
 | Member | Membrane | Size regime | Made by |
 | --- | --- | --- | --- |
 | [GUV: CPRG](../guv-cprg/spec.md) | [POPC](../membrane-popc/spec.md) | giant unilamellar | phase transfer |
-| [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) | small unilamellar | hydration and extrusion |
+| [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) | small unilamellar | hydration and extrusion |
 :::
 
 ::::

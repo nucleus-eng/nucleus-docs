@@ -1,5 +1,5 @@
 ---
-title: "Chicago Chassis"
+title: "Cell: Base Cytosol, POPC/Chol (9:1)"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -12,13 +12,13 @@ site:
 **Position.** Refines [`cell`](../cell/spec.md). Refined by [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
 <!-- /gen:position -->
 
-The Chicago Chassis is used for the Chicago Node's DevStudio Demo and combines [Base Cytosol](../base-cytosol/spec.md) with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) (9:1 POPC:cholesterol). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [Theophylline Sensing Module](../detector-theophylline/spec.md) driving the [PLA1 Lysis Module](../effector-pla1/spec.md), giving the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md)).
+The Cell: Base Cytosol, POPC/Chol (9:1) is used for the Chicago Node's DevStudio Demo and combines [Base Cytosol](../base-cytosol/spec.md) with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) (9:1 POPC:cholesterol). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [Theophylline Sensing Module](../detector-theophylline/spec.md) driving the [PLA1 Lysis Module](../effector-pla1/spec.md), giving the [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
-(chicago-chassis-reference-composition)=
+(cell-base-cytosol-popc-chol-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -32,24 +32,24 @@ flowchart TD
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
 
     P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
-    CHICAGO_CHASSIS["Chicago Chassis"]
+    CELL_BASE_CYTOSOL_POPC_CHOL["Cell: Base Cytosol, POPC/Chol (9:1)"]
 
     BASE_CYTOSOL --> P1_ENCAPSULATE_0
     MEMBRANE_CHICAGO --> P1_ENCAPSULATE_0
-    P1_ENCAPSULATE_0 --> CHICAGO_CHASSIS
+    P1_ENCAPSULATE_0 --> CELL_BASE_CYTOSOL_POPC_CHOL
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,MEMBRANE_CHICAGO leaf;
-    class CHICAGO_CHASSIS composed;
+    class CELL_BASE_CYTOSOL_POPC_CHOL composed;
     class P1_ENCAPSULATE_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
     click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
-    click CHICAGO_CHASSIS "/docs/modules/chicago-chassis/spec"
+    click CELL_BASE_CYTOSOL_POPC_CHOL "/docs/modules/cell-base-cytosol-popc-chol/spec"
 ```
 
 ::::
@@ -58,7 +58,7 @@ flowchart TD
 ::::{tab-item} Cytosol
 
 :::{warning} Cytosol Composition is not verified!
-Below is an approximate composition table for the cytosolic components in the Chicago Chassis, based on the composition of [Base Cytosol](../base-cytosol/spec.md) and have not been verified by the module developers. 
+Below is an approximate composition table for the cytosolic components in the Cell: Base Cytosol, POPC/Chol (9:1), based on the composition of [Base Cytosol](../base-cytosol/spec.md) and have not been verified by the module developers. 
 :::
 
 | Component         | Input concentration | Final concentration | Volume for one reaction (µL) |
@@ -88,14 +88,14 @@ Below is an approximate composition table for the cytosolic components in the Ch
 
 :::
 
-Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) for the full membrane spec and the SUV preparation.
+Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) for the full membrane spec and the SUV preparation.
 
 ::::
 
 ::::{tab-item} Outer Solution
 
 :::{table} Outer solution.
-:label: comp-chicago-chassis-outer
+:label: comp-cell-base-cytosol-popc-chol-outer
 
 | Component | Working concentration |
 | --- | --- |
@@ -120,12 +120,12 @@ Match outer and inner solution osmolarities empirically with a vapor-pressure os
 
 # Processes
 
-The chassis is formed by encapsulating [Base Cytosol](../base-cytosol/spec.md) in a [9:1 POPC:cholesterol membrane](../membrane-popc-chol-chicago/spec.md) using [emulsion phase transfer](../../processes/assemble-base-cell/main.md).
+The chassis is formed by encapsulating [Base Cytosol](../base-cytosol/spec.md) in a [9:1 POPC:cholesterol membrane](../membrane-popc-chol-9-1/spec.md) using [emulsion phase transfer](../../processes/assemble-base-cell/main.md).
 
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md)
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md)
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md)
 
 # Credits
 

@@ -1,5 +1,5 @@
 ---
-title: "London Cascade"
+title: "LuxR-LacZ Sensor Cascade"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-The London Cascade combines the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter](../reporter-lacz/spec.md) to turn 3OC6-HSL exposure into a visible color change. 3OC6-HSL activates the LuxR/pLux promoter inside the sensing cell, driving expression of PLA1 which then lyses its own liposome and a neighboring CPRG-loaded liposome, releasing CPRG into an outer solution containing β-galactosidase (LacZ), which then converts yellow CPRG into magenta chlorophenol red.
+The LuxR-LacZ Sensor Cascade combines the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) with the [PLA1 Lysis Module](../effector-pla1/spec.md) and the [LacZ Reporter](../reporter-lacz/spec.md) to turn 3OC6-HSL exposure into a visible color change. 3OC6-HSL activates the LuxR/pLux promoter inside the sensing cell, driving expression of PLA1 which then lyses its own liposome and a neighboring CPRG-loaded liposome, releasing CPRG into an outer solution containing β-galactosidase (LacZ), which then converts yellow CPRG into magenta chlorophenol red.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -42,9 +42,9 @@ flowchart TD
     P3_ENCAPSULATE_SUBSTRATE_0(["Encapsulation: Phase Transfer (packing)"])
     GUV_CPRG["GUV: CPRG"]
     P4_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION_LONDON["London Outer Solution"]
+    OUTER_SOLUTION_GLUTAMATE["Outer Solution: Glutamate-HEPES-Glucose"]
     P5_EMBED_ULGA_0(["Embedding: Thermal Setting (packing, 3 pairs mixing)"])
-    LONDON_CASCADE["London Cascade"]
+    LUXR_LACZ_CASCADE["LuxR-LacZ Sensor Cascade"]
 
     S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
     DETECTOR_3OC6_HSL --> P1_ASSEMBLE_CYTOSOL_0
@@ -62,21 +62,21 @@ flowchart TD
     POTASSIUM_GLUTAMATE --> P4_ASSEMBLE_OUTER_SOLUTION_0
     HEPES --> P4_ASSEMBLE_OUTER_SOLUTION_0
     GLUCOSE --> P4_ASSEMBLE_OUTER_SOLUTION_0
-    P4_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_LONDON
+    P4_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_GLUTAMATE
 
     ULGA_POWDER --> P5_EMBED_ULGA_0
-    OUTER_SOLUTION_LONDON --> P5_EMBED_ULGA_0
+    OUTER_SOLUTION_GLUTAMATE --> P5_EMBED_ULGA_0
     REPORTER_LACZ_ENZYME --> P5_EMBED_ULGA_0
     AHSL_SENSING_CELL --> P5_EMBED_ULGA_0
     GUV_CPRG --> P5_EMBED_ULGA_0
-    P5_EMBED_ULGA_0 -->|"1:1:2"| LONDON_CASCADE
+    P5_EMBED_ULGA_0 -->|"1:1:2"| LUXR_LACZ_CASCADE
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class S30_LYSATE,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,MEMBRANE_POPC,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
-    class AHSL_SENSOR_CYTOSOL,AHSL_SENSING_CELL,GUV_CPRG,OUTER_SOLUTION_LONDON,LONDON_CASCADE composed;
+    class AHSL_SENSOR_CYTOSOL,AHSL_SENSING_CELL,GUV_CPRG,OUTER_SOLUTION_GLUTAMATE,LUXR_LACZ_CASCADE composed;
     class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_SENSING_0,P3_ENCAPSULATE_SUBSTRATE_0,P4_ASSEMBLE_OUTER_SOLUTION_0,P5_EMBED_ULGA_0 process;
 
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
@@ -93,9 +93,9 @@ flowchart TD
     click P3_ENCAPSULATE_SUBSTRATE_0 "/docs/processes/assemble-base-cell/main"
     click GUV_CPRG "/docs/modules/guv-cprg/spec"
     click P4_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
-    click OUTER_SOLUTION_LONDON "/docs/modules/outer-solution-london/spec"
+    click OUTER_SOLUTION_GLUTAMATE "/docs/modules/outer-solution-glutamate/spec"
     click P5_EMBED_ULGA_0 "/docs/processes/embed-thermal-setting/main"
-    click LONDON_CASCADE "/docs/modules/london-cascade/spec"
+    click LUXR_LACZ_CASCADE "/docs/modules/luxr-lacz-cascade/spec"
 ```
 
 ::::
@@ -121,7 +121,7 @@ LuxR is not supplied as purified protein. Each London sensing construct carries 
 The [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), carrying `LuxR-PLA1` as its payload in place of `LuxR-deGFP`.
 
 :::{table} SensorCell[3OC6-HSL ⟶ PLA1] inner solution, one level deep.
-:label: comp-london-cascade-sensing
+:label: comp-luxr-lacz-cascade-sensing
 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
@@ -132,7 +132,7 @@ The [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), carrying `Lux
 :::
 
 :::{table} SensorCell[3OC6-HSL ⟶ PLA1] membrane — [Membrane: POPC](../membrane-popc/spec.md).
-:label: comp-london-cascade-sensing-membrane
+:label: comp-luxr-lacz-cascade-sensing-membrane
 
 | Component | Target percentage (%) |
 | --- | --- |
@@ -148,7 +148,7 @@ A second, dedicated liposome population carrying the chromogenic substrate. See 
 This population is made as GUVs by the same phase-transfer route as the sensing cells, not by film hydration and extrusion. It is slower, and it removes a whole process from the cascade.
 
 :::{table} Substrate liposome lumen.
-:label: comp-london-cascade-suv
+:label: comp-luxr-lacz-cascade-suv
 
 | Component | Working concentration |
 | --- | --- |
@@ -156,7 +156,7 @@ This population is made as GUVs by the same phase-transfer route as the sensing 
 :::
 
 :::{table} Substrate liposome membrane — [Membrane: POPC](../membrane-popc/spec.md).
-:label: comp-london-cascade-suv-membrane
+:label: comp-luxr-lacz-cascade-suv-membrane
 
 | Component | Target percentage (%) |
 | --- | --- |
@@ -172,7 +172,7 @@ The 100% POPC bilayer meets the Requirements of [Substrate: CPRG](../substrate-c
 Two things, assembled at different steps. The Outer Solution is mixed first; everything else enters at embedding. See [Gel: ULGA](../gel-ulga/spec.md).
 
 :::{table} Outer Solution — the three components mixed at step 4.
-:label: comp-london-cascade-outer
+:label: comp-luxr-lacz-cascade-outer
 
 | Component | Working concentration |
 | --- | --- |
@@ -182,7 +182,7 @@ Two things, assembled at different steps. The Outer Solution is mixed first; eve
 :::
 
 :::{table} Added at embedding, into the solution above.
-:label: comp-london-cascade-gel
+:label: comp-luxr-lacz-cascade-gel
 
 | Component | Working concentration |
 | --- | --- |
@@ -201,7 +201,7 @@ The first three components are the same salts and sugar at the same concentratio
 
 :::::
 
-(london-cascade-expected-behavior)=
+(luxr-lacz-cascade-expected-behavior)=
 # Expected Behavior
 
 ## Cells
@@ -224,7 +224,7 @@ Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate
 
 Requires 3OC6-HSL as the inducer and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)).
 
-Requires two separate liposome populations — the PLA1-payload sensing population and a CPRG-loaded population (e.g. [London Chassis](../london-chassis/spec.md)).
+Requires two separate liposome populations — the PLA1-payload sensing population and a CPRG-loaded population (e.g. [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md)).
 
 The readout depends on PLA1 lysing both compartments to release CPRG, so this cascade has no bulk-cytosol route.
 
@@ -268,7 +268,7 @@ The five inputs to the embedding step, which is where the cascade is made.
 - [GUV: CPRG](../guv-cprg/spec.md) — the substrate population. [Substrate: CPRG](../substrate-cprg/spec.md) is what it carries, one level further down
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — dispersed free in the gel, not encapsulated
 - [Gel: ULGA](../gel-ulga/spec.md) — the matrix, dissolved into the outer solution at embedding
-- [London Outer Solution](../outer-solution-london/spec.md) — potassium L-glutamate, HEPES and glucose, assembled first; the phase the gel sets in, matched at about 920 mOsm
+- [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md) — potassium L-glutamate, HEPES and glucose, assembled first; the phase the gel sets in, matched at about 920 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.

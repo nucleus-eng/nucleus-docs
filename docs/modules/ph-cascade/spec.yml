@@ -29,7 +29,7 @@ inputs:
     page: ../effector-pla1/spec.md
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"
-    page: ../membrane-popc-chol-chicago/spec.md
+    page: ../membrane-popc-chol-9-1/spec.md
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
@@ -78,9 +78,9 @@ process_steps:
     operator: mixing
     operands: [tris-hepes-stock, energy-solution]
     produces:
-      id: outer-solution-chicago
-      title: "Chicago Outer Solution"
-      page: ../outer-solution-chicago/spec.md
+      id: outer-solution-tris-hepes
+      title: "Outer Solution: Tris-HEPES"
+      page: ../outer-solution-tris-hepes/spec.md
     parameters:
       tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
@@ -157,11 +157,11 @@ process_steps:
           step per polymer, and one step per polymer is two processes.
     operator: packing
     operator_pairs:
-      - operands: [lga-powder, outer-solution-chicago]
+      - operands: [lga-powder, outer-solution-tris-hepes]
         operator: mixing
       - operands: [lga-powder, reporter-lacz-enzyme]
         operator: mixing
-      - operands: [outer-solution-chicago, reporter-lacz-enzyme]
+      - operands: [outer-solution-tris-hepes, reporter-lacz-enzyme]
         operator: mixing
         note: >
           Both share the outer phase and neither carries a boundary, so this
@@ -169,7 +169,7 @@ process_steps:
           that involve a membrane-bounded operand and wrong for these three.
     operands:
       - lga-powder
-      - outer-solution-chicago
+      - outer-solution-tris-hepes
       - ph-sensing-cell
       - substrate-cprg-suv
       - reporter-lacz-enzyme

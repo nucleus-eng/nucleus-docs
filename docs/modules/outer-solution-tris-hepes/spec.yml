@@ -1,4 +1,4 @@
-# Composition source for the Chicago Outer Solution.
+# Composition source for the Outer Solution: Tris-HEPES.
 #
 # WRITTEN 2026-09-21 with ../outer-solution/spec.yml. Produced by three sources under
 # one id, `chicago-outer-solution`, and never given a page. Unlike the London
@@ -8,8 +8,8 @@
 # osmolarity below sets the gel's. The polymer's own term is negligible at about 0.7
 # percent by weight.
 
-module: outer-solution-chicago
-title: "Chicago Outer Solution"
+module: outer-solution-tris-hepes
+title: "Outer Solution: Tris-HEPES"
 refines: outer-solution
 
 inputs:
@@ -29,9 +29,9 @@ process_steps:
     operator: mixing
     operands: [tris-hepes-stock, energy-solution]
     produces:
-      id: outer-solution-chicago
-      title: "Chicago Outer Solution"
-      page: ../outer-solution-chicago/spec.md
+      id: outer-solution-tris-hepes
+      title: "Outer Solution: Tris-HEPES"
+      page: ../outer-solution-tris-hepes/spec.md
     parameters:
       tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"

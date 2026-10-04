@@ -1,5 +1,5 @@
 ---
-title: "London Chassis"
+title: "Cell: S30 Lysate, POPC"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -11,7 +11,7 @@ site:
 **Position.** Refines [`cell`](../cell/spec.md). Refined by [`ahsl-sensing-cell`](../ahsl-sensing-cell/spec.md).
 <!-- /gen:position -->
 
-The London Chassis is used for the London Node's DevStudio Demo and combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), giving the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md)).
+The Cell: S30 Lysate, POPC is used for the London Node's DevStudio Demo and combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), giving the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -30,24 +30,24 @@ flowchart TD
     MEMBRANE_POPC["Membrane: POPC"]
 
     P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
-    LONDON_CHASSIS["London Chassis"]
+    CELL_S30_POPC["Cell: S30 Lysate, POPC"]
 
     S30_LYSATE --> P1_ENCAPSULATE_0
     MEMBRANE_POPC --> P1_ENCAPSULATE_0
-    P1_ENCAPSULATE_0 --> LONDON_CHASSIS
+    P1_ENCAPSULATE_0 --> CELL_S30_POPC
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class S30_LYSATE,MEMBRANE_POPC leaf;
-    class LONDON_CHASSIS composed;
+    class CELL_S30_POPC composed;
     class P1_ENCAPSULATE_0 process;
 
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
-    click LONDON_CHASSIS "/docs/modules/london-chassis/spec"
+    click CELL_S30_POPC "/docs/modules/cell-s30-popc/spec"
 ```
 
 ::::
@@ -55,7 +55,7 @@ flowchart TD
 
 ::::{tab-item} Cytosol
 
-The inner solution encapsulated into the London Chassis is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, with sucrose to assist [encapsulation by phase transfer](../../processes/assemble-base-cell/main.md), and RNase inhibitor to improve performance.
+The inner solution encapsulated into the Cell: S30 Lysate, POPC is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, with sucrose to assist [encapsulation by phase transfer](../../processes/assemble-base-cell/main.md), and RNase inhibitor to improve performance.
 
 :::{table}
 :label: comp-london-cytosol
@@ -106,7 +106,7 @@ Osmolarity of inner and outer solutions target ~920 mOsm.
 
 :::::
 
-(london-chassis-expected-behavior)=
+(cell-s30-popc-expected-behavior)=
 # Expected Behavior
 
 ## Cells

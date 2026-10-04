@@ -23,9 +23,9 @@ refines: substrate-carrier
 # because a meet over London and Chicago drew the two as unrelated slots.
 
 inputs:
-  membrane-popc-chol-chicago:
+  membrane-popc-chol-9-1:
     title: "Membrane: POPC/Chol (9:1)"
-    page: ../membrane-popc-chol-chicago/spec.md
+    page: ../membrane-popc-chol-9-1/spec.md
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
@@ -36,7 +36,7 @@ process_steps:
       title: "Encapsulation: Extrusion"
       page: ../../processes/encapsulate-suv/main.md
     operator: packing
-    operands: [membrane-popc-chol-chicago, substrate-cprg]
+    operands: [membrane-popc-chol-9-1, substrate-cprg]
     produces:
       id: substrate-cprg-suv
       title: "CPRG-loaded SUV"

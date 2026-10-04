@@ -29,7 +29,7 @@ it is a thing you can have, and its own page says how. `--depth 2` follows each
 leaf's own spec.yml where one exists, and so on. Deeper renders are for
 review material, not for module pages.
 
-    python3 scripts/render-composition.py docs/modules/london-cascade/spec.yml
+    python3 scripts/render-composition.py docs/modules/luxr-lacz-cascade/spec.yml
     python3 scripts/render-composition.py <path>/spec.yml --embed
     python3 scripts/render-composition.py <path>/spec.yml --depth 3
 """

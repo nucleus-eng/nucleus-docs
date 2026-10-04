@@ -1,5 +1,5 @@
 ---
-title: "London Outer Solution"
+title: "Outer Solution: Glutamate-HEPES-Glucose"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -34,23 +34,23 @@ flowchart TD
     GLUCOSE["Glucose"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION_LONDON["London Outer Solution"]
+    OUTER_SOLUTION_GLUTAMATE["Outer Solution: Glutamate-HEPES-Glucose"]
 
     POTASSIUM_GLUTAMATE --> P1_ASSEMBLE_OUTER_SOLUTION_0
     HEPES --> P1_ASSEMBLE_OUTER_SOLUTION_0
     GLUCOSE --> P1_ASSEMBLE_OUTER_SOLUTION_0
-    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_LONDON
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_GLUTAMATE
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
-    class OUTER_SOLUTION_LONDON composed;
+    class OUTER_SOLUTION_GLUTAMATE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0 process;
 
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
-    click OUTER_SOLUTION_LONDON "/docs/modules/outer-solution-london/spec"
+    click OUTER_SOLUTION_GLUTAMATE "/docs/modules/outer-solution-glutamate/spec"
 ```
 
 ::::

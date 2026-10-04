@@ -15,7 +15,7 @@ Embedding: Thermal Setting holds synthetic cells in an agarose gel that sets on 
 :::{table} The two grades.
 | Grade | Gel point | Melting point | Used in |
 | --- | --- | --- | --- |
-| [ULGA](../../modules/gel-ulga/spec.md) | (8–17) °C | ≤ 50 °C | [London Cascade](../../modules/london-cascade/spec.md) |
+| [ULGA](../../modules/gel-ulga/spec.md) | (8–17) °C | ≤ 50 °C | [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md) |
 | [LGA](../../modules/gel-lga/spec.md) | (26–30) °C | ≤ 65 °C | [pH Cascade](../../modules/ph-cascade/spec.md) |
 :::
 

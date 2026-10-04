@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-This membrane is a pure POPC bilayer with no cholesterol, used for every synthetic cell in the London demo. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md), which both include cholesterol. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
+This membrane is a pure POPC bilayer with no cholesterol, used for every synthetic cell in the London demo. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md), which both include cholesterol. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -108,7 +108,7 @@ To prepare this membrane, assemble 2 mg total lipids (e.g., 80 µL of a 25 mg/mL
 
 # Implementations
 
-- [London Cascade](../london-cascade/spec.md): the membrane of that cascade's synthetic cells.
+- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): the membrane of that cascade's synthetic cells.
 
 # Credits
 

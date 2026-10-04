@@ -151,7 +151,7 @@ def _own(m, entries):
     REGIME AND NOT TWO: all 10 declared impositions are `proteinase-k`,
     `uv-exposure`, `radical-acrylate-polymerization` or `thermal-hold`, and BOTH
     `thermal-hold` steps are embedding steps -- `ph-cascade/embed-agarose` and
-    `london-cascade/embed-ulga`. No step imposes anything during operation, so
+    `luxr-lacz-cascade/embed-ulga`. No step imposes anything during operation, so
     `cell`'s `thermal-operating` is unreachable by any imposition in this corpus.
     A field with one attested value is not sized yet.
     """

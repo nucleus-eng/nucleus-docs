@@ -26,8 +26,8 @@ The device is a cascade Module placed in a physical operating context: a specifi
 
 | Role | Module | State |
 | --- | --- | --- |
-| Chassis | [Chicago Chassis](../../modules/chicago-chassis/spec.md) | ★ |
-| Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-chicago/spec.md) | ★ |
+| Chassis | [Cell: Base Cytosol, POPC/Chol (9:1)](../../modules/cell-base-cytosol-popc-chol/spec.md) | ★ |
+| Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-9-1/spec.md) | ★ |
 | Sensing (aTc) | [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md) → [aTc Cascade](../../modules/atc-cascade/spec.md) | detectable response, not dose-graded |
 | Sensing (pH) | [SensorCell[pH ⟶ PLA1]](../../modules/ph-sensing-cell/spec.md) → [pH Cascade](../../modules/ph-cascade/spec.md) | integration paths confirmed separately; chain not run end to end |
 | Lysis | [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) | ★ |

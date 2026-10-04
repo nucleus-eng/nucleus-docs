@@ -93,7 +93,7 @@ open:
       647 at 0.1 uL of a 1 mM stock, with water at 2.23 uL instead of 2.33 to hold
       20 uL. Both also run a minus-Cx43 control that drops the plasmid and makes the
       volume up with water. Only the Insertion Assay is a step above, for the same
-      reason recorded on ../membrane-popc-chol-chicago/spec.yml: two steps producing
+      reason recorded on ../membrane-popc-chol-9-1/spec.yml: two steps producing
       the same id fail check-spec-schema.py with duplicate-id.
   - id: the-other-devnote-uses-a-different-backbone
     question: >

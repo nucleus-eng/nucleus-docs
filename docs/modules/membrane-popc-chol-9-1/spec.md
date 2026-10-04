@@ -41,23 +41,23 @@ flowchart TD
     LISS_RHOD_PE["Liss-Rhod PE"]
 
     P1_PREPARE_FOR_PHASE_TRANSFER_0(["Encapsulation: Phase Transfer (mixing)"])
-    MEMBRANE_POPC_CHOL_CHICAGO["Membrane: POPC/Chol (9:1)"]
+    MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
 
     POPC --> P1_PREPARE_FOR_PHASE_TRANSFER_0
     CHOLESTEROL --> P1_PREPARE_FOR_PHASE_TRANSFER_0
     LISS_RHOD_PE --> P1_PREPARE_FOR_PHASE_TRANSFER_0
-    P1_PREPARE_FOR_PHASE_TRANSFER_0 --> MEMBRANE_POPC_CHOL_CHICAGO
+    P1_PREPARE_FOR_PHASE_TRANSFER_0 --> MEMBRANE_POPC_CHOL_9_1
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class POPC,CHOLESTEROL,LISS_RHOD_PE leaf;
-    class MEMBRANE_POPC_CHOL_CHICAGO composed;
+    class MEMBRANE_POPC_CHOL_9_1 composed;
     class P1_PREPARE_FOR_PHASE_TRANSFER_0 process;
 
     click P1_PREPARE_FOR_PHASE_TRANSFER_0 "/docs/processes/assemble-base-cell/main"
-    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
 ```
 
 ::::

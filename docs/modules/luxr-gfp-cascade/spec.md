@@ -34,7 +34,7 @@ flowchart TD
     DETECTOR_3OC6_HSL["Detector: 3OC6-HSL"]
     REPORTER_DEGFP["Reporter: deGFP"]
     MEMBRANE_POPC["Membrane: POPC"]
-    OUTER_SOLUTION_LONDON["London Outer Solution"]
+    OUTER_SOLUTION_GLUTAMATE["Outer Solution: Glutamate-HEPES-Glucose"]
     ULGA_POWDER["ULGA powder"]
 
     P1_ASSEMBLE_PLASMID_0(["Plasmid assemble (mixing) — no page"])
@@ -56,7 +56,7 @@ flowchart TD
 
     LUXR_GFP_SENSOR_CYTOSOL --> P3_ENCAPSULATE_0
     MEMBRANE_POPC --> P3_ENCAPSULATE_0
-    OUTER_SOLUTION_LONDON --> P3_ENCAPSULATE_0
+    OUTER_SOLUTION_GLUTAMATE --> P3_ENCAPSULATE_0
     P3_ENCAPSULATE_0 --> LUXR_GFP_SENSING_CELL
 
     LUXR_GFP_SENSING_CELL --> P4_EMBED_ULGA_0
@@ -67,7 +67,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class S30_LYSATE,DETECTOR_3OC6_HSL,REPORTER_DEGFP,MEMBRANE_POPC,OUTER_SOLUTION_LONDON,ULGA_POWDER leaf;
+    class S30_LYSATE,DETECTOR_3OC6_HSL,REPORTER_DEGFP,MEMBRANE_POPC,OUTER_SOLUTION_GLUTAMATE,ULGA_POWDER leaf;
     class LUXR_GFP_PLASMID,LUXR_GFP_SENSOR_CYTOSOL,LUXR_GFP_SENSING_CELL,LUXR_GFP_CASCADE composed;
     class P1_ASSEMBLE_PLASMID_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P4_EMBED_ULGA_0 process;
 
@@ -75,7 +75,7 @@ flowchart TD
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
     click REPORTER_DEGFP "/docs/modules/reporter-degfp/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
-    click OUTER_SOLUTION_LONDON "/docs/modules/outer-solution-london/spec"
+    click OUTER_SOLUTION_GLUTAMATE "/docs/modules/outer-solution-glutamate/spec"
     click ULGA_POWDER "/docs/modules/gel-ulga/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
@@ -92,7 +92,7 @@ flowchart TD
 - [Detector: 3OC6-HSL](../detector-3oc6-hsl/spec.md)
 - [Reporter: deGFP](../reporter-degfp/spec.md)
 - [Membrane: POPC](../membrane-popc/spec.md)
-- [London Outer Solution](../outer-solution-london/spec.md)
+- [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md)
 - [Gel: ULGA](../gel-ulga/spec.md)
 
 ::::

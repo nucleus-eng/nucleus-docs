@@ -77,7 +77,7 @@ def reference_findings(path, doc):
 
     # operator_pairs operands must be operands OF THE STEP. Nothing checked this
     # until 2026-09-21 and a typo proved it: a rename turned
-    # `outer-solution-london` into `outer-solution-london-london` inside a pair
+    # `outer-solution-glutamate` into `outer-solution-glutamate-london` inside a pair
     # exception, the name matched no operand, and the exception silently stopped
     # applying. check-operator-pairs.py reads the list and has no way to know a
     # name in it is not in the step, so a disabled exception reads as a step that

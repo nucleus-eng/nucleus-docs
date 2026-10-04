@@ -27,7 +27,7 @@ This page specifies the demo as it is intended. The demo has not run.
 | Detector | [Detector: pH-Sensing](../../modules/detector-ph/spec.md) | the pH-responsive and trigger strands, annealed 3:1 |
 | Lysis | [Lysis: PLA1](../../modules/effector-pla1/spec.md) | expressed from the `pT7-toehold9-PLA1` template |
 | Cytosol | [Base Cytosol](../../modules/base-cytosol/spec.md) | inside the synthetic cells |
-| Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-chicago/spec.md) | with 0.1 mol% Liss Rhod PE, on both the synthetic cells and the LUVs |
+| Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-9-1/spec.md) | with 0.1 mol% Liss Rhod PE, on both the synthetic cells and the LUVs |
 | Substrate | [Substrate: CPRG](../../modules/substrate-cprg/spec.md) | 14.25 mg/mL inside the LUVs |
 | Gel | [Gel: LGA](../../modules/gel-lga/spec.md) | 0.7% (w/v) in the set gel |
 | Reporter | [Reporter: LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) | in the basic buffer, added after the sensing step |

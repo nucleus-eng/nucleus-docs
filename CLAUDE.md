@@ -213,9 +213,9 @@ python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  
 | `render-meet.py` | the cross-demo meets | `tmp/generated/` |
 | `render-posets.py` | the poset draft | `tmp/generated/` |
 
-**The last two write to `tmp/` because their subject is not one module.** A meet spans several integration paths and the poset draft spans the corpus, so neither has a page to sit on. The cross-demo meet's outcome slot reports NO COMMON ANCESTOR over aTc Cascade, London Cascade and pH Cascade: the class that would hold them is deliberately unwritten, and giving the figure a home would settle that by making a generator convenient.
+**The last two write to `tmp/` because their subject is not one module.** A meet spans several integration paths and the poset draft spans the corpus, so neither has a page to sit on. The cross-demo meet's outcome slot reports NO COMMON ANCESTOR over aTc Cascade, LuxR-LacZ Sensor Cascade and pH Cascade: the class that would hold them is deliberately unwritten, and giving the figure a home would settle that by making a generator convenient.
 
-**A meet over one integration path is the composition diagram restated.** Every cascade source has exactly one integration path, so a meet is asked for the paths it spans, by name. The set `render-all.py` renders is `atc-cascade` and `ph-cascade` alone, then those two with `london-cascade`, which is three integration paths and every detector in the corpus.
+**A meet over one integration path is the composition diagram restated.** Every cascade source has exactly one integration path, so a meet is asked for the paths it spans, by name. The set `render-all.py` renders is `atc-cascade` and `ph-cascade` alone, then those two with `luxr-lacz-cascade`, which is three integration paths and every detector in the corpus.
 
 **Run `render-all.py` after any `spec.yml` change.** A source change that leaves the rendered diagram behind is drift one level down.
 
@@ -266,7 +266,7 @@ only because `gel-ulga`'s own page says *"Works from 0.2% to 0.5% in the set gel
 for that range missed it, because the page writes `0.2% to 0.5%` and the pattern allowed no `%`
 between. **A search that finds nothing is not evidence; widen it before you act on it.**
 
-**`# Constituent Modules` stays as prose and the yml is the contract for tooling** (Jon, 2026-09-09). Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `london-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
+**`# Constituent Modules` stays as prose and the yml is the contract for tooling** (Jon, 2026-09-09). Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `luxr-lacz-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
 
 Two generators currently read two different sources into the same markers; see issue #250 before running the other one.
 

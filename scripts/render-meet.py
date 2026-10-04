@@ -12,13 +12,13 @@ computation here exists because the second has no meaning for the first. The
 house style, the shapes, the click targets and the "— no page" wording are
 reused unchanged.
 
-    python3 scripts/render-meet.py docs/modules/london-cascade/spec.yml \
+    python3 scripts/render-meet.py docs/modules/luxr-lacz-cascade/spec.yml \
                                    docs/modules/atc-cascade/spec.yml
 
 FOUR RULES, each with the measurement that forced it.
 
 1. A LEG IS NOT A FILE, AND THE PARTITION KEY IS THE DETECTOR. Measured against a
-   multiplex source that held two legs while london-cascade holds one: walking back
+   multiplex source that held two legs while luxr-lacz-cascade holds one: walking back
    from each operand of the final step was right for the multiplex, whose `bond-gels`
    had two operands that separated the paths, and wrong for London, whose
    `embed-ulga` has five and would give five branches. A leg is a branch reaching
@@ -62,7 +62,7 @@ FOUR RULES, each with the measurement that forced it.
    module flowing into it may be abstract.
 
 4. RESOLVE EVERY OPERAND TO ITS PAGE, NEVER TO ITS KEY. `membrane-chicago` and
-   `membrane-popc-chol-chicago` name one module, so a key-based walk reaches it
+   `membrane-popc-chol-9-1` name one module, so a key-based walk reaches it
    twice and marks a slot abstract where the legs in fact agree. That failure
    manufactures a design decision rather than hiding one.
 
@@ -448,7 +448,7 @@ if __name__ == "__main__":
         """The trailing word every title shares, or None.
 
         THIS IS MEASURED, NOT COINED. The spec forbids inventing a parent name for a
-        slot with no common ancestor, and it is right to. But "London Cascade", "aTc
+        slot with no common ancestor, and it is right to. But "LuxR-LacZ Sensor Cascade", "aTc
         Cascade" and "pH Cascade" share the word Cascade in the titles their own pages
         carry, so reporting it states what the corpus already says rather than naming a
         class nobody wrote. The node still leads with the warning.
@@ -506,7 +506,7 @@ if __name__ == "__main__":
         else:
             # THE FIGURE STILL NAMES THE THING. Jon, 2026-09-21: "NO COMMON
             # ANCESTOR is a good warn level message, but the figure should still say
-            # Cascade or London Cascade slash Chicago Cascade." A node a reader cannot
+            # Cascade or LuxR-LacZ Sensor Cascade slash Chicago Cascade." A node a reader cannot
             # name is a node they skip, and the warning is worth less for it.
             tag = f" — {label_for}" if label_for else ""
             tail = shared_tail(shown)

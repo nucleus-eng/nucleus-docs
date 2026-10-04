@@ -22,7 +22,7 @@ This page is a work in progress and not yet ready for use.
 
 The aTc Cascade combines its Modules as follows:
 
-- **Sensing input:** [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — the `TetO-PLA1` sensing construct, gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell.
+- **Sensing input:** [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — the `TetO-PLA1` sensing construct, gated by aTc/TetR, encapsulated in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the aTc/TetR sensing circuit fires; couples sensing to readout. In the confirmed result, this is co-encapsulated in the same synthetic cell as the sensing construct rather than triggering a separate neighboring liposome.
 - **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — LacZ/CPRG chemistry, with the enzyme encapsulated and the substrate outside, so color appears only once lysis brings them together.
 
@@ -46,7 +46,7 @@ flowchart TD
     LAP["LAP photoinitiator"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION_CHICAGO["Chicago Outer Solution"]
+    OUTER_SOLUTION_TRIS_HEPES["Outer Solution: Tris-HEPES"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     ATC_SENSOR_CYTOSOL["SensorCytosol[aTc ⟶ PLA1]"]
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
@@ -59,7 +59,7 @@ flowchart TD
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
     ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
-    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_CHICAGO
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_TRIS_HEPES
 
     BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
     DETECTOR_TETR_ATC --> P2_ASSEMBLE_CYTOSOL_0
@@ -75,7 +75,7 @@ flowchart TD
     PEG_NORBORNENE_MONOMER --> P4_EMBED_PHOTODEVELOPMENT_0
     PEG4SH --> P4_EMBED_PHOTODEVELOPMENT_0
     LAP --> P4_EMBED_PHOTODEVELOPMENT_0
-    OUTER_SOLUTION_CHICAGO --> P4_EMBED_PHOTODEVELOPMENT_0
+    OUTER_SOLUTION_TRIS_HEPES --> P4_EMBED_PHOTODEVELOPMENT_0
     ATC_SENSING_CELL --> P4_EMBED_PHOTODEVELOPMENT_0
     P4_EMBED_PHOTODEVELOPMENT_0 --> ATC_GEL
 
@@ -88,18 +88,18 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,TRIS_HEPES_STOCK,ENERGY_SOLUTION,PEG_NORBORNENE_MONOMER,PEG4SH,LAP leaf;
-    class OUTER_SOLUTION_CHICAGO,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE composed;
+    class OUTER_SOLUTION_TRIS_HEPES,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P3_ENCAPSULATE_1,P4_EMBED_PHOTODEVELOPMENT_0,P5_DOSE_CPRG_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click PEG_NORBORNENE_MONOMER "/docs/modules/gel-peg-norbornene/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
-    click OUTER_SOLUTION_CHICAGO "/docs/modules/outer-solution-chicago/spec"
+    click OUTER_SOLUTION_TRIS_HEPES "/docs/modules/outer-solution-tris-hepes/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
@@ -141,7 +141,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 
 ::::{tab-item} Membrane
 
-:::{table} Synthetic cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:::{table} Synthetic cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 :label: comp-atc-cascade-membrane
 
 | Component | Target percentage (%) |
@@ -201,7 +201,7 @@ This Module has not been validated in hydrogels. The aTc-response result above i
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the `TetO-PLA1` construct, and TetR as the repressor holding it off in the absence of aTc (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)).
 
-Requires a lipid compartment for PLA1 to lyse (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout is produced by lysis releasing CPRG to LacZ, so this cascade has no bulk-cytosol route.
+Requires a lipid compartment for PLA1 to lyse (e.g. [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md)). The readout is produced by lysis releasing CPRG to LacZ, so this cascade has no bulk-cytosol route.
 
 Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (see [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
@@ -209,7 +209,7 @@ Must not be exposed to theophylline, which is reported to interfere with LacZ ac
 
 # Processes
 
-Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md). Hydrogel embedding of this cascade is not documented.
+Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). Hydrogel embedding of this cascade is not documented.
 
 :::{attention} Process gap
 @Editor(chicago): no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
@@ -217,7 +217,7 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 
 # Constituent Modules
 
-- [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Chicago Chassis synthetic cell
+- [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the sensing reaction at 2.5 U/mL
 - [Substrate: CPRG](../substrate-cprg/spec.md) — dosed free into the gel after crosslinking, because UV bleaches it. This path carries no substrate liposome
 

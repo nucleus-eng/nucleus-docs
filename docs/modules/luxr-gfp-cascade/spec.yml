@@ -15,7 +15,7 @@
 #
 # THIS IS ONE OF TWO 3OC6-HSL DEMOS. The other is craic-cascade, which senses the
 # same analyte in Base Cytosol and reports colour. Both were pitched; the corpus
-# had one London Cascade because two were expected and four were pitched.
+# had one LuxR-LacZ Sensor Cascade because two were expected and four were pitched.
 
 module: luxr-gfp-cascade
 title: LuxR-GFP Sensor Cascade
@@ -33,9 +33,9 @@ inputs:
   membrane-popc:
     title: "Membrane: POPC"
     page: ../membrane-popc/spec.md
-  outer-solution-london:
-    title: "London Outer Solution"
-    page: ../outer-solution-london/spec.md
+  outer-solution-glutamate:
+    title: "Outer Solution: Glutamate-HEPES-Glucose"
+    page: ../outer-solution-glutamate/spec.md
   ulga-powder:
     title: "ULGA powder"
     owner: vendor
@@ -81,7 +81,7 @@ process_steps:
       title: "Encapsulation: Phase Transfer"
       page: ../../processes/assemble-base-cell/main.md
     operator: packing
-    operands: [luxr-gfp-sensor-cytosol, membrane-popc, outer-solution-london]
+    operands: [luxr-gfp-sensor-cytosol, membrane-popc, outer-solution-glutamate]
     produces:
       id: luxr-gfp-sensing-cell
       title: "SensorCell[3OC6-HSL ⟶ GFP]"

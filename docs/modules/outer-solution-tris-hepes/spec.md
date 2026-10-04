@@ -1,5 +1,5 @@
 ---
-title: "Chicago Outer Solution"
+title: "Outer Solution: Tris-HEPES"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -40,22 +40,22 @@ flowchart TD
     ENERGY_SOLUTION["Energy solution"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION_CHICAGO["Chicago Outer Solution"]
+    OUTER_SOLUTION_TRIS_HEPES["Outer Solution: Tris-HEPES"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
     ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
-    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_CHICAGO
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_TRIS_HEPES
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
-    class OUTER_SOLUTION_CHICAGO composed;
+    class OUTER_SOLUTION_TRIS_HEPES composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0 process;
 
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
-    click OUTER_SOLUTION_CHICAGO "/docs/modules/outer-solution-chicago/spec"
+    click OUTER_SOLUTION_TRIS_HEPES "/docs/modules/outer-solution-tris-hepes/spec"
 ```
 
 ::::

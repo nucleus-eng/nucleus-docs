@@ -15,7 +15,7 @@
 # THE PURIFIED-PROTEIN ROUTE IS HERE AND THE IN-SITU ROUTE IS NOT. The page says the
 # Module can be implemented from purified proteins, from DNA templates expressed in
 # situ, or from combinations of the two. The schema cannot hold three routes to one
-# product — see ../membrane-popc-chol-chicago/spec.yml, where two were tried and the
+# product — see ../membrane-popc-chol-9-1/spec.yml, where two were tried and the
 # validator rejected the second with duplicate-id. See the questions below.
 #
 # THE PAGE'S FOUR COLUMNS ARE A FACTORIAL ASSAY. Only Sample 1 carries both
@@ -91,7 +91,7 @@ open:
       combinations of the two. Only the first is a step above. The schema has no key
       for alternative routes and two steps producing the same id fail
       check-spec-schema.py with duplicate-id — measured on
-      ../membrane-popc-chol-chicago/spec.yml, not assumed. The In Situ Expression tab
+      ../membrane-popc-chol-9-1/spec.yml, not assumed. The In Situ Expression tab
       is therefore unrepresented here, and "combinations thereof" is a third route
       that no single step could hold even if the schema allowed two.
   - id: four-columns-are-a-factorial

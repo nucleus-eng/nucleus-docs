@@ -37,17 +37,17 @@ flowchart TD
     GLUCOSE["Glucose"]
 
     P1_ASSEMBLE_OUTER_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION_LONDON["London outer solution"]
+    OUTER_SOLUTION_GLUTAMATE["London outer solution"]
     P2_SET_THERMAL_0(["Embedding: Thermal Setting (mixing)"])
     GEL_ULGA["Gel: ULGA"]
 
     POTASSIUM_GLUTAMATE --> P1_ASSEMBLE_OUTER_0
     HEPES --> P1_ASSEMBLE_OUTER_0
     GLUCOSE --> P1_ASSEMBLE_OUTER_0
-    P1_ASSEMBLE_OUTER_0 --> OUTER_SOLUTION_LONDON
+    P1_ASSEMBLE_OUTER_0 --> OUTER_SOLUTION_GLUTAMATE
 
     ULGA_POWDER --> P2_SET_THERMAL_0
-    OUTER_SOLUTION_LONDON --> P2_SET_THERMAL_0
+    OUTER_SOLUTION_GLUTAMATE --> P2_SET_THERMAL_0
     P2_SET_THERMAL_0 -->|"1:1 with the cell suspension, halving the ULGA to its final figure"| GEL_ULGA
 
 
@@ -55,7 +55,7 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class ULGA_POWDER,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
-    class OUTER_SOLUTION_LONDON,GEL_ULGA composed;
+    class OUTER_SOLUTION_GLUTAMATE,GEL_ULGA composed;
     class P1_ASSEMBLE_OUTER_0,P2_SET_THERMAL_0 process;
 
     click P1_ASSEMBLE_OUTER_0 "/docs/processes/assemble-outer-solution/main"
@@ -84,7 +84,7 @@ flowchart TD
 
 :::::
 
-Unlike the other three gels, ULGA is specified together with its solution rather than as an additive to someone else's. The salts and sugar above are the [London Chassis](../london-chassis/spec.md) outer solution, which matches inner to outer at about 920 mOsm.
+Unlike the other three gels, ULGA is specified together with its solution rather than as an additive to someone else's. The salts and sugar above are the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) outer solution, which matches inner to outer at about 920 mOsm.
 
 **Osmolarity is additive.** The figure above is the sum of every component's contribution, the polymer included. At 1% (w/v) the ULGA itself adds on the order of 0.1 mOsm — negligible against 920, but not zero. The salts and sugar set it.
 
@@ -110,7 +110,7 @@ The gel point (8–17) °C and the melting point (≤ 50 °C) are the supplier's
 
 | Configuration | Osmolarity | Used with |
 | --- | --- | --- |
-| Standard, with the London Chassis outer solution | ~920 mOsm | [S30 Lysate](../s30-lysate/spec.md) cells |
+| Standard, with the Cell: S30 Lysate, POPC outer solution | ~920 mOsm | [S30 Lysate](../s30-lysate/spec.md) cells |
 | High-glucose, 1200 mM glucose + 0.1 mM CaCl₂ | ~1200 mOsm | [Base Cytosol](../base-cytosol/spec.md) cells, where CPRG retention matters |
 
 **The upper figure is a threshold, not a preference.** Above roughly 1200 mOsm, CPRG leakage from loaded liposomes falls sharply — so the high-glucose configuration is chosen for dye retention, not for the cells' sake.

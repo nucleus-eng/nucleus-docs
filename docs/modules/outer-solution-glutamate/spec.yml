@@ -1,16 +1,16 @@
-# Composition source for the London Outer Solution.
+# Composition source for the Outer Solution: Glutamate-HEPES-Glucose.
 #
 # WRITTEN 2026-09-21 with ../outer-solution/spec.yml. This formulation had no page and
-# TWO produced ids: london-cascade called it `outer-solution` and gel-ulga called it
+# TWO produced ids: luxr-lacz-cascade called it `outer-solution` and gel-ulga called it
 # `london-outer-solution`, with the same three operands and the same osmolarity in both.
 # One formulation, two names, and nothing compared them, which is the membrane-chicago
 # alias in a second place.
 #
-# THE FIGURES COME FROM gel-ulga, which is the source that carried them. london-cascade
+# THE FIGURES COME FROM gel-ulga, which is the source that carried them. luxr-lacz-cascade
 # recorded only the osmolarity and left the three solutes to the page.
 
-module: outer-solution-london
-title: "London Outer Solution"
+module: outer-solution-glutamate
+title: "Outer Solution: Glutamate-HEPES-Glucose"
 refines: outer-solution
 
 inputs:
@@ -33,9 +33,9 @@ process_steps:
     operator: mixing
     operands: [potassium-glutamate, hepes, glucose]
     produces:
-      id: outer-solution-london
-      title: "London Outer Solution"
-      page: ../outer-solution-london/spec.md
+      id: outer-solution-glutamate
+      title: "Outer Solution: Glutamate-HEPES-Glucose"
+      page: ../outer-solution-glutamate/spec.md
     parameters:
       potassium_glutamate: "578 mM"
       hepes: "72 mM, pH 7.4"

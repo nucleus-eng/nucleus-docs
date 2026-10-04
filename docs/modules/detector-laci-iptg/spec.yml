@@ -89,7 +89,7 @@ open:
       file follows it. The two are not equivalent — one is a fixed dose and the other
       is an expression level — and the schema has one operand slot for either. This
       is the same "one of these" shape flagged on ../detector-ph/spec.yml and
-      ../membrane-popc-chol-chicago/spec.yml.
+      ../membrane-popc-chol-9-1/spec.yml.
   - id: purexpress-is-not-a-module
     question: >
       Solutions A and B carry the whole transcription-translation system and have no

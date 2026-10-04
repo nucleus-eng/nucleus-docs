@@ -59,7 +59,7 @@ flowchart TD
 :::{table} What each member dissolves its polymer into.
 | Member | Outer solution |
 | --- | --- |
-| [Gel: ULGA](../gel-ulga/spec.md) | [London Outer Solution](../outer-solution-london/spec.md) |
+| [Gel: ULGA](../gel-ulga/spec.md) | [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md) |
 | [Gel: LGA](../gel-lga/spec.md) | an [Outer Solution](../outer-solution/spec.md) |
 | [Gel: Alginate](../gel-alginate/spec.md) | a buffer matched to what is embedded, normally that population's own outer solution |
 | [Gel: PEG-Norbornene](../gel-peg-norbornene/spec.md) | PBS, deionized water or a buffer |

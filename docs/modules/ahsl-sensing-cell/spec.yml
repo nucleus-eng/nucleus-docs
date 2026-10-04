@@ -19,7 +19,7 @@ refines:
   # Which chassis is read off the constituents, not the demo name.
   # FUNCTIONAL PARENT FIRST -- the meet renderer aligns on entry one.
   - sensing-cell
-  - london-chassis
+  - cell-s30-popc
 
 inputs:
   s30-lysate:

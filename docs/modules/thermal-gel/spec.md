@@ -61,7 +61,7 @@ flowchart TD
 :::{table} What each member sets, and in what.
 | Member | Polymer | Outer solution |
 | --- | --- | --- |
-| [Gel: ULGA](../gel-ulga/spec.md) | ULGA (ultra-low-gelling-temperature agarose) | [London Outer Solution](../outer-solution-london/spec.md) |
+| [Gel: ULGA](../gel-ulga/spec.md) | ULGA (ultra-low-gelling-temperature agarose) | [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md) |
 | [Gel: LGA](../gel-lga/spec.md) | LGA (low-gelling-temperature agarose) | an [Outer Solution](../outer-solution/spec.md) |
 :::
 

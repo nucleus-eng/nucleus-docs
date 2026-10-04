@@ -18,7 +18,7 @@ refines:
   # Which chassis is read off the constituents, not the demo name.
   # FUNCTIONAL PARENT FIRST -- the meet renderer aligns on entry one.
   - sensing-cell
-  - chicago-chassis
+  - cell-base-cytosol-popc-chol
 
 inputs:
   base-cytosol:
@@ -35,7 +35,7 @@ inputs:
     page: ../reporter-lacz-enzyme/spec.md
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"
-    page: ../membrane-popc-chol-chicago/spec.md
+    page: ../membrane-popc-chol-9-1/spec.md
 
 process_steps:
   - id: assemble-cytosol

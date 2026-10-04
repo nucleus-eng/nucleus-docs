@@ -66,7 +66,7 @@ open:
       membrane." The schema has no key for that. Marking both lipids `optional` would
       assert they can be freely omitted or combined, which the page denies, and two
       steps producing the same id fail check-spec-schema.py with duplicate-id —
-      measured on membrane-popc-chol-chicago, not assumed. The missing route in full,
+      measured on membrane-popc-chol-9-1, not assumed. The missing route in full,
       so nothing is lost — fluorescently labeled membrane, target 99.9 mol% POPC :
       0.1 mol% 18:1 Cyanine 5 PC, POPC 25 mg/mL stock at 79.863 uL, Cyanine 5 PC
       1 mg/mL stock at 3.423 uL, 2.00 mg total lipid, single-batch scale. It is the

@@ -29,7 +29,7 @@ inputs:
     page: ../reporter-lacz-enzyme/spec.md
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"
-    page: ../membrane-popc-chol-chicago/spec.md
+    page: ../membrane-popc-chol-9-1/spec.md
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
@@ -58,9 +58,9 @@ process_steps:
     operator: mixing
     operands: [tris-hepes-stock, energy-solution]
     produces:
-      id: outer-solution-chicago
-      title: "Chicago Outer Solution"
-      page: ../outer-solution-chicago/spec.md
+      id: outer-solution-tris-hepes
+      title: "Outer Solution: Tris-HEPES"
+      page: ../outer-solution-tris-hepes/spec.md
     parameters:
       tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
@@ -136,15 +136,15 @@ process_steps:
       # lap is NOT here. It is a photoinitiator, the checker gives it its own sort on
       # purpose, and stretching `polymer` to cover a small-molecule initiator would
       # extend the seed by a sort assignment. Its pairs report unknown and should.
-      - operands: [peg-norbornene-monomer, outer-solution-chicago]
+      - operands: [peg-norbornene-monomer, outer-solution-tris-hepes]
         operator: mixing
-      - operands: [peg4sh, outer-solution-chicago]
+      - operands: [peg4sh, outer-solution-tris-hepes]
         operator: mixing
     operands:
       - peg-norbornene-monomer
       - peg4sh
       - lap
-      - outer-solution-chicago
+      - outer-solution-tris-hepes
       - atc-sensing-cell
     produces:
       id: atc-gel

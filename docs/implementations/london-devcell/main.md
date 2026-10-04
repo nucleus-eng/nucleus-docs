@@ -34,12 +34,12 @@ The distinguishing feature against the Chicago device is the analyte source: the
 | --- | --- | --- |
 | Cytosol | [S30 Lysate](../../modules/s30-lysate/spec.md) | ★ |
 | Membrane | [Membrane: POPC](../../modules/membrane-popc/spec.md) | ★ |
-| Chassis | [London Chassis](../../modules/london-chassis/spec.md) | ★ |
+| Chassis | [Cell: S30 Lysate, POPC](../../modules/cell-s30-popc/spec.md) | ★ |
 | Sensing | [3OC6-HSL Detector](../../modules/detector-3oc6-hsl/spec.md) → [SensorCell[3OC6-HSL ⟶ PLA1]](../../modules/ahsl-sensing-cell/spec.md) | characterized in lysate; leaky |
 | Lysis | [PLA1 Lysis Module](../../modules/effector-pla1/spec.md) | ★ |
 | Substrate | [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md) | ★ |
 | Readout | [LacZ Reporter](../../modules/reporter-lacz/spec.md) · [XylE / C23DO](../../modules/reporter-xyle/spec.md) | LacZ used; XylE proposed |
-| Cascade | [London Cascade](../../modules/london-cascade/spec.md) | integration paths confirmed separately |
+| Cascade | [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md) | integration paths confirmed separately |
 
 :::{note} This device uses a different 3OC6-HSL sensor from the published Nucleus one
 The distribution's existing homoserine-lactone work is the [IV-HSL Emitter](../../modules/emitter-ivhsl/spec.md): BjaI makes IV-HSL, a branched acyl-homoserine lactone, and a co-cultured *E. coli* strain carrying `bjaR-GFP-native` does the sensing. This device instead senses 3OC6-HSL with LuxR/pLux, inside a synthetic cell. Different analyte, different receptor, different host for the sensing step. Both sense a homoserine lactone and they are not interchangeable.

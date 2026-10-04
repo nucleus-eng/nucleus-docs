@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`solution`](../solution/spec.md). Refined by [`outer-solution-chicago`](../outer-solution-chicago/spec.md), [`outer-solution-london`](../outer-solution-london/spec.md).
+**Position.** Refines [`solution`](../solution/spec.md). Refined by [`outer-solution-glutamate`](../outer-solution-glutamate/spec.md), [`outer-solution-tris-hepes`](../outer-solution-tris-hepes/spec.md).
 <!-- /gen:position -->
 
 A class: the aqueous phase a synthetic cell is suspended in.
@@ -58,8 +58,8 @@ flowchart TD
 :::{table} What each member mixes, and the osmolarity it reaches.
 | Member | Solutes | Osmolarity |
 | --- | --- | --- |
-| [London Outer Solution](../outer-solution-london/spec.md) | potassium glutamate, HEPES, glucose | ~920 mOsm |
-| [Chicago Outer Solution](../outer-solution-chicago/spec.md) | Tris-HEPES stock, energy solution | ~1180 mOsm |
+| [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md) | potassium glutamate, HEPES, glucose | ~920 mOsm |
+| [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) | Tris-HEPES stock, energy solution | ~1180 mOsm |
 :::
 
 ::::

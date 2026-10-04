@@ -116,7 +116,7 @@ open:
       for the demo, which uses `pT7-toehold9-PLA1`. The schema has one operand slot
       for the template and no way to say "one of these three", so `toehold-switch-dna`
       above is the role and the comment names the variants. The same shape as the
-      alternative-route question on ../membrane-popc-chol-chicago/spec.yml.
+      alternative-route question on ../membrane-popc-chol-9-1/spec.yml.
   - id: no-process-page-for-the-assembly
     question: >
       Step 2 has `page: null` because the page states no process page covers

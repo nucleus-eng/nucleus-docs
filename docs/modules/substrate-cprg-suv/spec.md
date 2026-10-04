@@ -31,13 +31,13 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
-    MEMBRANE_POPC_CHOL_CHICAGO["Membrane: POPC/Chol (9:1)"]
+    MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
     P1_HYDRATE_AND_EXTRUDE_0(["Encapsulation: Extrusion (packing)"])
     SUBSTRATE_CPRG_SUV["CPRG-loaded SUV"]
 
-    MEMBRANE_POPC_CHOL_CHICAGO --> P1_HYDRATE_AND_EXTRUDE_0
+    MEMBRANE_POPC_CHOL_9_1 --> P1_HYDRATE_AND_EXTRUDE_0
     SUBSTRATE_CPRG --> P1_HYDRATE_AND_EXTRUDE_0
     P1_HYDRATE_AND_EXTRUDE_0 --> SUBSTRATE_CPRG_SUV
 
@@ -45,11 +45,11 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class MEMBRANE_POPC_CHOL_CHICAGO,SUBSTRATE_CPRG leaf;
+    class MEMBRANE_POPC_CHOL_9_1,SUBSTRATE_CPRG leaf;
     class SUBSTRATE_CPRG_SUV composed;
     class P1_HYDRATE_AND_EXTRUDE_0 process;
 
-    click MEMBRANE_POPC_CHOL_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click P1_HYDRATE_AND_EXTRUDE_0 "/docs/processes/encapsulate-suv/main"
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
@@ -70,7 +70,7 @@ flowchart TD
 
 :::
 
-See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 
 ::::
 
@@ -126,7 +126,7 @@ The confirmed workaround for PEG-norbornene is to invert the order — pre-add L
 # Implementations
 
 - [pH Cascade](../ph-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
-- [London Cascade](../london-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
+- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
 
 # Processes
 
@@ -154,7 +154,7 @@ The two methods leave different residual-substrate profiles, and residual free C
 
 # Constituent Modules
 
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — the bilayer, 90:10 POPC:cholesterol by its extrusion route
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — the bilayer, 90:10 POPC:cholesterol by its extrusion route
 - [Substrate: CPRG](../substrate-cprg/spec.md) — the lumen, 50 mM at hydration
 
 # Credits

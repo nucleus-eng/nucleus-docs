@@ -15,7 +15,7 @@ site:
 
 The 3OC6-HSL Detector module is a LuxR/pLux genetic sensor that detects the _E. coli_ quorum-sensing molecule 3-oxohexanoyl-L-homoserine lactone or 3OC6-HSL. LuxR binds 3OC6-HSL and activates the pLux promoter, driving expression of a downstream effector gene (e.g., [deGFP](../reporter-degfp/spec.md)). 
 
-This Module is composed into the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), driving GFP expression, and the [London Cascade](../london-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
+This Module is composed into the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), driving GFP expression, and the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -140,7 +140,7 @@ Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM,
 
 ## Cells
 
-This module has been validated in [S30 Lysate Synthetic Cells](../london-chassis/spec.md) with extracellular target molecule at 10 µM.
+This module has been validated in [S30 Lysate Synthetic Cells](../cell-s30-popc/spec.md) with extracellular target molecule at 10 µM.
 
 :::{attention} Missing Characterization Data
 @Editor(london): supply a microscopy image of cells with (+) and without (-) target molecule.
@@ -154,7 +154,7 @@ Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required:
 
 # Implementations
 
-- [London Cascade](../london-cascade/spec.md): supplies the 3OC6-HSL sensing for that cascade.
+- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies the 3OC6-HSL sensing for that cascade.
 
 # Processes
 

@@ -13,7 +13,7 @@ site:
 **Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-A CPRG GUV is a giant unilamellar liposome carrying chlorophenol red-β-D-galactopyranoside (CPRG) and nothing else. It is the substrate population of the [London Cascade](../london-cascade/spec.md), and it exists so that CPRG and its enzyme never meet until something lyses the membrane.
+A CPRG GUV is a giant unilamellar liposome carrying chlorophenol red-β-D-galactopyranoside (CPRG) and nothing else. It is the substrate population of the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), and it exists so that CPRG and its enzyme never meet until something lyses the membrane.
 
 CPRG is yellow. β-galactosidase (LacZ) cleaves it to chlorophenol red, which is magenta. Holding the substrate inside a liposome makes that conversion triggerable: while the bilayer is intact, [LacZ](../reporter-lacz-enzyme/spec.md) sits outside in the gel and reaches nothing. When a neighboring sensing cell expresses [PLA1](../effector-pla1/spec.md) and lyses, it breaches these liposomes too, and the released CPRG meets the enzyme.
 
@@ -24,7 +24,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{note} A CPRG SUV form also exists
-Both cell populations in the [London Cascade](../london-cascade/spec.md) come from the same phase-transfer route, which removes a whole process from the build. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is the SUV form, made by film hydration and extrusion, and the Chicago pH path uses it.
+Both cell populations in the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) come from the same phase-transfer route, which removes a whole process from the build. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is the SUV form, made by film hydration and extrusion, and the Chicago pH path uses it.
 :::
 
 (guv-cprg-reference-composition)=
@@ -102,7 +102,7 @@ An intact CPRG GUV produces no signal. That is the whole function: the populatio
 On PLA1-triggered lysis of a neighboring sensing cell, released CPRG meets LacZ in the surrounding gel and gives a yellow-to-magenta change, read by absorbance and by eye.
 
 :::{attention} Not yet characterized in this form
-This population has no performance data of its own. The [London Cascade](../london-cascade/spec.md) results were obtained with the [SUV form](../substrate-cprg-suv/spec.md), and rupture in that cascade is temperamental — the cells do not always lyse. Treat the GUV form as unvalidated.
+This population has no performance data of its own. The [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) results were obtained with the [SUV form](../substrate-cprg-suv/spec.md), and rupture in that cascade is temperamental — the cells do not always lyse. Treat the GUV form as unvalidated.
 :::
 
 (guv-cprg-requirements)=
@@ -114,7 +114,7 @@ Requires a lysis trigger to breach the membrane (e.g. [PLA1 Lysis Module](../eff
 
 Requires that no LacZ share a compartment with the CPRG before the trigger fires. Co-encapsulating the two makes the readout constitutive.
 
-Requires an outer solution matched to the lumen. The [London Chassis](../london-chassis/spec.md) outer solution sits at about 920 mOsm, and matching it keeps CPRG from being driven across the bilayer before the cascade fires.
+Requires an outer solution matched to the lumen. The [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) outer solution sits at about 920 mOsm, and matching it keeps CPRG from being driven across the bilayer before the cascade fires.
 
 :::{warning} Do not expose CPRG to UV light
 CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules out any photodeveloped gel for this population. ULGA sets thermally and involves no illumination, so it is compatible — see [Gel: ULGA](../gel-ulga/spec.md).
@@ -122,7 +122,7 @@ CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules 
 
 # Implementations
 
-- [London Cascade](../london-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
+- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies the substrate for that cascade's colorimetric readout.
 
 # Processes
 

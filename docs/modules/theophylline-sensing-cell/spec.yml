@@ -19,7 +19,7 @@ refines:
   # Which chassis is read off the constituents, not the demo name.
   # FUNCTIONAL PARENT FIRST -- the meet renderer aligns on entry one.
   - sensing-cell
-  - chicago-chassis
+  - cell-base-cytosol-popc-chol
 
 inputs:
   base-cytosol:
@@ -30,7 +30,7 @@ inputs:
     page: ../detector-theophylline/spec.md
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"
-    page: ../membrane-popc-chol-chicago/spec.md
+    page: ../membrane-popc-chol-9-1/spec.md
 
 process_steps:
   - id: assemble-cytosol
@@ -74,7 +74,7 @@ open:
       cannot disagree about what the intermediate is.
   - id: chassis-is-a-sibling
     question: >
-      The Cytosol tab of spec.md lists Chicago Chassis as a constituent of this
+      The Cytosol tab of spec.md lists Cell: Base Cytosol, POPC/Chol (9:1) as a constituent of this
       Cell, at "Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol
       synthetic cell membrane". Structurally the chassis is a sibling, not an
       ingredient: both pack a cytosol in the same membrane and differ only in

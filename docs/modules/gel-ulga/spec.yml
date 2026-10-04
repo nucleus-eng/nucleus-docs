@@ -43,7 +43,7 @@ process_steps:
     operator: mixing
     operands: [potassium-glutamate, hepes, glucose]
     produces:
-      id: outer-solution-london
+      id: outer-solution-glutamate
       title: "London outer solution"
       page: null
     parameters:
@@ -61,7 +61,7 @@ process_steps:
       title: "Embedding: Thermal Setting"
       page: ../../processes/embed-thermal-setting/main.md
     operator: mixing
-    operands: [ulga-powder, outer-solution-london]
+    operands: [ulga-powder, outer-solution-glutamate]
     produces:
       id: gel-ulga
       title: "Gel: ULGA"

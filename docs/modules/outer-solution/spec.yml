@@ -66,7 +66,7 @@ open:
   - id: a-buffer-states-a-ph-point-and-wants-a-range
     question: >
       DEFERRED ON JON'S RULING 2026-09-25, and the confirmation half is closed. Six sites
-      state pH 7.4 across two buffers -- London's 72 mM HEPES in ../outer-solution-london
+      state pH 7.4 across two buffers -- London's 72 mM HEPES in ../outer-solution-glutamate
       and ../gel-ulga, read back in ../detector-3oc6-hsl, and Chicago's Tris-HEPES stock
       in the three cascade comments. It looked like one figure copied six times because
       the house default is 7.6. IT IS NOT A COPY. Jon: "7.4 is real for both, they

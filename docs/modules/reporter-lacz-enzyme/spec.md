@@ -17,7 +17,7 @@ The LacZ Enzyme is β-galactosidase from *E. coli*, the hydrolase half of the [L
 
 **The monomer is 116.3 kDa and the active form is the tetramer at 465 kDa.** @Editor: cite these masses — UniProt P00722 or the Sigma-Aldrich G5635 product page. **The active form is two orders of magnitude above the largest pore cutoff on these pages**, ~3 kDa for [α-hemolysin](../membrane-pore-ahly/spec.md), so this enzyme never crosses a membrane. **That does not force lysis on a format that encloses it**, because the readout only needs the two to meet and [CPRG](../substrate-cprg/spec.md) is small enough to come in. See [LacZ Reporter](../reporter-lacz/spec.md).
 
-**The enzyme and its substrate are routinely in different compartments.** In the London Cascade the enzyme is dispersed free in the gel while CPRG is held inside a liposome population; in the aTc path the enzyme is encapsulated with the sensing reaction and CPRG stays outside. Which compartment each occupies is set by the process that places it, not by the reporter chemistry.
+**The enzyme and its substrate are routinely in different compartments.** In the LuxR-LacZ Sensor Cascade the enzyme is dispersed free in the gel while CPRG is held inside a liposome population; in the aTc path the enzyme is encapsulated with the sensing reaction and CPRG stays outside. Which compartment each occupies is set by the process that places it, not by the reporter chemistry.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -38,7 +38,7 @@ This page is a work in progress and not yet ready for use.
 **Both encapsulated figures are for the same arrangement** — enzyme inside the cell, substrate outside — and they differ by about 60×. Co-encapsulating the enzyme with its substrate would make the readout constitutive, which is why neither format does it.
 
 :::{attention} The gel-dispersed concentration is not documented
-@Editor(london): the London Cascade disperses this enzyme through the ULGA gel and no concentration is recorded for it anywhere. Without it that half of the cascade cannot be reproduced.
+@Editor(london): the LuxR-LacZ Sensor Cascade disperses this enzyme through the ULGA gel and no concentration is recorded for it anywhere. Without it that half of the cascade cannot be reproduced.
 
 **The Chicago figures do not carry across.** Both are encapsulated; London's is dispersed through the matrix. Different arrangement, different requirement.
 :::

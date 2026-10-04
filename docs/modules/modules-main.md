@@ -44,8 +44,8 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
 | Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
-| Membrane | [Membrane: POPC/Chol (9:1)](./membrane-popc-chol-chicago/spec.md) | ★ |
-| Cell (Chassis) | [Chicago Chassis](./chicago-chassis/spec.md) | ★ |
+| Membrane | [Membrane: POPC/Chol (9:1)](./membrane-popc-chol-9-1/spec.md) | ★ |
+| Cell (Chassis) | [Cell: Base Cytosol, POPC/Chol (9:1)](./cell-base-cytosol-popc-chol/spec.md) | ★ |
 | Cell (Sensing) | [SensorCell[aTc ⟶ PLA1]](./atc-sensing-cell/spec.md) | ★ |
 | Cell (Sensing) | [Theophylline Sensing Cell](./theophylline-sensing-cell/spec.md) | ★ |
 | Detector | [Theophylline](./detector-theophylline/spec.md) | ★ |
@@ -90,10 +90,10 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Detector | [Repressor Detector](./repressor-detector/spec.md) | - |
 | Membrane | [Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Membrane | [Membrane](./membrane/spec.md) | - |
-| Cell (Chassis) | [London Chassis](./london-chassis/spec.md) | ★ |
+| Cell (Chassis) | [Cell: S30 Lysate, POPC](./cell-s30-popc/spec.md) | ★ |
 | Cell (Sensing) | [SensorCell[3OC6-HSL ⟶ PLA1]](./ahsl-sensing-cell/spec.md) | ★ |
 | Cytosol: 3OC6-HSL Sensor | [SensorCytosol[3OC6-HSL ⟶ PLA1]](./ahsl-sensor-cytosol/spec.md) | ★ |
-| Cell (Cascade) | [London Cascade](./london-cascade/spec.md) | ★ |
+| Cell (Cascade) | [LuxR-LacZ Sensor Cascade](./luxr-lacz-cascade/spec.md) | ★ |
 | Cell (Cascade) | [LuxR-GFP Sensor Cascade](./luxr-gfp-cascade/spec.md) | - |
 | Cell (Cascade) | [CRAIC](./craic-cascade/spec.md) | - |
 | Gel | [ULGA](./gel-ulga/spec.md) | ★ |
@@ -109,8 +109,8 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Reporter | [Reporter](./reporter/spec.md) | - |
 | Substrate | [Substrate Carrier](./substrate-carrier/spec.md) | - |
 | Outer Solution | [Outer Solution](./outer-solution/spec.md) | - |
-| Outer Solution | [London Outer Solution](./outer-solution-london/spec.md) | ★ |
-| Outer Solution | [Chicago Outer Solution](./outer-solution-chicago/spec.md) | ★ |
+| Outer Solution | [Outer Solution: Glutamate-HEPES-Glucose](./outer-solution-glutamate/spec.md) | ★ |
+| Outer Solution | [Outer Solution: Tris-HEPES](./outer-solution-tris-hepes/spec.md) | ★ |
 | Reporter | [LacZ](./lacz/spec.md) | - |
 | Reporter | [LacZ DNA template](./lacz-dna/spec.md) | ★ |
 | Reporter | [XylE](./xyle/spec.md) | - |

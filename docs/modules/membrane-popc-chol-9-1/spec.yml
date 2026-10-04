@@ -19,7 +19,7 @@
 # questions at the foot of this file, so none of its figures are lost. This is a
 # limit of the schema, not a claim about the bench.
 
-module: membrane-popc-chol-chicago
+module: membrane-popc-chol-9-1
 title: "Membrane: POPC/Chol (9:1)"
 refines: membrane
 
@@ -43,16 +43,16 @@ process_steps:
     operator: mixing
     operands: [popc, cholesterol, liss-rhod-pe]
     produces:
-      id: membrane-popc-chol-chicago
+      id: membrane-popc-chol-9-1
       title: "Membrane: POPC/Chol (9:1)"
-      page: ../membrane-popc-chol-chicago/spec.md
+      page: ../membrane-popc-chol-9-1/spec.md
     parameters:
       popc: "89.9% (mol), MW 760.076, 25 mg/mL stock, 41 uL"
       cholesterol: "10% (mol), MW 386.66, 50 mg/mL stock, 1.16 uL"
       liss_rhod_pe: "0.1% (mol), MW 1301.71, 1 mg/mL stock, 1.952 uL"
       total_lipid: "0.5 mM"
     notes: >
-      The inverted-emulsion route, for Chicago Chassis synthetic cells. The volumes
+      The inverted-emulsion route, for Cell: Base Cytosol, POPC/Chol (9:1) synthetic cells. The volumes
       are the 0.5 mM total-lipid preparation named in the Preparations tab.
 
 open:

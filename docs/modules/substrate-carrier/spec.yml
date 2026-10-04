@@ -15,7 +15,7 @@
 #
 # THE INVARIANT IS `packing` OVER A MEMBRANE AND A SUBSTRATE, TWO OF TWO. guv-cprg packs
 # membrane-popc with substrate-cprg; substrate-cprg-suv packs
-# membrane-popc-chol-chicago with the same substrate. Two operands, never three, and
+# membrane-popc-chol-9-1 with the same substrate. Two operands, never three, and
 # packing rather than mixing because the whole point is that the substrate stays inside
 # until the unilamellar vesicle is breached.
 #

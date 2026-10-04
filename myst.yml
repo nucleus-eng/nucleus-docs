@@ -45,9 +45,9 @@ project:
           hidden: true
         - file: ./docs/modules/outer-solution/spec.md
           hidden: true
-        - file: ./docs/modules/outer-solution-london/spec.md
+        - file: ./docs/modules/outer-solution-glutamate/spec.md
           hidden: true
-        - file: ./docs/modules/outer-solution-chicago/spec.md
+        - file: ./docs/modules/outer-solution-tris-hepes/spec.md
           hidden: true
         - file: ./docs/modules/lacz/spec.md
           hidden: true
@@ -67,7 +67,7 @@ project:
           hidden: true
         - file: ./docs/modules/membrane-popc-chol/spec.md
           hidden: true
-        - file: ./docs/modules/membrane-popc-chol-chicago/spec.md
+        - file: ./docs/modules/membrane-popc-chol-9-1/spec.md
           hidden: true
         - file: ./docs/modules/membrane-popc/spec.md
           hidden: true
@@ -141,11 +141,11 @@ project:
           hidden: true
         - file: ./docs/modules/effector-pla1/spec.md
           hidden: true
-        - file: ./docs/modules/chicago-chassis/spec.md
+        - file: ./docs/modules/cell-base-cytosol-popc-chol/spec.md
           hidden: true
         - file: ./docs/modules/theophylline-sensing-cell/spec.md
           hidden: true
-        - file: ./docs/modules/london-chassis/spec.md
+        - file: ./docs/modules/cell-s30-popc/spec.md
           hidden: true
         - file: ./docs/modules/ph-sensing-cell/spec.md
           hidden: true
@@ -163,7 +163,7 @@ project:
           hidden: true
         - file: ./docs/modules/ahsl-sensor-cytosol/spec.md
           hidden: true
-        - file: ./docs/modules/london-cascade/spec.md
+        - file: ./docs/modules/luxr-lacz-cascade/spec.md
           hidden: true
         - file: ./docs/modules/luxr-gfp-cascade/spec.md
           hidden: true

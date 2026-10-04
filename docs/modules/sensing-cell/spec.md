@@ -75,9 +75,9 @@ flowchart TD
 | Member | Membrane |
 | --- | --- |
 | [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) | [POPC](../membrane-popc/spec.md) |
-| [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) |
-| [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) |
-| [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) |
+| [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
+| [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
+| [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
 :::
 
 ::::

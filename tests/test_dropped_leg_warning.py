@@ -13,7 +13,7 @@ here is that it says so.
 The fixture is deliberately not a cascade. craic-cascade was the live instance
 when this was written, and writing docs/modules/detector-esar/ the same day fixed
 it -- which is a good outcome and a bad test, since a passing corpus would have
-made these tests vacuous without saying so. london-chassis has no detector at
+made these tests vacuous without saying so. cell-s30-popc has no detector at
 all and is not a thing anybody is about to give one, so it is the stable case.
 """
 
@@ -31,20 +31,20 @@ def _run(*cascades):
 
 
 def test_a_cascade_with_no_leg_is_named_on_stderr():
-    r = _run("atc-cascade", "ph-cascade", "london-chassis")
+    r = _run("atc-cascade", "ph-cascade", "cell-s30-popc")
     assert "WARNING" in r.stderr
-    assert "london-chassis" in r.stderr
+    assert "cell-s30-popc" in r.stderr
 
 
 def test_the_warning_says_how_many_of_how_many():
     """A bare "something was dropped" still leaves the reader counting."""
-    r = _run("atc-cascade", "ph-cascade", "london-chassis")
+    r = _run("atc-cascade", "ph-cascade", "cell-s30-popc")
     assert "1 of 3" in r.stderr
 
 
 def test_it_warns_and_does_not_refuse():
     """Jon's ruling. The meet over the legs that did resolve is still worth having."""
-    r = _run("atc-cascade", "ph-cascade", "london-chassis")
+    r = _run("atc-cascade", "ph-cascade", "cell-s30-popc")
     assert r.returncode == 0
     assert "flowchart TD" in r.stdout
 
@@ -63,7 +63,7 @@ def test_the_drawn_meet_excludes_the_dropped_cascade():
     The leg count is on stderr with the rest of the summary; stdout carries only
     the mermaid. The figure states its own count in the DOMAIN node.
     """
-    r = _run("atc-cascade", "ph-cascade", "london-chassis")
+    r = _run("atc-cascade", "ph-cascade", "cell-s30-popc")
     assert "2 leg(s)" in r.stderr
     assert "Meet over 2 legs" in r.stdout
-    assert "london-chassis" not in r.stdout
+    assert "cell-s30-popc" not in r.stdout

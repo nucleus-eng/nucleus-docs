@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use.
 
 The pH Cascade combines its Modules as follows:
 
-- **Sensing input:** [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — the pH-responsive toehold switch encapsulated in the Chicago Chassis synthetic cell, gating downstream expression at pH ≈ 6.5.
+- **Sensing input:** [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — the pH-responsive toehold switch encapsulated in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell, gating downstream expression at pH ≈ 6.5.
 - **Lysis trigger:** [PLA1 Lysis Module](../effector-pla1/spec.md) — expressed once the pH switch fires; ruptures its own liposome and a neighboring CPRG-loaded liposome, coupling sensing to readout.
 - **Colorimetric readout:** [LacZ Reporter Module](../reporter-lacz/spec.md) — reacts with the released CPRG substrate to produce the visible yellow-to-purple color change.
 
@@ -46,7 +46,7 @@ flowchart TD
     ENERGY_SOLUTION["Energy solution"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION_CHICAGO["Chicago Outer Solution"]
+    OUTER_SOLUTION_TRIS_HEPES["Outer Solution: Tris-HEPES"]
     P2_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
     P3_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
@@ -60,7 +60,7 @@ flowchart TD
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
     ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
-    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_CHICAGO
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_TRIS_HEPES
 
     PH_RESPONSIVE_SSDNA --> P2_ANNEAL_TRIGGER_DUPLEX_0
     TRIGGER_SSDNA --> P2_ANNEAL_TRIGGER_DUPLEX_0
@@ -80,7 +80,7 @@ flowchart TD
     P5_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
 
     LGA_POWDER --> P6_EMBED_AGAROSE_0
-    OUTER_SOLUTION_CHICAGO --> P6_EMBED_AGAROSE_0
+    OUTER_SOLUTION_TRIS_HEPES --> P6_EMBED_AGAROSE_0
     PH_SENSING_CELL --> P6_EMBED_AGAROSE_0
     SUBSTRATE_CPRG_SUV --> P6_EMBED_AGAROSE_0
     REPORTER_LACZ_ENZYME --> P6_EMBED_AGAROSE_0
@@ -91,17 +91,17 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,LGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
-    class OUTER_SOLUTION_CHICAGO,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
+    class OUTER_SOLUTION_TRIS_HEPES,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_AGAROSE_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click LGA_POWDER "/docs/modules/gel-lga/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
-    click OUTER_SOLUTION_CHICAGO "/docs/modules/outer-solution-chicago/spec"
+    click OUTER_SOLUTION_TRIS_HEPES "/docs/modules/outer-solution-tris-hepes/spec"
     click P2_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click P3_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
@@ -146,7 +146,7 @@ The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsula
 | Base Cytosol components | At reaction concentration; not separately documented for this pairing |
 :::
 
-:::{table} SensorCell[pH ⟶ PLA1] membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:::{table} SensorCell[pH ⟶ PLA1] membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 :label: comp-ph-cascade-sensing-membrane
 
 | Component | Target percentage (%) |
@@ -170,7 +170,7 @@ A second liposome population carrying the chromogenic substrate. See [Substrate 
 | CPRG substrate | Not documented at a reaction concentration for this two-liposome pairing |
 :::
 
-:::{table} Substrate SUV membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:::{table} Substrate SUV membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 :label: comp-ph-cascade-suv-membrane
 
 | Component | Target percentage (%) |
@@ -209,7 +209,7 @@ The pH Cascade is expected to turn a drop to pH ≈ 6.5 into a visible yellow-to
 - **PLA1-driven lysis coupling to CPRG/LacZ readout:** confirmed at the solution level for the Chicago pH cascade — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-implementations), "Chicago pH cascade."
 
 :::{warning} Not yet validated as a combined cascade
-The three Modules above have run in partial combinations, never together in one format. The SensorCell[pH ⟶ PLA1]'s own integration into the Chicago Chassis synthetic cell and hydrogel format is itself proposed rather than confirmed — see [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
+The three Modules above have run in partial combinations, never together in one format. The SensorCell[pH ⟶ PLA1]'s own integration into the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell and hydrogel format is itself proposed rather than confirmed — see [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
 :::
 
 ## Gels
@@ -230,7 +230,7 @@ The three Modules above have run in partial combinations, never together in one 
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)) to express the toehold-switch-gated PLA1 construct, and a drop to pH ≈ 6.5 to open the toehold switch (e.g. [Detector: pH-Sensing](../detector-ph/spec.md)).
 
-Requires two lipid compartments — a sensing/PLA1 liposome and a separate CPRG-loaded liposome (e.g. [Chicago Chassis](../chicago-chassis/spec.md)). The readout depends on lysis releasing CPRG from one compartment into another, so this cascade has no bulk-cytosol route.
+Requires two lipid compartments — a sensing/PLA1 liposome and a separate CPRG-loaded liposome (e.g. [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md)). The readout depends on lysis releasing CPRG from one compartment into another, so this cascade has no bulk-cytosol route.
 
 Requires that no LacZ protein share a compartment with CPRG until the reporter module is turned on (see [LacZ Reporter Module](../reporter-lacz/spec.md)).
 
@@ -244,11 +244,11 @@ No process page documents assembling this three-part cascade end to end.
 
 # Constituent Modules
 
-- [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Chicago Chassis synthetic cell
+- [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
 - [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. It is **low-gelling agarose**, not ULGA, identified by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)**, and its step names the abstract [Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry.
-- [Chicago Outer Solution](../outer-solution-chicago/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
+- [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
 
 :::{attention} PLA1 is inside the sensing cell, not beside it
 The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.

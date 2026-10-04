@@ -1,4 +1,4 @@
-# Composition source for the Chicago Chassis.
+# Composition source for the Cell: Base Cytosol, POPC/Chol (9:1).
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Constituent
 # Modules` prose stays for humans; this file is the contract for tooling, and
@@ -10,13 +10,13 @@
 #
 # Depth 1. Both constituents are obtained.
 
-module: chicago-chassis
-title: Chicago Chassis
+module: cell-base-cytosol-popc-chol
+title: "Cell: Base Cytosol, POPC/Chol (9:1)"
 refines: cell
 # A CHASSIS IS A CELL, ruled by Jon 2026-09-21: "Chassis == Cell btw". Not a judgement
 # call: this Module's final step is `encapsulate`, `packing`, over exactly two operands,
 # a cytosol and a membrane, which is ../cell/spec.yml's invariant with no exception.
-# base-cell, chicago-chassis and london-chassis are the same step over the same sorts.
+# base-cell, cell-base-cytosol-popc-chol and cell-s30-popc are the same step over the same sorts.
 #
 # IT SITS UNDER Cell RATHER THAN UNDER Sensing Cell BECAUSE ITS CYTOSOL CARRIES NO
 # DETECTOR. That is what makes the Sensing Cell refinement a narrowing of one slot, and
@@ -28,7 +28,7 @@ inputs:
     page: ../base-cytosol/spec.md
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"
-    page: ../membrane-popc-chol-chicago/spec.md
+    page: ../membrane-popc-chol-9-1/spec.md
 
 process_steps:
   - id: encapsulate
@@ -38,12 +38,12 @@ process_steps:
     operator: packing
     operands: [base-cytosol, membrane-chicago]
     produces:
-      id: chicago-chassis
-      title: "Chicago Chassis"
-      page: ../chicago-chassis/spec.md
+      id: cell-base-cytosol-popc-chol
+      title: "Cell: Base Cytosol, POPC/Chol (9:1)"
+      page: ../cell-base-cytosol-popc-chol/spec.md
     parameters:
       # MOVED HERE 2026-10-03 from the Preparations table on
-      # ../membrane-popc-chol-chicago/spec.md, which keyed its rows by the Modules
+      # ../membrane-popc-chol-9-1/spec.md, which keyed its rows by the Modules
       # that take the membrane. The membrane is 89.9/10/0.1 mol% whoever takes it;
       # the volumes are this chassis's dose of it, at 0.5 mM total lipid.
       popc: "25 mg/mL stock, 41 uL"

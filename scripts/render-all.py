@@ -23,7 +23,7 @@ of what it generates and the half least likely to go stale.
   render-posets.py       tmp/generated/, because the orders span the whole corpus
 
 A MEET HAS NO PAGE AND MUST NOT BE GIVEN ONE HERE. The cross-demo meet's
-outcome slot reports NO COMMON ANCESTOR over aTc Cascade, London Cascade and pH
+outcome slot reports NO COMMON ANCESTOR over aTc Cascade, LuxR-LacZ Sensor Cascade and pH
 Cascade: the class that would hold them is not written, deliberately. Embedding
 the figure on a page would need that page to exist, and creating it would settle
 a modeling question by making a generator convenient. So the meet is review
@@ -51,7 +51,7 @@ OUT = REPO / "tmp" / "generated"
 # Each entry is an output file and the arguments that produce it. A meet over one
 # leg is omitted: it restates that module's own composition diagram.
 MEETS = [
-    ("meet-chicago-london.md", ["atc-cascade", "ph-cascade", "london-cascade"],
+    ("meet-chicago-london.md", ["atc-cascade", "ph-cascade", "luxr-lacz-cascade"],
      "The two Chicago integration paths and the London demo. Three legs, "
      "one per detector in the corpus."),
     ("meet-chicago.md", ["atc-cascade", "ph-cascade"],

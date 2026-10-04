@@ -88,7 +88,7 @@ jobs:
 
   composition:
     # The prose `# Constituent Modules` list and the machine-readable `spec.yml`
-    # are two sources for one fact, and they drift: `london-cascade` listed
+    # are two sources for one fact, and they drift: `luxr-lacz-cascade` listed
     # `Substrate: CPRG` where its own source said `GUV: CPRG`, within an hour of
     # both existing. Blocks when the prose names a module the source never does;
     # reports without blocking when the final step has an operand the prose
@@ -170,7 +170,7 @@ jobs:
     #   key→page        two input keys naming one module page
     #   id→composition  two produced ids from the same operands AND parameters.
     #                   Parameters are in the comparison because membrane-popc-chol
-    #                   and membrane-popc-chol-chicago compose the identical three
+    #                   and membrane-popc-chol-9-1 compose the identical three
     #                   lipids at 70:30 against 90:10 and are different Modules.
     #   title→id        two ids under one title. This is the one a reader hits:
     #                   nodes carry titles, so two things draw as identical boxes.

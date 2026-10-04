@@ -160,7 +160,7 @@ A system that has to *switch* ON requires that LacZ protein is not colocalized w
 How to achieve this requirement is a design choice. Here are three example solutions:
 
 - **Enclose the enzyme.** The [aTc Cascade](../atc-cascade/spec.md) encapsulates LacZ and leaves CPRG outside. LacZ can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
-- **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [London Cascade](../london-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior. CPRG can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
+- **Enclose the substrate.** The [pH Cascade](../ph-cascade/spec.md) and [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) load CPRG into a [Substrate SUV](../substrate-cprg-suv/spec.md) and leave LacZ in the exterior. CPRG can then be released upon lysis using [PLA1 Lysis Module](../effector-pla1/spec.md).
 - **Supply no enzyme at all.** The [Theophylline Sensing Cell](../theophylline-sensing-cell/spec.md) co-encapsulates CPRG and DNA encoding LacZ rather than LacZ protein.
 
 **The first two solutions are not interchangeable, and it is "enclose the enzyme" that has the second route.** The readout needs the two to meet, and the one that moves is the small one: CPRG is 0.59 kDa and the active LacZ tetramer is 465 kDa.
@@ -197,7 +197,7 @@ LacZ (or LacZ/CPRG product) leaking to the exterior of a lysed liposome can conf
 # Implementations
 
 - [aTc Cascade](../atc-cascade/spec.md) and [pH Cascade](../ph-cascade/spec.md): supplies the colorimetric readout for both. LacZ is encapsulated as purified enzyme alongside the sensing construct rather than expressed from DNA, and converts CPRG released from a neighboring Substrate SUV. Sources: [`chicago-theophylline-lacz`](https://devnotes.nucleus.engineering/articles/mn-260508-02), [`chicago-colorimetric-validation`](https://devnotes.nucleus.engineering/articles/chicago-m1-1-1).
-- [London Cascade](../london-cascade/spec.md): supplies its colorimetric readout. LacZ is the enzyme in use and XylE/C23DO is the proposed alternative, not yet run. Both linear-DNA formats have been synthesized and templates prepared; no encapsulated result has been reported. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/london-m2-1).
+- [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md): supplies its colorimetric readout. LacZ is the enzyme in use and XylE/C23DO is the proposed alternative, not yet run. Both linear-DNA formats have been synthesized and templates prepared; no encapsulated result has been reported. Source: [`london-lacz-xyle-module`](https://devnotes.nucleus.engineering/articles/london-m2-1).
 
 # Processes
 

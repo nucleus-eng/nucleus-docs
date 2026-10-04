@@ -38,8 +38,8 @@ def test_string_refines_is_unchanged():
 
 def test_list_aligns_on_the_first_entry():
     """Entry one is the functional parent. The chassis is entry two and is ignored."""
-    S = {"ahsl-sensing-cell": {"refines": ["sensing-cell", "london-chassis"]},
-         "atc-sensing-cell": {"refines": ["sensing-cell", "chicago-chassis"]}}
+    S = {"ahsl-sensing-cell": {"refines": ["sensing-cell", "cell-s30-popc"]},
+         "atc-sensing-cell": {"refines": ["sensing-cell", "cell-base-cytosol-popc-chol"]}}
     par = render_meet.parents(S)
     assert par == {"ahsl-sensing-cell": "sensing-cell",
                    "atc-sensing-cell": "sensing-cell"}
@@ -49,8 +49,8 @@ def test_two_cells_on_different_chassis_still_align():
     """The point of the rule. These two differ in chassis and must still share a
     slot, because the chassis is what differs between demos and the functional
     parent is the axis they can be compared on."""
-    S = {"ahsl-sensing-cell": {"refines": ["sensing-cell", "london-chassis"]},
-         "atc-sensing-cell": {"refines": ["sensing-cell", "chicago-chassis"]}}
+    S = {"ahsl-sensing-cell": {"refines": ["sensing-cell", "cell-s30-popc"]},
+         "atc-sensing-cell": {"refines": ["sensing-cell", "cell-base-cytosol-popc-chol"]}}
     par = render_meet.parents(S)
     assert render_meet.slot_key("ahsl-sensing-cell", par) == \
            render_meet.slot_key("atc-sensing-cell", par)
@@ -60,8 +60,8 @@ def test_order_is_load_bearing():
     """Putting the chassis first changes the slot. The convention is positional,
     so a source that orders it wrongly gets a different figure rather than a
     warning -- which is why the schema states the rule where the key is defined."""
-    par = render_meet.parents({"x": {"refines": ["london-chassis", "sensing-cell"]}})
-    assert par == {"x": "london-chassis"}
+    par = render_meet.parents({"x": {"refines": ["cell-s30-popc", "sensing-cell"]}})
+    assert par == {"x": "cell-s30-popc"}
 
 
 def test_one_element_list_is_refused():

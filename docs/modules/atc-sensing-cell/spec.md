@@ -11,10 +11,10 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`chicago-chassis`](../chicago-chassis/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The SensorCell[aTc ⟶ PLA1] combines the [Chicago Chassis](../chicago-chassis/spec.md) with a `TetO-PLA1` sensing circuit and encapsulated LacZ, giving a synthetic cell that reports anhydrotetracycline (aTc) dose as a colorimetric (absorbance) signal. The [aTc Sensing Module](../detector-tetr-atc/spec.md) supplies the `TetO-PLA1` sensing construct and the [PLA1 Lysis Module](../effector-pla1/spec.md) the lysis trigger, both inside the cell along with LacZ from the [LacZ Reporter Module](../reporter-lacz/spec.md). That Module's CPRG substrate stays outside, so the cell starts colorless and lysis is what produces the signal.
+The SensorCell[aTc ⟶ PLA1] combines the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) with a `TetO-PLA1` sensing circuit and encapsulated LacZ, giving a synthetic cell that reports anhydrotetracycline (aTc) dose as a colorimetric (absorbance) signal. The [aTc Sensing Module](../detector-tetr-atc/spec.md) supplies the `TetO-PLA1` sensing construct and the [PLA1 Lysis Module](../effector-pla1/spec.md) the lysis trigger, both inside the cell along with LacZ from the [LacZ Reporter Module](../reporter-lacz/spec.md). That Module's CPRG substrate stays outside, so the cell starts colorless and lysis is what produces the signal.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -71,7 +71,7 @@ flowchart TD
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-chicago/spec"
+    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
     click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
@@ -103,12 +103,12 @@ See [Detector: tetR-aTc](../detector-tetr-atc/spec.md) for the sensing construct
 
 ::::{tab-item} Cytosol
 
-The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cytosol at reaction concentration, with the `TetO-PLA1` construct from the [aTc Sensing Module](../detector-tetr-atc/spec.md), and LacZ protein from the [LacZ Reporter Module](../reporter-lacz/spec.md).
+The inner solution follows the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) cytosol at reaction concentration, with the `TetO-PLA1` construct from the [aTc Sensing Module](../detector-tetr-atc/spec.md), and LacZ protein from the [LacZ Reporter Module](../reporter-lacz/spec.md).
 
 :::{table} Combined synthetic cell reaction, one level deep.
 | Module | Working concentration | Notes |
 | --- | --- | --- |
-| [Chicago Chassis](../chicago-chassis/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [aTc Sensing Module](../detector-tetr-atc/spec.md) | 1 nM `TetO-PLA1` DNA + 50 nM TetR | Two other DNA/TetR ratios have been characterized — see [Expected Behavior](#atc-sensing-cell-expected-behavior). |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by 1 nM `TetO-PLA1` DNA | |
 | [LacZ Reporter Module](../reporter-lacz/spec.md) | LacZ: 2.5 U/mL | Enzyme only. CPRG stays in the outer solution — co-encapsulating the two makes the readout constitutive. |
@@ -122,7 +122,7 @@ The inner solution follows the [Chicago Chassis](../chicago-chassis/spec.md) cyt
 
 ::::{tab-item} Membrane
 
-:::{table} Synthetic cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+:::{table} Synthetic cell membrane — [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 :label: comp-atc-sensing-cell-membrane
 
 | Component | Target percentage (%) |
@@ -162,7 +162,7 @@ This result is confirmed in synthetic cells only.
 
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Chicago Chassis](../chicago-chassis/spec.md).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md).
 
 Requires TetR, and aTc as the analyte — see the [aTc Sensing Module](../detector-tetr-atc/spec.md).
 
@@ -175,11 +175,11 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 # Constituent Modules
 
 - [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the aTc sensing construct, the PLA1 effector it gates, and the LacZ enzyme
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 # Processes
 
-- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the shared phase-transfer method, with the Chicago-specific lipid composition on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-chicago/spec.md).
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the shared phase-transfer method, with the Chicago-specific lipid composition on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
 
