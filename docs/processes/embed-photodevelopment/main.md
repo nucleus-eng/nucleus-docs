@@ -14,10 +14,10 @@ It is one of the three routes under [Embedding](../embed-hydrogel/main.md), and 
 This page is a work in progress and not yet ready for use.
 :::
 
-:::{attention} Two chemistries, and only one of them is live
-**PEG-norbornene is the route the aTc path uses.** PEGDA is not used by any DevCells demo. Chicago Node, 2026-09-11: the aTc path uses PEG-norbornene *"because PEG-DA destroys the vesicles."*
+:::{attention} Two chemistries, and only one is used
+PEG-norbornene is the route the aTc path uses. No DevCells demo uses PEGDA, because it "destroys the vesicles" (Group Meeting, Chicago Node, 2026-09-11).
 
-The PEGDA material, protocol and bill of materials are kept below for reference and are not maintained. **They were a separate page with `status: canceled` until 2026-09-29**, when Jon ruled that a process's member slot names the formation route rather than the material, and the two chemistries became one page.
+The PEGDA material, protocol and bill of materials below are not maintained.
 :::
 
 :::{warning} The exposure bleaches CPRG, on both chemistries

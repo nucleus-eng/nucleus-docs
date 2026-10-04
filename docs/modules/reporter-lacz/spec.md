@@ -148,6 +148,10 @@ Kinetics for colorimetric conversion of CPRG into a red product, absorbance at 5
 
 See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ, CPRG outside, in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. 
 
+## Gels
+
+In a gel framed by another material, the colored product bleeds into the frame and lowers spatial resolution. A gel surrounded by air (the punch-out method) shows less bleed (Group Meeting, Chicago Node, 2026-09-17). @Editor(chicago): add a protocol for the punch-out method.
+
 (reporter-lacz-requirements)=
 # Requirements
 
@@ -173,12 +177,9 @@ That a pore cannot open a neighboring liposome follows from pores inserting into
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
 :::{attention} The mechanism behind the LacZ and theophylline Conflict is not established.
-The constraint is usually explained as theophylline directly inhibiting the LacZ/CPRG conversion, "even at very low amounts." That explanation is unsupported and partly contradicted:
+Theophylline inhibits β-galactosidase directly (Group Meeting, Mary Kelly, Chicago Node, 2026-09-17), and riboswitch activation produces more LacZ, so both effects can act at once. The one bulk figure available shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction about **twice as fast**: more LacZ can mask the direct inhibition. Literature reports only weak inhibition, in the millimolar range.
 
-- The one bulk figure available shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction roughly **twice as fast**, not slower. Riboswitch activation producing more LacZ could mask direct enzyme inhibition, so both effects can coexist — but no figure showing inhibition has been located.
-- **The coexistence hypothesis above is now evidenced.** Chicago Node, Mary, 2026-09-17: theophylline inhibits β-galactosidase directly. That is a first-hand report of the inhibition half, so the two effects are no longer both hypothetical — see [Theophylline Detector](../detector-theophylline/spec.md).
-- @Editor(chicago): the **mechanism** is still open and the supporting **titration data** is reported to exist but has not been located. Confirm with the Chicago Node.
-- Every verbal source is hedged, and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
+@Editor(chicago): locate the titration data that is reported to show inhibition at low concentrations. @Editor: cite the literature report.
 
 See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.md#detector-theophylline-requirements) for more details.
 :::

@@ -17,17 +17,10 @@ PEGDA Gel is a poly(ethylene glycol) diacrylate hydrogel crosslinked by 405 nm l
 
 PEGDA crosslinks by radical polymerization of its acrylate groups, with a PEG4SH crosslinker and a LAP photoinitiator — the same crosslinker the PEG-norbornene route uses.
 
-:::{attention} Canceled as a cell-carrying gel — PEG-DA "destroys the vesicles"
-PEGDA cannot hold synthetic cells. Chicago Node, 2026-09-11: the aTc path uses
-[PEG-Norbornene](../gel-peg-norbornene/spec.md) "because PEG-DA destroys the vesicles."
-Radical acrylate polymerization is not compatible with the lipid membranes the cascades are
-built from.
+:::{attention} Not used to hold synthetic cells
+PEGDA "destroys the vesicles" (Group Meeting, Chicago Node, 2026-09-11), so the cascades hold synthetic cells in [PEG-Norbornene](../gel-peg-norbornene/spec.md) instead. Radical acrylate polymerization is not compatible with their lipid membranes.
 
-**It remains live as a structural frame.** Ojaswita Pant's 2026-09-14 protocol patterns a
-PEGDA575-alginate frame and backfills a PEG4Nb inset with the DevCells in it — the cells never
-enter the PEGDA. That composite has its own page.
-
-This specification is kept for reference and is not maintained.
+PEGDA is used as a structural frame. A PEGDA575-alginate frame is patterned, and a PEG4Nb inset holding the cells is backfilled into it, so the cells never enter the PEGDA. See the multimaterial variant on [Gel: Alginate](../gel-alginate/spec.md).
 :::
 
 (gel-pegda-reference-composition)=
@@ -98,7 +91,7 @@ The same reagent is the crosslinker in the [PEG-norbornene route](../gel-peg-nor
 
 A multimaterial variant mixes 1.6 wt% alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. See [Alginate Gel](../gel-alginate/spec.md). The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm.
 
-Chicago compared this against the punch-out method — gel surrounded by air — and prefers the punch-out method: the frame route shows "more color bleed into the white frame, reducing spatial resolution" (Chicago Node, 2026-09-17). Recorded, not recommended. The punch-out method has no protocol on record.
+In a frame, the reporter's color bleeds into the frame and lowers spatial resolution; see [LacZ Reporter](../reporter-lacz/spec.md).
 
 (gel-pegda-expected-behavior)=
 # Expected Behavior

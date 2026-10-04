@@ -335,7 +335,7 @@ The two integration paths are embedded separately, in different gels, so UV and 
 
 **Spatial separation comes from the two gels being separate pieces**, not from patterning one gel. The photodeveloped path can use UV precisely because it carries no liposome-held substrate to bleach.
 
-**Confirmed 2026-09-11, and both paths moved.** The Node corrected the assignment live: the pH path is agarose, not alginate, and the aTc path is PEG-norbornene specifically — *"definitely pegnorburine because PEG-DA destroys the vesicles."* [PEGDA](../gel-pegda/spec.md) is canceled as a route.
+The pH path embeds in agarose and the aTc path in PEG-norbornene. [PEGDA](../gel-pegda/spec.md) is not used, because it "destroys the vesicles" (Group Meeting, Chicago Node, 2026-09-11).
 
 :::{note} The agarose is ULGA, and that gave the pH path its process page back
 **Answered 2026-09-21.** Jon, confirmed with the Chicago devs: the 0.7% agarose is ULGA. This corpus has one agarose embedding process, [ULGA](../../processes/embed-thermal-setting/main.md), ultra-low-gelling-temperature agarose gelling at (8–17) °C, and the Chicago work was described only as **0.7% agarose** cast on ice for about five minutes.

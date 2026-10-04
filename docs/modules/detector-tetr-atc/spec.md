@@ -284,4 +284,4 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 # Credits
 
-Developed by Yen-Yu Hsu (b.next), with the encapsulated LacZ/CPRG configuration by Mary Kelly (Chicago Node, Kamat Lab).
+Developed by Yen-Yu Hsu (b.next), with the encapsulated LacZ/CPRG configuration and the aTc working window in Nucleus Cytosol by Mary Kelly (Chicago Node, Kamat Lab).

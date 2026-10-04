@@ -98,12 +98,8 @@ A separate configuration replaces those three with 1200 mM glucose and 0.1 mM Ca
 | Upper | **50 °C** | the **melting** point |
 :::
 
-:::{attention} The upper bound is not a working temperature, and this window is not the one a payload needs
-**8 °C and 50 °C are different quantities**, a gelling point and a melting point. Supplied by Jon, 2026-09-21, from the supplier's materials specification page. **That is a catalog figure for a nominal product and not a measurement of either Node's stock**, and the measured gelling point of the agarose actually in use is still an open ask. @Editor(london): what temperature does your A5030 set at?
-
-**50 °C is not a temperature at which the payload can be mixed in.** The window is still correct on this page because the gel is not what forbids it. **The payload is**, and that is a Requirement the payload imposes on its Container rather than a property of this polymer. See [Gel](../gel/spec.md), which carries the same window for the class.
-
-**So do not narrow this field to record a payload's limit.** A tighter band belongs on the page of the thing being held, pointing here.
+:::{attention} 8 °C and 50 °C are a gel point and a melting point
+The gel point (8–17) °C and the melting point (≤ 50 °C) are the supplier's figures for [Sigma-Aldrich A5030](https://www.sigmaaldrich.com/GB/en/product/sial/a5030), not measurements of the agarose in use. Neither is a working temperature: a payload limits the temperature at which it can be mixed in, and that limit belongs on the payload's page. @Editor(london): what temperature does your A5030 set at?
 :::
 
 # Expected Behavior

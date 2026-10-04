@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} The window is about ten times lower in Nucleus Cytosol than in lysate
-Chicago Node, 2026-09-11. Lysate work — including the lab that has run this sensor longest — uses around 10 µM, and that concentration does not work in Nucleus Cytosol: at 10 µM the reaction is poisoned rather than induced, down to the level of a no-DNA control. A titration found induction between 0.1 µM and 0.5 µM, with an optimum near 0.25–0.35 µM, confirmed both in solution and in a patterned gel.
+Lysate work uses around 10 µM, and that concentration does not work in Nucleus Cytosol: at 10 µM the reaction is poisoned rather than induced, down to the level of a no-DNA control. A titration found induction between 0.1 µM and 0.5 µM, with an optimum near 0.25–0.35 µM, in solution and in a patterned gel (Group Meeting, Mary Kelly, Chicago Node, 2026-09-11).
 
 **The mechanism is proposed, not established.** Anhydrotetracycline is a 30S ribosome inhibitor, and ribosomes sit at roughly 1.8 µM in this reaction — the same order as the dose. Magnesium sequestration was considered and argued down on stoichiometry: magnesium is near 8 mM, about 10⁴ higher.
 

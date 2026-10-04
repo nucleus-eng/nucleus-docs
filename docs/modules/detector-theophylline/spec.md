@@ -153,18 +153,10 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 This Module MUST NOT include [LacZ / CPRG](../reporter-lacz/spec.md) as a reporter system as theophylline is reported to interfere with LacZ activity.
 
-:::{attention} The mechanism behind that requirement is not established
-The requirement itself is settled. The explanation usually given for it — that theophylline inhibits the LacZ/CPRG conversion "even at very low amounts" — is hedged in every source and is not supported by any data available here.
+:::{attention} The mechanism behind this requirement is not established
+Theophylline inhibits β-galactosidase directly (Group Meeting, Mary Kelly, Chicago Node, 2026-09-17), so it works against the reporter as well as failing to gate the effector. How strongly is not established: literature reports only weak inhibition, in the millimolar range.
 
-Caveats:
-- **The supporting titration data has not been seen.** The 2026-08-14 meeting notes state that "titration data exists showing even very low theophylline concentrations inhibit CPRG-lacZ conversion," and that it should go into a devnote. That data is not yet in this corpus.
-- **Every verbal source is hedged** ("somewhat inhibit", "kind of inhibiting"), and one literature spot-check found only weak, millimolar-range inhibition, which is inconsistent with the "very low amounts" framing.
-
-The effect itself is no longer second-hand. Chicago Node, Mary, 2026-09-17: theophylline inhibits β-galactosidase directly, so it works against the reporter as well as failing to gate the effector. That confirms the coexistence hypothesis on [LacZ Reporter](../reporter-lacz/spec.md).
-
-@Editor(chicago): two things are still open — the **mechanism**, and the **titration data**, which is reported to exist and has not been located. Until the titration is in hand, cite the requirement, not the inhibition mechanism.
-
-**This does not reopen the cancellation.** That stands on its own reason, recorded above: the riboswitch expresses its effector without theophylline present, so it does not discriminate. Mary's result is a second and independent reason, not a replacement.
+@Editor(chicago): locate the titration data that is reported to show inhibition at low theophylline concentrations. @Editor: cite the literature report.
 :::
 
 # Processes
