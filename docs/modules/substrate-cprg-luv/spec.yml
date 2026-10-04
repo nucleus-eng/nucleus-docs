@@ -1,0 +1,68 @@
+# Composition source for Substrate LUV: CPRG.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# THE SIBLING OF ../substrate-cprg-suv/spec.yml AND NOT ITS REPLACEMENT. Both
+# pack a membrane with substrate-cprg, so both are substrate-carrier members, and
+# they differ only in the process that closes the membrane: extrusion there,
+# freeze-thaw here. Both routes are live, and the pH run used LUVs first and SUVs
+# second, so neither page can be retired in favour of the other.
+#
+# THE OPERATOR IS `packing`, as it is on every member of the class: each of the
+# two keeps its own compartment, which is what gives the readout an off state.
+
+module: substrate-cprg-luv
+title: "Substrate LUV: CPRG"
+refines: substrate-carrier
+
+inputs:
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+process_steps:
+  - id: hydrate-and-freeze-thaw
+    process:
+      title: "Encapsulation: Freeze-Thaw"
+      page: ../../processes/encapsulate-luv/main.md
+    operator: packing
+    operands: [membrane-popc-chol-9-1, substrate-cprg]
+    produces:
+      id: substrate-cprg-luv
+      title: "Substrate LUV: CPRG"
+      page: ../substrate-cprg-luv/spec.md
+    parameters:
+      lipid_in_film: "2 umol in 0.5 mL, 4 mM"
+      cprg_at_hydration: "14.25 mg/mL final, from a 30 mg/mL stock"
+      optiprep: "10% (v/v), a density agent so centrifugation pellets the liposomes"
+      freeze_thaw_cycles: "5, liquid nitrogen then a 35 C water bath"
+      washes: "10, by centrifugation at 10,000 x g into the outer solution"
+    notes: >
+      The wash solution is the implementation's outer solution and this Module names
+      no formulation, because the choice belongs to whatever the liposomes are put
+      into. The inner solution is 1071 mOsm and the wash has to match it.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: the-name-luv-rests-on-the-route-not-a-measurement
+    question: >
+      No diameter, size distribution or lamellarity has been measured for this
+      route. The name says large unilamellar because the preparation has no
+      extrusion step and not because anything was sized. The sibling page states
+      400 nm for its own route and that figure does not carry across.
+  - id: free-substrate-after-the-last-wash-is-unmeasured
+    question: >
+      Ten washes are specified and no absorbance reading of the final supernatant
+      is on record. Residual free CPRG produces background color with no lysis, so
+      this is the figure that decides whether the off state holds. It is also what
+      a comparison against the extruded route would turn on, since the two use
+      different purification entirely.

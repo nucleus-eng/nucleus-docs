@@ -1,4 +1,4 @@
-# Composition source for CPRG GUV.
+# Composition source for GUV: CPRG.
 #
 # Machine-readable companion to spec.md — see issue #248. The `# Reference
 # Composition` tabs stay for humans; this file is the contract for tooling, and
@@ -16,7 +16,7 @@
 # operator. Recorded rather than resolved.
 
 module: guv-cprg
-title: "CPRG GUV"
+title: "GUV: CPRG"
 refines: substrate-carrier
 # Added 2026-09-21 with the class: the giant unilamellar member, made by phase transfer. Both members pack a
 # membrane with substrate-cprg by `packing`, two of two, and the class was written
@@ -39,7 +39,7 @@ process_steps:
     operands: [membrane-popc, substrate-cprg]
     produces:
       id: guv-cprg
-      title: "CPRG GUV"
+      title: "GUV: CPRG"
       page: ../guv-cprg/spec.md
     parameters:
       bilayer: "100% POPC"

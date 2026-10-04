@@ -59,8 +59,9 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
 | Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
 | Reporter | [Color Change](./color-change/spec.md) | - |
-| Substrate | [CPRG SUV](./substrate-cprg-suv/spec.md) | ★ |
-| Substrate | [CPRG GUV](./guv-cprg/spec.md) | ★ |
+| Substrate | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | ★ |
+| Substrate | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | ★ |
+| Substrate | [GUV: CPRG](./guv-cprg/spec.md) | ★ |
 | Substrate | [CPRG](./substrate-cprg/spec.md) | ★ |
 | Substrate | [X-Gal](./substrate-xgal/spec.md) | ★ |
 | Analyte | [aTc](./analyte-atc/spec.md) | ★ |

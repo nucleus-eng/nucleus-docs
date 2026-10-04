@@ -37,7 +37,7 @@ flowchart TD
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
     P1_HYDRATE_AND_EXTRUDE_0(["Encapsulation: Extrusion (packing)"])
-    SUBSTRATE_CPRG_SUV["CPRG-loaded SUV"]
+    SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
 
     MEMBRANE_POPC_CHOL_9_1 --> P1_HYDRATE_AND_EXTRUDE_0
     SUBSTRATE_CPRG --> P1_HYDRATE_AND_EXTRUDE_0

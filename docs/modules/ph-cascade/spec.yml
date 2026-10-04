@@ -135,9 +135,9 @@ process_steps:
       title: "Substrate SUV: CPRG"
       page: ../substrate-cprg-suv/spec.md
     notes: >
-      This path keeps the substrate liposome because agarose imposes no UV.
-      Confirmed 2026-09-11: the Liu Lab runs the pH solution and still uses
-      SUVs.
+      This path keeps the substrate liposome because agarose imposes no UV. The
+      extruded route is what this step names; ../substrate-cprg-luv/spec.yml is
+      the freeze-thaw sibling, and the pH run used LUVs first and SUVs second.
 
   - id: embed-agarose
     process:

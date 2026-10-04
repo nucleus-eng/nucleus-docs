@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`guv-cprg`](../guv-cprg/spec.md), [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md).
+**Position.** Refines nothing declared. Refined by [`guv-cprg`](../guv-cprg/spec.md), [`substrate-cprg-luv`](../substrate-cprg-luv/spec.md), [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md).
 <!-- /gen:position -->
 
 A class: a substrate closed inside a [Membrane](../membrane/spec.md).
@@ -62,6 +62,7 @@ flowchart TD
 | --- | --- | --- | --- |
 | [GUV: CPRG](../guv-cprg/spec.md) | [POPC](../membrane-popc/spec.md) | giant unilamellar | phase transfer |
 | [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) | small unilamellar | hydration and extrusion |
+| [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) | [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) | large unilamellar | hydration and freeze-thaw |
 :::
 
 ::::
@@ -73,6 +74,7 @@ flowchart TD
 | --- | --- |
 | [GUV: CPRG](../guv-cprg/spec.md) | [CPRG](../substrate-cprg/spec.md) |
 | [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) | [CPRG](../substrate-cprg/spec.md) |
+| [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) | [CPRG](../substrate-cprg/spec.md) |
 :::
 
 ::::

@@ -41,7 +41,7 @@ flowchart TD
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
     P1_ENCAPSULATE_CPRG_0(["Encapsulation: Phase Transfer (packing)"])
-    GUV_CPRG["CPRG GUV"]
+    GUV_CPRG["GUV: CPRG"]
 
     MEMBRANE_POPC --> P1_ENCAPSULATE_CPRG_0
     SUBSTRATE_CPRG --> P1_ENCAPSULATE_CPRG_0
