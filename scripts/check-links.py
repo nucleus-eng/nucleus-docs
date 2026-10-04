@@ -25,9 +25,12 @@ vendor served it:
   * A HOSTNAME THAT DOES NOT RESOLVE IS ALSO TOLERATED, and this rule used to
     read the other way. It is not deterministic: it is a fact about the resolver
     the checker happens to be using, not about the link. Measured 2026-09-29 —
-    `ecgrc.net` returned NXDOMAIN here while `google.com`, `github.com`,
-    `sigmaaldrich.com` and `doi.org` all resolved on the same resolver, and the
-    host was confirmed to resolve on the internet. Four correct links had been the
+    `ecgrc.net` returned NXDOMAIN here while four unrelated well-known domains,
+    one of them a vendor this corpus cites, all resolved on the same resolver,
+    and the host was confirmed to resolve on the internet. The four are named in
+    `7d87a19`'s commit message rather than here: tests/test_check_links.py asserts
+    that no vendor is named in this file, and it cannot tell a measurement that
+    cites a domain from an allowlist that exempts one. Four correct links had been the
     only red on this check for days, and the message said "does not resolve",
     which reads as a statement about the corpus.
     A dead domain does still need finding. The report says so rather than the

@@ -126,14 +126,31 @@ def test_gone_status_is_a_hard_failure(code):
     assert v[DEAD_PAGE] == cl.HARD_FAIL
 
 
-def test_unresolvable_host_is_a_hard_failure():
-    """A mistyped domain is the most common real authoring error.
+def test_unresolvable_host_is_tolerated_and_says_where_the_failure_lives():
+    """A non-resolving host is a fact about the resolver, not about the link.
 
-    It arrives as a code-less "Connection failed", identical to vendor noise, so
-    tolerating all network errors would silently swallow it.
+    THIS ASSERTED HARD_FAIL UNTIL 2026-10-04 AND THE CODE STOPPED AGREEING ON
+    2026-09-29. `7d87a19` changed the policy after four links were reported
+    broken and the Editor answered "it's resolving for me on the internet": a
+    404 comes from the authoritative server and is about the link, while a DNS
+    failure is about whichever resolver the checker happens to be using, and no
+    response was received to classify at all. The test was not updated with it,
+    so every CI run since has been red on this one case.
+
+    WHAT THE OLD TEST WAS PROTECTING IS STILL PROTECTED, and that is why this
+    replaces it rather than deleting it. A mistyped domain is a real authoring
+    error and must not vanish. It no longer blocks, so the guarantee moves to
+    the report: the finding is listed, and its reason names the host and says
+    the failure is DNS rather than the link. That is what is asserted here.
     """
-    v = verdicts(report({"a.md": [network(TYPO_HOST, CONN_DETAIL)]}))
-    assert v[TYPO_HOST] == cl.HARD_FAIL
+    findings = cl.collect_findings(report({"a.md": [network(TYPO_HOST, CONN_DETAIL)]}))
+    v = {f["url"]: f["verdict"] for f in findings}
+    assert v[TYPO_HOST] == cl.TOLERATED
+
+    reason = next(f["reason"] for f in findings if f["url"] == TYPO_HOST)
+    assert "did not resolve" in reason
+    assert "www.sigmaaldrichh.com" in reason, "the reason must name the host that failed"
+    assert "DNS, not the link" in reason, "and must say where the failure lives"
 
 
 def test_missing_local_file_is_a_hard_failure():
