@@ -17,6 +17,8 @@ IV-HSL offers several advantages: it crosses synthetic cell membranes; its uncom
 Design schematic of the IV-HSL Emitter module. `pT7-bjaI` expresses the BjaI enzyme, which converts SAM and IV-CoA substrates into IV-HSL. IV-HSL diffuses across the lipid bilayer and activates GFP expression in *E. coli* receiver cells via the BjaR transcription factor.
 :::
 
+**Identity.** [UniProt Q89VI2](https://www.uniprot.org/uniprotkb/Q89VI2/entry) — Isovaleryl-homoserine lactone synthase, *Bradyrhizobium diazoefficiens (strain JCM 10833 / BCRC 13528 / IAM 13628 / NBRC 14792 / USDA 110)*, 219 residues.
+
 # Reference Composition
 
 :::::{tab-set}

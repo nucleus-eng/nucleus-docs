@@ -227,20 +227,38 @@ def align_identity(protein, entry_seq):
     return 100.0 * same / min(len(protein), len(entry_seq))
 
 
+# A CDS IS NOT THE ONLY PLACE AN INSERT LIVES. pOpen-Cx43.gb annotates its
+# 1146 bp connexin insert as a `misc_feature` labelled "Cx43 (rat)" and declares
+# no CDS for it at all; a CDS-only reader finds AmpR and a lacZ-alpha fragment
+# and reports that the file has nothing to check. SnapGene exports do this
+# routinely, so the insert types are read too and a label hint disambiguates.
+TRANSLATABLE = ("CDS", "misc_feature", "gene")
+
+
 def translated_cds(gb_path, label_hint=""):
-    """Every CDS translation in a GenBank file, longest first."""
+    """Every translatable feature in a GenBank file, longest first."""
     from Bio import SeqIO
     out = []
     for rec in SeqIO.parse(str(gb_path), "genbank"):
         for ft in rec.features:
-            if ft.type != "CDS":
+            if ft.type not in TRANSLATABLE:
                 continue
             lab = (ft.qualifiers.get("label") or ft.qualifiers.get("gene")
                    or ft.qualifiers.get("product") or [""])[0]
             if label_hint and label_hint.lower() not in lab.lower():
                 continue
             try:
-                out.append((lab, str(ft.extract(rec.seq).translate()).rstrip("*")))
+                nt = ft.extract(rec.seq)
+                # A primer_bind or a spacer is not a reading frame. Anything that
+                # is not a whole number of codons, or that stops part way through,
+                # is not the insert -- `Cx43-1F`, a 73 bp primer, otherwise
+                # translates to 24 residues of nonsense and aligns at 12%.
+                if len(nt) < 150 or len(nt) % 3:
+                    continue
+                aa = str(nt.translate()).rstrip("*")
+                if "*" in aa:
+                    continue
+                out.append((lab, aa))
             except Exception:
                 continue
     return sorted(out, key=lambda t: -len(t[1]))

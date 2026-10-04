@@ -21,6 +21,8 @@ Every member delivers β-galactosidase activity. An operand that names LacZ take
 This page is a work in progress and not yet ready for use.
 :::
 
+**Identity.** [UniProt P00722](https://www.uniprot.org/uniprotkb/P00722/entry) — Beta-galactosidase, *Escherichia coli K12*, 1024 residues.
+
 # Members
 
 | Member | What makes it a member |

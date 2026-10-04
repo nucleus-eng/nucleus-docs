@@ -41,6 +41,8 @@ All data below comes from bacterial S30 lysate (Promega) and POPC synthetic cell
 Schematic representation of the 3OC6-HSL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-3OC6-HSL as it diffuses in from outside the synthetic cell. LuxR–3OC6-HSL activates the pLux promoter, driving gene expression (here: GFP).
 :::
 
+**Identity.** [UniProt P12746](https://www.uniprot.org/uniprotkb/P12746/entry) — Transcriptional activator protein LuxR, *Aliivibrio fischeri*, 250 residues.
+
 # Reference Composition
 
 :::::{tab-set}

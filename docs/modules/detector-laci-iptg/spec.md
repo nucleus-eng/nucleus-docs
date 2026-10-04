@@ -18,6 +18,8 @@ The LacI-IPTG Detector Module is a set of two genetic constructs that encode IPT
 Schematic of the LacI-IPTG detector module. IPTG relieves LacI repression of `pT7-lacO-plamGFP`, recovering GFP expression.
 :::
 
+**Identity.** [UniProt P03023](https://www.uniprot.org/uniprotkb/P03023/entry) — Lactose operon repressor, *Escherichia coli K12*, 360 residues.
+
 # Reference Composition
 
 :::::{tab-set}

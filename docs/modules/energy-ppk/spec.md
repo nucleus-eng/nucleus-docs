@@ -103,6 +103,8 @@ The PPK Energy module consists of a purified protein, the bifunctional polyphosp
 
 When used alongside PURE's standard energy regeneration module based on creatine kinase and creatine phosphate (CP/CK), significant increases in protein expression yields can result.
 
+**Identity.** [UniProt P0A7B1](https://www.uniprot.org/uniprotkb/P0A7B1/entry) — Polyphosphate kinase, *Escherichia coli K12*, 688 residues.
+
 # Reference Composition
 
 The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. The module is supplied as two components: purified PPK2 protein, and the 100mer polyphosphate substrate. No additional cell components are required.

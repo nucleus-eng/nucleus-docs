@@ -23,6 +23,8 @@ This page is a work in progress and not yet ready for use. Every claim below is 
 @Editor(london): supply the EsaR construct, a working concentration and titration data.
 :::
 
+**Identity.** [UniProt P54293](https://www.uniprot.org/uniprotkb/P54293/entry) — Transcriptional activator protein EsaR, *Pantoea stewartii subsp. stewartii*, 249 residues. **The entry names it an activator; it is a repressor**, which is how every page here and the CRAIC design treat it.
+
 # Reference Composition
 
 The operator is `[EsaO]2`, two EsaO sites in tandem. A single-site version exists and is not the one in use.

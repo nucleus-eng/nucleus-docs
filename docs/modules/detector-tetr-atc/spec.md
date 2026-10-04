@@ -21,6 +21,8 @@ The TetR inducible expression module is a set of two genetic constructs that enc
 Schematic of the TetR inducible expression module. TetR represses expression from `pT7-tetO-plamGFP`; aTc relieves repression by binding TetR and causing its release from the tetO operator.
 :::
 
+**Identity.** [UniProt P04483](https://www.uniprot.org/uniprotkb/P04483/entry) — Tetracycline repressor protein class B from transposon Tn10, *Escherichia coli*, 207 residues. **Class B is the one**: a search for "Tetracycline repressor" returns class D, `P0ACT4`, first, and both are *E. coli* at around 210 residues.
+
 # Reference Composition
 
 :::::{tab-set}

@@ -27,6 +27,8 @@ This Module has not been validated in Nucleus Cytosol. Expected performance data
 
 aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE system, or added as purified protein from an external source. We recommend the purified protein approach for most applications.
 
+**Identity.** [UniProt P09616](https://www.uniprot.org/uniprotkb/P09616/entry) — Alpha-hemolysin, *Staphylococcus aureus*, 319 residues.
+
 # Reference Composition
 
 :::::{tab-set}

@@ -19,6 +19,8 @@ XylE is catechol 2,3-dioxygenase (C23DO), the *xylE* gene product. It oxidizes c
 This page is a work in progress and not yet ready for use.
 :::
 
+**Identity.** [UniProt P06622](https://www.uniprot.org/uniprotkb/P06622/entry) — Metapyrocatechase, *Pseudomonas putida*, 307 residues.
+
 # Expected Behavior
 
 XylE oxidizes catechol to 2-hydroxymuconate semialdehyde, which is yellow and absorbs near 375 nm to 385 nm. Catechol is its one documented substrate. @Editor: no rate or yield is recorded for the enzyme on its own.
