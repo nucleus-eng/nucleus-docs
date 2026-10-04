@@ -45,7 +45,7 @@ flowchart TD
     ANALYTE_3OC6_HSL["Analyte: 3OC6-HSL"]
 
     P1_EXPRESS_REPRESSOR_0(["Assemble Solution (mixing)"])
-    DETECTOR_ESAR["Detector: EsaR"]
+    DETECTOR_ESAR["Detector: 3OC6-HSL (EsaR)"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     CRAIC_SENSOR_CYTOSOL["SensorCytosol[3OC6-HSL ⟶ PLA1]"]
     P3_ENCAPSULATE_SENSING_0(["Encapsulation (packing)"])
@@ -136,7 +136,7 @@ flowchart TD
 
 # Requirements
 
-Requires EsaR as the 3OC6-HSL-responsive repressor (see [Detector: EsaR](../detector-esar/spec.md)).
+Requires EsaR as the 3OC6-HSL-responsive repressor (see [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md)).
 
 Requires an observation step to read the color change.
 

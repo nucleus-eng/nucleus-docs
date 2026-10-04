@@ -63,7 +63,7 @@ process_steps:
     operands: [base-cytosol, esar-dna]
     produces:
       id: detector-esar
-      title: "Detector: EsaR"
+      title: "Detector: 3OC6-HSL (EsaR)"
       page: ../detector-esar/spec.md
     notes: >
       The board splits expression from sensing: `P1A` makes the repressor

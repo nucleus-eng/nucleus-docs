@@ -1,4 +1,4 @@
-# Composition source for Detector: EsaR.
+# Composition source for Detector: 3OC6-HSL (EsaR).
 #
 # Machine-readable companion to spec.md — see issue #248.
 #
@@ -9,7 +9,7 @@
 # operator site is not named anywhere in this corpus and is not guessed at here.
 
 module: detector-esar
-title: "Detector: EsaR"
+title: "Detector: 3OC6-HSL (EsaR)"
 
 refines: repressor-detector
 
@@ -30,7 +30,7 @@ process_steps:
     operands: [esar, dna-regulatory-element]
     produces:
       id: detector-esar
-      title: "Detector: EsaR"
+      title: "Detector: 3OC6-HSL (EsaR)"
       page: ../detector-esar/spec.md
     notes: >
       This is ../repressor-detector/spec.yml's own step with the repressor named.

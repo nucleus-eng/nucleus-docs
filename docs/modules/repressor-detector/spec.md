@@ -63,7 +63,7 @@ The repressor element binds the regulatory element and holds the gene off. It is
 | --- | --- | --- |
 | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) | [aTc](../analyte-atc/spec.md) | TetR, as purified protein or expressed from `pT7-tetR` |
 | [Detector: LacI-IPTG](../detector-laci-iptg/spec.md) | [IPTG](../analyte-iptg/spec.md) | LacI, as purified protein or expressed from `pT7-lacI` |
-| [Detector: EsaR](../detector-esar/spec.md) | [3OC6-HSL](../analyte-3oc6-hsl/spec.md) | EsaR, a LuxR homolog that represses where LuxR activates. Design intent only. Purified protein is available from Biocrest. |
+| [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) | [3OC6-HSL](../analyte-3oc6-hsl/spec.md) | EsaR, a LuxR homolog that represses where LuxR activates. Design intent only. Purified protein is available from Biocrest. |
 :::
 
 How the repressor element is supplied is not fixed by the class. A protein is mixed in. DNA is two constructs mixed, or one construct carrying both. Both built members use two constructs: `pT7-tetR` with `pT7-tetO-plamGFP`, and `pT7-lacI` with `pT7-lacO-plamGFP`. A repressor supplied as DNA is expressed in the reaction, or in a separate reaction first, as described in [Expression](../../processes/express/main.md).
@@ -79,7 +79,7 @@ The regulatory element is DNA, always: the operator or promoter the repressor bi
 | --- | --- |
 | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) | the `tetO` operator, in `pT7-tetO-plamGFP` |
 | [Detector: LacI-IPTG](../detector-laci-iptg/spec.md) | the `lacO` operator, in `pT7-lacO-plamGFP` |
-| [Detector: EsaR](../detector-esar/spec.md) | not yet established |
+| [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) | not yet established |
 :::
 
 ::::

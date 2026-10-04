@@ -1,5 +1,5 @@
 ---
-title: "Detector: EsaR"
+title: "Detector: 3OC6-HSL (EsaR)"
 subtitle: "Module Specification"
 status: draft
 site:

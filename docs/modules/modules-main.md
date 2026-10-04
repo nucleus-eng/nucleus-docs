@@ -86,7 +86,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | --- | --- | --- |
 | Cytosol: S30 Lysate | [S30 Lysate](./s30-lysate/spec.md) | ★ |
 | Detector | [3OC6-HSL](./detector-3oc6-hsl/spec.md) | ★ |
-| Detector | [EsaR](./detector-esar/spec.md) | - |
+| Detector | [3OC6-HSL (EsaR)](./detector-esar/spec.md) | - |
 | Detector | [Detector](./detector/spec.md) | - |
 | Detector | [Repressor Detector](./repressor-detector/spec.md) | - |
 | Membrane | [Membrane: POPC](./membrane-popc/spec.md) | ★ |
