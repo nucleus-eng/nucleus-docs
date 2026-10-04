@@ -48,7 +48,6 @@ process_steps:
       pegda575: "20 wt%"
       peg4sh: "0.3 wt%"
       lap: "0.03 wt%"
-      preparation: "vortex 2000 rpm (3-5) min; keep dark until patterning"
     notes: >
       PEG4SH is the same reagent as in the PEG-norbornene route and does a
       different job. There it is the crosslinker at roughly 4 wt%; here it is

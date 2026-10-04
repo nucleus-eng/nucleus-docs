@@ -57,8 +57,16 @@ Exposure time depends on monomer concentration, layer thickness and feature size
 
 Crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. Precursor composition and preparation are on [Gel: PEG-Norbornene](../../modules/gel-peg-norbornene/spec.md). Patterning runs **60 s at 405 nm**.
 
+### Prepare the precursor
+
+- [ ] Work under red light, or in the dark.
+- [ ] Vortex the precursor at 2000 rpm for 1 min.
+- [ ] Rest it for (3–5) min.
+- [ ] Vortex again for (2–4) min.
+- [ ] Repeat the rest and the second vortex until the solution runs clear.
+
 :::{attention} No protocol for this chemistry
-The four shared steps are above. The precursor recipe and the exposure conditions specific to thiol-ene crosslinking are not established. @Editor(chicago): add the precursor recipe and the exposure conditions for thiol-ene crosslinking.
+The four shared steps are above, and the mixing steps are here. The precursor recipe and the exposure conditions specific to thiol-ene crosslinking are not established. @Editor(chicago): add the precursor recipe and the exposure conditions for thiol-ene crosslinking.
 :::
 
 ### Expected Behavior
@@ -79,7 +87,7 @@ DevCell component volumes are too small to produce macroscopically visible patte
 
 - [ ] Dissolve PEGDA monomer in PBS or DI water.
 - [ ] Add LAP photoinitiator to the precursor solution.
-- [ ] Mix thoroughly, protecting the solution from light until ready to pattern.
+- [ ] Vortex at 2000 rpm for (3–5) min. Keep the solution dark until it is patterned.
 - [ ] Load the precursor solution into the patterning setup.
 - [ ] Expose the desired pattern using a 405 nm DLP projector for 15 s to 30 s, adjusting exposure time for monomer concentration, feature size and layer thickness.
 - [ ] For multimaterial photodevelopment, combine 1.6 wt% alginate with the precursor solution to enable a combined ionic and photo-crosslinking system, producing a patterned PEGDA frame around an alginate core.

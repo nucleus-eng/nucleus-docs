@@ -50,7 +50,6 @@ process_steps:
       peg4nb: "80 mM"
       peg4sh: "20 mM"
       lap: "16.9 mM"
-      preparation: "vortex 2000 rpm 1 min, rest (3-5) min, vortex (2-4) min, repeat until clear; prepare under red light or in the dark"
     notes: >
       The ratio is a property of this step and is provisional. Step-growth
       thiol-ene normally runs near 1:1; a four-fold norbornene excess gives a
