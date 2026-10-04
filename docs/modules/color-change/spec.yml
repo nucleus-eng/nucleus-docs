@@ -22,6 +22,19 @@ inputs:
   substrate:
     title: "Substrate"
     page: null            # one of the enzyme's substrates:
+  trigger:
+    title: "Trigger"
+    page: null            # THE THIRD COORDINATE, added 2026-10-04 on Jon's ruling. What ends
+                          # the separation this class holds. It is NOT an operand of the step
+                          # below: `packing` is what creates the separation, and the trigger is
+                          # what later destroys it, so it enters at the cascade and not here.
+                          # It is declared on the class so that the coordinate exists at all.
+                          # Every cascade built so far supplies a gated PLA1 construct --
+                          # pT7-toehold9-PLA1, pT7-tetO-PLA1, pOpen-LuxR-PLA1, [EsaO]2-PLA1 --
+                          # which is one molecule carrying a detector's regulatory element and
+                          # PLA1, so the trigger is dual-membership DNA and not a Module of its
+                          # own. `nucleus-eng/DNA` records that membership in `manifest.tsv`'s
+                          # `modules` column: 12 of 17 constructs there name two modules.
 
 process_steps:
   - id: separate-enzyme-and-substrate
@@ -56,8 +69,22 @@ process_steps:
 
 open:
   - id: pla1-location-is-a-third-coordinate-and-is-not-here
+    kind: choice
     question: >
-      Every member built so far is triggered by ../effector-pla1/spec.md, and where
-      PLA1 sits is not free: it lyses the substrate compartment. Whether the valid
-      (encapsulation, PLA1 location) pairs form a rectangle has never been checked,
-      and the answer decides whether this class needs a third input or a tuple set.
+      RULED 2026-10-04 AND HALF CLOSED. A third input, not a tuple set. `trigger` is
+      declared above. A tuple set would assert that the valid (encapsulation, trigger
+      location) pairs are a restricted subset correlated by rule, and nothing in this
+      corpus asserts that correlation: the combinations nobody has built are untested
+      or designed, not forbidden. One of them is designed and recorded --
+      ../detector-ph/spec.md lists `T7-toehold-XylE-T7term` at 2 nM, status Designed --
+      so a tuple set would exclude a combination somebody drew.
+      WHAT IS STILL OPEN IS THE RECTANGLE, which the ruling did not touch. Whether the
+      valid (encapsulation, trigger location) pairs form one has still never been
+      checked. Where the trigger sits is not free -- it lyses the substrate
+      compartment -- so the pairs could be correlated in fact while not being correlated
+      by any rule the corpus states. Measuring it needs every cascade's encapsulation
+      choice read against its trigger's compartment, which no generator does today.
+      NEITHER MEMBER DECLARES A TRIGGER, which is not an omission. ../reporter-lacz/
+      and ../reporter-xyle/ are the two members and each is an enzyme-and-substrate
+      pair; the trigger arrives when a cascade composes one of them, which is why the
+      input is declared here and left out of the step.
