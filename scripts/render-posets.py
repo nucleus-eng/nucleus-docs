@@ -237,8 +237,9 @@ the only thing this script reads. Both live in `compositional-biology-theory`
   P5. THE OPERATION POSET, at main 29842a1. `transport` is abstract and refined
       by `passive_transport` and `active_transport` (`signature.md:85`, and the
       two profiles at `:313` and `:315`); `hold` is refined by `encapsulate`
-      (`:84`, and `:117` records it as the O3 ruling of 2026-09-08); `::` is
-      declared by `Polymer` and refined by its refiners (`:93`). `:398` calls
+      (`:84`, and `:117` writes that refinement at type level as
+      `encapsulate := hold[C = Membrane]`); `::` is declared by `Polymer` and
+      refined by its refiners (`:93`). `:398` calls
       the transport pair the first worked refinement edge in the Functions
       poset, so that repo already names this as a poset.
 
@@ -246,8 +247,9 @@ the only thing this script reads. Both live in `compositional-biology-theory`
       `Gel` and `Membrane` (`signature.md:87`, `:88`, `:84`). `Polymer` spans
       and is refined by `RNA`, `DNA` and `Protein` (`:93`). Both rows say "a
       parent, not a page set", so the type order and P1 are different relations
-      over different carriers even where the names coincide. `Substrate`
-      refined `Container` until 2026-09-24 and no longer does (`:92`).
+      over different carriers even where the names coincide. `Substrate` is not
+      among them: it declares no operation, because a substrate is held rather
+      than holding (`:92`).
 
   NEITHER IS ESTIMATED HERE. A three-line summary of another repo's prose is not
   the data, and quoting a moving file without a commit beside it is a claim about

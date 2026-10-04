@@ -62,7 +62,11 @@ _URL = re.compile(r"\bhttps?://\S+")
 
 TIER1 = {
     "ruling": (
-        re.compile(r"\b[Rr]ul(?:ed|ings?)\b(?! out)"),
+        # `(?!\.md)` keeps the filename `rulings.md` out of this rule. A filename is
+        # an address, the same reason `_LINK_TARGET` is blanked out, and the pointer
+        # itself is already what `working-notes` is for. It fired on
+        # effector-pla1/spec.yml, which cites `rulings.md#D35` for associativity.
+        re.compile(r"\b[Rr]ul(?:ed|ings?)\b(?! out)(?!\.md)"),
         "records a ruling. State the result; the commit message records who decided.",
     ),
     "working-notes": (
@@ -118,6 +122,14 @@ def read_contributors(path: Path) -> list[tuple[str, str]]:
     return names
 
 
+# NOUNS THAT ARE NOT PEOPLE, for the "<Name>, <date>" catch-all below. An
+# institution confirming something is evidence, not a person deciding it, and
+# the sweep of 2026-10-03 kept those sources for that reason — vendor datasheets,
+# catalog numbers, and a Node's confirmation of a construct's structure. The
+# catch-all cannot tell "Node, 2026-09-09" from a surname and a date.
+NOT_A_PERSON = ("Node", "Meeting")
+
+
 def person_pattern(names: list[tuple[str, str]]) -> re.Pattern:
     """A first name not followed by that contributor's surname, or "<Name>, <date>"."""
     by_first: dict[str, list[str]] = {}
@@ -127,7 +139,8 @@ def person_pattern(names: list[tuple[str, str]]) -> re.Pattern:
     for first, rests in sorted(by_first.items()):
         surnames = "|".join(re.escape(r) for r in rests)
         alternatives.append(rf"\b{re.escape(first)}\b(?!\s+(?:{surnames})\b)")
-    alternatives.append(rf"\b[A-Z][a-z]+, {_ISO_DATE}\b")
+    not_person = "|".join(NOT_A_PERSON)
+    alternatives.append(rf"\b(?!(?:{not_person})\b)[A-Z][a-z]+, {_ISO_DATE}\b")
     return re.compile("|".join(alternatives))
 
 
@@ -177,6 +190,21 @@ def visible_lines(text: str) -> list[tuple[int, str]]:
     return out
 
 
+# TWO RULES ARE EXEMPT IN A `spec.yml`, FOR DIFFERENT REASONS.
+#
+# `tooling` complains that our tooling has become the subject of a page. Almost
+# every hit in a source file is the word `spec.yml` written inside a `spec.yml`,
+# where the file IS the tooling and naming it is the only way to say anything.
+# Keeping it would mean 114 findings nobody can act on, which is how a check
+# stops being read.
+#
+# `working-notes` is right and is not ready. A pointer to `rulings.md#D35` is as
+# unfollowable for a source reader as for a page reader, so the rule belongs
+# here eventually. But it is 85 findings, which is a sweep of its own, and
+# turning it on before that sweep would block every `spec.yml` change.
+EXEMPT_IN_SOURCE = {"tooling", "working-notes"}
+
+
 def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str, str]]:
     """Return (lineno, level, rule, match, message) for each finding in path."""
     try:
@@ -185,10 +213,13 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
         return []
     findings = []
     tier1 = {"person": (person, PERSON_MESSAGE), **TIER1}
+    source = path.suffix == ".yml"
     for lineno, line in visible_lines(text):
         line = _URL.sub(" ", _LINK_TARGET.sub("]()", line))
         for level, rules in (("error", tier1), ("warning", TIER2)):
             for rule, (pattern, message) in rules.items():
+                if source and rule in EXEMPT_IN_SOURCE:
+                    continue
                 if rule in ("person", "date") and EDITOR_CITATION.search(line):
                     continue
                 for m in pattern.finditer(line):
@@ -196,12 +227,21 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
     return findings
 
 
-def iter_markdown(paths: list[Path]):
+# A `spec.yml` IS A DOCS PAGE'S OTHER HALF, and this check read neither it nor
+# its `#` headers until 2026-10-04. The `.md` layer went 139 findings to 0 while
+# the source file beside it was never counted: 193 findings on 62 of 76 sources,
+# the same who-decided text in `question:`, `notes:` and `why:` values that the
+# schema defines and `check-spec-schema.py` validates. Content, not a note to the
+# next editor.
+SUFFIXES = (".md", ".yml")
+
+
+def iter_pages(paths: list[Path]):
     for p in paths:
-        if p.is_file() and p.suffix == ".md":
+        if p.is_file() and p.suffix in SUFFIXES:
             yield p
         elif p.is_dir():
-            yield from sorted(p.rglob("*.md"))
+            yield from sorted(q for q in p.rglob("*") if q.suffix in SUFFIXES)
 
 
 def main(argv=None) -> int:
@@ -226,7 +266,7 @@ def main(argv=None) -> int:
             print(f"check-reference-voice: no such file or directory: {p}", file=sys.stderr)
         return 2
     errors = warnings = checked = 0
-    for path in iter_markdown(paths):
+    for path in iter_pages(paths):
         checked += 1
         for lineno, level, rule, match, message in check_file(path, person):
             try:
