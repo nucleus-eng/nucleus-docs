@@ -49,7 +49,7 @@ open:
       ../detector-laci-iptg/spec.md states the choice in its own prose: LacI is added
       "either as a purified protein or by expressing it off of `pT7-lacI`". Protein
       is mixed. DNA on one construct with the regulatory element would be stitched,
-      `⌢` in compositional-biology-theory glossary.md#T37, which is a different
+      `::` in compositional-biology-theory glossary.md#T37, which is a different
       operator and not one this schema can express at the Module level. So `mixing`
       above is the corpus's current practice rather than a property of the class.
   - id: the-preparation-decides-whether-it-works-and-that-is-not-the-route

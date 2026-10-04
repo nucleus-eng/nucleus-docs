@@ -207,8 +207,8 @@ process_steps:
       lacz_enzyme: "156 U/mL"
     notes: >
       THE BOARD'S `P6 · Color Development`, producing the device in its read state.
-      The prime is the registered mark for the same thing changed, signature.md:161,
-      and it sits in the title because the schema's id pattern admits no prime.
+      The prime is the registered mark for the same thing changed, signature.md:189
+      at main 29842a1, and it sits in the title because the schema's id pattern admits no prime.
       No buffer composition, incubation time or target pH after neutralization is
       recorded anywhere; ../../processes/color-development/main.md says so too.
 

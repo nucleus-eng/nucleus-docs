@@ -1,7 +1,7 @@
 # Composition source for Gel.
 #
 # AN ABSTRACT MODULE WITH A REAL COMPOSITION, AND THE THEORY CORPUS WROTE IT FIRST.
-# compositional-biology-theory codimension-is-a-coordinate.md:32 states
+# compositional-biology-theory codimension-is-a-coordinate.md:41 at main 29842a1 states
 # `Gel = OuterSolution ⊞ polymer`, same compartment, no membrane between them. That is
 # a Composition in the glossary.md#T33 sense with both factors abstract, so this file
 # quotes it rather than deriving one.
@@ -42,7 +42,8 @@ process_steps:
       page: ../gel/spec.md
     notes: >
       `mixing` and not `packing`, because the two end in one compartment with no
-      membrane between them. That is codimension-is-a-coordinate.md:32's own reading
+      membrane between them. That is codimension-is-a-coordinate.md:41's own reading,
+      at main 29842a1,
       and it is what separates a gel from a Membrane, the other child of Container:
       a gel fixes position and a membrane encloses a volume.
 

@@ -134,7 +134,7 @@ process_steps:
       # AND holds membrane-bounded cells in it. `packing` is right for every pair
       # involving atc-sensing-cell, which keeps its own compartment, and wrong for the
       # two below: a polymer and the outer solution share one phase with no boundary
-      # between them, which is what codimension-is-a-coordinate.md:32 states as
+      # between them, which is what codimension-is-a-coordinate.md:41 at main 29842a1 states as
       # "Gel = OuterSolution (+) polymer, same compartment, no membrane between them".
       #
       # SAME SHAPE AS embed-agarose AND embed-ulga, which have carried these exceptions

@@ -82,7 +82,7 @@ ROOT = Path(__file__).resolve().parent.parent / "docs" / "modules"
 
 # A CANDIDATE SET IS A BARE BRACE, NOT A PARENTHESIS, under the attachment rule: a brace attached to a type contains, a bare
 # brace with commas is a set. `(…)` applies a morphism — glossary.md and
-# signature.md:189 — so `Detector(pH Detector, tetR-aTc Detector)` parsed as
+# signature.md:214 at main 29842a1 — so `Detector(pH Detector, tetR-aTc Detector)` parsed as
 # applying Detector to two arguments. That was wrong before the brace sweep and
 # the sweep did not cause it.
 #

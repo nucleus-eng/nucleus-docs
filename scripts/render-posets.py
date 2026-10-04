@@ -234,18 +234,20 @@ These are not absent from the corpus. They are absent from `spec.yml`, which is
 the only thing this script reads. Both live in `compositional-biology-theory`
 `signature.md`, in prose and table cells, with nothing to walk.
 
-  P5. THE OPERATION POSET. `signature.md:201-213`. `transport` is abstract and
-      refined by `passive_transport` and `active_transport`; `hold` is refined
-      by `encapsulate` (`:212`, and `:117` records it as the O3 ruling of
-      2026-09-08); `⌢` is declared by `Polymer` and refined by its refiners.
-      `:217` calls the transport pair the first worked refinement edge in the
-      Functions poset, so that repo already names this as a poset.
+  P5. THE OPERATION POSET, at main 29842a1. `transport` is abstract and refined
+      by `passive_transport` and `active_transport` (`signature.md:85`, and the
+      two profiles at `:313` and `:315`); `hold` is refined by `encapsulate`
+      (`:84`, and `:117` records it as the O3 ruling of 2026-09-08); `::` is
+      declared by `Polymer` and refined by its refiners (`:93`). `:398` calls
+      the transport pair the first worked refinement edge in the Functions
+      poset, so that repo already names this as a poset.
 
-  P6. THE SORT POSET. `signature.md:81` and `:84`. `Container` spans and is
-      refined by `Gel`, `Membrane` and `Substrate`. `Polymer` spans and is
-      refined by `RNA`, `DNA` and `Protein`. Both rows say "a parent, not a page
-      set", so the sort order and P1 are different relations over different
-      carriers even where the names coincide.
+  P6. THE TYPE POSET, at main 29842a1. `Container` spans and is refined by
+      `Gel` and `Membrane` (`signature.md:87`, `:88`, `:84`). `Polymer` spans
+      and is refined by `RNA`, `DNA` and `Protein` (`:93`). Both rows say "a
+      parent, not a page set", so the type order and P1 are different relations
+      over different carriers even where the names coincide. `Substrate`
+      refined `Container` until 2026-09-24 and no longer does (`:92`).
 
   NEITHER IS ESTIMATED HERE. A three-line summary of another repo's prose is not
   the data, and quoting a moving file without a commit beside it is a claim about

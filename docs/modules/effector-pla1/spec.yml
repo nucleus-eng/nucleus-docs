@@ -16,11 +16,11 @@
 #
 # THE OTHER FOUR ARE NOT CONFIGURATIONS OF THIS MODULE. Each is this Module's
 # coding sequence stitched to a detector's DNA. Under
-# glossary.md#T37 in compositional-biology-theory, stitching `⌢` joins operands in
+# glossary.md#T37 in compositional-biology-theory, stitching `::` joins operands in
 # order into one polymer, it is associative and not commutative (rulings.md#D35),
 # and it is homogeneous — DNA stitched to DNA is DNA (signature.md:214, main ada4ea5;
-# this read :286 until 2026-09-21, which is a paragraph about undeclared sorts). So
-# `LuxR-PLA1` is `luxR-cassette ⌢ pla1-cds`, a DIFFERENT DNA Module that contains
+# this read :286 until 2026-09-21, which is a paragraph about undeclared types). So
+# `LuxR-PLA1` is `luxR-cassette :: pla1-cds`, a DIFFERENT DNA Module that contains
 # PLA1, not this Module in a different setting. See the open entry below.
 #
 # The step is `mixing`: two additions into Base Cytosol, sharing its resources.

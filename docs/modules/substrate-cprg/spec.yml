@@ -41,10 +41,11 @@ open:
     question: >
       `signature.md` in compositional-biology-theory gives `Substrate` three members —
       `substrate-cprg-suv`, `guv-cprg` and this page — and observes that the first two
-      are compartments and this one is a molecule. Its own words: "the sort name is
-      the payload's role worn by a container." So this Module is in a sort whose other
-      members are a different kind of thing, which is why its Composition is unstated
-      rather than merely unwritten.
+      are compartments and this one is a molecule. Its own words: "the type name is
+      the payload's role worn by a container" — signature.md:92 at main 29842a1. So
+      this Module is in a type whose other members are a different kind of thing,
+      which is why its Composition is unstated rather than merely unwritten. The id
+      above still says "sort"; an id may be cited, so renaming it is a separate call.
   - id: an-atom-is-its-own-input
     question: >
       `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.

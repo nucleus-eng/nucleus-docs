@@ -2,7 +2,7 @@
 #
 # INHERITS ABSTRACT GEL'S COMPOSITION AND ADDS ONE FACTOR. The parent is
 # `OuterSolution ⊞ polymer`, from compositional-biology-theory
-# codimension-is-a-coordinate.md:32. A photopatterned gel needs a photoinitiator as
+# codimension-is-a-coordinate.md:41 at main 29842a1. A photopatterned gel needs a photoinitiator as
 # well, which neither parent class requires, and both members carry it. That third
 # factor is what makes this a class rather than a label on two members.
 #

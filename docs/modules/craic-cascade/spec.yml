@@ -141,7 +141,7 @@ process_steps:
     notes: >
       The board's `P4 · Incubate / Detection`, producing the device in its On
       state. The prime is the registered mark for the same thing changed,
-      signature.md:161. It sits in the title rather than the id because the
+      signature.md:189 at main 29842a1. It sits in the title rather than the id because the
       schema's id pattern admits no prime.
 
 measured_by:
