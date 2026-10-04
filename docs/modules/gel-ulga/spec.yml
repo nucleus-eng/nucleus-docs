@@ -16,7 +16,7 @@
 
 module: gel-ulga
 title: "Gel: ULGA"
-refines: gel
+refines: thermal-gel
 
 inputs:
   ulga-powder:
@@ -70,6 +70,7 @@ process_steps:
     parameters:
       ulga: "1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1"
       ulga_working_range: "0.2% to 0.5% in the set gel"
+      gel_point_min_c: 8
       gel_point_max_c: 17
       melting_point_c: 50
     notes: >

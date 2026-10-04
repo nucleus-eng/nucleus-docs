@@ -1,0 +1,36 @@
+# Composition source for Thermal Gel: the gels that set by cooling.
+
+module: thermal-gel
+title: "Thermal Gel"
+refines: gel
+
+inputs:
+  agarose:
+    title: "Agarose"
+    page: null            # ULGA or LGA in the members
+  outer-solution:
+    title: "Outer solution"
+    page: ../outer-solution/spec.md
+
+process_steps:
+  - id: set-by-cooling
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+      abstract: embed-hydrogel
+    operator: mixing
+    operands: [agarose, outer-solution]
+    produces:
+      id: thermal-gel
+      title: "Thermal Gel"
+      page: ../thermal-gel/spec.md
+
+member_properties:
+  - keys: [gel_point_min_c, gel_point_max_c]
+    title: "Gelling temperature range"
+    unit: "°C"
+    why: The gel sets as it cools through this range, so a payload goes in above its top.
+  - keys: [melting_point_c]
+    title: "Melting temperature"
+    unit: "°C"
+    why: Above it the set gel turns liquid again.

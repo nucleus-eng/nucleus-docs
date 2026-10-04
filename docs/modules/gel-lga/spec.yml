@@ -22,7 +22,7 @@
 
 module: gel-lga
 title: "Gel: LGA"
-refines: gel
+refines: thermal-gel
 
 inputs:
   lga-powder:
@@ -46,6 +46,7 @@ process_steps:
       page: ../gel-lga/spec.md
     parameters:
       lga: "0.7% (w/v) in the pH path"
+      gel_point_min_c: 26
       gel_point_max_c: 30
       melting_point_c: 65
       eeo: "≤0.10"

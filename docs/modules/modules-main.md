@@ -101,6 +101,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Gel | [LGA](./gel-lga/spec.md) | - |
 | Gel | [Gel](./gel/spec.md) | - |
 | Gel | [Photopatterned Gel](./photopatterned-gel/spec.md) | - |
+| Gel | [Thermal Gel](./thermal-gel/spec.md) | - |
 | Cytosol | [Cytosol](./cytosol/spec.md) | - |
 | Cytosol: Sensor | [Sensor Cytosol](./sensor-cytosol/spec.md) | - |
 | Cell | [Cell](./cell/spec.md) | - |

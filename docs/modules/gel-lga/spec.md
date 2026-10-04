@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`gel`](../gel/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`thermal-gel`](../thermal-gel/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 Low-gelling-temperature agarose set into an outer solution. Congeals over (26–30) °C and melts at ≤ 65 °C. Distinct from [Gel: ULGA](../gel-ulga/spec.md), with a gel point of (8–17) °C and melting point at ≤50 °C. 
