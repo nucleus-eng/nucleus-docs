@@ -33,8 +33,11 @@ inputs:
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
-  tris-hepes-stock:
-    title: "Tris-HEPES buffer stock"
+  glucose:
+    title: "Glucose"
+    page: null
+  hepes-koh:
+    title: "HEPES-KOH buffer"
     page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
   energy-solution:
     title: "Energy solution"
@@ -56,13 +59,12 @@ process_steps:
       page: ../../processes/assemble-outer-solution/main.md
       abstract: assemble-solution
     operator: mixing
-    operands: [tris-hepes-stock, energy-solution]
+    operands: [glucose, hepes-koh]
     produces:
-      id: outer-solution-tris-hepes
-      title: "Outer Solution: Tris-HEPES"
-      page: ../outer-solution-tris-hepes/spec.md
+      id: outer-solution-glucose-hepes
+      title: "Outer Solution: Glucose-HEPES"
+      page: ../outer-solution-glucose-hepes/spec.md
     parameters:
-      tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
 
   - id: assemble-cytosol
@@ -136,15 +138,15 @@ process_steps:
       # lap is NOT here. It is a photoinitiator, the checker gives it its own sort on
       # purpose, and stretching `polymer` to cover a small-molecule initiator would
       # extend the seed by a sort assignment. Its pairs report unknown and should.
-      - operands: [peg-norbornene-monomer, outer-solution-tris-hepes]
+      - operands: [peg-norbornene-monomer, outer-solution-glucose-hepes]
         operator: mixing
-      - operands: [peg4sh, outer-solution-tris-hepes]
+      - operands: [peg4sh, outer-solution-glucose-hepes]
         operator: mixing
     operands:
       - peg-norbornene-monomer
       - peg4sh
       - lap
-      - outer-solution-tris-hepes
+      - outer-solution-glucose-hepes
       - atc-sensing-cell
     produces:
       id: atc-gel

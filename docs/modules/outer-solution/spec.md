@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`solution`](../solution/spec.md). Refined by [`outer-solution-glutamate`](../outer-solution-glutamate/spec.md), [`outer-solution-tris-hepes`](../outer-solution-tris-hepes/spec.md).
+**Position.** Refines [`solution`](../solution/spec.md). Refined by [`outer-solution-glucose-hepes`](../outer-solution-glucose-hepes/spec.md), [`outer-solution-glutamate`](../outer-solution-glutamate/spec.md), [`outer-solution-tris-hepes`](../outer-solution-tris-hepes/spec.md).
 <!-- /gen:position -->
 
 A class: the aqueous phase a synthetic cell is suspended in.
@@ -60,6 +60,7 @@ flowchart TD
 | --- | --- | --- |
 | [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md) | potassium glutamate, HEPES, glucose | ~920 mOsm |
 | [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) | Tris-HEPES stock, energy solution | ~1180 mOsm |
+| [Outer Solution: Glucose-HEPES](../outer-solution-glucose-hepes/spec.md) | glucose, HEPES-KOH | not recorded |
 :::
 
 ::::

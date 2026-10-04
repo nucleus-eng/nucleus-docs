@@ -111,6 +111,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Outer Solution | [Outer Solution](./outer-solution/spec.md) | - |
 | Outer Solution | [Outer Solution: Glutamate-HEPES-Glucose](./outer-solution-glutamate/spec.md) | ★ |
 | Outer Solution | [Outer Solution: Tris-HEPES](./outer-solution-tris-hepes/spec.md) | ★ |
+| Outer Solution | [Outer Solution: Glucose-HEPES](./outer-solution-glucose-hepes/spec.md) | - |
 | Reporter | [LacZ](./lacz/spec.md) | - |
 | Reporter | [LacZ DNA template](./lacz-dna/spec.md) | ★ |
 | Reporter | [XylE](./xyle/spec.md) | - |

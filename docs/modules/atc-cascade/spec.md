@@ -39,14 +39,15 @@ flowchart TD
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
-    TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
+    GLUCOSE["Glucose"]
+    HEPES_KOH["HEPES-KOH buffer"]
     ENERGY_SOLUTION["Energy solution"]
     PEG_NORBORNENE_MONOMER["4-arm PEG-norbornene"]
     PEG4SH["PEG4SH crosslinker"]
     LAP["LAP photoinitiator"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
-    OUTER_SOLUTION_TRIS_HEPES["Outer Solution: Tris-HEPES"]
+    OUTER_SOLUTION_GLUCOSE_HEPES["Outer Solution: Glucose-HEPES"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     ATC_SENSOR_CYTOSOL["SensorCytosol[aTc ⟶ PLA1]"]
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
@@ -57,9 +58,9 @@ flowchart TD
     P5_DOSE_CPRG_0(["Dose CPRG into the set gel (packing) — no page"])
     ATC_CASCADE["aTc Cascade"]
 
-    TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
-    ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
-    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_TRIS_HEPES
+    GLUCOSE --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    HEPES_KOH --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_GLUCOSE_HEPES
 
     BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
     DETECTOR_TETR_ATC --> P2_ASSEMBLE_CYTOSOL_0
@@ -75,7 +76,7 @@ flowchart TD
     PEG_NORBORNENE_MONOMER --> P4_EMBED_PHOTODEVELOPMENT_0
     PEG4SH --> P4_EMBED_PHOTODEVELOPMENT_0
     LAP --> P4_EMBED_PHOTODEVELOPMENT_0
-    OUTER_SOLUTION_TRIS_HEPES --> P4_EMBED_PHOTODEVELOPMENT_0
+    OUTER_SOLUTION_GLUCOSE_HEPES --> P4_EMBED_PHOTODEVELOPMENT_0
     ATC_SENSING_CELL --> P4_EMBED_PHOTODEVELOPMENT_0
     P4_EMBED_PHOTODEVELOPMENT_0 --> ATC_GEL
 
@@ -87,8 +88,8 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,TRIS_HEPES_STOCK,ENERGY_SOLUTION,PEG_NORBORNENE_MONOMER,PEG4SH,LAP leaf;
-    class OUTER_SOLUTION_TRIS_HEPES,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE composed;
+    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,GLUCOSE,HEPES_KOH,ENERGY_SOLUTION,PEG_NORBORNENE_MONOMER,PEG4SH,LAP leaf;
+    class OUTER_SOLUTION_GLUCOSE_HEPES,ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL,ATC_GEL,ATC_CASCADE composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P3_ENCAPSULATE_1,P4_EMBED_PHOTODEVELOPMENT_0,P5_DOSE_CPRG_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
@@ -99,7 +100,7 @@ flowchart TD
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click PEG_NORBORNENE_MONOMER "/docs/modules/gel-peg-norbornene/spec"
     click P1_ASSEMBLE_OUTER_SOLUTION_0 "/docs/processes/assemble-outer-solution/main"
-    click OUTER_SOLUTION_TRIS_HEPES "/docs/modules/outer-solution-tris-hepes/spec"
+    click OUTER_SOLUTION_GLUCOSE_HEPES "/docs/modules/outer-solution-glucose-hepes/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"

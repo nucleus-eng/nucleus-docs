@@ -49,6 +49,8 @@ project:
           hidden: true
         - file: ./docs/modules/outer-solution-tris-hepes/spec.md
           hidden: true
+        - file: ./docs/modules/outer-solution-glucose-hepes/spec.md
+          hidden: true
         - file: ./docs/modules/lacz/spec.md
           hidden: true
         - file: ./docs/modules/lacz-dna/spec.md

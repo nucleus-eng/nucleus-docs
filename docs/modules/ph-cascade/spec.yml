@@ -82,7 +82,6 @@ process_steps:
       title: "Outer Solution: Tris-HEPES"
       page: ../outer-solution-tris-hepes/spec.md
     parameters:
-      tris-hepes: "42.5% (v/v) in water"
       osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
     notes: >
       The agarose dissolves into this and both populations sit in it.

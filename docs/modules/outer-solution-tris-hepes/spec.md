@@ -13,8 +13,7 @@ site:
 **Position.** Refines [`outer-solution`](../outer-solution/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-A member of [Outer Solution](../outer-solution/spec.md): a Tris-HEPES stock with an energy
-solution, used by all three Chicago cascades.
+A member of [Outer Solution](../outer-solution/spec.md): a Tris-HEPES stock with an energy solution. It is the solution the pH path's cells sit in.
 
 **The agarose dissolves into this and both cell populations sit in it**, so this osmolarity sets
 the gel's.

@@ -1,0 +1,48 @@
+# Composition source for Outer Solution: Glucose-HEPES.
+#
+# SPLIT OUT 2026-10-03 on DQ2, ruled (a). ../outer-solution-tris-hepes/spec.md used to
+# claim it served "all three Chicago cascades", while the aTc demo board records a
+# different solution entirely: 400 mM glucose with 1 M HEPES-KOH at pH 7.6, against the
+# Tris-HEPES stock at 42.5% (v/v). One page cannot state two formulations, so the aTc
+# one became this file and the Tris-HEPES page kept the pH path.
+#
+# THE ONLY SOURCE IS A WHITEBOARD, src/20260929-demo-atc-chuck.md in
+# nucleus-eng/devstudio-readiness, node (M5). No osmolarity is recorded, which is why
+# this file states none: the figure the cells are matched against lives on the steps
+# that embed them.
+
+module: outer-solution-glucose-hepes
+title: "Outer Solution: Glucose-HEPES"
+refines: outer-solution
+
+inputs:
+  glucose:
+    title: "Glucose"
+    page: null            # no module page for the sugar
+  hepes-koh:
+    title: "HEPES-KOH buffer"
+    page: null            # no module page for the buffer
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [glucose, hepes-koh]
+    produces:
+      id: outer-solution-glucose-hepes
+      title: "Outer Solution: Glucose-HEPES"
+      page: ../outer-solution-glucose-hepes/spec.md
+    parameters:
+      glucose: "400 mM"
+      hepes_koh: "1 M, pH 7.6"
+
+open:
+  - id: the-osmolarity-is-not-recorded
+    question: >
+      No source gives this solution's osmolarity. The aTc path matches its cells against
+      about 1180 mOsm, which is the Tris-HEPES figure, and whether this formulation
+      reaches the same value is unverified. Until it is, no step can read an osmolarity
+      off this Module.

@@ -25,6 +25,7 @@ Three formulations are attested, and they are not interchangeable — each is ma
 | --- | --- | --- | --- |
 | London | Potassium L-glutamate 578 mM · HEPES pH 7.4 72 mM · Glucose 300 mM | ≈ 920 mOsm | [S30 Lysate](../../modules/s30-lysate/spec.md) cells, in [ULGA Gel](../../modules/gel-ulga/spec.md) |
 | Chicago | Tris-HEPES buffer stock (0.5 M Tris base, 1.7 M HEPES, pH ≈ 7.4) at 42.5% (v/v) in water, plus energy solution | ≈ 1180 mOsm | [Base Cytosol](../../modules/base-cytosol/spec.md) cells, in [Alginate Gel](../../modules/gel-alginate/spec.md) |
+| Glucose-HEPES | Glucose 400 mM · HEPES-KOH pH 7.6 1 M | not recorded | [Base Cytosol](../../modules/base-cytosol/spec.md) cells, in the aTc path's [PEG-Norbornene Gel](../../modules/gel-peg-norbornene/spec.md) |
 | High-glucose | Glucose 1200 mM · CaCl₂ 0.1 mM | ≈ 1200 mOsm | Base Cytosol cells where CPRG retention matters |
 :::
 
