@@ -170,6 +170,40 @@ The convention:
 - **Non-DOI sources** (DevNotes/articles with no DOI) stay as plain inline links for now; they will not appear in the auto-generated list until the `.bib` + `{cite}` work lands (issue #138).
 - After editing references, run `myst build --html` and confirm the page renders exactly **one** `myst-bibliography` block with every cited source present.
 
+### Composition sources
+
+A module may carry a `spec.yml` beside its `spec.md`: the machine-readable composition (#248), naming the process that performs each combination step and the operator it applies. Twelve modules carry one.
+
+```bash
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml            # print the mermaid
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml --embed    # write it into spec.md
+python3 scripts/render-all.py                                                   # run every generator, report what changed
+python3 scripts/render-all.py --check                                           # change nothing, exit 1 if an artifact is behind its source
+```
+
+**Run `render-all.py` after any `spec.yml` change.** A source change that leaves the rendered diagram behind is drift one level down, and the `generated-diagrams` CI job fails on it.
+
+**`render-all.py` names the generators it found, every run.** Two of the four it knows about are not on this branch: `render-meet.py` needs cascade sources and `render-posets.py` needs a refinement forest, and neither exists here yet. The script reports what it skipped rather than passing silently over a generator nobody noticed was missing.
+
+**Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. A module whose composition is a single box gets no diagram at all.
+
+**The schema is [`scripts/spec-yml-schema.yml`](scripts/spec-yml-schema.yml)**, with `python3 scripts/check-spec-schema.py` to validate against it. A key the schema does not allow is rejected rather than merely being absent from a list. The validator also checks what a schema cannot express: an operand naming nothing, a duplicated product id, an `abstract:` naming no process, and a `page:` that does not resolve.
+
+**`# Constituent Modules` stays as prose and the yml is the contract for tooling.** Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names, and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
+
+**A number belongs in `spec.yml` when it states a fact no single constituent page can state.** `headroom.provides` is a property of the Module that provides the slot, not of the process that filled it. A combining `ratio` is a property of the step. An osmolarity that has to match across a membrane is a relation. Those belong here. Delete a `parameters:` value when the step names an operand that **has a page of its own** and that page states the figure; keep it otherwise.
+
+**Five CI jobs read these sources** (`.github/workflows/qa.yml`): `composition`, `generated-diagrams`, `input-aliases`, `conflicts` and `spec-schema`. All five block.
+
+```bash
+python3 scripts/check-spec-schema.py     # validate every spec.yml against the schema
+python3 scripts/check-composition.py     # prose and source do not disagree
+python3 scripts/check-input-aliases.py   # two inputs naming one page under different keys
+python3 scripts/check-conflicts.py       # where an imposition meets a sensitivity
+```
+
+**`check-conflicts.py` reports absence as absence.** An omitted `sensitivities` key means no constraints have been declared, not that the Module has none, so a clean run over an undeclared corpus is silence rather than a pass. It says so in its own output.
+
 ### Checking your work
 
 **Before opening a PR or committing content**, run Vale + codespell, and the link checker if you touched any URLs. Invoke the `lint-docs` skill for the exact commands and how to read each tool's output — including which Vale errors are real and which are false positives. It also covers `scripts/check-myst-build.py`, the strict MyST build that the `build-protocols` CI job gates on.
