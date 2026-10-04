@@ -53,6 +53,8 @@ project:
           hidden: true
         - file: ./docs/modules/lacz-dna/spec.md
           hidden: true
+        - file: ./docs/modules/xyle/spec.md
+          hidden: true
         - file: ./docs/modules/cytosol/spec.md
           hidden: true
         - file: ./docs/modules/sensor-cytosol/spec.md

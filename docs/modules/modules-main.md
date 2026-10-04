@@ -114,6 +114,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Outer Solution | [Chicago Outer Solution](./outer-solution-chicago/spec.md) | ★ |
 | Reporter | [LacZ](./lacz/spec.md) | - |
 | Reporter | [LacZ DNA template](./lacz-dna/spec.md) | ★ |
+| Reporter | [XylE](./xyle/spec.md) | - |
 :::
 
 # Contributing a Module

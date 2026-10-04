@@ -19,10 +19,10 @@ refines: reporter
 inputs:
   enzyme:
     title: "Enzyme"
-    page: null            # LacZ or XylE in the members
+    page: null            # an enzyme module; its own substrates: list says what it pairs with
   substrate:
     title: "Substrate"
-    page: null            # CPRG, X-Gal or catechol, paired to the enzyme
+    page: null            # one of the enzyme's substrates:
 
 process_steps:
   - id: separate-enzyme-and-substrate
@@ -41,14 +41,6 @@ process_steps:
       not change the operator: each keeps its own compartment either way.
 
 open:
-  - id: the-pair-is-one-parameter-and-this-file-writes-it-as-two
-    question: >
-      The enzyme and its substrate are a set of pairs, not two independent lists.
-      ../reporter-lacz-enzyme/spec.md carries the three valid pairs and says why
-      ranges would invent three wrong ones. `inputs` has no way to say that two keys
-      are jointly constrained, so this file lists them separately and the joint
-      lives only in prose. Same shape as free-parameters-are-tuples.md's finding, one
-      level up.
   - id: pla1-location-is-a-third-coordinate-and-is-not-here
     question: >
       Every member built so far is triggered by ../effector-pla1/spec.md, and where

@@ -1,0 +1,11 @@
+# Composition source for XylE: catechol 2,3-dioxygenase, the xylE gene product.
+
+module: xyle
+title: "XylE"
+
+inputs: {}
+process_steps: []
+
+substrates:
+  - title: "Catechol"
+    page: null

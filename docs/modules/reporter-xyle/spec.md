@@ -58,6 +58,7 @@ flowchart TD
     class P1_EXPRESS_CATECHOLASE_0,P2_HOLD_SUBSTRATE_APART_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click CATECHOLASE_DNA "/docs/modules/xyle/spec"
     click REPORTER_XYLE "/docs/modules/reporter-xyle/spec"
 ```
 

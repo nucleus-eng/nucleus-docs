@@ -26,7 +26,7 @@ inputs:
     page: ../base-cytosol/spec.md
   catecholase-dna:
     title: "Catecholase DNA template"
-    page: null            # pT7-TetO-catecholase (pMN067); not yet in nucleus-eng/DNA
+    page: ../xyle/spec.md   # pT7-TetO-catecholase (pMN067), a source of XylE
   catechol:
     title: "Catechol"
     page: null

@@ -36,6 +36,12 @@ inputs:
     page: null            # a template in one member, the purified protein in the other
 
 process_steps: []
+
+substrates:
+  - title: "CPRG"
+    page: ../substrate-cprg/spec.md
+  - title: "X-Gal"
+    page: ../substrate-xgal/spec.md
 # NO STEPS, AND THAT IS THIS CLASS RATHER THAN A RULE ABOUT CLASSES. Most classes here
 # compose: thirteen of fourteen name inputs and twelve run a step. This one does not,
 # because its two members are obtained rather than made — one is ordered from a supplier
