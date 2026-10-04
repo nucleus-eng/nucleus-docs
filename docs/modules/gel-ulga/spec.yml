@@ -86,18 +86,16 @@ process_steps:
       the figure an embedding step needs: at or above it the polymer is liquid.
       THE GELLING FIGURE CHANGED WITH THE SPLIT AND THAT IS NOT A CORRECTION OF
       THE OLD ONE. The string said 8, the bottom of the range. The vendor
-      datasheet Jon supplied 2026-09-24 gives the gel point as 8-17 °C, so 17 is
-      the end that bounds "still liquid". Both figures are from the supplier's
-      materials specification page, 8 supplied 2026-09-21 and the range
-      2026-09-24. That is a catalog figure for a nominal product, not a measurement of
+      datasheet gives the gel point as 8-17 °C, so 17 is the end that bounds
+      "still liquid". Both figures are from the supplier's materials specification
+      page: the bare 8 came first and the range replaced it. That is a catalog figure for a nominal product, not a measurement of
       either Node's stock, and the measured gelling point is still an open ask.
       50 IS NOT A TEMPERATURE AT WHICH THE PAYLOAD CAN BE MIXED IN. The window is
       still correct here because the gel is not what forbids 50: the payload is,
       and that is a Requirement the payload imposes on its Container rather than a
-      property of this polymer. Jon's ruling: "that's the right range to put on the
-      abstract module because the tighter temperature requirements come from the
-      biology we put in the gels." So do not narrow this field to record a
-      payload's limit. That belongs on the payload's page, pointing here.
+      property of this polymer. The range on the abstract module is the polymer's own,
+      because the tighter temperature requirements come from the biology the gel
+      carries. So do not narrow this field to record a payload's limit. That belongs on the payload's page, pointing here.
 
 open:
   - id: osmolarity-provenance

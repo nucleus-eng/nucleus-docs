@@ -83,16 +83,15 @@ open:
       1 nM, also tested at 0.5 nM), Chicago pH (a toehold-switch-gated PLA1 template,
       2 nM) and Chicago theophylline (`T7pro-PLA1-T7term`, dose not documented).
       They are recorded here so the omission is a claim rather than a gap.
-      Jon's reading, 2026-09-21, is that they are not configurations of this Module at
-      all: each gated construct is this Module's coding sequence STITCHED to a
+      THEY ARE NOT CONFIGURATIONS OF THIS MODULE AT ALL: each gated construct is this Module's coding sequence STITCHED to a
       detector's DNA, so the product is a different DNA Module that contains PLA1.
       If that is right, each of the four belongs on the detector or cascade page that
       owns the stitched construct, and this file is complete rather than partial.
       A CIRCULAR CONSTRUCT DOES HAVE A FIRST BASE, AND THE CONSEQUENCE IS NOT WHAT IT
       LOOKS LIKE. The compositional-biology-theory session raised that stitching joins
       operands IN ORDER while a circle has no start, so the order would be defined only
-      up to rotation. Jon corrected that on 2026-09-21: plasmid DNA canonically DOES
-      carry a first index. It is the first base labeled in the file, set by the author
+      up to rotation. That does not hold: plasmid DNA canonically DOES carry a first
+      index. It is the first base labeled in the file, set by the author
       by convention rather than by the molecule, often the first base of the origin of
       replication. Every circular file in nucleus-eng/DNA declares it, as `LOCUS ...
       circular` over a sequence that starts at base 1.

@@ -32,8 +32,8 @@ open:
     question: >
       CLOSED 2026-09-21, and the file changed rather than the wording. This item used
       to say that `minProperties: 1` forced this file to name something when there was
-      nothing to name, and that the entry was doing the schema's work. Jon took the
-      constraint off on that argument. `inputs` is now empty and the claim is the
+      nothing to name, and that the entry was doing the schema's work. The constraint
+      came off on that argument. `inputs` is now empty and the claim is the
       emptiness. What stays open is one level up: the schema cannot distinguish an
       empty `inputs` that is a claim from one nobody filled in, which is the cost the
       schema's own description now records.

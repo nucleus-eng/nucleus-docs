@@ -79,7 +79,7 @@ measured_by:
 open:
   - id: the-fluorescence-readout-has-no-process-page-and-should-not-get-one-to-order
     question: >
-      OPENED 2026-09-21 on Jon's ruling, page null rather than a new page. This
+      OPENED AS `page: null` RATHER THAN AS A NEW PAGE. This
       Module is read on combined green 488 nm and red 561 nm fluorescence
       channels, per its own page. No process directory in this corpus describes
       that, and 21 of 76 steps already name a process with no page, so the gap is

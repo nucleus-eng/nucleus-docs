@@ -76,8 +76,8 @@ open:
       same operator over the same sorts, and HPTS is a pH-sensitive dye rather than an
       enzyme substrate. So the wider class is a loaded unilamellar vesicle and this one is its
       substrate-carrying half.
-      A TWO-MEMBER CLASS IS THE CASE MOST LIKELY TO COLLAPSE, which rulings.md#D152 did
-      to two of three pore pages, so the count matters. This file writes the narrow
-      class on Jon's wording and records the wider one rather than assuming it. The exit
+      A TWO-MEMBER CLASS IS THE CASE MOST LIKELY TO COLLAPSE, and two of three pore
+      pages were collapsed for exactly that, so the count matters. This file writes the
+      narrow class and records the wider one rather than assuming it. The exit
       condition is somebody needing a meet over a domain that includes the dye, which
       nothing does today because no cascade uses dye-liposomes.

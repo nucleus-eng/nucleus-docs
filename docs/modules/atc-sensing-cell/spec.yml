@@ -68,8 +68,8 @@ process_steps:
           where LacZ is encapsulated and its substrate is outside", and "do not use it
           where LacZ sits in the outer solution or is dispersed through a gel on purpose",
           because Proteinase K does not distinguish one LacZ from another. So refining the
-          reporter decides whether this cleanup step exists at all, which is Jon's implies
-          arrow of 2026-09-21 stated from the step.
+          reporter decides whether this cleanup step exists at all, which is the implies
+          arrow stated from the step.
     impositions:
       - id: proteinase-k
         why: >

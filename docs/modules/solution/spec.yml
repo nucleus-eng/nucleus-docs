@@ -30,11 +30,11 @@ process_steps: []
 open:
   - id: the-osmolarity-axiom-belongs-to-the-member
     question: >
-      SETTLED 2026-09-24, and by a ruling about something else. The theory corpus
+      SETTLED, and as a side effect of settling something else. The theory corpus
       measured the outer phase's axioms and exactly one survived, osmolarity matched to
       the interior. ../outer-solution/spec.yml reached the same figure independently.
       Whether that axiom belonged to this class or only to that member was open until
-      Jon ruled ../cytosol/spec.yml a member too. A CYTOSOL IS THE INTERIOR, so it
+      ../cytosol/spec.yml became a member too. A CYTOSOL IS THE INTERIOR, so it
       cannot carry an axiom about matching across a membrane to one. The axiom is
       ../outer-solution/spec.yml's and this class does not state it.
       Left as a record because the reasoning is not recoverable from the tree.

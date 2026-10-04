@@ -72,8 +72,8 @@ process_steps:
       page: null
     notes: >
       The board wrote `⟶ PLA1` at `(M6)` and `⟶ GFP` at `(M7)`, which is a
-      lysis codomain feeding a fluorescence one. Jon settled it 2026-09-29:
-      "LuxR-GFP is GFP at (M6)." So this cascade has no lysis leg at any step,
+      lysis codomain feeding a fluorescence one. It is GFP at `(M6)`, so this cascade
+      has no lysis leg at any step,
       which is why the four-leg meet loses its effector slot.
 
   - id: encapsulate

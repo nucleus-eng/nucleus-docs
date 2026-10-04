@@ -69,13 +69,13 @@ open:
       state pH 7.4 across two buffers -- London's 72 mM HEPES in ../outer-solution-glutamate
       and ../gel-ulga, read back in ../detector-3oc6-hsl, and Chicago's Tris-HEPES stock
       in the three cascade comments. It looked like one figure copied six times because
-      the house default is 7.6. IT IS NOT A COPY. Jon: "7.4 is real for both, they
-      formulated differently."
+      the house default is 7.6. IT IS NOT A COPY. 7.4 is real for both, and the two are
+      formulated differently.
       WHAT STAYS OPEN IS THE SHAPE, NOT THE NUMBER. Every buffer in this corpus states a
-      pH as a point, and a buffer works over a range. Jon: "there's no meaningful
-      difference of 0.2 +/- pH units. but, because putting a pH range on every buffer
-      spec is hard and also requires experimentation, flag for later."
-      So a tolerance is the right form and nobody has measured one. Until then a reader
+      pH as a point, and a buffer works over a range. A difference of ±0.2 pH units is
+      not meaningful here, but putting a range on every buffer spec needs experiment,
+      so it is flagged rather than done.
+      A tolerance is the right form and nobody has measured one. Until then a reader
       cannot tell a formulated target from a requirement, which is the same gap
       ../gel-ulga records for its own figures and the one `range` already exists for on
       an input. The cost of guessing is higher than the cost of waiting: a range written

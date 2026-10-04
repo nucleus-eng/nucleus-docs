@@ -62,14 +62,14 @@ process_steps:
 open:
   - id: the-two-agaroses-are-different-products
     question: >
-      CLOSED 2026-09-24 by vendor datasheets Jon supplied: "confirmed by part number,
-      they're different gels with different properties!" The two grades share an InChI
+      CLOSED BY THE VENDOR DATASHEETS, which confirm by part number that these are two
+      different gels with different properties. The two grades share an InChI
       key, MJQHZNBUODTQTK-WKGBVCLCSA-N, so the polymer is the same and the grades are
       not. This one congeals at 26-30 °C and melts at ≤65 °C, EEO ≤0.10, gel strength
       ≥200 g/cm² at 1%, molecular-biology grade, from red algae. ../gel-ulga/spec.yml's
       grade is Type IX from marine algae, gel point 8-17 °C, melting ≤50 °C at 0.8%,
       EEO ≤0.05. THE GEL POINTS DO NOT OVERLAP AND THE MELTING POINTS DIFFER BY 15 °C,
       which is what makes them non-interchangeable rather than two names for one powder.
-      THE CATALOG NUMBERS ARE STILL NOT RECORDED HERE. Jon confirmed by part number and
-      the numbers themselves were not captured, so this file states the properties and
-      not the SKU.
+      THE CATALOG NUMBERS ARE STILL NOT RECORDED HERE. The confirmation was made by part
+      number and the numbers themselves were not captured, so this file states the
+      properties and not the SKU.

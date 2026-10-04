@@ -45,8 +45,7 @@ open:
       CLOSED 2026-09-21, by the thing it asked for. This item said "the schema has no
       way to say that an input rules out a format", and that sentence is what the
       other repo cited when it proposed the field, so the corpus asked for this and
-      someone else built it. `sensitivities` and `impositions` landed on Jon's ruling
-      the same day and ../membrane/spec.yml now declares the sensitivity to `dmso`
+      someone else built it. `sensitivities` and `impositions` landed the same day, and ../membrane/spec.yml now declares the sensitivity to `dmso`
       once, with check-conflicts.py computing where it meets an imposition.
       WHAT STAYS OPEN IS THE OTHER HALF AND IT IS NOT A SCHEMA GAP. No step in this
       corpus doses X-Gal, so nothing declares the matching imposition and no Conflict

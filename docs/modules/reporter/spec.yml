@@ -46,7 +46,7 @@ process_steps:
 open:
   - id: color-against-fluorescence-is-a-bisection-and-it-is-recorded-not-written
     question: >
-      RULED 2026-09-21, record rather than write. The members split on whether a second
+      RECORDED RATHER THAN WRITTEN. The members split on whether a second
       molecule is needed to produce a signal. reporter-lacz and reporter-xyle each hold
       a chromogenic substrate apart from an enzyme, and bringing the two together is the
       reporting event. reporter-degfp needs nothing: the protein is the signal.
@@ -59,9 +59,8 @@ open:
       functioning as the color half without having been designed as it. Worth revisiting
       if the fluorescence half is ever written, because a bisection whose two sides were
       drawn for different reasons is not a bisection.
-      THE EXIT CONDITION IS NAMED RATHER THAN HYPOTHETICAL. Jon, 2026-09-21: "we could
-      also add mScarlet if we'd like. we have red proteins as well". mScarlet is not in
-      the corpus today, so the fluorescence half has one member and writing it would trip
+      THE EXIT CONDITION IS NAMED RATHER THAN HYPOTHETICAL. mScarlet is the candidate,
+      and other red proteins are available. It is not in the corpus today, so the fluorescence half has one member and writing it would trip
       the one-member rule. A second fluorescent reporter is the trigger.
   - id: reporter-lacz-enzyme-is-two-levels-down-and-that-is-deliberate
     question: >

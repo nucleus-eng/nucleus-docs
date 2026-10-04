@@ -22,7 +22,7 @@ open:
     question: >
       CLOSED IN PART 2026-09-24. This asked for a `Membrane` page because only
       ../gel/spec.yml named this module. ../membrane/spec.yml now does, and
-      ../solution/spec.yml joins them on Jon's ruling the same day. `Substrate` is the
+      ../solution/spec.yml joins them now too. `Substrate` is the
       one child the theory corpus names that has no page here, and the Reference
       Composition section states why naming that row is not the same as filling it.
   - id: an-empty-source-and-an-unwritten-one-look-alike
@@ -30,4 +30,4 @@ open:
       `minProperties` came off `inputs` on 2026-09-21 and `minItems` came off
       `process_steps` on 2026-09-20, so this file validates while asserting two
       emptinesses. Both are deliberate. Nothing in the schema distinguishes that from
-      a file nobody finished, which is the cost both rulings recorded.
+      a file nobody finished, and that is the cost of taking the constraints off.

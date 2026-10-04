@@ -99,8 +99,8 @@ process_steps:
       Module that mixes them at assembly has no off state and reports nothing. The
       figure is the concentration on contact, not a concentration in the reaction.
       LacZ may also be supplied as purified protein instead of expressed from DNA.
-      That is ../reporter-lacz-enzyme/spec.md, which refines this Module on Jon's
-      ruling of 2026-09-21 rather than sitting beside it.
+      That is ../reporter-lacz-enzyme/spec.md, which refines this Module rather than
+      sitting beside it.
 
 measured_by:
   - process:
