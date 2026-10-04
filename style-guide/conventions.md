@@ -34,6 +34,8 @@ Figure captions name the figure type: "Schematic representation of X in the Base
 Renaming *or removing* a heading is a link change, because inbound anchors do not follow it. Deleting a section this guide bans — revision history, future work — is the common case. The `author-myst-content` skill says which anchors are safe to write in the first place.
 
 
+**An analyte is a condition on a Detector and a component of a Cascade.** A Detector's plus- and minus-analyte columns are test conditions, not two compositions, so the analyte is not an operand of its steps. A Cascade is built from a trigger solution that carries the analyte, so there the analyte is an operand as well as a condition. A Cascade still has plus- and minus-analyte conditions.
+
 ## Diagrams
 
 Generated diagrams carry the diagram and nothing else — no explanatory paragraphs.
@@ -59,6 +61,10 @@ A page whose subject is one molecule cites its UniProt entry, as `[UniProt P0072
 - **The first hit is the wrong class.** Searching "Tetracycline repressor" returns class D, `P0ACT4`. The TetR this corpus uses is class B from transposon Tn10, `P04483`. Both are *E. coli*, both are 200-odd residues, and only one is right.
 - **The entry disagrees with the corpus about what the protein does.** `P54293` is titled *Transcriptional activator protein EsaR* and carries no alternative name, while every page here treats EsaR as a repressor that the analyte de-represses. Cite it and say so; do not quietly adopt either name.
 - **An engineered variant is not its parent.** **deGFP is not wild-type GFP** and must not be cited as `P42212`. mNeonGreen is engineered from a *Branchiostoma* protein and is not that protein. A variant page cites the parent only when it says which part is the parent's.
+
+**Before citing an identifier, ask whether it distinguishes the subject from its siblings.** If something else carries it, it names their parent — see [principles.md](principles.md#a-shared-identifier-is-a-shared-parent). CAS numbers, UniProt accessions, filenames and supplier part numbers all fail this way, and they fail at different grains.
+
+**No check covers supplier part numbers.** `check-dna-refs.py` and `check-protein-refs.py` each cover one identifier system. `check-links.py` passes a 403 as tolerated, so a live URL pointing at the wrong product is indistinguishable from a right one. Treat a part number as an unverified claim and say what the page relies on.
 
 **Cite nothing when the subject is a preparation rather than a gene product.** "Tyrosinase from mushroom" is a supplier's preparation and *Agaricus bisporus* has several polyphenol oxidases; there is no single entry to name.
 

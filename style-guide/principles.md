@@ -43,6 +43,16 @@ So a Reference Composition table is never keyed by the Modules that take it — 
 
 `scripts/check-page-layering.py` reports a link to a downstream Module outside Overview. It reports rather than blocks: a rule with a backlog behind it teaches people to skip the output.
 
+## A shared identifier is a shared parent
+
+An identifier identifies at the grain it was issued at. A page's subject is often a refinement of what the identifier names, so the identifier can be true of the parent and false of the subject.
+
+**The test: does this identifier distinguish the subject from its siblings?** If something else on the same bench carries it, the identifier names their parent and the page must not use it to say what the subject is.
+
+Two things that share an identifier share a parent. That is what refinement means, and it is not evidence that they are the same thing.
+
+Sigma-Aldrich A5030 and A2576 both carry CAS `9012-36-6`, because that number is issued to agarose. The products are Type IX and Type IX-A and their melting points differ by 12 °C. Two pages in this corpus called them interchangeable on the strength of the shared number.
+
 ## Every page is world-readable, because it is
 
 The test is one question asked of every prose block: **does this describe the Module, or does it describe our work on the Module?** The second kind comes out.
