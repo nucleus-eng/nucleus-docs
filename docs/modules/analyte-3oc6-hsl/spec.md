@@ -38,13 +38,13 @@ Requires an [3OC6-HSL Detector](../detector-3oc6-hsl/spec.md) to be sensed at al
 Whether 3OC6-HSL crosses a POPC bilayer unaided is not documented. [aTc](../analyte-atc/spec.md), by contrast, is membrane-permeable. The [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) doses 3OC6-HSL into the outer solution and the sensing cells are encapsulated, so a transport route may be required. @Editor(london): confirm whether 3OC6-HSL crosses a POPC bilayer unaided.
 :::
 
-# Processes
-
-None. An analyte is supplied to an assay rather than produced by a Nucleus process.
-
 # Implementations
 
 - [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its analyte — the input.
+
+# Processes
+
+None. An analyte is supplied to an assay rather than produced by a Nucleus process.
 
 # Credits
 

@@ -142,10 +142,6 @@ Requires the outer solution to be prepared first, since the agarose is dissolved
 
 Imposes no divalent load and no illumination on its contents.
 
-# Processes
-
-Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
-
 # Materials
 
 :::{table} Purchased materials.
@@ -165,6 +161,10 @@ A second part number, A2576, was recorded here as interchangeable with A5030. **
 
 - [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its gel — set by cooling.
 - [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its gel — 1% (w/v), set by cooling.
+
+# Processes
+
+Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
 
 # Credits
 

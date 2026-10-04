@@ -112,10 +112,6 @@ Requires the PEG4SH crosslinker, as the PEGDA route does.
 
 **Requires that CPRG is not pre-loaded into liposomes.** This is the one requirement here that rules a whole cascade out rather than constraining it: the two-liposome colorimetric readout cannot be run in this gel as written.
 
-# Processes
-
-Formed by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md), which records this chemistry, the four steps both chemistries share, and the **Conflict** its UV exposure raises with CPRG. No precursor recipe or exposure conditions are established for the thiol-ene route.
-
 # Materials
 
 <!-- vale nucleus.magnitude-unit-spacing = NO -->
@@ -133,6 +129,10 @@ Formed by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/m
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its gel — patterned by light.
+
+# Processes
+
+Formed by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md), which records this chemistry, the four steps both chemistries share, and the **Conflict** its UV exposure raises with CPRG. No precursor recipe or exposure conditions are established for the thiol-ene route.
 
 # Credits
 

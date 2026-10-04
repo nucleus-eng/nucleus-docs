@@ -219,16 +219,16 @@ Requires an observation step to read the color change.
 @Editor: name the membrane formulation, add a Module page for the EsaR DNA template, and add a Process page for the observation step.
 :::
 
+# Implementations
+
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): the cascade that demo builds.
+
 # Processes
 
 - [Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md)
 - [Encapsulation](../../processes/encapsulate/main.md)
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)
 - [Color Development](../../processes/color-development/main.md)
-
-# Implementations
-
-- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): the cascade that demo builds.
 
 # Credits
 

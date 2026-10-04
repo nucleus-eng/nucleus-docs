@@ -217,14 +217,6 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 Must not be exposed to theophylline, which is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#reporter-lacz-requirements) for the constraint and the state of the evidence behind it.
 
-# Processes
-
-Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). Hydrogel embedding of this cascade is not documented.
-
-:::{attention} Process gap
-@Editor(chicago): no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
-:::
-
 # Constituent Modules
 
 - [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
@@ -238,6 +230,14 @@ The effector is expressed from the same molecule as the detector, so it enters t
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): the cascade that demo builds.
+
+# Processes
+
+Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). Hydrogel embedding of this cascade is not documented.
+
+:::{attention} Process gap
+@Editor(chicago): no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
+:::
 
 # Credits
 

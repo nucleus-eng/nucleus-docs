@@ -245,10 +245,6 @@ Do not add gramicidin A to the colorimetric configuration. It ruptures a portion
 
 Requires a control that separates sensing-driven color from acid-driven leakage. Acidic conditions rupture some CPRG-loaded liposomes on their own, with no PLA1 involved, so color at pH 6.5 is not by itself attributable to the sensing pathway.
 
-# Processes
-
-No process page documents assembling this three-part cascade end to end.
-
 # Constituent Modules
 
 - [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
@@ -264,6 +260,10 @@ The effector is expressed from the same molecule as the detector, so it enters t
 # Implementations
 
 - [pH Demo](../../implementations/devstudio-ph-demo/main.md): the cascade that demo builds.
+
+# Processes
+
+No process page documents assembling this three-part cascade end to end.
 
 # Credits
 

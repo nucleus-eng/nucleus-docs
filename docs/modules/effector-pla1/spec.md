@@ -154,13 +154,6 @@ Requires sigma-70 transcription and translation, when using `LuxR-PLA1` (e.g. [S
 Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effector-pla1-expected-behavior) for why.
 
 (effector-pla1-implementations)=
-# Processes
-
-- [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — applies only where LacZ is encapsulated. Proteinase K does not distinguish one LacZ from another, so in a configuration that puts LacZ in the outer solution it digests the reporter.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
-- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — the Chicago hydrogel format
-- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — the London hydrogel format
-
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, for the ungated configuration
@@ -170,6 +163,13 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its lysis — expressed from `TetO-PLA1`.
 - [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its lysis — expressed once repression lifts.
 - [pH Demo](../../implementations/devstudio-ph-demo/main.md): its lysis — expressed from the `pT7-toehold9-PLA1` template.
+
+# Processes
+
+- [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — applies only where LacZ is encapsulated. Proteinase K does not distinguish one LacZ from another, so in a configuration that puts LacZ in the outer solution it digests the reporter.
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
+- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — the Chicago hydrogel format
+- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — the London hydrogel format
 
 # Credits
 

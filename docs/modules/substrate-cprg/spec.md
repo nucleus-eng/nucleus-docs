@@ -39,17 +39,17 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 **CPRG is half of an enzyme-substrate pair.** Its enzyme is [LacZ](../reporter-lacz-enzyme/spec.md), which lists the valid pairs. CPRG does not pair with [XylE](../reporter-xyle/spec.md).
 
-# Processes
-
-- [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
-- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
-
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its substrate — dosed into the set gel.
 - [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its substrate — held in its own carrier population.
 - [pH Demo](../../implementations/devstudio-ph-demo/main.md): its substrate — 14.25 mg/mL inside the LUVs.
+
+# Processes
+
+- [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format.
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
 
 # Credits
 

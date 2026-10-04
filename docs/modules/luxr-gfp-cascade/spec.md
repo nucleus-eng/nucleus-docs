@@ -170,15 +170,15 @@ Requires a spectrometer reading of deGFP fluorescence under a UV lamp.
 @Editor: add a process page for the spectrometer reading under a UV lamp and link it here. The reading is not yet a step in the composition above.
 :::
 
+# Implementations
+
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): the cascade that demo builds.
+
 # Processes
 
 - [Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md)
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md)
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)
-
-# Implementations
-
-- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): the cascade that demo builds.
 
 # Credits
 

@@ -99,15 +99,15 @@ The volumes above assume an 18:1 Cyanine 5 PC stock of 1 mg/mL, which gives 0.09
 
 This membrane closes around an aqueous interior and holds it apart from the solution outside. Pure POPC with no cholesterol, it is the least stiff of the three membranes here, and it encapsulates a cytosol of any composition: nothing in the bilayer depends on what is inside it.
 
+# Implementations
+
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its membrane — around the synthetic cells.
+
 # Processes
 
 The membrane is prepared and encapsulated by the shared mineral-oil phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). Hydrogel embedding of the labeled variant is documented in [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
 
 To prepare this membrane, assemble 2 mg total lipids (e.g., 80 µL of a 25 mg/mL chloroform stock). Dry, then resuspend in 500 µL mineral oil (4 mg/mL working concentration). 
-
-# Implementations
-
-- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its membrane — around the synthetic cells.
 
 # Credits
 

@@ -96,15 +96,15 @@ flowchart TD
 
 This membrane closes around an aqueous interior and holds it apart from the solution outside. It takes both routes above, so one formulation serves a micron-scale synthetic cell and a sub-micron SUV alike, and a payload meets the same bilayer in either. Cholesterol at 10 mol% stiffens the bilayer against the 7:3 formulation. The optional Liss Rhod PE is a label and not a functional component; two populations carrying it cannot be told apart in the Rhodamine channel.
 
-# Processes
-
-Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-transfer method](../../processes/assemble-base-cell/main.md). SUVs are prepared using [lipid-film hydration and extrusion](../../processes/encapsulate-suv/main.md).
-
-
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its membrane — around the synthetic cells.
 - [pH Demo](../../implementations/devstudio-ph-demo/main.md): its membrane — with 0.1 mol% Liss Rhod PE, on both the synthetic cells and the LUVs.
+
+# Processes
+
+Synthetic cells are prepared using [inverted-emulsion (lipid-in-oil) phase-transfer method](../../processes/assemble-base-cell/main.md). SUVs are prepared using [lipid-film hydration and extrusion](../../processes/encapsulate-suv/main.md).
+
 
 # Credits
 

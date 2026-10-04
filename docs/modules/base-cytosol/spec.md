@@ -252,15 +252,15 @@ Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be 
 
 The behavior of Base Cytosol is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module. 
 
-# Processes
-
-Protocols for assembling Base Cytosol and making its components from scratch can be found on [Base Cytosol Processes](../../processes/processes-main.md#base-cytosol-processes).
-
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its cytosol — inside the synthetic cells.
 - [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its cytosol — inside the synthetic cells.
 - [pH Demo](../../implementations/devstudio-ph-demo/main.md): its cytosol — inside the synthetic cells.
+
+# Processes
+
+Protocols for assembling Base Cytosol and making its components from scratch can be found on [Base Cytosol Processes](../../processes/processes-main.md#base-cytosol-processes).
 
 # Credits
 

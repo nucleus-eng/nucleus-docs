@@ -79,13 +79,13 @@ Requires that its osmolarity match, across the membrane, that of the inner solut
 
 - Solutes — the dissolved components each member mixes into one compartment
 
-# Processes
-
-A member is made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
-
 # Implementations
 
 - [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its outer solution — the class; no member is chosen.
+
+# Processes
+
+A member is made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
 
 # Credits
 
