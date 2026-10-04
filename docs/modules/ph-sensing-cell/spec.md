@@ -136,8 +136,10 @@ A two-liposome system — separate pH-sensing and CPRG-loaded populations in sol
 
 A separate result shows pH-responsive GFP expression in liposomes in solution. That one used gramicidin A, which was left out of the colorimetric demonstration because it ruptured CPRG-loaded liposomes and produced nonspecific color.
 
+A third result isolates this Cell: in solution at 37 °C for 13 h, with no CPRG-loaded population and no enzyme in the well, these Cells lysed at pH 6.3 and stayed intact at pH 7.6. Lysis is read as the loss of the Cy5 the Cells carry. @Editor: cite the DevNote for this run once it is published.
+
 :::{warning} Not yet validated in a hydrogel
-Both results are in solution. Embedding this Cell in a hydrogel, as the Chicago demo does, has not been run.
+All three results are in solution. Embedding this Cell in a hydrogel, as the Chicago demo does, has not been run.
 :::
 
 ## Gels
