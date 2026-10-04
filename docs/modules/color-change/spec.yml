@@ -31,6 +31,21 @@ process_steps:
       page: ../../processes/encapsulate/main.md
     operator: packing
     operands: [enzyme, substrate]
+    requires:
+      - id: enzyme-and-substrate-in-different-compartments
+        of: color-change
+        why: >
+          The enzyme and its substrate must not share a compartment before the
+          trigger. In one compartment they react on contact, which is a readout
+          with no off state. THIS IS THE CLASS INVARIANT RESTATED AS A CONDITION
+          ON THE STEP, not a second rule: `packing` is what holds them apart, and
+          this says what `packing` has to achieve. It is declared here, once, so
+          that no member can forget it and a new enzyme inherits it.
+          IT DOES NOT SAY WHICH ONE IS INSIDE. That is
+          ../atc-cascade/spec.yml's `enzyme-encapsulated-substrate-outside`, which
+          is a different and narrower condition, true of the aTc path only because
+          *Degrade Exterior LacZ* is defined for that arrangement alone.
+        notation: "C₁{Enzyme} ⊞ C₂{Substrate} | C₁ ≠ C₂"
     produces:
       id: color-change
       title: "Color Change"

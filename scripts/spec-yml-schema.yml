@@ -498,6 +498,19 @@ $defs:
             why:
               type: string
               description: The condition itself, in prose, and the reason it holds.
+            notation:
+              type: string
+              description: >
+                The condition written in the theory's symbols, for a figure to draw
+                verbatim. OPTIONAL, AND `why` STAYS THE CONDITION OF RECORD.
+                render-meet.py draws this where it is present and falls back to `id`
+                where it is not, so a Requirement with no notation still gets a box.
+                THE ALTERNATIVE WAS A MAPPING HARD-CODED IN THE RENDERER, keyed by
+                `id`, which is a rule hidden in a script: a source could not see it,
+                and a second Requirement wanting symbols would have had to be added
+                to the script rather than to the source. Nothing validates that the
+                symbols say what `why` says; they are two statements of one condition
+                and keeping them in step is the author's job.
             page:
               type: [string, "null"]
 

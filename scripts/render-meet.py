@@ -100,6 +100,8 @@ STYLE = """
     classDef unmet    fill:#ffffff,stroke:#111827,color:#111827,stroke-dasharray:0;
     classDef partial  fill:#ffffff,stroke:#6b7280,color:#6b7280;
     classDef domain   fill:#ffffff,stroke:#6b7280,color:#6b7280,stroke-dasharray:4 3;
+    classDef require  fill:#ffffff,stroke:#111827,color:#111827,stroke-width:3px;
+    classDef impose   fill:#f3f4f6,stroke:#111827,color:#111827,stroke-width:3px;
 """
 
 
@@ -303,6 +305,88 @@ if __name__ == "__main__":
         print("no legs found — every branch reached zero or many detectors",
               file=sys.stderr)
         sys.exit(2)
+
+    # --- P1 and P2: what each leg INFLICTS and what it REQUIRES
+    #
+    # D3 ruled that both are nodes with a heavy border rather than edges, because an
+    # edge-relation must compose and joint consistency does not. So they are drawn as
+    # nodes here and connected to the process they constrain.
+    #
+    # TWO KEYS, AND THEY ARE NOT THE SAME SHAPE. `impositions:` is one-sided: a step
+    # inflicts one quantity, bounded by a property of one of its operands (#T22, an
+    # Imposition is a property of a morphism). `requires:` is a condition that must
+    # hold for the step to be defined (#T20). Q1 ruled the spec wins over the hand
+    # figure, so this draws what is declared and nothing more.
+    #
+    # THE CLASS INVARIANT IS INHERITED, NOT COPIED ONTO EACH LEG. IQ4n (a). Separation
+    # of enzyme from substrate is true of every colorimetric reporter, so it is
+    # declared once on color-change and reached from a leg that realizes the pairing.
+    #
+    # AND THE `refines:` CHAIN IS NOT HOW IT IS REACHED, though IQ4n's wording offered
+    # it first. Measured: every cascade's reporter operand is reporter-lacz-enzyme,
+    # which refines `lacz`, and `lacz` refines nothing. No leg reaches color-change
+    # that way. What does reach it is the OTHER walk the same proposal named, the one
+    # check-spec-schema.py's substrate_findings uses: an operand whose `substrates:`
+    # list, its own or the nearest one up its chain, names another operand of the same
+    # leg. That fires on all four cascades.
+    def _refines(m: str) -> list[str]:
+        r = S.get(m, {}).get("refines")
+        return [r] if isinstance(r, str) else list(r or [])
+
+    def substrates_of(m: str, seen: frozenset = frozenset()) -> list | None:
+        """m's own `substrates:` list, else the nearest one up its `refines:` chain."""
+        if m in seen:
+            return None
+        if S.get(m, {}).get("substrates") is not None:
+            return S[m]["substrates"]
+        for parent in _refines(m):
+            if (got := substrates_of(parent, seen | {m})) is not None:
+                return got
+        return None
+
+    def pairing_class_of(mods: set[str]) -> str | None:
+        """The class a set of modules realizes by holding an enzyme and one of its
+        substrates. None when no pair is present, which is not a finding: a leg with
+        no colorimetric readout inherits no colorimetric requirement."""
+        for m in mods:
+            if (subs := substrates_of(m)) is None:
+                continue
+            named = {to_module(e.get("page")) or e.get("title") for e in subs}
+            if mods & {x for x in named if x}:
+                for cls in ("color-change",):
+                    if cls in S:
+                        return cls
+        return None
+
+    def bound_text(i: dict) -> str:
+        b = i.get("bound") or {}
+        if not b:
+            return i["id"]
+        frm = b.get("from") or {}
+        sense = {"at-least": "≥", "at-most": "≤", "equal": "="}.get(b.get("sense"), b.get("sense"))
+        src_key = f"{frm.get('operand')}.{frm.get('key')}" if frm else "?"
+        return f"{i['id']}: {b.get('quantity')} {sense} {src_key}"
+
+    # id -> {leg: (label, step_id)}
+    imps: dict[str, dict[str, tuple[str, str]]] = collections.defaultdict(dict)
+    reqs: dict[str, dict[str, tuple[str, str]]] = collections.defaultdict(dict)
+    inherited: dict[str, str] = {}
+    for leg, (src_name, steps) in legs.items():
+        src = S[src_name]
+        for st in steps:
+            for i in (st.get("impositions") or []):
+                imps[i["id"]][leg] = (bound_text(i), st["id"])
+            for r in (st.get("requires") or []):
+                reqs[r["id"]][leg] = (r.get("notation") or r["id"], st["id"])
+        mods = {operand_module(src, o, S, par) or o for st in steps for o in st["operands"]}
+        mods |= {to_module(st["produces"].get("page")) or st["produces"]["id"] for st in steps}
+        if (cls := pairing_class_of({m for m in mods if m})):
+            for cst in (S[cls].get("process_steps") or []):
+                for r in (cst.get("requires") or []):
+                    # the leg's LAST step is where a class condition lands: it is the
+                    # one that has to hold for the leg's own result to be defined.
+                    reqs[r["id"]][leg] = (r.get("notation") or r["id"], steps[-1]["id"])
+                    inherited[r["id"]] = cls
 
     # --- slots
     #
@@ -545,6 +629,57 @@ if __name__ == "__main__":
                      f'<br/>NO COMMON ANCESTOR"])')
             unmet.append(nid); tally["proc_unmet"] += 1
 
+    # P1 AND P2: THE BOXES. Drawn after the process stadiums so they read as
+    # annotations on the spine rather than as part of it.
+    #
+    # A BOX IS ONE PER CONDITION, NOT ONE PER LEG. Two legs declaring `thermal-hold`
+    # are making the same claim, and two boxes would say they are different. A box
+    # only some legs declare says so on its own face, exactly as a partial slot does.
+    #
+    # MERMAID AND THE PIPE. `|` is edge-label syntax, so a notation carrying one is
+    # written as the entity and the renderer prints it.
+    reqnodes, impnodes = [], []
+
+    def condition_nodes(store: dict, prefix: str, shape: tuple[str, str],
+                        bucket: list, kind: str) -> None:
+        for cid in sorted(store):
+            per = store[cid]
+            labels = sorted({t for t, _ in per.values()})
+            text = "<br/>".join(labels).replace("|", "#124;")
+            nid = nid_of(f"{prefix}:{cid}")
+            note = ""
+            if cid in inherited:
+                note = f'<br/>inherited from {title_of(inherited[cid])}'
+            elif len(per) < len(legs):
+                note = f'<br/>only {len(per)} of {len(legs)} legs declare this'
+            L.append(f'    {nid}{shape[0]}"{text}{note}"{shape[1]}')
+            bucket.append(nid)
+            tally[kind] += 1
+
+    L.append("")
+    condition_nodes(reqs, "req", ("{{", "}}"), reqnodes, "requirement")
+    condition_nodes(imps, "imp", ("[/", "/]"), impnodes, "imposition")
+
+    # WHAT THE HAND FIGURE DRAWS AND NO SOURCE DECLARES IS NAMED ON STDERR. Q1 ruled
+    # the spec wins, so the figure is not patched to match the drawing -- but a silent
+    # difference between the two is the defect this whole thread was about.
+    #
+    # IT IS A NOTE AND NOT A WARNING, AND THE DIFFERENCE IS LOAD-BEARING. A WARNING
+    # here says something about THIS RUN that the reader could act on, which is what
+    # the dropped-leg warning is and what tests/test_dropped_leg_warning.py pins. This
+    # says the same thing on every run, because it is a standing limit of the schema
+    # rather than a fact about the legs asked for. Sharing the word would have taught
+    # a reader to skip both.
+    HAND_FIGURE_BOXES = {
+        "osmotic-matching": "osm(Outer Solution) = osm(SensorCytosol[X ⟶ PLA1]) — "
+                            "a two-sided relation; `bound.from` names one operand, so "
+                            "the schema cannot hold it and no source declares it",
+    }
+    for box, why in sorted(HAND_FIGURE_BOXES.items()):
+        if box not in reqs and box not in imps:
+            print(f"NOTE: the hand figure draws `{box}` and no source declares it, "
+                  f"so this meet does not: {why}", file=sys.stderr)
+
     # CROSS-PASS AGREEMENT, c9d6a5's, and it is the free control one level up. The two
     # passes key differently on purpose: module slots align by the product's class,
     # process slots by process identity in their own poset. So a process slot CAN group
@@ -601,6 +736,27 @@ if __name__ == "__main__":
             if (dk := member_slot_of(leg, pm)):
                 edges.add((pk[-1], dk))
 
+    # A CONDITION BOX HANGS OFF THE PROCESS IT CONSTRAINS. Both keys sit on a step,
+    # so the step's first process slot is where the box attaches. A box whose step
+    # resolves to no process slot is still drawn, unattached, rather than dropped:
+    # the condition is declared whether or not this figure can place it.
+    step_proc: dict[tuple[str, str], str] = {}
+    for leg, (src_name, steps) in legs.items():
+        for st in steps:
+            chain = ((st.get("process") or {}).get("composed_of")
+                     or [st.get("process") or {}])
+            for i, pr in enumerate(chain):
+                k = proc_slot_of.get(
+                    (leg, proc_dir(pr) or (pr.get("title") or "untitled"), i))
+                if k:
+                    step_proc.setdefault((leg, st["id"]), k)
+                    break
+    for prefix, store in (("req", reqs), ("imp", imps)):
+        for cid, per in store.items():
+            for leg, (_, step_id) in per.items():
+                if (k := step_proc.get((leg, step_id))):
+                    edges.add((f"{prefix}:{cid}", k))
+
     L.append("")
     for a, b in sorted(edges):
         L.append(f"    {nid_of(a)} --> {nid_of(b)}")
@@ -613,14 +769,19 @@ if __name__ == "__main__":
     # states what the figure is taken over rather than being a thing in it.
     for nm, ids in (("concrete", concrete), ("abstract", abstract),
                     ("unmet", unmet), ("partial", partial),
-                    ("process", procs), ("domain", ["DOMAIN"])):
+                    ("process", procs), ("require", reqnodes),
+                    ("impose", impnodes), ("domain", ["DOMAIN"])):
         if ids:
             L.append(f"    class {','.join(ids)} {nm};")
     print("\n".join(L))
 
     # --- denominators, every run. The marker is kept from reading as a class by
     # this, not by the exit code.
-    n = sum(v for k, v in tally.items() if not k.startswith("proc_"))
+    # THE SLOT DENOMINATOR EXCLUDES THE CONDITION BOXES. They are not slots:
+    # nothing is met over them, and counting them would inflate the number the
+    # concrete/abstract/unmet split is read against.
+    n = sum(v for k, v in tally.items()
+            if not k.startswith("proc_") and k not in ("requirement", "imposition"))
     print(f"\npartition key: detector\n"
           f"{len(legs)} leg(s): {', '.join(sorted(legs))}\n"
           f"{n} slot(s): {tally['concrete']} concrete (legs agree), "
@@ -631,6 +792,9 @@ if __name__ == "__main__":
           f"{tally['proc_concrete']} concrete, {tally['proc_abstract']} abstract, "
           f"{tally['proc_unmet']} with NO COMMON ANCESTOR, "
           f"{tally['proc_partial']} run by only some legs\n"
+          f"{tally['requirement']} requirement box(es) and {tally['imposition']} "
+          f"imposition box(es), {len(inherited)} of them inherited from a class "
+          f"rather than declared on a leg\n"
           f"{cross_ok} cross-pass agreement(s), {cross_bad} disagreement(s): where a "
           f"process slot groups two legs' steps, their products land in one module slot\n"
           f"{agree_checks} product-and-operand agreement check(s) passed: a module that "
