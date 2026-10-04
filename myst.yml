@@ -176,6 +176,8 @@ project:
               hidden: true
             - file: ./docs/processes/encapsulate-suv/main.md
               hidden: true
+            - file: ./docs/processes/encapsulate-luv/main.md
+              hidden: true
         - file: ./docs/processes/express/main.md
           hidden: true
         - file: ./docs/processes/embed-hydrogel/main.md

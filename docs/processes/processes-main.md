@@ -38,11 +38,12 @@ flowchart TB
 
 ## DevCell Encapsulation Processes
 
-DevCell integrations (e.g., the Chicago colorimetric readout system) build on two liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in [Encapsulation: Extrusion](./encapsulate-suv/main.md), a genuinely different technique. Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
+DevCell integrations (e.g., the Chicago colorimetric readout system) build on three liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate hydrogel embedding — these use the extrusion + SEC method documented in [Encapsulation: Extrusion](./encapsulate-suv/main.md), a genuinely different technique. Large unilamellar vesicles (LUVs) fill the same substrate role, made by [Encapsulation: Freeze-Thaw](./encapsulate-luv/main.md). Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA hydrogel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
 
-- [Encapsulation](./encapsulate/main.md) — the abstraction both routes below are instances of. Closes a bilayer around an aqueous payload, and packs rather than mixes.
+- [Encapsulation](./encapsulate/main.md) — the abstraction every route below is an instance of. Closes a bilayer around an aqueous payload, and packs rather than mixes.
   - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md) — emulsion and transfer through an interface; produces synthetic cells.
   - [Encapsulation: Extrusion](./encapsulate-suv/main.md) — film hydration and extrusion; produces SUVs, which are never interchangeable with synthetic cells.
+  - [Encapsulation: Freeze-Thaw](./encapsulate-luv/main.md) — film hydration, sonication and freeze-thaw; produces LUVs.
 
 ## DevCell Readout Processes
 
