@@ -33,7 +33,7 @@ Three construct variants were evaluated: `pT7-tetO-bjaI` (single operator), `tet
 
 ### Usage
 
-The responder module is assembled within a standard PURE reaction, following [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md). Add equimolar amounts of the substrates SAM and IV-CoA at 0.3 µM and 0.08 µM final concentration, respectively.
+The responder module is assembled within a standard PURE reaction, following [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md). Add equimolar amounts of the substrates SAM and IV-CoA at 0.3 mM and 0.08 mM final concentration, respectively.
 
 **DNA Parts**
 
