@@ -66,6 +66,104 @@ def tree(kids: dict[str, list], roots: list[str], depth=0, out=None) -> list[str
     return out
 
 
+
+def parents_all(S: dict[str, dict]) -> dict[str, list[str]]:
+    """Every declared parent, keeping both forms. A list means several parents."""
+    out = {}
+    for m, d in S.items():
+        r = d.get("refines")
+        if not r:
+            continue
+        out[m] = [r] if isinstance(r, str) else list(r)
+    return out
+
+
+def ancestors(node: str, parents: dict[str, list[str]], seen=None) -> set[str]:
+    """Everything reachable upward from `node`, excluding itself."""
+    seen = set() if seen is None else seen
+    for p in parents.get(node, ()):
+        if p not in seen:
+            seen.add(p)
+            ancestors(p, parents, seen)
+    return seen
+
+
+def covering(parents: dict[str, list[str]]) -> tuple[dict[str, list[str]], int]:
+    """The transitive reduction: the covering relation a Hasse diagram draws.
+
+    AN EDGE IS REDUNDANT WHEN A LONGER PATH ALREADY CARRIES IT. If `c` declares
+    parents `p` and `p'`, and `p` is an ancestor of `p'`, then `c -> p` says
+    nothing `c -> p' -> ... -> p` did not. Drawing both is the difference between
+    a Hasse diagram and an edge dump, and it is the whole reason this is not
+    just the declared edges with the nesting removed.
+    """
+    out, dropped = {}, 0
+    for c, ps in parents.items():
+        keep = []
+        for p in ps:
+            if any(p in ancestors(q, parents) for q in ps if q != p):
+                dropped += 1
+                continue
+            keep.append(p)
+        out[c] = keep
+    return out, dropped
+
+
+def longest_up(node: str, parents: dict[str, list[str]], memo=None) -> int:
+    """Longest upward path. A DAG has no single depth, so this is the rank."""
+    memo = {} if memo is None else memo
+    if node in memo:
+        return memo[node]
+    memo[node] = 0  # guards a cycle rather than recursing forever
+    memo[node] = 1 + max((longest_up(p, parents, memo) for p in parents.get(node, ())),
+                         default=-1)
+    return memo[node]
+
+
+def hasse(name: str, what: str, parents: dict[str, list[str]], extra: str = "") -> None:
+    """One generated order drawn as a Hasse diagram, multi-parent nodes included.
+
+    THE FOREST DRAWING WAS NOT WRONG, IT WAS NARROWER THAN THE RELATION. Nesting
+    can only show a node once, so a node with two parents has to be dropped or
+    duplicated, and this script dropped them -- 10 of 58 at the time this was
+    written. A Hasse diagram has no such limit, so the denominator closes.
+    """
+    cover, dropped = covering(parents)
+    nodes = set(parents) | {p for ps in parents.values() for p in ps}
+    cyc = cycles({c: set(ps) for c, ps in parents.items()})
+    multi = sorted(c for c, ps in parents.items() if len(ps) > 1)
+    edges = sum(len(ps) for ps in cover.values())
+    roots = sorted(n for n in nodes if not parents.get(n))
+    rank = {n: longest_up(n, parents) for n in nodes}
+
+    print(f"\n## {name}")
+    print(f"\n{what}")
+    print(f"\n  partial order : {'YES, no cycles' if not cyc else f'NO — {cyc}'}")
+    print(f"  single parent : {'YES' if not multi else f'NO — {len(multi)} of {len(parents)} declare several'}")
+    print(f"  nodes         : {len(nodes)}")
+    print(f"  edges drawn   : {edges} covering, {dropped} implied by a longer path and not drawn")
+    print(f"  roots         : {len(roots)}")
+    print(f"  max rank      : {max(rank.values()) if rank else 0}")
+    if multi:
+        print(f"  several parents: {', '.join(multi)}")
+    if extra:
+        print(f"  {extra}")
+
+    print("\n```{mermaid}")
+    print("flowchart BT")
+    for n in sorted(nodes):
+        print(f'    {n.replace("-", "_")}["{n}"]')
+    for c in sorted(cover):
+        for par in sorted(cover[c]):
+            print(f'    {c.replace("-", "_")} --> {par.replace("-", "_")}')
+    print("```")
+
+    print("\n  by rank, lowest first:")
+    for r in range(max(rank.values(), default=0) + 1):
+        row = sorted(n for n, v in rank.items() if v == r)
+        print(f"    {r}: {', '.join(row)}")
+
+
 def report(name, what, parent, extra=""):
     """One generated order: axioms, shape, denominator, drawing."""
     kids = collections.defaultdict(list)
@@ -106,25 +204,21 @@ if __name__ == "__main__":
     print("#" * 74)
 
     # --- P1. Module refinement.
-    # A LIST MEANS SEVERAL PARENTS, so P1 is a DAG whenever any source uses one.
-    p1 = {m: (d["refines"] if isinstance(d["refines"], str) else None)
-          for m, d in S.items() if d.get("refines")}
-    multi = sorted(m for m, v in p1.items() if v is None)
-    p1 = {m: v for m, v in p1.items() if v is not None}
-    # THE DENOMINATOR, EVERY RUN. A multi-parent source is not in the forest below
-    # and saying nothing about it would overstate what P1 covers.
-    print(f"\n  multi-parent  : {len(multi)} of {len(p1) + len(multi)} sources "
-          f"declare several parents and are not in the forest below — "
-          f"{', '.join(multi) or 'none'}")
-    dangling = {v for v in p1.values() if v not in S}
-    report("P1. Module refinement, from `refines:`",
-           "A Module refines the class that classifies it. One parent per node is a "
-           "forest; `refines:` may be a list since 2026-09-24, and any list makes "
-           "this a DAG.",
-           p1,
-           f"placed        : {len(set(p1) | set(p1.values()))} of {len(S)} sources; "
-           f"{len(S) - len(set(p1) | set(p1.values()))} placed by nothing"
-           + (f"\n  DANGLING      : {sorted(dangling)}" if dangling else ""))
+    # DRAWN AS A HASSE DIAGRAM, NOT A FOREST. `refines:` may be a list since
+    # 2026-09-24, and a nesting can show a node once, so every multi-parent source
+    # had to be dropped from the drawing -- 10 of 58 when this was written. The
+    # covering relation has no such limit, so the denominator closes.
+    p1 = parents_all(S)
+    dangling = {v for ps in p1.values() for v in ps if v not in S}
+
+    _placed = set(p1) | {v for ps in p1.values() for v in ps}
+    hasse("P1. Module refinement, from `refines:`",
+          "A Module refines the class that classifies it. `refines:` may be a list "
+          "since 2026-09-24, so this is a DAG and is drawn as its covering relation.",
+          p1,
+          f"placed        : {len(_placed)} of {len(S)} sources; "
+          f"{len(S) - len(_placed)} placed by nothing"
+          + (f"\n  DANGLING      : {sorted(dangling)}" if dangling else ""))
     # AN ISOLATED NODE IS INVISIBLE IN A TREE, so list it. A source that is
     # placed by nothing is not a leaf and not a root. It is unplaced, and the
     # difference matters most for a CLASS page, which is a parent with no
