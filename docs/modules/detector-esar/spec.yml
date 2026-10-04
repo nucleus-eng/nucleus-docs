@@ -2,11 +2,13 @@
 #
 # Machine-readable companion to spec.md — see issue #248.
 #
-# THE COMPOSITION IS THE PARENT'S INVARIANT WITH ONE OPERAND NAMED. No EsaR
-# construct and no EsaR data exist in this corpus, so nothing below is a recipe.
+# THE COMPOSITION IS THE PARENT'S INVARIANT WITH TWO OPERANDS NAMED.
 # ../repressor-detector/spec.yml states the class as a repressor element and the
-# DNA element it binds; this file says only that the repressor is EsaR. The
-# operator site is not named anywhere in this corpus and is not guessed at here.
+# DNA element it binds. This file names both.
+#
+# THE REPRESSOR IS A POINT MUTANT. The template is `T7-EsaR(D91G)-T7term`, and D91G
+# is carried everywhere the repressor is named. An earlier version of this file said
+# no construct and no data existed; both do, and the page states the titration.
 
 module: detector-esar
 title: "Detector: 3OC6-HSL (EsaR)"
@@ -16,10 +18,19 @@ refines: repressor-detector
 inputs:
   esar:
     title: "EsaR repressor"
-    page: null            # available as purified protein from Biocrest, per ../detector-3oc6-hsl/
+    page: null            # EsaR(D91G), expressed from `T7-EsaR(D91G)-T7term` in its own reaction
+                          # and titrated in as protein. Also available as purified protein from
+                          # Biocrest, per ../detector-3oc6-hsl/. NO STOCK OR WORKING CONCENTRATION
+                          # IS RECORDED for the expressed form, which is why the molar ratio that
+                          # governs repression is an estimate rather than a measurement.
   dna-regulatory-element:
     title: "DNA regulatory element"
-    page: null            # the operator EsaR binds; TetR has tetO and LacI has lacO, this one is unnamed here
+    page: null            # `[EsaO]2`, two EsaO sites in tandem, as `T7-[EsaO]2-mNG-T7term` for
+                          # characterization and `T7-[EsaO]2-PLA1-T7term` for the cascade.
+                          # A SINGLE-SITE VERSION EXISTS AND IS NOT IN USE: `T7-[EsaO]-mNG-T7term`
+                          # was built and run once against the dual-site construct, and neither
+                          # repressed, because the template was in excess of the repressor.
+                          # No sequence file is in nucleus-eng/DNA for any of them.
 
 process_steps:
   - id: assemble-the-repressor-pair
