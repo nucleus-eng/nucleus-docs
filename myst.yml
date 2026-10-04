@@ -161,6 +161,8 @@ project:
           hidden: true
         - file: ./docs/modules/ph-cascade/spec.md
           hidden: true
+        - file: ./docs/modules/ph-cascade-one-liposome/spec.md
+          hidden: true
         - file: ./docs/modules/atc-cascade/spec.md
           hidden: true
         - file: ./docs/modules/ahsl-sensing-cell/spec.md

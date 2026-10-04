@@ -124,20 +124,28 @@ process_steps:
       title: "SensorCell[pH ⟶ PLA1]"
       page: ../ph-sensing-cell/spec.md
 
-  - id: encapsulate-substrate-suv
+  - id: encapsulate-substrate
     process:
-      title: "Encapsulation: Extrusion"
-      page: ../../processes/encapsulate-suv/main.md
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
     operator: packing
     operands: [substrate-cprg, membrane-chicago]
     produces:
-      id: substrate-cprg-suv
-      title: "Substrate SUV: CPRG"
-      page: ../substrate-cprg-suv/spec.md
+      id: substrate-carrier
+      title: "Substrate Carrier"
+      page: ../substrate-carrier/spec.md
     notes: >
-      This path keeps the substrate liposome because agarose imposes no UV. The
-      extruded route is what this step names; ../substrate-cprg-luv/spec.yml is
-      the freeze-thaw sibling, and the pH run used LUVs first and SUVs second.
+      THE CARRIER IS NAMED BY ITS CLASS AND NOT BY A MEMBER, because both members
+      are being run. The extruded route makes ../substrate-cprg-suv/spec.yml and
+      the freeze-thaw route makes ../substrate-cprg-luv/spec.yml; which one this
+      demonstration ends on is not settled, and naming either here would assert a
+      choice nobody has made. This step is the meet of the two.
+      THE PROCESS IS THE ABSTRACT ONE FOR THE SAME REASON. Extrusion and
+      Freeze-Thaw are both instances of ../../processes/encapsulate/main.md, so
+      the abstract process is what the two routes share.
+      A THIRD DESIGN DROPS THIS STEP ENTIRELY. See ../ph-cascade-one-liposome/,
+      where LacZ rides inside the sensing cell and the substrate is dosed in
+      solution, so there is no second liposome population to make.
 
   - id: embed-agarose
     process:
@@ -168,7 +176,7 @@ process_steps:
       - lga-powder
       - outer-solution-tris-hepes
       - ph-sensing-cell
-      - substrate-cprg-suv
+      - substrate-carrier
     produces:
       id: ph-cascade
       title: "pH Cascade"

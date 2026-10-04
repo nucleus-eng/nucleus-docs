@@ -54,8 +54,8 @@ flowchart TD
     PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
     P4_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
-    P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: Extrusion (packing)"])
-    SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
+    P5_ENCAPSULATE_SUBSTRATE_0(["Encapsulation (packing)"])
+    SUBSTRATE_CARRIER["Substrate Carrier"]
     P6_EMBED_AGAROSE_0(["Embedding: Thermal Setting (packing, 1 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
     P7_DEVELOP_0(["Color Development (mixing)"])
@@ -78,14 +78,14 @@ flowchart TD
     MEMBRANE_CHICAGO --> P4_ENCAPSULATE_0
     P4_ENCAPSULATE_0 --> PH_SENSING_CELL
 
-    SUBSTRATE_CPRG --> P5_ENCAPSULATE_SUBSTRATE_SUV_0
-    MEMBRANE_CHICAGO --> P5_ENCAPSULATE_SUBSTRATE_SUV_0
-    P5_ENCAPSULATE_SUBSTRATE_SUV_0 --> SUBSTRATE_CPRG_SUV
+    SUBSTRATE_CPRG --> P5_ENCAPSULATE_SUBSTRATE_0
+    MEMBRANE_CHICAGO --> P5_ENCAPSULATE_SUBSTRATE_0
+    P5_ENCAPSULATE_SUBSTRATE_0 --> SUBSTRATE_CARRIER
 
     LGA_POWDER --> P6_EMBED_AGAROSE_0
     OUTER_SOLUTION_TRIS_HEPES --> P6_EMBED_AGAROSE_0
     PH_SENSING_CELL --> P6_EMBED_AGAROSE_0
-    SUBSTRATE_CPRG_SUV --> P6_EMBED_AGAROSE_0
+    SUBSTRATE_CARRIER --> P6_EMBED_AGAROSE_0
     P6_EMBED_AGAROSE_0 --> PH_CASCADE
 
     PH_CASCADE --> P7_DEVELOP_0
@@ -98,8 +98,8 @@ flowchart TD
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,BASIC_BUFFER,REPORTER_LACZ_ENZYME,LGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
-    class OUTER_SOLUTION_TRIS_HEPES,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE,PH_CASCADE_DEVELOPED composed;
-    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_AGAROSE_0,P7_DEVELOP_0 process;
+    class OUTER_SOLUTION_TRIS_HEPES,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CARRIER,PH_CASCADE,PH_CASCADE_DEVELOPED composed;
+    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_0,P6_EMBED_AGAROSE_0,P7_DEVELOP_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
@@ -115,8 +115,8 @@ flowchart TD
     click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
     click P4_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
-    click P5_ENCAPSULATE_SUBSTRATE_SUV_0 "/docs/processes/encapsulate-suv/main"
-    click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click P5_ENCAPSULATE_SUBSTRATE_0 "/docs/processes/encapsulate/main"
+    click SUBSTRATE_CARRIER "/docs/modules/substrate-carrier/spec"
     click P6_EMBED_AGAROSE_0 "/docs/processes/embed-thermal-setting/main"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
     click P7_DEVELOP_0 "/docs/processes/color-development/main"
@@ -166,9 +166,9 @@ The pH-sensing ssDNA and the toehold-switch-gated PLA1 template are co-encapsula
 
 ::::
 
-::::{tab-item} Substrate SUV
+::::{tab-item} Substrate Carrier
 
-A second liposome population carrying the chromogenic substrate. See [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+A second liposome population carrying the chromogenic substrate. **Which population is not settled**: the extruded [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) and the freeze-thaw [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) are both being run, so this cascade names their class, [Substrate Carrier](../substrate-carrier/spec.md), and not either member. The figures below are the extruded route's.
 
 :::{table} Substrate SUV lumen.
 :label: comp-ph-cascade-suv
@@ -254,7 +254,7 @@ No process page documents assembling this three-part cascade end to end.
 
 - [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry. It arrives in a basic buffer after the sensing step, not at embedding, because β-galactosidase works poorly at the pH this path senses at. See [Color Development](../../processes/color-development/main.md)
-- [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
+- [Substrate Carrier](../substrate-carrier/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. The class and not a member: the extruded and freeze-thaw routes are both being run. This path keeps the liposome format at all because agarose embedding imposes no UV
 - [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. It is **low-gelling agarose**, not ULGA, identified by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)**, and its step names the abstract [Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry.
 - [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) — the phase the agarose dissolves into, about 1180 mOsm
 
