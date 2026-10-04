@@ -29,6 +29,23 @@ measured_by:
       title: "Colorimetric Readout"
       page: ../../processes/colorimetric-readout/main.md
 
+# SENSITIVITY DECLARED AS `inferred`, WHICH IS WHY THAT BASIS EXISTS. The page says
+# X-Gal is "expected to be light-sensitive, as CPRG is", and carries an @Editor(chicago)
+# tag saying it has not been tested. That is neither a `rule` -- no mechanism is claimed
+# -- nor an `observation` -- nothing was seen. Before 2026-10-04 the only declarations
+# available were a false `rule` or none, and this corpus chose none, which left the
+# belief in prose where no checker reads it.
+sensitivities:
+  - id: uv-exposure
+    to: uv-exposure
+    basis: inferred
+    from: substrate-cprg
+    why: >
+      X-Gal is a chromogenic substrate like CPRG and is expected to bleach under the
+      same UV. Nobody has tested it. CPRG's bleaching is documented by side-by-side
+      comparison; this is the analogy to it and not a measurement.
+    page: spec.md
+
 open:
   - id: the-working-concentration-is-not-established
     question: >

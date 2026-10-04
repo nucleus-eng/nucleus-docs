@@ -105,6 +105,14 @@ properties:
       type: object
       additionalProperties: false
       required: [id, to, basis, why]
+      if:
+        properties: { basis: { const: inferred } }
+        required: [basis]
+      then:
+        required: [from]
+      else:
+        not:
+          required: [from]
       properties:
         id:
           type: string
@@ -116,7 +124,7 @@ properties:
             entry uses. Matching is by this string and nothing else.
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
         basis:
-          enum: [rule, observation]
+          enum: [rule, observation, inferred]
           description: >
             WHETHER IT GENERALISES, and this is the key nobody proposes from
             outside. A `rule` excludes cases nobody has tried, because a
@@ -124,9 +132,26 @@ properties:
             says nothing about the next case. free-parameters-are-tuples.md has
             the argument. Two sessions derived the split independently on
             2026-09-21 and returned the same singleton.
+            An `inferred` claim is weaker than both: it asserts no mechanism and
+            reports no case, and says only that this resembles something that
+            does. It carries `from`, so a reader can check whether the thing it
+            leans on still holds. Added 2026-10-04 because substrate-xgal says
+            X-Gal is "expected to be light-sensitive, as CPRG is" and nobody has
+            tested it, which is neither of the other two — so the only
+            declarations available were a false `rule` or silence, and the
+            corpus chose silence.
+        from:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          description: >
+            Required when `basis: inferred` and refused otherwise. The module id
+            this was inferred from. An inference is only as good as its source,
+            and a reader who cannot find the source cannot grade the inference.
         why:
           type: string
-          description: The mechanism for a rule, or what was seen for an observation.
+          description: >
+            The mechanism for a rule, what was seen for an observation, or what
+            the resemblance is for an inference.
         page:
           type: [string, "null"]
           description: Where the page states it, for the checker to compare against.
