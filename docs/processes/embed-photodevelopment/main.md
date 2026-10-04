@@ -43,21 +43,9 @@ Both run the same four steps. What changes between them is what goes into step 1
 Exposure time depends on monomer concentration, layer thickness and feature size, and none of the three is established for either chemistry. Treat the exposure figures below as the conditions of one run rather than as a specification.
 :::
 
-# The two chemistries
-
-| | PEG-Norbornene | PEGDA |
-| --- | --- | --- |
-| Status | **live**, the aTc path | **canceled**: PEGDA destroys the liposomes; the liposome class is not stated |
-| Mechanism | step-growth thiol-ene | radical polymerization of acrylates |
-| Oxygen inhibition at the surface | less prone | prone |
-| Network uniformity | more uniform | more heterogeneous |
-| Exposure | 60 s at 405 nm | (15–30) s at 405 nm |
-
 ## PEG-Norbornene, the live chemistry
 
 Crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker under UV, using lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP) as photoinitiator. Precursor composition and preparation are on [Gel: PEG-Norbornene](../../modules/gel-peg-norbornene/spec.md). Patterning runs **60 s at 405 nm**.
-
-### Prepare the precursor
 
 - [ ] Work under red light, or in the dark.
 - [ ] Vortex the precursor at 2000 rpm for 1 min.
@@ -69,21 +57,9 @@ Crosslinks a 4-arm PEG-norbornene precursor with a PEG4SH thiol crosslinker unde
 The four shared steps are above, and the mixing steps are here. The precursor recipe and the exposure conditions specific to thiol-ene crosslinking are not established. @Editor(chicago): add the precursor recipe and the exposure conditions for thiol-ene crosslinking.
 :::
 
-### Expected Behavior
-
-One spatial-patterning result is recorded. A block-pattern color change, first produced in agarose, was repeated with a PEG-norbornene outer gel and LacZ added on top, with the color change still visible after roughly 1.5 h.
-
 ## PEGDA, the canceled chemistry
 
-Crosslinks poly(ethylene glycol) diacrylate into spatially defined patterns using 405 nm light through a DLP projector. Precursor is 20 wt% PEGDA575, 0.3 wt% PEG4SH and 0.03 wt% LAP in PBS — see [Gel: PEGDA](../../modules/gel-pegda/spec.md). Patterning runs (15–30) s.
-
-An alternative version combines PEGDA with alginate to produce a patterned frame around an alginate core, multiplexing PEGDA's patternability with alginate's mechanical and functional stability.
-
-:::{attention} PEGDA → Readout was never demonstrated at macroscopic scale
-DevCell component volumes are too small to produce macroscopically visible pattern changes. Photopatterning of the PEGDA hydrogel itself was demonstrated, with tunable feature sizes and a PEGDA frame with a structurally sound alginate core. The downstream link from a patterned, DevCell-embedded hydrogel to a visible colorimetric readout was not.
-:::
-
-### The PEGDA steps
+**This chemistry is canceled and its steps are here for the record.** PEGDA destroys the liposomes, so nothing in the aTc path runs it. The steps are kept because they were established and because the multimaterial variant below is the only patterned-frame recipe on file.
 
 - [ ] Dissolve PEGDA monomer in PBS or DI water.
 - [ ] Add LAP photoinitiator to the precursor solution.
@@ -95,6 +71,30 @@ DevCell component volumes are too small to produce macroscopically visible patte
 :::{attention} Two things were never established for this chemistry
 @Editor(chicago): the mold or patterning-chamber setup is not established, and neither is the ionic-crosslinking step for the alginate component of the multimaterial variant. The frame recipe and exposure times are on [Gel: Alginate](../../modules/gel-alginate/spec.md).
 :::
+
+# The two chemistries
+
+| | PEG-Norbornene | PEGDA |
+| --- | --- | --- |
+| Status | **live**, the aTc path | **canceled**: PEGDA destroys the liposomes; the liposome class is not stated |
+| Mechanism | step-growth thiol-ene | radical polymerization of acrylates |
+| Oxygen inhibition at the surface | less prone | prone |
+| Network uniformity | more uniform | more heterogeneous |
+| Exposure | 60 s at 405 nm | (15–30) s at 405 nm |
+
+## What PEGDA showed, and did not
+
+Crosslinks poly(ethylene glycol) diacrylate into spatially defined patterns using 405 nm light through a DLP projector. Precursor is 20 wt% PEGDA575, 0.3 wt% PEG4SH and 0.03 wt% LAP in PBS — see [Gel: PEGDA](../../modules/gel-pegda/spec.md). Patterning runs (15–30) s.
+
+An alternative version combines PEGDA with alginate to produce a patterned frame around an alginate core, multiplexing PEGDA's patternability with alginate's mechanical and functional stability.
+
+:::{attention} PEGDA → Readout was never demonstrated at macroscopic scale
+DevCell component volumes are too small to produce macroscopically visible pattern changes. Photopatterning of the PEGDA hydrogel itself was demonstrated, with tunable feature sizes and a PEGDA frame with a structurally sound alginate core. The downstream link from a patterned, DevCell-embedded hydrogel to a visible colorimetric readout was not.
+:::
+
+## Expected Behavior
+
+One spatial-patterning result is recorded. A block-pattern color change, first produced in agarose, was repeated with a PEG-norbornene outer gel and LacZ added on top, with the color change still visible after roughly 1.5 h.
 
 # Materials and Equipment
 
