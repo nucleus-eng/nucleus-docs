@@ -10,8 +10,8 @@ script finds the commonest markers of it. It is a net, not the rule: a page can
 pass this check and still read as a decision log, and only reading finds that.
 
 Tier 1 — errors, exit 1:
-  person        a contributor's first name without their surname ("Jon ruled",
-                "on Jon's word"), or "<Name>, <date>". A full name is fine, so
+  person        a contributor's first name without their surname ("Ashford ruled",
+                "on Ashford's word"), or "<Name>, <date>". A full name is fine, so
                 Credits pass. Names come from about/contributors.md. A line
                 citing "(Group Meeting, contributor, date)" or "personal
                 communication" passes this rule and the date rule: those
@@ -39,7 +39,7 @@ Usage:
     python3 scripts/check-reference-voice.py --strict      # warnings fail too
 
 Exit codes: 0 clean (warnings allowed), 1 findings, 2 nothing was checked: no
-contributor names read, a path that does not exist, or no markdown file found.
+contributor names read, a path that does not exist, or no page found to check.
 """
 
 import argparse
@@ -50,7 +50,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 CONTRIBUTORS = REPO / "about" / "contributors.md"
 
-# "- Jon Calles — b.next" -> ("Jon", "Calles")
+# "- Robin Ashford — b.next" -> ("Robin", "Ashford")
 _CONTRIBUTOR_RE = re.compile(r"^-\s+(\S+)\s+(.+?)\s+—\s")
 
 _ISO_DATE = r"20\d\d-\d\d-\d\d"
@@ -62,7 +62,11 @@ _URL = re.compile(r"\bhttps?://\S+")
 
 TIER1 = {
     "ruling": (
-        re.compile(r"\b[Rr]ul(?:ed|ings?)\b(?! out)"),
+        # `(?!\.md)` keeps the filename `rulings.md` out of this rule. A filename is
+        # an address, the same reason `_LINK_TARGET` is blanked out, and the pointer
+        # itself is already what `working-notes` is for. It fired on
+        # effector-pla1/spec.yml, which cites `rulings.md#D35` for associativity.
+        re.compile(r"\b[Rr]ul(?:ed|ings?)\b(?! out)(?!\.md)"),
         "records a ruling. State the result; the commit message records who decided.",
     ),
     "working-notes": (
@@ -118,6 +122,14 @@ def read_contributors(path: Path) -> list[tuple[str, str]]:
     return names
 
 
+# NOUNS THAT ARE NOT PEOPLE, for the "<Name>, <date>" catch-all below. An
+# institution confirming something is evidence, not a person deciding it, and
+# the sweep of 2026-10-03 kept those sources for that reason — vendor datasheets,
+# catalog numbers, and a Node's confirmation of a construct's structure. The
+# catch-all cannot tell "Node, 2026-09-09" from a surname and a date.
+NOT_A_PERSON = ("Node", "Meeting")
+
+
 def person_pattern(names: list[tuple[str, str]]) -> re.Pattern:
     """A first name not followed by that contributor's surname, or "<Name>, <date>"."""
     by_first: dict[str, list[str]] = {}
@@ -127,7 +139,8 @@ def person_pattern(names: list[tuple[str, str]]) -> re.Pattern:
     for first, rests in sorted(by_first.items()):
         surnames = "|".join(re.escape(r) for r in rests)
         alternatives.append(rf"\b{re.escape(first)}\b(?!\s+(?:{surnames})\b)")
-    alternatives.append(rf"\b[A-Z][a-z]+, {_ISO_DATE}\b")
+    not_person = "|".join(NOT_A_PERSON)
+    alternatives.append(rf"\b(?!(?:{not_person})\b)[A-Z][a-z]+, {_ISO_DATE}\b")
     return re.compile("|".join(alternatives))
 
 
@@ -177,6 +190,27 @@ def visible_lines(text: str) -> list[tuple[int, str]]:
     return out
 
 
+# `tooling` IS EXEMPT IN A `spec.yml`. It complains that our tooling has become the
+# subject of a page. Almost every hit in a source file is the word `spec.yml`
+# written inside a `spec.yml`, where the file IS the tooling and naming it is the
+# only way to say anything. Keeping it would mean 114 findings nobody can act on,
+# which is how a check stops being read.
+EXEMPT_IN_SOURCE = {"tooling"}
+
+# A PINNED POINTER IS NOT A WORKING NOTE. `working-notes` exists because a reader
+# cannot follow "see open.md" -- there is no open.md to follow and no telling what
+# it said. A pointer that carries a commit hash is a different thing: it is
+# checkable, which is the whole argument the citation rule makes, and the few that
+# survive are verbatim quotations of a formal expression or a recorded disagreement
+# between two repos. So the rule fires on an UNPINNED pointer only.
+#
+# THE WINDOW IS THE SAME 90 CHARACTERS `check-citations.py` USES, deliberately: two
+# rules reading the same text should not disagree about what counts as pinned. A
+# hash anywhere on the line satisfies it, because a source comment wraps and the
+# pin is often on the line after the name it pins.
+HASH_NEARBY = re.compile(r"`[0-9a-f]{7,40}`|\b(?:main|at)\s+`?[0-9a-f]{7,40}`?\b")
+
+
 def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str, str]]:
     """Return (lineno, level, rule, match, message) for each finding in path."""
     try:
@@ -185,10 +219,17 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
         return []
     findings = []
     tier1 = {"person": (person, PERSON_MESSAGE), **TIER1}
-    for lineno, line in visible_lines(text):
+    source = path.suffix == ".yml"
+    lines = visible_lines(text)
+    pinned = {n for n, l in lines if HASH_NEARBY.search(l)}
+    for lineno, line in lines:
         line = _URL.sub(" ", _LINK_TARGET.sub("]()", line))
         for level, rules in (("error", tier1), ("warning", TIER2)):
             for rule, (pattern, message) in rules.items():
+                if source and rule in EXEMPT_IN_SOURCE:
+                    continue
+                if rule == "working-notes" and pinned & {lineno - 1, lineno, lineno + 1}:
+                    continue
                 if rule in ("person", "date") and EDITOR_CITATION.search(line):
                     continue
                 for m in pattern.finditer(line):
@@ -196,12 +237,21 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
     return findings
 
 
-def iter_markdown(paths: list[Path]):
+# A `spec.yml` IS A DOCS PAGE'S OTHER HALF, and this check read neither it nor
+# its `#` headers until 2026-10-04. The `.md` layer went 139 findings to 0 while
+# the source file beside it was never counted: 193 findings on 62 of 76 sources,
+# the same who-decided text in `question:`, `notes:` and `why:` values that the
+# schema defines and `check-spec-schema.py` validates. Content, not a note to the
+# next editor.
+SUFFIXES = (".md", ".yml")
+
+
+def iter_pages(paths: list[Path]):
     for p in paths:
-        if p.is_file() and p.suffix == ".md":
+        if p.is_file() and p.suffix in SUFFIXES:
             yield p
         elif p.is_dir():
-            yield from sorted(p.rglob("*.md"))
+            yield from sorted(q for q in p.rglob("*") if q.suffix in SUFFIXES)
 
 
 def main(argv=None) -> int:
@@ -226,7 +276,7 @@ def main(argv=None) -> int:
             print(f"check-reference-voice: no such file or directory: {p}", file=sys.stderr)
         return 2
     errors = warnings = checked = 0
-    for path in iter_markdown(paths):
+    for path in iter_pages(paths):
         checked += 1
         for lineno, level, rule, match, message in check_file(path, person):
             try:
@@ -240,7 +290,7 @@ def main(argv=None) -> int:
                 warnings += 1
 
     if not checked:
-        print("check-reference-voice: no markdown files found in the given paths", file=sys.stderr)
+        print("check-reference-voice: no .md or .yml files found in the given paths", file=sys.stderr)
         return 2
     print(f"check-reference-voice: {errors} error(s), {warnings} warning(s) in {checked} file(s)", file=sys.stderr)
     if errors or (args.strict and warnings):
