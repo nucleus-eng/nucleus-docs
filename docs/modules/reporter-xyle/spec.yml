@@ -33,7 +33,7 @@ inputs:
 
 # TWO STEPS, AND THE SECOND ONE PACKS. Same correction as ../reporter-lacz/spec.yml,
 # 2026-09-21, and the same reason: catechol in the same compartment as the DNA that
-# expresses catecholase is a readout with no off state. Jon named both Modules.
+# expresses catecholase is a readout with no off state.
 # ../color-change/spec.yml is the class and it packs.
 #
 # THE PARAMETERS SPLIT WITH THE STEPS. The cytosol, the template and the volume belong

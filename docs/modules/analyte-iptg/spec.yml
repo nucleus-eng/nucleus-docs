@@ -12,8 +12,8 @@
 # An empty list was invalid until 2026-09-20. `minItems: 1` on `process_steps`
 # asserted that every Module is produced by a process, which is a third membership
 # condition the model never carried: compositional-biology-theory `glossary.md#T03`
-# gives two, a named formulation and the operations its sort declares. Jon ruled the
-# constraint off. Composed-ness is a grading over Modules, not a condition for being
+# gives two, a named formulation and the operations its sort declares. The
+# constraint came off. Composed-ness is a grading over Modules, not a condition for being
 # one.
 
 module: analyte-iptg

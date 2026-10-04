@@ -2,8 +2,8 @@
 #
 # TWO CONSTITUENTS WHERE ITS PARENT HAS NONE, and that is where the line falls.
 # ../detector/spec.md names no composition and has no source, deliberately.
-# This class names one, from Jon's specification of 2026-09-21: a repressor element,
-# and a DNA regulatory element that the repressor binds. The analyte relieves the
+# This class names one: a repressor element, and a DNA regulatory element that the
+# repressor binds. The analyte relieves the
 # repression.
 #
 # THE OPERATOR IS THE MAJORITY CASE AND NOT THE ONLY ONE. How the repressor element is

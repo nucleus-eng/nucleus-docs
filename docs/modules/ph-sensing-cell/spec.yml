@@ -14,7 +14,7 @@
 module: ph-sensing-cell
 title: SensorCell[pH ⟶ PLA1]
 refines:
-  # Two incomparable parents, Jon 2026-09-29: the chassis is the cell without
+  # Two incomparable parents: the chassis is the cell without
   # modules in it, and this is that chassis with a sensor module put into it.
   # Which chassis is read off the constituents, not the demo name.
   # FUNCTIONAL PARENT FIRST -- the meet renderer aligns on entry one.

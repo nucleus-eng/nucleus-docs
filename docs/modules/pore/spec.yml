@@ -1,8 +1,8 @@
 # Composition source for Pore.
 #
 # NO `refines:` KEY, AND THAT IS THE CLAIM. A pore is not a kind of Container and not a
-# kind of Membrane. Jon, 2026-09-21: "Pore does NOT refine membrane!! it's a component
-# that can be composed with a membrane." compositional-biology-theory signature.md:203
+# kind of Membrane. A Pore does not refine Membrane; it is a component that can be
+# composed with one. compositional-biology-theory signature.md:203
 # reads, at main e40f3de, `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶
 # Membrane[permeable]; passes down ∇`, so a pore and a membrane are two of three operands
 # and the permeable membrane is the product. This class is a root here.
@@ -11,8 +11,8 @@
 # in the same way. It first quoted `passive_transport` before the rename existed there,
 # a forward reference to an edit nobody had made, caught by session c9d6a5. It then
 # quoted `Pore[passive]` correctly at 7b707cb and went stale within hours, because
-# e40f3de moved the bracket off the Pore and onto the Cargo on Jon's "refine the
-# argument bracket for the transported thing". A quote of another repo needs its commit
+# e40f3de moved the bracket off the Pore and onto the Cargo, so the bracket marks
+# the transported thing. A quote of another repo needs its commit
 # beside it or it is a claim about a moving file.
 #
 # ONE CONSTITUENT. A pore is the pore-forming agent. What it makes a hole IN belongs to

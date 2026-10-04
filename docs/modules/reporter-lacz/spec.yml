@@ -29,8 +29,7 @@ inputs:
   lacz:
     title: "LacZ"
     page: ../lacz/spec.md
-    # EITHER FORM SATISFIES THIS OPERAND, which is Jon's ruling of 2026-09-21 and needs
-    # no disjunction syntax: an operand naming a class takes any member. ../lacz has two,
+    # EITHER FORM SATISFIES THIS OPERAND, and it needs no disjunction syntax: an operand naming a class takes any member. ../lacz has two,
     # the template and the purified protein, and they differ in what they require rather
     # than in what they do.
   substrate-cprg:
@@ -42,8 +41,8 @@ inputs:
 
 # TWO STEPS, AND THE SECOND ONE PACKS. This was one mixing step over four operands
 # until 2026-09-21, which put the enzyme and its substrate in one compartment at
-# assembly. Jon: "they should compose by packing, not by mixing, and that bringing the
-# substrate and the enzyme together is what causes the reporting behavior."
+# assembly. They compose by packing and not by mixing, because bringing the
+# substrate and the enzyme together is what causes the reporting behavior.
 #
 # THE PAGE SAID SO ALREADY AND THE SOURCE CONTRADICTED IT. spec.md reads "LacZ converts
 # CPRG on contact, so a reaction colocalizing both is in the ON state", and its overview

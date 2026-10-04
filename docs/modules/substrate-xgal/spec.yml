@@ -3,7 +3,7 @@
 # Machine-readable companion to spec.md — see issue #248.
 #
 # THIS MODULE IS AN ATOM. One chromogenic molecule, bought rather than composed.
-# `process_steps` is empty and that is a claim. Jon ruled `minItems: 1` off
+# `process_steps` is empty and that is a claim. `minItems: 1` came off
 # `process_steps` on 2026-09-20.
 #
 # ITS TABLE IS NOT A COMPOSITION. The first column is `Format` and one of its two

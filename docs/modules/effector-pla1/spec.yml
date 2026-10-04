@@ -8,15 +8,14 @@
 #   mixing   both at once, in one compartment, sharing its resources
 #   packing  both at once, each keeping its own compartment
 #
-# THIS FILE WRITES THE UNGATED CONFIGURATION AND ONLY THAT ONE. Jon's ruling,
-# 2026-09-21. The page's Cytosol tab carries five configurations, and this file
+# THIS FILE WRITES THE UNGATED CONFIGURATION AND ONLY THAT ONE. The page's Cytosol tab carries five configurations, and this file
 # is the first of them: constitutive expression with no sensing circuit. The page
 # itself says why that is the defensible reference rather than an arbitrary pick —
 # "the first is the only one with no upstream gate, so it is the only one that
 # reports on PLA1 rather than on a cascade."
 #
-# THE OTHER FOUR ARE NOT CONFIGURATIONS OF THIS MODULE. Jon, 2026-09-21: "those
-# other DNA variants are just the PLA1 module stitched with detector DNA." Under
+# THE OTHER FOUR ARE NOT CONFIGURATIONS OF THIS MODULE. Each is this Module's
+# coding sequence stitched to a detector's DNA. Under
 # glossary.md#T37 in compositional-biology-theory, stitching `⌢` joins operands in
 # order into one polymer, it is associative and not commutative (rulings.md#D35),
 # and it is homogeneous — DNA stitched to DNA is DNA (signature.md:214, main ada4ea5;

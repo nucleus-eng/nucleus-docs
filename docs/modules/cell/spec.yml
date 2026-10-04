@@ -1,6 +1,6 @@
 # Composition source for Cell.
 #
-# WRITTEN 2026-09-21 on Jon's ruling: Sensing Cell refines Cell, and Cell is a Cytosol
+# WRITTEN ON THE RULE THAT Sensing Cell refines Cell, and Cell is a Cytosol
 # packed with a Membrane.
 #
 # THE INVARIANT IS `packing` OVER EXACTLY TWO OPERANDS, FIVE OF FIVE. base-cell,
@@ -49,14 +49,14 @@ process_steps:
 # declares the other half. #T23 makes the Conflict COMPUTED; check-conflicts.py
 # does the computing and nothing below asserts one.
 #
-# TWO RANGES, NOT ONE, AND THE DIFFERENCE IS THE POINT. Jon, 2026-09-24:
-# "synthetic cells are spec'ed to operate between 30C and 37C, but are stable from
-# 4C to 37C." A cell being embedded is not a cell working, so an embedding step
+# TWO RANGES, NOT ONE, AND THE DIFFERENCE IS THE POINT. Synthetic cells are
+# specified to operate between 30 °C and 37 °C, and are stable from 4 °C to
+# 37 °C. A cell being embedded is not a cell working, so an embedding step
 # meets the stability range and a sensing step meets the operating one. Collapsing
 # them would make every cold-setting gel look like a conflict.
 #
-# PROVISIONAL AND SAID SO. Supplied by Jon on 2026-09-24 with no source cited and
-# the words "for now". `basis: observation` for that reason: it enumerates what is
+# PROVISIONAL AND SAID SO. The figures came with no source cited and were marked
+# as holding for now. `basis: observation` for that reason: it enumerates what is
 # specified and claims nothing about a case nobody has run.
 sensitivities:
   - id: thermal-stability

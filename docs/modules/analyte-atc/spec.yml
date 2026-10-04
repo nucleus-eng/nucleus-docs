@@ -5,7 +5,7 @@
 # THIS MODULE IS AN ATOM. `process_steps` is empty and that is a claim, not an
 # omission. The page: "None. An analyte is supplied to an assay rather than produced
 # by a Nucleus process. It enters through whatever dosing step the readout protocol
-# specifies." An empty list was invalid until Jon ruled `minItems: 1` off
+# specifies." An empty list was invalid until `minItems: 1` came off
 # `process_steps` on 2026-09-20.
 #
 # THIS IS THE ONE ANALYTE WITH REAL FIGURES, and they are four bands rather than one

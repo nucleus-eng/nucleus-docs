@@ -41,8 +41,7 @@ inputs:
     page: ../reporter-lacz-enzyme/spec.md
   lga-powder:
     title: "LGA powder, 0.7%"
-    # REPOINTED 2026-09-24 on Jon's instruction, "update ph-cascade spec to point to
-    # the correct gel", to ../gel-lga/spec.md.
+    # REPOINTED TO ../gel-lga/spec.md, which is the correct gel for this path.
     #
     # THIS REVERSES A RULING OF JON'S OWN, THREE DAYS OLD, AND THE OLD ONE IS KEPT
     # HERE RATHER THAN DELETED. 2026-09-21: "agarose is ULGA, confirmed. i know we
@@ -54,7 +53,7 @@ inputs:
     # "I used the low gelling" with ultra-low raised separately as a possible
     # substitution. THE TWO ARE DIFFERENT PRODUCTS AND NOT TWO WORDS FOR ONE:
     # ../gel-lga/spec.yml gives LGA a gel point of 30 °C and ../gel-ulga/spec.yml
-    # gives ULGA 8-17 °C, both from vendor datasheets Jon supplied 2026-09-24.
+    # gives ULGA 8-17 °C, both from vendor datasheets.
     # THE SESSION'S OWN FIGURE FOR THE ULTRA-LOW GRADE WAS 14 °C AND IT IS
     # SUPERSEDED, not contradicted: 14 falls inside the datasheet's 8-17 range,
     # and 17 is the end an embedding step needs because it bounds "still liquid".
@@ -62,8 +61,8 @@ inputs:
     #
     # THE KEY IS RENAMED AND THAT IS NEW. The old comment declined to rename it on
     # the grounds that ULGA is a grade of agarose rather than another material, so
-    # `lga-powder` was under-specified rather than wrong. Under this ruling it is
-    # wrong, and a key naming the other polymer is worse than a third name for one.
+    # `lga-powder` was under-specified rather than wrong. Once the two grades are
+    # separate products it is wrong, and a key naming the other polymer is worse than a third name for one.
     page: ../gel-lga/spec.md
   tris-hepes-stock:
     title: "Tris-HEPES buffer stock"

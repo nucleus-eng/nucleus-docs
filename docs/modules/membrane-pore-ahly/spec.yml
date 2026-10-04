@@ -40,8 +40,8 @@ inputs:
 process_steps:
   - id: assemble-reaction
     process:
-      # THE PROTOCOL IS THE KIT'S, Jon's ruling 2026-09-25: "ahly protocol link should
-      # point at the kit, not base cytosol." This step assembles the NEB PURExpress kit,
+      # THE PROTOCOL IS THE KIT'S, so the link points at the kit and not at Base Cytosol.
+      # This step assembles the NEB PURExpress kit,
       # which composes two solutions; ../base-cytosol/spec.yml is the Nucleus system and
       # composes five constituents. They are different systems and this file named one
       # of them after the other. The corpus gives the kit's own protocol no page, so this

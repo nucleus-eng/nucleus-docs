@@ -44,10 +44,9 @@ inputs:
     title: "RNase inhibitor"
     page: null
 
-# ALL FIVE PURE SOURCES ARE ONE KIT, Jon's ruling 2026-09-25: "NEB PURE E6800L and
-# E6800S are the same kit, just different amounts of tubes. it was that one. there's
-# only one NEB PURE." This page named no vendor and was the one source left
-# unidentified on 2026-09-25; the ruling identifies it.
+# ALL FIVE PURE SOURCES ARE ONE KIT. NEB PURE E6800L and E6800S are the same kit
+# in different pack sizes, and there is only one NEB PURE. This page named no
+# vendor and was the one source left unidentified until then.
 #
 # THE CATALOG NUMBER IS E6800 AND NOT E6800L. The suffix is a pack size, so it names
 # how much was bought rather than what the material is. A BOM records the purchase --

@@ -1,6 +1,6 @@
 # Composition source for Outer Solution.
 #
-# WRITTEN 2026-09-21 on Jon's ruling, after the meet drew two nodes with the SAME LABEL.
+# WRITTEN after the meet drew two nodes with the SAME LABEL.
 # Both demos suspend their cells in an outer solution, both call it Outer Solution, and
 # the two are different formulations with no class between them, so a figure showed two
 # identical-looking boxes that a reader could not tell apart.
@@ -15,8 +15,7 @@
 # `mixing`, FOUR OF FOUR. Every step producing an outer solution mixes, and a suspension
 # whose solutes sat in separate compartments would not be one.
 #
-# REFINES `solution`, ADDED 2026-09-24 on Jon's ruling: "outer-solution refines solution.
-# solution refines container." This file previously said there was NO `refines:` key,
+# REFINES `solution`, WHICH REFINES `container`. This file previously said there was NO `refines:` key,
 # because "an outer solution is not a container, a gel or a membrane. It is the phase
 # those things sit in, AND NOTHING IN THIS CORPUS NAMES THAT SORT." That last clause was
 # the exit condition and it is now discharged: ../solution/spec.md names it. The earlier

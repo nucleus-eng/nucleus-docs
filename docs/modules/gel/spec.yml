@@ -11,9 +11,9 @@
 # blocked one. What would be wrong is naming something that is not a constituent at
 # all, which is the mistake ../analyte-ph/spec.yml made and no longer makes.
 #
-# THE PROCESS IS `page: null` TOO, on Jon's ruling of 2026-09-21. The step that sets an
-# abstract gel is an abstract process and none exists: row 7 of the abstract-modules
-# work was ruled `leave` because the theory never returned a shape for one. 21 of 76
+# THE PROCESS IS `page: null` TOO. The step that sets an abstract gel is an abstract
+# process and none exists: row 7 of the abstract-modules work was left alone
+# because the theory never returned a shape for one. 21 of 76
 # steps already name a process with no page, so the gap is recorded rather than
 # invented.
 

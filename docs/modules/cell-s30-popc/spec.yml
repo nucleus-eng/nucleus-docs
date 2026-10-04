@@ -13,7 +13,7 @@
 module: cell-s30-popc
 title: "Cell: S30 Lysate, POPC"
 refines: cell
-# A CHASSIS IS A CELL, ruled by Jon 2026-09-21: "Chassis == Cell btw". Not a judgement
+# A CHASSIS IS A CELL, and that is not a judgement
 # call: this Module's final step is `encapsulate`, `packing`, over exactly two operands,
 # a cytosol and a membrane, which is ../cell/spec.yml's invariant with no exception.
 # base-cell, cell-base-cytosol-popc-chol and cell-s30-popc are the same step over the same sorts.

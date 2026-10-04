@@ -1,6 +1,6 @@
 # Composition source for Outer Solution: Glucose-HEPES.
 #
-# SPLIT OUT 2026-10-03 on DQ2, ruled (a). ../outer-solution-tris-hepes/spec.md used to
+# SPLIT OUT FROM ../outer-solution-tris-hepes/spec.md, which used to
 # claim it served "all three Chicago cascades", while the aTc demo board records a
 # different solution entirely: 400 mM glucose with 1 M HEPES-KOH at pH 7.6, against the
 # Tris-HEPES stock at 42.5% (v/v). One page cannot state two formulations, so the aTc

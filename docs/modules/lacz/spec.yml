@@ -1,6 +1,6 @@
 # Composition source for LacZ.
 #
-# WRITTEN 2026-09-21 on Jon's ruling: "reporter lacZ operand should have lacz-DNA OR
+# WRITTEN ON THE RULE THAT "reporter lacZ operand should have lacz-DNA OR
 # lacz-protein! not sure how to represent that, but it MUST abstract over both".
 #
 # THE REPRESENTATION IS A CLASS OPERAND, AND THE CORPUS ALREADY USES IT EVERYWHERE.

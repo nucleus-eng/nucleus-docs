@@ -4,7 +4,7 @@
 #
 # THIS MODULE IS AN ATOM. `process_steps` is empty and that is a claim, not an
 # omission. The page: "None. An analyte is supplied to an assay rather than produced
-# by a Nucleus process." An empty list was invalid until Jon ruled `minItems: 1` off
+# by a Nucleus process." An empty list was invalid until `minItems: 1` came off
 # `process_steps` on 2026-09-20 — it had asserted that every Module is composed,
 # which is a third membership condition compositional-biology-theory
 # `glossary.md#T03` never carried.

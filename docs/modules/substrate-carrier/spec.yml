@@ -8,7 +8,7 @@
 # no bearing on a directory name. Renamed rather than suppressed, and raised rather
 # than worked around silently.
 #
-# WRITTEN 2026-09-21 on Jon's ruling, after the meet renderer drew its two members as
+# WRITTEN after the meet renderer drew its two members as
 # two unrelated partial slots. Both demos make the same design choice at that position
 # and neither had a name for the position, so a meet over London and Chicago could not
 # report the choice as a choice.

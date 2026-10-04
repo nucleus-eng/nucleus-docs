@@ -1,6 +1,6 @@
 # Composition source for Solution.
 #
-# WRITTEN 2026-09-24 on Jon's ruling: "outer-solution refines solution. solution refines
+# WRITTEN ON THE RULE THAT "outer-solution refines solution. solution refines
 # container. membrane refines container. gel definitely refines container, but I agree
 # that it may not refine solution."
 #
@@ -9,7 +9,7 @@
 # a volume. A Gel holds by a network, so what it holds is a position. A Solution holds by
 # dissolution, so what it holds is free to move and is separated from nothing.
 #
-# GEL DOES NOT REFINE THIS, ruled the same day, and the reason is worth keeping. The
+# GEL DOES NOT REFINE THIS, and the reason is worth keeping. The
 # theory corpus writes `Gel = OuterSolution + polymer`, which is a COMPOSITION and not a
 # refinement: being made of a Solution does not entail standing in for one. A gel holds
 # its solutes in place and a solution does not.

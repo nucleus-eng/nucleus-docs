@@ -11,13 +11,13 @@
 # UNTIL 2026-09-21 THIS FILE NAMED `outer-solution` AS ITS INPUT. That was not a
 # constituent. It was the solution pH is a property OF, which inverts the relation
 # the key encodes everywhere else in the corpus, and it was written only because
-# `inputs` carried `minProperties: 1`. Jon ruled that constraint off on 2026-09-21,
-# on the argument this file's own open item made, so the entry is gone rather than
+# `inputs` carried `minProperties: 1`. That constraint came off on the argument
+# this file's own open item made, so the entry is gone rather than
 # re-explained.
 #
 # `process_steps` is empty. The page: "None. An analyte is supplied to an assay
 # rather than produced by a Nucleus process. For pH specifically, it is set by the
-# composition of the outer solution rather than dosed." Jon ruled `minItems: 1` off
+# composition of the outer solution rather than dosed." `minItems: 1` came off
 # `process_steps` on 2026-09-20.
 
 module: analyte-ph
