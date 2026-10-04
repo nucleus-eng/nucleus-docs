@@ -42,7 +42,6 @@ process_steps:
       title: "CPRG-loaded SUV"
       page: ../substrate-cprg-suv/spec.md
     parameters:
-      bilayer: "90% POPC : 10% cholesterol"
       popc: "MW 760.076, 25 mg/mL stock, 208.51 uL"
       cholesterol: "MW 386.654, 50 mg/mL stock, 6.00 uL"
       cprg_at_hydration: "50 mM, approx. 30 mg/mL"
