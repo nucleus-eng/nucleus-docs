@@ -169,7 +169,7 @@ project:
           hidden: true
         - file: ./docs/modules/ph-cascade/spec.md
           hidden: true
-        - file: ./docs/modules/ph-cascade-one-liposome/spec.md
+        - file: ./docs/modules/ph-cascade-one-vesicle/spec.md
           hidden: true
         - file: ./docs/modules/atc-cascade/spec.md
           hidden: true

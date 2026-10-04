@@ -144,7 +144,7 @@ process_steps:
       THE PROCESS IS THE ABSTRACT ONE FOR THE SAME REASON. Extrusion and
       Freeze-Thaw are both instances of ../../processes/encapsulate/main.md, so
       the abstract process is what the two routes share.
-      A THIRD DESIGN DROPS THIS STEP ENTIRELY. See ../ph-cascade-one-liposome/,
+      A THIRD DESIGN DROPS THIS STEP ENTIRELY. See ../ph-cascade-one-vesicle/,
       where LacZ rides inside the sensing cell and the substrate is dosed in
       solution, so there is no second liposome population to make.
 

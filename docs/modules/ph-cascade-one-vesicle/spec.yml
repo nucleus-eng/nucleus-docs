@@ -1,4 +1,4 @@
-# Composition source for pH Cascade, one-liposome design.
+# Composition source for pH Cascade, one-vesicle design.
 #
 # A PROPOSED DESIGN, NOT A RUN. Nothing here has been built. It is written so the
 # two-liposome cascade and this one can be compared as compositions rather than as
@@ -18,8 +18,8 @@
 # requires; here the enzyme is the encapsulated one, which is the narrower condition
 # ../atc-cascade/spec.yml declares as `enzyme-encapsulated-substrate-outside`.
 
-module: ph-cascade-one-liposome
-title: "pH Cascade, one-liposome design"
+module: ph-cascade-one-vesicle
+title: "pH Cascade, one-vesicle design"
 refines: ph-cascade
 
 inputs:
@@ -118,8 +118,8 @@ process_steps:
     operator: packing
     operands: [lga-powder, outer-solution-tris-hepes, ph-sensing-cell-with-enzyme]
     produces:
-      id: ph-gel-one-liposome
-      title: "pH Gel, one-liposome"
+      id: ph-gel-one-vesicle
+      title: "pH Gel, one-vesicle"
       page: null
     notes: >
       ONE POPULATION GOES IN, NOT TWO. The two-liposome design embeds the sensing
@@ -147,11 +147,11 @@ process_steps:
       title: "Addition of Solution to gel"
       page: null
     operator: packing
-    operands: [ph-gel-one-liposome, ph-trigger-solution]
+    operands: [ph-gel-one-vesicle, ph-trigger-solution]
     produces:
-      id: ph-cascade-one-liposome
-      title: "pH Cascade, one-liposome design"
-      page: ../ph-cascade-one-liposome/spec.md
+      id: ph-cascade-one-vesicle
+      title: "pH Cascade, one-vesicle design"
+      page: ../ph-cascade-one-vesicle/spec.md
     requires:
       - id: enzyme-encapsulated-substrate-outside
         of: reporter-lacz-enzyme

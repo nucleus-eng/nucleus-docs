@@ -54,7 +54,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cytosol: aTc Sensor | [SensorCytosol[aTc ⟶ PLA1]](./atc-sensor-cytosol/spec.md) | ★ |
 | Cytosol: pH Sensor | [SensorCytosol[pH ⟶ PLA1]](./ph-sensor-cytosol/spec.md) | ★ |
 | Cell (Cascade) | [pH Cascade](./ph-cascade/spec.md) | ★ |
-| Cell (Cascade) | [pH Cascade, one-liposome design](./ph-cascade-one-liposome/spec.md) | - |
+| Cell (Cascade) | [pH Cascade, one-vesicle design](./ph-cascade-one-vesicle/spec.md) | - |
 | Cell (Cascade) | [aTc Cascade](./atc-cascade/spec.md) | ★ |
 | Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |

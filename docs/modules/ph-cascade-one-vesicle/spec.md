@@ -1,5 +1,5 @@
 ---
-title: "pH Cascade, one-liposome design"
+title: "pH Cascade, one-vesicle design"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -48,11 +48,11 @@ flowchart TD
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     PH_SENSING_CELL_WITH_ENZYME["SensorCell[pH ⟶ PLA1], with LacZ"]
     P4_EMBED_AGAROSE_0(["Embedding: Thermal Setting (packing)"])
-    PH_GEL_ONE_LIPOSOME["pH Gel, one-liposome"]
+    PH_GEL_ONE_VESICLE["pH Gel, one-vesicle"]
     P5_ASSEMBLE_TRIGGER_SOLUTION_0(["Trigger Solution (mixing) — no page"])
     PH_TRIGGER_SOLUTION["Trigger Solution"]
     P6_DOSE_TRIGGER_SOLUTION_0(["Addition of Solution to gel (packing) — no page"])
-    PH_CASCADE_ONE_LIPOSOME["pH Cascade, one-liposome design"]
+    PH_CASCADE_ONE_VESICLE["pH Cascade, one-vesicle design"]
 
     PH_RESPONSIVE_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
     TRIGGER_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
@@ -71,22 +71,22 @@ flowchart TD
     LGA_POWDER --> P4_EMBED_AGAROSE_0
     OUTER_SOLUTION_TRIS_HEPES --> P4_EMBED_AGAROSE_0
     PH_SENSING_CELL_WITH_ENZYME --> P4_EMBED_AGAROSE_0
-    P4_EMBED_AGAROSE_0 --> PH_GEL_ONE_LIPOSOME
+    P4_EMBED_AGAROSE_0 --> PH_GEL_ONE_VESICLE
 
     SUBSTRATE_CPRG --> P5_ASSEMBLE_TRIGGER_SOLUTION_0
     ANALYTE_PH --> P5_ASSEMBLE_TRIGGER_SOLUTION_0
     P5_ASSEMBLE_TRIGGER_SOLUTION_0 --> PH_TRIGGER_SOLUTION
 
-    PH_GEL_ONE_LIPOSOME --> P6_DOSE_TRIGGER_SOLUTION_0
+    PH_GEL_ONE_VESICLE --> P6_DOSE_TRIGGER_SOLUTION_0
     PH_TRIGGER_SOLUTION --> P6_DOSE_TRIGGER_SOLUTION_0
-    P6_DOSE_TRIGGER_SOLUTION_0 --> PH_CASCADE_ONE_LIPOSOME
+    P6_DOSE_TRIGGER_SOLUTION_0 --> PH_CASCADE_ONE_VESICLE
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
     class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,LGA_POWDER,OUTER_SOLUTION_TRIS_HEPES,ANALYTE_PH leaf;
-    class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL_WITH_ENZYME,PH_SENSING_CELL_WITH_ENZYME,PH_GEL_ONE_LIPOSOME,PH_TRIGGER_SOLUTION,PH_CASCADE_ONE_LIPOSOME composed;
+    class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL_WITH_ENZYME,PH_SENSING_CELL_WITH_ENZYME,PH_GEL_ONE_VESICLE,PH_TRIGGER_SOLUTION,PH_CASCADE_ONE_VESICLE composed;
     class P1_ANNEAL_TRIGGER_DUPLEX_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P4_EMBED_AGAROSE_0,P5_ASSEMBLE_TRIGGER_SOLUTION_0,P6_DOSE_TRIGGER_SOLUTION_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
@@ -101,7 +101,7 @@ flowchart TD
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click P4_EMBED_AGAROSE_0 "/docs/processes/embed-thermal-setting/main"
-    click PH_CASCADE_ONE_LIPOSOME "/docs/modules/ph-cascade-one-liposome/spec"
+    click PH_CASCADE_ONE_VESICLE "/docs/modules/ph-cascade-one-vesicle/spec"
 ```
 
 ::::
