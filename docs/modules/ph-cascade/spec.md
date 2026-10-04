@@ -40,6 +40,7 @@ flowchart TD
     EFFECTOR_PLA1["Lysis: PLA1"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
+    BASIC_BUFFER["Basic buffer"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     LGA_POWDER["LGA powder, 0.7%"]
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
@@ -55,8 +56,10 @@ flowchart TD
     PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
     P5_ENCAPSULATE_SUBSTRATE_SUV_0(["Encapsulation: Extrusion (packing)"])
     SUBSTRATE_CPRG_SUV["Substrate SUV: CPRG"]
-    P6_EMBED_AGAROSE_0(["Embedding: Thermal Setting (packing, 3 pairs mixing)"])
+    P6_EMBED_AGAROSE_0(["Embedding: Thermal Setting (packing, 1 pairs mixing)"])
     PH_CASCADE["pH Cascade"]
+    P7_DEVELOP_0(["Color Development (mixing)"])
+    PH_CASCADE_DEVELOPED["pH Cascade′"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
     ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
@@ -83,16 +86,20 @@ flowchart TD
     OUTER_SOLUTION_TRIS_HEPES --> P6_EMBED_AGAROSE_0
     PH_SENSING_CELL --> P6_EMBED_AGAROSE_0
     SUBSTRATE_CPRG_SUV --> P6_EMBED_AGAROSE_0
-    REPORTER_LACZ_ENZYME --> P6_EMBED_AGAROSE_0
     P6_EMBED_AGAROSE_0 --> PH_CASCADE
+
+    PH_CASCADE --> P7_DEVELOP_0
+    BASIC_BUFFER --> P7_DEVELOP_0
+    REPORTER_LACZ_ENZYME --> P7_DEVELOP_0
+    P7_DEVELOP_0 --> PH_CASCADE_DEVELOPED
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,LGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
-    class OUTER_SOLUTION_TRIS_HEPES,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE composed;
-    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_AGAROSE_0 process;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,BASIC_BUFFER,REPORTER_LACZ_ENZYME,LGA_POWDER,TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
+    class OUTER_SOLUTION_TRIS_HEPES,PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL,SUBSTRATE_CPRG_SUV,PH_CASCADE,PH_CASCADE_DEVELOPED composed;
+    class P1_ASSEMBLE_OUTER_SOLUTION_0,P2_ANNEAL_TRIGGER_DUPLEX_0,P3_ASSEMBLE_CYTOSOL_0,P4_ENCAPSULATE_0,P5_ENCAPSULATE_SUBSTRATE_SUV_0,P6_EMBED_AGAROSE_0,P7_DEVELOP_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
@@ -112,6 +119,7 @@ flowchart TD
     click SUBSTRATE_CPRG_SUV "/docs/modules/substrate-cprg-suv/spec"
     click P6_EMBED_AGAROSE_0 "/docs/processes/embed-thermal-setting/main"
     click PH_CASCADE "/docs/modules/ph-cascade/spec"
+    click P7_DEVELOP_0 "/docs/processes/color-development/main"
 ```
 
 ::::
@@ -245,7 +253,7 @@ No process page documents assembling this three-part cascade end to end.
 # Constituent Modules
 
 - [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md) — pH-responsive sensing circuit in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
-- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry
+- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — LacZ/CPRG colorimetric readout chemistry. It arrives in a basic buffer after the sensing step, not at embedding, because β-galactosidase works poorly at the pH this path senses at. See [Color Development](../../processes/color-development/main.md)
 - [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) — the second liposome population, carrying the [CPRG](../substrate-cprg/spec.md) released on lysis. This path keeps the liposome format because agarose embedding imposes no UV
 - [Agarose, 0.7%](../gel-lga/spec.md) — the matrix, dissolved into the outer solution the two populations already sit in. It is **low-gelling agarose**, not ULGA, identified by part number against the two vendor datasheets. The grades share a polymer and not a gel point — this one congeals at (26–30) °C and melts at ≤65 °C, where [Gel: ULGA](../gel-ulga/spec.md) gels at (8–17) °C and melts at ≤50 °C. **So the path cannot reuse [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)**, and its step names the abstract [Embedding](../../processes/embed-hydrogel/main.md) because no instance is written for this chemistry.
 - [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) — the phase the agarose dissolves into, about 1180 mOsm

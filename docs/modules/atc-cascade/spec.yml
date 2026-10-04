@@ -33,6 +33,12 @@ inputs:
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
+  mineral-oil:
+    title: "Mineral oil"
+    page: null            # the lipid-in-oil phase of the transfer. No module page
+  analyte-atc:
+    title: "Analyte: aTc"
+    page: ../analyte-atc/spec.md
   glucose:
     title: "Glucose"
     page: null
@@ -107,7 +113,7 @@ process_steps:
         why: >
           The chained Degrade Exterior LacZ sub-process doses Proteinase K.
     operator: packing
-    operands: [atc-sensor-cytosol, membrane-chicago]
+    operands: [atc-sensor-cytosol, membrane-chicago, mineral-oil]
     produces:
       id: atc-sensing-cell
       title: "SensorCell[aTc ⟶ PLA1]"
@@ -158,12 +164,29 @@ process_steps:
       was cut by the Chicago Node on 2026-09-11, because PEGDA destroys the
       liposomes; ../gel-pegda/spec.md carries the reason.
 
-  - id: dose-cprg
+  - id: assemble-trigger-solution
     process:
-      title: "Dose CPRG into the set gel"
+      title: "Trigger Solution"
+      page: null
+      abstract: assemble-solution
+    operator: mixing
+    operands: [substrate-cprg, analyte-atc]
+    produces:
+      id: atc-trigger-solution
+      title: "Trigger Solution"
+      page: null
+    notes: >
+      THE BOARD MAKES THE SOLUTION BEFORE IT ADDS IT, and the two were one step here
+      until 2026-10-03. Splitting them is what lets the analyte into this source at all:
+      the single step took the gel and the substrate and never named what triggers it.
+      ../../processes/ has no page for mixing the two, so the process is `page: null`.
+
+  - id: dose-trigger-solution
+    process:
+      title: "Addition of Solution to gel"
       page: null
     operator: packing
-    operands: [atc-gel, substrate-cprg]
+    operands: [atc-gel, atc-trigger-solution]
     produces:
       id: atc-cascade
       title: "aTc Cascade"

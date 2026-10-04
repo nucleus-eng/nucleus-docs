@@ -33,6 +33,9 @@ inputs:
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
+  basic-buffer:
+    title: "Basic buffer"
+    page: null            # the board's (M13), carrying the enzyme. No composition recorded
   reporter-lacz-enzyme:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
@@ -158,33 +161,49 @@ process_steps:
     operator_pairs:
       - operands: [lga-powder, outer-solution-tris-hepes]
         operator: mixing
-      - operands: [lga-powder, reporter-lacz-enzyme]
-        operator: mixing
-      - operands: [outer-solution-tris-hepes, reporter-lacz-enzyme]
-        operator: mixing
         note: >
           Both share the outer phase and neither carries a boundary, so this
-          pair mixes. The step's `packing` label is right for the seven pairs
-          that involve a membrane-bounded operand and wrong for these three.
+          pair mixes. The step's `packing` label is right for the pairs that
+          involve a membrane-bounded operand and wrong for this one.
     operands:
       - lga-powder
       - outer-solution-tris-hepes
       - ph-sensing-cell
       - substrate-cprg-suv
-      - reporter-lacz-enzyme
     produces:
       id: ph-cascade
       title: "pH Cascade"
       page: ../ph-cascade/spec.md
     parameters:
       lga-powder: "0.7% (w/v)"   # sets thermally; no crosslinker
+    notes: >
+      The enzyme is NOT an operand here, as of 2026-10-03. It arrives at
+      `develop` below, in a basic buffer, because beta-galactosidase works poorly
+      at the pH this path senses at. The board draws the same order, and
+      ../../processes/color-development/main.md exists for exactly this reason.
+      The mixing ratio of sensing cells to SUVs is not established.
+
+  - id: develop
+    process:
+      title: "Color Development"
+      page: ../../processes/color-development/main.md
+    operator: mixing
+    operands: [ph-cascade, basic-buffer, reporter-lacz-enzyme]
+    produces:
+      id: ph-cascade-developed
+      title: "pH Cascade′"
+      page: null
+    parameters:
       # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table,
-      # which keyed its rows by cascade. The enzyme's own page states the range;
-      # this is the dose this path used, encapsulated in a GUV in 0.7% agarose.
+      # which keyed its rows by cascade, and then from `embed-agarose` when the
+      # enzyme moved to this step. The enzyme's own page states the range.
       lacz_enzyme: "156 U/mL"
     notes: >
-      The mixing ratio of sensing cells to SUVs to LacZ is not established —
-      the same gap London closed on 2026-09-09 and this path still has.
+      THE BOARD'S `P6 · Color Development`, producing the device in its read state.
+      The prime is the registered mark for the same thing changed, signature.md:161,
+      and it sits in the title because the schema's id pattern admits no prime.
+      No buffer composition, incubation time or target pH after neutralization is
+      recorded anywhere; ../../processes/color-development/main.md says so too.
 
 measured_by:
   - process:
