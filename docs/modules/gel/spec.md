@@ -33,7 +33,7 @@ flowchart TD
     OUTER_SOLUTION["Outer solution"]
     POLYMER["Polymer"]
 
-    P1_SET_THE_GEL_0(["Set the gel (mixing) — no page"])
+    P1_SET_THE_GEL_0(["Embedding (mixing)"])
     GEL["Gel"]
 
     OUTER_SOLUTION --> P1_SET_THE_GEL_0
@@ -48,6 +48,7 @@ flowchart TD
     class GEL composed;
     class P1_SET_THE_GEL_0 process;
 
+    click P1_SET_THE_GEL_0 "/docs/processes/embed-hydrogel/main"
     click GEL "/docs/modules/gel/spec"
 ```
 

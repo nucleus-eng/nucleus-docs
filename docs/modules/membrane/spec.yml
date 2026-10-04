@@ -25,8 +25,8 @@ inputs:
 process_steps:
   - id: close-the-bilayer
     process:
-      title: "Close the bilayer"
-      page: null
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
     operator: mixing
     operands: [lipid]
     produces:

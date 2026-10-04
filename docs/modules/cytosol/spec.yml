@@ -36,6 +36,17 @@ process_steps:
     process:
       title: "Combine the expression machinery in one compartment"
       page: null
+      # NAMING ../../processes/assemble-cytosol/ HERE WOULD BE FALSE FOR ONE OF THE
+      # THREE MEMBERS. ../membrane/spec.yml and ../gel/spec.yml both took their
+      # abstract process when the class step and the process page turned out to
+      # describe the same operation. This one does not: of the three members,
+      # ../base-cytosol/ is made by Assemble Base Cytosol and ../sensor-cytosol/ by
+      # mixing a detector into one, and both are derivatives of Assemble Cytosol --
+      # but ../s30-lysate/ is made by Assemble S30 Lysate, which is not. The page
+      # says "as in Assemble Cytosol", which is an example; a `page:` here would be
+      # a claim about every member.
+      # WHAT WOULD CLOSE IT is a process that abstracts over both routes, and none
+      # is written. Recorded rather than papered over, and the gap is the finding.
     operator: mixing
     operands: [expression-machinery]
     produces:
