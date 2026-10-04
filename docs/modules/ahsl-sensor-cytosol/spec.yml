@@ -21,9 +21,13 @@ inputs:
   detector-3oc6-hsl:
     title: "Detector: 3OC6-HSL (LuxR)"
     page: ../detector-3oc6-hsl/spec.md
-  effector-pla1:
-    title: "PLA1 Lysis Module"
-    page: ../effector-pla1/spec.md
+  effector-pla1-luxr:
+    title: "Gated lysis DNA: pOpen-LuxR-PLA1"
+    page: null            # pOpen-LuxR-PLA1. Constitutive BBa_J23101 driving luxR plus pLux driving
+                          # PLA1, on ONE molecule, so LuxR and PLA1 are never supplied separately.
+                          # The CIRCULAR form: ../ahsl-sensor-cytosol/spec.md states that S30
+                          # Lysate degrades linear DNA, so this route takes the plasmid. File:
+                          # effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb, 4175 bp, in nucleus-eng/DNA at f06e12c.
 
 process_steps:
   - id: assemble-cytosol
@@ -32,7 +36,7 @@ process_steps:
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-solution
     operator: mixing
-    operands: [s30-lysate, detector-3oc6-hsl, effector-pla1]
+    operands: [s30-lysate, detector-3oc6-hsl, effector-pla1-luxr]
     produces:
       id: ahsl-sensor-cytosol
       title: "SensorCytosol[3OC6-HSL ⟶ PLA1]"

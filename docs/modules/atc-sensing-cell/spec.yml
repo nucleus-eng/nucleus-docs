@@ -32,9 +32,14 @@ inputs:
   detector-tetr-atc:
     title: "Detector: tetR-aTc"
     page: ../detector-tetr-atc/spec.md
-  effector-pla1:
-    title: "Lysis: PLA1"
-    page: ../effector-pla1/spec.md
+  effector-pla1-teto:
+    title: "Gated lysis DNA: pT7-tetO-PLA1"
+    page: null            # pT7-tetO-PLA1. The tetO operator stitched to the PLA1 coding sequence,
+                          # so the gate and the payload are ONE molecule. ../detector-tetr-atc/
+                          # names pT7-tetO-deGFP, the REPORTER variant, so this cascade names its
+                          # own payload rather than inheriting one. Files:
+                          # effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb 1202 bp and
+                          # pOpen-T7-tetO-PLA1.gb 3140 bp, in nucleus-eng/DNA at f06e12c.
   reporter-lacz-enzyme:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
@@ -49,7 +54,7 @@ process_steps:
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-solution
     operator: mixing
-    operands: [base-cytosol, detector-tetr-atc, effector-pla1, reporter-lacz-enzyme]
+    operands: [base-cytosol, detector-tetr-atc, effector-pla1-teto, reporter-lacz-enzyme]
     produces:
       id: atc-sensor-cytosol
       title: "SensorCytosol[aTc ⟶ PLA1]"

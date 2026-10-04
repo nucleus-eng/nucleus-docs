@@ -32,7 +32,7 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
-    EFFECTOR_PLA1["Lysis: PLA1"]
+    EFFECTOR_PLA1_TETO["Gated lysis DNA: pT7-tetO-PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
@@ -40,7 +40,7 @@ flowchart TD
 
     BASE_CYTOSOL --> P1_ASSEMBLE_CYTOSOL_0
     DETECTOR_TETR_ATC --> P1_ASSEMBLE_CYTOSOL_0
-    EFFECTOR_PLA1 --> P1_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1_TETO --> P1_ASSEMBLE_CYTOSOL_0
     REPORTER_LACZ_ENZYME --> P1_ASSEMBLE_CYTOSOL_0
     P1_ASSEMBLE_CYTOSOL_0 --> ATC_SENSOR_CYTOSOL
 
@@ -48,13 +48,12 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME leaf;
+    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1_TETO,REPORTER_LACZ_ENZYME leaf;
     class ATC_SENSOR_CYTOSOL composed;
     class P1_ASSEMBLE_CYTOSOL_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
-    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
@@ -107,7 +106,7 @@ One molecule carries the operator and the effector, so [PLA1](../effector-pla1/s
 
 - [Base Cytosol](../base-cytosol/spec.md) — transcription and translation
 - [aTc Sensing Module](../detector-tetr-atc/spec.md) — the gated sensing construct
-- [PLA1 Lysis Module](../effector-pla1/spec.md) — carried on the same molecule as the detector
+- `pT7-tetO-PLA1` — the gated construct. The tetO operator and PLA1 are one molecule, so PLA1 is not a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the reaction
 
 # Process

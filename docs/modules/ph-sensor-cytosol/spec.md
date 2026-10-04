@@ -33,7 +33,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
     TRIGGER_SSDNA["Trigger ssDNA"]
-    EFFECTOR_PLA1["Lysis: PLA1"]
+    EFFECTOR_PLA1_TOEHOLD["Gated lysis DNA: pT7-toehold9-PLA1"]
 
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
@@ -46,19 +46,18 @@ flowchart TD
 
     BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
     PH_TRIGGER_DUPLEX --> P2_ASSEMBLE_CYTOSOL_0
-    EFFECTOR_PLA1 --> P2_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1_TOEHOLD --> P2_ASSEMBLE_CYTOSOL_0
     P2_ASSEMBLE_CYTOSOL_0 --> PH_SENSOR_CYTOSOL
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1 leaf;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1_TOEHOLD leaf;
     class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL composed;
     class P1_ANNEAL_TRIGGER_DUPLEX_0,P2_ASSEMBLE_CYTOSOL_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click P1_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
@@ -103,7 +102,7 @@ The toehold switch and the effector are on one molecule, so [PLA1](../effector-p
 
 - [Base Cytosol](../base-cytosol/spec.md) — transcription and translation
 - [pH-Sensing Module](../detector-ph/spec.md) — trigger duplex and toehold-gated template
-- [PLA1 Lysis Module](../effector-pla1/spec.md) — carried on the same molecule as the switch
+- `pT7-toehold9-PLA1` — the gated construct. The toehold switch and PLA1 are one molecule, so PLA1 is not a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
 
 # Process
 

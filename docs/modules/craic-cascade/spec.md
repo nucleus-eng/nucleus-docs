@@ -36,7 +36,7 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     ESAR_DNA["Sensor: EsaR DNA template"]
-    EFFECTOR_PLA1["Lysis: PLA1"]
+    EFFECTOR_PLA1_ESAO["Gated lysis DNA: [EsaO]2-PLA1"]
     MEMBRANE_CRAIC["Membrane"]
     OUTER_SOLUTION["Outer Solution"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
@@ -63,7 +63,7 @@ flowchart TD
 
     BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
     DETECTOR_ESAR --> P2_ASSEMBLE_CYTOSOL_0
-    EFFECTOR_PLA1 --> P2_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1_ESAO --> P2_ASSEMBLE_CYTOSOL_0
     P2_ASSEMBLE_CYTOSOL_0 --> CRAIC_SENSOR_CYTOSOL
 
     CRAIC_SENSOR_CYTOSOL --> P3_ENCAPSULATE_SENSING_0
@@ -90,12 +90,11 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,ESAR_DNA,EFFECTOR_PLA1,MEMBRANE_CRAIC,OUTER_SOLUTION,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,ANALYTE_3OC6_HSL leaf;
+    class BASE_CYTOSOL,ESAR_DNA,EFFECTOR_PLA1_ESAO,MEMBRANE_CRAIC,OUTER_SOLUTION,SUBSTRATE_CPRG,REPORTER_LACZ_ENZYME,ULGA_POWDER,ANALYTE_3OC6_HSL leaf;
     class DETECTOR_ESAR,CRAIC_SENSOR_CYTOSOL,CRAIC_SENSING_CELL,CRAIC_SUBSTRATE_CARRIER,CRAIC_CASCADE,CRAIC_CASCADE_DEVELOPED composed;
     class P1_EXPRESS_REPRESSOR_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_SENSING_0,P4_ENCAPSULATE_SUBSTRATE_0,P5_EMBED_ULGA_0,P6_DEVELOP_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"

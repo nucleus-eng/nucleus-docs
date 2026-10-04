@@ -106,9 +106,18 @@ def test_the_undeclared_hand_figure_box_is_a_note_and_not_a_warning():
 
 def test_the_condition_boxes_are_not_counted_as_slots():
     """Nothing is met over a condition. Counting them would inflate the
-    denominator the concrete/abstract/unmet split is read against."""
+    denominator the concrete/abstract/unmet split is read against.
+
+    THE TOTAL MOVED 17 TO 16 ON 2026-10-04 AND THE DROP IS THE POINT, NOT NOISE.
+    Both legs used to name `effector-pla1` and met on it as a concrete slot.
+    Each now names its own gated construct -- `pT7-tetO-PLA1` for aTc,
+    `pT7-toehold9-PLA1` for pH -- which are different molecules, so the legs no
+    longer agree there and concrete fell 5 to 4. A meet that still reported
+    agreement would be asserting the two legs share a construct they do not.
+    What this test pins is that conditions stay out of the denominator; the
+    denominator itself is free to move when the sources do."""
     r = _run("atc-cascade", "ph-cascade")
-    assert "17 slot(s)" in r.stderr
+    assert "16 slot(s)" in r.stderr
     assert "2 requirement box(es) and 3 imposition box(es)" in r.stderr
 
 

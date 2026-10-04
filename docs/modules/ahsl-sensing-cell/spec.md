@@ -32,7 +32,7 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
     DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
-    EFFECTOR_PLA1["PLA1 Lysis Module"]
+    EFFECTOR_PLA1_LUXR["Gated lysis DNA: pOpen-LuxR-PLA1"]
     MEMBRANE_POPC["Membrane: POPC"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
@@ -42,7 +42,7 @@ flowchart TD
 
     S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
     DETECTOR_3OC6_HSL --> P1_ASSEMBLE_CYTOSOL_0
-    EFFECTOR_PLA1 --> P1_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1_LUXR --> P1_ASSEMBLE_CYTOSOL_0
     P1_ASSEMBLE_CYTOSOL_0 --> AHSL_SENSOR_CYTOSOL
 
     AHSL_SENSOR_CYTOSOL --> P2_ENCAPSULATE_0
@@ -53,13 +53,12 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class S30_LYSATE,DETECTOR_3OC6_HSL,EFFECTOR_PLA1,MEMBRANE_POPC leaf;
+    class S30_LYSATE,DETECTOR_3OC6_HSL,EFFECTOR_PLA1_LUXR,MEMBRANE_POPC leaf;
     class AHSL_SENSOR_CYTOSOL,AHSL_SENSING_CELL composed;
     class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_0 process;
 
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
-    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click AHSL_SENSOR_CYTOSOL "/docs/modules/ahsl-sensor-cytosol/spec"

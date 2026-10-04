@@ -34,9 +34,13 @@ inputs:
                           # EsaO sites driving PLA1. `[EsaO]2-mNG` is the same
                           # operator on a fluorescent reporter and characterizes
                           # the detector rather than building this cascade.
-  effector-pla1:
-    title: "Lysis: PLA1"
-    page: ../effector-pla1/spec.md
+  effector-pla1-esao:
+    title: "Gated lysis DNA: [EsaO]2-PLA1"
+    page: null            # [EsaO]2-PLA1, two tandem EsaO sites driving PLA1. NO SEQUENCE FILE EXISTS.
+                          # nucleus-eng/DNA at f06e12c has no esa* file, no esar string and no manifest row, while it
+                          # carries the gated construct for all three other demos. The name appears
+                          # in this corpus only here, so nothing outside this file supports it.
+                          # Do not link or invent one; see ../detector-esar/spec.yml.
   membrane-craic:
     title: "Membrane"
     page: null            # the board writes Membrane_i and Membrane_j and names no formulation
@@ -80,7 +84,7 @@ process_steps:
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-cytosol
     operator: mixing
-    operands: [base-cytosol, detector-esar, effector-pla1]
+    operands: [base-cytosol, detector-esar, effector-pla1-esao]
     produces:
       id: craic-sensor-cytosol
       title: "SensorCytosol[3OC6-HSL ⟶ PLA1]"

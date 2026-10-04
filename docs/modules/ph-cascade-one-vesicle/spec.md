@@ -33,7 +33,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     PH_RESPONSIVE_SSDNA["pH-responsive strand"]
     TRIGGER_SSDNA["Trigger strand"]
-    EFFECTOR_PLA1["Lysis: PLA1"]
+    EFFECTOR_PLA1_TOEHOLD["Gated lysis DNA: pT7-toehold9-PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
     MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
@@ -60,7 +60,7 @@ flowchart TD
 
     BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
     PH_TRIGGER_DUPLEX --> P2_ASSEMBLE_CYTOSOL_0
-    EFFECTOR_PLA1 --> P2_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1_TOEHOLD --> P2_ASSEMBLE_CYTOSOL_0
     REPORTER_LACZ_ENZYME --> P2_ASSEMBLE_CYTOSOL_0
     P2_ASSEMBLE_CYTOSOL_0 --> PH_SENSOR_CYTOSOL_WITH_ENZYME
 
@@ -85,12 +85,11 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,LGA_POWDER,OUTER_SOLUTION_TRIS_HEPES,ANALYTE_PH leaf;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1_TOEHOLD,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,LGA_POWDER,OUTER_SOLUTION_TRIS_HEPES,ANALYTE_PH leaf;
     class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL_WITH_ENZYME,PH_SENSING_CELL_WITH_ENZYME,PH_GEL_ONE_VESICLE,PH_TRIGGER_SOLUTION,PH_CASCADE_ONE_VESICLE composed;
     class P1_ANNEAL_TRIGGER_DUPLEX_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P4_EMBED_AGAROSE_0,P5_ASSEMBLE_TRIGGER_SOLUTION_0,P6_DOSE_TRIGGER_SOLUTION_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click EFFECTOR_PLA1 "/docs/modules/effector-pla1/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
@@ -123,7 +122,7 @@ Requires LacZ to tolerate the sensing conditions, which is the first thing to me
 
 - **SensorCell[pH ⟶ PLA1], with LacZ** — the one liposome population, and it has **no page of its own**. It is not the two-liposome cascade's sensing cell: this one carries the enzyme inside, which makes it a different Module, and only one of the two is built. Named here rather than linked for that reason
 - [Base Cytosol](../base-cytosol/spec.md) — the expression system inside it
-- [Lysis: PLA1](../effector-pla1/spec.md) — the effector the toehold switch drives
+- `pT7-toehold9-PLA1` — the gated construct. The toehold switch drives PLA1 from the same molecule, so PLA1 is not a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
 - [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — **inside the cell**, which is the design change
 - [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — the one bilayer in the system
 - [Substrate: CPRG](../substrate-cprg/spec.md) — **not encapsulated.** It arrives in the trigger solution after the gel is set

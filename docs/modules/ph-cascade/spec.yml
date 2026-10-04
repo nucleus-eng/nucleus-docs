@@ -24,9 +24,12 @@ inputs:
   trigger-ssdna:
     title: "Trigger ssDNA"
     page: null
-  effector-pla1:
-    title: "Lysis: PLA1"
-    page: ../effector-pla1/spec.md
+  effector-pla1-toehold:
+    title: "Gated lysis DNA: pT7-toehold9-PLA1"
+    page: null            # pT7-toehold9-PLA1. The toehold switch stitched to the PLA1 coding
+                          # sequence, so the gate and the payload are ONE molecule and PLA1 is
+                          # not a separate addition. File: effectors/detector-ph/
+                          # pT7-toehold9-PLA1-linear.gb, 1203 bp, in nucleus-eng/DNA at f06e12c.
   membrane-chicago:
     title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-9-1/spec.md
@@ -107,7 +110,7 @@ process_steps:
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
       abstract: assemble-solution
     operator: mixing
-    operands: [base-cytosol, ph-trigger-duplex, effector-pla1]
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1-toehold]
     produces:
       id: ph-sensor-cytosol
       title: "SensorCytosol[pH ⟶ PLA1]"
