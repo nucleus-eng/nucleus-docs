@@ -178,7 +178,7 @@ That a pore cannot open a neighboring liposome follows from pores inserting into
 
 LacZ activity MAY be inhibited by theophylline, thus do not use with [Theophylline Sensing Module](../detector-theophylline/spec.md). 
 
-:::{attention} The mechanism behind the LacZ and theophylline Conflict is not established.
+:::{attention} The mechanism behind the LacZ and theophylline incompatibility is not established.
 Theophylline inhibits β-galactosidase directly (Group Meeting, Mary Kelly, Chicago Node, 2026-09-17), and riboswitch activation produces more LacZ, so both effects can act at once. The one bulk figure available shows 1 mM and 2 mM theophylline making the LacZ/CPRG reaction about **twice as fast**: more LacZ can mask the direct inhibition. Literature reports only weak inhibition, in the millimolar range.
 
 @Editor(chicago): locate the titration data that is reported to show inhibition at low concentrations. @Editor: cite the literature report.
