@@ -3,6 +3,8 @@
 module: xyle
 title: "XylE"
 
+refines: protein
+
 inputs: {}
 process_steps: []
 

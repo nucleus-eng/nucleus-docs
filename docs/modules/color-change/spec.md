@@ -32,6 +32,7 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     ENZYME["Enzyme"]
     SUBSTRATE["Substrate"]
+    TRIGGER["Trigger"]
 
     P1_SEPARATE_ENZYME_AND_SUBSTRATE_0(["Encapsulation (packing)"])
     COLOR_CHANGE["Color Change"]
@@ -44,7 +45,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class ENZYME,SUBSTRATE leaf;
+    class ENZYME,SUBSTRATE,TRIGGER leaf;
     class COLOR_CHANGE composed;
     class P1_SEPARATE_ENZYME_AND_SUBSTRATE_0 process;
 

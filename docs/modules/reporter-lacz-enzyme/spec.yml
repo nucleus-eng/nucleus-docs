@@ -12,7 +12,7 @@
 
 module: reporter-lacz-enzyme
 title: "LacZ Enzyme"
-refines: lacz
+refines: [lacz, protein]
 # THE PURIFIED FORM OF ../lacz, one of two. The LacZ operand must abstract over both the
 # DNA and the protein. The representation is a class operand and this is a member of
 # that class.
@@ -79,10 +79,3 @@ open:
 # object and Imposition a property of a morphism, so an imposition sits on a step. A
 # Conflict is derived from the two and is computed, never asserted. check-conflicts.py
 # does the computing.
-sensitivities:
-  - id: proteinase-k
-    to: proteinase-k
-    basis: rule
-    why: >
-      Proteinase K does not distinguish one LacZ from another, so a step that digests
-      exterior LacZ digests encapsulated LacZ it can reach.

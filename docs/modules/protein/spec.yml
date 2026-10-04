@@ -1,0 +1,40 @@
+# Composition source for Protein.
+#
+# A CLASS WRITTEN FOR ONE SENSITIVITY. ../reporter-lacz-enzyme declared
+# `to: proteinase-k` with the reason "Proteinase K does not distinguish one LacZ from
+# another". By that wording it does not distinguish any other protein either, so the
+# claim belongs to the kind and not to the member. It is declared here once, and every
+# member carries it without restating it.
+#
+# GROUNDED BY COMPOSITION, NOT BY FUNCTION. Members share what they are made of, a
+# chain of amino acids, and not what they do: one reports a color and the other
+# produces one from a different substrate.
+#
+# `inputs: {}` AND `process_steps: []` ARE CLAIMS, as on ../container. Expression
+# produces a protein and it is the expressing Module's step. Nothing here produces one.
+#
+# MEMBERSHIP IS A MODULE WHOSE SUBJECT IS A PROTEIN, not every Module that involves
+# one. ../effector-pla1 genetically encodes lysis and ../control-clpxp, ../energy-ppk
+# and ../emitter-ivhsl are the same shape: each is a Module about what a protein does
+# once expressed, so the protein is their product and not their subject.
+#
+# ../lacz IS NOT A MEMBER AND THAT IS NOT AN OVERSIGHT. It abstracts over a DNA
+# template and a purified protein, so one of its two members is DNA. A class cannot
+# refine Protein while holding a member that is not one. The purified form refines both
+# this class and that one, which is what a list of parents is for.
+
+module: protein
+title: "Protein"
+
+inputs: {}
+process_steps: []
+
+sensitivities:
+  - id: proteinase-k
+    to: proteinase-k
+    basis: rule
+    why: >
+      Proteinase K is a broad-spectrum protease and does not distinguish one protein
+      from another, so a step that digests any protein in a compartment digests every
+      protein it reaches in that compartment.
+    page: spec.md
