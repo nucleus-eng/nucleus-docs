@@ -20,6 +20,17 @@ The theophylline riboswitch expresses its effector without theophylline present,
 :::
 
 (detector-theophylline-reference-composition)=
+
+```mermaid
+flowchart LR
+    T["Theophylline"] --> BOUND
+	FREE["Unbound Aptamer<br/>(riboswitch 5' UTR)"] --> BOUND
+	BOUND["Bound Aptamer"] -->|"Conformational change<br/>exposes RBS"| ACTIVE 
+	ACTIVE["mRNA Transcript"] -->|"Translation"| E["Downstream effector expressed"]
+```
+
+The theophylline riboswitch binds theophylline at its aptamer domain in the 5' UTR. This triggers a conformational change that exposes the ribosome binding site (RBS), turning on translation of the downstream effector gene.
+
 # Reference Composition
 
 :::::{tab-set}
@@ -72,18 +83,6 @@ flowchart TD
 ::::
 
 
-::::{tab-item} Schematic
-
-```mermaid
-flowchart LR
-    T["Theophylline"] --> BOUND
-	FREE["Unbound Aptamer<br/>(riboswitch 5' UTR)"] --> BOUND
-	BOUND["Bound Aptamer"] -->|"Conformational change<br/>exposes RBS"| ACTIVE 
-	ACTIVE["mRNA Transcript"] -->|"Translation"| E["Downstream effector expressed"]
-```
-
-The theophylline riboswitch binds theophylline at its aptamer domain in the 5' UTR. This triggers a conformational change that exposes the ribosome binding site (RBS), turning on translation of the downstream effector gene.
-::::
 
 ::::{tab-item} DNA
 

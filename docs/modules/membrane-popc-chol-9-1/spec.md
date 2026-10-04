@@ -62,7 +62,7 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Lipid Composition
+::::{tab-item} Bilayer
 
 :::{table} Membrane: POPC/Chol (9:1) Composition.
 :label: comp-membrane-chicago-base
@@ -77,7 +77,7 @@ flowchart TD
 
 ::::
 
-::::{tab-item} Preparations
+::::{tab-item} Preparation
 
 :::{table} Preparations of the Chicago base membrane.
 :label: comp-membrane-chicago-preps

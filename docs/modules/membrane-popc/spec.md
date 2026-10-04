@@ -52,7 +52,7 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Lipid Composition
+::::{tab-item} Bilayer
 
 :::{table} Membrane: POPC lipids.
 :label: comp-membrane-popc-base
@@ -71,7 +71,7 @@ The two are not the same kind of addition. DSPE-PEG2000's PEG headgroup provides
 
 ::::
 
-::::{tab-item} Documented Preparations
+::::{tab-item} Preparation
 
 :::{table} Documented preparations of the London membrane. Each row is a self-consistent recipe; the two optional lipids are not mixed.
 :label: comp-membrane-popc-preps

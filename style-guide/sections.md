@@ -189,6 +189,14 @@ Include any preparation parameters that are not composition — target size, ext
 
 If no Process page covers the combination, say so in one sentence and stop. "No process page documents assembling this cascade end to end." Do not explain what a reader should not assume, and do not leave instructions for a future editor — those go in `tmp/`.
 
+## Materials
+
+**Optional, and only where a Module is bought rather than made.** A Module whose constituents arrive as catalog items carries a Materials section naming them. A Module assembled from other Modules does not: its constituents have pages, and those pages carry their own materials.
+
+It sits after Processes and before Credits. Nine pages carry it.
+
+Give vendor, catalog number and storage where the source has them, and say which it does not have. A Materials section with a column of blanks and no statement reads as "not needed" rather than "not recorded".
+
 ## Credits
 
 Credits is **one sentence**. Not a paragraph, and never a second paragraph carrying a caveat. Validation status belongs in Expected Behavior or the status banner; whether attribution has been confirmed belongs in `tmp/`. Node before Lab. The attested forms:

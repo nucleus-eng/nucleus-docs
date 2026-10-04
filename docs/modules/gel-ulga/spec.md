@@ -142,6 +142,15 @@ Requires the outer solution to be prepared first, since the agarose is dissolved
 
 Imposes no divalent load and no illumination on its contents.
 
+# Implementations
+
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its gel — set by cooling.
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its gel — 1% (w/v), set by cooling.
+
+# Processes
+
+Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
+
 # Materials
 
 :::{table} Purchased materials.
@@ -156,15 +165,6 @@ This agarose is Sigma-Aldrich A5030, and every figure on this page is that produ
 :::{attention} Was A2576 ever used?
 A second part number, A2576, was recorded here as interchangeable with A5030. **They are different products**: A5030 is Type IX and melts at ≤ 50 °C, A2576 is Type IX-A, molecular biology grade, and melts at ≤ 62 °C. @Editor(london): was A2576 ever used on the bench, or is A5030 the only one?
 :::
-
-# Implementations
-
-- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its gel — set by cooling.
-- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its gel — 1% (w/v), set by cooling.
-
-# Processes
-
-Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
 
 # Credits
 

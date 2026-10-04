@@ -29,6 +29,18 @@ Schematic of the pH-Sensing Module, drawn inside the cell that carries it. **The
 :::
 
 (detector-ph-reference-composition)=
+
+```mermaid
+flowchart LR
+    DUPLEX["pH-responsive ssDNA<br/>bound to trigger ssDNA"] -->|"Acidic pH (≤ 6.5)<br/>releases the trigger"| TRIGGER
+    TRIGGER["Trigger ssDNA"] --> OPEN
+    SWITCH["Toehold switch DNA<br/>(T7 promoter, effector gene)"] -->|"Transcription"| RNA
+    RNA["Toehold switch mRNA<br/>(RBS occluded)"] --> OPEN
+    OPEN["Trigger ssDNA bound to mRNA<br/>(RBS exposed)"] -->|"Translation"| E["Effector protein"]
+```
+
+At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toehold switch mRNA keeps its ribosome binding site occluded and nothing is translated. Dropping the pH to 6.5 or below releases the trigger ssDNA, which binds the toehold and exposes the RBS, turning on translation of the effector gene.
+
 # Reference Composition
 
 :::::{tab-set}
@@ -75,20 +87,6 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Schematic
-
-```mermaid
-flowchart LR
-    DUPLEX["pH-responsive ssDNA<br/>bound to trigger ssDNA"] -->|"Acidic pH (≤ 6.5)<br/>releases the trigger"| TRIGGER
-    TRIGGER["Trigger ssDNA"] --> OPEN
-    SWITCH["Toehold switch DNA<br/>(T7 promoter, effector gene)"] -->|"Transcription"| RNA
-    RNA["Toehold switch mRNA<br/>(RBS occluded)"] --> OPEN
-    OPEN["Trigger ssDNA bound to mRNA<br/>(RBS exposed)"] -->|"Translation"| E["Effector protein"]
-```
-
-At neutral pH the trigger ssDNA is held by the pH-responsive ssDNA, so the toehold switch mRNA keeps its ribosome binding site occluded and nothing is translated. Dropping the pH to 6.5 or below releases the trigger ssDNA, which binds the toehold and exposes the RBS, turning on translation of the effector gene.
-
-::::
 
 ::::{tab-item} DNA
 
