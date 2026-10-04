@@ -88,7 +88,7 @@ flowchart TD
 
 ::::{tab-item} Constituent Modules
 
-:::{table} One row per input in `spec.yml`.
+:::{table} The Modules this cascade is built from.
 :label: comp-luxr-gfp-cascade-modules
 
 | Module | Role in this cascade |
@@ -118,7 +118,9 @@ flowchart TD
 :::{note} The two forms are not interchangeable, and this page does not say which was used
 `nucleus-eng/DNA` `README.md` states that a linear cassette and its pOpen plasmid "share a cassette and are **functionally equivalent but not sequence-identical**, so a page citing one is not citing the other."
 
-The corpus points both ways for this cascade. [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) cites `LuxR-deGFP` at 1952 bp, the linear form, for a cell that is also S30 Lysate. [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) states the opposite rule for the PLA1 variant: the linear form is "for Base Cytosol" and the circular form is the one "for S30". **Both rows are kept until a run record settles it.**
+**A rule exists and one page disagrees with it.** [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) gives the reason: **"S30 Lysate degrades linear DNA, so this route takes the plasmid."** This cascade is S30 Lysate, so that rule picks `pOpen-LuxR-deGFP`, 3890 bp. [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) nonetheless cites the linear form, 1952 bp, for a cell that is also S30.
+
+**Both rows are kept, and this page does not apply the rule.** Choosing one is a claim about which molecule went into a reaction, and no run record states it. @Editor(london): confirm the form, here and on the SensorCell page, and the second row can go.
 :::
 
 :::{note} Two pages give two concentrations for this plasmid

@@ -65,7 +65,7 @@ flowchart TD
 :::{table} Constructs in the SensorCytosol[3OC6-HSL ⟶ PLA1].
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `pOpen-LuxR-PLA1` | 4175 | not yet in `nucleus-eng/DNA` — [PR #10](https://github.com/nucleus-eng/DNA/pull/10). @Editor(london): link the file when it merges. | **Circular.** S30 Lysate degrades linear DNA, so this route takes the plasmid |
+| `pOpen-LuxR-PLA1` | 4175 | [pOpen-LuxR-PLA1.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb) | **Circular.** S30 Lysate degrades linear DNA, so this route takes the plasmid |
 | `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Cassette form. **Not for this cytosol** — listed so the two are not confused |
 :::
 

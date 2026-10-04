@@ -75,11 +75,13 @@ flowchart TD
 :::{table}
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `LuxR-deGFP` | 1952 | — | Expressed in the sensing cell. One molecule: a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving deGFP. |
+| `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | Expressed in the sensing cell. One molecule: a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving deGFP. |
 :::
 
-:::{attention} Sequence file not yet in `nucleus-eng/DNA`
-`LuxR-deGFP` has no sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA), so the table above cites none. @Editor: submit the sequence to `nucleus-eng/DNA` and link the file here.
+:::{attention} The form cited here is linear, and a rule elsewhere says S30 takes the plasmid
+The file above is now in `nucleus-eng/DNA`, on the `devcells/devstudio-constructs` branch, and its GenBank `LOCUS` length is 1952 bp, which is what this table already claimed. The circular form, [pOpen-LuxR-deGFP.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/pOpen-LuxR-deGFP.gb), is 3890 bp and is a different construct.
+
+This cell is filled with S30 Lysate, and [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) states the rule that **"S30 Lysate degrades linear DNA, so this route takes the plasmid"**. @Editor(london): confirm which form this run used. The linear row is kept because it is the length this page recorded, not because the rule was checked against it.
 :::
 
 See [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md) for sensor specification.
