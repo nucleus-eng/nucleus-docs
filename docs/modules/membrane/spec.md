@@ -23,7 +23,7 @@ This page is a work in progress and not yet ready for use.
 
 # Reference Composition
 
-A bilayer is lipid in a bilayer arrangement, so lipid is the one constituent. Members differ in which lipids they use.
+A bilayer is lipid in a bilayer arrangement, so [Membrane Components](../membrane-components/spec.md) is the one constituent. Members differ in which components they use, and any of them may carry an optional fluorescent label.
 
 :::::{tab-set}
 
@@ -44,6 +44,10 @@ A bilayer is lipid in a bilayer arrangement, so lipid is the one constituent. Me
 # Expected Behavior
 
 A member separates its inside from the outside by a barrier that something must cross.
+
+# Constituent Modules
+
+- [Membrane Components](../membrane-components/spec.md) — the molecules the bilayer is made from. Which ones is the member's choice, and a fluorescent label is optional on all of them
 
 # Requirements
 

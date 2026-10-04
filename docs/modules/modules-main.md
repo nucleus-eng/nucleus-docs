@@ -92,6 +92,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London 
 | Detector | [Repressor Detector](./repressor-detector/spec.md) | - |
 | Membrane | [Membrane: POPC](./membrane-popc/spec.md) | ★ |
 | Membrane | [Membrane](./membrane/spec.md) | - |
+| Membrane Component | [Membrane Components](./membrane-components/spec.md) | - |
 | Cell (Chassis) | [Cell: S30 Lysate, POPC](./cell-s30-popc/spec.md) | ★ |
 | Cell (Sensing) | [SensorCell[3OC6-HSL ⟶ PLA1]](./ahsl-sensing-cell/spec.md) | ★ |
 | Cytosol: 3OC6-HSL Sensor | [SensorCytosol[3OC6-HSL ⟶ PLA1]](./ahsl-sensor-cytosol/spec.md) | ★ |

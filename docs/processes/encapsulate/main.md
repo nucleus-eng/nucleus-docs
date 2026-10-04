@@ -37,19 +37,35 @@ This page is a work in progress and not yet ready for use.
 
 **The size classes are never interchangeable.** A cascade that specifies one and receives the other is a different device. The routes are alternatives only where the size does not carry a function.
 
+# Inputs
+
+**Every route takes the same three and differs only in how it brings them together.** They are stated here once, and a route refines them rather than restating them — narrowing an input to a particular thing, or adding something the route itself imposes.
+
+| Input | What it is | What a route may narrow it to |
+| --- | --- | --- |
+| [Membrane Components](../../modules/membrane-components/spec.md) | the molecules the bilayer will be made from | a named lipid mix |
+| Inner solution | the aqueous phase that ends up inside | a cytosol, a substrate solution |
+| [Outer solution](../../modules/outer-solution/spec.md) | the aqueous phase the result sits in | a named outer solution |
+
+**The result is a membrane made of those components, holding the inner solution, in the outer one.**
+
+**The membrane is an output here, not an input.** No route loads a preformed compartment: the bilayer closes around the payload while the payload is present. A page that makes a lipid film is making one of the three inputs above, not performing this process.
+
+**What makes one solution "inner" is where it ends up, not what it is made of.** The same solution can be either, and on the pH route it is the outer solution that carries the trigger.
+
+**The osmolarity of the two solutions must match.** That is a relation between the inputs rather than a property of either, so it is stated here once and holds for every route. A mismatch drives the contents across the bilayer before the device can do anything. See [Outer Solution](../../modules/outer-solution/spec.md).
+
 # Requirements
 
-Requires a lipid phase that will form a bilayer, and an aqueous payload stable in it.
-
-Requires an outer solution whose osmolarity is matched to the interior. A mismatch drives the contents across the bilayer before the device can do anything, and the matching is a relation rather than a property of either solution. See [Outer Solution](../../modules/outer-solution/spec.md).
-
-**Requires that the payload survives the route, which is a property of the payload.** The oil phase in phase transfer is one such case. Freeze-thaw also exposes the payload to freezing in liquid nitrogen and to sonication.
+**Requires that the payload survives the route, which is a property of the payload and the one thing the routes do not share.** The oil phase in phase transfer is one such case. Freeze-thaw also exposes the payload to freezing in liquid nitrogen and to sonication.
 
 # Modules
 
-- [Membrane](../../modules/membrane/spec.md) — the class this process closes
+- [Membrane Components](../../modules/membrane-components/spec.md) — what the bilayer is made from, and an input
+- [Membrane](../../modules/membrane/spec.md) — the bilayer this process forms and closes
 - [Cell](../../modules/cell/spec.md) — what phase transfer produces when the payload is a cytosol
 - [Substrate Carrier](../../modules/substrate-carrier/spec.md) — what either route produces when the payload is a substrate
+- [GUV](../../modules/guv/spec.md), [SUV](../../modules/suv/spec.md), [LUV](../../modules/luv/spec.md) — the size class each route produces
 
 # Processes
 

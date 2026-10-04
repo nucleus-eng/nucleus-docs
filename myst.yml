@@ -31,6 +31,8 @@ project:
           hidden: true
         - file: ./docs/modules/membrane/spec.md
           hidden: true
+        - file: ./docs/modules/membrane-components/spec.md
+          hidden: true
         - file: ./docs/modules/pore/spec.md
           hidden: true
         - file: ./docs/modules/gel/spec.md

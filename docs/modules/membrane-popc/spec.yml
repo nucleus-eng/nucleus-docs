@@ -33,8 +33,8 @@ inputs:
 process_steps:
   - id: form-pegylated-film
     process:
-      title: "Encapsulation: Phase Transfer"
-      page: ../../processes/assemble-base-cell/main.md
+      title: "Mix the Membrane Components"
+      page: null            # no process page documents film formation on its own
     operator: mixing
     operands: [popc, dspe-peg2000]
     produces:

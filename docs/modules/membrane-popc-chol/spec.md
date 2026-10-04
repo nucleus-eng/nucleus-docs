@@ -35,7 +35,7 @@ flowchart TD
     CHOLESTEROL["Cholesterol"]
     LISS_RHOD_PE["Liss-Rhod PE"]
 
-    P1_FORM_LIPID_FILM_0(["Encapsulation: Phase Transfer (mixing)"])
+    P1_FORM_LIPID_FILM_0(["Mix the Membrane Components (mixing) — no page"])
     MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
 
     POPC --> P1_FORM_LIPID_FILM_0
@@ -51,7 +51,6 @@ flowchart TD
     class MEMBRANE_POPC_CHOL composed;
     class P1_FORM_LIPID_FILM_0 process;
 
-    click P1_FORM_LIPID_FILM_0 "/docs/processes/assemble-base-cell/main"
     click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
 ```
 

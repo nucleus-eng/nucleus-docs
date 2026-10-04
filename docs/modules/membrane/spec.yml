@@ -19,11 +19,11 @@ refines: container
 
 inputs:
   lipid:
-    title: "Lipid"
-    page: null            # POPC in all three members, with cholesterol or DSPE-PEG2000
+    title: "Membrane Components"
+    page: ../membrane-components/spec.md
   fluorescent-label:
     title: "Fluorescent label"
-    page: null            # Liss-Rhod PE at 0.1 mol%, 18:1 Cyanine 5 PC in one preparation
+    page: ../membrane-components/spec.md
     optional: true
 
 process_steps:

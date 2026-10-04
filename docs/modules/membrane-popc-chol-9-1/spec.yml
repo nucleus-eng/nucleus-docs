@@ -38,8 +38,8 @@ inputs:
 process_steps:
   - id: prepare-for-phase-transfer
     process:
-      title: "Encapsulation: Phase Transfer"
-      page: ../../processes/assemble-base-cell/main.md
+      title: "Mix the Membrane Components"
+      page: null            # no process page documents film formation on its own
     operator: mixing
     operands: [popc, cholesterol, liss-rhod-pe]
     produces:
@@ -52,25 +52,30 @@ process_steps:
       liss_rhod_pe: "0.1% (mol), MW 1301.71, 1 mg/mL stock, 1.952 uL"
       total_lipid: "0.5 mM"
     notes: >
-      The inverted-emulsion route, for Cell: Base Cytosol, POPC/Chol (9:1) synthetic cells. The volumes
-      are the 0.5 mM total-lipid preparation named in the Preparations tab.
+      The 0.5 mM total-lipid preparation named in the Preparations tab. The step names
+      no downstream route: this film is consumed by all three of them — phase transfer
+      by five sources, extrusion by substrate-cprg-suv and freeze-thaw by
+      substrate-cprg-luv — and which one takes it is the consumer's business.
 
 open:
-  - id: two-routes-one-product
+  - id: two-recipes-one-product
     kind: choice
     question: >
-      The page documents two preparations of this one membrane and only the first is
-      a step above. They are alternatives, not an ordered pair, and the schema has no
+      The page documents two preparations of this one film and only the first is a
+      step above. They are alternatives, not an ordered pair, and the schema has no
       key for "either of these": process_steps is described as "Ordered composition
       steps", and two steps producing the same id fail check-spec-schema.py with
       duplicate-id. Measured, not assumed — it was written both ways and the
-      validator rejected the second. The missing route in full, so nothing is lost —
-      process "Encapsulation: Extrusion" at ../../processes/encapsulate-suv/main.md,
-      operator mixing, operands POPC and cholesterol only, POPC 25 mg/mL stock at
-      208.51 uL, cholesterol 50 mg/mL stock at 6.00 uL, for CPRG-loaded SUVs. The
-      dye is given as "-" in that row rather than as zero, and absent is not the same
-      claim as zero. Every other source in the corpus is genuinely sequential, so
-      this is the first case that needs the distinction.
+      validator rejected the second. The second recipe in full, so nothing is lost —
+      operator mixing, POPC and cholesterol only, POPC 25 mg/mL stock at 208.51 uL,
+      cholesterol 50 mg/mL stock at 6.00 uL. Every other source in the corpus is
+      genuinely sequential, so this is the first case that needs the distinction.
+      THIS WAS WRITTEN AS "two routes" AND THAT FRAMING WAS WRONG. The two were
+      labelled by the encapsulation route each film later fed — phase transfer and
+      extrusion — which made a downstream choice look like a property of the film.
+      Encapsulation consumes a membrane and does not produce one, so neither label
+      belonged here. What is left is two recipes differing in their proportions,
+      which is the real limit and is narrower than it looked.
   - id: dye-differs-between-routes
     question: >
       CLOSED. Liss-Rhod PE is present in the phase-transfer route and absent from the

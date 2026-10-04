@@ -31,7 +31,7 @@ flowchart TD
     POPC["POPC"]
     DSPE_PEG2000["DSPE-PEG2000"]
 
-    P1_FORM_PEGYLATED_FILM_0(["Encapsulation: Phase Transfer (mixing)"])
+    P1_FORM_PEGYLATED_FILM_0(["Mix the Membrane Components (mixing) — no page"])
     MEMBRANE_POPC["Membrane: POPC"]
 
     POPC --> P1_FORM_PEGYLATED_FILM_0
@@ -46,7 +46,6 @@ flowchart TD
     class MEMBRANE_POPC composed;
     class P1_FORM_PEGYLATED_FILM_0 process;
 
-    click P1_FORM_PEGYLATED_FILM_0 "/docs/processes/assemble-base-cell/main"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
 ```
 
