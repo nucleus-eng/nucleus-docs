@@ -30,6 +30,10 @@ inputs:
   esar-dna:
     title: "Sensor: EsaR DNA template"
     page: null            # the template. The expressed repressor is ../detector-esar/
+                          # The cascade construct is `[EsaO]2-PLA1`, two tandem
+                          # EsaO sites driving PLA1. `[EsaO]2-mNG` is the same
+                          # operator on a fluorescent reporter and characterizes
+                          # the detector rather than building this cascade.
   effector-pla1:
     title: "Lysis: PLA1"
     page: ../effector-pla1/spec.md
