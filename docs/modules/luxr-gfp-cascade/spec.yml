@@ -80,6 +80,7 @@ process_steps:
     process:
       title: "Encapsulation: Phase Transfer"
       page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
     operator: packing
     operands: [luxr-gfp-sensor-cytosol, membrane-popc, outer-solution-glutamate]
     produces:

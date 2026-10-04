@@ -7,7 +7,7 @@
 # A PORE IS NOT A MEMBER OF THIS CLASS. A Pore does not refine Membrane; it is a
 # component that can be composed with one. The theory
 # corpus writes it as `passive_transport : Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶
-# Membrane[permeable]; passes down ∇`, signature.md:203 at main e40f3de, so a pore and a
+# Membrane[permeable]; passes down ∇`, signature.md:203 at main `e40f3de`, so a pore and a
 # membrane are two of three operands of one operation. See
 # ../pore/spec.yml.
 #
@@ -20,7 +20,11 @@ refines: container
 inputs:
   lipid:
     title: "Lipid"
-    page: null            # POPC in all three members, with cholesterol, DSPE-PEG2000 or Liss Rhod PE
+    page: null            # POPC in all three members, with cholesterol or DSPE-PEG2000
+  fluorescent-label:
+    title: "Fluorescent label"
+    page: null            # Liss-Rhod PE at 0.1 mol%, 18:1 Cyanine 5 PC in one preparation
+    optional: true
 
 process_steps:
   - id: close-the-bilayer
@@ -28,15 +32,22 @@ process_steps:
       title: "Encapsulation"
       page: ../../processes/encapsulate/main.md
     operator: mixing
-    operands: [lipid]
+    operands: [lipid, fluorescent-label]
     produces:
       id: membrane
       title: "Membrane"
       page: ../membrane/spec.md
     notes: >
-      A one-operand step, which is unusual here and is the honest shape: the class has
-      one constituent and the closure is the operation rather than a second part.
+      One required constituent and one optional label, which is the honest shape: the
+      class has one part and the closure is the operation rather than a second part.
       `mixing` because the lipids end in one phase, the bilayer itself.
+
+      THE LABEL BELONGS TO THE CLASS, NOT TO A MEMBER OR A ROUTE. A fluorescent lipid
+      at about 0.1 mol% is an instrument for seeing the bilayer, not a thing the
+      bilayer does, and any lipid membrane may carry one. Declaring it here is what
+      lets a member stop claiming the dye distinguishes it: it is optional on all of
+      them, so its presence on one preparation and absence from another is not a
+      difference in identity.
 
 open:
   - id: a-one-operand-step-asserts-nothing-about-pairs

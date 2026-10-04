@@ -34,6 +34,7 @@ process_steps:
     process:
       title: "Encapsulation: Extrusion"
       page: ../../processes/encapsulate-suv/main.md
+      abstract: encapsulate
     operator: packing
     operands: [membrane, payload]
     produces:

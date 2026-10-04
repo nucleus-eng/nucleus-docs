@@ -73,10 +73,14 @@ open:
       this is the first case that needs the distinction.
   - id: dye-differs-between-routes
     question: >
-      Liss-Rhod PE is optional at the Module level because the composition table
-      marks it optional, but it is present in the phase-transfer route and absent
-      from the extrusion route. Optionality that depends on the route is not the same
-      as optionality of the component, and this file can state only the second.
+      CLOSED. Liss-Rhod PE is present in the phase-transfer route and absent from the
+      extrusion route, and that was read here as optionality depending on the route,
+      which the schema cannot state. It is neither: a fluorescent lipid at about
+      0.1 mol% is an optional component of ANY lipid membrane, declared on
+      ../membrane/spec.yml as `fluorescent-label`, so this Module inherits it. Which
+      preparation happens to carry one is a fact about that preparation and not a
+      difference between Modules. Kept rather than deleted because the measurement
+      behind it is real and the reading was wrong.
   - id: no-page-for-the-lipids
     question: >
       Neither lipid has a module page, so their figures live here by necessity rather

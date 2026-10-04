@@ -41,6 +41,7 @@ process_steps:
     process:
       title: "Encapsulation: Extrusion"
       page: ../../processes/encapsulate-suv/main.md
+      abstract: encapsulate
     operator: packing
     operands: [membrane-popc-chol-9-1, substrate-cprg]
     produces:

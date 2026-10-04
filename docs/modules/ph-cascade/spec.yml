@@ -117,6 +117,7 @@ process_steps:
     process:
       title: "Encapsulation: Phase Transfer"
       page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
     operator: packing
     operands: [ph-sensor-cytosol, membrane-chicago]
     produces:

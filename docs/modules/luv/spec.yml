@@ -34,6 +34,7 @@ process_steps:
     process:
       title: "Encapsulation: Freeze-Thaw"
       page: ../../processes/encapsulate-luv/main.md
+      abstract: encapsulate
     operator: packing
     operands: [membrane, payload]
     produces:

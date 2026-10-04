@@ -41,6 +41,7 @@ process_steps:
     process:
       title: "Encapsulation: Phase Transfer"
       page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
     operator: packing
     operands: [s30-lysate, membrane-popc]
     produces:

@@ -36,6 +36,7 @@ process_steps:
     process:
       title: "Encapsulation: Freeze-Thaw"
       page: ../../processes/encapsulate-luv/main.md
+      abstract: encapsulate
     operator: packing
     operands: [membrane-popc-chol-9-1, substrate-cprg]
     produces:
