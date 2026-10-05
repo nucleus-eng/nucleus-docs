@@ -25,9 +25,13 @@ refines: membrane
 inputs:
   popc:
     title: "POPC"
+    molar_mass: {value: 760.076, unit: "g/mol"}
+    stock: {value: 25, unit: "mg/mL"}
     page: null            # bilayer-forming lipid; in every preparation
   dspe-peg2000:
     title: "DSPE-PEG2000"
+    molar_mass: {value: 2805.5, unit: "g/mol"}
+    stock: {value: 10, unit: "mg/mL"}
     optional: true
     # OPTIONAL, ruled 2026-10-05. Jon: "the DSPE-PEG2000 is an optional parameter and
     # doesn't meaningfully affect the downstream processes using that lipid, just the
@@ -51,12 +55,22 @@ process_steps:
       id: membrane-popc
       title: "Membrane: POPC"
       page: ../membrane-popc/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # MEASURED BEFORE DROPPING THE VOLUMES: mol% x molar_mass / stock returns 99.1496
+    # and 0.8504 from the two stated volumes, against the 99.15 and 0.85 the page states
+    # at spec.md:81 and :86. The page's own figures are what is written below.
+    #
+    # `target_composition` goes too: `finals` says the same thing in a form a checker
+    # reads, which is what N7 asked for.
+    finals:
+      popc: {value: 99.15, unit: "mol%"}
+      dspe-peg2000: {value: 0.85, unit: "mol%"}
     parameters:
-      target_composition: "99.15 mol% POPC : 0.85 mol% DSPE-PEG2000"
-      popc: "MW 760.076, 25 mg/mL stock, 130.4 uL"
-      dspe_peg2000: "MW 2805.5, 10 mg/mL stock, 10.32 uL"
+      lipid_in_oil: "3 mg/mL"
       total_lipid: "3.36 mg"
-      batch_scale: "3.5x; 1x batch is 320 uL lipid-in-oil at 3 mg/mL"
+    # ONE BATCH, NOT THE BATCH RUN. 320 uL is sourced; the 3.5x multiplier is sourced;
+    # 1120 uL is not written because no page states it.
+    total_volume: {value: 320, unit: "uL", note: "one batch; this preparation is a 3.5x batch"}
     notes: >
       The PEGylated preparation. DSPE-PEG2000 is a functional addition rather than a
       label — its PEG headgroup gives steric stabilization at the bilayer surface,

@@ -42,7 +42,9 @@ process_steps:
       page: ../membrane-pore-gramicidin/spec.md
     parameters:
       gramicidin_a: "not established — see the questions below"
-      solvent: "DMSO, stored frozen"
+      # `solvent: "DMSO, stored frozen"` REMOVED 2026-10-05. Both halves were already
+      # recorded: DMSO is the operand `dmso`, and "stored frozen" is on the BOM row at
+      # ../membrane-pore-gramicidin/spec.md:108. `notes` opens with the same sentence.
     notes: >
       The stock is prepared in DMSO and stored frozen. No process page documents
       this step; the page says the Module has no process of its own and is added to

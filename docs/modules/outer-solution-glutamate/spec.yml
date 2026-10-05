@@ -36,10 +36,14 @@ process_steps:
       id: outer-solution-glutamate
       title: "Outer Solution: Glutamate-HEPES-Glucose"
       page: ../outer-solution-glutamate/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # "Working concentration" on both pages' tables, so all three are finals.
+    finals:
+      potassium-glutamate: {value: 578, unit: "mM"}
+      hepes: {value: 72, unit: "mM", note: "pH 7.4"}
+      glucose: {value: 300, unit: "mM"}
     parameters:
-      potassium_glutamate: "578 mM"
-      hepes: "72 mM, pH 7.4"
-      glucose: "300 mM"
+      # A PROPERTY OF THE SOLUTION, not a component of it.
       osmolarity: "~920 mOsm"
     notes: >
       The osmolarity stays here even though each solute above is also stated, because it

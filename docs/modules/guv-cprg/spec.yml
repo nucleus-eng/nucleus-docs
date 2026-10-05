@@ -49,9 +49,16 @@ process_steps:
       id: guv-cprg
       title: "GUV: CPRG"
       page: ../guv-cprg/spec.md
-    parameters:
-      bilayer: "100% POPC"
-      cprg: "50 mM at hydration, approx. 30 mg/mL"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # `bilayer: "100% POPC"` IS DROPPED AND NOT CONVERTED. Written as a composition it
+    # would be false: the operand is ../membrane-popc/spec.md, which is 99.15 mol% POPC
+    # and 0.85 mol% DSPE-PEG2000. The page's own sentence reads it against the sterol
+    # axis -- "accepts either POPC or POPC:cholesterol, so the 100% POPC bilayer here is
+    # a choice rather than a constraint" -- and that claim is TRUE, because the PEG is
+    # `optional: true` on the membrane page. An optional component does not change a
+    # Module's identity. So the fact is real and 100 mol% is not the way to write it.
+    finals:
+      substrate-cprg: {value: 50, unit: "mM", note: "at hydration; the page also writes it as approx. 30 mg/mL"}
     notes: >
       The same process and the same page as the sensing population, applied with a
       different inner solution — which is what lets both populations be made by one

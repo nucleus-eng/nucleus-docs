@@ -70,10 +70,25 @@ process_steps:
       id: lacz-reaction
       title: "LacZ reaction"
       page: null
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # NO STOCK FOR `lacz` AND THEREFORE NO FRACTION. The page gives it as
+    # "prep-specific", which is not a number, and with no stock there is nothing to
+    # divide into. The purified form has no figure on record at all.
+    #
+    # N5 settles what `finals` means here: "both spec pages should state the correct
+    # value. we may impute at write time, but that's a design question." This file's own
+    # header says its figures are imputed from ../detector-theophylline/spec.md with the
+    # analyte removed, and the page states 5 nM in a table. The value is correct; where
+    # it came from is recorded in `open`, which is where provenance belongs.
+    finals:
+      base-cytosol: {value: 1, unit: "x"}
+      lacz: {value: 5, unit: "nM", note: "as the template"}
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+    stocks:
+      # A constituent of ../base-cytosol/spec.md rather than an input here.
+      rnase-inhibitor: {value: 40000, unit: "U/mL"}
     parameters:
-      base_cytosol: "1x"
-      lacz: "5 nM final as the template; stock is prep-specific. No figure on record for the purified form"
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
+      lacz_purified_form: "no figure on record"
     notes: >
       One compartment. THE STEP IS NO LONGER CALLED `express`, because the operand
       now accepts the purified protein as well and nothing is expressed in that case.
@@ -90,8 +105,10 @@ process_steps:
       id: reporter-lacz
       title: "LacZ Reporter"
       page: ../reporter-lacz/spec.md
-    parameters:
-      cprg: "0.6 mg/mL final, from a 10 mg/mL stock"
+    finals:
+      substrate-cprg: {value: 0.6, unit: "mg/mL"}
+    stocks:
+      substrate-cprg: {value: 10, unit: "mg/mL"}
     notes: >
       Separate compartments. Bringing the two together is the reporting event, so a
       Module that mixes them at assembly has no off state and reports nothing. The

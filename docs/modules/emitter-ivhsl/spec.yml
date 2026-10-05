@@ -29,12 +29,15 @@ inputs:
     page: null            # proteins and ribosomes
   bjai-dna:
     title: "pOpen-pT7-bjaI"
+    stock: {value: 200, unit: "ng/uL", approx: true}
     page: null            # 2752 bp; detectors/quorum-sensing/pOpen-pT7-bjaI.gb
   sam:
     title: "SAM"
+    stock: {value: 5, unit: "mM"}
     page: null            # S-adenosyl methionine, substrate for IV-HSL production
   iv-coa:
     title: "IV-CoA"
+    stock: {value: 5, unit: "mM"}
     page: null            # substrate for IV-HSL production
   optiprep:
     title: "OptiPrep"
@@ -42,6 +45,7 @@ inputs:
     optional: true        # density for phase transfer — see the questions below
   rnase-inhibitor:
     title: "RNase inhibitor"
+    stock: {value: 40000, unit: "U/mL"}
     page: null
 
 # ALL FIVE PURE SOURCES ARE ONE KIT. NEB PURE E6800L and E6800S are the same kit
@@ -70,16 +74,27 @@ process_steps:
       id: emitter-ivhsl
       title: "IV-HSL Emitter"
       page: ../emitter-ivhsl/spec.md
-    parameters:
-      purexpress_solution_a: "12 uL"
-      purexpress_solution_b: "9 uL"
-      bjai_dna: "1.5 uL at approximately 200 ng/uL"
-      sam: "0.3 mM final, 1.8 uL of a 5 mM stock"
-      iv_coa: "0.08 mM final, 0.48 uL of a 5 mM stock"
-      optiprep: "1.5 uL"
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 1.5 uL"
-      water: "2.22 uL"
-      reaction_volume: "30 uL"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # `bjai_dna` GAINS A FIGURE IT HAD DROPPED. The string read "1.5 uL at
+    # approximately 200 ng/uL" and ../emitter-ivhsl/spec.md:83 gives a final of
+    # 10 ng/uL beside it. 0.05 x 200 returns exactly that.
+    #
+    # All three substrate finals close: 0.06 x 5 mM = 0.3, 0.016 x 5 mM = 0.08.
+    fractions:
+      purexpress-solution-a: 0.40
+      purexpress-solution-b: 0.30
+      bjai-dna: 0.05
+      sam: 0.06
+      iv-coa: 0.016
+      optiprep: 0.05
+      rnase-inhibitor: 0.05
+    finals:
+      bjai-dna: {value: 10, unit: "ng/uL"}
+      sam: {value: 0.3, unit: "mM"}
+      iv-coa: {value: 0.08, unit: "mM"}
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+    balance: water
+    total_volume: {value: 30, unit: "uL"}
     notes: >
       SAM and IV-CoA are the two substrates BjaI acts on, added at 0.3 uM and
       0.08 uM. The page calls these equimolar; the two final concentrations differ by

@@ -49,11 +49,33 @@ process_steps:
       id: substrate-cprg-suv
       title: "Substrate SUV: CPRG"
       page: ../substrate-cprg-suv/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # THE LIPID KEYS ARE NOT OPERANDS, same as ../detector-3oc6-hsl/spec.yml. The
+    # operands are `membrane-popc-chol-9-1` and `substrate-cprg`, and these two are
+    # constituents of the first. They are repeated here because that page runs the
+    # phase-transfer recipe as its step and carries THIS one, the extrusion recipe, only
+    # inside an open item. So this file is the only machine-readable record of it.
+    #
+    # THE TARGET IS WRITTEN, NOT THE RECIPE'S OWN RATIO, AND THEY DISAGREE. mol% x
+    # molar_mass / stock over the dropped volumes returns 89.84 : 10.16, and
+    # ../substrate-cprg-suv/spec.md:70 states 90 : 10 as the target. The target is what
+    # the page specifies, so it is what lands here. The recipe's figure is recorded in
+    # this comment rather than lost: whoever reconciles them needs both.
+    stocks:
+      popc: {value: 25, unit: "mg/mL"}
+      cholesterol: {value: 50, unit: "mg/mL"}
+    finals:
+      popc: {value: 90, unit: "mol%"}
+      cholesterol: {value: 10, unit: "mol%"}
+      substrate-cprg: {value: 50, unit: "mM", note: "at hydration; the page also writes it as approx. 30 mg/mL"}
     parameters:
-      popc: "MW 760.076, 25 mg/mL stock, 208.51 uL"
-      cholesterol: "MW 386.7, 50 mg/mL stock, 6.00 uL"
-      cprg_at_hydration: "50 mM, approx. 30 mg/mL"
-      target_diameter: "400 nm, extruded through a 400 nm polycarbonate membrane"
+      # THE METHOD CLAUSE IS GONE AND NOTHING WAS MOVED TO CARRY IT. R32 assumed the
+      # method would migrate to a process page; ../../processes/encapsulate-suv/main.md
+      # already says it at :119, "Assemble the mini-extruder with a 400 nm polycarbonate
+      # membrane", and lists that membrane by part number at :78. The clause here was a
+      # duplicate, not the only copy.
+      target_diameter: "400 nm"
+      # A BOUND PLUS A PARITY PREDICATE, ruled R31: a constrained free choice stays.
       extrusion_passes: "at least 21, and an odd number"
       storage_before_use: "on ice or at 4 C, until combining with Sensing Cells and LacZ"
     notes: >

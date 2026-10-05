@@ -43,12 +43,35 @@ process_steps:
       id: substrate-cprg-luv
       title: "Substrate LUV: CPRG"
       page: ../substrate-cprg-luv/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    #
+    # `lipid_in_film` HELD BOTH FORMS AND THE PAGE SAYS SO: "2 umol of lipid in 0.5 mL
+    # (4 mM)". 4 mM is the scale-free half and 2 umol in 0.5 mL is the scale. The
+    # total goes to `total_volume` and the amount is recoverable from the two.
+    #
+    # The CPRG row closes exactly: 0.475 x 30 mg/mL = 14.25 mg/mL, which the page states.
+    #
+    # ALL THREE METHOD CLAUSES ARE REMOVED AND NOTHING WAS MOVED TO CARRY THEM. R32
+    # assumed a method would migrate to a process page. All three were already there:
+    # ../../processes/encapsulate-luv/main.md:135 has the five freeze-thaw cycles with
+    # liquid nitrogen, :101 lists the 35 C water bath, and :155 has the ten washes. The
+    # clauses here were duplicates, and the wash one had drifted -- see the admonition
+    # on that page.
+    fractions:
+      substrate-cprg: 0.475
+      # NOT AN OPERAND. Optiprep is a density agent, so centrifugation pellets the
+      # liposomes, and it is in the inner solution without being a constituent of
+      # either operand.
+      optiprep: 0.10
+    stocks:
+      substrate-cprg: {value: 30, unit: "mg/mL"}
+    finals:
+      substrate-cprg: {value: 14.25, unit: "mg/mL", note: "at hydration"}
     parameters:
-      lipid_in_film: "2 umol in 0.5 mL, 4 mM"
-      cprg_at_hydration: "14.25 mg/mL final, from a 30 mg/mL stock"
-      optiprep: "10% (v/v), a density agent so centrifugation pellets the liposomes"
-      freeze_thaw_cycles: "5, liquid nitrogen then a 35 C water bath"
-      washes: "10, by centrifugation at 10,000 x g into the outer solution"
+      total_lipid: "4 mM"
+      freeze_thaw_cycles: 5
+      washes: 10
+    total_volume: {value: 500, unit: "uL"}
     notes: >
       The wash solution is the implementation's outer solution and this Module names
       no formulation, because the choice belongs to whatever the liposomes are put
