@@ -39,7 +39,7 @@ Usage:
     python3 scripts/check-reference-voice.py --strict      # warnings fail too
 
 Exit codes: 0 clean (warnings allowed), 1 findings, 2 nothing was checked: no
-contributor names read, a path that does not exist, or no markdown file found.
+contributor names read, a path that does not exist, or no page found to check.
 """
 
 import argparse
@@ -290,7 +290,7 @@ def main(argv=None) -> int:
                 warnings += 1
 
     if not checked:
-        print("check-reference-voice: no markdown files found in the given paths", file=sys.stderr)
+        print("check-reference-voice: no .md or .yml files found in the given paths", file=sys.stderr)
         return 2
     print(f"check-reference-voice: {errors} error(s), {warnings} warning(s) in {checked} file(s)", file=sys.stderr)
     if errors or (args.strict and warnings):

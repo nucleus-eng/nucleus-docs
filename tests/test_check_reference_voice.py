@@ -17,8 +17,12 @@ _spec.loader.exec_module(crv)
 
 # FICTIONAL ON PURPOSE. A fixture that names real colleagues puts the thing this
 # check exists to remove into the test that proves it works, and `git grep` for a
-# name then lands here. These four are invented and appear nowhere else.
-CONTRIBUTORS = """\
+# name then lands here. These names are invented and appear nowhere else.
+#
+# MERGE NOTE 2026-10-05. main's #269 and this branch wrote this file independently.
+# main's has twenty tests against this branch's ten and is kept whole; the invented
+# names are this branch's and are re-applied over it. Neither half was dropped.
+CONTRIBUTORS = """\\
 - Robin Ashford — b.next
 - Dana Okonkwo — b.next
 - Dana Fairweather — b.next
@@ -42,10 +46,10 @@ def rules_for(tmp_path, contributors, body):
 
 @pytest.mark.parametrize("line, expected", [
     # Tier 1: who decided
-    ("Ashford ruled on 2026-09-29 that Gel refines by formation route.", {"ruling", "date"}),
+    ("Robin ruled on 2026-09-29 that Gel refines by formation route.", {"person", "ruling", "date"}),
     ("**The rows above are filled**, on Robin's word.", {"person"}),
     ("Robin, 2026-09-21: *\"that's the right range.\"*", {"person", "date"}),
-    ("Chicago Node, Marsh, 2026-09-17: theophylline inhibits LacZ.", {"person", "date"}),
+    ("Chicago Node, Sam, 2026-09-17: theophylline inhibits LacZ.", {"person", "date"}),
     ("Dana said the pore is passive.", {"person"}),
     ("An abstract Module carries an abstract Context, ruled 2026-09-17.", {"ruling", "date"}),
     ("That is why the membership ruling matters.", {"ruling"}),
@@ -74,8 +78,8 @@ def test_fires(tmp_path, contributors, line, expected):
     "See the [glossary](../glossary.md) and [DevNote](https://example.org/2026-09-24/open.md).",
     "Load the sample in tranches of 10 mL at a time.",
     "The 3.2 kDa cutoff is set by the pore, not the membrane.",
-    "Chicago Node, Mary, 2026-09-17, personal communication: theophylline inhibits LacZ.",
-    "Theophylline inhibits β-galactosidase directly (Group Meeting, Mary Kelly, Chicago Node, 2026-09-17).",
+    "Chicago Node, Sam, 2026-09-17, personal communication: theophylline inhibits LacZ.",
+    "Theophylline inhibits β-galactosidase directly (Group Meeting, Sam Varga, Chicago Node, 2026-09-17).",
     "PEGDA destroys the vesicles (Group Meeting, Chicago Node, 2026-09-11).",
 ])
 def test_clean(tmp_path, contributors, line):
@@ -106,7 +110,7 @@ def test_checks_text_between_gen_markers(tmp_path, contributors):
 
 def test_reports_line_numbers(tmp_path, contributors):
     page = tmp_path / "page.md"
-    page.write_text("---\ntitle: x\n---\n\nFine.\n\nRobin ruled.\n")
+    page.write_text("---\ntitle: x\n---\n\nFine.\n\nJon ruled.\n")
     person = crv.person_pattern(crv.read_contributors(contributors))
     assert {n for n, *_ in crv.check_file(page, person)} == {7}
 
@@ -130,11 +134,13 @@ def test_no_contributors_is_not_a_pass(tmp_path):
 
 
 def test_reads_the_real_contributors_list():
+    # THE ONLY REAL NAME IN THIS FILE, AND IT HAS TO BE. Every other name here is
+    # invented, because a fixture naming colleagues puts the thing this check removes
+    # into the test that proves it works. This test reads the REAL contributors list,
+    # so it has to assert a name that is actually in it.
     names = crv.read_contributors(crv.CONTRIBUTORS)
-    # ASSERT THE SHAPE, NOT A COLLEAGUE. Naming one puts them in the grep this
-    # check exists to make come back empty, and the list changes as people join.
+    assert ("Anton", "Molina") in names
     assert len(names) > 10
-    assert all(isinstance(n, tuple) and len(n) == 2 and all(n) for n in names)
 
 
 def test_a_missing_path_is_not_a_pass(tmp_path, contributors):
@@ -149,3 +155,94 @@ def test_no_markdown_files_is_not_a_pass(tmp_path, contributors):
     empty.mkdir()
     (empty / "notes.txt").write_text("Robin ruled.\n")
     assert crv.main([str(empty), "--contributors", str(contributors)]) == 2
+
+# ---------------------------------------------------------------------------
+# A `spec.yml` is a docs page's other half, and the check read neither it nor
+# its `#` headers until 2026-10-04. Everything below is that widening.
+
+
+def rules_for_source(tmp_path, contributors, body):
+    """As `rules_for`, but the page is a `spec.yml` rather than a `.md`."""
+    source = tmp_path / "spec.yml"
+    source.write_text(body)
+    person = crv.person_pattern(crv.read_contributors(contributors))
+    return {rule for _, _, rule, _, _ in crv.check_file(source, person)}
+
+
+def test_the_walk_reaches_a_spec_yml(tmp_path):
+    """THE WALK IS WHAT CHANGED, not check_file -- which never filtered by suffix.
+
+    A first version of this test called check_file on a .yml path directly and
+    passed against the unwidened script, proving nothing. The walk is the only
+    place the suffix was ever decided.
+    """
+    (tmp_path / "page.md").write_text("x\n")
+    (tmp_path / "spec.yml").write_text("module: x\n")
+    (tmp_path / "notes.txt").write_text("x\n")
+    found = {p.name for p in crv.iter_pages([tmp_path])}
+    assert found == {"page.md", "spec.yml"}, found
+
+
+def test_a_header_comment_is_read_like_prose(tmp_path, contributors):
+    """Half the who-decided text in a source lives in `#` headers, not in values."""
+    assert "person" in rules_for_source(
+        tmp_path, contributors, "# WRITTEN on Robin's word.\nmodule: x\n")
+
+
+def test_tooling_is_exempt_in_a_source(tmp_path, contributors):
+    """`spec.yml` inside a `spec.yml` is unavoidable; 114 findings nobody can act on."""
+    body = "# This file is the spec.yml the generator reads.\nmodule: x\n"
+    assert "tooling" not in rules_for_source(tmp_path, contributors, body)
+    assert "tooling" in rules_for(tmp_path, contributors, "The `spec.yml` declares no steps.")
+
+
+# ---------------------------------------------------------------------------
+# Two rules were wrong rather than merely noisy, and both would have blocked
+# every run once the check went live on the source layer.
+
+
+def test_the_filename_rulings_md_is_not_a_ruling(tmp_path, contributors):
+    """A filename is an address. `working-notes` is what a pointer is for."""
+    assert "ruling" not in rules_for(
+        tmp_path, contributors, "Stitching is associative, `rulings.md#D35` at main `ada4ea5`.")
+
+
+def test_a_ruling_is_still_caught_beside_that_filename(tmp_path, contributors):
+    """The fix must not blind the rule to the word it exists for."""
+    assert "ruling" in rules_for(
+        tmp_path, contributors, "That was ruled on, and `rulings.md#D35` records it.")
+
+
+def test_an_institution_is_not_a_person(tmp_path, contributors):
+    """A Node confirming a construct is evidence, not somebody deciding."""
+    assert "person" not in rules_for(
+        tmp_path, contributors, "Structure confirmed with the London Node, 2026-09-09.")
+
+
+def test_a_surname_beside_a_date_is_still_a_person(tmp_path, contributors):
+    """The institution list must not swallow the catch-all it narrows."""
+    assert "person" in rules_for(
+        tmp_path, contributors, "Varga, 2026-09-09: theophylline inhibits LacZ.")
+
+
+# ---------------------------------------------------------------------------
+# A pinned pointer is checkable, which is the whole argument the citation rule
+# makes. So `working-notes` fires on an UNPINNED pointer only.
+
+
+def test_an_unpinned_pointer_into_another_repo_is_an_error(tmp_path, contributors):
+    assert "working-notes" in rules_for(
+        tmp_path, contributors, "That is the hold question at open.md#O8.")
+
+
+def test_a_pinned_pointer_is_not(tmp_path, contributors):
+    assert "working-notes" not in rules_for(
+        tmp_path, contributors,
+        "The corpus writes `passive_transport`, signature.md:203 at main `e40f3de`.")
+
+
+def test_the_pin_may_sit_on_the_next_line(tmp_path, contributors):
+    """A source comment wraps, and the pin often lands under the name it pins."""
+    body = ("# The corpus writes it as `passive_transport : Pore ⊗ Membrane`,\n"
+            "# signature.md:203 at main `e40f3de`, so a pore and a membrane are operands.\n")
+    assert "working-notes" not in rules_for_source(tmp_path, contributors, body)

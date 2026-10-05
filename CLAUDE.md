@@ -57,6 +57,11 @@ python3 scripts/check-page-layering.py  # (local) flag Module pages that explain
 python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 python3 scripts/check-protein-refs.py   # (local) if you cited a UniProt entry: verify the claim against the entry
 python3 <nucleus-skills>/scripts/check-citations.py . --repos=compositional-biology-theory  # (local) every cross-repo line citation carries a pin
+python3 scripts/check-dropdowns.py      # flag placeholder-only lists
+python3 scripts/check-file-placement.py # flag content files outside allowed dirs
+python3 scripts/check-toc.py            # validate myst.yml TOC entries
+python3 scripts/check-reference-voice.py # flag who-decided text and pointers into our working notes
+python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
 **The six marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
@@ -95,6 +100,7 @@ pre-commit run --all-files  # run all hooks manually
 **A cross-repo line citation carries a pin, and `check-citations.py` checks that it does.** The script is in `nucleus-skills` and shared by three repos; run it by hand with `--repos=compositional-biology-theory`, because its default list names this repo and would report every self-reference. **It checks presence, never resolution** — whether the hash is there, not whether the line still says what you quoted. **A pin is what makes a citation checkable at all:** `pore/spec.yml` and `membrane/spec.yml` both cite `signature.md:203` and both pin `e40f3de`, and both are correct at that pin while reading as drifted against the other repo's `main`. Ten sites with no pin had drifted by 2026-10-04.
 
 **Run it against a git ref, not against whatever branch that checkout happens to be on.** `compositional-biology-theory`'s `scripts/guards.sh` extracts `scripts/` from a named ref for exactly this reason. A local `nucleus-skills` on an older branch has no `check-citations.py` at all, and a local `main` there can be weeks behind `origin/main` — which is how a first check of whether the script even existed returned the wrong answer. **`check-citations.py` today reads only `.md`, so it sees almost nothing here**; widening it is `nucleus-skills` work.
+
 
 ## Architecture
 
