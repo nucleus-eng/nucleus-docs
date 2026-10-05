@@ -22,6 +22,7 @@ refines: guv
 inputs:
   hpts:
     title: "HPTS dye solution"
+    stock: {value: 4, unit: "mM"}
     page: null            # 4 mM stock, 0.2 mM in the lumen
   membrane-popc-chol:
     title: "Membrane: POPC/Chol (7:3)"
@@ -39,8 +40,15 @@ process_steps:
       id: dye-liposomes
       title: "Dye Liposomes"
       page: ../dye-liposomes/spec.md
-    parameters:
-      hpts: "0.2 mM in the lumen, from a 4 mM stock"
+    # SCALE-FREE, 2026-10-05. THE FRACTION IS NOT WRITTEN, because it would be a
+    # number the page's own table contradicts: 5 uL in 30 is 0.1667, and 0.1667 x 4 mM
+    # is 0.667 mM against the 0.2 mM stated beside it. Writing it would put an
+    # arithmetic error into a field a checker reads as fact.
+    #
+    # The Optiprep row on the same table WAS corrected, ruled by Jon 2026-10-05: its
+    # volume was copied from a 40 uL recipe. See the admonition on ../dye-liposomes/spec.md.
+    finals:
+      hpts: {value: 0.2, unit: "mM", note: "in the lumen"}
     notes: >
       No cytosol — the lumen is dye in buffer. That is the point: a fast
       positive control for encapsulation and microscopy with nothing in it that

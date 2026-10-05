@@ -54,9 +54,27 @@ flowchart TD
 | Component         | Stock concentration | Final concentration | Volume for one reaction (µL) |
 | ----------------- | ------------------- | ------------------- | ---------------------------- |
 | HPTS              | 4 mM                | 0.2 mM              | 5                            |
-| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 1.33                         |
-| Water             |                     |                     | 23.67                        |
+| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 0.98                         |
+| Water             |                     |                     | 24.02                        |
 | Total volume (µL) |                     |                     | 30                           |
+:::
+
+:::{admonition} Two corrections to this table
+:class: warning
+
+**The Optiprep volume was 1.33 µL and is now 0.98 µL.** The row `1.32 mg/µL / 0.043 mg/µL
+/ 1.33 µL` appears identically on four pages. On [Base Cell](../base-cell/spec.md) and
+[Reporter: deGFP](../reporter-degfp/spec.md) the reaction is **40 µL**, where 1.33 µL of a
+1.32 mg/µL stock gives 0.0439 mg/µL and the row closes. This reaction is **30 µL**, where
+the same volume gives 0.0585 mg/µL. The row was copied without rescaling the volume.
+0.98 µL is what 0.043 mg/µL requires at 30 µL, and water absorbs the difference.
+
+**The HPTS row still does not close and is left as written.** 5 µL of a 4 mM stock in
+30 µL gives 0.667 mM, not the 0.2 mM stated. 0.2 mM would need 1.5 µL, or a 1.2 mM stock.
+No other page carries this row, so there is nothing to compare it against.
+
+@Editor: confirm the HPTS stock and volume against the working-solution prep. One of the
+three numbers is wrong and the page cannot say which.
 :::
 
 ::::
