@@ -72,7 +72,11 @@ process_steps:
       title: "Gel: PEG-Norbornene"
       page: ../gel-peg-norbornene/spec.md
     parameters:
-      exposure: "60 s at 405 nm"
+      # SPLIT 2026-10-05, same as ../gel-pegda/spec.yml: one string held two different
+      # quantities and a checker could read neither. 60 s is a single stated value here
+      # rather than the range gel-pegda carries. The wavelength is not a choice.
+      exposure_s: 60
+      wavelength_nm: 405
     notes: >
       This is the live route for cell-carrying gels, where PEGDA is canceled. Its
       UV exposure raises a Conflict with CPRG, which photobleaches: pre-add LacZ

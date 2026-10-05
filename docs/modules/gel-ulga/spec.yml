@@ -71,8 +71,17 @@ process_steps:
       title: "Gel: ULGA"
       page: ../gel-ulga/spec.md
     ratio: "1:1 with the cell suspension, halving the ULGA to its final figure"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # THE SECOND HALF OF THE OLD STRING WAS DERIVED FROM THIS STEP'S OWN RATIO. It read
+    # "1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1", and 0.5 is
+    # 1 x the 1:1. Writing a number the file computes from its own neighbour is the
+    # exact pattern this migration removes, so only the sourced 1% lands.
+    finals:
+      ulga-powder: {value: 1, unit: "% (w/v)", note: "in the prepared solution, before the 1:1 combination"}
     parameters:
-      ulga: "1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1"
+      # A BOUND PAIR WITH NO SINGLE CORRECT VALUE, which is what `parameters` is for.
+      # ../gel-ulga/spec.md:76: "Lower gives faster kinetics; higher holds a better
+      # on-off state", so the density is a lever rather than a preference.
       ulga_working_range: "0.2% to 0.5% in the set gel"
       gel_point_min_c: 8
       gel_point_max_c: 17

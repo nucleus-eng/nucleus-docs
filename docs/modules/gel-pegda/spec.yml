@@ -44,10 +44,11 @@ process_steps:
       id: pegda-precursor
       title: "PEGDA precursor solution"
       page: null
-    parameters:
-      pegda575: "20 wt%"
-      peg4sh: "0.3 wt%"
-      lap: "0.03 wt%"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    finals:
+      pegda575: {value: 20, unit: "wt%"}
+      peg4sh: {value: 0.3, unit: "wt%"}
+      lap: {value: 0.03, unit: "wt%"}
     notes: >
       PEG4SH is the same reagent as in the PEG-norbornene route and does a
       different job. There it is the crosslinker at roughly 4 wt%; here it is

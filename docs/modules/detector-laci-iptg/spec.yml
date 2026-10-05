@@ -35,12 +35,16 @@ inputs:
     page: null
   laco-plamgfp-dna:
     title: "pT7-lacO-plamGFP"
+    stock: {value: 10, unit: "nM"}
     page: null            # 2958 bp; detectors/pOpen-pT7-lacO.gb in nucleus-eng/DNA
   laci:
     title: "LacI"
+    stock: {value: 10, unit: "uM"}
+    range: "500 nM to 1000 nM final, purified protein"
     page: null            # purified protein, or expressed from pT7-lacI
   rnase-inhibitor:
     title: "RNase inhibitor"
+    stock: {value: 40000, unit: "U/mL"}
     page: null
 
 process_steps:
@@ -59,13 +63,24 @@ process_steps:
       id: detector-laci-iptg
       title: "LacI/IPTG Detector"
       page: ../detector-laci-iptg/spec.md
-    parameters:
-      purexpress_solution_a: "4 uL"
-      purexpress_solution_b: "3 uL"
-      laco_plamgfp_dna: "0.5 uL of a 10 nM stock"
-      laci: "0.5 uL of a 10 uM stock; 500 nM to 1000 nM final is the stated effective range"
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 0.5 uL"
-      master_mix_total: "9 uL, made up to 10 uL per reaction by the analyte"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # THE DENOMINATOR IS 10 AND NOT 9, and the page settles it rather than arithmetic:
+    # ../detector-laci-iptg/spec.md:77 writes Solution A as "40% (v/v)" beside its 4 uL,
+    # and 4/10 is 0.40. So the fractions are against the reaction the analyte completes,
+    # not against the 9 uL mix this step produces.
+    #
+    # `laco-plamgfp-dna` GETS A STOCK AND A FRACTION AND NO FINAL. 0.05 x 10 nM is
+    # 0.5 nM and no page states it, so it is not written.
+    fractions:
+      purexpress-solution-a: 0.40
+      purexpress-solution-b: 0.30
+      laco-plamgfp-dna: 0.05
+      laci: 0.05
+      rnase-inhibitor: 0.05
+    finals:
+      laci: {value: 500, unit: "nM"}
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+    total_volume: {value: 10, unit: "uL", note: "the step makes 9 uL; the analyte completes it to 10"}
     notes: >
       Both DNA constructs have confirmed files in nucleus-eng/DNA —
       detectors/pOpen-lacI.gb at 2877 bp and detectors/pOpen-pT7-lacO.gb at 2958 bp.

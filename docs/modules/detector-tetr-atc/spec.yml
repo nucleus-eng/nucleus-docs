@@ -28,6 +28,7 @@ inputs:
     page: null            # pT7-tetO-plamGFP is the PURExpress reference
   tetr:
     title: "TetR repressor"
+    range: "500 nM to 2000 nM; 500 nM saturates repression and it is improvable to 2000 nM"
     page: null            # three formats, not interchangeable — see the questions
 
 process_steps:
@@ -42,10 +43,17 @@ process_steps:
       id: detector-tetr-atc
       title: "tetR-aTc Detector"
       page: ../detector-tetr-atc/spec.md
-    parameters:
-      base_cytosol: 1x
-      teto_template: "0.5 nM"
-      tetr: "500 nM — saturates repression; improvable to 2000 nM"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # NO STOCK AND NO FRACTION. ../detector-tetr-atc/spec.md:96 gives these as
+    # "Working concentration" in Base Cytosol and states no stock. The page does carry
+    # a 10 uM TetR stock at :125, but that is the PURExpress reference build, and this
+    # file's own open item `the-reference-figures-used-purexpress` says the specified
+    # and the evidenced composition are not the same system. Importing the stock across
+    # that line would merge two systems by accident.
+    finals:
+      base-cytosol: {value: 1, unit: "x"}
+      teto-template: {value: 0.5, unit: "nM"}
+      tetr: {value: 500, unit: "nM"}
     notes: >
       TetR binds the tetO operator and blocks transcription until aTc relieves it, so
       the Module is the repressor and its operator-bearing template. The 0.5 nM

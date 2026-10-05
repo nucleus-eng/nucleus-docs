@@ -53,9 +53,16 @@ process_steps:
       # ../membrane-popc-chol-9-1/spec.md, which keyed its rows by the Modules
       # that take the membrane. The membrane is 89.9/10/0.1 mol% whoever takes it;
       # the volumes are this chassis's dose of it, at 0.5 mM total lipid.
-      popc: "25 mg/mL stock, 41 uL"
-      cholesterol: "50 mg/mL stock, 1.16 uL"
-      liss_rhod_pe: "1 mg/mL stock, 1.952 uL"
+      #
+      # THE THREE LIPID ROWS ARE REMOVED 2026-10-05 AS FULLY REDUNDANT. Their stocks
+      # are the same three now on ../membrane-popc-chol-9-1/spec.yml's inputs, and
+      # their volumes follow from that page's 89.9 / 10 / 0.1 mol% by
+      # mol% x molar_mass / stock -- measured, and it returns 41, 1.16 and 1.953
+      # against the 41, 1.16 and 1.952 written here. Nothing was lost.
+      #
+      # `total_lipid` STAYS, because it is this chassis's dose and the membrane page
+      # cannot state it: the membrane is 89.9/10/0.1 whoever takes it, and 0.5 mM is
+      # what THIS cell takes.
       total_lipid: "0.5 mM"
     notes: >
       The empty chassis — Base Cytosol with no sensing payload, closed in a 9:1
