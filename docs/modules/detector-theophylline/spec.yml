@@ -57,7 +57,7 @@ process_steps:
       # `substrate-cprg` and this names what is inside it.
       rnase-inhibitor: {value: 40000, unit: "U/mL"}
       cprg: {value: 10, unit: "mg/mL"}
-    reaction_volume: {value: 10, unit: "uL", note: "stated, but see the questions below"}
+    total_volume: {value: 10, unit: "uL", note: "stated, but see the questions below"}
     notes: >
       The riboswitch binds theophylline at its aptamer domain in the 5' UTR, which
       exposes the ribosome binding site and turns on translation of the downstream

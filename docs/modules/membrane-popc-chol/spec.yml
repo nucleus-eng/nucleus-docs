@@ -21,12 +21,18 @@ refines: membrane
 inputs:
   popc:
     title: "POPC"
+    molar_mass: {value: 760.076, unit: "g/mol"}
+    stock: {value: 25, unit: "mg/mL"}
     page: null            # 1-palmitoyl-2-oleoyl-glycero-3-phosphocholine; no module page
   cholesterol:
     title: "Cholesterol"
+    molar_mass: {value: 386.654, unit: "g/mol"}
+    stock: {value: 50, unit: "mg/mL"}
     page: null
   liss-rhod-pe:
     title: "Liss-Rhod PE"
+    molar_mass: {value: 1301.71, unit: "g/mol"}
+    stock: {value: 1, unit: "mg/mL"}
     page: null            # Lissamine Rhodamine PE, the fluorescent tracer
     optional: true
 
@@ -41,10 +47,18 @@ process_steps:
       id: membrane-popc-chol
       title: "Membrane: POPC/Chol (7:3)"
       page: ../membrane-popc-chol/spec.md
-    parameters:
-      popc: "70% (mol), MW 760.076, 25 mg/mL stock, 162.17 uL"
-      cholesterol: "29.95% (mol), MW 386.654, 50 mg/mL stock, 17.65 uL"
-      liss_rhod_pe: "0.05% (mol), MW 1301.71, 1 mg/mL stock, 4.96 uL"
+    # SCALE-FREE, 2026-10-05, under R35. Jon: "if you already have molar ratio, you
+    # don't need volume. one already implies the other." MEASURED BEFORE DROPPING
+    # THEM: volume is proportional to mol% x molar_mass / stock, and that reproduces
+    # all three stated volumes on this page to within a rounding place. So the
+    # volumes carried no fact the three lines above do not already carry.
+    #
+    # `molar_mass` and `stock` moved onto the reagents, by C72: neither varies
+    # across the steps that use the lipid, and both are needed to recover a volume.
+    finals:
+      popc: {value: 70, unit: "mol%"}
+      cholesterol: {value: 29.95, unit: "mol%"}
+      liss-rhod-pe: {value: 0.05, unit: "mol%"}
     notes: >
       The three percentages are mole fractions of the lipid film, not of the
       finished cell. The page gives stock concentrations and volumes beside them

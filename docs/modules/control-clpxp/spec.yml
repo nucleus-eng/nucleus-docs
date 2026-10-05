@@ -96,7 +96,7 @@ process_steps:
     # OPTIONAL, under R39. This is an Implementation fact rather than a Module fact --
     # the composition above is the same reaction at 10 uL or at 500 uL. It is kept
     # because `check-step-totals.py` needs something to check the derivations against.
-    reaction_volume: {value: 10, unit: "uL"}
+    total_volume: {value: 10, unit: "uL"}
     notes: >
       Sample 1 of Reaction Table 1 — the only column carrying both protease subunits.
       ClpX and ClpP are the two halves of one protease and deGFP-ssrA is its tagged

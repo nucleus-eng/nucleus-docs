@@ -69,7 +69,7 @@ process_steps:
     finals:
       rnase-inhibitor: {value: 4000, unit: "U/mL"}
     balance: water
-    reaction_volume: {value: 10, unit: "uL"}
+    total_volume: {value: 10, unit: "uL"}
     notes: >
       aHly is expressed in situ from `pT7-aHly` rather than supplied as protein, so
       this Module is a reaction rather than a reagent. The page names Assemble Base

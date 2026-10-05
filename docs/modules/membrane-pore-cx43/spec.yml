@@ -77,7 +77,7 @@ process_steps:
     finals:
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
     balance: water
-    reaction_volume: {value: 20, unit: "uL"}
+    total_volume: {value: 20, unit: "uL"}
     notes: >
       Cx43 is expressed in situ from the plasmid rather than supplied as protein, so
       this Module is a reaction. Connexins are membrane-spanning proteins and six of

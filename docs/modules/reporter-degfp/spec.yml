@@ -66,7 +66,7 @@ process_steps:
       # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md,
       # so its stock sits on the step rather than on a reagent of this page.
       rnase-inhibitor: {value: 40000, unit: "U/mL"}
-    reaction_volume: {value: 40, unit: "uL"}
+    total_volume: {value: 40, unit: "uL"}
     notes: >
       This construct has a confirmed file in nucleus-eng/DNA —
       reporters/pOpen-deGFP.gbk, 2812 bp — which puts it in the minority. Most

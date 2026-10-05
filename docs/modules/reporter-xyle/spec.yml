@@ -63,7 +63,7 @@ process_steps:
       # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md,
       # so its stock sits on the step rather than on a reagent of this page.
       rnase-inhibitor: {value: 40000, unit: "U/mL"}
-    reaction_volume: {value: 10, unit: "uL", note: "Nucleus Cytosol"}
+    total_volume: {value: 10, unit: "uL", note: "Nucleus Cytosol"}
     notes: >
       The five Base Cytosol figures are repeated because the page's table lists them as
       separate rows rather than naming the cytosol, and they match

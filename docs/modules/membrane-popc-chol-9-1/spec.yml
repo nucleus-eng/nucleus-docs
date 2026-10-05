@@ -26,12 +26,18 @@ refines: membrane
 inputs:
   popc:
     title: "POPC"
+    molar_mass: {value: 760.076, unit: "g/mol"}
+    stock: {value: 25, unit: "mg/mL"}
     page: null
   cholesterol:
     title: "Cholesterol"
+    molar_mass: {value: 386.66, unit: "g/mol"}
+    stock: {value: 50, unit: "mg/mL"}
     page: null
   liss-rhod-pe:
     title: "Liss-Rhod PE"
+    molar_mass: {value: 1301.71, unit: "g/mol"}
+    stock: {value: 1, unit: "mg/mL"}
     page: null
     optional: true        # the page marks this one "(Optional)" in the table itself
 
@@ -46,10 +52,19 @@ process_steps:
       id: membrane-popc-chol-9-1
       title: "Membrane: POPC/Chol (9:1)"
       page: ../membrane-popc-chol-9-1/spec.md
+    # SCALE-FREE, 2026-10-05, under R35. Jon: "if you already have molar ratio, you
+    # don't need volume. one already implies the other." MEASURED BEFORE DROPPING
+    # THEM: volume is proportional to mol% x molar_mass / stock, and that reproduces
+    # all three stated volumes on this page to within a rounding place. So the
+    # volumes carried no fact the three lines above do not already carry.
+    #
+    # `molar_mass` and `stock` moved onto the reagents, by C72: neither varies
+    # across the steps that use the lipid, and both are needed to recover a volume.
+    finals:
+      popc: {value: 89.9, unit: "mol%"}
+      cholesterol: {value: 10, unit: "mol%"}
+      liss-rhod-pe: {value: 0.1, unit: "mol%"}
     parameters:
-      popc: "89.9% (mol), MW 760.076, 25 mg/mL stock, 41 uL"
-      cholesterol: "10% (mol), MW 386.66, 50 mg/mL stock, 1.16 uL"
-      liss_rhod_pe: "0.1% (mol), MW 1301.71, 1 mg/mL stock, 1.952 uL"
       total_lipid: "0.5 mM"
     notes: >
       The 0.5 mM total-lipid preparation named in the Preparations tab. The step names

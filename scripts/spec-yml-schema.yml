@@ -202,6 +202,13 @@ properties:
           type: string
         stock:
           $ref: "#/$defs/quantity"
+        molar_mass:
+          $ref: "#/$defs/quantity"
+          description: >
+            A property of the substance, on the reagent by C72: it does not vary across
+            the steps that use it. Added 2026-10-05 because a lipid's volume is
+            proportional to `mol% x molar_mass / stock`, so dropping the volumes under
+            R35 requires this to stay recoverable. Six entries, both membranes.
           description: >
             THE REAGENT CARRIER. The concentration of the material as supplied,
             which does not vary across the reagent, so by C72 it belongs to the
@@ -788,11 +795,13 @@ $defs:
           ONE. `fraction x stock` returns it, so a computed entry here would read as a
           sourced figure, which is the error this whole migration is avoiding.
         # Prefer `produces.final`, same reason as `stocks` above.
-      reaction_volume:
+      total_volume:
         $ref: "#/$defs/quantity"
         description: >
           The total the step was run at. OPTIONAL, ruled R39: "leave as an optional
-          parameter". It is an Implementation fact rather than a Module one -- the
+          parameter". NAMED `total_volume` AND NOT `reaction_volume`: energy-ppk's step
+          produces a 3x premix rather than a reaction, so the narrower name was false on
+          the first source that needed it. It is an Implementation fact rather than a Module one -- the
           composition is the same reaction at 10 uL or at 500 uL -- so nothing may
           require it and no figure above may depend on it.
           IT IS KEPT FOR THE CHECK. `check-step-totals.py` recovers the total from
