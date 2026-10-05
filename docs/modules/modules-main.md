@@ -71,6 +71,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Analyte | [IPTG](./analyte-iptg/spec.md) | ★ |
 | Analyte | [pH](./analyte-ph/spec.md) | ★ |
 | Container | [Container](./container/spec.md) | - |
+| Protein | [Protein](./protein/spec.md) | - |
 | Container | [Solution](./solution/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |
