@@ -85,14 +85,14 @@ PLA1 is expressed from one of the constructs above rather than added as a reagen
 
 | Configuration | Construct | Working concentration |
 | --- | --- | --- |
-| London constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in a 20 µL reaction with 5% Optiprep |
-| Chicago aTc | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
-| London 3OC6-HSL | `LuxR-PLA1` | 15 ng/µL |
-| Chicago pH | Toehold-switch-gated PLA1 template | 2 nM |
-| Chicago theophylline | `T7pro-PLA1-T7term` | Not documented |
+| Constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in a 20 µL reaction with 5% Optiprep |
+| aTc-gated | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
+| 3OC6-HSL-gated | `LuxR-PLA1` | 15 ng/µL |
+| pH-gated | Toehold-switch-gated PLA1 template | 2 nM |
+| Theophylline-gated | `T7pro-PLA1-T7term` | Not documented |
 :::
 
-The cytosol itself is whichever the host configuration uses — [Base Cytosol](../base-cytosol/spec.md) for the Chicago cascades and for the ungated London run, [S30 Lysate](../s30-lysate/spec.md) for the London 3OC6-HSL cascade.
+The cytosol itself is whichever the host configuration uses — [Base Cytosol](../base-cytosol/spec.md) for the aTc-, pH- and theophylline-gated cascades and for the ungated run, [S30 Lysate](../s30-lysate/spec.md) for the London 3OC6-HSL cascade.
 
 ::::
 
@@ -164,8 +164,8 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 
 - [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) — applies only where LacZ is encapsulated. Proteinase K does not distinguish one LacZ from another, so in a configuration that puts LacZ in the outer solution it digests the reporter.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
-- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — the Chicago hydrogel format
-- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — the London hydrogel format
+- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — ionic crosslinking of alginate
+- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — thermal gelation of ultra-low-gelling agarose
 
 # Constituent Modules
 

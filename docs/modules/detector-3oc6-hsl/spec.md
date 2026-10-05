@@ -164,7 +164,7 @@ No process page documents building this Module or assembling it into a reaction.
 
 # Constituent Modules
 
-- [S30 Lysate](../s30-lysate/spec.md) — the London cell-free system, at 1× from its three kit components. Note the RNase inhibitor here is 800 U/mL, not the 2000 U/mL on that page
+- [S30 Lysate](../s30-lysate/spec.md) — the cell-free system this Module is built on, at 1× from its three kit components. Note the RNase inhibitor here is 800 U/mL, not the 2000 U/mL on that page
 
 # Credits
 

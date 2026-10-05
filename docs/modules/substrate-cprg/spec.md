@@ -47,8 +47,8 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 # Processes
 
-- [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — the Chicago format: film hydration and extrusion, then purification away from unencapsulated CPRG.
-- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the London format.
+- [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) — film hydration and extrusion, then purification away from unencapsulated CPRG.
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — GUVs made by phase transfer.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the conversion this substrate undergoes.
 
 # Credits

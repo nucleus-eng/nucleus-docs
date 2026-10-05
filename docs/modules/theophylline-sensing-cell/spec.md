@@ -172,7 +172,7 @@ Note that the only characterized construct, `pT7-theophylline-LacZ`, is exactly 
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
-- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — the Chicago hydrogel format
+- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — sets this Cell in an ionically crosslinked gel
 
 # Constituent Modules
 
