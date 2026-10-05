@@ -5,7 +5,7 @@ description: A catalog of validated biochemical modules — detectors, reporters
 
 # Overview
 
-A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
+A Module is a useful biochemical Component that performs a particular function. It often incorporates a genetically encoded constituent. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
 
 **Validation key:** ★★★ frequently used, ★★ validated (cells or in vitro),  ★ preliminary / DevNote only
 

@@ -20,7 +20,7 @@ refines: [lacz, protein]
 # IT POINTED AT reporter-lacz FOR PART OF A DAY AND THAT WAS THE WRONG SHAPE. The
 # earlier wording made the reaction the abstraction, which put an EQUIVALENCE inside an
 # ORDER: session c9d6a5 identified the pair as co-satisfying, two
-# Formulations of one Specification separated by a formulation predicate. Co-satisfying
+# Components of one Specification separated by a predicate on the Component. Co-satisfying
 # things sit at the same height, so a refinement edge between them is not an order edge.
 # Moving the abstraction down to the operand makes this a real membership.
 #
