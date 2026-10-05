@@ -24,14 +24,19 @@
 # is a small unilamellar vesicle made by hydration and extrusion. SAME SLOT, DIFFERENT
 # PROCESS, BY DESIGN, which is the case the meet renderer exists to draw.
 #
-# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED. A unilamellar vesicle is a
-# membrane with something in it, which is the unsettled question of whether forming a
-# boundary and holding something in it are one operation. ../cell/spec.yml is left a
-# root for the same reason and by the same precedent. If the hold question lands, this
-# class and Cell get the same parent on the same day.
+# REFINES ../vesicle. A Substrate Carrier is a closed membrane with a substrate inside
+# it, and that is what a vesicle is. Both members reach ../vesicle a second way as
+# well, GUV: CPRG through ../guv and Substrate SUV: CPRG through ../suv. Neither path
+# implies the other, so both are drawn.
+#
+# THIS DOES NOT SETTLE THE HOLD QUESTION, which is whether forming a boundary and
+# holding something inside it are one operation. Membership is settled here and the
+# operation is not. ../cell/spec.yml carried the same note and is still a root: a Cell
+# is a vesicle by the same argument, and that argument is not made in this file.
 
 module: substrate-carrier
 title: "Substrate Carrier"
+refines: vesicle
 
 inputs:
   membrane:
