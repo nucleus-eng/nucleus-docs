@@ -749,6 +749,65 @@ $defs:
         type: string
         description: A combining ratio, a property of the step. 4 of 76 steps at `d611bda`.
 
+      # ---- THE SCALE-FREE KEYS, DELIBERATELY LOOSE, ADDED 2026-10-05 ----
+      #
+      # TEMPORARY AND KNOWN TO BE. Jon ruled R34: "let's do the updates to the specs,
+      # then update teh schema once we know what we're doing." These four exist so the
+      # migration can proceed WITHOUT this file guessing the final shape a fourth time
+      # -- `step.volumes` was designed, committed and overturned in one day, and a
+      # fifth guess is worth less than the corpus's own answer.
+      #
+      # They constrain almost nothing on purpose. THAT IS THE COST AND IT IS STATED:
+      # an untyped key cannot catch a wrong unit or a missing one. The alternative was
+      # leaving check-spec-schema.py red across the whole migration, and a red check
+      # nobody can act on is how `check-toc.py` sat broken on this branch unnoticed.
+      #
+      # TIGHTEN THESE WHEN THE LAST SOURCE IS CONVERTED. 2 of 45 steps at this commit.
+      fractions:
+        type: object
+        additionalProperties: {type: number, exclusiveMinimum: 0, maximum: 1}
+        description: >
+          A volume fraction per component, keyed by its id. Scale-free: it does not
+          change when the same composition is run at a different total. Ruled R38,
+          "these should be converted into volume fraction and concentration (when
+          possible)". The values must not exceed 1 in sum, and a checker will say so
+          once every source is converted; today they are checked by eye.
+      stocks:
+        type: object
+        additionalProperties: {$ref: "#/$defs/quantity"}
+        description: >
+          A stock concentration per component. Prefer `inputs[].stock`, which puts the
+          fact on the reagent it is about, by C72. This step-level form is for a
+          component that is NOT an operand of the step -- a constituent of one, named
+          here because this Module overrides it.
+      finals:
+        type: object
+        additionalProperties: {$ref: "#/$defs/quantity"}
+        description: >
+          A final concentration per component. WRITTEN ONLY WHERE THE SOURCE STATES
+          ONE. `fraction x stock` returns it, so a computed entry here would read as a
+          sourced figure, which is the error this whole migration is avoiding.
+        # Prefer `produces.final`, same reason as `stocks` above.
+      reaction_volume:
+        $ref: "#/$defs/quantity"
+        description: >
+          The total the step was run at. OPTIONAL, ruled R39: "leave as an optional
+          parameter". It is an Implementation fact rather than a Module one -- the
+          composition is the same reaction at 10 uL or at 500 uL -- so nothing may
+          require it and no figure above may depend on it.
+          IT IS KEPT FOR THE CHECK. `check-step-totals.py` recovers the total from
+          every component that states a fraction and a stock, and 13 derivations across
+          7 steps agree with 0 disagreements. A derived check with nothing to check
+          against is weaker, so where a source states this, it is evidence.
+
+      balance:
+        type: string
+        description: >
+          The component id that absorbs whatever the fractions leave. Not a fraction:
+          its value moves when any other component moves, which is what makes it a
+          different kind of entry. `headroom.balance` says the same thing in prose and
+          the two are to be reconciled when this block is tightened.
+
   operator:
     enum: [mixing, packing, stitching]
     description: >

@@ -41,12 +41,45 @@ process_steps:
       id: detector-3oc6-hsl
       title: "Detector: 3OC6-HSL (LuxR)"
       page: ../detector-3oc6-hsl/spec.md
-    parameters:
-      premix: "1x final, from a 2.5x stock, 20 uL"
-      extract: "1x final, from a 3.33x stock, 15 uL"
-      amino_acid_mix: "1x final, from a 10x stock, 5 uL"
-      sensing_plasmid: "40 ng/uL final, from a 2000 ng/uL stock, 1 uL"
-      rnase_inhibitor: "800 U/mL final, from a 40 000 U/mL stock, 1 uL"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. THIS PAGE IS WHY THE RULE IS RIGHT.
+    # The five rows above each stated a volume, and the five volumes were consistent
+    # with a 50 uL reaction that THIS FILE NEVER STATED and no page carries. Five
+    # independent components agreed on it and none of them said it.
+    #
+    # In the form below the number is not needed. `fraction x stock = final` closes on
+    # every row without a total, which is what "scale-free" buys:
+    #
+    #     0.40 x 2.5x       = 1x          0.02 x 2000 ng/uL  = 40 ng/uL
+    #     0.30 x 3.33x      = 1x (3.33 is a rounded 10/3)
+    #     0.10 x 10x        = 1x          0.02 x 40 000 U/mL = 800 U/mL
+    #
+    # THE FINALS BELOW ARE SOURCED, not computed. This page states all five, which is
+    # why they are written here and not on ../control-clpxp/spec.yml, where the source
+    # states one.
+    #
+    # THE KEYS ARE NOT OPERANDS and that is deliberate -- see `notes`. They are
+    # constituents of ../s30-lysate/spec.md, repeated because `rnase-inhibitor`
+    # disagrees with that page at 800 against 2000 U/mL.
+    fractions:
+      premix: 0.40
+      extract: 0.30
+      amino-acid-mix: 0.10
+      sensing-plasmid: 0.02
+      rnase-inhibitor: 0.02
+    stocks:
+      premix: {value: 2.5, unit: "x"}
+      extract: {value: 3.33, unit: "x", approx: true}
+      amino-acid-mix: {value: 10, unit: "x"}
+      sensing-plasmid: {value: 2000, unit: "ng/uL"}
+      rnase-inhibitor: {value: 40000, unit: "U/mL"}
+    finals:
+      premix: {value: 1, unit: "x"}
+      extract: {value: 1, unit: "x"}
+      amino-acid-mix: {value: 1, unit: "x"}
+      sensing-plasmid: {value: 40, unit: "ng/uL"}
+      rnase-inhibitor: {value: 800, unit: "U/mL"}
+    # 0.84 declared. The remaining 0.16 is the analyte slot the page describes in
+    # prose, and it is unnamed here because no component fills it in this Module.
     notes: >
       The three kit figures are repeated above rather than folded into a single
       "S30 Lysate 1x" because the RNase inhibitor does not match: 800 U/mL here

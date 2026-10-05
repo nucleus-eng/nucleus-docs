@@ -35,15 +35,19 @@ inputs:
     page: null
   clpx:
     title: "Purified ClpX"
+    stock: {value: 53.7, unit: "uM"}
     page: null            # or expressed from pT7-ClpX, control/pOpen-ClpX-CHis.gb
   clpp:
     title: "Purified ClpP"
+    stock: {value: 79.9, unit: "uM"}
     page: null            # or expressed from pT7-ClpP, control/pOpen-ClpP-CHis.gb
   degfp-ssra:
     title: "Purified deGFP-ssrA"
+    stock: {value: 41.2, unit: "uM"}
     page: null            # the tagged substrate; control/pOpen-deGFP-CHis-ssrA.gb
   rnase-inhibitor:
     title: "RNase inhibitor"
+    stock: {value: 40000, unit: "U/mL"}
     page: null
   water:
     title: "Nuclease-free water"
@@ -67,15 +71,32 @@ process_steps:
       id: control-clpxp
       title: "ClpXP Control"
       page: ../control-clpxp/spec.md
-    parameters:
-      purexpress_solution_a: "4 uL"
-      purexpress_solution_b: "3 uL"
-      clpx: "0.5 uL of a 53.7 uM stock"
-      clpp: "0.5 uL of a 79.9 uM stock"
-      degfp_ssra: "0.5 uL of a 41.2 uM stock"
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 0.5 uL"
-      water: "1 uL"
-      reaction_volume: "10 uL"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. Every figure below is a source fact in
+    # a form that does not change with the scale somebody runs at. The per-component
+    # VOLUMES are gone: they were derived, and writing a derived number down is the
+    # thing #T23 already refuses for Conflict.
+    #
+    #     fraction(i) x stock(i) = final(i)
+    #
+    # NO FINAL CONCENTRATION IS WRITTEN HERE, because this source states only one and a
+    # computed figure would read as a measured one. `rnase-inhibitor` is the exception
+    # the conversion was checked against: the source said "2000 U/mL final", and
+    # 0.05 x 40 000 U/mL returns exactly that.
+    fractions:
+      purexpress-solution-a: 0.40
+      purexpress-solution-b: 0.30
+      clpx: 0.05
+      clpp: 0.05
+      degfp-ssra: 0.05
+      rnase-inhibitor: 0.05
+    # The balance term, and it is not a fraction: it absorbs whatever the others leave.
+    # Stated as 1 uL in 10 and therefore 0.10 today, but that number moves when any
+    # other component does, which is what makes it a different kind of entry.
+    balance: water
+    # OPTIONAL, under R39. This is an Implementation fact rather than a Module fact --
+    # the composition above is the same reaction at 10 uL or at 500 uL. It is kept
+    # because `check-step-totals.py` needs something to check the derivations against.
+    reaction_volume: {value: 10, unit: "uL"}
     notes: >
       Sample 1 of Reaction Table 1 — the only column carrying both protease subunits.
       ClpX and ClpP are the two halves of one protease and deGFP-ssrA is its tagged
