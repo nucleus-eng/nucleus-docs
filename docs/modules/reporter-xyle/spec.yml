@@ -25,9 +25,11 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   catecholase-dna:
+    stock: {value: 275.7, unit: "nM"}
     title: "Catecholase DNA template"
     page: ../xyle/spec.md   # pT7-TetO-catecholase (pMN067), a source of XylE
   catechol:
+    stock: {value: 100, unit: "mM"}
     title: "Catechol"
     page: null
 
@@ -50,11 +52,18 @@ process_steps:
       id: catecholase-expression-reaction
       title: "Catecholase expression reaction"
       page: null
-    parameters:
-      base_cytosol: 1x
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
-      catecholase_dna: "20 nM final, from a 275.7 nM stock"
-      reaction_volume: "10 uL, Nucleus Cytosol"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. `fraction x stock = final`, and only
+    # SOURCED figures are written. No fraction is given where this source states no
+    # total, which is the point of R37: the composition does not need one.
+    finals:
+      base-cytosol: {value: 1, unit: "x"}
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+      catecholase-dna: {value: 20, unit: "nM"}
+    stocks:
+      # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md,
+      # so its stock sits on the step rather than on a reagent of this page.
+      rnase-inhibitor: {value: 40000, unit: "U/mL"}
+    reaction_volume: {value: 10, unit: "uL", note: "Nucleus Cytosol"}
     notes: >
       The five Base Cytosol figures are repeated because the page's table lists them as
       separate rows rather than naming the cytosol, and they match
@@ -70,8 +79,8 @@ process_steps:
       id: reporter-xyle
       title: "XylE Reporter"
       page: ../reporter-xyle/spec.md
-    parameters:
-      catechol: "1 mM final, from a 100 mM stock"
+    finals:
+      catechol: {value: 1, unit: "mM"}
     notes: >
       Separate compartments. Bringing the two together is the reporting event. No
       process page documents either step; the one process the page lists is the

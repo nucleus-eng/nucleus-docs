@@ -25,6 +25,7 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   sensor-dna:
+    stock: {value: 49.55, unit: "nM"}
     title: "Sensor DNA template"
     page: null            # pT7-theophylline-LacZ (pMN066); not in nucleus-eng/DNA
   substrate-cprg:
@@ -42,12 +43,21 @@ process_steps:
       id: detector-theophylline
       title: "Theophylline Detector"
       page: ../detector-theophylline/spec.md
-    parameters:
-      base_cytosol: 1x
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
-      sensor_dna: "5 nM final, from a 49.55 nM stock"
-      cprg: "0.6 mg/mL final, from a 10 mg/mL stock"
-      reaction_volume: "10 uL stated — but see the questions below"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. `fraction x stock = final`, and only
+    # SOURCED figures are written. No fraction is given where this source states no
+    # total, which is the point of R37: the composition does not need one.
+    finals:
+      base-cytosol: {value: 1, unit: "x"}
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+      sensor-dna: {value: 5, unit: "nM"}
+      cprg: {value: 0.6, unit: "mg/mL"}
+    stocks:
+      # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md,
+      # so its stock sits on the step. `cprg` likewise: the operand is
+      # `substrate-cprg` and this names what is inside it.
+      rnase-inhibitor: {value: 40000, unit: "U/mL"}
+      cprg: {value: 10, unit: "mg/mL"}
+    reaction_volume: {value: 10, unit: "uL", note: "stated, but see the questions below"}
     notes: >
       The riboswitch binds theophylline at its aptamer domain in the 5' UTR, which
       exposes the ribosome binding site and turns on translation of the downstream

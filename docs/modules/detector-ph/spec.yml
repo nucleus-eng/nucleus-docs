@@ -36,6 +36,7 @@ inputs:
     title: "pH-responsive ssDNA"
     page: null
   rnase-inhibitor:
+    stock: {value: 40000, unit: "U/mL"}
     title: "RNase inhibitor"
     page: null
 
@@ -71,10 +72,21 @@ process_steps:
       title: "pH Detector"
       page: ../detector-ph/spec.md
     parameters:
-      base_cytosol: "1x"
-      toehold_switch_dna: "2 nM"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. `fraction x stock = final`, and only
+    # SOURCED figures are written. No fraction is given where this source states no
+    # total, which is the point of R37: the composition does not need one.
+    # `base_cytosol` and `toehold_switch_dna` carried a bare figure. They are read as
+    # finals because `rnase_inhibitor` on this same step says "final" and sets the
+    # convention for it. The two entries on `anneal-duplex` have no such sibling and
+    # are left alone rather than guessed at.
+    finals:
+      base-cytosol: {value: 1, unit: "x"}
+      toehold-switch-dna: {value: 2, unit: "nM"}
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+    parameters:
+      # NOT AN OPERAND ID: the operand is `ph-trigger-duplex` and this names the trigger
+      # strand inside it. Left here until the constituent question is settled.
       trigger_ssdna_in_duplex: "4.8 uM"
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
     notes: >
       Two additions to Base Cytosol: the annealed duplex and one toehold-switch
       template. Which template is used sets the effector and so the readout. These

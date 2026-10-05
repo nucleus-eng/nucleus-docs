@@ -29,12 +29,15 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   degfp-dna:
+    stock: {value: 124, unit: "nM"}
     title: "pOpen-deGFP"
     page: null            # 2812 bp; reporters/pOpen-deGFP.gbk in nucleus-eng/DNA
   magnesium-acetate:
+    stock: {value: 200, unit: "mM"}
     title: "Magnesium acetate"
     page: null
   optiprep:
+    stock: {value: 1.32, unit: "mg/uL"}
     title: "OptiPrep"
     page: null
     optional: true        # encapsulation aid — see the questions below
@@ -50,13 +53,20 @@ process_steps:
       id: reporter-degfp
       title: "deGFP Reporter"
       page: ../reporter-degfp/spec.md
-    parameters:
-      base_cytosol: 1x
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock"
-      degfp_dna: "3 nM final, from a 124 nM stock"
-      magnesium_acetate: "8 mM final, from a 200 mM stock"
-      optiprep: "0.043 mg/uL final, from a 1.32 mg/uL stock"
-      reaction_volume: "40 uL"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. `fraction x stock = final`, and only
+    # SOURCED figures are written. No fraction is given where this source states no
+    # total, which is the point of R37: the composition does not need one.
+    finals:
+      base-cytosol: {value: 1, unit: "x"}
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+      degfp-dna: {value: 3, unit: "nM"}
+      magnesium-acetate: {value: 8, unit: "mM"}
+      optiprep: {value: 0.043, unit: "mg/uL"}
+    stocks:
+      # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md,
+      # so its stock sits on the step rather than on a reagent of this page.
+      rnase-inhibitor: {value: 40000, unit: "U/mL"}
+    reaction_volume: {value: 40, unit: "uL"}
     notes: >
       This construct has a confirmed file in nucleus-eng/DNA —
       reporters/pOpen-deGFP.gbk, 2812 bp — which puts it in the minority. Most
