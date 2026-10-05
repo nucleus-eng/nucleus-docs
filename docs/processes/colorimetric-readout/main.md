@@ -12,7 +12,7 @@ This page is a work in progress and not yet ready for use.
 
 Colorimetric Readout converts a completed sensing/lysis cascade into a visible, measurable color signal. A chromogenic substrate — chlorophenol red-β-D-galactopyranoside (CPRG) or, in an alternate chemistry, catechol — is hydrolyzed by a reporter enzyme (β-galactosidase, LacZ, or catechol 2,3-dioxygenase, XylE/C23DO) that has been released or exposed by upstream lysis. The readout step comprises the substrate/enzyme chemistry, the absorbance wavelengths used to read it, and the plate-reader and visual-scoring protocols used across the DevCells cascades.
 
-This is the shared downstream step for both the Chicago and London programs: every sensing cascade that produces a visible signal (theophylline, pH, aTc, and 3OC6-HSL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or gel format feeds it.
+This is the shared downstream step for every sensing cascade that produces a visible signal (theophylline, pH, aTc, and 3OC6-HSL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or gel format feeds it.
 
 :::::::{card}
 :header: **Important Information**
@@ -23,8 +23,8 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- **Embedding: Thermal Setting → Colorimetric Readout is confirmed.** The London ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
-- **Embedding: Photodevelopment → Colorimetric Readout is proposed and not demonstrated.** Chicago's PEGDA-patterned gel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned gel has not been shown.
+- **Embedding: Thermal Setting → Colorimetric Readout is confirmed.** The ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
+- **Embedding: Photodevelopment → Colorimetric Readout is proposed and not demonstrated.** PEGDA-patterned gel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned gel has not been shown.
 - **Embedding: Ionic Crosslinking → Colorimetric Readout is confirmed for the unpatterned gel.** The unpatterned alginate-embedded readout ([SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a confirmed result. Alginate embedding also feeds PEGDA patterning, which is confirmed.
 
 ::::::
@@ -55,7 +55,7 @@ CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is a yellow co
 
 ## Alternate chemistry: XylE / catechol
 
-Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless catechol into 2-hydroxymuconate semialdehyde, a yellow ring-fission product read by absorbance near 375 nm to 385 nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). This is an orthogonal reporter chemistry for the Chicago Node, alongside LacZ/CPRG, intended to give a second colorimetric channel for multiplexed sensing. It is confirmed only at bulk-cytosol scale — no synthetic cell/liposome-encapsulated or gel-embedded XylE result exists — and no confirmed cascade result uses it (the aTc Cascade dose-response uses the LacZ integration path, not XylE). See the [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) spec for the bulk-cytosol reaction composition and result.
+Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless catechol into 2-hydroxymuconate semialdehyde, a yellow ring-fission product read by absorbance near 375 nm to 385 nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). This is an orthogonal reporter chemistry alongside LacZ/CPRG, intended to give a second colorimetric channel for multiplexed sensing. It is confirmed only at bulk-cytosol scale — no synthetic cell/liposome-encapsulated or gel-embedded XylE result exists — and no confirmed cascade result uses it (the aTc Cascade dose-response uses the LacZ integration path, not XylE). See the [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) spec for the bulk-cytosol reaction composition and result.
 
 # Materials and Equipment
 
@@ -94,14 +94,14 @@ For formats read by eye rather than by plate reader (e.g., a gel photographed at
 
 - [ ] Photograph the reaction at the timepoints specified by the cascade's protocol under consistent, diffuse lighting against a white background.
 - [ ] Score color qualitatively: LacZ/CPRG reactions progress from yellow toward pink/magenta/purple; XylE/catechol reactions progress from colorless toward yellow.
-- [ ] Where a quantitative comparison is needed, follow up with the plate-reader protocol above rather than relying on visual scoring alone — several cascades (pH sensing, London 3OC6-HSL) report visually subtle ("slight pink," "temperamental") signals that are easier to distinguish by absorbance than by eye.
+- [ ] Where a quantitative comparison is needed, follow up with the plate-reader protocol above rather than relying on visual scoring alone — several cascades (pH sensing, 3OC6-HSL sensing) report visually subtle ("slight pink," "temperamental") signals that are easier to distinguish by absorbance than by eye.
 
 # Quality Control
 
 A positive color change alone does not confirm specific detection — several cascades that use this readout process report background or leak issues that affect interpretation, and the readout chemistry cannot distinguish specific signal from these known confounds on its own:
 
-- The Chicago theophylline cascade shows the same ~16 h color change with or without theophylline present (riboswitch leak) — see the [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) spec.
-- The London 3OC6-HSL cascade shows only a slightly discernible, "temperamental" difference between +3OC6-HSL and −3OC6-HSL conditions, with inconsistent liposome rupture reported across repeats — see the [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md) spec.
+- The theophylline cascade shows the same ~16 h color change with or without theophylline present (riboswitch leak) — see the [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) spec.
+- The 3OC6-HSL cascade shows only a slightly discernible, "temperamental" difference between +3OC6-HSL and −3OC6-HSL conditions, with inconsistent liposome rupture reported across repeats — see the [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md) spec.
 - The pH-sensing bulk gel result shows a real but modest absorbance gap (Abs₅₇₀ ≈0.31 at pH 7.4 vs. ≈0.39 at pH 6.5, against a ≈0.46 positive control) — see the [pH-Sensing Module](../../modules/detector-ph/spec.md) spec.
 
 Always include the negative/uninduced control specified by the cascade's own Module page alongside the induced condition in the same read, and treat this process's absorbance values as relative to that same-plate control rather than against an absolute threshold.

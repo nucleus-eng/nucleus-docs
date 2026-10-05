@@ -78,9 +78,9 @@ open:
     kind: choice
     question: >
       The page lists five configurations and this file writes one. The other four are
-      London 3OC6-HSL (`LuxR-PLA1`, 15 ng/uL, in S30 Lysate), Chicago aTc (`TetO-PLA1`,
-      1 nM, also tested at 0.5 nM), Chicago pH (a toehold-switch-gated PLA1 template,
-      2 nM) and Chicago theophylline (`T7pro-PLA1-T7term`, dose not documented).
+      3OC6-HSL-gated (`LuxR-PLA1`, 15 ng/uL, in S30 Lysate), aTc-gated (`TetO-PLA1`,
+      1 nM, also tested at 0.5 nM), pH-gated (a toehold-switch-gated PLA1 template,
+      2 nM) and theophylline-gated (`T7pro-PLA1-T7term`, dose not documented).
       They are recorded here so the omission is a claim rather than a gap.
       THEY ARE NOT CONFIGURATIONS OF THIS MODULE AT ALL: each gated construct is this Module's coding sequence STITCHED to a
       detector's DNA, so the product is a different DNA Module that contains PLA1.
@@ -124,8 +124,8 @@ open:
       length, so `page: null` above is the strongest claim available. The page says
       not to add a length or file entry until one lands there and its identity is
       confirmed against the construct name. Two coding sequences exist for this enzyme:
-      Chicago's gated constructs agree with each other across the whole CDS, and
-      London's `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of
+      The aTc- and pH-gated constructs agree with each other across the whole CDS, and
+      `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of
       residues. Which of the two this construct carries is not stated.
   - id: an-encapsulation-aid-marked-optional
     question: >
