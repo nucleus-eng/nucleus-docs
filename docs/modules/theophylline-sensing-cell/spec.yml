@@ -33,7 +33,7 @@ inputs:
   detector-theophylline:
     title: "Detector: Theophylline"
     page: ../detector-theophylline/spec.md
-  membrane-chicago:
+  membrane-popc-chol-9-1:
     title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-9-1/spec.md
 
@@ -60,7 +60,7 @@ process_steps:
       page: ../../processes/assemble-base-cell/main.md
       abstract: encapsulate
     operator: packing
-    operands: [theophylline-sensor-cytosol, membrane-chicago]
+    operands: [theophylline-sensor-cytosol, membrane-popc-chol-9-1]
     produces:
       id: theophylline-sensing-cell
       title: "SensorCell[theophylline ⟶ LacZ]"

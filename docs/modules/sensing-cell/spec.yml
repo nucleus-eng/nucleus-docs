@@ -9,7 +9,7 @@
 # exception and no member has a third operand.
 #
 # WHAT VARIES IS THE MEMBRANE, NOT THE SHAPE. The 3OC6-HSL integration path packs membrane-popc and the
-# other three pack membrane-chicago. Both refine membrane, so the slot holds.
+# other three pack membrane-popc-chol-9-1. Both refine membrane, so the slot holds.
 
 module: sensing-cell
 title: "Sensing Cell"

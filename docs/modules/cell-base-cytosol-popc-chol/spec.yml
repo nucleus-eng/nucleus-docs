@@ -32,7 +32,7 @@ inputs:
   base-cytosol:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
-  membrane-chicago:
+  membrane-popc-chol-9-1:
     title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-9-1/spec.md
 
@@ -43,7 +43,7 @@ process_steps:
       page: ../../processes/assemble-base-cell/main.md
       abstract: encapsulate
     operator: packing
-    operands: [base-cytosol, membrane-chicago]
+    operands: [base-cytosol, membrane-popc-chol-9-1]
     produces:
       id: cell-base-cytosol-popc-chol
       title: "Cell: Base Cytosol, POPC/Chol (9:1)"

@@ -32,7 +32,7 @@ inputs:
   reporter-lacz-enzyme:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
-  membrane-chicago:
+  membrane-popc-chol-9-1:
     title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-9-1/spec.md
   substrate-cprg:
@@ -118,7 +118,7 @@ process_steps:
         why: >
           The chained Degrade Exterior LacZ sub-process doses Proteinase K.
     operator: packing
-    operands: [atc-sensor-cytosol, membrane-chicago, mineral-oil]
+    operands: [atc-sensor-cytosol, membrane-popc-chol-9-1, mineral-oil]
     produces:
       id: atc-sensing-cell
       title: "SensorCell[aTc ⟶ PLA1]"

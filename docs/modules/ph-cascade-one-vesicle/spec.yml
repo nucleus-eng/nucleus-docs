@@ -41,7 +41,7 @@ inputs:
   reporter-lacz-enzyme:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
-  membrane-chicago:
+  membrane-popc-chol-9-1:
     title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-9-1/spec.md
   substrate-cprg:
@@ -97,7 +97,7 @@ process_steps:
       page: ../../processes/assemble-base-cell/main.md
       abstract: encapsulate
     operator: packing
-    operands: [ph-sensor-cytosol-with-enzyme, membrane-chicago]
+    operands: [ph-sensor-cytosol-with-enzyme, membrane-popc-chol-9-1]
     produces:
       id: ph-sensing-cell-with-enzyme
       title: "SensorCell[pH ⟶ PLA1], with LacZ"

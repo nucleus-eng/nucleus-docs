@@ -41,7 +41,7 @@ inputs:
                           # NO SEQUENCE FILE EXISTS: nucleus-eng/DNA at f06e12c has no esa* file, no esar
                           # string and no manifest row, while it carries the gated construct for all three
                           # other demos. Do not link or invent one; see ../detector-esar/spec.yml.
-  membrane-craic:
+  membrane:
     title: "Membrane"
     page: null            # the board writes Membrane_i and Membrane_j and names no formulation
   outer-solution:
@@ -98,7 +98,7 @@ process_steps:
       title: "Encapsulation"
       page: ../../processes/encapsulate/main.md
     operator: packing
-    operands: [craic-sensor-cytosol, membrane-craic, outer-solution]
+    operands: [craic-sensor-cytosol, membrane, outer-solution]
     produces:
       id: craic-sensing-cell
       title: "SensorCell[3OC6-HSL ⟶ PLA1]"
@@ -109,7 +109,7 @@ process_steps:
       title: "Encapsulation"
       page: ../../processes/encapsulate/main.md
     operator: packing
-    operands: [substrate-cprg, membrane-craic, outer-solution]
+    operands: [substrate-cprg, membrane, outer-solution]
     produces:
       id: craic-substrate-carrier
       title: "Substrate Carrier{CPRG}"

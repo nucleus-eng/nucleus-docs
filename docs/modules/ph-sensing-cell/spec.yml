@@ -42,7 +42,7 @@ inputs:
                           # sequence, so the gate and the payload are ONE molecule and PLA1 is
                           # not a separate addition. File: effectors/detector-ph/
                           # pT7-toehold9-PLA1-linear.gb, 1203 bp, in nucleus-eng/DNA at f06e12c.
-  membrane-chicago:
+  membrane-popc-chol-9-1:
     title: "Membrane: POPC/Chol (9:1)"
     page: ../membrane-popc-chol-9-1/spec.md
 
@@ -76,7 +76,7 @@ process_steps:
       page: ../../processes/assemble-base-cell/main.md
       abstract: encapsulate
     operator: packing
-    operands: [ph-sensor-cytosol, membrane-chicago]
+    operands: [ph-sensor-cytosol, membrane-popc-chol-9-1]
     produces:
       id: ph-sensing-cell
       title: "SensorCell[pH ⟶ PLA1]"

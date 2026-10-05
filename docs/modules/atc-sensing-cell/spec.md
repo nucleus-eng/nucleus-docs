@@ -40,7 +40,7 @@ flowchart TD
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
     EFFECTOR_PLA1_TETO["Gated lysis DNA: pT7-tetO-PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
-    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
+    MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     ATC_SENSOR_CYTOSOL["SensorCytosol[aTc ⟶ PLA1]"]
@@ -55,7 +55,7 @@ flowchart TD
     P1_ASSEMBLE_CYTOSOL_0 --> ATC_SENSOR_CYTOSOL
 
     ATC_SENSOR_CYTOSOL --> P2_ENCAPSULATE_0
-    MEMBRANE_CHICAGO --> P2_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL_9_1 --> P2_ENCAPSULATE_0
     P2_ENCAPSULATE_0 --> P2_ENCAPSULATE_1
     P2_ENCAPSULATE_1 --> ATC_SENSING_CELL
 
@@ -63,14 +63,14 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1_TETO,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO leaf;
+    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1_TETO,REPORTER_LACZ_ENZYME,MEMBRANE_POPC_CHOL_9_1 leaf;
     class ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL composed;
     class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_0,P2_ENCAPSULATE_1 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
+    click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
     click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click ATC_SENSOR_CYTOSOL "/docs/modules/atc-sensor-cytosol/spec"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"

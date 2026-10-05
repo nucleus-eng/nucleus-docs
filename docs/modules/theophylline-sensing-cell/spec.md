@@ -30,7 +30,7 @@ The theophylline riboswitch expresses its effector without theophylline present,
 flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
-    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
+    MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
 
     P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     THEOPHYLLINE_SENSOR_CYTOSOL["SensorCytosol[theophylline ⟶ LacZ]"]
@@ -42,20 +42,20 @@ flowchart TD
     P1_ASSEMBLE_CYTOSOL_0 --> THEOPHYLLINE_SENSOR_CYTOSOL
 
     THEOPHYLLINE_SENSOR_CYTOSOL --> P2_ENCAPSULATE_0
-    MEMBRANE_CHICAGO --> P2_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL_9_1 --> P2_ENCAPSULATE_0
     P2_ENCAPSULATE_0 --> THEOPHYLLINE_SENSING_CELL
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,DETECTOR_THEOPHYLLINE,MEMBRANE_CHICAGO leaf;
+    class BASE_CYTOSOL,DETECTOR_THEOPHYLLINE,MEMBRANE_POPC_CHOL_9_1 leaf;
     class THEOPHYLLINE_SENSOR_CYTOSOL,THEOPHYLLINE_SENSING_CELL composed;
     class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
+    click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
     click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click THEOPHYLLINE_SENSOR_CYTOSOL "/docs/modules/theophylline-sensor-cytosol/spec"
     click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"

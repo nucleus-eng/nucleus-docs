@@ -32,7 +32,7 @@ flowchart TD
     PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
     TRIGGER_SSDNA["Trigger ssDNA"]
     EFFECTOR_PLA1_TOEHOLD["Gated lysis DNA: pT7-toehold9-PLA1"]
-    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
+    MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
 
     P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
     PH_TRIGGER_DUPLEX["pH trigger duplex"]
@@ -51,19 +51,19 @@ flowchart TD
     P2_ASSEMBLE_CYTOSOL_0 --> PH_SENSOR_CYTOSOL
 
     PH_SENSOR_CYTOSOL --> P3_ENCAPSULATE_0
-    MEMBRANE_CHICAGO --> P3_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL_9_1 --> P3_ENCAPSULATE_0
     P3_ENCAPSULATE_0 --> PH_SENSING_CELL
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1_TOEHOLD,MEMBRANE_CHICAGO leaf;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1_TOEHOLD,MEMBRANE_POPC_CHOL_9_1 leaf;
     class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL composed;
     class P1_ANNEAL_TRIGGER_DUPLEX_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
+    click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
     click P1_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
     click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"

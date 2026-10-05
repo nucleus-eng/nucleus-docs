@@ -37,7 +37,7 @@ flowchart TD
     TRIGGER_SSDNA["Trigger strand"]
     EFFECTOR_PLA1_TOEHOLD["Gated lysis DNA: pT7-toehold9-PLA1"]
     REPORTER_LACZ_ENZYME["LacZ Enzyme"]
-    MEMBRANE_CHICAGO["Membrane: POPC/Chol (9:1)"]
+    MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
     LGA_POWDER["Gel: LGA"]
     OUTER_SOLUTION_TRIS_HEPES["Outer Solution: Tris-HEPES"]
@@ -67,7 +67,7 @@ flowchart TD
     P2_ASSEMBLE_CYTOSOL_0 --> PH_SENSOR_CYTOSOL_WITH_ENZYME
 
     PH_SENSOR_CYTOSOL_WITH_ENZYME --> P3_ENCAPSULATE_0
-    MEMBRANE_CHICAGO --> P3_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL_9_1 --> P3_ENCAPSULATE_0
     P3_ENCAPSULATE_0 --> PH_SENSING_CELL_WITH_ENZYME
 
     LGA_POWDER --> P4_EMBED_AGAROSE_0
@@ -87,13 +87,13 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1_TOEHOLD,REPORTER_LACZ_ENZYME,MEMBRANE_CHICAGO,SUBSTRATE_CPRG,LGA_POWDER,OUTER_SOLUTION_TRIS_HEPES,ANALYTE_PH leaf;
+    class BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1_TOEHOLD,REPORTER_LACZ_ENZYME,MEMBRANE_POPC_CHOL_9_1,SUBSTRATE_CPRG,LGA_POWDER,OUTER_SOLUTION_TRIS_HEPES,ANALYTE_PH leaf;
     class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL_WITH_ENZYME,PH_SENSING_CELL_WITH_ENZYME,PH_GEL_ONE_VESICLE,PH_TRIGGER_SOLUTION,PH_CASCADE_ONE_VESICLE composed;
     class P1_ANNEAL_TRIGGER_DUPLEX_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P4_EMBED_AGAROSE_0,P5_ASSEMBLE_TRIGGER_SOLUTION_0,P6_DOSE_TRIGGER_SOLUTION_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click MEMBRANE_CHICAGO "/docs/modules/membrane-popc-chol-9-1/spec"
+    click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click LGA_POWDER "/docs/modules/gel-lga/spec"
     click OUTER_SOLUTION_TRIS_HEPES "/docs/modules/outer-solution-tris-hepes/spec"

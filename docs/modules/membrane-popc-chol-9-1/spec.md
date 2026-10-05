@@ -65,7 +65,7 @@ flowchart TD
 ::::{tab-item} Bilayer
 
 :::{table} Membrane: POPC/Chol (9:1) Composition.
-:label: comp-membrane-chicago-base
+:label: comp-membrane-popc-chol-base
 
 | Component               | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) |
 | ----------------------- | --------------------- | ------------------------ | --------------------------- |
@@ -80,7 +80,7 @@ flowchart TD
 ::::{tab-item} Preparation
 
 :::{table} Preparations of the Chicago base membrane.
-:label: comp-membrane-chicago-preps
+:label: comp-membrane-popc-chol-preps
 
 | Route | POPC (µL) | Cholesterol (µL) | Liss-Rhod PE (µL) |
 | ----------- | --------- | ---------------- | ----------------- |
