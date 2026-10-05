@@ -200,6 +200,15 @@ properties:
       properties:
         title:
           type: string
+        stock:
+          $ref: "#/$defs/quantity"
+          description: >
+            THE REAGENT CARRIER. The concentration of the material as supplied,
+            which does not vary across the reagent, so by C72 it belongs to the
+            reagent and not to any step that spends it. Two steps drawing from one
+            stock state this once here rather than twice.
+            IT IS NOT SUMMABLE AND NOTHING SHOULD SUM IT. Two aliquots from one
+            stock double the volume and leave this number alone.
         page:
           type: [string, "null"]
           description: >
@@ -356,6 +365,43 @@ properties:
             count them.
 
 $defs:
+  quantity:
+    type: object
+    additionalProperties: false
+    required: [value, unit]
+    description: >
+      A NUMBER WITH A UNIT, so that a checker can compare and add them. Copied from
+      `bound`, which has carried `value` and `unit` separately since it was written
+      and is the only place in this schema that already did.
+      WHY THIS EXISTS. 159 strings under `parameters`, `headroom` and `range` hold
+      quantities, and only 57 are one value with one unit. 27 are three quantities in
+      one string -- "2000 U/mL final, from a 40 000 U/mL stock, 0.5 uL" -- and 47
+      are a value with a qualifier, a bound, a procedure, or no quantity at all.
+      A string cannot be summed, and `"2.0 uL of 10"` cannot be summed with anything.
+      THE STRING WAS A SYMPTOM. `parameters:` is `type: object` with no property
+      constraints, so it became the field that held whatever would not fit elsewhere.
+      Typing the values where they sit would make that permanent, so the three
+      quantities in a recipe go to three different carriers below.
+    properties:
+      value: {type: number}
+      unit:
+        type: string
+        description: >
+          Compared literally, as in `bound`. There is no unit registry and this
+          schema does not pretend to one.
+      approx:
+        type: boolean
+        description: >
+          True where the source wrote `~` or `approx.`. The number is then a reported
+          figure rather than a specification, and a checker must not treat it as a
+          bound. 7 of the 159 strings carry one.
+      note:
+        type: string
+        description: >
+          The qualifier that was packed into the string beside the number, such as
+          "in the pH path" or "pH 7.4". It is kept because deleting it loses a fact,
+          and it is separate because a qualifier is not part of the quantity.
+
 
   bound:
     type: object
@@ -640,14 +686,40 @@ $defs:
             description: >
               null where the product has no page of its own — an intermediate the
               corpus composes but does not document. 13 of 76 steps at `d611bda`.
+          final:
+            type: object
+            additionalProperties:
+              $ref: "#/$defs/quantity"
+            description: >
+              THE PRODUCT CARRIER, keyed by the input id the concentration is of.
+              A final concentration does not vary across the product, so by C72 it
+              belongs to the product rather than to the step that reached it.
+              IT IS RECOMPUTED, NEVER SUMMED. Two aliquots of one stock change the
+              volume and not this, which is why it cannot sit beside the volume in
+              one string the way it does today.
       notes:
         type: string
         description: Prose the step needs and no page states. 63 of 76 steps at `d611bda`.
+      volumes:
+        type: object
+        additionalProperties:
+          $ref: "#/$defs/quantity"
+        description: >
+          THE STEP CARRIER, keyed by the operand id the volume is of. A volume does
+          not vary across the step, so by C72 it belongs to the step.
+          THIS IS THE ONE THAT ADDS. Pooling two steps adds their volumes, and a
+          checker may sum what it finds here and nothing it finds on a reagent or a
+          product. The distinction needs no name because the carrier carries it.
       parameters:
         type: object
         description: >
           Free parameters of this step — a choice the composer makes, where the
           page cannot state one value. 36 of 76 steps at `d611bda`.
+          IT IS NOT A NOTES FIELD, and it became one because it has no property
+          constraints. A quantity belongs in `volumes` here, in `stock` on the input,
+          or in `final` on the product. A bound belongs in `sensitivities`. A
+          procedure belongs on the process page. What is left is a genuine free
+          choice, which is what the first sentence always said.
       headroom:
         type: object
         additionalProperties: false
