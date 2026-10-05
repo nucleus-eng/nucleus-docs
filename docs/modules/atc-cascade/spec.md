@@ -217,16 +217,6 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 Must not be exposed to theophylline, which is reported to interfere with LacZ activity. See [LacZ Reporter Module § Requirements](../reporter-lacz/spec.md#reporter-lacz-requirements) for the constraint and the state of the evidence behind it.
 
-# Constituent Modules
-
-- [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
-- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the sensing reaction at 2.5 U/mL
-- [Substrate: CPRG](../substrate-cprg/spec.md) — dosed free into the gel after crosslinking, because UV bleaches it. This path carries no substrate liposome
-
-:::{attention} PLA1 is inside the sensing cell, not beside it
-The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
-:::
-
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): the cascade that demo builds.
@@ -237,6 +227,16 @@ Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase 
 
 :::{attention} Process gap
 @Editor(chicago): no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
+:::
+
+# Constituent Modules
+
+- [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md) — `TetO-PLA1` sensing construct gated by aTc/TetR, encapsulated in the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell
+- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the sensing reaction at 2.5 U/mL
+- [Substrate: CPRG](../substrate-cprg/spec.md) — dosed free into the gel after crosslinking, because UV bleaches it. This path carries no substrate liposome
+
+:::{attention} PLA1 is inside the sensing cell, not beside it
+The effector is expressed from the same molecule as the detector, so it enters this cascade inside the sensing cell rather than as a separate ingredient a composer supplies. It is listed on [Lysis: PLA1](../effector-pla1/spec.md) and in the sensing cell's own cytosol.
 :::
 
 # Credits

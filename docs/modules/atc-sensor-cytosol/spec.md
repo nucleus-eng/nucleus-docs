@@ -102,13 +102,6 @@ One molecule carries the operator and the effector, so [PLA1](../effector-pla1/s
 
 **The analyte is not part of this composition.** aTc reaches the sensing cell from outside after encapsulation.
 
-# Constituent Modules
-
-- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation
-- [aTc Sensing Module](../detector-tetr-atc/spec.md) — the gated sensing construct
-- `pT7-tetO-PLA1` — the gated construct. The tetO operator and PLA1 are one molecule, so PLA1 is not a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
-- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the reaction
-
 # Process
 
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) — produces the Base Cytosol background.
@@ -119,6 +112,13 @@ This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/asse
 :::{attention} No process page for the general mixing step
 @Editor(chicago): `Assemble Base Cytosol` documents the Base case, where the added component is water. No page documents the abstract mixing step that adds arbitrary aqueous components. Every combination step needs a Process page.
 :::
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation
+- [aTc Sensing Module](../detector-tetr-atc/spec.md) — the gated sensing construct
+- `pT7-tetO-PLA1` — the gated construct. The tetO operator and PLA1 are one molecule, so PLA1 is not a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
+- [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — encapsulated with the reaction
 
 # Credits
 

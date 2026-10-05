@@ -166,11 +166,6 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
-# Constituent Modules
-
-- [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
-
 # Implementations
 
 - [pH Demo](../../implementations/devstudio-ph-demo/main.md): its sensing cell — set in the gel.
@@ -179,6 +174,11 @@ Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
 - [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — the Chicago hydrogel format
+
+# Constituent Modules
+
+- [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 # Credits
 

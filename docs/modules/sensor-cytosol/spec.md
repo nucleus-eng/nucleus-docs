@@ -96,14 +96,14 @@ A Sensor Cytosol is expected to express as any [Cytosol](../cytosol/spec.md) doe
 
 Requires that the detector act in the phase the cytosol provides.
 
+# Processes
+
+[Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) mixes the detector into the cytosol, so both share one compartment.
+
 # Constituent Modules
 
 - [Cytosol](../cytosol/spec.md) — the base the detector is mixed into
 - [Detector](../detector/spec.md) — the sensing element
-
-# Processes
-
-[Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) mixes the detector into the cytosol, so both share one compartment.
 
 # Credits
 

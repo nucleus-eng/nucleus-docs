@@ -186,6 +186,16 @@ Requires the enzyme to be the encapsulated half and the substrate to be outside 
 
 Requires LacZ to tolerate the sensing conditions, which is the first thing to measure — see the open items below.
 
+# Open
+
+:::{attention} Three things decide whether this works
+**Does LacZ survive the sensing pH?** The two-liposome design keeps the enzyme out of the cell precisely because β-galactosidase works poorly at the pH the sensor needs. This design puts it in. The cytosol is buffered and the analyte acidifies the gel, so the enzyme may never see the low pH — but nothing has measured that, and if it does, the design fails at its first step.
+
+**Can the trigger solution carry both?** The aTc cascade doses substrate and analyte together because aTc is membrane-permeable and chemically quiet. The pH analyte is an acid, and whether CPRG tolerates being carried in it is recorded nowhere.
+
+**Does this replace the two-liposome design?** Both are specified now. That one has run; this has not. Nothing here claims to supersede it.
+:::
+
 # Constituent Modules
 
 - **SensorCell[pH ⟶ PLA1], with LacZ** — the one liposome population, and it has **no page of its own**. It is not the two-liposome cascade's sensing cell: this one carries the enzyme inside, which makes it a different Module, and only one of the two is built. Named here rather than linked for that reason
@@ -199,16 +209,6 @@ Requires LacZ to tolerate the sensing conditions, which is the first thing to me
 - [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) — the phase the agarose dissolves into
 
 The pH-responsive and trigger strands are named by the source as the two halves annealed 3:1. The **Detector: pH-Sensing** page documents them; it is not linked here because this source names the strands rather than the Module.
-
-# Open
-
-:::{attention} Three things decide whether this works
-**Does LacZ survive the sensing pH?** The two-liposome design keeps the enzyme out of the cell precisely because β-galactosidase works poorly at the pH the sensor needs. This design puts it in. The cytosol is buffered and the analyte acidifies the gel, so the enzyme may never see the low pH — but nothing has measured that, and if it does, the design fails at its first step.
-
-**Can the trigger solution carry both?** The aTc cascade doses substrate and analyte together because aTc is membrane-permeable and chemically quiet. The pH analyte is an acid, and whether CPRG tolerates being carried in it is recorded nowhere.
-
-**Does this replace the two-liposome design?** Both are specified now. That one has run; this has not. Nothing here claims to supersede it.
-:::
 
 # Credits
 

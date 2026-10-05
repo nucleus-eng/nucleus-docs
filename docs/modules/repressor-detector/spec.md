@@ -100,14 +100,14 @@ Requires an analyte that reaches the repressor element.
 
 Requires that the repressor element and the regulatory element be present together before the analyte arrives. A repressor added after induction has nothing to relieve.
 
+# Processes
+
+A member is made by mixing the repressor element with its DNA regulatory element in one compartment. No Process page covers this step on its own.
+
 # Constituent Modules
 
 - Repressor element — TetR or LacI in the built members, EsaR in the designed one
 - DNA regulatory element — the operator or promoter the repressor binds
-
-# Processes
-
-A member is made by mixing the repressor element with its DNA regulatory element in one compartment. No Process page covers this step on its own.
 
 # Credits
 

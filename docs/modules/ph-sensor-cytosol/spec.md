@@ -98,18 +98,18 @@ The toehold switch and the effector are on one molecule, so [PLA1](../effector-p
 
 :::::
 
-# Constituent Modules
-
-- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation
-- [pH-Sensing Module](../detector-ph/spec.md) — trigger duplex and toehold-gated template
-- `pT7-toehold9-PLA1` — the gated construct. The toehold switch and PLA1 are one molecule, so PLA1 is not a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
-
 # Process
 
 - [Anneal pH-Responsive Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) — anneals the sensing and trigger strands into the single duplex reagent, **before** this cytosol is mixed.
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) — produces the Base Cytosol background.
 
 This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) to form the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation
+- [pH-Sensing Module](../detector-ph/spec.md) — trigger duplex and toehold-gated template
+- `pT7-toehold9-PLA1` — the gated construct. The toehold switch and PLA1 are one molecule, so PLA1 is not a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
 
 # Credits
 

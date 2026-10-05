@@ -104,14 +104,14 @@ Requires a cytosol the member has been shown to work in. [Detector: 3OC6-HSL (Lu
 
 Requires an analyte that reaches the recognition element. Whether that needs a transport route depends on the analyte. For [IPTG](../analyte-iptg/spec.md) it is not documented.
 
+# Processes
+
+A member is made by mixing the recognition element with the regulatory element it gates in one compartment. The two share a phase, because the gate cannot act across a boundary. No Process page covers this step on its own.
+
 # Constituent Modules
 
 - Recognition element — what responds to the analyte: a repressor, an activator, an aptamer or a pH-responsive strand
 - Regulatory element — what the recognition element gates: a promoter, an operator or a ribosome binding site
-
-# Processes
-
-A member is made by mixing the recognition element with the regulatory element it gates in one compartment. The two share a phase, because the gate cannot act across a boundary. No Process page covers this step on its own.
 
 # Credits
 

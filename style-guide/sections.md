@@ -12,6 +12,10 @@ What the Module is and what it does. Mechanism and schematic figures go here. A 
 
 A tab-set: the generated `Module Dependencies` diagram, then one tab per part of the system.
 
+**A page draws its own step. A page with no step has nothing to draw.** Whether the Module is a class does not enter it: a class is a position in the refinement order, and the diagram draws composition, which is a different axis. A class that declares a step draws it, with its operands named as the class names them.
+
+**Drawing it is sometimes the only place a distinction is visible.** `vesicle`, `guv`, `suv` and `luv` share a step id, an operator and their operands; they differ only in the process their step names, and the diagram is where that stops being a word and becomes a route to a page.
+
 **Derive the tab set. Do not read it off the table that is already there.** Enumerate the transitive closure of `# Constituent Modules` — the generated diagram already computes it — and add anything the Requirements name. Every compartment and every genetically encoded part in that closure gets a tab.
 
 Requirements imply tabs too. A lysis Module requires a membrane, because there is nothing to lyse without one, so it carries a Membrane tab even though no membrane appears in its own constituent list.
@@ -193,9 +197,19 @@ If no Process page covers the combination, say so in one sentence and stop. "No 
 
 **Optional, and only where a Module is bought rather than made.** A Module whose constituents arrive as catalog items carries a Materials section naming them. A Module assembled from other Modules does not: its constituents have pages, and those pages carry their own materials.
 
-It sits after Processes and before Credits. Nine pages carry it.
+It sits after Processes and before Constituent Modules. Nine pages carry it.
 
 Give vendor, catalog number and storage where the source has them, and say which it does not have. A Materials section with a column of blanks and no statement reads as "not needed" rather than "not recorded".
+
+## Constituent Modules
+
+**The last section before Credits**, after Materials where a page has one.
+
+It is a bullet list, one line per Module this one is built from, each linking that Module's page. `scripts/check-composition.py` reads it and compares it against the composition source, so a Module in one and not the other is a finding.
+
+**Keep the heading exactly as it is.** `scripts/render-all.py` matches the string `# Constituent Modules`, as it matches the `<!-- gen:composition-diagram -->` markers, and a page missing either drops out of the generator with nothing reported.
+
+**Where this position came from.** The heading was used on 50 pages in nine different positions before it was written down here. Pages still marked draft scattered; of the pages not marked draft, six of the nine carrying it put it immediately before Credits, and each of the three that did not also carried an undocumented heading of its own or was out of order elsewhere.
 
 ## Credits
 

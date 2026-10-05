@@ -27,10 +27,40 @@ This page is a work in progress and not yet ready for use.
 
 **A lipid membrane around a payload.** The refinement is one narrowing of the parent: [Membrane](../membrane/spec.md) is lipid by its own definition, so naming it is what makes this class narrower than Vesicle.
 
-# Constituent Modules
+:::::{tab-set}
 
-- [Membrane](../membrane/spec.md) — a lipid bilayer, which is the whole of the refinement
-- **Payload** — what it closes around, as on the parent: a cytosol, a substrate or a dye
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    LIPID_MEMBRANE["Membrane"]
+    PAYLOAD["Payload"]
+
+    P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0(["Encapsulation (packing)"])
+    LIPOSOME["Liposome"]
+
+    LIPID_MEMBRANE --> P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0
+    PAYLOAD --> P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0
+    P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0 --> LIPOSOME
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class LIPID_MEMBRANE,PAYLOAD leaf;
+    class LIPOSOME composed;
+    class P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0 process;
+
+    click LIPID_MEMBRANE "/docs/modules/membrane/spec"
+    click P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0 "/docs/processes/encapsulate/main"
+    click LIPOSOME "/docs/modules/liposome/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+:::::
 
 # Members
 
@@ -43,6 +73,11 @@ As [Vesicle](../vesicle/spec.md). **Being made of lipid adds no behavior the par
 # Requirements
 
 Requires a lipid membrane, and an interior to close around.
+
+# Constituent Modules
+
+- [Membrane](../membrane/spec.md) — a lipid bilayer, which is the whole of the refinement
+- **Payload** — what it closes around, as on the parent: a cytosol, a substrate or a dye
 
 # Credits
 

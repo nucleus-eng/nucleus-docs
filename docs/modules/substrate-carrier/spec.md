@@ -87,14 +87,14 @@ A Substrate Carrier is expected to keep its substrate inside until the membrane 
 
 The substrate is packed and never mixed. A substrate in the same phase as its enzyme reacts on contact, which is the failure [Color Change](../color-change/spec.md) is defined against. A Substrate Carrier is one way to hold the pair apart, and holding the enzyme apart instead is the other.
 
+# Processes
+
+[Encapsulation](../../processes/encapsulate/main.md) closes a membrane around the substrate. The members use different routes: [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) for GUV: CPRG and [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) for Substrate SUV: CPRG.
+
 # Constituent Modules
 
 - [Membrane](../membrane/spec.md) — the boundary, POPC in one member and POPC/cholesterol in the other
 - Substrate — CPRG in both members
-
-# Processes
-
-[Encapsulation](../../processes/encapsulate/main.md) closes a membrane around the substrate. The members use different routes: [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) for GUV: CPRG and [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md) for Substrate SUV: CPRG.
 
 # Credits
 

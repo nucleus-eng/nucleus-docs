@@ -29,6 +29,56 @@ This page is a work in progress and not yet ready for use.
 
 **Size.** Set by the extrusion membrane. Its one member targets 400 nm through a 400 nm polycarbonate membrane.
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    MEMBRANE["Membrane"]
+    PAYLOAD["Payload"]
+
+    P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0(["Encapsulation: Extrusion (packing)"])
+    SUV["SUV"]
+
+    MEMBRANE --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
+    PAYLOAD --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
+    P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 --> SUV
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class MEMBRANE,PAYLOAD leaf;
+    class SUV composed;
+    class P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 process;
+
+    click MEMBRANE "/docs/modules/membrane/spec"
+    click P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 "/docs/processes/encapsulate-suv/main"
+    click SUV "/docs/modules/suv/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+
+::::{tab-item} Membrane
+
+The bilayer is any member of [Membrane](../membrane/spec.md). This page fixes the size and the route, not the lipids: an SUV made by extrusion can carry any of them.
+
+:::{table} The bilayer, unnarrowed at this level.
+:label: comp-suv-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| not fixed here | — |
+:::
+
+::::
+
+:::::
+
 # Members
 
 :::{table} Every Module produced by this route.
@@ -37,11 +87,6 @@ This page is a work in progress and not yet ready for use.
 | [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
 :::
 
-# Constituent Modules
-
-- [Membrane](../membrane/spec.md) — the bilayer that closes. Which one is the member's choice
-- **Payload** — what it closes around, and it has no class page: a cytosol, a substrate or a dye, depending on the member
-
 # Expected Behavior
 
 A member holds its interior apart from the outside until something breaches the bilayer. **The class says nothing about what that is** — lysis, a pore, or no breach at all.
@@ -49,6 +94,11 @@ A member holds its interior apart from the outside until something breaches the 
 # Requirements
 
 Requires a membrane that closes, and an interior to close around.
+
+# Constituent Modules
+
+- [Membrane](../membrane/spec.md) — the bilayer that closes. Which one is the member's choice
+- **Payload** — what it closes around, and it has no class page: a cytosol, a substrate or a dye, depending on the member
 
 # Credits
 

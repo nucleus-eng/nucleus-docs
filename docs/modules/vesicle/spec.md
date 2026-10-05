@@ -27,10 +27,55 @@ This page is a work in progress and not yet ready for use.
 
 **A membrane around a payload, and nothing more.** Every narrowing below this — which route makes it, what size it is, what the bilayer is made of — belongs to a child. Members differ in both the membrane and the interior.
 
-# Constituent Modules
+:::::{tab-set}
 
-- [Membrane](../membrane/spec.md) — the bilayer that closes
-- **Payload** — what it closes around, and it has no class page: a cytosol, a substrate or a dye, depending on the member
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    MEMBRANE["Membrane"]
+    PAYLOAD["Payload"]
+
+    P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0(["Encapsulation (packing)"])
+    VESICLE["Vesicle"]
+
+    MEMBRANE --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
+    PAYLOAD --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
+    P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 --> VESICLE
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class MEMBRANE,PAYLOAD leaf;
+    class VESICLE composed;
+    class P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 process;
+
+    click MEMBRANE "/docs/modules/membrane/spec"
+    click P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 "/docs/processes/encapsulate/main"
+    click VESICLE "/docs/modules/vesicle/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+
+::::{tab-item} Membrane
+
+This class does not fix the bilayer. Which lipids, and in what ratio, belongs to a member of [Membrane](../membrane/spec.md), and which member belongs to a child of this class.
+
+:::{table} The bilayer, unnarrowed at this level.
+:label: comp-vesicle-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| not fixed here | — |
+:::
+
+::::
+
+:::::
 
 # Expected Behavior
 
@@ -43,6 +88,11 @@ Requires a membrane that closes, and an interior to close around. **Whether form
 # Processes
 
 - [Encapsulation](../../processes/encapsulate/main.md) — the abstract operation. Each size class names one of its three routes
+
+# Constituent Modules
+
+- [Membrane](../membrane/spec.md) — the bilayer that closes
+- **Payload** — what it closes around, and it has no class page: a cytosol, a substrate or a dye, depending on the member
 
 # Credits
 

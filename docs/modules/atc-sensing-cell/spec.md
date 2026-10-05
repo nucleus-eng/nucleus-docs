@@ -171,16 +171,16 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its sensing cell — set in the gel.
 
-# Constituent Modules
-
-- [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the aTc sensing construct, the PLA1 effector it gates, and the LacZ enzyme
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
-
 # Processes
 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — the shared phase-transfer method, with the Chicago-specific lipid composition on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
+
+# Constituent Modules
+
+- [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the aTc sensing construct, the PLA1 effector it gates, and the LacZ enzyme
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
 
 # Credits
 

@@ -88,17 +88,17 @@ One molecule carries the detector and the effector, so [PLA1](../effector-pla1/s
 
 
 
-# Constituent Modules
-
-- [S30 Lysate](../s30-lysate/spec.md) — transcription and translation
-- [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) — the sensor plasmid
-- `pOpen-LuxR-PLA1` — the gated construct. One molecule carries the receiver and PLA1, so neither is a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
-
 # Process
 
 - [Assemble Cytosol](../../processes/assemble-base-cytosol/main.md) — the mixing step that produces this Module. Every constituent above enters the same compartment.
 
 This cytosol is consumed by [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), which combines it with the [Membrane: POPC](../membrane-popc/spec.md) to form the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
+
+# Constituent Modules
+
+- [S30 Lysate](../s30-lysate/spec.md) — transcription and translation
+- [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) — the sensor plasmid
+- `pOpen-LuxR-PLA1` — the gated construct. One molecule carries the receiver and PLA1, so neither is a separate addition. PLA1 itself is described on the Lysis: PLA1 page, `../effector-pla1/spec.md`
 
 # Credits
 

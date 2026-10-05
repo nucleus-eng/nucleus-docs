@@ -67,15 +67,6 @@ flowchart TD
 
 :::::
 
-# Constituent Modules
-
-- [Outer Solution](../outer-solution/spec.md) — the phase the polymer dissolves into and becomes.
-- Low-gelling-temperature agarose
-
-:::{attention} No part number is recorded for the agarose
-@Editor(chicago): record the part number of the low-gelling-temperature agarose.
-:::
-
 # Requirements
 
 Requires an [Outer Solution](../outer-solution/spec.md) for the polymer to dissolve into.
@@ -89,6 +80,15 @@ Requires that whatever is embedded survives the temperature at which the polymer
 # Processes
 
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — sets the agarose by cooling. Hold it above its (26–30) °C congealing range while the payload goes in, then set it below that range.
+
+# Constituent Modules
+
+- [Outer Solution](../outer-solution/spec.md) — the phase the polymer dissolves into and becomes.
+- Low-gelling-temperature agarose
+
+:::{attention} No part number is recorded for the agarose
+@Editor(chicago): record the part number of the low-gelling-temperature agarose.
+:::
 
 # Credits
 

@@ -72,12 +72,6 @@ flowchart TD
 
 :::::
 
-# Constituent Modules
-
-- Potassium glutamate — 578 mM
-- HEPES — 72 mM, pH 7.4
-- Glucose — 300 mM
-
 # Requirements
 
 Requires an osmolarity of about 920 mOsm, matched to the cells suspended in it.
@@ -89,6 +83,12 @@ Requires an osmolarity of about 920 mOsm, matched to the cells suspended in it.
 # Processes
 
 The step is [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
+
+# Constituent Modules
+
+- Potassium glutamate — 578 mM
+- HEPES — 72 mM, pH 7.4
+- Glucose — 300 mM
 
 # Credits
 

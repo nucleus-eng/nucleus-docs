@@ -78,11 +78,6 @@ this value carries the gel.
 
 :::::
 
-# Constituent Modules
-
-- Tris-HEPES stock — 42.5% (v/v) in water
-- Energy solution — not documented
-
 # Requirements
 
 Requires an osmolarity of about 1180 mOsm, matched across the membranes of the cells embedded
@@ -91,6 +86,11 @@ in the gel it forms.
 # Processes
 
 Made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
+
+# Constituent Modules
+
+- Tris-HEPES stock — 42.5% (v/v) in water
+- Energy solution — not documented
 
 # Credits
 

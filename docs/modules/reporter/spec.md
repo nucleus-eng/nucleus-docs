@@ -98,11 +98,6 @@ A Reporter is expected to give a signal that a reader can measure, once its cyto
 
 The two members that need a substrate go through [Color Change](../color-change/spec.md), which holds the enzyme and the substrate apart until a trigger. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) reads their absorbance. deGFP is read by fluorescence.
 
-# Constituent Modules
-
-- [Cytosol](../cytosol/spec.md) — the expression machinery
-- Reporter template — DNA encoding the reporting protein
-
 # Requirements
 
 Requires a cytosol that can express the template. A member whose signal comes from a substrate also requires that substrate. See [Color Change](../color-change/spec.md).
@@ -110,6 +105,11 @@ Requires a cytosol that can express the template. A member whose signal comes fr
 # Processes
 
 A member is made by [Expression](../../processes/express/main.md): the cytosol supplies the machinery and the template supplies the sequence, in one compartment.
+
+# Constituent Modules
+
+- [Cytosol](../cytosol/spec.md) — the expression machinery
+- Reporter template — DNA encoding the reporting protein
 
 # Credits
 

@@ -102,14 +102,14 @@ Requires a trigger that breaks the separation. The built members use [Lysis: PLA
 
 Requires that the enzyme act on the substrate. The valid pairs are LacZ with CPRG, LacZ with X-Gal, and XylE with catechol. A cross pair such as LacZ with catechol is wrong chemistry. See [LacZ Enzyme](../reporter-lacz-enzyme/spec.md).
 
+# Processes
+
+A member holds its enzyme and substrate apart by [Encapsulation](../../processes/encapsulate/main.md), which closes a membrane around the component that is enclosed.
+
 # Constituent Modules
 
 - Enzyme — LacZ in one member, XylE in the other
 - Substrate — CPRG or catechol, paired to the enzyme
-
-# Processes
-
-A member holds its enzyme and substrate apart by [Encapsulation](../../processes/encapsulate/main.md), which closes a membrane around the component that is enclosed.
 
 # Credits
 

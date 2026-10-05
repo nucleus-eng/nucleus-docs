@@ -129,11 +129,6 @@ Cell size is recorded only as the ≥5 µm cutoff used for counting. @Editor(lon
 
 Requires a membrane to encapsulate the cytosol (e.g. [Membrane: POPC](../membrane-popc/spec.md)).
 
-# Constituent Modules
-
-- [S30 Lysate](../s30-lysate/spec.md)
-- [Membrane: POPC](../membrane-popc/spec.md)
-
 # Implementations
 
 - [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its chassis — the empty chassis this builds on.
@@ -143,6 +138,11 @@ Requires a membrane to encapsulate the cytosol (e.g. [Membrane: POPC](../membran
 The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 
 
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — the London hydrogel format
+
+# Constituent Modules
+
+- [S30 Lysate](../s30-lysate/spec.md)
+- [Membrane: POPC](../membrane-popc/spec.md)
 
 # Credits
 

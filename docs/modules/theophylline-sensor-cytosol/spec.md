@@ -94,14 +94,14 @@ flowchart TD
 
 Requires a gene downstream of the riboswitch for detection to produce anything. The one construct on record puts LacZ there, which is the pairing [Detector: Theophylline](../detector-theophylline/spec.md#detector-theophylline-requirements) and [LacZ Reporter Module](../reporter-lacz/spec.md#reporter-lacz-requirements) both carry a MUST NOT against. Every result on this page was produced with it, and the MUST NOT stands.
 
+# Processes
+
+[Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) mixes [Base Cytosol](../base-cytosol/spec.md) with [Detector: Theophylline](../detector-theophylline/spec.md).
+
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — the base
 - [Detector: Theophylline](../detector-theophylline/spec.md) — the riboswitch
-
-# Processes
-
-[Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) mixes [Base Cytosol](../base-cytosol/spec.md) with [Detector: Theophylline](../detector-theophylline/spec.md).
 
 # Credits
 

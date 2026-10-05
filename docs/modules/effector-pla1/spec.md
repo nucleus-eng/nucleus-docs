@@ -154,10 +154,6 @@ Requires sigma-70 transcription and translation, when using `LuxR-PLA1` (e.g. [S
 Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effector-pla1-expected-behavior) for why.
 
 (effector-pla1-implementations)=
-# Constituent Modules
-
-- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, for the ungated configuration
-
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its lysis — expressed from `TetO-PLA1`.
@@ -170,6 +166,10 @@ Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effe
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
 - [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — the Chicago hydrogel format
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — the London hydrogel format
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, for the ungated configuration
 
 # Credits
 

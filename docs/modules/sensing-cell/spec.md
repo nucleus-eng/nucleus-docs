@@ -92,14 +92,14 @@ A Sensing Cell is expected to respond to its analyte from inside a closed membra
 
 Requires that the sensor cytosol be complete before the membrane closes around it, as for any [Cell](../cell/spec.md).
 
+# Processes
+
+[Encapsulation](../../processes/encapsulate/main.md) closes the membrane around the sensor cytosol. Every member uses the [Phase Transfer](../../processes/assemble-base-cell/main.md) route.
+
 # Constituent Modules
 
 - [Sensor Cytosol](../sensor-cytosol/spec.md) — the cytosol slot, narrowed from its parent
 - [Membrane](../membrane/spec.md) — the boundary, unchanged from its parent
-
-# Processes
-
-[Encapsulation](../../processes/encapsulate/main.md) closes the membrane around the sensor cytosol. Every member uses the [Phase Transfer](../../processes/assemble-base-cell/main.md) route.
 
 # Credits
 

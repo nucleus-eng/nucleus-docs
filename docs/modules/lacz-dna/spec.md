@@ -35,10 +35,6 @@ One construct, obtained rather than composed.
 @Editor: add the sequence file for `T7pro-LacZ-T7term` to `nucleus-eng/DNA` and link it here.
 :::
 
-# Constituent Modules
-
-- `T7pro-LacZ-T7term` — the construct
-
 # Requirements
 
 Requires an expression system. A template in a tube reports nothing.
@@ -46,6 +42,10 @@ Requires an expression system. A template in a tube reports nothing.
 # Processes
 
 None here. It is obtained rather than made.
+
+# Constituent Modules
+
+- `T7pro-LacZ-T7term` — the construct
 
 # Credits
 

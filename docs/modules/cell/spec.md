@@ -94,14 +94,14 @@ A Cell is expected to have an inside, a boundary and an outside. The cytosol rea
 
 Requires that the cytosol be complete before the membrane closes around it. A closed cell cannot be filled afterwards.
 
+# Processes
+
+[Encapsulation](../../processes/encapsulate/main.md) closes the membrane around the cytosol. Every member uses the [Phase Transfer](../../processes/assemble-base-cell/main.md) route.
+
 # Constituent Modules
 
 - [Cytosol](../cytosol/spec.md) — what the membrane closes around
 - [Membrane](../membrane/spec.md) — the boundary
-
-# Processes
-
-[Encapsulation](../../processes/encapsulate/main.md) closes the membrane around the cytosol. Every member uses the [Phase Transfer](../../processes/assemble-base-cell/main.md) route.
 
 # Credits
 

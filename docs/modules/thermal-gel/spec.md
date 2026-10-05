@@ -77,14 +77,14 @@ A thermal gel is liquid while it is held above its gelling range, and sets when 
 
 Requires that whatever is embedded tolerates the temperature at which the gel is still liquid. That limit belongs to the payload, and its own page states it.
 
+# Processes
+
+- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — holds the gel above its gelling range while the payload goes in, then sets it by cooling.
+
 # Constituent Modules
 
 - Agarose — the polymer, a different grade in each member
 - [Outer Solution](../outer-solution/spec.md) — the phase the agarose dissolves into and becomes
-
-# Processes
-
-- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — holds the gel above its gelling range while the payload goes in, then sets it by cooling.
 
 # Credits
 

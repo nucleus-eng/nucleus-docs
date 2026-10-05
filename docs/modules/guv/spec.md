@@ -29,6 +29,56 @@ This page is a work in progress and not yet ready for use.
 
 **Size.** Micron scale. No diameter is stated by any member, and none is stated here.
 
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    MEMBRANE["Membrane"]
+    PAYLOAD["Payload"]
+
+    P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0(["Encapsulation: Phase Transfer (packing)"])
+    GUV["GUV"]
+
+    MEMBRANE --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
+    PAYLOAD --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
+    P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 --> GUV
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class MEMBRANE,PAYLOAD leaf;
+    class GUV composed;
+    class P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 process;
+
+    click MEMBRANE "/docs/modules/membrane/spec"
+    click P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 "/docs/processes/assemble-base-cell/main"
+    click GUV "/docs/modules/guv/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+
+::::{tab-item} Membrane
+
+The bilayer is any member of [Membrane](../membrane/spec.md). This page fixes the size and the route, not the lipids: a GUV built by phase transfer can carry any of them.
+
+:::{table} The bilayer, unnarrowed at this level.
+:label: comp-guv-membrane
+
+| Component | Target percentage (%) |
+| --- | --- |
+| not fixed here | — |
+:::
+
+::::
+
+:::::
+
 # Members
 
 :::{table} Every Module produced by this route.
@@ -45,11 +95,6 @@ This page is a work in progress and not yet ready for use.
 | [SensorCell[theophylline ⟶ LacZ]](../theophylline-sensing-cell/spec.md) |
 :::
 
-# Constituent Modules
-
-- [Membrane](../membrane/spec.md) — the bilayer that closes. Which one is the member's choice
-- **Payload** — what it closes around, and it has no class page: a cytosol, a substrate or a dye, depending on the member
-
 # Expected Behavior
 
 A member holds its interior apart from the outside until something breaches the bilayer. **The class says nothing about what that is** — lysis, a pore, or no breach at all.
@@ -57,6 +102,11 @@ A member holds its interior apart from the outside until something breaches the 
 # Requirements
 
 Requires a membrane that closes, and an interior to close around.
+
+# Constituent Modules
+
+- [Membrane](../membrane/spec.md) — the bilayer that closes. Which one is the member's choice
+- **Payload** — what it closes around, and it has no class page: a cytosol, a substrate or a dye, depending on the member
 
 # Credits
 

@@ -206,13 +206,13 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 ::::
 
-# Constituent Modules
-
-- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
-
 # Implementations
 
 - [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its reporter — the fluorescent output.
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
 
 # Credits
 
