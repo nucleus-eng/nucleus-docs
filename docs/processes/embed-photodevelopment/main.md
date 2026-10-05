@@ -89,7 +89,7 @@ Crosslinks poly(ethylene glycol) diacrylate into spatially defined patterns usin
 An alternative version combines PEGDA with alginate to produce a patterned frame around an alginate core, multiplexing PEGDA's patternability with alginate's mechanical and functional stability.
 
 :::{attention} PEGDA → Readout was never demonstrated at macroscopic scale
-DevCell component volumes are too small to produce macroscopically visible pattern changes. Photopatterning of the PEGDA hydrogel itself was demonstrated, with tunable feature sizes and a PEGDA frame with a structurally sound alginate core. The downstream link from a patterned, DevCell-embedded hydrogel to a visible colorimetric readout was not.
+DevCell component volumes are too small to produce macroscopically visible pattern changes. Photopatterning of the PEGDA gel itself was demonstrated, with tunable feature sizes and a PEGDA frame with a structurally sound alginate core. The downstream link from a patterned, DevCell-embedded gel to a visible colorimetric readout was not.
 :::
 
 ## Expected Behavior

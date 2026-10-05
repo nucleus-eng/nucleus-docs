@@ -114,7 +114,7 @@ Both a self-lysis target and, in the two-liposome cascades, a neighboring [Subst
 
 PLA1 lyses the synthetic cell that expresses it, and synthetic cells near it. One documented configuration reports on PLA1 rather than on a cascade, because nothing gates it:
 
-- **London constitutive expression, ungated.** `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes, with no sensing circuit, drives the two-liposome CPRG/LacZ handoff. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run, and has been reproduced across multiple days. Expect a visible result on that timescale at this dose. The recorded outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 1.5% ULGA, so this is the hydrogel format — see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
+- **London constitutive expression, ungated.** `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes, with no sensing circuit, drives the two-liposome CPRG/LacZ handoff. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run, and has been reproduced across multiple days. Expect a visible result on that timescale at this dose. The recorded outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 1.5% ULGA, so this is the gel format — see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
 
 Every other configuration on record puts a sensing circuit in front of PLA1, so PLA1 and its gate cannot be told apart: a weak result there may be either. Those are results of the cascades that produced them, and each cascade's own page carries them.
 

@@ -25,7 +25,7 @@ This page is a work in progress and not yet ready for use.
 :name: fig-lacz-cprg-agarose
 :align: center
 :width: 80%
-Photograph of the LacZ/CPRG colorimetric reaction in an agarose hydrogel well, taken at t = 0, 30, and 60 min (left to right) after PLA1-triggered rupture of CPRG-loaded SUVs. CPRG starts yellow and turns magenta/purple as LacZ converts it. Samuel Chen, Liu Lab (Chicago Node).
+Photograph of the LacZ/CPRG colorimetric reaction in an agarose gel well, taken at t = 0, 30, and 60 min (left to right) after PLA1-triggered rupture of CPRG-loaded SUVs. CPRG starts yellow and turns magenta/purple as LacZ converts it. Samuel Chen, Liu Lab (Chicago Node).
 :::
 
 # Reference Composition
@@ -148,7 +148,7 @@ Kinetics for colorimetric conversion of CPRG into a red product, absorbance at 5
 
 ## Cells
 
-See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed synthetic cell/hydrogel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ, CPRG outside, in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. 
+See [tetR-aTc Detector](../detector-tetr-atc/spec.md) for the confirmed synthetic cell/gel-relevant encapsulation data: `TetO-PLA1` co-encapsulated with LacZ, CPRG outside, in a synthetic cell, showing a graded absorbance response (575 nm) to aTc dose across three DNA/TetR combinations. 
 
 ## Gels
 
@@ -187,9 +187,9 @@ See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.
 :::
 
 :::{warning} Gels requiring UV crosslinking require post-exposure addition of CPRG
-CPRG is UV-sensitive: preloaded into liposomes it photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route — this does **not** affect agarose, alginate, or ULGA hydrogel embedding, where the standard two-liposome preloaded-CPRG method works as expected. So this is a **Conflict** between a Process and a Component: photodevelopment imposes UV, and CPRG is sensitive to it. It is a property of CPRG under UV, which both photodevelopment routes impose.
+CPRG is UV-sensitive: preloaded into liposomes it photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route — this does **not** affect agarose, alginate, or ULGA gel embedding, where the standard two-liposome preloaded-CPRG method works as expected. So this is a **Conflict** between a Process and a Component: photodevelopment imposes UV, and CPRG is sensitive to it. It is a property of CPRG under UV, which both photodevelopment routes impose.
 
-**Confirmed workaround:** for PEG-norbornene hydrogels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
+**Confirmed workaround:** for PEG-norbornene gels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
 :::
 
 :::{caution} Exterior LacZ leakage confounds the readout

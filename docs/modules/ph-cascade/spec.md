@@ -216,12 +216,12 @@ The pH Cascade is expected to turn a drop to pH ≈ 6.5 into a visible yellow-to
 - **PLA1-driven lysis coupling to CPRG/LacZ readout:** confirmed at the solution level for the Chicago pH cascade — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-implementations), "Chicago pH cascade."
 
 :::{warning} Not yet validated as a combined cascade
-The three Modules above have run in partial combinations, never together in one format. The SensorCell[pH ⟶ PLA1]'s own integration into the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell and hydrogel format is itself proposed rather than confirmed — see [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
+The three Modules above have run in partial combinations, never together in one format. The SensorCell[pH ⟶ PLA1]'s own integration into the Cell: Base Cytosol, POPC/Chol (9:1) synthetic cell and gel format is itself proposed rather than confirmed — see [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md).
 :::
 
 ## Gels
 
-- **pH-sensing, bulk hydrogel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected. The concentration-dependent absorbance data is on the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) spec.
+- **pH-sensing, bulk gel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected. The concentration-dependent absorbance data is on the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) spec.
 
 :::{attention} Source needed for the agarose result
 @Editor(chicago): cite the document that reports the "slight pink" color in 0.7% low-gelling agarose.

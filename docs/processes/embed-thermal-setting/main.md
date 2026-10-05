@@ -76,7 +76,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | HEPES (pH 7.4) | 72 mM |
 | Glucose | 300 mM |
 | 3OC6-HSL (+ condition only) | (5-10) µM |
-| 3OC6-HSL-producing bacteria supernatant | 10:1 dilution (20 µL per 200 µL hydrogel) |
+| 3OC6-HSL-producing bacteria supernatant | 10:1 dilution (20 µL per 200 µL gel) |
 | ULGA | 1% (w/v) |
 
 :::
@@ -143,7 +143,7 @@ No exact dissolution temperature or hold time is established for either grade. S
 
 - [ ] Cool the dissolved agarose to a temperature that keeps it liquid (above the top of its gel-point range, in the table above) but is safe to mix with synthetic cells, before proceeding.
 
-## Form Hydrogel-Embedded synthetic cells
+## Form Gel-Embedded synthetic cells
 
 - [ ] Combine the cooled, still-liquid agarose with the synthetic cells (e.g., SensorCell[3OC6-HSL ⟶ PLA1] POPC synthetic cells carrying `LuxR-deGFP` in S30 Lysate) to a total volume of 100 µL per reaction.
 - [ ] Dispense the mixture into wells or onto a plate, and set the gel by cooling below the bottom of the grade's gel-point range.

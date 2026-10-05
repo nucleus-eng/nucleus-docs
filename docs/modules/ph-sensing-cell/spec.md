@@ -127,7 +127,7 @@ The inner solution follows the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-bas
 (ph-sensing-cell-expected-behavior)=
 # Expected Behavior
 
-The SensorCell[pH ⟶ PLA1] is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Membrane: POPC/Chol (9:1) — in solution. Neither has been embedded into a hydrogel.
+The SensorCell[pH ⟶ PLA1] is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Membrane: POPC/Chol (9:1) — in solution. Neither has been embedded into a gel.
 
 ## Cells
 
@@ -137,8 +137,8 @@ A separate result shows pH-responsive GFP expression in liposomes in solution. T
 
 A third result isolates this Cell: in solution at 37 °C for 13 h, with no CPRG-loaded population and no enzyme in the well, these Cells lysed at pH 6.3 and stayed intact at pH 7.6. Lysis is read as the loss of the Cy5 the Cells carry. @Editor: cite the DevNote for this run once it is published.
 
-:::{warning} Not yet validated in a hydrogel
-All three results are in solution. Embedding this Cell in a hydrogel, as the Chicago demo does, has not been run.
+:::{warning} Not yet validated in a gel
+All three results are in solution. Embedding this Cell in a gel, as the Chicago demo does, has not been run.
 :::
 
 ## Gels

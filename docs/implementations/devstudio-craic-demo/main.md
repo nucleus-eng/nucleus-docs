@@ -12,7 +12,7 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
-The CRAIC Demo detects a bacterial quorum-sensing signal and reports it as a visible color change from inside a hydrogel. Synthetic cells built on [Base Cytosol](../../modules/base-cytosol/spec.md) express the EsaR repressor, which holds a PLA1 construct off. 3OC6-HSL relieves the repression, the cells express [Lysis: PLA1](../../modules/effector-pla1/spec.md), and PLA1 breaks the membranes around it. That releases [Substrate: CPRG](../../modules/substrate-cprg/spec.md) from a separate carrier population to meet [Reporter: LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) in the gel, turning it from yellow to red.
+The CRAIC Demo detects a bacterial quorum-sensing signal and reports it as a visible color change from inside a gel. Synthetic cells built on [Base Cytosol](../../modules/base-cytosol/spec.md) express the EsaR repressor, which holds a PLA1 construct off. 3OC6-HSL relieves the repression, the cells express [Lysis: PLA1](../../modules/effector-pla1/spec.md), and PLA1 breaks the membranes around it. That releases [Substrate: CPRG](../../modules/substrate-cprg/spec.md) from a separate carrier population to meet [Reporter: LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) in the gel, turning it from yellow to red.
 
 What the embedding step builds is [CRAIC](../../modules/craic-cascade/spec.md).
 

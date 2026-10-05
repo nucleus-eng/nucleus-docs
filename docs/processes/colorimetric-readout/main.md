@@ -12,19 +12,19 @@ This page is a work in progress and not yet ready for use.
 
 Colorimetric Readout converts a completed sensing/lysis cascade into a visible, measurable color signal. A chromogenic substrate — chlorophenol red-β-D-galactopyranoside (CPRG) or, in an alternate chemistry, catechol — is hydrolyzed by a reporter enzyme (β-galactosidase, LacZ, or catechol 2,3-dioxygenase, XylE/C23DO) that has been released or exposed by upstream lysis. The readout step comprises the substrate/enzyme chemistry, the absorbance wavelengths used to read it, and the plate-reader and visual-scoring protocols used across the DevCells cascades.
 
-This is the shared downstream step for both the Chicago and London programs: every sensing cascade that produces a visible signal (theophylline, pH, aTc, and 3OC6-HSL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or hydrogel format feeds it.
+This is the shared downstream step for both the Chicago and London programs: every sensing cascade that produces a visible signal (theophylline, pH, aTc, and 3OC6-HSL sensing) ends at this same LacZ/CPRG (or XylE/catechol) chemistry, regardless of which upstream sensor or gel format feeds it.
 
 :::::::{card}
 :header: **Important Information**
 
 Please read this section carefully. It contains important notes, resources, and safety information. Not all information included here is included in the lab-ready protocol.
 
-::::::{attention} Upstream hydrogel status is not uniform
+::::::{attention} Upstream gel status is not uniform
 :class: dropdown
 :icon: false
 
 - **Embedding: Thermal Setting → Colorimetric Readout is confirmed.** The London ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
-- **Embedding: Photodevelopment → Colorimetric Readout is proposed and not demonstrated.** Chicago's PEGDA-patterned hydrogel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned hydrogel has not been shown.
+- **Embedding: Photodevelopment → Colorimetric Readout is proposed and not demonstrated.** Chicago's PEGDA-patterned gel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned gel has not been shown.
 - **Embedding: Ionic Crosslinking → Colorimetric Readout is confirmed for the unpatterned gel.** The unpatterned alginate-embedded readout ([SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a confirmed result. Alginate embedding also feeds PEGDA patterning, which is confirmed.
 
 ::::::
@@ -55,7 +55,7 @@ CPRG (chlorophenol red-β-D-galactopyranoside, Roche 10884308001) is a yellow co
 
 ## Alternate chemistry: XylE / catechol
 
-Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless catechol into 2-hydroxymuconate semialdehyde, a yellow ring-fission product read by absorbance near 375 nm to 385 nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). This is an orthogonal reporter chemistry for the Chicago Node, alongside LacZ/CPRG, intended to give a second colorimetric channel for multiplexed sensing. It is confirmed only at bulk-cytosol scale — no synthetic cell/liposome-encapsulated or hydrogel-embedded XylE result exists — and no confirmed cascade result uses it (the aTc Cascade dose-response uses the LacZ integration path, not XylE). See the [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) spec for the bulk-cytosol reaction composition and result.
+Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless catechol into 2-hydroxymuconate semialdehyde, a yellow ring-fission product read by absorbance near 375 nm to 385 nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). This is an orthogonal reporter chemistry for the Chicago Node, alongside LacZ/CPRG, intended to give a second colorimetric channel for multiplexed sensing. It is confirmed only at bulk-cytosol scale — no synthetic cell/liposome-encapsulated or gel-embedded XylE result exists — and no confirmed cascade result uses it (the aTc Cascade dose-response uses the LacZ integration path, not XylE). See the [XylE / C23DO Reporter Module](../../modules/reporter-xyle/spec.md) spec for the bulk-cytosol reaction composition and result.
 
 # Materials and Equipment
 
@@ -79,18 +79,18 @@ Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless cat
 Some cascades co-encapsulate LacZ inside the same synthetic cell as the sensing and lysis constructs (e.g., the confirmed aTc Cascade result); others rely on an external LacZ solution that lysed liposomes release their substrate into (e.g., the alginate-embedded theophylline cascade, the London two-liposome cascade). Only run this step for the latter case.
 
 - [ ] Prepare β-galactosidase stock in reaction buffer at the concentration specified by the cascade's Module page.
-- [ ] Add the LacZ solution to the exterior (hydrogel matrix or well) alongside or before the sensing/lysis liposomes, per that cascade's own protocol.
+- [ ] Add the LacZ solution to the exterior (gel matrix or well) alongside or before the sensing/lysis liposomes, per that cascade's own protocol.
 
 ## Plate-reader absorbance protocol
 
-- [ ] Load the completed reaction (solution, hydrogel, or embedded format) into a clear-bottom or glass-bottom plate. Use a 96-well plate for bulk/hydrogel-in-well formats or a 384-well glass-bottom plate for imaged liposome/hydrogel preparations.
+- [ ] Load the completed reaction (solution, gel, or embedded format) into a clear-bottom or glass-bottom plate. Use a 96-well plate for bulk/gel-in-well formats or a 384-well glass-bottom plate for imaged liposome/gel preparations.
 - [ ] Set the plate reader to read absorbance at 570 nm to 575 nm (LacZ/CPRG) or 375 nm to 385 nm (XylE/catechol), matching the chemistry in use.
 - [ ] Incubate at 37 °C and take kinetic reads over the timescale established for that cascade — reported response times across cascades range from about 3 h (constitutive PLA1/CPRG, no sensing gate) to about 16 h (theophylline and ULGA-embedded 3OC6-HSL cascades) and up to several hours for solution-phase pH sensing. Do not assume a single fixed read window applies to every cascade; check the specific Module page.
 - [ ] Include the controls specified by that cascade's own protocol (e.g., minus-inducer, minus-DNA, Triton X-100 positive lysis control) in the same plate read.
 
 ## Endpoint visual scoring
 
-For formats read by eye rather than by plate reader (e.g., a hydrogel photographed at fixed timepoints):
+For formats read by eye rather than by plate reader (e.g., a gel photographed at fixed timepoints):
 
 - [ ] Photograph the reaction at the timepoints specified by the cascade's protocol under consistent, diffuse lighting against a white background.
 - [ ] Score color qualitatively: LacZ/CPRG reactions progress from yellow toward pink/magenta/purple; XylE/catechol reactions progress from colorless toward yellow.
@@ -102,7 +102,7 @@ A positive color change alone does not confirm specific detection — several ca
 
 - The Chicago theophylline cascade shows the same ~16 h color change with or without theophylline present (riboswitch leak) — see the [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) spec.
 - The London 3OC6-HSL cascade shows only a slightly discernible, "temperamental" difference between +3OC6-HSL and −3OC6-HSL conditions, with inconsistent liposome rupture reported across repeats — see the [LuxR-LacZ Sensor Cascade](../../modules/luxr-lacz-cascade/spec.md) spec.
-- The pH-sensing bulk hydrogel result shows a real but modest absorbance gap (Abs₅₇₀ ≈0.31 at pH 7.4 vs. ≈0.39 at pH 6.5, against a ≈0.46 positive control) — see the [pH-Sensing Module](../../modules/detector-ph/spec.md) spec.
+- The pH-sensing bulk gel result shows a real but modest absorbance gap (Abs₅₇₀ ≈0.31 at pH 7.4 vs. ≈0.39 at pH 6.5, against a ≈0.46 positive control) — see the [pH-Sensing Module](../../modules/detector-ph/spec.md) spec.
 
 Always include the negative/uninduced control specified by the cascade's own Module page alongside the induced condition in the same read, and treat this process's absorbance values as relative to that same-plate control rather than against an absolute threshold.
 

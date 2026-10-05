@@ -14,7 +14,7 @@ SUV encapsulation prepares small unilamellar vesicles (SUVs) by lipid-film hydra
 
 SUVs and synthetic cells are distinct particle-size classes and are never interchangeable. This process produces SUVs only. For synthetic cell production, see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md).
 
-SUVs from this process feed alginate hydrogel embedding only. The synthetic cells from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) feed both alginate hydrogel embedding and ULGA hydrogel embedding.
+SUVs from this process feed alginate gel embedding only. The synthetic cells from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) feed both alginate gel embedding and ULGA gel embedding.
 
 :::::::{card}
 :header: **Important Information**
@@ -27,7 +27,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 CPRG pre-loaded into SUVs photobleaches during the UV crosslinking step of photodeveloped gel formation, by either route. Side-by-side comparisons confirm that UV exposure during PEG-norbornene crosslinking visibly bleaches the CPRG color, while an unexposed control retains it.
 
-This is specific to PEG-norbornene. Agarose, alginate, and ULGA hydrogel embedding do not expose SUVs to a UV crosslinking step and do not show this problem — the SUV pre-loading approach described in this process is compatible with the alginate hydrogel embedding process it is normally paired with.
+This is specific to PEG-norbornene. Agarose, alginate, and ULGA gel embedding do not expose SUVs to a UV crosslinking step and do not show this problem — the SUV pre-loading approach described in this process is compatible with the alginate gel embedding process it is normally paired with.
 
 **Confirmed workaround for PEG-norbornene only:** add CPRG as a free dye after crosslinking, instead of pre-loading it into SUVs, with LacZ pre-added to the gel. Do not use this workaround as a default — it is only needed when pairing SUVs with PEG-norbornene gelation.
 ::::::

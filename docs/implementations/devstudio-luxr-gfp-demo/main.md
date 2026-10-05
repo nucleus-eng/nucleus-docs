@@ -12,7 +12,7 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
-The LuxR-GFP Demo detects a bacterial quorum-sensing signal and reports it as fluorescence from inside a hydrogel. Synthetic cells built on [Cytosol: S30 Lysate](../../modules/s30-lysate/spec.md) carry a LuxR/pLux circuit. 3OC6-HSL released by bacteria outside the gel crosses the membrane, LuxR binds it, and the cells express [Reporter: deGFP](../../modules/reporter-degfp/spec.md).
+The LuxR-GFP Demo detects a bacterial quorum-sensing signal and reports it as fluorescence from inside a gel. Synthetic cells built on [Cytosol: S30 Lysate](../../modules/s30-lysate/spec.md) carry a LuxR/pLux circuit. 3OC6-HSL released by bacteria outside the gel crosses the membrane, LuxR binds it, and the cells express [Reporter: deGFP](../../modules/reporter-degfp/spec.md).
 
 **The input is a living bacterial culture, not a dosed small molecule.** That makes this a bacteria-detection device rather than a chemical sensor, and it is what distinguishes it from the aTc and pH demos.
 

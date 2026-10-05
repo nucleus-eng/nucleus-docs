@@ -194,7 +194,7 @@ Two things, assembled at different steps. The Outer Solution is mixed first; eve
 
 The first three components are the same salts and sugar at the same concentrations as the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), which matches its inner and outer solutions at ≈ 920 mOsm. Matching them here keeps encapsulated contents from being driven across the bilayer by an osmotic gradient before the cascade fires. Because both halves carry the same salts, combining them does not dilute the salts — only the ULGA, which is present in this half alone.
 
-3OC6-HSL may instead be supplied as supernatant from an 3OC6-HSL-producing bacterial culture, diluted 10:1 — 20 µL into 200 µL of hydrogel.
+3OC6-HSL may instead be supplied as supernatant from an 3OC6-HSL-producing bacterial culture, diluted 10:1 — 20 µL into 200 µL of gel.
 
 ::::
 

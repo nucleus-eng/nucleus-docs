@@ -55,7 +55,7 @@ The full chain — sensing, lysis, then the LacZ readout — runs in one compart
 So the demo reports presence, not amount.
 
 :::{attention} What this does not show
-- **The gel.** Every result above is in synthetic cells in solution. The cascade has not been run in a hydrogel, which is what the demo is for.
+- **The gel.** Every result above is in synthetic cells in solution. The cascade has not been run in a gel, which is what the demo is for.
 - **The 0 µM point is a normalization baseline, not a negative control.** [Detector: tetR-aTc](../../modules/detector-tetr-atc/spec.md#teto-pla1-encapsulated-with-lacz) says why.
 - **Patterning bleaches the substrate.** PEG-norbornene supports the synthetic cells, but the 405 nm exposure bleaches CPRG that is already in the gel, which is why CPRG is dosed after the gel is set rather than mixed in.
 :::

@@ -6,7 +6,7 @@ status: draft
 
 # Overview
 
-Alginate hydrogel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~1% (w/v) sodium alginate hydrogel, ionically crosslinked with 200 mM CaCl₂. The hydrogel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific. It is fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeds into [Embedding: Photodevelopment](../embed-photodevelopment/main.md).
+Alginate gel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~1% (w/v) sodium alginate gel, ionically crosslinked with 200 mM CaCl₂. The gel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific. It is fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeds into [Embedding: Photodevelopment](../embed-photodevelopment/main.md).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -21,7 +21,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- Alginate crosslinks ionically: divalent Ca²⁺ ions bridge adjacent alginate polymer chains (an "egg-box" junction), gelling the matrix without the heat or UV exposure that agarose or PEGDA-based hydrogels require. This is compatible with pre-formed Sensing Cells and CPRG-loaded SUVs in the gel at the time of crosslinking, unlike UV-crosslinked chemistries (see the PEG-norbornene caveat below).
+- Alginate crosslinks ionically: divalent Ca²⁺ ions bridge adjacent alginate polymer chains (an "egg-box" junction), gelling the matrix without the heat or UV exposure that agarose or PEGDA-based gels require. This is compatible with pre-formed Sensing Cells and CPRG-loaded SUVs in the gel at the time of crosslinking, unlike UV-crosslinked chemistries (see the PEG-norbornene caveat below).
 - This process assumes the Sensing Cells and CPRG-loaded SUVs are already formed and purified by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md) before this step. It does not cover liposome formation itself.
 
 ::::
@@ -104,7 +104,7 @@ The commercial enzyme is β-galactosidase from *E. coli*. London sources it as S
 @Editor(chicago): the Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio used to produce the ~16 h color-change result is not established. Confirm this ratio before treating any specific volume as a reference value.
 :::
 
-## Crosslink the Hydrogel
+## Crosslink the Gel
 
 - [ ] Introduce the CaCl₂ crosslinking solution (200 mM) to the liposome/alginate mixture to ionically crosslink the alginate matrix.
 
@@ -115,7 +115,7 @@ The commercial enzyme is β-galactosidase from *E. coli*. London sources it as S
 
 ## Incubate and Monitor for Colorimetric Readout
 
-- [ ] Incubate the crosslinked hydrogel at conditions matching the upstream sensing synthetic cell's requirements (e.g., 1 mM theophylline present or absent, per the [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) reference composition).
+- [ ] Incubate the crosslinked gel at conditions matching the upstream sensing synthetic cell's requirements (e.g., 1 mM theophylline present or absent, per the [SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) reference composition).
 - [ ] Monitor for a visible yellow-to-purple color change, expected at approximately 16 h. Color development can also be tracked by absorbance at 570 nm–575 nm.
 - [ ] Proceed to [Colorimetric Readout](../colorimetric-readout/main.md) for quantitative readout methodology.
 

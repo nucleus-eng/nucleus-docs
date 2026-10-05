@@ -204,7 +204,7 @@ The [aTc Sensing Module](../detector-tetr-atc/spec.md#teto-pla1-encapsulated-wit
 ## Gels
 
 :::{warning} Not yet validated
-This Module has not been validated in hydrogels. The aTc-response result above is confirmed in synthetic cells only. Hydrogel integration has not been completed — see the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md#atc-sensing-cell-expected-behavior) spec for the same caveat. Do not treat this cascade as validated for hydrogel-embedded use.
+This Module has not been validated in gels. The aTc-response result above is confirmed in synthetic cells only. Gel integration has not been completed — see the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md#atc-sensing-cell-expected-behavior) spec for the same caveat. Do not treat this cascade as validated for gel-embedded use.
 :::
 
 # Requirements
@@ -223,10 +223,10 @@ Must not be exposed to theophylline, which is reported to interfere with LacZ ac
 
 # Processes
 
-Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). Hydrogel embedding of this cascade is not documented.
+Encapsulation follows the shared phase-transfer method in [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md), with the Chicago-specific lipid composition documented on [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). Gel embedding of this cascade is not documented.
 
 :::{attention} Process gap
-@Editor(chicago): no process page covers hydrogel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
+@Editor(chicago): no process page covers gel embedding for this cascade, and [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) has not been confirmed to apply as written at synthetic-cell scale. Both need process pages.
 :::
 
 # Constituent Modules

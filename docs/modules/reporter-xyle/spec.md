@@ -20,7 +20,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} Proposed module requires validation
-This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Behavior below). No synthetic cell/liposome encapsulation or hydrogel-embedded data exist for this reporter, and it is not part of any confirmed cascade result.
+This module's chemistry is confirmed only at bulk-cytosol scale, with one construct, in one lab context (see Expected Behavior below). No synthetic cell/liposome encapsulation or gel-embedded data exist for this reporter, and it is not part of any confirmed cascade result.
 :::
 
 # Reference Composition
@@ -128,7 +128,7 @@ Absorbance at 385 nm over time for the unregulated, regulated and derepressed co
 ## Cells
 
 :::{caution} Missing Validation Data
-No synthetic cell or hydrogel data exist for this module. 
+No synthetic cell or gel data exist for this module. 
 :::
 
 # Requirements
