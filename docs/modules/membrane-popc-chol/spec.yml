@@ -26,7 +26,7 @@ inputs:
     page: null            # 1-palmitoyl-2-oleoyl-glycero-3-phosphocholine; no module page
   cholesterol:
     title: "Cholesterol"
-    molar_mass: {value: 386.654, unit: "g/mol"}
+    molar_mass: {value: 386.7, unit: "g/mol"}
     stock: {value: 50, unit: "mg/mL"}
     page: null
   liss-rhod-pe:

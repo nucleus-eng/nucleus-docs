@@ -150,6 +150,20 @@ Work inside a fume hood when handling chloroform.
     - [ ] Collect 15 µL of pellet from each of six tubes, 90 µL in total.
     - [ ] Add 160 µL outer solution, for 250 µL in total.
 
+:::{admonition} The wash spin and the pellet spin are different speeds
+:class: warning
+
+The wash spins at **4,000 × g**. The single pellet spin above runs at **10,000 × g**,
+which is also what the equipment list gives as the microcentrifuge's maximum.
+
+[Substrate: CPRG LUV](../../modules/substrate-cprg-luv/spec.md) carried 10,000 × g for
+the wash, which is the pellet figure in the wrong row. That page now points here
+instead of repeating a speed.
+
+@Editor: confirm 4,000 × g is the wash speed actually run. If it is not, this page is
+the one to correct, because it is the one a bench user follows.
+:::
+
 ## Wash
 
 - [ ] **Wash each pooled tube 10 times.** For each wash:

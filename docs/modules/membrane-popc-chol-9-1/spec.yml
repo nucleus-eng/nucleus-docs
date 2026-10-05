@@ -31,7 +31,7 @@ inputs:
     page: null
   cholesterol:
     title: "Cholesterol"
-    molar_mass: {value: 386.66, unit: "g/mol"}
+    molar_mass: {value: 386.7, unit: "g/mol"}
     stock: {value: 50, unit: "mg/mL"}
     page: null
   liss-rhod-pe:

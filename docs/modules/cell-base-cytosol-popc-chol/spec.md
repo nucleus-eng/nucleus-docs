@@ -83,7 +83,7 @@ Below is an approximate composition table for the cytosolic components in the Ce
 | Component               | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ----------------------- | --------------------- | ------------------------ | --------------------------- | ------------------ |
 | POPC                    | 89.9                  | 760.076                  | 25                          | 41                 |
-| Cholesterol             | 10                    | 386.66                   | 50                          | 1.16               |
+| Cholesterol             | 10                    | 386.7                   | 50                          | 1.16               |
 | (Optional) Liss-Rhod PE | 0.1                   | 1301.71                  | 1                           | 1.952              |
 
 :::

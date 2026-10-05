@@ -68,7 +68,7 @@ flowchart TD
 | Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ----------- | --------------------- | ------------------------ | --------------------------- | ------------------ |
 | POPC        | 90                    | 760.076                  | 25                          | 208.51             |
-| Cholesterol | 10                    | 386.654                  | 50                          | 6.00               |
+| Cholesterol | 10                    | 386.7                  | 50                          | 6.00               |
 
 :::
 

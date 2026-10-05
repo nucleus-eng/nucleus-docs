@@ -118,7 +118,13 @@ open:
       as 1249.65. ../membrane-popc-chol/spec.yml gives 386.654 and 1301.71 for the
       same two lipids at the same percentages, 70 / 29.95 / 0.05. Cholesterol is
       C27H46O at 386.65, so 286.66 is a transcription error in the devnote rather
-      than a different compound. The Rhod PE pair is likelier a salt-versus-free-acid
+      than a different compound. RESOLVED 2026-10-05: Jon, on the 386.66 / 386.654
+      split across nine files -- "those are basically the same number though, that's
+      fine. just say 386.7 and be done with it." The corpus now writes 386.7
+      everywhere. THE FIGURES IN THIS PARAGRAPH ARE LEFT AS WRITTEN because it is a
+      record of what each document said, and rewriting a sentence about a
+      disagreement is how you lose the disagreement.
+      The Rhod PE pair is likelier a salt-versus-free-acid
       difference and is not resolved here. Recorded because the two documents will be
       read side by side and neither says the other is wrong.
   - id: optiprep-is-an-encapsulation-aid

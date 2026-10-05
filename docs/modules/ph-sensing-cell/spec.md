@@ -116,7 +116,7 @@ The inner solution follows the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-bas
 | Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) |
 | ----------- | --------------------- | ------------------------ | --------------------------- |
 | POPC        | 90                  | 760.076                  | 25                          |
-| Cholesterol | 10                    | 386.66                   | 50                          |
+| Cholesterol | 10                    | 386.7                   | 50                          |
 
 :::
 

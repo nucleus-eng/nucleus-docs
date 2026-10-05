@@ -87,7 +87,7 @@ The inner solution encapsulated into the Base Cell is [Base Cytosol](/docs/modul
 | Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
 | POPC         | 70                    | 760.076                  | 25                          | 162.17             |
-| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
+| Cholesterol  | 29.95                 | 386.7                  | 50                          | 17.65              |
 | Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
 
 :::

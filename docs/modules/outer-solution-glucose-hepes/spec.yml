@@ -35,9 +35,17 @@ process_steps:
       id: outer-solution-glucose-hepes
       title: "Outer Solution: Glucose-HEPES"
       page: ../outer-solution-glucose-hepes/spec.md
-    parameters:
-      glucose: "400 mM"
-      hepes_koh: "1 M, pH 7.6"
+    # SCALE-FREE, 2026-10-05. THE COLUMN HEADER DID NOT SETTLE THIS and the arithmetic
+    # did. ../outer-solution-glucose-hepes/spec.md:66 heads its column "Concentration",
+    # where the sibling file writes "Working concentration", so the page does not say
+    # whether 1 M is this solution or the buffer stock behind it.
+    #
+    # Jon, 2026-10-05: "400 mM glucose is not enough. plus 1000 mM hepes brings us to
+    # 1400 mOsm which sounds more reasonable." So both are finals. Flagged on the page
+    # rather than treated as closed.
+    finals:
+      glucose: {value: 400, unit: "mM"}
+      hepes-koh: {value: 1, unit: "M", note: "pH 7.6"}
 
 open:
   - id: the-osmolarity-is-not-recorded

@@ -131,7 +131,7 @@ Requires the wash solution to match the interior osmolarity. The inner solution 
 | --- | --- | --- |
 | Lipid in the film | 2 µmol in 0.5 mL | 4 mM |
 | Freeze-thaw cycles | 5 | Liquid nitrogen, then a 35 °C water bath |
-| Washes | 10 | Centrifugation at 10,000 × g into the outer solution |
+| Washes | 10 | Centrifugation into the outer solution. The spin is on [Encapsulation: Freeze-Thaw](../../processes/encapsulate-luv/main.md) |
 | Wash solution | the implementation's outer solution | Formulations are on [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) |
 
 :::

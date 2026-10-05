@@ -28,6 +28,16 @@ inputs:
     page: null            # bilayer-forming lipid; in every preparation
   dspe-peg2000:
     title: "DSPE-PEG2000"
+    optional: true
+    # OPTIONAL, ruled 2026-10-05. Jon: "the DSPE-PEG2000 is an optional parameter and
+    # doesn't meaningfully affect the downstream processes using that lipid, just the
+    # resulting membrane properties."
+    #
+    # THAT IS WHAT MAKES ../guv-cprg/spec.md's "100% POPC" TRUE RATHER THAN FALSE. Read
+    # as a whole-film composition it contradicts this page's 99.15 : 0.85. Read against
+    # the sterol axis, with the PEG optional, it says what it means: no cholesterol.
+    # ../../../style-guide/sections.md already carries the rule -- "Optional components
+    # do not change a Module's identity."
     page: null            # PEGylated preparation only — see the questions below
 
 process_steps:
