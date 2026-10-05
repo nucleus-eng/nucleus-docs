@@ -12,7 +12,7 @@ site:
 **Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`cell-s30-popc`](../cell-s30-popc/spec.md) and [`guv`](../guv/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The SensorCell[3OC6-HSL ⟶ PLA1] combines the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) with the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), encapsulating the LuxR/pLux 3OC6-HSL sensor plasmid (`LuxR-deGFP`) inside a POPC synthetic cell filled with S30 Lysate. 3OC6-HSL supplied in the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome. This composed synthetic cell is used in the London quorum-sensing demo.
+The SensorCell[3OC6-HSL ⟶ PLA1] combines the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) with the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), encapsulating the LuxR/pLux 3OC6-HSL sensor plasmid (`LuxR-deGFP`) inside a POPC synthetic cell filled with S30 Lysate. 3OC6-HSL supplied in the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome.
 
 This Cell is the sensing element of the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), which reports colorimetrically, and of the [LuxR-GFP Sensor Cascade](../luxr-gfp-cascade/spec.md), which reports fluorescence.
 
@@ -148,7 +148,7 @@ Without Optiprep in the inner solution, the encapsulated sensor expresses GFP on
 In [S30 Lysate](../s30-lysate/spec.md), the 3OC6-HSL-gated [colorimetric](../../processes/colorimetric-readout/main.md) sensor works in solution as well as in gel. An SensorCell[3OC6-HSL ⟶ PLA1] combined with a [CPRG-loaded SUV](../../processes/encapsulate-suv/main.md) and 3OC6-HSL has not been reproduced. Negative controls in that test turned purple, attributed to leaky old-stock liposomes rather than an 3OC6-HSL response.
 
 :::{attention} Caveats
-- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the 3OC6-HSL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10%.
+- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the 3OC6-HSL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10%.
 - Plasmid dose is critical — roughly seven-fold under-dosing accounts for early failures. Use ~1000 ng per reaction.
 - Fold-induction is strongest near 25 °C and drops at 37 °C. Incubate at 25 °C where minimal background matters.
 - Encapsulation is stochastic. Expect a GFP-positive subpopulation rather than uniform signal across synthetic cells.
@@ -176,10 +176,10 @@ Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate
 
 Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)).
 
-Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more — the London CPRG population runs at 10%.
+Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10%.
 
 :::{attention} Source needed for the Optiprep ceiling in dye populations
-@Editor(london): cite the document that gives the London CPRG population's 10% Optiprep, which this page states under Expected Behavior and here.
+@Editor(london): cite the document that gives the CPRG dye population's 10% Optiprep, which this page states under Expected Behavior and here.
 :::
 
 # Processes

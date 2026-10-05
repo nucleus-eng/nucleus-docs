@@ -44,7 +44,7 @@ process_steps:
     operands: [potassium-glutamate, hepes, glucose]
     produces:
       id: outer-solution-glutamate
-      title: "London outer solution"
+      title: "Outer Solution: Glutamate"
       page: null
     parameters:
       potassium_glutamate: "578 mM"

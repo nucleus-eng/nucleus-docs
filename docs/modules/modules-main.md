@@ -80,7 +80,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 
 ## S30 Lysate
 
-Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the London demo's cytosol-equivalent, based on the Promega E. coli S30 Extract System).
+Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the cytosol-equivalent chassis, based on the Promega E. coli S30 Extract System).
 
 :::{table}
 

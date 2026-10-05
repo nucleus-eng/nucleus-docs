@@ -68,7 +68,7 @@ flowchart TD
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Cassette form. Base Cytosol does not require circular DNA |
-| `pOpen-T7-tetO-PLA1` | 3140 | — | Circular form, preferred by the Chicago Node |
+| `pOpen-T7-tetO-PLA1` | 3140 | — | Circular form, preferred |
 | TetR | not documented | — | Supplied as purified protein at 50 nM, not expressed |
 | LacZ | not documented | — | Supplied as purified enzyme at 2.5 U/mL, not expressed |
 :::
@@ -97,7 +97,7 @@ One molecule carries the operator and the effector, so [PLA1](../effector-pla1/s
 :::::
 
 :::{attention} Which DNA form this reaction receives
-@Editor(chicago): the Chicago Node prefers the circular `pOpen-T7-tetO-PLA1` (3140 bp) and both forms are expected to work. Base Cytosol does not require circular DNA, so the cassette form is also valid here — but the two are **not sequence-identical**, so confirm which the reference reaction used before treating this row as a supply instruction. See [aTc Sensing Module](../detector-tetr-atc/spec.md).
+@Editor(chicago): the circular `pOpen-T7-tetO-PLA1` (3140 bp) is preferred and both forms are expected to work. Base Cytosol does not require circular DNA, so the cassette form is also valid here — but the two are **not sequence-identical**, so confirm which the reference reaction used before treating this row as a supply instruction. See [aTc Sensing Module](../detector-tetr-atc/spec.md).
 :::
 
 **The analyte is not part of this composition.** aTc reaches the sensing cell from outside after encapsulation.
