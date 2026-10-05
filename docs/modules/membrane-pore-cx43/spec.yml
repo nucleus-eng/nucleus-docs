@@ -33,6 +33,7 @@ inputs:
     page: null
   cx43-egfp-dna:
     title: "pOpen-pT7-Cx43-eGFP"
+    stock: {value: 100, unit: "ng/uL"}
     page: null            # 3996 bp; pores/pOpen-Cx43-eGFP.gb in nucleus-eng/DNA
   optiprep:
     title: "OptiPrep"
@@ -40,6 +41,7 @@ inputs:
     optional: true        # density for phase transfer — see the questions below
   rnase-inhibitor:
     title: "RNase inhibitor"
+    stock: {value: 40000, unit: "U/mL"}
     page: null
   water:
     title: "Nuclease-free water"
@@ -62,14 +64,20 @@ process_steps:
       id: membrane-pore-cx43
       title: "Membrane Pore: Cx43"
       page: ../membrane-pore-cx43/spec.md
-    parameters:
-      purexpress_solution_a: "8 uL"
-      purexpress_solution_b: "6 uL"
-      cx43_egfp_dna: "2 uL of a 100 ng/uL stock"
-      optiprep: "0.67 uL"
-      rnase_inhibitor: "2000 U/mL final, from a 40 000 U/mL stock, 1 uL"
-      water: "2.33 uL"
-      reaction_volume: "20 uL"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. Volumes out, fractions in:
+    # fraction x stock = final, and 0.05 x 40 000 U/mL returns the 2000 U/mL this
+    # source states. NOTE this is HALF ../membrane-pore-ahly/spec.yml's RNase
+    # inhibitor at twice the scale, which the volumes hid: both pages wrote "1 uL".
+    fractions:
+      purexpress-solution-a: 0.40
+      purexpress-solution-b: 0.30
+      cx43-egfp-dna: 0.10
+      optiprep: 0.0335
+      rnase-inhibitor: 0.05
+    finals:
+      rnase-inhibitor: {value: 2000, unit: "U/mL"}
+    balance: water
+    reaction_volume: {value: 20, unit: "uL"}
     notes: >
       Cx43 is expressed in situ from the plasmid rather than supplied as protein, so
       this Module is a reaction. Connexins are membrane-spanning proteins and six of

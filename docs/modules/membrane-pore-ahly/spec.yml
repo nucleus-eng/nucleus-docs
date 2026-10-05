@@ -29,9 +29,11 @@ inputs:
     page: null
   ahly-dna:
     title: "pT7-aHly"
+    stock: {value: 10, unit: "nM"}
     page: null            # not in nucleus-eng/DNA
   rnase-inhibitor:
     title: "RNase inhibitor"
+    stock: {value: 40000, unit: "U/mL"}
     page: null
   water:
     title: "Nuclease-free water"
@@ -56,13 +58,18 @@ process_steps:
       id: membrane-pore-ahly
       title: "Membrane Pore: alpha-hemolysin"
       page: ../membrane-pore-ahly/spec.md
-    parameters:
-      purexpress_solution_a: "4 uL"
-      purexpress_solution_b: "3 uL"
-      ahly_dna: "1 uL of a 10 nM stock"
-      rnase_inhibitor: "4000 U/mL final, from a 40 000 U/mL stock, 1 uL"
-      water: "1 uL"
-      reaction_volume: "10 uL"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. Volumes out, fractions in:
+    # fraction x stock = final, and 0.10 x 40 000 U/mL returns the 4000 U/mL this
+    # source states. No other final is written, because no other is sourced.
+    fractions:
+      purexpress-solution-a: 0.40
+      purexpress-solution-b: 0.30
+      ahly-dna: 0.10
+      rnase-inhibitor: 0.10
+    finals:
+      rnase-inhibitor: {value: 4000, unit: "U/mL"}
+    balance: water
+    reaction_volume: {value: 10, unit: "uL"}
     notes: >
       aHly is expressed in situ from `pT7-aHly` rather than supplied as protein, so
       this Module is a reaction rather than a reagent. The page names Assemble Base
