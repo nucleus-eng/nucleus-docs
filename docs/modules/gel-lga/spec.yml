@@ -29,6 +29,24 @@ inputs:
   lga-powder:
     title: "Low gelling temperature agarose"
     page: null            # no module page for the polymer; the grade is below
+    # SUPPLIER GUARANTEES, NOT SENSITIVITIES, ruled R33. A sensitivity is half of a
+    # Conflict and needs an imposition to point at. These are the opposite polarity:
+    # what the vendor promises the material does, not what it fails to tolerate.
+    #
+    # NEITHER FIGURE IS ON ../gel-lga/spec.md. The only record in the corpus is this
+    # file, in the `open` item below. The move is file-internal so nothing is imported,
+    # but the page carries no datasheet row and should gain one.
+    spec:
+      - quantity: eeo
+        sense: at-most
+        value: 0.10
+        # NO UNIT. Electroendosmosis is a ratio. A spelling invented for "dimensionless"
+        # would put a word in the one field this schema compares literally.
+      - quantity: gel-strength
+        sense: at-least
+        value: 200
+        unit: "g/cm2"
+        note: "1% gel"
   outer-solution:
     title: "Outer solution"
     page: ../outer-solution/spec.md
@@ -50,12 +68,10 @@ process_steps:
       gel_point_min_c: 26
       gel_point_max_c: 30
       melting_point_c: 65
-      eeo: "≤0.10"
       # gel_point_max_c IS THE TOP OF THE CONGEALING RANGE, 26-30 °C on the vendor
       # datasheet. 30 is the figure an embedding step needs, because at or above it
       # the polymer is liquid and the payload can go in. melting_point_c is the
       # other end and a different quantity, which is why they are two keys.
-      gel_strength: "≥200 g/cm² (1% gel)"
     notes: >
       Embedding: Thermal Setting covers both agarose grades; the grade sets the hold and
       set temperatures.

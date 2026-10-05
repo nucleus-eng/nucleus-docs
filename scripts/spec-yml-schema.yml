@@ -202,13 +202,6 @@ properties:
           type: string
         stock:
           $ref: "#/$defs/quantity"
-        molar_mass:
-          $ref: "#/$defs/quantity"
-          description: >
-            A property of the substance, on the reagent by C72: it does not vary across
-            the steps that use it. Added 2026-10-05 because a lipid's volume is
-            proportional to `mol% x molar_mass / stock`, so dropping the volumes under
-            R35 requires this to stay recoverable. Six entries, both membranes.
           description: >
             THE REAGENT CARRIER. The concentration of the material as supplied,
             which does not vary across the reagent, so by C72 it belongs to the
@@ -216,6 +209,41 @@ properties:
             stock state this once here rather than twice.
             IT IS NOT SUMMABLE AND NOTHING SHOULD SUM IT. Two aliquots from one
             stock double the volume and leave this number alone.
+        molar_mass:
+          $ref: "#/$defs/quantity"
+          description: >
+            A property of the substance, on the reagent by C72: it does not vary across
+            the steps that use it. Added 2026-10-05 because a lipid's volume is
+            proportional to `mol% x molar_mass / stock`, so dropping the volumes under
+            R35 requires this to stay recoverable. Six entries, both membranes.
+        spec:
+          type: array
+          description: >
+            SUPPLIER GUARANTEES, NOT SENSITIVITIES. Ruled R33. A sensitivity is half of
+            a Conflict and needs an imposition to point at; these are the opposite
+            polarity, what the vendor promises the material does rather than what it
+            fails to tolerate. `gel-lga`'s EEO and gel strength are the first two.
+            ITS OWN TYPE RATHER THAN `$defs/bound`, which has `additionalProperties:
+            false` and no `note`, so the qualifier "(1% gel)" would have nowhere to go
+            and `bound` would have to change for the Conflict machinery that reads it.
+          items:
+            type: object
+            additionalProperties: false
+            required: [quantity, sense, value]
+            properties:
+              quantity:
+                type: string
+                pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+              sense:
+                enum: [at-least, at-most, within]
+              value: {type: number}
+              unit:
+                type: string
+                description: >
+                  Omitted where the quantity is a ratio and has none. EEO is the first
+                  case: it is dimensionless, and inventing a spelling for that would put
+                  a word in the one field this schema compares literally.
+              note: {type: string}
         page:
           type: [string, "null"]
           description: >
