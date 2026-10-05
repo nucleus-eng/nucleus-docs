@@ -52,9 +52,13 @@ process_steps:
       title: "pH-responsive : trigger ssDNA duplex"
       page: null
     ratio: "3:1 pH-responsive to trigger"
-    parameters:
-      ph_responsive_ssdna: "14.4 uM"
-      trigger_ssdna: "4.8 uM"
+    # SCALE-FREE, 2026-10-05. Both are concentrations in the duplex this step produces,
+    # so they are finals of it. 14.4 : 4.8 IS EXACTLY 3:1, which is what
+    # ../ph-cascade-one-vesicle/spec.yml states independently as "3:1, pH-responsive
+    # strand to trigger". Two sources, one ratio, neither derived from the other.
+    finals:
+      ph-responsive-ssdna: {value: 14.4, unit: "uM"}
+      trigger-ssdna: {value: 4.8, unit: "uM"}
     notes: >
       The 3:1 ratio is visible in the two figures — 14.4 is three times 4.8 — and the
       page states it independently, so the arithmetic is a check rather than the

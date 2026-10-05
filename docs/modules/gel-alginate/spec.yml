@@ -24,6 +24,7 @@ inputs:
     page: null            # Sigma-Aldrich A0682, alginic acid sodium salt, low viscosity
   calcium-chloride:
     title: "Calcium chloride (CaCl2)"
+    stock: {value: 200, unit: "mM"}
     page: null            # Sigma-Aldrich C1016
   embedding-buffer:
     title: "Buffer compatible with what is being embedded"
@@ -41,8 +42,9 @@ process_steps:
       id: alginate-precursor
       title: "Alginate precursor solution"
       page: null
-    parameters:
-      sodium_alginate: "~1% (w/v)"
+    # SCALE-FREE, 2026-10-05. A concentration in the precursor this step produces.
+    finals:
+      sodium-alginate: {value: 1, unit: "% (w/v)", approx: true}
     notes: >
       The buffer is not fixed by this module. It is chosen to match whatever is
       embedded — normally that population's own outer solution — which makes it an
@@ -58,8 +60,12 @@ process_steps:
       id: gel-alginate
       title: "Gel: Alginate"
       page: ../gel-alginate/spec.md
-    parameters:
-      calcium_chloride: "200 mM"
+    # SCALE-FREE, 2026-10-05, AND THIS ONE IS A STOCK RATHER THAN A FINAL. The page
+    # settles it: the Reference Composition row reads "applied as a separate
+    # crosslinking solution, not premixed", and the prose has the gel crosslinking "in a
+    # 200 mM CaCl2 bath". So 200 mM is the bath's concentration and NOT the calcium
+    # concentration in the gel, which no source gives. Read rather than inferred,
+    # because the default reading of a bare figure on an assemble step is the opposite.
     notes: >
       Applied as a separate crosslinking bath after the precursor is in place, not
       premixed — a premixed divalent cation sets the gel before it can be shaped.

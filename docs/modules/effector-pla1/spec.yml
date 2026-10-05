@@ -55,10 +55,13 @@ process_steps:
       id: effector-pla1
       title: "Lysis: PLA1"
       page: ../effector-pla1/spec.md
-    parameters:
-      pla1_dna: "14 ng/uL"
-      optiprep: "5% of the reaction"
-      reaction_volume: "20 uL"
+    # SCALE-FREE, 2026-10-05. "5% of the reaction" was already a volume fraction and
+    # is now written as one. It is the shape R38 generalised from.
+    finals:
+      pla1-dna: {value: 14, unit: "ng/uL"}
+    fractions:
+      optiprep: 0.05
+    total_volume: {value: 20, unit: "uL"}
     notes: >
       Base Cytosol carries no parameter entry here: it has a page of its own and
       that page states its composition, which is the rule an audit of thirteen

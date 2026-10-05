@@ -46,10 +46,11 @@ process_steps:
       title: "PEG-norbornene precursor solution"
       page: null
     ratio: "4:1 ene-to-thiol — 320 mM norbornene against 80 mM thiol"
-    parameters:
-      peg4nb: "80 mM"
-      peg4sh: "20 mM"
-      lap: "16.9 mM"
+    # SCALE-FREE, 2026-10-05. Three concentrations in the precursor this step produces.
+    finals:
+      peg4nb: {value: 80, unit: "mM"}
+      peg4sh: {value: 20, unit: "mM"}
+      lap: {value: 16.9, unit: "mM"}
     notes: >
       The ratio is a property of this step and is provisional. Step-growth
       thiol-ene normally runs near 1:1; a four-fold norbornene excess gives a

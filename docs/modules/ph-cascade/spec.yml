@@ -185,8 +185,10 @@ process_steps:
       id: ph-cascade
       title: "pH Cascade"
       page: ../ph-cascade/spec.md
-    parameters:
-      lga-powder: "0.7% (w/v)"   # sets thermally; no crosslinker
+    # SCALE-FREE, 2026-10-05. The agarose concentration in the set gel. It agrees with
+    # ../gel-lga/spec.yml, which writes "0.7% (w/v) in the pH path".
+    finals:
+      lga-powder: {value: 0.7, unit: "% (w/v)", note: "sets thermally; no crosslinker"}
     notes: >
       The enzyme is NOT an operand here, as of 2026-10-03. It arrives at
       `develop` below, in a basic buffer, because beta-galactosidase works poorly
@@ -204,11 +206,15 @@ process_steps:
       id: ph-cascade-developed
       title: "pH Cascade′"
       page: null
-    parameters:
-      # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table,
-      # which keyed its rows by cascade, and then from `embed-agarose` when the
-      # enzyme moved to this step. The enzyme's own page states the range.
-      lacz_enzyme: "156 U/mL"
+    # SCALE-FREE, 2026-10-05. Keyed by the operand id, `reporter-lacz-enzyme`, rather
+    # than by `lacz_enzyme`.
+    #
+    # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table, which
+    # keyed its rows by cascade, and then from `embed-agarose` when the enzyme moved to
+    # this step. The enzyme's own page states it at spec.md:34, for the row
+    # "Encapsulated in a GUV, in 0.7% agarose", which is this condition.
+    finals:
+      reporter-lacz-enzyme: {value: 156, unit: "U/mL"}
     notes: >
       THE BOARD'S `P6 · Color Development`, producing the device in its read state.
       The prime is the registered mark for the same thing changed, signature.md:189

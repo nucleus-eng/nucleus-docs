@@ -32,8 +32,12 @@ process_steps:
       id: outer-solution-tris-hepes
       title: "Outer Solution: Tris-HEPES"
       page: ../outer-solution-tris-hepes/spec.md
+    # SCALE-FREE, 2026-10-05. "42.5% (v/v) in water" was already a volume fraction.
+    # Keyed by the operand id, `tris-hepes-stock`, rather than by `tris-hepes`.
+    fractions:
+      tris-hepes-stock: 0.425
     parameters:
-      tris-hepes: "42.5% (v/v) in water"
+      # A PROPERTY OF THE SOLUTION, not a component of it, so it stays here.
       osmolarity: "~1180 mOsm"
     notes: >
       Osmolarity is additive and this value sets the gel's. It is a relation rather than
