@@ -64,8 +64,8 @@ inputs:
 process_steps:
   - id: express-repressor
     process:
-      title: "Assemble Solution"
-      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      title: "Expression"
+      page: ../../processes/express/main.md
       abstract: assemble-solution
     operator: mixing
     operands: [base-cytosol, esar-dna]
@@ -82,7 +82,7 @@ process_steps:
     process:
       title: "Assemble Cytosol"
       page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
-      abstract: assemble-cytosol
+      abstract: assemble-solution
     operator: mixing
     operands: [base-cytosol, detector-esar, effector-pla1-esao]
     produces:
@@ -124,7 +124,7 @@ process_steps:
     process:
       title: "Embedding: Thermal Setting"
       page: ../../processes/embed-thermal-setting/main.md
-      abstract: embed-hydrogel
+      abstract: embed-gel
     operator: packing
     operands: [craic-sensing-cell, craic-substrate-carrier, reporter-lacz-enzyme, ulga-powder]
     produces:

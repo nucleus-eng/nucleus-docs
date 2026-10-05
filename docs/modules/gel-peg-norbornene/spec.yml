@@ -38,7 +38,7 @@ process_steps:
     process:
       title: "Embedding: Photodevelopment"
       page: ../../processes/embed-photodevelopment/main.md
-      abstract: embed-photodevelopment
+      abstract: embed-gel
     operator: mixing
     operands: [peg4nb, peg4sh, lap, solvent]
     produces:
@@ -59,7 +59,7 @@ process_steps:
     process:
       title: "Embedding: Photodevelopment"
       page: ../../processes/embed-photodevelopment/main.md
-      abstract: embed-photodevelopment
+      abstract: embed-gel
     impositions:
       - id: uv-exposure
         why: >

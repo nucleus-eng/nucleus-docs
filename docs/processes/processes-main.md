@@ -112,7 +112,7 @@ flowchart LR
 
 Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are embedded together in a hydrogel matrix to couple a lysis-triggered colorimetric handoff between them. Different DevCells demos use different hydrogel chemistries — see each process page for the chemistry it covers and how it differs from the others.
 
-- [Embedding](./embed-hydrogel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
+- [Embedding](./embed-gel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
   - [Embedding: Ionic Crosslinking](./embed-ionic-crosslinking/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
   - [Embedding: Thermal Setting](./embed-thermal-setting/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
 

@@ -44,7 +44,7 @@ flowchart TD
     ULGA_POWDER["ULGA powder"]
     ANALYTE_3OC6_HSL["Analyte: 3OC6-HSL"]
 
-    P1_EXPRESS_REPRESSOR_0(["Assemble Solution (mixing)"])
+    P1_EXPRESS_REPRESSOR_0(["Expression (mixing)"])
     DETECTOR_ESAR["Detector: 3OC6-HSL (EsaR)"]
     P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
     CRAIC_SENSOR_CYTOSOL["SensorCytosol[3OC6-HSL ⟶ PLA1]"]
@@ -100,7 +100,7 @@ flowchart TD
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click ULGA_POWDER "/docs/modules/gel-ulga/spec"
     click ANALYTE_3OC6_HSL "/docs/modules/analyte-3oc6-hsl/spec"
-    click P1_EXPRESS_REPRESSOR_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
+    click P1_EXPRESS_REPRESSOR_0 "/docs/processes/express/main"
     click DETECTOR_ESAR "/docs/modules/detector-esar/spec"
     click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
     click P3_ENCAPSULATE_SENSING_0 "/docs/processes/encapsulate/main"

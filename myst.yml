@@ -203,7 +203,7 @@ project:
               hidden: true
         - file: ./docs/processes/express/main.md
           hidden: true
-        - file: ./docs/processes/embed-hydrogel/main.md
+        - file: ./docs/processes/embed-gel/main.md
           hidden: true
           children:
             - file: ./docs/processes/embed-ionic-crosslinking/main.md

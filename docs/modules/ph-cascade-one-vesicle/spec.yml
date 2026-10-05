@@ -107,7 +107,7 @@ process_steps:
     process:
       title: "Embedding: Thermal Setting"
       page: ../../processes/embed-thermal-setting/main.md
-      abstract: embed-hydrogel
+      abstract: embed-gel
     impositions:
       - id: thermal-hold
         bound:

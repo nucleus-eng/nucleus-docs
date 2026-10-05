@@ -33,7 +33,7 @@ process_steps:
   - id: set-the-gel
     process:
       title: "Embedding"
-      page: ../../processes/embed-hydrogel/main.md
+      page: ../../processes/embed-gel/main.md
     operator: mixing
     operands: [outer-solution, polymer]
     produces:

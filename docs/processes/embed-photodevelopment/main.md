@@ -8,7 +8,7 @@ status: draft
 
 Photodevelopment crosslinks a light-sensitive polymer precursor into a gel only where light falls, so the gel's geometry comes from a projected image rather than from its container. It is the route Nucleus uses when populations have to be held apart in defined regions rather than dispersed through one matrix.
 
-It is one of the three routes under [Embedding](../embed-hydrogel/main.md), and the only one that illuminates what it sets. Neither [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md) nor [Embedding: Thermal Setting](../embed-thermal-setting/main.md) exposes its contents to light at all.
+It is one of the three routes under [Embedding](../embed-gel/main.md), and the only one that illuminates what it sets. Neither [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md) nor [Embedding: Thermal Setting](../embed-thermal-setting/main.md) exposes its contents to light at all.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

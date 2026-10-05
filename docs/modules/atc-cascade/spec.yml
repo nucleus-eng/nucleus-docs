@@ -128,7 +128,7 @@ process_steps:
     process:
       title: "Embedding: Photodevelopment"
       page: ../../processes/embed-photodevelopment/main.md
-      abstract: embed-photodevelopment
+      abstract: embed-gel
     impositions:
       - id: uv-exposure
         why: >
