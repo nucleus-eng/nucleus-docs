@@ -17,6 +17,11 @@ cycle breaks antisymmetry. Every generated order is checked for cycles rather
 than assumed, and a single-parent relation is checked for being single-parent
 rather than trusted because the schema says string.
 
+EVERY DRAWING CARRIES NAMES. A node is labelled with the Module's or the Process's
+own `title:`, not with its directory slug, because a picture is read rather than
+grepped. The slug stays as the mermaid node id and follows the name in parentheses
+in the text trees, so the identifier is never lost.
+
     python3 scripts/render-posets.py            # the draft
     python3 scripts/render-posets.py --edges    # edge lists too
 """
@@ -39,6 +44,35 @@ def sources() -> dict[str, dict]:
     return out
 
 
+def titles(S: dict[str, dict]) -> dict[str, str]:
+    """Slug -> the Module's own name, from `title:`. All 85 sources carry one."""
+    return {m: d.get("title") or m for m, d in S.items()}
+
+
+def process_titles() -> dict[str, str]:
+    """Directory -> the Process's own name, from its page's frontmatter.
+
+    A process has no `spec.yml`, so the name has to come off the page. The glob
+    is `*main.md` because a parent process page is named `<slug>-main.md` rather
+    than `main.md`, and the first six lines are enough for a frontmatter key.
+    """
+    out = {}
+    root = ROOT.parent / "processes"
+    if not root.is_dir():
+        return out
+    for d in sorted(root.iterdir()):
+        if not d.is_dir():
+            continue
+        for page in sorted(d.glob("*main.md")):
+            for line in page.read_text().splitlines()[:6]:
+                if line.startswith("title:"):
+                    out[d.name] = line.split(":", 1)[1].strip().strip('"').strip("'")
+                    break
+            if d.name in out:
+                break
+    return out
+
+
 def cycles(edges: dict[str, set]) -> list[list[str]]:
     """Every cycle reachable by DFS. Empty means the relation is a partial order."""
     found, state = [], {}
@@ -58,11 +92,18 @@ def cycles(edges: dict[str, set]) -> list[list[str]]:
     return found
 
 
-def tree(kids: dict[str, list], roots: list[str], depth=0, out=None) -> list[str]:
+def tree(kids: dict[str, list], roots: list[str], depth=0, out=None, label=None) -> list[str]:
+    """The drawn order carries NAMES; the slug follows in parentheses.
+
+    A drawing is read, so it shows what the thing is called. The slug is the
+    identifier you then grep for, so it is kept rather than replaced.
+    """
     out = [] if out is None else out
     for r in roots:
-        out.append("    " * depth + ("└── " if depth else "") + r)
-        tree(kids, sorted(kids.get(r, [])), depth + 1, out)
+        name = (label or {}).get(r)
+        shown = f"{name}  ({r})" if name and name != r else r
+        out.append("    " * depth + ("└── " if depth else "") + shown)
+        tree(kids, sorted(kids.get(r, [])), depth + 1, out, label)
     return out
 
 
@@ -120,7 +161,8 @@ def longest_up(node: str, parents: dict[str, list[str]], memo=None) -> int:
     return memo[node]
 
 
-def hasse(name: str, what: str, parents: dict[str, list[str]], extra: str = "") -> None:
+def hasse(name: str, what: str, parents: dict[str, list[str]], extra: str = "",
+          label: dict[str, str] | None = None) -> None:
     """One generated order drawn as a Hasse diagram, multi-parent nodes included.
 
     THE FOREST DRAWING WAS NOT WRONG, IT WAS NARROWER THAN THE RELATION. Nesting
@@ -151,8 +193,12 @@ def hasse(name: str, what: str, parents: dict[str, list[str]], extra: str = "") 
 
     print("\n```{mermaid}")
     print("flowchart BT")
+    # THE DRAWN LABEL IS THE MODULE'S NAME, NOT ITS SLUG. The slug stays as the
+    # mermaid node id, because an id has to be an identifier and because the
+    # arrows below are written in terms of it. A reader of the picture gets
+    # "Substrate Carrier"; a reader of the source still greps `substrate-carrier`.
     for n in sorted(nodes):
-        print(f'    {n.replace("-", "_")}["{n}"]')
+        print(f'    {n.replace("-", "_")}["{(label or {}).get(n, n)}"]')
     for c in sorted(cover):
         for par in sorted(cover[c]):
             print(f'    {c.replace("-", "_")} --> {par.replace("-", "_")}')
@@ -164,7 +210,7 @@ def hasse(name: str, what: str, parents: dict[str, list[str]], extra: str = "") 
         print(f"    {r}: {', '.join(row)}")
 
 
-def report(name, what, parent, extra=""):
+def report(name, what, parent, extra="", label=None):
     """One generated order: axioms, shape, denominator, drawing."""
     kids = collections.defaultdict(list)
     for k, v in parent.items():
@@ -189,7 +235,7 @@ def report(name, what, parent, extra=""):
     if extra:
         print(f"  {extra}")
     print()
-    for line in tree(kids, roots):
+    for line in tree(kids, roots, label=label):
         print("  " + line)
 
 
@@ -218,7 +264,8 @@ if __name__ == "__main__":
           p1,
           f"placed        : {len(_placed)} of {len(S)} sources; "
           f"{len(S) - len(_placed)} placed by nothing"
-          + (f"\n  DANGLING      : {sorted(dangling)}" if dangling else ""))
+          + (f"\n  DANGLING      : {sorted(dangling)}" if dangling else ""),
+          label=titles(S))
     # AN ISOLATED NODE IS INVISIBLE IN A TREE, so list it. A source that is
     # placed by nothing is not a leaf and not a root. It is unplaced, and the
     # difference matters most for a CLASS page, which is a parent with no
@@ -253,7 +300,8 @@ if __name__ == "__main__":
            p2,
            f"steps declaring one : {steps_seen} of {sum(len(d.get('process_steps') or []) for d in S.values())}\n"
            f"  distinct processes  : {len(p2)} after dedupe\n"
-           f"  a process with two different parents : {bad or 'none — the map is a function'}")
+           f"  a process with two different parents : {bad or 'none — the map is a function'}",
+           label=process_titles())
     PROC = ROOT.parent / "processes"
     # CHECKED, NOT ASSUMED. A parent process named by `abstract:` should have a
     # page of its own, and a report of zero is only worth having beside its
