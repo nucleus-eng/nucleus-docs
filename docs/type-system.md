@@ -68,7 +68,9 @@ A thing can be identified at three levels, and a page must be clear about which 
 
 # A gene and its product are two objects
 
-A gene and the protein it encodes are different things. They are related by expression, which is a step, not a kind. Neither refines the other, and no third kind sits above them: both are polymers, and that is all a shared parent could say about them.
+A gene and the protein it encodes are different things. They are related by expression, which is a step, not a kind. Neither refines the other, and **no third kind** sits above them: DNA and Protein are siblings, both polymers.
+
+**A shared parent can still say something, and what it says is not a kind.** It says the two are forms of one thing: the protein is the image of the gene under expression, and the two carry commensurate sequences. That parent is named for the gene and has exactly two members, so an operand that will accept either names it instead of naming a disjunction.
 
 What matters in practice is that holding one is not holding the other. DNA needs a cytosol able to read its promoter. The protein does not.
 
