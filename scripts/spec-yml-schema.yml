@@ -784,9 +784,16 @@ $defs:
           Free parameters of this step — a choice the composer makes, where the
           page cannot state one value. 36 of 76 steps at `d611bda`.
           IT IS NOT A NOTES FIELD, and it became one because it has no property
-          constraints. A quantity belongs in `volumes` here, in `stock` on the input,
-          or in `final` on the product. A bound belongs in `sensitivities`. A
-          procedure belongs on the process page. What is left is a genuine free
+          constraints. A quantity belongs in `fractions` here, in `stock` on the
+          input, or in `finals` on the product. `volumes` is named in no source: it was
+          written on 2026-10-05 and deleted the same day under R36, which made a
+          per-component volume derived rather than stated. A procedure belongs on the process page.
+          A BOUND BELONGS IN `inputs[].spec` WHERE IT IS A SUPPLIER'S GUARANTEE, and in
+          `sensitivities` only where it is half of a Conflict. This line said
+          `sensitivities` without qualification until 2026-10-05 and that was wrong:
+          `gel-lga`'s EEO and gel strength are what the vendor promises the material
+          does, which is the opposite polarity from what it fails to tolerate, and
+          there is no imposition for them to point at. Ruled R33. What is left is a genuine free
           choice, which is what the first sentence always said.
       headroom:
         type: object
