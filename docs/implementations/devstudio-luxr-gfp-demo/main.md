@@ -44,7 +44,7 @@ What the embedding step builds is [LuxR-GFP Sensor Cascade](../../modules/luxr-g
 | 3 | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) | the synthetic cells |
 | 4 | [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) | ULGA at 1% (w/v), set by cooling |
 
-# Performance
+# Observed Performance
 
 ## In a gel
 

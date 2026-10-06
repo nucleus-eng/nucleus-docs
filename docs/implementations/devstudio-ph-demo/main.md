@@ -53,7 +53,7 @@ The CPRG-loaded LUV has no Module page.
 - **The readout.** @Editor: record whether the color is read by eye, by plate reader or by imaging.
 :::
 
-# Performance
+# Observed Performance
 
 :::{attention} Not yet run
 @Editor: record the run here when it happens: its date, its conditions and what the readout showed.

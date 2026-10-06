@@ -46,7 +46,7 @@ This is the one demo where the enzyme is inside the cell and the substrate outsi
 | 5 | [Colorimetric Readout](../../processes/colorimetric-readout/main.md) | absorbance, read against the undosed wells |
 | — | [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) | proposed to cut background; never run |
 
-# Performance
+# Observed Performance
 
 ## In synthetic cells
 
