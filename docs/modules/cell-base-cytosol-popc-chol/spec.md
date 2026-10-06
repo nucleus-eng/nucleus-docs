@@ -103,13 +103,13 @@ Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Membrane:
 | Component | Working concentration |
 | --- | --- |
 | Tris-HEPES buffer stock (0.5 M Tris base, 1.7 M HEPES; pH ≈ 7.4, ≈ 2700 mOsm) | 42.5% (v/v) in water, giving ≈ 1180 mOsm |
-| Energy solution | Supplemented into the outer solution |
+| Energy solution | 1×, from a 2× ten-component sub-mix — see [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) |
 :::
 
 Match outer and inner solution osmolarities empirically with a vapor-pressure osmometer where possible.
 
 :::{attention} Recorded for the SensorCell[pH ⟶ PLA1], assumed for the chassis
-@Editor(chicago): the buffer above is the outer solution recorded for the pH sensor. Confirm it is the chassis default rather than specific to that cell, and confirm what the energy solution supplement contains.
+@Editor(chicago): the buffer above is the outer solution recorded for the pH sensor. Confirm it is the chassis default rather than specific to that cell.
 :::
 
 ::::

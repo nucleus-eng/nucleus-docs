@@ -24,13 +24,9 @@ Four formulations are attested, and they are not interchangeable — each is mat
 | Configuration | Composition | Osmolarity | Used with |
 | --- | --- | --- | --- |
 | Glutamate | Potassium L-glutamate 578 mM · HEPES pH 7.4 72 mM · Glucose 300 mM | ≈ 920 mOsm | [S30 Lysate](../../modules/s30-lysate/spec.md) cells, in [ULGA Gel](../../modules/gel-ulga/spec.md) |
-| Tris-HEPES | Tris-HEPES buffer stock (0.5 M Tris base, 1.7 M HEPES, pH ≈ 7.4) at 42.5% (v/v) in water, plus energy solution | ≈ 1180 mOsm | [Base Cytosol](../../modules/base-cytosol/spec.md) cells, in [Alginate Gel](../../modules/gel-alginate/spec.md) |
+| Tris-HEPES | Tris-HEPES buffer stock (0.5 M Tris base, 1.7 M HEPES, pH ≈ 7.4) at 42.5% (v/v) in water, plus an [energy solution](../../modules/outer-solution-tris-hepes/spec.md) of ten components | ≈ 1180 mOsm | [Base Cytosol](../../modules/base-cytosol/spec.md) cells, in [Alginate Gel](../../modules/gel-alginate/spec.md) |
 | Glucose-HEPES | Glucose 400 mM · HEPES-KOH pH 7.6 1 M | not recorded | [Base Cytosol](../../modules/base-cytosol/spec.md) cells, in the aTc path's [PEG-Norbornene Gel](../../modules/gel-peg-norbornene/spec.md) |
 | High-glucose | Glucose 1200 mM · CaCl₂ 0.1 mM | ≈ 1200 mOsm | Base Cytosol cells where CPRG retention matters |
-:::
-
-:::{attention} The energy solution is not specified
-@Editor(chicago): the Tris-HEPES configuration supplements the buffer with an energy solution whose contents are not recorded anywhere in this documentation. See [Cell: Base Cytosol, POPC/Chol (9:1)](../../modules/cell-base-cytosol-popc-chol/spec.md).
 :::
 
 # Requirements

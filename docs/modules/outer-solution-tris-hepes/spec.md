@@ -66,12 +66,43 @@ flowchart TD
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | Tris-HEPES | 42.5% (v/v) in water | from a stock |
-| Energy solution | — | not documented. @Editor(chicago): give the composition of the energy solution. |
+| Energy solution | 1× in the finished reaction | a 2× sub-mix of ten components; see the Energy solution tab |
 | Osmolarity | ~1180 mOsm | a relation, and it sets the gel's |
 :::
 
 **Osmolarity is additive and the polymer's own term is negligible**, about 0.7% by weight, so
 this value carries the gel.
+
+::::
+
+::::{tab-item} Energy solution
+
+The energy solution is a 2× sub-mix of ten components, made up to 4000 µL. It is used at 1×, so the last column is the concentration to reach in the finished reaction.
+
+:::{table} Energy solution. The mix is 4000 µL.
+:label: comp-outer-solution-tris-hepes-energy
+
+| Component | Stock | Volume (µL) | In the 2× mix | At 1× |
+| --- | --- | --- | --- | --- |
+| Spermidine | 1 M | 12 | 3 mM | 1.5 mM |
+| Creatine phosphate | 1 M | 200 | 50 mM | 25 mM |
+| Magnesium acetate tetrahydrate | 1 M | 144 | 36 mM | 18 mM |
+| L-Glutamic acid potassium salt monohydrate | 2 M | 1120 | 560 mM | 280 mM |
+| Folinic acid calcium salt hydrate | 332 mM | 9.2 | 0.764 mM | 0.382 mM |
+| ATP | 100 mM | 300 | 7.5 mM | 3.75 mM |
+| GTP | 100 mM | 200 | 5 mM | 2.5 mM |
+| CTP | 100 mM | 100 | 2.5 mM | 1.25 mM |
+| UTP | 100 mM | 100 | 2.5 mM | 1.25 mM |
+| Amino acid mix | 6 mM | 400 | 0.6 mM | 0.3 mM |
+| Ultra-pure distilled water | — | 1414.8 | — | — |
+| Total | | 4000 | | |
+:::
+
+The counter-ion on the magnesium salt is a free choice among innocuous ones. Acetate is what the recipe names; glutamate is the salt the benches stock.
+
+:::{attention} The source for this recipe is not settled
+@Editor(chicago): the recipe is recorded as following Sun et al. 2013, DOI 10.3791/50762. That paper's energy solution is built on 3-PGA, not creatine phosphate, and carries tRNA, CoA, NAD and cAMP, which this mix does not. Name the paper this mix follows, or confirm it is in-house.
+:::
 
 ::::
 
@@ -90,7 +121,7 @@ Made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.m
 # Constituent Modules
 
 - Tris-HEPES stock — 42.5% (v/v) in water
-- Energy solution — not documented
+- Energy solution — a 2× sub-mix of ten components, used at 1×
 
 # Credits
 
