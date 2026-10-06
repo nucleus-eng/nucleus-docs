@@ -50,11 +50,15 @@ This page is a work in progress and not yet ready for use.
 
 **The dose row is the one that matters and it is asymmetric.** In situ expression gives no concentration, so the practice is to wait rather than to measure. Standalone expression gives a volume and still no concentration. **Neither route yields a number**, so every amount stated for an expressed protein is a volume or a time.
 
+**Standalone expression has a parameter in situ does not have.** The protein exists before the working reaction starts, so it can be held with its partner first. On the EsaR route, 15 min of repressor with its template gives about a twofold change and 1 h gives about fivefold, at the same doses. In situ there is nothing to hold: the protein appears in the reaction that uses it.
+
 # Choosing between the instances
 
 **One comparison exists and it cannot separate the route from the preparation.** [tetR-aTc Detector](../../modules/detector-tetr-atc/spec.md) describes three formats of TetR: purified protein, expression in situ from `pT7-tetR`, and expression overnight followed by combination with a fresh reaction. **Only the third has induced** in Nucleus Cytosol.
 
 **That result does not support a rule.** The only preparation that induced was also the only cell-free one, and both purified arms failed. **In situ expression was not tested at all.** The result shows one route that worked. It does not show that expression beats purification, or which expression route is better.
+
+**A second comparison exists inside one route and it does support something.** The EsaR detector ran the same standalone route with two donor incubations, 3 h at 37 °C and 17 h at 30 °C, everything else held. The fold change was the same and the yield was lower for the longer donor. That compares two donors rather than two routes, so it says nothing about in situ or purified protein — but it does say the donor's incubation is a variable, not a detail of how the protein was made.
 
 # Requirements
 
@@ -62,7 +66,9 @@ Requires a cytosol whose polymerase reads the template's promoter. See [Base Cyt
 
 Requires energy and machinery that other reactions in the same compartment also want. **Expression competes for ribosomes.**
 
-**Standalone expression carries its whole reaction across.** The Chicago route adds 2.5 µL of an 18 h reaction run at 30 °C. Everything else in that volume arrives with the protein.
+**Standalone expression carries its whole reaction across.** [tetR-aTc Detector](../../modules/detector-tetr-atc/spec.md) adds 2.5 µL of an 18 h reaction run at 30 °C. [Detector: 3OC6-HSL (EsaR)](../../modules/detector-esar/spec.md) adds about a fifth of its reaction, 14 µL in 65 µL. Everything else in those volumes arrives with the protein.
+
+**What arrives is not inert, and the donor's age decides which way it cuts.** At a held template dose the EsaR route raised reporter yield — a reaction at a tenth of the control's template reached the control's yield — which points at unspent energy. Running the same donor for 17 h at 30 °C instead of 3 h at 37 °C lowered the yield while holding the fold change, which points at byproducts, inorganic phosphate among them. **So a donor run longer is not a donor run better.**
 
 # Modules
 
