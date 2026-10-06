@@ -94,6 +94,8 @@ The bilayer is any member of [Membrane](../membrane/spec.md). This page fixes th
 
 A member holds its interior apart from the outside until something breaches the bilayer. **The class says nothing about what that is** — lysis, a pore, or no breach at all.
 
+**The hold is not open-ended.** No member has shown that it keeps its interior apart indefinitely, and the hold on record did not last an overnight wait with nothing breaching it. Treat a member's off state as good for a working session. For the window a member has shown, read that member's page.
+
 # Requirements
 
 Requires a membrane that closes, and an interior to close around.
