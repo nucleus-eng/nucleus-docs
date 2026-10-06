@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`gel`](../gel/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Gel](../gel/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 Alginate Gel is a ~1% (w/v) sodium alginate gel, crosslinked ionically by divalent calcium, used as the matrix that holds synthetic cells and reporter liposomes in fixed relation to one another. It is the format the Chicago colorimetric demo runs in. Compare to [ULGA Gel](../gel-ulga/spec.md), which reaches the same result through a thermal set rather than an ionic one, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.

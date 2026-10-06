@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Sensor Cytosol](../sensor-cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The SensorCytosol[pH ⟶ PLA1] is the aqueous phase of the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md): [Base Cytosol](../base-cytosol/spec.md) carrying the [pH-Sensing Module](../detector-ph/spec.md) — an annealed trigger duplex and a toehold-gated template — together with the [PLA1 Lysis Module](../effector-pla1/spec.md) the toehold switch gates. It is mixed before encapsulation, not added to a closed compartment.

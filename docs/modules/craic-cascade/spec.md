@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cascade`](../cascade/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Cascade](../cascade/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A sensing cascade that detects 3OC6-HSL in [Base Cytosol](../base-cytosol/spec.md) and reports a color change. EsaR relieves repression of PLA1, PLA1 lyses the compartments, and LacZ reaches CPRG to produce chlorophenol red.

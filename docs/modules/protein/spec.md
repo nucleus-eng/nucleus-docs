@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`reporter-lacz-enzyme`](../reporter-lacz-enzyme/spec.md), [`xyle`](../xyle/spec.md).
+**Position.** Refines nothing declared. Refined by [LacZ Enzyme](../reporter-lacz-enzyme/spec.md), [XylE](../xyle/spec.md).
 <!-- /gen:position -->
 
 A class: a Module whose subject is a protein.

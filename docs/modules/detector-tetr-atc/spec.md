@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`repressor-detector`](../repressor-detector/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Repressor Detector](../repressor-detector/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The TetR inducible expression module is a set of two genetic constructs that encode tetracycline-inducible gene expression: `pT7-tetR`, encoding the TetR repressor protein, and `pT7-tetO-plamGFP`, encoding a reporter gene under an inducible T7 promoter.

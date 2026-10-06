@@ -38,6 +38,10 @@ project:
           hidden: true
         - file: ./docs/modules/chromophore/spec.md
           hidden: true
+        - file: ./docs/modules/ssdna/spec.md
+          hidden: true
+        - file: ./docs/modules/dsdna/spec.md
+          hidden: true
         - file: ./docs/modules/detector/spec.md
           hidden: true
         - file: ./docs/modules/repressor-detector/spec.md

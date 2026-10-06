@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`gel`](../gel/spec.md), [`membrane`](../membrane/spec.md), [`solution`](../solution/spec.md).
+**Position.** Refines nothing declared. Refined by [Gel](../gel/spec.md), [Membrane](../membrane/spec.md), [Solution](../solution/spec.md).
 <!-- /gen:position -->
 
 A class: a Module that holds other things.

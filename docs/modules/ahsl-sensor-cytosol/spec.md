@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Sensor Cytosol](../sensor-cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The SensorCytosol[3OC6-HSL ⟶ PLA1] is the aqueous phase of the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md): [S30 Lysate](../s30-lysate/spec.md) carrying the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) and, through it, the [PLA1 Lysis Module](../effector-pla1/spec.md). It is mixed before encapsulation, not added to a closed compartment.

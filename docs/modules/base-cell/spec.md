@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cell`](../cell/spec.md) and [`guv`](../guv/spec.md) and [`liposome`](../liposome/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Cell](../cell/spec.md) and [GUV](../guv/spec.md) and [Liposome](../liposome/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) via [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The Base Cell is deployed in a glucose outer solution and represents the default synthetic cell for the Nucleus distribution. Base Cells have red fluorescent membranes (Liss-Rhod PE) and express GFP over time if functioning correctly.

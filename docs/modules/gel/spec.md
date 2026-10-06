@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`container`](../container/spec.md). Refined by [`gel-alginate`](../gel-alginate/spec.md), [`photopatterned-gel`](../photopatterned-gel/spec.md), [`thermal-gel`](../thermal-gel/spec.md).
+**Position.** Refines [Container](../container/spec.md). Refined by [Gel: Alginate](../gel-alginate/spec.md), [Photopatterned Gel](../photopatterned-gel/spec.md), [Thermal Gel](../thermal-gel/spec.md).
 <!-- /gen:position -->
 
 A class: a polymer network set in an outer solution.

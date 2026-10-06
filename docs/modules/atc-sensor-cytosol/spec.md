@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensor-cytosol`](../sensor-cytosol/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Sensor Cytosol](../sensor-cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The SensorCytosol[aTc ⟶ PLA1] is the aqueous phase of the [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md): [Base Cytosol](../base-cytosol/spec.md) carrying the [aTc Sensing Module](../detector-tetr-atc/spec.md), the [PLA1 Lysis Module](../effector-pla1/spec.md) it gates, and the LacZ enzyme that reports the result. It is mixed before encapsulation, not added to a closed compartment.

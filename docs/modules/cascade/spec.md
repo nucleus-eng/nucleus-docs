@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`atc-cascade`](../atc-cascade/spec.md), [`craic-cascade`](../craic-cascade/spec.md), [`luxr-gfp-cascade`](../luxr-gfp-cascade/spec.md), [`luxr-lacz-cascade`](../luxr-lacz-cascade/spec.md), [`ph-cascade`](../ph-cascade/spec.md).
+**Position.** Refines nothing declared. Refined by [aTc Cascade](../atc-cascade/spec.md), [CRAIC](../craic-cascade/spec.md), [LuxR-GFP Sensor Cascade](../luxr-gfp-cascade/spec.md), [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), [pH Cascade](../ph-cascade/spec.md).
 <!-- /gen:position -->
 
 A class: a Module that runs sensing, lysis and readout as one chain.

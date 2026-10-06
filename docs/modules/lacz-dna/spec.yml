@@ -12,10 +12,17 @@ module: lacz-dna
 title: "LacZ DNA template"
 refines:
   - lacz
-  - dna
+  - dsdna
   # TWO PARENTS, 2026-10-05, mirroring ../reporter-lacz-enzyme/spec.yml's
-  # `[lacz, protein]`. `lacz` is the meet this shares with the purified protein;
-  # `dna` is the kind this is. The second edge did not exist until ../dna was written.
+  # `[lacz, protein]`. `lacz` is the meet this shares with the purified protein; the
+  # second is the kind this is.
+  #
+  # `dsdna` RATHER THAN `dna`, LATER THE SAME DAY. This page says "template" and never
+  # says how many strands, so the first pass declined to assign strandedness and left it
+  # on `dna`. Jon: "lacZ-dna is dsDNA. basically all DNA that isn't explicitly ssDNA is
+  # double stranded." So the page's silence was not an absence of evidence -- it was the
+  # default, and reading it as a gap was the error. `dna` is dropped because `dsdna`
+  # refines it and the edge is implied.
 inputs:
   t7pro-lacz-t7term:
     title: "T7pro-LacZ-T7term construct"

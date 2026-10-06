@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Membrane](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 This membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and fluorescent Lissamine Rhodamine PE (Liss-Rhod PE). It is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).

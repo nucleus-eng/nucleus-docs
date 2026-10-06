@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`sensing-cell`](../sensing-cell/spec.md) and [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md) and [`guv`](../guv/spec.md) and [`liposome`](../liposome/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Sensing Cell](../sensing-cell/spec.md) and [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) and [GUV](../guv/spec.md) and [Liposome](../liposome/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The SensorCell[theophylline ⟶ LacZ] is the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md), a 9:1 POPC:cholesterol membrane encapsulating Base Cytosol, loaded with the [Theophylline Sensing Module](../detector-theophylline/spec.md), a theophylline-responsive riboswitch with LacZ fused downstream of it.

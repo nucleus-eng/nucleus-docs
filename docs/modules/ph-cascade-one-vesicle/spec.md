@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`ph-cascade`](../ph-cascade/spec.md). Refined by nothing on this branch.
+**Position.** Refines [pH Cascade](../ph-cascade/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A proposed redesign of the [pH Cascade](../ph-cascade/spec.md) with **one liposome population instead of two**. The enzyme moves inside the sensing cell, and the substrate stops being encapsulated at all: CPRG arrives in solution after the gel is set.

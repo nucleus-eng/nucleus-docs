@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`analyte-3oc6-hsl`](../analyte-3oc6-hsl/spec.md), [`analyte-atc`](../analyte-atc/spec.md), [`analyte-iptg`](../analyte-iptg/spec.md), [`analyte-ph`](../analyte-ph/spec.md), [`analyte-theophylline`](../analyte-theophylline/spec.md).
+**Position.** Refines nothing declared. Refined by [Analyte: 3OC6-HSL](../analyte-3oc6-hsl/spec.md), [Analyte: aTc](../analyte-atc/spec.md), [Analyte: IPTG](../analyte-iptg/spec.md), [Analyte: pH](../analyte-ph/spec.md), [Analyte: Theophylline](../analyte-theophylline/spec.md).
 <!-- /gen:position -->
 
 A class: the substance an assay is run against.

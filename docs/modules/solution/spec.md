@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`container`](../container/spec.md). Refined by [`cytosol`](../cytosol/spec.md), [`outer-solution`](../outer-solution/spec.md).
+**Position.** Refines [Container](../container/spec.md). Refined by [Cytosol](../cytosol/spec.md), [Outer Solution](../outer-solution/spec.md).
 <!-- /gen:position -->
 
 A class: a [Container](../container/spec.md) whose contents are dissolved in one phase.

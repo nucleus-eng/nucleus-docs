@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`detector`](../detector/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Detector](../detector/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The 3OC6-HSL Detector module is a LuxR/pLux genetic sensor that detects the _E. coli_ quorum-sensing molecule 3-oxohexanoyl-L-homoserine lactone or 3OC6-HSL. LuxR binds 3OC6-HSL and activates the pLux promoter, driving expression of a downstream effector gene (e.g., [deGFP](../reporter-degfp/spec.md)). 

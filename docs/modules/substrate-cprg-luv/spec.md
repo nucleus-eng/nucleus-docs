@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md) and [`luv`](../luv/spec.md) and [`liposome`](../liposome/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Substrate Carrier](../substrate-carrier/spec.md) and [LUV](../luv/spec.md) and [Liposome](../liposome/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A Substrate LUV is a large unilamellar liposome that carries a chemical substrate and nothing else. This one carries chlorophenol red-β-D-galactopyranoside (CPRG), the substrate half of the [LacZ Reporter](../reporter-lacz/spec.md). CPRG is yellow; β-galactosidase (LacZ) cleaves it to chlorophenol red, which is purple. While the liposome is intact the two never meet, so the readout has an off state.

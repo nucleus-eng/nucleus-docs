@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`vesicle`](../vesicle/spec.md). Refined by [`guv-cprg`](../guv-cprg/spec.md), [`substrate-cprg-luv`](../substrate-cprg-luv/spec.md), [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md).
+**Position.** Refines [Vesicle](../vesicle/spec.md). Refined by [GUV: CPRG](../guv-cprg/spec.md), [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md), [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
 <!-- /gen:position -->
 
 A class: a substrate closed inside a [Membrane](../membrane/spec.md).

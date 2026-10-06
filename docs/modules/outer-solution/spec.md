@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`solution`](../solution/spec.md). Refined by [`outer-solution-glucose-hepes`](../outer-solution-glucose-hepes/spec.md), [`outer-solution-glutamate`](../outer-solution-glutamate/spec.md), [`outer-solution-tris-hepes`](../outer-solution-tris-hepes/spec.md).
+**Position.** Refines [Solution](../solution/spec.md). Refined by [Outer Solution: Glucose-HEPES](../outer-solution-glucose-hepes/spec.md), [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md), [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md).
 <!-- /gen:position -->
 
 A class: the aqueous phase a synthetic cell is suspended in.

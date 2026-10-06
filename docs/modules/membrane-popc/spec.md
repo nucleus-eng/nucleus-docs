@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Membrane](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 This membrane is a pure POPC bilayer with no cholesterol, used for every synthetic cell in the London demo. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md), which both include cholesterol. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.

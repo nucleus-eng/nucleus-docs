@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`effector-pla1`](../effector-pla1/spec.md).
+**Position.** Refines nothing declared. Refined by [Lysis: PLA1](../effector-pla1/spec.md).
 <!-- /gen:position -->
 
 A class: a Module whose Function is to break a membrane.

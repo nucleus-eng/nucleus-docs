@@ -9,7 +9,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cytosol`](../cytosol/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Cytosol](../cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A molecular system with a defined set of components including T7 RNA Polymerase, ribosomes, and tRNA capable of transcription and translation. Base Cytosol builds on the [PURE system](https://doi.org/10.1038/90802), and is optimized for integration and extension. The Base Cell is formed by encapsulating Base Cytosol in a liposome.

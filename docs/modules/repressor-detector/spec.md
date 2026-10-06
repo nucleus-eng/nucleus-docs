@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`detector`](../detector/spec.md). Refined by [`detector-esar`](../detector-esar/spec.md), [`detector-laci-iptg`](../detector-laci-iptg/spec.md), [`detector-tetr-atc`](../detector-tetr-atc/spec.md).
+**Position.** Refines [Detector](../detector/spec.md). Refined by [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md), [LacI/IPTG Detector](../detector-laci-iptg/spec.md), [tetR-aTc Detector](../detector-tetr-atc/spec.md).
 <!-- /gen:position -->
 
 A class: a [Detector](../detector/spec.md) in which a repressor holds a gene off until the analyte relieves it.

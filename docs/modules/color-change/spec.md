@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`reporter`](../reporter/spec.md). Refined by [`reporter-lacz`](../reporter-lacz/spec.md), [`reporter-xyle`](../reporter-xyle/spec.md).
+**Position.** Refines [Reporter](../reporter/spec.md). Refined by [LacZ Reporter](../reporter-lacz/spec.md), [XylE Reporter](../reporter-xyle/spec.md).
 <!-- /gen:position -->
 
 A class: a [Reporter](../reporter/spec.md) that holds an enzyme and its substrate apart until a trigger brings them together.

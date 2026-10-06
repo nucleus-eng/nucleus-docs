@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`thermal-gel`](../thermal-gel/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Thermal Gel](../thermal-gel/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 ULGA Gel is an ultra-low-gelling-temperature agarose gel, dissolved directly into the outer solution it will become and set by cooling. Compare to [Alginate Gel](../gel-alginate/spec.md), which reaches an equivalent result by ionic crosslinking instead of a thermal set, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.

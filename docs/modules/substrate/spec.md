@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`substrate-cprg`](../substrate-cprg/spec.md), [`substrate-xgal`](../substrate-xgal/spec.md).
+**Position.** Refines nothing declared. Refined by [Substrate: CPRG](../substrate-cprg/spec.md), [Substrate: X-Gal](../substrate-xgal/spec.md).
 <!-- /gen:position -->
 
 A class: the chromogenic reagent a reporter enzyme turns over.

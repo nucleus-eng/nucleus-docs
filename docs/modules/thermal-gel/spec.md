@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`gel`](../gel/spec.md). Refined by [`gel-lga`](../gel-lga/spec.md), [`gel-ulga`](../gel-ulga/spec.md).
+**Position.** Refines [Gel](../gel/spec.md). Refined by [Gel: LGA](../gel-lga/spec.md), [Gel: ULGA](../gel-ulga/spec.md).
 <!-- /gen:position -->
 
 A class: a gel that sets when it cools.

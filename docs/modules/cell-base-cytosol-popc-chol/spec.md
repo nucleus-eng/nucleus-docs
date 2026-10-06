@@ -9,7 +9,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cell`](../cell/spec.md) and [`guv`](../guv/spec.md) and [`liposome`](../liposome/spec.md). Refined by [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
+**Position.** Refines [Cell](../cell/spec.md) and [GUV](../guv/spec.md) and [Liposome](../liposome/spec.md). Refined by [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md), [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md), [SensorCell[theophylline ⟶ LacZ]](../theophylline-sensing-cell/spec.md).
 <!-- /gen:position -->
 
 The Cell: Base Cytosol, POPC/Chol (9:1) combines [Base Cytosol](../base-cytosol/spec.md) with the [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) (9:1 POPC:cholesterol). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [Theophylline Sensing Module](../detector-theophylline/spec.md) driving [LacZ](../reporter-lacz/spec.md), giving the [SensorCell[theophylline ⟶ LacZ]](../theophylline-sensing-cell/spec.md)).

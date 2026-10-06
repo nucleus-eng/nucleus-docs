@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`base-cell`](../base-cell/spec.md), [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md), [`cell-s30-popc`](../cell-s30-popc/spec.md), [`sensing-cell`](../sensing-cell/spec.md).
+**Position.** Refines nothing declared. Refined by [Base Cell](../base-cell/spec.md), [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md), [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md), [Sensing Cell](../sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cytosol](../cytosol/spec.md) closed inside a [Membrane](../membrane/spec.md).

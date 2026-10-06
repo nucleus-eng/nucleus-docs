@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`membrane`](../membrane/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Membrane](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 This membrane is a 90:10 POPC:cholesterol phospholipid bilayer. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md), which uses more cholesterol, and [Membrane: POPC](../membrane-popc/spec.md), which uses none. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.

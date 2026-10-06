@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`container`](../container/spec.md). Refined by [`membrane-popc`](../membrane-popc/spec.md), [`membrane-popc-chol`](../membrane-popc-chol/spec.md), [`membrane-popc-chol-9-1`](../membrane-popc-chol-9-1/spec.md).
+**Position.** Refines [Container](../container/spec.md). Refined by [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
 <!-- /gen:position -->
 
 A class: a closed lipid bilayer.

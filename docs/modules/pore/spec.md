@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`membrane-pore-ahly`](../membrane-pore-ahly/spec.md), [`membrane-pore-cx43`](../membrane-pore-cx43/spec.md), [`membrane-pore-gramicidin`](../membrane-pore-gramicidin/spec.md).
+**Position.** Refines nothing declared. Refined by [Membrane Pore: alpha-hemolysin](../membrane-pore-ahly/spec.md), [Membrane Pore: Cx43](../membrane-pore-cx43/spec.md), [Membrane Pore: Gramicidin A](../membrane-pore-gramicidin/spec.md).
 <!-- /gen:position -->
 
 A class: a pore-forming agent that composes with a membrane to make that membrane permeable to a cargo.

@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`gel`](../gel/spec.md). Refined by [`gel-peg-norbornene`](../gel-peg-norbornene/spec.md), [`gel-pegda`](../gel-pegda/spec.md).
+**Position.** Refines [Gel](../gel/spec.md). Refined by [Gel: PEG-Norbornene](../gel-peg-norbornene/spec.md), [Gel: PEGDA](../gel-pegda/spec.md).
 <!-- /gen:position -->
 
 A class: a [Gel](../gel/spec.md) whose shape is set by projected light.

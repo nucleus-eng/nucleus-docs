@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cascade`](../cascade/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Cascade](../cascade/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A sensing cascade that detects 3OC6-HSL in S30 lysate and reports fluorescence. LuxR binds the analyte and relieves repression of deGFP, which a spectrometer reads under a UV lamp.

@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cytosol`](../cytosol/spec.md). Refined by [`ahsl-sensor-cytosol`](../ahsl-sensor-cytosol/spec.md), [`atc-sensor-cytosol`](../atc-sensor-cytosol/spec.md), [`ph-sensor-cytosol`](../ph-sensor-cytosol/spec.md), [`theophylline-sensor-cytosol`](../theophylline-sensor-cytosol/spec.md).
+**Position.** Refines [Cytosol](../cytosol/spec.md). Refined by [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md), [SensorCytosol[aTc ⟶ PLA1]](../atc-sensor-cytosol/spec.md), [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md), [SensorCytosol[theophylline ⟶ LacZ]](../theophylline-sensor-cytosol/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cytosol](../cytosol/spec.md) with a [Detector](../detector/spec.md) mixed into it.

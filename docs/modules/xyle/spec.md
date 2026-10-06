@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`protein`](../protein/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Protein](../protein/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 XylE is catechol 2,3-dioxygenase (C23DO), the *xylE* gene product. It oxidizes colorless catechol into 2-hydroxymuconate semialdehyde, a yellow product read by absorbance near 375 nm to 385 nm ([Kunz and Chapman, 1981](https://doi.org/10.1128/jb.146.1.179-191.1981)). It is supplied as the DNA template pT7-TetO-catecholase (pMN067), expressed in a cell-free reaction.

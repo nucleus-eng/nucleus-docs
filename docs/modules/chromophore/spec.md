@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`reporter-degfp`](../reporter-degfp/spec.md), [`substrate-cprg`](../substrate-cprg/spec.md), [`substrate-xgal`](../substrate-xgal/spec.md).
+**Position.** Refines nothing declared. Refined by [deGFP Reporter](../reporter-degfp/spec.md), [Substrate: CPRG](../substrate-cprg/spec.md), [Substrate: X-Gal](../substrate-xgal/spec.md).
 <!-- /gen:position -->
 
 A class: a Module whose subject is a molecule that absorbs visible light.

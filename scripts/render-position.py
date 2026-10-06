@@ -125,8 +125,39 @@ def one_member_classes(children: dict) -> list[str]:
     return sorted(n for n, k in children.items() if len(k) == 1)
 
 
+_TITLES: dict[str, str] = {}
+
+
+def _title(slug: str) -> str:
+    """The Module's own `title:`, falling back to its slug.
+
+    NAMES, NOT SLUGS, 2026-10-05. Jon: "`dna` and `rna` are wrong, they both need to be
+    `DNA` and `RNA` (all caps)". The ids cannot carry it -- this schema's id pattern is
+    `^[a-z0-9]+(-[a-z0-9]+)*$` and every id in the corpus is lowercase kebab -- so the
+    capitals live in `title:`, where they already did. This line was printing the slug.
+
+    IT IS THE SAME RULING AS THE POSET DRAWINGS, reaching a renderer it missed. Jon,
+    2026-09: "such graphs should show module names, not slugs". `3f04ca2e` and
+    `dfd06b5f` fixed the Hasse diagrams and the text trees; the Position line kept
+    printing `dna` where the page is called DNA, and `luxr-lacz-cascade` where it is
+    called LuxR-LacZ Cascade.
+
+    The fallback is a slug because a `refines:` value may name a Module with no source
+    on this branch, and a missing title is not a reason to drop the link.
+    """
+    if not _TITLES:
+        for path in sorted(ROOT.glob("*/spec.yml")):
+            try:
+                doc = yaml.safe_load(path.read_text())
+            except Exception:
+                continue
+            if isinstance(doc, dict) and doc.get("module"):
+                _TITLES[doc["module"]] = doc.get("title") or doc["module"]
+    return _TITLES.get(slug, slug)
+
+
 def link(slug: str) -> str:
-    return f"[`{slug}`](../{slug}/spec.md)"
+    return f"[{_title(slug)}](../{slug}/spec.md)"
 
 
 def line(slug: str, parent: dict, children: dict) -> str:

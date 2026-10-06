@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`vesicle`](../vesicle/spec.md). Refined by [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md).
+**Position.** Refines [Vesicle](../vesicle/spec.md). Refined by [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
 <!-- /gen:position -->
 
 A **Small Unilamellar Vesicle** — a single lipid bilayer closed around an aqueous interior, in the size regime the name denotes. **What makes a Module a member is the process that closes it**: every member of this class is produced by [Encapsulation: Extrusion](../../processes/encapsulate-suv/main.md).

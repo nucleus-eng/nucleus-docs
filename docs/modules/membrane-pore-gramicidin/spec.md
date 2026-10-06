@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`pore`](../pore/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Pore](../pore/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 Gramicidin A is a linear pentadecapeptide from *Bacillus brevis* that dimerizes across a lipid bilayer to form a narrow channel conducting monovalent cations and protons. In Nucleus it is used for one job: letting H⁺ cross the membrane of a synthetic cell so that an encapsulated [pH-Sensing Module](../detector-ph/spec.md) can see the pH of the outer solution.

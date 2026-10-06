@@ -79,6 +79,8 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | DNA | [DNA](./dna/spec.md) | - |
 | RNA | [RNA](./rna/spec.md) | - |
 | Chromophore | [Chromophore](./chromophore/spec.md) | - |
+| DNA | [Single-Stranded DNA](./ssdna/spec.md) | - |
+| DNA | [Double-Stranded DNA](./dsdna/spec.md) | - |
 | Container | [Solution](./solution/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |

@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`vesicle`](../vesicle/spec.md). Refined by [`ahsl-sensing-cell`](../ahsl-sensing-cell/spec.md), [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`base-cell`](../base-cell/spec.md), [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md), [`cell-s30-popc`](../cell-s30-popc/spec.md), [`dye-liposomes`](../dye-liposomes/spec.md), [`guv-cprg`](../guv-cprg/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`substrate-cprg-luv`](../substrate-cprg-luv/spec.md), [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
+**Position.** Refines [Vesicle](../vesicle/spec.md). Refined by [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md), [Base Cell](../base-cell/spec.md), [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md), [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md), [Dye Liposomes](../dye-liposomes/spec.md), [GUV: CPRG](../guv-cprg/spec.md), [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md), [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md), [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md), [SensorCell[theophylline ⟶ LacZ]](../theophylline-sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A [vesicle](../vesicle/spec.md) whose bilayer is made of lipid. **Its sibling is a polymersome**, whose bilayer is made of block copolymer; this corpus has none.

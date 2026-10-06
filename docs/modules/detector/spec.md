@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`detector-3oc6-hsl`](../detector-3oc6-hsl/spec.md), [`detector-ph`](../detector-ph/spec.md), [`detector-theophylline`](../detector-theophylline/spec.md), [`repressor-detector`](../repressor-detector/spec.md).
+**Position.** Refines nothing declared. Refined by [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md), [pH Detector](../detector-ph/spec.md), [Theophylline Detector](../detector-theophylline/spec.md), [Repressor Detector](../repressor-detector/spec.md).
 <!-- /gen:position -->
 
 A class: a Module that senses an analyte and changes the expression of a downstream gene.

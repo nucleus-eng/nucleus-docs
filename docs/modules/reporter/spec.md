@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`color-change`](../color-change/spec.md), [`reporter-degfp`](../reporter-degfp/spec.md).
+**Position.** Refines nothing declared. Refined by [Color Change](../color-change/spec.md), [deGFP Reporter](../reporter-degfp/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cytosol](../cytosol/spec.md) expressing a protein that makes a signal.

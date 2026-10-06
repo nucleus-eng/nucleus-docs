@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`repressor-detector`](../repressor-detector/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Repressor Detector](../repressor-detector/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A 3OC6-HSL detector built on a repressor rather than an activator. EsaR is a LuxR homolog that represses where LuxR activates, so the logic is inverted: analyte relieves repression instead of switching a promoter on.

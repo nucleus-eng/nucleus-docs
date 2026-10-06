@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [`lacz-dna`](../lacz-dna/spec.md), [`reporter-lacz-enzyme`](../reporter-lacz-enzyme/spec.md).
+**Position.** Refines nothing declared. Refined by [LacZ DNA template](../lacz-dna/spec.md), [LacZ Enzyme](../reporter-lacz-enzyme/spec.md).
 <!-- /gen:position -->
 
 A class: β-galactosidase, however it is supplied.

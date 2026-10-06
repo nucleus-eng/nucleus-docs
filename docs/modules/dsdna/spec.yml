@@ -1,0 +1,29 @@
+# Composition source for Double-Stranded DNA.
+#
+# WRITTEN 2026-10-05 on Jon's ruling: anneal "takes `ssDNA, ssDNA -> dsDNA` where ssDNA
+# and dsDNA refine DNA".
+#
+# IT SETTLES A QUESTION TWO SESSIONS DECLINED TO DECIDE. The theory session flagged
+# ../../processes/anneal-ph-trigger-duplex as `dna, dna -> dna`, which matches its `T37`
+# shape for `::` -- neither operand survives as an object, both survive as factors --
+# and said so against `T37`'s own words, "joined in order into one polymer". A duplex is
+# not one longer polymer. Both sessions left it alone.
+#
+# THE STRANDEDNESS TYPES DISSOLVE IT. The signature is not `dna, dna -> dna` but
+# `ssdna, ssdna -> dsdna`: the product is a DIFFERENT TYPE from the operands, not more
+# of the same one. That is why the corpus still has 0 `stitching` across 111 steps and
+# is not wrong to.
+#
+# GROUNDED BY COMPOSITION, as ../dna and ../protein are: members share how the molecule
+# is arranged, which for a polymer is a fact about what it is made of.
+#
+# NO MEMBER HAS A PAGE, and the attested instances are input ids. Same state ../rna is
+# in, and declared for the same reason: a process signature needs something real to
+# point at.
+
+module: dsdna
+title: "Double-Stranded DNA"
+refines: dna
+
+inputs: {}
+process_steps: []

@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`cell`](../cell/spec.md). Refined by [`ahsl-sensing-cell`](../ahsl-sensing-cell/spec.md), [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
+**Position.** Refines [Cell](../cell/spec.md). Refined by [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), [SensorCell[aTc ⟶ PLA1]](../atc-sensing-cell/spec.md), [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md), [SensorCell[theophylline ⟶ LacZ]](../theophylline-sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cell](../cell/spec.md) whose cytosol is a [Sensor Cytosol](../sensor-cytosol/spec.md).

@@ -28,3 +28,13 @@ title: "DNA"
 
 inputs: {}
 process_steps: []
+
+# STRANDEDNESS HAS A DEFAULT AND SILENCE MEANS DOUBLE. Jon, 2026-10-05: "basically all
+# DNA that isn't explicitly ssDNA is double stranded." ../dsdna and ../ssdna both refine
+# this class, and they are not symmetric in what a page must say: a member that declares
+# nothing is double-stranded, and single-stranded is the case that must be declared.
+#
+# THAT CHANGES HOW A SILENT PAGE READS. ../lacz-dna says "template" and never says how
+# many strands. The first pass read that as an absence of evidence and left it on this
+# class rather than assigning one. It is not an absence -- it is the default, and
+# ../lacz-dna now refines ../dsdna.

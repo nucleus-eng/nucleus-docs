@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`reporter`](../reporter/spec.md) and [`chromophore`](../chromophore/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Reporter](../reporter/spec.md) and [Chromophore](../chromophore/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The deGFP Reporter Module produces deGFP, a green fluorescent protein.
