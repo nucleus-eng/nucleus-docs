@@ -101,6 +101,10 @@ flowchart TD
 
 :::
 
+**A 1 hr pre-incubation at 37 °C raises fold change to 5x, and it is the largest effect on this page.** EsaR and the template are held together before the reaction starts, so the repressor is bound to the operator by the time transcription begins rather than competing with it. Nothing else here moves the readout that far.
+
+**Magnesium does not.** A sweep at 0, 5, 10 and 20 mM *"had very little influence"*. That null is the control that isolates the pre-incubation: it says the gain comes from when the repressor meets the template, not from the reaction chemistry around it. **A reader given the magnesium sweep alone would take the wrong lesson** — that this Module is insensitive to its conditions, when it is strongly sensitive to one of them.
+
 **Repression fails by template excess, not by a dead repressor.** A first titration moved the repressor against a fixed template and found no difference in output at either operator count. Reversing it — moving the template against a fixed repressor — gives the table above, so the repressor works and the earlier template dose was too high for it.
 
 **The ratio that governs this has no measured value.** No build sheet records a stock or working concentration for the pre-expressed repressor, so the molar ratio cannot be computed from recorded numbers. The only figure anywhere is an estimate of **37.5:1** repressor to template, which assumes a repressor concentration of 576 nM that nothing measured. A target of **100:1** is named against it, and b.next works at **1000:1** purified TetR to tetO DNA.
