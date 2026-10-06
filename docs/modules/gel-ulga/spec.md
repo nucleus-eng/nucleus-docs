@@ -108,12 +108,14 @@ The gel point (8–17) °C and the melting point (≤ 50 °C) are the supplier's
 
 **This gel provides an osmolarity; it does not tolerate one.** The distinction matters when swapping a module in or out. An outer solution — and a gel is one, since the polymer dissolves into it — states a **range it provides**. What tolerates a range is the cell inside, and that tolerance is a property of its membrane rather than of this gel.
 
-| Configuration | Osmolarity | Used with |
+**These are target figures, not a tolerated range.** Each row says what the gel is made to provide for the cells beside it.
+
+| Configuration | Target osmolarity | Used with |
 | --- | --- | --- |
 | Standard, with the Cell: S30 Lysate, POPC outer solution | ~920 mOsm | [S30 Lysate](../s30-lysate/spec.md) cells |
 | High-glucose, 1200 mM glucose + 0.1 mM CaCl₂ | ~1200 mOsm | [Base Cytosol](../base-cytosol/spec.md) cells, where CPRG retention matters |
 
-**The upper figure is a threshold, not a preference.** Above roughly 1200 mOsm, CPRG leakage from loaded liposomes falls sharply — so the high-glucose configuration is chosen for dye retention, not for the cells' sake.
+**The upper figure is a threshold, not a preference.** Above roughly 1200 mOsm, CPRG leakage from loaded liposomes falls sharply — so the high-glucose configuration is chosen for dye retention, not for the cells' sake. **Below it, retention is not established.** One embedding below this threshold did not keep its CPRG overnight, at the top of the working density range, where the on-off state should hold best.
 
 **No tolerated range is established for any membrane used with this gel.** Measuring one means putting [Dye Liposomes](../dye-liposomes/spec.md) across a panel of outer solutions and scoring liposome integrity. Until that exists, match empirically.
 

@@ -59,6 +59,9 @@ process_steps:
       The osmolarity is a relation, not a property of any one component: it has to
       match across the membranes of whatever is embedded. It stays here for that
       reason even though each term above is also stated.
+      The figure above is a target, not a tolerated range. No range is verified for
+      this gel: one embedding below 1200 mOsm did not keep its CPRG overnight, which
+      is a single result and not a limit. What a given run used belongs with that run.
 
   - id: set-thermal
     process:
