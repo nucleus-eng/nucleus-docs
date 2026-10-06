@@ -28,6 +28,7 @@ The theophylline riboswitch expresses its effector without theophylline present,
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_THEOPHYLLINE["Detector: Theophylline"]
     MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
@@ -43,16 +44,18 @@ flowchart TD
 
     THEOPHYLLINE_SENSOR_CYTOSOL --> P2_ENCAPSULATE_0
     MEMBRANE_POPC_CHOL_9_1 --> P2_ENCAPSULATE_0
+    OUTER_SOLUTION --> P2_ENCAPSULATE_0
     P2_ENCAPSULATE_0 --> THEOPHYLLINE_SENSING_CELL
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,DETECTOR_THEOPHYLLINE,MEMBRANE_POPC_CHOL_9_1 leaf;
+    class OUTER_SOLUTION,BASE_CYTOSOL,DETECTOR_THEOPHYLLINE,MEMBRANE_POPC_CHOL_9_1 leaf;
     class THEOPHYLLINE_SENSOR_CYTOSOL,THEOPHYLLINE_SENSING_CELL composed;
     class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_THEOPHYLLINE "/docs/modules/detector-theophylline/spec"
     click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"

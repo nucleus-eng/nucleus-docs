@@ -22,6 +22,13 @@ refines: cascade
 # `page: null` means no spec page exists yet — the generator renders the node
 # without a click target rather than inventing a link.
 inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
   s30-lysate:
     title: "Cytosol: S30 Lysate"
     page: ../s30-lysate/spec.md
@@ -87,7 +94,12 @@ process_steps:
       page: ../../processes/assemble-base-cell/main.md
       abstract: encapsulate
     operator: packing
-    operands: [ahsl-sensor-cytosol, membrane-popc]
+    # THE THIRD ARGUMENT, added 2026-10-05 under C1's ruled signature:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [ahsl-sensor-cytosol, membrane-popc, outer-solution]
     produces:
       id: ahsl-sensing-cell
       title: "SensorCell[3OC6-HSL ⟶ PLA1]"
@@ -102,7 +114,7 @@ process_steps:
       page: ../../processes/assemble-base-cell/main.md
       abstract: encapsulate
     operator: packing
-    operands: [substrate-cprg, membrane-popc]
+    operands: [substrate-cprg, membrane-popc, outer-solution]
     produces:
       id: guv-cprg
       title: "GUV: CPRG"

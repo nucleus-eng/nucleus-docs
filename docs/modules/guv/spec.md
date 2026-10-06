@@ -36,6 +36,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     MEMBRANE["Membrane"]
     PAYLOAD["Payload"]
 
@@ -44,16 +45,18 @@ flowchart TD
 
     MEMBRANE --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
     PAYLOAD --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
+    OUTER_SOLUTION --> P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0
     P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 --> GUV
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class MEMBRANE,PAYLOAD leaf;
+    class OUTER_SOLUTION,MEMBRANE,PAYLOAD leaf;
     class GUV composed;
     class P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click MEMBRANE "/docs/modules/membrane/spec"
     click P1_CLOSE_THE_BILAYER_AROUND_THE_PAYLOAD_0 "/docs/processes/assemble-base-cell/main"
     click GUV "/docs/modules/guv/spec"

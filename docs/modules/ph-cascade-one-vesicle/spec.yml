@@ -99,7 +99,12 @@ process_steps:
       page: ../../processes/assemble-base-cell/main.md
       abstract: encapsulate
     operator: packing
-    operands: [ph-sensor-cytosol-with-enzyme, membrane-popc-chol-9-1]
+    # THE THIRD ARGUMENT, added 2026-10-05 under C1's ruled signature:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [ph-sensor-cytosol-with-enzyme, membrane-popc-chol-9-1, outer-solution-tris-hepes]
     produces:
       id: ph-sensing-cell-with-enzyme
       title: "SensorCell[pH ⟶ PLA1], with LacZ"

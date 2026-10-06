@@ -20,6 +20,7 @@ Dye Liposomes encapsulate HPTS dye in  [Membrane: POPC/Chol (7:3)](/docs/modules
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     HPTS["HPTS dye solution"]
     MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
 
@@ -28,16 +29,18 @@ flowchart TD
 
     HPTS --> P1_ENCAPSULATE_0
     MEMBRANE_POPC_CHOL --> P1_ENCAPSULATE_0
+    OUTER_SOLUTION --> P1_ENCAPSULATE_0
     P1_ENCAPSULATE_0 --> DYE_LIPOSOMES
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class HPTS,MEMBRANE_POPC_CHOL leaf;
+    class OUTER_SOLUTION,HPTS,MEMBRANE_POPC_CHOL leaf;
     class DYE_LIPOSOMES composed;
     class P1_ENCAPSULATE_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
     click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
     click DYE_LIPOSOMES "/docs/modules/dye-liposomes/spec"

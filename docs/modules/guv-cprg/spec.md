@@ -37,6 +37,7 @@ Both cell populations in the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spe
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     MEMBRANE_POPC["Membrane: POPC"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
@@ -45,16 +46,18 @@ flowchart TD
 
     MEMBRANE_POPC --> P1_ENCAPSULATE_CPRG_0
     SUBSTRATE_CPRG --> P1_ENCAPSULATE_CPRG_0
+    OUTER_SOLUTION --> P1_ENCAPSULATE_CPRG_0
     P1_ENCAPSULATE_CPRG_0 --> GUV_CPRG
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class MEMBRANE_POPC,SUBSTRATE_CPRG leaf;
+    class OUTER_SOLUTION,MEMBRANE_POPC,SUBSTRATE_CPRG leaf;
     class GUV_CPRG composed;
     class P1_ENCAPSULATE_CPRG_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click P1_ENCAPSULATE_CPRG_0 "/docs/processes/assemble-base-cell/main"

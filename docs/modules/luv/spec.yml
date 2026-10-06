@@ -22,6 +22,13 @@ title: "LUV"
 refines: vesicle
 
 inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
   membrane:
     title: "Membrane"
     page: ../membrane/spec.md
@@ -36,7 +43,12 @@ process_steps:
       page: ../../processes/encapsulate-luv/main.md
       abstract: encapsulate
     operator: packing
-    operands: [membrane, payload]
+    # THE THIRD ARGUMENT, added 2026-10-05 under C1's ruled signature:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [membrane, payload, outer-solution]
     produces:
       id: luv
       title: "LUV"

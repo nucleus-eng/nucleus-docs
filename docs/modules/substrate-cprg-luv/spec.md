@@ -32,6 +32,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
 
@@ -40,16 +41,18 @@ flowchart TD
 
     MEMBRANE_POPC_CHOL_9_1 --> P1_HYDRATE_AND_FREEZE_THAW_0
     SUBSTRATE_CPRG --> P1_HYDRATE_AND_FREEZE_THAW_0
+    OUTER_SOLUTION --> P1_HYDRATE_AND_FREEZE_THAW_0
     P1_HYDRATE_AND_FREEZE_THAW_0 --> SUBSTRATE_CPRG_LUV
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class MEMBRANE_POPC_CHOL_9_1,SUBSTRATE_CPRG leaf;
+    class OUTER_SOLUTION,MEMBRANE_POPC_CHOL_9_1,SUBSTRATE_CPRG leaf;
     class SUBSTRATE_CPRG_LUV composed;
     class P1_HYDRATE_AND_FREEZE_THAW_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
     click P1_HYDRATE_AND_FREEZE_THAW_0 "/docs/processes/encapsulate-luv/main"

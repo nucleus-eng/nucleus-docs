@@ -34,6 +34,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     LIPID_MEMBRANE["Membrane"]
     PAYLOAD["Payload"]
 
@@ -42,16 +43,18 @@ flowchart TD
 
     LIPID_MEMBRANE --> P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0
     PAYLOAD --> P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0
+    OUTER_SOLUTION --> P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0
     P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0 --> LIPOSOME
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class LIPID_MEMBRANE,PAYLOAD leaf;
+    class OUTER_SOLUTION,LIPID_MEMBRANE,PAYLOAD leaf;
     class LIPOSOME composed;
     class P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click LIPID_MEMBRANE "/docs/modules/membrane/spec"
     click P1_CLOSE_A_LIPID_BILAYER_AROUND_THE_PAYLOAD_0 "/docs/processes/encapsulate/main"
     click LIPOSOME "/docs/modules/liposome/spec"

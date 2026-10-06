@@ -31,6 +31,7 @@ Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spe
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     BASE_CYTOSOL["Base Cytosol"]
     MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
 
@@ -39,16 +40,18 @@ flowchart TD
 
     BASE_CYTOSOL --> P1_ENCAPSULATE_0
     MEMBRANE_POPC_CHOL --> P1_ENCAPSULATE_0
+    OUTER_SOLUTION --> P1_ENCAPSULATE_0
     P1_ENCAPSULATE_0 --> BASE_CELL
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,MEMBRANE_POPC_CHOL leaf;
+    class OUTER_SOLUTION,BASE_CYTOSOL,MEMBRANE_POPC_CHOL leaf;
     class BASE_CELL composed;
     class P1_ENCAPSULATE_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
     click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"

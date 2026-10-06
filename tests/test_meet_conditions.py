@@ -117,7 +117,14 @@ def test_the_condition_boxes_are_not_counted_as_slots():
     What this test pins is that conditions stay out of the denominator; the
     denominator itself is free to move when the sources do."""
     r = _run("atc-cascade", "ph-cascade")
-    assert "16 slot(s)" in r.stderr
+    # 16 -> 17 ON 2026-10-05, by this test's own licence that the denominator
+    # moves when the sources do. C1's ruled signature gives `encapsulate` three
+    # arguments and 23 of 26 encapsulation steps named two. Both legs now name
+    # `outer-solution` as the third, and because both name the CLASS rather than
+    # a member they AGREE there -- so the new slot is one more agreement, not one
+    # more gap. Naming a member each would have made it abstract AND asserted
+    # which outer solution each uses, which both pages refuse to say.
+    assert "17 slot(s)" in r.stderr
     assert "2 requirement box(es) and 3 imposition box(es)" in r.stderr
 
 

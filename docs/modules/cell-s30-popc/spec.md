@@ -26,6 +26,7 @@ This page is a work in progress and not yet ready for use.
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     S30_LYSATE["Cytosol: S30 Lysate"]
     MEMBRANE_POPC["Membrane: POPC"]
 
@@ -34,16 +35,18 @@ flowchart TD
 
     S30_LYSATE --> P1_ENCAPSULATE_0
     MEMBRANE_POPC --> P1_ENCAPSULATE_0
+    OUTER_SOLUTION --> P1_ENCAPSULATE_0
     P1_ENCAPSULATE_0 --> CELL_S30_POPC
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class S30_LYSATE,MEMBRANE_POPC leaf;
+    class OUTER_SOLUTION,S30_LYSATE,MEMBRANE_POPC leaf;
     class CELL_S30_POPC composed;
     class P1_ENCAPSULATE_0 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"

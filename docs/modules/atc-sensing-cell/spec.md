@@ -36,6 +36,7 @@ Schematic representation of the SensorCell[aTc ⟶ PLA1] mechanism. Inside the s
 
 ```mermaid
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
     BASE_CYTOSOL["Base Cytosol"]
     DETECTOR_TETR_ATC["Detector: tetR-aTc"]
     EFFECTOR_PLA1_TETO["Gated lysis DNA: pT7-tetO-PLA1"]
@@ -56,6 +57,7 @@ flowchart TD
 
     ATC_SENSOR_CYTOSOL --> P2_ENCAPSULATE_0
     MEMBRANE_POPC_CHOL_9_1 --> P2_ENCAPSULATE_0
+    OUTER_SOLUTION --> P2_ENCAPSULATE_0
     P2_ENCAPSULATE_0 --> P2_ENCAPSULATE_1
     P2_ENCAPSULATE_1 --> ATC_SENSING_CELL
 
@@ -63,10 +65,11 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1_TETO,REPORTER_LACZ_ENZYME,MEMBRANE_POPC_CHOL_9_1 leaf;
+    class OUTER_SOLUTION,BASE_CYTOSOL,DETECTOR_TETR_ATC,EFFECTOR_PLA1_TETO,REPORTER_LACZ_ENZYME,MEMBRANE_POPC_CHOL_9_1 leaf;
     class ATC_SENSOR_CYTOSOL,ATC_SENSING_CELL composed;
     class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_0,P2_ENCAPSULATE_1 process;
 
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
