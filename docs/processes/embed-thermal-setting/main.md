@@ -112,7 +112,7 @@ This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HS
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ULGA | Reagent | Ultra low gelling temperature agarose | Sigma-Aldrich | A5030 | £52.00 | RT | [link](https://www.sigmaaldrich.com/GB/en/product/sial/a5030) |
 | LGA | Reagent | Low gelling temperature agarose | — | — | — | RT | — |
-| RNase inhibitor | Reagent | Murine RNase Inhibitor | New England Biolabs | M0314S | £87.00 | -20 °C | [link](https://www.neb.com/en-gb/products/m0314-rnase-inhibitor-murine) |
+| RNase Inhibitor, Murine | Reagent | RNase Inhibitor, Murine | NEB | M0314S | $87.00 | -25 °C to -15 °C | [link](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
 | Potassium L-glutamate | Chemical | Potassium L-glutamate | — | — | — | RT | — |
 | HEPES | Chemical | HEPES, free acid | — | — | — | RT | — |
 | Glucose | Chemical | D-(+)-Glucose | — | — | — | RT | — |
