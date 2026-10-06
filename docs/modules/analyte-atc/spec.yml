@@ -14,6 +14,7 @@
 
 module: analyte-atc
 title: "Analyte: aTc"
+refines: analyte
 
 inputs:
   atc:

@@ -13,6 +13,7 @@
 
 module: ph-cascade
 title: pH Cascade
+refines: cascade
 
 inputs:
   base-cytosol:

@@ -72,6 +72,10 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Analyte | [pH](./analyte-ph/spec.md) | ★ |
 | Container | [Container](./container/spec.md) | - |
 | Protein | [Protein](./protein/spec.md) | - |
+| Analyte | [Analyte](./analyte/spec.md) | - |
+| Cascade | [Cascade](./cascade/spec.md) | - |
+| Substrate | [Substrate](./substrate/spec.md) | - |
+| Lysis | [Lysis](./lysis/spec.md) | - |
 | Container | [Solution](./solution/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |

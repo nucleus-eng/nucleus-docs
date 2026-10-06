@@ -15,6 +15,7 @@
 
 module: substrate-cprg
 title: "Substrate: CPRG"
+refines: substrate
 
 inputs:
   cprg:

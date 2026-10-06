@@ -22,6 +22,7 @@
 
 module: analyte-ph
 title: "Analyte: pH"
+refines: analyte
 
 inputs: {}              # empty by claim: a property has no constituents
 

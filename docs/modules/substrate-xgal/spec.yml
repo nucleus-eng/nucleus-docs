@@ -12,6 +12,7 @@
 
 module: substrate-xgal
 title: "Substrate: X-Gal"
+refines: substrate
 
 inputs:
   xgal:
@@ -35,16 +36,15 @@ measured_by:
 # -- nor an `observation` -- nothing was seen. Before 2026-10-04 the only declarations
 # available were a false `rule` or none, and this corpus chose none, which left the
 # belief in prose where no checker reads it.
-sensitivities:
-  - id: uv-exposure
-    to: uv-exposure
-    basis: inferred
-    from: substrate-cprg
-    why: >
-      X-Gal is a chromogenic substrate like CPRG and is expected to bleach under the
-      same UV. Nobody has tested it. CPRG's bleaching is documented by side-by-side
-      comparison; this is the analogy to it and not a measurement.
-    page: spec.md
+# THE uv-exposure SENSITIVITY MOVED TO ../substrate/spec.yml ON 2026-10-05, and this is
+# what writing the class was for. It was declared here as `basis: inferred` with
+# `from: substrate-cprg`, because nobody has tested X-Gal and the only honest options
+# were a false `rule` or silence.
+#
+# The class declares it as a `rule` -- a chromogenic substrate is a chromophore and
+# bleaches, which is a fact about the kind. check-conflicts.py resolves sensitivities
+# through `refines:`, so this member still carries it, and it now carries it on a
+# mechanism rather than on a resemblance to its sibling.
 
 open:
   - id: the-working-concentration-is-not-established

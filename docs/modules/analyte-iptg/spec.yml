@@ -18,6 +18,7 @@
 
 module: analyte-iptg
 title: "Analyte: IPTG"
+refines: analyte
 
 inputs:
   iptg:

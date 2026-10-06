@@ -1,0 +1,25 @@
+# Composition source for Lysis.
+#
+# WRITTEN 2026-10-05 under T2. Jon, on the PLA1 ruling: "PLA1 implements lysis and lysis
+# imposes on modules in the same compartment." So the imposition is not PLA1's. Lysis
+# is the thing that imposes and PLA1 is an implementation of it.
+#
+# AND THE IMPOSITION CANNOT BE DECLARED HERE, WHICH IS WORTH STATING RATHER THAN
+# WORKING AROUND. `impositions` is a key on a STEP, not on a Module -- #T22, an
+# imposition belongs to a morphism. A class with `process_steps: []` has no step to
+# hang one on. So this page names the class that imposes and the declaration stays on
+# ../effector-pla1's step, which is the only place the schema allows it.
+#
+# That is a real gap between the ruling and the schema and it is left visible. Closing
+# it means either a class-level imposition key, which would contradict #T22, or a
+# notion of an abstract step, which nothing else in this corpus needs yet.
+#
+# ONE MEMBER TODAY. The class is still worth a page: it is where the imposition's scope
+# is written down -- the compartment, not the membrane -- and that sentence belongs to
+# the kind rather than to the enzyme.
+
+module: lysis
+title: "Lysis"
+
+inputs: {}
+process_steps: []

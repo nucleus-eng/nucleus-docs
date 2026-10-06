@@ -8,6 +8,7 @@
 
 module: luxr-lacz-cascade
 title: LuxR-LacZ Sensor Cascade
+refines: cascade
 
 # Operators.
 #   mixing   both at once, in one compartment, sharing its resources

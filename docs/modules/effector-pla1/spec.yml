@@ -30,6 +30,7 @@
 
 module: effector-pla1
 title: "Lysis: PLA1"
+refines: lysis
 
 inputs:
   base-cytosol:

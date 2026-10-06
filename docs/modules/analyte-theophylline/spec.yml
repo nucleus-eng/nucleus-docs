@@ -10,6 +10,7 @@
 
 module: analyte-theophylline
 title: "Analyte: Theophylline"
+refines: analyte
 
 inputs:
   theophylline:

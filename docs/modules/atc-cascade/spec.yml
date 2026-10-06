@@ -13,6 +13,7 @@
 
 module: atc-cascade
 title: aTc Cascade
+refines: cascade
 
 inputs:
   base-cytosol:

@@ -19,6 +19,7 @@
 
 module: luxr-gfp-cascade
 title: LuxR-GFP Sensor Cascade
+refines: cascade
 
 inputs:
   s30-lysate:

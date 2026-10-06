@@ -24,6 +24,14 @@ project:
           hidden: true
         - file: ./docs/modules/protein/spec.md
           hidden: true
+        - file: ./docs/modules/analyte/spec.md
+          hidden: true
+        - file: ./docs/modules/cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate/spec.md
+          hidden: true
+        - file: ./docs/modules/lysis/spec.md
+          hidden: true
         - file: ./docs/modules/detector/spec.md
           hidden: true
         - file: ./docs/modules/repressor-detector/spec.md

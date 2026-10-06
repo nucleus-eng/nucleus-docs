@@ -10,6 +10,7 @@
 
 module: analyte-3oc6-hsl
 title: "Analyte: 3OC6-HSL"
+refines: analyte
 
 inputs:
   3oc6-hsl:
