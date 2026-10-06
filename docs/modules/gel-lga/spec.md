@@ -63,6 +63,8 @@ flowchart TD
 | [Outer Solution](../outer-solution/spec.md) | 1× |
 :::
 
+The agarose is weighed into a concentrated stock, then diluted to the working figure above. The stock on record is 2.7% (w/v) — 40.5 mg in 1500 µL of ultrapure DNase/RNase-free distilled water.
+
 ::::
 
 :::::
