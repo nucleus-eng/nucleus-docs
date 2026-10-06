@@ -31,7 +31,10 @@ inputs:
   solvent:
     title: "PBS, deionized water or buffer"
     page: null
-    range: "1 mL, any of the three; the protocol does not choose"
+    range: "1 mL. No tolerated range is verified. PBS and a Tris-HEPES buffer have both been used; the PBS precursor lost the GUVs in one run"
+    # The Tris-HEPES stock is 1 M Tris with 1.15 M HEPES at about 2520 mOsm, the
+    # same stock ../../processes/encapsulate-luv/main.md dilutes to 1071 mOsm for
+    # its inner solution. Deionized water is still listed and has no recorded use.
 
 process_steps:
   - id: assemble-precursor
