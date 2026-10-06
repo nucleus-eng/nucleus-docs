@@ -17,6 +17,7 @@
 
 process: protein-gel
 title: "Protein Gel (SDS-PAGE)"
+refines: assay
 
 conserves: false
 
@@ -26,9 +27,19 @@ signature:
       note: >
         A sample of the mixture being separated.
   produces:
-    type: measurement
+    type: observation
     note: >
-      A reading, not a Component. This corpus has no page for that type.
+      THE PAGE CALLS ITS OWN RESULT QUALITATIVE. `main.md:67`: "You should now be able
+      to see protein bands by naked eye, which is sufficient to get a qualitative
+      understanding of your protein purity and concentration." `main.md:64` offers a gel
+      imager to "semi-quantitate" it, which is the upper bound rather than the default.
+      SO THIS IS NOT A MEASUREMENT, AND IT READ `measurement` UNTIL 2026-10-05. A
+      Measurement is the quantitative case of an Observation. A band at the right
+      molecular weight is the visual-score case exactly, and unlike
+      ../colorimetric-readout there is no quantitative protocol beside it to fall back
+      on. ../pierce660 is the one instance here that does carry one.
+      A READING, NOT A COMPONENT. No module page carries this type, as none carries
+      `component`.
 
 open:
   - id: an-assay-returns-a-reading

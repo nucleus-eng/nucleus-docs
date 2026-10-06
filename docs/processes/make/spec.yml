@@ -52,11 +52,14 @@ conserves: false
 open:
   - id: observe-is-the-other-missing-abstract-and-is-not-written
     question: >
-      ../pierce660 and ../protein-gel share `component ⟶ measurement` with no parent,
-      which is the same shape of gap this file closes. It is NOT written, because the
-      three repos do not agree on what the output is called: these two produce
-      `measurement`, ../colorimetric-readout produces `signal`, and
-      compositional-biology-theory has `observe[∆] : X ⟶ X ⊗ Observation` with `Signal`
-      as a SEPARATE type -- what an object emits, the codomain of sense and report.
-      Three words, probably not three things. An abstract written now would inherit
-      whichever word was picked, so the word gets settled first.
+      CLOSED 2026-10-05, AND THE REASON FOR WAITING IS WHAT WENT AWAY. This entry said
+      ../pierce660 and ../protein-gel shared `component ⟶ measurement` with no parent,
+      and that writing the abstract then would have inherited whichever of three words
+      got picked: those two said `measurement`, ../colorimetric-readout said `signal`,
+      and compositional-biology-theory had `Observation` with `Signal` as a separate
+      type.
+      THE WORD IS SETTLED. An Observation is what an assay emits and may be quantitative
+      or qualitative; a Measurement is the quantitative case refining it; a Signal is a
+      different thing again, what a Detector emits and an Effector consumes. ../assay is
+      written and all three readouts refine it.
+    kind: question

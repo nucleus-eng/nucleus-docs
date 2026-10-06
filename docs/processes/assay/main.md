@@ -1,0 +1,33 @@
+---
+title: "Assay"
+subtitle: "Process"
+status: draft
+---
+
+# Overview
+
+An assay reads something and yields a value. That is what separates it from the other roots: nothing it produces goes back into a tube, so an assay is where a chain of work stops and a reader looks.
+
+What it yields is an observation, which may be quantitative or qualitative. A measurement is the quantitative case.
+
+Its instances are the three readouts this corpus runs: a color read, a total-protein quantitation, and a gel.
+
+:::{attention} 🚧 Draft
+This page records an abstract that its instances already implied. It carries no protocol of its own.
+:::
+
+# Protocol
+
+None. Every step is on an instance page, because what is being read decides how it is read.
+
+# Processes
+
+- [Colorimetric Readout](../colorimetric-readout/main.md) — the stage every sensing cascade ends at. Two routes, a plate-reader absorbance read and an endpoint visual score, so the general case is what it yields.
+- [Pierce660 Assay](../pierce660/main.md) — a standard curve, a linear fit, and a concentration calculated from it. The one instance that narrows to a measurement.
+- [Protein Gel](../protein-gel/main.md) — bands read by eye, with a gel imager available to semi-quantitate them.
+
+# Credits
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node.
+:::

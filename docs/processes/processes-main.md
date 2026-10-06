@@ -105,6 +105,7 @@ flowchart LR
 
 ### Quality Control Processes
 
+- [Assay](./assay/main.md) — the abstract these two and the colorimetric readout refine. It reads something and yields a value.
 - [Protein Gel](./protein-gel/main.md)
 - [Pierce660 Assay](./pierce660/main.md)
 

@@ -18,6 +18,7 @@
 
 process: colorimetric-readout
 title: "Colorimetric Readout"
+refines: assay
 
 signature:
   takes:

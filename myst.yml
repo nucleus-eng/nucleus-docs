@@ -234,6 +234,8 @@ project:
               hidden: true
         - file: ./docs/processes/color-development/main.md
           hidden: true
+        - file: ./docs/processes/assay/main.md
+          hidden: true
         - file: ./docs/processes/colorimetric-readout/main.md
           hidden: true
         - file: ./docs/processes/anneal-ph-trigger-duplex/main.md
