@@ -23,13 +23,21 @@ inputs:
                           # Biocrest, per ../detector-3oc6-hsl/. NO STOCK OR WORKING CONCENTRATION
                           # IS RECORDED for the expressed form, which is why the molar ratio that
                           # governs repression is an estimate rather than a measurement.
+                          # TWO DONOR INCUBATIONS HAVE BEEN RUN, 3 h at 37 C and 17 h at 30 C.
+                          # The longer one holds the fold change and lowers the yield, so they
+                          # are not interchangeable and the shorter one is the reference.
   dna-regulatory-element:
     title: "DNA regulatory element"
     page: null            # `[EsaO]2`, two EsaO sites in tandem, as `T7-[EsaO]2-mNG-T7term` for
                           # characterization and `T7-[EsaO]2-PLA1-T7term` for the cascade.
+                          # [EsaO]2 IS THE DEFAULT FOR EVERY EsaO TEMPLATE FROM HERE ON, and the
+                          # single-site version is a comparison rather than a design.
                           # A SINGLE-SITE VERSION EXISTS AND IS NOT IN USE: `T7-[EsaO]-mNG-T7term`
-                          # was built and run once against the dual-site construct, and neither
-                          # repressed, because the template was in excess of the repressor.
+                          # ran beside the dual-site construct in two titrations and was then
+                          # dropped. In the first neither repressed, because the template was in
+                          # excess of the repressor. In the second both did, at 0.1 and 0.5 nM.
+                          # Each EsaO box is 19 bp, CCTGTACTATAGTGCAGGT. The dual construct
+                          # carries two, one base apart, at 1118 bp against the single's 1098 bp.
                           # No sequence file is in nucleus-eng/DNA for any of them.
 
 process_steps:
@@ -39,6 +47,9 @@ process_steps:
       page: null
     operator: mixing
     operands: [esar, dna-regulatory-element]
+    parameters:
+      preincubation: "1 h at 37 C — 15 min gives about 2x fold change where 1 h gives about 5x"
+      esar: "about 21% of the reaction, as pre-expressed reaction rather than purified protein"
     produces:
       id: detector-esar
       title: "Detector: 3OC6-HSL (EsaR)"
