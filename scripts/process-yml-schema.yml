@@ -106,6 +106,16 @@ properties:
           type:
             type: string
             pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            description: >
+              A TYPE NAME HERE DOES NOT NEED A PAGE, and that is ruled rather than
+              tolerated. Jon, 2026-10-05: "no page, component is the precedent".
+              `component` is named by 27 signatures in this corpus and no Module page
+              carries it. `observation` and `measurement` are the same case: a Module is
+              a formulation and a reading is not one. Writing a Module page for one
+              would repeat the correction that deleted three function pages from
+              docs/modules/ on the same day.
+              SO A MISSING PAGE IS NOT A GAP HERE. If the type names something a Module
+              could be, it wants a page. If it names what an assay emits, it does not.
           note:
             type: string
             description: >
