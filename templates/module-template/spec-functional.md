@@ -187,6 +187,28 @@ TODO: Requirements, one per paragraph or bullet.
      DevNotes with a 10.63765/… DOI must be cited via their doi.org link to autogenerate.
      Non-DOI sources stay as plain inline links (issue #138). -->
 
+# Processes
+
+<!-- Pointers at the Process pages related to this module, in the order a bench user meets
+them. Protocol steps belong on the Process page, not here. Use "Processes" — not "Protocols"
+and not the singular "Process".
+
+List BOTH directions: the processes that build the module, and the processes that use it — an
+assay that reads it, a downstream step it feeds. A page listing only its own preparation hides
+half of what a reader came for. Where the relation is not obvious from the title, gloss it in a
+few words.
+
+Preparation parameters that are not composition — target size, extrusion passes, purification
+method, storage before use — belong here rather than in Reference Composition. A number that
+describes how you make it is process data even when it sits in a table.
+
+Omit this section only where no Process page relates to the module in either direction. Where
+processes exist but none covers the whole job, say so in one sentence and stop ("No process
+page documents assembling this cascade end to end.") rather than omitting the section. Do not
+leave instructions for a future editor here — those go in `tmp/`. -->
+
+- [TODO: Process Name](../../processes/TODO/main.md) — TODO, one clause on what it does for this module.
+
 # Materials
 
 <!-- Critical materials and purchased reagents. Keep vendor links in their own Link column
@@ -225,6 +247,27 @@ the module has no generated artifacts.
 :::
 
 ::::
+
+# Constituent Modules
+
+<!-- The Modules this one is built from: one bullet each, linking that Module's page, with a
+short clause saying what it contributes. This is the last section before Credits — after
+Materials and Downloads where the page carries them.
+
+The list is the boundary statement. It says what the module IS made of, so do not add prose
+restating it and do not write what the module is NOT made of.
+
+KEEP THE HEADING EXACTLY AS WRITTEN. The generated Module Dependencies diagram in Reference
+Composition is built from this list by matching the literal string `# Constituent Modules`, as
+the marker pair in that section is matched by its literal strings. A page that renames or
+drops the heading falls out of the generator silently, with no error reported anywhere.
+Regenerate after any edit here.
+
+Omit this section for a leaf module — one composed of no other Module. Delete the
+`gen:composition-diagram` markers and their tab at the same time: with no constituents there
+is nothing to draw. -->
+
+- [TODO: Module Name](../TODO/spec.md) — TODO, one clause on what it contributes.
 
 # Credits
 
