@@ -1,0 +1,70 @@
+# Process source for Embedding: Photodevelopment.
+#
+# THE FIRST PROCESS SOURCE IN THIS CORPUS, written against
+# ../../../scripts/process-yml-schema.yml rather than the other way round.
+#
+# WHY THIS ONE FIRST. It is the process the imposition measurement pointed at. Four of
+# the nine step-level impositions in the corpus belong to it -- `uv-exposure` on
+# ../../modules/atc-cascade, ../../modules/gel-peg-norbornene and
+# ../../modules/gel-pegda, and `radical-acrylate-polymerization` on gel-pegda -- and
+# none of the four names anything about the Module declaring it. Three pages restate
+# `uv-exposure` because three Modules run this process.
+#
+# THE IMPOSITIONS BELOW DO NOT REPLACE THOSE FOUR YET, AND check-process-schema.py
+# WOULD FAIL IF THEY DID. Its third rule refuses an id declared here AND on a module
+# step that runs this process, because one fact in two homes is worse than one fact in
+# the wrong home: a checker cannot tell which is authoritative. The four step
+# declarations are the authoritative ones until a single commit moves them.
+#
+# So this file declares the OTHER half -- what the process is as a morphism -- and the
+# impositions key is left empty with the measurement in this comment. Same discipline
+# R20 set for the quantities, which is the rule that stopped `step.volumes` becoming
+# permanent.
+#
+# `operator` IS ABSENT ON PURPOSE. The two chemistries differ in what they crosslink,
+# not in how the operands combine, and no step that runs this process declares an
+# operator the other does not.
+
+process: embed-photodevelopment
+title: "Embedding: Photodevelopment"
+refines: embed-gel
+
+signature:
+  takes:
+    - type: gel
+      note: >
+        A light-sensitive precursor rather than a set gel. The page's two chemistries,
+        PEG-norbornene and PEGDA, are the attested fillers for this position.
+    - type: cell
+      repeated: true
+      note: >
+        The populations held in the gel. Repeated because the CRAIC route embeds a
+        sensing population and a substrate-carrying population in one gel.
+  produces:
+    type: gel
+    note: >
+      The set gel with its payload at fixed positions. The geometry comes from where
+      the light fell, which is what separates this route from its two siblings under
+      `embed-gel`.
+
+measured_by:
+  - "Geometry: the patterned feature matches the mask, read by eye or by microscopy."
+
+open:
+  - id: the-impositions-still-live-on-the-steps
+    kind: choice
+    question: >
+      Four step-level impositions belong to this process: `uv-exposure` on
+      ../../modules/atc-cascade, ../../modules/gel-peg-norbornene and
+      ../../modules/gel-pegda, and `radical-acrylate-polymerization` on gel-pegda.
+      None of the four states anything about the Module that declares it. Moving them
+      here is one commit and it must be ONE commit, because this schema's checker
+      refuses an id declared in both places. The question is whether to move all nine
+      in the corpus at once or this process's four first.
+  - id: pegda-is-documented-and-unused
+    question: >
+      The page says no DevCells demo uses PEGDA because it "destroys the vesicles", and
+      that its material, protocol and bill of materials are not maintained. A signature
+      that admits both chemistries is accurate about the process and silent about that.
+      Whether an unused route should be a second process or a note on this one is not
+      settled here.
