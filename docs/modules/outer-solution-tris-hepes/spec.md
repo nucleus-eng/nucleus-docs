@@ -62,7 +62,7 @@ flowchart TD
 
 ::::{tab-item} Solutes
 
-:::{table} The Chicago formulation.
+:::{table} The Tris-HEPES formulation.
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | Tris-HEPES | 42.5% (v/v) in water | from a stock |

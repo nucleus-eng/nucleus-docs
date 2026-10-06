@@ -79,7 +79,7 @@ flowchart TD
 
 ::::{tab-item} Preparation
 
-:::{table} Preparations of the Chicago base membrane.
+:::{table} Preparations of this membrane.
 :label: comp-membrane-popc-chol-preps
 
 | Route | POPC (µL) | Cholesterol (µL) | Liss-Rhod PE (µL) |

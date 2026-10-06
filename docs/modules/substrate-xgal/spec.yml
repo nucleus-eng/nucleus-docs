@@ -36,15 +36,13 @@ measured_by:
 # -- nor an `observation` -- nothing was seen. Before 2026-10-04 the only declarations
 # available were a false `rule` or none, and this corpus chose none, which left the
 # belief in prose where no checker reads it.
-# THE uv-exposure SENSITIVITY MOVED TO ../substrate/spec.yml ON 2026-10-05, and this is
-# what writing the class was for. It was declared here as `basis: inferred` with
-# `from: substrate-cprg`, because nobody has tested X-Gal and the only honest options
-# were a false `rule` or silence.
+# RESTORED 2026-10-05, SAME DAY IT WAS REMOVED. It was moved to ../substrate/spec.yml
+# on the argument that the kind bleaches. The kind does not: not all substrates are
+# light sensitive, and these two happen to be. The right class is Chromophore, which
+# cuts across Substrate and Reporter, and it is not written yet.
 #
-# The class declares it as a `rule` -- a chromogenic substrate is a chromophore and
-# bleaches, which is a fact about the kind. check-conflicts.py resolves sensitivities
-# through `refines:`, so this member still carries it, and it now carries it on a
-# mechanism rather than on a resemblance to its sibling.
+# So this stays `inferred` from ../substrate-cprg, which is what it honestly is until
+# a class states the mechanism.
 
 open:
   - id: the-working-concentration-is-not-established
@@ -78,3 +76,14 @@ open:
   - id: an-atom-is-its-own-input
     question: >
       `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.
+
+sensitivities:
+  - id: uv-exposure
+    to: uv-exposure
+    basis: inferred
+    from: substrate-cprg
+    why: >
+      X-Gal is a chromogenic substrate like CPRG and is expected to bleach under the UV
+      a 405 nm source emits. Nobody has tested it, so this reports a resemblance and
+      not a mechanism.
+    page: spec.md

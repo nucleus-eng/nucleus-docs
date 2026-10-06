@@ -58,7 +58,7 @@ flowchart TD
 The inner solution encapsulated into the Cell: S30 Lysate, POPC is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, with sucrose to assist [encapsulation by phase transfer](../../processes/assemble-base-cell/main.md), and RNase inhibitor to improve performance.
 
 :::{table}
-:label: comp-london-cytosol
+:label: comp-s30-cytosol
 
 | Component                                                | Final Concentration                                | Volume for one reaction (µL) |
 | -------------------------------------------------------- | -------------------------------------------------- | ---------------------------- |
@@ -76,7 +76,7 @@ The inner solution encapsulated into the Cell: S30 Lysate, POPC is [S30 Lysate](
 The membrane is the [Membrane: POPC](../membrane-popc/spec.md) (100% POPC), optionally functionalized with red fluorescent Cyanine 5 PC, or DSPE-PEG2000. The two optional lipids come from two separate documented preparations and are not combined in one membrane.
 
 :::{table} Membrane: POPC preparations, as documented on the [Membrane: POPC](../membrane-popc/spec.md) spec.
-:label: comp-london-membrane
+:label: comp-s30-membrane
 
 | Preparation                    | Target composition (mol %)     | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |
 | ------------------------------ | ------------------------------ | --------- | ----------------- | ---------------------- | ---------------- |
@@ -90,7 +90,7 @@ The membrane is the [Membrane: POPC](../membrane-popc/spec.md) (100% POPC), opti
 ::::{tab-item} Outer Solution
 
 :::{table}
-:label: comp-london-outer
+:label: comp-s30-outer
 
 | Component                        | Concentration |
 | -------------------------------- | ------------- |

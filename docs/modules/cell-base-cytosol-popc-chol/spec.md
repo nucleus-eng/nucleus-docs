@@ -78,7 +78,7 @@ Below is an approximate composition table for the cytosolic components in the Ce
 ::::{tab-item} Membrane
 
 :::{table}
-:label: comp-chicago-membrane
+:label: comp-popc-chol-membrane
 
 | Component               | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ----------------------- | --------------------- | ------------------------ | --------------------------- | ------------------ |

@@ -110,7 +110,7 @@ flowchart TD
 :::
 
 :::{note} LuxR is expressed from the same plasmid as its target
-LuxR is not supplied as purified protein. Each London sensing construct carries a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving the payload, on one molecule — so `LuxR-PLA1` and `LuxR-deGFP` each express their own receiver. The DevCells demo uses `LuxR-PLA1`; `LuxR-deGFP` is the reporter variant.
+LuxR is not supplied as purified protein. Each LuxR sensing construct carries a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving the payload, on one molecule — so `LuxR-PLA1` and `LuxR-deGFP` each express their own receiver. The DevCells demo uses `LuxR-PLA1`; `LuxR-deGFP` is the reporter variant.
 :::
 
 ::::

@@ -73,7 +73,7 @@ The two are not the same kind of addition. DSPE-PEG2000's PEG headgroup provides
 
 ::::{tab-item} Preparation
 
-:::{table} Documented preparations of the London membrane. Each row is a self-consistent recipe; the two optional lipids are not mixed.
+:::{table} Documented preparations of this membrane. Each row is a self-consistent recipe; the two optional lipids are not mixed.
 :label: comp-membrane-popc-preps
 
 | Preparation                 | Target composition (mol %)      | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |

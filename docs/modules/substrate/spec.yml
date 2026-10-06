@@ -4,19 +4,18 @@
 # `signature.md:127` abbreviates `SubstrateCarrier := Vesicle{Substrate}`, so the
 # carrier is a Vesicle and this is what fills it.
 #
-# THE SENSITIVITY IS WHY THIS CLASS EARNS A PAGE. ../substrate-cprg declares
-# `uv-exposure` with `basis: rule`. ../substrate-xgal declares the same thing with
-# `basis: inferred` and `from: substrate-cprg`, because nobody has tested X-Gal and the
-# only honest declarations available were a false `rule` or silence.
+# NO SENSITIVITY HERE, AND IT WAS WRONG TO PUT ONE HERE. `03df5735` declared
+# `uv-exposure` on this class, arguing a chromogenic substrate is a chromophore and so
+# the kind bleaches. Jon, same day: "not all substrates are light sensitive. those two
+# happen to be light sensitive."
 #
-# DECLARED ONCE HERE, THE INFERENCE DISSOLVES. A chromogenic substrate bleaches because
-# it is a chromophore, which is a fact about the kind. The member no longer leans on its
-# sibling; it inherits from the class. That is the same move ../protein/spec.yml made
-# with proteinase-k, and it is the second instance of the pattern rather than the first.
+# THE GENERALISATION WAS ONE LEVEL TOO WIDE. Substrate is not the kind that bleaches.
+# Chromophore is, and it cuts ACROSS this class rather than sitting under it: the same
+# claim covers ../reporter-degfp, a fluorescent protein with no substrate at all. A
+# class that collects what a page happens to be is not the same as a class that
+# collects what makes the claim true.
 #
-# WHAT IS NOT CLAIMED: that every member bleaches at the same rate, or that the bound is
-# the same. The class says the kind is sensitive. A member that measures a threshold
-# narrows it.
+# The two members keep their own declarations until that class is written.
 
 module: substrate
 title: "Substrate"
@@ -24,12 +23,3 @@ title: "Substrate"
 inputs: {}
 process_steps: []
 
-sensitivities:
-  - id: uv-exposure
-    to: uv-exposure
-    basis: rule
-    why: >
-      A chromogenic substrate is a chromophore, and a chromophore bleaches under the UV
-      a 405 nm photopatterning source emits. The mechanism is the thing that makes the
-      substrate work, so it holds for every member rather than for the ones tested.
-    page: spec.md

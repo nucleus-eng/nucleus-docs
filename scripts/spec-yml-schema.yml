@@ -158,6 +158,39 @@ properties:
         bound:
           $ref: "#/$defs/bound"
 
+  impositions:
+    type: [array, "null"]
+    description: >
+      WHAT EVERY MEMBER OF THIS CLASS INFLICTS. Added 2026-10-05 on Jon's ruling about
+      Lysis: "as a class all members impose lysis. so there should be a class level
+      imposition i think".
+      THIS DOES NOT CONTRADICT #T22, which makes Imposition a property of a MORPHISM and
+      is why the step-level key exists. A class declares the imposition its Function
+      carries, and a member's step is still the morphism that inflicts it. The class
+      says what implementing the Function means; the step says when it happened. Same
+      relation `sensitivities` already has between ../protein and its members.
+      IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that rather than this
+      file: a source with `process_steps` of its own states an imposition on the step
+      that does the imposing, because that step is the morphism and the Module is not.
+      check-conflicts.py resolves both halves through `refines:` already, so a member
+      inherits this without restating it.
+      Absence means undeclared, exactly as on `sensitivities`.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, why]
+      properties:
+        id:
+          type: string
+          description: >
+            Matched against a sensitivity's `to`, by this string and nothing else.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        why:
+          type: string
+        page:
+          type: [string, "null"]
+        bound:
+          $ref: "#/$defs/bound"
   inputs:
     type: object
     description: >

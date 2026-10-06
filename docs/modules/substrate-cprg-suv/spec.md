@@ -62,7 +62,7 @@ flowchart TD
 
 ::::{tab-item} Membrane
 
-:::{table} Substrate SUV bilayer, as prepared for the Chicago colorimetric work.
+:::{table} Substrate SUV bilayer, as prepared for the colorimetric cascade.
 :label: comp-substrate-cprg-bilayer
 
 | Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |

@@ -4,15 +4,19 @@
 # imposes on modules in the same compartment." So the imposition is not PLA1's. Lysis
 # is the thing that imposes and PLA1 is an implementation of it.
 #
-# AND THE IMPOSITION CANNOT BE DECLARED HERE, WHICH IS WORTH STATING RATHER THAN
-# WORKING AROUND. `impositions` is a key on a STEP, not on a Module -- #T22, an
-# imposition belongs to a morphism. A class with `process_steps: []` has no step to
-# hang one on. So this page names the class that imposes and the declaration stays on
-# ../effector-pla1's step, which is the only place the schema allows it.
+# THE IMPOSITION IS DECLARED HERE, which needed a schema key that did not exist until
+# 2026-10-05. Jon: "as a class all members impose lysis. so there should be a class
+# level imposition i think." `impositions` was a step-only key, on #T22's reading that
+# an imposition belongs to a morphism.
 #
-# That is a real gap between the ruling and the schema and it is left visible. Closing
-# it means either a class-level imposition key, which would contradict #T22, or a
-# notion of an abstract step, which nothing else in this corpus needs yet.
+# BOTH READINGS HOLD AND THEY ARE ABOUT DIFFERENT THINGS. The class says what
+# implementing this Function MEANS. The member's step says when it happened. #T22 is
+# about the second and this is the first, the same relation ../protein/spec.yml already
+# has with its members over `sensitivities`.
+#
+# SCOPE IS THE COMPARTMENT, NOT THE MEMBRANE, and that is the sentence the class exists
+# to hold. A member does not distinguish the membrane that produced it from a
+# neighbor's.
 #
 # ONE MEMBER TODAY. The class is still worth a page: it is where the imposition's scope
 # is written down -- the compartment, not the membrane -- and that sentence belongs to
@@ -23,3 +27,11 @@ title: "Lysis"
 
 inputs: {}
 process_steps: []
+
+impositions:
+  - id: lysis
+    why: >
+      Every member breaks phospholipid membranes in reach. The scope is the compartment
+      rather than any one membrane, because a member cannot distinguish the membrane
+      that produced it from a neighbor's.
+    page: spec.md
