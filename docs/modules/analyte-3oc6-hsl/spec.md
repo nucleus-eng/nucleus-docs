@@ -22,12 +22,13 @@ This page is a work in progress and not yet ready for use.
 :::{table} Working concentrations.
 | Band | Value | Source |
 | --- | --- | --- |
-| Induction | not documented | — |
+| Induction, EsaR in Base Cytosol | 5 µM | [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) |
+| Induction, LuxR in S30 Lysate | 10 µM | [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md) |
 | Transport across a bilayer | not documented | — |
 :::
 
-:::{attention} No induction concentration documented
-No induction concentration or working range is stated. @Editor(london): supply the 3OC6-HSL concentration used for induction, and say whether the cascade and the sensing cell use the same one.
+:::{attention} The two routes induce at different concentrations
+No single working range is stated, and the two detector routes do not use one figure. @Editor(london): say whether that difference is the repressor against the activator, the cytosol, or only what each run happened to use.
 :::
 
 # Requirements
