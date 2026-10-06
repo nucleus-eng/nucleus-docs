@@ -10,12 +10,12 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [Color Change](../color-change/spec.md), [deGFP Reporter](../reporter-degfp/spec.md).
+**Position.** Refines nothing declared. Refined by [Color Change](../color-change/spec.md), [deGFP Reporter](../reporter-degfp/spec.md), [mNeonGreen Reporter](../reporter-mneongreen/spec.md).
 <!-- /gen:position -->
 
 A class: a [Cytosol](../cytosol/spec.md) expressing a protein that makes a signal.
 
-Every member expresses its reporting protein from a DNA template. Members differ in whether the protein needs a second molecule to make a signal. [Color Change](../color-change/spec.md) and its members need a substrate. [deGFP Reporter](../reporter-degfp/spec.md) does not, because the protein is the signal.
+Every member expresses its reporting protein from a DNA template. Members differ in whether the protein needs a second molecule to make a signal. [Color Change](../color-change/spec.md) and its members need a substrate. [deGFP Reporter](../reporter-degfp/spec.md) and [mNeonGreen Reporter](../reporter-mneongreen/spec.md) do not, because the protein is the signal.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -64,6 +64,7 @@ flowchart TD
 | [LacZ Reporter](../reporter-lacz/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
 | [XylE Reporter](../reporter-xyle/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
 | [deGFP Reporter](../reporter-degfp/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
+| [mNeonGreen Reporter](../reporter-mneongreen/spec.md) | [Base Cytosol](../base-cytosol/spec.md) |
 :::
 
 ::::
@@ -76,6 +77,7 @@ flowchart TD
 | [LacZ Reporter](../reporter-lacz/spec.md) | `T7pro-LacZ-T7term`, not yet in `nucleus-eng/DNA` |
 | [XylE Reporter](../reporter-xyle/spec.md) | `pT7-TetO-catecholase` (`pMN067`). Two constructs of the same design are in `nucleus-eng/DNA` under the name `C23DO`, and whether one of them is this is unconfirmed |
 | [deGFP Reporter](../reporter-degfp/spec.md) | `pOpen-deGFP` |
+| [mNeonGreen Reporter](../reporter-mneongreen/spec.md) | `T7-mNG-T7term`, not yet in `nucleus-eng/DNA` |
 :::
 
 The template is not the only way to supply the protein. LacZ can also be added as purified enzyme. See [LacZ](../lacz/spec.md).
@@ -94,6 +96,7 @@ A Reporter is expected to give a signal that a reader can measure, once its cyto
 | [LacZ Reporter](../reporter-lacz/spec.md) | absorbance | yes, CPRG |
 | [XylE Reporter](../reporter-xyle/spec.md) | absorbance | yes, catechol |
 | [deGFP Reporter](../reporter-degfp/spec.md) | fluorescence, 488 nm channel | no |
+| [mNeonGreen Reporter](../reporter-mneongreen/spec.md) | fluorescence, green channel | no |
 :::
 
 The two members that need a substrate go through [Color Change](../color-change/spec.md), which holds the enzyme and the substrate apart until a trigger. [Colorimetric Readout](../../processes/colorimetric-readout/main.md) reads their absorbance. deGFP is read by fluorescence.

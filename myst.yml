@@ -162,6 +162,8 @@ project:
           hidden: true
         - file: ./docs/modules/reporter-lacz-enzyme/spec.md
           hidden: true
+        - file: ./docs/modules/reporter-mneongreen/spec.md
+          hidden: true
         - file: ./docs/modules/detector-theophylline/spec.md
           hidden: true
         - file: ./docs/modules/detector-ph/spec.md

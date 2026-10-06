@@ -59,6 +59,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [XylE / C23DO](./reporter-xyle/spec.md) | ★ |
 | Reporter | [LacZ](./reporter-lacz/spec.md) | ★ |
 | Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
+| Reporter | [mNeonGreen](./reporter-mneongreen/spec.md) | - |
 | Reporter | [Color Change](./color-change/spec.md) | - |
 | Substrate | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | ★ |
 | Substrate | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | ★ |
@@ -134,6 +135,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the cytosol
 | Reporter | [LacZ](./lacz/spec.md) | - |
 | Reporter | [LacZ DNA template](./lacz-dna/spec.md) | ★ |
 | Reporter | [XylE](./xyle/spec.md) | - |
+| Reporter | [mNeonGreen](./reporter-mneongreen/spec.md) | - |
 :::
 
 # Contributing a Module

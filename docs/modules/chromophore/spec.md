@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [deGFP Reporter](../reporter-degfp/spec.md), [Substrate: CPRG](../substrate-cprg/spec.md), [Substrate: X-Gal](../substrate-xgal/spec.md).
+**Position.** Refines nothing declared. Refined by [deGFP Reporter](../reporter-degfp/spec.md), [mNeonGreen Reporter](../reporter-mneongreen/spec.md), [Substrate: CPRG](../substrate-cprg/spec.md), [Substrate: X-Gal](../substrate-xgal/spec.md).
 <!-- /gen:position -->
 
 A class: a Module whose subject is a molecule that absorbs visible light.
@@ -32,6 +32,7 @@ This page is a work in progress and not yet ready for use.
 | [CPRG](../substrate-cprg/spec.md) | Yellow as supplied. Cleavage yields a second chromophore, the red product. |
 | [X-Gal](../substrate-xgal/spec.md) | Colorless as supplied; the indigo product is the chromophore. |
 | [deGFP Reporter](../reporter-degfp/spec.md) | A fluorescent protein. Absorbs and re-emits rather than absorbing alone. |
+| [mNeonGreen Reporter](../reporter-mneongreen/spec.md) | A fluorescent protein. Absorbs and re-emits rather than absorbing alone. |
 
 # Expected Behavior
 

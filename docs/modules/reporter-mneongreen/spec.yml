@@ -1,0 +1,101 @@
+# Composition source for mNeonGreen Reporter.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# ONE STEP AND NOTHING HELD APART. The protein is the signal, so no substrate is
+# carried and there is no packing step. This is ../reporter/spec.yml's own step with
+# the cytosol and the template named, which is also how ../reporter-degfp/ reads.
+#
+# ONE CYTOSOL IS NAMED AND THE MODULE RUNS IN TWO. The page says it runs in both
+# ../base-cytosol/ and ../s30-lysate/, and only the Base Cytosol reaction has a build
+# behind it. Naming S30 Lysate here would put a composition claim in the contract with
+# no recipe under it, and naming it on the page's Constituent Modules list and not here
+# would trip check-composition.py. So the second cytosol is a behaviour claim on the
+# page and an `open` entry below, which is where a thing with no numbers belongs.
+#
+# NO FINAL IS WRITTEN FOR THE TEMPLATE. The only build on record gives it as a volume
+# with no concentration. The operator-bearing form of the same coding sequence ran
+# across 0.1 to 9 nM, but those doses move a repressor-to-template ratio and belong to
+# ../detector-esar/. A figure here would be a guess wearing a unit.
+
+module: reporter-mneongreen
+title: "mNeonGreen Reporter"
+
+refines:
+  - reporter
+  - chromophore
+  # TWO PARENTS, following ../reporter-degfp/, which carries the same pair for the same
+  # reason: a fluorescent protein is a reporter by function and a chromophore by what it
+  # is made of. `reporter` is first because the first entry is the alignment parent and
+  # the alignment parent is the functional one.
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  mneongreen-dna:
+    title: "mNeonGreen template"
+    page: null            # `T7-mNG-T7term`, the plain reporter template. NO SEQUENCE FILE
+                          # EXISTS FOR IT ANYWHERE. The same 711 bp coding sequence sits
+                          # behind an operator in `T7-[EsaO]2-mNG-T7term` (1118 bp) and
+                          # `T7-[EsaO]-mNG-T7term` (1098 bp), both of which belong to
+                          # ../detector-esar/ and neither of which is in nucleus-eng/DNA.
+                          # NO STOCK AND NO WORKING CONCENTRATION IS RECORDED.
+
+process_steps:
+  - id: express-the-reporter
+    process:
+      title: "Expression"
+      page: ../../processes/express/main.md
+    operator: mixing
+    operands: [base-cytosol, mneongreen-dna]
+    produces:
+      id: reporter-mneongreen
+      title: "mNeonGreen Reporter"
+      page: ../reporter-mneongreen/spec.md
+    finals:
+      base-cytosol: {value: 1, unit: "x"}
+      rnase-inhibitor: {value: 1, unit: "U/uL"}
+    stocks:
+      # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md, so
+      # its stock sits on the step rather than on a reagent of this page — the same
+      # placement ../reporter-degfp/ uses, at a different figure.
+      rnase-inhibitor: {value: 40, unit: "U/uL"}
+    notes: >
+      The reaction this is read from carried no repressor and no operator, which is why
+      it can stand as this Module alone. Base Cytosol is at 1x by four independent
+      components of it, each arriving at one times its own stock.
+
+measured_by:
+  - process:
+      title: "Fluorescence Readout"
+      page: null
+      # NO PROCESS DIRECTORY DESCRIBES IT, and ../reporter-degfp/ carries the same gap
+      # with the same reason for leaving it: a page written to fill a key records a
+      # relation nobody checked. What was used is a plate reader on the standard green
+      # channel, 485/20 excitation and 528/20 emission.
+
+open:
+  - kind: question
+    id: the-template-dose-is-unrecorded
+    question: >
+      The only build on record gives the plain reporter template as a volume with no
+      concentration behind it, so this Module has no working concentration. The
+      operator-bearing form of the same coding sequence ran across 0.1 to 9 nM, but
+      those doses were chosen to move a repressor-to-template ratio and are the
+      detector's figures rather than this Module's.
+  - kind: question
+    id: no-s30-lysate-build-is-on-record
+    question: >
+      The Module runs in S30 Lysate as well as in Base Cytosol, and only the Base
+      Cytosol reaction is recorded. No composition, no trace, no template dose and no
+      reader setting exists for the S30 Lysate form, so this source names one cytosol
+      where the page names two.
+  - kind: question
+    id: no-filter-set-matched-to-the-protein
+    question: >
+      Every reading on record was taken on the standard green channel, 485/20 excitation
+      and 528/20 emission with a 510 nm top mirror. This protein's maxima of 506 nm and
+      517 nm sit at the blue edge of it, so it is collected off its peak. The traces are
+      usable and comparisons between arms hold. An absolute brightness figure wants a set
+      matched to 506/517, and none has been used.
