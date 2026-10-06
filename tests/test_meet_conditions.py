@@ -129,6 +129,12 @@ def test_the_condition_boxes_are_not_counted_as_slots():
 
 
 def test_a_box_hangs_off_the_process_it_constrains():
-    """D3 makes it a node, and a node outside the graph is a node nobody reads."""
+    """D3 makes it a node, and a node outside the graph is a node nobody reads.
+
+    The node id was PROC_EMBED_HYDROGEL_0 until `3f04ca2e` renamed the process
+    `embed-hydrogel` to `embed-gel`. That commit moved the directory, the sources
+    and the pages and left this one assertion behind, so the test has been red on
+    a name rather than on the behaviour it guards.
+    """
     r = _run("atc-cascade", "ph-cascade")
-    assert "IMP_THERMAL_HOLD --> PROC_EMBED_HYDROGEL_0" in r.stdout
+    assert "IMP_THERMAL_HOLD --> PROC_EMBED_GEL_0" in r.stdout
