@@ -67,3 +67,23 @@ open:
       class that says what members are MADE OF is true now, and leaving it unasserted
       left eleven Modules silent about their own bilayer rather than keeping the corpus
       neutral.
+
+# FOUR OF THE ELEVEN EDGES ARE REDUNDANT AND THAT WAS KNOWN BEFORE THEY WERE ADDED.
+# ../ahsl-sensing-cell, ../atc-sensing-cell, ../ph-sensing-cell and
+# ../theophylline-sensing-cell each refine a chassis that now refines this class, so
+# their direct edge is implied by a longer path rather than independent.
+#
+# THEY ARE KEPT. Jon asked for them in as many words -- "synthetic cells should refine
+# liposomes" -- and ../../../scripts/render-posets.py already reports the shape it is:
+# "88 covering, 4 implied by a longer path and not drawn". An implied edge is not a
+# false claim, only an unnecessary one, and the same four already carried a redundant
+# `guv` edge before this sweep for the same reason.
+#
+# THE SWEEP DID SOMETHING ELSE WORTH KNOWING. Before it, no module in this corpus sat
+# in three INDEPENDENT fibers; the theory session read a parent count off `refines:` and
+# reported three axes on these four sensing cells, which was false because two of their
+# four edges are implied. Measured after the sweep: SIX modules sit in three genuinely
+# independent fibers -- ../base-cell, ../cell-base-cytosol-popc-chol and
+# ../cell-s30-popc over cell x guv x liposome, and ../guv-cprg, ../substrate-cprg-luv
+# and ../substrate-cprg-suv over a role, a size and a material. The sensing cells are
+# still not among them.

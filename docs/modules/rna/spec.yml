@@ -38,3 +38,8 @@ sensitivities:
       reaches is degraded, which is why 14 sources in this corpus add an inhibitor
       rather than declaring a tolerance.
     page: spec.md
+
+# ../dna AND THIS CLASS ARE UNRELATED ROOTS, AND THEY SHOULD PROBABLY NOT BE. See the
+# same note on ../dna/spec.yml: the theory repo has `NucleicAcid` refined by both, and
+# `rna-nucleolysis` refines `nucleolysis` in this corpus's own condition ids, which is
+# the same relation one level down. Recorded, not closed.

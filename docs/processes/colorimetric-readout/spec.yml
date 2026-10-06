@@ -24,17 +24,29 @@ signature:
         The chromogenic substrate the reporter enzyme turns over. CPRG is attested; the
         page names an alternate.
   produces:
-    type: signal
+    type: measurement
     note: >
-      A visible color change. NOT A COMPONENT, and this schema's `produces` assumes one.
-      See the open item.
+      A visible color change, read. RULED 2026-10-05: "colormetric readout should also
+      produce measurement; signal is the output of a detector's function and a required
+      input for an effector module."
+      SO SIGNAL AND MEASUREMENT ARE TWO THINGS AND THIS PRODUCES THE SECOND. A Signal is
+      what a Detector emits and what an Effector consumes -- it sits mid-cascade, in
+      both a codomain and a domain. A Measurement is where the chain stops and a reader
+      takes a number. This process is the stop.
 
 open:
   - id: a-readout-does-not-produce-a-component
     question: >
-      Every other process in this corpus produces something that goes in a tube. This
-      one produces a reading. `signal` is written above because
-      compositional-biology-theory `glossary.md#T45` has Signal as an object -- "what an
-      object emits that a reader can detect" -- but no module page carries that type and
-      `scripts/process-yml-schema.yml` does not require one to. Whether a readout's
-      codomain is a Component, a Signal or a Measurement is not settled here.
+      PARTLY SETTLED 2026-10-05. This produces a `measurement`, ruled, which is the same
+      codomain as ../pierce660 and ../protein-gel -- so the three readouts agree and the
+      `observe` abstract they imply has one word to inherit rather than two.
+      WHAT IS STILL OPEN IS THE WORD ITSELF, and it is cross-repo. This corpus writes
+      `measurement`; compositional-biology-theory has `Observation` as the type row with
+      `glossary.md#T36` making Readout a synonym for Measurement. Jon used
+      "measurement". Neither session has normalised, because picking a cross-repo word
+      unilaterally is the thing both agreed not to do.
+      AND SIGNAL IS NOT IN THE RUNNING ANY MORE, which is the useful half: it is a
+      different type, consumed by an Effector rather than read by a person. The theory
+      side measured that Signal, Color and Observation appear in 5 codomain positions
+      and 0 domain positions across every profile they have, so the operation an
+      Effector performs on a Signal is unwritten there too.

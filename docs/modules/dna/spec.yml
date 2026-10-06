@@ -38,3 +38,12 @@ process_steps: []
 # many strands. The first pass read that as an absence of evidence and left it on this
 # class rather than assigning one. It is not an absence -- it is the default, and
 # ../lacz-dna now refines ../dsdna.
+
+# ../rna AND THIS CLASS ARE UNRELATED ROOTS, AND THEY SHOULD PROBABLY NOT BE. Flagged
+# 2026-10-05 by the theory session: their `signature.md` carries `NucleicAcid` refined
+# by both, and this corpus has no such page -- so `nucleolysis`, which this corpus
+# already uses as a condition id, names a kind nothing here declares.
+#
+# NOT WRITTEN. `the-type-system` T2's eleven classes are parked on Jon's word, and this
+# would be a twelfth arriving from the other repo rather than from that list. The gap is
+# recorded here and on ../rna rather than closed on a peer's say-so.
