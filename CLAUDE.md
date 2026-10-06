@@ -50,9 +50,10 @@ python3 scripts/check-file-placement.py # flag content files outside allowed dir
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
 python3 scripts/check-reference-voice.py # flag who-decided text and pointers into our working notes
 python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
+python3 scripts/check-template-compliance.py # (local) flag a page whose sections do not match its template in templates/
 ```
 
-These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
+These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale), except `check-template-compliance.py`, which runs in no workflow and must be run by hand: shape tooling is built before it is enforced, and a corpus this far from its own templates would turn every PR red before anyone had agreed which pages to fix. Install pre-commit hooks to catch violations before pushing:
 ```bash
 pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
