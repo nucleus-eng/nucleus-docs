@@ -36,23 +36,32 @@ flowchart TB
 
 - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md)
 
-## DevCell Encapsulation Processes
+## Encapsulation Processes
 
-DevCell integrations (e.g., the Chicago colorimetric readout system) build on three liposome preparations. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate gel embedding — these use the extrusion + SEC method documented in [Encapsulation: Extrusion](./encapsulate-suv/main.md), a genuinely different technique. Large unilamellar vesicles (LUVs) fill the same substrate role, made by [Encapsulation: Freeze-Thaw](./encapsulate-luv/main.md). Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and ULGA gel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each demo's lipid composition documented on its own membrane Module spec rather than as a separate process.
+Three routes close a bilayer around an aqueous payload. Which route to use depends on what goes inside and on what the product feeds into. Small unilamellar vesicles (SUVs) carry pre-loaded chromogenic substrate and feed into alginate gel embedding — these use the extrusion + SEC method documented in [Encapsulation: Extrusion](./encapsulate-suv/main.md), a genuinely different technique. Large unilamellar vesicles (LUVs) fill the same substrate role, made by [Encapsulation: Freeze-Thaw](./encapsulate-luv/main.md). Synthetic cells carry the sensing and cell-free expression machinery and feed into both alginate and agarose gel embedding — these use the same mineral-oil phase-transfer method as [Encapsulation: Phase Transfer](./assemble-base-cell/main.md), with each system's lipid composition documented on its own membrane Module spec rather than as a separate process.
 
 - [Encapsulation](./encapsulate/main.md) — the abstraction every route below is an instance of. Closes a bilayer around an aqueous payload, and packs rather than mixes.
   - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md) — emulsion and transfer through an interface; produces synthetic cells.
   - [Encapsulation: Extrusion](./encapsulate-suv/main.md) — film hydration and extrusion; produces SUVs, which are never interchangeable with synthetic cells.
   - [Encapsulation: Freeze-Thaw](./encapsulate-luv/main.md) — film hydration, sonication and freeze-thaw; produces LUVs.
 
-## DevCell Readout Processes
+## Sensing Cascade Processes
 
-Every DevCells sensing cascade (Chicago and London alike) ends at the same downstream step: a chromogenic substrate hydrolyzed by a reporter enzyme to give a visible, absorbance-measurable signal.
+These three steps serve a sensing cascade. None of them is a reading: one brings a sample to the pH its reporter enzyme needs, one makes a reagent a cascade is built with, and one cuts signal from outside the compartment. The reading itself is in [Assays](#assays).
 
 - [Color Development](./color-development/main.md) — brings a gel to the pH its reporter enzyme needs, after a sensing step that ran where the enzyme cannot work. Only the pH path uses it.
-- [Colorimetric Readout](./colorimetric-readout/main.md)
 - [Anneal pH-Responsive Trigger Duplex](./anneal-ph-trigger-duplex/main.md) — anneals the pH-responsive and trigger ssDNA into the single duplex reagent the pH-Sensing Module uses
 - [Degrade Exterior LacZ](./degrade-exterior-lacz/main.md) — proteinase K treatment to cut background signal from LacZ that has leaked outside a liposome.
+
+## Assays
+
+An assay reads something and yields a value. Nothing it produces goes back into a tube, which is what sets this section apart from every other one on this page.
+
+- [Assay](./assay/main.md) — the abstraction the four below are instances of.
+  - [Colorimetric Readout](./colorimetric-readout/main.md) — the stage every sensing cascade ends at. A plate-reader absorbance read, or an endpoint score by eye.
+  - [Microscopy Readout](./microscopy-readout/main.md) — reads a sample one object at a time. Counts and morphology, encapsulation, retention over time, and which of two populations a signal came from.
+  - [Pierce660 Assay](./pierce660/main.md) — total protein against a standard curve. The reagent reacts with the protein it measures, so the aliquot is spent.
+  - [Protein Gel](./protein-gel/main.md) — a mixture separated roughly by molecular weight and read as bands.
 
 ## Base Cytosol Processes
 
@@ -103,19 +112,15 @@ flowchart LR
 - [Make OnePot PMix](./make-1pot/main.md)
 - [Make Individual Proteins](./make-protein/make-protein-main.md)
 
-### Quality Control Processes
-
-- [Assay](./assay/main.md) — the abstract these two and the colorimetric readout refine. It reads something and yields a value.
-- [Protein Gel](./protein-gel/main.md)
-- [Pierce660 Assay](./pierce660/main.md)
+Check a finished prep with [Pierce660 Assay](./pierce660/main.md) for total protein, or a [Protein Gel](./protein-gel/main.md) for purity. Both sit in [Assays](#assays), with the rest of the readouts.
 
 ## Embedding Processes
 
-Sensing cells (synthetic cell format) and reporter liposomes (SUV format) are embedded together in a gel matrix to couple a lysis-triggered colorimetric handoff between them. Different DevCells demos use different gel chemistries — see each process page for the chemistry it covers and how it differs from the others.
+Embedding holds compartments that already exist in place. The gel fixes a position without enclosing anything, so a cascade can keep an enzyme and its substrate in one gel with no reaction until something lyses. Two gel chemistries are documented here, one set ionically and one set thermally — see each process page for the chemistry it covers and how it differs from the others.
 
 - [Embedding](./embed-gel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
-  - [Embedding: Ionic Crosslinking](./embed-ionic-crosslinking/main.md) — Chicago-specific; ionic (CaCl₂) crosslinking of sodium alginate.
-  - [Embedding: Thermal Setting](./embed-thermal-setting/main.md) — London-specific; thermal gelation of ultra-low-gelling-temperature agarose, fed by phase-transfer synthetic cells only.
+  - [Embedding: Ionic Crosslinking](./embed-ionic-crosslinking/main.md) — ionic crosslinking of sodium alginate by calcium, at ~1% (w/v) alginate with 200 mM CaCl₂.
+  - [Embedding: Thermal Setting](./embed-thermal-setting/main.md) — thermal gelation of agarose in two grades, ULGA and LGA; fed by phase-transfer synthetic cells only.
 
 ## Photopatterning Processes
 
