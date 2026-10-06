@@ -162,6 +162,9 @@ _HEADER_ALIASES = {
     "product name": "product",
     "manufacturer": "manufacturer",
     "vendor": "manufacturer",
+    "supplier": "manufacturer",
+    "item": "name",
+    "material": "name",
     "part #": "part",
     "part#": "part",
     "part number": "part",
@@ -177,13 +180,26 @@ _HEADER_ALIASES = {
 CANON_FIELDS = ["name", "category", "product", "manufacturer",
                 "part", "price", "storage", "link"]
 
-# Cell values that mean "not filled in" — treated as empty so a page's own TODO
-# placeholders never pollute the index (and so the reference omits them).
-PLACEHOLDERS = {"", "todo", "tbd", "n/a", "na", "—", "-", "–", "#"}
+# Cell values that mean "nobody has filled this in yet". A row whose part
+# number is one of these is not indexed at all.
+UNFILLED = {"", "todo", "tbd", "n/a", "na", "#"}
+
+# Cell values that mean "there is no part number to give". A dash in Part #
+# carries two different meanings in the corpus, and the Manufacturer cell is
+# what tells them apart: `b.next` with a dash is the in-house convention and
+# the row is real, while a dash in both cells is an unsourced row.
+NO_PART = {"—", "-", "–"}
+
+# Everything that reads as empty when nulling out a cell's value. Unchanged.
+PLACEHOLDERS = UNFILLED | NO_PART
 
 
 def is_placeholder(value: str) -> bool:
     return (value or "").strip().lower() in PLACEHOLDERS
+
+
+def is_unfilled(value: str) -> bool:
+    return (value or "").strip().lower() in UNFILLED
 
 
 def _header_field(cell: str) -> Optional[str]:
@@ -232,8 +248,11 @@ def row_to_material(cells: List[str], cols: Dict[str, int]) -> Optional[dict]:
             return ""
         return cells[idx]
 
-    part = get("part")
-    if is_placeholder(part):
+    part, manufacturer = get("part"), get("manufacturer")
+    # Drop a row nobody has filled in. Keep a row that names who makes it and
+    # has no catalog number to give: that is the in-house convention, and the
+    # Link resolves to the Process that makes it.
+    if is_unfilled(part) or (is_placeholder(part) and is_placeholder(manufacturer)):
         return None
     # Nullify placeholder cells so a page's TODOs don't shadow real values
     # from other pages during indexing/enrichment.
@@ -307,7 +326,12 @@ def index_materials(docs_root: Path,
                 mat = row_to_material(cells, cols)
                 if not mat:
                     continue
-                key = (norm_key(mat["manufacturer"]), norm_key(mat["part"]))
+                # A row with no part number is keyed by its name, or every
+                # in-house row on the corpus collapses into one ("b.next", "")
+                # entry and the fields fight.
+                part_key = norm_key(mat["part"])
+                key = (norm_key(mat["manufacturer"]),
+                       part_key or "name:" + norm_name(mat["name"]))
                 if key not in index:
                     entry = dict(mat)
                     entry["used_in"] = [slug]

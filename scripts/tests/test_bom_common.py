@@ -166,10 +166,20 @@ def test_parse_table_header_requires_manufacturer_and_part():
 # row_to_material — placeholder nullification & part-# gating
 # --------------------------------------------------------------------------- #
 
-def test_row_to_material_drops_rows_with_placeholder_part():
+def test_row_to_material_drops_rows_nobody_has_filled_in():
     cols = parse_table_header("| Name | Manufacturer | Part # |")
     assert row_to_material(split_row("| Tris | Sigma | TODO |"), cols) is None
-    assert row_to_material(split_row("| Tris | Sigma | — |"), cols) is None
+    assert row_to_material(split_row("| LGA | — | — |"), cols) is None
+
+
+def test_row_to_material_keeps_an_in_house_row():
+    """A named maker with no catalog number is the in-house convention, not a
+    TODO. Dropping it hid tRNA and ribosomes from the reference."""
+    cols = parse_table_header("| Name | Manufacturer | Part # |")
+    mat = row_to_material(split_row("| tRNA | b.next | — |"), cols)
+    assert mat is not None
+    assert mat["manufacturer"] == "b.next"
+    assert mat["part"] == ""
 
 
 def test_row_to_material_nullifies_placeholder_cells():
