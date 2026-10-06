@@ -133,7 +133,7 @@ Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc
 
 **PLA1 imposes on any phospholipid membrane in reach.** It does not distinguish the membrane that expressed it from a neighbor's, and it cannot distinguish populations that share a composition. Where a sensing cell and a substrate carrier are built on one membrane formulation, PLA1 reaching the carrier is the intended path and PLA1 reaching another sensing cell is not, and nothing in the chemistry separates them. A composition that needs them separated states that requirement itself.
 
-**PLA1 requires a low noise floor in whatever drives it**, and any color change module built on PLA1 inherits that requirement. In London, background PLA1 expression without 3OC6-HSL gives near-equivalent color to the induced state, so the dynamic range is gone. In Chicago, PLA1 takes 10 to 12 h to lyse GUVs and the GUVs leak on their own over the same window, so the negative control also colors: slightly purple against slightly more purple when induced. **One failure with two causes**: transcriptional leak in London and GUV lifetime in Chicago.
+**PLA1 requires a low noise floor in whatever drives it**, and any color change module built on PLA1 inherits that requirement. It fails that requirement today for three separate reasons. In [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), PLA1 is expressed without 3OC6-HSL at a level that colors nearly as much as the induced state, so the dynamic range is gone. In [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) GUVs, PLA1 takes 10 to 12 h to lyse them and the GUVs leak on their own over that window, so the negative control also colors: slightly purple against slightly more purple when induced. And the pH path's own template is leaky — the function test for `pT7-toehold9-PLA1` is recorded as leaky, so the toehold gate passes some transcription with no trigger present. **Three causes, one failure**: a leaky promoter, a leaky gate, and a membrane that does not outlive the reaction.
 
 The detector is the component that currently fails this requirement. The LacZ/CPRG reaction is robust.
 
@@ -142,7 +142,7 @@ No numeric threshold is defined for how low the noise floor must be.
 :::{attention} Sources for the noise-floor observations
 @Editor(london): cite the DevNote or data for the background PLA1 expression without 3OC6-HSL.
 
-@Editor(chicago): cite the DevNote or data for the GUV leak and the negative-control color, and for the statement that the detector, not the LacZ/CPRG reaction, fails the requirement. State whether that statement covers the GUV leak, which is not a detector failure.
+@Editor(chicago): cite the DevNote or data for the GUV leak and the negative-control color, for the leaky function test on `pT7-toehold9-PLA1`, and for the statement that the detector, not the LacZ/CPRG reaction, fails the requirement. State whether that statement covers the GUV leak, which is not a detector failure.
 :::
 
 Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
