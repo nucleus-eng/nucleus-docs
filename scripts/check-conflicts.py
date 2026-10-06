@@ -280,10 +280,39 @@ def verdict(imp, sens, step, home):
 
 REASONS = []
 
+def _class_impositions(m, seen=None):
+    """An imposition declared on a CLASS is carried by every member's step.
+
+    ADDED 2026-10-05, the same day the key existed. `impositions` was a step-only key
+    until Jon ruled: "as a class all members impose lysis. so there should be a class
+    level imposition i think." The key went into the schema and THIS FILE WAS NOT
+    TAUGHT TO READ IT, so `Lysis` declared an imposition that was never computed:
+    declared data, silent checker, and a corpus still reporting zero conflicts.
+
+    Found by scripts/collate-conditions.py, which reported `lysis` as imposition-only
+    with nothing on the other side, and then still reported no conflict once
+    ../membrane declared the matching sensitivity. The second report is what gave it
+    away: a join that exists in the data and not in the output.
+
+    Follows `refines:` exactly as `_inherited` does for sensitivities. A member
+    implementing a Function carries what that Function imposes.
+    """
+    seen = seen or set()
+    if m in seen:
+        return []
+    seen.add(m)
+    out = list((SRC.get(m) or {}).get("impositions") or [])
+    r = (SRC.get(m) or {}).get("refines")
+    for parent in ([r] if isinstance(r, str) else (r or [])):
+        out += _class_impositions(parent, seen)
+    return out
+
+
 rows, tally = [], collections.Counter()
 for mod, d in SRC.items():
+    carried = _class_impositions(mod)
     for step in d.get("process_steps") or []:
-        for imp in step.get("impositions") or []:
+        for imp in (list(step.get("impositions") or []) + carried):
             tally["impositions"] += 1
             for operand in operand_ids(step):
                 inside = constituents(operand) - {operand}

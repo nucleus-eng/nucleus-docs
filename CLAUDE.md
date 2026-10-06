@@ -50,6 +50,7 @@ python3 scripts/check-file-placement.py # (CI) flag content files outside allowe
 python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
 python3 scripts/check-table-shape.py    # (CI) flag table rows whose column count differs from their header
 python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
+python3 scripts/collate-conditions.py   # what every sensitivity and imposition id names, and which meet nothing
 python3 scripts/check-reference-voice.py # (CI) flag who-decided text in a .md or a spec.yml
 python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
 python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page

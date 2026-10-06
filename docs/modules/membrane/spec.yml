@@ -78,3 +78,12 @@ sensitivities:
     basis: rule
     why: >
       DMSO ruins liposome formation. Attempts to make SUVs in it gave poor SUVs.
+  - id: lysis
+    to: lysis
+    basis: rule
+    why: >
+      A phospholipid bilayer is what a lysis effector hydrolyzes. Any member in a
+      compartment reached by something that implements Lysis is broken, which is why
+      the scope of that imposition is the compartment rather than any one membrane.
+      Declared on the class because it follows from the bilayer rather than from any
+      member's composition.
