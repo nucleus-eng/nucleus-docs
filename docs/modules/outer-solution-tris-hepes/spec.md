@@ -65,7 +65,7 @@ flowchart TD
 :::{table} The Tris-HEPES formulation.
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| Tris-HEPES | 42.5% (v/v) in water | from a stock |
+| Tris-HEPES | 46.67% (v/v) in water | from a stock |
 | Energy solution | 1× in the finished reaction | a 2× sub-mix of ten components; see the Energy solution tab |
 | Osmolarity | ~1180 mOsm | a relation, and it sets the gel's |
 :::
@@ -120,7 +120,7 @@ Made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.m
 
 # Constituent Modules
 
-- Tris-HEPES stock — 42.5% (v/v) in water
+- Tris-HEPES stock — 46.67% (v/v) in water
 - Energy solution — a 2× sub-mix of ten components, used at 1×
 
 # Credits
