@@ -12,6 +12,7 @@
 
 process: make-36pot
 title: "Make Protein Mix (36-pot)"
+refines: make
 
 signature:
   takes:

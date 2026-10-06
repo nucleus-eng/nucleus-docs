@@ -10,14 +10,16 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`vesicle`](../vesicle/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`vesicle`](../vesicle/spec.md). Refined by [`ahsl-sensing-cell`](../ahsl-sensing-cell/spec.md), [`atc-sensing-cell`](../atc-sensing-cell/spec.md), [`base-cell`](../base-cell/spec.md), [`cell-base-cytosol-popc-chol`](../cell-base-cytosol-popc-chol/spec.md), [`cell-s30-popc`](../cell-s30-popc/spec.md), [`dye-liposomes`](../dye-liposomes/spec.md), [`guv-cprg`](../guv-cprg/spec.md), [`ph-sensing-cell`](../ph-sensing-cell/spec.md), [`substrate-cprg-luv`](../substrate-cprg-luv/spec.md), [`substrate-cprg-suv`](../substrate-cprg-suv/spec.md), [`theophylline-sensing-cell`](../theophylline-sensing-cell/spec.md).
 <!-- /gen:position -->
 
 A [vesicle](../vesicle/spec.md) whose bilayer is made of lipid. **Its sibling is a polymersome**, whose bilayer is made of block copolymer; this corpus has none.
 
 **This is the material axis, and it is independent of size.** A liposome may be a [GUV](../guv/spec.md), an [SUV](../suv/spec.md) or an [LUV](../luv/spec.md), which is why this class refines Vesicle and not one of those three.
 
-**No members are assigned, and that is deliberate.** Every vesicle documented here is a liposome, so giving eleven Modules this parent would record a distinction that separates none of them from any other. The page exists so the axis is written down and a polymersome has somewhere to attach.
+**Eleven members, assigned 2026-10-05.** This page argued until then that assigning them would record a distinction separating nothing, because every vesicle in the corpus is a liposome. Jon overruled it: *"synthetic cells should refine liposomes, as should any of the substrate vesicles and dye vesicles (by virtue of the fact that they are built from lipids)"*.
+
+**The argument was wrong about what a parent is for.** A class that holds only what currently distinguishes members is a sorting key. The material axis is a fact about what each Module is made of, and it is true of all eleven whether or not a polymersome ever arrives. Leaving it unasserted did not keep the corpus neutral; it left eleven Modules silent about their own bilayer.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -67,7 +69,9 @@ flowchart TD
 
 # Members
 
-**None yet, and the absence is the record.** The first polymersome makes this distinction real and gives both classes their members on the same day.
+**Eleven, every one verified to take a POPC-based membrane.** The nine GUV-scale Modules, plus the CPRG LUV and the CPRG SUV.
+
+**The first polymersome is still what makes the distinction do work**, and it now has somewhere to land that is not empty on both sides.
 
 # Expected Behavior
 

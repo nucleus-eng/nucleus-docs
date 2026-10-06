@@ -12,6 +12,7 @@
 
 process: make-amino-acid-mix
 title: "Make Amino Acid Mix"
+refines: make
 
 signature:
   takes:

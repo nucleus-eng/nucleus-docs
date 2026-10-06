@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md) and [`suv`](../suv/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`substrate-carrier`](../substrate-carrier/spec.md) and [`suv`](../suv/spec.md) and [`liposome`](../liposome/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A Substrate SUV is a small unilamellar liposome that carries a chemical substrate of interest and nothing else. The CPRG Substrate SUV is a subcomponent of a [LacZ colorimetric cascade](../../processes/colorimetric-readout/main.md).

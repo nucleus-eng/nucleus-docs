@@ -13,7 +13,14 @@
 module: dye-liposomes
 title: Dye Liposomes
 
-refines: guv
+refines:
+  - guv
+  - liposome
+  # `liposome` ADDED 2026-10-05, the material axis. Jon: "synthetic cells should
+  # refine liposomes, as should any of the substrate vesicles and dye vesicles (by
+  # virtue of the fact that they are built from lipids)". Verified for this Module:
+  # its membrane operand is a POPC bilayer. The size axis above and this one do not
+  # nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
   # GUV appended 2026-10-04: the class is determined by the process that
   # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
   # the first entry is the alignment parent and must be the FUNCTIONAL one;

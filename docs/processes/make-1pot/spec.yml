@@ -12,6 +12,7 @@
 
 process: make-1pot
 title: "Make Protein Mix (1-pot)"
+refines: make
 
 signature:
   takes:

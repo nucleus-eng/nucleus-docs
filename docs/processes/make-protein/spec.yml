@@ -15,6 +15,7 @@
 
 process: make-protein
 title: "Protein Purification Processes"
+refines: make
 
 signature:
   takes:

@@ -12,6 +12,7 @@
 
 process: make-small-molecule-mix
 title: "Make Small Molecule Mix"
+refines: make
 
 signature:
   takes:

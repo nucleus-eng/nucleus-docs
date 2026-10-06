@@ -56,6 +56,14 @@ process_steps:
 open:
   - id: no-members-and-that-is-the-point
     question: >
-      This class claims no members while every vesicle in the corpus is one. The page
-      records the axis rather than sorting anything by it. The first polymersome makes
-      the distinction real and gives both classes their members on the same day.
+      CLOSED 2026-10-05, and the reasoning in it was wrong. It read: this class claims
+      no members while every vesicle in the corpus is one, so the page records the axis
+      rather than sorting anything by it.
+      Jon: "synthetic cells should refine liposomes, as should any of the substrate
+      vesicles and dye vesicles (by virtue of the fact that they are built from
+      lipids)". Eleven members assigned, each verified to take a POPC-based membrane.
+      THE ERROR WAS TREATING A PARENT AS A SORTING KEY. A class that holds only what
+      currently separates members earns its page when the first exception arrives. A
+      class that says what members are MADE OF is true now, and leaving it unasserted
+      left eleven Modules silent about their own bilayer rather than keeping the corpus
+      neutral.

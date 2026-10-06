@@ -12,6 +12,7 @@
 
 process: make-ribosomes
 title: "Make Ribosomes"
+refines: make
 
 signature:
   takes:
