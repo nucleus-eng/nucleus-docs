@@ -212,6 +212,9 @@ RETIRED_ALIASES = {
     "item": "name",
     "supplier": "manufacturer",
     "part number": "part",
+    # `item #` is a part-number column; `item` above is a name column. The trailing
+    # `#` is kept by `_header_field`, so the two spellings cannot collide.
+    "item #": "part",
     "storage conditions": "storage",
 }
 
