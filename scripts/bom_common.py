@@ -166,6 +166,12 @@ _HEADER_ALIASES = {
     "item": "name",
     "material": "name",
     "part #": "part",
+    # `Item #` is detector-ph's spelling, and it was the last table in the
+    # corpus with a manufacturer column and no part column the parser knew.
+    # Distinct from "item" above, which is a NAME column on
+    # membrane-pore-gramicidin: _header_field keeps the `#`, so the two
+    # spellings never collide.
+    "item #": "part",
     "part#": "part",
     "part number": "part",
     "cat #": "part",

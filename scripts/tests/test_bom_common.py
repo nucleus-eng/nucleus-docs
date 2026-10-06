@@ -228,3 +228,17 @@ def test_index_materials_without_exclude_sees_both_pages(tmp_path):
     index, _ = index_materials(tmp_path)
     key = (bc.norm_key("Sigma"), bc.norm_key("T1503"))
     assert sorted(index[key]["used_in"]) == ["pagea", "pageb"]
+
+def test_item_hash_is_a_part_column_and_item_is_not():
+    """`Item #` is detector-ph's spelling for a catalog number; `Item` is
+    membrane-pore-gramicidin's spelling for a name. _header_field keeps the
+    `#`, so the two never collide. Neither page is on main, which is why this
+    is asserted here rather than measured against the corpus."""
+    cols = parse_table_header("| Material | Description | Manufacturer | Item # |")
+    assert cols is not None, "a Manufacturer + Item # table must be read"
+    assert cols["part"] == 3
+    mat = row_to_material(split_row("| CPRG | substrate | Roche | 10884308001 |"), cols)
+    assert mat["part"] == "10884308001"
+
+    named = parse_table_header("| Item | Purpose | Supplier | Part number |")
+    assert named["name"] == 0 and named["part"] == 3
