@@ -85,6 +85,7 @@ Some cascades co-encapsulate LacZ inside the same synthetic cell as the sensing 
 
 - [ ] Load the completed reaction (solution, gel, or embedded format) into a clear-bottom or glass-bottom plate. Use a 96-well plate for bulk/gel-in-well formats or a 384-well glass-bottom plate for imaged liposome/gel preparations.
 - [ ] Set the plate reader to read absorbance at 570 nm to 575 nm (LacZ/CPRG) or 375 nm to 385 nm (XylE/catechol), matching the chemistry in use.
+- [ ] For LacZ/CPRG, read 412 nm in the same pass. CPRG absorbs at 412 nm and its product CPR absorbs at 570 nm, so one read gives both the substrate and the product. Report the ratio A570/A412 beside A570. A ratio of two bands is less sensitive to path length, well fill volume and turbidity than either band on its own, which matters most in a gel, where the matrix scatters light.
 - [ ] Incubate at 37 °C and take kinetic reads over the timescale established for that cascade — reported response times across cascades range from about 3 h (constitutive PLA1/CPRG, no sensing gate) to about 16 h (theophylline and ULGA-embedded 3OC6-HSL cascades) and up to several hours for solution-phase pH sensing. Do not assume a single fixed read window applies to every cascade; check the specific Module page.
 - [ ] Include the controls specified by that cascade's own protocol (e.g., minus-inducer, minus-DNA, Triton X-100 positive lysis control) in the same plate read.
 
