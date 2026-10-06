@@ -80,10 +80,13 @@ def near_duplicate_report(index) -> list:
     one distinct (manufacturer, part #) key."""
     by_name = defaultdict(list)
     for key, entry in index.items():
-        for nm in {norm_name(entry["name"]), norm_name(entry["product"])}:
-            if nm:
-                by_name[nm].append((key, entry))
-                break  # index once per entry, by its primary name
+        # Index once per entry, by its Name, falling back to its Product. A set
+        # with a break picks one of the two at random: string hashing is
+        # randomized per process, so the report changed between runs over an
+        # unchanged corpus.
+        nm = norm_name(entry["name"]) or norm_name(entry["product"])
+        if nm:
+            by_name[nm].append((key, entry))
     report = []
     for nm, items in sorted(by_name.items()):
         keys = {k for k, _ in items}
