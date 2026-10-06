@@ -243,7 +243,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 From our experience, a good rule of thumb is to target a final volume around 100 µL per 1 g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 µL (~40 µg/µL tRNAs)).
 :::
 
-## Quality control
+# Quality Control
 
 **Estimate concentration by UV-Vis Spectroscopy (Nanodrop).**
 - [ ] Prepare a 1:1000 dilution of your tRNAs in water.

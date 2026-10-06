@@ -128,6 +128,10 @@ Please read this section carefully. It contains important notes, resources, and 
   Your target protein is not stable in clarified lysate, even if clarification reduces proteolytic activity. You should immediately proceed to purification. Your samples will only continue to degrade until they've been purified and stored at -80 °C. Work smoothly and quickly from here on out!
   :::
 
+# Credits
+
+Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
+
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -145,7 +149,3 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 ::::
-
-# Acknowledgments
-
-Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
