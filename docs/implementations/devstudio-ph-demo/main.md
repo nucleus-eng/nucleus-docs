@@ -62,8 +62,8 @@ The two formats share their parts and differ in their operations, so this sectio
 | 4 | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) | the sensing cells |
 | 5 | [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) | both arms |
 
-:::{attention} Two steps of the solution arm are not fully documented
-@Editor(chicago): the sensing cells were made by an inverted-emulsion variant of phase transfer that no page carries — a different lipid prep, a layered interface and a slower, colder spin. And the readout is fluorescence microscopy, for which there is no process page yet.
+:::{attention} One step of the solution arm is not fully documented
+@Editor(chicago): the sensing cells were made by an inverted-emulsion variant of phase transfer that no page carries — a different lipid prep, a layered interface and a slower, colder spin. The readout is [Microscopy Readout](../../processes/microscopy-readout/main.md).
 :::
 
 :::{attention} What the demo does not yet specify

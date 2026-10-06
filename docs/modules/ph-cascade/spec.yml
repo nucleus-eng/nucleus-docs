@@ -239,3 +239,6 @@ measured_by:
   - process:
       title: "Colorimetric Readout"
       page: ../../processes/colorimetric-readout/main.md
+  - process:
+      title: "Microscopy Readout"
+      page: ../../processes/microscopy-readout/main.md

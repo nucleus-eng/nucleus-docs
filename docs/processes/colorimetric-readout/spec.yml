@@ -15,10 +15,26 @@
 # NO MODULE STEP NAMES IT, which is why it has no `refines:` and nothing refines it:
 # the relation would be the other way round and ../color-development does not declare
 # it. Left undeclared rather than guessed.
+#
+# CONSERVATIVE, AND BOTH ROUTES ARE. Loading a finished reaction into a plate and
+# reading its absorbance adds nothing to the well and takes nothing out of it, and
+# photographing a gel does less than that. `main.md:89` takes kinetic reads over hours
+# on the same wells and `main.md:96` photographs the same reaction at successive
+# timepoints, neither of which a destructive read can do. Plate-reader absorbance and
+# fluorescence are conservative wherever they are run.
+#
+# THE SUBSTRATE IS TURNED OVER BY THE CASCADE, NOT BY THE READING, and this is the one
+# place the verdict can be argued. `substrate` is an operand and CPRG does not survive
+# the experiment, so a reader could call the process consuming. It is not: the
+# hydrolysis is driven by the upstream lysis this process exists to detect, which is
+# the thing being read. ../pierce660 is the contrast -- there the reagent the PROTOCOL
+# itself adds is what consumes the sample.
 
 process: colorimetric-readout
 title: "Colorimetric Readout"
 refines: assay
+
+conserves: true
 
 signature:
   takes:

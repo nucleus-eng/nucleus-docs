@@ -14,14 +14,18 @@
 # ../embed-gel are the other three. An assay is not a kind of making: nothing it
 # produces goes back into a tube.
 #
-# NO `operator:`. The three instances declare none either. An assay does not compose
+# NO `operator:`. The four instances declare none either. An assay does not compose
 # two things into a third, so no operator of the alphabet applies to it. Left undeclared
 # rather than forced.
 #
 # NO `conserves:`. It varies across the instances and absence is not a claim.
 # ../pierce660 is destructive, because the Pierce 660 reagent reacts with the protein it
-# measures. ../protein-gel consumes its sample into the gel. ../colorimetric-readout
-# declares nothing. A parent asserting one answer would be wrong for at least one child.
+# measures. ../protein-gel consumes its sample into the gel. ../colorimetric-readout and
+# ../microscopy-readout are both conservative: each reads the sample in place, adding
+# nothing to it and taking nothing from it, so the same material can be read again.
+# TWO AND TWO, AND ALL FOUR DECLARE. So the variation is attested in both directions
+# rather than inferred from two destructive children and one silent one, and a parent
+# asserting either answer would be wrong for two of its four.
 
 process: assay
 title: "Assay"
@@ -32,7 +36,9 @@ signature:
       repeated: true
       note: >
         Whatever is being read. Repeated because ../colorimetric-readout takes two, a
-        cascade and the substrate it turns over, and the other two take one sample.
+        cascade and the substrate it turns over, and because ../microscopy-readout reads
+        one field that may deliberately hold two liposome populations at once.
+        ../pierce660 and ../protein-gel take one sample each.
   produces:
     type: observation
     note: >
@@ -40,15 +46,16 @@ signature:
       can be put in the next tube, which is what separates this root from ../make.
       AN OBSERVATION MAY BE QUANTITATIVE OR QUALITATIVE, and a Measurement is the
       quantitative case refining it. ../pierce660 narrows to `measurement`: a standard
-      curve, a linear fit, and a concentration calculated from it. ../protein-gel and
-      ../colorimetric-readout stay at this type, because each has a route read by eye.
+      curve, a linear fit, and a concentration calculated from it. ../protein-gel,
+      ../colorimetric-readout and ../microscopy-readout stay at this type, because each
+      has a route read by eye and no quantitative route written beside it.
       `observation` HAS NO PAGE, LIKE `component`, WHICH 27 SIGNATURES NAME AND NO
       MODULE CARRIES. A Module is a formulation. A reading is not one.
 
 open:
   - id: the-domain-is-the-loosest-of-the-three
     question: >
-      `component` repeated covers all three instances and says almost nothing.
+      `component` repeated covers all four instances and says almost nothing.
       ../colorimetric-readout actually takes a cascade and a substrate, and the other
       two take a sample of a mixture. A tighter domain would need a type for "the thing
       an assay is run on", which this corpus does not have and which the shared glossary
