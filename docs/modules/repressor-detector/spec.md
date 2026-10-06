@@ -63,7 +63,7 @@ The repressor element binds the regulatory element and holds the gene off. It is
 | --- | --- | --- |
 | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) | [aTc](../analyte-atc/spec.md) | TetR, as purified protein or expressed from `pT7-tetR` |
 | [Detector: LacI-IPTG](../detector-laci-iptg/spec.md) | [IPTG](../analyte-iptg/spec.md) | LacI, as purified protein or expressed from `pT7-lacI` |
-| [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) | [3OC6-HSL](../analyte-3oc6-hsl/spec.md) | EsaR, a LuxR homolog that represses where LuxR activates. Design intent only. Purified protein is available from Biocrest. |
+| [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) | [3OC6-HSL](../analyte-3oc6-hsl/spec.md) | EsaR(D91G), a LuxR homolog that represses where LuxR activates. Expressed in a separate reaction from `T7-EsaR(D91G)-T7term` and added as protein. Purified protein is available from Biocrest and has not been used. |
 :::
 
 How the repressor element is supplied is not fixed by the class. A protein is mixed in. DNA is two constructs mixed, or one construct carrying both. Both built members use two constructs: `pT7-tetR` with `pT7-tetO-plamGFP`, and `pT7-lacI` with `pT7-lacO-plamGFP`. A repressor supplied as DNA is expressed in the reaction, or in a separate reaction first, as described in [Expression](../../processes/express/main.md).
@@ -79,7 +79,7 @@ The regulatory element is DNA, always: the operator or promoter the repressor bi
 | --- | --- |
 | [Detector: tetR-aTc](../detector-tetr-atc/spec.md) | the `tetO` operator, in `pT7-tetO-plamGFP` |
 | [Detector: LacI-IPTG](../detector-laci-iptg/spec.md) | the `lacO` operator, in `pT7-lacO-plamGFP` |
-| [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) | not yet established |
+| [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) | the `EsaO` operator, one or two tandem copies, in `T7-[EsaO]2-mNG-T7term` |
 :::
 
 ::::
@@ -91,6 +91,10 @@ The regulatory element is DNA, always: the operator or promoter the repressor bi
 A Repressor Detector is expected to hold expression of its downstream gene down until the analyte arrives. The analyte then releases the repressor from the regulatory element, and expression recovers.
 
 The preparation of the repressor matters, and not only how it is supplied. [Detector: tetR-aTc](../detector-tetr-atc/spec.md) compares three preparations of TetR. All three repressed expression, and only the one expressed overnight in a cell-free reaction induced it in Nucleus Cytosol. The two that failed were purified preparations with different tags and sources. That page reads the tag and the source as functional parameters rather than sourcing detail, and notes that the comparison cannot separate the route from the preparation.
+
+The second member says the same thing and points the other way on one detail. [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) compares two donor incubations of the same cell-free route: the longer one holds the fold change and lowers the yield. So "expressed overnight in a cell-free reaction" names a route for TetR and a cost for EsaR, and the two results together say the donor's age is a parameter rather than a detail.
+
+**One parameter is shared by both members and is easy to miss.** How long the repressor sits with its regulatory element before the working reaction starts changes the result. On the EsaR member, 15 min gives about a twofold change and 1 h gives about fivefold. The class already requires the two elements to be present together before the analyte arrives; this says how long together is also a choice.
 
 # Requirements
 
