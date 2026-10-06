@@ -28,8 +28,16 @@ inputs:
 process_steps:
   - id: close-the-bilayer
     process:
-      title: "Encapsulation"
-      page: ../../processes/encapsulate/main.md
+      # REPOINTED 2026-10-05 from ../../processes/encapsulate/main.md, which it was
+      # never running: this step has no payload, no inner solution and no compartment.
+      # It was the one `mixing` step among seven under Encapsulation, and Jon: "nothing
+      # should be mixed by that point, all the mixing steps ... have already happened".
+      #
+      # ../../processes/prep-lipids IS ONLY HALF OF WHAT THIS STEP CLAIMS, and the
+      # mismatch is in the step's own name. See the `open` item below.
+      title: "Prepare Lipids"
+      page: ../../processes/prep-lipids/main.md
+      abstract: prep-lipids
     operator: mixing
     operands: [lipid, fluorescent-label]
     produces:
@@ -62,6 +70,33 @@ open:
       the schema records it. The composition above is true and does not say the one
       thing the class is for. Same shape as ../photopatterned-gel/spec.yml's
       geometry item.
+
+  - id: nothing-closes-a-bilayer-on-its-own
+    kind: choice
+    question: >
+      THE STEP IS NAMED FOR TWO ACTS AND ITS PROCESS COVERS ONE. `close-the-bilayer`
+      mixes a lipid and an optional label, which is prep-lipids, and then claims the
+      lipids "end in one phase, the bilayer itself" -- its own note says "the closure is
+      the operation rather than a second part". Closure is a different act from mixing.
+
+      AND NOTHING IN THIS CORPUS PERFORMS IT SEPARATELY. All three encapsulation routes
+      form the bilayer themselves, around the payload:
+      ../../processes/assemble-base-cell says "prepare your lipid mixture, form a
+      water-in-oil emulsion from your inner solution and lipid mixture";
+      ../../processes/encapsulate-luv hydrates a dried lipid film;
+      ../../processes/encapsulate-suv starts from one. There is no bench step where a
+      bilayer is closed with nothing inside it.
+
+      SO A MEMBRANE WITH NO PAYLOAD MAY NOT BE A THING ANYBODY MAKES. 28 steps take a
+      membrane as an operand, so the class earns its page as an argument position. What
+      is doubtful is the producing step: it may be a modelling convenience standing in
+      for an act that only ever happens inside encapsulation.
+
+      Three readings, and this is Jon's to pick. Either the step is prep-lipids and
+      should say so in its id and its product type; or it is prep-lipids followed by a
+      closing operation nothing documents, and that operation needs a page; or the class
+      should carry no producing step at all, which is what ../protein/spec.yml and
+      ../dna/spec.yml already do with `process_steps: []`.
 
 # WHAT THIS MODULE IS SUBJECT TO, and only that half. Sensitivity is a property of an
 # object and Imposition a property of a morphism, so an imposition sits on a step. A

@@ -7,12 +7,18 @@
 # considered as applied: the Process that realizes one", so it IS a process -- but its
 # codomain is a reading rather than a thing in a tube.
 #
+# DESTRUCTIVE. The sample is denatured, loaded and driven through the gel, so what was
+# read no longer exists as it was. The reading costs the material it came from, and the
+# step is terminal for that aliquot.
+#
 # `produces: measurement` IS A TYPE NO MODULE PAGE CARRIES. It is written because the
 # alternative is claiming the assay produces its own input, which is false: the sample
 # is consumed and what comes out is a number. See the open item.
 
 process: protein-gel
 title: "Protein Gel (SDS-PAGE)"
+
+conserves: false
 
 signature:
   takes:
@@ -28,7 +34,8 @@ open:
   - id: an-assay-returns-a-reading
     question: >
       `scripts/process-yml-schema.yml` gives `produces` one type and assumes it names
-      something a Module could be. An assay breaks that: it returns a number. Two of the
-      27 process directories are assays and a third, ../colorimetric-readout, returns a
-      signal. Whether the schema should admit a non-Component codomain, or whether an
-      assay belongs in a different layer entirely, is not settled here.
+      something a Module could be. An assay breaks that: it returns a number.
+      PART OF THIS IS NOW ANSWERED. `conserves:` says whether the input survives, which
+      is the half that made a conservative assay look like it returned two things. What
+      is still open is what type a reading IS -- no module page carries `measurement`,
+      and ../colorimetric-readout returns a `signal` with the same problem.

@@ -112,6 +112,22 @@ properties:
               Where the codomain nests, the nesting written out. `encapsulate` returns
               `outer_solution{Membrane[membrane_components]{inner_solution}}`, which no
               id can carry.
+  conserves:
+    type: boolean
+    description: >
+      WHETHER THE INPUT SURVIVES. Jon, 2026-10-05: "assays can be destructive (consumes
+      or alters the input to give the signal) or conservative (passes the input
+      unchanged)."
+      `true` means the sample comes back: the reading was taken without spending it, so
+      a conservative assay may be run again on the same material and may sit mid-chain.
+      `false` means the sample is consumed or altered, so the reading costs the thing it
+      was read from and the step is terminal for that material.
+      THIS IS WHY AN ASSAY'S CODOMAIN LOOKED BROKEN. `produces` gives one type, and a
+      conservative assay returns two things -- its input and a reading. Declaring
+      `conserves: true` says the input survives without the signature having to carry it
+      twice.
+      Meaningful on any process, not only an assay: a destructive step is a destructive
+      step. Absence means undeclared.
   operator:
     enum: [mixing, packing, stitching]
     description: >

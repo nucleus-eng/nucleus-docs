@@ -36,7 +36,7 @@ flowchart TD
     LIPID["Membrane Components"]
     FLUORESCENT_LABEL["Fluorescent label"]
 
-    P1_CLOSE_THE_BILAYER_0(["Encapsulation (mixing)"])
+    P1_CLOSE_THE_BILAYER_0(["Prepare Lipids (mixing)"])
     MEMBRANE["Membrane"]
 
     LIPID --> P1_CLOSE_THE_BILAYER_0
@@ -53,7 +53,7 @@ flowchart TD
 
     click LIPID "/docs/modules/membrane-components/spec"
     click FLUORESCENT_LABEL "/docs/modules/membrane-components/spec"
-    click P1_CLOSE_THE_BILAYER_0 "/docs/processes/encapsulate/main"
+    click P1_CLOSE_THE_BILAYER_0 "/docs/processes/prep-lipids/main"
     click MEMBRANE "/docs/modules/membrane/spec"
 ```
 

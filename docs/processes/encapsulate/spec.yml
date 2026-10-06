@@ -2,11 +2,15 @@
 #
 # Signature read from the steps that run it, not from the page's prose.
 #
-# NO `operator` DECLARED, AND THE REASON IS A DISAGREEMENT IN THE DATA. 7 steps run this
-# process: 6 are `packing` and 1 is `mixing`. By this schema's rule a process whose
-# instances disagree declares none, and the disagreement is worth a look rather than a
-# default -- encapsulation makes a compartment, which is `packing` by definition, so a
-# `mixing` instance is either mislabelled or is not this process.
+# `operator: packing` NOW THAT THE SPLIT IS RESOLVED, AND IT RESOLVED THE WAY THE
+# DEFINITION SAID IT WOULD. The inventory found 6 `packing` steps and 1 `mixing` step
+# under this process, and this file first declared no operator on the schema's rule that
+# a process whose instances disagree declares none.
+#
+# The odd step was ../../modules/membrane/spec.yml's `close-the-bilayer`, which takes a
+# lipid and a label and produces a bilayer -- no payload, no compartment. It is
+# ../prep-lipids and is repointed there. Encapsulation makes a compartment, which is
+# `packing` by definition, and all 6 remaining instances agree.
 #
 # THE THIRD ARGUMENT IS THE ONE NOBODY WRITES. The steps supply a membrane and a payload
 # and leave the outer solution implicit, but the ruled signature has three positions and
@@ -31,3 +35,5 @@ signature:
     type: container
     note: >
       `outer_solution{Membrane[membrane_components]{inner_solution}}`. THE NESTING IS IN THE RETURN TYPE AND NOT IN THE APPLICATION: one step, three inputs.
+
+operator: packing
