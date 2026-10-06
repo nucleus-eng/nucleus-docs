@@ -140,18 +140,18 @@ flowchart TD
 :::{warning} Both constructs were built. Neither has a sequence file
 `T7-[EsaO]2-PLA1-T7term` and `T7-EsaR(D91G)-T7term` were prepared as linear templates on 2026-09-23, with the five other templates of that batch, and the repressor template has been run in four experiments. So the constructs are attested.
 
-**The sequence files are not.** Neither is in the Nucleus DNA repository: no `esa` file, no `esar` entry and no manifest row, while the equivalent gated construct is present for each of the other three demos. No length is claimed here and **no file is linked on a name resemblance**.
+**The sequence files are not.** Neither is in the Nucleus DNA repository: no `esa` file, no `esar` entry and no manifest row, while the equivalent gated construct is present for each of the other three demos. The repressor template's length is read from a sequence held outside that repository; the gated lysis construct has no sequence anywhere. **No file is linked on a name resemblance.**
 
 @Editor: submit both sequences before this Module is used at the bench.
 :::
 
-:::{table} Constructs named by the design. Lengths are unknown because no file exists to read one from.
+:::{table} Constructs named by the design. A length is given only where a sequence exists to read it from.
 :label: comp-craic-cascade-dna
 
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
 | `T7-[EsaO]2-PLA1-T7term` | not documented | none | The gated lysis construct. Two tandem EsaO sites driving PLA1. Expressed in the sensing cell |
-| `T7-EsaR(D91G)-T7term` | not documented | none | Expresses the repressor, a D91G point mutant, which binds the operator above until the analyte arrives |
+| `T7-EsaR(D91G)-T7term` | 1118 | none in `nucleus-eng/DNA` | Expresses the repressor, a D91G point mutant, which binds the operator above until the analyte arrives |
 | LacZ | — | — | Not DNA here. Added as purified enzyme |
 :::
 
