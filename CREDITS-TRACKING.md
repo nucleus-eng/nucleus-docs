@@ -73,7 +73,7 @@ These have full names and, in several cases, ORCIDs. **Use these spellings** —
 | --- | --- | --- | --- |
 | Charlie Newell | Built the London slides; the oil/leakage result with Jonah McDonald; the color-change assay in cytosol | All-hands, named by the presenting PI | spoken |
 | Jonah McDonald | The oil/leakage result, jointly with Charlie Newell — the King's vs UCL oil comparison and the moisture hypothesis | All-hands, both named and both on the call | spoken |
-| **Niall** (surname not captured) | The open-source flow meter, referred to throughout as the "Niall bot" — 10-channel photodiode, about \$20 | All-hands; answered questions about it directly | spoken — **surname wanted** |
+| Niall McIntyre | The open-source flow meter, referred to throughout as the "Niall bot" — 10-channel photodiode, about \$20 | All-hands; answered questions about it directly. Surname from `devnotes/london-bioprinting-hydrogel/curvenote.yml`, confirmed | spoken + confirmed |
 | **Manuel** (surname not captured) | Cytosol expression work; the minus-T7 and holoenzyme results | All-hands; not on the call, referred to by others | spoken — **surname wanted** |
 | Michael Booth | London Node PI — presented the four demonstration levels | All-hands | spoken |
 | Yuval Elani | London Node PI | Agenda slide 1 | footer |
@@ -121,7 +121,7 @@ So there is **no second contributor**. The transcript mangled a name, as it does
 
 # Wanted
 
-- **Surnames for Niall and Manuel** (London). Both did work that will want a Credits line — the flow meter is a demonstration level of its own, and the cytosol expression results underpin Demo 4.
+- **Manuel's surname** (London). The cytosol expression results underpin Demo 4 and will want a Credits line. **Niall McIntyre is settled** — the surname was in `nucleus-devnote-archive-1` all along, on the London bioprinting DevNote, and the flow meter is a demonstration level of its own.
 - **Maddie Briggs' affiliation.** Footered alongside Mary Kelly on Kamat Lab slides; not yet credited anywhere in `docs/`.
 - **Whether slide footers are authoritative for affiliation at all.** C1 and C2 both turn on this. One answer settles both.
 

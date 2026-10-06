@@ -7,6 +7,11 @@
 # ../color-development is the step that does it on a specific cascade; this is the
 # abstract readout every cascade ends at.
 #
+# THE CODOMAIN WAS `measurement` FOR ONE AFTERNOON AND THE TYPE RULING MADE IT WRONG.
+# It was ruled `measurement` on 2026-10-05, over `signal`, and that half still holds.
+# Later the same day Measurement became the QUANTITATIVE case of Observation, and this
+# page has a route that is not quantitative, so the narrower word stopped covering it.
+#
 # NO MODULE STEP NAMES IT, which is why it has no `refines:` and nothing refines it:
 # the relation would be the other way round and ../color-development does not declare
 # it. Left undeclared rather than guessed.
@@ -24,29 +29,32 @@ signature:
         The chromogenic substrate the reporter enzyme turns over. CPRG is attested; the
         page names an alternate.
   produces:
-    type: measurement
+    type: observation
     note: >
-      A visible color change, read. RULED 2026-10-05: "colormetric readout should also
-      produce measurement; signal is the output of a detector's function and a required
-      input for an effector module."
-      SO SIGNAL AND MEASUREMENT ARE TWO THINGS AND THIS PRODUCES THE SECOND. A Signal is
-      what a Detector emits and what an Effector consumes -- it sits mid-cascade, in
-      both a codomain and a domain. A Measurement is where the chain stops and a reader
-      takes a number. This process is the stop.
+      WHAT THIS PAGE'S TWO ROUTES SHARE, AND NO MORE THAN THAT. `main.md:84` reads
+      absorbance on a plate reader, 570-575 nm for LacZ/CPRG or 375-385 nm for
+      XylE/catechol. `main.md:91` scores the color by eye. The first yields a number and
+      the second does not, so the type they share is the one that admits both.
+      RULED 2026-10-05: "agreed, widen it to observation". An Observation may be
+      quantitative or qualitative; a Measurement is the quantitative case refining it.
+      THE ABSORBANCE ROUTE PRODUCES A `measurement` AND HAS NO PAGE OF ITS OWN YET. When
+      it gets one it refines this process, and ../pierce660 and ../protein-gel keep
+      `measurement` because both read absorbance on a plate reader throughout.
+      SIGNAL IS STILL NOT IN THE RUNNING. A Signal is what a Detector emits and what an
+      Effector consumes, so it sits mid-cascade in both a codomain and a domain. This
+      process is where the chain stops and a reader looks.
 
 open:
-  - id: a-readout-does-not-produce-a-component
+  - id: the-two-routes-have-no-pages-of-their-own
     question: >
-      PARTLY SETTLED 2026-10-05. This produces a `measurement`, ruled, which is the same
-      codomain as ../pierce660 and ../protein-gel -- so the three readouts agree and the
-      `observe` abstract they imply has one word to inherit rather than two.
-      WHAT IS STILL OPEN IS THE WORD ITSELF, and it is cross-repo. This corpus writes
-      `measurement`; compositional-biology-theory has `Observation` as the type row with
-      `glossary.md#T36` making Readout a synonym for Measurement. Jon used
-      "measurement". Neither session has normalised, because picking a cross-repo word
-      unilaterally is the thing both agreed not to do.
-      AND SIGNAL IS NOT IN THE RUNNING ANY MORE, which is the useful half: it is a
-      different type, consumed by an Effector rather than read by a person. The theory
-      side measured that Signal, Color and Observation appear in 5 codomain positions
-      and 0 domain positions across every profile they have, so the operation an
-      Effector performs on a Signal is unwritten there too.
+      SETTLED 2026-10-05, AND WHAT IS LEFT IS WORK RATHER THAN A QUESTION. The codomain
+      is `observation`, ruled. The word is no longer cross-repo guesswork either:
+      nucleus-skills `#83` fixed the shared glossary to match, so `T22` Observation is
+      what an Assay produces and may be quantitative or qualitative, and `T20`
+      Measurement is the quantitative case refining it.
+      WHAT IS STILL OPEN IS THAT THE TWO ROUTES ARE HEADINGS AND NOT PAGES. `main.md:84`
+      and `main.md:91` are a plate-reader read and an eye score, and a reader who wants
+      to point at the quantitative one has nothing to point at. Two process directories
+      refining this one would carry them, and the absorbance one would produce a
+      `measurement`. Not written, because nobody has needed to cite one yet.
+    kind: question

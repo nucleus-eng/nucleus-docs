@@ -46,4 +46,5 @@ open:
       PART OF THIS IS NOW ANSWERED. `conserves:` says whether the input survives, which
       is the half that made a conservative assay look like it returned two things. What
       is still open is what type a reading IS -- no module page carries `measurement`,
-      and ../colorimetric-readout returns a `signal` with the same problem.
+      and ../colorimetric-readout now returns an `observation`, which is the
+      supertype: that page has a route scored by eye and this one does not.
