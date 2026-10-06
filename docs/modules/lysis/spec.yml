@@ -9,10 +9,20 @@
 # level imposition i think." `impositions` was a step-only key, on #T22's reading that
 # an imposition belongs to a morphism.
 #
-# BOTH READINGS HOLD AND THEY ARE ABOUT DIFFERENT THINGS. The class says what
-# implementing this Function MEANS. The member's step says when it happened. #T22 is
-# about the second and this is the first, the same relation ../protein/spec.yml already
-# has with its members over `sensitivities`.
+# AND IT IS NOT AN EXCEPTION TO #T22, WHICH IS A BETTER ARGUMENT THAN THE ONE THIS FILE
+# FIRST GAVE. compositional-biology-theory `abstraction-processes.md:51`: "a class
+# page's job is to hold the guard. No member page can hold it, because the guard
+# belongs to the operation rather than to any member." And `glossary.md#T19` defines a
+# Guard as "a condition an operation IMPOSES on what it acts upon" -- the glossary
+# already uses the verb.
+#
+# So a guard and an imposition are one shape seen from the operation. A class is
+# asserted by declaring an operation; Lysis declares `lyse`; the imposition belongs to
+# `lyse`. Declaring it on the class page IS declaring it on the morphism, which is #T22
+# rather than a carve-out from it.
+#
+# The weaker first version read: the class says what the Function MEANS, the step says
+# WHEN it happened. True, but it left #T22 looking stretched. It is not.
 #
 # SCOPE IS THE COMPARTMENT, NOT THE MEMBRANE, and that is the sentence the class exists
 # to hold. A member does not distinguish the membrane that produced it from a

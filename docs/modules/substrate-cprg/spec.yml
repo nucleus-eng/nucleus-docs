@@ -61,3 +61,14 @@ sensitivities:
     basis: rule
     why: >
       CPRG photobleaches under UV, including the UV a 405 nm source emits.
+
+# CPRG IS YELLOW AS SUPPLIED, NOT COLORLESS. Recorded 2026-10-05 after a session wrote
+# the opposite into a class page and Jon corrected it: "CPRG is not colorless until
+# cleaved, it's yellow lol". So this Module is a chromophore in the tube, which is why
+# the `uv-exposure` sensitivity above is a property of the reagent and not of its
+# product.
+#
+# AND CLEAVAGE YIELDS A SECOND CHROMOPHORE. The red product is a different molecule
+# with its own absorption, so this page carries two and nothing says they bleach alike.
+# The sensitivity declared above is measured against the reagent. Whether the product
+# shares it is untested and is not claimed.

@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [`lacz`](../lacz/spec.md). Refined by nothing on this branch.
+**Position.** Refines [`lacz`](../lacz/spec.md) and [`dna`](../dna/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A member of [LacZ](../lacz/spec.md): the `T7pro-LacZ-T7term` construct.

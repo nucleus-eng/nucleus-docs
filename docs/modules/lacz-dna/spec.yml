@@ -10,8 +10,12 @@
 
 module: lacz-dna
 title: "LacZ DNA template"
-refines: lacz
-
+refines:
+  - lacz
+  - dna
+  # TWO PARENTS, 2026-10-05, mirroring ../reporter-lacz-enzyme/spec.yml's
+  # `[lacz, protein]`. `lacz` is the meet this shares with the purified protein;
+  # `dna` is the kind this is. The second edge did not exist until ../dna was written.
 inputs:
   t7pro-lacz-t7term:
     title: "T7pro-LacZ-T7term construct"
