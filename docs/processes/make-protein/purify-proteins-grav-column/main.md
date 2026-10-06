@@ -113,6 +113,10 @@ Packed and loaded columns can harbor bacterial growth, even at 4 °C. Storing in
 
 :::
 
+# Credits
+
+Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
+
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -130,7 +134,3 @@ Packed and loaded columns can harbor bacterial growth, even at 4 °C. Storing in
 :::
 
 ::::
-
-# Acknowledgments
-
-Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

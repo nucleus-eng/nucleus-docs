@@ -89,6 +89,10 @@ Bacteria need breathing room! Oxygenation matters, plus shaking can spill overfi
 Frozen bacterial pellets can be stored at -80 °C for extended periods (up to at least 3 mo). There is no need to rush directly into purifying proteins from these pellets. We find that a nice workflow for making PURE proteins is to take two weeks to make 36 bacterial pellets, then purify those pellets at a later point.
 :::
 
+# Credits
+
+Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
+
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -106,7 +110,3 @@ Frozen bacterial pellets can be stored at -80 °C for extended periods (up to at
 :::
 
 ::::
-
-# Acknowledgments
-
-Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

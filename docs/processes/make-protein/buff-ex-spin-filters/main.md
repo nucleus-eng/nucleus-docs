@@ -76,6 +76,10 @@ If your protein precipitates out in any of the concentration steps, dilute the p
 
 :::
 
+# Credits
+
+Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
+
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -93,7 +97,3 @@ If your protein precipitates out in any of the concentration steps, dilute the p
 :::
 
 ::::
-
-# Acknowledgments
-
-Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

@@ -295,7 +295,7 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 - [ ]  Resuspend the clear pellets in 100 µL of Ribosome Buffer on ice using a magnetic stir bar (3 mm diameter, 10 mm length) on a magnetic stirrer set at the lowest possible speed. Collect resuspended ribosomes.
 - [ ]  Wash tubes with an additional 50 µL of Ribosome Buffer to resuspend any remaining ribosomes.
 
-## Quality Control
+# Quality Control
 
 - [ ]  Determine the ribosome concentration by measuring the absorbance at 260 nm at a 100x dilution in Ribosome Buffer. 10 units of A₂₆₀ from a 100x dilution corresponds to 23 µM of undiluted solution.
 - [ ]  Dilute to final stock of 10 µM. To adjust the concentration, dilute the ribosomes with ribosome buffer or concentrate further via centrifugation at 4000 rcf in a 100 kDa centrifugal filter at 4 °C.

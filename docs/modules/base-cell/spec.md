@@ -110,7 +110,7 @@ Base Cells express deGFP over time, starting dark and increasing in green fluore
 Combined green (488 nm) and red (561 nm) fluorescence channels. First time point (labeled "t = 0") corresponds to 30 min after preparation of the inner solution, reflecting the time required to prepare liposomes.
 :::
 
-# Process
+# Processes
 
 Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
