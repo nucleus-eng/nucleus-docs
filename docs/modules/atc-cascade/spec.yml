@@ -125,10 +125,6 @@ process_steps:
           because Proteinase K does not distinguish one LacZ from another. So refining the
           reporter decides whether this cleanup step exists at all, which is the implies
           arrow stated from the step.
-    impositions:
-      - id: proteolysis
-        why: >
-          The chained Degrade Exterior LacZ sub-process doses Proteinase K, which is an implementer of proteolysis. The id names the function, not the reagent.
     operator: packing
     operands: [atc-sensor-cytosol, membrane-popc-chol-9-1, mineral-oil]
     produces:
@@ -141,10 +137,6 @@ process_steps:
       title: "Embedding: Photodevelopment"
       page: ../../processes/embed-photodevelopment/main.md
       abstract: embed-gel
-    impositions:
-      - id: uv-exposure
-        why: >
-          The gel is crosslinked by UV with the cell already in the precursor.
     operator: packing
     operator_pairs:
       # THE STEP DOES TWO THINGS AND ONE LABEL CANNOT SAY BOTH. It forms a gel phase

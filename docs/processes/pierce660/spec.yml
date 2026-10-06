@@ -7,9 +7,17 @@
 # considered as applied: the Process that realizes one", so it IS a process -- but its
 # codomain is a reading rather than a thing in a tube.
 #
-# CONSERVATIVE. Pierce660 is a colorimetric reagent assay: a portion is mixed with the
-# reagent and read, and the material it was taken from is untouched. The sample aliquot
-# is spent; the preparation is not, which is what makes this runnable mid-chain.
+# DESTRUCTIVE, AND THIS FILE SAID CONSERVATIVE UNTIL JON CORRECTED IT. The reasoning
+# was that a portion is read and the preparation survives, so the assay is
+# non-consuming. That is about the aliquot's SOURCE, not about the aliquot.
+#
+# THE REAGENT CHEMICALLY REACTS WITH THE PROTEIN AND CHANGES COLOR DOING IT. The color
+# IS the reaction, so the protein that was measured is altered by the measuring. Nothing
+# comes back.
+#
+# THE TEST IS WHAT HAPPENS TO WHAT WENT IN, not whether more of it exists elsewhere. By
+# the wrong test every assay is conservative, because you can always take another
+# aliquot -- which is how `conserves:` would have become a key that says nothing.
 #
 # `produces: measurement` IS A TYPE NO MODULE PAGE CARRIES. It is written because the
 # alternative is claiming the assay produces its own input, which is false: the sample
@@ -18,7 +26,7 @@
 process: pierce660
 title: "Pierce660"
 
-conserves: true
+conserves: false
 
 signature:
   takes:

@@ -61,10 +61,6 @@ process_steps:
       title: "Embedding: Photodevelopment"
       page: ../../processes/embed-photodevelopment/main.md
       abstract: embed-gel
-    impositions:
-      - id: uv-exposure
-        why: >
-          Thiol-ene crosslinking is initiated by UV, so the exposure reaches the precursor.
     operator: mixing
     operands: [peg-norbornene-precursor]
     produces:

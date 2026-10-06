@@ -72,6 +72,7 @@ fails on it. The marker is kept from reading as a class by printing the
 denominators every run, not by the exit code.
 """
 import collections
+import os
 import re
 import sys
 from pathlib import Path
@@ -219,6 +220,48 @@ def legs_of(name: str, S: dict, par: dict) -> dict[str, list[dict]]:
     if shared:
         steps_by_leg["__join__"] = shared
     return dict(steps_by_leg)
+
+
+def _process_impositions(step):
+    """What the PROCESS a step runs inflicts, resolved through process `refines:`.
+
+    ADDED 2026-10-05, the same commit that moved six impositions off steps and onto the
+    processes they belong to. Without it this renderer would have drawn fewer condition
+    boxes and said nothing: three tests went red on the move, which is the only reason
+    it was found. check-conflicts.py needed the identical change and
+    scripts/collate-conditions.py reports both halves already.
+
+    Follows `process.page`, `process.abstract` and `process.composed_of`, because a step
+    names its process in three ways and the chain form is how both `proteolysis`
+    declarations reach Degrade Exterior LacZ.
+    """
+    import glob as _glob
+    global _PROC
+    try:
+        _PROC
+    except NameError:
+        _PROC = {}
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        for f in _glob.glob(os.path.join(root, "docs/processes/*/spec.yml")):
+            d = yaml.safe_load(open(f))
+            if isinstance(d, dict):
+                _PROC[d.get("process")] = d
+    proc = step.get("process") or {}
+    names, seen, out = [], set(), []
+    for link in (proc.get("composed_of") or [proc]):
+        if link.get("page"):
+            names.append(link["page"].split("/")[-2])
+    if proc.get("abstract"):
+        names.append(proc["abstract"])
+    while names:
+        n = names.pop()
+        if n in seen or n not in _PROC:
+            continue
+        seen.add(n)
+        out += list(_PROC[n].get("impositions") or [])
+        r = _PROC[n].get("refines")
+        names += [r] if isinstance(r, str) else (r or [])
+    return out
 
 
 def slot_key(mod: str | None, par: dict) -> str:
@@ -373,7 +416,7 @@ if __name__ == "__main__":
     for leg, (src_name, steps) in legs.items():
         src = S[src_name]
         for st in steps:
-            for i in (st.get("impositions") or []):
+            for i in (list(st.get("impositions") or []) + _process_impositions(st)):
                 imps[i["id"]][leg] = (bound_text(i), st["id"])
             for r in (st.get("requires") or []):
                 reqs[r["id"]][leg] = (r.get("notation") or r["id"], st["id"])

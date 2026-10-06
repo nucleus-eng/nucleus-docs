@@ -308,11 +308,54 @@ def _class_impositions(m, seen=None):
     return out
 
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROC = {}
+for _p in glob.glob(os.path.join(ROOT, "docs/processes/*/spec.yml")):
+    _d = yaml.safe_load(open(_p))
+    if isinstance(_d, dict):
+        PROC[_d.get("process")] = _d
+
+
+def _process_impositions(step, seen=None):
+    """What the PROCESS a step runs inflicts, resolved through process `refines:`.
+
+    ADDED 2026-10-05 IN THE SAME COMMIT THAT MOVED SIX IMPOSITIONS ONTO PROCESSES.
+    Without it the move would have silently dropped them: this file read
+    `step.impositions` and nothing else, so six declarations would have existed in the
+    corpus and computed nothing, and the summary line would still have said zero
+    conflicts. That is the same blindness the class-level key had an hour earlier.
+
+    THREE WAYS A STEP NAMES A PROCESS and all three are followed: `process.page`,
+    `process.abstract`, and `process.composed_of`, which is a chain of links run as one
+    step. The chain matters: both `proteolysis` declarations sit on steps whose SECOND
+    link is Degrade Exterior LacZ, so a lookup by `page` alone finds nothing.
+    """
+    seen = seen or set()
+    names = []
+    proc = step.get("process") or {}
+    for link in (proc.get("composed_of") or [proc]):
+        if link.get("page"):
+            names.append(link["page"].split("/")[-2])
+    if proc.get("abstract"):
+        names.append(proc["abstract"])
+    out = []
+    while names:
+        n = names.pop()
+        if n in seen or n not in PROC:
+            continue
+        seen.add(n)
+        out += list(PROC[n].get("impositions") or [])
+        r = PROC[n].get("refines")
+        names += [r] if isinstance(r, str) else (r or [])
+    return out
+
+
 rows, tally = [], collections.Counter()
 for mod, d in SRC.items():
     carried = _class_impositions(mod)
     for step in d.get("process_steps") or []:
-        for imp in (list(step.get("impositions") or []) + carried):
+        for imp in (list(step.get("impositions") or [])
+                    + carried + _process_impositions(step)):
             tally["impositions"] += 1
             for operand in operand_ids(step):
                 inside = constituents(operand) - {operand}

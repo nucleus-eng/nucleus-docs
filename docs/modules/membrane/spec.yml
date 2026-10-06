@@ -87,10 +87,19 @@ open:
       ../../processes/encapsulate-suv starts from one. There is no bench step where a
       bilayer is closed with nothing inside it.
 
-      SO A MEMBRANE WITH NO PAYLOAD MAY NOT BE A THING ANYBODY MAKES. 28 steps take a
-      membrane as an operand, so the class earns its page as an argument position. What
-      is doubtful is the producing step: it may be a modelling convenience standing in
-      for an act that only ever happens inside encapsulation.
+      SO A MEMBRANE WITH NO PAYLOAD IS NOT A THING ANYBODY MAKES IN THIS CORPUS, and
+      that qualifier is load-bearing. Jon, 2026-10-05: "not in this corpus, but in the
+      world, people make membranes that aren't vesicles. they don't enclose a space,
+      they divide two spaces (generically)." A planar bilayer is a membrane and encloses
+      nothing.
+
+      So the class is not wrong and must not narrow to "the boundary of a vesicle". What
+      is local to this corpus is that every attested route happens to close one, which
+      is a fact about what has been built here rather than about what a membrane is. 28
+      steps take a membrane as an operand, so the class earns its page as an argument
+      position either way. What is doubtful is only the producing step: it may be a
+      modelling convenience standing in for an act that, HERE, only ever happens inside
+      encapsulation.
 
       Three readings, and this is Jon's to pick. Either the step is prep-lipids and
       should say so in its id and its product type; or it is prep-lipids followed by a

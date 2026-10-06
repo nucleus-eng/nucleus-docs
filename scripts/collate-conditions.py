@@ -47,11 +47,15 @@ import sys
 
 import yaml
 
-SPECS = sorted(glob.glob("docs/**/spec.yml", recursive=True))
+SPECS = sorted(glob.glob("docs/modules/*/spec.yml"))
+# PROCESS SOURCES ARE A THIRD HOME, as of 2026-10-05. Six impositions moved off module
+# steps and onto the processes they belong to, and a collation that reads only modules
+# would have reported them as having vanished.
+PROCESSES = sorted(glob.glob("docs/processes/*/spec.yml"))
 
 
-def load():
-    for path in SPECS:
+def load(paths=None):
+    for path in (paths if paths is not None else SPECS):
         doc = yaml.safe_load(open(path))
         if isinstance(doc, dict):
             yield path, doc
@@ -80,6 +84,13 @@ def walk():
             abstract = (step.get("process") or {}).get("abstract")
             if abstract:
                 yield abstract, "process-refinement", slug
+    for path, doc in load(PROCESSES):
+        slug = path.split("/")[2]
+        for i in doc.get("impositions") or []:
+            yield i.get("id"), "imposition", slug
+        r = doc.get("refines")
+        for parent in ([r] if isinstance(r, str) else (r or [])):
+            yield parent, "process-refinement", slug
 
 
 def main():
@@ -127,7 +138,8 @@ def main():
                 continue
             print(f"  {name:34s} {len(r['sources']):>2} source(s)  {state}")
 
-    print(f"\n{len(rows)} distinct id(s) across {len(SPECS)} source(s).")
+    print(f"\n{len(rows)} distinct id(s) across {len(SPECS)} module source(s) and "
+          f"{len(PROCESSES)} process source(s).")
     if unjoined:
         print(f"{unjoined} meet nothing on the other side. That is not a fault by "
               f"itself -- a sensitivity with no imposition means nobody has written the "

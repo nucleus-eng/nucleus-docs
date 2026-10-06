@@ -61,9 +61,16 @@ process_steps:
       page: ../../processes/embed-photodevelopment/main.md
       abstract: embed-gel
     impositions:
-      - id: uv-exposure
-        why: >
-          The photopatterning step exposes whatever is in the precursor to UV.
+      # NOT MOVED TO ../../processes/embed-photodevelopment, and it was moved there and
+      # straight back on 2026-10-05. That process has TWO CHEMISTRIES and only this one
+      # proceeds through acrylate radicals. Hoisting it made check-conflicts.py report
+      # ../atc-cascade imposing acrylate radicals on its own membranes -- and that
+      # cascade runs the thiol-ene route, operands `peg-norbornene-monomer` and `peg4sh`,
+      # which never sees an acrylate.
+      #
+      # AN IMPOSITION BELONGS TO A PROCESS WHEN EVERY INSTANCE INFLICTS IT, not when
+      # every declaration of it names that process. `uv-exposure` passes that test and
+      # moved; this one fails it and stays here, on the only instance that runs it.
       - id: radical-acrylate-polymerization
         why: >
           Acrylate crosslinking proceeds through free radicals, which attack what they

@@ -7,11 +7,10 @@
 # "the chained Degrade Exterior LacZ sub-process". Those are the only two declarations
 # of it, and neither step's process field points here -- the chain is described in prose.
 #
-# So this is the second case the imposition measurement found: an imposition that tracks
-# a process, declared twice on Modules, where the process it belongs to could not be
-# named because the step runs it as part of a chain. NOT DECLARED HERE YET, for the same
-# reason as ../embed-photodevelopment: check-process-schema.py refuses an id in two
-# homes and moving them is one commit.
+# IT IS DECLARED HERE NOW, and the chain is why it can be. Both steps carry
+# `process.composed_of`, a chain of two links, and the SECOND LINK NAMES THIS PAGE. So
+# the step does point here; it points here as one of two, which is why a lookup by
+# `process.page` found nothing. check-conflicts.py now resolves `composed_of` as well.
 
 process: degrade-exterior-lacz
 title: "Degrade Exterior LacZ"
@@ -31,3 +30,11 @@ signature:
       would have added to the readout is removed.
 
 operator: mixing
+
+impositions:
+  - id: proteolysis
+    why: >
+      This process doses Proteinase K, which implements proteolysis. It reaches whatever
+      protein is outside the liposome, which is the point -- the exterior enzyme is what
+      it is for -- and it does not distinguish one protein from another.
+    page: main.md

@@ -157,6 +157,11 @@ properties:
             `scripts/collate-conditions.py` lists every id and which ones meet nothing.
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
         why: {type: string}
+        page:
+          type: [string, "null"]
+          description: >
+            Where the claim is written in prose, relative to this source. Mirrors the
+            same key on a Module's sensitivities.
         bound:
           type: object
           description: >
