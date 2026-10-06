@@ -25,6 +25,7 @@
 
 module: rna
 title: "RNA"
+refines: nucleic-acid
 
 inputs: {}
 process_steps: []
@@ -39,7 +40,11 @@ sensitivities:
       rather than declaring a tolerance.
     page: spec.md
 
-# ../dna AND THIS CLASS ARE UNRELATED ROOTS, AND THEY SHOULD PROBABLY NOT BE. See the
-# same note on ../dna/spec.yml: the theory repo has `NucleicAcid` refined by both, and
-# `rna-nucleolysis` refines `nucleolysis` in this corpus's own condition ids, which is
-# the same relation one level down. Recorded, not closed.
+# ../dna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. Jon, 2026-10-05: "yes
+# NucleicAcid is refined by DNA and RNA." ../nucleic-acid is written and both refine it.
+#
+# THE SENSITIVITY BELOW IS THE NARROW ONE AND STAYS HERE. ../nucleic-acid declares
+# `nucleolysis`, the function, over both children. `rna-nucleolysis` refines it, on
+# Jon's ruling of 2026-10-05, and names the RNase case this corpus attests. Declaring
+# the narrow one on a child whose parent declares the broad one is the shape the
+# refinement is for, and check-conflicts.py reads both.

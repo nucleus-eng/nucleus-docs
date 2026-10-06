@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by nothing on this branch.
+**Position.** Refines [Nucleic Acid](../nucleic-acid/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A class: a Module whose subject is an RNA molecule.

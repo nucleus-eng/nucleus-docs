@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [Double-Stranded DNA](../dsdna/spec.md), [Single-Stranded DNA](../ssdna/spec.md).
+**Position.** Refines [Nucleic Acid](../nucleic-acid/spec.md). Refined by [Double-Stranded DNA](../dsdna/spec.md), [Single-Stranded DNA](../ssdna/spec.md).
 <!-- /gen:position -->
 
 A class: a Module whose subject is a DNA molecule.

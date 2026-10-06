@@ -1,0 +1,59 @@
+# Composition source for Nucleic Acid.
+#
+# WRITTEN 2026-10-05 on Jon's ruling: "yes NucleicAcid is refined by DNA and RNA. MUST
+# be all caps though". Both names are all caps in every title, table cell and sentence
+# on this page and on the two below it. The ids cannot carry capitals, because the
+# schema's id pattern is `^[a-z0-9]+(-[a-z0-9]+)*$`, so `nucleic-acid`, `dna` and `rna`
+# are slugs and `Nucleic Acid`, `DNA` and `RNA` are what a reader sees.
+#
+# IT JOINS TWO ROOTS THAT WERE UNRELATED. ../dna and ../rna each refined nothing and
+# sat side by side with no stated relation, while the corpus's own condition ids already
+# carried that relation one level down: `rna-nucleolysis` refines `nucleolysis`, on
+# Jon's earlier ruling. A corpus cannot say the conditions are related and the things
+# they act on are not.
+#
+# GROUNDED BY COMPOSITION, as ../protein and ../dna are. Every member is a chain of
+# nucleotides joined by a phosphodiester backbone. What varies below this page is the
+# sugar, which is what separates ../dna from ../rna, and then the strand count, which is
+# what separates ../dsdna from ../ssdna.
+#
+# `inputs: {}` AND `process_steps: []` ARE CLAIMS, inherited from ../dna's reasoning and
+# true here for the same reason. Nothing in this corpus produces a nucleic acid as a
+# step. Templates are supplied and transcripts are read rather than written down.
+#
+# A CORRECTION TO ../dna/spec.yml AS WRITTEN EARLIER TODAY. That file said `nucleolysis`
+# "this corpus already uses as a condition id". It did not. `grep -rn nucleolysis docs`
+# returned `rna-nucleolysis` on ../rna and that sentence, and nothing else. The parent
+# condition was named only in prose about the gap, so declaring the sensitivity below is
+# the first time this corpus writes it. The note on ../dna is fixed in the same commit.
+
+module: nucleic-acid
+title: "Nucleic Acid"
+
+inputs: {}
+process_steps: []
+
+# THE SENSITIVITY IS THE ABSTRACT ONE, AND THAT IS WHAT THIS PAGE IS FOR. ../rna
+# declares `rna-nucleolysis` and ../dna declares nothing, because no member of ../dna
+# attests a DNase. The claim here is weaker than either and holds over both: a
+# phosphodiester backbone is what a nuclease cuts, so every member has a nuclease.
+#
+# IT DOES NOT PUSH A DNase CLAIM ONTO ../dna. The refusal recorded there was to invent a
+# specific DNase sensitivity with no attested member. This is the function, not an
+# implementer, and `rna-nucleolysis` refines it. The DNA-side narrowing stays unwritten
+# until a member attests one.
+#
+# `basis: rule` FOR THE SAME REASON ../protein/spec.yml USES IT. The mechanism is why
+# the claim generalises to members nobody has tested. The attestation this corpus holds
+# is 14 sources adding an RNase inhibitor, which is strong evidence that the claim is
+# uncontroversial and no evidence at all for a bound. So no bound is asserted.
+sensitivities:
+  - id: nucleolysis
+    to: nucleolysis
+    basis: rule
+    why: >
+      A phosphodiester backbone is what a nuclease cleaves, and every member has one.
+      Which nuclease reaches which member is the narrowing a child declares:
+      `rna-nucleolysis` refines this, and the DNA-side counterpart is unwritten because
+      no member of DNA attests one.
+    page: spec.md

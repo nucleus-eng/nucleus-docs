@@ -25,6 +25,7 @@
 
 module: dna
 title: "DNA"
+refines: nucleic-acid
 
 inputs: {}
 process_steps: []
@@ -39,11 +40,15 @@ process_steps: []
 # class rather than assigning one. It is not an absence -- it is the default, and
 # ../lacz-dna now refines ../dsdna.
 
-# ../rna AND THIS CLASS ARE UNRELATED ROOTS, AND THEY SHOULD PROBABLY NOT BE. Flagged
-# 2026-10-05 by the theory session: their `signature.md` carries `NucleicAcid` refined
-# by both, and this corpus has no such page -- so `nucleolysis`, which this corpus
-# already uses as a condition id, names a kind nothing here declares.
+# ../rna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. Jon, 2026-10-05: "yes
+# NucleicAcid is refined by DNA and RNA." ../nucleic-acid is written and both refine it.
 #
-# NOT WRITTEN. `the-type-system` T2's eleven classes are parked on Jon's word, and this
-# would be a twelfth arriving from the other repo rather than from that list. The gap is
-# recorded here and on ../rna rather than closed on a peer's say-so.
+# ONE SENTENCE OF THE NOTE THIS REPLACES WAS FALSE. It said `nucleolysis` was a
+# condition id "this corpus already uses". `grep -rn nucleolysis docs` returned
+# `rna-nucleolysis` on ../rna and that sentence itself, so the parent condition was
+# named only in the prose complaining that nothing named it. ../nucleic-acid declares it
+# now, which is the first use.
+#
+# THAT CLASS CARRIES THE NUCLEASE CLAIM AND THIS PAGE STILL DOES NOT. The sensitivity
+# there is to `nucleolysis`, the function. The refusal recorded above stands: a specific
+# DNase sensitivity needs an attested member and has none.

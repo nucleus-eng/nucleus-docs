@@ -76,8 +76,9 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cascade | [Cascade](./cascade/spec.md) | - |
 | Substrate | [Substrate](./substrate/spec.md) | - |
 | Lysis | [Lysis](./lysis/spec.md) | - |
-| DNA | [DNA](./dna/spec.md) | - |
-| RNA | [RNA](./rna/spec.md) | - |
+| Nucleic Acid | [Nucleic Acid](./nucleic-acid/spec.md) | - |
+| Nucleic Acid | [DNA](./dna/spec.md) | - |
+| Nucleic Acid | [RNA](./rna/spec.md) | - |
 | Chromophore | [Chromophore](./chromophore/spec.md) | - |
 | DNA | [Single-Stranded DNA](./ssdna/spec.md) | - |
 | DNA | [Double-Stranded DNA](./dsdna/spec.md) | - |
