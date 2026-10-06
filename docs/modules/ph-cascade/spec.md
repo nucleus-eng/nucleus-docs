@@ -217,6 +217,7 @@ The pH Cascade is expected to turn a drop to pH ≈ 6.5 into a visible yellow-to
 ## Cells
 
 - **pH-sensing color change, solution-phase, two-liposome system:** a visible yellow-to-purple color change at pH 6.5, using separate pH-sensing and CPRG-loaded liposome populations in solution. See [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) for detail.
+- **Two-population co-incubation, in solution:** at 13 h and 37 °C, Cy5 appears only in the sensing population at both pH values, so the two populations stay distinguishable for the length of the run. The fraction of sensing cells still holding Cy5 is markedly lower at pH 6.3 than at pH 7.6, which is lysis gated by pH. The run is read by fluorescence microscopy, not by color.
 - **PLA1-driven lysis coupling to CPRG/LacZ readout:** confirmed at the solution level for the Chicago pH cascade — see [PLA1 Lysis Module](../effector-pla1/spec.md#effector-pla1-implementations), "Chicago pH cascade."
 
 :::{warning} Not yet validated as a combined cascade
@@ -248,6 +249,8 @@ Requires that no LacZ protein share a compartment with CPRG until the reporter m
 Do not add gramicidin A to the colorimetric configuration. It ruptures a portion of the CPRG-loaded liposomes by itself, producing color that did not come from sensing. Leaving it out costs some pH-sensing efficiency, but proton diffusion into the more permeable liposomes is enough to drive PLA1 expression without it.
 
 Requires a control that separates sensing-driven color from acid-driven leakage. Acidic conditions rupture some CPRG-loaded liposomes on their own, with no PLA1 involved, so color at pH 6.5 is not by itself attributable to the sensing pathway.
+
+Requires a label that separates the two populations. Both carry the same membrane, so the Rhodamine channel cannot tell a sensing cell from a substrate carrier. A second dye in the sensing cell's lumen does: Cy5 at 2 µM marks that population and is absent from the other, so the loss of Cy5 reads as lysis of a sensing cell and nothing else. Cy5 is optional for the sensing cell on its own and is not optional here.
 
 # Implementations
 

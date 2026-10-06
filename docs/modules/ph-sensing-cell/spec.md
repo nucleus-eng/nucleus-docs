@@ -155,7 +155,7 @@ Embedded directly in 0.7% low-gelling agarose with no liposomes at all, the pH-s
 | pH 7.4 | ~0.31 |
 | pH 6.5 | ~0.39 |
 
-The fluorescence channel shows no membrane fluorescence (Cy5) at pH 6.5, consistent with PLA1 expression. The gap between the two pH conditions is small relative to the positive control.
+The Cy5 channel shows no lumen signal at pH 6.5, consistent with PLA1 expression. Cy5 fills the lumen; the membrane label is Liss Rhod PE. The gap between the two pH conditions is small relative to the positive control.
 
 See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
 
