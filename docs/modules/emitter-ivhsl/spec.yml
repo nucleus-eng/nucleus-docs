@@ -17,6 +17,14 @@
 
 module: emitter-ivhsl
 title: "IV-HSL Emitter"
+refines: cytosol
+  # PLACED 2026-10-05, BY COMPOSITION AND NOT BY FUNCTION, as ../control-clpxp is. Its
+  # operands are PURExpress Solutions A and B plus a template and two substrates, and it
+  # expresses BjaI from that template, so it is a cell-free expression mix by
+  # ../cytosol/spec.md's own definition.
+  #
+  # The page opens "produces and releases N-isovaleryl-L-homoserine lactone", which is a
+  # Function and wants `emitter` -- one of T2's eleven, not yet written.
 
 inputs:
   purexpress-solution-a:

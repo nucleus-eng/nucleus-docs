@@ -47,3 +47,14 @@ open:
       consumer, because every membrane source lists its components flat. If a
       membrane ever has to require a bilayer-forming component specifically, this
       class splits.
+
+# NO PARENT, AND THAT IS A DECISION RATHER THAN AN OMISSION. Checked 2026-10-05 against
+# every root in the corpus: ../container and its children are things with an inside,
+# ../protein, ../dna and ../rna are molecules identified by sequence, ../chromophore is
+# a molecule identified by what it absorbs. A membrane component is a molecule
+# identified by WHERE IT GOES -- "what makes a Module a member is what it does: it goes
+# into a membrane" -- and nothing above it says that.
+#
+# `the-type-system` T2 calls this "a one-member class, likeliest to collapse". That is a
+# different question from where it sits, and it is still open. Collapsing it would
+# remove the class rather than give it a parent.

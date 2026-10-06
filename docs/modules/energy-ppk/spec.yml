@@ -19,6 +19,17 @@
 
 module: energy-ppk
 title: "PPK Energy"
+refines: solution
+  # PLACED 2026-10-05. NOT a cytosol: it holds no expression machinery. Its operands are
+  # solutes -- HEPES, potassium glutamate, rNTPs, tRNA, TCEP -- dissolved in one phase,
+  # which is ../solution/spec.md exactly.
+  #
+  # AND THE PAGE SAYS WHAT IT IS TO A CYTOSOL RATHER THAN BEING ONE: "complements the
+  # default energy module in Nucleus Cytosol". It is added to a cytosol, so it is a
+  # sibling of ../outer-solution under Solution rather than a kind of cytosol.
+  #
+  # `energy` is one of T2's eleven and is not written. Same split as the two above: the
+  # composition axis is placed, the function axis waits.
 
 inputs:
   hepes:
