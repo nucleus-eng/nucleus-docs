@@ -67,7 +67,7 @@ The two formats share their parts and differ in their operations, so this sectio
 :::
 
 :::{attention} What the demo does not yet specify
-- **How the gel is brought to acidic pH.** No step adds the acid. @Editor: record how, and at what pH.
+- **How the gel is brought to acidic pH.** No step adds the acid. The solution-phase arm sets its acidic arm with a separate buffer mix of Tris-HEPES stock, 2 M HEPES and HCl, dosed at the same 12% (v/v) as the neutral arm — the table is under Protocol as run below. @Editor: record whether the gel route does the same, and at what pH.
 - **The amounts.** @Editor: record the synthetic cells and LUVs per volume of gel, and the LacZ Enzyme in the basic buffer.
 - **The color development conditions in the gel.** @Editor: confirm them. The one test on record ran in solution: pH 9.9 buffer, 37 °C, 3 h.
 - **The readout.** @Editor: record whether the color is read by eye, by plate reader or by imaging.
