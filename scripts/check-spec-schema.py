@@ -93,15 +93,31 @@ def reference_findings(path, doc):
                         f"process_steps/{sid}/operator_pairs/{j}",
                         f'"{name}" is not an operand of this step'))
 
-    # abstract: must name a real process directory. Existence only — whether it is
-    # the IMMEDIATE parent needs the process tree, which lives in prose in
-    # processes-main.md. One value was wrong by one hop when the rule was ruled.
+    # abstract: must name a real process directory, and must not name this step's own
+    # process. Whether it is the IMMEDIATE parent in general needs the process tree,
+    # which this file cannot read — but a step whose `page` resolves to process X and
+    # whose `abstract` is X is self-referential ON THE STEP'S OWN EVIDENCE, with no tree
+    # required. `abstract` is the immediate parent by the 2026-09-15 ruling, and nothing
+    # is its own parent.
+    #
+    # ADDED 2026-10-05 on the theory session's F2, after it walked all 85 sources and
+    # found 7 self-loops this check could not see. Six were fixed in `3f04ca2e`; the
+    # seventh was introduced hours later by a repoint that fixed a different bug, which
+    # is exactly the case a checker is for. The sub-case covers 7 of 7 historical hits.
     for i, s in enumerate(doc.get("process_steps") or []):
         sid = s.get("id", f"#{i}")
-        ab = (s.get("process") or {}).get("abstract")
+        proc = s.get("process") or {}
+        ab = proc.get("abstract")
         if ab and not os.path.isdir(os.path.join(REPO, "docs/processes", ab)):
             out.append(("abstract", f"process_steps/{sid}/process/abstract",
                         f'"{ab}" names no directory under docs/processes/'))
+        own = [l["page"].split("/")[-2]
+               for l in (proc.get("composed_of") or [proc]) if l.get("page")]
+        if ab and ab in own:
+            out.append(("abstract", f"process_steps/{sid}/process/abstract",
+                        f'"{ab}" is this step\'s own process, so it names itself as its '
+                        f'parent. `abstract` is the IMMEDIATE parent; drop the key if '
+                        f'the process is a root.'))
 
     # every page: path must resolve, relative to the yml's own directory
     def pages(node, where):

@@ -376,6 +376,19 @@ These are not absent from the corpus. They are absent from `spec.yml`, which is
 the only thing this script reads. Both live in `compositional-biology-theory`
 `signature.md`, in prose and table cells, with nothing to walk.
 
+  PINS BELOW ARE STALE AND THE PIN IS WHAT MADE THAT CHECKABLE. Flagged 2026-10-05 by
+  the compositional-biology-theory session: `29842a1` is 37+ commits behind their main,
+  and every line number cited in P5 and P6 has drifted. :85, cited for `transport`, is
+  now the Membrane row; :93, cited for `Polymer` declaring `::`, is now the Set row; :84,
+  cited for `hold`, is now the Chaperone row; :117 is now a bare fence. :87, :88, :92,
+  :313, :315 and :398 have moved too.
+
+  THE CLAIMS ARE STILL TRUE IN THEIR FILE, only elsewhere in it. So this is stale rather
+  than wrong, and re-pinning means RE-READING their current `signature.md` rather than
+  bumping the hash: they report 41 typed rows and a new Ground column since this pin,
+  with types that did not exist then. A hash moved without a re-read would assert line
+  numbers nobody checked, which is the failure the pin exists to prevent.
+
   P5. THE OPERATION POSET, at main 29842a1. `transport` is abstract and refined
       by `passive_transport` and `active_transport` (`signature.md:85`, and the
       two profiles at `:313` and `:315`); `hold` is refined by `encapsulate`

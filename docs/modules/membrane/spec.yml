@@ -35,9 +35,16 @@ process_steps:
       #
       # ../../processes/prep-lipids IS ONLY HALF OF WHAT THIS STEP CLAIMS, and the
       # mismatch is in the step's own name. See the `open` item below.
+      # NO `abstract:`. It said `prep-lipids`, which is this step's own page -- a
+      # self-loop, and `abstract` is the IMMEDIATE PARENT by the 2026-09-15 ruling, so
+      # a process cannot be its own. ../../processes/prep-lipids/spec.yml declares no
+      # `refines:` either: it is a root, so there is no parent to name.
+      #
+      # Caught by the theory session walking all 85 sources. It found 7 self-loops at
+      # `e7be48a`; 6 were fixed in `3f04ca2e` and this one was introduced hours later,
+      # by the same repoint that fixed the wrong-process bug above.
       title: "Prepare Lipids"
       page: ../../processes/prep-lipids/main.md
-      abstract: prep-lipids
     operator: mixing
     operands: [lipid, fluorescent-label]
     produces:
