@@ -6,6 +6,13 @@
 # claim belongs to the kind and not to the member. It is declared here once, and every
 # member carries it without restating it.
 #
+# AND THE `to:` NAMES A FUNCTION NOW, NOT A REAGENT. Jon, 2026-10-05: "`protein` should
+# be sensitive to `proteolysis` (function) which is implemented by `protease`s, of which
+# `proteinase-k` is a member." The id was narrower than the claim beside it: the `why`
+# already gave the general reason, so a second protease would have needed a second
+# declaration saying the same thing. `proteinase-k` became `proteolysis` here and on the
+# two steps that impose it.
+#
 # GROUNDED BY COMPOSITION, NOT BY FUNCTION. Members share what they are made of, a
 # chain of amino acids, and not what they do: one reports a color and the other
 # produces one from a different substrate.
@@ -30,11 +37,12 @@ inputs: {}
 process_steps: []
 
 sensitivities:
-  - id: proteinase-k
-    to: proteinase-k
+  - id: proteolysis
+    to: proteolysis
     basis: rule
     why: >
-      Proteinase K is a broad-spectrum protease and does not distinguish one protein
-      from another, so a step that digests any protein in a compartment digests every
-      protein it reaches in that compartment.
+      A chain of amino acids is what a protease cuts. A broad-spectrum protease does not
+      distinguish one protein from another, so a step that proteolyses any protein in a
+      compartment reaches every protein in that compartment. Proteinase K is the
+      implementer this corpus attests; the sensitivity is to the function.
     page: spec.md

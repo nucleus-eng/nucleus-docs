@@ -1,0 +1,49 @@
+# Composition source for Chromophore.
+#
+# WRITTEN 2026-10-05. Jon: "why can't we define a Chromophore class? it seems grounded,
+# we have multiple examples?"
+#
+# THE OBJECTION WAS THAT IT WOULD BE GROUNDED ON A SENSITIVITY, which is not one of the
+# three grounds compositional-biology-theory `signature.md` allows -- Function,
+# Composition, Requirement. THAT IS NOT WHAT GROUNDS IT.
+#
+# Members do not share "bleaches under UV". They share a CONJUGATED SYSTEM, and the
+# bleaching follows from it. That is Composition, the same ground ../protein/spec.yml
+# stands on: members there share a chain of amino acids, and the proteinase sensitivity
+# follows. Jon's own ruling the same day makes the parallel exact -- a protein is
+# sensitive to `proteolysis` BECAUSE of what it is made of, not as a brute fact.
+#
+# SO THE EARLIER REFUSAL WAS ANSWERING THE WRONG QUESTION. A class whose members share
+# only a sensitivity would be a fourth ground. This one shares the thing the sensitivity
+# follows from.
+#
+# IT IS NOT `Color`, AND THAT OBJECTION DOES HOLD. `Color` refines `Signal`, which
+# `glossary.md#T45` defines as "what an object emits that a reader can detect" -- the
+# codomain of an emitting operation. A chromophore is the domain. Making one class of
+# both is the ingredients-versus-product error `C19` names.
+#
+# IT CUTS ACROSS THE TREE. Members are also Substrates and Reporters, and `refines:`
+# takes a list, so no member is moved to make room for this.
+#
+# THE THREE MEMBERS ARE NOT ALIKE AND THE PAGE SAYS SO. CPRG is yellow as supplied and
+# its cleaved product is a SECOND chromophore. X-Gal is colorless as supplied and the
+# indigo product is the chromophore. deGFP absorbs and re-emits. Nothing here claims
+# they bleach alike, and `Fluorophore` is NOT split out: a refinement is real when it
+# declares an operation its parent does not, and no emitting operation is written yet.
+
+module: chromophore
+title: "Chromophore"
+
+inputs: {}
+process_steps: []
+
+sensitivities:
+  - id: uv-exposure
+    to: uv-exposure
+    basis: rule
+    why: >
+      A conjugated system is what absorbs visible light and it is what ultraviolet light
+      destroys. The mechanism that makes a member usable as a readout is the mechanism
+      that bleaches it, so the sensitivity holds for the kind rather than for the
+      members that happen to have been tested.
+    page: spec.md

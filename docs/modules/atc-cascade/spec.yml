@@ -126,9 +126,9 @@ process_steps:
           reporter decides whether this cleanup step exists at all, which is the implies
           arrow stated from the step.
     impositions:
-      - id: proteinase-k
+      - id: proteolysis
         why: >
-          The chained Degrade Exterior LacZ sub-process doses Proteinase K.
+          The chained Degrade Exterior LacZ sub-process doses Proteinase K, which is an implementer of proteolysis. The id names the function, not the reagent.
     operator: packing
     operands: [atc-sensor-cytosol, membrane-popc-chol-9-1, mineral-oil]
     produces:

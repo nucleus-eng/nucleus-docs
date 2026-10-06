@@ -34,6 +34,10 @@ project:
           hidden: true
         - file: ./docs/modules/dna/spec.md
           hidden: true
+        - file: ./docs/modules/rna/spec.md
+          hidden: true
+        - file: ./docs/modules/chromophore/spec.md
+          hidden: true
         - file: ./docs/modules/detector/spec.md
           hidden: true
         - file: ./docs/modules/repressor-detector/spec.md

@@ -15,8 +15,12 @@
 
 module: substrate-cprg
 title: "Substrate: CPRG"
-refines: substrate
-
+refines:
+  - substrate
+  - chromophore
+  # TWO PARENTS, 2026-10-05. `chromophore` cuts across the tree: it is what the
+  # uv-exposure sensitivity follows from, and it is shared with a member of a
+  # different branch. `refines:` takes a list, so nothing moved to make room.
 inputs:
   cprg:
     title: "Chlorophenol red-beta-D-galactopyranoside"

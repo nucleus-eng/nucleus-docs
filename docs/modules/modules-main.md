@@ -77,6 +77,8 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Substrate | [Substrate](./substrate/spec.md) | - |
 | Lysis | [Lysis](./lysis/spec.md) | - |
 | DNA | [DNA](./dna/spec.md) | - |
+| RNA | [RNA](./rna/spec.md) | - |
+| Chromophore | [Chromophore](./chromophore/spec.md) | - |
 | Container | [Solution](./solution/spec.md) | - |
 | Gel | [Alginate](./gel-alginate/spec.md) | ★ |
 | Gel | [PEGDA](./gel-pegda/spec.md) | ★ |

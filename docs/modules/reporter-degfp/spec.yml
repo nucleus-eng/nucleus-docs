@@ -20,7 +20,12 @@
 
 module: reporter-degfp
 title: "deGFP Reporter"
-refines: reporter
+refines:
+  - reporter
+  - chromophore
+  # TWO PARENTS, 2026-10-05. `chromophore` cuts across the tree: it is what the
+  # uv-exposure sensitivity follows from, and it is shared with a member of a
+  # different branch. `refines:` takes a list, so nothing moved to make room.
 # Added 2026-09-21 with the Reporter class: the fluorescence half, and the only member
 # of it.
 
