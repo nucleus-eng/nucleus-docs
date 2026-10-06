@@ -1,0 +1,27 @@
+# Process source for Make Protein Mix (1-pot).
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# A REAGENT PREPARATION. It makes a constituent of ../../modules/base-cytosol rather
+# than a Module anybody encapsulates, which is why no module step names it: the corpus
+# documents how to make the cytosol's parts and then treats the cytosol as bought.
+#
+# `produces: component` RATHER THAN A NAMED TYPE, because the thing it makes has no
+# module page. That is the honest shape and it is also the finding: this process's
+# output is an input id on ../assemble-base-cytosol's step and nothing else.
+
+process: make-1pot
+title: "Make Protein Mix (1-pot)"
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        The thirty-six proteins, co-expressed rather than purified one at a time.
+  produces:
+    type: component
+    note: >
+      The same Protein Mix ../make-36pot produces, by a route that does not purify each protein separately.
+
+operator: mixing

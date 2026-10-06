@@ -1,0 +1,30 @@
+# Process source for Encapsulation: Phase Transfer.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# ONE OF THE THREE ROUTES UNDER ../encapsulate. What distinguishes it is an emulsion driven across an oil-water interface,
+# which is a fact about how the boundary closes and not about what ends up inside. All
+# three routes share this signature exactly; that is what makes them routes rather than
+# different operations.
+#
+process: assemble-base-cell
+title: "Encapsulation: Phase Transfer"
+refines: encapsulate
+
+signature:
+  takes:
+    - type: membrane
+      note: >
+        The bilayer that becomes the boundary.
+    - type: solution
+      note: >
+        The inner solution.
+    - type: outer-solution
+      note: >
+        What the product is suspended in.
+  produces:
+    type: container
+    note: >
+      A closed compartment with the payload inside.
+
+operator: packing

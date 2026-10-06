@@ -1,0 +1,25 @@
+# Process source for Assemble Solution.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# THE ROOT OF THE SOLUTION BRANCH, and it has no `main.md`. 25 module steps declare
+# `abstract: assemble-solution`, which is more than any other value, and three processes
+# refine it. A directory with a source and no page is the opposite shape of every other
+# process here, and it is the right one: there is nothing to do at this grain, only
+# something to be true of every instance.
+#
+process: assemble-solution
+title: "Assemble Solution"
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        Any number of solutes, buffers and sugars. The position is repeated because a solution is however many things were mixed into one compartment.
+  produces:
+    type: solution
+    note: >
+      One compartment. What distinguishes the instances is which solution, not how many components went in.
+
+operator: mixing

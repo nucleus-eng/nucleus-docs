@@ -1,0 +1,39 @@
+# Process source for Protein Purification Processes.
+#
+# A FAMILY, AND THE ONLY ONE IN THIS DIRECTORY THAT IS SHAPED THAT WAY. It holds five
+# sub-directories -- grow-bacteria, lysis-sonication, purify-proteins-grav-column,
+# buff-ex-spin-filters, prep-consumables -- and its page is `make-protein-main.md`
+# rather than `main.md`, which is why an inventory by `main.md` misses it.
+#
+# ITS CHILDREN ARE NOT PROCESS DIRECTORIES by this corpus's layout, so none of them can
+# carry a source or be named by `refines:`. The relation is real and is currently
+# expressed only by nesting on disk.
+#
+# THE SIGNATURE IS THE WHOLE CHAIN, not any one step of it: bacteria in, purified
+# protein out. ../../modules/protein/spec.md is the class of what this makes, and
+# ../../modules/reporter-lacz-enzyme is the one member supplied this way.
+
+process: make-protein
+title: "Protein Purification Processes"
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        A bacterial culture carrying the expression construct, and the consumables the
+        purification needs.
+  produces:
+    type: protein
+    note: >
+      A purified protein. The page's own framing: "Proteins are commonly used as
+      components in modules. These protocols describe how to prepare your own proteins."
+
+open:
+  - id: the-children-cannot-be-named
+    question: >
+      Five sub-directories hold the actual protocols and none is a process directory, so
+      none can carry a source or appear in a `refines:` chain. The refinement is real and
+      lives only in the filesystem. Whether they should be promoted to
+      docs/processes/<name>/ or whether a process may declare sub-steps is not settled
+      here.

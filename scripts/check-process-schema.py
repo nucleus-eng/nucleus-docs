@@ -59,8 +59,13 @@ def main():
     validator = jsonschema.Draft202012Validator(schema)
 
     sources = sorted(glob.glob(os.path.join(HERE, "docs/processes/*/spec.yml")))
+    # A PROCESS DIRECTORY IS ONE WITH A MARKDOWN PAGE IN IT. `docs/processes/resources/`
+    # holds three PNGs and nothing else: it is shared artwork, not a process, and
+    # counting it made the inventory report a source that will never be written.
+    # Measured 2026-10-05: 27 directories, 26 with markdown.
     dirs = {os.path.basename(os.path.dirname(p))
-            for p in glob.glob(os.path.join(HERE, "docs/processes/*/"))}
+            for p in glob.glob(os.path.join(HERE, "docs/processes/*/"))
+            if glob.glob(os.path.join(p, "*.md"))}
     step_imps = module_step_impositions()
     findings = 0
 

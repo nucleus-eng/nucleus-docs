@@ -1,0 +1,40 @@
+# Process source for Colorimetric Readout.
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# IT IS THE STAGE, NOT THE CHEMISTRY. The page: it "converts a completed sensing/lysis
+# cascade into a visible, measurable color signal", with CPRG or an alternate substrate.
+# ../color-development is the step that does it on a specific cascade; this is the
+# abstract readout every cascade ends at.
+#
+# NO MODULE STEP NAMES IT, which is why it has no `refines:` and nothing refines it:
+# the relation would be the other way round and ../color-development does not declare
+# it. Left undeclared rather than guessed.
+
+process: colorimetric-readout
+title: "Colorimetric Readout"
+
+signature:
+  takes:
+    - type: cascade
+      note: >
+        A completed sensing and lysis cascade.
+    - type: substrate
+      note: >
+        The chromogenic substrate the reporter enzyme turns over. CPRG is attested; the
+        page names an alternate.
+  produces:
+    type: signal
+    note: >
+      A visible color change. NOT A COMPONENT, and this schema's `produces` assumes one.
+      See the open item.
+
+open:
+  - id: a-readout-does-not-produce-a-component
+    question: >
+      Every other process in this corpus produces something that goes in a tube. This
+      one produces a reading. `signal` is written above because
+      compositional-biology-theory `glossary.md#T45` has Signal as an object -- "what an
+      object emits that a reader can detect" -- but no module page carries that type and
+      `scripts/process-yml-schema.yml` does not require one to. Whether a readout's
+      codomain is a Component, a Signal or a Measurement is not settled here.

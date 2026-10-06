@@ -1,0 +1,33 @@
+# Process source for Degrade Exterior LacZ.
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# THE PROCESS THE `proteolysis` IMPOSITION BELONGS TO. ../../modules/atc-cascade and
+# ../../modules/atc-sensing-cell each declare `proteolysis` on a step whose notes name
+# "the chained Degrade Exterior LacZ sub-process". Those are the only two declarations
+# of it, and neither step's process field points here -- the chain is described in prose.
+#
+# So this is the second case the imposition measurement found: an imposition that tracks
+# a process, declared twice on Modules, where the process it belongs to could not be
+# named because the step runs it as part of a chain. NOT DECLARED HERE YET, for the same
+# reason as ../embed-photodevelopment: check-process-schema.py refuses an id in two
+# homes and moving them is one commit.
+
+process: degrade-exterior-lacz
+title: "Degrade Exterior LacZ"
+
+signature:
+  takes:
+    - type: container
+      note: >
+        The liposome population, with reporter enzyme that has leaked outside it.
+    - type: component
+      note: >
+        Proteinase K, which implements proteolysis.
+  produces:
+    type: container
+    note: >
+      The same population with the exterior enzyme gone, so the background color it
+      would have added to the readout is removed.
+
+operator: mixing

@@ -1,0 +1,35 @@
+# Process source for Embedding: Thermal Setting.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# THE ROUTE THAT SETS BY TEMPERATURE, and the only one whose setting condition is a
+# property of the polymer rather than of the equipment. ../../modules/gel-lga and
+# ../../modules/gel-ulga carry gel points and melting points for exactly this reason.
+#
+# THREE MODULES RESTATE `thermal-hold` BECAUSE THEY RUN THIS PROCESS.
+# ../../modules/luxr-lacz-cascade, ../../modules/ph-cascade and
+# ../../modules/ph-cascade-one-vesicle each declare it on their embed step, and none of
+# the three declarations says anything about the Module declaring it. The imposition
+# belongs here. It is NOT declared here yet -- check-process-schema.py refuses an id
+# that lives in both homes, and moving all nine in the corpus is one commit.
+#
+process: embed-thermal-setting
+title: "Embedding: Thermal Setting"
+refines: embed-gel
+
+signature:
+  takes:
+    - type: solution
+      note: >
+        The outer solution the polymer dissolves into.
+    - type: component
+      note: >
+        An agarose grade. Which grade sets the hold and set temperatures.
+    - type: container
+      repeated: true
+      note: >
+        The compartments to be held.
+  produces:
+    type: gel
+    note: >
+      A gel set by cooling.

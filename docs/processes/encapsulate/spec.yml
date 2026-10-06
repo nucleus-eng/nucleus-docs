@@ -1,0 +1,33 @@
+# Process source for Encapsulate.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# NO `operator` DECLARED, AND THE REASON IS A DISAGREEMENT IN THE DATA. 7 steps run this
+# process: 6 are `packing` and 1 is `mixing`. By this schema's rule a process whose
+# instances disagree declares none, and the disagreement is worth a look rather than a
+# default -- encapsulation makes a compartment, which is `packing` by definition, so a
+# `mixing` instance is either mislabelled or is not this process.
+#
+# THE THIRD ARGUMENT IS THE ONE NOBODY WRITES. The steps supply a membrane and a payload
+# and leave the outer solution implicit, but the ruled signature has three positions and
+# the product's type names the third. It is declared here because the signature is what
+# a process source is for.
+#
+process: encapsulate
+title: "Encapsulate"
+
+signature:
+  takes:
+    - type: membrane
+      note: >
+        The bilayer that becomes the boundary.
+    - type: solution
+      note: >
+        The inner solution. What ends up inside.
+    - type: outer-solution
+      note: >
+        What the product is suspended in. Ruled in `the-composition-model` C1 as the third argument.
+  produces:
+    type: container
+    note: >
+      `outer_solution{Membrane[membrane_components]{inner_solution}}`. THE NESTING IS IN THE RETURN TYPE AND NOT IN THE APPLICATION: one step, three inputs.

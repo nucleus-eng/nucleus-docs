@@ -1,0 +1,26 @@
+# Process source for Color Development.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# THE RESOLUTION IS ORDER, NOT FORMULATION, which is the page's own sentence. The enzyme
+# is withheld until after embedding and arrives with a neutralizing buffer, so nothing
+# about either chemistry changes -- only when they meet.
+#
+process: color-development
+title: "Color Development"
+
+signature:
+  takes:
+    - type: cascade
+      note: >
+        The cascade to develop. It is already assembled and already embedded.
+    - type: component
+      repeated: true
+      note: >
+        What is added to develop it: the reporter enzyme, and a buffer that neutralizes.
+  produces:
+    type: cascade
+    note: >
+      The same cascade, read out. A different Module id because the developed state is a different thing to point at.
+
+operator: mixing

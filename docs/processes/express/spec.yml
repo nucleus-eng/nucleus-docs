@@ -1,0 +1,27 @@
+# Process source for Express.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# IT REFINES assemble-solution AND NOT A MAKING PROCESS. Everything stays in one
+# compartment: the template is added to a cytosol and the protein appears in it. The
+# page's own words -- "The cytosol supplies the machinery and the template supplies the
+# sequence."
+#
+process: express
+title: "Express"
+refines: assemble-solution
+
+signature:
+  takes:
+    - type: cytosol
+      note: >
+        Supplies the transcription and translation machinery.
+    - type: dna
+      note: >
+        Supplies the sequence. This is the requirement ../../modules/dna/spec.md states in prose and cannot yet declare.
+  produces:
+    type: component
+    note: >
+      The expressed protein, in the same compartment. Nothing is moved, which is why this refines assemble-solution rather than encapsulate.
+
+operator: mixing
