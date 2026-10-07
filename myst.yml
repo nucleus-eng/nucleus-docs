@@ -264,6 +264,8 @@ project:
           hidden: true
         - file: ./docs/processes/make-amino-acid-mix/main.md
           hidden: true
+        - file: ./docs/processes/amplify-linear-template/main.md
+          hidden: true
         - file: ./docs/processes/make-small-molecule-mix/main.md
           hidden: true
         - file: ./docs/processes/make-ribosomes/main.md

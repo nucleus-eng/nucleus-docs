@@ -32,8 +32,14 @@ repos:
         files: ^docs/
 
       - id: vale
+        # `--glob='!**/generated/**'` or this hook blocks EVERY markdown commit.
+        # docs/ contains gitignored build artifacts - BOM tables and CSVs written by
+        # build-protocols.py - and they carry 16 magnitude-unit errors that no commit
+        # can fix, because regenerating recreates them. Measured 2026-10-07: `vale docs/`
+        # exits 1 on 16 errors, all in generated/; with the glob it is 0 errors in 289
+        # files. Nothing was wrong with the corpus and the hook could not say so.
         name: Vale lint
-        entry: vale docs/
+        entry: vale --glob='!**/generated/**' docs/
         language: system
         pass_filenames: false
         types: [markdown]

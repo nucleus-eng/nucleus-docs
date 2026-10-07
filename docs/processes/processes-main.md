@@ -111,6 +111,7 @@ flowchart LR
 - [Make PMix](./make-36pot/main.md)
 - [Make OnePot PMix](./make-1pot/main.md)
 - [Make Individual Proteins](./make-protein/make-protein-main.md)
+- [Amplify Linear Template](./amplify-linear-template/main.md) — a DNA template rather than a cytosol ingredient: prepared the same way and spent in the same reaction.
 
 Check a finished prep with [Pierce660 Assay](./pierce660/main.md) for total protein, or a [Protein Gel](./protein-gel/main.md) for purity. Both sit in [Assays](#assays), with the rest of the readouts.
 
