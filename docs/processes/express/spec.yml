@@ -30,6 +30,6 @@ signature:
   produces:
     type: component
     note: >
-      The expressed protein, in the same compartment. Nothing is moved, which is why this refines assemble-solution rather than encapsulate.
+      The expressed protein, in the same compartment. A protein appears that no operand contained, which is the invariant this shares with ../make-protein.
 
 operator: mixing
