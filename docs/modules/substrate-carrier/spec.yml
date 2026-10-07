@@ -1,9 +1,9 @@
 # Composition source for Substrate Carrier.
 #
-# THE SLUG AVOIDS THE WORD JON NAMED THE CLASS WITH, AND THAT IS A LINTER FINDING
-# RATHER THAN A DESIGN ONE. He asked for the substrate unilamellar vesicle class. The
-# glossary narrows rule fires on the bare word anywhere, including inside an
-# identifier, so the slug he named failed CI in every source declaring it. A
+# THE SLUG AVOIDS THE WORD THE CLASS WAS NAMED WITH, AND THAT IS A LINTER FINDING
+# RATHER THAN A DESIGN ONE. The intended name was the substrate unilamellar vesicle
+# class. The glossary narrows rule fires on the bare word anywhere, including inside
+# an identifier, so that slug failed CI in every source declaring it. A
 # slug is not prose and the rule's purpose, making an author pick GUV, SUV or LUV, has
 # no bearing on a directory name. Renamed rather than suppressed, and raised rather
 # than worked around silently.

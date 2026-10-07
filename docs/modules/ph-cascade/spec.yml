@@ -54,9 +54,9 @@ inputs:
     title: "LGA powder, 0.7%"
     # REPOINTED TO ../gel-lga/spec.md, which is the correct gel for this path.
     #
-    # THIS REVERSES A RULING OF JON'S OWN, THREE DAYS OLD, AND THE OLD ONE IS KEPT
-    # HERE RATHER THAN DELETED. 2026-09-21: "agarose is ULGA, confirmed. i know we
-    # were claiming they might not be, but I've confirmed with devs." That is a
+    # THIS REVERSES AN EARLIER CONFIRMATION, THREE DAYS OLD, AND THE OLD ONE IS KEPT
+    # HERE RATHER THAN DELETED. The earlier record: the agarose is ULGA, confirmed
+    # with the developers against a standing claim that it might not be. That is a
     # stronger kind of evidence than what reverses it.
     #
     # WHAT REVERSES IT. ../ph-sensing-cell/spec.md:147 says "0.7% low-gelling

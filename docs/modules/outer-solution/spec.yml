@@ -64,7 +64,7 @@ open:
 
   - id: a-buffer-states-a-ph-point-and-wants-a-range
     question: >
-      DEFERRED ON JON'S RULING 2026-09-25, and the confirmation half is closed. Six sites
+      DEFERRED, and the confirmation half is closed. Six sites
       state pH 7.4 across two buffers -- the glutamate formulation's 72 mM HEPES in ../outer-solution-glutamate
       and ../gel-ulga, read back in ../detector-3oc6-hsl, and the Tris-HEPES stock
       in the three cascade comments. It looked like one figure copied six times because
