@@ -116,7 +116,7 @@ def skippable(doc: dict) -> list[str]:
                 continue
             # operator_pairs overrides the step label for named pairs, so the
             # question is whether THIS product is packed rather than whether the
-            # step is labelled packing.
+            # step is labeled packing.
             packs_product = later.get("operator") == "packing"
             for ov in (later.get("operator_pairs") or []):
                 if product in (ov.get("operands") or []):

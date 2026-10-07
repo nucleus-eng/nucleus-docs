@@ -124,7 +124,7 @@ properties:
         basis:
           enum: [rule, observation, inferred]
           description: >
-            WHETHER IT GENERALISES, and this is the key nobody proposes from
+            WHETHER IT GENERALIZES, and this is the key nobody proposes from
             outside. A `rule` excludes cases nobody has tried, because a
             mechanism says so. An `observation` enumerates what was seen and
             says nothing about the next case. free-parameters-are-tuples.md has

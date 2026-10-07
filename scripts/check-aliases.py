@@ -34,7 +34,7 @@ FOUR CARRIERS, each found the hard way.
                        a rename that is not one.
 
   TITLE -> ID          Two ids carrying one title. This is the one a reader hits:
-                       nodes are labelled with titles, so two different things
+                       nodes are labeled with titles, so two different things
                        draw as two identical boxes, which is what a reader of the
                        first meet asked about: why are both in there?
 

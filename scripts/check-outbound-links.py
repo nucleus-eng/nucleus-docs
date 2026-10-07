@@ -126,7 +126,7 @@ def main():
         try:
             sources[d.name] = yaml.safe_load(src.read_text()) or {}
         except yaml.YAMLError as e:
-            unreadable.append(f"{d.name} (unparseable: {e.__class__.__name__})")
+            unreadable.append(f"{d.name} (unparsable: {e.__class__.__name__})")
     for name, doc in sources.items():
         direct_by_mod[name] = direct(doc, MODULES / name)
         r = doc.get("refines")

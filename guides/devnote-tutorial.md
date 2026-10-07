@@ -20,7 +20,7 @@ If you do not have these things please see the [Tutorial: getting started with N
 
 # Creating project from template
 
-- [ ] From the Launcher window select the button "Create" in the "Developer Notes" toolbar and follow the dialogue:
+- [ ] From the Launcher window select the button "Create" in the "Developer Notes" toolbar and follow the dialog:
   - [ ] Enter a directory name for the DevNote: `template`
   - [ ] Project title: `My first project`
   - [ ] Subtitle: `My first subtitle`

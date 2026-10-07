@@ -131,7 +131,7 @@
     if it.level == 1 [
       // First-level headings are centered smallcaps.
       // We don't want to number of the acknowledgment section.
-      #let is-ack = it.body in ([Acknowledgment], [Acknowledgement],[Acknowledgments], [Acknowledgements])
+      #let is-ack = it.body in ([Acknowledgment], [Acknowledgement],[Acknowledgments], [Acknowledgements])  // codespell:ignore acknowledgement,acknowledgements -- a deliberate variant list; both spellings must match
       // #set align(center)
       #set text(if is-ack { 10pt } else { 12pt })
       #show: smallcaps

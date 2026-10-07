@@ -18,7 +18,7 @@ worse than none.
     disagree, not that the source is stale.
   * It only reads `parameters`. Figures in `notes:`, `ratio:` and `headroom:`
     are not checked.
-  * A page may state a figure in a form no normalisation reaches — inside an
+  * A page may state a figure in a form no normalization reaches — inside an
     image, a linked DevNote, or computed rather than written. Those report as
     absent and are false positives.
   * It cannot always see the unit. The corpus's dominant page format is a table
@@ -52,13 +52,13 @@ PATTERN = os.path.join(ROOT, "docs", "modules", "*", "spec.yml")
 UNITS = (r"(?:nM|nm|uM|mM|mOsm|M|ng/uL|ug/uL|mg/mL|U/mL|KU|%|x|X|uL|mL|L"
          r"|degC|C|bp|kb|kDa|h|min|s)")
 # Digits with an optional decimal part, and NOTHING else. Thousands separators
-# are folded in normalise() before this runs, so they must not appear here:
+# are folded in normalize() before this runs, so they must not appear here:
 # letting the number swallow a comma made "0.076 mL, 25 mg/mL" one figure.
 NUMBER = r"\d+(?:\.\d+)?"
 FIGURE = re.compile(r"(" + NUMBER + r")\s*(" + UNITS + r")(?![A-Za-z0-9/])")
 
 
-def normalise(text):
+def normalize(text):
     """Fold the spellings that mean one thing, so a match is about the figure."""
     t = unicodedata.normalize("NFKC", text)
     t = t.replace("µ", "u").replace("μ", "u")   # micro sign, greek mu
@@ -76,9 +76,9 @@ def _num(raw):
 
 
 def figures(text):
-    """Every (number, unit) in the text, normalised, as a set of strings."""
+    """Every (number, unit) in the text, normalized, as a set of strings."""
     out = set()
-    for raw, unit in FIGURE.findall(normalise(text)):
+    for raw, unit in FIGURE.findall(normalize(text)):
         n = _num(raw)
         if n:
             out.add(n + unit)
@@ -88,7 +88,7 @@ def figures(text):
 def figures_with_number(text):
     """Same, but keep the bare number alongside, for the weak tier."""
     out = set()
-    for raw, unit in FIGURE.findall(normalise(text)):
+    for raw, unit in FIGURE.findall(normalize(text)):
         n = _num(raw)
         if n:
             out.add((n + unit, n))
@@ -100,7 +100,7 @@ BARE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)(?![\w])")
 
 def numbers(text):
     """Every bare number on the page, for when the unit is in a row label."""
-    return {n for n in (_num(m) for m in BARE.findall(normalise(text))) if n}
+    return {n for n in (_num(m) for m in BARE.findall(normalize(text))) if n}
 
 
 def main():

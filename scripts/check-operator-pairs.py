@@ -76,7 +76,7 @@ SEED = {
   frozenset({'polymer', 'reporter'}):  (MIX,  'signature.md:149, same claim against the polymer -- but see O8', True),
 }
 # Deliberately NOT seeded: Alginate with PEGDA. review-poset-draft.md calls the
-# neighbouring term "a notation choice I am making, not one the corpus has".
+# neighboring term "a notation choice I am making, not one the corpus has".
 
 # Every line number above was read back at this commit on 2026-09-21. It is one pin for
 # the table rather than ten copies of a hash, because all ten rows cite the same repo.

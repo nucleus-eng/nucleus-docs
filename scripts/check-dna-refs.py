@@ -169,7 +169,7 @@ class ConstructFile:
     # EVERY NAME THE FILE GIVES ITSELF, not only its LOCUS. A GenBank file names
     # its parts in /label= and DEFINITION, and that is where a full construct
     # name usually lives — `pOpen-pT7-lacO.gb` has LOCUS `pT7-lacO` and a feature
-    # labelled `pT7-lacO-UTR1-plamGFP-t7hyb6`. Comparing only against LOCUS and
+    # labeled `pT7-lacO-UTR1-plamGFP-t7hyb6`. Comparing only against LOCUS and
     # filename asked two of the three places the answer could be.
     self_names: tuple[str, ...] = ()
 

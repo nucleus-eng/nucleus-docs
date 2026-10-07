@@ -54,7 +54,7 @@ FOUR RULES, each with the measurement that forced it.
 
 3. A NODE IS ABSTRACT IFF THE LEGS DISAGREE. An abstract page earns its place
    only where there is a design decision to be made between implementations.
-   Where the legs agree the meet IS that module and labelling it
+   Where the legs agree the meet IS that module and labeling it
    abstract asserts a choice nobody has.
 
    ABSTRACTNESS DOES NOT PROPAGATE ALONG EDGES. Seven of seven sensing-cell steps

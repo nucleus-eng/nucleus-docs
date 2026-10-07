@@ -17,7 +17,7 @@ cycle breaks antisymmetry. Every generated order is checked for cycles rather
 than assumed, and a single-parent relation is checked for being single-parent
 rather than trusted because the schema says string.
 
-EVERY DRAWING CARRIES NAMES. A node is labelled with the Module's or the Process's
+EVERY DRAWING CARRIES NAMES. A node is labeled with the Module's or the Process's
 own `title:`, not with its directory slug, because a picture is read rather than
 grepped. The slug stays as the mermaid node id and follows the name in parentheses
 in the text trees, so the identifier is never lost.

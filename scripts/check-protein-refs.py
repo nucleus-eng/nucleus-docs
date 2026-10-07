@@ -21,7 +21,7 @@ For every UniProt citation it finds, it compares:
   * a stated residue count ("NNN aa", "NNN residues") against the entry
   * a stated mass ("NNN.N kDa") against the entry's computed molecular weight,
     monomer or a stated n-mer
-  * a stated organism, italicised or not, against the entry's organism
+  * a stated organism, italicized or not, against the entry's organism
   * the entry's own protein name against the words around the citation
 
 AND, WHERE THE PAGE ALSO NAMES A CONSTRUCT IN nucleus-eng/DNA, it translates
@@ -228,7 +228,7 @@ def align_identity(protein, entry_seq):
 
 
 # A CDS IS NOT THE ONLY PLACE AN INSERT LIVES. pOpen-Cx43.gb annotates its
-# 1146 bp connexin insert as a `misc_feature` labelled "Cx43 (rat)" and declares
+# 1146 bp connexin insert as a `misc_feature` labeled "Cx43 (rat)" and declares
 # no CDS for it at all; a CDS-only reader finds AmpR and a lacZ-alpha fragment
 # and reports that the file has nothing to check. SnapGene exports do this
 # routinely, so the insert types are read too and a label hint disambiguates.
