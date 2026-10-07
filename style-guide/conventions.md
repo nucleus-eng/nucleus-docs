@@ -1,5 +1,8 @@
 # Conventions
 
+<!-- names only, no claim: this page names other repos inside the list of pointers it
+     forbids. It asserts nothing about their contents, so it carries no pin. -->
+
 ## Terminology
 
 | Use | Not | Note |

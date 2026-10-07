@@ -88,8 +88,21 @@ Requires that whatever is embedded survives the temperature at which the polymer
 - [Outer Solution](../outer-solution/spec.md) — the phase the polymer dissolves into and becomes.
 - Low-gelling-temperature agarose
 
+# Materials
+
+:::{table} Purchased materials.
+
+| Name | Category | Product | Manufacturer | Part # | Link |
+| --- | --- | --- | --- | --- | --- |
+| LGA | Reagent | Low gelling temperature agarose | not recorded | not recorded | — |
+:::
+
+**No supplier is recorded for this agarose anywhere in the documentation**, and that is unusual rather than ordinary: [Gel: ULGA](../gel-ulga/spec.md) names Sigma-Aldrich A5030, and the other unsourced reagents on [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) at least have a product Nucleus buys elsewhere to copy from. This one has nothing to copy.
+
+**It is not a grade of the ULGA and cannot be ordered as one.** The two congeal at (26–30) °C against (8–17) °C and melt at ≤ 65 °C against ≤ 50 °C — the property the gel is chosen for — so they are different products.
+
 :::{attention} No part number is recorded for the agarose
-@Editor(chicago): record the part number of the low-gelling-temperature agarose.
+@Editor(chicago): record the part number of the low-gelling-temperature agarose — manufacturer, part number and the pack size ordered. **The pH Demo runs on this gel**, so until it is named, that demo's bill of materials cannot be ordered from.
 :::
 
 # Credits

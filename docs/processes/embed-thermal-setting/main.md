@@ -124,6 +124,10 @@ This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HS
 No manufacturer, part number, price or storage data is established for glucose, potassium L-glutamate or HEPES on this page. Nucleus buys all three elsewhere in this documentation — [D-(+)-Glucose, 99%](https://www.thermofisher.com/order/catalog/product/A16828.36) (Thermo Scientific A16828-36), [L-glutamic acid potassium monohydrate](https://www.sigmaaldrich.com/US/en/product/sigma/g1501) (Sigma-Aldrich G1501-100G) and [HEPES, crystalline powder, ≥99.5%](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) (Sigma-Aldrich H3375-500G).
 
 @Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
+
+**The LGA row is unsourced too, and differs from those three: nothing in this documentation buys it anywhere.** Glucose, potassium L-glutamate and HEPES have a product to copy from; low-gelling agarose has none, and it is not a substitute for the ULGA above — the two gel at different temperatures and are ordered as different products. **It is the gel the pH path actually runs on**, so the demo's only recorded gel is the one nobody can order.
+
+@Editor(chicago): name the low-gelling agarose — manufacturer, part number and pack size. [Gel: LGA](../../modules/gel-lga/spec.md) carries the same ask and has nowhere to put the answer until this is known.
 :::
 
 The ULGA on this page is Sigma-Aldrich A5030, and the figures in the table above are its. @Editor(london): a second part number, A2576, was recorded here as interchangeable with it. The two are different products — A5030 is Type IX and melts at ≤ 50 °C; A2576 is Type IX-A, molecular biology grade, and melts at ≤ 62 °C. Was A2576 ever used on the bench, or is A5030 the only one?
