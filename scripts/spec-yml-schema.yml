@@ -901,8 +901,16 @@ $defs:
             type: string
             description: >
               The capacity a module takes from a slot someone else provides.
-              Reserved and unused as of 2026-09-15 — the four consumers that spend
-              headroom still state it in free-text notes.
+              Reserved 2026-09-15, first used 2026-10-07 on ../../docs/modules/atc-sensor-cytosol,
+              which spends ../../docs/modules/base-cytosol's 2.0 uL of 10.
+              THE "FOUR CONSUMERS" THIS LINE CLAIMED ARE ONE. Read on 2026-10-07: two of the
+              four — ahsl-sensor-cytosol and luxr-lacz-cascade — carry the identical sentence
+              "Its headroom is 3.75 uL of 25 ... see s30-lysate/spec.md", which RESTATES THE
+              PROVIDER'S SLOT and spends nothing. The fourth, ph-sensor-cytosol, says the
+              encapsulation step rather than the sensing function spends it, and gives a
+              concentration (Optiprep 4.5% v/v) where this key takes a volume of a stock.
+              Declaring `requires` on any of those three would assert a consumption its own
+              note denies.
           balance:
             type: string
             description: >

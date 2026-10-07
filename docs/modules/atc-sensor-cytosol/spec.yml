@@ -45,6 +45,12 @@ process_steps:
       id: atc-sensor-cytosol
       title: "SensorCytosol[aTc ⟶ PLA1]"
       page: ../atc-sensor-cytosol/spec.md
+    headroom:
+      requires: "2.0 uL of 10"
+      notes: >
+        The slot is ../base-cytosol/spec.yml's `headroom.provides`, and this step
+        is what spends it. Declared 2026-10-07 under R10, which had reserved the key
+        on 2026-09-15 and left it unused.
     notes: >
       Fills the Base Cytosol headroom, 2.0 uL of 10. The detector and the
       effector are one molecule, so PLA1 is not supplied separately. LacZ is

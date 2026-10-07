@@ -33,9 +33,9 @@ inputs:
     # Conflict and needs an imposition to point at. These are the opposite polarity:
     # what the vendor promises the material does, not what it fails to tolerate.
     #
-    # NEITHER FIGURE IS ON ../gel-lga/spec.md. The only record in the corpus is this
-    # file, in the `open` item below. The move is file-internal so nothing is imported,
-    # but the page carries no datasheet row and should gain one.
+    # BOTH FIGURES ARE NOW ON ../gel-lga/spec.md:100, added 2026-10-07 from the vendor
+    # datasheets. This comment said neither was, and asked for a datasheet row; the page
+    # gained one, so the ask is discharged.
     spec:
       - quantity: eeo
         sense: at-most
