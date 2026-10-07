@@ -60,6 +60,7 @@ Exit codes:
 import argparse
 import os
 import re
+import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -132,6 +133,43 @@ def find_dna_repo() -> Path | None:
     env = os.environ.get("NUCLEUS_DNA_REPO")
     candidate = Path(env) if env else Path.home() / "src" / "nucleus-eng" / "DNA"
     return candidate if candidate.is_dir() else None
+
+
+def describe_dna_checkout(repo_root: Path) -> str:
+    """Name the ref the index was built from.
+
+    `index_dna_repo` reads the WORKING TREE, not a git ref, so the index is
+    whatever branch that checkout happens to sit on. Every finding is relative
+    to that branch and nothing used to say which one. The live case, 2026-10-06:
+    a checkout on `devcells/devstudio-constructs` reported two stale absence
+    claims on `detector-tetr-atc/spec.md` because it found the two constructs
+    there -- and the page was right, because neither is on `main`. The checker
+    had found the branch it was standing on.
+
+    THIS NAMES THE TREE RATHER THAN CHANGING IT. Resolving against `origin/main`
+    instead would be wrong: 12 of the 28 construct links in the docs cite
+    `devcells/devstudio-constructs` on purpose, because that is where the file
+    is, and a main-only index would call every one of them missing.
+
+    A false pass has the same cause and is the worse half: a construct genuinely
+    added to `main` reads as absent when the checkout sits on a feature branch
+    that predates it.
+    """
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(repo_root), "rev-parse", "--abbrev-ref", "HEAD"],
+            capture_output=True, text=True, timeout=10,
+        )
+        if out.returncode != 0:
+            return "not a git checkout"
+        ref = out.stdout.strip()
+        dirty = subprocess.run(
+            ["git", "-C", str(repo_root), "status", "--porcelain"],
+            capture_output=True, text=True, timeout=10,
+        ).stdout.strip()
+        return f"{ref}{', with uncommitted changes' if dirty else ''}"
+    except (OSError, subprocess.SubprocessError):
+        return "unknown"
 
 
 def _parse_locus(path: Path) -> tuple[str | None, int | None]:
@@ -399,6 +437,9 @@ def main(argv=None) -> int:
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN
+
+    print(f"DNA repo: {dna_repo}")
+    print(f"indexed from its working tree, currently on: {describe_dna_checkout(dna_repo)}")
 
     findings = check(args.paths, dna_repo)
     blocking = [f for f in findings if f.level == BLOCKING]
