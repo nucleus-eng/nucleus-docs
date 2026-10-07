@@ -13,8 +13,7 @@ site:
 **Position.** Refines [Outer Solution](../outer-solution/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-A member of [Outer Solution](../outer-solution/spec.md): potassium glutamate, HEPES and glucose,
-matched to the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) inner solution.
+A member of [Outer Solution](../outer-solution/spec.md): potassium glutamate, HEPES and glucose, matched to the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) inner solution.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

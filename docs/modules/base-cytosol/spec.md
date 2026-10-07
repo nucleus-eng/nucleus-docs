@@ -250,7 +250,7 @@ Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be 
 
 # Expected Behavior
 
-The behavior of Base Cytosol is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module. 
+Base Cytosol expresses protein from added DNA. The figures below were read as deGFP fluorescence.
 
 # Implementations
 

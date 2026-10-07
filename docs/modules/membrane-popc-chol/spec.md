@@ -72,7 +72,7 @@ flowchart TD
 
 # Expected Behavior
 
-The behavior of Membrane: POPC/Chol (7:3) is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
+Membrane: POPC/Chol (7:3) retains an encapsulated cytosol and supports expression inside it. The figures below were read as [deGFP Reporter](../reporter-degfp/spec.md) fluorescence in an assembled cell.
 
 # Processes
 

@@ -13,9 +13,7 @@ site:
 **Position.** Refines [Sensor Cytosol](../sensor-cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-[Base Cytosol](../base-cytosol/spec.md) mixed with
-[Detector: Theophylline](../detector-theophylline/spec.md). A member of
-[Sensor Cytosol](../sensor-cytosol/spec.md).
+[Base Cytosol](../base-cytosol/spec.md) mixed with [Detector: Theophylline](../detector-theophylline/spec.md). A member of [Sensor Cytosol](../sensor-cytosol/spec.md).
 
 :::{attention} Canceled — not part of the DevCells demo
 The theophylline riboswitch expresses its effector without theophylline present, so it does not discriminate. It is not part of the DevCells demo, and its constructs are no longer in use.
