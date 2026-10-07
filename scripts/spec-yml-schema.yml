@@ -891,8 +891,13 @@ $defs:
       mixing — the operands end up in one compartment. packing — each keeps its
       own. stitching — the operands are joined in order into one polymer, and the product
       is a single molecule rather than a mixture or a pair of compartments.
-      72 mixing, 39 packing, 0 stitching across 111 steps on this branch, read with
-      `yaml.safe_load` over every `spec.yml` under `docs/`. The earlier count, 50 and 26
+      73 mixing, 39 packing, 0 stitching across 112 steps at `97bcf340`, read with
+      `yaml.safe_load` over every `spec.yml` under `docs/`.
+      A COUNT HERE NAMES ITS REF, for the reason the `refines` description gives above: this
+      file lives on branches whose corpora differ. The figure this line carried until now, 72
+      and 39 across 111, said "on this branch" and was taken on `roll/refinement-rulings` at
+      `bed2c438`. One step apart, and unverifiable from either tree without the third.
+      The earlier count, 50 and 26
       across 76 at `d611bda`, is kept because it is what the first version of this line said.
       Determined by the process, not chosen per step.
       STITCHING HAS NO USER YET AND IS STILL IN THE ENUM. The process that realizes it is DNA
