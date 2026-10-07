@@ -61,6 +61,19 @@ echo ""
 echo "Installing pre-commit hooks..."
 conda run -n nucleus-docs pre-commit install
 
+# SAY SO WHEN IT DID NOT WORK. This script printed "Installing pre-commit hooks..."
+# and then finished with "Done!" whether or not the hook landed. In one checkout it
+# never had: .git/hooks held only .sample files, so five configured hooks -
+# check-dropdowns, check-file-placement, check-toc, check-reference-voice and vale -
+# had never run, silently, for months. An uninstalled hook reports nothing by
+# construction, so the install is the only place that can notice.
+if [ ! -f .git/hooks/pre-commit ]; then
+  echo ""
+  echo "  WARNING: .git/hooks/pre-commit was not created." >&2
+  echo "  The five hooks in .pre-commit-config.yaml will not run on commit." >&2
+  echo "  Fix: conda activate nucleus-docs && pre-commit install" >&2
+fi
+
 echo ""
 echo "Done! To get started:"
 echo "  conda activate nucleus-docs"

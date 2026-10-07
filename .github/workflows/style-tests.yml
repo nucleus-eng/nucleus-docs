@@ -1,4 +1,4 @@
-name: Vale Style Tests
+name: Tests
 
 on:
   pull_request:
@@ -31,5 +31,9 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Run Vale fixture tests
+      # `pytest -v`, not the Vale fixtures alone: this runs the WHOLE suite, 422
+      # tests. It was called "Vale Style Tests" until 2026-10-07, which is why a
+      # biopython failure in tests/test_protein_refs.py read as a styling problem
+      # and stayed red for four days.
+      - name: Run the test suite
         run: pytest -v

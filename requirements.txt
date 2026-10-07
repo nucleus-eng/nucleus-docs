@@ -5,3 +5,4 @@ black
 codespell
 pre-commit
 pyyaml
+biopython        # check-protein-refs.py --align, and tests/test_protein_refs.py
