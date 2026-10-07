@@ -60,20 +60,30 @@ _ISO_DATE = r"20\d\d-\d\d-\d\d"
 _LINK_TARGET = re.compile(r"\]\([^)]*\)")
 _URL = re.compile(r"\bhttps?://\S+")
 
+# A branch or directory name is an address, not prose, for the same reason
+# `_LINK_TARGET` is blanked: `roll/refinement-rulings` is a place, not a record of
+# a decision. Only a slash-path whose LAST segment carries no dot is blanked, so
+# `rulings.md` and `scripts/check-foo.py` stay visible to the rules that exist to
+# catch them.
+_BRANCH = re.compile(r"\b[a-z][\w.-]*(?:/[\w.-]+)+")
+_blank_branch = lambda s: _BRANCH.sub(
+    lambda m: " " * len(m.group(0)) if "." not in m.group(0).rsplit("/", 1)[-1] else m.group(0), s)
+
 TIER1 = {
     "ruling": (
         # `(?!\.md)` keeps the filename `rulings.md` out of this rule. A filename is
         # an address, the same reason `_LINK_TARGET` is blanked out, and the pointer
         # itself is already what `working-notes` is for. It fired on
         # effector-pla1/spec.yml, which cites `rulings.md#D35` for associativity.
-        re.compile(r"\b[Rr]ul(?:ed|ings?)\b(?! out)(?!\.md)"),
+        re.compile(r"\brul(?:ed|ings?)\b(?! out)(?!\.md)", re.I),
         "records a ruling. State the result; the commit message records who decided.",
     ),
     "working-notes": (
         re.compile(
             r"compositional-biology-theory"
-            r"|\b[Tt]heory corpus\b"
-            r"|\b(?:open|rulings|glossary|signature)\.md\b"
+            r"|\btheory corpus\b"
+            r"|\b(?:open|rulings|glossary|signature)\.md\b",
+            re.I,
         ),
         "points into our working notes, which a reader cannot follow. State the content, or leave it out.",
     ),
@@ -89,7 +99,7 @@ TIER2 = {
         "dates the text. Check it describes the Module, not our work on it.",
     ),
     "corpus-talk": (
-        re.compile(r"\b(?:[Tt]his|[Tt]he) corpus\b|\b[Tt]his tranche\b"),
+        re.compile(r"\b(?:this|the) corpus\b|\bthis tranche\b", re.I),
         "talks about the corpus, not the Module.",
     ),
     "tooling": (
@@ -223,7 +233,7 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
     lines = visible_lines(text)
     pinned = {n for n, l in lines if HASH_NEARBY.search(l)}
     for lineno, line in lines:
-        line = _URL.sub(" ", _LINK_TARGET.sub("]()", line))
+        line = _blank_branch(_URL.sub(" ", _LINK_TARGET.sub("]()", line)))
         for level, rules in (("error", tier1), ("warning", TIER2)):
             for rule, (pattern, message) in rules.items():
                 if source and rule in EXEMPT_IN_SOURCE:
