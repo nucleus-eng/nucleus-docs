@@ -612,12 +612,15 @@ $defs:
           What must hold for this step to be defined. A Requirement is "a condition
           that must hold for a morphism to be defined", and a step is how this schema
           names a morphism.
-          IT SITS ON THE STEP EVEN THOUGH JON ASKED FOR IT THE OTHER WAY ROUND.
-          His words were "refining color reporter should imply constraints on the
-          cleanup step", which is a Module constraining a step. Stated from the
-          step it is the same claim, and #T20 puts the condition on the morphism,
-          so the carrier rule holds across all four Layer C rows rather than
-          bending for one sentence.
+          IT SITS ON THE STEP EVEN THOUGH THE CASE FOR IT RAN THE OTHER WAY ROUND.
+          That case was that refining a color reporter should imply constraints on the
+          cleanup step, which is a Module constraining a step. Stated from the step it
+          is the same claim, and a Requirement is a condition on the morphism, so the
+          carrier rule holds across all four Layer C rows rather than bending for one
+          sentence.
+          THAT ARGUMENT IS NOW IN DOUBT and the doubt is recorded, not resolved here:
+          a step in this schema is a monoidal product and so is total, and a total
+          morphism has no definedness condition for this key to carry.
           IT IS NOT A CONFLICT AND CANNOT BE ONE. A Conflict is a meet of two
           declared halves, so it can only say two things must not co-occur. This
           says something must be PRESENT, and a missing step declares no half, so
@@ -901,7 +904,7 @@ $defs:
       WHAT IS SETTLED AND WHAT IS NOT. Stitching joins operands in order into one new object.
       The structure is OPEN and `::` is a PLACEHOLDER spelling. `::` is associative and not
       commutative, which alone gives a SEMIGROUP, and a monoid if it has a unit.
-      THE MONOID IS RULED AND FREENESS IS THE HYPOTHESIS. THIS LINE HAD THEM THE OTHER WAY ROUND.
+      THE MONOID IS SETTLED AND FREENESS IS THE HYPOTHESIS. THIS LINE HAD THEM THE OTHER WAY ROUND.
       `#D35` gives associativity and `#D40` gives the unit, the null polymer, so polymers under
       `::` are a monoid. The unit is settled, and an earlier version of this line wrongly treated
       it as open. Polymers form a monoid and plausibly the FREE one, bounded by the circular
