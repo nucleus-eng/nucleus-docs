@@ -1,10 +1,8 @@
 # Composition source for RNA.
 #
-# WRITTEN 2026-10-05 on Jon's ruling that RNA is sensitive to `rna-nucleolysis`.
-#
 # `rna-nucleolysis` IS AN ID, NOT A PAGE, and that was a correction. Three function
 # pages -- Proteolysis, Nucleolysis, RNA Nucleolysis -- were written under docs/modules/
-# and deleted the same hour. Jon: "those are functions lol?" A Module is a thing in a
+# and deleted the same hour, because they are functions. A Module is a thing in a
 # tube. A sensitivity's `to:` is a condition id and needs no Module behind it.
 #
 # ../lysis/spec.yml IS NOT THE SAME CASE and survives the test: it has a Module member,
@@ -40,11 +38,11 @@ sensitivities:
       rather than declaring a tolerance.
     page: spec.md
 
-# ../dna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. Jon, 2026-10-05: "yes
-# NucleicAcid is refined by DNA and RNA." ../nucleic-acid is written and both refine it.
+# ../dna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. NucleicAcid is refined by
+# DNA and RNA: ../nucleic-acid is written and both refine it.
 #
 # THE SENSITIVITY BELOW IS THE NARROW ONE AND STAYS HERE. ../nucleic-acid declares
-# `nucleolysis`, the function, over both children. `rna-nucleolysis` refines it, on
-# Jon's ruling of 2026-10-05, and names the RNase case this corpus attests. Declaring
+# `nucleolysis`, the function, over both children. `rna-nucleolysis` refines it and
+# names the RNase case this corpus attests. Declaring
 # the narrow one on a child whose parent declares the broad one is the shape the
 # refinement is for, and check-conflicts.py reads both.

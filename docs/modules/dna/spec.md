@@ -17,7 +17,7 @@ A class: a Module whose subject is a DNA molecule.
 
 Every member is a nucleic acid polymer, and is identified by its sequence rather than by what the sequence encodes. Members encode different things. The class fixes what they are made of, which is what decides how a nuclease treats them and what a reaction must supply before they do anything.
 
-**Double-stranded unless a page says otherwise.** Jon, 2026-10-05: *"basically all DNA that isn't explicitly ssDNA is double stranded."* So [double-stranded DNA](../dsdna/spec.md) is the default reading of a member that states nothing, and [single-stranded DNA](../ssdna/spec.md) is the one that has to be declared. A page silent on strandedness is not a page with a gap.
+**Double-stranded unless a page says otherwise.** DNA that is not explicitly single-stranded is double-stranded, so [double-stranded DNA](../dsdna/spec.md) is the default reading of a member that states nothing, and [single-stranded DNA](../ssdna/spec.md) is the one that has to be declared. A page silent on strandedness is not a page with a gap.
 
 A Module that is expressed from DNA is not a member. Its subject is the behavior, and the DNA is a constituent of the reaction that produces it.
 

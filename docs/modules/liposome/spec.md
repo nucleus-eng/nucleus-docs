@@ -17,7 +17,7 @@ A [vesicle](../vesicle/spec.md) whose bilayer is made of lipid. **Its sibling is
 
 **This is the material axis, and it is independent of size.** A liposome may be a [GUV](../guv/spec.md), an [SUV](../suv/spec.md) or an [LUV](../luv/spec.md), which is why this class refines Vesicle and not one of those three.
 
-**Eleven members, assigned 2026-10-05.** This page argued until then that assigning them would record a distinction separating nothing, because every vesicle in the corpus is a liposome. Jon overruled it: *"synthetic cells should refine liposomes, as should any of the substrate vesicles and dye vesicles (by virtue of the fact that they are built from lipids)"*.
+**Eleven members.** Synthetic cells, substrate vesicles and dye vesicles are built from lipids, so each refines this class. The page once argued that assigning them would record a distinction separating nothing, because every vesicle in the corpus is a liposome.
 
 **The argument was wrong about what a parent is for.** A class that holds only what currently distinguishes members is a sorting key. The material axis is a fact about what each Module is made of, and it is true of all eleven whether or not a polymersome ever arrives. Leaving it unasserted did not keep the corpus neutral; it left eleven Modules silent about their own bilayer.
 

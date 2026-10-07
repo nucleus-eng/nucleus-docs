@@ -38,7 +38,7 @@ process_steps:
       title: "Encapsulation"
       page: ../../processes/encapsulate/main.md
     operator: packing
-    # THE THIRD ARGUMENT, added 2026-10-05 under C1's ruled signature:
+    # THE THIRD ARGUMENT. The step's signature is:
     #   encapsulate : membrane_components, inner_solution, outer_solution
     #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
     # The product's TYPE names what it is suspended in, so a step that leaves it out
@@ -59,9 +59,9 @@ open:
       CLOSED 2026-10-05, and the reasoning in it was wrong. It read: this class claims
       no members while every vesicle in the corpus is one, so the page records the axis
       rather than sorting anything by it.
-      Jon: "synthetic cells should refine liposomes, as should any of the substrate
-      vesicles and dye vesicles (by virtue of the fact that they are built from
-      lipids)". Eleven members assigned, each verified to take a POPC-based membrane.
+      Synthetic cells, substrate vesicles and dye vesicles are built from lipids, so
+      each refines this class. Eleven members assigned, each verified to take a
+      POPC-based membrane.
       THE ERROR WAS TREATING A PARENT AS A SORTING KEY. A class that holds only what
       currently separates members earns its page when the first exception arrives. A
       class that says what members are MADE OF is true now, and leaving it unasserted
@@ -73,8 +73,8 @@ open:
 # ../theophylline-sensing-cell each refine a chassis that now refines this class, so
 # their direct edge is implied by a longer path rather than independent.
 #
-# THEY ARE KEPT. Jon asked for them in as many words -- "synthetic cells should refine
-# liposomes" -- and ../../../scripts/render-posets.py already reports the shape it is:
+# THEY ARE KEPT. A synthetic cell is built from lipids and so refines liposomes
+# directly, and ../../../scripts/render-posets.py already reports the shape it is:
 # "88 covering, 4 implied by a longer path and not drawn". An implied edge is not a
 # false claim, only an unnecessary one, and the same four already carried a redundant
 # `guv` edge before this sweep for the same reason.

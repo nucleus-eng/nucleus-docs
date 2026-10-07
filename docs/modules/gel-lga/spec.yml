@@ -29,7 +29,7 @@ inputs:
   lga-powder:
     title: "Low gelling temperature agarose"
     page: null            # no module page for the polymer; the grade is below
-    # SUPPLIER GUARANTEES, NOT SENSITIVITIES, ruled R33. A sensitivity is half of a
+    # SUPPLIER GUARANTEES, NOT SENSITIVITIES. A sensitivity is half of a
     # Conflict and needs an imposition to point at. These are the opposite polarity:
     # what the vendor promises the material does, not what it fails to tolerate.
     #

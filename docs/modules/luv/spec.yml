@@ -43,7 +43,7 @@ process_steps:
       page: ../../processes/encapsulate-luv/main.md
       abstract: encapsulate
     operator: packing
-    # THE THIRD ARGUMENT, added 2026-10-05 under C1's ruled signature:
+    # THE THIRD ARGUMENT. The step's signature is:
     #   encapsulate : membrane_components, inner_solution, outer_solution
     #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
     # The product's TYPE names what it is suspended in, so a step that leaves it out

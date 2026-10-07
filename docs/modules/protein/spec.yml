@@ -6,9 +6,9 @@
 # claim belongs to the kind and not to the member. It is declared here once, and every
 # member carries it without restating it.
 #
-# AND THE `to:` NAMES A FUNCTION NOW, NOT A REAGENT. Jon, 2026-10-05: "`protein` should
-# be sensitive to `proteolysis` (function) which is implemented by `protease`s, of which
-# `proteinase-k` is a member." The id was narrower than the claim beside it: the `why`
+# AND THE `to:` NAMES A FUNCTION NOW, NOT A REAGENT. `protein` is sensitive to
+# `proteolysis` (function), which is implemented by `protease`s, of which
+# `proteinase-k` is a member. The id was narrower than the claim beside it: the `why`
 # already gave the general reason, so a second protease would have needed a second
 # declaration saying the same thing. `proteinase-k` became `proteolysis` here and on the
 # two steps that impose it.

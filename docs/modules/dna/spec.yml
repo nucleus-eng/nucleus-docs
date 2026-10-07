@@ -5,9 +5,8 @@
 # `lacz` and nothing else, because the kind it belongs to had no page. The trio --
 # the DNA, the protein, and the meet that abstracts over both -- was two thirds built.
 #
-# THE MEET IS A MODULE AND NOT A THIRD CLASS. compositional-biology-theory
-# `signature.md:834` lists `lacz` among `refines:` parents that are NOT types: "one
-# identity with two supply forms". DNA and Protein have rows there and are types. So
+# THE MEET IS A MODULE AND NOT A THIRD CLASS. `lacz` is a `refines:` parent that is NOT
+# a type: one identity with two supply forms. DNA and Protein are types. So
 # this page and ../protein/spec.yml are the classes, ../lacz/spec.yml stays a Module,
 # and the pattern repeats per molecule without a class page per molecule.
 #
@@ -30,8 +29,8 @@ refines: nucleic-acid
 inputs: {}
 process_steps: []
 
-# STRANDEDNESS HAS A DEFAULT AND SILENCE MEANS DOUBLE. Jon, 2026-10-05: "basically all
-# DNA that isn't explicitly ssDNA is double stranded." ../dsdna and ../ssdna both refine
+# STRANDEDNESS HAS A DEFAULT AND SILENCE MEANS DOUBLE. DNA that is not explicitly
+# ssDNA is double-stranded. ../dsdna and ../ssdna both refine
 # this class, and they are not symmetric in what a page must say: a member that declares
 # nothing is double-stranded, and single-stranded is the case that must be declared.
 #
@@ -40,8 +39,8 @@ process_steps: []
 # class rather than assigning one. It is not an absence -- it is the default, and
 # ../lacz-dna now refines ../dsdna.
 
-# ../rna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. Jon, 2026-10-05: "yes
-# NucleicAcid is refined by DNA and RNA." ../nucleic-acid is written and both refine it.
+# ../rna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. NucleicAcid is refined by
+# DNA and RNA: ../nucleic-acid is written and both refine it.
 #
 # ONE SENTENCE OF THE NOTE THIS REPLACES WAS FALSE. It said `nucleolysis` was a
 # condition id "this corpus already uses". `grep -rn nucleolysis docs` returned

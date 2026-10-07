@@ -47,9 +47,8 @@ process_steps:
       id: membrane-popc-chol
       title: "Membrane: POPC/Chol (7:3)"
       page: ../membrane-popc-chol/spec.md
-    # SCALE-FREE, 2026-10-05, under R35. Jon: "if you already have molar ratio, you
-    # don't need volume. one already implies the other." MEASURED BEFORE DROPPING
-    # THEM: volume is proportional to mol% x molar_mass / stock, and that reproduces
+    # SCALE-FREE. A molar ratio already implies the volumes, so they are not written.
+    # MEASURED BEFORE DROPPING THEM: volume is proportional to mol% x molar_mass / stock, and that reproduces
     # all three stated volumes on this page to within a rounding place. So the
     # volumes carried no fact the three lines above do not already carry.
     #

@@ -1,16 +1,15 @@
 # Composition source for Nucleic Acid.
 #
-# WRITTEN 2026-10-05 on Jon's ruling: "yes NucleicAcid is refined by DNA and RNA. MUST
-# be all caps though". Both names are all caps in every title, table cell and sentence
-# on this page and on the two below it. The ids cannot carry capitals, because the
-# schema's id pattern is `^[a-z0-9]+(-[a-z0-9]+)*$`, so `nucleic-acid`, `dna` and `rna`
-# are slugs and `Nucleic Acid`, `DNA` and `RNA` are what a reader sees.
+# DNA AND RNA REFINE NUCLEIC ACID, and both names are written all caps in every title,
+# table cell and sentence on this page and on the two below it. The ids cannot carry
+# capitals, because the schema's id pattern is `^[a-z0-9]+(-[a-z0-9]+)*$`, so
+# `nucleic-acid`, `dna` and `rna` are slugs and `Nucleic Acid`, `DNA` and `RNA` are what
+# a reader sees.
 #
 # IT JOINS TWO ROOTS THAT WERE UNRELATED. ../dna and ../rna each refined nothing and
 # sat side by side with no stated relation, while the corpus's own condition ids already
-# carried that relation one level down: `rna-nucleolysis` refines `nucleolysis`, on
-# Jon's earlier ruling. A corpus cannot say the conditions are related and the things
-# they act on are not.
+# carried that relation one level down: `rna-nucleolysis` refines `nucleolysis`. A
+# corpus cannot say the conditions are related and the things they act on are not.
 #
 # GROUNDED BY COMPOSITION, as ../protein and ../dna are. Every member is a chain of
 # nucleotides joined by a phosphodiester backbone. What varies below this page is the

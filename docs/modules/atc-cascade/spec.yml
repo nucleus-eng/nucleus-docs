@@ -133,7 +133,7 @@ process_steps:
           reporter decides whether this cleanup step exists at all, which is the implies
           arrow stated from the step.
     operator: packing
-    # THE THIRD ARGUMENT, added 2026-10-05 under C1's ruled signature:
+    # THE THIRD ARGUMENT. The step's signature is:
     #   encapsulate : membrane_components, inner_solution, outer_solution
     #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
     # The product's TYPE names what it is suspended in, so a step that leaves it out

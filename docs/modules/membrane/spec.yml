@@ -30,14 +30,14 @@ process_steps:
     process:
       # REPOINTED 2026-10-05 from ../../processes/encapsulate/main.md, which it was
       # never running: this step has no payload, no inner solution and no compartment.
-      # It was the one `mixing` step among seven under Encapsulation, and Jon: "nothing
-      # should be mixed by that point, all the mixing steps ... have already happened".
+      # It was the one `mixing` step among seven under Encapsulation, and nothing should
+      # be mixed by that point: all the mixing steps have already happened.
       #
       # ../../processes/prep-lipids IS ONLY HALF OF WHAT THIS STEP CLAIMS, and the
       # mismatch is in the step's own name. See the `open` item below.
       # NO `abstract:`. It said `prep-lipids`, which is this step's own page -- a
-      # self-loop, and `abstract` is the IMMEDIATE PARENT by the 2026-09-15 ruling, so
-      # a process cannot be its own. ../../processes/prep-lipids/spec.yml declares no
+      # self-loop, and `abstract` is the IMMEDIATE PARENT, so a process cannot be its
+      # own. ../../processes/prep-lipids/spec.yml declares no
       # `refines:` either: it is a root, so there is no parent to name.
       #
       # Caught by the theory session walking all 85 sources. It found 7 self-loops at
@@ -95,10 +95,9 @@ open:
       bilayer is closed with nothing inside it.
 
       SO A MEMBRANE WITH NO PAYLOAD IS NOT A THING ANYBODY MAKES IN THIS CORPUS, and
-      that qualifier is load-bearing. Jon, 2026-10-05: "not in this corpus, but in the
-      world, people make membranes that aren't vesicles. they don't enclose a space,
-      they divide two spaces (generically)." A planar bilayer is a membrane and encloses
-      nothing.
+      that qualifier is load-bearing. Outside this corpus, in the world, people make
+      membranes that are not vesicles. They do not enclose a space, they divide two
+      spaces (generically). A planar bilayer is a membrane and encloses nothing.
 
       So the class is not wrong and must not narrow to "the boundary of a vesicle". What
       is local to this corpus is that every attested route happens to close one, which
@@ -108,8 +107,8 @@ open:
       modelling convenience standing in for an act that, HERE, only ever happens inside
       encapsulation.
 
-      Three readings, and this is Jon's to pick. Either the step is prep-lipids and
-      should say so in its id and its product type; or it is prep-lipids followed by a
+      Three readings, and the choice among them is open. Either the step is prep-lipids
+      and should say so in its id and its product type; or it is prep-lipids followed by a
       closing operation nothing documents, and that operation needs a page; or the class
       should carry no producing step at all, which is what ../protein/spec.yml and
       ../dna/spec.yml already do with `process_steps: []`.

@@ -21,11 +21,10 @@ refines:
   - cell-base-cytosol-popc-chol
   - guv
   - liposome
-  # `liposome` ADDED 2026-10-05, the material axis. Jon: "synthetic cells should
-  # refine liposomes, as should any of the substrate vesicles and dye vesicles (by
-  # virtue of the fact that they are built from lipids)". Verified for this Module:
-  # its membrane operand is a POPC bilayer. The size axis above and this one do not
-  # nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
+  # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
+  # vesicle each refine liposomes, because each is built from lipids. Verified for this
+  # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
+  # not nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
   # GUV appended 2026-10-04: the class is determined by the process that
   # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
   # the first entry is the alignment parent and must be the FUNCTIONAL one;
@@ -94,7 +93,7 @@ process_steps:
           reporter decides whether this cleanup step exists at all, which is the implies
           arrow stated from the step.
     operator: packing
-    # THE THIRD ARGUMENT, added 2026-10-05 under C1's ruled signature:
+    # THE THIRD ARGUMENT. The step's signature is:
     #   encapsulate : membrane_components, inner_solution, outer_solution
     #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
     # The product's TYPE names what it is suspended in, so a step that leaves it out

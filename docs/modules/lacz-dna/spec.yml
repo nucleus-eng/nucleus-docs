@@ -19,8 +19,8 @@ refines:
   #
   # `dsdna` RATHER THAN `dna`, LATER THE SAME DAY. This page says "template" and never
   # says how many strands, so the first pass declined to assign strandedness and left it
-  # on `dna`. Jon: "lacZ-dna is dsDNA. basically all DNA that isn't explicitly ssDNA is
-  # double stranded." So the page's silence was not an absence of evidence -- it was the
+  # on `dna`. LacZ DNA is dsDNA: DNA that is not explicitly ssDNA is double-stranded.
+  # So the page's silence was not an absence of evidence -- it was the
   # default, and reading it as a gap was the error. `dna` is dropped because `dsdna`
   # refines it and the edge is implied.
 inputs:

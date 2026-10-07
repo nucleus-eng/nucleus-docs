@@ -1,7 +1,6 @@
 # Composition source for Single-Stranded DNA.
 #
-# WRITTEN 2026-10-05 on Jon's ruling: anneal "takes `ssDNA, ssDNA -> dsDNA` where ssDNA
-# and dsDNA refine DNA".
+# ANNEAL TAKES `ssDNA, ssDNA -> dsDNA`, where ssDNA and dsDNA refine DNA.
 #
 # IT SETTLES A QUESTION TWO SESSIONS DECLINED TO DECIDE. The theory session flagged
 # ../../processes/anneal-ph-trigger-duplex as `dna, dna -> dna`, which matches its `T37`

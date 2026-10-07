@@ -33,9 +33,9 @@ inputs:
     molar_mass: {value: 2805.5, unit: "g/mol"}
     stock: {value: 10, unit: "mg/mL"}
     optional: true
-    # OPTIONAL, ruled 2026-10-05. Jon: "the DSPE-PEG2000 is an optional parameter and
-    # doesn't meaningfully affect the downstream processes using that lipid, just the
-    # resulting membrane properties."
+    # OPTIONAL. DSPE-PEG2000 is an optional parameter: it does not meaningfully affect
+    # the downstream processes using that lipid, only the resulting membrane
+    # properties.
     #
     # THAT IS WHAT MAKES ../guv-cprg/spec.md's "100% POPC" TRUE RATHER THAN FALSE. Read
     # as a whole-film composition it contradicts this page's 99.15 : 0.85. Read against

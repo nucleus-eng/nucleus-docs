@@ -40,8 +40,8 @@ process_steps:
     # where the sibling file writes "Working concentration", so the page does not say
     # whether 1 M is this solution or the buffer stock behind it.
     #
-    # Jon, 2026-10-05: "400 mM glucose is not enough. plus 1000 mM hepes brings us to
-    # 1400 mOsm which sounds more reasonable." So both are finals. Flagged on the page
+    # 400 mM glucose alone is not enough. With 1000 mM HEPES the total is 1400 mOsm, which
+    # is more reasonable. So both are finals. Flagged on the page
     # rather than treated as closed.
     finals:
       glucose: {value: 400, unit: "mM"}

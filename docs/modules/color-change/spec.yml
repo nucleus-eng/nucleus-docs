@@ -39,9 +39,9 @@ inputs:
 process_steps:
   - id: separate-enzyme-and-substrate
     process:
-      # FLAGGED 2026-10-05, NOT CHANGED. This is the one encapsulation step of 26 that
-      # did not gain an outer solution under C1's ruled signature, because it does not
-      # fit the signature at all: its operands are an enzyme and a substrate, with no
+      # FLAGGED, NOT CHANGED. This is the one encapsulation step of 26 that did not gain an
+      # outer solution under the `encapsulate` signature, because it does not fit the
+      # signature at all: its operands are an enzyme and a substrate, with no
       # membrane and no inner solution. What it does is hold two things apart, which is
       # `packing` and is real, but it is not `encapsulate`.
       #

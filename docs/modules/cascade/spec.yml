@@ -1,7 +1,5 @@
 # Composition source for Cascade.
 #
-# WRITTEN 2026-10-05 under T2, on Jon's ruling "just `Cascade` please".
-#
 # A CASCADE IS A CELL. Every member's final step is `packing` over a cytosol and a
 # membrane, which is ../cell/spec.yml's invariant with no exception. The class sits
 # under Cell rather than beside it, and the index table's "Cell (Cascade)" label was
