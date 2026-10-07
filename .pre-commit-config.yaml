@@ -33,11 +33,23 @@ repos:
 
       - id: vale
         # `--glob='!**/generated/**'` or this hook blocks EVERY markdown commit.
-        # docs/ contains gitignored build artifacts - BOM tables and CSVs written by
-        # build-protocols.py - and they carry 16 magnitude-unit errors that no commit
-        # can fix, because regenerating recreates them. Measured 2026-10-07: `vale docs/`
-        # exits 1 on 16 errors, all in generated/; with the glob it is 0 errors in 289
-        # files. Nothing was wrong with the corpus and the hook could not say so.
+        # Measured 2026-10-07: `vale docs/` exits 1 on 16 errors, every one under a
+        # gitignored generated/ path; with the glob it is 0 errors in 289 files.
+        #
+        # THE CAUSE IS A LOST SUPPRESSION, NOT A BAD ARTIFACT. The flagged strings are
+        # vendor product names - "PES Syringe Filter, 0.45um, 30mm" - and four of the
+        # five sources already wrap their materials table in
+        # `<!-- vale nucleus.magnitude-unit-spacing = NO -->` ... `= YES`, because
+        # respacing a catalog entry misquotes it. build-protocols.py does not carry
+        # those comments into what it writes. Verified: the flagged line in
+        # lysis-sonication-bom.md is byte-identical to its source, and the generated
+        # file holds zero suppressions. Somebody already decided these are exempt and
+        # the generator loses the decision.
+        #
+        # So a plausible wrong fix exists - add the suppression to the generated file -
+        # and it would diverge the artifact from its source at the next regeneration.
+        # The glob is right because it keeps the decision in one place. Teaching
+        # build-protocols.py to carry the comments through is the deeper fix.
         name: Vale lint
         entry: vale --glob='!**/generated/**' docs/
         language: system
