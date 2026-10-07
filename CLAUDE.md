@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Claims here about `compositional-biology-theory` are pinned on the line that makes them; that repo was read at `f59ce16`.
+
 ## About this repository
 
 Documentation for the [Nucleus Distribution](https://docs.nucleus.engineering) — a knowledge base of validated protocols and modular components for developing synthetic cells. Built with [MyST MD](https://mystmd.org/) (Jupyter Book).
@@ -102,7 +104,7 @@ pre-commit run --all-files  # run all hooks manually
 
 **A cross-repo line citation carries a pin, and `check-citations.py` checks that it does.** The script is in `nucleus-skills` and shared by three repos; run it by hand with `--repos=compositional-biology-theory`, because its default list names this repo and would report every self-reference. **It checks presence, never resolution** — whether the hash is there, not whether the line still says what you quoted. **A pin is what makes a citation checkable at all:** `pore/spec.yml` and `membrane/spec.yml` both cite `signature.md:203` and both pin `e40f3de`, and both are correct at that pin while reading as drifted against the other repo's `main`. Ten sites with no pin had drifted by 2026-10-04. **`check-pins.py`, beside it in `nucleus-skills`, does the resolving half** — it opens the named repo at the named hash and checks the line still carries the quoted text, reporting `resolves` / `drifted` / `gone` / `norepo`. It needs the other repo checked out, so it can never be a guard and **its silence is not evidence**. **It reads tracked `.md` only, so the two `.yml` citations named above — the corpus's own exemplary pinned citations — are outside its scope**, and a clean run does not cover them.
 
-**Run it against a git ref, not against whatever branch that checkout happens to be on.** `compositional-biology-theory`'s `scripts/guards.sh` extracts `scripts/` from a named ref for exactly this reason. A local `nucleus-skills` on an older branch has no `check-citations.py` at all, and a local `main` there can be weeks behind `origin/main` — which is how a first check of whether the script even existed returned the wrong answer. **`check-citations.py` today reads only `.md`, so it sees almost nothing here**; widening it is `nucleus-skills` work.
+**Run it against a git ref, not against whatever branch that checkout happens to be on.** `compositional-biology-theory`'s `scripts/guards.sh:104` extracts `scripts/` from a named ref for exactly this reason, at `f59ce16`. A local `nucleus-skills` on an older branch has no `check-citations.py` at all, and a local `main` there can be weeks behind `origin/main` — which is how a first check of whether the script even existed returned the wrong answer. **`check-citations.py` today reads only `.md`, so it sees almost nothing here**; widening it is `nucleus-skills` work.
 
 
 ## Architecture

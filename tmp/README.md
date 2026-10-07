@@ -2,6 +2,8 @@
 
 Scratch space. **Everything here is gitignored except this README** — see `.gitignore`.
 
+The claims below about `compositional-biology-theory` were read at `f59ce16`.
+
 ## Staging location
 
 **Staging documents go in `tmp/staging/`**, named `STAGED-<date>-<topic>.md`.
@@ -30,7 +32,7 @@ a CI gate: `tmp/staging/` is gitignored and a fresh clone has nothing for them t
 heading** — `SENT`, `UNSENT`, `POSTED` or `FILED` — with the date and the recipient, and a link
 where there is one.
 
-Taken from `compositional-biology-theory`, where `draft-issue-224-comment.md` reads
+Taken from `compositional-biology-theory` at `f59ce16`, where `draft-issue-224-comment.md` reads
 *"— POSTED"* and `draft-issue-requirements-schema.md` reads *"— FILED"* with the issue URL on
 its first line.
 
