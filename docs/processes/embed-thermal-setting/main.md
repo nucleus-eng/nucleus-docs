@@ -125,9 +125,11 @@ No manufacturer, part number, price or storage data is established for glucose, 
 
 @Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
 
-**The LGA row is unsourced too, and differs from those three: nothing in this documentation buys it anywhere.** Glucose, potassium L-glutamate and HEPES have a product to copy from; low-gelling agarose has none, and it is not a substitute for the ULGA above — the two gel at different temperatures and are ordered as different products. **It is the gel the pH path actually runs on**, so the demo's only recorded gel is the one nobody can order.
+**The LGA row is unsourced too, and it is a different kind of gap from those three.** Glucose, potassium L-glutamate and HEPES need somebody to decide what Nucleus buys. The agarose has already been decided: its grade was read off the vendor datasheet, which is where (26–30) °C and ≤ 65 °C come from. **Only the catalog number went unrecorded.** It is not a substitute for the ULGA above — the gel points do not overlap and the melting points differ by 15 °C.
 
-@Editor(chicago): name the low-gelling agarose — manufacturer, part number and pack size. [Gel: LGA](../../modules/gel-lga/spec.md) carries the same ask and has nowhere to put the answer until this is known.
+**It is the gel the pH path actually runs on**, so the demo's only recorded gel is the one nobody can order.
+
+@Editor(chicago): name the low-gelling agarose — manufacturer, catalog number and pack size. See [Gel: LGA](../../modules/gel-lga/spec.md), which carries the grade figures and the same ask.
 :::
 
 The ULGA on this page is Sigma-Aldrich A5030, and the figures in the table above are its. @Editor(london): a second part number, A2576, was recorded here as interchangeable with it. The two are different products — A5030 is Type IX and melts at ≤ 50 °C; A2576 is Type IX-A, molecular biology grade, and melts at ≤ 62 °C. Was A2576 ever used on the bench, or is A5030 the only one?

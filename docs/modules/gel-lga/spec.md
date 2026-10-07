@@ -94,15 +94,19 @@ Requires that whatever is embedded survives the temperature at which the polymer
 
 | Name | Category | Product | Manufacturer | Part # | Link |
 | --- | --- | --- | --- | --- | --- |
-| LGA | Reagent | Low gelling temperature agarose | not recorded | not recorded | — |
+| LGA | Reagent | Low gelling temperature agarose, molecular-biology grade, from red algae | not recorded | not recorded | — |
 :::
 
-**No supplier is recorded for this agarose anywhere in the documentation**, and that is unusual rather than ordinary: [Gel: ULGA](../gel-ulga/spec.md) names Sigma-Aldrich A5030, and the other unsourced reagents on [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) at least have a product Nucleus buys elsewhere to copy from. This one has nothing to copy.
+**The grade is known and the catalog number is not.** This agarose congeals at (26–30) °C, melts at ≤ 65 °C, has EEO ≤ 0.10 and gel strength ≥ 200 g/cm² at 1%. Those figures come from the vendor datasheet, so a specific product was identified — **the number identifying it was simply never written down.**
 
-**It is not a grade of the ULGA and cannot be ordered as one.** The two congeal at (26–30) °C against (8–17) °C and melt at ≤ 65 °C against ≤ 50 °C — the property the gel is chosen for — so they are different products.
+**That makes this a different gap from the other unsourced rows** on [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md). Glucose, potassium L-glutamate and HEPES have no datasheet behind them and need somebody to decide what Nucleus buys. This one has already been decided and read; only the SKU is missing.
 
-:::{attention} No part number is recorded for the agarose
-@Editor(chicago): record the part number of the low-gelling-temperature agarose — manufacturer, part number and the pack size ordered. **The pH Demo runs on this gel**, so until it is named, that demo's bill of materials cannot be ordered from.
+**It is not a grade of the ULGA and cannot be ordered as one.** [Gel: ULGA](../gel-ulga/spec.md) is Type IX from marine algae, gel point (8–17) °C, melting ≤ 50 °C, EEO ≤ 0.05. **The gel points do not overlap and the melting points differ by 15 °C.** The two share an InChI key, so the polymer is the same and the grade is not.
+
+:::{attention} The catalog number was read and not recorded
+The comparison that established these two as different products was made **by part number, against the vendor datasheets** — and the numbers themselves were not captured. So this is a recovery, not a new enquiry: whoever ran that comparison had the SKU in hand.
+
+@Editor(chicago): record the manufacturer, catalog number and pack size for this agarose. **The pH Demo runs on this gel**, so until it is named, that demo's bill of materials cannot be ordered from.
 :::
 
 # Credits
