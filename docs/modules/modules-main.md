@@ -19,6 +19,7 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | --------------- | ------------------------------------------- | ---------- |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        |
 | Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | ★★         |
+| Standard        | [Fluorescein](./standard-fluorescein/spec.md) | ★★       |
 |                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | ★★         |
 | Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         |
 | Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |

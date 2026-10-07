@@ -181,7 +181,7 @@ Every condition plateaus within about 2 h. TetR at 500 nM holds the unregulated 
 :name: fig-tetr-atc-nucleus-degfp
 :align: center
 
-`pT7-tetO-deGFP` in Nucleus Cytosol: unregulated, repressed with 500 nM TetR, and induced with 500 nM TetR plus aTc, alongside a cytosol control reaction. Fluorescence is normalized to 1 µM fluorescein, and shaded bands are the spread across replicates.
+`pT7-tetO-deGFP` in Nucleus Cytosol: unregulated, repressed with 500 nM TetR, and induced with 500 nM TetR plus aTc, alongside a cytosol control reaction. Fluorescence is normalized to 1 µM [fluorescein](../standard-fluorescein/spec.md), and shaded bands are the spread across replicates.
 :::
 
 The same replication was also read out through catechol instead of fluorescence, using a TetR-gated catechol 2,3-dioxygenase construct. That result, and how it reconciles with the reference XylE reaction run at a lower TetR concentration, is on the [XylE / C23DO Reporter Module](../reporter-xyle/spec.md#reporter-xyle-expected-behavior) spec.
