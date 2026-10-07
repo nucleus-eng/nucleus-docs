@@ -13,7 +13,7 @@
 # `component… ⟶ solution`, not below.
 #
 # What it shares with ../make-protein is the invariant: the product was not an operand.
-# A protein appears that no operand contained. Raised by Jon off the P2 drawing.
+# A protein appears that no operand contained.
 #
 process: express
 title: "Express"

@@ -1,7 +1,6 @@
 # Process source for Assay.
 #
-# WRITTEN 2026-10-05 on Jon's ruling that Colorimetric Readout, Pierce660 and Protein
-# Gel all refine one abstract, and that the thing they emit is an Observation.
+# COLORIMETRIC READOUT, PIERCE660 AND PROTEIN GEL ALL REFINE THIS ONE ABSTRACT. The thing they emit is an Observation.
 #
 # ../make/spec.yml ASKED FOR THIS FILE BY NAME AND SAID WHY IT WAS NOT WRITTEN. Its open
 # entry `observe-is-the-other-missing-abstract-and-is-not-written` records three

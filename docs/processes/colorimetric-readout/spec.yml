@@ -7,10 +7,7 @@
 # ../color-development is the step that does it on a specific cascade; this is the
 # abstract readout every cascade ends at.
 #
-# THE CODOMAIN WAS `measurement` FOR ONE AFTERNOON AND THE TYPE RULING MADE IT WRONG.
-# It was ruled `measurement` on 2026-10-05, over `signal`, and that half still holds.
-# Later the same day Measurement became the QUANTITATIVE case of Observation, and this
-# page has a route that is not quantitative, so the narrower word stopped covering it.
+# THE CODOMAIN IS `observation`, NOT `measurement`. `measurement` still beats `signal`, but Measurement is the QUANTITATIVE case of Observation, and this page has a route that is not quantitative, so the narrower word does not cover it.
 #
 # NO MODULE STEP NAMES IT, which is why it has no `refines:` and nothing refines it:
 # the relation would be the other way round and ../color-development does not declare
@@ -52,8 +49,7 @@ signature:
       absorbance on a plate reader, 570-575 nm for LacZ/CPRG or 375-385 nm for
       XylE/catechol. `main.md:91` scores the color by eye. The first yields a number and
       the second does not, so the type they share is the one that admits both.
-      RULED 2026-10-05: "agreed, widen it to observation". An Observation may be
-      quantitative or qualitative; a Measurement is the quantitative case refining it.
+      An Observation may be quantitative or qualitative; a Measurement is the quantitative case refining it.
       THE ABSORBANCE ROUTE PRODUCES A `measurement` AND HAS NO PAGE OF ITS OWN YET. When
       it gets one it refines this process, and ../pierce660 and ../protein-gel keep
       `measurement` because both read absorbance on a plate reader throughout.
@@ -65,7 +61,7 @@ open:
   - id: the-two-routes-have-no-pages-of-their-own
     question: >
       SETTLED 2026-10-05, AND WHAT IS LEFT IS WORK RATHER THAN A QUESTION. The codomain
-      is `observation`, ruled. The word is no longer cross-repo guesswork either:
+      is `observation`. The word is no longer cross-repo guesswork either:
       nucleus-skills `#83` fixed the shared glossary to match, so `T22` Observation is
       what an Assay produces and may be quantitative or qualitative, and `T20`
       Measurement is the quantitative case refining it.

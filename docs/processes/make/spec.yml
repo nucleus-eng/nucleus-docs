@@ -1,8 +1,5 @@
 # Process source for Make.
 #
-# WRITTEN 2026-10-05. Jon, on the P2 tree: "lots of orphaned processes, huh? that looks
-# like there are abstracts not yet created over there."
-#
 # SIX PROCESSES SHARED ONE SIGNATURE AND NO PARENT. `component… ⟶ component`:
 # make-1pot, make-36pot, make-amino-acid-mix, make-ribosomes, make-small-molecule-mix
 # and make-trna. Six instances of a thing nobody had named. ../make-protein is the
@@ -25,10 +22,7 @@
 # ../../../scripts/render-posets.py Section 3 already lists `operator` among the
 # candidates that are NOT an order: "Two incomparable values order nothing."
 #
-# Raised by Jon off the P2 drawing, and the theory session supplied the signature
-# argument. Their `glossary.md#T42` reaches the same place from the other end:
-# `Cytosol[DNA ⟶ Protein]` is an operation the Cytosol declares, not an assembly,
-# because no `⊞` profile fits something that produces a non-operand.
+# The same place is reached from the other end: `Cytosol[DNA ⟶ Protein]` is an operation the Cytosol declares, not an assembly, because no `⊞` profile fits something that produces a non-operand.
 
 process: make
 title: "Make"
@@ -56,7 +50,7 @@ open:
       ../pierce660 and ../protein-gel shared `component ⟶ measurement` with no parent,
       and that writing the abstract then would have inherited whichever of three words
       got picked: those two said `measurement`, ../colorimetric-readout said `signal`,
-      and compositional-biology-theory had `Observation` with `Signal` as a separate
+      and a third source had `Observation` with `Signal` as a separate
       type.
       THE WORD IS SETTLED. An Observation is what an assay emits and may be quantitative
       or qualitative; a Measurement is the quantitative case refining it; a Signal is a
