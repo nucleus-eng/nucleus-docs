@@ -100,4 +100,6 @@ jobs:
         run: python3 -m pytest tests/test_check_reference_voice.py
 
       - name: Check reference voice
-        run: python3 scripts/check-reference-voice.py
+        # The script defaults to docs/, so scripts/ was never read and 140 findings
+        # accumulated there before a hand sweep found them. Name both.
+        run: python3 scripts/check-reference-voice.py docs/ scripts/
