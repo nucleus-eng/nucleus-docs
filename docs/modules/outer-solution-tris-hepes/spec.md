@@ -112,6 +112,10 @@ The counter-ion on the magnesium salt is a free choice among innocuous ones. Ace
 Requires an osmolarity of about 1180 mOsm, matched across the membranes of the cells embedded
 in the gel it forms.
 
+# Implementations
+
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): the outer solution both arms are built on.
+
 # Processes
 
 Made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), which is one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).

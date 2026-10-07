@@ -124,6 +124,10 @@ Requires the wash solution to match the interior osmolarity. The inner solution 
 **CPRG photobleaches**, including under the 405 nm source used for photodevelopment. Any route that crosslinks a gel with UV while this Module is present will bleach the payload before it can be read. Thermal and ionic gelling involve no UV step and are compatible.
 :::
 
+# Implementations
+
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): the payload population of the solution arm, carrying no Cy5.
+
 # Processes
 
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-luv/main.md) — lipid film, CPRG hydration, sonication, five freeze-thaw cycles, ten centrifugation washes.

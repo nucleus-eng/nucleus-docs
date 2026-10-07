@@ -290,6 +290,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its detector — TetR, holding `TetO-PLA1` off until aTc arrives.
+- [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): the same detector, as the sensing half of a two-stage responder.
 
 # Constituent Modules
 
