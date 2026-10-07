@@ -27,8 +27,8 @@ This page is a work in progress and not yet ready for use.
 
 | Member | What makes it a member |
 | --- | --- |
-| [Liss-Rhod PE](../lipid-liss-rhod-pe/spec.md) | A phosphoethanolamine lipid carrying a rhodamine dye. |
-| [18:1 Cyanine 5 PC](../lipid-cyanine5-pc/spec.md) | A phosphocholine lipid carrying a cyanine dye. |
+| [Liss-Rhod PE](../lipid-liss-rhod-pe/spec.md) | A phosphatidylethanolamine (PE) lipid carrying a rhodamine dye. |
+| [18:1 Cyanine 5 PC](../lipid-cyanine5-pc/spec.md) | A phosphatidylcholine (PC) lipid carrying a cyanine dye. |
 
 # Expected Behavior
 

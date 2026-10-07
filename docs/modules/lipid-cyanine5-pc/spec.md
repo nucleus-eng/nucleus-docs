@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-18:1 Cyanine 5 PC is a phosphocholine [Lipid](../lipid/spec.md) carrying a cyanine dye, and so also a [Fluorophore](../fluorophore/spec.md). It labels a bilayer in a far-red channel, where [Liss-Rhod PE](../lipid-liss-rhod-pe/spec.md) labels one in a red channel.
+18:1 Cyanine 5 PC is a phosphatidylcholine (PC) [Lipid](../lipid/spec.md) carrying a cyanine dye, and so also a [Fluorophore](../fluorophore/spec.md). It labels a bilayer in a far-red channel, where [Liss-Rhod PE](../lipid-liss-rhod-pe/spec.md) labels one in a red channel.
 
 **Its reason for existing here is the second channel.** Two populations of liposome in one sample can only be told apart if one carries a label the other does not. A second membrane dye is what makes that possible.
 

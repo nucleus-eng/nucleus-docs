@@ -23,11 +23,14 @@ process_steps: []
 open:
   - id: pc-or-pe
     question: >
-      The corpus writes this dye as `18:1 Cyanine 5 PC`, a phosphocholine, and it has
-      been referred to in discussion as `Cy5 PE`, a phosphoethanolamine. Those are
-      different head groups and so different molecules. The page follows what
-      ../membrane-popc records. If the dye actually in use is the PE form, this page is
-      named for the wrong one and the fix is a rename rather than an edit.
+      CLOSED 2026-10-07. The dye is the PC form, a phosphatidylcholine, which is what
+      ../membrane-popc records and what this page and this module id are named for. It
+      had also been referred to as `Cy5 PE`; that is a different head group and a
+      different molecule, and it is not what is in use.
+      WORTH KEEPING RATHER THAN DELETING, because the two names differ by one letter
+      and the molecules do not. ../lipid-liss-rhod-pe IS the PE form, so both head
+      groups are live in this corpus at once and a reader who sees `PE` on one page and
+      `PC` on the other is looking at a real distinction rather than a typo.
   - id: no-wavelengths-anywhere
     question: >
       No page in this corpus states this dye's excitation or emission, which is the

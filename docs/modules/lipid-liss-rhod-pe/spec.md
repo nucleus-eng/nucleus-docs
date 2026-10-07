@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-Lissamine Rhodamine PE (Liss-Rhod PE) is a phosphoethanolamine [Lipid](../lipid/spec.md) carrying a rhodamine dye, and so also a [Fluorophore](../fluorophore/spec.md). It is mixed into a bilayer at a fraction of a mole percent, where it makes the bilayer visible without being enough of the bilayer to change it.
+Lissamine Rhodamine PE (Liss-Rhod PE) is a phosphatidylethanolamine (PE) [Lipid](../lipid/spec.md) carrying a rhodamine dye, and so also a [Fluorophore](../fluorophore/spec.md). It is mixed into a bilayer at a fraction of a mole percent, where it makes the bilayer visible without being enough of the bilayer to change it.
 
 **It reports where the membrane is, and nothing else.** The dye rides on the lipid, so it is in the bilayer rather than in the lumen or the medium. A reader looking for the lumen needs a different dye, and [Sulfo-Cyanine5](../fluorophore-sulfo-cyanine5/spec.md) is the one this corpus uses for that.
 
