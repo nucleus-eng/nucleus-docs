@@ -44,8 +44,8 @@ properties:
       than one. The case that
       forced it is a sensor with two axes, what it senses and how -- an EsaR
       detector is a repressor detector AND an AHL detector, and neither of those
-      refines the other. A single string stays the normal form and every source
-      uses one today; `minItems: 2` keeps a one-element list from being a second
+      refines the other. A single string stays the normal form;
+      `minItems: 2` keeps a one-element list from being a second
       spelling of the same thing.
       THE FIRST ENTRY IS THE ALIGNMENT PARENT, which is the FUNCTIONAL one. A chassis is what DIFFERS between two demos, so the
       axis two cells can be compared on is the other one. The convention is
@@ -905,12 +905,15 @@ $defs:
       and it says the structure is OPEN and `::` is a PLACEHOLDER spelling, Jon's ruling of
       2026-09-24. `rulings.md#D35` is live: associative, not commutative. That alone gives a
       SEMIGROUP, and D35's own status says so — "and a monoid if it has a unit".
-      THE MONOID IS CLAIMED, AS A HYPOTHESIS, AND THIS LINE SAID LESS THAN THAT UNTIL NOW.
-      `current-model.md#C21` reads "`::` is associative with a unit, so polymers form a monoid
-      and plausibly the free one, bounded by the circular case", graded `hypothesis (n=1)`.
-      `signature.md:443` states it in prose. `#D37` supplies the unit, the null polymer, and its
-      status is "live as a QUESTION, NOT A RULING" with a session's answer of yes rather than
-      Jon's. So: semigroup is settled, monoid is a one-instance hypothesis with a stated bound,
+      THE MONOID IS RULED AND FREENESS IS THE HYPOTHESIS. THIS LINE HAD THEM THE OTHER WAY ROUND.
+      `#D35` gives associativity and `#D40` gives the unit, the null polymer, so polymers under
+      `::` are a monoid. `#D40` is status `live` and answers `#D37`'s question in Jon's own word,
+      "yes"; this line used to read `#D37` as still open and call that answer a session's rather
+      than his. `current-model.md#C21` reads "`::` is associative with a unit, so polymers form a
+      monoid and plausibly the free one, bounded by the circular case", graded `hypothesis (n=1)`
+      -- and that grade is on FREENESS. This line read it onto monoid-ness, which is the error.
+      `signature.md:443` states it in prose. So: the monoid is settled, freeness is a one-instance
+      hypothesis with a stated bound,
       and neither is a reason for a step to behave differently.
       THE BOUND IS THE SAME CIRCULAR CASE THIS CORPUS ALREADY HIT. See
       `docs/modules/effector-pla1/spec.yml`'s open item: a circular construct has an
