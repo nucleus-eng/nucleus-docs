@@ -26,6 +26,17 @@ inputs:
     title: "DNA regulatory element"
     page: null            # the operator or promoter the repressor binds
 
+requires:
+  - id: transcription
+    why: >
+      A repressor works by gating transcription, so every member needs transcription
+      available in the compartment it sits in. It follows from what the class is, not
+      from what any member is made of and not from any step: the assembly step mixes
+      the repressor with the element it binds, and that mixing is defined whether or
+      not a polymerase is present. The Module is assembled either way. It does not
+      detect.
+    page: null
+
 process_steps:
   - id: assemble-the-repressor-pair
     process:

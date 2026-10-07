@@ -156,6 +156,56 @@ properties:
         bound:
           $ref: "#/$defs/bound"
 
+  requires:
+    type: [array, "null"]
+    description: >
+      WHAT EVERY MEMBER OF THIS CLASS NEEDS IN ORDER TO FUNCTION. An abstract repressor
+      detector requires transcription definitionally: that is what makes a repressor a
+      repressor, and it follows from what the class IS rather than from anything a
+      member is made of or any step a member performs.
+      IT IS THE DUAL OF `impositions`. An imposition is what a Function inflicts; a
+      requirement is what a Function needs. Same relation between a class and its
+      members, and the same resolution: the class declares the condition its Function
+      carries, and a member inherits it through `refines:` without restating it.
+      IT IS NOT THE STEP-LEVEL `requires`, AND THE TWO ARE NOT INTERCHANGEABLE. A step
+      here applies `mixing` or `packing`, both of which combine any two operands, so a
+      step is total and a total morphism has no condition under which it is defined.
+      Stating a class requirement on a step would say that the operands cannot be
+      combined without it, which is false: a repressor mixes with its operator in a
+      tube holding no polymerase, and the Module is assembled exactly as specified. It
+      does not detect, which is a different claim and the one this key makes.
+      IT IS A CARRIER AND NOT THE FINAL SHAPE. A requirement is a condition on a
+      Function, and this schema has no field naming a Module's Function -- `measured_by`
+      says how one would be measured, `substrates` what an enzyme acts on, `impositions`
+      what it inflicts, and none of them is the Function itself. Until that field
+      exists this key holds the condition where it can be read, which is better than
+      the alternative of holding it nowhere.
+      IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that: a class is a
+      module some other source names in `refines:`, which is not a fact this document
+      holds and so not a shape this file can express.
+      THE TEST IS NOT `impositions`'s TEST, and reusing that one here would be wrong.
+      22 of the 36 modules named as a parent carry a real step, `repressor-detector`
+      among them, and it is the case this key was written for. An imposition can move
+      to a step because a step inflicts it; a requirement cannot, because the step is
+      total and has no condition under which it is defined.
+      Absence means undeclared, exactly as on `sensitivities` and `impositions`.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, why]
+      properties:
+        id:
+          type: string
+          description: >
+            The condition, named. Free-standing: unlike an imposition id, this is not
+            matched against anything yet, because nothing declares what it provides.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        why:
+          type: string
+        page:
+          type: [string, "null"]
+        bound:
+          $ref: "#/$defs/bound"
   impositions:
     type: [array, "null"]
     description: >
@@ -167,7 +217,8 @@ properties:
       says what implementing the Function means; the step says when it happened. Same
       relation `sensitivities` already has between ../protein and its members.
       IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that rather than this
-      file: a source with `process_steps` of its own states an imposition on the step
+      file -- it did not until 2026-10-06, and this line claimed it did.
+      A source with `process_steps` of its own states an imposition on the step
       that does the imposing, because that step is the morphism and the Module is not.
       check-conflicts.py resolves both halves through `refines:` already, so a member
       inherits this without restating it.

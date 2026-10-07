@@ -36,6 +36,31 @@ def schema_findings(doc, schema):
     return out
 
 
+_CLASS_NAMES = None
+
+
+def _class_names():
+    """Every module named as a parent by some other module's `refines:`.
+
+    Computed once over the whole corpus, because "is a class" is not a fact any
+    single document holds -- a module is a class because something else points at
+    it. Read from disk rather than from the caller's loaded set so that checking
+    one file by hand gives the same answer as checking all of them.
+    """
+    global _CLASS_NAMES
+    if _CLASS_NAMES is None:
+        names = set()
+        for f in glob.glob(os.path.join(REPO, "docs/modules/*/spec.yml")):
+            try:
+                d = yaml.safe_load(open(f)) or {}
+            except yaml.YAMLError:
+                continue
+            r = d.get("refines")
+            names.update([r] if isinstance(r, str) else (r or []))
+        _CLASS_NAMES = names
+    return _CLASS_NAMES
+
+
 def reference_findings(path, doc):
     """What the schema cannot say."""
     out = []
@@ -58,6 +83,37 @@ def reference_findings(path, doc):
                         f'names "{parent}" but docs/modules/{parent}/spec.md does not exist'))
     if len(parents) != len(set(parents)):
         out.append(("refines", "refines", "names the same parent twice"))
+
+    # TOP-LEVEL `impositions:` IS FOR A SOURCE WITH NO STEPS OF ITS OWN. A source that
+    # has steps states an imposition on the step that does the imposing, because that
+    # step is the morphism and the Module is not.
+    #
+    # The schema has claimed since 2026-10-05 that this file enforces that. It did not,
+    # until 2026-10-06. One source uses the key, `lysis`, and it is a class with no
+    # steps, so the claim was true of the corpus and false of the checker -- the shape
+    # that lets a rule rot, because nothing was wrong and so nothing reported.
+    if doc.get("process_steps"):
+        for entry in (doc.get("impositions") or []):
+            eid = entry.get("id", "<no id>")
+            out.append(("impositions-on-a-stepped-source", f"impositions/{eid}",
+                        "belongs on the step that does the imposing, because this "
+                        "source has process_steps of its own"))
+
+    # TOP-LEVEL `requires:` IS FOR A CLASS, AND A CLASS IS A MODULE SOMETHING REFINES.
+    # NOT the same test as `impositions` above, and using that one here would be wrong:
+    # 22 of the 36 modules named as a parent carry a real step, `repressor-detector`
+    # among them, and it is the case the key was written for.
+    #
+    # The two keys look dual and their tests are not. An imposition CAN sit on a step,
+    # because a step inflicts it, so "you have steps, use them" names a real
+    # alternative. A requirement cannot: a step here applies `mixing` or `packing`,
+    # both total, and a total morphism has no condition under which it is defined.
+    # Telling a stepped source to put a requirement on its step would be telling it to
+    # state the condition in the one place that cannot mean it.
+    if doc.get("requires") and doc.get("module") not in _class_names():
+        out.append(("requires-on-a-non-class", "requires",
+                    f'"{doc.get("module")}" is a class-only key and no source refines '
+                    f'this module'))
 
     known = set((doc.get("inputs") or {}).keys())
     for i, s in enumerate(doc.get("process_steps") or []):
