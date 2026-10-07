@@ -18,4 +18,8 @@ jobs:
         run: pip install codespell
 
       - name: Run codespell
-        run: codespell docs/
+        # docs/ alone left scripts/, guides/ and templates/ unchecked, which is how
+        # six British spellings sat on main unseen. about/ and LICENSE.md are left
+        # out on purpose: the OpenMTA and the licence are verbatim legal text and
+        # their spelling is not ours to change.
+        run: codespell docs/ scripts/ guides/ templates/ style-guide/ CLAUDE.md STYLE-GUIDE.md
