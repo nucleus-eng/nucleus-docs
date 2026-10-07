@@ -41,6 +41,8 @@ what each member puts in that slot. Otherwise delete this section and use # Memb
 
 # Expected Behavior
 
+<!-- Only what every member shares. Delete the section if they share no behavior. -->
+
 TODO what a reader will see from any member.
 
 # Requirements
