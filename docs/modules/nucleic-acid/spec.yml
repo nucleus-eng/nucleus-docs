@@ -43,7 +43,7 @@ process_steps: []
 # until a member attests one.
 #
 # `basis: rule` FOR THE SAME REASON ../protein/spec.yml USES IT. The mechanism is why
-# the claim generalises to members nobody has tested. The attestation this corpus holds
+# the claim generalizes to members nobody has tested. The attestation this corpus holds
 # is 14 sources adding an RNase inhibitor, which is strong evidence that the claim is
 # uncontroversial and no evidence at all for a bound. So no bound is asserted.
 sensitivities:

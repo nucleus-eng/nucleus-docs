@@ -109,7 +109,7 @@ The Module runs in both [Base Cytosol](../base-cytosol/spec.md) and [S30 Lysate]
 **S30 Lysate, with none.** The Module expresses and fluoresces here as well. No trace, no yield, no template dose and no reader setting is recorded, so every figure and every setting above belongs to Base Cytosol alone. @Editor(london): supply one S30 Lysate run, so the two cytosols can be compared on this page.
 
 :::{attention} The green channel is standard, and this protein sits at the blue edge of it
-Every reading on record was taken on the standard green channel — 485/20 excitation, 528/20 emission, 510 nm top mirror. mNeonGreen's own maxima are 506 nm and 517 nm, which sit bluer than that channel is centred for, so the protein is collected off its peak. It reads fine: the traces are usable, and comparisons between arms hold because every arm was read the same way. A filter set matched to 506/517 would collect more of the signal, and is what an absolute brightness figure for this Module should be taken through. @Editor(london): confirm whether a matched set is available, and re-read one reaction through it.
+Every reading on record was taken on the standard green channel — 485/20 excitation, 528/20 emission, 510 nm top mirror. mNeonGreen's own maxima are 506 nm and 517 nm, which sit bluer than that channel is centered for, so the protein is collected off its peak. It reads fine: the traces are usable, and comparisons between arms hold because every arm was read the same way. A filter set matched to 506/517 would collect more of the signal, and is what an absolute brightness figure for this Module should be taken through. @Editor(london): confirm whether a matched set is available, and re-read one reaction through it.
 :::
 
 :::{attention} No figure yet

@@ -10,7 +10,7 @@
 # ../base-cytosol/ and ../s30-lysate/, and only the Base Cytosol reaction has a build
 # behind it. Naming S30 Lysate here would put a composition claim in the contract with
 # no recipe under it, and naming it on the page's Constituent Modules list and not here
-# would trip check-composition.py. So the second cytosol is a behaviour claim on the
+# would trip check-composition.py. So the second cytosol is a behavior claim on the
 # page and an `open` entry below, which is where a thing with no numbers belongs.
 #
 # NO FINAL IS WRITTEN FOR THE TEMPLATE. The only build on record gives it as a volume

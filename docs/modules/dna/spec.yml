@@ -17,7 +17,7 @@
 # DNA molecule as a step; templates are supplied.
 #
 # NO SENSITIVITY DECLARED, DELIBERATELY. ../protein/spec.yml earns one because
-# proteinase-k is attested against a member and the mechanism generalises. The obvious
+# proteinase-k is attested against a member and the mechanism generalizes. The obvious
 # counterpart here is a nuclease, and no member declares one: the corpus's RNase
 # inhibitor protects transcripts rather than templates, so writing a DNase sensitivity
 # would be inventing the evidence rather than recording it.

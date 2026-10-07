@@ -77,7 +77,7 @@ process_steps:
     # SCALE-FREE, 2026-10-05, under R36/R37/R38.
     # THE SECOND HALF OF THE OLD STRING WAS DERIVED FROM THIS STEP'S OWN RATIO. It read
     # "1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1", and 0.5 is
-    # 1 x the 1:1. Writing a number the file computes from its own neighbour is the
+    # 1 x the 1:1. Writing a number the file computes from its own neighbor is the
     # exact pattern this migration removes, so only the sourced 1% lands.
     finals:
       ulga-powder: {value: 1, unit: "% (w/v)", note: "in the prepared solution, before the 1:1 combination"}

@@ -33,7 +33,7 @@ A fluorescence microscope that can resolve a single cell, select one channel per
 
 # Protocol
 
-- [ ] Prepare the sample at a density you can count. [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) ends with the three steps that do this — hold on ice, dilute onto the plate, and dilute again if the field is too crowded to analyse.
+- [ ] Prepare the sample at a density you can count. [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) ends with the three steps that do this — hold on ice, dilute onto the plate, and dilute again if the field is too crowded to analyze.
 - [ ] Select one channel per label you need to tell apart. One channel cannot separate two things that share it.
 - [ ] Take each dye from the composition, never from the channel name. A microscope names a channel after a representative fluorophore for the band it passes, not after what is in the well.
 - [ ] Collect a z-stack, not one plane. A cell is a sphere, and a single plane cuts most of a field off-centre. 1.5 µm between planes sections a cell without oversampling it, and 0.333 µm in the plane resolves its membrane.
@@ -42,7 +42,7 @@ A fluorescence microscope that can resolve a single cell, select one channel per
 - [ ] Record the instrument, objective, channels, exposure and gain with the run. This page states none of them.
 
 :::{danger} The channel name is not the dye name
-A channel labelled `Alexa Fluor 647` reports whatever that band passes, which may be a different dye entirely. A reader who takes the label as the dye will call a lumen marker a membrane label, and that is a claim about where the signal is, inverted. Read the dye off the composition table.
+A channel labeled `Alexa Fluor 647` reports whatever that band passes, which may be a different dye entirely. A reader who takes the label as the dye will call a lumen marker a membrane label, and that is a claim about where the signal is, inverted. Read the dye off the composition table.
 :::
 
 # Quality Control

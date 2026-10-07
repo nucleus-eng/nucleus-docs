@@ -8,7 +8,7 @@
 # the kind bleaches. But not all substrates are light sensitive; the two members happen
 # to be.
 #
-# THE GENERALISATION WAS ONE LEVEL TOO WIDE. Substrate is not the kind that bleaches.
+# THE GENERALIZATION WAS ONE LEVEL TOO WIDE. Substrate is not the kind that bleaches.
 # Chromophore is, and it cuts ACROSS this class rather than sitting under it: the same
 # claim covers ../reporter-degfp, a fluorescent protein with no substrate at all. A
 # class that collects what a page happens to be is not the same as a class that

@@ -104,7 +104,7 @@ See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). The 0.1 mol%
 
 Intact Substrate LUVs produce no signal. On lysis of a neighboring Sensing Cell, released CPRG meets LacZ in the surrounding matrix and gives a yellow-to-purple change, measurable at 575 nm and visible by eye.
 
-**The off state does not survive an overnight hold.** Left for about 18 h, these liposomes stop holding their CPRG, with no lysis trigger. Finish a readout inside a working day, or expect background colour at the start of the next one.
+**The off state does not survive an overnight hold.** Left for about 18 h, these liposomes stop holding their CPRG, with no lysis trigger. Finish a readout inside a working day, or expect background color at the start of the next one.
 
 :::{attention} Size and lamellarity are not measured
 @Editor: no diameter, size distribution or lamellarity has been measured for this route, so the name LUV rests on the preparation and not on a measurement. Record at least a diameter distribution before this page is published.

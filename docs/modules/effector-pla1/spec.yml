@@ -57,7 +57,7 @@ process_steps:
       title: "Lysis: PLA1"
       page: ../effector-pla1/spec.md
     # SCALE-FREE, 2026-10-05. "5% of the reaction" was already a volume fraction and
-    # is now written as one. It is the shape R38 generalised from.
+    # is now written as one. It is the shape R38 generalized from.
     finals:
       pla1-dna: {value: 14, unit: "ng/uL"}
     fractions:
