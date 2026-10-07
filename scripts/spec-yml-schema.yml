@@ -58,17 +58,16 @@ properties:
       answer and says nothing." The readers now refuse rather than guess. Nothing
       in this corpus yet guarantees a lattice, so the non-unique case is reported
       and not resolved. The image of this
-      Module under `A`, which compositional-biology-theory has carried as a defined
-      map since August. NOT a new axis: `A : Modules -> Abstractions` already
+      Module under `A`, a map the theory this corpus is built on has carried as defined
+      since August. NOT a new axis: `A : Modules -> Abstractions` already
       exists, and what this corpus lacked was a field naming a Module's image
       under it. Edit site 1 of the abstract-modules work.
       NAMED `refines` RATHER THAN `abstract` on purpose. `abstract` already exists
       one level down, on process_steps[].process, where it names the immediate
       parent PROCESS. Reusing the word here would be consistent in meaning and
-      confusing in reading, and `refines` is the theory corpus's own word for the
-      relation.
-      IT IS A POINTER AND NOT A CLAIM ABOUT COMPOSITION. glossary.md#T13 makes
-      membership classification and #T34 makes constituency containment, so naming
+      confusing in reading, and `refines` is the established word for the relation.
+      IT IS A POINTER AND NOT A CLAIM ABOUT COMPOSITION. Membership is classification and
+      constituency is containment, so naming
       a parent says what classifies this Module and nothing about what it is made
       of. A Module with no abstract parent omits the key, and most do.
       THE PARENT MUST BE THE IMMEDIATE ONE. Pointing a Module two levels up would
@@ -90,9 +89,8 @@ properties:
     description: >
       What this Module is sensitive TO. Half of a Conflict, and only half on
       purpose.
-      compositional-biology-theory glossary.md#T23 makes Conflict DERIVED:
-      "Sensitivity meeting imposition. Computed, never asserted", with
-      "incompatibility (as a stated fact)" as its refused spelling. Its own
+      A Conflict is DERIVED: a sensitivity meeting an imposition, computed and never
+      asserted. "Incompatibility (as a stated fact)" is the refused spelling. Its own
       evidence column reads "one constraint asserted on nine pages". So a field
       saying "A excludes B" would be the spelling the glossary refuses, and the
       two halves are declared separately while a checker computes the join.
@@ -161,10 +159,9 @@ properties:
   impositions:
     type: [array, "null"]
     description: >
-      WHAT EVERY MEMBER OF THIS CLASS INFLICTS. Added 2026-10-05 on Jon's ruling about
-      Lysis: "as a class all members impose lysis. so there should be a class level
-      imposition i think".
-      THIS DOES NOT CONTRADICT #T22, which makes Imposition a property of a MORPHISM and
+      WHAT EVERY MEMBER OF THIS CLASS INFLICTS. As a class, all members of Lysis impose
+      lysis, so the class carries it.
+      THIS DOES NOT CONTRADICT the rule that an Imposition is a property of a MORPHISM, which
       is why the step-level key exists. A class declares the imposition its Function
       carries, and a member's step is still the morphism that inflicts it. The class
       says what implementing the Function means; the step says when it happened. Same
@@ -201,7 +198,7 @@ properties:
       `minProperties: 1` was removed. It had asserted
       that every Module is made of something nameable, which is a second
       membership condition beside the one `minItems` carried and which
-      compositional-biology-theory `glossary.md#T03` does not include. Two page
+      the definition of a Module does not include. Two page
       classes were working around it and a third was blocked by it. Six atoms
       listed themselves as their only input, which reads circularly. `analyte-ph`
       listed the solution it is a property OF, which inverts the relation this key
@@ -252,7 +249,7 @@ properties:
         spec:
           type: array
           description: >
-            SUPPLIER GUARANTEES, NOT SENSITIVITIES. Ruled R33. A sensitivity is half of
+            SUPPLIER GUARANTEES, NOT SENSITIVITIES. A sensitivity is half of
             a Conflict and needs an imposition to point at; these are the opposite
             polarity, what the vendor promises the material does rather than what it
             fails to tolerate. `gel-lga`'s EEO and gel strength are the first two.
@@ -374,9 +371,8 @@ properties:
       produced by a Nucleus process."
       `minItems: 1` was removed. It had asserted that every
       Module is composed, which is a third membership condition the model never carried:
-      compositional-biology-theory `glossary.md#T03` defines a Module as "a formulation
-      the corpus has chosen to name, together with the operations its type declares"
-      -- glossary.md:45 at main 29842a1 --
+      a Module is "a formulation
+      the corpus has chosen to name, together with the operations its type declares" --
       two conditions, neither of them production. The schema was derived by measurement
       from 17 composing sources, so it had never met an atom. Composed-ness is a grading
       over Modules, not a condition for being one; `standing-is-a-grading.md` records the
@@ -587,7 +583,7 @@ $defs:
                 type: string
                 description: >
                   The process this one is an instance of, named by directory.
-                  Ruled 2026-09-15 to be the IMMEDIATE parent, not the root.
+                  It is the IMMEDIATE parent, not the root.
                   24 of 76 steps at `d611bda`, down from 43 percent of steps to 32.
                 pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
           - type: object
@@ -613,9 +609,9 @@ $defs:
       requires:
         type: [array, "null"]
         description: >
-          What must hold for this step to be defined. glossary.md#T20 Requirement,
-          "a condition that must hold for a morphism to be defined", and a step is
-          how this schema names a morphism.
+          What must hold for this step to be defined. A Requirement is "a condition
+          that must hold for a morphism to be defined", and a step is how this schema
+          names a morphism.
           IT SITS ON THE STEP EVEN THOUGH JON ASKED FOR IT THE OTHER WAY ROUND.
           His words were "refining color reporter should imply constraints on the
           cleanup step", which is a Module constraining a step. Stated from the
@@ -670,8 +666,8 @@ $defs:
         description: >
           What this step's Process inflicts on whatever it acts on. The other
           half of a Conflict, and it sits on the STEP rather than on the Module
-          because glossary.md#T22 makes Imposition a property of a MORPHISM,
-          against #T21 making Sensitivity a property of an OBJECT. A step is how
+          because an Imposition is a property of a MORPHISM, against a Sensitivity
+          being a property of an OBJECT. A step is how
           this schema names a morphism, so this is where the definition puts it.
           A Module that seems to impose something is carrying it, and the
           imposing happens in the step that adds the Module. X-Gal does not
@@ -707,8 +703,7 @@ $defs:
           all C(n,2) pairs, and one contrary pair falsifies it. 37 of 75 steps
           carried more than two operands at 9e57b86, so half the corpus makes an
           assertion it cannot support.
-          THE FIRST THREE USERS ARE HETEROGENEOUS IN THE SAME WAY, found by the
-          compositional-biology-theory session on 2026-09-21: a multiplex cascade and
+          THE FIRST THREE USERS ARE HETEROGENEOUS IN THE SAME WAY: a multiplex cascade and
           ph-cascade `embed-agarose`, and luxr-lacz-cascade `embed-ulga`. Each takes
           five operands of which three share the outer phase and two are
           membrane-bounded, so `packing` is the majority and wrong three times,
@@ -793,7 +788,7 @@ $defs:
           `sensitivities` without qualification until 2026-10-05 and that was wrong:
           `gel-lga`'s EEO and gel strength are what the vendor promises the material
           does, which is the opposite polarity from what it fails to tolerate, and
-          there is no imposition for them to point at. Ruled R33. What is left is a genuine free
+          there is no imposition for them to point at. What is left is a genuine free
           choice, which is what the first sentence always said.
       headroom:
         type: object
@@ -826,8 +821,8 @@ $defs:
 
       # ---- THE SCALE-FREE KEYS, DELIBERATELY LOOSE, ADDED 2026-10-05 ----
       #
-      # TEMPORARY AND KNOWN TO BE. Jon ruled R34: "let's do the updates to the specs,
-      # then update teh schema once we know what we're doing." These four exist so the
+      # TEMPORARY AND KNOWN TO BE. The specs are converted first and this file follows once
+      # the final shape is known. These four exist so the
       # migration can proceed WITHOUT this file guessing the final shape a fourth time
       # -- `step.volumes` was designed, committed and overturned in one day, and a
       # fifth guess is worth less than the corpus's own answer.
@@ -843,9 +838,8 @@ $defs:
         additionalProperties: {type: number, exclusiveMinimum: 0, maximum: 1}
         description: >
           A volume fraction per component, keyed by its id. Scale-free: it does not
-          change when the same composition is run at a different total. Ruled R38,
-          "these should be converted into volume fraction and concentration (when
-          possible)". The values must not exceed 1 in sum, and a checker will say so
+          change when the same composition is run at a different total. Quantities become volume
+          fraction and concentration wherever that is possible. The values must not exceed 1 in sum, and a checker will say so
           once every source is converted; today they are checked by eye.
       stocks:
         type: object
@@ -866,8 +860,7 @@ $defs:
       total_volume:
         $ref: "#/$defs/quantity"
         description: >
-          The total the step was run at. OPTIONAL, ruled R39: "leave as an optional
-          parameter". NAMED `total_volume` AND NOT `reaction_volume`: energy-ppk's step
+          The total the step was run at. OPTIONAL. NAMED `total_volume` AND NOT `reaction_volume`: energy-ppk's step
           produces a 3x premix rather than a reaction, so the narrower name was false on
           the first source that needed it. It is an Implementation fact rather than a Module one -- the
           composition is the same reaction at 10 uL or at 500 uL -- so nothing may
@@ -895,8 +888,8 @@ $defs:
       `yaml.safe_load` over every `spec.yml` under `docs/`.
       A COUNT HERE NAMES ITS REF, for the reason the `refines` description gives above: this
       file lives on branches whose corpora differ. The figure this line carried until now, 72
-      and 39 across 111, said "on this branch" and was taken on `roll/refinement-rulings` at
-      `bed2c438`. One step apart, and unverifiable from either tree without the third.
+      and 39 across 111, said "on this branch" and was taken at `bed2c438`, which is a tree
+      this one is not. One step apart, and unverifiable from either tree without the third.
       The earlier count, 50 and 26
       across 76 at `d611bda`, is kept because it is what the first version of this line said.
       Determined by the process, not chosen per step.
@@ -905,27 +898,23 @@ $defs:
       PLA1 construct in this corpus was synthesized directly rather than assembled, so each
       enters its cascade as an input and no step performs the join. A source that assembles
       rather than orders is what will use this.
-      WHAT THE THEORY HAS SETTLED AND WHAT IT HAS NOT, read at `compositional-biology-theory`
-      `5e1100d`. `glossary.md#T37` is stitching, operands "joined in order into one new object",
-      and it says the structure is OPEN and `::` is a PLACEHOLDER spelling, Jon's ruling of
-      2026-09-24. `rulings.md#D35` is live: associative, not commutative. That alone gives a
-      SEMIGROUP, and D35's own status says so — "and a monoid if it has a unit".
+      WHAT IS SETTLED AND WHAT IS NOT. Stitching joins operands in order into one new object.
+      The structure is OPEN and `::` is a PLACEHOLDER spelling. `::` is associative and not
+      commutative, which alone gives a SEMIGROUP, and a monoid if it has a unit.
       THE MONOID IS RULED AND FREENESS IS THE HYPOTHESIS. THIS LINE HAD THEM THE OTHER WAY ROUND.
       `#D35` gives associativity and `#D40` gives the unit, the null polymer, so polymers under
-      `::` are a monoid. `#D40` is status `live` and answers `#D37`'s question in Jon's own word,
-      "yes"; this line used to read `#D37` as still open and call that answer a session's rather
-      than his. `current-model.md#C21` reads "`::` is associative with a unit, so polymers form a
-      monoid and plausibly the free one, bounded by the circular case", graded `hypothesis (n=1)`
-      -- and that grade is on FREENESS. This line read it onto monoid-ness, which is the error.
-      `signature.md:443` states it in prose. So: the monoid is settled, freeness is a one-instance
+      `::` are a monoid. The unit is settled, and an earlier version of this line wrongly treated
+      it as open. Polymers form a monoid and plausibly the FREE one, bounded by the circular
+      case -- and it is freeness that carries the one-instance grade, not monoid-ness, which this
+      line also had the wrong way round. So: the monoid is settled, freeness is a one-instance
       hypothesis with a stated bound,
       and neither is a reason for a step to behave differently.
       THE BOUND IS THE SAME CIRCULAR CASE THIS CORPUS ALREADY HIT. See
       `docs/modules/effector-pla1/spec.yml`'s open item: a circular construct has an
       author-chosen first base, so a feature can straddle it and substring containment returns
       false on a true containment.
-      IT IS HOMOGENEOUS, WHICH THE OTHER TWO ARE NOT. `signature.md:485` at that same commit:
-      "stitching is homogeneous, and DNA stitched to DNA is DNA", from the profile `P ⊗ P ⟶ P`
+      IT IS HOMOGENEOUS, WHICH THE OTHER TWO ARE NOT. Stitching is homogeneous, and DNA stitched
+      to DNA is DNA, from the profile `P ⊗ P ⟶ P`
       with `P` refining `Polymer`. So a stitching step's operands and its product are all one
       sort, and `check-operator-pairs.py`'s seed table — which keys on a frozenset of TWO sorts
       — cannot score it. A one-element key is counted `unknown` there, and that file states

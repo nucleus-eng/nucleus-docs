@@ -19,8 +19,8 @@
 #
 # Not one id spans two processes. So the step-level key has been holding a fact about
 # the process, copied once per module that runs it, and three pages restate
-# `thermal-hold` because three cascades embed in a thermal gel. glossary.md#T22 says an
-# imposition belongs to a MORPHISM; a Process is the morphism; the data agrees.
+# `thermal-hold` because three cascades embed in a thermal gel. An imposition belongs to
+# a MORPHISM; a Process is the morphism; the data agrees.
 #
 # THIS SCHEMA DOES NOT MOVE THEM. Declaring the key here and converting the 9 in one
 # pass are separate commits, for the reason R20 gave about the quantities: a corpus
@@ -69,8 +69,7 @@ properties:
     additionalProperties: false
     required: [takes, produces]
     description: >
-      WHAT THE PROCESS IS AS A MORPHISM: its domain and its codomain. Ruled in
-      `the-composition-model` C1 as
+      WHAT THE PROCESS IS AS A MORPHISM: its domain and its codomain, written as
       `prep_lipids : [component, …] ⟶ membrane_components` and
       `encapsulate : membrane_components, inner_solution, outer_solution ⟶
       outer_solution{Membrane[membrane_components]{inner_solution}}`.
@@ -107,9 +106,8 @@ properties:
             type: string
             pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
             description: >
-              A TYPE NAME HERE DOES NOT NEED A PAGE, and that is ruled rather than
-              tolerated. Jon, 2026-10-05: "no page, component is the precedent".
-              `component` is named by 27 signatures in this corpus and no Module page
+              A TYPE NAME HERE DOES NOT NEED A PAGE, and `component` is the precedent.
+              It is named by 27 signatures in this corpus and no Module page
               carries it. `observation` and `measurement` are the same case: a Module is
               a formulation and a reading is not one. Writing a Module page for one
               would repeat the correction that deleted three function pages from
@@ -125,9 +123,8 @@ properties:
   conserves:
     type: boolean
     description: >
-      WHETHER THE INPUT SURVIVES. Jon, 2026-10-05: "assays can be destructive (consumes
-      or alters the input to give the signal) or conservative (passes the input
-      unchanged)."
+      WHETHER THE INPUT SURVIVES. An assay is destructive, consuming or altering the input
+      to give the signal, or conservative, passing the input unchanged.
       `true` means the sample comes back: the reading was taken without spending it, so
       a conservative assay may be run again on the same material and may sit mid-chain.
       `false` means the sample is consumed or altered, so the reading costs the thing it
@@ -148,8 +145,8 @@ properties:
     type: [array, "null"]
     description: >
       WHAT THIS PROCESS INFLICTS ON WHAT IT ACTS UPON, and the key this schema exists
-      for. glossary.md#T22 makes an Imposition a property of a morphism and a Process is
-      the morphism, so this is the home the definition asks for.
+      for. An Imposition is a property of a morphism and a Process is the morphism, so this
+      is the home the definition asks for.
       Measured before being written: all 9 step-level impositions track a process and
       none spans two, so this key removes a copy-per-module rather than adding a place
       to look.
