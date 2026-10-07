@@ -40,6 +40,22 @@ project:
           hidden: true
         - file: ./docs/modules/chromophore/spec.md
           hidden: true
+        - file: ./docs/modules/fluorophore/spec.md
+          hidden: true
+        - file: ./docs/modules/lipid/spec.md
+          hidden: true
+        - file: ./docs/modules/lipid-liss-rhod-pe/spec.md
+          hidden: true
+        - file: ./docs/modules/lipid-cyanine5-pc/spec.md
+          hidden: true
+        - file: ./docs/modules/fluorophore-sulfo-cyanine5/spec.md
+          hidden: true
+        - file: ./docs/modules/detergent/spec.md
+          hidden: true
+        - file: ./docs/modules/detergent-triton-x-100/spec.md
+          hidden: true
+        - file: ./docs/modules/detergent-tween-80/spec.md
+          hidden: true
         - file: ./docs/modules/ssdna/spec.md
           hidden: true
         - file: ./docs/modules/dsdna/spec.md

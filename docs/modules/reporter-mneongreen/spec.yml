@@ -23,11 +23,15 @@ title: "mNeonGreen Reporter"
 
 refines:
   - reporter
-  - chromophore
+  - fluorophore
   # TWO PARENTS, following ../reporter-degfp/, which carries the same pair for the same
-  # reason: a fluorescent protein is a reporter by function and a chromophore by what it
+  # reason: a fluorescent protein is a reporter by function and a fluorophore by what it
   # is made of. `reporter` is first because the first entry is the alignment parent and
   # the alignment parent is the functional one.
+  #
+  # REPOINTED FROM `chromophore` TO ITS REFINEMENT, 2026-10-07, with ../reporter-degfp.
+  # Being the second member is what let `fluorophore` be written at all: a class with
+  # one member is a rule nobody has tested.
 
 inputs:
   base-cytosol:

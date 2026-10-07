@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Reporter](../reporter/spec.md) and [Chromophore](../chromophore/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Reporter](../reporter/spec.md) and [Fluorophore](../fluorophore/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 The mNeonGreen Reporter Module produces mNeonGreen, a monomeric green fluorescent protein derived from the lancelet *Branchiostoma lanceolatum*. The protein is the signal, so no substrate is added and the reaction is read directly on a green fluorescence channel.

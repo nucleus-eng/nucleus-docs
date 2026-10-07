@@ -22,12 +22,17 @@ module: reporter-degfp
 title: "deGFP Reporter"
 refines:
   - reporter
-  - chromophore
-  # TWO PARENTS, 2026-10-05. `chromophore` cuts across the tree: it is what the
-  # uv-exposure sensitivity follows from, and it is shared with a member of a
+  - fluorophore
+  # TWO PARENTS. `fluorophore` cuts across the tree: it is what the uv-exposure and
+  # illumination sensitivities follow from, and it is shared with members of a
   # different branch. `refines:` takes a list, so nothing moved to make room.
-# Added 2026-09-21 with the Reporter class: the fluorescence half, and the only member
-# of it.
+  #
+  # REPOINTED FROM `chromophore` TO ITS REFINEMENT, 2026-10-07. Both sensitivities are
+  # declared on `chromophore` and still arrive, because `fluorophore` refines it and
+  # inheritance follows the chain. What the narrower parent adds is re-emission: this
+  # Module is read on two wavelengths rather than one, which is true of a fluorescent
+  # protein and not of a chromophore generally.
+# Added 2026-09-21 with the Reporter class: the fluorescence half.
 
 inputs:
   base-cytosol:

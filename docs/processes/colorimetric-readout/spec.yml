@@ -33,6 +33,17 @@ refines: assay
 
 conserves: true
 
+# `conserves: true` AND AN IMPOSITION ARE NOT IN TENSION. Nothing is consumed and
+# nothing becomes another compound, which is what `conserves:` claims. The light still
+# reaches every chromophore in the well, and a chromophore is what this reads.
+impositions:
+  - id: illumination
+    why: >
+      A plate reader shines light through the well at every read, and a kinetic run
+      repeats that for hours. What it reads is a chromophore, so the thing being
+      measured is the thing the measurement costs. Meets the `moderate` sensitivity on
+      ../../modules/chromophore.
+
 signature:
   takes:
     - type: cascade

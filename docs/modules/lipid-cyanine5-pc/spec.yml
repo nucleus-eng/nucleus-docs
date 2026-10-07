@@ -1,0 +1,36 @@
+# Composition source for 18:1 Cyanine 5 PC.
+#
+# TWO PARENTS, for the reason ../lipid-liss-rhod-pe has two.
+#
+# AN ATOM. `process_steps: []`: it is purchased.
+#
+# THE STOCK IS DISPUTED AND THIS PAGE DOES NOT SETTLE IT. ../membrane-popc/spec.yml
+# carries `cyanine-5-stock-is-disputed`: one record gives 25 mg/mL against the 1 mg/mL
+# the page uses, a factor of about 24 in the resulting mol%. The dispute belongs to the
+# Node that holds the records, and repeating the page's figure here without the dispute
+# would make a contested number look settled by being written twice.
+
+module: lipid-cyanine5-pc
+title: "18:1 Cyanine 5 PC"
+refines:
+  - lipid
+  - fluorophore
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: pc-or-pe
+    question: >
+      The corpus writes this dye as `18:1 Cyanine 5 PC`, a phosphocholine, and it has
+      been referred to in discussion as `Cy5 PE`, a phosphoethanolamine. Those are
+      different head groups and so different molecules. The page follows what
+      ../membrane-popc records. If the dye actually in use is the PE form, this page is
+      named for the wrong one and the fix is a rename rather than an edit.
+  - id: no-wavelengths-anywhere
+    question: >
+      No page in this corpus states this dye's excitation or emission, which is the
+      gap ../fluorophore/spec.yml records for the class. It matters more here than for
+      the others, because the whole point of a second membrane label is that its band
+      does not overlap the first one's, and nothing written down says it does not.

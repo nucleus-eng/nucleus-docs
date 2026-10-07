@@ -350,6 +350,77 @@ def _process_impositions(step, seen=None):
     return out
 
 
+def _ancestors(m, seen=None):
+    """Every class `m` sits under, transitively. Membership, not containment."""
+    seen = seen if seen is not None else set()
+    for par in _parents(m):
+        if par not in seen:
+            seen.add(par)
+            _ancestors(par, seen)
+    return seen
+
+
+def _satisfies(candidate, target):
+    """Is `candidate` the thing a presence sensitivity named, or a member of it?"""
+    return candidate == target or target in _ancestors(candidate)
+
+
+def _compartments(step):
+    """Which operands of one step share a compartment, as a list of sets.
+
+    THE OPERATOR DECIDES IT, which is the whole reason the corpus records one.
+    `mixing` puts everything in one compartment: one tube, one phase, everything
+    touching everything. `packing` builds a boundary, so its operands do NOT all
+    touch -- that separation is what the step is for.
+
+    A MEMBRANE TOUCHES BOTH SIDES OF ITSELF AND NEITHER SIDE TOUCHES THE OTHER.
+    Jon, 2026-10-07: "Membranes meet any solution containing them, as well as any
+    solution that they contain. consider `Sol{M1{A} + M2{B}}`. M1 is touching Sol
+    and A, but not B." So a packing step yields one compartment per boundary,
+    holding that boundary and the operands it separates -- and a sibling's lumen
+    is in a different compartment, which is why co-encapsulating two populations
+    does not put one's cargo against the other's membrane.
+
+    A PACKING STEP WITH NO BOUNDARY YIELDS NOTHING rather than falling back to
+    one compartment. Three such steps exist and each packs a thing into a thing
+    without naming the bilayer; guessing a boundary would invent co-location that
+    the source does not state.
+    """
+    ops = operand_ids(step)
+    if step.get("operator") == "mixing":
+        return [set(ops)]
+    bounds = [o for o in ops if _satisfies(o, "membrane")]
+    rest = set(ops) - set(bounds)
+    return [{b} | rest for b in bounds]
+
+
+# PRESENCE: A COMPONENT IN THE SAME COMPARTMENT, WHICH IS NOT AN IMPOSITION.
+# `sensitivities[].kind: presence` names a component rather than something a morphism
+# inflicts, so the imposition walk above cannot find it: nothing imposes DMSO, it is
+# simply in the tube. Added 2026-10-07 on Jon's ruling, after the detergent case --
+# a purified TetR stock carrying Tween 80 into a reaction with liposomes in it.
+#
+# NO BOUND, BY RULING. "report ANY presence as a conflict!" Where the level that
+# matters is unmeasured, reporting every presence is the honest reading and a bound
+# invented to quiet the report would be a figure nobody measured.
+presence_rows = []
+for mod, d in SRC.items():
+    for step in d.get("process_steps") or []:
+        for shared in _compartments(step):
+            present = set()
+            for o in shared:
+                present |= constituents(o)
+            for o in sorted(shared):
+                for holder in sorted(constituents(o)):
+                    for sid, sens in (SENS.get(holder) or {}).items():
+                        if sens.get("kind") != "presence":
+                            continue
+                        for p in sorted(present):
+                            if p == holder or not _satisfies(p, sens["to"]):
+                                continue
+                            presence_rows.append(
+                                (mod, step["id"], holder, o, p, sens))
+
 rows, tally = [], collections.Counter()
 for mod, d in SRC.items():
     carried = _class_impositions(mod)
@@ -372,8 +443,13 @@ for k, *_ in rows:
     if k == "ok":
         tally["ok"] += 1
 
-for kind in ("CONFLICT", "reach", "incomparable"):
+for kind in ("CONFLICT", "moderate", "reach", "incomparable"):
     for k, mod, sid, iid, operand, held in rows:
+        # SEVERITY SPLITS THE REPORT AND NOT THE COMPUTATION. A `moderate` meet is a
+        # real meet -- reading a chromophore does bleach it -- and it is listed apart
+        # so that routine reads do not bury a meet that destroys a Function.
+        if SENS[held or operand][iid].get("severity") == "moderate":
+            k = "moderate" if k == "CONFLICT" else k
         if k != kind:
             continue
         tally[k] += 1
@@ -395,6 +471,55 @@ for kind, m, sid, par, why in INHERIT:
         print(f"          {why}")
     print()
 
+# A READOUT IMPOSES ON WHAT IT READS, and `measured_by:` is where a Module names its
+# readout. Added 2026-10-07 with `illumination`. Without it the two readout processes
+# would declare an imposition that met nothing: a readout is not a `process_steps:`
+# entry, because reading a Module is not a step in building one, so the walk above
+# never reaches it. Same shape as the class-level and process-level keys, which each
+# declared data this file could not yet read.
+measured_rows = []
+for mod, d in SRC.items():
+    for entry in d.get("measured_by") or []:
+        proc = (entry or {}).get("process") or {}
+        for imp in _process_impositions({"process": proc}):
+            for held in sorted(constituents(mod)):
+                sens = (SENS.get(held) or {}).get(imp["id"])
+                if sens:
+                    measured_rows.append((mod, proc.get("title") or "?", imp, held, sens))
+
+for mod, title, imp, held, sens in measured_rows:
+    sev = sens.get("severity", "blocking")
+    where = mod if held == mod else f"{mod} holds {held}"
+    print(f"{'MODERATE' if sev == 'moderate' else 'CONFLICT':9s} {mod} measured by {title}")
+    print(f"          imposes {imp['id']} on {where}")
+    print(f"          {sens['basis']}: {sens['why'].strip()[:96]}")
+    print()
+    tally["moderate" if sev == "moderate" else "CONFLICT"] += 1
+
+for mod, sid, holder, operand, present, sens in presence_rows:
+    where = operand if holder == operand else f"{operand} holds {holder}"
+    print(f"PRESENCE  {mod}/{sid}")
+    print(f"          {present} shares a compartment with {where}, which is "
+          f"sensitive to {sens['to']}")
+    print(f"          {sens['basis']}: {sens['why'].strip()[:96]}")
+    print()
+
+# WHAT A PRESENCE SENSITIVITY MEETING NOTHING MEANS, printed every run. Two of the
+# three meet nothing, and neither is a typo: `dmso` is an operand only of a pore no
+# composition names, and the theophylline path has no cascade page, so there is no
+# step where the analyte joins its reporter. Both would report the moment one is
+# built. Printing the denominator is the same discipline the summary line below
+# keeps for sensitivities: a quiet pass over an unwritten composition is silence.
+_presence_declared = sorted(
+    {sid for m in SRC for sid, s in (SENS.get(m) or {}).items()
+     if s.get("kind") == "presence"})
+_presence_met = {r[5]["to"] for r in presence_rows}
+for sid in _presence_declared:
+    if sid not in _presence_met:
+        print(f"UNMET     {sid} is declared as a presence condition and no step puts "
+              f"it beside what it affects.")
+        print("          Not a typo and not a pass: nothing is built with it yet.\n")
+
 req_rows, req_total = [], 0
 for mod, d in SRC.items():
     for step in d.get("process_steps") or []:
@@ -415,7 +540,9 @@ steps = sum(len(d.get("process_steps") or []) for d in SRC.values())
 print(f"{len(SRC)} sources: {declared} declare a sensitivity, {len(SRC) - declared} silent")
 print(f"{steps} steps: {tally['impositions']} impositions declared")
 wide = sum(1 for k, *_ in INHERIT if k == "widened")
-print(f"conflicts {tally['CONFLICT']} | ok {tally['ok']} | "
+print(f"conflicts {tally['CONFLICT']} | moderate {tally['moderate']} | "
+      f"presence {len(presence_rows)} met, "
+      f"{len(_presence_declared) - len(_presence_met)} unmet | ok {tally['ok']} | "
       f"incomparable {tally['incomparable']} | reach {tally['reach']} | "
       f"requires {req_total} declared, {len(req_rows)} unsatisfied | "
       f"inheritance {wide} widened, {len(INHERIT) - wide} incomparable")

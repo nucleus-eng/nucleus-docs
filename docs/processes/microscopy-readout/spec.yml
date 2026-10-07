@@ -23,17 +23,25 @@
 # NO `operator:`. The parent declares none and neither do the other three instances. An
 # assay does not compose two things into a third.
 #
-# NO `impositions:`. Illumination is a real imposition and no module here declares a
-# sensitivity to it, so an id written here would match nothing. Recorded as an open
-# entry below rather than invented. `uv-exposure` is not it: that id is the
-# crosslinking dose ../embed-photodevelopment applies, and borrowing it would make two
-# different things one.
+# `illumination` IS DECLARED, as of 2026-10-07. It had no sensitivity to meet until
+# ../../modules/chromophore declared one, so the id was left out rather than invented
+# and the open item below said what it was waiting for. `uv-exposure` is still not it:
+# that id is the crosslinking dose ../embed-photodevelopment applies, and borrowing it
+# would make two different things one.
 
 process: microscopy-readout
 title: "Microscopy Readout"
 refines: assay
 
 conserves: true
+
+impositions:
+  - id: illumination
+    why: >
+      Every channel excites every fluorophore in the field, at every z-plane and every
+      time point, which is why a second read is dimmer than the first. The sample
+      survives it, so `conserves:` stays true and the cost is signal rather than
+      material. Meets the `moderate` sensitivity on ../../modules/chromophore.
 
 signature:
   takes:
@@ -72,12 +80,13 @@ open:
       page. Not written, because nobody has needed to cite one.
   - id: illumination-is-an-imposition-with-no-sensitivity-to-meet
     question: >
-      Light bleaches a fluorophore, which is a cost this process inflicts on what it
-      acts upon, and an imposition is a property of the morphism, which the Process is.
-      No module here declares a sensitivity to illumination, so an id declared here
-      would be reported by collate-conditions.py as meeting nothing.
-      THE ID IS NOT WRITTEN FOR THAT REASON, not because the effect is absent. It wants
-      a dye page that declares the matching sensitivity first.
+      CLOSED 2026-10-07, by the thing it asked for. This item said the id was unwritten
+      because no module declared the matching sensitivity, and that it wanted a dye page
+      to declare one first. ../../modules/chromophore declared it on the class instead,
+      which reaches every member at once, and `impositions:` above now carries the id.
+      THE DYE PAGES STILL MATTER and the class did not make them unnecessary. A dye that
+      is an input id with no page of its own inherits nothing, so the membrane labels are
+      reached only once they are members, which is what their own pages make them.
   - id: the-sample-prep-steps-live-on-another-process
     question: >
       ../assemble-base-cell ends with three checklist steps that are purely preparation

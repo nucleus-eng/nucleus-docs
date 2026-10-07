@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [deGFP Reporter](../reporter-degfp/spec.md), [mNeonGreen Reporter](../reporter-mneongreen/spec.md), [Substrate: CPRG](../substrate-cprg/spec.md), [Substrate: X-Gal](../substrate-xgal/spec.md).
+**Position.** Refines nothing declared. Refined by [Fluorophore](../fluorophore/spec.md), [Substrate: CPRG](../substrate-cprg/spec.md), [Substrate: X-Gal](../substrate-xgal/spec.md).
 <!-- /gen:position -->
 
 A class: a Module whose subject is a molecule that absorbs visible light.
@@ -31,12 +31,13 @@ This page is a work in progress and not yet ready for use.
 | --- | --- |
 | [CPRG](../substrate-cprg/spec.md) | Yellow as supplied. Cleavage yields a second chromophore, the red product. |
 | [X-Gal](../substrate-xgal/spec.md) | Colorless as supplied; the indigo product is the chromophore. |
-| [deGFP Reporter](../reporter-degfp/spec.md) | A fluorescent protein. Absorbs and re-emits rather than absorbing alone. |
-| [mNeonGreen Reporter](../reporter-mneongreen/spec.md) | A fluorescent protein. Absorbs and re-emits rather than absorbing alone. |
+| [Fluorophore](../fluorophore/spec.md) | A class of its own: the members that re-emit what they absorb, at a longer wavelength. |
 
 # Expected Behavior
 
 Any member bleaches under enough ultraviolet light. How much is enough varies by member and is not claimed here.
+
+**Reading a member costs some of it.** The light that excites a member is absorbed by the conjugated system that makes it readable, and some of what is absorbed destroys it. So a second read is dimmer than the first, and a kinetic run ends dimmer than it began. The cost is small for one read and accumulates; no page here measures it per read.
 
 # Requirements
 

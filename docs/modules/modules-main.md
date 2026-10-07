@@ -81,6 +81,14 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Nucleic Acid | [DNA](./dna/spec.md) | - |
 | Nucleic Acid | [RNA](./rna/spec.md) | - |
 | Chromophore | [Chromophore](./chromophore/spec.md) | - |
+| Chromophore | [Fluorophore](./fluorophore/spec.md) | - |
+| Fluorophore | [Liss-Rhod PE](./lipid-liss-rhod-pe/spec.md) | ★★ |
+| Fluorophore | [18:1 Cyanine 5 PC](./lipid-cyanine5-pc/spec.md) | ★ |
+| Fluorophore | [Sulfo-Cyanine5](./fluorophore-sulfo-cyanine5/spec.md) | ★ |
+| Membrane Components | [Lipid](./lipid/spec.md) | - |
+| Detergent | [Detergent](./detergent/spec.md) | - |
+| Detergent | [Triton X-100](./detergent-triton-x-100/spec.md) | ★★ |
+| Detergent | [Tween 80](./detergent-tween-80/spec.md) | ★ |
 | DNA | [Single-Stranded DNA](./ssdna/spec.md) | - |
 | DNA | [Double-Stranded DNA](./dsdna/spec.md) | - |
 | Container | [Solution](./solution/spec.md) | - |

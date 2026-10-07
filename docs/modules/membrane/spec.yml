@@ -125,9 +125,24 @@ sensitivities:
       Radical acrylate polymerization is not compatible with a lipid bilayer.
   - id: dmso
     to: dmso
+    kind: presence
     basis: rule
     why: >
       DMSO ruins liposome formation. Attempts to make SUVs in it gave poor SUVs.
+  - id: detergent
+    to: detergent
+    kind: presence
+    basis: rule
+    why: >
+      A detergent partitions into a lipid bilayer and makes it leak, and enough of it
+      dissolves the bilayer outright. That is why Triton X-100 is the positive lysis
+      control in ../../processes/colorimetric-readout/main.md rather than an incidental
+      reagent. The mechanism is the amphiphile entering the bilayer, so it holds for the
+      kind, and a member inherits it through `refines:`.
+      NO BOUND, AND THAT IS A DECISION. Tween 80 carried into a reaction in a purified
+      TetR stock made liposomes leak enough to disrupt a color change (Mary Kelly,
+      Chicago Node, 2026-10-07), and no run records the concentration that did it. Any
+      presence reports until somebody measures where the effect starts.
   - id: lysis
     to: lysis
     basis: rule

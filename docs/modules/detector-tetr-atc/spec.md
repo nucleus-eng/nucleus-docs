@@ -35,6 +35,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     TETO_TEMPLATE["pT7-tetO-deGFP template"]
     TETR["TetR repressor"]
+    DETERGENT_TWEEN_80["Detergent: Tween 80"]
 
     P1_ASSEMBLE_REACTION_0(["Assemble the tetR-aTc Detector reaction (mixing) — no page"])
     DETECTOR_TETR_ATC["tetR-aTc Detector"]
@@ -42,17 +43,19 @@ flowchart TD
     BASE_CYTOSOL --> P1_ASSEMBLE_REACTION_0
     TETO_TEMPLATE --> P1_ASSEMBLE_REACTION_0
     TETR --> P1_ASSEMBLE_REACTION_0
+    DETERGENT_TWEEN_80 --> P1_ASSEMBLE_REACTION_0
     P1_ASSEMBLE_REACTION_0 --> DETECTOR_TETR_ATC
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class BASE_CYTOSOL,TETO_TEMPLATE,TETR leaf;
+    class BASE_CYTOSOL,TETO_TEMPLATE,TETR,DETERGENT_TWEEN_80 leaf;
     class DETECTOR_TETR_ATC composed;
     class P1_ASSEMBLE_REACTION_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click DETERGENT_TWEEN_80 "/docs/modules/detergent-tween-80/spec"
     click DETECTOR_TETR_ATC "/docs/modules/detector-tetr-atc/spec"
 ```
 
@@ -245,6 +248,14 @@ The TetR detector cell functions when induced with low-nanomolar aTc concentrati
 
 A second configuration replaces the plamGFP reporter with a `TetO-PLA1` construct and co-encapsulates LacZ protein at 2.5 U/mL, leaving 0.5 mM CPRG in the outer solution. aTc de-represses `TetO-PLA1`, PLA1 ruptures the membrane, and the released LacZ reaches the CPRG outside, so the readout is the [LacZ Reporter Module](../reporter-lacz/spec.md)'s color change at 575 nm rather than fluorescence. This configuration detects aTc in synthetic cells, but the response is **not graded**.
 
+:::{attention} The purified MedChemExpress TetR carries a detergent
+The His-tagged TetR stock used here (MedChemExpress, HY-P71520A) is lyophilized from a solution containing 0.02% [Tween 80](../detergent-tween-80/spec.md). A detergent makes a lipid bilayer leak, and this configuration depends on the bilayer holding: the readout is LacZ reaching CPRG on the other side of it. A leak releases the enzyme without aTc, which looks like a readout that is on before it is triggered (Mary Kelly, Chicago Node, 2026-10-07).
+
+**No run here records the concentration that reaches the reaction.** It depends on the volume the lyophilized powder is reconstituted into and on the dilution of that stock into the reaction, and neither figure is written down. The threshold at which the bilayer starts to leak is also unmeasured, so this is a mechanism with no number attached to it.
+
+The two other formats of TetR carry no detergent: expression in situ from `pT7-tetR` and the overnight cell-free reaction both make the repressor rather than buying it.
+:::
+
 Three DNA/TetR pairs — 1 nM DNA with 50 nM TetR, 0.5 nM DNA with 50 nM TetR, and 1 nM DNA with 100 nM TetR — were each dosed at 0, 1, 5, and 10 µM aTc, and fold change in absorbance was measured at 5 h (n = 3). Every pair separates dosed from undosed by roughly 1.15× to 1.33×. None is monotonic in dose, and the spread across the 1, 5, and 10 µM points overlaps in all three. Expect the response to saturate at or below 1 µM, with no resolvable dose-dependence from 1 to 10 µM.
 
 :::{figure} cell-lacz-readout-endpoint.png
@@ -283,6 +294,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at reaction concentration
+- [Tween 80](../detergent-tween-80/spec.md) — optional, and nobody adds it on purpose. It arrives in the purified His-tagged stock and not in the two formats that make the repressor rather than buying it.
 
 # Credits
 

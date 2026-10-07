@@ -31,11 +31,19 @@ them as a defect:
                  does it. `protein` is sensitive to `proteolysis`, implemented by
                  proteases, of which Proteinase K is one.
 
-THE TEST FOR THE FIRST IS WHETHER THE ID IS AN INPUT ID ANYWHERE, which is to say
-whether the corpus has ever put that thing in a tube. It is a better test than a word
-list because it is a fact about the corpus rather than about English. Note that a class
-page named for a function -- `lysis` -- has a page but is never an input, so it does not
-false-positive.
+THE KIND IS DECLARED NOW, AND THE INFERENCE IS KEPT TO CHECK IT. `sensitivities[].kind`
+landed in the schema on 2026-10-07, so a source says which of the two it means instead
+of this script guessing. The guess is still computed and a disagreement is reported,
+because the guess is the only thing that can catch a `kind:` nobody updated.
+
+THE GUESS IS WHETHER THE ID IS AN INPUT ID ANYWHERE, which is to say whether the corpus
+has ever put that thing in a tube. It is a better test than a word list because it is a
+fact about the corpus rather than about English. Note that a class page named for a
+function -- `lysis` -- has a page but is never an input, so it does not false-positive.
+
+IT IS ALSO WRONG ON A NEW COMPONENT, which is why the declaration wins. `detergent` is a
+class whose members are components; the class itself is an input id nowhere, so the
+guess files it under FUNCTION. The source says `kind: presence` and that is the answer.
 
     python3 scripts/collate-conditions.py
     python3 scripts/collate-conditions.py --unjoined   # only the ids that meet nothing
@@ -73,24 +81,24 @@ def walk():
     for path, doc in load():
         slug = path.split("/")[2]
         for s in doc.get("sensitivities") or []:
-            yield s.get("to"), "sensitivity", slug
+            yield s.get("to"), "sensitivity", slug, s.get("kind") or "imposition"
         for i in doc.get("impositions") or []:
-            yield i.get("id"), "imposition", slug
+            yield i.get("id"), "imposition", slug, None
         for step in doc.get("process_steps") or []:
             if not isinstance(step, dict):
                 continue
             for i in step.get("impositions") or []:
-                yield i.get("id"), "imposition", slug
+                yield i.get("id"), "imposition", slug, None
             abstract = (step.get("process") or {}).get("abstract")
             if abstract:
-                yield abstract, "process-refinement", slug
+                yield abstract, "process-refinement", slug, None
     for path, doc in load(PROCESSES):
         slug = path.split("/")[2]
         for i in doc.get("impositions") or []:
-            yield i.get("id"), "imposition", slug
+            yield i.get("id"), "imposition", slug, None
         r = doc.get("refines")
         for parent in ([r] if isinstance(r, str) else (r or [])):
-            yield parent, "process-refinement", slug
+            yield parent, "process-refinement", slug, None
 
 
 def main():
@@ -100,21 +108,35 @@ def main():
     args = ap.parse_args()
 
     components = component_ids()
-    rows = collections.defaultdict(lambda: {"roles": set(), "sources": set()})
-    for name, role, slug in walk():
+    rows = collections.defaultdict(
+        lambda: {"roles": set(), "sources": set(), "declared": set()})
+    for name, role, slug, declared in walk():
         if not name:
             continue
         rows[name]["roles"].add(role)
         rows[name]["sources"].add(slug)
+        if declared:
+            rows[name]["declared"].add(declared)
 
+    COMPOSITION = "composition: the axiom is this component's presence"
+    FUNCTION = "function or condition: the axiom is what happens"
     groups = collections.defaultdict(list)
+    disagreed = []
     for name, r in rows.items():
+        guess = COMPOSITION if name in components else FUNCTION
+        declared = r["declared"]
         if "process-refinement" in r["roles"] and len(r["roles"]) == 1:
             kind = "a process, not a condition"
-        elif name in components:
-            kind = "composition: the axiom is this component's presence"
+        elif "presence" in declared:
+            kind = COMPOSITION
+        elif "imposition" in declared:
+            kind = FUNCTION
         else:
-            kind = "function or condition: the axiom is what happens"
+            kind = guess
+        # THE GUESS IS KEPT IN ORDER TO CHECK THE DECLARATION. A `kind:` nobody updated
+        # is the failure this catches, and it is invisible once the declaration wins.
+        if declared and kind != guess:
+            disagreed.append((name, kind, guess))
         groups[kind].append((name, r))
 
     unjoined = 0
@@ -144,6 +166,12 @@ def main():
         print(f"{unjoined} meet nothing on the other side. That is not a fault by "
               f"itself -- a sensitivity with no imposition means nobody has written the "
               f"step that would trigger it -- but it is where a typo would hide.")
+    for name, kind, guess in sorted(disagreed):
+        print(f"\nDECLARED vs INFERRED: `{name}` is declared {kind.split(':')[0]} and "
+              f"this script would have inferred {guess.split(':')[0]}.")
+        print("  The declaration wins and the row above uses it. Reported because an "
+              "id that stops being an input anywhere, or starts being one, changes the "
+              "inference and nothing else would say so.")
     return 0
 
 

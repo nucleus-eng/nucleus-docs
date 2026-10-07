@@ -158,6 +158,7 @@ open:
 sensitivities:
   - id: theophylline
     to: theophylline
+    kind: presence
     basis: observation
     why: >
       Theophylline is reported to interfere with LacZ activity. The mechanism is not

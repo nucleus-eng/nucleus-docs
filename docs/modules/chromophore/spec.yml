@@ -34,8 +34,22 @@
 # THE THREE MEMBERS ARE NOT ALIKE AND THE PAGE SAYS SO. CPRG is yellow as supplied and
 # its cleaved product is a SECOND chromophore. X-Gal is colorless as supplied and the
 # indigo product is the chromophore. deGFP absorbs and re-emits. Nothing here claims
-# they bleach alike, and `Fluorophore` is NOT split out: a refinement is real when it
-# declares an operation its parent does not, and no emitting operation is written yet.
+# they bleach alike.
+#
+# `Fluorophore` IS SPLIT OUT, as of 2026-10-07, and this file said it was not. The test
+# it had to pass is the one written here: a refinement is real when it declares an
+# operation its parent does not. The operation is re-emission. A chromophore absorbs
+# and a reader measures what did not come back; a fluorophore absorbs and then emits at
+# a longer wavelength, and a reader measures light the molecule produced. Two
+# wavelengths rather than one.
+#
+# WHAT CHANGED IS THE CORPUS AND NOT THE TEST. When this was written the only candidate
+# was deGFP, and a one-member class is a rule nobody has tested. ../fluorophore has
+# five: two reporters, two membrane labels and one lumen dye.
+#
+# THE BLEACHING STAYS HERE, where the conjugated system is. Re-emission is not why a
+# member bleaches, so the sensitivity belongs to this class and reaches ../fluorophore
+# through `refines:` like any other member.
 
 module: chromophore
 title: "Chromophore"
@@ -53,3 +67,21 @@ sensitivities:
       that bleaches it, so the sensitivity holds for the kind rather than for the
       members that happen to have been tested.
     page: spec.md
+  - id: illumination
+    to: illumination
+    basis: rule
+    severity: moderate
+    why: >
+      The light a reader shines on a member in order to read it is absorbed by the same
+      conjugated system that makes the member readable, and some of what is absorbed
+      destroys it. So the act of reading costs signal, and the mechanism is the one the
+      class is grounded on.
+      MODERATE RATHER THAN BLOCKING. One read costs a little and the reading still
+      works; a kinetic run repeats the exposure and the cost accumulates. Nobody here
+      has measured the per-read cost, so there is no bound to write and the severity is
+      what carries the difference.
+      A SEPARATE ID FROM `uv-exposure`, which is the crosslinking dose
+      ../../processes/embed-photodevelopment applies. Borrowing that one would make two
+      different things one, which is the mistake
+      ../../processes/microscopy-readout/spec.yml warned about while it had no
+      sensitivity to meet.

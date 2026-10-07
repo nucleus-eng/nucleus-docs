@@ -30,6 +30,19 @@ inputs:
     title: "TetR repressor"
     range: "500 nM to 2000 nM; 500 nM saturates repression and it is improvable to 2000 nM"
     page: null            # three formats, not interchangeable — see the questions
+  detergent-tween-80:
+    title: "Detergent: Tween 80"
+    page: ../detergent-tween-80/spec.md
+    optional: true        # arrives dissolved in the purified stock, not added
+    # NOT A CONSTITUENT ANYBODY CHOSE. The purified His-tagged stock
+    # (MedChemExpress HY-P71520A) is lyophilized from a solution containing 0.02%
+    # Tween 80, so the detergent enters with the repressor. It is declared as an
+    # operand because that is the only way the composition can see it, and
+    # `optional: true` because the two other formats of TetR do not carry it.
+    #
+    # THE CONCENTRATION IS NOT HERE BECAUSE NOBODY RECORDED IT. The formulation
+    # figure is on ../detergent-tween-80/spec.md, which also says that the
+    # reconstitution volume and the dilution into the reaction are unrecorded.
 
 process_steps:
   - id: assemble-reaction
@@ -38,7 +51,7 @@ process_steps:
       page: null
       abstract: assemble-cytosol
     operator: mixing
-    operands: [base-cytosol, teto-template, tetr]
+    operands: [base-cytosol, teto-template, tetr, detergent-tween-80]
     produces:
       id: detector-tetr-atc
       title: "tetR-aTc Detector"

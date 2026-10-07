@@ -1,0 +1,31 @@
+# Composition source for Detergent: Tween 80.
+#
+# AN ATOM. `process_steps: []` is a claim: nothing here produces it. It is purchased,
+# and more to the point it is usually not purchased at all -- it arrives dissolved in a
+# purified protein stock somebody bought for the protein.
+#
+# IT IS AN OPERAND OF ../detector-tetr-atc's ASSEMBLY STEP, which is the only reason
+# check-conflicts.py can see it. A component that no step names is invisible to the
+# presence pass, however well the page describes it.
+
+module: detergent-tween-80
+title: "Detergent: Tween 80"
+refines: detergent
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: the-dose-is-unrecorded-at-every-step
+    question: >
+      The supplied formulation is 0.02%, and every figure after that is missing: the
+      reconstitution volume, the dilution into the reaction, and the concentration at
+      which the bilayer starts to leak. So this Module is declared by its route in and
+      by its effect, with no number joining the two.
+  - id: it-may-not-be-the-only-stock-carrying-one
+    question: >
+      Every purified protein in this corpus arrives in a formulation, and a formulation
+      may carry a detergent. This is the one that was read off a datasheet. Whether the
+      others do is unchecked, and the way to check is to read each supplier's
+      formulation rather than to infer from this one.

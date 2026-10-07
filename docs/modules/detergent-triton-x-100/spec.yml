@@ -1,0 +1,27 @@
+# Composition source for Detergent: Triton X-100.
+#
+# AN ATOM. `process_steps: []` is a claim: nothing here produces it.
+#
+# IT IS AN OPERAND OF NO STEP, AND THAT IS THE FINDING. ../../processes/colorimetric-readout
+# names it in a checklist item as the positive lysis control, and a checklist item is
+# not a step. So the presence pass computes nothing for it, exactly as it computes
+# nothing for `dmso`: the component is real, documented, and invisible to a walk over
+# `process_steps`. Writing a step to make it visible would assert a composition nobody
+# performs -- the control is a separate well, not part of the device.
+
+module: detergent-triton-x-100
+title: "Detergent: Triton X-100"
+refines: detergent
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: a-control-well-is-not-a-composition
+    question: >
+      This Module is used in the same plate as the device and never in the same vessel,
+      which is why no step names it and why no conflict is computed. That is correct
+      and worth stating: a presence condition is about sharing a compartment, and a
+      neighboring well is not one. If the corpus ever models a plate, this is the first
+      thing it has to get right.

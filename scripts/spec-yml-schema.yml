@@ -118,9 +118,35 @@ properties:
         to:
           type: string
           description: >
-            The imposition this is sensitive to, by the id an `impositions`
-            entry uses. Matching is by this string and nothing else.
+            What this is sensitive to, by id. Matching is by this string and nothing
+            else. Under `kind: imposition`, the default, it names the id an
+            `impositions` entry uses. Under `kind: presence` it names a module id, and
+            a member of that module's class satisfies it through `refines:`.
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        kind:
+          enum: [imposition, presence]
+          default: imposition
+          description: >
+            WHAT THE OTHER HALF IS, and the two halves are not the same shape.
+            `imposition` is the original and stays the default: `to:` names something a
+            morphism inflicts, and the meet is a step or a process that inflicts it.
+            `presence` names a COMPONENT, and the meet is that component sitting in a
+            compartment this Module touches. Nothing is done to the sensitive Module.
+            The component is only there.
+            IT IS A THIRD KIND AND NOT A WIDER IMPOSITION. An Imposition is a property
+            of a morphism and a Sensitivity a property of an object; a presence
+            condition is a predicate over a composition, so it is indexed by neither.
+            Teaching the imposition walk to find it would catch this case and miss the
+            next. It is a Component predicate: of the three kinds of condition, the one
+            that ranges over a composition rather than over a morphism or a budget.
+            THREE IDS CARRY IT and two of them meet nothing today. `dmso` on
+            ../../docs/modules/membrane, `theophylline` on ../../docs/modules/reporter-lacz,
+            and `detergent`, added 2026-10-07. collate-conditions.py already grouped the
+            first two by inferring from the id; this key states it instead.
+            A SENSITIVITY THAT MEETS NOTHING IS NOT A DEFECT. It says what would happen
+            if somebody built with that component. `dmso` is reachable only through a
+            pore no composition names, and the theophylline path has no cascade page, so
+            neither meets. Both would meet the moment one is built.
         basis:
           enum: [rule, observation, inferred]
           description: >
@@ -153,6 +179,21 @@ properties:
         page:
           type: [string, "null"]
           description: Where the page states it, for the checker to compare against.
+        severity:
+          enum: [blocking, moderate]
+          default: blocking
+          description: >
+            HOW MUCH A MEET COSTS, and the default is the old behavior. `blocking`
+            destroys the Function: the bilayer is gone, the enzyme does not turn over.
+            `moderate` costs some of it and repetition adds up, which is what reading a
+            chromophore with light does to it. check-conflicts.py reports moderate meets
+            in a group of their own and leaves them out of the CONFLICT total.
+            IT IS NOT A BOUND AND DOES NOT REPLACE ONE. A bound says at what level the
+            cost arrives, which needs a measurement; this says what kind of cost it is,
+            which does not. Where a figure exists, write both.
+            ADDED 2026-10-07 because `illumination` on ../../docs/modules/chromophore
+            would otherwise report every routine read at the same level as a
+            crosslinking dose, and a report that floods is a report nobody reads.
         bound:
           $ref: "#/$defs/bound"
 
