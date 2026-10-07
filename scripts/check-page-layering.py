@@ -115,8 +115,11 @@ def findings(sources, upstream, downstream, ancestors, descendants, paths):
     out = []
     for f in paths:
         m = os.path.basename(os.path.dirname(f))
-        # a generated block is the renderer's output, not the author's prose
-        body = GEN.sub("", open(f).read())
+        # a generated block is the renderer's output, not the author's prose.
+        # Blank it but keep its newlines: deleting it shortened the text, and every
+        # line number below came out short by that block's own length -- 36 lines on
+        # base-cytosol, 33 on s30-lysate, so no constant offset recovered them.
+        body = GEN.sub(lambda g: "\n" * g.group(0).count("\n"), open(f).read())
         section = None
         for n, line in enumerate(body.split("\n"), 1):
             h = HEADING.match(line)
