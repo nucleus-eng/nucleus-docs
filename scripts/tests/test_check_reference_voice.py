@@ -7,7 +7,7 @@ exist, two commits that fixed by hand what this script was built to catch —
 `[Rr]ul` and `[Tt]heory`. The branch defect ran the other way: `check-pins.py`
 reported `roll/refinement-rulings` as a recorded decision, which is a place.
 
-ONE THING PER CASE. The first draft of this fixture labelled its own rows
+ONE THING PER CASE. The first draft of this fixture labeled its own rows
 `rulings-lower` and `rulings-caps`, so three of them fired on the annotation
 rather than on the text under test and the run looked like a pass of a
 different question. A fixture needs the same known-answer check as the
