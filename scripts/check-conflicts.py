@@ -195,6 +195,13 @@ def _tighter(a, b):
         return None, "one side reads its figure off an operand and has no value yet"
     if a.get("unit") != b.get("unit"):
         return None, f"unit {a.get('unit')!r} against {b.get('unit')!r}"
+    if a["sense"] == "within":
+        # A smaller tolerance tolerates less, so it is the tighter one. Two different
+        # setpoints are two designed differences, not one tolerance stated twice.
+        if a.get("setpoint") != b.get("setpoint"):
+            return None, (f"setpoint {a.get('setpoint')!r} against "
+                          f"{b.get('setpoint')!r}")
+        return ("a" if a["value"] <= b["value"] else "b"), None
     if a["sense"] == "at-most":
         return ("a" if a["value"] <= b["value"] else "b"), None
     return ("a" if a["value"] >= b["value"] else "b"), None

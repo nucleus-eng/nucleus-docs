@@ -88,6 +88,10 @@ A vesicle holds its interior apart from the outside until something breaches the
 
 Requires a membrane that closes, and an interior to close around. **Whether forming the boundary and holding something in it are one operation or two is unsettled**, which is why this class declares no parent.
 
+**Requires the osmotic difference across the membrane to stay within a tolerance of a designed value, for as long as the membrane holds.** The difference is the inside minus the outside. It is set when the vesicle forms, and it goes on mattering afterwards: a reaction inside can change the inside, and anything added outside changes the outside. A lipid bilayer lets water through and holds most solutes back, so a difference moves water. Too small a difference and the vesicle shrinks; too large a one and it ruptures and its contents leak.
+
+**The tolerance belongs to the vesicle, not to either solution: it is what the membrane survives.** This class states neither number. Each member states its own designed difference, and its tolerance where one was measured. [Base Cell](../base-cell/spec.md) runs its inside 100 mOsm/kg to 150 mOsm/kg above its outside, measured as the vesicles form ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). No measurement yet says how long a window holds.
+
 # Processes
 
 - [Encapsulation](../../processes/encapsulate/main.md) — the abstract operation. Each size class names one of its three routes

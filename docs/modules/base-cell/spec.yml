@@ -60,3 +60,22 @@ process_steps:
     notes: >
       Base Cytosol at reaction concentration, closed in a 70:30
       POPC:cholesterol bilayer.
+
+# THIS CELL'S OWN WINDOW, sharpening the Requirement ../vesicle states with no bound.
+# Measured on one route, as the vesicles formed, in the unit the osmometer reads.
+sensitivities:
+  - id: osmotic-balance
+    to: osmotic-shift
+    basis: observation
+    bound:
+      quantity: osmolality
+      sense: within
+      unit: mOsm/kg
+      setpoint: 125
+      value: 25
+    why: >
+      Formed with its outer solution 100 mOsm/kg to 150 mOsm/kg below its inner
+      solution: a setpoint of 125, lumen minus outer, and a tolerance of 25. Outside
+      that window the vesicles failed as they formed, shrinking below it and
+      rupturing above it. Measured at formation only.
+    page: spec.md

@@ -125,7 +125,7 @@ Combined green (488 nm) and red (561 nm) fluorescence channels. First time point
 
 # Processes
 
-Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). **Its outer solution reads 100 mOsm/kg to 150 mOsm/kg below its inner solution.** That is this cell's designed difference and its tolerance, the Requirement every [Vesicle](../vesicle/spec.md) has. Outside it the vesicles fail as they form ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). The window was measured at formation only, so it does not yet say how long the balance holds while the cell expresses.
 
 # Constituent Modules
 

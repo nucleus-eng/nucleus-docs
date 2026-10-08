@@ -73,7 +73,7 @@ A member is the aqueous phase around a synthetic cell, at the osmolarity listed 
 
 # Requirements
 
-Requires that its osmolarity match, across the membrane, that of the inner solution of whatever is suspended in it.
+Requires that its osmolarity stand, across the membrane, at the difference the vesicle it suspends was designed for: a match for some vesicles, and an offset for others.
 
 # Implementations
 

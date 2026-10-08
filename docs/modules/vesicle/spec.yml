@@ -55,6 +55,28 @@ process_steps:
       compartment, which is what a vesicle is for, and the operator is declared on
       the abstract process rather than chosen per route.
 
+# WHAT A VESICLE IS SENSITIVE TO, AND ONLY HALF OF IT. Sensitivity is a property of an
+# OBJECT and Imposition a property of a MORPHISM, so this sits here, and whatever
+# shifts the difference across the membrane declares the other half: a reaction
+# inside, or a change to the outside. Nothing declares that half yet, so this meets
+# nothing today, which is not a defect.
+#
+# NO BOUND AT THIS LEVEL, AND THAT IS THE CLAIM. A bound must carry a value, and no
+# tolerance or designed difference holds for every vesicle. A member that measured
+# its own states both, and a member stating a bound under a class that states none is
+# read as the member being more specific.
+sensitivities:
+  - id: osmotic-balance
+    to: osmotic-shift
+    basis: rule
+    why: >
+      A lipid bilayer lets water through and holds most solutes back, so an osmotic
+      difference across it moves water. Too small a difference, inside minus outside,
+      and the vesicle shrinks; too large, and it ruptures and its contents leak. The
+      requirement lasts as long as the membrane holds its lumen, not only while it
+      forms.
+    page: spec.md
+
 open:
   - id: the-material-axis-has-one-value
     question: >
