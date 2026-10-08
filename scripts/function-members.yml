@@ -1,0 +1,17 @@
+# For each Function page: the class whose members perform it, and the members its page
+# leaves out on purpose, each with the reason. scripts/check-functions.py reads it.
+#
+# A DRIFT CHECK, NOT A GENERATOR. The walk follows `refines:`, and `refines:` says what a
+# Module is, not what it does. A Module can refine a class and still never run the
+# function, so the page decides and this file records why it decided. An exclusion with
+# no reason would report the same omission on every run until someone stopped reading.
+#
+# ONE ENTRY PER PAGE. A Function page that is not named here is not compared.
+
+transcribe:
+  class: cytosol
+  not_members:
+    control-clpxp: >
+      Refines cytosol by its composition, but its documented route assembles purified
+      proteins and never transcribes. Its page allows expressing them in place, and no
+      source writes that route.

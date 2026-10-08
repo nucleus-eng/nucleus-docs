@@ -86,6 +86,29 @@ jobs:
       - name: Check TOC
         run: python3 scripts/check-toc.py
 
+  functions:
+    # docs/functions/functions-main.md lists every declared operation with a page, the
+    # reason it has none, or "To be written". A row in none of those states, or a link
+    # that does not resolve, fails. The members pass reports and never fails. The count
+    # against the theory repo's signature runs only where a checkout exists, so here it
+    # prints that it was skipped. See scripts/check-functions.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml and pytest
+        run: pip install pyyaml pytest
+
+      - name: Test the check
+        run: python3 -m pytest tests/test_check_functions.py
+
+      - name: Check the Functions hub
+        run: python3 scripts/check-functions.py
+
   composition:
     # The prose `# Constituent Modules` list and the machine-readable `spec.yml`
     # are two sources for one fact, and they drift: `luxr-lacz-cascade` listed

@@ -50,6 +50,7 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 python3 scripts/check-dropdowns.py      # (CI) flag placeholder-only lists
 python3 scripts/check-file-placement.py # (CI) flag content files outside allowed dirs
 python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
+python3 scripts/check-functions.py      # (CI) the Functions hub's rows; locally also each page's members and the signature's count
 python3 scripts/check-table-shape.py    # (CI) flag table rows whose column count differs from their header
 python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
 python3 scripts/collate-conditions.py   # what every sensitivity and imposition id names, and which meet nothing
