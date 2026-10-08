@@ -53,7 +53,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
 | OptiPrep | 100% (v/v) | 10% (v/v) | 50 |
-| Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm | 212.5 |
+| Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm/L, this buffer's share by dilution | 212.5 |
 | Total | | | 500 |
 
 :::
