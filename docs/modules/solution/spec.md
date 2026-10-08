@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Container](../container/spec.md). Refined by [Cytosol](../cytosol/spec.md), [PPK Energy](../energy-ppk/spec.md), [Outer Solution](../outer-solution/spec.md).
+**Position.** Refines [Container](../container/spec.md). Refined by [Cytosol](../cytosol/spec.md), [Energy: PPK](../energy-ppk/spec.md), [Outer Solution](../outer-solution/spec.md).
 <!-- /gen:position -->
 
 A class: a [Container](../container/spec.md) whose contents are dissolved in one phase.

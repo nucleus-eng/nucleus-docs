@@ -78,6 +78,9 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cascade | [Cascade](./cascade/spec.md) | - |
 | Substrate | [Substrate](./substrate/spec.md) | - |
 | Lysis | [Lysis](./lysis/spec.md) | - |
+| Emitter | [Emitter](./emitter/spec.md) | - |
+| Control | [Control](./control/spec.md) | - |
+| Energy | [Energy](./energy/spec.md) | - |
 | Nucleic Acid | [Nucleic Acid](./nucleic-acid/spec.md) | - |
 | Nucleic Acid | [DNA](./dna/spec.md) | - |
 | Nucleic Acid | [RNA](./rna/spec.md) | - |

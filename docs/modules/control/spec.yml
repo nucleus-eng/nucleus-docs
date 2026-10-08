@@ -1,0 +1,24 @@
+# Composition source for Control.
+#
+# A CLASS BY FUNCTION: a Module that breaks down a defined set of proteins in its
+# compartment and leaves the rest. ../control-clpxp refines it first and ../cytosol
+# second. The functional parent leads, which is the alignment rule
+# ../substrate-cprg-suv/spec.yml states.
+#
+# ONE MEMBER, on ../lysis's precedent. A class is written when a Module needs its
+# functional parent, and it does not wait for a second member.
+
+module: control
+title: "Control"
+
+inputs: {}
+process_steps: []
+
+open:
+  - id: breaking-down-a-tagged-protein-may-be-an-imposition
+    question: >
+      A member breaks down every protein in its compartment that carries its tag, so a
+      tagged protein belonging to another Module there would be broken down too. That
+      is the shape of ../lysis's class-level imposition, scoped to the compartment. It is
+      not declared, because declaring it changes what the conflict check reports, and no
+      source declares a sensitivity for it to meet.

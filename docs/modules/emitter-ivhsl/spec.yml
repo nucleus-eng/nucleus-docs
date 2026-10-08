@@ -16,15 +16,17 @@
 # column is this Module. See the questions at the foot of this file.
 
 module: emitter-ivhsl
-title: "IV-HSL Emitter"
-refines: cytosol
-  # PLACED 2026-10-05, BY COMPOSITION AND NOT BY FUNCTION, as ../control-clpxp is. Its
+title: "Emitter: IV-HSL"
+refines:
+  - emitter
+  - cytosol
+  # ../cytosol IS THE COMPOSITION PARENT, as it is for ../control-clpxp. Its
   # operands are PURExpress Solutions A and B plus a template and two substrates, and it
   # expresses BjaI from that template, so it is a cell-free expression mix by
   # ../cytosol/spec.md's own definition.
   #
   # The page opens "produces and releases N-isovaleryl-L-homoserine lactone", which is a
-  # Function and wants `emitter` -- one of T2's eleven, not yet written.
+  # Function, and ../emitter is its class. It comes first, as the functional parent.
 
 inputs:
   purexpress-solution-a:

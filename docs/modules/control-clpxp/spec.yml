@@ -22,18 +22,19 @@
 # proteins and is the Module; the rest drop one or both.
 
 module: control-clpxp
-title: "ClpXP Control"
-refines: cytosol
-  # PLACED 2026-10-05, BY COMPOSITION AND NOT BY FUNCTION. ../cytosol/spec.md is "a
+title: "Control: ClpXP"
+refines:
+  - control
+  - cytosol
+  # ../cytosol IS THE COMPOSITION PARENT. ../cytosol/spec.md is "a
   # cell-free expression mix that holds everything a transcription and translation
   # reaction needs", and this Module's operands are PURExpress Solutions A and B plus
   # the protease parts. It holds the machinery.
   #
-  # WHAT IT IS FOR WANTS A CLASS THAT DOES NOT EXIST. The page opens "enables the
-  # ATP-dependent, targeted degradation of ssrA-tagged proteins", which is a Function,
-  # and `the-type-system` T2 names `control` among eleven classes not yet written. The
-  # composition axis is true now and does not wait on the function axis, which is the
-  # same argument that put eleven Modules under ../liposome today.
+  # WHAT IT IS FOR IS ITS FIRST PARENT. The page opens "enables the ATP-dependent,
+  # targeted degradation of ssrA-tagged proteins", which is a Function, and ../control
+  # is its class. It comes first, as the functional parent; the composition axis
+  # stays second.
   #
   # NOTE FOR WHOEVER WRITES `control`: the documented step assembles from PURIFIED
   # proteins, so the expression machinery is present and unused on that route. Two other

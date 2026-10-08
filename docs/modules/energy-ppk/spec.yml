@@ -18,8 +18,10 @@
 # this Module's specification. It is a cloning vector, and it is not an operand.
 
 module: energy-ppk
-title: "PPK Energy"
-refines: solution
+title: "Energy: PPK"
+refines:
+  - energy
+  - solution
   # PLACED 2026-10-05. NOT a cytosol: it holds no expression machinery. Its operands are
   # solutes -- HEPES, potassium glutamate, rNTPs, tRNA, TCEP -- dissolved in one phase,
   # which is ../solution/spec.md exactly.
@@ -28,8 +30,8 @@ refines: solution
   # default energy module in Nucleus Cytosol". It is added to a cytosol, so it is a
   # sibling of ../outer-solution under Solution rather than a kind of cytosol.
   #
-  # `energy` is one of T2's eleven and is not written. Same split as the two above: the
-  # composition axis is placed, the function axis waits.
+  # ../energy is its class by function, and it comes first, as the functional parent.
+  # ../solution stays second, for the composition.
 
 inputs:
   hepes:

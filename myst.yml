@@ -32,6 +32,12 @@ project:
           hidden: true
         - file: ./docs/modules/lysis/spec.md
           hidden: true
+        - file: ./docs/modules/emitter/spec.md
+          hidden: true
+        - file: ./docs/modules/control/spec.md
+          hidden: true
+        - file: ./docs/modules/energy/spec.md
+          hidden: true
         - file: ./docs/modules/nucleic-acid/spec.md
           hidden: true
         - file: ./docs/modules/dna/spec.md
