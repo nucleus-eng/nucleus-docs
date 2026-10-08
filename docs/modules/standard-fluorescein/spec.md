@@ -13,6 +13,8 @@ A plate reader reports fluorescence in relative units. Those units are a propert
 
 **It is a Module and not a Process because it has a Composition and a Function.** The composition is four prepared levels; the function is to make a reading comparable. The reading itself is somebody else's step.
 
+It is read against by [Detector: EsaR](../detector-esar/spec.md), as a titration across the four levels, and by [Detector: tetR-aTc](../detector-tetr-atc/spec.md), as the older single-point normalization at 1 µM.
+
 # Reference Composition
 
 Four levels in a four-tube PCR strip, one replicate of each, 50 µL per tube. One strip per experiment.
@@ -47,13 +49,6 @@ Linearity is a property of the channel, not of the standards, and one channel in
 **The usable range is 0.5 µM to 2 µM.** The fit is poor below 0.5 µM, and it must not be extrapolated above 2 µM.
 
 **Check the 2 µM standard for detector saturation before fitting anything.** A saturated top point flattens the slope and silently biases every concentration read off it. If it saturates, either lower the gain and re-read, or drop that point from the fit — and drop it only if the samples are also clear of saturation, because a fit that excludes the top of its range cannot be applied to a sample above it.
-
-# Implementations
-
-Two pages already report results against this ladder:
-
-- [Detector: EsaR](../detector-esar/spec.md) — a titration read against the four levels.
-- [Detector: tetR-aTc](../detector-tetr-atc/spec.md) — fluorescence normalized to the 1 µM level, which is the older single-point use.
 
 # Materials
 
