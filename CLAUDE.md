@@ -119,7 +119,7 @@ Sequence files for every plasmid and construct referenced in these docs live in 
 
 ### Terminology
 
-These definitions ground the content model below — all three hierarchies: `docs/modules/`, `docs/implementations/` and `docs/processes/`, and their `spec.md` and `main.md` files:
+These definitions ground the content model below — all four hierarchies: `docs/modules/`, `docs/functions/`, `docs/implementations/` and `docs/processes/`, and their `spec.md` and `main.md` files:
 
 - Composition (n): the specified make up of a system; typically concentration and spatial organization. Composition is the design, not a completed run — see [sections.md](style-guide/sections.md#reference-composition).
 - Composing (v): the act of combining two or more systems and their associated functions
@@ -132,18 +132,20 @@ These definitions ground the content model below — all three hierarchies: `doc
 
 ### Content model
 
-The documentation organizes content into three parallel hierarchies under `docs/`:
+The documentation organizes content into four parallel hierarchies under `docs/`:
 
 - **`docs/processes/`** — Step-by-step lab protocols. Each process lives in its own subdirectory with a `main.md` (or a named `*-main.md` for parent pages). Sub-protocols nest as children.
 - **`docs/modules/`** — Modular components that extend base cytosol functionality. Each module has a `spec.md` describing its design, compatible processes, and usage.
+- **`docs/functions/`** — One page per operation a Module performs, such as transcribing DNA, at `docs/functions/<operation>/main.md`. Each lists every Module that performs it, the routes it takes, and what it consumes and produces. A Function page is for what a Module does once built; a step you run at the bench is a process. The hub, `functions-main.md`, lists every declared operation with its page or the reason it has none.
 - **`docs/implementations/`** — Documented combinations of modules and processes that demonstrate a complete system behavior.
 
-**File placement rules.** All content files — `.md`, images, `.csv` resources — must live inside one of these three subdirectories. Never create content files or directories at the repo root or anywhere outside `docs/`.
+**File placement rules.** All content files — `.md`, images, `.csv` resources — must live inside one of these four subdirectories. Never create content files or directories at the repo root or anywhere outside `docs/`.
 
 | Content type | Correct location |
 | --- | --- |
 | New module | `docs/modules/<module-name>/` |
 | New process | `docs/processes/<process-name>/` |
+| New function | `docs/functions/<operation>/` |
 | New implementation | `docs/implementations/<implementation-name>/` |
 | Process sub-resources (BOMs, images) | `docs/processes/<process-name>/resources/` |
 | Module images | `docs/modules/<module-name>/` |
@@ -170,6 +172,7 @@ Note that `hidden: true` is used pervasively for *every* non-sidebar child page 
 - `module-template/spec-class.md` — for a **class**: an abstract Module that other Modules refine (Cell, Detector, Gel). Sections: Overview / Reference Composition or Members / Expected Behavior / Requirements / Constituent Modules / Processes / Credits
 
   Pick by what the page documents, not by where the module sits in the composition tree — Base Cell is a composed module but reads as a recipe, and a membrane pore is a membrane but reads as a function. Omit a section rather than stubbing it empty.
+- `function-template/function.md` — for a **Function**: one operation that Modules perform, across every Module that performs it. Sections: Overview / Type / Substrates and products / Routes / What selects a route / Not yet attested / Credits. `# Type` is written in the docs' own words and never quotes the signature.
 - `implementation-template/implementation-template.md` — combined implementation format
 - `typst/nucleus-protocols/` — the branded typst template used to render lab-ready protocol/BOM PDFs (vendored in-repo; pubmatter pinned to 0.2.2 — see its README)
 
