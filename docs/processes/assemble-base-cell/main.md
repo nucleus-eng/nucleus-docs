@@ -175,6 +175,12 @@ While extracting liposomes, it is more important to avoid transferring residual 
 While handling liposomes, be gentle! Liposomes are fragile. Do not vortex and only mix by gentle pipetting.
 :::
 
+:::{hint} The sample is not washed
+:class: simple
+:icon: false
+The liposomes come with the outer solution around them, and that solution carries any inner solution that was not encapsulated. An enzyme in it works outside the cells. Where a readout must tell inside from outside, wash the sample first by [Wash Vesicles](../wash-vesicles/main.md), which is optional.
+:::
+
 - [ ] Hold liposomes on ice until you are prepared to begin measurement.
 - [ ] Transfer 5 µL liposomes and 20 µL of corresponding outer solution onto a 384-well glass bottom plate (5x dilution). If the density of liposomes appears too high under the microscope, dilute them with outer solution to facilitate data analysis.
 - [ ] Observe liposomes by fluorescence microscopy.

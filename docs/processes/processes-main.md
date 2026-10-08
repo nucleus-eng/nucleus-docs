@@ -44,6 +44,7 @@ Three routes close a bilayer around an aqueous payload. Which route to use depen
   - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md) — emulsion and transfer through an interface; produces synthetic cells.
   - [Encapsulation: Extrusion](./encapsulate-suv/main.md) — film hydration and extrusion; produces SUVs, which are never interchangeable with synthetic cells.
   - [Encapsulation: Freeze-Thaw](./encapsulate-luv/main.md) — film hydration, sonication and freeze-thaw; produces LUVs.
+- [Wash Vesicles](./wash-vesicles/main.md) — optional, after any route above. Moves the vesicles into a fresh outer solution and leaves behind whatever was not encapsulated.
 
 ## Sensing Cascade Processes
 

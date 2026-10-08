@@ -259,7 +259,8 @@ would be wrong. **Skipping an optional step rewires rather than removes**: whate
 product consumes its operands instead. `check-composition.py` reports where that cannot work — a
 `packing` consumer expected one bounded thing and would get several loose ones. It reports rather
 than blocks, because no source marks a step optional yet and a rule with no corpus behind it is a
-rule nobody has tested.
+rule nobody has tested. **A step whose process declares `keeps_boundary: true`, such as a wash,
+rewires onto its one bounded operand instead**, so the rule does not fire on it.
 
 **The schema is [`scripts/spec-yml-schema.yml`](scripts/spec-yml-schema.yml)**, with
 `python3 scripts/check-spec-schema.py` to validate against it. A key the schema does not allow is

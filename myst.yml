@@ -241,6 +241,8 @@ project:
               hidden: true
             - file: ./docs/processes/encapsulate-luv/main.md
               hidden: true
+        - file: ./docs/processes/wash-vesicles/main.md
+          hidden: true
         - file: ./docs/processes/express/main.md
           hidden: true
         - file: ./docs/processes/embed-gel/main.md

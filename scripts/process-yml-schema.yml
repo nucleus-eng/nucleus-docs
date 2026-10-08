@@ -135,6 +135,24 @@ properties:
       twice.
       Meaningful on any process, not only an assay: a destructive step is a destructive
       step. Absence means undeclared.
+  keeps_boundary:
+    type: boolean
+    description: >
+      TRUE WHERE THE PROCESS RETURNS ITS BOUNDED ARGUMENT WITH THE SAME BOUNDARY AND THE
+      SAME CONTENTS, and changes only what is outside it. ../docs/processes/wash-vesicles
+      is the case: the vesicles come back, in a fresh outer solution.
+      IT IS WHAT LETS AN OPTIONAL STEP BE LEFT OUT UNDER A PACKING CONSUMER. Skipping a
+      step rewires its consumer onto the step's operands. For most steps that is several
+      loose things, and packing cannot take them. For a step that keeps the boundary it
+      is the one bounded thing the step was given -- the unwashed vesicles -- and the
+      other operands go unused. scripts/check-composition.py reads this key for exactly
+      that.
+      ENCAPSULATE CREATES A BOUNDARY; A WASH KEEPS ONE AND REPLACES WHAT IS OUTSIDE IT.
+      Only the second can be left out without changing what the next step receives.
+      ../docs/processes/degrade-exterior-lacz DOES NOT DECLARE IT. Its protease reaches
+      any protein outside the lumen, the membrane's own included, so it is not shown to
+      return the boundary unchanged.
+      Absence means undeclared, not false.
   operator:
     enum: [mixing, packing, stitching]
     description: >

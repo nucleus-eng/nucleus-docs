@@ -29,10 +29,17 @@ Two findings, and they are not the same severity.
             usually does not, because the product was the thing with its own
             boundary and the operands are two things without one.
 
-            No source marks a step optional yet, so this rule has never fired.
-            It reports rather than blocks for exactly that reason: a blocking
-            rule with no corpus behind it is how you ship a rule that is wrong
-            the first time real text meets it.
+            A STEP WHOSE PROCESS KEEPS THE BOUNDARY rewires onto its one
+            bounded operand, not onto all of them. Skipping a wash leaves the
+            unwashed vesicles, still one bounded thing, and the fresh solution
+            goes unused. So the rule does not fire on a step whose process
+            source declares `keeps_boundary: true`, or on a chain of processes
+            that all do.
+
+            No source marks a step optional yet, so this rule has fired only
+            on its tests. It reports rather than blocks for exactly that
+            reason: a blocking rule with no corpus behind it is how you ship a
+            rule that is wrong the first time real text meets it.
 
 Exit 0 nothing blocking, 1 a MISSING, 2 the check could not run.
 
@@ -102,14 +109,41 @@ def source_slugs(doc: dict) -> tuple[set[str], set[str]]:
     return named, direct
 
 
-def skippable(doc: dict) -> list[str]:
+def keeps_boundary(step: dict, src_dir: Path) -> bool:
+    """Whether every process the step runs declares `keeps_boundary: true`.
+
+    Found the way check-conflicts.py finds a step's impositions: through
+    `process.page`, or each link of `process.composed_of`, or `process.abstract`
+    where no page is given. The process source is the spec.yml beside that page.
+    A chain keeps the boundary only if every link does, and a step whose process
+    cannot be found does not keep it, so the rule still fires.
+    """
+    proc = step.get("process") or {}
+    pages = [link["page"] for link in (proc.get("composed_of") or [proc])
+             if link.get("page")]
+    if not pages and proc.get("abstract"):
+        pages = [f"../../processes/{proc['abstract']}/main.md"]
+    if not pages:
+        return False
+    for page in pages:
+        src = (src_dir / page).parent / "spec.yml"
+        if not src.is_file():
+            return False
+        if (yaml.safe_load(src.read_text(encoding="utf-8")) or {}).get(
+                "keeps_boundary") is not True:
+            return False
+    return True
+
+
+def skippable(doc: dict, src_dir: Path) -> list[str]:
     """Optional steps whose product a packing consumer could not do without."""
     steps = doc.get("process_steps") or []
-    by_product = {s["produces"]["id"]: s for s in steps if "produces" in s}
     out = []
     for i, s in enumerate(steps):
         if not s.get("optional"):
             continue
+        if keeps_boundary(s, src_dir):
+            continue    # skipping it hands the consumer one bounded thing
         product = s.get("produces", {}).get("id")
         for later in steps[i + 1:]:
             if product not in (later.get("operands") or []):
@@ -135,7 +169,7 @@ def check(spec: Path, src: Path) -> tuple[list[str], list[str], list[str]]:
     listed = prose_constituents(spec.read_text(encoding="utf-8"))
     missing = [s for s in listed if s not in named]
     unlisted = sorted(s for s in direct if s not in listed)
-    return missing, unlisted, skippable(doc)
+    return missing, unlisted, skippable(doc, src.parent)
 
 
 def main() -> int:

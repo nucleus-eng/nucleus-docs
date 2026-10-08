@@ -1,0 +1,61 @@
+# Process source for Wash Vesicles.
+#
+# OPTIONAL, AND IT CAN FOLLOW ANY ENCAPSULATION ROUTE. It takes what ../encapsulate
+# returns -- vesicles suspended in the solution they were made in -- and a fresh outer
+# solution, and it returns the same vesicles suspended in the fresh one. Being optional
+# is a property of a step that runs it, not of the process, so a module source marks
+# its own wash step `optional: true`, and only where a run uses one.
+#
+# `keeps_boundary: true`. The membrane and the lumen come through unchanged, and only
+# the outside is replaced. That is what lets a skipped wash rewire cleanly: whatever
+# consumed the washed vesicles gets the unwashed ones instead, still one bounded thing,
+# and the fresh solution goes unused.
+#
+# `packing`, AS ../encapsulate IS. Two things go in, the vesicles and the fresh
+# solution, and one comes out, with the first held in the second.
+#
+# NO `refines:`. It does not make, encapsulate, embed or read.
+#
+# NO `conserves:`. That key asks whether the input survives, and a wash has two inputs
+# with two answers: the vesicles survive, and the old outer solution is thrown away.
+# `keeps_boundary` states the part that matters.
+#
+# IT SEPARATES, AND DOES NOT DESTROY. What it removes -- the old outer solution and
+# whatever was not encapsulated -- still exists, in the supernatant or in the column's
+# later fractions. ../degrade-exterior-lacz destroys what it removes. A signature cannot
+# yet say which of the two a process does, so the difference is written here.
+#
+# NO `impositions:`. A spin may cost vesicles, and a fresh solution that does not match
+# the old one shifts the osmotic balance across the membrane, but no sensitivity here
+# names either. So nothing is declared, rather than an id invented.
+
+process: wash-vesicles
+title: "Wash Vesicles"
+
+keeps_boundary: true
+
+signature:
+  takes:
+    - type: container
+      note: >
+        The vesicles as ../encapsulate returns them: suspended in the solution they were
+        made in, together with whatever was not encapsulated.
+    - type: outer-solution
+      note: >
+        The fresh solution they are moved into. Match it to the old one, or the move
+        changes the osmotic balance across the membrane.
+  produces:
+    type: container
+    note: >
+      The same vesicles in the fresh solution, with the membrane and the lumen unchanged
+      and the outside replaced.
+
+operator: packing
+
+open:
+  - id: no-wash-is-recorded-for-cells
+    question: >
+      Both recorded routes were run on vesicles that carry a substrate: centrifugal
+      exchange on LUVs and size exclusion on SUVs. No run records washing synthetic
+      cells, so no speed, time or number of washes is established for them, and
+      whether they survive repeated spins is not known.
