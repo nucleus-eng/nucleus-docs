@@ -131,7 +131,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 :::{hint} Note
 :class: simple
 :icon: false
-The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol/spec.md). Measure the osmolarity of your inner solution and adjust the outer solution's glucose concentration so its osmolarity is 100 mOsm to 120 mOsm lower than the inner solution. Check the osmolarity of your inner solution by measuring with an Osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
+The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol/spec.md). Measure the osmolarity of your inner solution and adjust the outer solution's glucose concentration so its osmolarity is 100 mOsm to 150 mOsm lower than the inner solution. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). Check the osmolarity of your inner solution by measuring with an Osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
 :::
 
 ## Encapsulate Inner Solution

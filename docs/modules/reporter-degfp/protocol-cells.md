@@ -115,7 +115,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
 :::{danger} Critical
 :class: simple
 :icon: false
-Adjust the outer solution concentration so its osmolarity is 100–120 units lower than the inner solution when measured on a Wescor EliTech Vapro 5600 Vapor Pressure Osmometer. 
+Adjust the outer solution concentration so its osmolarity is 100–150 units lower than the inner solution when measured on a Wescor EliTech Vapro 5600 Vapor Pressure Osmometer. Outside that window the liposomes fail as they form: a larger gap ruptures them, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). 
 :::
 
 - [ ]  Hold assembled reactions on ice until ready for encapsulation.
