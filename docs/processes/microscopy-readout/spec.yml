@@ -20,7 +20,7 @@
 # Illumination costs signal, not material. Nothing is consumed and nothing becomes
 # another compound. A second read is dimmer, not impossible.
 #
-# NO `operator:`. The parent declares none and neither do the other three instances. An
+# NO `operator:`. The parent declares none and neither do the other instances. An
 # assay does not compose two things into a third.
 #
 # `illumination` IS DECLARED, as of 2026-10-07. It had no sensitivity to meet until

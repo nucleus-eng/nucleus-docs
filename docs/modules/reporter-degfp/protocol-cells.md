@@ -108,7 +108,7 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
     - [ ]  Add remaining reactions in the order they appear
 - [ ]  Mix the master mix thoroughly by pipetting up and down 10–15 times until it appears homogeneous and clear.
 - [ ]  Close lids on the microcentrifuge tubes and briefly spin down to eliminate bubbles.
-- [ ]  Pipette out 10 µL of the reaction for an osmolality check using a Vapor Pressure Osmometer before starting encapsulation.
+- [ ]  Pipette out 10 µL of the reaction and read its osmolality by [Osmometry Readout](../../processes/osmometry-readout/main.md) before starting encapsulation.
 
 <br>
 

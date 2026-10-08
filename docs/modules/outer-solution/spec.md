@@ -81,7 +81,7 @@ Requires that its osmolarity match, across the membrane, that of the inner solut
 
 # Processes
 
-A member is made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md).
+A member is made by [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md), one of the two instances of [Assemble Solution](../../processes/assemble-solution/assemble-solution-main.md), and checked by [Osmometry Readout](../../processes/osmometry-readout/main.md).
 
 # Constituent Modules
 

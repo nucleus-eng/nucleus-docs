@@ -57,9 +57,10 @@ These three steps serve a sensing cascade. None of them is a reading: one brings
 
 An assay reads something and yields a value. Nothing it produces goes back into a tube, which is what sets this section apart from every other one on this page.
 
-- [Assay](./assay/main.md) — the abstraction the four below are instances of.
+- [Assay](./assay/main.md) — the abstraction the readouts below are instances of.
   - [Colorimetric Readout](./colorimetric-readout/main.md) — the stage every sensing cascade ends at. A plate-reader absorbance read, or an endpoint score by eye.
   - [Microscopy Readout](./microscopy-readout/main.md) — reads a sample one object at a time. Counts and morphology, encapsulation, retention over time, and which of two populations a signal came from.
+  - [Osmometry Readout](./osmometry-readout/main.md) — the osmolality of a solution, read from a 10 µL aliquot that is spent. How an outer solution is set against an inner one.
   - [Pierce660 Assay](./pierce660/main.md) — total protein against a standard curve. The reagent reacts with the protein it measures, so the aliquot is spent.
   - [Protein Gel](./protein-gel/main.md) — a mixture separated roughly by molecular weight and read as bands.
 

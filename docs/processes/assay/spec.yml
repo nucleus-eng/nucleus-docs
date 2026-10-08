@@ -1,6 +1,6 @@
 # Process source for Assay.
 #
-# COLORIMETRIC READOUT, PIERCE660 AND PROTEIN GEL ALL REFINE THIS ONE ABSTRACT. The thing they emit is an Observation.
+# COLORIMETRIC READOUT, MICROSCOPY READOUT, OSMOMETRY READOUT, PIERCE660 AND PROTEIN GEL ALL REFINE THIS ONE ABSTRACT. The thing they emit is an Observation.
 #
 # ../make/spec.yml ASKED FOR THIS FILE BY NAME AND SAID WHY IT WAS NOT WRITTEN. Its open
 # entry `observe-is-the-other-missing-abstract-and-is-not-written` records three
@@ -13,18 +13,19 @@
 # ../embed-gel are the other three. An assay is not a kind of making: nothing it
 # produces goes back into a tube.
 #
-# NO `operator:`. The four instances declare none either. An assay does not compose
+# NO `operator:`. The instances declare none either. An assay does not compose
 # two things into a third, so no operator of the alphabet applies to it. Left undeclared
 # rather than forced.
 #
 # NO `conserves:`. It varies across the instances and absence is not a claim.
 # ../pierce660 is destructive, because the Pierce 660 reagent reacts with the protein it
-# measures. ../protein-gel consumes its sample into the gel. ../colorimetric-readout and
+# measures. ../protein-gel consumes its sample into the gel. ../osmometry-readout spends
+# its aliquot in the instrument. ../colorimetric-readout and
 # ../microscopy-readout are both conservative: each reads the sample in place, adding
 # nothing to it and taking nothing from it, so the same material can be read again.
-# TWO AND TWO, AND ALL FOUR DECLARE. So the variation is attested in both directions
+# THREE AND TWO, AND ALL FIVE DECLARE. So the variation is attested in both directions
 # rather than inferred from two destructive children and one silent one, and a parent
-# asserting either answer would be wrong for two of its four.
+# asserting either answer would be wrong for some of its instances.
 
 process: assay
 title: "Assay"
@@ -37,7 +38,8 @@ signature:
         Whatever is being read. Repeated because ../colorimetric-readout takes two, a
         cascade and the substrate it turns over, and because ../microscopy-readout reads
         one field that may deliberately hold two liposome populations at once.
-        ../pierce660 and ../protein-gel take one sample each.
+        ../pierce660 and ../protein-gel take one sample each, and ../osmometry-readout
+        one solution.
   produces:
     type: observation
     note: >
@@ -48,15 +50,18 @@ signature:
       curve, a linear fit, and a concentration calculated from it. ../protein-gel,
       ../colorimetric-readout and ../microscopy-readout stay at this type, because each
       has a route read by eye and no quantitative route written beside it.
+      ../osmometry-readout narrows to `measurement` too: one osmolality per solution.
       `observation` HAS NO PAGE, LIKE `component`, WHICH 27 SIGNATURES NAME AND NO
       MODULE CARRIES. A Module is a formulation. A reading is not one.
 
 open:
   - id: the-domain-is-the-loosest-of-the-three
     question: >
-      `component` repeated covers all four instances and says almost nothing.
+      `component` repeated covers every instance and says almost nothing.
       ../colorimetric-readout actually takes a cascade and a substrate, and the other
       two take a sample of a mixture. A tighter domain would need a type for "the thing
       an assay is run on", which this corpus does not have and which the shared glossary
       calls a Sample. Left loose rather than invented.
+      ../osmometry-readout is the first instance to take less: a `solution`, a type
+      that does exist here, which leaves out a cell because a lumen cannot be read.
     kind: question

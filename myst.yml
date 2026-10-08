@@ -260,6 +260,8 @@ project:
           hidden: true
         - file: ./docs/processes/microscopy-readout/main.md
           hidden: true
+        - file: ./docs/processes/osmometry-readout/main.md
+          hidden: true
         - file: ./docs/processes/anneal-ph-trigger-duplex/main.md
           hidden: true
         - file: ./docs/processes/degrade-exterior-lacz/main.md
