@@ -589,12 +589,13 @@ $defs:
           Which way the bound runs. An imposition `at-least 30` and a sensitivity
           `at-most 25` conflict. An imposition `at-least 20` against the same
           sensitivity does not.
-          `within` COMPARES TWO READINGS, NOT A READING TO A THRESHOLD, and `value` is
-          the tolerance rather than the limit. The live case is osmolarity: a vesicle
-          tolerates |osm(outer) - osm(lumen)| <= tau, which at-least and at-most cannot
-          say because each of them holds one reading and a bound. The imposing side
-          still states a plain reading, so both halves of a Conflict keep one shape and
-          the comparison does the relational work.
+          `within` COMPARES TWO READINGS, NOT A READING TO A THRESHOLD. The live case is
+          osmolarity across a vesicle's membrane: |(osm(lumen) - osm(outer)) - setpoint|
+          <= value. `value` is the tolerance, tau, and the class states it. `setpoint` is
+          the designed offset, delta, and each member states its own. At-least and
+          at-most cannot say this, because each holds one reading and a bound. The
+          imposing side still states a plain reading, so both halves of a Conflict keep
+          one shape and the comparison does the relational work.
           THE TOLERANCE BELONGS TO THE VESICLE AND NOT TO THE BUFFER, which is why the
           sensitive thing is still an object and `to:` still names a plain condition id.
           NO SOURCE USES THIS YET. The osmolarity sensitivity it exists for is not
@@ -609,6 +610,17 @@ $defs:
           not compare. There is no unit registry and this schema does not pretend to one.
       value:
         type: number
+      setpoint:
+        type: number
+        description: >
+          With `within` only: the designed difference, lumen minus outer, that the
+          tolerance is centered on, in `unit`. The Base Cytosol GUV route sets its outer
+          solution 100 to 150 below its lumen, so its setpoint is 125 and its tolerance
+          25. A member matched on both sides, as the S30 cells are at about 920, has a
+          setpoint of 0.
+          ABSENT MEANS UNDECLARED, NOT ZERO. A `within` with no setpoint, or no value, is
+          reported as cannot compute and never as a pass. The one window on record was
+          measured as vesicles form, so it says nothing yet about how long it holds.
       from:
         type: object
         additionalProperties: false
@@ -628,6 +640,9 @@ $defs:
         not: { required: [from] }
       - required: [from]
         not: { anyOf: [ { required: [value] }, { required: [unit] } ] }
+    allOf:
+      - if: { properties: { sense: { not: { const: within } } } }
+        then: { not: { required: [setpoint] } }
   processRef:
     type: object
     additionalProperties: false
