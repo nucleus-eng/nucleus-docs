@@ -265,6 +265,9 @@ project:
           children:
             - file: ./docs/processes/assemble-base-cell/main.md
               hidden: true
+              children:
+                - file: ./docs/processes/assemble-base-cell/protocol-guv.md
+                  hidden: true
             - file: ./docs/processes/encapsulate-suv/main.md
               hidden: true
             - file: ./docs/processes/encapsulate-luv/main.md

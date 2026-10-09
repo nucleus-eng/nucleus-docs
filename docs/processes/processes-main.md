@@ -42,6 +42,7 @@ Three routes close a bilayer around an aqueous payload. Which route to use depen
 
 - [Encapsulation](./encapsulate/main.md) — the abstraction every route below is an instance of. Closes a bilayer around an aqueous payload, and packs rather than mixes.
   - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md) — emulsion and transfer through an interface; produces synthetic cells.
+    - [Protocol: Inverted Emulsion](./assemble-base-cell/protocol-guv.md) — the same operation at different settings, for GUVs. A second protocol, not a fourth route: the spin is 2500 g against 9000 g, so the two are not interchangeable.
   - [Encapsulation: Extrusion](./encapsulate-suv/main.md) — film hydration and extrusion; produces SUVs, which are never interchangeable with synthetic cells.
   - [Encapsulation: Freeze-Thaw](./encapsulate-luv/main.md) — film hydration, sonication and freeze-thaw; produces LUVs.
 - [Wash Vesicles](./wash-vesicles/main.md) — optional, after any route above. Moves the vesicles into a fresh outer solution and leaves behind whatever was not encapsulated.
