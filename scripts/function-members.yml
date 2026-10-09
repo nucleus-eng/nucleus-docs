@@ -21,3 +21,14 @@ transcribe:
 translate:
   class: cytosol
   not_members: {}
+
+# degrade IS NOT COMPARED, AND THAT IS DELIBERATE. Its members share no class: ClpXP
+# refines control and does it by design, and S30 Lysate refines cytosol and does it as
+# a side effect, to protein, RNA and DNA alike. A walk under either class would report
+# the other's members as strays, or every other cytosol as missing. The page names its
+# members itself, and this file has nothing to check them against.
+
+# regenerate-rntps IS NOT COMPARED EITHER, for the same reason. Energy: PPK refines energy,
+# and Base Cytosol regenerates ATP from creatine phosphate as one of a cytosol's own
+# functions, which is why ../docs/modules/energy/spec.md says it is not a member. A
+# walk under energy finds one of its two routes.

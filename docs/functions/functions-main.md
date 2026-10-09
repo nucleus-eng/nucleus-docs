@@ -22,8 +22,8 @@ A Function page documents one operation that Modules perform, such as transcribi
 | Lyse | Breaks a membrane and releases what it held. | To be written |
 | Transport | Moves cargo across a membrane through a pore: down a gradient, or against one with energy. | To be written |
 | Emit | Releases a signal molecule outside the compartment. | To be written |
-| Degrade | Breaks down a protein, an RNA or a DNA mixed with it. | To be written |
-| Regenerate | Turns a spent nucleotide back into its usable form, such as ADP into ATP. | To be written |
+| Degrade | Breaks down a protein, an RNA or a DNA mixed with it. | [Degrade](./degrade/main.md) |
+| Regenerate rNTPs | Turns a spent nucleotide back into a ribonucleoside triphosphate (rNTP), such as ADP into ATP. | [Regenerate rNTPs](./regenerate-rntps/main.md) |
 | Hold | Keeps what is inside a container in a fixed relation to what is outside it. | To be written |
 | Hydrolyze pyrophosphate | Splits pyrophosphate into two phosphates. | To be written |
 | Hydrolyze ATP | Splits ATP into ADP and phosphate. | No page yet: no Module lists an enzyme that does it, so it has no attested member. Base Cytosol is only inferred to do it. |

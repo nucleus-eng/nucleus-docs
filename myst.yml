@@ -242,6 +242,10 @@ project:
           hidden: true
         - file: ./docs/functions/translate/main.md
           hidden: true
+        - file: ./docs/functions/degrade/main.md
+          hidden: true
+        - file: ./docs/functions/regenerate-rntps/main.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/encapsulate/main.md
