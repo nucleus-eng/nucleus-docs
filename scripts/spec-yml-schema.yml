@@ -257,21 +257,35 @@ properties:
       WHAT THIS MODULE MAKES AVAILABLE TO WHAT SHARES ITS COMPARTMENT, named as an
       operation. Base Cytosol supplies T7 RNA polymerase, so it provides
       `transcribe[pT7]`, and a repressor detector, which requires `transcribe`, is met
-      by it. IT IS THE PROVIDER HALF OF `requires`. AN ID IS A PAIR
-      WRITTEN AS ONE STRING: the operation, and the set of predicates in brackets.
-      `transcribe[pT7]` is `transcribe` with `{pT7}`; a bare `transcribe` is
-      `transcribe` with `{}`. The brackets hold PREDICATES over the operand and not a
-      narrower type, which is the reading `degrade[linearDNA]` and `degrade[ssrA]`
-      already take. Several are separated by commas and no space.
-      THE MATCH IS NOT STRING EQUALITY, and this said it was until 2026-10-09. A
-      provider meets a requirer when the operations are the same word AND the
-      provider's predicate set CONTAINS the requirer's. A provider is never less
-      specific than what it meets. The live case: `repressor-detector` requires
-      `transcribe`, while `base-cytosol` provides `transcribe[pT7]` and `s30-lysate`
-      provides `transcribe[sigma70]`. All three strings differ, both providers meet
-      the requirement, and under equality neither would. The reverse does not hold --
-      a requirer of `transcribe[pT7]` is NOT met by `transcribe[sigma70]`, because a
-      T7 promoter needs T7 polymerase.
+      by it. IT IS THE PROVIDER HALF OF `requires`. AN ID IS AN OPERATION AND,
+      OPTIONALLY, A TYPE IN BRACKETS. The bracket ALWAYS names a type -- the type of
+      the thing the operation acts on. `linearDNA` is a type; whether it is built as a
+      node of its own or as DNA narrowed by a predicate is a convenience, and does not
+      change what the bracket means. Several types are separated by commas and no space.
+      SATISFACTION IS CONTRAVARIANT, and this file said it was string equality until
+      2026-10-09 and then set containment until later the same day. Both were wrong.
+      The bracket sits in INPUT position, so a provider meets a requirer when the
+      operations are the same word AND the provider's type is at least as WIDE as the
+      requirer's. Narrowing the bracket makes a capability do LESS, never more.
+      A REQUIREMENT WITH NO BRACKET DEMANDS NOTHING, and it is not the top type. That
+      distinction is what makes the rule work on the whole corpus at once:
+        requires `transcribe`           met by `transcribe[pT7]` and by
+                                        `transcribe[sigma70]` -- `repressor-detector`
+                                        needs transcription AVAILABLE in its
+                                        compartment, which any route supplies
+        requires `transcribe[pT7]`      NOT met by `transcribe[sigma70]` -- a T7
+                                        promoter needs T7 polymerase
+        requires `degrade[DNA]`         NOT met by `degrade[linearDNA]` -- an
+                                        exonuclease needs a free end, so the circular
+                                        plasmid survives
+        requires `degrade[linearDNA]`   met by `degrade[DNA]`, which is wider
+        requires `degrade[NucleicAcid]` NOT met by `degrade[RNA]` -- `rna` refines
+                                        `nucleic-acid`, so RNase covers part of it
+      SO THE COMPARISON IS A POSET LOOKUP AND NOT A SET OPERATION. The order comes
+      from `refines:` across the sources, which already carries it for the types that
+      have nodes: `rna` and `dna` refine `nucleic-acid`, and `dsdna` and `ssdna` refine
+      `dna`. A type with no node compares only to itself, which is why `linearDNA` is
+      exact today and a topology axis would change that.
       NOTHING COMPUTES THIS YET. The rule is written here so that what the key means
       does not wait on whichever script reads it first.
       IT IS A DECLARATION, NOT A DISCHARGE. That a requirement is met in a given
