@@ -37,6 +37,7 @@ provides:
       and no other.
     page: spec.md
   - id: translate
+    basis: rule
     why: >
       Follows from membership of ../cytosol, whose page states the condition outright:
       "A member transcribes the DNA added to it and translates the transcript into

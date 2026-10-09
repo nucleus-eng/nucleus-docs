@@ -307,6 +307,26 @@ properties:
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
         why:
           type: string
+        basis:
+          enum: [rule, observation, inferred]
+          description: >
+            WHETHER THE MODULE IS KNOWN TO DO THIS, on the same three-way split as
+            `sensitivities` at this file's `basis:` above, and read the same way. A
+            `rule` holds because a mechanism says so -- Base Cytosol translates because
+            every Cytosol does, and a Module that did not would not be one. An
+            `observation` reports what its pages attest and claims nothing about the
+            next case, which is all S30 Lysate can offer: its composition is undefined,
+            so what it provides is what has been seen, never what it is made of. An
+            `inferred` capability asserts no mechanism and reports no case.
+            IT EXISTS SO THAT A SUM OVER `provides` CAN SAY WHAT IT LEANT ON. The
+            particle-count arithmetic is only sound if every function that raises the
+            count is in the network, which means an inferred term must sometimes be
+            counted -- and a verdict resting on one is weaker than a verdict resting on
+            enumerated rows. Without this key the two are indistinguishable and the
+            weaker verdict reads as strong.
+            OPTIONAL, AND ABSENT MEANS UNDECLARED. It does not mean `observation`. A
+            default here would answer, silently, the one question the key exists to
+            ask, which is this file's rule everywhere else.
         page:
           type: [string, "null"]
   impositions:

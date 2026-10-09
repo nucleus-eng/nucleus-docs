@@ -21,6 +21,7 @@ inputs:
 
 provides:
   - id: transcribe[sigma70]
+    basis: observation
     why: >
       Carries E. coli's own RNA polymerase, so it transcribes a template driven by a
       σ70 promoter. It does not transcribe a T7-driven one.
@@ -31,15 +32,18 @@ provides:
   # `provides:` is for -- it states what a Module does, not what it contains. No page
   # here names a protease, an RNase or a DNase, and none should.
   - id: degrade[Protein]
+    basis: observation
     why: >
       Baseline protease activity, from an E. coli extract. The enzyme is not named
       anywhere, and cannot be: the composition is undefined.
     page: spec.md
   - id: degrade[RNA]
+    basis: observation
     why: >
       Baseline RNase activity, which is why an RNase inhibitor is a Requirement here.
     page: spec.md
   - id: degrade[linearDNA]
+    basis: observation
     why: >
       Baseline exonuclease activity. The bracket is a PREDICATE OVER DNA and not a
       narrower type, in the same shape as `degrade[ssrA]`, which is ClpXP acting only on
