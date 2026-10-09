@@ -223,6 +223,36 @@ def find_theory(explicit, ref):
     return None, None, [str(c) for c in cands]
 
 
+def ref_warning(repo_root, ref: str) -> str:
+    """Empty, or a warning that `ref` is not what a reader would resolve.
+
+    **The default `ref` is HEAD, and HEAD is whatever branch that checkout sits on.**
+    Measured 2026-10-08: the only theory checkout on this machine was on a feature
+    branch 15 commits behind `origin/main`, so every count taken that day was against
+    a tree no reader shares. The count came out right by luck — the branch had not
+    touched the Interface block.
+
+    This is `check-dna-refs.py`'s defect in a second script. There the fix was to say
+    which tree was read; the same applies here, and for the same reason: there is no
+    ref that is right for every run, because a count against an unpushed branch is
+    exactly what you want when checking your own edit before pushing it.
+    """
+    def _git(*a):
+        r = subprocess.run(["git", "-C", str(repo_root), *a], capture_output=True, text=True)
+        return r.stdout.strip() if r.returncode == 0 else None
+
+    resolved = _git("rev-parse", ref)
+    main = _git("rev-parse", "origin/main")
+    if resolved is None or main is None or resolved == main:
+        return ""
+    behind = _git("rev-list", "--count", f"{ref}..origin/main")
+    branch = _git("rev-parse", "--abbrev-ref", "HEAD") if ref == "HEAD" else ref
+    extra = f", {behind} commit(s) behind it" if behind and behind != "0" else ""
+    return (f"\n⚠️  COVERAGE read `{branch}`, which is NOT `origin/main`{extra}.\n"
+            "    The count below is against a tree other readers may not have. Pass\n"
+            "    `--ref origin/main` for the count a reader would get.")
+
+
 # ---- main ------------------------------------------------------------------------
 
 def main():
@@ -271,6 +301,9 @@ def main():
         if block is None:
             print(f"⛔️ COVERAGE no Interface block in signature.md at {h}")
             return 2
+        warn = ref_warning(path, a.ref)
+        if warn:
+            print(warn)
         counted, excluded = declared(block)
         for name, why in excluded.items():
             print(f"ℹ️  COVERAGE not counted: {name} ({why})")
