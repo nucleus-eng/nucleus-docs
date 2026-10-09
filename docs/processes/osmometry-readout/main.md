@@ -37,7 +37,7 @@ No page or DevNote here records which standard was read, at what value, or how o
 
 # Which Unit a Figure Takes
 
-The instrument reads **osmolality**: osmoles per kilogram of water, in mOsm/kg. **Osmolarity** is osmoles per liter of solution, in mOsm/L. A recipe yields osmolarity, and so does any figure computed from a composition. A reading yields osmolality. The two are different quantities, so a figure takes the unit of where it came from, and the unit is written with it. A bare mOsm does not say which one it is, so it marks a figure whose origin is not recorded, and nothing else.
+The instrument reads **osmolality**: osmoles per kilogram of water, in mOsm/kg. **Osmolarity** is osmoles per liter of solution, in mOsm/L. A recipe yields osmolarity, and so does any figure computed from a composition. A reading yields osmolality. The two are different quantities, so a figure takes the unit of where it came from, and the unit is written with it. A bare mOsm does not say which one it is, so it marks a figure whose origin is not recorded, and nothing else. Write that mark as `(origin not recorded)`, in those words, straight after the figure — one wording, so a reader meets the same phrase everywhere and a check can find it.
 
 **A reading is recorded in mOsm/kg.** Converting it to osmolarity is optional: osmolarity is osmolality times the kilograms of water in one liter of the solution that was read.
 

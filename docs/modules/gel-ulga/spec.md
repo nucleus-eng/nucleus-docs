@@ -77,7 +77,7 @@ flowchart TD
 | Potassium L-glutamate | 578 mM | |
 | HEPES, pH 7.4 | 72 mM | |
 | Glucose | 300 mM | |
-| **Osmotic concentration** | **~920 mOsm** | the sum of the components above. Whether this figure was measured or calculated is not recorded. @Editor: the components above add to 950 mOsm/L as written, and to about 1560 mOsm/L when each ion of the salts counts. Neither is 920. Is 920 a reading of a different solution, or is the recipe wrong? |
+| **Osmotic concentration** | **~920 mOsm** | the sum of the components above (origin not recorded). @Editor: the components above add to 950 mOsm/L as written, and to about 1560 mOsm/L when each ion of the salts counts. Neither is 920. Is 920 a reading of a different solution, or is the recipe wrong? |
 :::
 
 ::::
