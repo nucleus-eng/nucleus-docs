@@ -1,0 +1,130 @@
+# Composition source for tetR-aTc Detector.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: two additions into Base Cytosol, sharing its resources. No
+# `packing` step appears here, so nothing in this file depends on whether forming a
+# boundary and holding something in it are one operation, which is unsettled.
+#
+# aTc IS EXCLUDED. It is the analyte this Module detects, and its dose depends on
+# the cytosol rather than on this Module. See ../analyte-atc/spec.md.
+
+module: detector-tetr-atc
+title: "tetR-aTc Detector"
+refines: repressor-detector
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  teto-template:
+    title: "pT7-tetO-deGFP template"
+    page: null            # pT7-tetO-plamGFP is the PURExpress reference
+  tetr:
+    title: "TetR repressor"
+    range: "500 nM to 2000 nM; 500 nM saturates repression and it is improvable to 2000 nM"
+    page: null            # three formats, not interchangeable — see the questions
+  detergent-tween-80:
+    title: "Detergent: Tween 80"
+    page: ../detergent-tween-80/spec.md
+    optional: true        # arrives dissolved in the purified stock, not added
+    # NOT A CONSTITUENT ANYBODY CHOSE. The purified His-tagged stock
+    # (MedChemExpress HY-P71520A) is lyophilized from a solution containing 0.02%
+    # Tween 80, so the detergent enters with the repressor. It is declared as an
+    # operand because that is the only way the composition can see it, and
+    # `optional: true` because the two other formats of TetR do not carry it.
+    #
+    # THE CONCENTRATION IS NOT HERE BECAUSE NOBODY RECORDED IT. The formulation
+    # figure is on ../detergent-tween-80/spec.md, which also says that the
+    # reconstitution volume and the dilution into the reaction are unrecorded.
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      title: "Assemble the tetR-aTc Detector reaction"
+      page: null
+      abstract: assemble-cytosol
+    operator: mixing
+    operands: [base-cytosol, teto-template, tetr, detergent-tween-80]
+    produces:
+      id: detector-tetr-atc
+      title: "tetR-aTc Detector"
+      page: ../detector-tetr-atc/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # NO STOCK AND NO FRACTION. ../detector-tetr-atc/spec.md:96 gives these as
+    # "Working concentration" in Base Cytosol and states no stock. The page does carry
+    # a 10 uM TetR stock at :125, but that is the PURExpress reference build, and this
+    # file's own open item `the-reference-figures-used-purexpress` says the specified
+    # and the evidenced composition are not the same system. Importing the stock across
+    # that line would merge two systems by accident.
+    finals:
+      base-cytosol: {value: 1, unit: "fold"}
+      teto-template: {value: 0.5, unit: "nM"}
+      tetr: {value: 500, unit: "nM"}
+    notes: >
+      TetR binds the tetO operator and blocks transcription until aTc relieves it, so
+      the Module is the repressor and its operator-bearing template. The 0.5 nM
+      figure is the reporter re-run in Base Cytosol; `pT7-tetO-plamGFP` is the
+      PURExpress reference and the master mix that produced the reference figures is
+      in Expected Behavior rather than in the composition.
+
+# WHAT THIS MODULE TOLERATES. Half of a Conflict, which is derived and never
+# asserted, so the other half sits on a morphism and
+# check-conflicts.py does the join. ABSENCE MEANS UNDECLARED, NOT NONE.
+sensitivities:
+  - id: atc-window
+    to: atc-dose
+    basis: observation
+    bound:
+      quantity: concentration
+      sense: at-most
+      unit: "µM"
+      value: 0.5
+    why: >
+      Above about 0.5 uM aTc in this cytosol the response stops being graded.
+      ../atc-sensing-cell/spec.md reports its own configuration saturating at or
+      below 1 uM with no resolvable dose-dependence from 1 uM to 10 uM, which is the
+      one observation the corpus has of this end being crossed.
+      THE LOWER END IS IN PROSE AND NOT HERE, same discipline as ../cell/spec.yml:
+      a single bound carries one sense, and the end an imposition can cross is the
+      upper one. The window is 0.1 uM to 0.5 uM with an optimum near 0.25 to 0.35 uM.
+      THIS IS A WINDOW IN THIS CYTOSOL AND NOT A PROPERTY OF THE DETECTOR ALONE.
+      Lysate wants 2.5 uM to 5 uM, roughly ten times more. A bound written without
+      its cytosol would be false in the other one.
+      NOTHING COMPUTES AGAINST THIS YET, AND THAT IS THE FINDING. `atc-dose` is not
+      declared as an imposition anywhere in the corpus. Nine impositions exist across
+      all sources and they are `thermal-hold`, `uv-exposure` and `proteinase-k`;
+      `temperature` is the only quantity any of them declares. The step that would
+      raise `atc-dose` is the aTc trigger, and IT CANNOT BE WRITTEN, because the dose
+      the demo uses is unrecorded — the page says so in its own words. So this entry
+      is a declared half waiting on a figure from the bench, not on a schema change.
+
+open:
+  - id: three-tetr-formats-are-not-interchangeable
+    question: >
+      The page says three TetR formats exist and are not interchangeable, and points
+      at Expected Behavior for the difference. The schema has one operand slot, so
+      `tetr` above is the role and the format is unstated. Which format a composing
+      page gets is therefore not derivable from this file, and the page's own warning
+      that they are not interchangeable means the omission changes the result rather
+      than only the provenance. Same "one of these" shape as ../detector-ph/spec.yml.
+  - id: the-atc-window-is-the-nodes-not-the-figures
+    question: >
+      The page gives 0.1 uM to 0.5 uM aTc with an optimum near 0.25 to 0.35 uM, and
+      states plainly that this is the Node's working window in this cytosol and NOT
+      the dose used in the figures, which is unrecorded. Lysate wants 2.5 uM to 5 uM
+      — a different cytosol, a different window. aTc is excluded from the operands
+      above as the analyte, so this file does not carry either figure, but a reader
+      composing this Module needs both facts and they live on ../analyte-atc/spec.md.
+  - id: the-reference-figures-used-purexpress
+    question: >
+      The composition above is in Base Cytosol. The figures the page shows were
+      produced in PURExpress with a different master mix, given in Expected Behavior.
+      So the specified composition and the evidenced composition are not the same
+      system, and this file describes the first.

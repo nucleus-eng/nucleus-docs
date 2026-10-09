@@ -60,6 +60,7 @@ Exit codes:
 import argparse
 import os
 import re
+import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -84,13 +85,69 @@ PREFIX_STRIP = ("pOpen-", "pET28a-")
 
 LINK_RE = re.compile(
     r"\[([^\]]*)\]\(https://github\.com/(nucleus-eng/DNA|bnext-bio/nucleus)"
-    r"/(blob|tree)/([^/]+)/([^)\s]+)\)"
+    r"/(blob|tree)/([^)\s]+)\)"
 )
+# A GITHUB BLOB URL CANNOT BE SPLIT INTO REF AND PATH BY STRING ALONE, because both
+# halves may contain slashes. The ref was `[^/]+` here until 2026-09-26, which assumes
+# a branch name has none, and `devcells/devstudio-constructs` has one. Every citation
+# to that branch was read as ref `devcells` and path `devstudio-constructs/...`, so the
+# path did not exist and the file reported as missing. TWENTY-THREE BLOCKING FINDINGS,
+# all false, one cause -- and the message said "file not found in DNA repo" about files
+# that were on disk the whole time.
+#
+# The repo settles it: try every split and take the one whose ref the repo knows. Longest
+# first, because `devcells` is not a ref and `devcells/devstudio-constructs` is, and a
+# shorter accidental match would put repo directories into the ref.
+def split_ref_path(tail: str, refs: set[str]) -> tuple[str, str]:
+    """Split `<ref>/<path>` using the refs the repo actually has."""
+    parts = tail.split("/")
+    for i in range(len(parts) - 1, 0, -1):
+        ref = "/".join(parts[:i])
+        if ref in refs:
+            return ref, "/".join(parts[i:])
+    return parts[0], "/".join(parts[1:])   # unknown ref: the old reading, one segment
+
+
+REFS: set[str] = set()
+
+
+def repo_refs(repo_dir) -> set[str]:
+    """Branch and tag names, local and remote, with the remote prefix dropped."""
+    out = {"main", "master", "HEAD"}
+    try:
+        r = subprocess.run(
+            ["git", "-C", str(repo_dir), "for-each-ref", "--format=%(refname:short)"],
+            capture_output=True, text=True, timeout=10)
+        for line in r.stdout.split():
+            out.add(line)
+            if line.startswith("origin/"):
+                out.add(line[len("origin/"):])
+    except Exception:
+        pass
+    return out
 BACKTICK_RE = re.compile(r"`([^`]+)`")
 BP_SUFFIX_RE = re.compile(r"^(\d[\d,]*)\s*bp$", re.IGNORECASE)
 FILENAME_RE = re.compile(r"^([\w.\-]+\.(?:gb|gbk|dna|fasta|fa))$", re.IGNORECASE)
 LOCUS_RE = re.compile(r"^LOCUS\s+(\S+)\s+(\d+)\s+bp", re.IGNORECASE)
 SEP_ROW_RE = re.compile(r"^[\s|:-]+$")
+
+# --------------------------------------------------------------------------- #
+# Stale absence claims
+# --------------------------------------------------------------------------- #
+# A page can assert that a construct is NOT in the DNA repo. That claim goes
+# stale the moment the file lands, and nothing sees it: every other check here
+# validates rows that DO cite a file. Six such claims sat wrong for twelve days.
+ABSENCE_RE = re.compile(
+    r"(?:not (?:yet )?(?:been )?(?:in|submitted to)\b"
+    r"|no sequence file\b"
+    r"|has no sequence file\b"
+    r"|no recorded length\b"
+    r"|not yet determined\b)",
+    re.IGNORECASE,
+)
+# Construct names are written in backticks; skip prose words that happen to be
+# code-formatted (paths, file extensions, bare English).
+NAME_CANDIDATE_RE = re.compile(r"^[A-Za-z0-9][\w.\-]{2,}$")
 
 
 @dataclass
@@ -109,6 +166,12 @@ class ConstructFile:
     rel_path: str
     locus_name: str | None
     length_bp: int | None
+    # EVERY NAME THE FILE GIVES ITSELF, not only its LOCUS. A GenBank file names
+    # its parts in /label= and DEFINITION, and that is where a full construct
+    # name usually lives — `pOpen-pT7-lacO.gb` has LOCUS `pT7-lacO` and a feature
+    # labeled `pT7-lacO-UTR1-plamGFP-t7hyb6`. Comparing only against LOCUS and
+    # filename asked two of the three places the answer could be.
+    self_names: tuple[str, ...] = ()
 
 
 @dataclass
@@ -128,10 +191,62 @@ class Claim:
 # --------------------------------------------------------------------------- #
 
 
-def find_dna_repo() -> Path | None:
+def _looks_like_dna_repo(path: Path) -> bool:
+    """A directory is the DNA repo only if it actually holds sequence files.
+
+    Without this, any empty directory called DNA satisfies the search and the
+    check reports a clean run over an index of nothing.
+    """
+    if not path.is_dir():
+        return False
+    return any(
+        p.suffix.lower() in SEQ_EXTENSIONS
+        for p in path.rglob("*")
+        if p.is_file()
+    )
+
+
+def dna_repo_candidates() -> list[Path]:
+    """Where the DNA repo might be, most explicit first.
+
+    NUCLEUS_DNA_REPO wins. Otherwise the sibling of this repo is tried before
+    the documented ~/src/nucleus-eng/DNA, because a checkout that nests the org
+    under an employer directory keeps the two repos side by side but puts
+    neither at the documented path.
+    """
     env = os.environ.get("NUCLEUS_DNA_REPO")
-    candidate = Path(env) if env else Path.home() / "src" / "nucleus-eng" / "DNA"
-    return candidate if candidate.is_dir() else None
+    if env:
+        return [Path(env).expanduser()]
+    repo_root = Path(__file__).resolve().parent.parent
+    return [
+        repo_root.parent / "DNA",
+        Path.home() / "src" / "nucleus-eng" / "DNA",
+    ]
+
+
+def find_dna_repo() -> Path | None:
+    """The DNA repo, or None.
+
+    THE CONTENT GUARD APPLIES TO THE GUESSES AND NOT TO AN OVERRIDE. A guess
+    that lands on an empty directory called DNA must lose, because nobody asked
+    for it and an index of nothing reports every construct as missing. An
+    override was asked for, so existence is the only test it has to pass and
+    `main` reports separately when it holds no sequence files. "Not found" and
+    "found and empty" take different fixes, so they are different messages.
+
+    Before 2026-09-21 the guard ran on both, which made an explicit
+    NUCLEUS_DNA_REPO fail with an error telling the reader to set
+    NUCLEUS_DNA_REPO. `dna_repo_candidates` has said "NUCLEUS_DNA_REPO wins"
+    since it was written; this is the first version where it does.
+    """
+    env = os.environ.get("NUCLEUS_DNA_REPO")
+    if env:
+        override = Path(env).expanduser()
+        return override if override.is_dir() else None
+    for candidate in dna_repo_candidates():
+        if _looks_like_dna_repo(candidate):
+            return candidate
+    return None
 
 
 def _parse_locus(path: Path) -> tuple[str | None, int | None]:
@@ -148,6 +263,71 @@ def _parse_locus(path: Path) -> tuple[str | None, int | None]:
     return m.group(1), int(m.group(2))
 
 
+def _self_names(path: Path) -> tuple[str, ...]:
+    """Names a GenBank file gives itself, beyond its LOCUS: feature labels and
+    the DEFINITION line. Binary formats (.dna) yield nothing and that is fine —
+    absence of evidence stays absence, and the caller falls back to warning."""
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        return ()
+    names = re.findall(r'/label="([^"]+)"', text)
+    d = re.search(r"^DEFINITION\s+(.+)$", text, re.M)
+    if d:
+        names.append(d.group(1))
+    return tuple(names)
+
+
+def dna_repo_state(repo_root: Path) -> tuple[str | None, str | None]:
+    """The branch and short commit the index was read from, or (None, None).
+
+    The index comes from the working tree, never from a ref, so what this
+    script checked against is whatever branch that checkout happens to be on.
+    Returning it is not a detail: see `describe_dna_repo_state`.
+    """
+    def _git(*args):
+        try:
+            out = subprocess.run(["git", "-C", str(repo_root), *args],
+                                 capture_output=True, text=True, timeout=10)
+        except (OSError, subprocess.SubprocessError):
+            return None
+        return out.stdout.strip() or None if out.returncode == 0 else None
+
+    return _git("rev-parse", "--abbrev-ref", "HEAD"), _git("rev-parse", "--short", "HEAD")
+
+
+def describe_dna_repo_state(repo_root: Path, branch: str | None, head: str | None) -> str:
+    """One block saying what was read, and what it means when it is not `main`.
+
+    **The index is the working tree, so this script finds the branch it is standing
+    on.** That cuts both ways and the false pass is the quieter half:
+
+    - A page saying a construct is ABSENT is reported wrong when a feature branch
+      adds a file of that name. `detector-tetr-atc/spec.md:71-72` was reported this
+      way while the page was correct, because neither file is on `main`.
+    - A construct genuinely added to `main` is still "found" on a stale feature
+      branch that lacks it, so a real absence claim goes unreported.
+
+    Neither is fixed by resolving against `origin/main` instead, because a page may
+    legitimately cite a construct that is only on a branch. Saying which tree was
+    read is what lets a reader tell the two apart.
+    """
+    where = f"read: {repo_root}"
+    if branch is None:
+        return f"{where}\n  (not a git checkout, or git is unavailable — branch unknown)"
+    at = f"{branch} @ {head}" if head else branch
+    if branch == "main":
+        return f"{where}\n  branch: {at}"
+    return (
+        f"{where}\n"
+        f"  branch: {at} — NOT `main`.\n"
+        "  Every verdict below is against this branch's files. A page that calls a\n"
+        "  construct absent can be reported wrong because this branch adds it, and a\n"
+        "  construct that reached `main` can go unreported because this branch lacks\n"
+        "  it. Check the branch before acting on an absence finding either way."
+    )
+
+
 def index_dna_repo(repo_root: Path) -> dict[str, ConstructFile]:
     index = {}
     for path in repo_root.rglob("*"):
@@ -155,7 +335,7 @@ def index_dna_repo(repo_root: Path) -> dict[str, ConstructFile]:
             continue
         rel = path.relative_to(repo_root).as_posix()
         locus_name, length_bp = _parse_locus(path)
-        index[rel] = ConstructFile(rel, locus_name, length_bp)
+        index[rel] = ConstructFile(rel, locus_name, length_bp, _self_names(path))
     return index
 
 
@@ -232,7 +412,8 @@ def extract_claims(header_cells: list[str], rows, filename: str) -> list[Claim]:
                     break
 
         for cell in cells:
-            for link_text, repo, kind, ref, path in LINK_RE.findall(cell):
+            for link_text, repo, kind, tail in LINK_RE.findall(cell):
+                ref, path = split_ref_path(tail, REFS)
                 claims.append(
                     Claim(
                         file=filename,
@@ -261,7 +442,54 @@ def _normalize(name: str) -> str:
     return n
 
 
-def _names_related(claim_name: str, locus_name: str | None, filename: str) -> bool:
+def _tokens(s: str) -> list[str]:
+    return [x for x in re.split(r"[-_\s./]+", s.lower()) if x and x not in ("gb", "gbk", "dna")]
+
+
+def _subsequence(claim: list[str], target: list[str]) -> bool:
+    """Every token of the claim appears in the target, IN ORDER. Order matters
+    because a promoter, an operator and a coding sequence appear in that order in
+    a construct name, so `lacO-pT7` must not match `pT7-lacO`. Subsequence rather
+    than substring, so this can confirm an element the target carries and can
+    never invent one."""
+    it = iter(target)
+    return all(any(x == y for y in it) for x in claim)
+
+
+def _unique_in_repo(claim_name: str, dna_index: dict, rel_path: str) -> bool:
+    """True when exactly one file in the DNA repo has a name the claim is a
+    subsequence of.
+
+    THIS IS THE WHOLE GUARD, AND IT IS CLAUDE.md's WORKED EXAMPLE. A claim that
+    drops a qualifier is safe only when no sibling carries the same stem.
+    `LuxR-PLA1` matches BOTH `LuxR-PLA1-linear.gb` (2237 bp) and
+    `pOpen-LuxR-PLA1.gb` (4175 bp), which share a cassette and differ by a whole
+    backbone. `pT7-toehold9-PLA1` matches one file and nothing else, so there is
+    no second construct for it to be confused with.
+
+    Measured 2026-09-29: of the nine distinct warned names, three are unique and
+    two match two files each. The two are exactly the linear-against-circular
+    pairs this repo has always warned about."""
+    claim = _tokens(claim_name)
+    if len(claim) < 2:
+        return False
+    hits = set()
+    for rel, cf in dna_index.items():
+        names = [Path(rel).name]
+        if cf.locus_name:
+            names.append(cf.locus_name)
+        if any(_subsequence(claim, _tokens(n)) for n in names):
+            hits.add(rel)
+    # AND THE ONE HIT MUST BE THE FILE THE DOCS LINK. `pT7-deGFP-ssrA` matches
+    # exactly one file in the repo and it is `pOpen-deGFP-ssrA.gb`, while the docs
+    # link `pOpen-deGFP-CHis-ssrA.gb`. Clearing on uniqueness alone would have
+    # silenced a claim whose name points at a different construct from its link.
+    return hits == {rel_path}
+
+
+def _names_related(claim_name: str, locus_name: str | None, filename: str,
+                   self_names: tuple[str, ...] = (),
+                   unique: bool = False) -> bool:
     """A claim name is related to a target identifier if it is the identifier
     itself, optionally with a prefix decoration (promoter/vector context, e.g.
     `pT7-lacI` for target `lacI`). A *suffix* difference — the claim naming an
@@ -270,6 +498,13 @@ def _names_related(claim_name: str, locus_name: str | None, filename: str) -> bo
     considered related: that shape is exactly how a greedy link drops or
     invents a genetic element, so it is left for a human to confirm rather
     than passed automatically."""
+    # A NAME THAT IS THE FILE CANNOT MISMATCH THE FILE. Where a table cell carries
+    # the filename rather than a construct name, comparing it against the stem
+    # reported a mismatch between a string and itself. Four such warnings appeared
+    # on 2026-09-26, the moment the ref-parsing fix let the checker see these files
+    # at all, which is why nobody had met it before.
+    if FILENAME_RE.match(claim_name):
+        claim_name = Path(claim_name).stem
     a = _normalize(claim_name)
     if not a:
         return True
@@ -282,6 +517,28 @@ def _names_related(claim_name: str, locus_name: str | None, filename: str) -> bo
             continue
         if a == c or a.endswith("-" + c):
             return True
+
+    # THE FILE'S OWN NAMES FOR ITS PARTS, checked last and only as an ordered
+    # token subsequence. `pT7-lacO-plamGFP` is a subsequence of the feature label
+    # `pT7-lacO-UTR1-plamGFP-t7hyb6`, so the file confirms the element the claim
+    # names and the suffix refusal above was refusing a name the target does
+    # carry — in a field this function never read.
+    #
+    # ORDER IS LOAD-BEARING AND SO IS SUBSEQUENCE RATHER THAN SUBSTRING. A
+    # promoter, an operator and a coding sequence appear in that order in a
+    # construct name, so `lacO-pT7` must not match `pT7-lacO`. And every token of
+    # the claim must appear: this cannot invent an element, only confirm one.
+    claim_tokens = _tokens(claim_name)
+    if len(claim_tokens) >= 2:
+        for n in self_names:
+            if _subsequence(claim_tokens, _tokens(n)):
+                return True
+        # AND THE LOCUS AND FILENAME, but only when no sibling could be meant.
+        # `unique` is the guard; without it this would pass the greedy link.
+        if unique:
+            for c in ([locus_name] if locus_name else []) + [Path(filename).stem]:
+                if _subsequence(claim_tokens, _tokens(c)):
+                    return True
     return False
 
 
@@ -344,7 +601,9 @@ def validate_claim(claim: Claim, dna_index: dict, dna_repo_root: Path) -> list[F
             )
         )
 
-    if claim.name and not _names_related(claim.name, entry.locus_name, actual_basename):
+    if claim.name and not _names_related(claim.name, entry.locus_name, actual_basename,
+                                         entry.self_names,
+                                         _unique_in_repo(claim.name, dna_index, entry.rel_path)):
         findings.append(
             Finding(
                 WARN,
@@ -364,6 +623,47 @@ def validate_claim(claim: Claim, dna_index: dict, dna_repo_root: Path) -> list[F
 # --------------------------------------------------------------------------- #
 
 
+def find_stale_absence_claims(
+    md_file: Path, text: str, dna_index: dict[str, ConstructFile]
+) -> list[Finding]:
+    """Flag lines claiming a construct is absent from the DNA repo when a file
+    of that name is now present.
+
+    Deliberately reports a *finding*, never a fix. A filename match is not an
+    identity claim — the linear/circular pairs in this corpus share a cassette
+    and differ by kilobases. Saying "closeable" here would automate the exact
+    mistake this check exists to catch.
+    """
+    by_stem: dict[str, list[str]] = {}
+    for rel, cf in dna_index.items():
+        by_stem.setdefault(_normalize(Path(rel).stem), []).append(rel)
+        if cf.locus_name:
+            by_stem.setdefault(_normalize(cf.locus_name), []).append(rel)
+
+    findings = []
+    for lineno, line in enumerate(text.splitlines(), start=1):
+        if not ABSENCE_RE.search(line):
+            continue
+        for raw in BACKTICK_RE.findall(line):
+            if not NAME_CANDIDATE_RE.match(raw) or "/" in raw:
+                continue
+            hits = by_stem.get(_normalize(raw))
+            if not hits:
+                continue
+            where = ", ".join(sorted(set(hits))[:3])
+            findings.append(
+                Finding(
+                    WARN,
+                    str(md_file),
+                    lineno,
+                    f"this line says `{raw}` is absent from {CANONICAL_REPO}, "
+                    f"but a file of that name exists there ({where}) — "
+                    f"verify it is the same construct, then update or remove the claim",
+                )
+            )
+    return findings
+
+
 def collect_markdown_files(paths: list[str]) -> list[Path]:
     files = []
     for raw in paths:
@@ -380,6 +680,7 @@ def check(paths: list[str], dna_repo: Path) -> list[Finding]:
     findings: list[Finding] = []
     for md_file in collect_markdown_files(paths):
         text = md_file.read_text(errors="ignore")
+        findings.extend(find_stale_absence_claims(md_file, text, dna_index))
         for header_cells, rows in find_tables(text):
             for claim in extract_claims(header_cells, rows, str(md_file)):
                 findings.extend(validate_claim(claim, dna_index, dna_repo))
@@ -393,12 +694,29 @@ def main(argv=None) -> int:
 
     dna_repo = find_dna_repo()
     if dna_repo is None:
+        searched = "\n".join(f"  {c}" for c in dna_repo_candidates())
         print(
-            "ERROR: could not find the nucleus-eng/DNA repo. Clone it to "
-            "~/src/nucleus-eng/DNA, or set NUCLEUS_DNA_REPO to its path.",
+            "ERROR: could not find the nucleus-eng/DNA repo. Searched:\n"
+            f"{searched}\n"
+            "Clone it next to this repo, or set NUCLEUS_DNA_REPO to its path.",
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN
+
+    REFS.update(repo_refs(dna_repo))
+
+    if not _looks_like_dna_repo(dna_repo):
+        print(
+            f"ERROR: {dna_repo} holds no {'/'.join(sorted(SEQ_EXTENSIONS))} "
+            "files, so the index would be empty and every construct would be "
+            "reported missing. That is not a clean run. Point "
+            "NUCLEUS_DNA_REPO at the nucleus-eng/DNA checkout itself.",
+            file=sys.stderr,
+        )
+        return EXIT_CANNOT_RUN
+
+    branch, head = dna_repo_state(dna_repo)
+    print(describe_dna_repo_state(dna_repo, branch, head))
 
     findings = check(args.paths, dna_repo)
     blocking = [f for f in findings if f.level == BLOCKING]

@@ -1,0 +1,199 @@
+# Composition source for pH Cascade, one-vesicle design.
+#
+# A PROPOSED DESIGN, NOT A RUN. Nothing here has been built. It is written so the
+# two-liposome cascade and this one can be compared as compositions rather than as
+# intentions, and so the choice between them is made against two specifications.
+#
+# WHAT CHANGES, IN ONE SENTENCE. The enzyme moves inside the sensing cell and the
+# substrate stops being encapsulated at all: there is one liposome population, and
+# CPRG arrives in solution after the gel is set.
+#
+# IT IS THE aTc ARRANGEMENT ON THE pH SENSOR. ../atc-sensor-cytosol/spec.yml already
+# mixes reporter-lacz-enzyme into the cytosol and ../atc-cascade/spec.yml doses its
+# substrate in from a trigger solution. This file applies that shape to the pH
+# detector, so the two Chicago demonstrations would differ only in what they sense.
+#
+# THE SEPARATION INVARIANT STILL HOLDS, AND BY THE OTHER ARRANGEMENT. Enzyme and
+# substrate are apart until the dosing step, which is what ../color-change/spec.yml
+# requires; here the enzyme is the encapsulated one, which is the narrower condition
+# ../atc-cascade/spec.yml declares as `enzyme-encapsulated-substrate-outside`.
+
+module: ph-cascade-one-vesicle
+title: "pH Cascade, one-vesicle design"
+refines: ph-cascade
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive strand"
+    page: null            # one half of the trigger duplex; no page
+  trigger-ssdna:
+    title: "Trigger strand"
+    page: null            # the other half; no page
+  effector-pla1-toehold:
+    title: "Gated lysis DNA: pT7-toehold9-PLA1"
+    page: null            # pT7-toehold9-PLA1. The toehold switch stitched to the PLA1 coding
+                          # sequence, so the gate and the payload are ONE molecule and PLA1 is
+                          # not a separate addition. File: effectors/detector-ph/
+                          # pT7-toehold9-PLA1-linear.gb, 1203 bp, in nucleus-eng/DNA at f06e12c.
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  lga-powder:
+    title: "Gel: LGA"
+    page: ../gel-lga/spec.md
+  outer-solution-tris-hepes:
+    title: "Outer Solution: Tris-HEPES"
+    page: ../outer-solution-tris-hepes/spec.md
+  analyte-ph:
+    title: "Analyte: pH"
+    page: ../analyte-ph/spec.md
+
+process_steps:
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH-Responsive Trigger Duplex"
+      page: null
+    # `ratio` IS A DECLARED STEP KEY and was sitting inside `parameters`, where nothing
+    # validates the name. Moved 2026-10-05. It agrees with ../detector-ph/spec.yml,
+    # whose anneal step states 14.4 uM and 4.8 uM independently, and 14.4 : 4.8 is 3:1.
+    ratio: "3:1, pH-responsive strand to trigger"
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1-toehold, reporter-lacz-enzyme]
+    produces:
+      id: ph-sensor-cytosol-with-enzyme
+      title: "SensorCytosol[pH ⟶ PLA1], with LacZ"
+      page: null
+    notes: >
+      THE ONE DIFFERENCE FROM ../ph-sensor-cytosol/spec.yml IS THE FOURTH OPERAND.
+      LacZ is mixed in here rather than arriving in a basic buffer after the sensing
+      step. That is the whole design change, and everything below follows from it.
+      IT REOPENS A QUESTION THE TWO-LIPOSOME DESIGN CLOSED. LacZ was moved out of the
+      cytosol because β-galactosidase works poorly at the pH the sensor needs. Inside
+      the cell the enzyme sees the cytosol's pH and not the gel's, so whether that
+      objection still applies is the thing to measure first.
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [ph-sensor-cytosol-with-enzyme, membrane-popc-chol-9-1, outer-solution-tris-hepes]
+    produces:
+      id: ph-sensing-cell-with-enzyme
+      title: "SensorCell[pH ⟶ PLA1], with LacZ"
+      page: null
+
+  - id: embed-agarose
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+      abstract: embed-gel
+    impositions:
+      - id: thermal-hold
+        bound:
+          quantity: temperature
+          sense: at-least
+          from: {operand: lga-powder, key: gel_point_max_c}
+        why: >
+          The polymer must be liquid when the cells go in, so this step holds them
+          at or above its gelling point until the gel sets. The bound is read off
+          the polymer rather than written here, as it is on ../ph-cascade/spec.yml.
+    operator: packing
+    operands: [lga-powder, outer-solution-tris-hepes, ph-sensing-cell-with-enzyme]
+    produces:
+      id: ph-gel-one-vesicle
+      title: "pH Gel, one-vesicle"
+      page: null
+    notes: >
+      ONE POPULATION GOES IN, NOT TWO. The two-liposome design embeds the sensing
+      cell and a substrate carrier together; here there is nothing to pair it with.
+
+  - id: assemble-trigger-solution
+    process:
+      title: "Trigger Solution"
+      page: null
+      abstract: assemble-solution
+    operator: mixing
+    operands: [substrate-cprg, analyte-ph]
+    produces:
+      id: ph-trigger-solution
+      title: "Trigger Solution"
+      page: null
+    notes: >
+      THE SUBSTRATE AND THE ANALYTE ARRIVE TOGETHER, as they do on
+      ../atc-cascade/spec.yml. Whether the acid can be carried in the same solution
+      as CPRG, or has to come separately, is unmeasured and is the second thing to
+      check after the enzyme's pH tolerance.
+
+  - id: dose-trigger-solution
+    process:
+      title: "Addition of Solution to gel"
+      page: null
+    operator: packing
+    operands: [ph-gel-one-vesicle, ph-trigger-solution]
+    produces:
+      id: ph-cascade-one-vesicle
+      title: "pH Cascade, one-vesicle design"
+      page: ../ph-cascade-one-vesicle/spec.md
+    requires:
+      - id: enzyme-encapsulated-substrate-outside
+        of: reporter-lacz-enzyme
+        why: >
+          The enzyme is the encapsulated one and the substrate is outside it. This
+          design depends on that arrangement rather than merely permitting it: the
+          off state is the membrane, and lysis is the only thing that ends it.
+        notation: "C₁{Enzyme} ⊞ C₂{Substrate} | Enzyme ∈ C₁ ∧ C₁ bounded"
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - kind: question
+    id: does-lacz-survive-the-sensing-ph
+    question: >
+      The two-liposome design keeps LacZ out of the cell because the enzyme works
+      poorly at the pH the sensor needs. This design puts it in. The cytosol is
+      buffered and the analyte acidifies the gel, so the enzyme may never see the
+      low pH -- but nothing has measured that, and if it does see it the design
+      fails at its first step.
+  - kind: question
+    id: what-the-trigger-solution-can-carry
+    question: >
+      ../atc-cascade/spec.yml doses substrate and analyte together because aTc is
+      membrane-permeable and chemically quiet. The pH analyte is an acid, and
+      whether CPRG tolerates being carried in it is not recorded anywhere.
+  - kind: choice
+    id: whether-this-replaces-the-two-liposome-design
+    question: >
+      Both are written now. The two-liposome cascade has run; this has not. Nothing
+      here says which one the demonstration ends on, and this file does not claim
+      to supersede ../ph-cascade/spec.yml.

@@ -1,0 +1,244 @@
+# Composition source for the pH Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. This is the pH integration path, entire. A module that bonded it to
+# the aTc path was retired 2026-10-03, because nobody is building that device.
+
+module: ph-cascade
+title: pH Cascade
+refines: cascade
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  effector-pla1-toehold:
+    title: "Gated lysis DNA: pT7-toehold9-PLA1"
+    page: null            # pT7-toehold9-PLA1. The toehold switch stitched to the PLA1 coding
+                          # sequence, so the gate and the payload are ONE molecule and PLA1 is
+                          # not a separate addition. File: effectors/detector-ph/
+                          # pT7-toehold9-PLA1-linear.gb, 1203 bp, in nucleus-eng/DNA at f06e12c.
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  basic-buffer:
+    title: "Basic buffer"
+    page: null            # the board's (M13), carrying the enzyme. No composition recorded
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+  lga-powder:
+    title: "LGA powder, 0.7%"
+    # REPOINTED TO ../gel-lga/spec.md, which is the correct gel for this path.
+    #
+    # THIS REVERSES AN EARLIER CONFIRMATION, THREE DAYS OLD, AND THE OLD ONE IS KEPT
+    # HERE RATHER THAN DELETED. The earlier record: the agarose is ULGA, confirmed
+    # with the developers against a standing claim that it might not be. That is a
+    # stronger kind of evidence than what reverses it.
+    #
+    # WHAT REVERSES IT. ../ph-sensing-cell/spec.md:147 says "0.7% low-gelling
+    # agarose", and the DevStudio board of 2026-09-23 has the pH presenter saying
+    # "I used the low gelling" with ultra-low raised separately as a possible
+    # substitution. THE TWO ARE DIFFERENT PRODUCTS AND NOT TWO WORDS FOR ONE:
+    # ../gel-lga/spec.yml gives LGA a gel point of 30 °C and ../gel-ulga/spec.yml
+    # gives ULGA 8-17 °C, both from vendor datasheets.
+    # THE SESSION'S OWN FIGURE FOR THE ULTRA-LOW GRADE WAS 14 °C AND IT IS
+    # SUPERSEDED, not contradicted: 14 falls inside the datasheet's 8-17 range,
+    # and 17 is the end an embedding step needs because it bounds "still liquid".
+    # The distinction this comment draws holds under either figure.
+    #
+    # THE KEY IS RENAMED AND THAT IS NEW. The old comment declined to rename it on
+    # the grounds that ULGA is a grade of agarose rather than another material, so
+    # `lga-powder` was under-specified rather than wrong. Once the two grades are
+    # separate products it is wrong, and a key naming the other polymer is worse than a third name for one.
+    page: ../gel-lga/spec.md
+  tris-hepes-stock:
+    title: "Tris-HEPES buffer stock"
+    page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
+  energy-solution:
+    title: "Energy solution"
+    page: null            # ten components; the table is on ../outer-solution-tris-hepes/spec.md
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution]
+    produces:
+      id: outer-solution-tris-hepes
+      title: "Outer Solution: Tris-HEPES"
+      page: ../outer-solution-tris-hepes/spec.md
+    parameters:
+      osmotic_concentration: "~1180 mOsm"
+    notes: >
+      The agarose dissolves into this and both populations sit in it.
+      Osmolarity is additive; the polymer's own term is negligible at about
+      0.7% (w/v), so this value sets the gel's.
+
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1-toehold]
+    produces:
+      id: ph-sensor-cytosol
+      title: "SensorCytosol[pH ⟶ PLA1]"
+      page: ../ph-sensor-cytosol/spec.md
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [ph-sensor-cytosol, membrane-popc-chol-9-1, outer-solution]
+    produces:
+      id: ph-sensing-cell
+      title: "SensorCell[pH ⟶ PLA1]"
+      page: ../ph-sensing-cell/spec.md
+
+  - id: encapsulate-substrate
+    process:
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    operands: [substrate-cprg, membrane-popc-chol-9-1, outer-solution]
+    produces:
+      id: substrate-carrier
+      title: "Substrate Carrier"
+      page: ../substrate-carrier/spec.md
+    notes: >
+      THE CARRIER IS NAMED BY ITS CLASS AND NOT BY A MEMBER, because both members
+      are being run. The extruded route makes ../substrate-cprg-suv/spec.yml and
+      the freeze-thaw route makes ../substrate-cprg-luv/spec.yml; which one this
+      demonstration ends on is not settled, and naming either here would assert a
+      choice nobody has made. This step is the meet of the two.
+      THE PROCESS IS THE ABSTRACT ONE FOR THE SAME REASON. Extrusion and
+      Freeze-Thaw are both instances of ../../processes/encapsulate/main.md, so
+      the abstract process is what the two routes share.
+      A THIRD DESIGN DROPS THIS STEP ENTIRELY. See ../ph-cascade-one-vesicle/,
+      where LacZ rides inside the sensing cell and the substrate is dosed in
+      solution, so there is no second liposome population to make.
+
+  - id: embed-agarose
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+      abstract: embed-gel
+    impositions:
+      - id: thermal-hold
+        bound:
+          quantity: temperature
+          sense: at-least
+          from: { operand: lga-powder, key: gel_point_max_c }
+        why: >
+          The polymer must be liquid when the cells go in, so this step holds them at
+          or above its gelling point until the gel sets. THE BOUND IS READ OFF THE
+          POLYMER RATHER THAN WRITTEN HERE, which is what lets one embedding process
+          carry both agaroses: LGA holds at 30 °C and ULGA at 17 °C. A literal would need one
+          step per polymer, and one step per polymer is two processes.
+    operator: packing
+    operator_pairs:
+      - operands: [lga-powder, outer-solution-tris-hepes]
+        operator: mixing
+        note: >
+          Both share the outer phase and neither carries a boundary, so this
+          pair mixes. The step's `packing` label is right for the pairs that
+          involve a membrane-bounded operand and wrong for this one.
+    operands:
+      - lga-powder
+      - outer-solution-tris-hepes
+      - ph-sensing-cell
+      - substrate-carrier
+    produces:
+      id: ph-cascade
+      title: "pH Cascade"
+      page: ../ph-cascade/spec.md
+    # SCALE-FREE, 2026-10-05. The agarose concentration in the set gel. It agrees with
+    # ../gel-lga/spec.yml, which writes "0.7% (w/v) in the pH path".
+    finals:
+      lga-powder: {value: 7, unit: "mg/mL", note: "sets thermally; no crosslinker"}
+    notes: >
+      The enzyme is NOT an operand here, as of 2026-10-03. It arrives at
+      `develop` below, in a basic buffer, because beta-galactosidase works poorly
+      at the pH this path senses at. The board draws the same order, and
+      ../../processes/color-development/main.md exists for exactly this reason.
+      The mixing ratio of sensing cells to SUVs is not established.
+
+  - id: develop
+    process:
+      title: "Color Development"
+      page: ../../processes/color-development/main.md
+    operator: mixing
+    operands: [ph-cascade, basic-buffer, reporter-lacz-enzyme]
+    produces:
+      id: ph-cascade-developed
+      title: "pH Cascade′"
+      page: null
+    # SCALE-FREE, 2026-10-05. Keyed by the operand id, `reporter-lacz-enzyme`, rather
+    # than by `lacz_enzyme`.
+    #
+    # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table, which
+    # keyed its rows by cascade, and then from `embed-agarose` when the enzyme moved to
+    # this step. The enzyme's own page states it at spec.md:34, for the row
+    # "Encapsulated in a GUV, in 0.7% agarose", which is this condition.
+    finals:
+      reporter-lacz-enzyme: {value: 156, unit: "U/mL"}
+    notes: >
+      THE BOARD'S `P6 · Color Development`, producing the device in its read state.
+      The prime is the registered mark for the same thing changed, signature.md:189
+      at main 29842a1, and it sits in the title because the schema's id pattern admits no prime.
+      No buffer composition, incubation time or target pH after neutralization is
+      recorded anywhere; ../../processes/color-development/main.md says so too.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+  - process:
+      title: "Microscopy Readout"
+      page: ../../processes/microscopy-readout/main.md

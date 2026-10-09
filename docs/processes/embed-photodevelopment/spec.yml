@@ -1,0 +1,98 @@
+# Process source for Embedding: Photodevelopment.
+#
+# THE FIRST PROCESS SOURCE IN THIS CORPUS, written against
+# ../../../scripts/process-yml-schema.yml rather than the other way round.
+#
+# WHY THIS ONE FIRST. It is the process the imposition measurement pointed at. Four of
+# the nine step-level impositions in the corpus belong to it -- `uv-exposure` on
+# ../../modules/atc-cascade, ../../modules/gel-peg-norbornene and
+# ../../modules/gel-pegda, and `radical-acrylate-polymerization` on gel-pegda -- and
+# none of the four names anything about the Module declaring it. Three pages restate
+# `uv-exposure` because three Modules run this process.
+#
+# THE FOUR ARE HERE NOW, moved in one commit as check-process-schema.py's third rule
+# requires. Three pages stopped restating `uv-exposure` because three Modules run this
+# process, and none of the three declarations said anything about the Module declaring
+# it.
+#
+# check-conflicts.py WAS TAUGHT TO READ THEM IN THE SAME COMMIT, and that is the half
+# that matters: a key the checker cannot see is a declaration that computes nothing.
+#
+# ONLY `uv-exposure` MOVED. `radical-acrylate-polymerization` was moved here too and
+# moved straight back, because hoisting it made the checker compute a conflict that is
+# FALSE:
+#
+#     atc-cascade/embed-photodevelopment imposes radical-acrylate-polymerization
+#     on atc-sensing-cell, which holds membrane-popc-chol-9-1
+#
+# ../../modules/membrane declares a sensitivity to it -- "not compatible with a lipid
+# bilayer" -- so the pair meets and reports. But THIS PROCESS HAS TWO CHEMISTRIES and
+# only one proceeds through acrylate radicals. The page: "PEG-norbornene is the route
+# the aTc path uses." That cascade's operands are `peg-norbornene-monomer` and `peg4sh`,
+# a thiol-ene route, and it never sees an acrylate.
+#
+# SO THE TEST FOR WHETHER AN IMPOSITION BELONGS TO A PROCESS IS NOT WHETHER EVERY
+# DECLARATION OF IT NAMES THAT PROCESS. It is whether every INSTANCE of the process
+# inflicts it. `uv-exposure` passes: both chemistries are crosslinked by light. The
+# acrylate one fails, and it fails loudly only because the move was checked rather than
+# assumed. It stays on ../../modules/gel-pegda's step, which is the only instance that
+# runs it.
+#
+# This is ../embed-gel's open item arriving from a third direction: one page, two
+# chemistries, and a key that cannot be true of both.
+#
+# `operator` IS ABSENT ON PURPOSE. The two chemistries differ in what they crosslink,
+# not in how the operands combine, and no step that runs this process declares an
+# operator the other does not.
+
+process: embed-photodevelopment
+title: "Embedding: Photodevelopment"
+refines: embed-gel
+
+signature:
+  takes:
+    - type: gel
+      note: >
+        A light-sensitive precursor rather than a set gel. The page's two chemistries,
+        PEG-norbornene and PEGDA, are the attested fillers for this position.
+    - type: cell
+      repeated: true
+      note: >
+        The populations held in the gel. Repeated because the CRAIC route embeds a
+        sensing population and a substrate-carrying population in one gel.
+  produces:
+    type: gel
+    note: >
+      The set gel with its payload at fixed positions. The geometry comes from where
+      the light fell, which is what separates this route from its two siblings under
+      `embed-gel`.
+
+measured_by:
+  - "Geometry: the patterned feature matches the mask, read by eye or by microscopy."
+
+open:
+  - id: the-impositions-still-live-on-the-steps
+    kind: choice
+    question: >
+      Four step-level impositions belong to this process: `uv-exposure` on
+      ../../modules/atc-cascade, ../../modules/gel-peg-norbornene and
+      ../../modules/gel-pegda, and `radical-acrylate-polymerization` on gel-pegda.
+      None of the four states anything about the Module that declares it. Moving them
+      here is one commit and it must be ONE commit, because this schema's checker
+      refuses an id declared in both places. The question is whether to move all nine
+      in the corpus at once or this process's four first.
+  - id: pegda-is-documented-and-unused
+    question: >
+      The page says no DevCells demo uses PEGDA because it "destroys the vesicles", and
+      that its material, protocol and bill of materials are not maintained. A signature
+      that admits both chemistries is accurate about the process and silent about that.
+      Whether an unused route should be a second process or a note on this one is not
+      settled here.
+
+impositions:
+  - id: uv-exposure
+    why: >
+      The patterning source emits at 405 nm and the gel is crosslinked with its payload
+      already in the precursor, so whatever is in the gel is exposed. Both chemistries
+      do this: thiol-ene crosslinking is initiated by UV, and so is acrylate.
+    page: main.md

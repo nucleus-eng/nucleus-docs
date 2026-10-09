@@ -1,0 +1,48 @@
+# Composition source for the SensorCytosol[3OC6-HSL ⟶ PLA1].
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Anything you can obtain is a leaf.
+
+module: ahsl-sensor-cytosol
+title: SensorCytosol[3OC6-HSL ⟶ PLA1]
+refines: sensor-cytosol
+
+inputs:
+  s30-lysate:
+    title: "Cytosol: S30 Lysate"
+    page: ../s30-lysate/spec.md
+  detector-3oc6-hsl:
+    title: "Detector: 3OC6-HSL (LuxR)"
+    page: ../detector-3oc6-hsl/spec.md
+  effector-pla1-luxr:
+    title: "Gated lysis DNA: pOpen-LuxR-PLA1"
+    page: null            # pOpen-LuxR-PLA1. Constitutive BBa_J23101 driving luxR plus pLux driving
+                          # PLA1, on ONE molecule, so LuxR and PLA1 are never supplied separately.
+                          # The CIRCULAR form: ../ahsl-sensor-cytosol/spec.md states that S30
+                          # Lysate degrades linear DNA, so this route takes the plasmid. File:
+                          # effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb, 4175 bp, in nucleus-eng/DNA at f06e12c.
+
+process_steps:
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [s30-lysate, detector-3oc6-hsl, effector-pla1-luxr]
+    produces:
+      id: ahsl-sensor-cytosol
+      title: "SensorCytosol[3OC6-HSL ⟶ PLA1]"
+      page: ../ahsl-sensor-cytosol/spec.md
+    notes: >
+      S30 Lysate is supplied as a kit, so this is a reconstitution rather than
+      a build from a protocol. Its headroom is 3.75 uL of 25, implied by the
+      total rather than named — see s30-lysate/spec.md. The detector and the
+      effector are one molecule, so PLA1 is not supplied separately.

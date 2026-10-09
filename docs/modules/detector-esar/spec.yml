@@ -1,0 +1,83 @@
+# Composition source for Detector: 3OC6-HSL (EsaR).
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THE COMPOSITION IS THE PARENT'S INVARIANT WITH TWO OPERANDS NAMED.
+# ../repressor-detector/spec.yml states the class as a repressor element and the
+# DNA element it binds. This file names both.
+#
+# THE REPRESSOR IS A POINT MUTANT. The template is `T7-EsaR(D91G)-T7term`, and D91G
+# is carried everywhere the repressor is named. An earlier version of this file said
+# no construct and no data existed; both do, and the page states the titration.
+
+module: detector-esar
+title: "Detector: 3OC6-HSL (EsaR)"
+
+refines: repressor-detector
+
+inputs:
+  esar:
+    title: "EsaR repressor"
+    page: null            # EsaR(D91G), expressed from `T7-EsaR(D91G)-T7term` in its own reaction
+                          # and titrated in as protein. Also available as purified protein from
+                          # Biocrest, per ../detector-3oc6-hsl/. NO STOCK OR WORKING CONCENTRATION
+                          # IS RECORDED for the expressed form, which is why the molar ratio that
+                          # governs repression is an estimate rather than a measurement.
+                          # TWO DONOR INCUBATIONS HAVE BEEN RUN, 3 h at 37 C and 17 h at 30 C.
+                          # The longer one holds the fold change and lowers the yield, so they
+                          # are not interchangeable and the shorter one is the reference.
+  dna-regulatory-element:
+    title: "DNA regulatory element"
+    page: null            # `[EsaO]2`, two EsaO sites in tandem, as `T7-[EsaO]2-mNG-T7term` for
+                          # characterization and `T7-[EsaO]2-PLA1-T7term` for the cascade.
+                          # [EsaO]2 IS THE DEFAULT FOR EVERY EsaO TEMPLATE FROM HERE ON, and the
+                          # single-site version is a comparison rather than a design.
+                          # A SINGLE-SITE VERSION EXISTS AND IS NOT IN USE: `T7-[EsaO]-mNG-T7term`
+                          # ran beside the dual-site construct in two titrations and was then
+                          # dropped. In the first neither repressed, because the template was in
+                          # excess of the repressor. In the second both did, at 0.1 and 0.5 nM.
+                          # Each EsaO box is 19 bp, CCTGTACTATAGTGCAGGT. The dual construct
+                          # carries two, one base apart, at 1118 bp against the single's 1098 bp.
+                          # No sequence file is in nucleus-eng/DNA for any of them.
+
+process_steps:
+  - id: assemble-the-repressor-pair
+    process:
+      title: "Assemble the repressor and its regulatory element"
+      page: null
+    operator: mixing
+    operands: [esar, dna-regulatory-element]
+    parameters:
+      preincubation: "1 h at 37 C — 15 min gives about 2x fold change where 1 h gives about 5x"
+      esar: "about 21% of the reaction, as pre-expressed reaction rather than purified protein"
+    produces:
+      id: detector-esar
+      title: "Detector: 3OC6-HSL (EsaR)"
+      page: ../detector-esar/spec.md
+    notes: >
+      This is ../repressor-detector/spec.yml's own step with the repressor named.
+      It is stated so the module has a composition at all, not because a protocol
+      exists. The CRAIC board builds its sensing leg in two steps, expressing
+      EsaR in one cytosol and mixing the protein into a second, and whether that
+      split belongs here is the open question below.
+
+open:
+  - kind: question
+    id: second-parent-has-no-page
+    question: >
+      `scripts/spec-yml-schema.yml` gives this exact Module as its reason for
+      allowing a list: "an EsaR detector is a repressor detector AND an AHL
+      detector, and neither of those refines the other." The list form cannot be
+      written here, because the second parent has no page. `detector-3oc6-hsl` is
+      the ACTIVATOR cell of the 3OC6-HSL row in `detector/spec.md`'s Analyte by
+      Mechanism table, so refining it would claim EsaR is a kind of LuxR
+      detector, which is false. The analyte axis is a position in that table and
+      not a Module. So the schema's own motivating example is, today,
+      unwriteable as stated.
+  - kind: question
+    id: expression-split-ownership
+    question: >
+      The CRAIC board expresses EsaR in one cytosol and mixes the protein into a
+      second. Every other detector here is one step. Whether that split belongs
+      to this Module or to the cascade is unsettled, which is why no
+      `process_steps` are stated.

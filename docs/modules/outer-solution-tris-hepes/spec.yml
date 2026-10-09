@@ -1,0 +1,66 @@
+# Composition source for the Outer Solution: Tris-HEPES.
+#
+# WRITTEN 2026-09-21 with ../outer-solution/spec.yml. Produced by three sources under
+# one id, `chicago-outer-solution`, and never given a page. Unlike the London
+# formulation it had exactly one name, so no alias to resolve here.
+#
+# THE AGAROSE DISSOLVES INTO THIS AND BOTH POPULATIONS SIT IN IT, which is why the
+# osmotic concentration below sets the gel's. The polymer's own term is negligible at about 0.7
+# percent by weight.
+
+module: outer-solution-tris-hepes
+title: "Outer Solution: Tris-HEPES"
+refines: solution
+  # NOT ../outer-solution. OUTER IS A POSITION, NOT A KIND. It is where a solution
+  # sits in an encapsulation -- the one outside the membrane -- and a position is a
+  # role in an operation rather than a property of the thing filling it. The same
+  # solution is "outer" in one step and simply a solution in the next.
+  # ../outer-solution is still a Module you assemble, and 24 sources name it as an
+  # operand. BEING AN OPERAND IS NOT BEING A CLASS.
+
+# CARRIED FROM ../outer-solution, which this stopped refining. It was the ONLY thing
+# inherited from that parent, so dropping the parent without carrying this would have
+# silently removed the statement that an osmometer reads this solution.
+measured_by:
+  - process:
+      title: "Osmometry Readout"
+      page: ../../processes/osmometry-readout/main.md
+
+inputs:
+  tris-hepes-stock:
+    title: "Tris-HEPES buffer stock"
+    page: null
+  energy-solution:
+    title: "Energy solution"
+    page: null
+  water:
+    title: "Water"
+    page: null
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [tris-hepes-stock, energy-solution, water]
+    produces:
+      id: outer-solution-tris-hepes
+      title: "Outer Solution: Tris-HEPES"
+      page: ../outer-solution-tris-hepes/spec.md
+    # SCALE-FREE. The page's "46.67% (v/v) in water" is already a volume fraction.
+    # Keyed by the operand id, `tris-hepes-stock`, rather than by `tris-hepes`. Which
+    # Tris-HEPES stock this is, is an open question: see the page.
+    fractions:
+      tris-hepes-stock: 0.4667
+    # The Solutes table on this page: a 2-fold sub-mix, used at 1 fold.
+    finals:
+      energy-solution: {value: 1, unit: "fold"}
+    parameters:
+      # A PROPERTY OF THE SOLUTION, not a component of it, so it stays here.
+      osmotic_concentration: "~1180 mOsm"
+    notes: >
+      Osmolarity is additive and this value sets the gel's. It is a relation rather than
+      a property of any component, matched across the membranes of the cells embedded in
+      it, which is why it stays even though the Tris-HEPES term is also stated.

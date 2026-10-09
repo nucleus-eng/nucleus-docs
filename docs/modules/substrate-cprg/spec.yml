@@ -1,0 +1,76 @@
+# Composition source for Substrate: CPRG.
+#
+# Machine-readable companion to spec.md — see issue #248.
+#
+# THIS MODULE IS AN ATOM. One chromogenic molecule, bought rather than composed.
+# `process_steps` is empty and that is a claim. `minItems: 1` came off
+# `process_steps` on 2026-09-20.
+#
+# ITS TABLE IS NOT A COMPOSITION. The first column is `Format` and the rows are
+# loading concentrations by encapsulation route — a usage function indexed by format.
+# THIS PAGE IS ALREADY RECORDED AS A KNOWN BUG from the other direction: the
+# `Substrate` row that lists it reads "Function (Composition
+# unstated — known bug)" and notes that "the third member is a molecule rather than a
+# compartment". Two repos found the same page wrong from opposite ends.
+
+module: substrate-cprg
+title: "Substrate: CPRG"
+refines:
+  - substrate
+  - chromophore
+  # TWO PARENTS, 2026-10-05. `chromophore` cuts across the tree: it is what the
+  # uv-exposure sensitivity follows from, and it is shared with a member of a
+  # different branch. `refines:` takes a list, so nothing moved to make room.
+inputs:
+  cprg:
+    title: "Chlorophenol red-beta-D-galactopyranoside"
+    page: null
+
+process_steps: []
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: three-formats-one-figure
+    question: >
+      SUV by film hydration and extrusion, 50 mM. GUV by phase transfer, not
+      documented. Free in the gel, not documented — the photodevelopment routes, where
+      UV would bleach encapsulated CPRG. **Two of the three formats in active use have
+      no recorded loading.** The one figure that exists is carried by the Modules that
+      consume it, ../substrate-cprg-suv/spec.yml and ../guv-cprg/spec.yml, rather than
+      by this page.
+  - id: the-sort-is-wrong-and-another-repo-says-so-first
+    question: >
+      `Substrate` has three members — `substrate-cprg-suv`, `guv-cprg` and this
+      page — and the first two
+      are compartments and this one is a molecule. Its own words: "the type name is
+      the payload's role worn by a container" — signature.md:92 at main 29842a1. So
+      this Module is in a type whose other members are a different kind of thing,
+      which is why its Composition is unstated rather than merely unwritten. The id
+      above still says "sort"; an id may be cited, so renaming it is a separate call.
+  - id: an-atom-is-its-own-input
+    question: >
+      `inputs` still carries `minProperties: 1`. See ../analyte-iptg/spec.yml.
+
+# WHAT THIS MODULE IS SUBJECT TO, and only that half. Sensitivity is a property of an
+# object and Imposition a property of a morphism, so an imposition sits on a step. A
+# Conflict is derived from the two and is computed, never asserted. check-conflicts.py
+# does the computing.
+sensitivities:
+  - id: uv-exposure
+    to: uv-exposure
+    basis: rule
+    why: >
+      CPRG photobleaches under UV, including the UV a 405 nm source emits.
+
+# CPRG IS YELLOW AS SUPPLIED, NOT COLORLESS, and stays yellow until cleaved. So this
+# Module is a chromophore in the tube, which is why the `uv-exposure` sensitivity above
+# is a property of the reagent and not of its product.
+#
+# AND CLEAVAGE YIELDS A SECOND CHROMOPHORE. The red product is a different molecule
+# with its own absorption, so this page carries two and nothing says they bleach alike.
+# The sensitivity declared above is measured against the reagent. Whether the product
+# shares it is untested and is not claimed.

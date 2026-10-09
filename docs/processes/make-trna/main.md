@@ -101,7 +101,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | **Stocks**        | Final Concentration (mM) | MW (g/mol) | Mass to add (g) | Final Vol (mL) | Storage (°C) |
 | ----------------- | ------------------------ | ---------- | --------------- | -------------- | ------------ |
 | Sodium Acetate    | 1000                     | 136.08     | 136.08          | 1000           | room temp    |
-| Magnesium Acetate | 1000                     | 214.46     | 214.46          | 1000           | room temp    |
+| Magnesium Acetate | 1000                     | 214.45     | 214.45          | 1000           | room temp    |
 | NaCl (5 M)        | 5000                     | 58.44      | 292.2           | 1000           | room temp    |
 | NaCl (1 M)        | 1000                     | 58.44      | 11.688          | 200            | room temp    |
 

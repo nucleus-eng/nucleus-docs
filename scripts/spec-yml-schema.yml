@@ -1,0 +1,1161 @@
+# Schema for docs/modules/<module>/spec.yml — the machine-readable composition source.
+#
+# STANDALONE ON PURPOSE, because a schema should be a standalone thing. It replaces the "keys in use" table in CLAUDE.md §Composition
+# sources, which declared itself the record while being unknown to its owner.
+#
+# Derived by measurement from all 17 sources on 2026-09-15, not from that table.
+# EVERY COUNT BELOW NAMES THE TREE IT WAS TAKEN ON. A bare "5 of 46" goes stale in
+# silence. "5 of 46 at <hash>" stays true and says when to re-take it. The counts
+# were re-taken at d611bda on 2026-09-21, when the corpus had roughly tripled since
+# this schema was derived. Add the hash to any count you add.
+# Counts in each description are observed use, so a key with a low count is a key
+# that one page needed — not a key that is optional by design.
+#
+# JSON Schema draft 2020-12, written in YAML.
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://docs.nucleus.engineering/schema/spec-yml/v1"
+title: Module composition source
+type: object
+additionalProperties: false
+required: [module, title, inputs, process_steps]
+
+properties:
+  module:
+    type: string
+    description: Directory name under docs/modules/. Must equal the parent directory.
+    pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+  title:
+    type: string
+    description: Display name, matching the page's frontmatter title.
+  refines:
+    oneOf:
+      - type: string
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      - type: array
+        minItems: 2
+        uniqueItems: true
+        items:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+    description: >
+      The abstract Module or Modules this one refines, by directory name.
+      A LIST IS LEGAL AND MEANS TWO INCOMPARABLE PARENTS: a Module may refine more
+      than one. The case that
+      forced it is a sensor with two axes, what it senses and how -- an EsaR
+      detector is a repressor detector AND an AHL detector, and neither of those
+      refines the other. A single string stays the normal form;
+      `minItems: 2` keeps a one-element list from being a second
+      spelling of the same thing.
+      THE FIRST ENTRY IS THE ALIGNMENT PARENT, which is the FUNCTIONAL one. A chassis is what DIFFERS between two demos, so the
+      axis two cells can be compared on is the other one. The convention is
+      positional so that the source states it and no reader has to guess which
+      parent is functional by sniffing its name. `render-meet.py` reads entry one
+      and ignores the rest.
+      A LIST MAKES THE REFINEMENT ORDER A DAG RATHER THAN A FOREST, and a meet in
+      a DAG need not be unique. `render-position.py` said so before this key
+      changed: "the day the key becomes a list this returns a plausible wrong
+      answer and says nothing." The readers now refuse rather than guess. Nothing
+      in this corpus yet guarantees a lattice, so the non-unique case is reported
+      and not resolved. The image of this
+      Module under `A`, a map the theory this corpus is built on has carried as defined
+      since August. NOT a new axis: `A : Modules -> Abstractions` already
+      exists, and what this corpus lacked was a field naming a Module's image
+      under it. Edit site 1 of the abstract-modules work.
+      NAMED `refines` RATHER THAN `abstract` on purpose. `abstract` already exists
+      one level down, on process_steps[].process, where it names the immediate
+      parent PROCESS. Reusing the word here would be consistent in meaning and
+      confusing in reading, and `refines` is the established word for the relation.
+      IT IS A POINTER AND NOT A CLAIM ABOUT COMPOSITION. Membership is classification and
+      constituency is containment, so naming
+      a parent says what classifies this Module and nothing about what it is made
+      of. A Module with no abstract parent omits the key, and most do.
+      THE PARENT MUST BE THE IMMEDIATE ONE. Pointing a Module two levels up would
+      make the key mean SOME ancestor rather than THE parent, which is a different
+      key. A Module whose immediate parent has no page on the branch it sits on
+      omits the key rather than reaching past it.
+      THIS DESCRIPTION MUST NOT STATE THE STATE OF A TREE, and an earlier version
+      did. It lives on two branches whose corpora differ, so a present-tense count
+      that is true on one is false on the other and only one of them will notice.
+      The version written the day this field landed said three membranes carried
+      no value and that nothing resolved the key. Both were true that morning on
+      docs/devcells-integration-pages, both were stale there by the evening, and
+      neither was ever true of staging/spec-yml-to-main.
+      check-spec-schema.py RESOLVES EVERY VALUE, as of 2026-09-21. It fails a
+      Module that names itself and one that names a directory holding no spec.md.
+      It does not walk the chain, so nothing here catches a cycle.
+  sensitivities:
+    type: [array, "null"]
+    description: >
+      What this Module is sensitive TO. Half of a Conflict, and only half on
+      purpose.
+      A Conflict is DERIVED: a sensitivity meeting an imposition, computed and never
+      asserted. "Incompatibility (as a stated fact)" is the refused spelling. Its own
+      evidence column reads "one constraint asserted on nine pages". So a field
+      saying "A excludes B" would be the spelling the glossary refuses, and the
+      two halves are declared separately while a checker computes the join.
+      ABSENCE MEANS UNDECLARED, NOT NONE. An omitted key means no constraints have
+      been declared, and an explicit `null` is equally fine. The field
+      never claims a Module has none, so an omitted key and an explicit null say
+      the same thing and neither is a claim. Nothing may read absence as
+      evidence; check-conflicts.py reports the denominator instead.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, to, basis, why]
+      if:
+        properties: { basis: { const: inferred } }
+        required: [basis]
+      then:
+        required: [from]
+      else:
+        not:
+          required: [from]
+      properties:
+        id:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        to:
+          type: string
+          description: >
+            What this is sensitive to, by id. Matching is by this string and nothing
+            else. Under `kind: imposition`, the default, it names the id an
+            `impositions` entry uses. Under `kind: presence` it names a module id, and
+            a member of that module's class satisfies it through `refines:`.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        kind:
+          enum: [imposition, presence]
+          default: imposition
+          description: >
+            WHAT THE OTHER HALF IS, and the two halves are not the same shape.
+            `imposition` is the original and stays the default: `to:` names something a
+            morphism inflicts, and the meet is a step or a process that inflicts it.
+            `presence` names a COMPONENT, and the meet is that component sitting in a
+            compartment this Module touches. Nothing is done to the sensitive Module.
+            The component is only there.
+            IT IS A THIRD KIND AND NOT A WIDER IMPOSITION. An Imposition is a property
+            of a morphism and a Sensitivity a property of an object; a presence
+            condition is a predicate over a composition, so it is indexed by neither.
+            Teaching the imposition walk to find it would catch this case and miss the
+            next. It is a Component predicate: of the three kinds of condition, the one
+            that ranges over a composition rather than over a morphism or a budget.
+            THREE IDS CARRY IT and two of them meet nothing today. `dmso` on
+            ../../docs/modules/membrane, `theophylline` on ../../docs/modules/reporter-lacz,
+            and `detergent`, added 2026-10-07. collate-conditions.py already grouped the
+            first two by inferring from the id; this key states it instead.
+            A SENSITIVITY THAT MEETS NOTHING IS NOT A DEFECT. It says what would happen
+            if somebody built with that component. `dmso` is reachable only through a
+            pore no composition names, and the theophylline path has no cascade page, so
+            neither meets. Both would meet the moment one is built.
+        basis:
+          enum: [rule, observation, inferred]
+          description: >
+            WHETHER IT GENERALIZES, and this is the key nobody proposes from
+            outside. A `rule` excludes cases nobody has tried, because a
+            mechanism says so. An `observation` enumerates what was seen and
+            says nothing about the next case. free-parameters-are-tuples.md has
+            the argument. Two sessions derived the split independently on
+            2026-09-21 and returned the same singleton.
+            An `inferred` claim is weaker than both: it asserts no mechanism and
+            reports no case, and says only that this resembles something that
+            does. It carries `from`, so a reader can check whether the thing it
+            leans on still holds. Added 2026-10-04 because substrate-xgal says
+            X-Gal is "expected to be light-sensitive, as CPRG is" and nobody has
+            tested it, which is neither of the other two — so the only
+            declarations available were a false `rule` or silence, and the
+            corpus chose silence.
+        from:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          description: >
+            Required when `basis: inferred` and refused otherwise. The module id
+            this was inferred from. An inference is only as good as its source,
+            and a reader who cannot find the source cannot grade the inference.
+        why:
+          type: string
+          description: >
+            The mechanism for a rule, what was seen for an observation, or what
+            the resemblance is for an inference.
+        page:
+          type: [string, "null"]
+          description: Where the page states it, for the checker to compare against.
+        severity:
+          enum: [blocking, moderate]
+          default: blocking
+          description: >
+            HOW MUCH A MEET COSTS, and the default is the old behavior. `blocking`
+            destroys the Function: the bilayer is gone, the enzyme does not turn over.
+            `moderate` costs some of it and repetition adds up, which is what reading a
+            chromophore with light does to it. check-conflicts.py reports moderate meets
+            in a group of their own and leaves them out of the CONFLICT total.
+            IT IS NOT A BOUND AND DOES NOT REPLACE ONE. A bound says at what level the
+            cost arrives, which needs a measurement; this says what kind of cost it is,
+            which does not. Where a figure exists, write both.
+            ADDED 2026-10-07 because `illumination` on ../../docs/modules/chromophore
+            would otherwise report every routine read at the same level as a
+            crosslinking dose, and a report that floods is a report nobody reads.
+        bound:
+          $ref: "#/$defs/bound"
+
+  requires:
+    type: [array, "null"]
+    description: >
+      WHAT EVERY MEMBER OF THIS CLASS NEEDS IN ORDER TO FUNCTION. An abstract repressor
+      detector requires transcription definitionally: that is what makes a repressor a
+      repressor, and it follows from what the class IS rather than from anything a
+      member is made of or any step a member performs.
+      IT IS THE DUAL OF `impositions`. An imposition is what a Function inflicts; a
+      requirement is what a Function needs. Same relation between a class and its
+      members, and the same resolution: the class declares the condition its Function
+      carries, and a member inherits it through `refines:` without restating it.
+      IT IS NOT THE STEP-LEVEL `requires`, AND THE TWO ARE NOT INTERCHANGEABLE. A step
+      here applies `mixing` or `packing`, both of which combine any two operands, so a
+      step is total and a total morphism has no condition under which it is defined.
+      Stating a class requirement on a step would say that the operands cannot be
+      combined without it, which is false: a repressor mixes with its operator in a
+      tube holding no polymerase, and the Module is assembled exactly as specified. It
+      does not detect, which is a different claim and the one this key makes.
+      IT IS A CARRIER AND NOT THE FINAL SHAPE. A requirement is a condition on a
+      Function, and this schema has no field naming a Module's Function -- `measured_by`
+      says how one would be measured, `substrates` what an enzyme acts on, `impositions`
+      what it inflicts, and none of them is the Function itself. Until that field
+      exists this key holds the condition where it can be read, which is better than
+      the alternative of holding it nowhere.
+      IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that: a class is a
+      module some other source names in `refines:`, which is not a fact this document
+      holds and so not a shape this file can express.
+      THE TEST IS NOT `impositions`'s TEST, and reusing that one here would be wrong.
+      22 of the 36 modules named as a parent carry a real step, `repressor-detector`
+      among them, and it is the case this key was written for. An imposition can move
+      to a step because a step inflicts it; a requirement cannot, because the step is
+      total and has no condition under which it is defined.
+      Absence means undeclared, exactly as on `sensitivities` and `impositions`.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, why]
+      properties:
+        id:
+          type: string
+          description: >
+            The operation the Function needs, named as the operation is named:
+            `transcribe`, or `transcribe[pT7]` where only one promoter will do. It is
+            matched by name against `provides` ids, so the two must be spelled the same
+            way. A bare name is met by any provider of that operation; a bracketed one
+            only by a provider with the same bracket. Absence of a provider is reported
+            by scripts/collate-conditions.py and never failed.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
+        why:
+          type: string
+        page:
+          type: [string, "null"]
+        bound:
+          $ref: "#/$defs/bound"
+  provides:
+    type: [array, "null"]
+    description: >
+      WHAT THIS MODULE MAKES AVAILABLE TO WHAT SHARES ITS COMPARTMENT, named as an
+      operation. Base Cytosol supplies T7 RNA polymerase, so it provides
+      `transcribe[pT7]`, and a repressor detector, which requires `transcribe`, is met
+      by it. IT IS THE PROVIDER HALF OF `requires`. AN ID IS AN OPERATION AND,
+      OPTIONALLY, A TYPE IN BRACKETS. The bracket ALWAYS names a type -- the type of
+      the thing the operation acts on. `linearDNA` is a type; whether it is built as a
+      node of its own or as DNA narrowed by a predicate is a convenience, and does not
+      change what the bracket means. Several types are separated by commas and no space.
+      SATISFACTION IS CONTRAVARIANT, and this file said it was string equality until
+      2026-10-09 and then set containment until later the same day. Both were wrong.
+      The bracket sits in INPUT position, so a provider meets a requirer when the
+      operations are the same word AND the provider's type is at least as WIDE as the
+      requirer's. Narrowing the bracket makes a capability do LESS, never more.
+      A REQUIREMENT WITH NO BRACKET DEMANDS NOTHING, and it is not the top type. That
+      distinction is what makes the rule work on the whole corpus at once:
+        requires `transcribe`           met by `transcribe[pT7]` and by
+                                        `transcribe[sigma70]` -- `repressor-detector`
+                                        needs transcription AVAILABLE in its
+                                        compartment, which any route supplies
+        requires `transcribe[pT7]`      NOT met by `transcribe[sigma70]` -- a T7
+                                        promoter needs T7 polymerase
+        requires `degrade[DNA]`         NOT met by `degrade[linearDNA]` -- an
+                                        exonuclease needs a free end, so the circular
+                                        plasmid survives
+        requires `degrade[linearDNA]`   met by `degrade[DNA]`, which is wider
+        requires `degrade[NucleicAcid]` NOT met by `degrade[RNA]` -- `rna` refines
+                                        `nucleic-acid`, so RNase covers part of it
+      SO THE COMPARISON IS A POSET LOOKUP AND NOT A SET OPERATION. The order comes
+      from `refines:` across the sources, which already carries it for the types that
+      have nodes: `rna` and `dna` refine `nucleic-acid`, and `dsdna` and `ssdna` refine
+      `dna`. A type with no node compares only to itself, which is why `linearDNA` is
+      exact today and a topology axis would change that.
+      A TYPE WITH NO NODE IS A DECISION HERE AND NOT A GAP, settled 2026-10-09.
+      `linearDNA` compares only to itself, and that is correct until something
+      declares `requires: degrade[DNA]` or `degrade[NucleicAcid]`. Nothing does: the
+      corpus has exactly one `requires` and it is `transcribe`. Building `linear` and
+      `circular` as classes now would add two pages whose only job is to make the order
+      total, which is the thing a class page is no longer for -- the order is published
+      as data, so a page has to earn its keep as writing. THE TRIGGER IS A REQUIRER, not
+      a tidiness argument: the day a Module needs all DNA degraded rather than linear
+      DNA degraded, the node is load-bearing and gets built then, as a parent beside
+      `dsdna` in the way `lacz-dna` already refines two axes at once.
+      A BRACKET TYPE RESOLVES TO A MODULE BY NORMALIZING BOTH SIDES -- lowercase, drop
+      hyphens -- and NOT by transliterating CamelCase into kebab-case. The difference
+      is not cosmetic. Transliteration turns `rNTP` into `r-ntp`, `pT7` into `p-t7` and
+      `ssrA` into `ssr-a`: directory names nobody would create, which a lookup would
+      then go hunting for. Normalizing instead asks only whether a module of that name
+      exists. Measured 2026-10-09 over every bracket type in the corpus: `Protein`,
+      `RNA` and `NucleicAcid` resolve, to `protein`, `rna` and `nucleic-acid`, and the
+      other eleven resolve to nothing and so compare only to themselves, which is
+      correct -- nothing orders one promoter against another. `DNA`, `dsDNA` and
+      `ssDNA` resolve too, which is what a topology axis would build on.
+      THE AXIS MECHANISM IS ALREADY HERE, in `refines:` above: a list means two
+      incomparable parents, 21 of 88 sources use it, and `lacz-dna` already refines
+      `dsdna` AND `lacz` -- a nucleic acid node ordered along two axes at once. So
+      adding `linear` and `circular` needs no new key and no axis label. What it needs
+      is members: the live linear-against-circular distinction sits in Designs tables
+      on `atc-sensing-cell`, `atc-sensor-cytosol` and `craic-cascade`, where a circular
+      form is preferred BECAUSE S30 degrades linear DNA, and none of those rows is a
+      Module with a source of its own.
+      NOTHING COMPUTES THIS YET. The rule is written here so that what the key means
+      does not wait on whichever script reads it first.
+      IT IS A DECLARATION, NOT A DISCHARGE. That a requirement is met in a given
+      composite depends on what shares the compartment, and that is computed, never
+      written down, exactly as a Conflict is computed from a sensitivity and an
+      imposition and never asserted. So there is no key saying what discharges a
+      requirement, and there must not be one.
+      NOT ONLY FOR A CLASS, unlike `requires`. A capability usually belongs to a
+      concrete Module, and a class is the wrong place for it when one of its members
+      lacks it: `control-clpxp` refines `cytosol` by what it is made of and does not
+      transcribe, so `cytosol` cannot provide `transcribe` for all its members.
+      A member inherits what its class provides through `refines:`, as it inherits
+      everything else. Absence means undeclared, not absent: a Module that provides
+      nothing here may still do it, and its page is the authority until it says so here.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, why]
+      properties:
+        id:
+          type: string
+          description: >
+            The operation, spelled as `requires` spells it.
+            AN ID IS ASCII AND THE PROSE IS NOT, and the two are allowed to differ.
+            This id is matched by name across two repositories, so a byte either side
+            cannot afford to be a character somebody has to find on a keyboard: the
+            predicate for the host polymerase is `sigma70` here and `σ70` on every page
+            that mentions it. Measured 2026-10-09, before the pages were unified: the
+            same sigma factor was written three ways in this repo -- `sigma-70` in 11
+            files, `σ70` in 1, and `sigma70` in exactly one place, which was this id.
+            The pattern refuses `σ70`, deliberately, so the two can never converge by
+            accident.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
+        why:
+          type: string
+        basis:
+          enum: [rule, observation, inferred]
+          description: >
+            WHETHER THE MODULE IS KNOWN TO DO THIS, on the same three-way split as
+            `sensitivities` at this file's `basis:` above, and read the same way. A
+            `rule` holds because a mechanism says so -- Base Cytosol translates because
+            every Cytosol does, and a Module that did not would not be one. An
+            `observation` reports what its pages attest and claims nothing about the
+            next case, which is all S30 Lysate can offer: its composition is undefined,
+            so what it provides is what has been seen, never what it is made of. An
+            `inferred` capability asserts no mechanism and reports no case.
+            IT EXISTS SO THAT A SUM OVER `provides` CAN SAY WHAT IT LEANT ON. The
+            particle-count arithmetic is only sound if every function that raises the
+            count is in the network, which means an inferred term must sometimes be
+            counted -- and a verdict resting on one is weaker than a verdict resting on
+            enumerated rows. Without this key the two are indistinguishable and the
+            weaker verdict reads as strong.
+            OPTIONAL, AND ABSENT MEANS UNDECLARED. It does not mean `observation`. A
+            default here would answer, silently, the one question the key exists to
+            ask, which is this file's rule everywhere else.
+        page:
+          type: [string, "null"]
+  impositions:
+    type: [array, "null"]
+    description: >
+      WHAT EVERY MEMBER OF THIS CLASS INFLICTS. As a class, all members of Lysis impose
+      lysis, so the class carries it.
+      THIS DOES NOT CONTRADICT the rule that an Imposition is a property of a MORPHISM, which
+      is why the step-level key exists. A class declares the imposition its Function
+      carries, and a member's step is still the morphism that inflicts it. The class
+      says what implementing the Function means; the step says when it happened. Same
+      relation `sensitivities` already has between ../protein and its members.
+      IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that rather than this
+      file -- it did not until 2026-10-06, and this line claimed it did.
+      A source with `process_steps` of its own states an imposition on the step
+      that does the imposing, because that step is the morphism and the Module is not.
+      check-conflicts.py resolves both halves through `refines:` already, so a member
+      inherits this without restating it.
+      Absence means undeclared, exactly as on `sensitivities`.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, why]
+      properties:
+        id:
+          type: string
+          description: >
+            Matched against a sensitivity's `to`, by this string and nothing else.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        why:
+          type: string
+        page:
+          type: [string, "null"]
+        bound:
+          $ref: "#/$defs/bound"
+  inputs:
+    type: object
+    description: >
+      Everything the module starts from, keyed by id. Ids are referenced by
+      process_steps[].operands. 49 of 49 sources at `d611bda`, a required key.
+      MAY BE EMPTY, and an empty object is a claim rather than an omission: it
+      says this Module starts from nothing nameable in this corpus.
+      `minProperties: 1` was removed. It had asserted
+      that every Module is made of something nameable, which is a second
+      membership condition beside the one `minItems` carried and which
+      the definition of a Module does not include. Two page
+      classes were working around it and a third was blocked by it. Six atoms
+      listed themselves as their only input, which reads circularly. `analyte-ph`
+      listed the solution it is a property OF, which inverts the relation this key
+      encodes everywhere else, because pH is a property and there was no substance
+      to name. AND A CLASS MAY START FROM NOTHING NAMEABLE, which is the case this
+      key's emptiness now records.
+      AN EARLIER VERSION OF THIS SENTENCE SAID A CLASS HAS NO INPUTS BY
+      CONSTRUCTION. It was false when written and the correction is a claim about
+      the world rather than about a tree: a class composes ABSTRACT CONSTITUENTS,
+      operands that carry `page: null` because no page describes a generic one.
+      So composition is not what separates a class from a member. Position in the
+      refinement order is, and `refines` is where that lives.
+      THE MEASUREMENT IS PINNED RATHER THAN STATED IN THE PRESENT TENSE, under the
+      rule on `refines` above, which this description broke on the day it was
+      written. At `docs/devcells-integration-pages` `1c889d3`, six of seven sourced
+      classes named inputs and five ran a step; `gel` composed `outer-solution`
+      with `polymer` by mixing and `color-change` packed `enzyme` with `substrate`.
+      That count was already stale on its own branch within the day and was never
+      true of `staging/spec-yml-to-main`, which carries no class pages at all.
+      Corrected 2026-09-21 with the `Abstract:` prefix, whose removal surfaced it.
+      THE COST, STATED. An empty `inputs` and an unfilled one now look identical.
+      The key stays in the top-level `required` list, so it must be present, but
+      its emptiness is a claim the schema no longer distinguishes from an
+      oversight. That is the same trade `minItems` made on process_steps.
+    additionalProperties:
+      type: object
+      additionalProperties: false
+      required: [title]
+      properties:
+        title:
+          type: string
+        stock:
+          $ref: "#/$defs/quantity"
+          description: >
+            THE REAGENT CARRIER. The concentration of the material as supplied,
+            which does not vary across the reagent, so by C72 it belongs to the
+            reagent and not to any step that spends it. Two steps drawing from one
+            stock state this once here rather than twice.
+            IT IS NOT SUMMABLE AND NOTHING SHOULD SUM IT. Two aliquots from one
+            stock double the volume and leave this number alone.
+        molar_mass:
+          $ref: "#/$defs/quantity"
+          description: >
+            A property of the substance, on the reagent by C72: it does not vary across
+            the steps that use it. Added 2026-10-05 because a lipid's volume is
+            proportional to `mol% x molar_mass / stock`, so dropping the volumes under
+            R35 requires this to stay recoverable. Six entries, both membranes.
+        spec:
+          type: array
+          description: >
+            SUPPLIER GUARANTEES, NOT SENSITIVITIES. A sensitivity is half of
+            a Conflict and needs an imposition to point at; these are the opposite
+            polarity, what the vendor promises the material does rather than what it
+            fails to tolerate. `gel-lga`'s EEO and gel strength are the first two.
+            ITS OWN TYPE RATHER THAN `$defs/bound`, which has `additionalProperties:
+            false` and no `note`, so the qualifier "(1% gel)" would have nowhere to go
+            and `bound` would have to change for the Conflict machinery that reads it.
+          items:
+            type: object
+            additionalProperties: false
+            required: [quantity, sense, value]
+            properties:
+              quantity:
+                type: string
+                pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+              sense:
+                enum: [at-least, at-most, within]
+              value: {type: number}
+              unit:
+                type: string
+                description: >
+                  Omitted where the quantity is a ratio and has none. EEO is the first
+                  case: it is dimensionless, and inventing a spelling for that would put
+                  a word in the one field this schema compares literally.
+              note: {type: string}
+        page:
+          type: [string, "null"]
+          description: >
+            Relative path to the input's own spec page, or null where it has none.
+            Present on all 90 inputs measured; null is the normal value for a
+            component the corpus does not give a page.
+        component_of:
+          type: string
+          description: >
+            Names the purchased item or mixture this is part of, where the component
+            has no page of its own. 15 of 196 inputs at `d611bda`.
+          # TWO KINDS OF VALUE ARE LEGAL. A path names a page;
+          # a part number names a product. An earlier reading treated the part number as
+          # a broken path, and it is not.
+          # THE RULE THAT PICKS BETWEEN THEM, in his words: a component gets a page when
+          # it can come from more than one source. "LacZ from MedChem Express vs home made
+          # are both refinements of LacZ enzyme. we have pages for the LacZ enzyme
+          # abstracted, and correctly don't for both of the refinements." So a part number
+          # names a refinement and belongs in the value rather than in a page of its own.
+          # SUPPLY FORM IS A SECOND AND ORTHOGONAL AXIS, and it is a Module rather than an
+          # input key. A protein supplied purified and the same protein expressed from a
+          # template differ in what they REQUIRE, which is what a page states, so the form
+          # gets a page and not a field. It earns one only when the corpus builds both
+          # ways: of eight candidate molecules on 2026-09-21, LacZ is the only one, and its
+          # two forms are lacz-dna and reporter-lacz-enzyme, both members of the lacz class.
+          # AN OPERAND NAMING A CLASS TAKES EITHER FORM AND NEEDS NO NEW SYNTAX. That is how
+          # reporter-lacz asks for LacZ without choosing a form, the same way cell asks for
+          # cytosol. An earlier revision of this comment named reporter-lacz as one of the
+          # two forms; it is the reporter Module, not a supply form.
+        optional:
+          type: boolean
+          description: >
+            True where the module composes without this input. The default is
+            absent, not false: an input with no `optional` key is required.
+            8 of 196 inputs at `d611bda`. The first was base-cytosol's RNase inhibitor, which the protocol
+            adds at 0.5 uL per 10 uL and which may be left out entirely.
+        range:
+          type: string
+          description: >
+            The span an optional or variable input may take, where a single figure
+            would be wrong. Free text carrying its unit, as the corpus writes
+            figures elsewhere.
+        owner:
+          type: string
+          description: >
+            The Node that supplies or maintains it. 1 of 196 inputs at `d611bda`,
+            unchanged since it was 1 of 90. A key the corpus has decided not to use.
+  member_properties:
+    type: [array, "null"]
+    description: >
+      Quantities every member of this class must state. Each entry names one key,
+      or two for a range (low end first), that every module refining this one,
+      directly or through a subclass, carries in a step's `parameters:`, which is
+      where impositions already read such figures. The class names the quantity
+      and the members state the values, so no figure is written twice. Absence
+      means the class requires none. check-spec-schema.py checks every member.
+    items:
+      type: object
+      additionalProperties: false
+      required: [keys, title]
+      properties:
+        keys:
+          type: array
+          minItems: 1
+          maxItems: 2
+          uniqueItems: true
+          items: {type: string, pattern: "^[a-z0-9_]+$"}
+        title: {type: string}
+        unit: {type: string}
+        why: {type: string}
+  substrates:
+    type: [array, "null"]
+    description: >
+      The substrates this module's enzyme acts on, for a module that is or supplies
+      an enzyme. A member of Color Change must pair its enzyme with a substrate on
+      that enzyme's list, and check-spec-schema.py checks it. The list states the
+      rule (a substrate of that enzyme), so a new enzyme brings its own list and the
+      pairing class never changes. A module that refines one with a list inherits
+      it. Absence means the module declares none.
+    items:
+      type: object
+      additionalProperties: false
+      required: [title]
+      properties:
+        title: {type: string}
+        page: {type: [string, "null"]}
+  process_steps:
+    type: array
+    description: >
+      Ordered composition steps. 46 across 17 sources when this schema was derived,
+      76 across 49 at `d611bda`.
+      MAY BE EMPTY, and an empty list is a claim rather than an omission: it says the
+      Module has no constituents and is not produced by a process in this corpus. The
+      five analytes say so in prose -- "an analyte is supplied to an assay rather than
+      produced by a Nucleus process."
+      `minItems: 1` was removed. It had asserted that every
+      Module is composed, which is a third membership condition the model never carried:
+      a Module is "a formulation
+      the corpus has chosen to name, together with the operations its type declares" --
+      two conditions, neither of them production. The schema was derived by measurement
+      from 17 composing sources, so it had never met an atom. Composed-ness is a grading
+      over Modules, not a condition for being one; `standing-is-a-grading.md` records the
+      same shape for committed-ness.
+    items:
+      $ref: "#/$defs/step"
+  measured_by:
+    type: array
+    minItems: 1
+    description: >
+      The processes that measure the module's function. 16 of 49 sources at `d611bda`, one entry
+      each. A list because a module may be measured more than one way.
+    items:
+      type: object
+      additionalProperties: false
+      required: [process]
+      properties:
+        process:
+          $ref: "#/$defs/processRef"
+  open:
+    type: array
+    description: >
+      Questions this source cannot answer, carried in the file rather than left
+      implicit. 35 of 49 sources at `d611bda`. A source with an open entry is still valid.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, question]
+      properties:
+        id:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        question:
+          type: string
+        kind:
+          enum: [question, choice]
+          description: >
+            WHICH OF TWO THINGS THIS ENTRY IS. The difficulty may be a conflation of an
+            'open question', which has no place in a .yml representation of a
+            specification page, with an 'open design choice', which does belong
+            here. A `question` is something this source cannot answer and
+            somebody must go and find out. A `choice` is a decision the design has not
+            made yet, and it belongs in a specification because the specification is
+            what leaves it open.
+            OPTIONAL, AND ABSENCE IS NOT `question`. 133 entries predate this key and
+            none was written with the distinction in mind, so an untagged entry is
+            untriaged rather than classified. Nothing may count untagged entries as
+            questions.
+            THE KEY WAS ADDED RATHER THAN THE ENTRIES BEING MOVED. Acting on the
+            distinction fully would relocate 133 entries across 52 of 71 sources and
+            reverse this field's stated purpose. Several are load-bearing where they
+            are: substrate-carrier's two are why that class is written narrow. Moving
+            them to prose loses the one thing this key buys, which is that a script can
+            count them.
+
+$defs:
+  quantity:
+    type: object
+    additionalProperties: false
+    required: [value, unit]
+    description: >
+      A NUMBER WITH A UNIT, so that a checker can compare and add them. Copied from
+      `bound`, which has carried `value` and `unit` separately since it was written
+      and is the only place in this schema that already did.
+      WHY THIS EXISTS. 159 strings under `parameters`, `headroom` and `range` hold
+      quantities, and only 57 are one value with one unit. 27 are three quantities in
+      one string -- "2000 U/mL final, from a 40 000 U/mL stock, 0.5 uL" -- and 47
+      are a value with a qualifier, a bound, a procedure, or no quantity at all.
+      A string cannot be summed, and `"2.0 uL of 10"` cannot be summed with anything.
+      THE STRING WAS A SYMPTOM. `parameters:` is `type: object` with no property
+      constraints, so it became the field that held whatever would not fit elsewhere.
+      Typing the values where they sit would make that permanent, so the three
+      quantities in a recipe go to three different carriers below.
+    properties:
+      value: {type: number}
+      unit:
+        type: string
+        description: >
+          Read with pint by check-step-quantities.py, and spelled as this corpus
+          spells it: µ for micro, °C, mg/mL for a mass per volume, mmol/mol for the
+          amount-of-substance fractions of a lipid film, and `fold` for a relative
+          strength, the one unit the script defines. A `%` with anything attached is
+          refused: a % is the number 0.01 and carries no information about what it is
+          a fraction of.
+      approx:
+        type: boolean
+        description: >
+          True where the source wrote `~` or `approx.`. The number is then a reported
+          figure rather than a specification, and a checker must not treat it as a
+          bound. 7 of the 159 strings carry one.
+      note:
+        type: string
+        description: >
+          The qualifier that was packed into the string beside the number, such as
+          "in the pH path" or "pH 7.4". It is kept because deleting it loses a fact,
+          and it is separate because a qualifier is not part of the quantity.
+
+
+  bound:
+    type: object
+    additionalProperties: false
+    required: [quantity, sense]
+    description: >
+      A QUANTITY ON ONE SIDE OF A CONFLICT. An imposition's bound is what the step
+      inflicts; a sensitivity's bound is what the object tolerates. check-conflicts.py
+      compares the two where both are declared, which means checking the value bound
+      and not only the presence of a key.
+      `quantity` IS DECLARED ONCE PER IMPOSITION ID, CORPUS-WIDE, and check-spec-schema.py
+      enforces that rather than this file, because JSON Schema cannot express it. Without
+      the rule one `thermal-hold` could carry °C on one step and mM on another, and the
+      comparison would be between different dimensions. Same discipline as
+      check-operator-pairs.py's seed table: the meaning belongs to the id, not to the use.
+      EITHER `value` OR `from`, NEVER BOTH AND NEVER NEITHER. A literal states the bound
+      here; `from` reads it off an operand, which is what lets one step bind a different
+      bound per polymer instead of needing one step per polymer.
+      ABSENCE IS UNDECLARED, as everywhere else in this schema. A bound meeting an
+      unbounded counterpart is reported `incomparable` and is NOT a pass.
+    properties:
+      quantity:
+        type: string
+        description: What is measured. One per imposition id across the whole corpus.
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      sense:
+        enum: [at-least, at-most, within]
+        description: >
+          Which way the bound runs. An imposition `at-least 30` and a sensitivity
+          `at-most 25` conflict. An imposition `at-least 20` against the same
+          sensitivity does not.
+          `within` COMPARES TWO READINGS, NOT A READING TO A THRESHOLD. The live case is
+          osmolality across a vesicle's membrane: |(osm(lumen) - osm(outer)) - setpoint|
+          <= value. `value` is the tolerance, tau, and the class states it. `setpoint` is
+          the designed offset, delta, and each member states its own. At-least and
+          at-most cannot say this, because each holds one reading and a bound. The
+          imposing side still states a plain reading, so both halves of a Conflict keep
+          one shape and the comparison does the relational work.
+          THE TOLERANCE BELONGS TO THE VESICLE AND NOT TO THE BUFFER, which is why the
+          sensitive thing is still an object and `to:` still names a plain condition id.
+          ONE SOURCE USES IT: ../docs/modules/base-cell/spec.yml states the window a Base
+          Cell forms in, setpoint 125 and tolerance 25, in mOsm/kg. Six sources carry an
+          `osmolarity` parameter and none declares what it is sensitive to.
+      unit:
+        type: string
+        description: >
+          Required with `value`. Compared literally, so two spellings of one unit do
+          not compare. There is no unit registry and this schema does not pretend to one.
+      value:
+        type: number
+      setpoint:
+        type: number
+        description: >
+          With `within` only: the designed difference, lumen minus outer, that the
+          tolerance is centered on, in `unit`. The Base Cytosol GUV route sets its outer
+          solution 100 to 150 below its lumen, so its setpoint is 125 and its tolerance
+          25. A member matched on both sides, as the S30 cells are at about 920, has a
+          setpoint of 0.
+          ABSENT MEANS UNDECLARED, NOT ZERO. A `within` with no setpoint, or no value, is
+          reported as cannot compute and never as a pass. The one window on record was
+          measured as vesicles form, so it says nothing yet about how long it holds.
+      from:
+        type: object
+        additionalProperties: false
+        required: [operand, key]
+        description: >
+          Read the bound off an operand's `parameters:` instead of stating it. THE KEY
+          MUST NAME A SINGLE QUANTITY. `gel_temperature_window_c` packs a congealing
+          point and a melting point into one string and cannot be read this way.
+        properties:
+          operand:
+            type: string
+            pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          key:
+            type: string
+    oneOf:
+      - required: [value, unit]
+        not: { required: [from] }
+      - required: [from]
+        not: { anyOf: [ { required: [value] }, { required: [unit] } ] }
+    allOf:
+      - if: { properties: { sense: { not: { const: within } } } }
+        then: { not: { required: [setpoint] } }
+  processRef:
+    type: object
+    additionalProperties: false
+    required: [title, page]
+    properties:
+      title: {type: string}
+      page:
+        type: [string, "null"]
+        description: null where the corpus names the process but gives it no page.
+
+  step:
+    type: object
+    additionalProperties: false
+    required: [id, process, operator, operands, produces]
+    properties:
+      optional:
+        type: boolean
+        description: >
+          True where the module composes without performing this step. Skipping it
+          rewires rather than removes: whatever consumed this step's product
+          consumes its operands instead. 0 of 76 steps at `d611bda`, and 0 of 46 before that.
+          NOTHING HAS EVER SAID IT. The key exists so a
+          source can say it, and check-composition.py reports on the consequence.
+      id:
+        type: string
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      process:
+        description: >
+          Either one process, or a chain of them run as one step with no Module
+          between the links. The chain form replaces title/page, which is why
+          73 of 76 steps carry a title and 3 carry composed_of instead, at `d611bda`.
+        oneOf:
+          - type: object
+            additionalProperties: false
+            required: [title, page]
+            properties:
+              title: {type: string}
+              page:
+                type: [string, "null"]
+                description: >
+                  null where the process has no page yet. 21 of 76 steps at `d611bda`,
+                  up from 5 of 46. This count grew faster than its denominator, so
+                  the documentation gap widened rather than tracked.
+              abstract:
+                type: string
+                description: >
+                  The process this one is an instance of, named by directory.
+                  It is the IMMEDIATE parent, not the root.
+                  24 of 76 steps at `d611bda`, down from 43 percent of steps to 32.
+                pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          - type: object
+            additionalProperties: false
+            required: [composed_of]
+            properties:
+              composed_of:
+                type: array
+                minItems: 2
+                description: >
+                  A chain of processes run as one step. The step's operator belongs
+                  to whichever link performs the composition — the first, unless a
+                  link declares its own. A link that composes nothing carries no
+                  operator. 3 of 76 steps at `d611bda`, unchanged from 3 of 46.
+                items:
+                  type: object
+                  additionalProperties: false
+                  required: [title, page]
+                  properties:
+                    title: {type: string}
+                    page: {type: string}
+                    operator: {$ref: "#/$defs/operator"}
+      requires:
+        type: [array, "null"]
+        description: >
+          What must hold for this step to be defined. A Requirement is "a condition
+          that must hold for a morphism to be defined", and a step is how this schema
+          names a morphism.
+          IT SITS ON THE STEP EVEN THOUGH THE CASE FOR IT RAN THE OTHER WAY ROUND.
+          That case was that refining a color reporter should imply constraints on the
+          cleanup step, which is a Module constraining a step. Stated from the step it
+          is the same claim, and a Requirement is a condition on the morphism, so the
+          carrier rule holds across all four Layer C rows rather than bending for one
+          sentence.
+          THAT ARGUMENT IS NOW IN DOUBT and the doubt is recorded, not resolved here:
+          a step in this schema is a monoidal product and so is total, and a total
+          morphism has no definedness condition for this key to carry.
+          IT IS NOT A CONFLICT AND CANNOT BE ONE. A Conflict is a meet of two
+          declared halves, so it can only say two things must not co-occur. This
+          says something must be PRESENT, and a missing step declares no half, so
+          there is nothing to take a meet over. Credit to session c9d6a5 for the
+          statement.
+          THE CHECKER VERIFIES REACHABILITY AND NOT THE CONDITION. `of` must be
+          reachable in the step's composition, which is mechanical. Whether the
+          condition in `why` actually holds needs a placement model this corpus
+          does not have, exactly as check-conflicts.py cannot tell that a membrane
+          blocks an imposition. Absence means undeclared here too.
+        items:
+          type: object
+          additionalProperties: false
+          required: [id, of, why]
+          properties:
+            id:
+              type: string
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            of:
+              type: string
+              description: >
+                The Module or abstract class the condition is about, by directory
+                name. Reachability of this is what gets checked.
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            why:
+              type: string
+              description: The condition itself, in prose, and the reason it holds.
+            notation:
+              type: string
+              description: >
+                The condition written in the theory's symbols, for a figure to draw
+                verbatim. OPTIONAL, AND `why` STAYS THE CONDITION OF RECORD.
+                render-meet.py draws this where it is present and falls back to `id`
+                where it is not, so a Requirement with no notation still gets a box.
+                THE ALTERNATIVE WAS A MAPPING HARD-CODED IN THE RENDERER, keyed by
+                `id`, which is a rule hidden in a script: a source could not see it,
+                and a second Requirement wanting symbols would have had to be added
+                to the script rather than to the source. Nothing validates that the
+                symbols say what `why` says; they are two statements of one condition
+                and keeping them in step is the author's job.
+            page:
+              type: [string, "null"]
+
+      impositions:
+        type: [array, "null"]
+        description: >
+          What this step's Process inflicts on whatever it acts on. The other
+          half of a Conflict, and it sits on the STEP rather than on the Module
+          because an Imposition is a property of a MORPHISM, against a Sensitivity
+          being a property of an OBJECT. A step is how
+          this schema names a morphism, so this is where the definition puts it.
+          A Module that seems to impose something is carrying it, and the
+          imposing happens in the step that adds the Module. X-Gal does not
+          impose DMSO; the step that doses X-Gal does.
+          Absence means undeclared, exactly as on `sensitivities`.
+        items:
+          type: object
+          additionalProperties: false
+          required: [id, why]
+          properties:
+            id:
+              type: string
+              description: >
+                Matched against a sensitivity's `to`, by this string and nothing
+                else. check-conflicts.py computes the join; nothing asserts it.
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            why:
+              type: string
+            page:
+              type: [string, "null"]
+            bound:
+              $ref: "#/$defs/bound"
+      operator:
+        $ref: "#/$defs/operator"
+      operator_pairs:
+        type: array
+        minItems: 1
+        description: >
+          Exceptions to this step's `operator`, one entry per operand pair that
+          takes the other one. The step label stays required and remains the
+          default, so a step lists only the pairs that differ from it.
+          WHY THIS EXISTS. One label over n operands asserts the same operator on
+          all C(n,2) pairs, and one contrary pair falsifies it. 37 of 75 steps
+          carried more than two operands at 9e57b86, so half the corpus makes an
+          assertion it cannot support.
+          THE FIRST THREE USERS ARE HETEROGENEOUS IN THE SAME WAY: a multiplex cascade and
+          ph-cascade `embed-agarose`, and luxr-lacz-cascade `embed-ulga`. Each takes
+          five operands of which three share the outer phase and two are
+          membrane-bounded, so `packing` is the majority and wrong three times,
+          and `mixing` is not the fix either.
+          Listing exceptions rather than every pair was chosen over making
+          `operator` and `operator_pairs` alternatives. It keeps `operator`
+          required, needs no change to `required`, and costs three entries per
+          step here instead of ten.
+        items:
+          type: object
+          additionalProperties: false
+          required: [operands, operator]
+          properties:
+            operands:
+              type: array
+              minItems: 2
+              maxItems: 2
+              items: {type: string}
+              description: The two operand ids, by id, as they appear in `operands`.
+            operator:
+              $ref: "#/$defs/operator"
+            note:
+              type: string
+              description: Why this pair differs from the step's label.
+      operands:
+        type: array
+        minItems: 1
+        description: >
+          Ids from inputs, or the produces.id of an earlier step. Referential
+          integrity is checked by the validator, not expressible here.
+        items:
+          type: string
+      produces:
+        type: object
+        additionalProperties: false
+        required: [id, title, page]
+        description: The module this step yields. All three keys on all 76 steps at `d611bda`.
+        properties:
+          id: {type: string}
+          title: {type: string}
+          page:
+            type: [string, "null"]
+            description: >
+              null where the product has no page of its own — an intermediate the
+              corpus composes but does not document. 13 of 76 steps at `d611bda`.
+      notes:
+        type: string
+        description: Prose the step needs and no page states. 63 of 76 steps at `d611bda`.
+      parameters:
+        type: object
+        properties:
+          osmotic_concentration:
+            type: string
+            pattern: '^~?[0-9]+(\.[0-9]+)? mOsm(/(L|kg))?$'
+            description: >
+              AN OSMOTIC CONCENTRATION CARRIES ITS UNIT. A figure from a recipe or a
+              calculation is an osmolarity and takes mOsm/L. A reading is an osmolality
+              and takes mOsm/kg. A bare mOsm has no denominator, and marks a figure whose
+              origin is not recorded. scripts/check-osmotic-units.py keeps a list of
+              them. Any other unit, or none, is refused.
+        description: >
+          Free parameters of this step — a choice the composer makes, where the
+          page cannot state one value. 36 of 76 steps at `d611bda`.
+          IT IS NOT A NOTES FIELD, and it became one because it has no property
+          constraints. A quantity belongs in `fractions` here, in `stock` on the
+          input, or in `finals` on the step. `volumes` is named in no source: it was
+          written on 2026-10-05 and deleted the same day under R36, which made a
+          per-component volume derived rather than stated. A procedure belongs on the process page.
+          A BOUND BELONGS IN `inputs[].spec` WHERE IT IS A SUPPLIER'S GUARANTEE, and in
+          `sensitivities` only where it is half of a Conflict. This line said
+          `sensitivities` without qualification until 2026-10-05 and that was wrong:
+          `gel-lga`'s EEO and gel strength are what the vendor promises the material
+          does, which is the opposite polarity from what it fails to tolerate, and
+          there is no imposition for them to point at. What is left is a genuine free
+          choice, which is what the first sentence always said.
+      headroom:
+        type: object
+        additionalProperties: false
+        description: >
+          A reserved slot in a pinned total. 2 of 76 steps at `d611bda`. A number belongs here
+          when it states a fact no single constituent page can state.
+        properties:
+          provides:
+            type: string
+            description: >
+              The capacity this module gives, e.g. "2.0 uL of 10". Named `provides`
+              because the slot belongs to the module offering it, not to the process that fills it.
+          requires:
+            type: string
+            description: >
+              The capacity a module takes from a slot someone else provides.
+              Reserved 2026-09-15, first used 2026-10-07 on ../../docs/modules/atc-sensor-cytosol,
+              which spends ../../docs/modules/base-cytosol's 2.0 uL of 10.
+              THE "FOUR CONSUMERS" THIS LINE CLAIMED ARE ONE. Read on 2026-10-07: two of the
+              four — ahsl-sensor-cytosol and luxr-lacz-cascade — carry the identical sentence
+              "Its headroom is 3.75 uL of 25 ... see s30-lysate/spec.md", which RESTATES THE
+              PROVIDER'S SLOT and spends nothing. The fourth, ph-sensor-cytosol, says the
+              encapsulation step rather than the sensing function spends it, and gives a
+              concentration (Optiprep 4.5% v/v) where this key takes a volume of a stock.
+              Declaring `requires` on any of those three would assert a consumption its own
+              note denies.
+          balance:
+            type: string
+            description: >
+              The term that absorbs the slack, e.g. "Nuclease Free Water, 2.0 - X".
+              Neither provided nor required, which is why it keeps its own name.
+          notes:
+            type: string
+      ratio:
+        type: string
+        description: A combining ratio, a property of the step. 4 of 76 steps at `d611bda`.
+
+      # ---- THE SCALE-FREE KEYS, ADDED 2026-10-05 ----
+      #
+      # The specs were converted first, and this block stayed loose until the shape was
+      # known. The last source was converted at `a4331ca2`. At `0a9c7200`, across every
+      # `spec.yml` under `docs/`: `fractions` on 11 steps, `finals` on 35, `stocks` on 9,
+      # `total_volume` on 13, `balance` on 5.
+      #
+      # TWO SCRIPTS SHARE THE CHECKING. check-spec-schema.py checks module sources against
+      # this file for shape: a fraction is a number above 0 and at most 1, a stock or a
+      # final is a `quantity`, and every key is a kebab-case id. check-step-quantities.py
+      # checks the rest: every unit parses with pint, fractions sum to no more than 1,
+      # fraction x stock equals a stated final once both are in one unit, a lipid film's
+      # mmol/mol finals sum to 1000, and every mixing step gives each operand an amount.
+      #
+      # Quantities under `parameters`, `headroom`, `ratio` and `inputs[].range` are still
+      # strings, and nothing checks them.
+      fractions:
+        type: object
+        propertyNames: {pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"}
+        additionalProperties: {type: number, exclusiveMinimum: 0, maximum: 1}
+        description: >
+          A volume fraction per component, keyed by its id. Scale-free: it does not
+          change when the same composition is run at a different total. Quantities become volume
+          fraction and concentration wherever that is possible. The values must not exceed 1
+          in sum, and check-step-quantities.py fails a step whose fractions do.
+      stocks:
+        type: object
+        propertyNames: {pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"}
+        additionalProperties: {$ref: "#/$defs/quantity"}
+        description: >
+          A stock concentration per component. Prefer `inputs[].stock`, which puts the
+          fact on the reagent it is about, by C72. This step-level form is for a
+          component that is NOT an operand of the step -- a constituent of one, named
+          here because this Module overrides it.
+      finals:
+        type: object
+        propertyNames: {pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"}
+        additionalProperties: {$ref: "#/$defs/quantity"}
+        description: >
+          A final concentration per component. WRITTEN ONLY WHERE THE SOURCE STATES
+          ONE. `fraction x stock` returns it, so a computed entry here would read as a
+          sourced figure, which is the error this whole migration is avoiding.
+      total_volume:
+        $ref: "#/$defs/quantity"
+        description: >
+          The total the step was run at. OPTIONAL. NAMED `total_volume` AND NOT `reaction_volume`: energy-ppk's step
+          produces a 3x premix rather than a reaction, so the narrower name was false on
+          the first source that needed it. It is an Implementation fact rather than a Module one -- the
+          composition is the same reaction at 10 uL or at 500 uL -- so nothing may
+          require it and no figure above may depend on it.
+          NOTHING CHECKS IT. It was kept so that each component's stated volume could
+          recover the total and be compared with it, and 13 such derivations across 7 steps
+          agreed. The conversion then removed every per-component volume, so no figure on a
+          converted step is a volume and none can be compared with this one. It stays
+          optional, as a record of the scale a source was run at.
+
+      balance:
+        type: string
+        description: >
+          The component id that absorbs whatever the fractions leave. Not a fraction:
+          its value moves when any other component moves, which is what makes it a
+          different kind of entry. It names an operand of the step. WITH NO `balance`
+          THE BALANCE IS WATER, and a step whose fractions leave a remainder with no
+          water operand is reported. `headroom.balance` names the same role for a
+          reserved slot, as prose. It becomes a component id when `headroom` is typed.
+
+  operator:
+    enum: [mixing, packing, stitching]
+    description: >
+      mixing — the operands end up in one compartment. packing — each keeps its
+      own. stitching — the operands are joined in order into one polymer, and the product
+      is a single molecule rather than a mixture or a pair of compartments.
+      73 mixing, 39 packing, 0 stitching across 112 steps at `97bcf340`, read with
+      `yaml.safe_load` over every `spec.yml` under `docs/`.
+      A COUNT HERE NAMES ITS REF, for the reason the `refines` description gives above: this
+      file lives on branches whose corpora differ. The figure this line carried until now, 72
+      and 39 across 111, said "on this branch" and was taken at `bed2c438`, which is a tree
+      this one is not. One step apart, and unverifiable from either tree without the third.
+      The earlier count, 50 and 26
+      across 76 at `d611bda`, is kept because it is what the first version of this line said.
+      Determined by the process, not chosen per step.
+      STITCHING HAS NO USER YET AND IS STILL IN THE ENUM. The process that realizes it is DNA
+      assembly. The value exists so that a source CAN say it, not because one does: every gated
+      PLA1 construct in this corpus was synthesized directly rather than assembled, so each
+      enters its cascade as an input and no step performs the join. A source that assembles
+      rather than orders is what will use this.
+      WHAT IS SETTLED AND WHAT IS NOT. Stitching joins operands in order into one new object.
+      The structure is OPEN and `::` is a PLACEHOLDER spelling. `::` is associative and not
+      commutative, which alone gives a SEMIGROUP, and a monoid if it has a unit.
+      THE MONOID IS SETTLED AND FREENESS IS THE HYPOTHESIS. THIS LINE HAD THEM THE OTHER WAY ROUND.
+      `#D35` gives associativity and `#D40` gives the unit, the null polymer, so polymers under
+      `::` are a monoid. The unit is settled, and an earlier version of this line wrongly treated
+      it as open. Polymers form a monoid and plausibly the FREE one, bounded by the circular
+      case -- and it is freeness that carries the one-instance grade, not monoid-ness, which this
+      line also had the wrong way round. So: the monoid is settled, freeness is a one-instance
+      hypothesis with a stated bound,
+      and neither is a reason for a step to behave differently.
+      THE BOUND IS THE SAME CIRCULAR CASE THIS CORPUS ALREADY HIT. See
+      `docs/modules/effector-pla1/spec.yml`'s open item: a circular construct has an
+      author-chosen first base, so a feature can straddle it and substring containment returns
+      false on a true containment.
+      IT IS HOMOGENEOUS, WHICH THE OTHER TWO ARE NOT. Stitching is homogeneous, and DNA stitched
+      to DNA is DNA, from the profile `P ⊗ P ⟶ P`
+      with `P` refining `Polymer`. So a stitching step's operands and its product are all one
+      sort, and `check-operator-pairs.py`'s seed table — which keys on a frozenset of TWO sorts
+      — cannot score it. A one-element key is counted `unknown` there, and that file states
+      `unknown` is not a pass. Seeding it is a separate change.

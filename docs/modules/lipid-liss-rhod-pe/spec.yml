@@ -1,0 +1,32 @@
+# Composition source for Liss-Rhod PE.
+#
+# TWO PARENTS, and each carries a different half. ../lipid says it goes into the
+# bilayer and stays there, which is why it reports the membrane. ../fluorophore says it
+# absorbs and re-emits, which is why it reports at all, and carries the bleaching
+# sensitivity down from ../chromophore.
+#
+# AN ATOM. `process_steps: []`: it is purchased.
+#
+# THE FIGURES ARE REPEATED FROM THE MEMBRANES THAT USE IT, which is the wrong
+# direction and is deliberate for now. A molar mass is a property of the molecule and
+# belongs here; it currently lives on two membrane sources because this page did not
+# exist. Moving it is a separate edit to both of those.
+
+module: lipid-liss-rhod-pe
+title: "Liss-Rhod PE"
+refines:
+  - lipid
+  - fluorophore
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: the-membranes-still-hold-its-figures
+    question: >
+      ../membrane-popc-chol and ../membrane-popc-chol-9-1 each carry this dye's molar
+      mass and stock concentration under `inputs`, with `page: null`. Now that the page
+      exists, those entries should point at it and the figures should live here once.
+      Not done in the same change that created the page, because repointing an input
+      changes what the composition diagram draws and that wants its own measurement.

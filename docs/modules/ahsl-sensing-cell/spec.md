@@ -1,0 +1,208 @@
+---
+title: "SensorCell[3OC6-HSL ⟶ PLA1]"
+subtitle: "Module Specification"
+status: draft
+site:
+    hide-toc: true
+---
+
+# Overview
+
+<!-- gen:position -->
+**Position.** Refines [Sensing Cell](../sensing-cell/spec.md) and [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) and [GUV](../guv/spec.md) and [Liposome](../liposome/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
+The SensorCell[3OC6-HSL ⟶ PLA1] combines the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) with the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), encapsulating the LuxR/pLux 3OC6-HSL sensor plasmid (`LuxR-deGFP`) inside a POPC synthetic cell filled with S30 Lysate. 3OC6-HSL supplied in the outer solution diffuses across the POPC membrane, LuxR binds it, and the activated pLux promoter drives GFP expression inside the liposome.
+
+This Cell is the sensing element of the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), which reports colorimetrically, and of the [LuxR-GFP Sensor Cascade](../luxr-gfp-cascade/spec.md), which reports fluorescence.
+
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
+
+(ahsl-sensing-cell-reference-composition)=
+# Reference Composition
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    OUTER_SOLUTION["Outer solution"]
+    S30_LYSATE["Cytosol: S30 Lysate"]
+    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
+    EFFECTOR_PLA1_LUXR["Gated lysis DNA: pOpen-LuxR-PLA1"]
+    MEMBRANE_POPC["Membrane: POPC"]
+
+    P1_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
+    AHSL_SENSOR_CYTOSOL["SensorCytosol[3OC6-HSL ⟶ PLA1]"]
+    P2_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
+    AHSL_SENSING_CELL["SensorCell[3OC6-HSL ⟶ PLA1]"]
+
+    S30_LYSATE --> P1_ASSEMBLE_CYTOSOL_0
+    DETECTOR_3OC6_HSL --> P1_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1_LUXR --> P1_ASSEMBLE_CYTOSOL_0
+    P1_ASSEMBLE_CYTOSOL_0 --> AHSL_SENSOR_CYTOSOL
+
+    AHSL_SENSOR_CYTOSOL --> P2_ENCAPSULATE_0
+    MEMBRANE_POPC --> P2_ENCAPSULATE_0
+    OUTER_SOLUTION --> P2_ENCAPSULATE_0
+    P2_ENCAPSULATE_0 --> AHSL_SENSING_CELL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class OUTER_SOLUTION,S30_LYSATE,DETECTOR_3OC6_HSL,EFFECTOR_PLA1_LUXR,MEMBRANE_POPC leaf;
+    class AHSL_SENSOR_CYTOSOL,AHSL_SENSING_CELL composed;
+    class P1_ASSEMBLE_CYTOSOL_0,P2_ENCAPSULATE_0 process;
+
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+    click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
+    click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
+    click P1_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
+    click AHSL_SENSOR_CYTOSOL "/docs/modules/ahsl-sensor-cytosol/spec"
+    click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click AHSL_SENSING_CELL "/docs/modules/ahsl-sensing-cell/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | Expressed in the sensing cell. One molecule: a constitutive `BBa_J23101` promoter driving `luxR`, and a `pLux` promoter driving deGFP. |
+:::
+
+:::{attention} The form cited here is linear, and a rule elsewhere says S30 takes the plasmid
+The file above is now in `nucleus-eng/DNA`, on the `devcells/devstudio-constructs` branch, and its GenBank `LOCUS` length is 1952 bp, which is what this table already claimed. The circular form, [pOpen-LuxR-deGFP.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/pOpen-LuxR-deGFP.gb), is 3890 bp and is a different construct.
+
+This cell is filled with S30 Lysate, and [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) states the rule that **"S30 Lysate degrades linear DNA, so this route takes the plasmid"**. @Editor(london): confirm which form this run used. The linear row is kept because it is the length this page recorded, not because the rule was checked against it.
+:::
+
+See [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md) for sensor specification.
+
+::::
+
+::::{tab-item} Cytosol
+The inner solution is [S30 Lysate](../s30-lysate/spec.md) at reaction concentration, plus the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md)'s `LuxR-deGFP` reporter plasmid.
+
+:::{table} Combined synthetic cell reaction, one level deep.
+:label: comp-ahl-cell-inner
+
+| Module | Working concentration | Notes |
+| --- | --- | --- |
+| [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) | S30 Lysate at reaction concentration, in a 100% POPC synthetic cell membrane | Transcription, translation, and encapsulation. The 27.2 µL recipe on that page carries over unchanged, except that 0.95 µL of the nuclease-free water is displaced by sensor plasmid. |
+| [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-deGFP` sensor plasmid at 40 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | The `p70`-driven LuxR cassette is expressed in-reaction at an unrecorded concentration. See the DNA tab for what is missing. |
+
+:::
+
+::::
+
+::::{tab-item} Membrane
+
+:::{table}
+:label: comp-ahl-cell-membrane
+
+| Component | Target Percentage (%) |
+| --------- | ---------------------- |
+| POPC      | 100                     |
+
+:::
+
+See [Membrane: POPC](../membrane-popc/spec.md) for details.
+
+::::
+
+::::{tab-item} Outer Solution
+
+:::{table}
+:label: comp-ahl-cell-outer
+
+| Component | Concentration |
+| --------- | ------------- |
+| Potassium L-glutamate | 578 mM |
+| HEPES (pH 7.4) | 72 mM |
+| Glucose | 300 mM |
+| 3OC6-HSL | 10 µM |
+
+:::
+
+Inner and outer osmotic concentrations are matched (~920 mOsm) to keep encapsulated synthetic cells stable.
+
+::::
+
+:::::
+
+# Expected Behavior
+
+The SensorCell[3OC6-HSL ⟶ PLA1] is expected to express an effector gene (here: GFP) when 3OC6-HSL diffuses from the outer solution into the inner solution of the cell. Across nine configurations spanning bulk, solution and gel formats in Base Cytosol, S30 Lysate and live-bacteria co-culture, reproducibility varies and no configuration is yet fully validated. GFP outperforms the colorimetric readout, and solution and bulk formats outperform gel. A colorimetric readout in a gel-based cytosol system has not yet been demonstrated.
+
+## Cells
+
+Without Optiprep in the inner solution, the encapsulated sensor expresses GFP on 3OC6-HSL induction: green fluorescence appears across all imaged fields, with liposome-associated GFP puncta co-localizing with round synthetic cells, consistent with an active encapsulated reaction. The source reaction includes a matched condition omitting the `LuxR-deGFP` plasmid, but the reported imaging result carries no minus-3OC6-HSL control and no biological replicates, so the GFP signal is not yet formally attributable.
+
+In [S30 Lysate](../s30-lysate/spec.md), the 3OC6-HSL-gated [colorimetric](../../processes/colorimetric-readout/main.md) sensor works in solution as well as in gel. An SensorCell[3OC6-HSL ⟶ PLA1] combined with a [CPRG-loaded SUV](../../processes/encapsulate-suv/main.md) and 3OC6-HSL has not been reproduced. Negative controls in that test turned purple, attributed to leaky old-stock liposomes rather than an 3OC6-HSL response.
+
+:::{attention} Caveats
+- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the 3OC6-HSL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10%.
+- Plasmid dose is critical — roughly seven-fold under-dosing accounts for early failures. Use ~1000 ng per reaction.
+- Fold-induction is strongest near 25 °C and drops at 37 °C. Incubate at 25 °C where minimal background matters.
+- Encapsulation is stochastic. Expect a GFP-positive subpopulation rather than uniform signal across synthetic cells.
+:::
+
+
+
+## Gels
+
+Embedded in 1% ultra-low-gelling-temperature agarose (ULGA), POPC synthetic cells produce a GFP response after 2.5 h incubation with either overnight bacterial culture or bacterial culture supernatant, confirmed by Z-stack imaging. An LB-only control gives no signal at matched imaging settings. In [S30 Lysate](../s30-lysate/spec.md), GFP synthetic cells dosed with 3OC6-HSL give a reproducible plate-reader signal over a 1000 min time course.
+
+The gel-format colorimetric sensor has been repeated across two laboratories but is temperamental: synthetic cells sometimes fail to rupture. In [Base Cytosol](../base-cytosol/spec.md), a constitutive (non-3OC6-HSL-gated) [PLA1](../effector-pla1/spec.md)/[CPRG](../substrate-cprg-suv/spec.md) two-liposome colorimetric configuration gives a measurable, reproducible color change by UV-Vis after 3 h. Leaky expression is the limiting problem in gel formats.
+
+The [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) swaps this Cell's deGFP payload for the `LuxR-PLA1` construct, so that 3OC6-HSL exposure triggers a two-liposome PLA1/LacZ colorimetric handoff instead.
+
+## Live-bacteria co-culture
+
+:::{warning} Not yet validated
+A single agar-pad 3OC6-HSL-diffusion test of lysate synthetic cells alongside live bacteria produced no observable GFP. One attempt, no replicates.
+:::
+
+# Requirements
+
+Requires σ70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `LuxR-deGFP` construct is driven by the *E. coli* pLux promoter, not pT7, so it does not express in a T7-only cytosol.
+
+Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)).
+
+Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10%.
+
+:::{attention} Source needed for the Optiprep ceiling in dye populations
+@Editor(london): cite the document that gives the CPRG dye population's 10% Optiprep, which this page states under Expected Behavior and here.
+:::
+
+# Processes
+
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — forms the synthetic cell, encapsulating [S30 Lysate](../s30-lysate/spec.md) plus the `LuxR-deGFP` sensor plasmid in a POPC membrane
+- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — immobilizes the Cell in gel, for the gel-format configurations
+
+:::{attention} The lysate encapsulation route may be a variant
+@Editor(london): this Cell is formed by an Elani-lab mineral-oil phase-transfer protocol, the same route described on the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) spec. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) documents emulsion phase transfer as a general method, but it is not confirmed that the London mineral-oil route is that protocol rather than a variant needing its own page. Confirm with the London Node.
+:::
+
+# Constituent Modules
+
+- [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) — [S30 Lysate](../s30-lysate/spec.md) carrying the LuxR/3OC6-HSL sensing construct and the PLA1 effector on the same molecule
+- [Membrane: POPC](../membrane-popc/spec.md)
+
+# Credits
+
+Developed by Ion Ioannou and Jonah McDonald (London Node) — synthetic cell encapsulation.
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

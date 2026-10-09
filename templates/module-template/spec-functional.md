@@ -1,6 +1,6 @@
 ---
 title: "TODO: Category: Module Name"
-# Title format: "Category: Name" — e.g. "Reporter: deGFP", "Detector: tetR-aTc", "Effector: PLA1"
+# Title format: "Category: Name" — e.g. "Reporter: deGFP", "Detector: tetR-aTc", "Lysis: PLA1"
 subtitle: "Module Specification"
 status: draft  # draft | unvalidated-published | validated-published — see CLAUDE.md "Page status"
 thumbnail: schematic.png

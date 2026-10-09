@@ -1,0 +1,89 @@
+# Composition source for Liposome.
+#
+# THE MATERIAL AXIS, AND IT HAS ONE VALUE SO FAR. A liposome is a vesicle whose
+# bilayer is made of lipid. Its sibling is a polymersome, whose bilayer is made of
+# block copolymer, and this corpus has none.
+#
+# NO MEMBERS ARE ASSIGNED, DELIBERATELY. Every vesicle here is a liposome, so giving
+# eleven Modules this parent would record a distinction that separates none of them
+# from any other. The page exists so the axis is written down and a polymersome has
+# somewhere to attach. Same reasoning as `member_properties` on the size classes:
+# declaring a thing before it distinguishes anything reports a gap rather than a fact.
+#
+# INDEPENDENT OF SIZE. A liposome may be a GUV, an SUV or an LUV. That is why this
+# refines ../vesicle and not one of those three.
+
+module: liposome
+title: "Liposome"
+refines: vesicle
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  lipid-membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+  payload:
+    title: "Payload"
+    page: null
+
+process_steps:
+  - id: close-a-lipid-bilayer-around-the-payload
+    process:
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [lipid-membrane, payload, outer-solution]
+    produces:
+      id: liposome
+      title: "Liposome"
+      page: ../liposome/spec.md
+    notes: >
+      The same step as ../vesicle/spec.yml with the membrane narrowed to a lipid one,
+      which is the whole of the refinement. ../membrane/spec.md is lipid by its own
+      definition, so naming it is what makes this class narrower than its parent.
+
+open:
+  - id: no-members-and-that-is-the-point
+    question: >
+      CLOSED 2026-10-05, and the reasoning in it was wrong. It read: this class claims
+      no members while every vesicle in the corpus is one, so the page records the axis
+      rather than sorting anything by it.
+      Synthetic cells, substrate vesicles and dye vesicles are built from lipids, so
+      each refines this class. Eleven members assigned, each verified to take a
+      POPC-based membrane.
+      THE ERROR WAS TREATING A PARENT AS A SORTING KEY. A class that holds only what
+      currently separates members earns its page when the first exception arrives. A
+      class that says what members are MADE OF is true now, and leaving it unasserted
+      left eleven Modules silent about their own bilayer rather than keeping the corpus
+      neutral.
+
+# FOUR OF THE ELEVEN EDGES ARE REDUNDANT AND THAT WAS KNOWN BEFORE THEY WERE ADDED.
+# ../ahsl-sensing-cell, ../atc-sensing-cell, ../ph-sensing-cell and
+# ../theophylline-sensing-cell each refine a chassis that now refines this class, so
+# their direct edge is implied by a longer path rather than independent.
+#
+# THEY ARE KEPT. A synthetic cell is built from lipids and so refines liposomes
+# directly, and ../../../scripts/render-posets.py already reports the shape it is:
+# "88 covering, 4 implied by a longer path and not drawn". An implied edge is not a
+# false claim, only an unnecessary one, and the same four already carried a redundant
+# `guv` edge before this sweep for the same reason.
+#
+# THE SWEEP DID SOMETHING ELSE WORTH KNOWING. Before it, no module in this corpus sat
+# in three INDEPENDENT fibers; the theory session read a parent count off `refines:` and
+# reported three axes on these four sensing cells, which was false because two of their
+# four edges are implied. Measured after the sweep: SIX modules sit in three genuinely
+# independent fibers -- ../base-cell, ../cell-base-cytosol-popc-chol and
+# ../cell-s30-popc over cell x guv x liposome, and ../guv-cprg, ../substrate-cprg-luv
+# and ../substrate-cprg-suv over a role, a size and a material. The sensing cells are
+# still not among them.

@@ -1,0 +1,71 @@
+# Composition source for GUV.
+#
+# A SIZE AND LAMELLARITY CLASS, AND MEMBERSHIP FOLLOWS THE ROUTE. Every member is
+# produced by Encapsulation: Phase Transfer, which is the rule the Editor
+# gave: determine the class by the process that generates the page.
+#
+# REFINES ../vesicle, WHICH IS WHERE THE UNSETTLED QUESTION NOW SITS. A vesicle is a
+# membrane with something in it, and whether forming a boundary and holding something
+# in it are one operation is unsettled -- but that is the parent's question, not this
+# one's. This class divides by size and lamellarity, which is a different axis
+# entirely, and the parent carries the rest.
+#
+# SIZE IS NOT MATERIAL. ../liposome refines the same parent on the material axis, so
+# a member of this class may also be a liposome and the two parents are independent.
+#
+# THE COMPOSITION IS THE ROUTE AND NOTHING ELSE. Members differ in both the
+# membrane and the payload, so the operands are the two classes and the step names
+# the one thing they share.
+
+module: guv
+title: "GUV"
+refines: vesicle
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+  payload:
+    title: "Payload"
+    page: null            # it varies: a cytosol, a substrate, a dye
+
+process_steps:
+  - id: close-the-bilayer-around-the-payload
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [membrane, payload, outer-solution]
+    produces:
+      id: guv
+      title: "GUV"
+      page: ../guv/spec.md
+    notes: >
+      THE PROCESS IS WHAT MAKES A MEMBER, which is the rule this class is written
+      on: a Module belongs here when this route produces it. The sibling classes
+      differ in exactly this line and in nothing else.
+      `packing` because the payload keeps its own compartment, which is what a
+      vesicle is for.
+
+open:
+  - kind: question
+    id: no-member-states-a-diameter
+    question: >
+      Size is what this class is for and no member states one in a form the schema
+      can read. `member_properties` is the key for exactly this -- a class naming a
+      quantity every member must state -- and it is not used here because declaring
+      it today would report every member as missing the figure rather than record a
+      fact. Worth adding when the first diameter is measured.

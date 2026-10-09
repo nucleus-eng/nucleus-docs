@@ -1,0 +1,213 @@
+# JSON Schema for a PROCESS source, docs/processes/<name>/spec.yml.
+#
+# DERIVED BY MEASUREMENT, 2026-10-05, not designed from the glossary down. Counts in
+# this file are from the corpus at `9e6ef90f` and are meant to be re-run, not trusted:
+#
+#     27 process directories, 23 with a `main.md`, 0 with a source.
+#     57 module steps declare `process.abstract`, over 4 distinct values.
+#     14 process pages are named by a step's `process.page`.
+#     9 step-level impositions exist, over 4 ids.
+#
+# WHY A PROCESS NEEDS A SOURCE, AND THE REASON IS IN THAT LAST LINE. All 9 impositions
+# were declared on module steps, and EVERY ONE OF THEM TRACKS A PROCESS RATHER THAN A
+# MODULE:
+#
+#     uv-exposure                      3 declarations, all embed-photodevelopment
+#     thermal-hold                     3 declarations, all embed-thermal-setting
+#     radical-acrylate-polymerization  1 declaration,     embed-photodevelopment
+#     proteolysis                      2 declarations, a process with no page
+#
+# Not one id spans two processes. So the step-level key has been holding a fact about
+# the process, copied once per module that runs it, and three pages restate
+# `thermal-hold` because three cascades embed in a thermal gel. An imposition belongs to
+# a MORPHISM; a Process is the morphism; the data agrees.
+#
+# THIS SCHEMA DOES NOT MOVE THEM. Declaring the key here and converting the 9 in one
+# pass are separate commits, for the reason R20 gave about the quantities: a corpus
+# where some impositions sit on steps and the rest on processes is worse than either,
+# because check-conflicts.py cannot tell a missing declaration from a moved one.
+#
+# WHAT IS DELIBERATELY ABSENT. No `process_steps`. A Process is not composed of Modules,
+# and a protocol's numbered steps are prose on `main.md` where a human reads them. The
+# `composed_of` chain a module step may carry is a fact about THAT step, not about a
+# process, and it stays there.
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Nucleus process source
+type: object
+additionalProperties: false
+required: [process, title]
+properties:
+  process:
+    type: string
+    description: >
+      The directory name, and the id a module step's `process.abstract` matches. 4 of
+      the 57 abstract declarations name a directory with no `main.md`
+      -- `assemble-cytosol` and `assemble-solution` -- so an abstract process may have a
+      source and no page, which is the opposite of every other directory here.
+    pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+  title:
+    type: string
+  refines:
+    description: >
+      The process this one refines, or a list of them. THIS IS THE RELATION
+      `process.abstract` ALREADY ENCODES, moved to the side that owns it: today a module
+      step says which abstract process its process refines, which puts an edge of the
+      process poset inside a module source. 57 steps carry it and
+      `scripts/render-posets.py` reads it to draw P2.
+      A list is allowed because `refines:` on a Module already allows one and the two
+      relations are the same shape.
+    oneOf:
+      - type: string
+        pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      - type: array
+        minItems: 1
+        items:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+  signature:
+    type: object
+    additionalProperties: false
+    required: [takes, produces]
+    description: >
+      WHAT THE PROCESS IS AS A MORPHISM: its domain and its codomain, written as
+      `prep_lipids : [component, …] ⟶ membrane_components` and
+      `encapsulate : membrane_components, inner_solution, outer_solution ⟶
+      outer_solution{Membrane[membrane_components]{inner_solution}}`.
+      THE NESTING LIVES IN THE RETURN TYPE AND NOT IN THE APPLICATION, which is why
+      `takes` is a flat list and `produces` is one value.
+    properties:
+      takes:
+        type: array
+        minItems: 1
+        description: >
+          The argument positions, in order. A class name, because an operand naming a
+          class means any member satisfies it -- the mechanism ../docs/modules/lacz
+          already relies on.
+        items:
+          type: object
+          additionalProperties: false
+          required: [type]
+          properties:
+            type:
+              type: string
+              pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            repeated:
+              type: boolean
+              description: >
+                True for the `[component, …]` form, where the position takes one or more
+                of the type rather than exactly one. `prep_lipids` is the attested case.
+            note: {type: string}
+      produces:
+        type: object
+        additionalProperties: false
+        required: [type]
+        properties:
+          type:
+            type: string
+            pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            description: >
+              A TYPE NAME HERE DOES NOT NEED A PAGE, and `component` is the precedent.
+              It is named by 27 signatures in this corpus and no Module page
+              carries it. `observation` and `measurement` are the same case: a Module is
+              a formulation and a reading is not one. Writing a Module page for one
+              would repeat the correction that deleted three function pages from
+              docs/modules/ on the same day.
+              SO A MISSING PAGE IS NOT A GAP HERE. If the type names something a Module
+              could be, it wants a page. If it names what an assay emits, it does not.
+          note:
+            type: string
+            description: >
+              Where the codomain nests, the nesting written out. `encapsulate` returns
+              `outer_solution{Membrane[membrane_components]{inner_solution}}`, which no
+              id can carry.
+  conserves:
+    type: boolean
+    description: >
+      WHETHER THE INPUT SURVIVES. An assay is destructive, consuming or altering the input
+      to give the signal, or conservative, passing the input unchanged.
+      `true` means the sample comes back: the reading was taken without spending it, so
+      a conservative assay may be run again on the same material and may sit mid-chain.
+      `false` means the sample is consumed or altered, so the reading costs the thing it
+      was read from and the step is terminal for that material.
+      THIS IS WHY AN ASSAY'S CODOMAIN LOOKED BROKEN. `produces` gives one type, and a
+      conservative assay returns two things -- its input and a reading. Declaring
+      `conserves: true` says the input survives without the signature having to carry it
+      twice.
+      Meaningful on any process, not only an assay: a destructive step is a destructive
+      step. Absence means undeclared.
+  keeps_boundary:
+    type: boolean
+    description: >
+      TRUE WHERE THE PROCESS RETURNS ITS BOUNDED ARGUMENT WITH THE SAME BOUNDARY AND THE
+      SAME CONTENTS, and changes only what is outside it. ../docs/processes/wash-vesicles
+      is the case: the vesicles come back, in a fresh outer solution.
+      IT IS WHAT LETS AN OPTIONAL STEP BE LEFT OUT UNDER A PACKING CONSUMER. Skipping a
+      step rewires its consumer onto the step's operands. For most steps that is several
+      loose things, and packing cannot take them. For a step that keeps the boundary it
+      is the one bounded thing the step was given -- the unwashed vesicles -- and the
+      other operands go unused. scripts/check-composition.py reads this key for exactly
+      that.
+      ENCAPSULATE CREATES A BOUNDARY; A WASH KEEPS ONE AND REPLACES WHAT IS OUTSIDE IT.
+      Only the second can be left out without changing what the next step receives.
+      ../docs/processes/degrade-exterior-lacz DOES NOT DECLARE IT. Its protease reaches
+      any protein outside the lumen, the membrane's own included, so it is not shown to
+      return the boundary unchanged.
+      Absence means undeclared, not false.
+  operator:
+    enum: [mixing, packing, stitching]
+    description: >
+      The operator every instance of this process uses, where there is one. A process
+      whose instances disagree declares none: that is a fact about the process and an
+      omission is not an error.
+  impositions:
+    type: [array, "null"]
+    description: >
+      WHAT THIS PROCESS INFLICTS ON WHAT IT ACTS UPON, and the key this schema exists
+      for. An Imposition is a property of a morphism and a Process is the morphism, so this
+      is the home the definition asks for.
+      Measured before being written: all 9 step-level impositions track a process and
+      none spans two, so this key removes a copy-per-module rather than adding a place
+      to look.
+      ABSENCE MEANS UNDECLARED, as everywhere else. A process that inflicts nothing and
+      a process nobody has described are the same shape here and neither is a claim.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, why]
+      properties:
+        id:
+          type: string
+          description: >
+            Matched against a sensitivity's `to`, by this string and nothing else.
+            `scripts/collate-conditions.py` lists every id and which ones meet nothing.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        why: {type: string}
+        page:
+          type: [string, "null"]
+          description: >
+            Where the claim is written in prose, relative to this source. Mirrors the
+            same key on a Module's sensitivities.
+        bound:
+          type: object
+          description: >
+            The same shape `scripts/spec-yml-schema.yml` defines at `$defs/bound`. It is
+            not `$ref`'d across files: one schema referencing another by path is a
+            second thing to keep in sync, and these two are validated by different
+            checkers.
+  measured_by:
+    type: array
+    minItems: 1
+    items: {type: string}
+  open:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, question]
+      properties:
+        id:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        kind:
+          enum: [question, choice]
+        question: {type: string}

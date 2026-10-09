@@ -1,0 +1,24 @@
+# Process source for Assemble Outer Solution.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# THE SECOND JOB IS EASY TO MISS AND THE PAGE SAYS SO. An outer solution sets the
+# osmotic environment and is also what the gel is made from, which is why
+# ../embed-thermal-setting takes one as an operand rather than making its own.
+#
+process: assemble-outer-solution
+title: "Assemble Outer Solution"
+refines: assemble-solution
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        Salts, buffer and sugar. Repeated: the attested instances mix three or four.
+  produces:
+    type: outer-solution
+    note: >
+      The solution cells are suspended in, AND the solution a gel polymer dissolves into. The page is explicit that this does two jobs.
+
+operator: mixing

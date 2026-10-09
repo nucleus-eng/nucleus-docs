@@ -1,0 +1,73 @@
+# Composition source for Outer Solution: Glucose-HEPES.
+#
+# SPLIT OUT FROM ../outer-solution-tris-hepes/spec.md, which used to
+# claim it served "all three Chicago cascades", while the aTc demo board records a
+# different solution entirely: 400 mM glucose with 1 M HEPES-KOH at pH 7.6, against the
+# Tris-HEPES formulation. One page cannot state two formulations, so the aTc
+# one became this file and the Tris-HEPES page kept the pH path.
+#
+# THE ONLY SOURCE IS A WHITEBOARD, src/20260929-demo-atc-chuck.md in
+# nucleus-eng/devstudio-readiness, node (M5). No osmotic concentration is recorded, which is why
+# this file states none: the figure the cells are matched against lives on the steps
+# that embed them.
+
+module: outer-solution-glucose-hepes
+title: "Outer Solution: Glucose-HEPES"
+refines: solution
+  # NOT ../outer-solution. OUTER IS A POSITION, NOT A KIND. It is where a solution
+  # sits in an encapsulation -- the one outside the membrane -- and a position is a
+  # role in an operation rather than a property of the thing filling it. The same
+  # solution is "outer" in one step and simply a solution in the next.
+  # ../outer-solution is still a Module you assemble, and 24 sources name it as an
+  # operand. BEING AN OPERAND IS NOT BEING A CLASS.
+
+# CARRIED FROM ../outer-solution, which this stopped refining. It was the ONLY thing
+# inherited from that parent, so dropping the parent without carrying this would have
+# silently removed the statement that an osmometer reads this solution.
+measured_by:
+  - process:
+      title: "Osmometry Readout"
+      page: ../../processes/osmometry-readout/main.md
+
+inputs:
+  glucose:
+    title: "Glucose"
+    page: null            # no module page for the sugar
+  hepes-koh:
+    title: "HEPES-KOH buffer"
+    page: null            # no module page for the buffer
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [glucose, hepes-koh]
+    produces:
+      id: outer-solution-glucose-hepes
+      title: "Outer Solution: Glucose-HEPES"
+      page: ../outer-solution-glucose-hepes/spec.md
+    # SCALE-FREE, 2026-10-05. THE COLUMN HEADER DID NOT SETTLE THIS and the arithmetic
+    # did. ../outer-solution-glucose-hepes/spec.md:66 heads its column "Concentration",
+    # where the sibling file writes "Working concentration", so the page does not say
+    # whether 1 M is this solution or the buffer stock behind it.
+    #
+    # 400 mM glucose alone is not enough. With 1000 mM HEPES the total is 1400 mOsm/L, which
+    # is more reasonable. So both are finals. Flagged on the page
+    # rather than treated as closed.
+    # @Editor: 400 mM glucose and 1000 mM HEPES add to 1400 as written. HEPES-KOH at pH 7.6
+    # also brings roughly 560 mM potassium. That gives about 1970 mOsm/L, if 1 M is the final
+    # concentration and not the stock's. Which is right?
+    finals:
+      glucose: {value: 400, unit: "mM"}
+      hepes-koh: {value: 1, unit: "M", note: "pH 7.6"}
+
+open:
+  - id: the-osmolarity-is-not-recorded
+    question: >
+      No source gives this solution's osmotic concentration. The aTc path matches its cells against
+      about 1180 mOsm, which is the Tris-HEPES figure, and whether this formulation
+      reaches the same value is unverified. Until it is, no step can read an osmotic concentration
+      off this Module.

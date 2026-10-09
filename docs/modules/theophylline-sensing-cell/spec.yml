@@ -1,0 +1,107 @@
+# Composition source for the SensorCell[theophylline ⟶ LacZ].
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. The sensor cytosol is expanded because this Cell builds it, exactly
+# as on the aTc and pH pages.
+
+module: theophylline-sensing-cell
+title: SensorCell[theophylline ⟶ LacZ]
+refines:
+  # Two incomparable parents: the chassis is the cell without
+  # modules in it, and this is that chassis with a sensor module put into it.
+  # Which chassis is read off the constituents, not the demo name.
+  # FUNCTIONAL PARENT FIRST -- the meet renderer aligns on entry one.
+  - sensing-cell
+  - cell-base-cytosol-popc-chol
+  - guv
+  - liposome
+  # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
+  # vesicle each refine liposomes, because each is built from lipids. Verified for this
+  # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
+  # not nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
+  # GUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  detector-theophylline:
+    title: "Detector: Theophylline"
+    page: ../detector-theophylline/spec.md
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+
+process_steps:
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, detector-theophylline]
+    produces:
+      id: theophylline-sensor-cytosol
+      title: "SensorCytosol[theophylline ⟶ LacZ]"
+      page: ../theophylline-sensor-cytosol/spec.md
+    notes: >
+      The riboswitch drives whichever effector gene sits downstream of it, and
+      no effector is specified on this page. So this cytosol is a sensing
+      reaction with no output wired to it yet.
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [theophylline-sensor-cytosol, membrane-popc-chol-9-1, outer-solution]
+    produces:
+      id: theophylline-sensing-cell
+      title: "SensorCell[theophylline ⟶ LacZ]"
+      page: ../theophylline-sensing-cell/spec.md
+    notes: >
+      The cytosol is composed before encapsulation, not added to a closed
+      chassis.
+
+open:
+  - id: cytosol-intermediate-has-no-page
+    question: >
+      CLOSED. The page landed at docs/modules/theophylline-sensor-cytosol, as an
+      intermediate that refines Sensor Cytosol. The name this file coined has since
+      been replaced: it is SensorCytosol[theophylline ⟶ LacZ] now, matching
+      SensorCytosol[aTc ⟶ PLA1] and SensorCytosol[pH ⟶ PLA1], and produces points at
+      the page rather than carrying page null.
+      The new source copies this step rather than deriving it, so the two files
+      cannot disagree about what the intermediate is.
+  - id: chassis-is-a-sibling
+    question: >
+      The Cytosol tab of spec.md lists Cell: Base Cytosol, POPC/Chol (9:1) as a constituent of this
+      Cell, at "Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol
+      synthetic cell membrane". Structurally the chassis is a sibling, not an
+      ingredient: both pack a cytosol in the same membrane and differ only in
+      which cytosol. This file models the sibling structure. The prose is left
+      alone — check-composition.py does not see it, because the claim is in a
+      composition table rather than in `# Constituent Modules`.

@@ -1,0 +1,51 @@
+# Process source for Protein Gel (SDS-PAGE).
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# AN ASSAY, AND THAT IS A DIFFERENT SHAPE FROM EVERY OTHER PROCESS HERE. It is separation of a mixture roughly by molecular weight under an applied field.
+# An Assay is a Measurement considered as applied: the Process that realizes one, so it IS a process -- but its codomain is a reading rather than a thing in a tube.
+#
+# DESTRUCTIVE. The sample is denatured, loaded and driven through the gel, so what was
+# read no longer exists as it was. The reading costs the material it came from, and the
+# step is terminal for that aliquot.
+#
+# `produces: measurement` IS A TYPE NO MODULE PAGE CARRIES. It is written because the
+# alternative is claiming the assay produces its own input, which is false: the sample
+# is consumed and what comes out is a number. See the open item.
+
+process: protein-gel
+title: "Protein Gel (SDS-PAGE)"
+refines: assay
+
+conserves: false
+
+signature:
+  takes:
+    - type: component
+      note: >
+        A sample of the mixture being separated.
+  produces:
+    type: observation
+    note: >
+      THE PAGE CALLS ITS OWN RESULT QUALITATIVE. `main.md:67`: "You should now be able
+      to see protein bands by naked eye, which is sufficient to get a qualitative
+      understanding of your protein purity and concentration." `main.md:64` offers a gel
+      imager to "semi-quantitate" it, which is the upper bound rather than the default.
+      SO THIS IS NOT A MEASUREMENT, AND IT READ `measurement` UNTIL 2026-10-05. A
+      Measurement is the quantitative case of an Observation. A band at the right
+      molecular weight is the visual-score case exactly, and unlike
+      ../colorimetric-readout there is no quantitative protocol beside it to fall back
+      on. ../pierce660 is the one instance here that does carry one.
+      A READING, NOT A COMPONENT. No module page carries this type, as none carries
+      `component`.
+
+open:
+  - id: an-assay-returns-a-reading
+    question: >
+      `scripts/process-yml-schema.yml` gives `produces` one type and assumes it names
+      something a Module could be. An assay breaks that: it returns a number.
+      PART OF THIS IS NOW ANSWERED. `conserves:` says whether the input survives, which
+      is the half that made a conservative assay look like it returned two things. What
+      is still open is what type a reading IS -- no module page carries `measurement`,
+      and ../colorimetric-readout now returns an `observation`, which is the
+      supertype: that page has a route scored by eye and this one does not.

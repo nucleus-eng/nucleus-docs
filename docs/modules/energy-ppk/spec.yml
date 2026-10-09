@@ -1,0 +1,187 @@
+# Composition source for PPK Energy.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Both steps are `mixing`: buffer components into one solution, then two supplied
+# components into that solution. No `packing` step appears here, so nothing in this file
+# depends on whether forming a boundary and holding something in it are one operation,
+# which is unsettled.
+#
+# THE MODULE IS THE PURIFIED PROTEIN, NOT THE PLASMID. `pOpen-PPK-CHis` carries no
+# promoter and does not express PPK2 as filed, so it does not on its own satisfy
+# this Module's specification. It is a cloning vector, and it is not an operand.
+
+module: energy-ppk
+title: "Energy: PPK"
+refines:
+  - energy
+  - solution
+  # PLACED 2026-10-05. NOT a cytosol: it holds no expression machinery. Its operands are
+  # solutes -- HEPES, potassium glutamate, rNTPs, tRNA, TCEP -- dissolved in one phase,
+  # which is ../solution/spec.md exactly.
+  #
+  # AND THE PAGE SAYS WHAT IT IS TO A CYTOSOL RATHER THAN BEING ONE: "complements the
+  # default energy module in Nucleus Cytosol". It is added to a cytosol, so it is a
+  # sibling of ../outer-solution under Solution rather than a kind of cytosol.
+  #
+  # ../energy is its class by function, and it comes first, as the functional parent.
+  # ../solution stays second, for the composition.
+
+inputs:
+  hepes:
+    title: "HEPES"
+    stock: {value: 1000, unit: "mM"}
+    page: null
+  potassium-glutamate:
+    title: "Potassium L-glutamate"
+    stock: {value: 2500, unit: "mM"}
+    page: null
+  magnesium-acetate:
+    title: "Magnesium acetate"
+    stock: {value: 1000, unit: "mM"}
+    page: null
+  rntps:
+    title: "rNTPs"
+    stock: {value: 100, unit: "mM"}
+    page: null
+  trna:
+    title: "tRNA"
+    stock: {value: 35, unit: "mg/mL"}
+    page: null
+  tcep:
+    title: "TCEP"
+    stock: {value: 500, unit: "mM"}
+    page: null
+  folinic-acid:
+    title: "Folinic acid"
+    stock: {value: 5, unit: "mM"}
+    page: null
+  spermidine:
+    title: "Spermidine"
+    stock: {value: 200, unit: "mM"}
+    page: null
+  amino-acid-solution:
+    title: "Amino acid solution"
+    stock: {value: 3.25, unit: "mM"}
+    page: null
+  ppk2:
+    title: "Purified PPK2"
+    page: null
+  polyphosphate-100mer:
+    title: "100mer polyphosphate"
+    page: null
+  water:
+    title: "Nuclease-free water"
+    page: null
+
+process_steps:
+  - id: prepare-custom-smix
+    process:
+      title: "Prepare custom SMix without creatine phosphate"
+      page: null
+    operator: mixing
+    operands:
+      - hepes
+      - potassium-glutamate
+      - magnesium-acetate
+      - rntps
+      - trna
+      - tcep
+      - folinic-acid
+      - spermidine
+      - amino-acid-solution
+      - water
+    produces:
+      id: smix-minus-cp
+      title: "Custom SMix (SMix -CP)"
+      page: null
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    #
+    # THE IN-REACTION COLUMN IS GONE AND IT WAS NOT DATA. Every one of the nine rows
+    # above gave an in-reaction figure and an in-energy-solution figure, and the ratio
+    # was EXACTLY 3.00 on all nine. The energy solution is a 3x premix, which the total
+    # already said in "200 uL at 3x". So the column restated one stated fact nine times.
+    # Divide a final below by 3 to recover it.
+    #
+    # The volumes are gone for the same reason. fraction = final / stock reproduces all
+    # nine: 0.15 x 200 uL = 30.0, 0.30 x 200 = 60.0, and so on. `magnesium-acetate` and
+    # `amino-acid-solution` were written rounded, 7.1 against 7.08 and 55.4 against
+    # 55.38, which is the other cost of storing a derived number.
+    #
+    # The fractions sum to 0.99032 and water is 0.0095, for 0.99982. The missing 0.018%
+    # is the rounding in the two figures above and is not a missing component.
+    finals:
+      hepes: {value: 150, unit: "mM"}
+      potassium-glutamate: {value: 300, unit: "mM"}
+      magnesium-acetate: {value: 35.4, unit: "mM"}
+      rntps: {value: 6, unit: "mM", note: "each"}
+      trna: {value: 10.5, unit: "mg/mL"}
+      tcep: {value: 3, unit: "mM"}
+      folinic-acid: {value: 0.06, unit: "mM"}
+      spermidine: {value: 6, unit: "mM"}
+      amino-acid-solution: {value: 0.9, unit: "mM"}
+    fractions:
+      hepes: 0.15
+      potassium-glutamate: 0.12
+      magnesium-acetate: 0.0354
+      rntps: 0.06
+      trna: 0.30
+      tcep: 0.006
+      folinic-acid: 0.012
+      spermidine: 0.03
+      amino-acid-solution: 0.27692
+    balance: water
+    total_volume: {value: 200, unit: "µL", note: "3x relative to the reaction"}
+    notes: >
+      Creatine phosphate is listed in the source table at 0 mM and 0.0 uL rather than
+      omitted, which is the point of the table: normal SMix is these components plus
+      20 mM CP, and this one deliberately has none. The zero row is a claim that CP
+      was removed, not an empty cell, so it is recorded here in the note rather than
+      as an operand at zero.
+
+  - id: add-the-supplied-components
+    process:
+      title: "Assemble the PPK Energy module"
+      page: null
+    operator: mixing
+    operands: [smix-minus-cp, ppk2, polyphosphate-100mer]
+    produces:
+      id: energy-ppk
+      title: "PPK Energy"
+      page: ../energy-ppk/spec.md
+    notes: >
+      The page states the Module is supplied as two components — purified PPK2 and
+      the 100mer polyphosphate substrate — and that no additional cell components are
+      required. Neither has a concentration on the page, which is why this step has
+      no parameters; see the questions below.
+
+open:
+  - id: the-two-supplied-components-have-no-figures
+    question: >
+      The page names purified PPK2 and 100mer polyphosphate as the Module's two
+      supplied components and gives a concentration for neither. Every figure on the
+      page belongs to the custom SMix that surrounds them. So the step that makes
+      this Module what it is has no parameters, while the step that makes its buffer
+      has eleven. Without a PPK2 dose and a polyphosphate concentration the Module
+      cannot be reproduced, and that is the gap rather than the SMix.
+  - id: the-plasmid-does-not-satisfy-the-spec
+    question: >
+      `pOpen-PPK-CHis` has a confirmed file in nucleus-eng/DNA at energy/, 2915 bp,
+      and carries no promoter — so it does not express PPK2 as filed. The page is
+      explicit that it is offered as a cloning vector for downstream use and that a
+      promoter must be added, pT7 for Nucleus Cytosol. It is therefore not an operand
+      above. A tool scanning for constructs will find it on the page and should not
+      conclude this Module expresses from it.
+  - id: creatine-phosphate-is-the-whole-point
+    question: >
+      This Module exists to replace creatine phosphate as the energy source, which is
+      why its SMix has CP at zero. That relationship is stated in prose and is not
+      expressible in the schema: there is no way to say "this composition is the
+      other one with a component removed". ../base-cytosol/spec.md's SMix is the
+      other one.

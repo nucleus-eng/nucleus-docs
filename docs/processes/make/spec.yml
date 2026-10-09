@@ -1,0 +1,59 @@
+# Process source for Make.
+#
+# SIX PROCESSES SHARED ONE SIGNATURE AND NO PARENT. `component… ⟶ component`:
+# make-1pot, make-36pot, make-amino-acid-mix, make-ribosomes, make-small-molecule-mix
+# and make-trna. Six instances of a thing nobody had named. ../make-protein is the
+# seventh at a narrower codomain, `component… ⟶ protein`.
+#
+# THE INVARIANT IS THAT THE PRODUCT WAS NOT AN OPERAND. An assembly puts things in one
+# compartment and every operand survives as a factor of the result; a make consumes what
+# it is given and yields something that was not there. That is a fact about the
+# signature rather than about the bench.
+#
+# ../express MOVES HERE FROM ../assemble-solution, AND ITS OWN SIGNATURE IS WHY. Its
+# three siblings under assemble-solution all NARROW the codomain -- cytosol ⟶ cytosol,
+# component ⟶ outer-solution, component ⟶ solution. express is `cytosol, dna ⟶
+# component`, which BROADENS it: `component` sits above `solution`, not below. A
+# refinement that widens its parent's codomain is not a refinement.
+#
+# THE OLD REASON WAS AN OPERATOR ARGUMENT AND THE OPERATOR ORDERS NOTHING. express's
+# source said it refines assemble-solution because "everything stays in one compartment
+# ... nothing is moved", which is a choice between `mixing` and `packing`.
+# ../../../scripts/render-posets.py Section 3 already lists `operator` among the
+# candidates that are NOT an order: "Two incomparable values order nothing."
+#
+# The same place is reached from the other end: `Cytosol[DNA ⟶ Protein]` is an operation the Cytosol declares, not an assembly, because no `⊞` profile fits something that produces a non-operand.
+
+process: make
+title: "Make"
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        Whatever the product is made from. Repeated because no instance takes exactly
+        one, and ../express takes a cytosol and a template.
+  produces:
+    type: component
+    note: >
+      Something that was not an operand. ../make-protein and ../express both narrow this
+      to `protein`.
+
+operator: mixing
+conserves: false
+
+open:
+  - id: observe-is-the-other-missing-abstract-and-is-not-written
+    question: >
+      CLOSED 2026-10-05, AND THE REASON FOR WAITING IS WHAT WENT AWAY. This entry said
+      ../pierce660 and ../protein-gel shared `component ⟶ measurement` with no parent,
+      and that writing the abstract then would have inherited whichever of three words
+      got picked: those two said `measurement`, ../colorimetric-readout said `signal`,
+      and a third source had `Observation` with `Signal` as a separate
+      type.
+      THE WORD IS SETTLED. An Observation is what an assay emits and may be quantitative
+      or qualitative; a Measurement is the quantitative case refining it; a Signal is a
+      different thing again, what a Detector emits and an Effector consumes. ../assay is
+      written and all three readouts refine it.
+    kind: question

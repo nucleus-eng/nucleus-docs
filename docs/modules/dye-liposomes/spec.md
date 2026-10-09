@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-popc-chol/spec.md) and use a simple, glucose outer solution. Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation and microscopy. This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
+Dye Liposomes encapsulate HPTS dye in  [Membrane: POPC/Chol (7:3)](/docs/modules/membrane-popc-chol/spec.md) and use a simple, glucose outer solution. Dye Liposomes are a fast debugging tool and positive control for liposome encapsulation and microscopy. This protocol is adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
 
 # Reference Composition
 
@@ -19,20 +19,31 @@ Dye Liposomes encapsulate HPTS dye in  [Base Membrane](/docs/modules/membrane-po
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
+    OUTER_SOLUTION["Outer solution"]
+    HPTS["HPTS dye solution"]
+    MEMBRANE_POPC_CHOL["Membrane: POPC/Chol (7:3)"]
+
+    P1_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     DYE_LIPOSOMES["Dye Liposomes"]
-    MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
 
-    MEMBRANE_POPC_CHOL --> DYE_LIPOSOMES
+    HPTS --> P1_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL --> P1_ENCAPSULATE_0
+    OUTER_SOLUTION --> P1_ENCAPSULATE_0
+    P1_ENCAPSULATE_0 --> DYE_LIPOSOMES
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class MEMBRANE_POPC_CHOL constituent;
-    class DYE_LIPOSOMES this;
 
-    click DYE_LIPOSOMES "/docs/modules/dye-liposomes/spec"
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class OUTER_SOLUTION,HPTS,MEMBRANE_POPC_CHOL leaf;
+    class DYE_LIPOSOMES composed;
+    class P1_ENCAPSULATE_0 process;
+
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+    click P1_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click DYE_LIPOSOMES "/docs/modules/dye-liposomes/spec"
 ```
 
 ::::
@@ -46,9 +57,27 @@ flowchart TD
 | Component         | Stock concentration | Final concentration | Volume for one reaction (µL) |
 | ----------------- | ------------------- | ------------------- | ---------------------------- |
 | HPTS              | 4 mM                | 0.2 mM              | 5                            |
-| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 1.33                         |
-| Water             |                     |                     | 23.67                        |
+| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 0.98                         |
+| Water             |                     |                     | 24.02                        |
 | Total volume (µL) |                     |                     | 30                           |
+:::
+
+:::{admonition} Two corrections to this table
+:class: warning
+
+**The Optiprep volume was 1.33 µL and is now 0.98 µL.** The row `1.32 mg/µL / 0.043 mg/µL
+/ 1.33 µL` appears identically on four pages. On [Base Cell](../base-cell/spec.md) and
+[Reporter: deGFP](../reporter-degfp/spec.md) the reaction is **40 µL**, where 1.33 µL of a
+1.32 mg/µL stock gives 0.0439 mg/µL and the row closes. This reaction is **30 µL**, where
+the same volume gives 0.0585 mg/µL. The row was copied without rescaling the volume.
+0.98 µL is what 0.043 mg/µL requires at 30 µL, and water absorbs the difference.
+
+**The HPTS row still does not close and is left as written.** 5 µL of a 4 mM stock in
+30 µL gives 0.667 mM, not the 0.2 mM stated. 0.2 mM would need 1.5 µL, or a 1.2 mM stock.
+No other page carries this row, so there is nothing to compare it against.
+
+@Editor: confirm the HPTS stock and volume against the working-solution prep. One of the
+three numbers is wrong and the page cannot say which.
 :::
 
 ::::
@@ -61,12 +90,12 @@ flowchart TD
 | Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
 | POPC         | 70                    | 760.076                  | 25                          | 162.17             |
-| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
+| Cholesterol  | 29.95                 | 386.7                  | 50                          | 17.65              |
 | Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
 
 :::
 
-See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
+See [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) for the full membrane spec.
 ::::
 
 ::::{tab-item} Outer Solution
@@ -87,7 +116,7 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 Liposomes are visible in the green channel (interior, HPTS, 480 nm ex / 520 nm em) and in the red channel (membrane, Liss-Rhodamine-PE, 540 nm ex / 580 nm em) under fluorescence microscopy.
 
-# Process
+# Processes
 
 Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
@@ -119,9 +148,8 @@ Sucrose is used in the original [Build a Cell liposome kit](https://github.com/B
 
 # Constituent Modules
 
-- [Base Membrane](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer encapsulating the HPTS dye solution
+- [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer encapsulating the HPTS dye solution
 
 # Credits
 
 Adapted from the [Build a Cell liposome kit](https://github.com/BuildACell/liposome-kit) ([Fujii et al., 2014](https://doi.org/10.1038/nprot.2014.107)).
-

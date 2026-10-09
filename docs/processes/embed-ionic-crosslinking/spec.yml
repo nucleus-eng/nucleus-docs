@@ -1,0 +1,35 @@
+# Process source for Embedding: Ionic Crosslinking.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# ITS PARENT WAS UNDECLARED AND IS DECLARED HERE. No module step carried
+# `abstract: embed-gel` for this route, so it was the one instance of Embedding sitting
+# outside the family in the machine-readable layer while ../embed-gel/main.md lists it
+# as one of three. Found by inventorying the 27 directories against the 57 `abstract:`
+# declarations.
+#
+# THE CROSSLINKER IS NOT PREMIXED and the module page says so: calcium is applied as a
+# separate bath. Both components are in one repeated position because the signature
+# records what goes in, not the order.
+#
+process: embed-ionic-crosslinking
+title: "Embedding: Ionic Crosslinking"
+refines: embed-gel
+
+signature:
+  takes:
+    - type: solution
+      note: >
+        The outer solution the alginate dissolves into.
+    - type: component
+      repeated: true
+      note: >
+        Sodium alginate, and separately the divalent calcium that crosslinks it.
+    - type: container
+      repeated: true
+      note: >
+        The compartments to be held.
+  produces:
+    type: gel
+    note: >
+      A gel set by calcium bridging adjacent polymer chains.

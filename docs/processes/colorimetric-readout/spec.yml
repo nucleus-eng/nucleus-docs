@@ -1,0 +1,84 @@
+# Process source for Colorimetric Readout.
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# IT IS THE STAGE, NOT THE CHEMISTRY. The page: it "converts a completed sensing/lysis
+# cascade into a visible, measurable color signal", with CPRG or an alternate substrate.
+# ../color-development is the step that does it on a specific cascade; this is the
+# abstract readout every cascade ends at.
+#
+# THE CODOMAIN IS `observation`, NOT `measurement`. `measurement` still beats `signal`, but Measurement is the QUANTITATIVE case of Observation, and this page has a route that is not quantitative, so the narrower word does not cover it.
+#
+# NO MODULE STEP NAMES IT, which is why it has no `refines:` and nothing refines it:
+# the relation would be the other way round and ../color-development does not declare
+# it. Left undeclared rather than guessed.
+#
+# CONSERVATIVE, AND BOTH ROUTES ARE. Loading a finished reaction into a plate and
+# reading its absorbance adds nothing to the well and takes nothing out of it, and
+# photographing a gel does less than that. `main.md:89` takes kinetic reads over hours
+# on the same wells and `main.md:96` photographs the same reaction at successive
+# timepoints, neither of which a destructive read can do. Plate-reader absorbance and
+# fluorescence are conservative wherever they are run.
+#
+# THE SUBSTRATE IS TURNED OVER BY THE CASCADE, NOT BY THE READING, and this is the one
+# place the verdict can be argued. `substrate` is an operand and CPRG does not survive
+# the experiment, so a reader could call the process consuming. It is not: the
+# hydrolysis is driven by the upstream lysis this process exists to detect, which is
+# the thing being read. ../pierce660 is the contrast -- there the reagent the PROTOCOL
+# itself adds is what consumes the sample.
+
+process: colorimetric-readout
+title: "Colorimetric Readout"
+refines: assay
+
+conserves: true
+
+# `conserves: true` AND AN IMPOSITION ARE NOT IN TENSION. Nothing is consumed and
+# nothing becomes another compound, which is what `conserves:` claims. The light still
+# reaches every chromophore in the well, and a chromophore is what this reads.
+impositions:
+  - id: illumination
+    why: >
+      A plate reader shines light through the well at every read, and a kinetic run
+      repeats that for hours. What it reads is a chromophore, so the thing being
+      measured is the thing the measurement costs. Meets the `moderate` sensitivity on
+      ../../modules/chromophore.
+
+signature:
+  takes:
+    - type: cascade
+      note: >
+        A completed sensing and lysis cascade.
+    - type: substrate
+      note: >
+        The chromogenic substrate the reporter enzyme turns over. CPRG is attested; the
+        page names an alternate.
+  produces:
+    type: observation
+    note: >
+      WHAT THIS PAGE'S TWO ROUTES SHARE, AND NO MORE THAN THAT. `main.md:84` reads
+      absorbance on a plate reader, 570-575 nm for LacZ/CPRG or 375-385 nm for
+      XylE/catechol. `main.md:91` scores the color by eye. The first yields a number and
+      the second does not, so the type they share is the one that admits both.
+      An Observation may be quantitative or qualitative; a Measurement is the quantitative case refining it.
+      THE ABSORBANCE ROUTE PRODUCES A `measurement` AND HAS NO PAGE OF ITS OWN YET. When
+      it gets one it refines this process, and ../pierce660 and ../protein-gel keep
+      `measurement` because both read absorbance on a plate reader throughout.
+      SIGNAL IS STILL NOT IN THE RUNNING. A Signal is what a Detector emits and what an
+      Effector consumes, so it sits mid-cascade in both a codomain and a domain. This
+      process is where the chain stops and a reader looks.
+
+open:
+  - id: the-two-routes-have-no-pages-of-their-own
+    question: >
+      SETTLED 2026-10-05, AND WHAT IS LEFT IS WORK RATHER THAN A QUESTION. The codomain
+      is `observation`. The word is no longer cross-repo guesswork either:
+      nucleus-skills `#83` fixed the shared glossary to match, so `T22` Observation is
+      what an Assay produces and may be quantitative or qualitative, and `T20`
+      Measurement is the quantitative case refining it.
+      WHAT IS STILL OPEN IS THAT THE TWO ROUTES ARE HEADINGS AND NOT PAGES. `main.md:84`
+      and `main.md:91` are a plate-reader read and an eye score, and a reader who wants
+      to point at the quantitative one has nothing to point at. Two process directories
+      refining this one would carry them, and the absorbance one would produce a
+      `measurement`. Not written, because nobody has needed to cite one yet.
+    kind: question

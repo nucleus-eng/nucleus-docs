@@ -1,0 +1,31 @@
+# Composition source for Sulfo-Cyanine5.
+#
+# ONE PARENT, AND THAT IS THE CLAIM. The two membrane labels refine ../lipid as well;
+# this one does not, because it is a free dye and goes where the water goes. The
+# difference between an outline and a filled circle in an image is exactly this
+# difference in the sources.
+#
+# AN ATOM. `process_steps: []`: it is purchased.
+#
+# IT IS AN INPUT NOWHERE. ../ph-sensing-cell/spec.md names it in a composition table
+# and its source does not carry it as an operand, so the presence pass and the
+# composition diagram both miss it. Adding it is an edit to that source rather than to
+# this page, and it wants the Node to confirm the dye is in the inner solution rather
+# than added later.
+
+module: fluorophore-sulfo-cyanine5
+title: "Sulfo-Cyanine5"
+refines: fluorophore
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: the-channel-is-named-for-a-different-dye
+    question: >
+      ../../implementations/devstudio-ph-demo records the channel that reports this dye
+      as `Alexa Fluor 647`, because a microscope names a channel after a representative
+      dye for the band it passes. A reader who takes the channel name as the dye name
+      will attribute the signal to the wrong molecule. The page says to read the dye
+      off the composition, and that only works where the composition names it.

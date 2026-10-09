@@ -1,0 +1,129 @@
+# Composition source for Substrate SUV: CPRG.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# THE STEP IS `packing`, SO THIS FILE DEPENDS ON THE HOLD QUESTION: whether forming a
+# boundary and holding something in it are one operation, which is unsettled. Film hydration
+# forms the bilayer and closes it around the lumen in one operation, and whether that is
+# one morphism or two is what that question asks. `packing` follows ../base-cell/spec.yml and
+# ../guv-cprg/spec.yml, which call encapsulation by the same operator. Recorded rather
+# than resolved.
+
+module: substrate-cprg-suv
+title: "Substrate SUV: CPRG"
+refines:
+  - substrate-carrier
+  - suv
+  - liposome
+  # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
+  # vesicle each refine liposomes, because each is built from lipids. Verified for this
+  # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
+  # not nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
+  # SUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Extrusion. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
+# Added 2026-09-21 with the class: the small unilamellar member, made by hydration and
+# extrusion. Both members pack a membrane with substrate-cprg by `packing`, two of two,
+# and the class was written because a meet over London and Chicago drew the two as
+# unrelated slots.
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+process_steps:
+  - id: hydrate-and-extrude
+    process:
+      title: "Encapsulation: Extrusion"
+      page: ../../processes/encapsulate-suv/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [membrane-popc-chol-9-1, substrate-cprg, outer-solution]
+    produces:
+      id: substrate-cprg-suv
+      title: "Substrate SUV: CPRG"
+      page: ../substrate-cprg-suv/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # THE LIPID KEYS ARE NOT OPERANDS, same as ../detector-3oc6-hsl/spec.yml. The
+    # operands are `membrane-popc-chol-9-1` and `substrate-cprg`, and these two are
+    # constituents of the first. They are repeated here because that page runs the
+    # phase-transfer recipe as its step and carries THIS one, the extrusion recipe, only
+    # inside an open item. So this file is the only machine-readable record of it.
+    #
+    # THE TARGET IS WRITTEN, NOT THE RECIPE'S OWN RATIO, AND THEY DISAGREE. mol% x
+    # molar_mass / stock over the dropped volumes returns 89.84 : 10.16, and
+    # ../substrate-cprg-suv/spec.md:70 states 90 : 10 as the target. The target is what
+    # the page specifies, so it is what lands here. The recipe's figure is recorded in
+    # this comment rather than lost: whoever reconciles them needs both.
+    stocks:
+      popc: {value: 25, unit: "mg/mL"}
+      cholesterol: {value: 50, unit: "mg/mL"}
+    finals:
+      popc: {value: 900, unit: "mmol/mol"}
+      cholesterol: {value: 100, unit: "mmol/mol"}
+      substrate-cprg: {value: 50, unit: "mM", note: "at hydration; the page also writes it as approx. 30 mg/mL"}
+    parameters:
+      # THE METHOD CLAUSE IS GONE AND NOTHING WAS MOVED TO CARRY IT. R32 assumed the
+      # method would migrate to a process page; ../../processes/encapsulate-suv/main.md
+      # already says it at :119, "Assemble the mini-extruder with a 400 nm polycarbonate
+      # membrane", and lists that membrane by part number at :78. The clause here was a
+      # duplicate, not the only copy.
+      target_diameter: "400 nm"
+      # A BOUND PLUS A PARITY PREDICATE: a constrained free choice stays.
+      extrusion_passes: "at least 21, and an odd number"
+      storage_before_use: "on ice or at 4 C, until combining with Sensing Cells and LacZ"
+    notes: >
+      The bilayer figures reconcile against the extrusion route recorded in the
+      Membrane: POPC/Chol (9:1) source, which gives the same 208.51 uL POPC and 6.00 uL
+      cholesterol and no dye. The odd extrusion count is not a preference: an even
+      number ends with unextruded material retained in the final syringe.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: purification-method-is-unresolved
+    question: >
+      The page carries an open @Editor(chicago) tag on this and it is not decorative.
+      One record purifies the SUVs twice by size-exclusion chromatography to remove
+      unencapsulated CPRG; another washes them by centrifugation. The two leave
+      different residual-substrate profiles and residual free CPRG is what produces
+      background color, so the choice changes the readout rather than only the
+      protocol. No purification parameter is stated above because stating one would
+      pick a side.
+  - id: second-cprg-concentration-is-not-this-module
+    question: >
+      The Inner Solution tab documents two CPRG concentrations. Only 50 mM is this
+      Module's loading; 15 mg/mL is CPRG free in a patterned inner gel, which is a
+      different arrangement on a different page. Named here so a reader who sees two
+      figures and one parameter does not read it as a dropped row.
+  - id: the-second-and-third-processes-are-downstream
+    question: >
+      Embedding: Ionic Crosslinking co-embeds this Module with Sensing Cells and LacZ.
+      That is a cascade step rather than part of this Module's composition, so it is
+      not a step above.

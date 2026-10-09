@@ -1,0 +1,173 @@
+---
+title: "Gel: ULGA"
+subtitle: "Module Specification"
+status: draft
+site:
+    hide-toc: true
+    numbered_references: false
+---
+
+# Overview
+
+<!-- gen:position -->
+**Position.** Refines [Thermal Gel](../thermal-gel/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
+ULGA Gel is an ultra-low-gelling-temperature agarose gel, dissolved directly into the outer solution it will become and set by cooling. Compare to [Alginate Gel](../gel-alginate/spec.md), which reaches an equivalent result by ionic crosslinking instead of a thermal set, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.
+
+The property that makes ULGA usable with synthetic cells is its gel point. It sets at (8–17)°C, far below standard agarose, so the window between "still liquid enough to mix" and "cold enough to damage the contents" is wide.
+
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
+
+(gel-ulga-reference-composition)=
+# Reference Composition
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    ULGA_POWDER["Ultra low gelling temperature agarose"]
+    POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
+    HEPES["HEPES"]
+    GLUCOSE["Glucose"]
+
+    P1_ASSEMBLE_OUTER_0(["Assemble Outer Solution (mixing)"])
+    OUTER_SOLUTION_GLUTAMATE["Outer Solution: Glutamate"]
+    P2_SET_THERMAL_0(["Embedding: Thermal Setting (mixing)"])
+    GEL_ULGA["Gel: ULGA"]
+
+    POTASSIUM_GLUTAMATE --> P1_ASSEMBLE_OUTER_0
+    HEPES --> P1_ASSEMBLE_OUTER_0
+    GLUCOSE --> P1_ASSEMBLE_OUTER_0
+    P1_ASSEMBLE_OUTER_0 --> OUTER_SOLUTION_GLUTAMATE
+
+    ULGA_POWDER --> P2_SET_THERMAL_0
+    OUTER_SOLUTION_GLUTAMATE --> P2_SET_THERMAL_0
+    P2_SET_THERMAL_0 -->|"1:1 with the cell suspension, halving the ULGA to its final figure"| GEL_ULGA
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class ULGA_POWDER,POTASSIUM_GLUTAMATE,HEPES,GLUCOSE leaf;
+    class OUTER_SOLUTION_GLUTAMATE,GEL_ULGA composed;
+    class P1_ASSEMBLE_OUTER_0,P2_SET_THERMAL_0 process;
+
+    click P1_ASSEMBLE_OUTER_0 "/docs/processes/assemble-outer-solution/main"
+    click P2_SET_THERMAL_0 "/docs/processes/embed-thermal-setting/main"
+    click GEL_ULGA "/docs/modules/gel-ulga/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} Gel
+
+:::{table} ULGA gel, as prepared.
+:label: comp-gel-ulga
+
+| Component | Working concentration | Notes |
+| --- | --- | --- |
+| ULGA | 1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1 with the cell suspension | dissolved into the outer solution below, not into water. Works from 0.2% to 0.5% in the set gel. **Lower gives faster kinetics; higher holds a better on-off state**, so the density is a dynamic-range lever rather than a preference. 0.2% immobilizes GUVs |
+| Potassium L-glutamate | 578 mM | |
+| HEPES, pH 7.4 | 72 mM | |
+| Glucose | 300 mM | |
+| **Osmotic concentration** | **~920 mOsm** | the sum of the components above (origin not recorded). @Editor: the components above add to 950 mOsm/L as written, and to about 1560 mOsm/L when each ion of the salts counts. Neither is 920. Is 920 a reading of a different solution, or is the recipe wrong? |
+:::
+
+::::
+
+:::::
+
+Unlike the other three gels, ULGA is specified together with its solution rather than as an additive to someone else's. The salts and sugar above are the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) outer solution, which matches inner to outer at about 920 mOsm.
+
+**Osmolarity is additive.** The figure above is the sum of every component's contribution, the polymer included. At 1% (w/v) the ULGA itself adds on the order of 0.1 mOsm/L — negligible against 920, but not zero. The salts and sugar set it. @Editor: the components in the table above do not add to 920. See the note on that table's last row.
+
+A separate configuration replaces those three with 1200 mM glucose and 0.1 mM CaCl₂, used where the embedded cells carry [Base Cytosol](../base-cytosol/spec.md) rather than [S30 Lysate](../s30-lysate/spec.md). The 1200 mM figure is not arbitrary — above roughly 1200 mOsm, CPRG leakage from loaded liposomes drops sharply.
+
+(gel-ulga-expected-behavior)=
+:::{table} The material's temperature window.
+| Bound | Value | What it is |
+| --- | --- | --- |
+| Lower | **8 °C** | the gelling point |
+| Upper | **50 °C** | the **melting** point |
+:::
+
+:::{attention} 8 °C and 50 °C are a gel point and a melting point
+The gel point (8–17) °C and the melting point (≤ 50 °C) are the supplier's figures for [Sigma-Aldrich A5030](https://www.sigmaaldrich.com/GB/en/product/sial/a5030), not measurements of the agarose in use. Neither is a working temperature: a payload limits the temperature at which it can be mixed in, and that limit belongs on the payload's page. @Editor(london): what temperature does your A5030 set at?
+:::
+
+# Expected Behavior
+
+## Osmotic concentration
+
+**This gel provides an osmotic concentration; it does not tolerate one.** The distinction matters when swapping a module in or out. An outer solution — and a gel is one, since the polymer dissolves into it — states a **range it provides**. What tolerates a range is the cell inside, and that tolerance is a property of its membrane rather than of this gel.
+
+**These are target figures, not a tolerated range.** Each row says what the gel is made to provide for the cells beside it.
+
+| Configuration | Target osmotic concentration | Used with |
+| --- | --- | --- |
+| Standard, with the Cell: S30 Lysate, POPC outer solution | ~920 mOsm | [S30 Lysate](../s30-lysate/spec.md) cells |
+| High-glucose, 1200 mM glucose + 0.1 mM CaCl₂ | ~1200 mOsm/L by recipe | [Base Cytosol](../base-cytosol/spec.md) cells, where CPRG retention matters |
+
+**The upper figure is a threshold, not a preference.** Above roughly 1200 mOsm, CPRG leakage from loaded liposomes falls sharply — so the high-glucose configuration is chosen for dye retention, not for the cells' sake. **Below it, retention is not established.** One embedding below this threshold did not keep its CPRG overnight, at the top of the working density range, where the on-off state should hold best.
+
+**No tolerated range is established for any membrane used with this gel.** Measuring one means putting [Dye Liposomes](../dye-liposomes/spec.md) across a panel of outer solutions and scoring liposome integrity. Until that exists, match empirically.
+
+## Gels
+
+Expect a gel that stays liquid while warm, tolerates mixing with intact synthetic cells, and sets on cooling below its gel point without a crosslinker, a divalent load or any illumination.
+
+Two results are confirmed in this matrix. At 1.5%, the two-liposome PLA1/CPRG/LacZ chemistry gives a visible color change from about 3 h at 37 °C, easily discernible by 16 h — see [PLA1 Lysis Module](../effector-pla1/spec.md). At 1%, encapsulated cells give a GFP readout scored after 2.5 h.
+
+:::{note} The colorimetric result was measured outside the working range
+The 1.5% above is the condition that experiment ran at. The current concentration is 1% (w/v) in the prepared solution, which gives 0.5% (w/v) in the set gel.
+
+Under the 1:1:2 combining ratio, 1.5% gives 0.75% (w/v) in the set gel, above the 0.2% to 0.5% working range, so the confirmed colorimetric result comes from a condition outside that range.
+:::
+
+:::{attention} The temperatures are not established
+No dissolution temperature, hold time, or cooling target is recorded for this gel. Standard low-melting-agarose technique is to heat until the solution runs clear, then hold it above the gel point until use, but that is convention rather than a measured protocol here.
+:::
+
+(gel-ulga-requirements)=
+# Requirements
+
+Requires a heat excursion to dissolve — near boiling, with stirring — followed by cooling to a temperature that is still above the gel point but safe for the cells being mixed in. Anything mixed in at that point must survive the cooling and the set; nothing but the ULGA itself is present for the near-boiling step, and a component added onto the set gel afterwards experiences neither.
+
+Requires the outer solution to be prepared first, since the agarose is dissolved into it rather than being added to a finished gel.
+
+Imposes no divalent load and no illumination on its contents.
+
+# Implementations
+
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its gel — set by cooling.
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its gel — 1% (w/v), set by cooling.
+
+# Processes
+
+Prepared and set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
+
+# Materials
+
+:::{table} Purchased materials.
+
+| Name | Category | Product | Manufacturer | Part # | Link |
+| --- | --- | --- | --- | --- | --- |
+| ULGA | Reagent | Ultra low gelling temperature agarose | Sigma-Aldrich | A5030 | [link](https://www.sigmaaldrich.com/GB/en/product/sial/a5030) |
+:::
+
+This agarose is Sigma-Aldrich A5030, and every figure on this page is that product's.
+
+:::{attention} Was A2576 ever used?
+A second part number, A2576, was recorded here as interchangeable with A5030. **They are different products**: A5030 is Type IX and melts at ≤ 50 °C, A2576 is Type IX-A, molecular biology grade, and melts at ≤ 62 °C. @Editor(london): was A2576 ever used on the bench, or is A5030 the only one?
+:::
+
+# Credits
+
+Developed by Julia Purrinos De Oliveira (London Node), with the PLA1 colorimetric variant by Jonah McDonald and Charlie Newell.

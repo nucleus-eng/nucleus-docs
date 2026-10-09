@@ -1,0 +1,47 @@
+# Process source for Pierce660.
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# AN ASSAY, AND THAT IS A DIFFERENT SHAPE FROM EVERY OTHER PROCESS HERE. It is a 5 minute colorimetric method for total protein quantitation.
+# An Assay is a Measurement considered as applied: the Process that realizes one, so it IS a process -- but its codomain is a reading rather than a thing in a tube.
+#
+# DESTRUCTIVE, NOT CONSERVATIVE. The case for conservative is that a portion is read and the preparation survives, so the assay is non-consuming. That is about the aliquot's SOURCE, not about the aliquot.
+#
+# THE REAGENT CHEMICALLY REACTS WITH THE PROTEIN AND CHANGES COLOR DOING IT. The color
+# IS the reaction, so the protein that was measured is altered by the measuring. Nothing
+# comes back.
+#
+# THE TEST IS WHAT HAPPENS TO WHAT WENT IN, not whether more of it exists elsewhere. By
+# the wrong test every assay is conservative, because you can always take another
+# aliquot -- which is how `conserves:` would have become a key that says nothing.
+#
+# `produces: measurement` IS A TYPE NO MODULE PAGE CARRIES. It is written because the
+# alternative is claiming the assay produces its own input, which is false: the sample
+# is consumed and what comes out is a number. See the open item.
+
+process: pierce660
+title: "Pierce660"
+refines: assay
+
+conserves: false
+
+signature:
+  takes:
+    - type: component
+      note: >
+        A sample of whatever is being quantified.
+  produces:
+    type: measurement
+    note: >
+      A reading, not a Component. This corpus has no page for that type.
+
+open:
+  - id: an-assay-returns-a-reading
+    question: >
+      `scripts/process-yml-schema.yml` gives `produces` one type and assumes it names
+      something a Module could be. An assay breaks that: it returns a number.
+      PART OF THIS IS NOW ANSWERED. `conserves:` says whether the input survives, which
+      is the half that made a conservative assay look like it returned two things. What
+      is still open is what type a reading IS -- no module page carries `measurement`,
+      and ../colorimetric-readout now returns an `observation`, which is the
+      supertype: that page has a route scored by eye and this one does not.

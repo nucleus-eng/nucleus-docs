@@ -1,0 +1,105 @@
+# Composition source for GUV: CPRG.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# THE STEP IS `packing`, SO THIS FILE DEPENDS ON THE HOLD QUESTION: whether forming a
+# boundary and holding something in it are one operation, which is unsettled. Phase transfer
+# forms the bilayer and closes it around the lumen in one operation, and whether that is
+# one morphism or two is exactly what that asks. `packing` follows the precedent set by
+# ../base-cell/spec.yml, which calls the same process by the same operator. Recorded
+# rather than resolved.
+
+module: guv-cprg
+title: "GUV: CPRG"
+refines:
+  - substrate-carrier
+  - guv
+  - liposome
+  # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
+  # vesicle each refine liposomes, because each is built from lipids. Verified for this
+  # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
+  # not nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
+  # GUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
+# Added 2026-09-21 with the class: the giant unilamellar member, made by phase transfer.
+# Both members pack a membrane with substrate-cprg by `packing`, two of two, and the
+# class was written because a meet over London and Chicago drew the two as unrelated
+# slots.
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  membrane-popc:
+    title: "Membrane: POPC"
+    page: ../membrane-popc/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+
+process_steps:
+  - id: encapsulate-cprg
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [membrane-popc, substrate-cprg, outer-solution]
+    produces:
+      id: guv-cprg
+      title: "GUV: CPRG"
+      page: ../guv-cprg/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # `bilayer: "100% POPC"` IS DROPPED AND NOT CONVERTED. Written as a composition it
+    # would be false: the operand is ../membrane-popc/spec.md, which is 99.15 mol% POPC
+    # and 0.85 mol% DSPE-PEG2000. The page's own sentence reads it against the sterol
+    # axis -- "accepts either POPC or POPC:cholesterol, so the 100% POPC bilayer here is
+    # a choice rather than a constraint" -- and that claim is TRUE, because the PEG is
+    # `optional: true` on the membrane page. An optional component does not change a
+    # Module's identity. So the fact is real and 100 mol% is not the way to write it.
+    finals:
+      substrate-cprg: {value: 50, unit: "mM", note: "at hydration; the page also writes it as approx. 30 mg/mL"}
+    notes: >
+      The same process and the same page as the sensing population, applied with a
+      different inner solution — which is what lets both populations be made by one
+      method. The 100% POPC bilayer is a choice rather than a constraint: Substrate:
+      CPRG accepts either POPC or POPC:cholesterol, and 100% POPC is taken here to
+      match the SensorCell[3OC6-HSL ⟶ PLA1]. The loading concentration does not depend on the
+      bilayer, so it carries over unchanged from the SUV form.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: bilayer-is-a-choice-not-a-constraint
+    question: >
+      The 100% POPC bilayer is recorded above as a parameter, which reads as though
+      the Module requires it. The page says the opposite — the bilayer is a choice
+      made to match the SensorCell[3OC6-HSL ⟶ PLA1], and the Substrate accepts POPC:cholesterol
+      as well. The schema has no way to mark a parameter as "chosen here, not
+      required", so the note carries what the key cannot.
+  - id: downstream-combination-is-not-here
+    question: >
+      Embedding: Thermal Setting combines this population with the sensing population
+      and the gel at 1:1:2. That is a step on the cascade page rather than part of
+      this Module's composition, so it is not a step above. Named here so a reader
+      looking for the 1:1:2 does not conclude it was missed.

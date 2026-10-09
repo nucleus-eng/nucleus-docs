@@ -1,0 +1,21 @@
+# Composition source for Cascade.
+#
+# A CASCADE IS A CELL. Every member's final step is `packing` over a cytosol and a
+# membrane, which is ../cell/spec.yml's invariant with no exception. The class sits
+# under Cell rather than beside it, and the index table's "Cell (Cascade)" label was
+# already saying so.
+#
+# NO `process_steps` HERE, THOUGH EVERY MEMBER HAS SEVERAL. What members share is the
+# SHAPE of the chain -- sense, lyse, develop -- and not any step of it. Six members
+# carry between four and seven steps each and no two agree on the list, so a shared
+# step would be a claim none of them makes.
+#
+# ../ph-cascade-one-vesicle ALREADY REFINES ../ph-cascade, so it reaches this class
+# through two edges. That is a diamond and not a problem: refinement is an order, and
+# the poset renderer draws the transitive reduction.
+
+module: cascade
+title: "Cascade"
+
+inputs: {}
+process_steps: []

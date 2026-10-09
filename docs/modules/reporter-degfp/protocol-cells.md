@@ -14,7 +14,7 @@ This protocol show you how to validate the functionality of the Reporter Module 
 ## Cytosol Reaction Setup
 
 :::{table} Reaction setup.
-:name: rxn-setup
+:name: reporter-degfp-cells-rxn-setup
 
 | **Component** | **Cells + deGFP DNA [µL]** | **Cells - deGFP DNA [µL]** |
 | --- | --- | --- |
@@ -71,8 +71,8 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 - [ ]  Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
 - [ ]  Mix glucose stock solution and water according to the following table:
 
-:::{table} Preparation of outer solutions. These values are approximates and may vary based on the measured osmolarity of your inner solution.
-:name: os-prep
+:::{table} Outer solution, starting recipe: 1140 mM glucose. A concentration is not an osmometer reading: this solution reads about 1275 mOsm/kg. Adjust it to your inner solution's reading, as the note below says.
+:name: reporter-degfp-cells-os-prep
 
 | **Component** | **Cells + deGFP DNA [µL]** | **Cells - deGFP DNA [µL]** |
 | --- | --- | --- |
@@ -85,7 +85,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 :::{hint} Note
 :class: simple
 :icon: false
-These outer solution concentrations may vary and should be based on the measured osmolarity of your inner solution.
+Set the outer solution from the measured osmolality of your inner solution, and measure the outer solution too, because its glucose concentration is not its reading.
 :::
 
 ### Assemble Cytosol Reactions
@@ -108,14 +108,14 @@ Prepare the reaction on ice or a cold block to prevent protein expression from s
     - [ ]  Add remaining reactions in the order they appear
 - [ ]  Mix the master mix thoroughly by pipetting up and down 10–15 times until it appears homogeneous and clear.
 - [ ]  Close lids on the microcentrifuge tubes and briefly spin down to eliminate bubbles.
-- [ ]  Pipette out 10 µL of the reaction for osmolarity check using a Vapor Pressure Osmometer before starting encapsulation.
+- [ ]  Pipette out 10 µL of the reaction and read its osmolality by [Osmometry Readout](../../processes/osmometry-readout/main.md) before starting encapsulation.
 
 <br>
 
 :::{danger} Critical
 :class: simple
 :icon: false
-Adjust the outer solution concentration so its osmolarity is 100–120 units lower than the inner solution when measured on a Wescor EliTech Vapro 5600 Vapor Pressure Osmometer. 
+Adjust the outer solution concentration until it reads 100 mOsm/kg to 150 mOsm/kg lower than the inner solution on a Wescor EliTech Vapro 5600 Vapor Pressure Osmometer. Outside that window the liposomes fail as they form: a larger gap ruptures them, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)).
 :::
 
 - [ ]  Hold assembled reactions on ice until ready for encapsulation.

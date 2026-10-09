@@ -1,0 +1,192 @@
+---
+title: "SensorCell[pH ⟶ PLA1]"
+subtitle: "Module Specification"
+status: draft
+site:
+    hide-toc: true
+    numbered_references: false
+---
+
+# Overview
+
+<!-- gen:position -->
+**Position.** Refines [Sensing Cell](../sensing-cell/spec.md) and [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) and [GUV](../guv/spec.md) and [Liposome](../liposome/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
+The SensorCell[pH ⟶ PLA1] is the [pH-Sensing Module](../detector-ph/spec.md) embedded in the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md). On its own, the pH-Sensing Module is an cytosolic ssDNA/toehold-switch circuit that turns on a downstream effector gene (e.g., a colorimetric reporter) when pH drops to about 6.5. The SensorCell[pH ⟶ PLA1] encapsulates this module in a synthetic cell.
+
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
+
+# Reference Composition
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    OUTER_SOLUTION["Outer solution"]
+    BASE_CYTOSOL["Base Cytosol"]
+    PH_RESPONSIVE_SSDNA["pH-responsive ssDNA"]
+    TRIGGER_SSDNA["Trigger ssDNA"]
+    EFFECTOR_PLA1_TOEHOLD["Gated lysis DNA: pT7-toehold9-PLA1"]
+    MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
+
+    P1_ANNEAL_TRIGGER_DUPLEX_0(["Anneal pH-Responsive Trigger Duplex (mixing)"])
+    PH_TRIGGER_DUPLEX["pH trigger duplex"]
+    P2_ASSEMBLE_CYTOSOL_0(["Assemble Cytosol (mixing)"])
+    PH_SENSOR_CYTOSOL["SensorCytosol[pH ⟶ PLA1]"]
+    P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
+    PH_SENSING_CELL["SensorCell[pH ⟶ PLA1]"]
+
+    PH_RESPONSIVE_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
+    TRIGGER_SSDNA --> P1_ANNEAL_TRIGGER_DUPLEX_0
+    P1_ANNEAL_TRIGGER_DUPLEX_0 --> PH_TRIGGER_DUPLEX
+
+    BASE_CYTOSOL --> P2_ASSEMBLE_CYTOSOL_0
+    PH_TRIGGER_DUPLEX --> P2_ASSEMBLE_CYTOSOL_0
+    EFFECTOR_PLA1_TOEHOLD --> P2_ASSEMBLE_CYTOSOL_0
+    P2_ASSEMBLE_CYTOSOL_0 --> PH_SENSOR_CYTOSOL
+
+    PH_SENSOR_CYTOSOL --> P3_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL_9_1 --> P3_ENCAPSULATE_0
+    OUTER_SOLUTION --> P3_ENCAPSULATE_0
+    P3_ENCAPSULATE_0 --> PH_SENSING_CELL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class OUTER_SOLUTION,BASE_CYTOSOL,PH_RESPONSIVE_SSDNA,TRIGGER_SSDNA,EFFECTOR_PLA1_TOEHOLD,MEMBRANE_POPC_CHOL_9_1 leaf;
+    class PH_TRIGGER_DUPLEX,PH_SENSOR_CYTOSOL,PH_SENSING_CELL composed;
+    class P1_ANNEAL_TRIGGER_DUPLEX_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0 process;
+
+    click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
+    click P1_ANNEAL_TRIGGER_DUPLEX_0 "/docs/processes/anneal-ph-trigger-duplex/main"
+    click PH_TRIGGER_DUPLEX "/docs/modules/detector-ph/spec"
+    click P2_ASSEMBLE_CYTOSOL_0 "/docs/processes/assemble-cytosol/assemble-cytosol-main"
+    click PH_SENSOR_CYTOSOL "/docs/modules/ph-sensor-cytosol/spec"
+    click P3_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click PH_SENSING_CELL "/docs/modules/ph-sensing-cell/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+:::{table}
+| **Name** | **Length (bp)** | **File** | **Supply route** |
+| --- | --- | --- | --- |
+| Toehold-switch-gated reporter template | 918 | [pT7-toehold9-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-ph/pT7-toehold9-deGFP-linear.gb) | Expressed in the Sensing Cell |
+| pH-responsive ssDNA | 49 | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | Synthesized oligonucleotide, added directly |
+| trigger ssDNA | 36 | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | Synthesized oligonucleotide, added directly |
+:::
+
+See [Detector: pH-Sensing](../detector-ph/spec.md) for the design.
+
+::::
+
+::::{tab-item} Cytosol
+
+The inner solution follows the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) cytosol at reaction concentration, with the toehold-switch template and the annealed pH-responsive ssDNA : trigger ssDNA duplex from the [pH-Sensing Module](../detector-ph/spec.md).
+
+:::{table} Combined synthetic cell reaction, one level deep.
+:label: comp-sensing-cell-cytosol
+
+| Module | Working concentration | Notes |
+| --- | --- | --- |
+| [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
+| [pH-Sensing Module](../detector-ph/spec.md) | `pT7-toehold9-PLA1` template at 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.625 µM trigger ssDNA | Compare [pH-Sensing Module](../detector-ph/spec.md#detector-ph-reference-composition), whose design values are quoted at 4.8 µM. |
+| Optiprep | 4.5% (v/v) | Density agent for the phase-transfer step. Present in the encapsulated reaction and not in the bulk one. |
+| RNase inhibitor | 1000 U/mL | Half the 2000 U/mL used in the bulk module reaction. |
+| Sulfo-Cyanine5 | 2 µM, optional | Membrane-independent fill marker, used when the lumen needs to be visible. Sulfo-Cyanine5 carboxylic acid, Lumiprobe 13390. |
+
+:::
+
+::::
+
+::::{tab-item} Membrane
+
+:::{table} The [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md).
+:label: comp-sensing-cell-membrane
+
+| Component   | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) |
+| ----------- | --------------------- | ------------------------ | --------------------------- |
+| POPC        | 90                  | 760.076                  | 25                          |
+| Cholesterol | 10                    | 386.7                   | 50                          |
+
+:::
+
+::::
+
+:::::
+
+(ph-sensing-cell-expected-behavior)=
+# Expected Behavior
+
+The SensorCell[pH ⟶ PLA1] is expected to express its effector gene when the surrounding solution drops to pH 6.5 or below. Both demonstrations to date are in this Cell's own format — Base Cytosol in a Membrane: POPC/Chol (9:1) — in solution. Neither has been embedded into a gel.
+
+## Cells
+
+A two-liposome system — separate pH-sensing and CPRG-loaded populations in solution — gives a visible yellow-to-purple color change at pH 6.5. The assay runs in two steps, because both the purple CPR product and β-galactosidase activity are themselves pH-dependent: 16 h incubation under acidic conditions to induce PLA1 expression, then a pH 9.9 neutralizing buffer before the color is read.
+
+A separate result shows pH-responsive GFP expression in liposomes in solution. That one used gramicidin A, which was left out of the colorimetric demonstration because it ruptured CPRG-loaded liposomes and produced nonspecific color.
+
+A third result isolates this Cell: in solution at 37 °C for 13 h, with no CPRG-loaded population and no enzyme in the well, these Cells lysed at pH 6.3 and stayed intact at pH 7.6. Lysis is read as the loss of the Cy5 the Cells carry. @Editor: cite the DevNote for this run once it is published.
+
+:::{warning} Not yet validated in a gel
+All three results are in solution. Embedding this Cell in a gel, as the gel-embedded cascades do, has not been run.
+:::
+
+## Gels
+
+Embedded directly in 0.7% low-gelling agarose with no liposomes at all, the pH-sensing reaction plus β-galactosidase and neutralization buffer gives a measurable pH-dependent difference after 5 h at 37 °C:
+
+| Condition | Abs₅₇₀ (5 h) |
+| --- | --- |
+| Positive control (Triton X) | ~0.46 |
+| Negative control | ~0.31 |
+| pH 7.4 | ~0.31 |
+| pH 6.5 | ~0.39 |
+
+The Cy5 channel shows no lumen signal at pH 6.5, consistent with PLA1 expression. Cy5 fills the lumen; the membrane label is Liss Rhod PE. The gap between the two pH conditions is small relative to the positive control.
+
+See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
+
+:::{attention} Backing DevNote is a template stub
+@Editor(chicago): no completed DevNote exists for the pH-Sensing Module. Confirm with the Chicago Node.
+:::
+
+# Requirements
+
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md).
+
+Requires pH detection — see [Detector: pH-Sensing](../detector-ph/spec.md).
+
+# Implementations
+
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its sensing cell — set in the gel.
+
+# Processes
+
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) — the CPRG conversion that produces the visible signal
+- [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md) — sets this Cell in an ionically crosslinked gel
+
+# Constituent Modules
+
+- [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) — [Base Cytosol](../base-cytosol/spec.md) carrying the annealed trigger duplex and the toehold-gated PLA1 template
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — 9:1 POPC:cholesterol synthetic cell membrane
+
+# Credits
+
+Developed by Sung-Won Hwang, Samuel Chen, and Allen Liu (Chicago Node, Liu Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

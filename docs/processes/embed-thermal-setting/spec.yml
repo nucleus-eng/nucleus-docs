@@ -1,0 +1,47 @@
+# Process source for Embedding: Thermal Setting.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# THE ROUTE THAT SETS BY TEMPERATURE, and the only one whose setting condition is a
+# property of the polymer rather than of the equipment. ../../modules/gel-lga and
+# ../../modules/gel-ulga carry gel points and melting points for exactly this reason.
+#
+# THREE MODULES RESTATE `thermal-hold` BECAUSE THEY RUN THIS PROCESS, AND IT STILL
+# CANNOT MOVE HERE. That was the expectation when this file was written and the move
+# commit found out why not.
+#
+# THE BOUND IS READ OFF AN OPERAND OF THE STEP:
+#
+#     bound: {quantity: temperature, sense: at-least,
+#             from: {operand: lga-powder, key: gel_point_max_c}}
+#
+# and `ulga-powder` on the third. A PROCESS HAS ARGUMENT POSITIONS, NOT OPERANDS. There
+# is nothing here for `from.operand` to name, because which polymer fills the position
+# is the step's fact and the whole point of `from` is that one step binds a different
+# bound per polymer instead of needing one step per polymer.
+#
+# So the imposition is the process's and the BOUND is the step's, and the schema has no
+# way to say that: `bound` is a property of the imposition. Splitting them, or letting a
+# process-level `from` name an argument position by index, is a design question nobody
+# has needed until now. The three declarations stay on their steps.
+#
+process: embed-thermal-setting
+title: "Embedding: Thermal Setting"
+refines: embed-gel
+
+signature:
+  takes:
+    - type: solution
+      note: >
+        The outer solution the polymer dissolves into.
+    - type: component
+      note: >
+        An agarose grade. Which grade sets the hold and set temperatures.
+    - type: container
+      repeated: true
+      note: >
+        The compartments to be held.
+  produces:
+    type: gel
+    note: >
+      A gel set by cooling.

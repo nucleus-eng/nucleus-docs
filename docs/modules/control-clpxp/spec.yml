@@ -1,0 +1,147 @@
+# Composition source for ClpXP Control.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: a reaction in one tube, one phase. No `packing` step appears
+# here, so nothing in this file depends on whether forming a boundary and holding
+# something in it are one operation, which is unsettled.
+#
+# THE PURIFIED-PROTEIN ROUTE IS HERE AND THE IN-SITU ROUTE IS NOT. The page says the
+# Module can be implemented from purified proteins, from DNA templates expressed in
+# situ, or from combinations of the two. The schema cannot hold three routes to one
+# product — see ../membrane-popc-chol-9-1/spec.yml, where two were tried and the
+# validator rejected the second with duplicate-id. See the questions below.
+#
+# THE PAGE'S FOUR COLUMNS ARE A FACTORIAL ASSAY. Only Sample 1 carries both
+# proteins and is the Module; the rest drop one or both.
+
+module: control-clpxp
+title: "Control: ClpXP"
+refines: control
+  # ../control IS THE ONLY PARENT, AND THE COMPOSITION PARENT IS UNWRITTEN. The page
+  # opens "enables the ATP-dependent, targeted degradation of ssrA-tagged proteins",
+  # which is a Function, and ../control is its class.
+  #
+  # IT DOES NOT REFINE ../cytosol, THOUGH IT IS ASSEMBLED LIKE ONE. A Cytosol is defined
+  # by what it does -- ../cytosol/spec.md: "A member transcribes the DNA added to it and
+  # translates the transcript into protein" -- and the documented route here assembles
+  # from PURIFIED proteins and never transcribes. Being built from PURExpress Solutions
+  # A and B makes this cytosolic; it does not make it a Cytosol. It held the machinery
+  # and did not use it, which is composition and not function.
+  #
+  # SO THE COMPOSITION AXIS HAS NO PARENT, and that is recorded rather than approximated.
+  # A class that does not exist is better named absent than stood in for by one whose
+  # own definition this Module fails. Two other routes are named in `open` and neither
+  # is a step; one of them would express the proteins in place and WOULD transcribe.
+
+inputs:
+  purexpress-solution-a:
+    title: "NEB PURExpress Solution A"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
+    page: null
+  purexpress-solution-b:
+    title: "NEB PURExpress Solution B"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
+    page: null
+  clpx:
+    title: "Purified ClpX"
+    stock: {value: 53.7, unit: "µM"}
+    page: null            # or expressed from pT7-ClpX, control/pOpen-ClpX-CHis.gb
+  clpp:
+    title: "Purified ClpP"
+    stock: {value: 79.9, unit: "µM"}
+    page: null            # or expressed from pT7-ClpP, control/pOpen-ClpP-CHis.gb
+  degfp-ssra:
+    title: "Purified deGFP-ssrA"
+    stock: {value: 41.2, unit: "µM"}
+    page: null            # the tagged substrate; control/pOpen-deGFP-CHis-ssrA.gb
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    stock: {value: 40000, unit: "U/mL"}
+    page: null
+  water:
+    title: "Nuclease-free water"
+    page: null
+
+process_steps:
+  - id: assemble-purified-reaction
+    process:
+      title: "Assemble the ClpXP Control reaction from purified proteins"
+      page: null
+    operator: mixing
+    operands:
+      - purexpress-solution-a
+      - purexpress-solution-b
+      - clpx
+      - clpp
+      - degfp-ssra
+      - rnase-inhibitor
+      - water
+    produces:
+      id: control-clpxp
+      title: "ClpXP Control"
+      page: ../control-clpxp/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. Every figure below is a source fact in
+    # a form that does not change with the scale somebody runs at. The per-component
+    # VOLUMES are gone: they were derived, and writing a derived number down is the
+    # thing #T23 already refuses for Conflict.
+    #
+    #     fraction(i) x stock(i) = final(i)
+    #
+    # NO FINAL CONCENTRATION IS WRITTEN HERE, because this source states only one and a
+    # computed figure would read as a measured one. `rnase-inhibitor` is the exception
+    # the conversion was checked against: the source said "2000 U/mL final", and
+    # 0.05 x 40 000 U/mL returns exactly that.
+    fractions:
+      purexpress-solution-a: 0.40
+      purexpress-solution-b: 0.30
+      clpx: 0.05
+      clpp: 0.05
+      degfp-ssra: 0.05
+      rnase-inhibitor: 0.05
+    # The balance term, and it is not a fraction: it absorbs whatever the others leave.
+    # Stated as 1 uL in 10 and therefore 0.10 today, but that number moves when any
+    # other component does, which is what makes it a different kind of entry.
+    balance: water
+    # OPTIONAL, under R39. This is an Implementation fact rather than a Module fact --
+    # the composition above is the same reaction at 10 uL or at 500 uL. It is kept as
+    # the scale this reaction was run at. No script compares it with anything.
+    total_volume: {value: 10, unit: "µL"}
+    notes: >
+      Sample 1 of Reaction Table 1 — the only column carrying both protease subunits.
+      ClpX and ClpP are the two halves of one protease and deGFP-ssrA is its tagged
+      substrate, so the Module is the degradation system rather than any one protein.
+      All three constructs have confirmed files in nucleus-eng/DNA under control/.
+
+open:
+  - id: three-routes-one-module
+    kind: choice
+    question: >
+      The page opens by saying the Module can be implemented from purified proteins
+      alone, from in situ expressed proteins encoded on DNA templates, or from
+      combinations of the two. Only the first is a step above. The schema has no key
+      for alternative routes and two steps producing the same id fail
+      check-spec-schema.py with duplicate-id — measured on
+      ../membrane-popc-chol-9-1/spec.yml, not assumed. The In Situ Expression tab
+      is therefore unrepresented here, and "combinations thereof" is a third route
+      that no single step could hold even if the schema allowed two.
+  - id: four-columns-are-a-factorial
+    question: >
+      Samples 2 and 3 each drop one protease subunit and the Control drops both,
+      with water making the volume back up. That is a 2x2 design testing whether
+      degradation needs both subunits, not four compositions of this Module. Only
+      Sample 1 is taken above, and the water figure moves with that choice — 1 uL for
+      Sample 1 against 2 uL for the Control.
+  - id: purexpress-is-not-a-module
+    question: >
+      Solutions A and B carry the whole transcription-translation system and have no
+      module page, so their composition is not machine-readable anywhere in this
+      corpus. The same gap is recorded on ../detector-laci-iptg/spec.yml and
+      ../membrane-pore-ahly/spec.yml. Three pages now name these two operands and
+      none of them can say what is in them.

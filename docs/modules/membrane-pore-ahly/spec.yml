@@ -1,0 +1,89 @@
+# Composition source for Membrane Pore: alpha-hemolysin.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: a reaction in one tube, one phase. The `packing` step is where
+# the expressed pore inserts into a membrane, which is not a composition step at all —
+# the pore is made by the reaction and then enters a bilayer that already exists. So
+# nothing in this file depends on whether forming a boundary and holding something in it
+# are one operation, which is unsettled.
+
+module: membrane-pore-ahly
+title: "Membrane Pore: alpha-hemolysin"
+refines: pore
+
+inputs:
+  purexpress-solution-a:
+    title: "NEB PURExpress Solution A"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
+    page: null
+  purexpress-solution-b:
+    title: "NEB PURExpress Solution B"
+    component_of: "NEB PURExpress In Vitro Protein Synthesis Kit, E6800"
+    page: null
+  ahly-dna:
+    title: "pT7-aHly"
+    stock: {value: 10, unit: "nM"}
+    page: null            # not in nucleus-eng/DNA
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    stock: {value: 40000, unit: "U/mL"}
+    page: null
+  water:
+    title: "Nuclease-free water"
+    page: null
+
+process_steps:
+  - id: assemble-reaction
+    process:
+      # THE PROTOCOL IS THE KIT'S, so the link points at the kit and not at Base Cytosol.
+      # This step assembles the NEB PURExpress kit,
+      # which composes two solutions; ../base-cytosol/spec.yml is the Nucleus system and
+      # composes five constituents. They are different systems and this file named one
+      # of them after the other. The corpus gives the kit's own protocol no page, so this
+      # is null like the four other kit reactions -- control-clpxp, detector-laci-iptg,
+      # membrane-pore-cx43 and emitter-ivhsl all carry null here. THIS FILE WAS THE ONLY
+      # ONE OF THE FIVE THAT LINKED ANYWHERE, and it linked to the wrong system.
+      title: "Assemble the PURExpress reaction"
+      page: null
+    operator: mixing
+    operands: [purexpress-solution-a, purexpress-solution-b, ahly-dna, rnase-inhibitor, water]
+    produces:
+      id: membrane-pore-ahly
+      title: "Membrane Pore: alpha-hemolysin"
+      page: ../membrane-pore-ahly/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38. Volumes out, fractions in:
+    # fraction x stock = final, and 0.10 x 40 000 U/mL returns the 4000 U/mL this
+    # source states. No other final is written, because no other is sourced.
+    fractions:
+      purexpress-solution-a: 0.40
+      purexpress-solution-b: 0.30
+      ahly-dna: 0.10
+      rnase-inhibitor: 0.10
+    finals:
+      rnase-inhibitor: {value: 4000, unit: "U/mL"}
+    balance: water
+    total_volume: {value: 10, unit: "µL"}
+    notes: >
+      aHly is expressed in situ from `pT7-aHly` rather than supplied as protein, so
+      this Module is a reaction rather than a reagent. The page names Assemble Base
+      Cytosol as the protocol followed.
+
+open:
+  - id: construct-not-in-the-dna-repo
+    question: >
+      `pT7-aHly` is not in nucleus-eng/DNA. So `ahly-dna` above is a role with a
+      label, not an identity claim against a sequence file.
+  - id: the-cell-demonstration-is-not-this-module
+    question: >
+      The Cell tab co-expresses aHly with a `pT7-eGFP` reporter in an
+      osmolarity-matched outer solution of 10 mM HEPES and 790 mM glucose, with no
+      energy molecules, so that leak quenches GFP production. That is an assay
+      demonstrating functional pore insertion, not this Module's composition, and the
+      reporter and outer solution are excluded above for that reason.

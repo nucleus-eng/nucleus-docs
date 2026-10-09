@@ -1,0 +1,129 @@
+# Composition source for Gel: ULGA.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Every step here is `mixing`, and that is a claim rather than a default. A gel's own
+# composition is polymer plus solvent ending in one phase. `packing` arises when a
+# compartment is put INTO a gel, which is a step on the cascade pages, not here — so
+# nothing in this file depends on whether forming a boundary and holding something in it
+# are one operation, which is unsettled.
+
+module: gel-ulga
+title: "Gel: ULGA"
+refines: thermal-gel
+
+inputs:
+  ulga-powder:
+    title: "Ultra low gelling temperature agarose"
+    page: null            # Sigma-Aldrich A5030; A2576 is interchangeable, London Node
+  potassium-glutamate:
+    title: "Potassium L-glutamate"
+    page: null
+    component_of: ../../processes/assemble-outer-solution/main.md
+  hepes:
+    title: "HEPES"
+    page: null
+    component_of: ../../processes/assemble-outer-solution/main.md
+  glucose:
+    title: "Glucose"
+    page: null
+    component_of: ../../processes/assemble-outer-solution/main.md
+
+process_steps:
+  - id: assemble-outer
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+    operator: mixing
+    operands: [potassium-glutamate, hepes, glucose]
+    produces:
+      id: outer-solution-glutamate
+      title: "Outer Solution: Glutamate"
+      page: null
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # "Working concentration" on both pages' tables, so all three are finals.
+    finals:
+      potassium-glutamate: {value: 578, unit: "mM"}
+      hepes: {value: 72, unit: "mM", note: "pH 7.4"}
+      glucose: {value: 300, unit: "mM"}
+    parameters:
+      # A PROPERTY OF THE SOLUTION, not a component of it.
+      osmotic_concentration: "~920 mOsm"
+    notes: >
+      The osmolarity is a relation, not a property of any one component: it has to
+      match across the membranes of whatever is embedded. It stays here for that
+      reason even though each term above is also stated.
+      The figure above is a target, not a tolerated range. No range is verified for
+      this gel: one embedding below 1200 mOsm did not keep its CPRG overnight, which
+      is a single result and not a limit. What a given run used belongs with that run.
+
+  - id: set-thermal
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+    operator: mixing
+    operands: [ulga-powder, outer-solution-glutamate]
+    produces:
+      id: gel-ulga
+      title: "Gel: ULGA"
+      page: ../gel-ulga/spec.md
+    ratio: "1:1 with the cell suspension, halving the ULGA to its final figure"
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # THE SECOND HALF OF THE OLD STRING WAS DERIVED FROM THIS STEP'S OWN RATIO. It read
+    # "1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1", and 0.5 is
+    # 1 x the 1:1. Writing a number the file computes from its own neighbor is the
+    # exact pattern this migration removes, so only the sourced 1% lands.
+    finals:
+      ulga-powder: {value: 10, unit: "mg/mL", note: "in the prepared solution, before the 1:1 combination"}
+    parameters:
+      # A BOUND PAIR WITH NO SINGLE CORRECT VALUE, which is what `parameters` is for.
+      # ../gel-ulga/spec.md:76: "Lower gives faster kinetics; higher holds a better
+      # on-off state", so the density is a lever rather than a preference.
+      ulga_working_range: "0.2% to 0.5% in the set gel"
+      gel_point_min_c: 8
+      gel_point_max_c: 17
+      melting_point_c: 50
+    notes: >
+      The ULGA dissolves into the outer solution, not into water, which is why the
+      outer solution is a separate step and an operand rather than a parameter.
+      The density is a dynamic-range lever: lower gives faster kinetics, higher
+      holds a better on-off state. 0.2% immobilizes GUVs.
+      SPLIT INTO TWO KEYS 2026-09-24. This was one `gel_temperature_window_c`
+      string, and the comment below already said why that was wrong: its two ends
+      are DIFFERENT QUANTITIES, a gelling point and a MELTING point. A packed
+      string cannot be read by a checker, and a valued imposition needs to read
+      one end of it. `gel_point_max_c` is the top of the gelling range, which is
+      the figure an embedding step needs: at or above it the polymer is liquid.
+      THE GELLING FIGURE CHANGED WITH THE SPLIT AND THAT IS NOT A CORRECTION OF
+      THE OLD ONE. The string said 8, the bottom of the range. The vendor
+      datasheet gives the gel point as 8-17 °C, so 17 is the end that bounds
+      "still liquid". Both figures are from the supplier's materials specification
+      page: the bare 8 came first and the range replaced it. That is a catalog figure for a nominal product, not a measurement of
+      either Node's stock, and the measured gelling point is still an open ask.
+      50 IS NOT A TEMPERATURE AT WHICH THE PAYLOAD CAN BE MIXED IN. The window is
+      still correct here because the gel is not what forbids 50: the payload is,
+      and that is a Requirement the payload imposes on its Container rather than a
+      property of this polymer. The range on the abstract module is the polymer's own,
+      because the tighter temperature requirements come from the biology the gel
+      carries. So do not narrow this field to record a payload's limit. That belongs on the payload's page, pointing here.
+
+open:
+  - id: osmolarity-provenance
+    question: >
+      Is ~920 mOsm measured or calculated? The page records the figure and says
+      which it is was never recorded. It is the sum of the stated components, so
+      calculated is the likelier reading, and likelier is not a citation.
+      @Editor: the stated components add to 950 mOsm/L as written, and to about 1560
+      mOsm/L when each ion of the salts counts. They do not add to 920, so "the sum of
+      the stated components" does not hold, and calculated is not the likelier reading.
+  - id: ulga-has-no-page
+    question: >
+      ULGA is an input with no module page, so no constituent page can state its
+      figures and they live here by necessity rather than by design. The same is
+      true of agarose corpus-wide. That the polymers have no pages is the finding.

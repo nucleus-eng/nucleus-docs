@@ -1,0 +1,93 @@
+# Composition source for Gel: PEG-Norbornene.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Every step here is `mixing`, and that is a claim rather than a default. A gel's own
+# composition is polymer plus solvent ending in one phase. `packing` arises when a
+# compartment is put INTO a gel, which is a step on the cascade pages, not here — so
+# nothing in this file depends on whether forming a boundary and holding something in it
+# are one operation, which is unsettled.
+
+module: gel-peg-norbornene
+title: "Gel: PEG-Norbornene"
+refines: photopatterned-gel
+
+inputs:
+  peg4nb:
+    title: "4-arm PEG-norbornene, 5 kDa"
+    page: null            # Creative PEGWorks PSB-4110-5g; the backbone
+  peg4sh:
+    title: "PEG4SH crosslinker"
+    page: null            # Creative PEGWorks PSB-440-5g; the thiol crosslinker here
+  lap:
+    title: "LAP photoinitiator"
+    page: null            # lithium phenyl-2,4,6-trimethylbenzoylphosphinate
+  solvent:
+    title: "PBS, deionized water or buffer"
+    page: null
+    range: "1 mL. No tolerated range is verified. PBS and a Tris-HEPES buffer have both been used; the PBS precursor lost the GUVs in one run"
+    # The Tris-HEPES stock is 1 M Tris with 1.15 M HEPES at about 2520 mOsm, the
+    # same stock ../../processes/encapsulate-luv/main.md dilutes to 1071 mOsm for
+    # its inner solution. Deionized water is still listed and has no recorded use.
+
+process_steps:
+  - id: assemble-precursor
+    process:
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-gel
+    operator: mixing
+    operands: [peg4nb, peg4sh, lap, solvent]
+    produces:
+      id: peg-norbornene-precursor
+      title: "PEG-norbornene precursor solution"
+      page: null
+    ratio: "4:1 ene-to-thiol — 320 mM norbornene against 80 mM thiol"
+    # SCALE-FREE, 2026-10-05. Three concentrations in the precursor this step produces.
+    finals:
+      peg4nb: {value: 80, unit: "mM"}
+      peg4sh: {value: 20, unit: "mM"}
+      lap: {value: 16.9, unit: "mM"}
+    notes: >
+      The ratio is a property of this step and is provisional. Step-growth
+      thiol-ene normally runs near 1:1; a four-fold norbornene excess gives a
+      loosely crosslinked network, which may be deliberate.
+
+  - id: photopattern
+    process:
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-gel
+    operator: mixing
+    operands: [peg-norbornene-precursor]
+    produces:
+      id: gel-peg-norbornene
+      title: "Gel: PEG-Norbornene"
+      page: ../gel-peg-norbornene/spec.md
+    parameters:
+      # SPLIT 2026-10-05, same as ../gel-pegda/spec.yml: one string held two different
+      # quantities and a checker could read neither. 60 s is a single stated value here
+      # rather than the range gel-pegda carries. The wavelength is not a choice.
+      exposure_s: 60
+      wavelength_nm: 405
+    notes: >
+      This is the live route for cell-carrying gels, where PEGDA is canceled. Its
+      UV exposure raises a Conflict with CPRG, which photobleaches: pre-add LacZ
+      and add CPRG as a free dye after crosslinking rather than preloading it.
+
+open:
+  - id: arm-ratio-intent
+    question: >
+      Is 4:1 ene-to-thiol intended or a transcription slip? It is on the page as
+      provisional, so an answer either confirms a live figure or corrects one,
+      which makes it more urgent than it was as a blank. Ojaswita Pant owns it.
+  - id: no-qc-data
+    question: >
+      No QC data exists for this route — feature size, mechanical integrity, and
+      whether embedded cells survive are all unreported.

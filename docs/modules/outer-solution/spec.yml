@@ -1,0 +1,88 @@
+# Composition source for Outer Solution.
+#
+# WRITTEN after the meet drew two nodes with the SAME LABEL.
+# Both demos suspend their cells in an outer solution, both call it Outer Solution, and
+# the two are different formulations with no class between them, so a figure showed two
+# identical-looking boxes that a reader could not tell apart.
+#
+# THE INVARIANT IS AN OSMOLARITY, NOT AN INGREDIENT LIST, and that is why this class has
+# one abstract input rather than three. The two members share no solute: the glutamate member mixes
+# potassium glutamate, HEPES and glucose; the Tris-HEPES member mixes a Tris-HEPES stock with an
+# energy solution. What both declare, and the only parameter on all four steps that
+# produce one, is `osmolarity`. It is a RELATION rather than a property of any
+# component: it has to match across the membrane of whatever is suspended in it.
+#
+# `mixing`, FOUR OF FOUR. Every step producing an outer solution mixes, and a suspension
+# whose solutes sat in separate compartments would not be one.
+#
+# REFINES `solution`, WHICH REFINES `container`. This file previously said there was NO `refines:` key,
+# because "an outer solution is not a container, a gel or a membrane. It is the phase
+# those things sit in, AND NOTHING IN THIS CORPUS NAMES THAT SORT." That last clause was
+# the exit condition and it is now discharged: ../solution/spec.md names it. The earlier
+# reading was right about everything except its own permanence.
+#
+# A SOLUTION IS A CONTAINER, which the old comment denied. It holds by dissolution rather
+# than by a barrier or a network, so what it holds is free to move. That is the third way
+# of holding and it is what separates this branch from Membrane and from Gel.
+
+module: outer-solution
+title: "Outer Solution"
+
+refines: solution
+
+inputs:
+  solutes:
+    title: "Solutes"
+    page: null            # a salt, a buffer and a sugar in one member; a buffer stock
+                          # and an energy solution in the other
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [solutes]
+    produces:
+      id: outer-solution
+      title: "Outer Solution"
+      page: ../outer-solution/spec.md
+    notes: >
+      One compartment. The class states the step and not the formulation, because the
+      two members share no solute and agree only on what the result must do.
+
+# ON THE CLASS, because what it measures is the relation every member shares: an
+# osmolarity matched to the inner solution of whatever the member suspends.
+measured_by:
+  - process:
+      title: "Osmometry Readout"
+      page: ../../processes/osmometry-readout/main.md
+
+open:
+  - id: the-osmolarity-is-the-class-and-the-two-members-disagree-on-its-value
+    question: >
+      MEASURED 2026-09-21. The glutamate member runs at about 920 mOsm and the Tris-HEPES member at about 1180.
+      Both are correct: each matches the inner solution of the cells IT suspends, so the
+      figure is a relation to a different thing in each case rather than a constant this
+      class could state. A class that fixed the number would be wrong for one member,
+      and a class that omits it says nothing about the one property both share. This
+      file names the relation in prose and declares no value.
+
+  - id: a-buffer-states-a-ph-point-and-wants-a-range
+    question: >
+      DEFERRED, and the confirmation half is closed. Six sites
+      state pH 7.4 across two buffers -- the glutamate formulation's 72 mM HEPES in ../outer-solution-glutamate
+      and ../gel-ulga, read back in ../detector-3oc6-hsl, and the Tris-HEPES stock
+      in the three cascade comments. It looked like one figure copied six times because
+      the house default is 7.6. IT IS NOT A COPY. 7.4 is real for both, and the two are
+      formulated differently.
+      WHAT STAYS OPEN IS THE SHAPE, NOT THE NUMBER. Every buffer in this corpus states a
+      pH as a point, and a buffer works over a range. A difference of ±0.2 pH units is
+      not meaningful here, but putting a range on every buffer spec needs experiment,
+      so it is flagged rather than done.
+      A tolerance is the right form and nobody has measured one. Until then a reader
+      cannot tell a formulated target from a requirement, which is the same gap
+      ../gel-ulga records for its own figures and the one `range` already exists for on
+      an input. The cost of guessing is higher than the cost of waiting: a range written
+      without an experiment would be a requirement the corpus invented.

@@ -1,0 +1,65 @@
+# For each Function page: the class whose members perform it, and the members its page
+# leaves out on purpose, each with the reason. scripts/check-functions.py reads it.
+#
+# A DRIFT CHECK, NOT A GENERATOR. The walk follows `refines:`, and `refines:` says what a
+# Module is, not what it does. A Module can refine a class and still never run the
+# function, so the page decides and this file records why it decided. An exclusion with
+# no reason would report the same omission on every run until someone stopped reading.
+#
+# ONE ENTRY PER PAGE. A Function page that is not named here is not compared.
+
+transcribe:
+  class: cytosol
+  not_members: {}
+  # EMPTY, AND IT WAS NOT. `control-clpxp` sat here with the reason "Refines cytosol by
+  # its composition, but its documented route assembles purified proteins and never
+  # transcribes." That sentence was not an exclusion -- it was a bug report, written as
+  # a setting. The Module refined a class whose own page says a member transcribes, and
+  # teaching this file to expect that made sure nothing looked at it again. The
+  # `refines:` is fixed, so the walk no longer returns it and no exclusion is needed.
+
+translate:
+  class: cytosol
+  not_members: {}
+
+# degrade IS NOT COMPARED, AND THAT IS DELIBERATE. Its members share no class: ClpXP
+# refines control and does it by design, and S30 Lysate refines cytosol and does it as
+# a side effect, to protein, RNA and DNA alike. A walk under either class would report
+# the other's members as strays, or every other cytosol as missing. The page names its
+# members itself, and this file has nothing to check them against.
+
+# regenerate-rntps IS NOT COMPARED EITHER, for the same reason. Energy: PPK refines energy,
+# and Base Cytosol regenerates ATP from creatine phosphate as one of a cytosol's own
+# functions, which is why ../docs/modules/energy/spec.md says it is not a member. A
+# walk under energy finds one of its two routes.
+
+lyse:
+  class: lysis
+  not_members: {}
+
+emit:
+  class: emitter
+  not_members: {}
+
+sense:
+  class: detector
+  not_members: {}
+
+report:
+  class: reporter
+  not_members: {}
+
+transport:
+  class: pore
+  not_members: {}
+
+# hold HAS 19 MEMBERS AND NO EXCLUSIONS, which was not the expected answer. The walk
+# reaches every Module under ../docs/modules/container -- every membrane, every gel and
+# every solution, the cytosols among them -- because ../docs/modules/solution refines
+# container. That looked like a walk too wide to be useful. It is not: ../docs/modules/container/spec.md
+# defines a member as something that keeps its contents in a defined relation, and all
+# nineteen do. An exclusion here would say the list is inconvenient, which is the thing
+# an exclusion must never say.
+hold:
+  class: container
+  not_members: {}

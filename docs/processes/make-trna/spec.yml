@@ -1,0 +1,28 @@
+# Process source for Make tRNA.
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# A REAGENT PREPARATION. It makes a constituent of ../../modules/base-cytosol rather
+# than a Module anybody encapsulates, which is why no module step names it: the corpus
+# documents how to make the cytosol's parts and then treats the cytosol as bought.
+#
+# `produces: component` RATHER THAN A NAMED TYPE, because the thing it makes has no
+# module page. That is the honest shape and it is also the finding: this process's
+# output is an input id on ../assemble-base-cytosol's step and nothing else.
+
+process: make-trna
+title: "Make tRNA"
+refines: make
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        Bulk tRNA, extracted rather than synthesized.
+  produces:
+    type: component
+    note: >
+      tRNA, which carries amino acids to the ribosome. An operand of ../assemble-base-cytosol.
+
+operator: mixing

@@ -1,0 +1,45 @@
+# Composition source for Fluorophore.
+#
+# GROUNDED ON AN OPERATION ITS PARENT DOES NOT HAVE, which is the test a refinement has
+# to pass. ../chromophore is grounded on `emit_color`: a conjugated system absorbs, and
+# a reader measures what did not come back. A fluorophore absorbs AND EMITS, at a
+# longer wavelength, and a reader measures light the molecule produced. Two wavelengths
+# rather than one, and the second is a property of the member.
+#
+# ../chromophore/spec.yml SAID THIS SPLIT DID NOT EXIST YET, and it was right at the
+# time: "a refinement is real when it declares an operation its parent does not, and no
+# emitting operation is written yet." The operation above is that operation. Five
+# members now carry it, which is also what makes the class worth writing: a one-member
+# class is a rule nobody has tested.
+#
+# IT CUTS ACROSS THE TREE, as its parent does. Two members are Reporters, two are
+# Lipids, and one is neither. `refines:` takes a list, so nothing moves to make room.
+#
+# NO `sensitivities:` OF ITS OWN. Bleaching is declared on ../chromophore, because it
+# follows from the conjugated system rather than from re-emission, and every member
+# inherits it through `refines:`. Declaring it again here would be a second copy of one
+# claim with nothing keeping the two in agreement.
+
+module: fluorophore
+title: "Fluorophore"
+refines: chromophore
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: no-member-states-its-two-wavelengths
+    question: >
+      The class is grounded on the gap between excitation and emission and not one
+      member records both figures in its source. They exist in prose on the pages that
+      use them -- 480/520 and 540/580 on ../dye-liposomes -- which is the wrong place
+      for a property of the dye. A `wavelengths` key is the obvious shape and it is not
+      written, because the first thing that would read it does not exist either.
+  - id: the-channel-constraint-has-no-carrier
+    question: >
+      Two members whose bands overlap cannot be told apart in one sample, which is a
+      constraint on choosing a reporter rather than on building one. Nothing in this
+      schema expresses it: it is not a sensitivity, because nothing is done to the dye,
+      and it is not an imposition, because the other dye does not act on it. The
+      background a gel or an energy component emits is the same shape and the same gap.

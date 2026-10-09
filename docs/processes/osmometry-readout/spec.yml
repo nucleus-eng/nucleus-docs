@@ -1,0 +1,61 @@
+# Process source for Osmometry Readout.
+#
+# A FIFTH ASSAY, AND THE THIRD DESTRUCTIVE ONE. The aliquot does not go back into the
+# tube. ../../modules/reporter-degfp/protocol-cells.md pipettes 10 µL out of the inner
+# solution for the reading, and the DevNote behind it reserves 10 µL of a 40 µL inner
+# solution for the check and encapsulates the other 30. By the test ../pierce660
+# states -- what happens to what went in, not whether more of it exists elsewhere --
+# the reading spends its sample, so `conserves: false`.
+#
+# IT TAKES A SOLUTION, AND THE TYPE CARRIES THE POINT. ../../modules/cytosol and
+# ../../modules/outer-solution both refine ../../modules/solution, so an inner solution
+# and an outer one are both in the domain. A cell is not: no Cell refines Solution.
+# That is the lumen being out of reach, written as a type. After encapsulation the
+# inside of a cell is never read, so its osmolarity is computed and not measured.
+# THIS IS THE FIRST ASSAY TO TAKE LESS THAN `component`, which is what the parent's
+# open entry on its loose domain asked for.
+#
+# `produces: measurement`, LIKE ../pierce660. A reading is one number with a unit, and
+# no route here is scored by eye.
+#
+# NO `impositions:`. The aliquot is spent, so nothing this process does reaches the
+# tube it came from or anything downstream of it.
+#
+# NO `operator:`, for the parent's reason. An assay does not compose two things into
+# a third.
+
+process: osmometry-readout
+title: "Osmometry Readout"
+refines: assay
+
+conserves: false
+
+signature:
+  takes:
+    - type: solution
+      note: >
+        A 10 µL aliquot of one solution: an inner solution before encapsulation, an
+        outer solution, or a reaction run in parallel with no membrane around it. That
+        last is a stand-in for a lumen and not a lumen. It shares the chemistry and has
+        no membrane.
+  produces:
+    type: measurement
+    note: >
+      An osmolality, in mOsm/kg, which is what a vapor-pressure osmometer reads. The
+      reading is recorded in mOsm/kg. It can be converted to osmolarity, mOsm/L, with
+      the kilograms of water in a liter of the solution read, taken from that
+      solution's composition table. Where the water cannot be worked out, it is not
+      converted.
+
+open:
+  - id: the-water-in-a-liter-needs-a-volume-for-each-solute
+    question: >
+      A composition table says how much of each solute a liter holds, and not how much
+      room each one takes up, and the water in a liter is what is left. Working it out
+      needs one more figure: a partial volume for each solute, or the solution's
+      density. No source here carries either, so no recorded reading has been
+      converted.
+  - id: no-run-records-its-standard
+    question: >
+      A reading is only as good as the standard it was checked against, and no run
+      here records which standard it read, at what value, or how often.

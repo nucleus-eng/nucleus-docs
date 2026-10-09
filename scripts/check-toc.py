@@ -87,7 +87,7 @@ def advisory_excluded(path: Path) -> bool:
 LINK_RE = re.compile(r"\]\(([^)#]+?\.md)(?:#[^)]*)?\)")
 
 # Section roots that carry a hub page listing their content pages.
-HUB_SECTIONS = ("modules", "processes", "implementations")
+HUB_SECTIONS = ("modules", "functions", "processes", "implementations")
 
 # Pages in the TOC with no hub row. Paths from repo root.
 #

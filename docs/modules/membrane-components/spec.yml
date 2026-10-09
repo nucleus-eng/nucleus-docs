@@ -1,0 +1,60 @@
+# Composition source for Membrane Components.
+#
+# A CLASS WHOSE MEMBERS HAVE NO PAGES, AND THAT IS THE POINT OF WRITING IT. Three
+# membrane sources already carry `no-page-for-the-lipids` as an open item, each
+# saying the same thing: POPC, cholesterol, DSPE-PEG2000 and the fluorescent labels
+# have no page anywhere, so their figures live on whichever membrane happens to use
+# them. The class gives that gap one home instead of three, and gives the membrane
+# step an operand type it did not have.
+#
+# GROUNDED BY FUNCTION, not by composition. What every member shares is what it does:
+# it goes into a bilayer. They are not produced by a common process -- every one is
+# purchased -- and they satisfy no common axiom beyond that. So the ground sentence
+# is the operation, which is the first of the three grounds a class may have.
+#
+# `process_steps: []` IS A CLAIM AND NOT A GAP. No process in this corpus produces a
+# membrane component; they arrive as stock solutions. The five analytes make the same
+# claim for the same reason.
+#
+# NOT EVERY MEMBER IS A LIPID, which is why the class is not called Lipids.
+# Cholesterol is a sterol and does not form a bilayer on its own; a fluorescent label
+# at 0.1 mol% is an instrument rather than a structural part. Both are components of
+# a membrane and neither is a bilayer-forming lipid.
+
+module: membrane-components
+title: "Membrane Components"
+
+inputs: {}
+
+process_steps: []
+
+member_properties: []
+
+open:
+  - id: no-member-has-a-page
+    question: >
+      Five components are named across the three membrane sources -- POPC,
+      cholesterol, DSPE-PEG2000, Liss-Rhod PE and 18:1 Cyanine 5 PC -- and not one
+      has a page. So this class has no `Members` table that links anywhere, and a
+      reader who wants a molecular weight finds it in whichever membrane source uses
+      it. Writing the class does not close that; it records it in one place.
+  - id: the-two-kinds-are-not-distinguished
+    kind: question
+    question: >
+      A bilayer-forming lipid, a sterol that modulates one, and a label that only
+      reports are three different roles, and this class holds all three without
+      saying which is which. That is deliberate for now: the distinction has no
+      consumer, because every membrane source lists its components flat. If a
+      membrane ever has to require a bilayer-forming component specifically, this
+      class splits.
+
+# NO PARENT, AND THAT IS A DECISION RATHER THAN AN OMISSION. Checked 2026-10-05 against
+# every root in the corpus: ../container and its children are things with an inside,
+# ../protein, ../dna and ../rna are molecules identified by sequence, ../chromophore is
+# a molecule identified by what it absorbs. A membrane component is a molecule
+# identified by WHERE IT GOES -- "what makes a Module a member is what it does: it goes
+# into a membrane" -- and nothing above it says that.
+#
+# `the-type-system` T2 calls this "a one-member class, likeliest to collapse". That is a
+# different question from where it sits, and it is still open. Collapsing it would
+# remove the class rather than give it a parent.

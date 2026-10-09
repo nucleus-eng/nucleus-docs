@@ -1,0 +1,238 @@
+# Composition source for the aTc Cascade.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. This is the aTc integration path, entire. A module that bonded it to
+# the pH path was retired 2026-10-03, because nobody is building that device.
+
+module: atc-cascade
+title: aTc Cascade
+refines: cascade
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  detector-tetr-atc:
+    title: "Detector: tetR-aTc"
+    page: ../detector-tetr-atc/spec.md
+  effector-pla1-teto:
+    title: "Gated lysis DNA: pT7-tetO-PLA1"
+    page: null            # pT7-tetO-PLA1. The tetO operator stitched to the PLA1 coding sequence,
+                          # so the gate and the payload are ONE molecule. ../detector-tetr-atc/
+                          # names pT7-tetO-deGFP, the REPORTER variant, so this cascade names its
+                          # own payload rather than inheriting one. Files:
+                          # effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb 1202 bp and
+                          # pOpen-T7-tetO-PLA1.gb 3140 bp, in nucleus-eng/DNA at f06e12c.
+  reporter-lacz-enzyme:
+    title: "LacZ Enzyme"
+    stock: {value: 125, unit: "U/mL"}
+    page: ../reporter-lacz-enzyme/spec.md
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  mineral-oil:
+    title: "Mineral oil"
+    page: null            # the lipid-in-oil phase of the transfer. No module page
+  analyte-atc:
+    title: "Analyte: aTc"
+    page: ../analyte-atc/spec.md
+  glucose:
+    title: "Glucose"
+    page: null
+  hepes-koh:
+    title: "HEPES-KOH buffer"
+    page: null            # 0.5 M Tris base, 1.7 M HEPES, pH 7.4
+  energy-solution:
+    title: "Energy solution"
+    page: null            # @Editor(chicago): contents not recorded
+  peg-norbornene-monomer:
+    title: "4-arm PEG-norbornene"
+    page: ../gel-peg-norbornene/spec.md
+  peg4sh:
+    title: "PEG4SH crosslinker"
+    page: null
+  lap:
+    title: "LAP photoinitiator"
+    page: null
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [glucose, hepes-koh]
+    produces:
+      id: outer-solution-glucose-hepes
+      title: "Outer Solution: Glucose-HEPES"
+      page: ../outer-solution-glucose-hepes/spec.md
+    parameters:
+      osmotic_concentration: "~1180 mOsm"
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, detector-tetr-atc, effector-pla1-teto, reporter-lacz-enzyme]
+    produces:
+      id: atc-sensor-cytosol
+      title: "SensorCytosol[aTc ⟶ PLA1]"
+      page: ../atc-sensor-cytosol/spec.md
+    # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table, which
+    # keyed its rows by cascade. The enzyme's own page states the range; this is the
+    # dose this path used, encapsulated in a GUV in PEG-norbornene.
+    #
+    # SCALE-FREE 2026-10-05, and the key is now the operand id. 0.02 x 125 U/mL returns
+    # the 2.5 U/mL this page states in its Cytosol table, `comp-atc-cascade`, so
+    # the written final stays sourced and the fraction checks it.
+    #
+    # `parameters:` IS GONE RATHER THAN LEFT EMPTY. Its one entry converted, and an
+    # empty mapping is `None` to the loader, which check-spec-schema.py rejects.
+    fractions:
+      reporter-lacz-enzyme: 0.02
+    finals:
+      reporter-lacz-enzyme: {value: 2.5, unit: "U/mL"}
+      # The other three are the same table. TetR is keyed by `tetr`, a constituent of
+      # ../detector-tetr-atc/spec.yml: the operator is on the PLA1 molecule here, so
+      # TetR is all this cascade takes from the detector.
+      base-cytosol: {value: 1, unit: "fold", note: "at reaction concentration"}
+      tetr: {value: 50, unit: "nM", note: "headline condition; also tested at 100 nM"}
+      effector-pla1-teto: {value: 1, unit: "nM", note: "headline condition; also tested at 0.5 nM"}
+    total_volume: {value: 25, unit: "µL"}
+
+  - id: encapsulate
+    process:
+      composed_of:
+        - title: "Encapsulation: Phase Transfer"
+          page: ../../processes/assemble-base-cell/main.md
+        - title: "Degrade Exterior LacZ"
+          page: ../../processes/degrade-exterior-lacz/main.md
+    requires:
+      - id: enzyme-encapsulated-substrate-outside
+        of: reporter-lacz-enzyme
+        why: >
+          Degrade Exterior LacZ is defined only where the enzyme is encapsulated and its
+          substrate is outside. ../../processes/degrade-exterior-lacz/main.md: "Use it
+          where LacZ is encapsulated and its substrate is outside", and "do not use it
+          where LacZ sits in the outer solution or is dispersed through a gel on purpose",
+          because Proteinase K does not distinguish one LacZ from another. So refining the
+          reporter decides whether this cleanup step exists at all, which is the implies
+          arrow stated from the step.
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [atc-sensor-cytosol, membrane-popc-chol-9-1, mineral-oil, outer-solution]
+    produces:
+      id: atc-sensing-cell
+      title: "SensorCell[aTc ⟶ PLA1]"
+      page: ../atc-sensing-cell/spec.md
+
+  - id: embed-photodevelopment
+    process:
+      title: "Embedding: Photodevelopment"
+      page: ../../processes/embed-photodevelopment/main.md
+      abstract: embed-gel
+    operator: packing
+    operator_pairs:
+      # THE STEP DOES TWO THINGS AND ONE LABEL CANNOT SAY BOTH. It forms a gel phase
+      # AND holds membrane-bounded cells in it. `packing` is right for every pair
+      # involving atc-sensing-cell, which keeps its own compartment, and wrong for the
+      # two below: a polymer and the outer solution share one phase with no boundary
+      # between them, which is what codimension-is-a-coordinate.md:41 at main 29842a1 states as
+      # "Gel = OuterSolution (+) polymer, same compartment, no membrane between them".
+      #
+      # SAME SHAPE AS embed-agarose AND embed-ulga, which have carried these exceptions
+      # since they were written. These two steps were the ones that never got them, and
+      # they are the four violations check-operator-pairs.py has been reporting.
+      #
+      # lap is NOT here. It is a photoinitiator, the checker gives it its own sort on
+      # purpose, and stretching `polymer` to cover a small-molecule initiator would
+      # extend the seed by a sort assignment. Its pairs report unknown and should.
+      - operands: [peg-norbornene-monomer, outer-solution-glucose-hepes]
+        operator: mixing
+      - operands: [peg4sh, outer-solution-glucose-hepes]
+        operator: mixing
+    operands:
+      - peg-norbornene-monomer
+      - peg4sh
+      - lap
+      - outer-solution-glucose-hepes
+      - atc-sensing-cell
+    produces:
+      id: atc-gel
+      title: "aTc gel piece"
+      page: null
+    notes: >
+      No concentration is established for the monomer, the crosslinker or the
+      photoinitiator, and exposure time depends on all three. The PEGDA route
+      was cut by the Chicago Node on 2026-09-11, because PEGDA destroys the
+      liposomes; ../gel-pegda/spec.md carries the reason.
+
+  - id: assemble-trigger-solution
+    process:
+      title: "Trigger Solution"
+      page: null
+      abstract: assemble-solution
+    operator: mixing
+    operands: [substrate-cprg, analyte-atc]
+    produces:
+      id: atc-trigger-solution
+      title: "Trigger Solution"
+      page: null
+    notes: >
+      THE BOARD MAKES THE SOLUTION BEFORE IT ADDS IT, and the two were one step here
+      until 2026-10-03. Splitting them is what lets the analyte into this source at all:
+      the single step took the gel and the substrate and never named what triggers it.
+      ../../processes/ has no page for mixing the two, so the process is `page: null`.
+
+  - id: dose-trigger-solution
+    process:
+      title: "Addition of Solution to gel"
+      page: null
+    operator: packing
+    operands: [atc-gel, atc-trigger-solution]
+    produces:
+      id: atc-cascade
+      title: "aTc Cascade"
+      page: ../atc-cascade/spec.md
+    notes: >
+      After crosslinking, not before. UV bleaches CPRG, so this path cannot
+      carry the substrate through photodevelopment and cannot use a substrate
+      liposome. That is why it differs from the pH path in where CPRG lives.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: peg-norbornene-precursor-solvent
+    question: >
+      No page states what the PEG-Norbornene precursor dissolves in. This file
+      dissolves it in the Outer Solution; anything less would put a large
+      osmotic gradient across the membrane at the moment of embedding — the
+      cells sit at about 1180 mOsm. ../ph-cascade/spec.yml carries the same
+      item for its own path. @Editor(chicago).

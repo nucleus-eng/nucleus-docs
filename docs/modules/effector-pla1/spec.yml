@@ -1,0 +1,141 @@
+# Composition source for Lysis: PLA1.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# THIS FILE WRITES THE UNGATED CONFIGURATION AND ONLY THAT ONE. The page's Cytosol tab
+# carries five configurations, and this file is the first of them: constitutive
+# expression with no sensing circuit. The page itself says why that is the defensible
+# reference rather than an arbitrary pick — "the first is the only one with no upstream
+# gate, so it is the only one that reports on PLA1 rather than on a cascade."
+#
+# THE OTHER FOUR ARE NOT CONFIGURATIONS OF THIS MODULE. Each is this Module's
+# coding sequence stitched to a detector's DNA. Under
+# stitching, written `::`, joins operands in order into one polymer; it is
+# associative and not commutative,
+# and it is homogeneous — DNA stitched to DNA is DNA (signature.md:214, main ada4ea5;
+# this read :286 until 2026-09-21, which is a paragraph about undeclared types). So
+# `LuxR-PLA1` is `luxR-cassette :: pla1-cds`, a DIFFERENT DNA Module that contains
+# PLA1, not this Module in a different setting. See the open entry below.
+#
+# The step is `mixing`: two additions into Base Cytosol, sharing its resources. No
+# `packing` step appears here — encapsulation is a step on ../base-cell/spec.yml — so
+# nothing in this file depends on whether forming a boundary and holding something in it
+# are one operation, which is unsettled.
+
+module: effector-pla1
+title: "Lysis: PLA1"
+refines: lysis
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  pla1-dna:
+    title: "T7pro-PLA1-T7term"
+    page: null            # no confirmed sequence file in nucleus-eng/DNA; see below
+  optiprep:
+    title: "OptiPrep"
+    page: null
+    optional: true        # encapsulation aid, not lysis chemistry — same judgment
+                          # as ../reporter-degfp/spec.yml, and the same open item
+
+process_steps:
+  - id: assemble-pla1-inner-solution
+    process:
+      title: "Assemble the ungated PLA1 inner solution"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, pla1-dna, optiprep]
+    produces:
+      id: effector-pla1
+      title: "Lysis: PLA1"
+      page: ../effector-pla1/spec.md
+    # SCALE-FREE, 2026-10-05. "5% of the reaction" was already a volume fraction and
+    # is now written as one. It is the shape R38 generalized from.
+    finals:
+      pla1-dna: {value: 14, unit: "ng/µL"}
+      base-cytosol: {value: 1, unit: "fold"}
+    fractions:
+      optiprep: 0.05
+    total_volume: {value: 20, unit: "µL"}
+    notes: >
+      Base Cytosol is at 1 fold, as the page states. Its own page states what it is
+      made of; this step states only how much of it is here, which no constituent
+      page can state.
+      PLA1 is expressed from the construct rather than added as a reagent, so this
+      Module has no working concentration of the protein and the DNA dose is the
+      only dose there is.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: the-four-gated-variants-are-stitched-dna-modules
+    kind: choice
+    question: >
+      The page lists five configurations and this file writes one. The other four are
+      3OC6-HSL-gated (`LuxR-PLA1`, 15 ng/uL, in S30 Lysate), aTc-gated (`TetO-PLA1`,
+      1 nM, also tested at 0.5 nM), pH-gated (a toehold-switch-gated PLA1 template,
+      2 nM) and theophylline-gated (`T7pro-PLA1-T7term`, dose not documented).
+      They are recorded here so the omission is a claim rather than a gap.
+      THEY ARE NOT CONFIGURATIONS OF THIS MODULE AT ALL: each gated construct is this Module's coding sequence STITCHED to a
+      detector's DNA, so the product is a different DNA Module that contains PLA1.
+      If that is right, each of the four belongs on the detector or cascade page that
+      owns the stitched construct, and this file is complete rather than partial.
+      A CIRCULAR CONSTRUCT DOES HAVE A FIRST BASE, AND THE CONSEQUENCE IS NOT WHAT IT
+      LOOKS LIKE. Stitching joins operands IN ORDER while a circle has no start, so
+      the order would be defined only
+      up to rotation. That does not hold: plasmid DNA canonically DOES carry a first
+      index. It is the first base labeled in the file, set by the author
+      by convention rather than by the molecule, often the first base of the origin of
+      replication. Every circular file in nucleus-eng/DNA declares it, as `LOCUS ...
+      circular` over a sequence that starts at base 1.
+      SO STITCHING IS WELL DEFINED ON THE FILE AND THE THING THAT BREAKS IS CONTAINMENT
+      BY SUBSTRING SEARCH. Because the index is chosen rather than given, a feature can
+      straddle it, and then the construct contains the feature while the file's string
+      does not contain it as one run of characters. That is not hypothetical here:
+      nucleus-eng/DNA at f06e12c, pores/pOpen-Cx43-eGFP.gb line 123, carries
+      `CDS join(3297..3996,1..17)` — an EGFP coding sequence split across base 1 by 17
+      bases. reporters/pOpen-deGFP.gbk line 94 carries a promoter the same way. This
+      page links the first of those as the Cx43 construct.
+      WHAT THAT MEANS FOR THE READING ABOVE. Saying LuxR-PLA1 CONTAINS PLA1 is a claim
+      about the molecule and it holds for both topologies. Checking it by searching the
+      file for the coding sequence is a claim about the string, and on a circular file
+      that check can fail on a construct that does contain it. The two are the same
+      question only when nobody has rotated the origin into the middle of the feature.
+      What is not settled is where the stitched Modules get their pages. No page in
+      this corpus is currently the owner of `LuxR-PLA1` or `TetO-PLA1` as objects in
+      their own right; both are listed as constructs on pages about something else.
+  - id: no-result-isolates-this-module
+    question: >
+      Lysis is always scored by the color it releases, never by a direct measure of
+      membrane rupture or of enzyme activity. So `measured_by` names the colorimetric
+      readout because that is the only measurement there is, and it measures the
+      Module together with the CPRG/LacZ chain it drives. No efficiency figure exists
+      for PLA1 in any of the five configurations, and the ungated run is unisolated in
+      this second sense even though it is ungated in the first.
+  - id: the-construct-has-no-sequence-file
+    question: >
+      `T7pro-PLA1-T7term` has no confirmed file in nucleus-eng/DNA and no recorded
+      length, so `page: null` above is the strongest claim available. The page says
+      not to add a length or file entry until one lands there and its identity is
+      confirmed against the construct name. Two coding sequences exist for this enzyme:
+      The aTc- and pH-gated constructs agree with each other across the whole CDS, and
+      `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of
+      residues. Which of the two this construct carries is not stated.
+  - id: an-encapsulation-aid-marked-optional
+    question: >
+      Optiprep is a density-gradient medium for phase transfer, not part of the lysis
+      chemistry, and it is marked optional on that reading. The page lists it in the
+      reaction without saying it is separable, so the mark is this file's judgment
+      rather than the page's claim. ../reporter-degfp/spec.yml carries the identical
+      judgment and the identical caveat, which makes this the second instance rather
+      than a one-off, and an argument for settling it once.

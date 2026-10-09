@@ -1,0 +1,40 @@
+# Process source for Degrade Exterior LacZ.
+#
+# Signature read from the page, and from the steps that run it where any do.
+#
+# THE PROCESS THE `proteolysis` IMPOSITION BELONGS TO. ../../modules/atc-cascade and
+# ../../modules/atc-sensing-cell each declare `proteolysis` on a step whose notes name
+# "the chained Degrade Exterior LacZ sub-process". Those are the only two declarations
+# of it, and neither step's process field points here -- the chain is described in prose.
+#
+# IT IS DECLARED HERE NOW, and the chain is why it can be. Both steps carry
+# `process.composed_of`, a chain of two links, and the SECOND LINK NAMES THIS PAGE. So
+# the step does point here; it points here as one of two, which is why a lookup by
+# `process.page` found nothing. check-conflicts.py now resolves `composed_of` as well.
+
+process: degrade-exterior-lacz
+title: "Degrade Exterior LacZ"
+
+signature:
+  takes:
+    - type: container
+      note: >
+        The liposome population, with reporter enzyme that has leaked outside it.
+    - type: component
+      note: >
+        Proteinase K, which implements proteolysis.
+  produces:
+    type: container
+    note: >
+      The same population with the exterior enzyme gone, so the background color it
+      would have added to the readout is removed.
+
+operator: mixing
+
+impositions:
+  - id: proteolysis
+    why: >
+      This process doses Proteinase K, which implements proteolysis. It reaches whatever
+      protein is outside the liposome, which is the point -- the exterior enzyme is what
+      it is for -- and it does not distinguish one protein from another.
+    page: main.md

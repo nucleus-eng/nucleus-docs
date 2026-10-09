@@ -30,10 +30,14 @@ myst_anchors = check_links.myst_anchors
     [
         # The regression case: " / " collapses to one hyphen under MyST, but
         # stays "--" under lychee. Seven real links depended on this.
-        (
-            "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)",
-            "chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout",
-        ),
+        #
+        # THE EXAMPLE IS A HEADING THE CORPUS ACTUALLY CARRIES. It used to be
+        # "Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)", which
+        # stopped existing when fa4a902 retired that page. The test passed either
+        # way, because it builds its own fixture — but an example nobody can find
+        # reads as a bug in the test rather than a case it is pinning.
+        ("Primary chemistry: LacZ / CPRG", "primary-chemistry-lacz-cprg"),
+        ("Alternate chemistry: XylE / catechol", "alternate-chemistry-xyle-catechol"),
         # Parentheses alone do not diverge — both tools agree here.
         ("Membrane (Base)", "membrane-base"),
         # Plain headings, the overwhelming majority.
@@ -68,7 +72,7 @@ def test_anchors_from_headings_labels_and_targets(tmp_path):
                 "",
                 "## Expected Behavior",
                 "",
-                "### Chicago Cascade Encapsulation (TetO-PLA1 / LacZ-CPRG Readout)",
+                "### Primary chemistry: LacZ / CPRG",
                 "",
                 ":::{table} A composition",
                 ":label: comp-ph-sensor",
@@ -91,9 +95,7 @@ def test_anchors_from_headings_labels_and_targets(tmp_path):
 
     assert "overview" in anchors
     assert "expected-behavior" in anchors
-    assert (
-        "chicago-cascade-encapsulation-teto-pla1-lacz-cprg-readout" in anchors
-    )
+    assert "primary-chemistry-lacz-cprg" in anchors
     assert "comp-ph-sensor" in anchors
     assert "fig-schematic" in anchors
     assert "my-explicit-target" in anchors

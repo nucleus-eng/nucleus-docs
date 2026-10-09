@@ -1,0 +1,47 @@
+# Bare mOsm figures that were looked at and could not be traced.
+#
+# A figure in mOsm with no denominator marks an origin that is not recorded. It is listed
+# here so a reader and scripts/check-osmotic-units.py can tell it from a forgotten unit.
+# One entry per file and figure, with the count of times the file writes it. Remove an
+# entry when its figure gains mOsm/L or mOsm/kg, or leaves the file.
+unrecorded:
+  - {file: docs/implementations/devstudio-ph-demo/main.md, figure: "1180", count: 1}
+  - {file: docs/modules/ahsl-sensing-cell/spec.md, figure: "920", count: 1}
+  - {file: docs/modules/ahsl-sensing-cell/spec.yml, figure: "920", count: 1}
+  - {file: docs/modules/atc-cascade/spec.yml, figure: "1180", count: 2}
+  - {file: docs/modules/cell-base-cytosol-popc-chol/spec.md, figure: "1180", count: 1}
+  - {file: docs/modules/cell-base-cytosol-popc-chol/spec.md, figure: "2700", count: 1}
+  - {file: docs/modules/cell-s30-popc/spec.md, figure: "920", count: 2}
+  - {file: docs/modules/cell-s30-popc/spec.yml, figure: "920", count: 1}
+  - {file: docs/modules/gel-alginate/spec.md, figure: "1180", count: 1}
+  - {file: docs/modules/gel-peg-norbornene/spec.md, figure: "2520", count: 1}
+  - {file: docs/modules/gel-peg-norbornene/spec.md, figure: "300", count: 1}
+  - {file: docs/modules/gel-peg-norbornene/spec.yml, figure: "1071", count: 1}
+  - {file: docs/modules/gel-peg-norbornene/spec.yml, figure: "2520", count: 1}
+  - {file: docs/modules/gel-ulga/spec.md, figure: "1200", count: 2}
+  - {file: docs/modules/gel-ulga/spec.md, figure: "920", count: 3}
+  - {file: docs/modules/gel-ulga/spec.yml, figure: "1200", count: 1}
+  - {file: docs/modules/gel-ulga/spec.yml, figure: "920", count: 2}
+  - {file: docs/modules/guv-cprg/spec.md, figure: "920", count: 1}
+  - {file: docs/modules/luxr-lacz-cascade/spec.md, figure: "920", count: 4}
+  - {file: docs/modules/luxr-lacz-cascade/spec.yml, figure: "920", count: 2}
+  - {file: docs/modules/outer-solution-glucose-hepes/spec.md, figure: "1180", count: 1}
+  - {file: docs/modules/outer-solution-glucose-hepes/spec.yml, figure: "1180", count: 1}
+  - {file: docs/modules/outer-solution-glutamate/spec.md, figure: "920", count: 2}
+  - {file: docs/modules/outer-solution-glutamate/spec.yml, figure: "920", count: 1}
+  - {file: docs/modules/outer-solution-tris-hepes/spec.md, figure: "1180", count: 2}
+  - {file: docs/modules/outer-solution-tris-hepes/spec.yml, figure: "1180", count: 1}
+  - {file: docs/modules/outer-solution/spec.md, figure: "1180", count: 1}
+  - {file: docs/modules/outer-solution/spec.md, figure: "920", count: 1}
+  - {file: docs/modules/outer-solution/spec.yml, figure: "920", count: 1}
+  - {file: docs/modules/ph-cascade/spec.md, figure: "1180", count: 1}
+  - {file: docs/modules/ph-cascade/spec.yml, figure: "1180", count: 1}
+  - {file: docs/modules/substrate-cprg-luv/spec.md, figure: "1071", count: 2}
+  - {file: docs/modules/substrate-cprg-luv/spec.md, figure: "2520", count: 1}
+  - {file: docs/modules/substrate-cprg-luv/spec.yml, figure: "1071", count: 1}
+  - {file: docs/modules/substrate-cprg-suv/spec.md, figure: "1200", count: 1}
+  - {file: docs/processes/assemble-outer-solution/main.md, figure: "1180", count: 1}
+  - {file: docs/processes/assemble-outer-solution/main.md, figure: "1200", count: 1}
+  - {file: docs/processes/assemble-outer-solution/main.md, figure: "920", count: 3}
+  - {file: docs/processes/encapsulate-luv/main.md, figure: "1071", count: 1}
+  - {file: docs/processes/encapsulate-luv/main.md, figure: "2520", count: 1}

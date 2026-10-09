@@ -1,5 +1,8 @@
 # Conventions
 
+<!-- names only, no claim: this page names other repos inside the list of pointers it
+     forbids. It asserts nothing about their contents, so it carries no pin. -->
+
 ## Terminology
 
 | Use | Not | Note |
@@ -10,7 +13,7 @@
 | DevStudio | DevCell Studio | the three-week hackathon |
 | liposome | vesicle | never an umbrella term; GUV, SUV and LUV are distinct and must not collapse |
 | synthetic cell | liposome | wherever the liposome can reasonably be called a synthetic cell |
-| integration path | leg | |
+| integration path | — | `leg` is an accepted synonym for a path on a graph, not a refused spelling. `integration path` stays preferred |
 | colorimetric | colormetric | |
 | ultrapure water | milliQ water | vendor-neutral |
 | `SMix -CP` | `SMixΔCP` | prefer plain characters |
@@ -34,10 +37,13 @@ Figure captions name the figure type: "Schematic representation of X in the Base
 Renaming *or removing* a heading is a link change, because inbound anchors do not follow it. Deleting a section this guide bans — revision history, future work — is the common case. The `author-myst-content` skill says which anchors are safe to write in the first place.
 
 
+**An analyte is a condition on a Detector and a component of a Cascade.** A Detector's plus- and minus-analyte columns are test conditions, not two compositions, so the analyte is not an operand of its steps. A Cascade is built from a trigger solution that carries the analyte, so there the analyte is an operand as well as a condition. A Cascade still has plus- and minus-analyte conditions.
+
 ## Diagrams
 
 Generated diagrams carry the diagram and nothing else — no explanatory paragraphs.
 
+A generated diagram must not name specific Nodes.
 
 A Modules flowchart shows only Modules; a Processes flowchart only Processes; a third type shows a full Implementation with both. Every node must be a dependency of something in the diagram.
 
@@ -50,6 +56,20 @@ DevNotes with a `10.63765/…` DOI must be cited through `doi.org` so they autog
 DevNotes are never a status source. They carry methodology prose only.
 
 A construct-to-file identity claim requires evidence, minimally a matching GenBank `LOCUS` length. Name similarity is not evidence. `check-dna-refs.py` checks this.
+
+A page whose subject is one molecule cites its UniProt entry, as `[UniProt P00722](https://www.uniprot.org/uniprotkb/P00722/entry)`, with the entry's own name, organism and length beside it. The entry is authoritative for mass and sequence length, so where the page and the entry disagree the entry wins and the page says it changed.
+
+**An accession is an identity claim and name similarity is not evidence**, the same rule the DNA constructs follow. Three ways it goes wrong, all of them found on the first pass through this corpus:
+
+- **The first hit is the wrong class.** Searching "Tetracycline repressor" returns class D, `P0ACT4`. The TetR this corpus uses is class B from transposon Tn10, `P04483`. Both are *E. coli*, both are 200-odd residues, and only one is right.
+- **The entry disagrees with the corpus about what the protein does.** `P54293` is titled *Transcriptional activator protein EsaR* and carries no alternative name, while every page here treats EsaR as a repressor that the analyte de-represses. Cite it and say so; do not quietly adopt either name.
+- **An engineered variant is not its parent.** **deGFP is not wild-type GFP** and must not be cited as `P42212`. mNeonGreen is engineered from a *Branchiostoma* protein and is not that protein. A variant page cites the parent only when it says which part is the parent's.
+
+**Before citing an identifier, ask whether it distinguishes the subject from its siblings.** If something else carries it, it names their parent — see [principles.md](principles.md#a-shared-identifier-is-a-shared-parent). CAS numbers, UniProt accessions, filenames and supplier part numbers all fail this way, and they fail at different grains.
+
+**No check covers supplier part numbers.** `check-dna-refs.py` and `check-protein-refs.py` each cover one identifier system. `check-links.py` passes a 403 as tolerated, so a live URL pointing at the wrong product is indistinguishable from a right one. Treat a part number as an unverified claim and say what the page relies on.
+
+**Cite nothing when the subject is a preparation rather than a gene product.** "Tyrosinase from mushroom" is a supplier's preparation and *Agaricus bisporus* has several polyphenol oxidases; there is no single entry to name.
 
 ## Mechanics
 
@@ -90,7 +110,7 @@ python3 scripts/check-reference-voice.py
 grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):'
 ```
 
-`check-anchors.py` catches the failure the `author-myst-content` skill describes under Cross-references — an `#anchor` whose slug is not unique, which MyST binds to whichever page won. It reads sources only, so it runs in well under a second and needs no build.
+`check-anchors.py` catches the failure the `author-myst-content` skill describes under Cross-references — an `#anchor` whose slug is not unique, which MyST binds to whichever page won. It also catches the same collision one move earlier: one explicit `:name:` or `(target)=` defined on two pages, which breaks nothing until somebody writes the link and then breaks it silently. Repeated *headings* are not reported, because 52 of them collide across the TOC and that is normal. It reads sources only, so it runs in well under a second and needs no build, and it runs in CI as well as here.
 
 `check-dna-refs.py` reads a local checkout of `nucleus-eng/DNA`, so CI never runs it and only a local run will catch a Designs table whose bp claim disagrees with the target's GenBank `LOCUS`. That link resolves, so no other check sees it.
 

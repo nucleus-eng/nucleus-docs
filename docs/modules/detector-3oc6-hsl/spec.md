@@ -1,0 +1,175 @@
+---
+title: "Detector: 3OC6-HSL (LuxR)"
+subtitle: "Module Specification"
+status: draft
+site:
+    hide-toc: true
+    numbered_references: false
+---
+
+# Overview
+
+<!-- gen:position -->
+**Position.** Refines [Detector](../detector/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
+The 3OC6-HSL Detector module is a LuxR/pLux genetic sensor that detects the _E. coli_ quorum-sensing molecule 3-oxohexanoyl-L-homoserine lactone or 3OC6-HSL. LuxR binds 3OC6-HSL and activates the pLux promoter, driving expression of a downstream effector gene (e.g., [deGFP](../reporter-degfp/spec.md)). 
+
+This Module is composed into the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), driving GFP expression, and the [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md), driving PLA1 expression for a colorimetric readout.
+
+:::{attention} 🚧 Draft
+This page is a work in progress and not yet ready for use.
+:::
+
+:::{attention} Not the same molecule as the IV-HSL Emitter module
+[Emitter: IV-HSL](../emitter-ivhsl/spec.md) documents a *different* acyl-homoserine lactone system: it produces N-isovaleryl-L-homoserine lactone (IV-HSL, a branched-chain HSL detected by BjaR) rather than detecting it, and IV-HSL is chemically distinct from the 3OC6-HSL detected by this module. The two are not interchangeable.
+:::
+
+:::{note} LuxR is one of two refinements of this detector
+This page documents the **LuxR** route. LuxR is an activator, so 3OC6-HSL switches the `pLux` promoter on. **EsaR is the other refinement**, and it has its own page: [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md), a LuxR homolog that represses rather than activates, which inverts the logic. Repressors give lower noise floors, so EsaR may be the more compatible route for a PLA1-driven cascade. See [Lysis: PLA1](../effector-pla1/spec.md) § Requirements for why the noise floor binds.
+
+EsaR is available as purified protein from Biocrest, which removes the energy cost of expressing the regulator. Energy partitioning is one candidate explanation for why this sensor gives no GFP in Nucleus Cytosol.
+
+@Editor(london): supply the EsaR construct and a titration when the run reports.
+:::
+
+:::{attention} Not yet validated in Nucleus Cytosol
+All data below comes from bacterial S30 lysate (Promega) and POPC synthetic cells built from S30 lysate, not from Nucleus Cytosol. 
+:::
+
+:::{figure} mechanism-schematic.png
+Schematic representation of the 3OC6-HSL Detector mechanism. LuxR, constitutively expressed from p70, binds 3OC6-3OC6-HSL as it diffuses in from outside the synthetic cell. LuxR–3OC6-HSL activates the pLux promoter, driving gene expression (here: GFP).
+:::
+
+**Identity.** [UniProt P12746](https://www.uniprot.org/uniprotkb/P12746/entry) — Transcriptional activator protein LuxR, *Aliivibrio fischeri*, 250 residues.
+
+# Reference Composition
+
+:::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    S30_LYSATE["S30 Lysate"]
+    SENSING_PLASMID["Sensing plasmid"]
+
+    P1_ASSEMBLE_REACTION_0(["Assemble the 3OC6-HSL Detector reaction (mixing) — no page"])
+    DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
+
+    S30_LYSATE --> P1_ASSEMBLE_REACTION_0
+    SENSING_PLASMID --> P1_ASSEMBLE_REACTION_0
+    P1_ASSEMBLE_REACTION_0 --> DETECTOR_3OC6_HSL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class S30_LYSATE,SENSING_PLASMID leaf;
+    class DETECTOR_3OC6_HSL composed;
+    class P1_ASSEMBLE_REACTION_0 process;
+
+    click S30_LYSATE "/docs/modules/s30-lysate/spec"
+    click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
+::::{tab-item} DNA
+
+This Module detects 3OC6-HSL and drives whatever sits downstream of `pLux`. The sensing plasmid is a parameter, not part of the Module: `LuxR-deGFP` is the reporter variant used to characterize it, and `LuxR-PLA1` is the variant the DevCells demo uses. Both put a constitutive `BBa_J23101`→`luxR` cassette and the `pLux`-driven payload on one molecule, so LuxR is never supplied separately.
+
+This page documents the S30 route, which [requires circular DNA](../s30-lysate/spec.md). Each construct therefore appears twice: the expression cassette, and that cassette in a pOpen backbone. **The circular form is the one an S30 reaction receives.**
+
+| **Name** | **Length (bp)** | **File** | **Route** |
+| --- | --- | --- | --- |
+| `pOpen-LuxR-deGFP` | 3890 | not linked — see below | **S30** |
+| `pOpen-LuxR-PLA1` | 4175 | not linked — see below | **S30** |
+| `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | Base Cytosol |
+| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Base Cytosol |
+
+:::{attention} The circular files are not on `main` yet
+[`pOpen-LuxR-deGFP.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/pOpen-LuxR-deGFP.gb) (3890 bp) and [`pOpen-LuxR-PLA1.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb) (4175 bp) are on the `devcells/devstudio-constructs` branch of `nucleus-eng/DNA`. They are not on `main`.
+
+**Do not substitute the linear file.** The two share a cassette and differ by a whole pOpen backbone — functionally equivalent, **not sequence-identical**.
+:::
+
+::::
+
+::::{tab-item} Cytosol
+
+| **Component**   | **Stock**   | **Final** | **− 3OC6-HSL (µL)** | **+ 10 µM 3OC6-HSL (µL)** |
+| --------------- | ----------- | --------- | --------- | --------------- |
+| Premix          | 2.5x        | 1×        | 20        | 20              |
+| Extract         | 3.33x       | 1×        | 15        | 15              |
+| Amino acid mix  | 10x         | 1×        | 5         | 5               |
+| Sensing plasmid | 2000 ng/µL  | 40 ng/µL  | 1         | 1               |
+| 3OC6-HSL        | 1 mM        | 10 µM     | 0         | 0.5             |
+| RNase inhibitor | 40 000 U/mL | 800 U/mL  | 1         | 1               |
+| Water           | —           | —         | 8         | 7.5             |
+
+:::{attention} Composition reconstructed, needs verification
+Two rows are inferred rather than computed. The 3OC6-HSL stock is given as 1 mM, the only value that yields the 10 µM final stated in the column header, the Outer Solution tab and Expected Behavior. The condition columns are also inferred: the column carrying the 3OC6-HSL is the **+ 10 µM 3OC6-HSL** column. The RNase inhibitor is 800 U/mL, which is genuinely lower than the 2000 U/mL on the S30 spec rather than a scaling error. @Editor(london): confirm all three with the London Node before bench use.
+:::
+
+::::
+
+::::{tab-item} Outer Solution
+
+| **Component**         | **Concentration** |
+| --------------------- | ----------------- |
+| Potassium L-glutamate | 578 mM            |
+| HEPES, pH 7.4         | 72 mM             |
+| Glucose               | 300 mM            |
+| 3OC6-HSL              | 10 µM             |
+
+::::
+
+:::::
+
+# Expected Behavior
+
+## Cytosols
+
+3OC6-HSL expresses a downstream effector gene at increasing strength with increasing 3OC6-HSL concentration up to 10 µM. This system has only been validated in [S30 Lysate](../s30-lysate/spec.md).  
+
+:::{attention} Missing Characterization Data
+- S30 lysate 
+- Nucleus Cytosol 
+:::
+
+## Cells
+
+This module has been validated in [S30 Lysate Synthetic Cells](../cell-s30-popc/spec.md) with extracellular target molecule at 10 µM.
+
+:::{attention} Missing Characterization Data
+@Editor(london): supply a microscopy image of cells with (+) and without (-) target molecule.
+:::
+
+# Requirements
+
+Requires σ70 promoter transcription and translation (e.g., *E. coli* RNA polymerase, as supplied by [S30 Lysate](../s30-lysate/spec.md)). The pT7 transcription in [Base Cytosol](../base-cytosol/spec.md) does not drive the pLux promoter.
+
+Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required: 3OC6-HSL diffuses from outer solution across a lipid bilayer.
+
+# Implementations
+
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its detector — LuxR with its pLux promoter.
+
+# Processes
+
+No process page documents building this Module or assembling it into a reaction.
+
+# Constituent Modules
+
+- [S30 Lysate](../s30-lysate/spec.md) — the cell-free system this Module is built on, at 1× from its three kit components. Note the RNase inhibitor here is 800 U/mL, not the 2000 U/mL on that page
+
+# Credits
+
+Developed by Ion Ioannou and Jonah McDonald (London Node, Elani Lab).
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

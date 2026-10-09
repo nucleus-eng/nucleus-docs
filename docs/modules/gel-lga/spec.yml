@@ -1,0 +1,97 @@
+# Composition source for Gel: LGA.
+#
+# WRITTEN after three independent routes arrived at the
+# same missing page in one afternoon: the pH board's `Gel: LGA` node, its gel-embed
+# stadium, and an open item asking which agarose the pH path used.
+#
+# LOW-GELLING IS NOT ULTRA-LOW-GELLING. They are ordered as different products and they
+# gel at different temperatures. The pH presenter, DevStudio day one: "I used the low
+# gelling." The same session gives 14 °C for the ultra-low grade, WHICH IS
+# SUPERSEDED BY THE VENDOR DATASHEET, which gives 8-17 °C. The
+# session figure falls inside that range, so this is a sharpening rather than a
+# correction, and `gel_point_max_c: 17` on ../gel-ulga/spec.yml is the figure an
+# embedding step reads.
+#
+# THE SHAPE IS ../gel-ulga/spec.yml's AND THE FIGURES ARE NOT. Both set a polymer into an
+# outer solution by cooling. WHICH outer solution is named by the class,
+# ../outer-solution/spec.md, and not by a member: the pH path's choice is the
+# implementation's, and the two paths that use this gel do not agree on one.
+#
+# `mixing`, ONE OF ONE. A gel's own composition is polymer plus solvent ending in one
+# phase. `packing` arises when a compartment is put INTO a gel, which is a step on the
+# cascade pages and not here.
+
+module: gel-lga
+title: "Gel: LGA"
+refines: thermal-gel
+
+inputs:
+  lga-powder:
+    title: "Low gelling temperature agarose"
+    page: null            # no module page for the polymer; the grade is below
+    # SUPPLIER GUARANTEES, NOT SENSITIVITIES. A sensitivity is half of a
+    # Conflict and needs an imposition to point at. These are the opposite polarity:
+    # what the vendor promises the material does, not what it fails to tolerate.
+    #
+    # BOTH FIGURES ARE NOW ON ../gel-lga/spec.md:100, added 2026-10-07 from the vendor
+    # datasheets. This comment said neither was, and asked for a datasheet row; the page
+    # gained one, so the ask is discharged.
+    spec:
+      - quantity: eeo
+        sense: at-most
+        value: 0.10
+        # NO UNIT. Electroendosmosis is a ratio. A spelling invented for "dimensionless"
+        # would put a word in the one field this schema compares literally.
+      - quantity: gel-strength
+        sense: at-least
+        value: 200
+        unit: "g/cm²"
+        note: "1% gel"
+  outer-solution:
+    title: "Outer solution"
+    page: ../outer-solution/spec.md
+
+process_steps:
+  - id: set-thermal
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+      abstract: embed-gel
+    operator: mixing
+    operands: [lga-powder, outer-solution]
+    produces:
+      id: gel-lga
+      title: "Gel: LGA"
+      page: ../gel-lga/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # AGREES WITH ../ph-cascade/spec.yml, which writes the same 0.7% (w/v) on its own
+    # embed step. The three temperatures below are PROPERTIES OF THE MATERIAL, not
+    # components of the gel, so they stay.
+    finals:
+      lga-powder: {value: 7, unit: "mg/mL", note: "in the pH path"}
+    parameters:
+      gel_point_min_c: 26
+      gel_point_max_c: 30
+      melting_point_c: 65
+      # gel_point_max_c IS THE TOP OF THE CONGEALING RANGE, 26-30 °C on the vendor
+      # datasheet. 30 is the figure an embedding step needs, because at or above it
+      # the polymer is liquid and the payload can go in. melting_point_c is the
+      # other end and a different quantity, which is why they are two keys.
+    notes: >
+      Embedding: Thermal Setting covers both agarose grades; the grade sets the hold and
+      set temperatures.
+
+open:
+  - id: the-two-agaroses-are-different-products
+    question: >
+      CLOSED BY THE VENDOR DATASHEETS, which confirm by part number that these are two
+      different gels with different properties. The two grades share an InChI
+      key, MJQHZNBUODTQTK-WKGBVCLCSA-N, so the polymer is the same and the grades are
+      not. This one congeals at 26-30 °C and melts at ≤65 °C, EEO ≤0.10, gel strength
+      ≥200 g/cm² at 1%, molecular-biology grade, from red algae. ../gel-ulga/spec.yml's
+      grade is Type IX from marine algae, gel point 8-17 °C, melting ≤50 °C at 0.8%,
+      EEO ≤0.05. THE GEL POINTS DO NOT OVERLAP AND THE MELTING POINTS DIFFER BY 15 °C,
+      which is what makes them non-interchangeable rather than two names for one powder.
+      THE CATALOG NUMBERS ARE STILL NOT RECORDED HERE. The confirmation was made by part
+      number and the numbers themselves were not captured, so this file states the
+      properties and not the SKU.

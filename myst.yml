@@ -15,13 +15,156 @@ project:
     - file: ./start/first-guide.md
       children:
         - file: ./guides/nucleus-hub/nucleus-hub.md
+        - file: ./docs/type-system.md
         - file: ./docs/dna-distro.md
         - file: ./start/contribute.md
     - file: ./docs/modules/modules-main.md
       children:
+        - file: ./docs/modules/color-change/spec.md
+          hidden: true
+        - file: ./docs/modules/protein/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte/spec.md
+          hidden: true
+        - file: ./docs/modules/cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate/spec.md
+          hidden: true
+        - file: ./docs/modules/lysis/spec.md
+          hidden: true
+        - file: ./docs/modules/emitter/spec.md
+          hidden: true
+        - file: ./docs/modules/control/spec.md
+          hidden: true
+        - file: ./docs/modules/energy/spec.md
+          hidden: true
+        - file: ./docs/modules/nucleic-acid/spec.md
+          hidden: true
+        - file: ./docs/modules/dna/spec.md
+          hidden: true
+        - file: ./docs/modules/rna/spec.md
+          hidden: true
+        - file: ./docs/modules/chromophore/spec.md
+          hidden: true
+        - file: ./docs/modules/fluorophore/spec.md
+          hidden: true
+        - file: ./docs/modules/lipid/spec.md
+          hidden: true
+        - file: ./docs/modules/lipid-liss-rhod-pe/spec.md
+          hidden: true
+        - file: ./docs/modules/lipid-cyanine5-pc/spec.md
+          hidden: true
+        - file: ./docs/modules/fluorophore-sulfo-cyanine5/spec.md
+          hidden: true
+        - file: ./docs/modules/detergent/spec.md
+          hidden: true
+        - file: ./docs/modules/detergent-triton-x-100/spec.md
+          hidden: true
+        - file: ./docs/modules/detergent-tween-80/spec.md
+          hidden: true
+        - file: ./docs/modules/ssdna/spec.md
+          hidden: true
+        - file: ./docs/modules/dsdna/spec.md
+          hidden: true
+        - file: ./docs/modules/detector/spec.md
+          hidden: true
+        - file: ./docs/modules/repressor-detector/spec.md
+          hidden: true
+        - file: ./docs/modules/container/spec.md
+          hidden: true
+        - file: ./docs/modules/solution/spec.md
+          hidden: true
+        - file: ./docs/modules/membrane/spec.md
+          hidden: true
+        - file: ./docs/modules/membrane-components/spec.md
+          hidden: true
+        - file: ./docs/modules/pore/spec.md
+          hidden: true
+        - file: ./docs/modules/gel/spec.md
+          hidden: true
+        - file: ./docs/modules/photopatterned-gel/spec.md
+          hidden: true
+        - file: ./docs/modules/thermal-gel/spec.md
+          hidden: true
+        - file: ./docs/modules/reporter/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-carrier/spec.md
+          hidden: true
+        - file: ./docs/modules/vesicle/spec.md
+          hidden: true
+        - file: ./docs/modules/liposome/spec.md
+          hidden: true
+        - file: ./docs/modules/guv/spec.md
+          hidden: true
+        - file: ./docs/modules/suv/spec.md
+          hidden: true
+        - file: ./docs/modules/luv/spec.md
+          hidden: true
+        - file: ./docs/modules/outer-solution/spec.md
+          hidden: true
+        - file: ./docs/modules/outer-solution-glutamate/spec.md
+          hidden: true
+        - file: ./docs/modules/outer-solution-tris-hepes/spec.md
+          hidden: true
+        - file: ./docs/modules/outer-solution-glucose-hepes/spec.md
+          hidden: true
+        - file: ./docs/modules/lacz/spec.md
+          hidden: true
+        - file: ./docs/modules/lacz-dna/spec.md
+          hidden: true
+        - file: ./docs/modules/xyle-protein/spec.md
+          hidden: true
+        - file: ./docs/modules/cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/sensor-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/cell/spec.md
+          hidden: true
+        - file: ./docs/modules/sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/theophylline-sensor-cytosol/spec.md
+          hidden: true
         - file: ./docs/modules/membrane-popc-chol/spec.md
           hidden: true
+        - file: ./docs/modules/membrane-popc-chol-9-1/spec.md
+          hidden: true
+        - file: ./docs/modules/membrane-popc/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-cprg-suv/spec.md
+          hidden: true
+        - file: ./docs/modules/standard-fluorescein/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-cprg-luv/spec.md
+          hidden: true
+        - file: ./docs/modules/guv-cprg/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-cprg/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-xgal/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-atc/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-3oc6-hsl/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-theophylline/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-iptg/spec.md
+          hidden: true
+        - file: ./docs/modules/analyte-ph/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-alginate/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-ulga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-lga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-pegda/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-peg-norbornene/spec.md
+          hidden: true
         - file: ./docs/modules/base-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/s30-lysate/spec.md
           hidden: true
         - file: ./docs/modules/control-clpxp/spec.md
           hidden: true
@@ -31,11 +174,29 @@ project:
           hidden: true
         - file: ./docs/modules/membrane-pore-ahly/spec.md
           hidden: true
+        - file: ./docs/modules/membrane-pore-gramicidin/spec.md
+          hidden: true
         - file: ./docs/modules/reporter-degfp/spec.md
           hidden: true
-        - file: ./docs/modules/detector-tetr_atc/spec.md
+        - file: ./docs/modules/detector-tetr-atc/spec.md
           hidden: true
-        - file: ./docs/modules/detector-laci_iptg/spec.md
+        - file: ./docs/modules/reporter-xyle/spec.md
+          hidden: true
+        - file: ./docs/modules/reporter-lacz/spec.md
+          hidden: true
+        - file: ./docs/modules/reporter-lacz-enzyme/spec.md
+          hidden: true
+        - file: ./docs/modules/reporter-mneongreen/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-theophylline/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-ph/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-laci-iptg/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-3oc6-hsl/spec.md
+          hidden: true
+        - file: ./docs/modules/detector-esar/spec.md
           hidden: true
         - file: ./docs/modules/emitter-ivhsl/spec.md
           hidden: true
@@ -43,11 +204,104 @@ project:
           hidden: true
         - file: ./docs/modules/dye-liposomes/spec.md
           hidden: true
+        - file: ./docs/modules/effector-pla1/spec.md
+          hidden: true
+        - file: ./docs/modules/cell-base-cytosol-popc-chol/spec.md
+          hidden: true
+        - file: ./docs/modules/theophylline-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/cell-s30-popc/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-sensor-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/atc-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/atc-sensor-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-cascade-one-vesicle/spec.md
+          hidden: true
+        - file: ./docs/modules/atc-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/ahsl-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/ahsl-sensor-cytosol/spec.md
+          hidden: true
+        - file: ./docs/modules/luxr-lacz-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/luxr-gfp-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/craic-cascade/spec.md
+          hidden: true
+    - file: ./docs/functions/functions-main.md
+      children:
+        - file: ./docs/functions/transcribe/main.md
+          hidden: true
+        - file: ./docs/functions/translate/main.md
+          hidden: true
+        - file: ./docs/functions/degrade/main.md
+          hidden: true
+        - file: ./docs/functions/regenerate-rntps/main.md
+          hidden: true
+        - file: ./docs/functions/lyse/main.md
+          hidden: true
+        - file: ./docs/functions/emit/main.md
+          hidden: true
+        - file: ./docs/functions/sense/main.md
+          hidden: true
+        - file: ./docs/functions/report/main.md
+          hidden: true
+        - file: ./docs/functions/transport/main.md
+          hidden: true
+        - file: ./docs/functions/hold/main.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
-        - file: ./docs/processes/assemble-base-cell/main.md
+        - file: ./docs/processes/encapsulate/main.md
+          hidden: true
+          children:
+            - file: ./docs/processes/assemble-base-cell/main.md
+              hidden: true
+              children:
+                - file: ./docs/processes/assemble-base-cell/protocol-guv.md
+                  hidden: true
+            - file: ./docs/processes/encapsulate-suv/main.md
+              hidden: true
+            - file: ./docs/processes/encapsulate-luv/main.md
+              hidden: true
+        - file: ./docs/processes/wash-vesicles/main.md
+          hidden: true
+        - file: ./docs/processes/express/main.md
+          hidden: true
+        - file: ./docs/processes/embed-gel/main.md
+          hidden: true
+          children:
+            - file: ./docs/processes/embed-ionic-crosslinking/main.md
+              hidden: true
+            - file: ./docs/processes/embed-thermal-setting/main.md
+              hidden: true
+            - file: ./docs/processes/embed-photodevelopment/main.md
+              hidden: true
+        - file: ./docs/processes/color-development/main.md
+          hidden: true
+        - file: ./docs/processes/assay/main.md
+          hidden: true
+        - file: ./docs/processes/colorimetric-readout/main.md
+          hidden: true
+        - file: ./docs/processes/microscopy-readout/main.md
+          hidden: true
+        - file: ./docs/processes/osmometry-readout/main.md
+          hidden: true
+        - file: ./docs/processes/anneal-ph-trigger-duplex/main.md
+          hidden: true
+        - file: ./docs/processes/degrade-exterior-lacz/main.md
           hidden: true
         - file: ./docs/processes/make-amino-acid-mix/main.md
+          hidden: true
+        - file: ./docs/processes/amplify-linear-template/main.md
           hidden: true
         - file: ./docs/processes/make-small-molecule-mix/main.md
           hidden: true
@@ -59,8 +313,16 @@ project:
           hidden: true
         - file: ./docs/processes/make-1pot/main.md
           hidden: true
-        - file: ./docs/processes/assemble-base-cytosol/main.md
+        - file: ./docs/processes/assemble-solution/assemble-solution-main.md
           hidden: true
+          children:
+            - file: ./docs/processes/assemble-cytosol/assemble-cytosol-main.md
+              hidden: true
+              children:
+                - file: ./docs/processes/assemble-base-cytosol/main.md
+                  hidden: true
+            - file: ./docs/processes/assemble-outer-solution/main.md
+              hidden: true
         - file: ./docs/processes/protein-gel/main.md
           hidden: true
         - file: ./docs/processes/pierce660/main.md
@@ -81,6 +343,14 @@ project:
     - file: ./docs/implementations/implementations-main.md
       children:
         - file: ./docs/implementations/responder-atc-ivhsl/main.md
+          hidden: true
+        - file: ./docs/implementations/devstudio-atc-demo/main.md
+          hidden: true
+        - file: ./docs/implementations/devstudio-luxr-gfp-demo/main.md
+          hidden: true
+        - file: ./docs/implementations/devstudio-craic-demo/main.md
+          hidden: true
+        - file: ./docs/implementations/devstudio-ph-demo/main.md
           hidden: true
         - file: ./docs/implementations/emitter-ivhsl/main.md
           hidden: true

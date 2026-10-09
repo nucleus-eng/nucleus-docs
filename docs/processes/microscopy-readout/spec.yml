@@ -1,0 +1,97 @@
+# Process source for Microscopy Readout.
+#
+# Signature read from the page, and from the six committed pages that already read
+# something this way.
+#
+# A FOURTH ASSAY, AND ONE OF THE TWO CONSERVATIVE ONES. ../pierce660 is destructive
+# because the reagent its own protocol adds reacts with what it measures.
+# ../protein-gel consumes its sample into the gel. ../colorimetric-readout is
+# conservative for the same reason this is. Imaging adds nothing to the well and takes
+# nothing out of it: the specimen is read in place and the same well can be read again.
+# That is `conserves: true` by the definition in ../../../scripts/process-yml-schema.yml.
+#
+# THE EVIDENCE PROVES IT RATHER THAN THE DEFINITION. ../../modules/membrane-pore-cx43
+# images the same liposomes every 10 minutes for six hours. A destructive assay cannot
+# do that, and four of the five jobs this process does here are quality control
+# part-way through a build rather than a terminal readout -- which the schema allows
+# for in the sentence saying a conservative assay may sit mid-chain.
+#
+# THE CAVEAT IS PHOTOBLEACHING, AND IT DOES NOT MAKE THE PROCESS DESTRUCTIVE.
+# Illumination costs signal, not material. Nothing is consumed and nothing becomes
+# another compound. A second read is dimmer, not impossible.
+#
+# NO `operator:`. The parent declares none and neither do the other instances. An
+# assay does not compose two things into a third.
+#
+# `illumination` IS DECLARED, as of 2026-10-07. It had no sensitivity to meet until
+# ../../modules/chromophore declared one, so the id was left out rather than invented
+# and the open item below said what it was waiting for. `uv-exposure` is still not it:
+# that id is the crosslinking dose ../embed-photodevelopment applies, and borrowing it
+# would make two different things one.
+
+process: microscopy-readout
+title: "Microscopy Readout"
+refines: assay
+
+conserves: true
+
+impositions:
+  - id: illumination
+    why: >
+      Every channel excites every fluorophore in the field, at every z-plane and every
+      time point, which is why a second read is dimmer than the first. The sample
+      survives it, so `conserves:` stays true and the cost is signal rather than
+      material. Meets the `moderate` sensitivity on ../../modules/chromophore.
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        Whatever is in the field of view. Repeated because the field may hold more than
+        one thing deliberately: the attested hard case is one well holding two liposome
+        populations, where separating them is the point of the reading rather than a
+        complication of it. The parent's domain is the loosest of the four, for the
+        reason its own open entry gives.
+  produces:
+    type: observation
+    note: >
+      AND NOT `measurement`, ON THE EVIDENCE RATHER THAN ON THE METHOD'S CEILING. Not
+      one page here reports a number read off an image. A dye retained or absent. A
+      retained fraction described as markedly lower between two conditions. Cells
+      counted per field, with no count written down. Brightness stated as not uniform,
+      which is a caution and not a figure.
+      THIS IS ../colorimetric-readout'S SHAPE. An Observation may be quantitative or
+      qualitative, and a Measurement is the quantitative case refining it. That page
+      stays at `observation` because one of its two routes is scored by eye; this page
+      stays here because the only route it has written is.
+      `observation` HAS NO PAGE, like `component`. A Module is a formulation and a
+      reading is not one.
+
+open:
+  - id: the-quantitative-route-is-off-page
+    question: >
+      Counting cells per imaging field is quantitative and ../../modules/cell-base-cytosol-popc-chol
+      asks for it, yet no page carries a count. The source Log folder for the pH run
+      holds a notebook named for this readout that the DevNote's own author never
+      opened, so a counted result may exist outside the docs.
+      IF IT IS EVER WRITTEN IT REFINES THIS PROCESS AND PRODUCES A `measurement`, the
+      same relation ../colorimetric-readout's absorbance route would have to its own
+      page. Not written, because nobody has needed to cite one.
+  - id: illumination-is-an-imposition-with-no-sensitivity-to-meet
+    question: >
+      CLOSED 2026-10-07, by the thing it asked for. This item said the id was unwritten
+      because no module declared the matching sensitivity, and that it wanted a dye page
+      to declare one first. ../../modules/chromophore declared it on the class instead,
+      which reaches every member at once, and `impositions:` above now carries the id.
+      THE DYE PAGES STILL MATTER and the class did not make them unnecessary. A dye that
+      is an input id with no page of its own inherits nothing, so the membrane labels are
+      reached only once they are members, which is what their own pages make them.
+  - id: the-sample-prep-steps-live-on-another-process
+    question: >
+      ../assemble-base-cell ends with three checklist steps that are purely preparation
+      for this readout -- hold on ice, dilute onto a glass-bottom plate, dilute again if
+      the field is too crowded. They are the only sample-prep steps here and they sit
+      inside an encapsulation protocol.
+      MOVING THEM IS NOT PROPOSED. It would change a generated PDF and take steps out of
+      a protocol that works. This page links them instead.

@@ -1,0 +1,39 @@
+# Process source for Embedding.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# NO `operator`, AND THIS DISAGREEMENT IS REAL RATHER THAN A LABELING SLIP. The steps
+# that run this family split 3 `mixing` against 5 `packing`, and the split tracks two
+# different acts under one heading: dissolving a polymer into a solution is `mixing`,
+# and putting a compartment into the result is `packing`. A process whose instances
+# disagree declares none; whether this should be TWO processes is an open item below.
+#
+open:
+  - id: the-operator-split-may-be-two-processes
+    kind: choice
+    question: >
+      Steps under this family are 3 `mixing` and 5 `packing`, and the split is not
+      arbitrary: making the precursor mixes a polymer into a solution, and embedding
+      puts a compartment into the precursor. One heading covers both. Whether Embedding
+      is one process with two operators or two processes in sequence is not settled
+      here, and the signature above assumes one.
+
+process: embed-gel
+title: "Embedding"
+
+signature:
+  takes:
+    - type: solution
+      note: >
+        The outer solution the compartments are already suspended in. The polymer dissolves into it, so the gel is made FROM this rather than beside it.
+    - type: component
+      note: >
+        The polymer that sets. Which polymer is what the routes differ on.
+    - type: container
+      repeated: true
+      note: >
+        The compartments to be held. Repeated: CRAIC embeds two populations in one gel.
+  produces:
+    type: gel
+    note: >
+      A set network holding its payload at fixed positions.
