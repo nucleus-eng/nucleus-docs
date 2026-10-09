@@ -39,7 +39,7 @@ The polymerase needs Mg²⁺ and does not consume it. The pyrophosphate it relea
 
 # What selects a route
 
-- **The promoter.** A template is transcribed only where the cytosol carries a polymerase that reads its promoter. Base Cytosol carries T7 RNA polymerase and reads pT7; S30 Lysate reads *E. coli* σ70 promoters. See each cytosol's Requirements: [S30 Lysate](../../modules/s30-lysate/spec.md) requires *"a circular DNA template driven by an E. coli sigma-70 promoter"*.
+- **The promoter.** A template is transcribed only where the cytosol carries a polymerase that reads its promoter. Base Cytosol carries T7 RNA polymerase and reads pT7; S30 Lysate reads *E. coli* σ70 promoters. See each cytosol's Requirements: [S30 Lysate](../../modules/s30-lysate/spec.md) requires *"a circular DNA template driven by an E. coli σ70 promoter"*.
 - **The template's topology, on the σ70 route.** S30 Lysate degrades linear DNA, because no GamS is added to protect it, so its constructs are used in their circular, pOpen-backbone form. Base Cytosol does not require circular DNA, so the linear cassette is also valid there.
 - **What uses this operation without choosing a route.** A repressor detector needs transcription in its compartment, by either route; see [Repressor Detector](../../modules/repressor-detector/spec.md).
 

@@ -295,6 +295,15 @@ properties:
           type: string
           description: >
             The operation, spelled as `requires` spells it.
+            AN ID IS ASCII AND THE PROSE IS NOT, and the two are allowed to differ.
+            This id is matched by name across two repositories, so a byte either side
+            cannot afford to be a character somebody has to find on a keyboard: the
+            predicate for the host polymerase is `sigma70` here and `σ70` on every page
+            that mentions it. Measured 2026-10-09, before the pages were unified: the
+            same sigma factor was written three ways in this repo -- `sigma-70` in 11
+            files, `σ70` in 1, and `sigma70` in exactly one place, which was this id.
+            The pattern refuses `σ70`, deliberately, so the two can never converge by
+            accident.
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
         why:
           type: string

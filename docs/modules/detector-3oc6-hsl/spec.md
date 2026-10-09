@@ -150,7 +150,7 @@ This module has been validated in [S30 Lysate Synthetic Cells](../cell-s30-popc/
 
 # Requirements
 
-Requires sigma-70 promoter transcription and translation (e.g., *E. coli* RNA polymerase, as supplied by [S30 Lysate](../s30-lysate/spec.md)). The pT7 transcription in [Base Cytosol](../base-cytosol/spec.md) does not drive the pLux promoter.
+Requires σ70 promoter transcription and translation (e.g., *E. coli* RNA polymerase, as supplied by [S30 Lysate](../s30-lysate/spec.md)). The pT7 transcription in [Base Cytosol](../base-cytosol/spec.md) does not drive the pLux promoter.
 
 Requires 3OC6-HSL. If used in a synthetic cell, no transport module is required: 3OC6-HSL diffuses from outer solution across a lipid bilayer.
 

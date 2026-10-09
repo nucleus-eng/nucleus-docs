@@ -23,7 +23,7 @@ provides:
   - id: transcribe[sigma70]
     why: >
       Carries E. coli's own RNA polymerase, so it transcribes a template driven by a
-      sigma-70 promoter. It does not transcribe a T7-driven one.
+      σ70 promoter. It does not transcribe a T7-driven one.
     page: spec.md
   # THE COMPOSITION IS UNDEFINED, SO THESE NAME A FUNCTION AND NEVER AN ENZYME. This is
   # a commercial lysate; `spec.md:16` says its composition is undefined. All that can be

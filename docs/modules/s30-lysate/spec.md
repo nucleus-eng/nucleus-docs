@@ -13,7 +13,7 @@ site:
 **Position.** Refines [Cytosol](../cytosol/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-S30 Lysate is a commercially available *E. coli* cell-free expression system with undefined composition. S30 Lysate and [Base Cytosol](../base-cytosol/spec.md) are not drop-in replacements for one another. Base Cytosol supplies T7 RNA polymerase and transcribes T7-driven constructs; S30 Lysate carries *E. coli*'s native machinery and transcribes sigma-70-driven ones. A Module moves between the two only if its construct carries the matching promoter, which is the condition stated under Requirements.
+S30 Lysate is a commercially available *E. coli* cell-free expression system with undefined composition. S30 Lysate and [Base Cytosol](../base-cytosol/spec.md) are not drop-in replacements for one another. Base Cytosol supplies T7 RNA polymerase and transcribes T7-driven constructs; S30 Lysate carries *E. coli*'s native machinery and transcribes σ70-driven ones. A Module moves between the two only if its construct carries the matching promoter, which is the condition stated under Requirements.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use. 
@@ -82,7 +82,7 @@ S30 Lysate's expected behavior is characterized by expressing a reporter module 
 
 # Requirements
 
-Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
+Requires a circular DNA template driven by an *E. coli* σ70 promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
 
 An *E. coli* extract carries baseline protease, RNase and nuclease activity, and this one is no exception. **Because its composition is undefined, none of these can be attributed to a named enzyme** — all that can be said is that the lysate holds some composition that does them. The RNase is why an RNase inhibitor is required above. The nuclease is why a circular template is required below: the activity is exonuclease, so it degrades a linear molecule from its ends and spares a circular one. **The protease has no such consequence written down**, and a protein added to this lysate should be expected to have a shorter life than in a defined cytosol. See [Degrade](../../functions/degrade/main.md) for the other Modules that do these things, and with what selectivity.
 

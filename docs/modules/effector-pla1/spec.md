@@ -149,7 +149,7 @@ Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL (LuxR)](../detect
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
-Requires sigma-70 transcription and translation, when using `LuxR-PLA1` (e.g. [S30 Lysate](../s30-lysate/spec.md)).
+Requires σ70 transcription and translation, when using `LuxR-PLA1` (e.g. [S30 Lysate](../s30-lysate/spec.md)).
 
 Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#effector-pla1-expected-behavior) for why.
 

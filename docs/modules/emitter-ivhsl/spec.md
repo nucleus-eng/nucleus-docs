@@ -141,7 +141,7 @@ Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-G
 
 # Requirements
 
-The emitter component (`pOpen-pT7-bjaI`) requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). The receiver component (`pOpen-bjaR-GFP-native`) requires sigma-70 promoter transcription (e.g. *E. coli* RNA polymerase) and translation.
+The emitter component (`pOpen-pT7-bjaI`) requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). The receiver component (`pOpen-bjaR-GFP-native`) requires σ70 promoter transcription (e.g. *E. coli* RNA polymerase) and translation.
 
 # Implementations
 

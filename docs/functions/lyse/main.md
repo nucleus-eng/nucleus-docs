@@ -37,7 +37,7 @@ Phospholipase A1 cuts the fatty acid chain at the first position of a phospholip
 # What selects a route
 
 - **What drives the enzyme.** PLA1 is expressed from DNA, so it lyses only once it is made. Expressed with nothing in front of it, it lyses on its own schedule. Placed behind a sensing circuit, such as [Detector: 3OC6-HSL (LuxR)](../../modules/detector-3oc6-hsl/spec.md) or [Detector: tetR-aTc](../../modules/detector-tetr-atc/spec.md), it lyses when the analyte arrives.
-- **Which construct, and so which cytosol.** `T7pro-PLA1-T7term` needs T7 transcription, as in [Base Cytosol](../../modules/base-cytosol/spec.md). `LuxR-PLA1` needs sigma-70 transcription, as in [S30 Lysate](../../modules/s30-lysate/spec.md). See [Transcribe](../transcribe/main.md).
+- **Which construct, and so which cytosol.** `T7pro-PLA1-T7term` needs T7 transcription, as in [Base Cytosol](../../modules/base-cytosol/spec.md). `LuxR-PLA1` needs σ70 transcription, as in [S30 Lysate](../../modules/s30-lysate/spec.md). See [Transcribe](../transcribe/main.md).
 - **How low the background is.** A lysing Module needs its uninduced state not to lyse already. PLA1's page records three cases where it does not meet that today. See the Requirements of [Lysis: PLA1](../../modules/effector-pla1/spec.md).
 - **What else breaks membranes in the same compartment.** [Membrane Pore: Gramicidin A](../../modules/membrane-pore-gramicidin/spec.md) ruptured some dye-loaded liposomes in one cascade, and acidic conditions alone rupture some too. Neither is lysis by design, and both release dye with no lysis signal, so a readout cannot tell them from PLA1.
 

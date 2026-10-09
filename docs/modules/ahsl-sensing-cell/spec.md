@@ -175,7 +175,7 @@ A single agar-pad 3OC6-HSL-diffusion test of lysate synthetic cells alongside li
 
 # Requirements
 
-Requires sigma-70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `LuxR-deGFP` construct is driven by the *E. coli* pLux promoter, not pT7, so it does not express in a T7-only cytosol.
+Requires σ70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spec.md)). The `LuxR-deGFP` construct is driven by the *E. coli* pLux promoter, not pT7, so it does not express in a T7-only cytosol.
 
 Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)).
 

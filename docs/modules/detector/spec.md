@@ -98,7 +98,7 @@ Two members do not yet give this result. [Detector: Theophylline](../detector-th
 
 # Requirements
 
-Requires transcription and translation. The polymerase follows the cytosol and not the detector: members use pT7 or sigma-70.
+Requires transcription and translation. The polymerase follows the cytosol and not the detector: members use pT7 or σ70.
 
 Requires a cytosol the member has been shown to work in. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md) has data only from S30 lysate, and it gives no GFP in Nucleus Cytosol.
 
