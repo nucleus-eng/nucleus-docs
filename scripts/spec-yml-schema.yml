@@ -238,15 +238,53 @@ properties:
         id:
           type: string
           description: >
-            The condition, named. Free-standing: unlike an imposition id, this is not
-            matched against anything yet, because nothing declares what it provides.
-          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+            The operation the Function needs, named as the operation is named:
+            `transcribe`, or `transcribe[pT7]` where only one promoter will do. It is
+            matched by name against `provides` ids, so the two must be spelled the same
+            way. A bare name is met by any provider of that operation; a bracketed one
+            only by a provider with the same bracket. Absence of a provider is reported
+            by scripts/collate-conditions.py and never failed.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+\\])?$"
         why:
           type: string
         page:
           type: [string, "null"]
         bound:
           $ref: "#/$defs/bound"
+  provides:
+    type: [array, "null"]
+    description: >
+      WHAT THIS MODULE MAKES AVAILABLE TO WHAT SHARES ITS COMPARTMENT, named as an
+      operation. Base Cytosol supplies T7 RNA polymerase, so it provides
+      `transcribe[pT7]`, and a repressor detector, which requires `transcribe`, is met
+      by it. IT IS THE PROVIDER HALF OF `requires`, and the two are matched by name: the
+      operation spelled the same way on both sides, with the restriction in brackets.
+      IT IS A DECLARATION, NOT A DISCHARGE. That a requirement is met in a given
+      composite depends on what shares the compartment, and that is computed, never
+      written down, exactly as a Conflict is computed from a sensitivity and an
+      imposition and never asserted. So there is no key saying what discharges a
+      requirement, and there must not be one.
+      NOT ONLY FOR A CLASS, unlike `requires`. A capability usually belongs to a
+      concrete Module, and a class is the wrong place for it when one of its members
+      lacks it: `control-clpxp` refines `cytosol` by what it is made of and does not
+      transcribe, so `cytosol` cannot provide `transcribe` for all its members.
+      A member inherits what its class provides through `refines:`, as it inherits
+      everything else. Absence means undeclared, not absent: a Module that provides
+      nothing here may still do it, and its page is the authority until it says so here.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, why]
+      properties:
+        id:
+          type: string
+          description: >
+            The operation, spelled as `requires` spells it.
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+\\])?$"
+        why:
+          type: string
+        page:
+          type: [string, "null"]
   impositions:
     type: [array, "null"]
     description: >

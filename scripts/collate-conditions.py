@@ -45,6 +45,14 @@ IT IS ALSO WRONG ON A NEW COMPONENT, which is why the declaration wins. `deterge
 class whose members are components; the class itself is an input id nowhere, so the
 guess files it under FUNCTION. The source says `kind: presence` and that is the answer.
 
+REQUIREMENTS ARE A SECOND PAIR, and they are reported apart from the first. A
+module-level `requires:` names an operation a class's Function needs, and `provides:`
+names an operation a Module makes available. They meet by name: a bare `transcribe`
+is met by any provider of `transcribe`, and `transcribe[pT7]` only by a provider with
+the same bracket. Like a Conflict, whether a requirement is met in a given composite is
+computed and never declared, and this script does not compute it: it says only whether
+any provider exists anywhere, which is where a misspelling would show.
+
     python3 scripts/collate-conditions.py
     python3 scripts/collate-conditions.py --unjoined   # only the ids that meet nothing
 """
@@ -99,6 +107,52 @@ def walk():
         r = doc.get("refines")
         for parent in ([r] if isinstance(r, str) else (r or [])):
             yield parent, "process-refinement", slug, None
+
+
+def operation(name):
+    """`transcribe[pT7]` -> (`transcribe`, `pT7`); a bare name has no restriction."""
+    op, _, rest = name.partition("[")
+    return op, (rest.rstrip("]") or None)
+
+
+def meets(provided, required):
+    """Whether a provider of `provided` meets a requirement for `required`.
+
+    A bare requirement takes any provider of that operation. A restricted one takes
+    only the same restriction: a provider is never less specific than what it meets.
+    """
+    pop, pr = operation(provided)
+    rop, rr = operation(required)
+    return pop == rop and (rr is None or pr == rr)
+
+
+def requirements():
+    """(required id, module) and (provided id, module), from the module sources."""
+    req, prov = [], []
+    for path, doc in load():
+        slug = path.split("/")[2]
+        req += [(r.get("id"), slug) for r in doc.get("requires") or []]
+        prov += [(p.get("id"), slug) for p in doc.get("provides") or []]
+    return req, prov
+
+
+def report_requirements(unjoined_only):
+    req, prov = requirements()
+    print(f"\n==== requirements, and what provides them — {len(req)} required, "
+          f"{len(prov)} provided ====")
+    unmet = 0
+    for rid, slug in sorted(req):
+        by = sorted({f"{m} ({p})" for p, m in prov if meets(p, rid)})
+        if not by:
+            unmet += 1
+        if unjoined_only and by:
+            continue
+        print(f"  {rid:34s} required by {slug}: "
+              + ("met by " + ", ".join(by) if by else "NO PROVIDER declared anywhere"))
+    for pid, slug in sorted(prov):
+        if not unjoined_only and not any(meets(pid, r) for r, _ in req):
+            print(f"  {pid:34s} provided by {slug}: nothing requires it yet")
+    return unmet
 
 
 def main():
@@ -166,6 +220,11 @@ def main():
         print(f"{unjoined} meet nothing on the other side. That is not a fault by "
               f"itself -- a sensitivity with no imposition means nobody has written the "
               f"step that would trigger it -- but it is where a typo would hide.")
+    unmet = report_requirements(args.unjoined)
+    if unmet:
+        print(f"\n{unmet} requirement(s) have no provider anywhere. Not a fault by "
+              f"itself -- a provider may simply be undeclared -- but a misspelled id "
+              f"looks exactly like this.")
     for name, kind, guess in sorted(disagreed):
         print(f"\nDECLARED vs INFERRED: `{name}` is declared {kind.split(':')[0]} and "
               f"this script would have inferred {guess.split(':')[0]}.")

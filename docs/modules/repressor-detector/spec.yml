@@ -27,7 +27,7 @@ inputs:
     page: null            # the operator or promoter the repressor binds
 
 requires:
-  - id: transcription
+  - id: transcribe
     why: >
       A repressor works by gating transcription, so every member needs transcription
       available in the compartment it sits in. It follows from what the class is, not

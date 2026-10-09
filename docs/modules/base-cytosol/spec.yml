@@ -30,6 +30,13 @@ inputs:
     optional: true
     range: "0 to 2000 U/mL"
 
+provides:
+  - id: transcribe[pT7]
+    why: >
+      Supplies T7 RNA polymerase, so it transcribes a template driven by a T7 promoter
+      and no other.
+    page: spec.md
+
 process_steps:
   - id: assemble-base-cytosol
     process:

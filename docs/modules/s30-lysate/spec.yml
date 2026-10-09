@@ -19,6 +19,13 @@ inputs:
     title: "RNase inhibitor"
     page: null
 
+provides:
+  - id: transcribe[sigma70]
+    why: >
+      Carries E. coli's own RNA polymerase, so it transcribes a template driven by a
+      sigma-70 promoter. It does not transcribe a T7-driven one.
+    page: spec.md
+
 process_steps:
   - id: assemble-s30-lysate
     process:
