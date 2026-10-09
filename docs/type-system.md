@@ -30,6 +30,65 @@ Color Change is a class. Its invariant is separation: an enzyme and its substrat
 
 A member states only what it adds. A sensitivity declared on a class is the member's sensitivity without being written again, and a member may narrow it but cannot silently widen it. This is why a class page carries conditions that look like they belong to its members: stating them once is the point.
 
+## The classes, and what refines what
+
+**Every class below is a Module that something refines, read from `refines:` across all 107 module sources.** The table is built from the sources, so it says what these pages actually carry rather than what they ought to.
+
+**A page is a description of a type, not the type itself.** A kind of thing can be well defined and have no class page here; that is a gap in the documentation and not a fact about the thing.
+
+| Class | Members | Classes that refine it |
+| --- | --- | --- |
+| [Analyte](./modules/analyte/spec.md) | 5 | — |
+| [Cascade](./modules/cascade/spec.md) | 5 | [pH Cascade](./modules/ph-cascade/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[pH Cascade](./modules/ph-cascade/spec.md) | 1 | — |
+| [Cell](./modules/cell/spec.md) | 4 | [Cell: Base Cytosol, POPC/Chol (9:1)](./modules/cell-base-cytosol-popc-chol/spec.md), [Cell: S30 Lysate, POPC](./modules/cell-s30-popc/spec.md), [Sensing Cell](./modules/sensing-cell/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Cell: Base Cytosol, POPC/Chol (9:1)](./modules/cell-base-cytosol-popc-chol/spec.md) | 3 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Cell: S30 Lysate, POPC](./modules/cell-s30-popc/spec.md) | 1 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Sensing Cell](./modules/sensing-cell/spec.md) | 4 | — |
+| [Chromophore](./modules/chromophore/spec.md) | 3 | [Fluorophore](./modules/fluorophore/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Fluorophore](./modules/fluorophore/spec.md) | 5 | — |
+| [Container](./modules/container/spec.md) | 3 | [Gel](./modules/gel/spec.md), [Membrane](./modules/membrane/spec.md), [Solution](./modules/solution/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Gel](./modules/gel/spec.md) | 3 | [Photopatterned Gel](./modules/photopatterned-gel/spec.md), [Thermal Gel](./modules/thermal-gel/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Photopatterned Gel](./modules/photopatterned-gel/spec.md) | 2 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Thermal Gel](./modules/thermal-gel/spec.md) | 2 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Membrane](./modules/membrane/spec.md) | 3 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Solution](./modules/solution/spec.md) | 3 | [Cytosol](./modules/cytosol/spec.md), [Outer Solution](./modules/outer-solution/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cytosol](./modules/cytosol/spec.md) | 4 | [Sensor Cytosol](./modules/sensor-cytosol/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sensor Cytosol](./modules/sensor-cytosol/spec.md) | 4 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Outer Solution](./modules/outer-solution/spec.md) | 3 | — |
+| [Control](./modules/control/spec.md) | 1 | — |
+| [Detector](./modules/detector/spec.md) | 4 | [Repressor Detector](./modules/repressor-detector/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Repressor Detector](./modules/repressor-detector/spec.md) | 3 | — |
+| [Detergent](./modules/detergent/spec.md) | 2 | — |
+| [Emitter](./modules/emitter/spec.md) | 1 | — |
+| [Energy](./modules/energy/spec.md) | 1 | — |
+| [LacZ](./modules/lacz/spec.md) | 2 | — |
+| [Lysis](./modules/lysis/spec.md) | 1 | — |
+| [Membrane Components](./modules/membrane-components/spec.md) | 1 | [Lipid](./modules/lipid/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Lipid](./modules/lipid/spec.md) | 2 | — |
+| [Nucleic Acid](./modules/nucleic-acid/spec.md) | 2 | [DNA](./modules/dna/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[DNA](./modules/dna/spec.md) | 2 | [Double-Stranded DNA](./modules/dsdna/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Double-Stranded DNA](./modules/dsdna/spec.md) | 1 | — |
+| [Pore](./modules/pore/spec.md) | 3 | — |
+| [Protein](./modules/protein/spec.md) | 2 | — |
+| [Reporter](./modules/reporter/spec.md) | 3 | [Color Change](./modules/color-change/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Color Change](./modules/color-change/spec.md) | 2 | — |
+| [Substrate](./modules/substrate/spec.md) | 2 | — |
+| [Vesicle](./modules/vesicle/spec.md) | 5 | [GUV](./modules/guv/spec.md), [Liposome](./modules/liposome/spec.md), [LUV](./modules/luv/spec.md), [Substrate Carrier](./modules/substrate-carrier/spec.md), [SUV](./modules/suv/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;[GUV](./modules/guv/spec.md) | 9 | [Cell: Base Cytosol, POPC/Chol (9:1)](./modules/cell-base-cytosol-popc-chol/spec.md), [Cell: S30 Lysate, POPC](./modules/cell-s30-popc/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cell: Base Cytosol, POPC/Chol (9:1)](./modules/cell-base-cytosol-popc-chol/spec.md) | 3 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cell: S30 Lysate, POPC](./modules/cell-s30-popc/spec.md) | 1 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Liposome](./modules/liposome/spec.md) | 11 | [Cell: Base Cytosol, POPC/Chol (9:1)](./modules/cell-base-cytosol-popc-chol/spec.md), [Cell: S30 Lysate, POPC](./modules/cell-s30-popc/spec.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cell: Base Cytosol, POPC/Chol (9:1)](./modules/cell-base-cytosol-popc-chol/spec.md) | 3 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cell: S30 Lysate, POPC](./modules/cell-s30-popc/spec.md) | 1 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[LUV](./modules/luv/spec.md) | 1 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[Substrate Carrier](./modules/substrate-carrier/spec.md) | 3 | — |
+| &nbsp;&nbsp;&nbsp;&nbsp;[SUV](./modules/suv/spec.md) | 1 | — |
+
+**Indentation is `refines:`.** A class with no parent heads its own tree. 2 classes refine more than one parent, which is legal and means two incomparable axes — what a Module *is* and what it *does*.
+
+**A class is defined by what its members do, not by how they are built.** `Cytosol` says *"A member transcribes the DNA added to it and translates the transcript into protein."* That is a condition on membership: a Module assembled exactly like a cytosol, which never transcribes, is not one. Reading it as a description rather than a definition put a non-transcribing Module under `Cytosol` for three days.
+
 # An Implementation
 
 An **Implementation** is a set of Modules and Processes run together in one physical operating context, and what happened when it ran.
