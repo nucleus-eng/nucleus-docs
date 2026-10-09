@@ -278,6 +278,56 @@ def _self_names(path: Path) -> tuple[str, ...]:
     return tuple(names)
 
 
+def dna_repo_state(repo_root: Path) -> tuple[str | None, str | None]:
+    """The branch and short commit the index was read from, or (None, None).
+
+    The index comes from the working tree, never from a ref, so what this
+    script checked against is whatever branch that checkout happens to be on.
+    Returning it is not a detail: see `describe_dna_repo_state`.
+    """
+    def _git(*args):
+        try:
+            out = subprocess.run(["git", "-C", str(repo_root), *args],
+                                 capture_output=True, text=True, timeout=10)
+        except (OSError, subprocess.SubprocessError):
+            return None
+        return out.stdout.strip() or None if out.returncode == 0 else None
+
+    return _git("rev-parse", "--abbrev-ref", "HEAD"), _git("rev-parse", "--short", "HEAD")
+
+
+def describe_dna_repo_state(repo_root: Path, branch: str | None, head: str | None) -> str:
+    """One block saying what was read, and what it means when it is not `main`.
+
+    **The index is the working tree, so this script finds the branch it is standing
+    on.** That cuts both ways and the false pass is the quieter half:
+
+    - A page saying a construct is ABSENT is reported wrong when a feature branch
+      adds a file of that name. `detector-tetr-atc/spec.md:71-72` was reported this
+      way while the page was correct, because neither file is on `main`.
+    - A construct genuinely added to `main` is still "found" on a stale feature
+      branch that lacks it, so a real absence claim goes unreported.
+
+    Neither is fixed by resolving against `origin/main` instead, because a page may
+    legitimately cite a construct that is only on a branch. Saying which tree was
+    read is what lets a reader tell the two apart.
+    """
+    where = f"read: {repo_root}"
+    if branch is None:
+        return f"{where}\n  (not a git checkout, or git is unavailable — branch unknown)"
+    at = f"{branch} @ {head}" if head else branch
+    if branch == "main":
+        return f"{where}\n  branch: {at}"
+    return (
+        f"{where}\n"
+        f"  branch: {at} — NOT `main`.\n"
+        "  Every verdict below is against this branch's files. A page that calls a\n"
+        "  construct absent can be reported wrong because this branch adds it, and a\n"
+        "  construct that reached `main` can go unreported because this branch lacks\n"
+        "  it. Check the branch before acting on an absence finding either way."
+    )
+
+
 def index_dna_repo(repo_root: Path) -> dict[str, ConstructFile]:
     index = {}
     for path in repo_root.rglob("*"):
@@ -664,6 +714,9 @@ def main(argv=None) -> int:
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN
+
+    branch, head = dna_repo_state(dna_repo)
+    print(describe_dna_repo_state(dna_repo, branch, head))
 
     findings = check(args.paths, dna_repo)
     blocking = [f for f in findings if f.level == BLOCKING]
