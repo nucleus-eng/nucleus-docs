@@ -25,7 +25,9 @@ Regenerate rNTPs takes the regenerating enzymes and a spent nucleotide, and retu
 
 Base Cytosol also carries two enzymes that pass phosphate between nucleotides without a store. Adenylate kinase (AK) makes two ADP from one AMP and one ATP, so the AMP that translation leaves can reach creatine kinase. Nucleoside diphosphate kinase (NDK) makes GTP, CTP or UTP from its diphosphate, using one ATP.
 
-**What this does to the number of dissolved particles, as an estimate.** Each step above exchanges two molecules for two, as for an ideal solution, so regeneration by itself does not change the count. Its effect is indirect: it keeps the functions that do change the count, such as [Translate](../translate/main.md), running for longer. No run has measured it.
+**What this does to the number of dissolved particles, as an estimate.** Every route above exchanges two molecules for two, as for an ideal solution, so none of them changes the count. **That is a fact about these routes and not about regeneration.** Each one moves a phosphate from a **carrier** — creatine phosphate, a polyphosphate chain, or another nucleotide — and a carrier that gives up a phosphate is still one molecule afterwards. **A route that took its phosphate from solution would behave differently:** `ADP + Pi ⟶ ATP` is two molecules becoming one, so it would *lower* the count.
+
+**No route here does that, and translation's phosphate therefore accumulates.** [Translate](../translate/main.md) releases two free phosphates per residue from its two GTP, and two more where pyrophosphatase splits the pyrophosphate. None of the enzymes above consumes free phosphate, so that phosphate stays in solution and the rise translation causes is not clawed back. **So regeneration's effect on the count is indirect** — it keeps the functions that do change it running for longer. No run has measured either the accumulation or the effect.
 
 # Routes
 
