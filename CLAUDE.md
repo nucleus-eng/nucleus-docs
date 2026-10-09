@@ -320,6 +320,14 @@ Local-only — not run in CI, since CI has no DNA-repo checkout. Three levels: *
 
 It finds the DNA repo at `$NUCLEUS_DNA_REPO`, else beside this repo, else `~/src/nucleus-eng/DNA`, and accepts a candidate only if it actually contains sequence files — an empty directory named `DNA` would otherwise satisfy the search and produce a clean run over an index of nothing. It exits 2 and lists what it searched when it finds none, so a missing checkout never reads as a pass.
 
+### This branch is the reference set
+
+**`docs/devcells-integration-pages` does not merge as a whole.** It is the reference set: the place work is drafted and kept, in full, including pages that will never be published. **Specifications are generated on branches cut from `main`, which read this branch as their source, and only pages that are CRITICAL merge through them onto `main`.**
+
+**So discernment happens at the merge onto `main`, not here.** That is what makes it safe to keep a page here that nobody has decided about yet, and it is why nothing on this branch should be deleted for being unpublishable. Write it, keep it, and let the merge decide.
+
+**A new class page is written only when it carries prose a member page does not already have.** Until 2026-10-09 a class needed a page or the refinement order had a hole in it, because the page was the only place the edge lived. [`docs/type-system.posets.yml`](docs/type-system.posets.yml) now publishes the order as data, so **a page is no longer load-bearing for structure** and has to earn its keep as writing. This applies going forward and is not a reason to sweep existing pages: measured 2026-10-09, 24 of the 41 parent classes carry a composition and 6 more carry claims their members inherit, so most are real Modules rather than scaffolding.
+
 ### Pull request workflow
 
 When merging a PR via `gh pr merge`, never use `--admin` to bypass branch protection rules. If a merge fails due to branch policy, stop and ask the developer how to proceed — options are leaving the PR open for a reviewer, asking the developer to approve it themselves, or using `--auto` to merge once requirements are met.
