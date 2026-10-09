@@ -286,6 +286,24 @@ properties:
       have nodes: `rna` and `dna` refine `nucleic-acid`, and `dsdna` and `ssdna` refine
       `dna`. A type with no node compares only to itself, which is why `linearDNA` is
       exact today and a topology axis would change that.
+      A BRACKET TYPE RESOLVES TO A MODULE BY NORMALIZING BOTH SIDES -- lowercase, drop
+      hyphens -- and NOT by transliterating CamelCase into kebab-case. The difference
+      is not cosmetic. Transliteration turns `rNTP` into `r-ntp`, `pT7` into `p-t7` and
+      `ssrA` into `ssr-a`: directory names nobody would create, which a lookup would
+      then go hunting for. Normalizing instead asks only whether a module of that name
+      exists. Measured 2026-10-09 over every bracket type in the corpus: `Protein`,
+      `RNA` and `NucleicAcid` resolve, to `protein`, `rna` and `nucleic-acid`, and the
+      other eleven resolve to nothing and so compare only to themselves, which is
+      correct -- nothing orders one promoter against another. `DNA`, `dsDNA` and
+      `ssDNA` resolve too, which is what a topology axis would build on.
+      THE AXIS MECHANISM IS ALREADY HERE, in `refines:` above: a list means two
+      incomparable parents, 21 of 88 sources use it, and `lacz-dna` already refines
+      `dsdna` AND `lacz` -- a nucleic acid node ordered along two axes at once. So
+      adding `linear` and `circular` needs no new key and no axis label. What it needs
+      is members: the live linear-against-circular distinction sits in Designs tables
+      on `atc-sensing-cell`, `atc-sensor-cytosol` and `craic-cascade`, where a circular
+      form is preferred BECAUSE S30 degrades linear DNA, and none of those rows is a
+      Module with a source of its own.
       NOTHING COMPUTES THIS YET. The rule is written here so that what the key means
       does not wait on whichever script reads it first.
       IT IS A DECLARATION, NOT A DISCHARGE. That a requirement is met in a given
