@@ -23,22 +23,22 @@
 
 module: control-clpxp
 title: "Control: ClpXP"
-refines:
-  - control
-  - cytosol
-  # ../cytosol IS THE COMPOSITION PARENT. ../cytosol/spec.md is "a
-  # cell-free expression mix that holds everything a transcription and translation
-  # reaction needs", and this Module's operands are PURExpress Solutions A and B plus
-  # the protease parts. It holds the machinery.
+refines: control
+  # ../control IS THE ONLY PARENT, AND THE COMPOSITION PARENT IS UNWRITTEN. The page
+  # opens "enables the ATP-dependent, targeted degradation of ssrA-tagged proteins",
+  # which is a Function, and ../control is its class.
   #
-  # WHAT IT IS FOR IS ITS FIRST PARENT. The page opens "enables the ATP-dependent,
-  # targeted degradation of ssrA-tagged proteins", which is a Function, and ../control
-  # is its class. It comes first, as the functional parent; the composition axis
-  # stays second.
+  # IT DOES NOT REFINE ../cytosol, THOUGH IT IS ASSEMBLED LIKE ONE. A Cytosol is defined
+  # by what it does -- ../cytosol/spec.md: "A member transcribes the DNA added to it and
+  # translates the transcript into protein" -- and the documented route here assembles
+  # from PURIFIED proteins and never transcribes. Being built from PURExpress Solutions
+  # A and B makes this cytosolic; it does not make it a Cytosol. It held the machinery
+  # and did not use it, which is composition and not function.
   #
-  # NOTE FOR WHOEVER WRITES `control`: the documented step assembles from PURIFIED
-  # proteins, so the expression machinery is present and unused on that route. Two other
-  # routes are named in `open` and neither is a step.
+  # SO THE COMPOSITION AXIS HAS NO PARENT, and that is recorded rather than approximated.
+  # A class that does not exist is better named absent than stood in for by one whose
+  # own definition this Module fails. Two other routes are named in `open` and neither
+  # is a step; one of them would express the proteins in place and WOULD transcribe.
 
 inputs:
   purexpress-solution-a:

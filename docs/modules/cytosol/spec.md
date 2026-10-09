@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Solution](../solution/spec.md). Refined by [Base Cytosol](../base-cytosol/spec.md), [Control: ClpXP](../control-clpxp/spec.md), [Emitter: IV-HSL](../emitter-ivhsl/spec.md), [S30 Lysate](../s30-lysate/spec.md), [Sensor Cytosol](../sensor-cytosol/spec.md).
+**Position.** Refines [Solution](../solution/spec.md). Refined by [Base Cytosol](../base-cytosol/spec.md), [Emitter: IV-HSL](../emitter-ivhsl/spec.md), [S30 Lysate](../s30-lysate/spec.md), [Sensor Cytosol](../sensor-cytosol/spec.md).
 <!-- /gen:position -->
 
 A class: a cell-free expression mix that holds everything a transcription and translation reaction needs.
