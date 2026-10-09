@@ -109,6 +109,31 @@ jobs:
       - name: Check the Functions hub
         run: python3 scripts/check-functions.py
 
+  osmotic-units:
+    # Every bare `mOsm` figure in docs/ must be on the list in
+    # scripts/osmotic-unrecorded.yml. A bare figure is not an omission: it is the mark
+    # for a figure whose origin nobody recorded, so the denominator is unknown. The list
+    # is what separates "audited and untraceable" from "somebody forgot the unit", and
+    # without it the two look identical. A figure that later GAINS a unit is reported
+    # and never failed, so the list can shrink and never grow silently.
+    # See scripts/check-osmotic-units.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml and pytest
+        run: pip install pyyaml pytest
+
+      - name: Test the check
+        run: python3 -m pytest tests/test_osmotic_units.py
+
+      - name: Check osmotic units
+        run: python3 scripts/check-osmotic-units.py
+
   composition:
     # The prose `# Constituent Modules` list and the machine-readable `spec.yml`
     # are two sources for one fact, and they drift: `luxr-lacz-cascade` listed

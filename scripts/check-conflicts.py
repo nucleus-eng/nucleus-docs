@@ -553,6 +553,51 @@ print(f"conflicts {tally['CONFLICT']} | moderate {tally['moderate']} | "
       f"incomparable {tally['incomparable']} | reach {tally['reach']} | "
       f"requires {req_total} declared, {len(req_rows)} unsatisfied | "
       f"inheritance {wide} widened, {len(INHERIT) - wide} incomparable")
+# ---- O13: which vesicle designs declare an offset, and which are silent -------- #
+#
+# REPORTED, NEVER FAILED. The osmotic offset is per design -- a GUV holding CPRG wants
+# a different one from an LUV holding CPRG or a GUV holding cytosol -- so a design that
+# declares none is not in breach of anything. It is unmeasured.
+#
+# WHY A REPORT RATHER THAN A DEFAULT. An absent setpoint means UNDECLARED and never 0.
+# Two reasons, and the second is the one that forced this section. A defaulted zero
+# would mark every vesicle in the corpus non-compliant on its own numbers, since the one
+# design that states an offset states 125. And a defaulted zero is INDISTINGUISHABLE
+# FROM A DECLARED ONE -- so whether a prep was designed at zero offset, which is a live
+# bench question, would be answered silently by the schema instead of by an osmometer.
+#
+# WHY A REPORT RATHER THAN A RULE IN PROSE. The schema already says absent means
+# undeclared. That is a rule a reader has to go and find. This prints the count on every
+# run, and the count is the finding: the silence is the normal case, not a few gaps.
+_vkids = {}
+for _m, _d in SRC.items():
+    _r = _d.get("refines")
+    for _q in ([] if not _r else ([_r] if isinstance(_r, str) else list(_r))):
+        _vkids.setdefault(_q, set()).add(_m)
+_seen, _stack = set(), ["vesicle"]
+while _stack:
+    for _c in _vkids.get(_stack.pop(), ()):
+        if _c not in _seen:
+            _seen.add(_c)
+            _stack.append(_c)
+_withsp, _silent = [], []
+for _m in sorted(_seen):
+    _sp = [s for s in (SRC[_m].get("sensitivities") or [])
+           if (s.get("bound") or {}).get("setpoint") is not None]
+    (_withsp if _sp else _silent).append(_m)
+if _seen:
+    print(f"\noffsets: {len(_withsp)} of {len(_seen)} vesicle design(s) declare one; "
+          f"{len(_silent)} are silent")
+    for _m in _withsp:
+        _b = next(s["bound"] for s in SRC[_m]["sensitivities"]
+                  if (s.get("bound") or {}).get("setpoint") is not None)
+        print(f"  declared  {_m}: setpoint {_b['setpoint']} "
+              f"{_b.get('unit','')}, tolerance {_b.get('value','?')}")
+    if _silent:
+        print("  silent   " + ", ".join(_silent))
+    print("  An absent setpoint is UNDECLARED, never 0. Silence here is unmeasured,\n"
+          "  not matched -- a defaulted zero cannot be told from a declared one.")
+
 print("\nSilence is not safety: an undeclared Module makes no claim that it has "
       "no sensitivity,\nso a zero here counts what was declared and nothing else.")
 
