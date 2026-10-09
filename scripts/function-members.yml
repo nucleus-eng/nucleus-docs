@@ -17,3 +17,7 @@ transcribe:
   # a setting. The Module refined a class whose own page says a member transcribes, and
   # teaching this file to expect that made sure nothing looked at it again. The
   # `refines:` is fixed, so the walk no longer returns it and no exclusion is needed.
+
+translate:
+  class: cytosol
+  not_members: {}

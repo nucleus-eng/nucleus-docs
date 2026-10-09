@@ -240,6 +240,8 @@ project:
       children:
         - file: ./docs/functions/transcribe/main.md
           hidden: true
+        - file: ./docs/functions/translate/main.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/encapsulate/main.md
