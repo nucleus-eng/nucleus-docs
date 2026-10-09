@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [LacZ Enzyme](../reporter-lacz-enzyme/spec.md), [XylE](../xyle/spec.md).
+**Position.** Refines nothing declared. Refined by [LacZ Enzyme](../reporter-lacz-enzyme/spec.md), [XylE](../xyle-protein/spec.md).
 <!-- /gen:position -->
 
 A class: a Module whose subject is a protein.
@@ -28,7 +28,7 @@ This page is a work in progress and not yet ready for use.
 | Member | What makes it a member |
 | --- | --- |
 | [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) | Beta-galactosidase, supplied purified. The page's subject is the protein itself, not a reaction that uses it. |
-| [XylE](../xyle/spec.md) | Catechol 2,3-dioxygenase. Supplied as a DNA template and expressed, but the page's subject is the enzyme. |
+| [XylE](../xyle-protein/spec.md) | Catechol 2,3-dioxygenase. Supplied as a DNA template and expressed, but the page's subject is the enzyme. |
 
 # Expected Behavior
 

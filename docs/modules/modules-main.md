@@ -146,7 +146,7 @@ Modules validated in the [S30 Lysate](./s30-lysate/spec.md) chassis (the cytosol
 | Outer Solution | [Outer Solution: Glucose-HEPES](./outer-solution-glucose-hepes/spec.md) | - |
 | Reporter | [LacZ](./lacz/spec.md) | - |
 | Reporter | [LacZ DNA template](./lacz-dna/spec.md) | ★ |
-| Reporter | [XylE](./xyle/spec.md) | - |
+| Reporter | [XylE](./xyle-protein/spec.md) | - |
 | Reporter | [mNeonGreen](./reporter-mneongreen/spec.md) | - |
 :::
 

@@ -112,7 +112,7 @@ project:
           hidden: true
         - file: ./docs/modules/lacz-dna/spec.md
           hidden: true
-        - file: ./docs/modules/xyle/spec.md
+        - file: ./docs/modules/xyle-protein/spec.md
           hidden: true
         - file: ./docs/modules/cytosol/spec.md
           hidden: true

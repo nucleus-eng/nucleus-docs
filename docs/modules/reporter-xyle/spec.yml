@@ -27,7 +27,7 @@ inputs:
   catecholase-dna:
     stock: {value: 275.7, unit: "nM"}
     title: "Catecholase DNA template"
-    page: ../xyle/spec.md   # pT7-TetO-catecholase (pMN067), a source of XylE
+    page: ../xyle-protein/spec.md   # pT7-TetO-catecholase (pMN067), a source of XylE
   catechol:
     stock: {value: 100, unit: "mM"}
     title: "Catechol"

@@ -1,6 +1,6 @@
 # Composition source for XylE: catechol 2,3-dioxygenase, the xylE gene product.
 
-module: xyle
+module: xyle-protein
 title: "XylE"
 
 refines: protein
