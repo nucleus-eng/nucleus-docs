@@ -25,6 +25,30 @@ provides:
       Carries E. coli's own RNA polymerase, so it transcribes a template driven by a
       sigma-70 promoter. It does not transcribe a T7-driven one.
     page: spec.md
+  # THE COMPOSITION IS UNDEFINED, SO THESE NAME A FUNCTION AND NEVER AN ENZYME. This is
+  # a commercial lysate; `spec.md:16` says its composition is undefined. All that can be
+  # claimed is that it holds SOME composition implementing these, which is exactly what
+  # `provides:` is for -- it states what a Module does, not what it contains. No page
+  # here names a protease, an RNase or a DNase, and none should.
+  - id: degrade[Protein]
+    why: >
+      Baseline protease activity, from an E. coli extract. The enzyme is not named
+      anywhere, and cannot be: the composition is undefined.
+    page: spec.md
+  - id: degrade[RNA]
+    why: >
+      Baseline RNase activity, which is why an RNase inhibitor is a Requirement here.
+    page: spec.md
+  - id: degrade[linearDNA]
+    why: >
+      Baseline exonuclease activity. The bracket is a PREDICATE OVER DNA and not a
+      narrower type, in the same shape as `degrade[ssrA]`, which is ClpXP acting only on
+      proteins carrying the tag. An exonuclease needs a free end, so a linear template is
+      degraded and a circular one is spared -- which is why this Module requires circular
+      DNA, at `spec.md:88`. Declaring `degrade[NucleicAcid]` would overclaim: it does not
+      degrade a circular template, and the restriction belongs in the type rather than in
+      prose nobody's checker reads.
+    page: spec.md
 
 process_steps:
   - id: assemble-s30-lysate

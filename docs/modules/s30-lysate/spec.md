@@ -84,6 +84,8 @@ S30 Lysate's expected behavior is characterized by expressing a reporter module 
 
 Requires a circular DNA template driven by an *E. coli* sigma-70 promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)) and an RNase inhibitor.
 
+An *E. coli* extract carries baseline protease, RNase and nuclease activity, and this one is no exception. **Because its composition is undefined, none of these can be attributed to a named enzyme** — all that can be said is that the lysate holds some composition that does them. The RNase is why an RNase inhibitor is required above. The nuclease is why a circular template is required below: the activity is exonuclease, so it degrades a linear molecule from its ends and spares a circular one. **The protease has no such consequence written down**, and a protein added to this lysate should be expected to have a shorter life than in a defined cytosol. See [Degrade](../../functions/degrade/main.md) for the other Modules that do these things, and with what selectivity.
+
 :::{important} Reactions use the circular form
 **S30 Lysate requires circular DNA.** Nothing protects a linear template — no GamS is added — so linear DNA is exposed to exonuclease activity in an *E. coli* extract, and the circular form is used instead.
 

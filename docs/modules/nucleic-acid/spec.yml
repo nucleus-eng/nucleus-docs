@@ -33,9 +33,18 @@ inputs: {}
 process_steps: []
 
 # THE SENSITIVITY IS THE ABSTRACT ONE, AND THAT IS WHAT THIS PAGE IS FOR. ../rna
-# declares `rna-nucleolysis` and ../dna declares nothing, because no member of ../dna
-# attests a DNase. The claim here is weaker than either and holds over both: a
-# phosphodiester backbone is what a nuclease cuts, so every member has a nuclease.
+# declares `rna-nucleolysis` and ../dna declares nothing. The claim here is weaker than
+# either and holds over both: a phosphodiester backbone is what a nuclease cuts, so
+# every member has a nuclease.
+#
+# THE REASON ../dna DECLARES NOTHING IS NOT THAT NOTHING ATTESTS A DNase. It said that
+# until 2026-10-08 and it was wrong: ../s30-lysate attests one, at its `spec.md:88`, and
+# now declares `degrade[linearDNA]`. The reason is that the attested activity is
+# EXONUCLEASE -- it needs a free end, so a linear template is degraded and a circular
+# one is spared -- so it is not a property of DNA as such. **The restriction lives in
+# the bracket rather than in prose**, which is the shape `degrade[ssrA]` already uses
+# for ClpXP acting only on tagged proteins. So no module for linear DNA is needed: the
+# predicate goes on the operation. The refusal stands; the reason given for it did not.
 #
 # IT DOES NOT PUSH A DNase CLAIM ONTO ../dna. The refusal recorded there was to invent a
 # specific DNase sensitivity with no attested member. This is the function, not an

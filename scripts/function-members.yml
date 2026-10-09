@@ -32,3 +32,11 @@ translate:
 # and Base Cytosol regenerates ATP from creatine phosphate as one of a cytosol's own
 # functions, which is why ../docs/modules/energy/spec.md says it is not a member. A
 # walk under energy finds one of its two routes.
+
+lyse:
+  class: lysis
+  not_members: {}
+
+emit:
+  class: emitter
+  not_members: {}

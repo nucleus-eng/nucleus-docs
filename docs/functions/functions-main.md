@@ -19,13 +19,13 @@ A Function page documents one operation that Modules perform, such as transcribi
 | Translate | Makes protein from an RNA. | [Translate](./translate/main.md) |
 | Sense | A detector responds to its analyte with a signal. | To be written |
 | Report | A reporter gives a signal a reader can see. A color reporter does it by turning a substrate into a color, and that is covered on the same page. | To be written |
-| Lyse | Breaks a membrane and releases what it held. | To be written |
+| Lyse | Breaks a membrane and releases what it held. | [Lyse](./lyse/main.md) |
 | Transport | Moves cargo across a membrane through a pore: down a gradient, or against one with energy. | To be written |
-| Emit | Releases a signal molecule outside the compartment. | To be written |
-| Degrade | Breaks down a protein, an RNA or a DNA mixed with it. | [Degrade](./degrade/main.md) |
+| Emit | Releases a signal molecule outside the compartment. | [Emit](./emit/main.md) |
+| Degrade | Breaks down a molecule mixed with it: a protein, an RNA, a DNA, or pyrophosphate. | [Degrade](./degrade/main.md) |
 | Regenerate rNTPs | Turns a spent nucleotide back into a ribonucleoside triphosphate (rNTP), such as ADP into ATP. | [Regenerate rNTPs](./regenerate-rntps/main.md) |
 | Hold | Keeps what is inside a container in a fixed relation to what is outside it. | To be written |
-| Hydrolyze pyrophosphate | Splits pyrophosphate into two phosphates. | To be written |
+| Hydrolyze pyrophosphate | Splits pyrophosphate into two phosphates. | No page of its own: it is Degrade, typed to pyrophosphate. See [Degrade](./degrade/main.md). |
 | Hydrolyze ATP | Splits ATP into ADP and phosphate. | No page yet: no Module lists an enzyme that does it, so it has no attested member. Base Cytosol is only inferred to do it. |
 | Encapsulate | Closes a membrane around a solution, inside another solution. | No Function page: it is something you do. Its routes are processes, under [Encapsulation](../processes/encapsulate/main.md). |
 | Observe | Reads something and yields an observation. | No Function page: it is something you do. See [Assay](../processes/assay/main.md). |
