@@ -244,7 +244,7 @@ properties:
             way. A bare name is met by any provider of that operation; a bracketed one
             only by a provider with the same bracket. Absence of a provider is reported
             by scripts/collate-conditions.py and never failed.
-          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+\\])?$"
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
         why:
           type: string
         page:
@@ -257,8 +257,23 @@ properties:
       WHAT THIS MODULE MAKES AVAILABLE TO WHAT SHARES ITS COMPARTMENT, named as an
       operation. Base Cytosol supplies T7 RNA polymerase, so it provides
       `transcribe[pT7]`, and a repressor detector, which requires `transcribe`, is met
-      by it. IT IS THE PROVIDER HALF OF `requires`, and the two are matched by name: the
-      operation spelled the same way on both sides, with the restriction in brackets.
+      by it. IT IS THE PROVIDER HALF OF `requires`. AN ID IS A PAIR
+      WRITTEN AS ONE STRING: the operation, and the set of predicates in brackets.
+      `transcribe[pT7]` is `transcribe` with `{pT7}`; a bare `transcribe` is
+      `transcribe` with `{}`. The brackets hold PREDICATES over the operand and not a
+      narrower type, which is the reading `degrade[linearDNA]` and `degrade[ssrA]`
+      already take. Several are separated by commas and no space.
+      THE MATCH IS NOT STRING EQUALITY, and this said it was until 2026-10-09. A
+      provider meets a requirer when the operations are the same word AND the
+      provider's predicate set CONTAINS the requirer's. A provider is never less
+      specific than what it meets. The live case: `repressor-detector` requires
+      `transcribe`, while `base-cytosol` provides `transcribe[pT7]` and `s30-lysate`
+      provides `transcribe[sigma70]`. All three strings differ, both providers meet
+      the requirement, and under equality neither would. The reverse does not hold --
+      a requirer of `transcribe[pT7]` is NOT met by `transcribe[sigma70]`, because a
+      T7 promoter needs T7 polymerase.
+      NOTHING COMPUTES THIS YET. The rule is written here so that what the key means
+      does not wait on whichever script reads it first.
       IT IS A DECLARATION, NOT A DISCHARGE. That a requirement is met in a given
       composite depends on what shares the compartment, and that is computed, never
       written down, exactly as a Conflict is computed from a sensitivity and an
@@ -280,7 +295,7 @@ properties:
           type: string
           description: >
             The operation, spelled as `requires` spells it.
-          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+\\])?$"
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
         why:
           type: string
         page:
