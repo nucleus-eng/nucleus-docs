@@ -155,6 +155,37 @@ def main() -> int:
             print(f"{name}: {'written' if was is None else 'updated'}")
             stale.append(name)
 
+    # --- the one that writes a COMMITTED artifact, not review material.
+    # IT IS CHECKED DIFFERENTLY FROM THE TWO ABOVE, and the difference is the
+    # point. tmp/ is gitignored, so a missing file there is a fresh checkout and
+    # not staleness. This one is tracked, so absent IS staleness: it means
+    # somebody deleted the order that another repo reads.
+    if "render-posets.py" in present:
+        dest = REPO / "docs" / "type-system.posets.yml"
+        was = dest.read_text(encoding="utf-8") if dest.is_file() else None
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "render_posets", REPO / "scripts" / "render-posets.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        if check:
+            import tempfile
+            with tempfile.TemporaryDirectory() as d:
+                body = mod.emit_orders(Path(d) / "x.yml")
+            if was is None:
+                print("type-system.posets.yml: ABSENT — it is tracked, so this is stale")
+                stale.append("type-system.posets.yml")
+            elif was == body:
+                print("type-system.posets.yml: unchanged")
+            else:
+                print("type-system.posets.yml: STALE")
+                stale.append("type-system.posets.yml")
+        else:
+            body = mod.emit_orders(dest)
+            print(f"type-system.posets.yml: {'unchanged' if was == body else ('written' if was is None else 'updated')}")
+            if was != body:
+                stale.append("type-system.posets.yml")
+
     if check and stale:
         print(f"\n{len(stale)} generated artifact(s) are stale: " + ", ".join(stale),
               file=sys.stderr)
