@@ -180,6 +180,32 @@ jobs:
       - name: Check step quantities
         run: python3 scripts/check-step-quantities.py
 
+  anchors:
+    # MyST resolves a link fragment by global identifier and ignores the path, so
+    # two pages claiming one explicit label is a collision waiting on a link. The
+    # link pass blocks on a fragment more than one page defines — a present defect,
+    # a reader lands on the wrong page today. The duplicate-definition pass blocks
+    # on one explicit label defined at two sites, which is latent: nothing looks
+    # wrong until someone writes the link, and then it is wrong silently. Heading
+    # slugs are excluded, because 52 of them collide across the TOC and that is
+    # normal. See scripts/check-anchors.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml and pytest
+        run: pip install pyyaml pytest
+
+      - name: Test the check
+        run: python3 -m pytest tests/test_check_anchors.py
+
+      - name: Check anchors
+        run: python3 scripts/check-anchors.py
+
   composition-tabs:
     # A Module's Reference Composition must cover everything its own dependency
     # graph contains. Absence is a claim — a page with no Membrane tab reads as

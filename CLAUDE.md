@@ -58,7 +58,7 @@ python3 scripts/collate-conditions.py   # what every sensitivity and imposition 
 python3 scripts/check-process-schema.py # (local) validate docs/processes/*/spec.yml
 python3 scripts/check-reference-voice.py # (CI) flag who-decided text in a .md or a spec.yml
 python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
-python3 scripts/check-anchors.py        # (local) flag #anchors MyST binds to the wrong page
+python3 scripts/check-anchors.py        # (CI) flag #anchors MyST binds to the wrong page, and one explicit label defined twice
 python3 scripts/check-page-layering.py  # (local) flag Module pages that explain themselves through what uses them
 python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 python3 scripts/check-protein-refs.py   # (local) if you cited a UniProt entry: verify the claim against the entry
@@ -76,8 +76,7 @@ also runs Vale and `check-composition-tabs.py`. **The ones marked `(local)` run 
 workflow** — `check-citations.py` because it lives in `nucleus-skills` and is shared by
 three repos, so a commit there must not be able to turn a PR here red, which is
 `check-dna-refs.py`'s reason as well; `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
-turn it red with no change here (see the DNA section below); `check-anchors.py` because it
-is not wired up yet; **`check-process-schema.py` because neither it nor its subject is on `main`** — the script and all
+turn it red with no change here (see the DNA section below); **`check-process-schema.py` because neither it nor its subject is on `main`** — the script and all
 30 `docs/processes/*/spec.yml` exist only on the #231 lineage, so no workflow running from `main` has anything to
 run or anything to check, and it was marked `(CI)` while appearing in no workflow; `check-spec-schema.py` deliberately, per the ruling that the composition
 tooling is built before it is enforced; `check-protein-refs.py` because it needs the network

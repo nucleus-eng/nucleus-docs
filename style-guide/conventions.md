@@ -110,7 +110,7 @@ python3 scripts/check-reference-voice.py
 grep -rnE '@[A-Za-z]' docs/ --include='*.md' | grep -vE '@(Editor|Developer):'
 ```
 
-`check-anchors.py` catches the failure the `author-myst-content` skill describes under Cross-references — an `#anchor` whose slug is not unique, which MyST binds to whichever page won. It reads sources only, so it runs in well under a second and needs no build.
+`check-anchors.py` catches the failure the `author-myst-content` skill describes under Cross-references — an `#anchor` whose slug is not unique, which MyST binds to whichever page won. It also catches the same collision one move earlier: one explicit `:name:` or `(target)=` defined on two pages, which breaks nothing until somebody writes the link and then breaks it silently. Repeated *headings* are not reported, because 52 of them collide across the TOC and that is normal. It reads sources only, so it runs in well under a second and needs no build, and it runs in CI as well as here.
 
 `check-dna-refs.py` reads a local checkout of `nucleus-eng/DNA`, so CI never runs it and only a local run will catch a Designs table whose bp claim disagrees with the target's GenBank `LOCUS`. That link resolves, so no other check sees it.
 
