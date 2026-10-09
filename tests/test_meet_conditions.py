@@ -131,7 +131,7 @@ def test_the_condition_boxes_are_not_counted_as_slots():
     # slot is unchanged and the legs still agree on it; what merged away is the
     # ancestor slot, which is now `Solution` and was already there.
     #
-    # Both moves are the same licence: the denominator follows the sources.
+    # Both moves are the same license: the denominator follows the sources.
     assert "16 slot(s)" in r.stderr
     assert "2 requirement box(es) and 3 imposition box(es)" in r.stderr
 
@@ -142,7 +142,7 @@ def test_a_box_hangs_off_the_process_it_constrains():
     The node id was PROC_EMBED_HYDROGEL_0 until `3f04ca2e` renamed the process
     `embed-hydrogel` to `embed-gel`. That commit moved the directory, the sources
     and the pages and left this one assertion behind, so the test has been red on
-    a name rather than on the behaviour it guards.
+    a name rather than on the behavior it guards.
     """
     r = _run("atc-cascade", "ph-cascade")
     assert "IMP_THERMAL_HOLD --> PROC_EMBED_GEL_0" in r.stdout

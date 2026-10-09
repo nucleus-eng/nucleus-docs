@@ -72,7 +72,7 @@ def test_order_is_load_bearing(mod):
 
 def test_a_feature_label_confirms_an_element(mod):
     """The file names its parts in /label=, which is where a full construct name
-    usually lives. `pOpen-pT7-lacO.gb` has LOCUS `pT7-lacO` and a feature labelled
+    usually lives. `pOpen-pT7-lacO.gb` has LOCUS `pT7-lacO` and a feature labeled
     `pT7-lacO-UTR1-plamGFP-t7hyb6`, so the file does confirm the plamGFP the docs
     name claims."""
     assert mod._names_related(
