@@ -71,12 +71,12 @@ flowchart TD
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
 | `pT7-tetO-deGFP` | 917 | [pT7-tetO-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-tetr-atc/pT7-tetO-deGFP-linear.gb) |
 | `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) |
-| `pOpen-T7-tetO-PLA1` | 3140 | not yet in `nucleus-eng/DNA` — see below |
-| `pOpen-T7-tetO-C23DO` | 3101 | not yet in `nucleus-eng/DNA` — see below |
+| `pOpen-T7-tetO-PLA1` | 3140 | [pOpen-T7-tetO-PLA1.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-tetr-atc/pOpen-T7-tetO-PLA1.gb) |
+| `pOpen-T7-tetO-C23DO` | 3101 | [pOpen-T7-tetO-C23DO.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-tetr-atc/pOpen-T7-tetO-C23DO.gb) |
 :::
 
 :::{attention} The circular forms are not on `main` yet
-@Editor(chicago): `pOpen-T7-tetO-PLA1.gb` and `pOpen-T7-tetO-C23DO.gb` are on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file links when it lands.
+`pOpen-T7-tetO-PLA1.gb` and `pOpen-T7-tetO-C23DO.gb` are on the `devcells/devstudio-constructs` branch of `nucleus-eng/DNA`, which the table above links. They are not on `main`.
 
 The circular form is preferred and both are expected to work. They are **not sequence-identical** — the linear entry is the expression cassette, the circular one is that cassette in a pOpen backbone — so the row a page cites follows the route it documents.
 :::

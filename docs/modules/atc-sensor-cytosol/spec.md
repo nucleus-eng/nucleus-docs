@@ -74,7 +74,7 @@ flowchart TD
 :::
 
 :::{attention} The circular form is not on `main` yet
-@Editor(chicago): `pOpen-T7-tetO-PLA1.gb` is on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file link to the table above when it lands.
+`pOpen-T7-tetO-PLA1.gb` is on the `devcells/devstudio-constructs` branch of `nucleus-eng/DNA`, not on `main`. [Detector: TetR-aTc](../detector-tetr-atc/spec.md) links it.
 :::
 
 One molecule carries the operator and the effector, so [PLA1](../effector-pla1/spec.md) has no construct of its own here.

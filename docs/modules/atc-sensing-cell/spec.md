@@ -94,7 +94,7 @@ flowchart TD
 :::
 
 :::{attention} The circular forms are not on `main` yet
-@Editor(chicago): `pOpen-T7-tetO-PLA1.gb` and `pOpen-T7-tetO-C23DO.gb` are on [`nucleus-eng/DNA` PR #10](https://github.com/nucleus-eng/DNA/pull/10) and not yet merged. Add the file links when it lands.
+`pOpen-T7-tetO-PLA1.gb` and `pOpen-T7-tetO-C23DO.gb` are on the `devcells/devstudio-constructs` branch of `nucleus-eng/DNA`, not on `main`. [Detector: TetR-aTc](../detector-tetr-atc/spec.md) links both.
 
 The circular form is preferred and both are expected to work. They are **not sequence-identical** — the linear entry is the expression cassette, the circular one is that cassette in a pOpen backbone — so the row a page cites follows the route it documents.
 :::
