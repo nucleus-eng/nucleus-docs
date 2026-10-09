@@ -47,7 +47,7 @@ inputs:
     title: "Magnesium acetate"
     page: null
   optiprep:
-    stock: {value: 1.32, unit: "mg/uL"}
+    stock: {value: 1.32, unit: "mg/µL"}
     title: "OptiPrep"
     page: null
     optional: true        # encapsulation aid — see the questions below
@@ -67,16 +67,16 @@ process_steps:
     # SOURCED figures are written. No fraction is given where this source states no
     # total, which is the point of R37: the composition does not need one.
     finals:
-      base-cytosol: {value: 1, unit: "x"}
+      base-cytosol: {value: 1, unit: "fold"}
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
       degfp-dna: {value: 3, unit: "nM"}
       magnesium-acetate: {value: 8, unit: "mM"}
-      optiprep: {value: 0.043, unit: "mg/uL"}
+      optiprep: {value: 0.043, unit: "mg/µL"}
     stocks:
       # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md,
       # so its stock sits on the step rather than on a reagent of this page.
       rnase-inhibitor: {value: 40000, unit: "U/mL"}
-    total_volume: {value: 40, unit: "uL"}
+    total_volume: {value: 40, unit: "µL"}
     notes: >
       This construct has a confirmed file in nucleus-eng/DNA —
       reporters/pOpen-deGFP.gbk, 2812 bp — which puts it in the minority. Most

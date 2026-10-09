@@ -61,22 +61,22 @@ process_steps:
     # constituents of ../s30-lysate/spec.md, repeated because `rnase-inhibitor`
     # disagrees with that page at 800 against 2000 U/mL.
     fractions:
-      premix: 0.40
-      extract: 0.30
+      s30-premix: 0.40
+      s30-extract: 0.30
       amino-acid-mix: 0.10
       sensing-plasmid: 0.02
       rnase-inhibitor: 0.02
     stocks:
-      premix: {value: 2.5, unit: "x"}
-      extract: {value: 3.33, unit: "x", approx: true}
-      amino-acid-mix: {value: 10, unit: "x"}
-      sensing-plasmid: {value: 2000, unit: "ng/uL"}
+      s30-premix: {value: 2.5, unit: "fold"}
+      s30-extract: {value: 3.33, unit: "fold", approx: true}
+      amino-acid-mix: {value: 10, unit: "fold"}
+      sensing-plasmid: {value: 2000, unit: "ng/µL"}
       rnase-inhibitor: {value: 40000, unit: "U/mL"}
     finals:
-      premix: {value: 1, unit: "x"}
-      extract: {value: 1, unit: "x"}
-      amino-acid-mix: {value: 1, unit: "x"}
-      sensing-plasmid: {value: 40, unit: "ng/uL"}
+      s30-premix: {value: 1, unit: "fold"}
+      s30-extract: {value: 1, unit: "fold"}
+      amino-acid-mix: {value: 1, unit: "fold"}
+      sensing-plasmid: {value: 40, unit: "ng/µL"}
       rnase-inhibitor: {value: 800, unit: "U/mL"}
     # 0.84 declared. The remaining 0.16 is the analyte slot the page describes in
     # prose, and it is unnamed here because no component fills it in this Module.

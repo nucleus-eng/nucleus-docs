@@ -111,7 +111,7 @@ def resolve_bound(b, step, home):
             v = params[key]
             if not isinstance(v, (int, float)):
                 return (None, None, f"{mod}.{key} is {v!r}, not a number")
-            return (v, "C", None)
+            return (v, "°C", None)
     return (None, None, f"{mod} declares no {key}")
 
 

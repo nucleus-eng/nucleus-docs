@@ -21,6 +21,15 @@ repos:
         pass_filenames: false
         additional_dependencies: [pyyaml]
 
+      - id: check-step-quantities
+        # Runs when a source or the script changes, and reads every source each time.
+        name: Check step quantities
+        entry: python3 scripts/check-step-quantities.py
+        language: python
+        pass_filenames: false
+        files: (^docs/.*spec\.yml$|^scripts/check-step-quantities\.py$)
+        additional_dependencies: [pyyaml, pint]
+
       - id: check-reference-voice
         # Checks only the pages being committed, so touching a page means cleaning it.
         # `types_or` and not `types`: `types` is an AND, so listing both would match

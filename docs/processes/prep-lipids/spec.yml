@@ -36,7 +36,7 @@ operator: mixing
 conserves: false
 
 measured_by:
-  - "Molar ratio: the mol% entries on the producing Module sum to 100. scripts/check-step-totals.py checks it."
+  - "Molar ratio: the amount-of-substance fractions on the producing Module sum to 1000 mmol/mol. scripts/check-step-quantities.py checks it."
 
 open:
   - id: its-one-user-produces-a-membrane-not-components

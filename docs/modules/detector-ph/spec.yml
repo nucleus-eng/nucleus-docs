@@ -57,8 +57,8 @@ process_steps:
     # ../ph-cascade-one-vesicle/spec.yml states independently as "3:1, pH-responsive
     # strand to trigger". Two sources, one ratio, neither derived from the other.
     finals:
-      ph-responsive-ssdna: {value: 14.4, unit: "uM"}
-      trigger-ssdna: {value: 4.8, unit: "uM"}
+      ph-responsive-ssdna: {value: 14.4, unit: "µM"}
+      trigger-ssdna: {value: 4.8, unit: "µM"}
     notes: >
       The 3:1 ratio is visible in the two figures — 14.4 is three times 4.8 — and the
       page states it independently, so the arithmetic is a check rather than the
@@ -84,7 +84,7 @@ process_steps:
     # convention for it. The two entries on `anneal-duplex` have no such sibling and
     # are left alone rather than guessed at.
     finals:
-      base-cytosol: {value: 1, unit: "x"}
+      base-cytosol: {value: 1, unit: "fold"}
       toehold-switch-dna: {value: 2, unit: "nM"}
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
     parameters:

@@ -75,9 +75,9 @@ flowchart TD
 
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| PEGDA monomer, PEGDA575 | 20 wt% | in PBS to 100 wt% total |
-| PEG4SH | 0.3 wt% | chain-transfer agent in this route, not the crosslinker — see below |
-| LAP photoinitiator | 0.03 wt% | lithium phenyl-2,4,6-trimethylbenzoylphosphinate; keep the solution dark until patterning |
+| PEGDA monomer, PEGDA575 | 200 mg/mL | in PBS, made up to volume |
+| PEG4SH | 3 mg/mL | chain-transfer agent in this route, not the crosslinker — see below |
+| LAP photoinitiator | 0.3 mg/mL | lithium phenyl-2,4,6-trimethylbenzoylphosphinate; keep the solution dark until patterning |
 :::
 
 ::::
@@ -85,11 +85,11 @@ flowchart TD
 :::::
 
 :::{note} PEG4SH does a different job here
-The same reagent is the crosslinker in the [PEG-norbornene route](../gel-peg-norbornene/spec.md), at 20 mM of a 2 kDa four-arm polymer — roughly 4 wt%. Here it is **0.3 wt%**, thirteen-fold lower, in a system where the acrylate self-polymerizes and needs no thiol partner. At that loading it acts as a chain-transfer agent.
+The same reagent is the crosslinker in the [PEG-norbornene route](../gel-peg-norbornene/spec.md), at 20 mM of a 2 kDa four-arm polymer — roughly 40 mg/mL. Here it is **3 mg/mL**, thirteen-fold lower, in a system where the acrylate self-polymerizes and needs no thiol partner. At that loading it acts as a chain-transfer agent.
 
 :::
 
-A multimaterial variant mixes 1.6 wt% alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. See [Alginate Gel](../gel-alginate/spec.md). The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm.
+A multimaterial variant mixes 16 mg/mL alginate into this precursor and crosslinks each component by its own route. What that yields is not a blended gel: the demonstrated construct is **a PEGDA frame around an alginate core**, two regions with a boundary between them. See [Alginate Gel](../gel-alginate/spec.md). The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm.
 
 In a frame, the reporter's color bleeds into the frame and lowers spatial resolution; see [LacZ Reporter](../reporter-lacz/spec.md).
 

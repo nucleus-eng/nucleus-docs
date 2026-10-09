@@ -35,6 +35,7 @@ flowchart TD
     IV_COA["IV-CoA"]
     OPTIPREP["OptiPrep"]
     RNASE_INHIBITOR["RNase inhibitor"]
+    WATER["Nuclease-free water"]
 
     P1_ASSEMBLE_REACTION_0(["Assemble the IV-HSL Emitter reaction (mixing) — no page"])
     EMITTER_IVHSL["IV-HSL Emitter"]
@@ -46,13 +47,14 @@ flowchart TD
     IV_COA --> P1_ASSEMBLE_REACTION_0
     OPTIPREP --> P1_ASSEMBLE_REACTION_0
     RNASE_INHIBITOR --> P1_ASSEMBLE_REACTION_0
+    WATER --> P1_ASSEMBLE_REACTION_0
     P1_ASSEMBLE_REACTION_0 --> EMITTER_IVHSL
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class PUREXPRESS_SOLUTION_A,PUREXPRESS_SOLUTION_B,BJAI_DNA,SAM,IV_COA,OPTIPREP,RNASE_INHIBITOR leaf;
+    class PUREXPRESS_SOLUTION_A,PUREXPRESS_SOLUTION_B,BJAI_DNA,SAM,IV_COA,OPTIPREP,RNASE_INHIBITOR,WATER leaf;
     class EMITTER_IVHSL composed;
     class P1_ASSEMBLE_REACTION_0 process;
 

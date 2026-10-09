@@ -76,6 +76,9 @@ inputs:
   polyphosphate-100mer:
     title: "100mer polyphosphate"
     page: null
+  water:
+    title: "Nuclease-free water"
+    page: null
 
 process_steps:
   - id: prepare-custom-smix
@@ -93,6 +96,7 @@ process_steps:
       - folinic-acid
       - spermidine
       - amino-acid-solution
+      - water
     produces:
       id: smix-minus-cp
       title: "Custom SMix (SMix -CP)"
@@ -133,7 +137,7 @@ process_steps:
       spermidine: 0.03
       amino-acid-solution: 0.27692
     balance: water
-    total_volume: {value: 200, unit: "uL", note: "3x relative to the reaction"}
+    total_volume: {value: 200, unit: "µL", note: "3x relative to the reaction"}
     notes: >
       Creatine phosphate is listed in the source table at 0 mM and 0.0 uL rather than
       omitted, which is the point of the table: normal SMix is these components plus

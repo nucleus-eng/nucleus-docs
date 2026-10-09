@@ -63,14 +63,14 @@ process_steps:
     # `target_composition` goes too: `finals` says the same thing in a form a checker
     # reads, which is what N7 asked for.
     finals:
-      popc: {value: 99.15, unit: "mol%"}
-      dspe-peg2000: {value: 0.85, unit: "mol%"}
+      popc: {value: 991.5, unit: "mmol/mol"}
+      dspe-peg2000: {value: 8.5, unit: "mmol/mol"}
     parameters:
       lipid_in_oil: "3 mg/mL"
       total_lipid: "3.36 mg"
     # ONE BATCH, NOT THE BATCH RUN. 320 uL is sourced; the 3.5x multiplier is sourced;
     # 1120 uL is not written because no page states it.
-    total_volume: {value: 320, unit: "uL", note: "one batch; this preparation is a 3.5x batch"}
+    total_volume: {value: 320, unit: "µL", note: "one batch; this preparation is a 3.5x batch"}
     notes: >
       The PEGylated preparation. DSPE-PEG2000 is a functional addition rather than a
       label — its PEG headgroup gives steric stabilization at the bilayer surface,

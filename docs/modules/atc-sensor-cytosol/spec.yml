@@ -51,6 +51,14 @@ process_steps:
         The slot is ../base-cytosol/spec.yml's `headroom.provides`, and this step
         is what spends it. Declared 2026-10-07 under R10, which had reserved the key
         on 2026-09-15 and left it unused.
+    # The same four amounts as ../atc-cascade/spec.yml's identical step. This page states
+    # all but Base Cytosol; ../atc-cascade/spec.md states that one as "at reaction
+    # concentration".
+    finals:
+      base-cytosol: {value: 1, unit: "fold", note: "at reaction concentration"}
+      tetr: {value: 50, unit: "nM", note: "headline condition; also tested at 100 nM"}
+      effector-pla1-teto: {value: 1, unit: "nM", note: "headline condition; also tested at 0.5 nM"}
+      reporter-lacz-enzyme: {value: 2.5, unit: "U/mL"}
     notes: >
       Fills the Base Cytosol headroom, 2.0 uL of 10. The detector and the
       effector are one molecule, so PLA1 is not supplied separately. LacZ is

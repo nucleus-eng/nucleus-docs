@@ -3,7 +3,7 @@
 # SPLIT OUT FROM ../outer-solution-tris-hepes/spec.md, which used to
 # claim it served "all three Chicago cascades", while the aTc demo board records a
 # different solution entirely: 400 mM glucose with 1 M HEPES-KOH at pH 7.6, against the
-# Tris-HEPES stock at 42.5% (v/v). One page cannot state two formulations, so the aTc
+# Tris-HEPES formulation. One page cannot state two formulations, so the aTc
 # one became this file and the Tris-HEPES page kept the pH path.
 #
 # THE ONLY SOURCE IS A WHITEBOARD, src/20260929-demo-atc-chuck.md in

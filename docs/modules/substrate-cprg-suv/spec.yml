@@ -82,8 +82,8 @@ process_steps:
       popc: {value: 25, unit: "mg/mL"}
       cholesterol: {value: 50, unit: "mg/mL"}
     finals:
-      popc: {value: 90, unit: "mol%"}
-      cholesterol: {value: 10, unit: "mol%"}
+      popc: {value: 900, unit: "mmol/mol"}
+      cholesterol: {value: 100, unit: "mmol/mol"}
       substrate-cprg: {value: 50, unit: "mM", note: "at hydration; the page also writes it as approx. 30 mg/mL"}
     parameters:
       # THE METHOD CLAUSE IS GONE AND NOTHING WAS MOVED TO CARRY IT. R32 assumed the

@@ -103,7 +103,7 @@ process_steps:
     # dose this path used, encapsulated in a GUV in PEG-norbornene.
     #
     # SCALE-FREE 2026-10-05, and the key is now the operand id. 0.02 x 125 U/mL returns
-    # the 2.5 U/mL ../atc-cascade/spec.md:146 states under "Working concentration", so
+    # the 2.5 U/mL this page states in its Cytosol table, `comp-atc-cascade`, so
     # the written final stays sourced and the fraction checks it.
     #
     # `parameters:` IS GONE RATHER THAN LEFT EMPTY. Its one entry converted, and an
@@ -112,7 +112,13 @@ process_steps:
       reporter-lacz-enzyme: 0.02
     finals:
       reporter-lacz-enzyme: {value: 2.5, unit: "U/mL"}
-    total_volume: {value: 25, unit: "uL"}
+      # The other three are the same table. TetR is keyed by `tetr`, a constituent of
+      # ../detector-tetr-atc/spec.yml: the operator is on the PLA1 molecule here, so
+      # TetR is all this cascade takes from the detector.
+      base-cytosol: {value: 1, unit: "fold", note: "at reaction concentration"}
+      tetr: {value: 50, unit: "nM", note: "headline condition; also tested at 100 nM"}
+      effector-pla1-teto: {value: 1, unit: "nM", note: "headline condition; also tested at 0.5 nM"}
+    total_volume: {value: 25, unit: "µL"}
 
   - id: encapsulate
     process:

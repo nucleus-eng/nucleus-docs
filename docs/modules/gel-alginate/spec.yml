@@ -44,7 +44,7 @@ process_steps:
       page: null
     # SCALE-FREE, 2026-10-05. A concentration in the precursor this step produces.
     finals:
-      sodium-alginate: {value: 1, unit: "% (w/v)", approx: true}
+      sodium-alginate: {value: 10, unit: "mg/mL", approx: true}
     notes: >
       The buffer is not fixed by this module. It is chosen to match whatever is
       embedded — normally that population's own outer solution — which makes it an

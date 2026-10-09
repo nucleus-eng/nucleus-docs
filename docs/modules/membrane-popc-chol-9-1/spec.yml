@@ -60,9 +60,9 @@ process_steps:
     # `molar_mass` and `stock` moved onto the reagents, by C72: neither varies
     # across the steps that use the lipid, and both are needed to recover a volume.
     finals:
-      popc: {value: 89.9, unit: "mol%"}
-      cholesterol: {value: 10, unit: "mol%"}
-      liss-rhod-pe: {value: 0.1, unit: "mol%"}
+      popc: {value: 899, unit: "mmol/mol"}
+      cholesterol: {value: 100, unit: "mmol/mol"}
+      liss-rhod-pe: {value: 1, unit: "mmol/mol"}
     parameters:
       total_lipid: "0.5 mM"
     notes: >

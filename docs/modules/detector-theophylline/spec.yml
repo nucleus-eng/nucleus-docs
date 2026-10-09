@@ -47,7 +47,7 @@ process_steps:
     # SOURCED figures are written. No fraction is given where this source states no
     # total, which is the point of R37: the composition does not need one.
     finals:
-      base-cytosol: {value: 1, unit: "x"}
+      base-cytosol: {value: 1, unit: "fold"}
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
       sensor-dna: {value: 5, unit: "nM"}
       cprg: {value: 0.6, unit: "mg/mL"}
@@ -57,7 +57,7 @@ process_steps:
       # `substrate-cprg` and this names what is inside it.
       rnase-inhibitor: {value: 40000, unit: "U/mL"}
       cprg: {value: 10, unit: "mg/mL"}
-    total_volume: {value: 10, unit: "uL", note: "stated, but see the questions below"}
+    total_volume: {value: 10, unit: "µL", note: "stated, but see the questions below"}
     notes: >
       The riboswitch binds theophylline at its aptamer domain in the 5' UTR, which
       exposes the ribosome binding site and turns on translation of the downstream

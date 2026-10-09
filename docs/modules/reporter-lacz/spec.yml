@@ -81,7 +81,7 @@ process_steps:
     # analyte removed, and the page states 5 nM in a table. The value is correct; where
     # it came from is recorded in `open`, which is where provenance belongs.
     finals:
-      base-cytosol: {value: 1, unit: "x"}
+      base-cytosol: {value: 1, unit: "fold"}
       lacz: {value: 5, unit: "nM", note: "as the template"}
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
     stocks:

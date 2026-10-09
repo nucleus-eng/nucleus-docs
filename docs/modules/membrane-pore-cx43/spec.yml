@@ -33,7 +33,7 @@ inputs:
     page: null
   cx43-egfp-dna:
     title: "pOpen-pT7-Cx43-eGFP"
-    stock: {value: 100, unit: "ng/uL"}
+    stock: {value: 100, unit: "ng/µL"}
     page: null            # 3996 bp; pores/pOpen-Cx43-eGFP.gb in nucleus-eng/DNA
   optiprep:
     title: "OptiPrep"
@@ -77,7 +77,7 @@ process_steps:
     finals:
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
     balance: water
-    total_volume: {value: 20, unit: "uL"}
+    total_volume: {value: 20, unit: "µL"}
     notes: >
       Cx43 is expressed in situ from the plasmid rather than supplied as protein, so
       this Module is a reaction. Connexins are membrane-spanning proteins and six of

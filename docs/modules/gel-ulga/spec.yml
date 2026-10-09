@@ -80,7 +80,7 @@ process_steps:
     # 1 x the 1:1. Writing a number the file computes from its own neighbor is the
     # exact pattern this migration removes, so only the sourced 1% lands.
     finals:
-      ulga-powder: {value: 1, unit: "% (w/v)", note: "in the prepared solution, before the 1:1 combination"}
+      ulga-powder: {value: 10, unit: "mg/mL", note: "in the prepared solution, before the 1:1 combination"}
     parameters:
       # A BOUND PAIR WITH NO SINGLE CORRECT VALUE, which is what `parameters` is for.
       # ../gel-ulga/spec.md:76: "Lower gives faster kinetics; higher holds a better

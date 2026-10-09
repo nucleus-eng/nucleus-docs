@@ -58,13 +58,13 @@ process_steps:
       title: "mNeonGreen Reporter"
       page: ../reporter-mneongreen/spec.md
     finals:
-      base-cytosol: {value: 1, unit: "x"}
-      rnase-inhibitor: {value: 1, unit: "U/uL"}
+      base-cytosol: {value: 1, unit: "fold"}
+      rnase-inhibitor: {value: 1, unit: "U/µL"}
     stocks:
       # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md, so
       # its stock sits on the step rather than on a reagent of this page — the same
       # placement ../reporter-degfp/ uses, at a different figure.
-      rnase-inhibitor: {value: 40, unit: "U/uL"}
+      rnase-inhibitor: {value: 40, unit: "U/µL"}
     notes: >
       The reaction this is read from carried no repressor and no operator, which is why
       it can stand as this Module alone. Base Cytosol is at 1x by four independent

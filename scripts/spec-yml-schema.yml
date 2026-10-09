@@ -543,8 +543,12 @@ $defs:
       unit:
         type: string
         description: >
-          Compared literally, as in `bound`. There is no unit registry and this
-          schema does not pretend to one.
+          Read with pint by check-step-quantities.py, and spelled as this corpus
+          spells it: µ for micro, °C, mg/mL for a mass per volume, mmol/mol for the
+          amount-of-substance fractions of a lipid film, and `fold` for a relative
+          strength, the one unit the script defines. A `%` with anything attached is
+          refused: a % is the number 0.01 and carries no information about what it is
+          a fraction of.
       approx:
         type: boolean
         description: >
@@ -859,30 +863,9 @@ $defs:
             description: >
               null where the product has no page of its own — an intermediate the
               corpus composes but does not document. 13 of 76 steps at `d611bda`.
-          final:
-            type: object
-            additionalProperties:
-              $ref: "#/$defs/quantity"
-            description: >
-              THE PRODUCT CARRIER, keyed by the input id the concentration is of.
-              A final concentration does not vary across the product, so by C72 it
-              belongs to the product rather than to the step that reached it.
-              IT IS RECOMPUTED, NEVER SUMMED. Two aliquots of one stock change the
-              volume and not this, which is why it cannot sit beside the volume in
-              one string the way it does today.
       notes:
         type: string
         description: Prose the step needs and no page states. 63 of 76 steps at `d611bda`.
-      volumes:
-        type: object
-        additionalProperties:
-          $ref: "#/$defs/quantity"
-        description: >
-          THE STEP CARRIER, keyed by the operand id the volume is of. A volume does
-          not vary across the step, so by C72 it belongs to the step.
-          THIS IS THE ONE THAT ADDS. Pooling two steps adds their volumes, and a
-          checker may sum what it finds here and nothing it finds on a reagent or a
-          product. The distinction needs no name because the carrier carries it.
       parameters:
         type: object
         description: >
@@ -890,7 +873,7 @@ $defs:
           page cannot state one value. 36 of 76 steps at `d611bda`.
           IT IS NOT A NOTES FIELD, and it became one because it has no property
           constraints. A quantity belongs in `fractions` here, in `stock` on the
-          input, or in `finals` on the product. `volumes` is named in no source: it was
+          input, or in `finals` on the step. `volumes` is named in no source: it was
           written on 2026-10-05 and deleted the same day under R36, which made a
           per-component volume derived rather than stated. A procedure belongs on the process page.
           A BOUND BELONGS IN `inputs[].spec` WHERE IT IS A SUPPLIER'S GUARANTEE, and in
@@ -937,30 +920,34 @@ $defs:
         type: string
         description: A combining ratio, a property of the step. 4 of 76 steps at `d611bda`.
 
-      # ---- THE SCALE-FREE KEYS, DELIBERATELY LOOSE, ADDED 2026-10-05 ----
+      # ---- THE SCALE-FREE KEYS, ADDED 2026-10-05 ----
       #
-      # TEMPORARY AND KNOWN TO BE. The specs are converted first and this file follows once
-      # the final shape is known. These four exist so the
-      # migration can proceed WITHOUT this file guessing the final shape a fourth time
-      # -- `step.volumes` was designed, committed and overturned in one day, and a
-      # fifth guess is worth less than the corpus's own answer.
+      # The specs were converted first, and this block stayed loose until the shape was
+      # known. The last source was converted at `a4331ca2`. At `0a9c7200`, across every
+      # `spec.yml` under `docs/`: `fractions` on 11 steps, `finals` on 35, `stocks` on 9,
+      # `total_volume` on 13, `balance` on 5.
       #
-      # They constrain almost nothing on purpose. THAT IS THE COST AND IT IS STATED:
-      # an untyped key cannot catch a wrong unit or a missing one. The alternative was
-      # leaving check-spec-schema.py red across the whole migration, and a red check
-      # nobody can act on is how `check-toc.py` sat broken on this branch unnoticed.
+      # TWO SCRIPTS SHARE THE CHECKING. check-spec-schema.py checks module sources against
+      # this file for shape: a fraction is a number above 0 and at most 1, a stock or a
+      # final is a `quantity`, and every key is a kebab-case id. check-step-quantities.py
+      # checks the rest: every unit parses with pint, fractions sum to no more than 1,
+      # fraction x stock equals a stated final once both are in one unit, a lipid film's
+      # mmol/mol finals sum to 1000, and every mixing step gives each operand an amount.
       #
-      # TIGHTEN THESE WHEN THE LAST SOURCE IS CONVERTED. 2 of 45 steps at this commit.
+      # Quantities under `parameters`, `headroom`, `ratio` and `inputs[].range` are still
+      # strings, and nothing checks them.
       fractions:
         type: object
+        propertyNames: {pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"}
         additionalProperties: {type: number, exclusiveMinimum: 0, maximum: 1}
         description: >
           A volume fraction per component, keyed by its id. Scale-free: it does not
           change when the same composition is run at a different total. Quantities become volume
-          fraction and concentration wherever that is possible. The values must not exceed 1 in sum, and a checker will say so
-          once every source is converted; today they are checked by eye.
+          fraction and concentration wherever that is possible. The values must not exceed 1
+          in sum, and check-step-quantities.py fails a step whose fractions do.
       stocks:
         type: object
+        propertyNames: {pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"}
         additionalProperties: {$ref: "#/$defs/quantity"}
         description: >
           A stock concentration per component. Prefer `inputs[].stock`, which puts the
@@ -969,12 +956,12 @@ $defs:
           here because this Module overrides it.
       finals:
         type: object
+        propertyNames: {pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"}
         additionalProperties: {$ref: "#/$defs/quantity"}
         description: >
           A final concentration per component. WRITTEN ONLY WHERE THE SOURCE STATES
           ONE. `fraction x stock` returns it, so a computed entry here would read as a
           sourced figure, which is the error this whole migration is avoiding.
-        # Prefer `produces.final`, same reason as `stocks` above.
       total_volume:
         $ref: "#/$defs/quantity"
         description: >
@@ -983,18 +970,21 @@ $defs:
           the first source that needed it. It is an Implementation fact rather than a Module one -- the
           composition is the same reaction at 10 uL or at 500 uL -- so nothing may
           require it and no figure above may depend on it.
-          IT IS KEPT FOR THE CHECK. `check-step-totals.py` recovers the total from
-          every component that states a fraction and a stock, and 13 derivations across
-          7 steps agree with 0 disagreements. A derived check with nothing to check
-          against is weaker, so where a source states this, it is evidence.
+          NOTHING CHECKS IT. It was kept so that each component's stated volume could
+          recover the total and be compared with it, and 13 such derivations across 7 steps
+          agreed. The conversion then removed every per-component volume, so no figure on a
+          converted step is a volume and none can be compared with this one. It stays
+          optional, as a record of the scale a source was run at.
 
       balance:
         type: string
         description: >
           The component id that absorbs whatever the fractions leave. Not a fraction:
           its value moves when any other component moves, which is what makes it a
-          different kind of entry. `headroom.balance` says the same thing in prose and
-          the two are to be reconciled when this block is tightened.
+          different kind of entry. It names an operand of the step. WITH NO `balance`
+          THE BALANCE IS WATER, and a step whose fractions leave a remainder with no
+          water operand is reported. `headroom.balance` names the same role for a
+          reserved slot, as prose. It becomes a component id when `headroom` is typed.
 
   operator:
     enum: [mixing, packing, stitching]

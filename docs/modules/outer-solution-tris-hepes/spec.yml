@@ -19,6 +19,9 @@ inputs:
   energy-solution:
     title: "Energy solution"
     page: null
+  water:
+    title: "Water"
+    page: null
 
 process_steps:
   - id: assemble-outer-solution
@@ -27,15 +30,19 @@ process_steps:
       page: ../../processes/assemble-outer-solution/main.md
       abstract: assemble-solution
     operator: mixing
-    operands: [tris-hepes-stock, energy-solution]
+    operands: [tris-hepes-stock, energy-solution, water]
     produces:
       id: outer-solution-tris-hepes
       title: "Outer Solution: Tris-HEPES"
       page: ../outer-solution-tris-hepes/spec.md
-    # SCALE-FREE, 2026-10-05. "42.5% (v/v) in water" was already a volume fraction.
-    # Keyed by the operand id, `tris-hepes-stock`, rather than by `tris-hepes`.
+    # SCALE-FREE. The page's "46.67% (v/v) in water" is already a volume fraction.
+    # Keyed by the operand id, `tris-hepes-stock`, rather than by `tris-hepes`. Which
+    # Tris-HEPES stock this is, is an open question: see the page.
     fractions:
-      tris-hepes-stock: 0.425
+      tris-hepes-stock: 0.4667
+    # The Solutes table on this page: a 2-fold sub-mix, used at 1 fold.
+    finals:
+      energy-solution: {value: 1, unit: "fold"}
     parameters:
       # A PROPERTY OF THE SOLUTION, not a component of it, so it stays here.
       osmolarity: "~1180 mOsm"

@@ -85,7 +85,7 @@ PLA1 is expressed from one of the constructs above rather than added as a reagen
 
 | Configuration | Construct | Working concentration |
 | --- | --- | --- |
-| Constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in a 20 µL reaction with 5% Optiprep |
+| Constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in Base Cytosol at 1× in a 20 µL reaction with 5% Optiprep |
 | aTc-gated | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
 | 3OC6-HSL-gated | `LuxR-PLA1` | 15 ng/µL |
 | pH-gated | Toehold-switch-gated PLA1 template | 2 nM |

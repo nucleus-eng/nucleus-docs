@@ -45,7 +45,7 @@ inputs:
       - quantity: gel-strength
         sense: at-least
         value: 200
-        unit: "g/cm2"
+        unit: "g/cm²"
         note: "1% gel"
   outer-solution:
     title: "Outer solution"
@@ -68,7 +68,7 @@ process_steps:
     # embed step. The three temperatures below are PROPERTIES OF THE MATERIAL, not
     # components of the gel, so they stay.
     finals:
-      lga-powder: {value: 0.7, unit: "% (w/v)", note: "in the pH path"}
+      lga-powder: {value: 7, unit: "mg/mL", note: "in the pH path"}
     parameters:
       gel_point_min_c: 26
       gel_point_max_c: 30

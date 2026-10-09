@@ -59,15 +59,15 @@ process_steps:
     # SCALE-FREE, 2026-10-05. "5% of the reaction" was already a volume fraction and
     # is now written as one. It is the shape R38 generalized from.
     finals:
-      pla1-dna: {value: 14, unit: "ng/uL"}
+      pla1-dna: {value: 14, unit: "ng/µL"}
+      base-cytosol: {value: 1, unit: "fold"}
     fractions:
       optiprep: 0.05
-    total_volume: {value: 20, unit: "uL"}
+    total_volume: {value: 20, unit: "µL"}
     notes: >
-      Base Cytosol carries no parameter entry here: it has a page of its own and
-      that page states its composition, which is the rule an audit of thirteen
-      parameter entries settled on 2026-09-19. The three figures kept are the ones
-      no constituent page can state, because they are this assembly's own.
+      Base Cytosol is at 1 fold, as the page states. Its own page states what it is
+      made of; this step states only how much of it is here, which no constituent
+      page can state.
       PLA1 is expressed from the construct rather than added as a reagent, so this
       Module has no working concentration of the protein and the DNA dose is the
       only dose there is.

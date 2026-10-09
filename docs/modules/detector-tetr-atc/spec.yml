@@ -64,7 +64,7 @@ process_steps:
     # and the evidenced composition are not the same system. Importing the stock across
     # that line would merge two systems by accident.
     finals:
-      base-cytosol: {value: 1, unit: "x"}
+      base-cytosol: {value: 1, unit: "fold"}
       teto-template: {value: 0.5, unit: "nM"}
       tetr: {value: 500, unit: "nM"}
     notes: >
@@ -84,7 +84,7 @@ sensitivities:
     bound:
       quantity: concentration
       sense: at-most
-      unit: uM
+      unit: "µM"
       value: 0.5
     why: >
       Above about 0.5 uM aTc in this cytosol the response stops being graded.

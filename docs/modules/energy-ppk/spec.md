@@ -39,6 +39,7 @@ flowchart TD
     AMINO_ACID_SOLUTION["Amino acid solution"]
     PPK2["Purified PPK2"]
     POLYPHOSPHATE_100MER["100mer polyphosphate"]
+    WATER["Nuclease-free water"]
 
     P1_PREPARE_CUSTOM_SMIX_0(["Prepare custom SMix without creatine phosphate (mixing) — no page"])
     SMIX_MINUS_CP["Custom SMix (SMix -CP)"]
@@ -54,6 +55,7 @@ flowchart TD
     FOLINIC_ACID --> P1_PREPARE_CUSTOM_SMIX_0
     SPERMIDINE --> P1_PREPARE_CUSTOM_SMIX_0
     AMINO_ACID_SOLUTION --> P1_PREPARE_CUSTOM_SMIX_0
+    WATER --> P1_PREPARE_CUSTOM_SMIX_0
     P1_PREPARE_CUSTOM_SMIX_0 --> SMIX_MINUS_CP
 
     SMIX_MINUS_CP --> P2_ADD_THE_SUPPLIED_COMPONENTS_0
@@ -65,7 +67,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class HEPES,POTASSIUM_GLUTAMATE,MAGNESIUM_ACETATE,RNTPS,TRNA,TCEP,FOLINIC_ACID,SPERMIDINE,AMINO_ACID_SOLUTION,PPK2,POLYPHOSPHATE_100MER leaf;
+    class HEPES,POTASSIUM_GLUTAMATE,MAGNESIUM_ACETATE,RNTPS,TRNA,TCEP,FOLINIC_ACID,SPERMIDINE,AMINO_ACID_SOLUTION,PPK2,POLYPHOSPHATE_100MER,WATER leaf;
     class SMIX_MINUS_CP,ENERGY_PPK composed;
     class P1_PREPARE_CUSTOM_SMIX_0,P2_ADD_THE_SUPPLIED_COMPONENTS_0 process;
 

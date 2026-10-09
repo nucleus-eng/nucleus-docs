@@ -65,7 +65,7 @@ sensitivities:
     bound:
       quantity: temperature
       sense: at-most
-      unit: C
+      unit: "°C"
       value: 37
     why: >
       Stable from 4 °C to 37 °C. The upper end is the one an imposition can cross:
@@ -78,7 +78,7 @@ sensitivities:
     bound:
       quantity: temperature
       sense: at-most
-      unit: C
+      unit: "°C"
       value: 37
     why: >
       Specified to OPERATE between 30 °C and 37 °C, which is narrower than stability

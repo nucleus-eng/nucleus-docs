@@ -35,27 +35,36 @@ flowchart TD
     OUTER_SOLUTION["Outer solution"]
     MEMBRANE_POPC_CHOL_9_1["Membrane: POPC/Chol (9:1)"]
     SUBSTRATE_CPRG["Substrate: CPRG"]
+    OPTIPREP["OptiPrep"]
+    TRIS_HEPES_BUFFER["Tris-HEPES buffer (1 M Tris, 1.15 M HEPES)"]
 
-    P1_HYDRATE_AND_FREEZE_THAW_0(["Encapsulation: Freeze-Thaw (packing)"])
+    P1_ASSEMBLE_INNER_SOLUTION_0(["Assemble the CPRG inner solution (mixing) — no page"])
+    CPRG_INNER_SOLUTION["CPRG inner solution"]
+    P2_HYDRATE_AND_FREEZE_THAW_0(["Encapsulation: Freeze-Thaw (packing)"])
     SUBSTRATE_CPRG_LUV["Substrate LUV: CPRG"]
 
-    MEMBRANE_POPC_CHOL_9_1 --> P1_HYDRATE_AND_FREEZE_THAW_0
-    SUBSTRATE_CPRG --> P1_HYDRATE_AND_FREEZE_THAW_0
-    OUTER_SOLUTION --> P1_HYDRATE_AND_FREEZE_THAW_0
-    P1_HYDRATE_AND_FREEZE_THAW_0 --> SUBSTRATE_CPRG_LUV
+    SUBSTRATE_CPRG --> P1_ASSEMBLE_INNER_SOLUTION_0
+    OPTIPREP --> P1_ASSEMBLE_INNER_SOLUTION_0
+    TRIS_HEPES_BUFFER --> P1_ASSEMBLE_INNER_SOLUTION_0
+    P1_ASSEMBLE_INNER_SOLUTION_0 --> CPRG_INNER_SOLUTION
+
+    MEMBRANE_POPC_CHOL_9_1 --> P2_HYDRATE_AND_FREEZE_THAW_0
+    CPRG_INNER_SOLUTION --> P2_HYDRATE_AND_FREEZE_THAW_0
+    OUTER_SOLUTION --> P2_HYDRATE_AND_FREEZE_THAW_0
+    P2_HYDRATE_AND_FREEZE_THAW_0 --> SUBSTRATE_CPRG_LUV
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class OUTER_SOLUTION,MEMBRANE_POPC_CHOL_9_1,SUBSTRATE_CPRG leaf;
-    class SUBSTRATE_CPRG_LUV composed;
-    class P1_HYDRATE_AND_FREEZE_THAW_0 process;
+    class OUTER_SOLUTION,MEMBRANE_POPC_CHOL_9_1,SUBSTRATE_CPRG,OPTIPREP,TRIS_HEPES_BUFFER leaf;
+    class CPRG_INNER_SOLUTION,SUBSTRATE_CPRG_LUV composed;
+    class P1_ASSEMBLE_INNER_SOLUTION_0,P2_HYDRATE_AND_FREEZE_THAW_0 process;
 
     click OUTER_SOLUTION "/docs/modules/outer-solution/spec"
     click MEMBRANE_POPC_CHOL_9_1 "/docs/modules/membrane-popc-chol-9-1/spec"
     click SUBSTRATE_CPRG "/docs/modules/substrate-cprg/spec"
-    click P1_HYDRATE_AND_FREEZE_THAW_0 "/docs/processes/encapsulate-luv/main"
+    click P2_HYDRATE_AND_FREEZE_THAW_0 "/docs/processes/encapsulate-luv/main"
     click SUBSTRATE_CPRG_LUV "/docs/modules/substrate-cprg-luv/spec"
 ```
 

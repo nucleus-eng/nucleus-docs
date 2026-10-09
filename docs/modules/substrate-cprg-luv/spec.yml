@@ -42,8 +42,39 @@ inputs:
   substrate-cprg:
     title: "Substrate: CPRG"
     page: ../substrate-cprg/spec.md
+  optiprep:
+    title: "OptiPrep"
+    page: null
+  tris-hepes-buffer:
+    title: "Tris-HEPES buffer (1 M Tris, 1.15 M HEPES)"
+    page: null
 
 process_steps:
+  - id: assemble-inner-solution
+    process:
+      title: "Assemble the CPRG inner solution"
+      page: null
+    operator: mixing
+    # THE PAGE'S INNER SOLUTION TABLE, `comp-substrate-cprg-luv-inner`, in 500 µL: 237.5 µL
+    # CPRG, 50 µL OptiPrep and 212.5 µL Tris-HEPES buffer. The three fractions sum to 1, so
+    # there is no balance. OptiPrep is a density agent: it makes the loaded liposomes
+    # denser than the wash, so centrifugation pellets them.
+    operands: [substrate-cprg, optiprep, tris-hepes-buffer]
+    produces:
+      id: cprg-inner-solution
+      title: "CPRG inner solution"
+      page: null
+    # The CPRG row closes exactly: 0.475 x 30 mg/mL = 14.25 mg/mL, which the page states.
+    fractions:
+      substrate-cprg: 0.475
+      optiprep: 0.10
+      tris-hepes-buffer: 0.425
+    stocks:
+      substrate-cprg: {value: 30, unit: "mg/mL"}
+    finals:
+      substrate-cprg: {value: 14.25, unit: "mg/mL", note: "at hydration"}
+    total_volume: {value: 500, unit: "µL"}
+
   - id: hydrate-and-freeze-thaw
     process:
       title: "Encapsulation: Freeze-Thaw"
@@ -55,40 +86,25 @@ process_steps:
     #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
     # The product's TYPE names what it is suspended in, so a step that leaves it out
     # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
-    operands: [membrane-popc-chol-9-1, substrate-cprg, outer-solution]
+    operands: [membrane-popc-chol-9-1, cprg-inner-solution, outer-solution]
     produces:
       id: substrate-cprg-luv
       title: "Substrate LUV: CPRG"
       page: ../substrate-cprg-luv/spec.md
-    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # SCALE-FREE, 2026-10-05. The inner solution's fractions are on the step that
+    # makes it, above. What stays here is the film and the procedure.
     #
     # `lipid_in_film` HELD BOTH FORMS AND THE PAGE SAYS SO: "2 umol of lipid in 0.5 mL
-    # (4 mM)". 4 mM is the scale-free half and 2 umol in 0.5 mL is the scale. The
-    # total goes to `total_volume` and the amount is recoverable from the two.
+    # (4 mM)". 4 mM is the scale-free half and stays as `total_lipid`.
     #
-    # The CPRG row closes exactly: 0.475 x 30 mg/mL = 14.25 mg/mL, which the page states.
-    #
-    # ALL THREE METHOD CLAUSES ARE REMOVED AND NOTHING WAS MOVED TO CARRY THEM. R32
-    # assumed a method would migrate to a process page. All three were already there:
-    # ../../processes/encapsulate-luv/main.md:135 has the five freeze-thaw cycles with
-    # liquid nitrogen, :101 lists the 35 C water bath, and :155 has the ten washes. The
-    # clauses here were duplicates, and the wash one had drifted -- see the admonition
-    # on that page.
-    fractions:
-      substrate-cprg: 0.475
-      # NOT AN OPERAND. Optiprep is a density agent, so centrifugation pellets the
-      # liposomes, and it is in the inner solution without being a constituent of
-      # either operand.
-      optiprep: 0.10
-    stocks:
-      substrate-cprg: {value: 30, unit: "mg/mL"}
-    finals:
-      substrate-cprg: {value: 14.25, unit: "mg/mL", note: "at hydration"}
+    # ALL THREE METHOD CLAUSES ARE REMOVED AND NOTHING WAS MOVED TO CARRY THEM.
+    # All three were already on ../../processes/encapsulate-luv/main.md: :135 has
+    # the five freeze-thaw cycles with liquid nitrogen, :101 lists the 35 C water
+    # bath, and :155 has the ten washes.
     parameters:
       total_lipid: "4 mM"
       freeze_thaw_cycles: 5
       washes: 10
-    total_volume: {value: 500, unit: "uL"}
     notes: >
       The wash solution is the implementation's outer solution and this Module names
       no formulation, because the choice belongs to whatever the liposomes are put

@@ -130,6 +130,31 @@ jobs:
       - name: Check composition sources
         run: python3 scripts/check-composition.py
 
+  step-quantities:
+    # A step states fractions, stocks and finals, and some restate each other:
+    # fraction x stock is the final. Every unit is read with pint, so a 10 µM stock
+    # and a 500 nM final compare. Blocks on a unit pint cannot read or misreads, on
+    # two figures that disagree, on fractions above 1, and on a lipid film whose
+    # mmol/mol finals miss 1000, and on a `balance` that is not an operand. Reports
+    # without blocking every mixing step's operands that have no amount, and a key
+    # that names nothing. See scripts/check-step-quantities.py.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pyyaml, pint and pytest
+        run: pip install pyyaml pint pytest
+
+      - name: Test the check
+        run: python3 -m pytest tests/test_step_quantities.py
+
+      - name: Check step quantities
+        run: python3 scripts/check-step-quantities.py
+
   composition-tabs:
     # A Module's Reference Composition must cover everything its own dependency
     # graph contains. Absence is a claim — a page with no Membrane tab reads as

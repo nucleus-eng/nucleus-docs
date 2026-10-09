@@ -36,19 +36,21 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     TRIS_HEPES_STOCK["Tris-HEPES buffer stock"]
     ENERGY_SOLUTION["Energy solution"]
+    WATER["Water"]
 
     P1_ASSEMBLE_OUTER_SOLUTION_0(["Assemble Outer Solution (mixing)"])
     OUTER_SOLUTION_TRIS_HEPES["Outer Solution: Tris-HEPES"]
 
     TRIS_HEPES_STOCK --> P1_ASSEMBLE_OUTER_SOLUTION_0
     ENERGY_SOLUTION --> P1_ASSEMBLE_OUTER_SOLUTION_0
+    WATER --> P1_ASSEMBLE_OUTER_SOLUTION_0
     P1_ASSEMBLE_OUTER_SOLUTION_0 --> OUTER_SOLUTION_TRIS_HEPES
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class TRIS_HEPES_STOCK,ENERGY_SOLUTION leaf;
+    class TRIS_HEPES_STOCK,ENERGY_SOLUTION,WATER leaf;
     class OUTER_SOLUTION_TRIS_HEPES composed;
     class P1_ASSEMBLE_OUTER_SOLUTION_0 process;
 

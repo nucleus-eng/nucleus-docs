@@ -201,7 +201,7 @@ process_steps:
     # SCALE-FREE, 2026-10-05. The agarose concentration in the set gel. It agrees with
     # ../gel-lga/spec.yml, which writes "0.7% (w/v) in the pH path".
     finals:
-      lga-powder: {value: 0.7, unit: "% (w/v)", note: "sets thermally; no crosslinker"}
+      lga-powder: {value: 7, unit: "mg/mL", note: "sets thermally; no crosslinker"}
     notes: >
       The enzyme is NOT an operand here, as of 2026-10-03. It arrives at
       `develop` below, in a basic buffer, because beta-galactosidase works poorly

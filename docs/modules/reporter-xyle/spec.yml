@@ -56,14 +56,14 @@ process_steps:
     # SOURCED figures are written. No fraction is given where this source states no
     # total, which is the point of R37: the composition does not need one.
     finals:
-      base-cytosol: {value: 1, unit: "x"}
+      base-cytosol: {value: 1, unit: "fold"}
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
       catecholase-dna: {value: 20, unit: "nM"}
     stocks:
       # Not an input of this Module. It is a constituent of ../base-cytosol/spec.md,
       # so its stock sits on the step rather than on a reagent of this page.
       rnase-inhibitor: {value: 40000, unit: "U/mL"}
-    total_volume: {value: 10, unit: "uL", note: "Nucleus Cytosol"}
+    total_volume: {value: 10, unit: "µL", note: "Nucleus Cytosol"}
     notes: >
       The five Base Cytosol figures are repeated because the page's table lists them as
       separate rows rather than naming the cytosol, and they match

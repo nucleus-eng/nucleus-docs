@@ -39,7 +39,7 @@ inputs:
     page: null            # 2958 bp; detectors/pOpen-pT7-lacO.gb in nucleus-eng/DNA
   laci:
     title: "LacI"
-    stock: {value: 10, unit: "uM"}
+    stock: {value: 10, unit: "µM"}
     range: "500 nM to 1000 nM final, purified protein"
     page: null            # purified protein, or expressed from pT7-lacI
   rnase-inhibitor:
@@ -80,7 +80,7 @@ process_steps:
     finals:
       laci: {value: 500, unit: "nM"}
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
-    total_volume: {value: 10, unit: "uL", note: "the step makes 9 uL; the analyte completes it to 10"}
+    total_volume: {value: 10, unit: "µL", note: "the step makes 9 uL; the analyte completes it to 10"}
     notes: >
       Both DNA constructs have confirmed files in nucleus-eng/DNA —
       detectors/pOpen-lacI.gb at 2877 bp and detectors/pOpen-pT7-lacO.gb at 2958 bp.

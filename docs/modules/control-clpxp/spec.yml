@@ -51,15 +51,15 @@ inputs:
     page: null
   clpx:
     title: "Purified ClpX"
-    stock: {value: 53.7, unit: "uM"}
+    stock: {value: 53.7, unit: "µM"}
     page: null            # or expressed from pT7-ClpX, control/pOpen-ClpX-CHis.gb
   clpp:
     title: "Purified ClpP"
-    stock: {value: 79.9, unit: "uM"}
+    stock: {value: 79.9, unit: "µM"}
     page: null            # or expressed from pT7-ClpP, control/pOpen-ClpP-CHis.gb
   degfp-ssra:
     title: "Purified deGFP-ssrA"
-    stock: {value: 41.2, unit: "uM"}
+    stock: {value: 41.2, unit: "µM"}
     page: null            # the tagged substrate; control/pOpen-deGFP-CHis-ssrA.gb
   rnase-inhibitor:
     title: "RNase inhibitor"
@@ -110,9 +110,9 @@ process_steps:
     # other component does, which is what makes it a different kind of entry.
     balance: water
     # OPTIONAL, under R39. This is an Implementation fact rather than a Module fact --
-    # the composition above is the same reaction at 10 uL or at 500 uL. It is kept
-    # because `check-step-totals.py` needs something to check the derivations against.
-    total_volume: {value: 10, unit: "uL"}
+    # the composition above is the same reaction at 10 uL or at 500 uL. It is kept as
+    # the scale this reaction was run at. No script compares it with anything.
+    total_volume: {value: 10, unit: "µL"}
     notes: >
       Sample 1 of Reaction Table 1 — the only column carrying both protease subunits.
       ClpX and ClpP are the two halves of one protease and deGFP-ssrA is its tagged

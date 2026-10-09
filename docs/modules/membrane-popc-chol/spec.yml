@@ -55,9 +55,9 @@ process_steps:
     # `molar_mass` and `stock` moved onto the reagents, by C72: neither varies
     # across the steps that use the lipid, and both are needed to recover a volume.
     finals:
-      popc: {value: 70, unit: "mol%"}
-      cholesterol: {value: 29.95, unit: "mol%"}
-      liss-rhod-pe: {value: 0.05, unit: "mol%"}
+      popc: {value: 700, unit: "mmol/mol"}
+      cholesterol: {value: 299.5, unit: "mmol/mol"}
+      liss-rhod-pe: {value: 0.5, unit: "mmol/mol"}
     notes: >
       The three percentages are mole fractions of the lipid film, not of the
       finished cell. The page gives stock concentrations and volumes beside them

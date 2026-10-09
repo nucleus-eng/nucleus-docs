@@ -39,7 +39,7 @@ inputs:
     page: null            # proteins and ribosomes
   bjai-dna:
     title: "pOpen-pT7-bjaI"
-    stock: {value: 200, unit: "ng/uL", approx: true}
+    stock: {value: 200, unit: "ng/µL", approx: true}
     page: null            # 2752 bp; detectors/quorum-sensing/pOpen-pT7-bjaI.gb
   sam:
     title: "SAM"
@@ -56,6 +56,9 @@ inputs:
   rnase-inhibitor:
     title: "RNase inhibitor"
     stock: {value: 40000, unit: "U/mL"}
+    page: null
+  water:
+    title: "Nuclease-free water"
     page: null
 
 # ALL FIVE PURE SOURCES ARE ONE KIT. NEB PURE E6800L and E6800S are the same kit
@@ -80,6 +83,7 @@ process_steps:
       - iv-coa
       - optiprep
       - rnase-inhibitor
+      - water
     produces:
       id: emitter-ivhsl
       title: "IV-HSL Emitter"
@@ -99,12 +103,12 @@ process_steps:
       optiprep: 0.05
       rnase-inhibitor: 0.05
     finals:
-      bjai-dna: {value: 10, unit: "ng/uL"}
+      bjai-dna: {value: 10, unit: "ng/µL"}
       sam: {value: 0.3, unit: "mM"}
       iv-coa: {value: 0.08, unit: "mM"}
       rnase-inhibitor: {value: 2000, unit: "U/mL"}
     balance: water
-    total_volume: {value: 30, unit: "uL"}
+    total_volume: {value: 30, unit: "µL"}
     notes: >
       SAM and IV-CoA are the two substrates BjaI acts on, added at 0.3 uM and
       0.08 uM. The page calls these equimolar; the two final concentrations differ by

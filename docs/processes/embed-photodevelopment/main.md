@@ -66,7 +66,7 @@ The four shared steps are above, and the mixing steps are here. The precursor re
 - [ ] Vortex at 2000 rpm for (3–5) min. Keep the solution dark until it is patterned.
 - [ ] Load the precursor solution into the patterning setup.
 - [ ] Expose the desired pattern using a 405 nm DLP projector for 15 s to 30 s, adjusting exposure time for monomer concentration, feature size and layer thickness.
-- [ ] For multimaterial photodevelopment, combine 1.6 wt% alginate with the precursor solution to enable a combined ionic and photo-crosslinking system, producing a patterned PEGDA frame around an alginate core.
+- [ ] For multimaterial photodevelopment, combine 16 mg/mL alginate with the precursor solution to enable a combined ionic and photo-crosslinking system, producing a patterned PEGDA frame around an alginate core.
 
 :::{attention} Two things were never established for this chemistry
 @Editor(chicago): the mold or patterning-chamber setup is not established, and neither is the ionic-crosslinking step for the alginate component of the multimaterial variant. The frame recipe and exposure times are on [Gel: Alginate](../../modules/gel-alginate/spec.md).
@@ -84,7 +84,7 @@ The four shared steps are above, and the mixing steps are here. The precursor re
 
 ## What PEGDA showed, and did not
 
-Crosslinks poly(ethylene glycol) diacrylate into spatially defined patterns using 405 nm light through a DLP projector. Precursor is 20 wt% PEGDA575, 0.3 wt% PEG4SH and 0.03 wt% LAP in PBS — see [Gel: PEGDA](../../modules/gel-pegda/spec.md). Patterning runs (15–30) s.
+Crosslinks poly(ethylene glycol) diacrylate into spatially defined patterns using 405 nm light through a DLP projector. Precursor is 200 mg/mL PEGDA575, 3 mg/mL PEG4SH and 0.3 mg/mL LAP in PBS — see [Gel: PEGDA](../../modules/gel-pegda/spec.md). Patterning runs (15–30) s.
 
 An alternative version combines PEGDA with alginate to produce a patterned frame around an alginate core, multiplexing PEGDA's patternability with alginate's mechanical and functional stability.
 
