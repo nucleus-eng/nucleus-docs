@@ -14,7 +14,7 @@ This protocol show you how to validate the functionality of the Reporter Module 
 ## Cytosol Reaction Setup
 
 :::{table} Reaction setup.
-:name: rxn-setup
+:name: reporter-degfp-cells-rxn-setup
 
 | **Component** | **Cells + deGFP DNA [µL]** | **Cells - deGFP DNA [µL]** |
 | --- | --- | --- |
@@ -72,7 +72,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 - [ ]  Mix glucose stock solution and water according to the following table:
 
 :::{table} Outer solution, starting recipe: 1140 mM glucose. A concentration is not an osmometer reading: this solution reads about 1275 mOsm/kg. Adjust it to your inner solution's reading, as the note below says.
-:name: os-prep
+:name: reporter-degfp-cells-os-prep
 
 | **Component** | **Cells + deGFP DNA [µL]** | **Cells - deGFP DNA [µL]** |
 | --- | --- | --- |
