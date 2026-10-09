@@ -5,7 +5,7 @@
 # formulation it had exactly one name, so no alias to resolve here.
 #
 # THE AGAROSE DISSOLVES INTO THIS AND BOTH POPULATIONS SIT IN IT, which is why the
-# osmolarity below sets the gel's. The polymer's own term is negligible at about 0.7
+# osmotic concentration below sets the gel's. The polymer's own term is negligible at about 0.7
 # percent by weight.
 
 module: outer-solution-tris-hepes

@@ -49,7 +49,7 @@ PATTERN = os.path.join(ROOT, "docs", "modules", "*", "spec.yml")
 # nm is nanometres; a case-insensitive match reported a 405 nm laser as a
 # concentration. So units are matched case-SENSITIVELY, with both spellings
 # named wherever the corpus uses both.
-UNITS = (r"(?:nM|nm|uM|mM|mOsm|M|ng/uL|ug/uL|mg/mL|U/mL|KU|%|x|X|uL|mL|L"
+UNITS = (r"(?:nM|nm|uM|mM|mOsm/L|mOsm/kg|mOsm|M|ng/uL|ug/uL|mg/mL|U/mL|KU|%|x|X|uL|mL|L"
          r"|degC|C|bp|kb|kDa|h|min|s)")
 # Digits with an optional decimal part, and NOTHING else. Thousands separators
 # are folded in normalize() before this runs, so they must not appear here:

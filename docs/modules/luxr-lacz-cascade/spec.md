@@ -240,7 +240,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 **Sensing population**
 
 1. **Assemble Cytosol** (mixing) — [S30 Lysate](../s30-lysate/spec.md) carrying `LuxR-PLA1`, which supplies both the LuxR receiver and the PLA1 payload, giving the [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md). S30 Lysate is supplied as a kit — premix, extract and amino acid mix — so it is reconstituted rather than built from a protocol. **No Process page covers this step.**
-2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — forms the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), the cytosol inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmolarity are matched at ≈ 920 mOsm.
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — forms the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), the cytosol inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmotic concentrations are matched at ≈ 920 mOsm.
 
 **Reporter population**
 

@@ -77,7 +77,7 @@ flowchart TD
 | Potassium L-glutamate | 578 mM | |
 | HEPES, pH 7.4 | 72 mM | |
 | Glucose | 300 mM | |
-| **Osmolarity** | **~920 mOsm** | the sum of the components above. Whether this figure was measured or calculated is not recorded |
+| **Osmotic concentration** | **~920 mOsm** | the sum of the components above. Whether this figure was measured or calculated is not recorded. @Editor: the components above add to 950 mOsm/L as written, and to about 1560 mOsm/L when each ion of the salts counts. Neither is 920. Is 920 a reading of a different solution, or is the recipe wrong? |
 :::
 
 ::::
@@ -86,7 +86,7 @@ flowchart TD
 
 Unlike the other three gels, ULGA is specified together with its solution rather than as an additive to someone else's. The salts and sugar above are the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) outer solution, which matches inner to outer at about 920 mOsm.
 
-**Osmolarity is additive.** The figure above is the sum of every component's contribution, the polymer included. At 1% (w/v) the ULGA itself adds on the order of 0.1 mOsm — negligible against 920, but not zero. The salts and sugar set it.
+**Osmolarity is additive.** The figure above is the sum of every component's contribution, the polymer included. At 1% (w/v) the ULGA itself adds on the order of 0.1 mOsm/L — negligible against 920, but not zero. The salts and sugar set it. @Editor: the components in the table above do not add to 920. See the note on that table's last row.
 
 A separate configuration replaces those three with 1200 mM glucose and 0.1 mM CaCl₂, used where the embedded cells carry [Base Cytosol](../base-cytosol/spec.md) rather than [S30 Lysate](../s30-lysate/spec.md). The 1200 mM figure is not arbitrary — above roughly 1200 mOsm, CPRG leakage from loaded liposomes drops sharply.
 
@@ -104,16 +104,16 @@ The gel point (8–17) °C and the melting point (≤ 50 °C) are the supplier's
 
 # Expected Behavior
 
-## Osmolarity
+## Osmotic concentration
 
-**This gel provides an osmolarity; it does not tolerate one.** The distinction matters when swapping a module in or out. An outer solution — and a gel is one, since the polymer dissolves into it — states a **range it provides**. What tolerates a range is the cell inside, and that tolerance is a property of its membrane rather than of this gel.
+**This gel provides an osmotic concentration; it does not tolerate one.** The distinction matters when swapping a module in or out. An outer solution — and a gel is one, since the polymer dissolves into it — states a **range it provides**. What tolerates a range is the cell inside, and that tolerance is a property of its membrane rather than of this gel.
 
 **These are target figures, not a tolerated range.** Each row says what the gel is made to provide for the cells beside it.
 
-| Configuration | Target osmolarity | Used with |
+| Configuration | Target osmotic concentration | Used with |
 | --- | --- | --- |
 | Standard, with the Cell: S30 Lysate, POPC outer solution | ~920 mOsm | [S30 Lysate](../s30-lysate/spec.md) cells |
-| High-glucose, 1200 mM glucose + 0.1 mM CaCl₂ | ~1200 mOsm | [Base Cytosol](../base-cytosol/spec.md) cells, where CPRG retention matters |
+| High-glucose, 1200 mM glucose + 0.1 mM CaCl₂ | ~1200 mOsm/L by recipe | [Base Cytosol](../base-cytosol/spec.md) cells, where CPRG retention matters |
 
 **The upper figure is a threshold, not a preference.** Above roughly 1200 mOsm, CPRG leakage from loaded liposomes falls sharply — so the high-glucose configuration is chosen for dye retention, not for the cells' sake. **Below it, retention is not established.** One embedding below this threshold did not keep its CPRG overnight, at the top of the working density range, where the on-off state should hold best.
 

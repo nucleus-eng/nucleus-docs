@@ -20,7 +20,7 @@ This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} One source, and it is a whiteboard
-@Editor(chicago): this formulation is recorded only on the aTc demo board. Confirm the figures, and record whether the osmolarity was measured or calculated.
+@Editor(chicago): this formulation is recorded only on the aTc demo board. Confirm the figures, and record whether the osmotic concentration was measured or calculated.
 :::
 
 # Reference Composition
@@ -72,15 +72,15 @@ flowchart TD
 
 # Expected Behavior
 
-The solution holds the cells embedded in it at its own osmolarity, so that figure sets the gel's. Glucose carries most of the osmotic load and HEPES-KOH fixes the pH at 7.6.
+The solution holds the cells embedded in it at its own osmotic concentration, so that figure sets the gel's. Glucose carries most of the osmotic load and HEPES-KOH fixes the pH at 7.6.
 
-:::{attention} The osmolarity is not recorded
-@Editor(chicago): no source gives this solution's osmolarity. The cells it holds are matched against about 1180 mOsm elsewhere in the aTc path, and whether this formulation reaches that is unverified.
+:::{attention} The osmotic concentration is not recorded
+@Editor(chicago): no source gives this solution's osmotic concentration. The cells it holds are matched against about 1180 mOsm elsewhere in the aTc path, and whether this formulation reaches that is unverified.
 :::
 
 # Requirements
 
-Requires that whatever is embedded in it tolerates pH 7.6 and its osmolarity.
+Requires that whatever is embedded in it tolerates pH 7.6 and its osmotic concentration.
 
 # Processes
 

@@ -53,10 +53,12 @@ Please read this section carefully. It contains important notes, resources, and 
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
 | OptiPrep | 100% (v/v) | 10% (v/v) | 50 |
-| Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm/L, this buffer's share by dilution | 212.5 |
+| Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm, this buffer's share by dilution | 212.5 |
 | Total | | | 500 |
 
 :::
+
+@Editor: 1 M Tris with 1.15 M HEPES adds to about 2150 mOsm/L as written. The page gives 2520. The 1071 is 0.425 of 2520, so it moves with it. Which is right?
 
 Every wash is into the outer solution the implementation uses. Its formulations are on [Assemble Outer Solution](../assemble-outer-solution/main.md).
 

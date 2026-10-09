@@ -79,7 +79,7 @@ flowchart TD
 
 :::::
 
-The alginate is dissolved in whatever outer solution the embedded populations already sit in. Osmolarity is additive, so the gel's is the sum of that solution's and the polymer's own — and at about 1% (w/v) the polymer's term is on the order of 0.1 mOsm, negligible against the roughly 1180 mOsm of the solution. The solution sets it.
+The alginate is dissolved in whatever outer solution the embedded populations already sit in. Osmolarity is additive, so the gel's is the sum of that solution's and the polymer's own — and at about 1% (w/v) the polymer's term is on the order of 0.1 mOsm, negligible against the roughly 1180 mOsm of the solution. The solution sets it. @Editor: 0.1 leaves out the sodium counterions. At 1% (w/v), 10 g/L of a 198 g/mol residue carries about 50 mM sodium. Counterions of a polyelectrolyte count for less than free ions, so the term is perhaps 10 to 25 mOsm/L. That is an estimate from general chemistry, not a recorded figure.
 
 A multimaterial variant mixes 16 mg/mL alginate into a PEGDA precursor, then crosslinks each component by its own route. The mixture is the ingredient; the product is not a blended gel but **a PEGDA frame around an alginate core** — two regions with a boundary between them, demonstrated with reasonable structural integrity. The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm. See [PEGDA Gel](../gel-pegda/spec.md).
 

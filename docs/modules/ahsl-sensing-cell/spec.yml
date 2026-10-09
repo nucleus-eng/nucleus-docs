@@ -87,7 +87,7 @@ process_steps:
       page: ../ahsl-sensing-cell/spec.md
     notes: >
       The cytosol is composed before encapsulation, not added to a closed
-      chassis. Inner and outer osmolarity are matched at about 920 mOsm.
+      chassis. Inner and outer osmotic concentrations are matched at about 920 mOsm.
 
 # The analyte reaches the Cell from outside after encapsulation, so 3OC6-HSL is
 # not part of this composition.

@@ -98,10 +98,12 @@ See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). The 0.1 mol%
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
 | OptiPrep | 100% (v/v) | 10% (v/v) | 50 |
-| Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm/L, this buffer's share by dilution | 212.5 |
+| Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm, this buffer's share by dilution | 212.5 |
 | Total | | | 500 |
 
 :::
+
+@Editor: 1 M Tris with 1.15 M HEPES adds to about 2150 mOsm/L as written. The page gives 2520. The 1071 is 0.425 of 2520, so it moves with it. Which is right?
 
 **The OptiPrep is a density agent, not a reagent of the readout.** It makes the loaded liposomes denser than the wash solution so that centrifugation pellets them.
 
@@ -127,7 +129,7 @@ Intact Substrate LUVs produce no signal. On lysis of a neighboring Sensing Cell,
 
 Requires an external β-galactosidase source in the surrounding matrix (e.g. [LacZ Reporter](../reporter-lacz/spec.md)), and a lysis trigger to breach the membrane (e.g. [PLA1 Lysis Module](../effector-pla1/spec.md)).
 
-Requires the wash solution to match the interior. The Tris-HEPES buffer contributes 1071 mOsm/L by dilution, but the whole inner solution, with its CPRG and OptiPrep, has no recorded reading. Measure it by [Osmometry Readout](../../processes/osmometry-readout/main.md), and match the wash to that reading: a wash below it swells the liposomes.
+Requires the wash solution to match the interior. The Tris-HEPES buffer contributes 1071 mOsm by dilution, but the whole inner solution, with its CPRG and OptiPrep, has no recorded reading. Measure it by [Osmometry Readout](../../processes/osmometry-readout/main.md), and match the wash to that reading: a wash below it swells the liposomes.
 
 :::{warning} Do not expose CPRG to UV light
 **CPRG photobleaches**, including under the 405 nm source used for photodevelopment. Any route that crosslinks a gel with UV while this Module is present will bleach the payload before it can be read. Thermal and ionic gelling involve no UV step and are compatible.

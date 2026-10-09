@@ -7,7 +7,7 @@
 # one became this file and the Tris-HEPES page kept the pH path.
 #
 # THE ONLY SOURCE IS A WHITEBOARD, src/20260929-demo-atc-chuck.md in
-# nucleus-eng/devstudio-readiness, node (M5). No osmolarity is recorded, which is why
+# nucleus-eng/devstudio-readiness, node (M5). No osmotic concentration is recorded, which is why
 # this file states none: the figure the cells are matched against lives on the steps
 # that embed them.
 
@@ -43,6 +43,9 @@ process_steps:
     # 400 mM glucose alone is not enough. With 1000 mM HEPES the total is 1400 mOsm, which
     # is more reasonable. So both are finals. Flagged on the page
     # rather than treated as closed.
+    # @Editor: 400 mM glucose and 1000 mM HEPES add to 1400 as written. HEPES-KOH at pH 7.6
+    # also brings roughly 560 mM potassium. That gives about 1970 mOsm/L, if 1 M is the final
+    # concentration and not the stock's. Which is right?
     finals:
       glucose: {value: 400, unit: "mM"}
       hepes-koh: {value: 1, unit: "M", note: "pH 7.6"}
@@ -50,7 +53,7 @@ process_steps:
 open:
   - id: the-osmolarity-is-not-recorded
     question: >
-      No source gives this solution's osmolarity. The aTc path matches its cells against
+      No source gives this solution's osmotic concentration. The aTc path matches its cells against
       about 1180 mOsm, which is the Tris-HEPES figure, and whether this formulation
-      reaches the same value is unverified. Until it is, no step can read an osmolarity
+      reaches the same value is unverified. Until it is, no step can read an osmotic concentration
       off this Module.

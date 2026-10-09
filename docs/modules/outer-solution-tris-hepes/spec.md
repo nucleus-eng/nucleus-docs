@@ -15,7 +15,7 @@ site:
 
 A member of [Outer Solution](../outer-solution/spec.md): a Tris-HEPES stock with an energy solution. It is the solution the pH path's cells sit in.
 
-**The agarose dissolves into this and both cell populations sit in it**, so this osmolarity sets the gel's.
+**The agarose dissolves into this and both cell populations sit in it**, so this osmotic concentration sets the gel's.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -68,7 +68,7 @@ flowchart TD
 | --- | --- | --- |
 | Tris-HEPES | 46.67% (v/v) in water | from a stock |
 | Energy solution | 1× in the finished reaction | a 2× sub-mix of ten components; see the Energy solution tab |
-| Osmolarity | ~1180 mOsm | a relation, and it sets the gel's |
+| Osmotic concentration | ~1180 mOsm | a relation, and it sets the gel's |
 :::
 
 **Osmolarity is additive and the polymer's own term is negligible**, about 0.7% by weight, so this value carries the gel.
@@ -111,7 +111,7 @@ The counter-ion on the magnesium salt is a free choice among innocuous ones. Ace
 
 # Requirements
 
-Requires an osmolarity of about 1180 mOsm, matched across the membranes of the cells embedded
+Requires an osmotic concentration of about 1180 mOsm, matched across the membranes of the cells embedded
 in the gel it forms.
 
 # Implementations

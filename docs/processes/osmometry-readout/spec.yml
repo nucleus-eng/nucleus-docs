@@ -41,11 +41,11 @@ signature:
   produces:
     type: measurement
     note: >
-      An osmolality, in mOsm/kg, which is what a vapor-pressure osmometer reads.
-      Osmolarity, mOsm/L, is the default for a stated figure, so the reading is
-      converted once, on this process's page, with the kilograms of water in a liter
-      of the solution read, taken from that solution's composition table. Where the
-      water cannot be worked out, the reading stays in mOsm/kg.
+      An osmolality, in mOsm/kg, which is what a vapor-pressure osmometer reads. The
+      reading is recorded in mOsm/kg. It can be converted to osmolarity, mOsm/L, with
+      the kilograms of water in a liter of the solution read, taken from that
+      solution's composition table. Where the water cannot be worked out, it is not
+      converted.
 
 open:
   - id: the-water-in-a-liter-needs-a-volume-for-each-solute

@@ -35,13 +35,13 @@ No page or DevNote here records which standard was read, at what value, or how o
 - [ ] Record the reading in mOsm/kg, with the solution it came from: an inner solution, an outer solution, or a reaction run in parallel with no membrane.
 - [ ] Read the inner and outer solutions on the same instrument in the same session. The window is a difference between two readings, so an offset between two instruments lands inside it.
 
-# From Osmolality to Osmolarity
+# Which Unit a Figure Takes
 
-The instrument reads **osmolality**: osmoles per kilogram of water, in mOsm/kg. **Osmolarity** is the default for a figure stated here: osmoles per liter of solution, in mOsm/L. A recipe yields osmolarity, and so does any figure computed from a composition. A reading yields osmolality. The two are different quantities, so always write the unit with the figure. The bare unit mOsm does not say which one it is.
+The instrument reads **osmolality**: osmoles per kilogram of water, in mOsm/kg. **Osmolarity** is osmoles per liter of solution, in mOsm/L. A recipe yields osmolarity, and so does any figure computed from a composition. A reading yields osmolality. The two are different quantities, so a figure takes the unit of where it came from, and the unit is written with it. A bare mOsm does not say which one it is, so it marks a figure whose origin is not recorded, and nothing else.
 
-**Convert once, here, when the reading is recorded.** Osmolarity is osmolality times the kilograms of water in one liter of the solution that was read.
+**A reading is recorded in mOsm/kg.** Converting it to osmolarity is optional: osmolarity is osmolality times the kilograms of water in one liter of the solution that was read.
 
-**Take the water from the solution's composition table, and cite that table's label beside the converted figure.** A liter of solution holds less than a kilogram of water, because its solutes take up some of the room. The table says how much of each solute a liter holds.
+**If you convert, take the water from the solution's composition table, and cite that table's label beside the converted figure.** A liter of solution holds less than a kilogram of water, because its solutes take up some of the room. The table says how much of each solute a liter holds.
 
 **Where the water cannot be worked out, keep the reading in mOsm/kg and do not convert it.** Do not assume that a liter holds a kilogram of water. That is a conversion too, made without saying so, and it is furthest from true in the strongest solutions.
 

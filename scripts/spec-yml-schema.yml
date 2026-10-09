@@ -594,7 +594,7 @@ $defs:
           `at-most 25` conflict. An imposition `at-least 20` against the same
           sensitivity does not.
           `within` COMPARES TWO READINGS, NOT A READING TO A THRESHOLD. The live case is
-          osmolarity across a vesicle's membrane: |(osm(lumen) - osm(outer)) - setpoint|
+          osmolality across a vesicle's membrane: |(osm(lumen) - osm(outer)) - setpoint|
           <= value. `value` is the tolerance, tau, and the class states it. `setpoint` is
           the designed offset, delta, and each member states its own. At-least and
           at-most cannot say this, because each holds one reading and a bound. The
@@ -602,11 +602,9 @@ $defs:
           one shape and the comparison does the relational work.
           THE TOLERANCE BELONGS TO THE VESICLE AND NOT TO THE BUFFER, which is why the
           sensitive thing is still an object and `to:` still names a plain condition id.
-          NO SOURCE USES THIS YET. The osmolarity sensitivity it exists for is not
-          written: 22 sources carry an osmolarity parameter and none declares what it is
-          sensitive to. An enum value with no user is a rule nobody has tested, and this
-          one is added ahead of its first use deliberately, so that the first author to
-          write that sensitivity has a shape to write it in.
+          ONE SOURCE USES IT: ../docs/modules/base-cell/spec.yml states the window a Base
+          Cell forms in, setpoint 125 and tolerance 25, in mOsm/kg. Six sources carry an
+          `osmolarity` parameter and none declares what it is sensitive to.
       unit:
         type: string
         description: >
@@ -868,6 +866,16 @@ $defs:
         description: Prose the step needs and no page states. 63 of 76 steps at `d611bda`.
       parameters:
         type: object
+        properties:
+          osmolarity:
+            type: string
+            pattern: '^~?[0-9]+(\.[0-9]+)? mOsm(/(L|kg))?$'
+            description: >
+              AN OSMOTIC CONCENTRATION CARRIES ITS UNIT. A figure from a recipe or a
+              calculation is an osmolarity and takes mOsm/L. A reading is an osmolality
+              and takes mOsm/kg. A bare mOsm has no denominator, and marks a figure whose
+              origin is not recorded. scripts/check-osmotic-units.py keeps a list of
+              them. Any other unit, or none, is refused.
         description: >
           Free parameters of this step — a choice the composer makes, where the
           page cannot state one value. 36 of 76 steps at `d611bda`.

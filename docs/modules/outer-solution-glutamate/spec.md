@@ -63,7 +63,7 @@ flowchart TD
 | Potassium glutamate | 578 mM | |
 | HEPES | 72 mM | pH 7.4 |
 | Glucose | 300 mM | |
-| Osmolarity | ~920 mOsm | a relation, matched to the SensorCell[3OC6-HSL ⟶ PLA1] inner solution |
+| Osmotic concentration | ~920 mOsm | a relation, matched to the SensorCell[3OC6-HSL ⟶ PLA1] inner solution. @Editor: 578 mM glutamate, 72 mM HEPES and 300 mM glucose add to 950 mOsm/L as written, and to about 1560 mOsm/L when each ion of the salts counts. Neither is 920. Is 920 a reading of a different solution, or is the recipe wrong? |
 :::
 
 ::::
@@ -73,7 +73,7 @@ flowchart TD
 
 # Requirements
 
-Requires an osmolarity of about 920 mOsm, matched to the cells suspended in it.
+Requires an osmotic concentration of about 920 mOsm, matched to the cells suspended in it.
 
 # Implementations
 

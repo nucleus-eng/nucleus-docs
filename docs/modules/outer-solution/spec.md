@@ -55,8 +55,8 @@ flowchart TD
 
 ::::{tab-item} Solutes
 
-:::{table} What each member mixes, and the osmolarity it reaches.
-| Member | Solutes | Osmolarity |
+:::{table} What each member mixes, and the osmotic concentration it reaches.
+| Member | Solutes | Osmotic concentration |
 | --- | --- | --- |
 | [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md) | potassium glutamate, HEPES, glucose | ~920 mOsm |
 | [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) | Tris-HEPES stock, energy solution | ~1180 mOsm |
@@ -69,7 +69,7 @@ flowchart TD
 
 # Expected Behavior
 
-A member is the aqueous phase around a synthetic cell, at the osmolarity listed in the Solutes tab. The osmolarity differs by member.
+A member is the aqueous phase around a synthetic cell, at the osmotic concentration listed in the Solutes tab. The osmotic concentration differs by member.
 
 # Requirements
 

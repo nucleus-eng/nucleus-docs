@@ -108,7 +108,8 @@ process_steps:
     notes: >
       The wash solution is the implementation's outer solution and this Module names
       no formulation, because the choice belongs to whatever the liposomes are put
-      into. The inner solution is 1071 mOsm and the wash has to match it.
+      into. The Tris-HEPES buffer contributes 1071 mOsm of it by dilution. The whole inner
+      solution has no recorded reading, and the wash has to match that.
 
 measured_by:
   - process:

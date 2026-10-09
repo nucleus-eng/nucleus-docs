@@ -103,7 +103,7 @@ The membrane is the [Membrane: POPC](../membrane-popc/spec.md) (100% POPC), opti
 
 :::
 
-Osmolarity of inner and outer solutions target ~920 mOsm.
+Osmotic concentrations of inner and outer solutions target ~920 mOsm.
 
 ::::
 
@@ -138,7 +138,7 @@ Requires a membrane to encapsulate the cytosol (e.g. [Membrane: POPC](../membran
 
 # Processes
 
-The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolarities by measuring with a vapor-pressure osmometer. 
+The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolalities by measuring with a vapor-pressure osmometer. 
 
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — sets this Cell in a thermally set gel
 

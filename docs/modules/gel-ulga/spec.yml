@@ -119,6 +119,9 @@ open:
       Is ~920 mOsm measured or calculated? The page records the figure and says
       which it is was never recorded. It is the sum of the stated components, so
       calculated is the likelier reading, and likelier is not a citation.
+      @Editor: the stated components add to 950 mOsm/L as written, and to about 1560
+      mOsm/L when each ion of the salts counts. They do not add to 920, so "the sum of
+      the stated components" does not hold, and calculated is not the likelier reading.
   - id: ulga-has-no-page
     question: >
       ULGA is an input with no module page, so no constituent page can state its
