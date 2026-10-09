@@ -95,7 +95,7 @@ process_steps:
       title: "Outer Solution: Tris-HEPES"
       page: ../outer-solution-tris-hepes/spec.md
     parameters:
-      osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
+      osmotic_concentration: "~1180 mOsm"
     notes: >
       The agarose dissolves into this and both populations sit in it.
       Osmolarity is additive; the polymer's own term is negligible at about

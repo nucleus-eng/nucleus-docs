@@ -135,7 +135,7 @@ process_steps:
       title: "Outer Solution: Glutamate-HEPES-Glucose"
       page: ../outer-solution-glutamate/spec.md
     parameters:
-      osmolarity: "~920 mOsm"     # measured or calculated is not recorded in any source
+      osmotic_concentration: "~920 mOsm"
     notes: >
       Matched to the SensorCell[3OC6-HSL ⟶ PLA1] inner solution at about 920 mOsm. 3OC6-HSL is
       excluded — it is the analyte, present in the induced condition only, and

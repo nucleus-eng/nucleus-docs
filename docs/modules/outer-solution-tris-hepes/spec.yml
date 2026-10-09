@@ -45,7 +45,7 @@ process_steps:
       energy-solution: {value: 1, unit: "fold"}
     parameters:
       # A PROPERTY OF THE SOLUTION, not a component of it, so it stays here.
-      osmolarity: "~1180 mOsm"
+      osmotic_concentration: "~1180 mOsm"
     notes: >
       Osmolarity is additive and this value sets the gel's. It is a relation rather than
       a property of any component, matched across the membranes of the cells embedded in

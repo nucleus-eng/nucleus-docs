@@ -40,7 +40,7 @@ process_steps:
     # where the sibling file writes "Working concentration", so the page does not say
     # whether 1 M is this solution or the buffer stock behind it.
     #
-    # 400 mM glucose alone is not enough. With 1000 mM HEPES the total is 1400 mOsm, which
+    # 400 mM glucose alone is not enough. With 1000 mM HEPES the total is 1400 mOsm/L, which
     # is more reasonable. So both are finals. Flagged on the page
     # rather than treated as closed.
     # @Editor: 400 mM glucose and 1000 mM HEPES add to 1400 as written. HEPES-KOH at pH 7.6

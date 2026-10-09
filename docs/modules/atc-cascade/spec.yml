@@ -85,7 +85,7 @@ process_steps:
       title: "Outer Solution: Glucose-HEPES"
       page: ../outer-solution-glucose-hepes/spec.md
     parameters:
-      osmolarity: "~1180 mOsm"    # measured or calculated is not recorded in any source
+      osmotic_concentration: "~1180 mOsm"
 
   - id: assemble-cytosol
     process:

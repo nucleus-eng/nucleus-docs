@@ -54,7 +54,7 @@ process_steps:
       glucose: {value: 300, unit: "mM"}
     parameters:
       # A PROPERTY OF THE SOLUTION, not a component of it.
-      osmolarity: "~920 mOsm"
+      osmotic_concentration: "~920 mOsm"
     notes: >
       The osmolarity is a relation, not a property of any one component: it has to
       match across the membranes of whatever is embedded. It stays here for that

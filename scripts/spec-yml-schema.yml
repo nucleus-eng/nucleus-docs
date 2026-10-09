@@ -867,7 +867,7 @@ $defs:
       parameters:
         type: object
         properties:
-          osmolarity:
+          osmotic_concentration:
             type: string
             pattern: '^~?[0-9]+(\.[0-9]+)? mOsm(/(L|kg))?$'
             description: >

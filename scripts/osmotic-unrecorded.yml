@@ -13,7 +13,6 @@ unrecorded:
   - {file: docs/modules/cell-base-cytosol-popc-chol/spec.md, figure: "2700", count: 1}
   - {file: docs/modules/cell-s30-popc/spec.md, figure: "920", count: 2}
   - {file: docs/modules/cell-s30-popc/spec.yml, figure: "920", count: 1}
-  - {file: docs/modules/gel-alginate/spec.md, figure: "0.1", count: 1}
   - {file: docs/modules/gel-alginate/spec.md, figure: "1180", count: 1}
   - {file: docs/modules/gel-peg-norbornene/spec.md, figure: "2520", count: 1}
   - {file: docs/modules/gel-peg-norbornene/spec.md, figure: "300", count: 1}
@@ -28,7 +27,6 @@ unrecorded:
   - {file: docs/modules/luxr-lacz-cascade/spec.yml, figure: "920", count: 2}
   - {file: docs/modules/outer-solution-glucose-hepes/spec.md, figure: "1180", count: 1}
   - {file: docs/modules/outer-solution-glucose-hepes/spec.yml, figure: "1180", count: 1}
-  - {file: docs/modules/outer-solution-glucose-hepes/spec.yml, figure: "1400", count: 1}
   - {file: docs/modules/outer-solution-glutamate/spec.md, figure: "920", count: 2}
   - {file: docs/modules/outer-solution-glutamate/spec.yml, figure: "920", count: 1}
   - {file: docs/modules/outer-solution-tris-hepes/spec.md, figure: "1180", count: 2}
