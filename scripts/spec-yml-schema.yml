@@ -286,6 +286,16 @@ properties:
       have nodes: `rna` and `dna` refine `nucleic-acid`, and `dsdna` and `ssdna` refine
       `dna`. A type with no node compares only to itself, which is why `linearDNA` is
       exact today and a topology axis would change that.
+      A TYPE WITH NO NODE IS A DECISION HERE AND NOT A GAP, settled 2026-10-09.
+      `linearDNA` compares only to itself, and that is correct until something
+      declares `requires: degrade[DNA]` or `degrade[NucleicAcid]`. Nothing does: the
+      corpus has exactly one `requires` and it is `transcribe`. Building `linear` and
+      `circular` as classes now would add two pages whose only job is to make the order
+      total, which is the thing a class page is no longer for -- the order is published
+      as data, so a page has to earn its keep as writing. THE TRIGGER IS A REQUIRER, not
+      a tidiness argument: the day a Module needs all DNA degraded rather than linear
+      DNA degraded, the node is load-bearing and gets built then, as a parent beside
+      `dsdna` in the way `lacz-dna` already refines two axes at once.
       A BRACKET TYPE RESOLVES TO A MODULE BY NORMALIZING BOTH SIDES -- lowercase, drop
       hyphens -- and NOT by transliterating CamelCase into kebab-case. The difference
       is not cosmetic. Transliteration turns `rNTP` into `r-ntp`, `pT7` into `p-t7` and
