@@ -254,6 +254,10 @@ project:
           hidden: true
         - file: ./docs/functions/report/main.md
           hidden: true
+        - file: ./docs/functions/transport/main.md
+          hidden: true
+        - file: ./docs/functions/hold/main.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/encapsulate/main.md

@@ -20,11 +20,11 @@ A Function page documents one operation that Modules perform, such as transcribi
 | Sense | A detector responds to its analyte with a signal. | [Sense](./sense/main.md) |
 | Report | A reporter gives a signal a reader can see. A color reporter does it by turning a substrate into a color, and that is covered on the same page. | [Report](./report/main.md) |
 | Lyse | Breaks a membrane and releases what it held. | [Lyse](./lyse/main.md) |
-| Transport | Moves cargo across a membrane through a pore: down a gradient, or against one with energy. | To be written |
+| Transport | Moves cargo across a membrane through a pore: down a gradient, or against one with energy. | [Transport](./transport/main.md) |
 | Emit | Releases a signal molecule outside the compartment. | [Emit](./emit/main.md) |
 | Degrade | Breaks down a molecule mixed with it: a protein, an RNA, a DNA, or pyrophosphate. | [Degrade](./degrade/main.md) |
 | Regenerate rNTPs | Turns a spent nucleotide back into a ribonucleoside triphosphate (rNTP), such as ADP into ATP. | [Regenerate rNTPs](./regenerate-rntps/main.md) |
-| Hold | Keeps what is inside a container in a fixed relation to what is outside it. | To be written |
+| Hold | Keeps what is inside a container in a fixed relation to what is outside it. | [Hold](./hold/main.md) |
 | Hydrolyze pyrophosphate | Splits pyrophosphate into two phosphates. | No page of its own: it is Degrade, typed to pyrophosphate. See [Degrade](./degrade/main.md). |
 | Hydrolyze ATP | Splits ATP into ADP and phosphate. | No page yet: no Module lists an enzyme that does it, so it has no attested member. Base Cytosol is only inferred to do it. |
 | Encapsulate | Closes a membrane around a solution, inside another solution. | No Function page: it is something you do. Its routes are processes, under [Encapsulation](../processes/encapsulate/main.md). |
