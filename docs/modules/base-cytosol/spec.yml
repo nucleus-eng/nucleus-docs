@@ -36,6 +36,24 @@ provides:
       Supplies T7 RNA polymerase, so it transcribes a template driven by a T7 promoter
       and no other.
     page: spec.md
+  - id: translate
+    why: >
+      Follows from membership of ../cytosol, whose page states the condition outright:
+      "A member transcribes the DNA added to it and translates the transcript into
+      protein." A Module that did not would not be a Cytosol.
+    page: spec.md
+  - id: hydrolyse[PPi]
+    why: >
+      Carries inorganic pyrophosphatase, enumerated in its own composition at
+      `spec.md:110` and `:239`, so the pyrophosphate that transcription and translation
+      release is split into two phosphates rather than accumulating.
+    page: spec.md
+  - id: regenerate[rNTP]
+    why: >
+      Carries creatine kinase with creatine phosphate, adenylate kinase and nucleoside
+      diphosphate kinase, so spent nucleotides are returned to their triphosphate form.
+      See ../../functions/regenerate-rntps/main.md.
+    page: spec.md
 
 process_steps:
   - id: assemble-base-cytosol
