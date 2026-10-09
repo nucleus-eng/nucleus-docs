@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Outer Solution](../outer-solution/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Solution](../solution/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A member of [Outer Solution](../outer-solution/spec.md): glucose buffered with HEPES-KOH. It is the solution the aTc path's synthetic cells sit in, and the phase its gel sets in.

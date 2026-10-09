@@ -13,7 +13,21 @@
 
 module: outer-solution-glucose-hepes
 title: "Outer Solution: Glucose-HEPES"
-refines: outer-solution
+refines: solution
+  # NOT ../outer-solution. OUTER IS A POSITION, NOT A KIND. It is where a solution
+  # sits in an encapsulation -- the one outside the membrane -- and a position is a
+  # role in an operation rather than a property of the thing filling it. The same
+  # solution is "outer" in one step and simply a solution in the next.
+  # ../outer-solution is still a Module you assemble, and 24 sources name it as an
+  # operand. BEING AN OPERAND IS NOT BEING A CLASS.
+
+# CARRIED FROM ../outer-solution, which this stopped refining. It was the ONLY thing
+# inherited from that parent, so dropping the parent without carrying this would have
+# silently removed the statement that an osmometer reads this solution.
+measured_by:
+  - process:
+      title: "Osmometry Readout"
+      page: ../../processes/osmometry-readout/main.md
 
 inputs:
   glucose:

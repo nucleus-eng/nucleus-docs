@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Container](../container/spec.md). Refined by [Cytosol](../cytosol/spec.md), [Energy: PPK](../energy-ppk/spec.md), [Outer Solution](../outer-solution/spec.md).
+**Position.** Refines [Container](../container/spec.md). Refined by [Cytosol](../cytosol/spec.md), [Energy: PPK](../energy-ppk/spec.md), [Outer Solution](../outer-solution/spec.md), [Outer Solution: Glucose-HEPES](../outer-solution-glucose-hepes/spec.md), [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md), [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md).
 <!-- /gen:position -->
 
 A class: a [Container](../container/spec.md) whose contents are dissolved in one phase.

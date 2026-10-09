@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Outer Solution](../outer-solution/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Solution](../solution/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
 A member of [Outer Solution](../outer-solution/spec.md): a Tris-HEPES stock with an energy solution. It is the solution the pH path's cells sit in.
