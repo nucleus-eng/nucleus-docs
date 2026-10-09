@@ -40,3 +40,11 @@ lyse:
 emit:
   class: emitter
   not_members: {}
+
+sense:
+  class: detector
+  not_members: {}
+
+report:
+  class: reporter
+  not_members: {}

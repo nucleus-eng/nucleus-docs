@@ -250,6 +250,10 @@ project:
           hidden: true
         - file: ./docs/functions/emit/main.md
           hidden: true
+        - file: ./docs/functions/sense/main.md
+          hidden: true
+        - file: ./docs/functions/report/main.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/encapsulate/main.md

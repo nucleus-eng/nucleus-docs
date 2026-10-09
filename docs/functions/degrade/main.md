@@ -23,7 +23,7 @@ Degrade takes the degrader and what it acts on, and returns the degrader unchang
 | **Tag-specific protease**, ClpXP | the tagged protein, and ATP, which becomes ADP and phosphate | the protein, in pieces | ClpX, ClpP, and every protein without the tag |
 | **Nonspecific protease** | any protein it reaches | the protein, in pieces | the protease |
 | **RNase** | RNA | the RNA, in pieces | the RNase |
-| **DNase** | DNA | the DNA, in pieces | the DNase |
+| **DNase** | DNA with a free end | the DNA, in pieces | the DNase, and circular DNA |
 | **Pyrophosphatase** | one pyrophosphate | two phosphates | the pyrophosphatase |
 
 **What this does to the number of dissolved particles.** Breaking one molecule into pieces raises the count, and so does each ATP that ClpXP turns into ADP and phosphate. For pyrophosphate the count is exact, as an estimate for an ideal solution: one PPi becomes two phosphates, so each split adds one. For the others it depends on how many pieces each molecule gives and how much ATP each costs, and no page records either. No run has measured any of it.
@@ -35,7 +35,7 @@ Degrade takes the degrader and what it acts on, and returns the degrader unchang
 | Protein | tag-specific | only proteins carrying the ssrA tag, using ATP | [Control: ClpXP](../../modules/control-clpxp/spec.md), a member of [Control](../../modules/control/spec.md) |
 | Protein | nonspecific | any protein | proteinase K, added in [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). The baseline protease activity of [S30 Lysate](../../modules/s30-lysate/spec.md) |
 | RNA | nonspecific | any RNA | the baseline RNase activity of S30 Lysate |
-| DNA | nonspecific | any DNA; a linear molecule is broken down from its ends, and a circular one is spared | the baseline DNase activity of S30 Lysate |
+| DNA | linear only | any DNA with a free end, which is what an exonuclease needs; a circular molecule is spared | the baseline DNase activity of S30 Lysate |
 | Pyrophosphate | specific | only pyrophosphate | inorganic pyrophosphatase (PPiase), in [Base Cytosol](../../modules/base-cytosol/spec.md) and the sensor cytosols built on it: [SensorCytosol[aTc ⟶ PLA1]](../../modules/atc-sensor-cytosol/spec.md), [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md), [SensorCytosol[theophylline ⟶ LacZ]](../../modules/theophylline-sensor-cytosol/spec.md) |
 
 Everything said of S30 Lysate here holds for [SensorCytosol[3OC6-HSL ⟶ PLA1]](../../modules/ahsl-sensor-cytosol/spec.md), which is built on it. Every [Protein](../../modules/protein/spec.md) is sensitive to a protease, and every [RNA](../../modules/rna/spec.md) to an RNase. Those pages state the sensitivity; this page states what imposes it.

@@ -17,8 +17,8 @@ A Function page documents one operation that Modules perform, such as transcribi
 | --- | --- | --- |
 | Transcribe | Makes RNA from a DNA template. | [Transcribe](./transcribe/main.md) |
 | Translate | Makes protein from an RNA. | [Translate](./translate/main.md) |
-| Sense | A detector responds to its analyte with a signal. | To be written |
-| Report | A reporter gives a signal a reader can see. A color reporter does it by turning a substrate into a color, and that is covered on the same page. | To be written |
+| Sense | A detector responds to its analyte with a signal. | [Sense](./sense/main.md) |
+| Report | A reporter gives a signal a reader can see. A color reporter does it by turning a substrate into a color, and that is covered on the same page. | [Report](./report/main.md) |
 | Lyse | Breaks a membrane and releases what it held. | [Lyse](./lyse/main.md) |
 | Transport | Moves cargo across a membrane through a pore: down a gradient, or against one with energy. | To be written |
 | Emit | Releases a signal molecule outside the compartment. | [Emit](./emit/main.md) |
