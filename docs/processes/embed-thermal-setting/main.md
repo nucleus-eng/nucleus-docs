@@ -28,7 +28,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-- Both grades gel well below standard agarose. The exact dissolution and cooling temperatures are not established for either; the steps below follow standard low-melting-agarose handling, not values confirmed for these preparations.
+- Both grades gel well below standard agarose. **LGA has bench figures:** dissolve the stock in an 85 to 95 °C heat block until it is clear, cool it to 65 °C, mix it with the energy solution and the buffer, cool that to 45 °C, then add the vesicles. **ULGA has none**, and the steps below follow standard low-melting-agarose handling for it rather than values confirmed for that preparation.
 - Dissolve ULGA to 1% (w/v) in the prepared outer solution. Combined 1:1 with the synthetic cell suspension, that gives 0.5% (w/v) in the set gel, which is the top of the 0.2% to 0.5% working range. Lower concentrations gel more slowly and give faster kinetics. Both readouts on this page use the same concentration.
 - The colorimetric demonstration ran at 1.5% (w/v), which gives 0.75% (w/v) in the set gel under the 1:1:2 combining ratio, above the working range. Use 1% for new work. The result measured at 1.5% is kept on the [Gel: ULGA](../../modules/gel-ulga/spec.md) spec, because it records the condition the experiment ran at.
 - This protocol has so far been tested with liquid bacterial culture and supernatant; testing with solid agar bacterial media has not yet been completed.
@@ -125,11 +125,7 @@ No manufacturer, part number, price or storage data is established for glucose, 
 
 @Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
 
-**The LGA row is unsourced too, and it is a different kind of gap from those three.** Glucose, potassium L-glutamate and HEPES need somebody to decide what Nucleus buys. The agarose has already been decided: its grade was read off the vendor datasheet, which is where (26–30) °C and ≤ 65 °C come from. **Only the catalog number went unrecorded.** It is not a substitute for the ULGA above — the gel points do not overlap and the melting points differ by 15 °C.
-
-**It is the gel the pH path actually runs on**, so the demo's only recorded gel is the one nobody can order.
-
-@Editor(chicago): name the low-gelling agarose — manufacturer, catalog number and pack size. See [Gel: LGA](../../modules/gel-lga/spec.md), which carries the grade figures and the same ask.
+**The LGA row is sourced, and the other three are not.** Glucose, potassium L-glutamate and HEPES still need somebody to decide what Nucleus buys. The agarose is **low-gelling agarose, Sigma-Aldrich `A9414-5G`**, and its grade figures, (26–30) °C and ≤ 65 °C, come from the vendor datasheet. It is not a substitute for the ULGA above — the gel points do not overlap and the melting points differ by 15 °C.
 :::
 
 The ULGA on this page is Sigma-Aldrich A5030, and the figures in the table above are its. @Editor(london): a second part number, A2576, was recorded here as interchangeable with it. The two are different products — A5030 is Type IX and melts at ≤ 50 °C; A2576 is Type IX-A, molecular biology grade, and melts at ≤ 62 °C. Was A2576 ever used on the bench, or is A5030 the only one?

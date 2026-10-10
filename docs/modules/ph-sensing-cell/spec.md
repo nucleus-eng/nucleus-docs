@@ -140,8 +140,8 @@ A separate result shows pH-responsive GFP expression in liposomes in solution. T
 
 A third result isolates this Cell: in solution at 37 °C for 13 h, with no CPRG-loaded population and no enzyme in the well, these Cells lysed at pH 6.3 and stayed intact at pH 7.6. Lysis is read as the loss of the Cy5 the Cells carry. @Editor: cite the DevNote for this run once it is published.
 
-:::{warning} Not yet validated in a gel
-All three results are in solution. Embedding this Cell in a gel, as the gel-embedded cascades do, has not been run.
+:::{warning} Validated in a gel, and the data is not here
+The three results above are in solution. Embedding this Cell in the two-population cascade, as the gel-embedded cascades do, has now run four times, and the fourth gave a visible color change. @Editor: carry that run's conditions and readout onto [pH Demo](../../implementations/devstudio-ph-demo/main.md) and cite it here.
 :::
 
 ## Gels

@@ -98,6 +98,8 @@ The energy solution is a 2× sub-mix of ten components, made up to 4000 µL. It 
 | Total | | 4000 | | |
 :::
 
+Vendor data where it is recorded: creatine phosphate Millipore Sigma `10621714001`, ATP Millipore Sigma `A6419`, amino acid mix Biotechrabbit `BR1401801` as the RTS Amino Acid Sampler. Spermidine `S2626`, magnesium acetate tetrahydrate `M5661`, potassium glutamate `G1501`, folinic acid `F7878`, GTP `G8877`, CTP `C1506` and UTP `U6750` are all Millipore Sigma.
+
 The counter-ion on the magnesium salt is a free choice among innocuous ones. Acetate is what the recipe names; glutamate is the salt the benches stock.
 
 :::{attention} The source for this recipe is not settled

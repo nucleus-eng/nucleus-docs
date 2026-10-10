@@ -74,7 +74,7 @@ S30 Lysate itself is supplied as a kit (premix + extract + amino acid mix) rathe
 
 :::
 
-S30 Lysate has a headroom of 3.75 µL of 25. It is the volume left once the premix, extract, amino acid mix and RNase inhibitor are added.
+S30 Lysate has a headroom of 3.75 µL of 25. It is the volume left once the premix, extract, amino acid mix and RNase inhibitor are added. **2.50 µL of that headroom is 3 M sucrose**, which assists the phase transfer. The remaining 1.25 µL is water to volume.
 
 # Expected Behavior
 

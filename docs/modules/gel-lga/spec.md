@@ -103,11 +103,7 @@ Requires that whatever is embedded survives the temperature at which the polymer
 
 **It is not a grade of the ULGA and cannot be ordered as one.** [Gel: ULGA](../gel-ulga/spec.md) is Type IX from marine algae, gel point (8–17) °C, melting ≤ 50 °C, EEO ≤ 0.05. **The gel points do not overlap and the melting points differ by 15 °C.** The two share an InChI key, so the polymer is the same and the grade is not.
 
-:::{attention} The catalog number was read and not recorded
-The comparison that established these two as different products was made **by part number, against the vendor datasheets** — and the numbers themselves were not captured. So this is a recovery, not a new enquiry: whoever ran that comparison had the SKU in hand.
-
-@Editor(chicago): record the manufacturer, catalog number and pack size for this agarose. **The pH Demo runs on this gel**, so until it is named, that demo's bill of materials cannot be ordered from.
-:::
+This agarose is **Sigma-Aldrich `A9414`**, supplied in a 5 g pack as `A9414-5G`. The comparison that established it and the ULGA as different products was made by part number against the vendor datasheets.
 
 # Credits
 

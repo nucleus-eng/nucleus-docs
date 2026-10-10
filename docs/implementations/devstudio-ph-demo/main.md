@@ -16,7 +16,7 @@ The pH Demo turns acidic pH into a color change in a gel. [SensorCell[pH ⟶ PLA
 
 LacZ is added only after the sensing step, because it works poorly at the acidic pH the sensor needs. What the gel embedding builds is [pH Cascade](../../modules/ph-cascade/spec.md).
 
-This page carries two formats of the same cascade. The gel demo is specified as intended and **has not run**. The solution-phase arm **has run**, and what it showed is under Observed Performance.
+This page carries two formats of the same cascade, and **both have run**. The solution-phase arm is under Observed Performance. The gel demo has run **four times**, and this page does not yet carry its data.
 
 # Modules
 
@@ -29,7 +29,7 @@ This page carries two formats of the same cascade. The gel demo is specified as 
 | Cytosol | [Base Cytosol](../../modules/base-cytosol/spec.md) | inside the synthetic cells |
 | Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-9-1/spec.md) | with 0.1 mol% Liss Rhod PE, on both the synthetic cells and the LUVs |
 | Substrate | [Substrate: CPRG](../../modules/substrate-cprg/spec.md) | 14.25 mg/mL inside the LUVs |
-| Gel | [Gel: LGA](../../modules/gel-lga/spec.md) | 0.7% (w/v) in the set gel |
+| Gel | [Gel: LGA](../../modules/gel-lga/spec.md) | 0.7% (w/v) in the set gel for the first three attempts, 0.35% for the fourth |
 | Reporter | [Reporter: LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) | gel only: in the basic buffer, added after the sensing step |
 | Substrate carrier | [Substrate LUV: CPRG](../../modules/substrate-cprg-luv/spec.md) | solution only: the payload population, carrying no Cy5 |
 | Outer solution | [Outer Solution: Tris-HEPES](../../modules/outer-solution-tris-hepes/spec.md) | solution only: both arms are built on it |
@@ -62,20 +62,24 @@ The two formats share their parts and differ in their operations, so this sectio
 | 4 | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) | the sensing cells |
 | 5 | [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) | both arms |
 
-:::{attention} One step of the solution arm is not fully documented
-@Editor(chicago): the sensing cells were made by an inverted-emulsion variant of phase transfer that no page carries — a different lipid prep, a layered interface and a slower, colder spin. The readout is [Microscopy Readout](../../processes/microscopy-readout/main.md).
+The sensing cells were made by an inverted-emulsion variant of phase transfer — a different lipid prep, a layered interface and a slower, colder spin. That variant is now written up as [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md), a second protocol under Phase Transfer. The readout is [Microscopy Readout](../../processes/microscopy-readout/main.md).
+
+**How the gel is brought to acidic pH.** The gel route takes the same buffer mix as the solution arm, at the same 12% (v/v), and names its two arms **pH 7.4 and pH 6.5**. The neutral arm is the Tris-HEPES stock alone. The acidic arm is the four-component mix under Protocol as run below, and its figures are identical to the solution arm's.
+
+:::{attention} The same mix is labeled with two different pH pairs
+The solution arm calls these arms pH 7.6 and pH 6.3. The gel route calls them pH 7.4 and pH 6.5, from the same stock and the same 1200 µL recipe. @Editor(chicago): one meter reading of an assembled well settles both pairs. See the note under Protocol as run.
 :::
 
+**The amounts in the gel.** The vesicles are 12% (v/v) of the set gel, 7.2 µL in 60 µL, which is the same fraction the solution arm gives them.
+
 :::{attention} What the demo does not yet specify
-- **How the gel is brought to acidic pH.** No step adds the acid. The solution-phase arm sets its acidic arm with a separate buffer mix of Tris-HEPES stock, 2 M HEPES and HCl, dosed at the same 12% (v/v) as the neutral arm — the table is under Protocol as run below. @Editor: record whether the gel route does the same, and at what pH.
-- **The amounts.** @Editor: record the synthetic cells and LUVs per volume of gel, and the LacZ Enzyme in the basic buffer.
+- **The split between the two populations.** The 12% (v/v) above is the sensing cells and the LUVs together. @Editor: record the two separately, and the LacZ Enzyme in the basic buffer.
 - **The color development conditions in the gel.** @Editor: confirm them. The one test on record ran in solution: pH 9.9 buffer, 37 °C, 3 h.
-- **The readout.** @Editor: record whether the color is read by eye, by plate reader or by imaging.
 :::
 
 # Protocol as run
 
-The gel demo has not run, so nothing is recorded for it here.
+The protocol below is the solution-phase arm. The gel attempts ran to a protocol that is not transcribed here yet.
 
 **The solution-phase arm.** Two vesicle populations co-incubated in one 60 µL well, at two pH values, for 13 h at 37 °C.
 
@@ -113,8 +117,12 @@ The acidic arm replaces the Tris-HEPES buffer stock row with a separate buffer m
 
 # Observed Performance
 
-:::{attention} The gel demo has not run
-@Editor: record the gel run here when it happens: its date, its conditions and what the readout showed.
+**The gel demo, read by eye across four attempts.** The first gel attempt gave an acid-responsive color change, and so did its control: CPRG-loaded LUVs with β-galactosidase and no PLA1-expressing cells colored as well. The only difference from the solution arm was the agarose, so gel embedding releases CPRG from the LUVs with no PLA1 present. Extruding the carriers through 400 nm membranes lowered the background only slightly, and cut the yield of both populations. The fourth attempt worked: a visible color difference in gel and in solution, after a larger starting volume, more washes, and the gel reduced from 0.7% to 0.35% (w/v).
+
+**The readout is the eye.** Attempts two and three are reported as not distinguishable by eye, and the fourth as a visible difference. No plate-reader or imaging figure is recorded for any of the four.
+
+:::{attention} The gel attempts have no data on this page
+@Editor: record each attempt's date, its conditions and its photograph or trace. The fourth attempt changed three things at once, so nothing here can attribute the fix to one of them.
 :::
 
 **The solution-phase arm, read by fluorescence microscopy at both pH values.**
