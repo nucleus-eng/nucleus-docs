@@ -83,7 +83,7 @@ open:
   - id: the-cell-demonstration-is-not-this-module
     question: >
       The Cell tab co-expresses aHly with a `pT7-eGFP` reporter in an
-      osmolarity-matched outer solution of 10 mM HEPES and 790 mM glucose, with no
+      outer solution of 10 mM HEPES and 790 mM glucose, its osmolarity set at encapsulation, with no
       energy molecules, so that leak quenches GFP production. That is an assay
       demonstrating functional pore insertion, not this Module's composition, and the
       reporter and outer solution are excluded above for that reason.

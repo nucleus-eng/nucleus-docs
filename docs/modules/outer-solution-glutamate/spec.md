@@ -73,7 +73,7 @@ flowchart TD
 
 # Requirements
 
-Requires an osmotic concentration of about 920 mOsm, matched to the cells suspended in it.
+Requires an osmotic concentration of about 920 mOsm, set at encapsulation to match the cells suspended in it.
 
 # Implementations
 

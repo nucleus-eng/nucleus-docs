@@ -49,6 +49,13 @@ provides:
       `spec.md:110` and `:239`, so the pyrophosphate that transcription and translation
       release is split into two phosphates rather than accumulating.
     page: spec.md
+  - id: hydrolyse[ATP]
+    basis: inferred
+    why: >
+      ATP is spent with no DNA present. No enzyme for it is enumerated, so this is
+      inferred: it is partly spontaneous and partly enzymes idling. It is counted so
+      that a verdict over the particle count does not leave out a term that raises it.
+    page: spec.md
   - id: regenerate[rNTP]
     why: >
       Carries creatine kinase with creatine phosphate, adenylate kinase and nucleoside

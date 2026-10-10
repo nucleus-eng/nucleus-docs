@@ -134,7 +134,7 @@ See [Membrane: POPC](../membrane-popc/spec.md) for details.
 
 :::
 
-Inner and outer osmotic concentrations are matched (~920 mOsm) to keep encapsulated synthetic cells stable.
+Inner and outer osmotic concentrations are set at encapsulation (~920 mOsm) to keep encapsulated synthetic cells stable.
 
 ::::
 

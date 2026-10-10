@@ -113,7 +113,7 @@ The recipe is not the energy solution of Sun et al., 2013, which is built on 3-P
 
 # Requirements
 
-Requires an osmotic concentration of about 1180 mOsm, matched across the membranes of the cells embedded
+Requires an osmotic concentration of about 1180 mOsm, set at encapsulation to match across the membranes of the cells embedded
 in the gel it forms.
 
 # Implementations

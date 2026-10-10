@@ -53,7 +53,7 @@ process_steps:
       two members share no solute and agree only on what the result must do.
 
 # ON THE CLASS, because what it measures is the relation every member shares: an
-# osmolarity matched to the inner solution of whatever the member suspends.
+# osmolarity set at encapsulation to match the inner solution of whatever the member suspends.
 measured_by:
   - process:
       title: "Osmometry Readout"
