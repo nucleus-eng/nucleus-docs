@@ -112,9 +112,7 @@ The Module runs in both [Base Cytosol](../base-cytosol/spec.md) and [S30 Lysate]
 Every reading on record was taken on the standard green channel — 485/20 excitation, 528/20 emission, 510 nm top mirror. mNeonGreen's own maxima are 506 nm and 517 nm, which sit bluer than that channel is centered for, so the protein is collected off its peak. It reads fine: the traces are usable, and comparisons between arms hold because every arm was read the same way. A filter set matched to 506/517 would collect more of the signal, and is what an absolute brightness figure for this Module should be taken through. @Editor(london): confirm whether a matched set is available, and re-read one reaction through it.
 :::
 
-:::{attention} No figure yet
-@Editor(london): the readings above have no plot on this page.
-:::
+No plot of this Module alone exists. Every reading on record is the unrepressed arm of a gated titration, where this Module is the reference and not the subject.
 
 ## Cells
 
