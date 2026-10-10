@@ -56,7 +56,7 @@ provides:
       inferred: it is partly spontaneous and partly enzymes idling. It is counted so
       that a verdict over the particle count does not leave out a term that raises it.
     page: spec.md
-  - id: regenerate[rNTP]
+  - id: regenerate[CP]
     why: >
       Carries creatine kinase with creatine phosphate, adenylate kinase and nucleoside
       diphosphate kinase, so spent nucleotides are returned to their triphosphate form.
