@@ -22,7 +22,7 @@ These are the same on both routes.
 
 | | Per amino acid added | Per protein chain |
 | --- | --- | --- |
-| **Consumes** | one amino acid; one ATP, which becomes AMP and pyrophosphate (PPi) when the amino acid is attached to its tRNA; two GTP, which become two GDP and two phosphates as the amino acid is delivered and the ribosome moves on | GTP to start the chain and to release it |
+| **Consumes** | one amino acid; one ATP, which becomes AMP and pyrophosphate (PPi) when the amino acid is attached to its tRNA; two GTP, which become two GDP and two phosphates as the amino acid is delivered and the ribosome moves on | three GTP, which become three GDP and three phosphates: one to start the chain, one to release it, and one when the ribosome is recycled afterwards |
 | **Produces** | one amino acid on the chain | one protein molecule |
 | **Unchanged** | the RNA, the ribosomes, the tRNA, and the enzymes and factors | |
 
@@ -30,7 +30,7 @@ Base Cytosol also carries methionyl-tRNA formyltransferase (MTF) and folinic aci
 
 **The AMP and GDP are turned back into ATP and GTP by other enzymes, where the cytosol carries them.** Base Cytosol carries creatine kinase with creatine phosphate, adenylate kinase (AK) and nucleoside diphosphate kinase (NDK). [Energy: PPK](../../modules/energy-ppk/spec.md) does the same from polyphosphate. That is a separate function, [Regenerate rNTPs](../regenerate-rntps/main.md), and it lets translation run for longer.
 
-**What this does to the number of dissolved particles, as an estimate.** Counted from the table above, as for an ideal solution, each amino acid added gives two more particles: the amino acid leaves the solution, the ATP becomes two molecules, and each of the two GTP becomes two. Where pyrophosphatase splits the PPi, each amino acid gives three. Turning AMP and GDP back into ATP and GTP does not take the count back down, because every route that does it here moves a phosphate from a carrier rather than taking one out of solution. See [Regenerate rNTPs](../regenerate-rntps/main.md). **So the phosphate released above stays in solution**: nothing here consumes it. Transcription by itself leaves the count unchanged, so in a cytosol that does both, most of the change comes from translation. No run has measured it.
+**What this does to the number of dissolved particles, as an estimate.** Counted from the table above, as for an ideal solution, each amino acid added gives two more particles: the amino acid leaves the solution, the ATP becomes two molecules, and each of the two GTP becomes two. Where pyrophosphatase splits the PPi, each amino acid gives three. Each chain adds four more: the protein is one new molecule, and each of the three GTP becomes two. Turning AMP and GDP back into ATP and GTP does not take the count back down, because every route that does it here moves a phosphate from a carrier rather than taking one out of solution. See [Regenerate rNTPs](../regenerate-rntps/main.md). **So the phosphate released above stays in solution**: nothing here consumes it. Transcription by itself leaves the count unchanged, so in a cytosol that does both, most of the change comes from translation. No run has measured it.
 
 # Routes
 

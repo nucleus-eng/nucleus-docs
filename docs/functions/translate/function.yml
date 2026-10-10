@@ -1,0 +1,15 @@
+# What the Translate page says, as data. See ../transcribe/function.yml for the field marks.
+signature_pin: a7c7a7a
+operations:
+  - operation: translate             # checked
+    refines: []                      # checked
+    type: >                          # docs
+      Takes a cytosol and an RNA, and returns the cytosol, changed, with a protein.
+    species:                         # docs, checked against the signature's change lines
+      per_residue: {aa: -1, ATP: -1, GTP: -2, AMP: 1, GDP: 2, PPi: 1, Pi: 2}
+      per_chain: {Protein: 1, GTP: -3, GDP: 3, Pi: 3}
+    routes:                          # docs: one per row of the page's Routes table
+      - id: purified-components
+        realized_by: [base-cytosol, atc-sensor-cytosol, ph-sensor-cytosol, theophylline-sensor-cytosol, emitter-ivhsl]
+      - id: cell-extract
+        realized_by: [s30-lysate, ahsl-sensor-cytosol]

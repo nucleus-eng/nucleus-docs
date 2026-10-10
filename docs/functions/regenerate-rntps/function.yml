@@ -1,0 +1,24 @@
+# What the Regenerate rNTPs page says, as data. See ../transcribe/function.yml for the field marks.
+# The signature gives this operation a net count and no species, so the species are the docs' own
+# and are checked only to sum to that net.
+signature_pin: a7c7a7a
+operations:
+  - operation: regenerate[rNTP]      # checked
+    refines: regenerate              # checked: implied by the stem
+    type: >                          # docs
+      Takes the regenerating enzymes and a spent nucleotide, and returns the enzymes with the nucleotide made usable again.
+    net:                             # checked: the signature's net particle change per event
+      per_event: 0
+    routes:
+      - id: creatine-phosphate
+        key: "regenerate[CP]"
+        refines: "regenerate[rNTP]"
+        species:                     # docs, checked to sum to the net
+          per_event: {CP: -1, ADP: -1, creatine: 1, ATP: 1}
+        realized_by: [base-cytosol, atc-sensor-cytosol, ph-sensor-cytosol, theophylline-sensor-cytosol]
+      - id: polyphosphate
+        key: "regenerate[polyP]"
+        refines: "regenerate[rNTP]"
+        species:                     # the chain stays one molecule, one phosphate shorter, so it adds nothing
+          per_event: {"AMP|ADP|GDP": -1, "ADP|ATP|GTP": 1}
+        realized_by: [energy-ppk]
