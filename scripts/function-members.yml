@@ -53,13 +53,17 @@ transport:
   class: pore
   not_members: {}
 
-# hold HAS 19 MEMBERS AND NO EXCLUSIONS, which was not the expected answer. The walk
+# hold HAS 20 MEMBERS AND NO EXCLUSIONS, which was not the expected answer. The walk
 # reaches every Module under ../docs/modules/container -- every membrane, every gel and
 # every solution, the cytosols among them -- because ../docs/modules/solution refines
 # container. That looked like a walk too wide to be useful. It is not: ../docs/modules/container/spec.md
 # defines a member as something that keeps its contents in a defined relation, and all
-# nineteen do. An exclusion here would say the list is inconvenient, which is the thing
+# twenty do. An exclusion here would say the list is inconvenient, which is the thing
 # an exclusion must never say.
+#
+# THE COUNT MOVES WITH THE GRAPH, and the member pass is what says so. Outer Solution
+# refines solution and nothing refines it, so the walk counts it as a member in its own
+# right beside the three formulations, and the page lists it beside them.
 hold:
   class: container
   not_members: {}
