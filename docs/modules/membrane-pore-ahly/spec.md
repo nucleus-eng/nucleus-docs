@@ -99,7 +99,7 @@ RNase inhibitor runs at 4000 U/mL here, double the 2000 U/mL of the Cell reactio
 
 ::::{tab-item} Cell
 
-To demonstrate functional pore insertion, co-express aHly with a reporter (`pT7-eGFP`) in synthetic cells using an osmolarity-matched buffer without energy molecules (10 mM HEPES, 790 mM glucose) as the outer solution. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production.
+To demonstrate functional pore insertion, co-express aHly with a reporter (`pT7-eGFP`) in synthetic cells using a buffer without energy molecules (10 mM HEPES, 790 mM glucose), its osmolarity set at encapsulation, as the outer solution. As aHly inserts into the membrane, small molecules required for transcription and translation leak out into the outer solution, quenching GFP production.
 
 Prepare master mix for 3 reactions to account for dead volume.
 

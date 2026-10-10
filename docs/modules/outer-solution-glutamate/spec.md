@@ -13,7 +13,7 @@ site:
 **Position.** Refines [Solution](../solution/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-A member of [Outer Solution](../outer-solution/spec.md): potassium glutamate, HEPES and glucose, matched to the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) inner solution.
+A member of [Outer Solution](../outer-solution/spec.md): potassium glutamate, HEPES and glucose, set at encapsulation to match the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) inner solution.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -63,7 +63,7 @@ flowchart TD
 | Potassium glutamate | 578 mM | |
 | HEPES | 72 mM | pH 7.4 |
 | Glucose | 300 mM | |
-| Osmotic concentration | ~920 mOsm | a relation, matched to the SensorCell[3OC6-HSL ⟶ PLA1] inner solution. @Editor: 578 mM glutamate, 72 mM HEPES and 300 mM glucose add to 950 mOsm/L as written, and to about 1560 mOsm/L when each ion of the salts counts. Neither is 920. Is 920 a reading of a different solution, or is the recipe wrong? |
+| Osmotic concentration | ~920 mOsm | a relation, set at encapsulation to match the SensorCell[3OC6-HSL ⟶ PLA1] inner solution. @Editor: 578 mM glutamate, 72 mM HEPES and 300 mM glucose add to 950 mOsm/L as written, and to about 1560 mOsm/L when each ion of the salts counts. Neither is 920. Is 920 a reading of a different solution, or is the recipe wrong? |
 :::
 
 ::::

@@ -62,5 +62,5 @@ process_steps:
       osmotic_concentration: "~1180 mOsm"
     notes: >
       Osmolarity is additive and this value sets the gel's. It is a relation rather than
-      a property of any component, matched across the membranes of the cells embedded in
-      it, which is why it stays even though the Tris-HEPES term is also stated.
+      a property of any component, set at encapsulation to match across the membranes of the cells
+      embedded in it, which is why it stays even though the Tris-HEPES term is also stated.
