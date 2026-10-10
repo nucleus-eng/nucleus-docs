@@ -53,6 +53,7 @@ Everything said of S30 Lysate here holds for [SensorCytosol[3OC6-HSL ⟶ PLA1]](
 - A proteinase K concentration, reaction volume or time. [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) flags all three as not yet established.
 - How fast S30 Lysate breaks down protein, RNA or DNA, or whether adding GamS, which blocks the breakdown of linear DNA in *E. coli* extracts, would let a linear template work in it.
 - A Module that breaks down RNA or DNA by design.
+- A breakdown of free ATP into ADP and phosphate. No Module lists an enzyme that does it, so it has no attested member. [Base Cytosol](../../modules/base-cytosol/spec.md) is only inferred to do it: ATP is spent there with no DNA present, partly spontaneously and partly by enzymes idling.
 - Whether S30 Lysate, or NEB PURExpress as used in [Emitter: IV-HSL](../../modules/emitter-ivhsl/spec.md), carries a pyrophosphatase. Neither composition is stated.
 - Whether Base Cytosol, which is assembled from purified components, has any of this activity. Its page accepts a linear template, which suggests it breaks down little or no DNA.
 - A measured osmotic change from degradation, in any compartment.

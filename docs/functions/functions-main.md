@@ -25,8 +25,6 @@ A Function page documents one operation that Modules perform, such as transcribi
 | Degrade | Breaks down a molecule mixed with it: a protein, an RNA, a DNA, or pyrophosphate. | [Degrade](./degrade/main.md) |
 | Regenerate rNTPs | Turns a spent nucleotide back into a ribonucleoside triphosphate (rNTP), such as ADP into ATP. | [Regenerate rNTPs](./regenerate-rntps/main.md) |
 | Hold | Keeps what is inside a container in a fixed relation to what is outside it. | [Hold](./hold/main.md) |
-| Hydrolyze pyrophosphate | Splits pyrophosphate into two phosphates. | No page of its own: it is Degrade, typed to pyrophosphate. See [Degrade](./degrade/main.md). |
-| Hydrolyze ATP | Splits ATP into ADP and phosphate. | No page yet: no Module lists an enzyme that does it, so it has no attested member. Base Cytosol is only inferred to do it. |
 | Encapsulate | Closes a membrane around a solution, inside another solution. | No Function page: it is something you do. Its routes are processes, under [Encapsulation](../processes/encapsulate/main.md). |
 | Observe | Reads something and yields an observation. | No Function page: it is something you do. See [Assay](../processes/assay/main.md). |
 | Anneal | Joins two complementary DNA strands into a duplex. | No Function page: it is a bench step, [Anneal pH-Responsive Trigger Duplex](../processes/anneal-ph-trigger-duplex/main.md). Inside a cell the duplex comes apart instead, and that is Sense. |

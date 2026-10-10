@@ -24,14 +24,17 @@ is not.
 HOW THE COVERAGE PASS COUNTS. Every rule prints what it left out.
   - A declaration starts at column 0 inside the block's code fence. It is either
     `name : profile` on one line, or `name` alone with `: profile` indented on the
-    next line. hydrolyse[PPi] and hydrolyse[ATP] use the second form, so a parser
-    that reads only the first undercounts by exactly those two.
+    next line. degrade[PPi] and degrade[ATP] use the second form, as hydrolyse[PPi] and
+    hydrolyse[ATP] did before they were renamed, so a parser that reads only the first
+    undercounts by exactly those two when the count is taken at the 20ac28e names.
   - `name = ...` is a composite and is not counted: express.
   - A declaration marked "— undeclared" is not counted: translocate. The marker is
     prose, so the next edit to that line can drop it, and a test pins the rule.
   - A name whose stem is another declared name is a refinement and is not counted:
     report_color and passive_transport by their parts, degrade[ssrA] by its bracket.
-    hydrolyse[PPi] is counted, because no bare `hydrolyse` is declared.
+    At 20ac28e hydrolyse[PPi] was counted, because no bare `hydrolyse` was declared. From
+    a7c7a7a the two are degrade[PPi] and degrade[ATP], so rule 4 excludes them and the
+    count falls by two.
   IT COMPARES COUNTS, NOT NAMES. The hub names each function in this site's own words
   and does not quote the signature, so there is nothing to match a name against. One
   function dropped and another added in the same edit would pass. That gap is known.
