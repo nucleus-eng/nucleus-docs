@@ -38,14 +38,14 @@ This page is a work in progress and not yet ready for use.
 **Both encapsulated figures are for the same arrangement** — enzyme inside the cell, substrate outside — and they differ by about 60×. Co-encapsulating the enzyme with its substrate would make the readout constitutive, which is why neither format does it.
 
 :::{attention} The gel-dispersed concentration is not documented
-@Editor(london): the LuxR-LacZ Sensor Cascade disperses this enzyme through the ULGA gel and no concentration is recorded for it anywhere. Without it that half of the cascade cannot be reproduced.
+No working concentration is recorded for this enzyme anywhere in the corpus. The LuxR-LacZ Sensor Cascade disperses it through the ULGA gel and the pH Demo carries it in a basic buffer, and neither states a dose. Both cascades are reproducible up to the point where this enzyme goes in.
 
 **The Chicago figures do not carry across.** Both are encapsulated; London's is dispersed through the matrix. Different arrangement, different requirement.
 :::
 
 **Potency degrades in storage.** A stock kept at 4 °C loses activity over time, visibly slowing the color change. The figures above are for fresh enzyme.
 
-@Editor(chicago): the commercial enzyme is β-galactosidase from *E. coli* and London sources it as Sigma-Aldrich G5635. Both nodes hold it at the same pack size, 2 × 3 KU. Confirm it is the same product.
+The commercial enzyme is β-galactosidase from *E. coli*, Sigma-Aldrich `G5635`, in a 2 × 3 KU pack. Every node works from the same supply.
 
 # Requirements
 

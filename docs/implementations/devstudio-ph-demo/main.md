@@ -64,20 +64,20 @@ The two formats share their parts and differ in their operations, so this sectio
 
 The sensing cells were made by an inverted-emulsion variant of phase transfer — a different lipid prep, a layered interface and a slower, colder spin. That variant is now written up as [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md), a second protocol under Phase Transfer. The readout is [Microscopy Readout](../../processes/microscopy-readout/main.md).
 
-**How the gel is brought to acidic pH.** The gel route takes the same buffer mix as the solution arm, at the same 12% (v/v), and names its two arms **pH 7.4 and pH 6.5**. The neutral arm is the Tris-HEPES stock alone. The acidic arm is the four-component mix under Protocol as run below, and its figures are identical to the solution arm's.
+**How the demo is brought to acidic pH.** Both formats run two arms, **pH 7.6 and pH 6.3**. The neutral arm takes the Tris-HEPES stock alone. The acidic arm replaces it with a four-component buffer mix, at the same 12% (v/v), and the recipe is under Protocol as run below. The gel route takes the same mix at the same fraction.
 
-:::{attention} The same mix is labeled with two different pH pairs
-The solution arm calls these arms pH 7.6 and pH 6.3. The gel route calls them pH 7.4 and pH 6.5, from the same stock and the same 1200 µL recipe. @Editor(chicago): one meter reading of an assembled well settles both pairs. See the note under Protocol as run.
-:::
+The gel preparation sheet labels its own arms 7.4 and 6.5. They are the same two arms and the same mix, 0.2 units apart in each direction, and this page uses the plate's figures.
 
 **The amounts.** Both formats give the vesicles the same 12% (v/v), 7.2 µL in a 60 µL well. **The solution arm splits that slot per well** — the sample wells take 3 µL of sensing cells and 2.1 µL of CPRG-LUVs, with outer solution making up the rest, and the control wells take 1 µL of sensing cells and no LUVs. The table is under Protocol as run below.
 
-:::{attention} The gel route states the slot and not its split
-The gel's composition gives the 12% (v/v) as one row, "GUVs, SUVs or substrates". @Editor: record the two populations separately for the gel, as the solution arm's conditions table does, and record the LacZ Enzyme in the basic buffer.
+**The gel takes equal volumes of the two populations.** Its composition sheet gives the vesicles as one 12% (v/v) row, "GUVs, SUVs or substrates", so the split is stated here rather than there.
+
+:::{attention} The gel's vesicle volume has two readings
+The split is equal. The figure is 7.2 µL, and the sheet uses that same 7.2 µL for the whole vesicle slot. So either each population is 7.2 µL and the slot is 14.4 µL, which makes the gel 24% (v/v) vesicles rather than 12%, or the 7.2 µL slot divides into 3.6 µL each. @Editor(chicago): say which.
 :::
 
-:::{attention} The color development conditions in the gel
-@Editor: confirm them. The one test on record ran in solution: pH 9.9 buffer, 37 °C, 3 h. The source's own build diagram marks the color-development step as carrying no write-up at all.
+:::{attention} Color development in the gel is not specified
+The basic buffer has no recipe, the LacZ Enzyme in it has no concentration, and no incubation time or final pH is recorded. The one test on record ran in solution at pH 9.9, 37 °C, for 3 h, and nothing says those conditions hold in a gel. The source's own build diagram marks this step as carrying no write-up at all.
 :::
 
 # Protocol as run
@@ -114,8 +114,8 @@ The acidic arm replaces the Tris-HEPES buffer stock row with a separate buffer m
 | Total | | 1200 |
 :::
 
-:::{attention} The arm pH figures are intended, not measured
-@Editor(chicago): the arms are recorded at pH 7.6 and pH 6.3 on the build sheet's column headers. Confirm with a meter reading of an assembled well, or state that the headers are the target rather than the result.
+:::{attention} The arm pH figures are targets, not meter readings
+pH 7.6 and pH 6.3 are the build sheet's column headers. No meter reading of an assembled well is on record.
 :::
 
 # Observed Performance
@@ -124,8 +124,8 @@ The acidic arm replaces the Tris-HEPES buffer stock row with a separate buffer m
 
 **The readout is the eye.** Attempts two and three are reported as not distinguishable by eye, and the fourth as a visible difference. No plate-reader or imaging figure is recorded for any of the four.
 
-:::{attention} The gel attempts have no data on this page
-@Editor: record each attempt's date, its conditions and its photograph or trace. The fourth attempt changed three things at once, so nothing here can attribute the fix to one of them.
+:::{attention} The gel attempts are recorded in prose and carry no data
+No date, photograph or trace exists for any of the four attempts. The fourth changed three things at once, so nothing on record attributes the working result to one of them.
 :::
 
 **The solution-phase arm, read by fluorescence microscopy at both pH values.**

@@ -75,7 +75,7 @@ Every wash is into the outer solution the implementation uses. Its formulations 
 :::
 
 :::{attention} The lipid film is only partly specified
-The source records a film procedure for the GUV population, which carries this same membrane at the same mol%: three lipid stocks combined in a 20 mL glass vial, chloroform removed under a gentle argon flow, then 30 min in a vacuum desiccator. **It does not say the LUV film is made the same way.** @Editor: confirm that it is, or record this route's own vessel and drying.
+The source records a film procedure for the GUV population, which carries this same membrane at the same mol%: three lipid stocks combined in a 20 mL glass vial, chloroform removed under a gentle argon flow, then 30 min in a vacuum desiccator. **It does not say the LUV film is made the same way**, and no source records this route's own vessel or drying.
 :::
 
 ::::::
@@ -125,7 +125,7 @@ Work inside a fume hood when handling chloroform.
 - [ ] Sonicate for 10 min.
 
 :::{attention} Sonication is only partly specified
-Ten minutes is as run. The source bath-sonicates the GUV population's lipid dispersion, so a bath is the likely instrument here too, and it does not say so. @Editor: confirm bath against probe, and record the power and the temperature.
+Ten minutes is as run. The source bath-sonicates the GUV population's lipid dispersion, so a bath is the likely instrument here too. No source states the instrument, the power or the temperature for this step.
 :::
 
 ## Freeze and Thaw
@@ -140,7 +140,7 @@ Ten minutes is as run. The source bath-sonicates the GUV population's lipid disp
 - [ ] Add 200 µL outer solution to each 50 µL portion of liposomes. One batch is 12 portions.
 
 :::{attention} The batch does not add up
-@Editor: one hydration makes 500 µL, but 12 portions of 50 µL need 600 µL. Record whether a batch is more than one hydration, and where the suspension is split into portions.
+One hydration makes 500 µL and 12 portions of 50 µL need 600 µL. The source carries both figures and does not reconcile them, so a batch is either more than one hydration or one of the two numbers is wrong.
 :::
 
 - [ ] Centrifuge at 10,000 × g for (10–20) min.

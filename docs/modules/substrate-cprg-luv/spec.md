@@ -118,11 +118,11 @@ Intact Substrate LUVs produce no signal. On lysis of a neighboring Sensing Cell,
 **The off state does not survive an overnight hold.** Left for about 18 h, these liposomes stop holding their CPRG, with no lysis trigger. Finish a readout inside a working day, or expect background color at the start of the next one.
 
 :::{attention} Size and lamellarity are not measured
-@Editor: no diameter, size distribution or lamellarity has been measured for this route, so the name LUV rests on the preparation and not on a measurement. Record at least a diameter distribution before this page is published.
+No diameter, size distribution or lamellarity has been measured for this route, so the name LUV rests on the preparation and not on a measurement. No such measurement exists to recover.
 :::
 
 :::{attention} Free substrate after the last wash is not measured
-@Editor: ten centrifugation washes are specified, and no absorbance reading of the final supernatant is on record. Residual free CPRG is what produces background color before any lysis, so this is the quality-control figure that decides whether the off state holds.
+Ten centrifugation washes are specified and no absorbance reading of the final supernatant is on record. Residual free CPRG is what produces background color before any lysis, so this is the quality-control number the gel attempts most needed. It was not taken.
 :::
 
 # Requirements

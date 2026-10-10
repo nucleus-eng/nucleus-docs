@@ -67,7 +67,7 @@ flowchart TD
 :::
 
 :::{attention} `T7pro-PLA1-T7term` is not in `nucleus-eng/DNA`
-@Editor: `T7pro-PLA1-T7term` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Once one lands there and its identity is confirmed against the construct name, add its length and file to the table above.
+@Editor(bnext): `T7pro-PLA1-T7term` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Once one lands there and its identity is confirmed against the construct name, add its length and file to the table above.
 :::
 
 **The enzyme has two coding sequences.** Every construct carrying PLA1 carries 963 bp of it, and all of them encode the same protein — but not all from the same DNA. Chicago's two gated constructs, `pT7-tetO-PLA1` and `pT7-toehold9-PLA1`, are identical across the whole coding sequence. London's `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of residues, which makes it a separate codon optimization of the same enzyme.

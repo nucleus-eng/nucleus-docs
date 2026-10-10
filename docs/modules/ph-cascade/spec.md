@@ -228,8 +228,12 @@ The three Modules above have run in partial combinations, never together in one 
 
 - **pH-sensing, bulk gel, no liposomes:** embedding the pH-sensing reaction directly in 0.7% low-gelling agarose gives a real but modest color change — "slight pink," not as bright as expected. The concentration-dependent absorbance data is on the [SensorCell[pH ⟶ PLA1]](../ph-sensing-cell/spec.md#ph-sensing-cell-expected-behavior) spec.
 
-:::{attention} Source needed for the agarose result
-@Editor(chicago): cite the document that reports the "slight pink" color in 0.7% low-gelling agarose.
+:::{figure} ./color-change-with-lacz.png
+:label: fig-ph-cascade-slight-pink
+:align: center
+:width: 60%
+
+The color change with LacZ Enzyme added. The left well is the yellow CPRG substrate and the right well carries the purple CPR product. The product well reads as a slight pink rather than a full purple, which is the modest change the paragraph above describes. From the pH sensor DevNote.
 :::
 
 :::{attention} Premature lysis has two independent causes

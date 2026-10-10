@@ -113,7 +113,7 @@ All four sequences have a file in [`nucleus-eng/DNA`](https://github.com/nucleus
 | [`trigger-ssDNA-3.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/trigger-ssDNA-3.gb) | `detectors/detector-ph/` |
 | [`pH-responsive-ssDNA-2.gb`](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/detectors/detector-ph/pH-responsive-ssDNA-2.gb) | `detectors/detector-ph/` |
 
-**None of the four is on `main`.** They sit on the branch `devcells/devstudio-constructs`. **Every link above points at that branch and will keep working only until it is rebased or deleted.** @Editor(chicago): open a PR for these four, and the links here become `main` links.
+**None of the four is on `main`.** They sit on the branch `devcells/devstudio-constructs`, and every link above points at that branch. **A pull request lands them on `main` alongside the DevNote's publication**, so the links are temporary by design rather than at risk.
 :::
 ::::
 

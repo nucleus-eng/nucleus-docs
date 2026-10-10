@@ -138,7 +138,7 @@ A two-liposome system — separate pH-sensing and CPRG-loaded populations in sol
 
 A separate result shows pH-responsive GFP expression in liposomes in solution. That one used gramicidin A, which was left out of the colorimetric demonstration because it ruptured CPRG-loaded liposomes and produced nonspecific color.
 
-A third result isolates this Cell: in solution at 37 °C for 13 h, with no CPRG-loaded population and no enzyme in the well, these Cells lysed at pH 6.3 and stayed intact at pH 7.6. Lysis is read as the loss of the Cy5 the Cells carry. @Editor: cite the DevNote for this run once it is published.
+A third result isolates this Cell: in solution at 37 °C for 13 h, with no CPRG-loaded population and no enzyme in the well, these Cells lysed at pH 6.3 and stayed intact at pH 7.6. Lysis is read as the loss of the Cy5 the Cells carry. The DevNote for this run is in draft and this page will cite it once it publishes.
 
 :::{warning} Validated in a gel, and the data is not here
 The three results above are in solution. Embedding this Cell in the two-population cascade, as the gel-embedded cascades do, has now run four times, and the fourth gave a visible color change. @Editor: carry that run's conditions and readout onto [pH Demo](../../implementations/devstudio-ph-demo/main.md) and cite it here.
@@ -159,9 +159,7 @@ The Cy5 channel shows no lumen signal at pH 6.5, consistent with PLA1 expression
 
 See the [pH-Sensing Module](../detector-ph/spec.md) spec for details.
 
-:::{attention} Backing DevNote is a template stub
-@Editor(chicago): no completed DevNote exists for the pH-Sensing Module. Confirm with the Chicago Node.
-:::
+Two DevNotes back this Module and both predate the DevStudio pipeline: [Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1), which gives the design values, and [Toehold switch-enabled translation regulation verified in Nucleus Cytosol](https://devnotes.nucleus.engineering/articles/chicago-m1-5-2), which verifies the switch. Both are cited on [Detector: pH-Sensing](../detector-ph/spec.md). The Cell in the two-population cascade is a separate DevNote, still in draft.
 
 # Requirements
 
