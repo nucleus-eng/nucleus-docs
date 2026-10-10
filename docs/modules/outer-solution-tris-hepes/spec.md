@@ -102,9 +102,9 @@ Vendor data where it is recorded: creatine phosphate Millipore Sigma `1062171400
 
 The counter-ion on the magnesium salt is a free choice among innocuous ones. Acetate is what the recipe names; glutamate is the salt the benches stock.
 
-:::{attention} The source for this recipe is not settled
-@Editor(chicago): the recipe is recorded as following Sun et al. 2013, DOI 10.3791/50762. That paper's energy solution is built on 3-PGA, not creatine phosphate, and carries tRNA, CoA, NAD and cAMP, which this mix does not. Name the paper this mix follows, or confirm it is in-house.
-:::
+The energy solution follows the original PURE formulation of [Shimizu et al., 2001](https://doi.org/10.1038/90802), with adjustments from the OnePot PURE method of [Lavickova and Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427). The same ten components are made in bulk by [Make Small Molecule Mix](../../processes/make-small-molecule-mix/main.md).
+
+The recipe is not the energy solution of Sun et al., 2013, which is built on 3-PGA and carries tRNA, CoA, NAD and cAMP, none of which this mix has. That paper is not a source for it.
 
 ::::
 

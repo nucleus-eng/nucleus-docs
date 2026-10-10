@@ -77,7 +77,7 @@ The split is equal. The figure is 7.2 µL, and the sheet uses that same 7.2 µL 
 :::
 
 :::{attention} Color development in the gel is only partly recorded
-The enzyme is external and goes in after sensing, and the demo's gel attempts were read by eye. **No source records the basic buffer's composition or pH, the volume added, the incubation time or the temperature.** The one LacZ activity on record, 16 U/mL, comes from a separate study of CPRG-LUVs in gels and from a run that is not identified. The source's own build diagram marks this step as carrying no write-up at all. See [Color Development](../../processes/color-development/main.md).
+The enzyme is external and goes in after sensing, in the basic buffer, which is the neutralizing buffer. The docs record that buffer at pH 9.9 for the two-liposome solution assay, and the demo's gel attempts were read by eye. **No source records the buffer's composition for the gel, the volume added, the incubation time or the temperature.** The one LacZ activity on record, 16 U/mL, comes from a separate study of CPRG-LUVs in gels and from a run that is not identified. See [Color Development](../../processes/color-development/main.md).
 :::
 
 # Protocol as run
@@ -120,12 +120,12 @@ pH 7.6 and pH 6.3 are the build sheet's column headers. No meter reading of an a
 
 # Observed Performance
 
-**The gel demo, read by eye across four attempts.** The first gel attempt gave an acid-responsive color change, and so did its control: CPRG-loaded LUVs with β-galactosidase and no PLA1-expressing cells colored as well. The only difference from the solution arm was the agarose, so gel embedding releases CPRG from the LUVs with no PLA1 present. Extruding the carriers through 400 nm membranes lowered the background only slightly, and cut the yield of both populations. The fourth attempt worked: a visible color difference in gel and in solution, after a larger starting volume, more washes, and the gel reduced from 0.7% to 0.35% (w/v).
+**The gel demo, read by eye across four attempts.** The first gel attempt gave an acid-responsive color change, and so did its control: CPRG-loaded LUVs with β-galactosidase and no PLA1-expressing cells colored as well. The only difference from the solution arm was the agarose, so gel embedding releases CPRG from the LUVs with no PLA1 present. The first two attempts used LUVs. From the third, the carriers were SUVs, made from the LUV preparation by extruding 13 times through a 400 nm membrane, which lowered the background only slightly and cut the yield of both populations. The fourth attempt worked: a visible color difference in gel and in solution, after a larger starting volume, more washes, and the gel reduced from 0.7% to 0.35% (w/v).
 
 **The readout is the eye.** Attempts two and three are reported as not distinguishable by eye, and the fourth as a visible difference. No plate-reader or imaging figure is recorded for any of the four.
 
 :::{attention} The gel attempts are recorded in prose and carry no data
-No date, photograph or trace exists for any of the four attempts. The fourth changed three things at once, so nothing on record attributes the working result to one of them.
+No date, photograph or trace exists for any of the four attempts. The fourth, which used SUVs, changed three things at once and quantifies only one of them, the gel concentration. The starting volume and the number of washes are not stated, so nothing on record attributes the working result to one of the three.
 :::
 
 **The solution-phase arm, read by fluorescence microscopy at both pH values.**

@@ -31,10 +31,10 @@ Color development is a separate step from [Colorimetric Readout](../colorimetric
 3. Incubate until the color is stable.
 4. Read the result. See [Colorimetric Readout](../colorimetric-readout/main.md).
 
-:::{attention} Three things are recorded and five are not
-**Recorded.** The order, as above: the enzyme is external and goes in after sensing. The pH Demo's own gel attempts were read by eye. In a separate study of CPRG-loaded LUVs in gels, color was read on a plate reader as absorbance at 570 nm for the purple product CPR against 412 nm for the yellow substrate CPRG, reported as the CPR to CPRG ratio, and one graph from that study states a LacZ activity of **16 U/mL**. **The run that graph comes from is not identified**, so the figure is a lead and not a protocol value.
+The basic buffer is the neutralizing buffer. Its pH is recorded as **9.9** for the two-liposome solution assay, where the color is read after 16 h under acidic conditions. In a bulk gel with no liposomes, the pH-sensing reaction plus β-galactosidase and neutralization buffer is incubated 5 h at 37 °C and read at 570 nm, with the buffer setting the target pH. The pH Demo's own gel attempts were read by eye.
 
-**Not recorded anywhere.** The basic buffer's composition, its pH, the volume added, the incubation time and the incubation temperature. No source for the pH Demo states them, and the pH Demo's build diagram marks this step as having no write-up.
+:::{attention} What the pH Demo's gel step does not record
+The basic buffer's composition, the volume added, the incubation time and the temperature are not recorded for the demo's gel. In a separate study of CPRG-LUVs in gels, color was read on a plate reader as absorbance at 570 nm for the purple product CPR against 412 nm for the yellow substrate CPRG, reported as the CPR to CPRG ratio, and one graph states a LacZ activity of **16 U/mL**. The run that graph comes from is not identified, so the figure is a lead and not a protocol value.
 
 The four steps above give the shape of the process, not a protocol. The LacZ concentration also gates [LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md).
 :::
