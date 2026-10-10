@@ -74,8 +74,10 @@ Every wash is into the outer solution the implementation uses. Its formulations 
 
 :::
 
-:::{attention} The lipid film is only partly specified
-The source records a film procedure for the GUV population, which carries this same membrane at the same mol%: three lipid stocks combined in a 20 mL glass vial, chloroform removed under a gentle argon flow, then 30 min in a vacuum desiccator. **It does not say the LUV film is made the same way**, and no source records this route's own vessel or drying.
+:::{attention} This route does not record how its film is made
+The source gives the composition of the film and not the vessel or the drying. **The best-supported reading is the film procedure in the same source's GUV route**: three lipid stocks combined in a 20 mL glass vial, the chloroform removed under a gentle argon flow, then 30 min in a vacuum desiccator. Two facts support it. Both routes draw on the same three stocks, 25 mg/mL POPC, 50 mg/mL cholesterol and 1 mg/mL Liss Rhod PE. And the scales match: this film is 2.00 µmol of lipid and the GUV film is 1.50 µmol at its 3 mL scale or 2.50 µmol at its 5 mL scale.
+
+**This is an inference and not a record.** The extrusion route's film, in a 25 mL round-bottom flask on a rotary evaporator, is a poorer match: it holds about 7.6 µmol of lipid, carries no fluorescent label, and comes from a different preparation.
 :::
 
 ::::::
@@ -124,8 +126,8 @@ Work inside a fume hood when handling chloroform.
 - [ ] Vortex until the film is no longer visible on the bottom of the vessel.
 - [ ] Sonicate for 10 min.
 
-:::{attention} Sonication is only partly specified
-Ten minutes is as run. The source bath-sonicates the GUV population's lipid dispersion, so a bath is the likely instrument here too. No source states the instrument, the power or the temperature for this step.
+:::{attention} Sonication: 10 min is recorded, and nothing else is
+Ten minutes is as run. **No source records the instrument, the power or the temperature for this step.** The only liposome sonication on record that names its instrument is the GUV route in this same source, a bath sonicator for 20 min, so a bath is the likely instrument here. That is one data point. The probe sonicator in [Lyse Bacteria by Sonication](../make-protein/lysis-sonication/main.md) is for cell lysis.
 :::
 
 ## Freeze and Thaw
@@ -140,7 +142,9 @@ Ten minutes is as run. The source bath-sonicates the GUV population's lipid disp
 - [ ] Add 200 µL outer solution to each 50 µL portion of liposomes. One batch is 12 portions.
 
 :::{attention} The batch does not add up
-One hydration makes 500 µL and 12 portions of 50 µL need 600 µL. The source carries both figures and does not reconcile them, so a batch is either more than one hydration or one of the two numbers is wrong.
+**The source gives two figures and the record does not choose between them.** The composition is consistent at 500 µL: the inner solution table totals 500 µL exactly, 237.5 plus 50 plus 212.5, and the membrane note reads "2 µmol in 0.5 mL at 4 mM". The protocol is consistent at 12 portions: it combines 12 tubes of 50 µL, which is 600 µL, and it pools six tubes into each of two tubes, which is 12 again. Each half agrees with itself.
+
+500 µL cannot fill 12 portions of 50 µL. The two readings are a portion of about 41.7 µL with 50 µL as the nominal figure, or a batch that is more than one hydration. Nothing in the source says which. @Editor(chicago): say which.
 :::
 
 - [ ] Centrifuge at 10,000 × g for (10–20) min.

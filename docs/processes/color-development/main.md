@@ -31,8 +31,12 @@ Color development is a separate step from [Colorimetric Readout](../colorimetric
 3. Incubate until the color is stable.
 4. Read the result. See [Colorimetric Readout](../colorimetric-readout/main.md).
 
-:::{attention} No figures are recorded for any of these steps
-No buffer composition, enzyme concentration, incubation time or target pH after neutralization is documented. The four steps above give the shape of the process, not a protocol. @Editor: supply them, starting with the gel-dispersed LacZ concentration, which [LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) also needs.
+:::{attention} Three things are recorded and five are not
+**Recorded.** The order, as above: the enzyme is external and goes in after sensing. The pH Demo's own gel attempts were read by eye. In a separate study of CPRG-loaded LUVs in gels, color was read on a plate reader as absorbance at 570 nm for the purple product CPR against 412 nm for the yellow substrate CPRG, reported as the CPR to CPRG ratio, and one graph from that study states a LacZ activity of **16 U/mL**. **The run that graph comes from is not identified**, so the figure is a lead and not a protocol value.
+
+**Not recorded anywhere.** The basic buffer's composition, its pH, the volume added, the incubation time and the incubation temperature. No source for the pH Demo states them, and the pH Demo's build diagram marks this step as having no write-up.
+
+The four steps above give the shape of the process, not a protocol. The LacZ concentration also gates [LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md).
 :::
 
 # Requirements

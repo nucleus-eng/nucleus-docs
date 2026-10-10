@@ -76,8 +76,8 @@ The gel preparation sheet labels its own arms 7.4 and 6.5. They are the same two
 The split is equal. The figure is 7.2 µL, and the sheet uses that same 7.2 µL for the whole vesicle slot. So either each population is 7.2 µL and the slot is 14.4 µL, which makes the gel 24% (v/v) vesicles rather than 12%, or the 7.2 µL slot divides into 3.6 µL each. @Editor(chicago): say which.
 :::
 
-:::{attention} Color development in the gel is not specified
-The basic buffer has no recipe, the LacZ Enzyme in it has no concentration, and no incubation time or final pH is recorded. The one test on record ran in solution at pH 9.9, 37 °C, for 3 h, and nothing says those conditions hold in a gel. The source's own build diagram marks this step as carrying no write-up at all.
+:::{attention} Color development in the gel is only partly recorded
+The enzyme is external and goes in after sensing, and the demo's gel attempts were read by eye. **No source records the basic buffer's composition or pH, the volume added, the incubation time or the temperature.** The one LacZ activity on record, 16 U/mL, comes from a separate study of CPRG-LUVs in gels and from a run that is not identified. The source's own build diagram marks this step as carrying no write-up at all. See [Color Development](../../processes/color-development/main.md).
 :::
 
 # Protocol as run
