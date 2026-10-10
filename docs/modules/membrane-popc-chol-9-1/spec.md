@@ -13,7 +13,7 @@ site:
 **Position.** Refines [Membrane](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-This membrane is a 90:10 POPC:cholesterol phospholipid bilayer. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md), which uses more cholesterol, and [Membrane: POPC](../membrane-popc/spec.md), which uses none. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
+This membrane is a 90:10 POPC:cholesterol phospholipid bilayer. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md), which uses more cholesterol, and [Membrane: POPC](../membrane-popc/spec.md), which uses none. Optionally, this membrane can include 1 mmol/mol fluorescently tagged lipids to facilitate visualization.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -22,9 +22,9 @@ This page is a work in progress and not yet ready for use.
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 pie showData
-    title Membrane: POPC/Chol (9:1) Composition (mol %)
-    "POPC" : 90
-    "Cholesterol" : 10
+    title Membrane: POPC/Chol (9:1) Composition (mmol/mol)
+    "POPC" : 900
+    "Cholesterol" : 100
 ```
 
 # Reference Composition
@@ -94,12 +94,12 @@ flowchart TD
 
 # Expected Behavior
 
-This membrane closes around an aqueous interior and holds it apart from the solution outside. It takes both routes above, so one formulation serves a micron-scale synthetic cell and a sub-micron SUV alike, and a payload meets the same bilayer in either. Cholesterol at 10 mol% stiffens the bilayer against the 7:3 formulation. The optional Liss Rhod PE is a label and not a functional component; two populations carrying it cannot be told apart in the Rhodamine channel.
+This membrane closes around an aqueous interior and holds it apart from the solution outside. It takes both routes above, so one formulation serves a micron-scale synthetic cell and a sub-micron SUV alike, and a payload meets the same bilayer in either. Cholesterol at 100 mmol/mol stiffens the bilayer against the 7:3 formulation. The optional Liss Rhod PE is a label and not a functional component; two populations carrying it cannot be told apart in the Rhodamine channel.
 
 # Implementations
 
 - [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its membrane — around the synthetic cells.
-- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its membrane — with 0.1 mol% Liss Rhod PE, on both the synthetic cells and the LUVs.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its membrane — with 1 mmol/mol Liss Rhod PE, on both the synthetic cells and the LUVs.
 
 # Processes
 

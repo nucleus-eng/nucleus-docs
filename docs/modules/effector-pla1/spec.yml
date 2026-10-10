@@ -56,7 +56,7 @@ process_steps:
       id: effector-pla1
       title: "Lysis: PLA1"
       page: ../effector-pla1/spec.md
-    # SCALE-FREE, 2026-10-05. "5% of the reaction" was already a volume fraction and
+    # SCALE-FREE, 2026-10-05. "5 % of the reaction" was already a volume fraction and
     # is now written as one. It is the shape R38 generalized from.
     finals:
       pla1-dna: {value: 14, unit: "ng/µL"}
@@ -129,7 +129,7 @@ open:
       not to add a length or file entry until one lands there and its identity is
       confirmed against the construct name. Two coding sequences exist for this enzyme:
       The aTc- and pH-gated constructs agree with each other across the whole CDS, and
-      `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of
+      `LuxR-PLA1` agrees with them at 77.6 % of nucleotides and 100 % of
       residues. Which of the two this construct carries is not stated.
   - id: an-encapsulation-aid-marked-optional
     question: >

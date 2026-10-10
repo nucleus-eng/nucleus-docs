@@ -70,7 +70,7 @@ Depiction of connexin and its relationship to a connexon: (left) Connexins are m
 
 :::::
 
-**Identity.** [UniProt P08050](https://www.uniprot.org/uniprotkb/P08050/entry) — Gap junction alpha-1 protein, *Rattus norvegicus*, 382 residues. **Rat, not human.** `pOpen-Cx43.gb` labels its 1146 bp insert *Cx43 (rat)*, and the translation is 100.0% identical to this entry against 97.6% for human and 99.7% for mouse — all three are 382 aa, so only the alignment separates them.
+**Identity.** [UniProt P08050](https://www.uniprot.org/uniprotkb/P08050/entry) — Gap junction alpha-1 protein, *Rattus norvegicus*, 382 residues. **Rat, not human.** `pOpen-Cx43.gb` labels its 1146 bp insert *Cx43 (rat)*, and the translation is 100.0 % identical to this entry against 97.6 % for human and 99.7 % for mouse — all three are 382 aa, so only the alignment separates them.
 
 # Reference Composition
 
@@ -95,8 +95,8 @@ The reaction this Module is assembled as. Volumes in µL.
 
 | Component | Stock | Final | Volume (µL) |
 | --- | --- | --- | --- |
-| NEB PURExpress Solution A | | 40% (v/v) | 8 |
-| NEB PURExpress Solution B | | 30% (v/v) | 6 |
+| NEB PURExpress Solution A | | 40 % (v/v) | 8 |
+| NEB PURExpress Solution B | | 30 % (v/v) | 6 |
 | `pOpen-pT7-Cx43-eGFP` | 100 ng/µL | 10 ng/µL | 2 |
 | RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 1 |
 | OptiPrep | | | 0.67 |

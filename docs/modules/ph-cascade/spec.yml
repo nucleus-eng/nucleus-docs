@@ -51,7 +51,7 @@ inputs:
     title: "LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
   lga-powder:
-    title: "LGA powder, 0.7%"
+    title: "LGA powder, 7 mg/mL"
     # REPOINTED TO ../gel-lga/spec.md, which is the correct gel for this path.
     #
     # THIS REVERSES AN EARLIER CONFIRMATION, THREE DAYS OLD, AND THE OLD ONE IS KEPT
@@ -59,7 +59,7 @@ inputs:
     # with the developers against a standing claim that it might not be. That is a
     # stronger kind of evidence than what reverses it.
     #
-    # WHAT REVERSES IT. ../ph-sensing-cell/spec.md:147 says "0.7% low-gelling
+    # WHAT REVERSES IT. ../ph-sensing-cell/spec.md:147 says "7 mg/mL low-gelling
     # agarose", and the DevStudio board of 2026-09-23 has the pH presenter saying
     # "I used the low gelling" with ultra-low raised separately as a possible
     # substitution. THE TWO ARE DIFFERENT PRODUCTS AND NOT TWO WORDS FOR ONE:
@@ -99,7 +99,7 @@ process_steps:
     notes: >
       The agarose dissolves into this and both populations sit in it.
       Osmolarity is additive; the polymer's own term is negligible at about
-      0.7% (w/v), so this value sets the gel's.
+      7 mg/mL, so this value sets the gel's.
 
   - id: anneal-trigger-duplex
     process:
@@ -199,7 +199,7 @@ process_steps:
       title: "pH Cascade"
       page: ../ph-cascade/spec.md
     # SCALE-FREE, 2026-10-05. The agarose concentration in the set gel. It agrees with
-    # ../gel-lga/spec.yml, which writes "0.7% (w/v) in the pH path".
+    # ../gel-lga/spec.yml, which writes "7 mg/mL in the pH path".
     finals:
       lga-powder: {value: 7, unit: "mg/mL", note: "sets thermally; no crosslinker"}
     notes: >
@@ -225,7 +225,7 @@ process_steps:
     # MOVED HERE 2026-10-03 from ../reporter-lacz-enzyme/spec.md's range table, which
     # keyed its rows by cascade, and then from `embed-agarose` when the enzyme moved to
     # this step. The enzyme's own page states it at spec.md:34, for the row
-    # "Encapsulated in a GUV, in 0.7% agarose", which is this condition.
+    # "Encapsulated in a GUV, in 7 mg/mL agarose", which is this condition.
     finals:
       reporter-lacz-enzyme: {value: 156, unit: "U/mL"}
     notes: >

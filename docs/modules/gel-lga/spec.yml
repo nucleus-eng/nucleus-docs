@@ -46,7 +46,7 @@ inputs:
         sense: at-least
         value: 200
         unit: "g/cm²"
-        note: "1% gel"
+        note: "10 mg/mL gel"
   outer-solution:
     title: "Outer solution"
     page: ../outer-solution/spec.md
@@ -64,7 +64,7 @@ process_steps:
       title: "Gel: LGA"
       page: ../gel-lga/spec.md
     # SCALE-FREE, 2026-10-05, under R36/R37/R38.
-    # AGREES WITH ../ph-cascade/spec.yml, which writes the same 0.7% (w/v) on its own
+    # AGREES WITH ../ph-cascade/spec.yml, which writes the same 7 mg/mL on its own
     # embed step. The three temperatures below are PROPERTIES OF THE MATERIAL, not
     # components of the gel, so they stay.
     finals:
@@ -88,8 +88,8 @@ open:
       different gels with different properties. The two grades share an InChI
       key, MJQHZNBUODTQTK-WKGBVCLCSA-N, so the polymer is the same and the grades are
       not. This one congeals at 26-30 °C and melts at ≤65 °C, EEO ≤0.10, gel strength
-      ≥200 g/cm² at 1%, molecular-biology grade, from red algae. ../gel-ulga/spec.yml's
-      grade is Type IX from marine algae, gel point 8-17 °C, melting ≤50 °C at 0.8%,
+      ≥200 g/cm² at 10 mg/mL, molecular-biology grade, from red algae. ../gel-ulga/spec.yml's
+      grade is Type IX from marine algae, gel point 8-17 °C, melting ≤50 °C at 8 mg/mL,
       EEO ≤0.05. THE GEL POINTS DO NOT OVERLAP AND THE MELTING POINTS DIFFER BY 15 °C,
       which is what makes them non-interchangeable rather than two names for one powder.
       THE CATALOG NUMBERS ARE STILL NOT RECORDED HERE. The confirmation was made by part

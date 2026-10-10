@@ -301,7 +301,7 @@ Fit sigmoid curves to the data to extract kinetic parameters: maximum velocity (
 - **Metrics extracted:**
   - **Vmax** (`Velocity Max`): Maximum rate of fluorescence increase (slope at inflection point)
   - **Lag time**: Time to reach the exponential phase
-  - **Steady-state**: Final fluorescence level and time to reach 95% of asymptote
+  - **Steady-state**: Final fluorescence level and time to reach 95 % of asymptote
   - **Drift**: Rate of signal decay or increase after steady-state
   - **R²**: Goodness of fit
 

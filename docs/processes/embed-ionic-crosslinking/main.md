@@ -6,7 +6,7 @@ status: draft
 
 # Overview
 
-Alginate gel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~1% (w/v) sodium alginate gel, ionically crosslinked with 200 mM CaCl₂. The gel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific. It is fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeds into [Embedding: Photodevelopment](../embed-photodevelopment/main.md).
+Alginate gel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~10 mg/mL sodium alginate gel, ionically crosslinked with 200 mM CaCl₂. The gel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific. It is fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeds into [Embedding: Photodevelopment](../embed-photodevelopment/main.md).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -44,7 +44,7 @@ This process does not itself encode anything — the Sensing Cells and CPRG-load
 
 | Component | Target Concentration |
 | --- | --- |
-| Sodium alginate | ~1% (w/v) |
+| Sodium alginate | ~10 mg/mL |
 | Calcium chloride (CaCl₂) crosslinker | 200 mM |
 | CPRG (in SUVs) | see [Encapsulation: Extrusion](../encapsulate-suv/main.md) |
 | LacZ (commercial, free in gel) | not documented — see Reagent gaps below |
@@ -56,7 +56,7 @@ This process does not itself encode anything — the Sensing Cells and CPRG-load
 :::::
 
 :::{attention} Bench-level protocol parameters not fully specified
-The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the outcome (yellow-to-purple color change after ~16 h, monitored at 570 nm–575 nm) are established, but several bench-level parameters needed to reproduce this result are not: the exact Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio, gel volume or well format, order of addition (liposomes mixed into alginate before or after partial gelation), and precise CaCl₂ exposure method (bath immersion vs. direct addition). The protocol below follows standard ionic-gelation practice for alginate and states each such step as a general method, flagged inline.
+The alginate concentration (~10 mg/mL), the crosslinker (200 mM CaCl₂), and the outcome (yellow-to-purple color change after ~16 h, monitored at 570 nm–575 nm) are established, but several bench-level parameters needed to reproduce this result are not: the exact Sensing Cell : CPRG-loaded SUV : LacZ mixing ratio, gel volume or well format, order of addition (liposomes mixed into alginate before or after partial gelation), and precise CaCl₂ exposure method (bath immersion vs. direct addition). The protocol below follows standard ionic-gelation practice for alginate and states each such step as a general method, flagged inline.
 
 @Editor(chicago): confirm these parameters with the Chicago Node before treating this page as bench-ready.
 :::
@@ -69,7 +69,7 @@ The alginate concentration (~1% w/v), the crosslinker (200 mM CaCl₂), and the 
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | ---- | -------- | ------- | ------------ | ------ | ----- | ------- | ---- |
 | Sodium alginate | Chemical | Alginic acid sodium salt, low viscosity | Sigma-Aldrich | A0682 | $91.90 | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/a0682) |
-| Calcium chloride | Chemical | Calcium chloride, anhydrous, ≥97% | Sigma-Aldrich | C1016 | $57.00 | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/c1016) |
+| Calcium chloride | Chemical | Calcium chloride, anhydrous, ≥97 % | Sigma-Aldrich | C1016 | $57.00 | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/c1016) |
 | CPRG | Reagent | Chlorophenol red-β-D-galactopyranoside | Roche | 10884308001 | $160.00 | -20 °C in water at 10 mg/mL | [link](https://www.sigmaaldrich.com/US/en/product/roche/10884308001) |
 | β-galactosidase (LacZ) | Reagent | β-Galactosidase from *E. coli* | TBD | TBD | TBD | TBD | TBD |
 | 96-well plate | Consumable | Standard 96-well plate — format not yet confirmed | TBD | TBD | TBD | TBD | TBD |
@@ -84,7 +84,7 @@ The commercial enzyme is β-galactosidase from *E. coli*. London sources it as S
 
 ## Prepare Alginate Stock
 
-- [ ] Dissolve sodium alginate to ~1% (w/v) in a buffer compatible with the Sensing Cells and CPRG-loaded SUVs (e.g., the outer solution used for the input liposome preparations — see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md)). Mix gently until fully dissolved; avoid vigorous vortexing, which can shear synthetic cells once liposomes are added downstream.
+- [ ] Dissolve sodium alginate to ~10 mg/mL in a buffer compatible with the Sensing Cells and CPRG-loaded SUVs (e.g., the outer solution used for the input liposome preparations — see [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md)). Mix gently until fully dissolved; avoid vigorous vortexing, which can shear synthetic cells once liposomes are added downstream.
 
 :::{hint} Note: exact buffer and mixing conditions not confirmed
 :class: dropdown
@@ -97,7 +97,7 @@ The commercial enzyme is β-galactosidase from *E. coli*. London sources it as S
 
 ## Co-Encapsulate synthetic cells, SUVs, and LacZ in Alginate
 
-- [ ] Combine synthetic cells (from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md)), SUVs (from [Encapsulation: Extrusion](../encapsulate-suv/main.md)), and commercial LacZ into the ~1% (w/v) alginate solution prepared above.
+- [ ] Combine synthetic cells (from [Encapsulation: Phase Transfer](../assemble-base-cell/main.md)), SUVs (from [Encapsulation: Extrusion](../encapsulate-suv/main.md)), and commercial LacZ into the ~10 mg/mL alginate solution prepared above.
 
 :::{hint} Note: mixing ratio not confirmed
 :class: dropdown
@@ -125,7 +125,7 @@ The color change occurs in both 0 mM and 1 mM theophylline conditions, indicatin
 
 # Quality Control
 
-Confirm gel formation by visual inspection (a fully crosslinked ~1% alginate gel should hold its shape and not flow when the container is tilted) before incubating for colorimetric readout. Confirm colorimetric response as described in [Colorimetric Readout](../colorimetric-readout/main.md): a visible yellow-to-purple shift, or an absorbance increase at 570 nm–575 nm, relative to a no-lysis or no-CPRG control.
+Confirm gel formation by visual inspection (a fully crosslinked ~10 mg/mL alginate gel should hold its shape and not flow when the container is tilted) before incubating for colorimetric readout. Confirm colorimetric response as described in [Colorimetric Readout](../colorimetric-readout/main.md): a visible yellow-to-purple shift, or an absorbance increase at 570 nm–575 nm, relative to a no-lysis or no-CPRG control.
 
 :::{attention} No dedicated QC dataset for the embedding step itself
 @Editor(chicago): the downstream colorimetric outcome (color change, absorbance) is established, but no QC data specific to the alginate gelation step alone (e.g., gel mechanical integrity, liposome retention/leakage rate within the gel, or crosslinking completeness) has been measured.

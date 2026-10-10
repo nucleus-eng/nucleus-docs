@@ -18,7 +18,7 @@ SDS PAGE gel electrophoresis separates components of a mixture roughly by molecu
 
 | **Name**                            | **Category** | **Product**                                                   | **Manufacturer**   | **Part #** | **Price** | **Storage**    | **Link**                                                                                                                     |
 | ----------------------------------- | ------------ | ------------------------------------------------------------- | ------------------ | ---------- | --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Tris-Glycine 4%–20% gels            | Consumable   | 4–20% Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL | BioRad             | 4561094    | $153.00   | 1 °C to 4 °C     | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094)        |
+| Tris-Glycine 4 %–20 % gels            | Consumable   | 4–20 % Mini-PROTEAN® TGX™ Precast Protein Gels, 10-well, 50 µL | BioRad             | 4561094    | $153.00   | 1 °C to 4 °C     | [link](https://www.bio-rad.com/en-us/sku/4561094-4-20-mini-protean-tgx-precast-protein-gels-10-well-50-ul?ID=4561094)        |
 | 10x Tris/Glycine SDS running buffer | Reagent      | # 10x Tris/Glycine/SDS                                        | BioRad             | 1610732    | $41.00    | 4 °C to 30 °C    | [link](https://www.bio-rad.com/en-us/sku/1610732-10x-tris-glycine-sds?ID=1610732)                                            |
 | Protein Ladder                      | Reagent      | Precision Plus Protein™ Unstained Protein Standards           | BioRad             | 1610363EDU | $138.00   | -25 °C to -15 °C | [link](https://www.bio-rad.com/en-us/product/protein-electrophoresis-size-standards?ID=b0f59c37-d604-49b7-9167-eaf21a29c751) |
 | Laemmli Buffer (6x)                 | Reagent      | Laemmli SDS-Sample Buffer (6x, Reducing)                      | Boston BioProducts | BP-111R    | $42.00    | 4 °C to 30 °C    | [link](https://www.bostonbioproducts.com/products/laemmli-sds-sample-buffer-6x-reducing-bp-111r)                             |
@@ -37,7 +37,7 @@ SDS PAGE gel electrophoresis separates components of a mixture roughly by molecu
     - [ ] Add 4 µL of 6x Laemmli sample buffer and 20 µL of sample (~1 µg total protein) per tube. Mix by pipetting.
     - [ ] Incubate samples at 90 °C / 10 min.
 - [ ] **Set up a gel box.**
-    - [ ] Open an individually wrapped protein gel (we use 10%–20% Tris Gly gels).
+    - [ ] Open an individually wrapped protein gel (we use 10 %–20 % Tris Gly gels).
     - [ ] Remove plastic tape at the bottom of gel. This exposes a strip of the gel to the running buffer, allowing current to flow from one electrode through the gel to the other electrode.
     - [ ] Place gel in gel box and seal tightly. Check the seal by pouring running buffer (we use Tris Gly) into the front half of the reservoir and checking that no buffer leaks into the back half. If so, remove the gel, empty the reservoir and try again.
     - [ ] Pour running buffer into the back half of the reservoir.

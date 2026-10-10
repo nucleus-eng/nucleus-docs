@@ -29,8 +29,8 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - Both grades gel well below standard agarose. **LGA has bench figures:** dissolve the stock in an 85 to 95 °C heat block until it is clear, cool it to 65 °C, mix it with the energy solution and the buffer, cool that to 45 °C, then add the vesicles. **ULGA has none**, and the steps below follow standard low-melting-agarose handling for it rather than values confirmed for that preparation.
-- Dissolve ULGA to 1% (w/v) in the prepared outer solution. Combined 1:1 with the synthetic cell suspension, that gives 0.5% (w/v) in the set gel, which is the top of the 0.2% to 0.5% working range. Lower concentrations gel more slowly and give faster kinetics. Both readouts on this page use the same concentration.
-- The colorimetric demonstration ran at 1.5% (w/v), which gives 0.75% (w/v) in the set gel under the 1:1:2 combining ratio, above the working range. Use 1% for new work. The result measured at 1.5% is kept on the [Gel: ULGA](../../modules/gel-ulga/spec.md) spec, because it records the condition the experiment ran at.
+- Dissolve ULGA to 10 mg/mL in the prepared outer solution. Combined 1:1 with the synthetic cell suspension, that gives 5 mg/mL in the set gel, which is the top of the 2 mg/mL to 5 mg/mL working range. Lower concentrations gel more slowly and give faster kinetics. Both readouts on this page use the same concentration.
+- The colorimetric demonstration ran at 15 mg/mL, which gives 7.5 mg/mL in the set gel under the 1:1:2 combining ratio, above the working range. Use 10 mg/mL for new work. The result measured at 15 mg/mL is kept on the [Gel: ULGA](../../modules/gel-ulga/spec.md) spec, because it records the condition the experiment ran at.
 - This protocol has so far been tested with liquid bacterial culture and supernatant; testing with solid agar bacterial media has not yet been completed.
 
 ::::::
@@ -51,7 +51,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} GFP readout
 
-:::{table} Outer solution used to embed SensorCell[3OC6-HSL ⟶ PLA1] synthetic cells for the GFP readout. ULGA at 1% (w/v) in the prepared solution.
+:::{table} Outer solution used to embed SensorCell[3OC6-HSL ⟶ PLA1] synthetic cells for the GFP readout. ULGA at 10 mg/mL in the prepared solution.
 :label: comp-ulga-gfp
 
 | Component | Concentration |
@@ -59,7 +59,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Potassium L-glutamate | 578 mM |
 | HEPES | 72 mM |
 | Glucose | 300 mM |
-| ULGA | 1% (w/v) |
+| ULGA | 10 mg/mL |
 
 :::
 
@@ -67,7 +67,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 ::::{tab-item} Colorimetric readout
 
-:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-liposome demonstration. ULGA at 1% (w/v) in the prepared solution.
+:::{table} Outer solution used for the S30 Lysate-encapsulated, PLA1/CPRG colorimetric two-liposome demonstration. ULGA at 10 mg/mL in the prepared solution.
 :label: comp-ulga-colorimetric
 
 | Component | Concentration |
@@ -77,7 +77,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Glucose | 300 mM |
 | 3OC6-HSL (+ condition only) | (5-10) µM |
 | 3OC6-HSL-producing bacteria supernatant | 10:1 dilution (20 µL per 200 µL gel) |
-| ULGA | 1% (w/v) |
+| ULGA | 10 mg/mL |
 
 :::
 
@@ -87,10 +87,10 @@ This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HS
 
 ::::{tab-item} pH path
 
-:::{table} Gel used to embed the pH-path populations. LGA at 0.7% (w/v) in the set gel.
+:::{table} Gel used to embed the pH-path populations. LGA at 7 mg/mL in the set gel.
 | Component | Concentration |
 | --- | --- |
-| LGA | 0.7% (w/v) |
+| LGA | 7 mg/mL |
 | [Outer Solution](../../modules/outer-solution/spec.md) | 1× |
 :::
 
@@ -121,7 +121,7 @@ This variant feeds the Colorimetric Readout process; see the [SensorCell[3OC6-HS
 :::
 
 :::{attention} Incomplete Materials table
-No manufacturer, part number, price or storage data is established for glucose, potassium L-glutamate or HEPES on this page. Nucleus buys all three elsewhere in this documentation — [D-(+)-Glucose, 99%](https://www.thermofisher.com/order/catalog/product/A16828.36) (Thermo Scientific A16828-36), [L-glutamic acid potassium monohydrate](https://www.sigmaaldrich.com/US/en/product/sigma/g1501) (Sigma-Aldrich G1501-100G) and [HEPES, crystalline powder, ≥99.5%](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) (Sigma-Aldrich H3375-500G).
+No manufacturer, part number, price or storage data is established for glucose, potassium L-glutamate or HEPES on this page. Nucleus buys all three elsewhere in this documentation — [D-(+)-Glucose, 99 %](https://www.thermofisher.com/order/catalog/product/A16828.36) (Thermo Scientific A16828-36), [L-glutamic acid potassium monohydrate](https://www.sigmaaldrich.com/US/en/product/sigma/g1501) (Sigma-Aldrich G1501-100G) and [HEPES, crystalline powder, ≥99.5 %](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) (Sigma-Aldrich H3375-500G).
 
 @Editor(london): confirm whether London uses these same three products before the rows above are filled in from them.
 
@@ -135,7 +135,7 @@ The ULGA on this page is Sigma-Aldrich A5030, and the figures in the table above
 ## Prepare the Agarose Solution
 
 - [ ] Prepare the base outer solution: (578 mM) potassium L-glutamate, (72 mM) HEPES, (300 mM) glucose in water.
-- [ ] Dissolve the agarose into the outer solution by heating near boiling with stirring until fully dissolved: ULGA to 1% (w/v), which gives 0.5% (w/v) in the set gel after the 1:1 combination below; LGA to its set-gel concentration (0.7% (w/v) in the pH path).
+- [ ] Dissolve the agarose into the outer solution by heating near boiling with stirring until fully dissolved: ULGA to 10 mg/mL, which gives 5 mg/mL in the set gel after the 1:1 combination below; LGA to its set-gel concentration (7 mg/mL in the pH path).
 
 :::{hint} Note
 :class: simple

@@ -102,7 +102,7 @@ process_steps:
       page: ../luxr-gfp-cascade/spec.md
     notes: >
       The board marks ULGA `2×` and does not say what the factor is against.
-      `embed-thermal-setting/main.md` records 1.5% (w/v) at the original
+      `embed-thermal-setting/main.md` records 15 mg/mL at the original
       colorimetric run and a 1:1:2 combining ratio confirmed by the London Node
       on 2026-09-09.
 

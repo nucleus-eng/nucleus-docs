@@ -65,7 +65,7 @@ process_steps:
       page: ../detector-laci-iptg/spec.md
     # SCALE-FREE, 2026-10-05, under R36/R37/R38.
     # THE DENOMINATOR IS 10 AND NOT 9, and the page settles it rather than arithmetic:
-    # ../detector-laci-iptg/spec.md:77 writes Solution A as "40% (v/v)" beside its 4 uL,
+    # ../detector-laci-iptg/spec.md:77 writes Solution A as "40 % (v/v)" beside its 4 uL,
     # and 4/10 is 0.40. So the fractions are against the reaction the analyte completes,
     # not against the 9 uL mix this step produces.
     #

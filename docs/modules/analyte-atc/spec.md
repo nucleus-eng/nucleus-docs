@@ -25,7 +25,7 @@ This page is a work in progress and not yet ready for use.
 | Band | Value | What it governs |
 | --- | --- | --- |
 | **Effective induction, Nucleus Cytosol** | **0.1 µM to 0.5 µM**, optimum ~0.25 µM to 0.35 µM | The working window in this cytosol |
-| **Expression poisoning** | **above ~1 µM** | aTc inhibits the cell-free reaction itself, cutting baseline expression by 30–40% |
+| **Expression poisoning** | **above ~1 µM** | aTc inhibits the cell-free reaction itself, cutting baseline expression by 30–40 % |
 | Effective induction, lysate | 2.5 µM to 5 µM | The working window in lysate |
 | Interference | above 50 µM to 100 µM | aTc's own yellow color overwhelms GFP fluorescence |
 :::

@@ -86,8 +86,8 @@ Alternatively, aHly can be expressed directly in PURE by including `pT7-aHly` as
 
 | Component | Stock | Final | Volume (µL) |
 | --- | --- | --- | --- |
-| Solution A | | 40% (v/v) | 4 |
-| Solution B | | 30% (v/v) | 3 |
+| Solution A | | 40 % (v/v) | 4 |
+| Solution B | | 30 % (v/v) | 3 |
 | RNase Inhibitor | 40 000 U/mL | 4000 U/mL | 1 |
 | `pT7-aHly` | 10 nM | 1 nM | 1 |
 | Nucleus-Free Water | | | 1 |
@@ -106,8 +106,8 @@ Prepare master mix for 3 reactions to account for dead volume.
 | Component | Stock | Final | Per Reaction (µL) | Master Mix ×3 (µL) |
 | --- | --- | --- | --- | --- |
 | *Master Mix* | | | | |
-| NEB Solution A | | 40% (v/v) | 4 | 12 |
-| NEB Solution B | | 30% (v/v) | 3 | 9 |
+| NEB Solution A | | 40 % (v/v) | 4 | 12 |
+| NEB Solution B | | 30 % (v/v) | 3 | 9 |
 | RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 1.5 |
 | Sucrose | 2 M | 0.3 M | 1.5 | 4.5 |
 | **Subtotal** | | | **9** | **27** |

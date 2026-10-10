@@ -61,7 +61,7 @@ process_steps:
     notes: >
       The pT7-toehold9-PLA1 template is Lysis: PLA1 — the switch and the
       effector are one molecule, so there is no separate template operand. The
-      headroom also carries Optiprep at 4.5% (v/v), which the encapsulation
+      headroom also carries Optiprep at 4.5 % (v/v), which the encapsulation
       step needs rather than the sensing function: a downstream process
       spending the cytosol's slot. RNase inhibitor sits at 1000 U/mL, inside
       the 0 to 2000 U/mL Base Cytosol accepts.

@@ -78,8 +78,8 @@ flowchart TD
 | Purified deGFP-ssrA | 41.2 µM | 2.06 µM | 0.5 | 0.5 | 0.5 | 0.5 |
 | Purified ClpP | 79.9 µM | varies, 3.995 µM where present | 0.5 | 0.5 | 0 | 0 |
 | Purified ClpX | 53.7 µM | varies, 2.685 µM where present | 0.5 | 0 | 0.5 | 0 |
-| NEB PURExpress Solution A | | 40% (v/v) | 4 | 4 | 4 | 4 |
-| NEB PURExpress Solution B | | 30% (v/v) | 3 | 3 | 3 | 3 |
+| NEB PURExpress Solution A | | 40 % (v/v) | 4 | 4 | 4 | 4 |
+| NEB PURExpress Solution B | | 30 % (v/v) | 3 | 3 | 3 | 3 |
 | RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 0.5 | 0.5 | 0.5 |
 | Nucleus Free Water | | | 1 | 1.5 | 1.5 | 2 |
 | **Total** | | | **10** | **10** | **10** | **10** |
@@ -93,8 +93,8 @@ flowchart TD
 | pT7-deGFP-ssrA | 63.5 ng/µL | 3.175 ng/µL | 0.5 | 0.5 | 0.5 | 0.5 |
 | pT7-ClpP | 17.5 ng/µL | varies, 0.7 to 1.4 ng/µL | 0.4 | 0.4 | 0.6 | 0.8 |
 | pT7-ClpX | 17.5 ng/µL | varies, 0.7 to 1.4 ng/µL | 0.4 | 0.4 | 0.6 | 0.8 |
-| NEB PURExpress Solution A | | 40% (v/v) | 4 | 4 | 4 | 4 |
-| NEB PURExpress Solution B | | 30% (v/v) | 3 | 3 | 3 | 3 |
+| NEB PURExpress Solution A | | 40 % (v/v) | 4 | 4 | 4 | 4 |
+| NEB PURExpress Solution B | | 30 % (v/v) | 3 | 3 | 3 | 3 |
 | RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 | 0.5 | 0.5 | 0.5 |
 | Nucleus Free Water | | | 1.6 | 1.2 | 0.8 | 0.4 |
 | **Total** | | | **10** | **10** | **10** | **10** |

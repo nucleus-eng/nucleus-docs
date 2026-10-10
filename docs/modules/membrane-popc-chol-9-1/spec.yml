@@ -95,7 +95,7 @@ open:
       CLOSED. Liss-Rhod PE is present in the phase-transfer route and absent from the
       extrusion route, and that was read here as optionality depending on the route,
       which the schema cannot state. It is neither: a fluorescent lipid at about
-      0.1 mol% is an optional component of ANY lipid membrane, declared on
+      1 mmol/mol is an optional component of ANY lipid membrane, declared on
       ../membrane/spec.yml as `fluorescent-label`, so this Module inherits it. Which
       preparation happens to carry one is a fact about that preparation and not a
       difference between Modules. Kept rather than deleted because the measurement

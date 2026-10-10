@@ -85,7 +85,7 @@ flowchart TD
 
 | Component | Input concentration | Unit | Final concentration | Unit | Volume for one reaction (µL) |
 | --- | --- | --- | --- | --- | --- |
-| SMix | 3.33 | × | 1 | × | 12 |
+| SMix | 3.33 | fold | 1 | fold | 12 |
 | PMix | 15 | mg/mL | 1.80 | mg/mL | 4.8 |
 | Ribosomes | 10 | µM | 1.8 | µM | 7.2 |
 | `pOpen-deGFP` DNA | 124 | nM | 3 | nM | 0.95 |

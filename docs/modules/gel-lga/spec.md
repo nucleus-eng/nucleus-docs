@@ -59,11 +59,11 @@ flowchart TD
 :::{table} LGA gel, as set.
 | Component | Final concentration |
 | --- | --- |
-| Low-gelling-temperature agarose | 0.7% (w/v) |
+| Low-gelling-temperature agarose | 7 mg/mL |
 | [Outer Solution](../outer-solution/spec.md) | 1× |
 :::
 
-The agarose is weighed into a concentrated stock, then diluted to the working figure above. The stock on record is 2.7% (w/v) — 40.5 mg in 1500 µL of ultrapure DNase/RNase-free distilled water.
+The agarose is weighed into a concentrated stock, then diluted to the working figure above. The stock on record is 27 mg/mL — 40.5 mg in 1500 µL of ultrapure DNase/RNase-free distilled water.
 
 ::::
 
@@ -77,7 +77,7 @@ Requires that whatever is embedded survives the temperature at which the polymer
 
 # Implementations
 
-- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its gel — 0.7% (w/v) in the set gel.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its gel — 7 mg/mL in the set gel.
 
 # Processes
 
@@ -97,7 +97,7 @@ Requires that whatever is embedded survives the temperature at which the polymer
 | LGA | Reagent | Low gelling temperature agarose, molecular-biology grade, from red algae | not recorded | not recorded | — |
 :::
 
-**The grade is known and the catalog number is not.** This agarose congeals at (26–30) °C, melts at ≤ 65 °C, has EEO ≤ 0.10 and gel strength ≥ 200 g/cm² at 1%. Those figures come from the vendor datasheet, so a specific product was identified — **the number identifying it was simply never written down.**
+**The grade is known and the catalog number is not.** This agarose congeals at (26–30) °C, melts at ≤ 65 °C, has EEO ≤ 0.10 and gel strength ≥ 200 g/cm² at 10 mg/mL. Those figures come from the vendor datasheet, so a specific product was identified — **the number identifying it was simply never written down.**
 
 **That makes this a different gap from the other unsourced rows** on [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md). Glucose, potassium L-glutamate and HEPES have no datasheet behind them and need somebody to decide what Nucleus buys. This one has already been decided and read; only the SKU is missing.
 

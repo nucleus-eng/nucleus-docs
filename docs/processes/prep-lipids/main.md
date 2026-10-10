@@ -18,8 +18,8 @@ This page is written to close a gap rather than to document a bench procedure. S
 
 No protocol is recorded here yet. The attested preparations are on the Module pages, because each states its own mixture:
 
-- [Membrane: POPC](../../modules/membrane-popc/spec.md) gives 99.15 mol% POPC and 0.85 mol% DSPE-PEG2000, from stocks in chloroform, as a 3.5x batch.
-- [Membrane: POPC/Chol](../../modules/membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-9-1/spec.md) give three-lipid mixtures by mol%.
+- [Membrane: POPC](../../modules/membrane-popc/spec.md) gives 991.5 mmol/mol POPC and 8.5 mmol/mol DSPE-PEG2000, from stocks in chloroform, as a 3.5x batch.
+- [Membrane: POPC/Chol](../../modules/membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-9-1/spec.md) give three-lipid mixtures by mmol/mol.
 
 Each is a composition rather than a procedure. What a bench user does with the mixture differs by route, and that belongs to the route.
 

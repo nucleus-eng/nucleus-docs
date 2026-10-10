@@ -66,7 +66,7 @@ process_steps:
       title: "Cell: S30 Lysate, POPC"
       page: ../cell-s30-popc/spec.md
     notes: >
-      The empty chassis — S30 Lysate with no sensing payload, closed in a 100%
+      The empty chassis — S30 Lysate with no sensing payload, closed in a 100 %
       POPC bilayer. Use in outer solution at 920 mOsm, or match inner to outer
       empirically with a vapor-pressure osmometer.
 

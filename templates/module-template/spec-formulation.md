@@ -28,12 +28,12 @@ confuse it with:
 "The Chicago Membrane is a 90:10 POPC:cholesterol phospholipid bilayer used in every liposome
 in the Chicago DevStudio Demo. Compare to Base Membrane (70:30 POPC:cholesterol), which uses
 more cholesterol, and London Membrane, which is pure POPC. Optionally, this membrane can
-include 0.1 mol% fluorescently tagged lipids to aid visualization."
+include 1 mmol/mol fluorescently tagged lipids to aid visualization."
 
 For a chassis or cell, name the demo it serves and the constituents it combines:
 
 "The Cell: S30 Lysate, POPC is used for the London Node's DevStudio Demo and combines S30 Lysate with
-a 100% POPC membrane. This cell is extended in downstream demo variants by adding sensing and
+a 100 % POPC membrane. This cell is extended in downstream demo variants by adding sensing and
 reporter modules."
 
 <!-- Status banner — keep consistent with the `status:` frontmatter field (CLAUDE.md "Page

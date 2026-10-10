@@ -114,7 +114,7 @@ process_steps:
     # `amino-acid-solution` were written rounded, 7.1 against 7.08 and 55.4 against
     # 55.38, which is the other cost of storing a derived number.
     #
-    # The fractions sum to 0.99032 and water is 0.0095, for 0.99982. The missing 0.018%
+    # The fractions sum to 0.99032 and water is 0.0095, for 0.99982. The missing 0.018 %
     # is the rounding in the two figures above and is not a missing component.
     finals:
       hepes: {value: 150, unit: "mM"}

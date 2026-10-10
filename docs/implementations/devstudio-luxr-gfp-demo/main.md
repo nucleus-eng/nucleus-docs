@@ -29,7 +29,7 @@ What the embedding step builds is [LuxR-GFP Sensor Cascade](../../modules/luxr-g
 | Membrane | [Membrane: POPC](../../modules/membrane-popc/spec.md) | around the synthetic cells |
 | Chassis | [Cell: S30 Lysate, POPC](../../modules/cell-s30-popc/spec.md) | the empty chassis this builds on |
 | Outer solution | [Outer Solution: Glutamate-HEPES-Glucose](../../modules/outer-solution-glutamate/spec.md) | the phase the gel sets in |
-| Gel | [Gel: ULGA](../../modules/gel-ulga/spec.md) | 1% (w/v), set by cooling |
+| Gel | [Gel: ULGA](../../modules/gel-ulga/spec.md) | 10 mg/mL, set by cooling |
 
 :::{attention} The detector has no source document
 @Editor(london): name the DevNote or paper that backs [Detector: 3OC6-HSL (LuxR)](../../modules/detector-3oc6-hsl/spec.md).
@@ -42,13 +42,13 @@ What the embedding step builds is [LuxR-GFP Sensor Cascade](../../modules/luxr-g
 | 1 | Plasmid assemble | the LuxR and deGFP halves into one construct. **No Process page documents this step** |
 | 2 | [Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) | the plasmid into S30 Lysate |
 | 3 | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) | the synthetic cells |
-| 4 | [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) | ULGA at 1% (w/v), set by cooling |
+| 4 | [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) | ULGA at 10 mg/mL, set by cooling |
 
 # Observed Performance
 
 ## In a gel
 
-Embedded in 1% ULGA, POPC synthetic cells give a GFP response after 2.5 h with either an overnight bacterial culture or its supernatant. **Confirmed by Z-stack imaging**, which places the signal in intact embedded cells rather than in the surrounding gel. An LB-only control gives no signal at matched imaging settings.
+Embedded in 10 mg/mL ULGA, POPC synthetic cells give a GFP response after 2.5 h with either an overnight bacterial culture or its supernatant. **Confirmed by Z-stack imaging**, which places the signal in intact embedded cells rather than in the surrounding gel. An LB-only control gives no signal at matched imaging settings.
 
 This is the readout furthest along of the four demos: it is the only one confirmed in the gel format the demo calls for.
 

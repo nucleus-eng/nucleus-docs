@@ -123,7 +123,7 @@ Check a finished prep with [Pierce660 Assay](./pierce660/main.md) for total prot
 Embedding holds compartments that already exist in place. The gel fixes a position without enclosing anything, so a cascade can keep an enzyme and its substrate in one gel with no reaction until something lyses. Two gel chemistries are documented here, one set ionically and one set thermally — see each process page for the chemistry it covers and how it differs from the others.
 
 - [Embedding](./embed-gel/main.md) — the abstraction both routes below are instances of. Holds position rather than contents, and illuminates nothing.
-  - [Embedding: Ionic Crosslinking](./embed-ionic-crosslinking/main.md) — ionic crosslinking of sodium alginate by calcium, at ~1% (w/v) alginate with 200 mM CaCl₂.
+  - [Embedding: Ionic Crosslinking](./embed-ionic-crosslinking/main.md) — ionic crosslinking of sodium alginate by calcium, at ~10 mg/mL alginate with 200 mM CaCl₂.
   - [Embedding: Thermal Setting](./embed-thermal-setting/main.md) — thermal gelation of agarose in two grades, ULGA and LGA; fed by phase-transfer synthetic cells only.
 
 ## Photopatterning Processes

@@ -68,19 +68,19 @@ process_steps:
       page: ../guv-cprg/spec.md
     # SCALE-FREE, 2026-10-05, under R36/R37/R38.
     # `bilayer: "100% POPC"` IS DROPPED AND NOT CONVERTED. Written as a composition it
-    # would be false: the operand is ../membrane-popc/spec.md, which is 99.15 mol% POPC
-    # and 0.85 mol% DSPE-PEG2000. The page's own sentence reads it against the sterol
-    # axis -- "accepts either POPC or POPC:cholesterol, so the 100% POPC bilayer here is
+    # would be false: the operand is ../membrane-popc/spec.md, which is 991.5 mmol/mol POPC
+    # and 8.5 mmol/mol DSPE-PEG2000. The page's own sentence reads it against the sterol
+    # axis -- "accepts either POPC or POPC:cholesterol, so the 100 % POPC bilayer here is
     # a choice rather than a constraint" -- and that claim is TRUE, because the PEG is
     # `optional: true` on the membrane page. An optional component does not change a
-    # Module's identity. So the fact is real and 100 mol% is not the way to write it.
+    # Module's identity. So the fact is real and 1000 mmol/mol is not the way to write it.
     finals:
       substrate-cprg: {value: 50, unit: "mM", note: "at hydration; the page also writes it as approx. 30 mg/mL"}
     notes: >
       The same process and the same page as the sensing population, applied with a
       different inner solution — which is what lets both populations be made by one
-      method. The 100% POPC bilayer is a choice rather than a constraint: Substrate:
-      CPRG accepts either POPC or POPC:cholesterol, and 100% POPC is taken here to
+      method. The 100 % POPC bilayer is a choice rather than a constraint: Substrate:
+      CPRG accepts either POPC or POPC:cholesterol, and 100 % POPC is taken here to
       match the SensorCell[3OC6-HSL ⟶ PLA1]. The loading concentration does not depend on the
       bilayer, so it carries over unchanged from the SUV form.
 
@@ -92,7 +92,7 @@ measured_by:
 open:
   - id: bilayer-is-a-choice-not-a-constraint
     question: >
-      The 100% POPC bilayer is recorded above as a parameter, which reads as though
+      The 100 % POPC bilayer is recorded above as a parameter, which reads as though
       the Module requires it. The page says the opposite — the bilayer is a choice
       made to match the SensorCell[3OC6-HSL ⟶ PLA1], and the Substrate accepts POPC:cholesterol
       as well. The schema has no way to mark a parameter as "chosen here, not

@@ -31,7 +31,7 @@ This page is a work in progress and not yet ready for use.
 | Context | Working concentration |
 | --- | --- |
 | Encapsulated in a GUV, in PEG-norbornene | **2.5 U/mL** final — 0.5 µL of a 125 U/mL stock into a 25 µL cell-free reaction |
-| Encapsulated in a GUV, in 0.7% agarose | **156 U/mL** |
+| Encapsulated in a GUV, in 7 mg/mL agarose | **156 U/mL** |
 | Dispersed in the gel | not documented |
 :::
 

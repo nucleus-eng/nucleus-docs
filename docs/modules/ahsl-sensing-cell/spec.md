@@ -98,7 +98,7 @@ The inner solution is [S30 Lysate](../s30-lysate/spec.md) at reaction concentrat
 
 | Module | Working concentration | Notes |
 | --- | --- | --- |
-| [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) | S30 Lysate at reaction concentration, in a 100% POPC synthetic cell membrane | Transcription, translation, and encapsulation. The 27.2 µL recipe on that page carries over unchanged, except that 0.95 µL of the nuclease-free water is displaced by sensor plasmid. |
+| [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) | S30 Lysate at reaction concentration, in a 100 % POPC synthetic cell membrane | Transcription, translation, and encapsulation. The 27.2 µL recipe on that page carries over unchanged, except that 0.95 µL of the nuclease-free water is displaced by sensor plasmid. |
 | [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-deGFP` sensor plasmid at 40 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | The `p70`-driven LuxR cassette is expressed in-reaction at an unrecorded concentration. See the DNA tab for what is missing. |
 
 :::
@@ -151,7 +151,7 @@ Without Optiprep in the inner solution, the encapsulated sensor expresses GFP on
 In [S30 Lysate](../s30-lysate/spec.md), the 3OC6-HSL-gated [colorimetric](../../processes/colorimetric-readout/main.md) sensor works in solution as well as in gel. An SensorCell[3OC6-HSL ⟶ PLA1] combined with a [CPRG-loaded SUV](../../processes/encapsulate-suv/main.md) and 3OC6-HSL has not been reproduced. Negative controls in that test turned purple, attributed to leaky old-stock liposomes rather than an 3OC6-HSL response.
 
 :::{attention} Caveats
-- Optiprep above ~5% of the inner solution broadly suppresses cell-free expression, independent of the 3OC6-HSL detector module. At 10% and 15% it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10%.
+- Optiprep above ~5 % of the inner solution broadly suppresses cell-free expression, independent of the 3OC6-HSL detector module. At 10 % and 15 % it gives abundant, stable synthetic cells with no reporter expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10 %.
 - Plasmid dose is critical — roughly seven-fold under-dosing accounts for early failures. Use ~1000 ng per reaction.
 - Fold-induction is strongest near 25 °C and drops at 37 °C. Incubate at 25 °C where minimal background matters.
 - Encapsulation is stochastic. Expect a GFP-positive subpopulation rather than uniform signal across synthetic cells.
@@ -161,7 +161,7 @@ In [S30 Lysate](../s30-lysate/spec.md), the 3OC6-HSL-gated [colorimetric](../../
 
 ## Gels
 
-Embedded in 1% ultra-low-gelling-temperature agarose (ULGA), POPC synthetic cells produce a GFP response after 2.5 h incubation with either overnight bacterial culture or bacterial culture supernatant, confirmed by Z-stack imaging. An LB-only control gives no signal at matched imaging settings. In [S30 Lysate](../s30-lysate/spec.md), GFP synthetic cells dosed with 3OC6-HSL give a reproducible plate-reader signal over a 1000 min time course.
+Embedded in 10 mg/mL ultra-low-gelling-temperature agarose (ULGA), POPC synthetic cells produce a GFP response after 2.5 h incubation with either overnight bacterial culture or bacterial culture supernatant, confirmed by Z-stack imaging. An LB-only control gives no signal at matched imaging settings. In [S30 Lysate](../s30-lysate/spec.md), GFP synthetic cells dosed with 3OC6-HSL give a reproducible plate-reader signal over a 1000 min time course.
 
 The gel-format colorimetric sensor has been repeated across two laboratories but is temperamental: synthetic cells sometimes fail to rupture. In [Base Cytosol](../base-cytosol/spec.md), a constitutive (non-3OC6-HSL-gated) [PLA1](../effector-pla1/spec.md)/[CPRG](../substrate-cprg-suv/spec.md) two-liposome colorimetric configuration gives a measurable, reproducible color change by UV-Vis after 3 h. Leaky expression is the limiting problem in gel formats.
 
@@ -179,10 +179,10 @@ Requires σ70 transcription and translation (e.g. [S30 Lysate](../s30-lysate/spe
 
 Requires 3OC6-HSL in the outer solution and the LuxR receiver protein to gate the promoter (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md)).
 
-Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5% of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10%.
+Requires a membrane permeable to 3OC6-HSL (e.g. [Membrane: POPC](../membrane-popc/spec.md)). Keep Optiprep below ~5 % of the inner solution; above that it suppresses expression. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10 %.
 
 :::{attention} Source needed for the Optiprep ceiling in dye populations
-@Editor(london): cite the document that gives the CPRG dye population's 10% Optiprep, which this page states under Expected Behavior and here.
+@Editor(london): cite the document that gives the CPRG dye population's 10 % Optiprep, which this page states under Expected Behavior and here.
 :::
 
 # Processes

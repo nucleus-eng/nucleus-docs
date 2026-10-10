@@ -64,10 +64,10 @@ f_{total} = \prod_n f_n = f_1 \times f_2 \times \dots \times f_n
 $$
 
 :::
-- [ ] Add an equal volume of Protein Buffer (60% glycerol) to your sample to bring the final glycerol concentration to 30%. Freeze samples at -80 °C for storage.
+- [ ] Add an equal volume of Protein Buffer (60 % glycerol) to your sample to bring the final glycerol concentration to 30 %. Freeze samples at -80 °C for storage.
 - [ ] Store columns for later use.
   - [ ] Wash columns by loading with ddH₂O and spinning.
-  - [ ] Load columns with EtOH 20% (v/v) and store at room temp.
+  - [ ] Load columns with EtOH 20 % (v/v) and store at room temp.
 
 :::{hint} Note: If you see precipitate, dilute your sample immediately.
 :class: dropdown

@@ -27,9 +27,9 @@ This page carries two formats of the same cascade, and **both have run**. The so
 | Detector | [Detector: pH-Sensing](../../modules/detector-ph/spec.md) | the pH-responsive and trigger strands, annealed 3:1 |
 | Lysis | [Lysis: PLA1](../../modules/effector-pla1/spec.md) | expressed from the `pT7-toehold9-PLA1` template |
 | Cytosol | [Base Cytosol](../../modules/base-cytosol/spec.md) | inside the synthetic cells |
-| Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-9-1/spec.md) | with 0.1 mol% Liss Rhod PE, on both the synthetic cells and the LUVs |
+| Membrane | [Membrane: POPC/Chol (9:1)](../../modules/membrane-popc-chol-9-1/spec.md) | with 1 mmol/mol Liss Rhod PE, on both the synthetic cells and the LUVs |
 | Substrate | [Substrate: CPRG](../../modules/substrate-cprg/spec.md) | 14.25 mg/mL inside the LUVs |
-| Gel | [Gel: LGA](../../modules/gel-lga/spec.md) | 0.7% (w/v) in the set gel for the first three attempts, 0.35% for the fourth |
+| Gel | [Gel: LGA](../../modules/gel-lga/spec.md) | 7 mg/mL in the set gel for the first three attempts, 3.5 mg/mL for the fourth |
 | Reporter | [Reporter: LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) | gel only: in the basic buffer, added after the sensing step |
 | Substrate carrier | [Substrate LUV: CPRG](../../modules/substrate-cprg-luv/spec.md) | solution only: the payload population, carrying no Cy5 |
 | Outer solution | [Outer Solution: Tris-HEPES](../../modules/outer-solution-tris-hepes/spec.md) | solution only: both arms are built on it |
@@ -64,16 +64,16 @@ The two formats share their parts and differ in their operations, so this sectio
 
 The sensing cells were made by an inverted-emulsion variant of phase transfer — a different lipid prep, a layered interface and a slower, colder spin. That variant is now written up as [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md), a second protocol under Phase Transfer. The readout is [Microscopy Readout](../../processes/microscopy-readout/main.md).
 
-**How the demo is brought to acidic pH.** Both formats run two arms, **pH 7.6 and pH 6.3**. The neutral arm takes the Tris-HEPES stock alone. The acidic arm replaces it with a four-component buffer mix, at the same 12% (v/v), and the recipe is under Protocol as run below. The gel route takes the same mix at the same fraction.
+**How the demo is brought to acidic pH.** Both formats run two arms, **pH 7.6 and pH 6.3**. The neutral arm takes the Tris-HEPES stock alone. The acidic arm replaces it with a four-component buffer mix, at the same 12 % (v/v), and the recipe is under Protocol as run below. The gel route takes the same mix at the same fraction.
 
 The gel preparation sheet labels its own arms 7.4 and 6.5. They are the same two arms and the same mix, 0.2 units apart in each direction, and this page uses the plate's figures.
 
-**The amounts.** Both formats give the vesicles the same 12% (v/v), 7.2 µL in a 60 µL well. **The solution arm splits that slot per well** — the sample wells take 3 µL of sensing cells and 2.1 µL of CPRG-LUVs, with outer solution making up the rest, and the control wells take 1 µL of sensing cells and no LUVs. The table is under Protocol as run below.
+**The amounts.** Both formats give the vesicles the same 12 % (v/v), 7.2 µL in a 60 µL well. **The solution arm splits that slot per well** — the sample wells take 3 µL of sensing cells and 2.1 µL of CPRG-LUVs, with outer solution making up the rest, and the control wells take 1 µL of sensing cells and no LUVs. The table is under Protocol as run below.
 
-**The gel takes equal volumes of the two populations.** Its composition sheet gives the vesicles as one 12% (v/v) row, "GUVs, SUVs or substrates", so the split is stated here rather than there.
+**The gel takes equal volumes of the two populations.** Its composition sheet gives the vesicles as one 12 % (v/v) row, "GUVs, SUVs or substrates", so the split is stated here rather than there.
 
 :::{attention} The gel's vesicle volume has two readings
-The split is equal. The figure is 7.2 µL, and the sheet uses that same 7.2 µL for the whole vesicle slot. So either each population is 7.2 µL and the slot is 14.4 µL, which makes the gel 24% (v/v) vesicles rather than 12%, or the 7.2 µL slot divides into 3.6 µL each. @Editor(chicago): say which.
+The split is equal. The figure is 7.2 µL, and the sheet uses that same 7.2 µL for the whole vesicle slot. So either each population is 7.2 µL and the slot is 14.4 µL, which makes the gel 24 % (v/v) vesicles rather than 12 %, or the 7.2 µL slot divides into 3.6 µL each. @Editor(chicago): say which.
 :::
 
 :::{attention} Color development in the gel is only partly recorded
@@ -91,25 +91,25 @@ The protocol below is the solution-phase arm. The gel attempts ran to a protocol
 
 | Component | Volume (µL) | Fraction |
 | --- | --- | --- |
-| Energy solution | 30 | 50% (v/v) |
-| Ultra-pure distilled water | 15.6 | 26% (v/v) |
-| Tris-HEPES buffer stock | 7.2 | 12% (v/v) |
-| Vesicle suspension | 7.2 | 12% (v/v) |
-| Total | 60 | 100% |
+| Energy solution | 30 | 50 % (v/v) |
+| Ultra-pure distilled water | 15.6 | 26 % (v/v) |
+| Tris-HEPES buffer stock | 7.2 | 12 % (v/v) |
+| Vesicle suspension | 7.2 | 12 % (v/v) |
+| Total | 60 | 100 % |
 :::
 
-**Two liquids are called the outer solution and they are not the same.** The first is what the vesicles are washed into and suspended in: Tris-HEPES stock in water, about 1180 mOsm, which is the composition on [Outer Solution: Tris-HEPES](../../modules/outer-solution-tris-hepes/spec.md). The second is the assembled well above, where that suspension is 12% of the volume and the energy solution is half of it.
+**Two liquids are called the outer solution and they are not the same.** The first is what the vesicles are washed into and suspended in: Tris-HEPES stock in water, about 1180 mOsm, which is the composition on [Outer Solution: Tris-HEPES](../../modules/outer-solution-tris-hepes/spec.md). The second is the assembled well above, where that suspension is 12 % of the volume and the energy solution is half of it.
 
 The acidic arm replaces the Tris-HEPES buffer stock row with a separate buffer mix, at the same 7.2 µL.
 
-:::{table} Buffer mix for the acidic arm. The mix is 1200 µL and it replaces the Tris-HEPES stock at the same 12% (v/v).
+:::{table} Buffer mix for the acidic arm. The mix is 1200 µL and it replaces the Tris-HEPES stock at the same 12 % (v/v).
 :label: comp-ph-demo-solution-acid
 
 | Component | Stock | Volume (µL) |
 | --- | --- | --- |
 | Tris-HEPES buffer stock | — | 466.67 |
 | HEPES | 2 M | 576.19 |
-| HCl | 37% | 80 |
+| HCl | 37 % | 80 |
 | Ultra-pure distilled water | — | 77.14 |
 | Total | | 1200 |
 :::
@@ -120,7 +120,7 @@ pH 7.6 and pH 6.3 are the build sheet's column headers. No meter reading of an a
 
 # Observed Performance
 
-**The gel demo, read by eye across four attempts.** The first gel attempt gave an acid-responsive color change, and so did its control: CPRG-loaded LUVs with β-galactosidase and no PLA1-expressing cells colored as well. The only difference from the solution arm was the agarose, so gel embedding releases CPRG from the LUVs with no PLA1 present. The first two attempts used LUVs. From the third, the carriers were SUVs, made from the LUV preparation by extruding 13 times through a 400 nm membrane, which lowered the background only slightly and cut the yield of both populations. The fourth attempt worked: a visible color difference in gel and in solution, after a larger starting volume, more washes, and the gel reduced from 0.7% to 0.35% (w/v).
+**The gel demo, read by eye across four attempts.** The first gel attempt gave an acid-responsive color change, and so did its control: CPRG-loaded LUVs with β-galactosidase and no PLA1-expressing cells colored as well. The only difference from the solution arm was the agarose, so gel embedding releases CPRG from the LUVs with no PLA1 present. The first two attempts used LUVs. From the third, the carriers were SUVs, made from the LUV preparation by extruding 13 times through a 400 nm membrane, which lowered the background only slightly and cut the yield of both populations. The fourth attempt worked: a visible color difference in gel and in solution, after a larger starting volume, more washes, and the gel reduced from 7 mg/mL to 3.5 mg/mL.
 
 **The readout is the eye.** Attempts two and three are reported as not distinguishable by eye, and the fourth as a visible difference. No plate-reader or imaging figure is recorded for any of the four.
 

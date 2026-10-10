@@ -76,16 +76,16 @@ flowchart TD
 :::{table} Membrane, 2 µmol of lipid in 0.5 mL (4 mM). Volumes are of the lipid stocks.
 :label: comp-substrate-cprg-luv-membrane
 
-| Component | Stock | Final (mol%) | Volume (µL) | Amount (µmol) |
+| Component | Stock | Final (mmol/mol) | Volume (µL) | Amount (µmol) |
 | --- | --- | --- | --- | --- |
-| POPC | 25 mg/mL | 89.9 | 54.66 | 1.798 |
-| Cholesterol | 50 mg/mL | 10 | 1.547 | 0.2 |
-| Liss Rhod PE | 1 mg/mL | 0.1 | 2.603 | 0.002 |
-| Total | | 100 | | 2 |
+| POPC | 25 mg/mL | 899 | 54.66 | 1.798 |
+| Cholesterol | 50 mg/mL | 100 | 1.547 | 0.2 |
+| Liss Rhod PE | 1 mg/mL | 1 | 2.603 | 0.002 |
+| Total | | 1000 | | 2 |
 
 :::
 
-See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). The 0.1 mol% Liss Rhod PE is a fluorescent label for locating the liposomes, not a functional component.
+See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). The 1 mmol/mol Liss Rhod PE is a fluorescent label for locating the liposomes, not a functional component.
 
 ::::
 
@@ -97,7 +97,7 @@ See [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md). The 0.1 mol%
 | Component | Stock | Final concentration | Volume (µL) |
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
-| OptiPrep | 100% (v/v) | 10% (v/v) | 50 |
+| OptiPrep | 100 % (v/v) | 10 % (v/v) | 50 |
 | Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm, this buffer's share by dilution | 212.5 |
 | Total | | | 500 |
 
@@ -158,7 +158,7 @@ Requires the wash solution to match the interior. The Tris-HEPES buffer contribu
 
 # Constituent Modules
 
-- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — the bilayer, with 0.1 mol% Liss Rhod PE
+- [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) — the bilayer, with 1 mmol/mol Liss Rhod PE
 - [Substrate: CPRG](../substrate-cprg/spec.md) — the lumen, 14.25 mg/mL
 
 # Credits

@@ -89,7 +89,7 @@ The toehold switch and the effector are on one molecule, so [PLA1](../effector-p
 | [Base Cytosol](../base-cytosol/spec.md) | At reaction concentration | Transcription and translation |
 | [pH-Sensing Module](../detector-ph/spec.md) | `pT7-toehold9-PLA1` template at 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.625 µM trigger ssDNA | The duplex is annealed before it enters this mixture — see Process |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | Covered by the 2 nM toehold-gated template | The switch and the effector are on one molecule |
-| Optiprep | 4.5% (v/v) | Density agent for the phase-transfer step. Present in the encapsulated reaction and not in the bulk one |
+| Optiprep | 4.5 % (v/v) | Density agent for the phase-transfer step. Present in the encapsulated reaction and not in the bulk one |
 | RNase inhibitor | 1000 U/mL | Half the 2000 U/mL used in the bulk module reaction |
 | Sulfo-Cyanine5 | 2 µM, optional | Membrane-independent fill marker, used when the lumen needs to be visible. Sulfo-Cyanine5 carboxylic acid, Lumiprobe 13390 |
 :::

@@ -74,8 +74,8 @@ Assemble `pT7-lacO-plamGFP` into a standard PURE reaction. Add purified LacI pro
 
 | **Component** | **Stock** | **Final** | **Master Mix (µL)** |
 | --- | --- | --- | --- |
-| PURExpress Solution A | | 40% (v/v) | 4 |
-| PURExpress Solution B | | 30% (v/v) | 3 |
+| PURExpress Solution A | | 40 % (v/v) | 4 |
+| PURExpress Solution B | | 30 % (v/v) | 3 |
 | RNase Inhibitor | 40 000 U/mL | 2000 U/mL | 0.5 |
 | `pT7-lacO-plamGFP` | 10 nM | 0.5 nM | 0.5 |
 | LacI | 10 µM | 500 nM | 0.5 |

@@ -56,7 +56,7 @@ open:
     question: >
       The page carries an open @Editor(chicago) tag and a twelve-and-a-half-fold
       disagreement inside one document: sources give X-Gal free in the gel as
-      2.5 mg/mL (6.12 mM), but the protocol stating that figure adds 1 uL of a 1%
+      2.5 mg/mL (6.12 mM), but the protocol stating that figure adds 1 uL of a 10 mg/mL
       stock to a 50 uL gel, which is 0.2 mg/mL (0.49 mM). The stated final is the
       likelier error, so 0.49 mM is the working figure pending the Node, and the page
       says to treat 0.49 to 6.12 mM as a bracket and cite no single value. **No

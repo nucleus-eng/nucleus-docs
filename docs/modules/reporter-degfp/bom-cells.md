@@ -9,7 +9,7 @@ exports:
 
 | **Name** | **Product** | **Manufacturer** | **Part #** | Storage |
 | --- | --- | --- | --- | --- |
-| Glucose | D-(+)-Glucose, 99.5% | Sigma-Aldrich | G8270-1KG | Room temperature |
+| Glucose | D-(+)-Glucose, 99.5 % | Sigma-Aldrich | G8270-1KG | Room temperature |
 | POPC | 16:0-18:1 PC (POPC) | Avanti Research | A80557 | -20 °C |
 | Liss-Rhod-PE | 18:1 Liss Rhod PE | Avanti Research | A81150 | -20 °C |
 | Cholesterol | Cholesterol (plant) | Avanti Research | A80100 | -20 °C |

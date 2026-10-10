@@ -69,7 +69,7 @@ open:
   - id: liss-rhod-pe-is-a-tracer
     question: >
       Liss-Rhod PE is marked optional here because it is a fluorescent tracer at
-      0.05%, not a structural lipid, and a membrane without it is still this
+      0.05 %, not a structural lipid, and a membrane without it is still this
       Module. The page does not say that. If the Node considers the tracer part
       of the specification rather than an instrument, the `optional` key should
       come off.

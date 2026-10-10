@@ -70,7 +70,7 @@ flowchart TD
 @Editor(bnext): `T7pro-PLA1-T7term` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). Once one lands there and its identity is confirmed against the construct name, add its length and file to the table above.
 :::
 
-**The enzyme has two coding sequences.** Every construct carrying PLA1 carries 963 bp of it, and all of them encode the same protein — but not all from the same DNA. Chicago's two gated constructs, `pT7-tetO-PLA1` and `pT7-toehold9-PLA1`, are identical across the whole coding sequence. London's `LuxR-PLA1` agrees with them at 77.6% of nucleotides and 100% of residues, which makes it a separate codon optimization of the same enzyme.
+**The enzyme has two coding sequences.** Every construct carrying PLA1 carries 963 bp of it, and all of them encode the same protein — but not all from the same DNA. Chicago's two gated constructs, `pT7-tetO-PLA1` and `pT7-toehold9-PLA1`, are identical across the whole coding sequence. London's `LuxR-PLA1` agrees with them at 77.6 % of nucleotides and 100 % of residues, which makes it a separate codon optimization of the same enzyme.
 
 They are interchangeable at the protein level and distinct at the DNA level. Codon usage is tuned to a host and the two Nodes use different cytosols, so substituting one for the other is a change even though the enzyme is not. Length cannot tell them apart.
 
@@ -85,7 +85,7 @@ PLA1 is expressed from one of the constructs above rather than added as a reagen
 
 | Configuration | Construct | Working concentration |
 | --- | --- | --- |
-| Constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in Base Cytosol at 1× in a 20 µL reaction with 5% Optiprep |
+| Constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in Base Cytosol at 1× in a 20 µL reaction with 5 % Optiprep |
 | aTc-gated | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
 | 3OC6-HSL-gated | `LuxR-PLA1` | 15 ng/µL |
 | pH-gated | Toehold-switch-gated PLA1 template | 2 nM |
@@ -114,7 +114,7 @@ Both a self-lysis target and, in the two-liposome cascades, a neighboring [Subst
 
 PLA1 lyses the synthetic cell that expresses it, and synthetic cells near it. One documented configuration reports on PLA1 rather than on a cascade, because nothing gates it:
 
-- **London constitutive expression, ungated.** `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes, with no sensing circuit, drives the two-liposome CPRG/LacZ handoff. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run, and has been reproduced across multiple days. Expect a visible result on that timescale at this dose. The recorded outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 1.5% ULGA, so this is the gel format — see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
+- **London constitutive expression, ungated.** `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes, with no sensing circuit, drives the two-liposome CPRG/LacZ handoff. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run, and has been reproduced across multiple days. Expect a visible result on that timescale at this dose. The recorded outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 15 mg/mL ULGA, so this is the gel format — see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
 
 Every other configuration on record puts a sensing circuit in front of PLA1, so PLA1 and its gate cannot be told apart: a weak result there may be either. Those are results of the cascades that produced them, and each cascade's own page carries them.
 

@@ -103,7 +103,7 @@ The inner solution follows the [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-bas
 | --- | --- | --- |
 | [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) | Base Cytosol at reaction concentration, in a 9:1 POPC:cholesterol synthetic cell membrane | Transcription, translation, and encapsulation. |
 | [pH-Sensing Module](../detector-ph/spec.md) | `pT7-toehold9-PLA1` template at 2 nM; pH-responsive ssDNA : trigger ssDNA duplex (3:1, annealed) at 4.625 µM trigger ssDNA | Compare [pH-Sensing Module](../detector-ph/spec.md#detector-ph-reference-composition), whose design values are quoted at 4.8 µM. |
-| Optiprep | 4.5% (v/v) | Density agent for the phase-transfer step. Present in the encapsulated reaction and not in the bulk one. |
+| Optiprep | 4.5 % (v/v) | Density agent for the phase-transfer step. Present in the encapsulated reaction and not in the bulk one. |
 | RNase inhibitor | 1000 U/mL | Half the 2000 U/mL used in the bulk module reaction. |
 | Sulfo-Cyanine5 | 2 µM, optional | Membrane-independent fill marker, used when the lumen needs to be visible. Sulfo-Cyanine5 carboxylic acid, Lumiprobe 13390. |
 
@@ -146,7 +146,7 @@ The three results above are in solution. Embedding this Cell in the two-populati
 
 ## Gels
 
-Embedded directly in 0.7% low-gelling agarose with no liposomes at all, the pH-sensing reaction plus β-galactosidase and neutralization buffer gives a measurable pH-dependent difference after 5 h at 37 °C:
+Embedded directly in 7 mg/mL low-gelling agarose with no liposomes at all, the pH-sensing reaction plus β-galactosidase and neutralization buffer gives a measurable pH-dependent difference after 5 h at 37 °C:
 
 | Condition | Abs₅₇₀ (5 h) |
 | --- | --- |

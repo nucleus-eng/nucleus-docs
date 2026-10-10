@@ -162,7 +162,7 @@ Two demonstrations exist in liposomes in solution: pH-responsive GFP expression,
 
 ## Gels
 
-Embed the reaction in 0.7% low-gelling agarose in place of Cytosol. Add β-galactosidase (LacZ) reporter DNA with a neutralization buffer to set the target pH, then incubate at 37 °C for 5 h. Measure absorbance at 570 nm.
+Embed the reaction in 7 mg/mL low-gelling agarose in place of Cytosol. Add β-galactosidase (LacZ) reporter DNA with a neutralization buffer to set the target pH, then incubate at 37 °C for 5 h. Measure absorbance at 570 nm.
 
 | Condition                   | Abs₅₇₀ (5 h) |
 | --------------------------- | ------------ |

@@ -46,7 +46,7 @@ open:
   - id: a-sixtyfold-range-with-nowhere-to-live
     question: >
       Three contexts, three figures, and the schema holds none of them: encapsulated
-      in a GUV in PEG-norbornene at 2.5 U/mL final; encapsulated in a GUV in 0.7%
+      in a GUV in PEG-norbornene at 2.5 U/mL final; encapsulated in a GUV in 7 mg/mL
       agarose at 156 U/mL; dispersed in the gel, not documented. **Both encapsulated
       figures are the same arrangement — enzyme inside, substrate outside — and they
       differ about sixtyfold.** `parameters` lives inside a step and there are no

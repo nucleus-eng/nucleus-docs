@@ -102,11 +102,11 @@ Volumes are the synthetic-cell preparation at 0.5 mM total lipid. See [Membrane:
 
 | Component | Working concentration |
 | --- | --- |
-| Tris-HEPES buffer stock (0.5 M Tris base, 1.7 M HEPES; pH ≈ 7.4, ≈ 2700 mOsm) | 42.5% (v/v) in water, giving ≈ 1180 mOsm |
+| Tris-HEPES buffer stock (0.5 M Tris base, 1.7 M HEPES; pH ≈ 7.4, ≈ 2700 mOsm) | 42.5 % (v/v) in water, giving ≈ 1180 mOsm |
 | Energy solution | 1×, from a 2× ten-component sub-mix — see [Outer Solution: Tris-HEPES](../outer-solution-tris-hepes/spec.md) |
 :::
 
-@Editor: 0.5 M Tris with 1.7 M HEPES adds to about 2200 mOsm/L as written. The page gives 2700. 42.5% of 2700 is 1148, and the page gives 1180. Which figures are right?
+@Editor: 0.5 M Tris with 1.7 M HEPES adds to about 2200 mOsm/L as written. The page gives 2700. 42.5 % of 2700 is 1148, and the page gives 1180. Which figures are right?
 
 Match outer and inner solution osmolalities empirically with a vapor-pressure osmometer where possible.
 

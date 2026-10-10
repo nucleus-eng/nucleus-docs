@@ -27,14 +27,14 @@ This page is a work in progress and not yet ready for use. One result from one l
 
 | Format | Working concentration | Notes |
 | --- | --- | --- |
-| Free in the gel | 0.49–6.12 mM | In 0.7% agarose. The stated final and the protocol's own arithmetic disagree — see the note below. Do not cite a single value |
+| Free in the gel | 0.49–6.12 mM | In 7 mg/mL agarose. The stated final and the protocol's own arithmetic disagree — see the note below. Do not cite a single value |
 | Encapsulated in a liposome | **not possible** | see Requirements — X-Gal needs DMSO, and DMSO ruins liposome formation |
 :::
 
 :::{attention} The working concentration is not established
-Sources give X-Gal free in the gel as **2.5 mg/mL (6.12 mM)**, but the protocol that states that figure adds 1 µL of a 1% stock to a 50 µL gel, which is **0.2 mg/mL (0.49 mM)** — a 12.5-fold disagreement inside one document. The stated final is the likelier error, so **0.49 mM** is the working figure. Treat **0.49 mM to 6.12 mM** as the bracket and do not cite a single value.
+Sources give X-Gal free in the gel as **2.5 mg/mL (6.12 mM)**, but the protocol that states that figure adds 1 µL of a 10 mg/mL stock to a 50 µL gel, which is **0.2 mg/mL (0.49 mM)** — a 12.5-fold disagreement inside one document. The stated final is the likelier error, so **0.49 mM** is the working figure. Treat **0.49 mM to 6.12 mM** as the bracket and do not cite a single value.
 
-@Editor(chicago): is the dye line 1 µL or 5 µL? At 1 µL of a 1% stock the inset gel gets 0.49 mM, not the 2.5 stated in either unit. 5.11 µL would give 2.5 mM. Also say whether the figure carries to gels other than 0.7% agarose.
+@Editor(chicago): is the dye line 1 µL or 5 µL? At 1 µL of a 10 mg/mL stock the inset gel gets 0.49 mM, not the 2.5 stated in either unit. 5.11 µL would give 2.5 mM. Also say whether the figure carries to gels other than 7 mg/mL agarose.
 
 @Editor(chicago): cite the protocol that states 2.5 mg/mL.
 :::

@@ -49,7 +49,7 @@ process_steps:
     operands: [esar, dna-regulatory-element]
     parameters:
       preincubation: "1 h at 37 C — 15 min gives about 2x fold change where 1 h gives about 5x"
-      esar: "about 21% of the reaction, as pre-expressed reaction rather than purified protein"
+      esar: "about 21 % of the reaction, as pre-expressed reaction rather than purified protein"
     produces:
       id: detector-esar
       title: "Detector: 3OC6-HSL (EsaR)"

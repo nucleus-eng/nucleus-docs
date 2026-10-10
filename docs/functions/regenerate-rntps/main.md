@@ -38,7 +38,7 @@ Base Cytosol also carries two enzymes that pass phosphate between nucleotides wi
 
 # What selects a route
 
-- **Both can run together, and together did best.** In PURE reactions, the polyphosphate route alone gave about 77% less protein than the creatine phosphate route alone, and the two together gave about 96% more than creatine phosphate alone. See [Energy: PPK](../../modules/energy-ppk/spec.md).
+- **Both can run together, and together did best.** In PURE reactions, the polyphosphate route alone gave about 77 % less protein than the creatine phosphate route alone, and the two together gave about 96 % more than creatine phosphate alone. See [Energy: PPK](../../modules/energy-ppk/spec.md).
 - **Magnesium.** The polyphosphate route is highly sensitive to the Mg²⁺ concentration, and needs about 10 mM more Mg²⁺ than the reaction otherwise carries. See the Requirements of [Energy: PPK](../../modules/energy-ppk/spec.md).
 - **What the spent nucleotide is.** PPK2 acts on AMP directly. Creatine kinase acts on ADP, so on that route the AMP left by translation has to pass through AK first.
 

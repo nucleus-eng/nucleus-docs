@@ -165,7 +165,7 @@ The following reaction table is a self-contained experiment for evaluating the p
 | [plamGFP DNA](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-plamGFP-PURE.gb) | 120                 | ng/µL |
 | Mg-Acetate                                                                                  | 200                 | mM    |
 | Creatine phosphate                                                                          | 1000                | mM    |
-| PEG4K 40%                                                                                   | 40                  | %     |
+| PEG4K 40 %                                                                                   | 40                  | %     |
 | PolyP                                                                                       | 500                 | mM    |
 | PPK2                                                                                        | 57.5                | µM    |
 
@@ -192,7 +192,7 @@ The following reaction table is a self-contained experiment for evaluating the p
 | [plamGFP DNA](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-plamGFP-PURE.gb) | 1.67           | 1.67               | 1.67                       | 1.67                            | 0.00                           |
 | Mg-Acetate                                                                                  | 1.40           | 3.15               | 3.15                       | 0.00                            | 0.00                           |
 | Creatine phosphate                                                                          | 0.70           | 0.00               | 0.70                       | 0.00                            | 0.00                           |
-| PEG4K 40%                                                                                   | 1.75           | 1.75               | 1.75                       | 0.00                            | 0.00                           |
+| PEG4K 40 %                                                                                   | 1.75           | 1.75               | 1.75                       | 0.00                            | 0.00                           |
 | PolyP                                                                                       | 0.00           | 2.10               | 2.10                   | 0.00                            | 0.00                           |
 | PPK2                                                                                        | 0.00           | 1.22               | 1.22                       | 0.00                            | 0.00                           |
 | Water                                                                                       | 7.30           | 2.93               | 2.23                       | 8.82                            | 10.49                          |
@@ -209,13 +209,13 @@ The following reaction table is a self-contained experiment for evaluating the p
 
 ::::{tab-item} Kinetics
 :::{figure} kinetics.png
-Translation kinetics of PURE reactions using different energy modules. The PPK2 module performed approximately 77% lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96% higher final protein yield than the CP/CK module alone.
+Translation kinetics of PURE reactions using different energy modules. The PPK2 module performed approximately 77 % lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96 % higher final protein yield than the CP/CK module alone.
 :::
 ::::
 
 ::::{tab-item} Endpoint
 :::{figure} endpoint.png
-Final protein yields of the reactions measured at steady state. The PPK2 module performed approximately 77% lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96% higher final protein yield than the CP/CK module alone.
+Final protein yields of the reactions measured at steady state. The PPK2 module performed approximately 77 % lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96 % higher final protein yield than the CP/CK module alone.
 :::
 ::::
 

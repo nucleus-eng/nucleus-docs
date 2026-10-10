@@ -13,7 +13,7 @@ site:
 **Position.** Refines [Membrane](../membrane/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-This membrane is a pure POPC bilayer with no cholesterol, used for every synthetic cell in the London demo. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md), which both include cholesterol. Optionally, this membrane can include 0.1 mol% fluorescently tagged lipids to facilitate visualization.
+This membrane is a pure POPC bilayer with no cholesterol, used for every synthetic cell in the London demo. Compare to [Membrane: POPC/Chol (7:3)](../membrane-popc-chol/spec.md) and [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md), which both include cholesterol. Optionally, this membrane can include 1 mmol/mol fluorescently tagged lipids to facilitate visualization.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -76,17 +76,17 @@ The two are not the same kind of addition. DSPE-PEG2000's PEG headgroup provides
 :::{table} Documented preparations of this membrane. Each row is a self-consistent recipe; the two optional lipids are not mixed.
 :label: comp-membrane-popc-preps
 
-| Preparation                 | Target composition (mol %)      | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |
+| Preparation                 | Target composition (mmol/mol)      | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |
 | --------------------------- | ------------------------------- | --------- | ----------------- | ---------------------- | ---------------- |
-| PEGylated membrane          | 99.15 POPC : 0.85 DSPE-PEG2000  | 130.4     | 10.32             | —                      | 3.36             |
-| Fluorescently labeled membrane | 99.9 POPC : 0.1 Cyanine 5 PC | 79.863    | —                 | 3.423                  | 2.00             |
+| PEGylated membrane          | 991.5 POPC : 8.5 DSPE-PEG2000  | 130.4     | 10.32             | —                      | 3.36             |
+| Fluorescently labeled membrane | 999 POPC : 1 Cyanine 5 PC | 79.863    | —                 | 3.423                  | 2.00             |
 
 :::
 
-The PEGylated recipe gives 99.150 mol% POPC and 0.850 mol% DSPE-PEG2000; the labeled recipe gives 99.901 mol% POPC and 0.099 mol% Cyanine 5 PC, from the stocks in the Lipid Composition tab. The PEGylated preparation is a 3.5× batch (1× batch = 320 µL lipid-in-oil at 3 mg/mL); the labeled preparation is the 2 mg single-batch scale described under Process below.
+The PEGylated recipe gives 991.50 mmol/mol POPC and 8.50 mmol/mol DSPE-PEG2000; the labeled recipe gives 999.01 mmol/mol POPC and 0.99 mmol/mol Cyanine 5 PC, from the stocks in the Lipid Composition tab. The PEGylated preparation is a 3.5× batch (1× batch = 320 µL lipid-in-oil at 3 mg/mL); the labeled preparation is the 2 mg single-batch scale described under Process below.
 
 :::{attention} Cyanine 5 PC stock concentration unconfirmed
-The volumes above assume an 18:1 Cyanine 5 PC stock of 1 mg/mL, which gives 0.099 mol% dye against the 0.1 mol% target. At 25 mg/mL the same volumes would give 2.42 mol% dye, about 24× the target. 1 mg/mL is also the dye-stock convention used for Liss-Rhod PE in both other Nucleus membranes.
+The volumes above assume an 18:1 Cyanine 5 PC stock of 1 mg/mL, which gives 0.99 mmol/mol dye against the 1 mmol/mol target. At 25 mg/mL the same volumes would give 24.2 mmol/mol dye, about 24× the target. 1 mg/mL is also the dye-stock convention used for Liss-Rhod PE in both other Nucleus membranes.
 
 @Editor(london): confirm the Cyanine 5 PC stock concentration with the London Node before bench use.
 :::

@@ -52,7 +52,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | Component | Stock | Final concentration | Volume (µL) |
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
-| OptiPrep | 100% (v/v) | 10% (v/v) | 50 |
+| OptiPrep | 100 % (v/v) | 10 % (v/v) | 50 |
 | Tris-HEPES buffer (1 M Tris, 1.15 M HEPES) | ≈2520 mOsm | 1071 mOsm, this buffer's share by dilution | 212.5 |
 | Total | | | 500 |
 
@@ -65,12 +65,12 @@ Every wash is into the outer solution the implementation uses. Its formulations 
 :::{table} Membrane, 2 µmol of lipid in 0.5 mL (4 mM). Volumes are of the lipid stocks.
 :label: comp-encapsulate-luv-membrane
 
-| Component | Stock | Final (mol%) | Volume (µL) | Amount (µmol) |
+| Component | Stock | Final (mmol/mol) | Volume (µL) | Amount (µmol) |
 | --- | --- | --- | --- | --- |
-| POPC | 25 mg/mL | 89.9 | 54.66 | 1.798 |
-| Cholesterol | 50 mg/mL | 10 | 1.547 | 0.2 |
-| Liss Rhod PE | 1 mg/mL | 0.1 | 2.603 | 0.002 |
-| Total | | 100 | | 2 |
+| POPC | 25 mg/mL | 899 | 54.66 | 1.798 |
+| Cholesterol | 50 mg/mL | 100 | 1.547 | 0.2 |
+| Liss Rhod PE | 1 mg/mL | 1 | 2.603 | 0.002 |
+| Total | | 1000 | | 2 |
 
 :::
 
@@ -95,7 +95,7 @@ The source gives the composition of the film and not the vessel or the drying. *
 | POPC | Lipid | 16:0-18:1 PC 25 mg/mL | Avanti Lipids | A80557 | $435.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc) |
 | Cholesterol | Lipid | Cholesterol | Avanti Research | A80100 | $261.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant) |
 | Liss Rhod PE | Lipid | Liss Rhod PE | Avanti Lipids | A81179 | $273.47 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe) |
-| Chloroform | Chemical | Chloroform, suitable for HPLC, ≥99.8%, contains 0.5-1.0% ethanol as stabilizer | Sigma-Aldrich | 366927 | $94.30 | RT (flammables cabinet) | [link](https://www.sigmaaldrich.com/US/en/product/sigald/366927) |
+| Chloroform | Chemical | Chloroform, suitable for HPLC, ≥99.8 %, contains 0.5-1.0 % ethanol as stabilizer | Sigma-Aldrich | 366927 | $94.30 | RT (flammables cabinet) | [link](https://www.sigmaaldrich.com/US/en/product/sigald/366927) |
 | CPRG | Reagent | Chlorophenol red-β-D-galactopyranoside | Roche | 10884308001 | $160.00 | -20 °C | [link](https://www.sigmaaldrich.com/US/en/product/roche/10884308001) |
 | OptiPrep | Reagent | OptiPrep | STEMCELL Technologies | 07820 | $289.00 | RT | [link](https://www.stemcell.com/products/optipreptm.html) |
 | Tris base | Chemical | Tris base | — | — | — | RT | — |

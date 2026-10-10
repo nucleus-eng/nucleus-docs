@@ -129,7 +129,7 @@ The [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), carrying `Lux
 | Module | Working concentration | Notes |
 | --- | --- | --- |
 | [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) | S30 Lysate at reaction concentration | Transcription and translation. Composed before encapsulation, not added to a closed chassis |
-| [Membrane: POPC](../membrane-popc/spec.md) | 100% POPC | Closes the cytosol in one encapsulation step |
+| [Membrane: POPC](../membrane-popc/spec.md) | 100 % POPC | Closes the cytosol in one encapsulation step |
 | [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md) | `LuxR-PLA1` plasmid at 15 ng/µL final | The payload swap. The Sensing Cell carries `LuxR-deGFP` at 37 ng/µL instead. LuxR is not supplied separately — it is on this same molecule, under a constitutive promoter. |
 | [PLA1 Lysis Module](../effector-pla1/spec.md) | covered by `LuxR-PLA1` | PLA1 is expressed from the plasmid above, not supplied separately. |
 :::
@@ -166,7 +166,7 @@ This population is made as GUVs by the same phase-transfer route as the sensing 
 | POPC | 100 |
 :::
 
-The 100% POPC bilayer meets the Requirements of [Substrate: CPRG](../substrate-cprg/spec.md), which accept either lipid composition — POPC, or POPC:cholesterol. The loading concentration is bilayer-independent and carries over either way.
+The 100 % POPC bilayer meets the Requirements of [Substrate: CPRG](../substrate-cprg/spec.md), which accept either lipid composition — POPC, or POPC:cholesterol. The loading concentration is bilayer-independent and carries over either way.
 
 ::::
 
@@ -189,7 +189,7 @@ Two things, assembled at different steps. The Outer Solution is mixed first; eve
 
 | Component | Working concentration |
 | --- | --- |
-| ULGA | 1% (w/v) dissolved in the Outer Solution; 0.5% (w/v) in the set gel once both cell populations are combined in at 1:1:2 |
+| ULGA | 10 mg/mL dissolved in the Outer Solution; 5 mg/mL in the set gel once both cell populations are combined in at 1:1:2 |
 | β-galactosidase (LacZ) | not documented, added as purified protein. London supplies LacZ purified rather than expressing it in-reaction. @Editor(london): give the LacZ concentration dispersed in the gel. The Chicago figures are for encapsulated enzyme, so they do not carry across; see [LacZ Enzyme](../reporter-lacz-enzyme/spec.md). |
 | 3OC6-HSL inducer | 10 µM; 5 µM is also used, and both appear in reported results. Present in the induced condition only. |
 :::
@@ -240,7 +240,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 **Sensing population**
 
 1. **Assemble Cytosol** (mixing) — [S30 Lysate](../s30-lysate/spec.md) carrying `LuxR-PLA1`, which supplies both the LuxR receiver and the PLA1 payload, giving the [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md). S30 Lysate is supplied as a kit — premix, extract and amino acid mix — so it is reconstituted rather than built from a protocol. **No Process page covers this step.**
-2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — forms the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), the cytosol inside a [100% POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmotic concentrations are matched at ≈ 920 mOsm.
+2. [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) (packing) — forms the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), the cytosol inside a [100 % POPC membrane](../membrane-popc/spec.md). Sucrose assists the transfer, and inner and outer osmotic concentrations are matched at ≈ 920 mOsm.
 
 **Reporter population**
 
@@ -249,7 +249,7 @@ Five steps, listed in the order they are performed. Each one combines its inputs
 **The gel**
 
 4. [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) (mixing) — potassium L-glutamate, HEPES and glucose, matched to the sensing cell's inner solution at ≈ 920 mOsm.
-5. [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **1% (w/v)**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **0.5% (w/v) ULGA in the set gel**. ULGA works from 0.2% to 0.5%, and lower concentrations give faster kinetics. The cascade also runs in solution; see [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
+5. [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) (packing) — one step. ULGA powder is dissolved into the outer solution at **10 mg/mL**, purified [LacZ](../reporter-lacz-enzyme/spec.md) at an undocumented concentration and both cell populations go in, and the gel sets around all of them. The combining ratio is **1:1:2** — sensing cells to substrate cells to gel — giving **5 mg/mL ULGA in the set gel**. ULGA works from 2 mg/mL to 5 mg/mL, and lower concentrations give faster kinetics. The cascade also runs in solution; see [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
 
 [Colorimetric Readout](../../processes/colorimetric-readout/main.md) measures the result — the CPRG conversion, yellow to magenta, read by absorbance and by eye. It is not a composition step, because it produces no Module.
 
@@ -258,7 +258,7 @@ Both mix components into one compartment, and both are instances of [Assemble So
 :::
 
 :::{important} The combining ratio
-The two populations are mixed **1:1**, then that mixture is combined **1:1 with 1% (w/v) ULGA** for a **0.5% final** gel — an overall **1:1:2**.
+The two populations are mixed **1:1**, then that mixture is combined **1:1 with 10 mg/mL ULGA** for a **5 mg/mL final** gel — an overall **1:1:2**.
 
 @Editor: steps 1 and 4 have no Process page.
 :::

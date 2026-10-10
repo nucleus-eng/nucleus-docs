@@ -18,7 +18,7 @@
 #
 # NOT EVERY MEMBER IS A LIPID, which is why the class is not called Lipids.
 # Cholesterol is a sterol and does not form a bilayer on its own; a fluorescent label
-# at 0.1 mol% is an instrument rather than a structural part. Both are components of
+# at 1 mmol/mol is an instrument rather than a structural part. Both are components of
 # a membrane and neither is a bilayer-forming lipid.
 
 module: membrane-components

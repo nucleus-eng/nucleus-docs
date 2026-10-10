@@ -35,7 +35,7 @@ inputs:
     page: ../detergent-tween-80/spec.md
     optional: true        # arrives dissolved in the purified stock, not added
     # NOT A CONSTITUENT ANYBODY CHOSE. The purified His-tagged stock
-    # (MedChemExpress HY-P71520A) is lyophilized from a solution containing 0.02%
+    # (MedChemExpress HY-P71520A) is lyophilized from a solution containing 0.2 mg/mL
     # Tween 80, so the detergent enters with the repressor. It is declared as an
     # operand because that is the only way the composition can see it, and
     # `optional: true` because the two other formats of TetR do not carry it.

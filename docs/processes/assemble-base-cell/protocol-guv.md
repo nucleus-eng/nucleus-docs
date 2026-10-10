@@ -70,7 +70,7 @@ Work inside of a fume hood when handling chloroform.
 :::{hint} Note
 :class: simple
 :icon: false
-Those three volumes give 89.9 / 10 / 0.1 mol% POPC, cholesterol and Liss-Rhod PE, and 1.5 µmol of lipid in total. The same membrane is also recorded at a 5 mL scale, which is 2.5 µmol at the same mol% and the same 0.5 mM.
+Those three volumes give 899 / 100 / 1 mmol/mol POPC, cholesterol and Liss-Rhod PE, and 1.5 µmol of lipid in total. The same membrane is also recorded at a 5 mL scale, which is 2.5 µmol at the same composition and the same 0.5 mM.
 :::
 
 ## Form the Interface

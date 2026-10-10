@@ -64,7 +64,7 @@ Requires a base whose recipe pins a total volume and reserves part of it. Withou
 
 **Two things spend the headroom that are not sensing components**, and both are easy to miss:
 
-- **A downstream process can claim it.** [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md) carries Optiprep at 4.5% (v/v) — about 0.45 µL of a 10 µL reaction, or a fifth of the slot — because of how the cell is later encapsulated, not because the sensing function needs it. The reagent is spent before the step that needs it runs.
+- **A downstream process can claim it.** [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md) carries Optiprep at 4.5 % (v/v) — about 0.45 µL of a 10 µL reaction, or a fifth of the slot — because of how the cell is later encapsulated, not because the sensing function needs it. The reagent is spent before the step that needs it runs.
 - **A base component may be a range rather than a figure.** Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. A derivative naming one value inside that range is recording a choice, not a requirement.
 
 # Modules

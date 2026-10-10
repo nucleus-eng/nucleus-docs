@@ -177,7 +177,7 @@ By default, a "standard" subset of metadata is shown by `data.view()`. To see th
 
 ## 3. Plot Raw Curves
 
-First, visualize your data. You can do this by calling `data.plot()`. <!-- The method is format-aware: for a kinetic (time-series) block it plots fluorescence over time.--> By default, one curve is plotted for each distinct `Name` in the platemap. The band shows a [bootstrapped 95% confidence interval of the mean](https://seaborn.pydata.org/tutorial/error_bars.html#confidence-interval-error-bars) across wells with that `Name`.
+First, visualize your data. You can do this by calling `data.plot()`. <!-- The method is format-aware: for a kinetic (time-series) block it plots fluorescence over time.--> By default, one curve is plotted for each distinct `Name` in the platemap. The band shows a [bootstrapped 95 % confidence interval of the mean](https://seaborn.pydata.org/tutorial/error_bars.html#confidence-interval-error-bars) across wells with that `Name`.
 
 Passing `style='Type'` assigns different line styles for the different sample types that appear in your platemap (`Sample`, `Standard`, `Blank`, etc. as defined in the [platemap standard](https://devnotes.nucleus.engineering/articles/Bhasin-20260421#required-columns)). Line styles by type makes it easy to spot controls, catch outliers, failed reactions, or unexpected behavior before fitting data.
 
@@ -284,7 +284,7 @@ See the [DevNote](https://devnotes.nucleus.engineering/articles/Newman-20260421)
   - **Max Velocity**: maximum rate of fluorescence increase (slope at inflection point)
   - **Lag Time**: time to reach the exponential phase
   - **Steady State**: final fluorescence level
-  - **Completion Time**: time to reach 95% of the asymptote
+  - **Completion Time**: time to reach 95 % of the asymptote
   - **Drift**: rate of signal decay or increase after steady-state
   - **R²**: goodness of fit; "Good Fit" is `True` if $R^2 \geq 0.95$
 

@@ -37,7 +37,7 @@ inputs:
     # the downstream processes using that lipid, only the resulting membrane
     # properties.
     #
-    # THAT IS WHAT MAKES ../guv-cprg/spec.md's "100% POPC" TRUE RATHER THAN FALSE. Read
+    # THAT IS WHAT MAKES ../guv-cprg/spec.md's "100 % POPC" TRUE RATHER THAN FALSE. Read
     # as a whole-film composition it contradicts this page's 99.15 : 0.85. Read against
     # the sterol axis, with the PEG optional, it says what it means: no cholesterol.
     # ../../../style-guide/sections.md already carries the rule -- "Optional components
@@ -91,16 +91,16 @@ open:
       assert they can be freely omitted or combined, which the page denies, and two
       steps producing the same id fail check-spec-schema.py with duplicate-id —
       measured on membrane-popc-chol-9-1, not assumed. The missing route in full,
-      so nothing is lost — fluorescently labeled membrane, target 99.9 mol% POPC :
-      0.1 mol% 18:1 Cyanine 5 PC, POPC 25 mg/mL stock at 79.863 uL, Cyanine 5 PC
+      so nothing is lost — fluorescently labeled membrane, target 999 mmol/mol POPC :
+      1 mmol/mol 18:1 Cyanine 5 PC, POPC 25 mg/mL stock at 79.863 uL, Cyanine 5 PC
       1 mg/mL stock at 3.423 uL, 2.00 mg total lipid, single-batch scale. It is the
       variant gel-embedded in ../../processes/embed-thermal-setting/main.md.
   - id: cyanine-5-stock-is-disputed
     question: >
       The labeled recipe above depends on a stock concentration the page flags as
       disputed and has an open @Editor(london) tag against. One record gives the
-      18:1 Cyanine 5 PC stock as 25 mg/mL, which would put the dye at 2.42 mol% —
-      about 24x the 0.1 mol% target. The page uses 1 mg/mL because that reconciles
+      18:1 Cyanine 5 PC stock as 25 mg/mL, which would put the dye at 24.2 mmol/mol —
+      about 24x the 1 mmol/mol target. The page uses 1 mg/mL because that reconciles
       exactly and matches the dye-stock convention used for Liss-Rhod PE in both
       other Nucleus membranes. This file repeats the page's figure and does not
       resolve the dispute; the resolution is the Node's.

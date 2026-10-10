@@ -11,7 +11,7 @@ site:
 **Position.** Refines [Cell](../cell/spec.md) and [GUV](../guv/spec.md) and [Liposome](../liposome/spec.md). Refined by [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md).
 <!-- /gen:position -->
 
-The Cell: S30 Lysate, POPC combines [S30 Lysate](../s30-lysate/spec.md) with a [100% POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), giving the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md)).
+The Cell: S30 Lysate, POPC combines [S30 Lysate](../s30-lysate/spec.md) with a [100 % POPC membrane](../membrane-popc/spec.md). This cell is extended in downstream demo variants by adding sensing and reporter modules (e.g., the [3OC6-HSL Sensing Module](../detector-3oc6-hsl/spec.md), giving the [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -76,15 +76,15 @@ The inner solution encapsulated into the Cell: S30 Lysate, POPC is [S30 Lysate](
 
 ::::{tab-item} Membrane
 
-The membrane is the [Membrane: POPC](../membrane-popc/spec.md) (100% POPC), optionally functionalized with red fluorescent Cyanine 5 PC, or DSPE-PEG2000. The two optional lipids come from two separate documented preparations and are not combined in one membrane.
+The membrane is the [Membrane: POPC](../membrane-popc/spec.md) (100 % POPC), optionally functionalized with red fluorescent Cyanine 5 PC, or DSPE-PEG2000. The two optional lipids come from two separate documented preparations and are not combined in one membrane.
 
 :::{table} Membrane: POPC preparations, as documented on the [Membrane: POPC](../membrane-popc/spec.md) spec.
 :label: comp-s30-membrane
 
-| Preparation                    | Target composition (mol %)     | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |
+| Preparation                    | Target composition (mmol/mol)     | POPC (µL) | DSPE-PEG2000 (µL) | 18:1 Cyanine 5 PC (µL) | Total lipid (mg) |
 | ------------------------------ | ------------------------------ | --------- | ----------------- | ---------------------- | ---------------- |
-| PEGylated membrane             | 99.15 POPC : 0.85 DSPE-PEG2000 | 130.4     | 10.32             | —                      | 3.36             |
-| Fluorescently labeled membrane | 99.9 POPC : 0.1 Cyanine 5 PC   | 79.863    | —                 | 3.423                  | 2.00             |
+| PEGylated membrane             | 991.5 POPC : 8.5 DSPE-PEG2000 | 130.4     | 10.32             | —                      | 3.36             |
+| Fluorescently labeled membrane | 999 POPC : 1 Cyanine 5 PC   | 79.863    | —                 | 3.423                  | 2.00             |
 
 :::
 
@@ -116,12 +116,12 @@ Osmotic concentrations of inner and outer solutions target ~920 mOsm.
 
 Three phase-transfer routes have been compared for encapsulating S30 Lysate in POPC. The Elani-lab protocol with Optiprep in the inner solution gives the cleanest and highest-yield preparation. The same protocol without Optiprep gives fewer cells, and the Schroeder route (JoVE, 2020) gives yields too low to use.
 
-Yield is counted as cells at or above 5 µm per imaging field. In the Elani route, adding 5 mg/mL BSA and raising Optiprep to 15% raised that count about 1.5×, from roughly 27 to roughly 42. Counts hold through incubation at 37 °C, and in the Optiprep condition cells stay round and abundant for 48 h, averaging 80 per field at 1 h and 66 at 48 h. Membrane stability is therefore not what limits yield.
+Yield is counted as cells at or above 5 µm per imaging field. In the Elani route, adding 5 mg/mL BSA and raising Optiprep to 15 % raised that count about 1.5×, from roughly 27 to roughly 42. Counts hold through incubation at 37 °C, and in the Optiprep condition cells stay round and abundant for 48 h, averaging 80 per field at 1 h and 66 at 48 h. Membrane stability is therefore not what limits yield.
 
-**Yield and expression pull against each other.** Optiprep above about 5% of the inner solution suppresses cell-free expression, so the conditions that give the most cells give no signal at all — see [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) for that result and its controls. The configuration demonstrated to express is the one without Optiprep, at the cost of yield. Expect to choose. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10%.
+**Yield and expression pull against each other.** Optiprep above about 5 % of the inner solution suppresses cell-free expression, so the conditions that give the most cells give no signal at all — see [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) for that result and its controls. The configuration demonstrated to express is the one without Optiprep, at the cost of yield. Expect to choose. The ceiling binds only compartments that have to express. Dye populations carry no transcription or translation machinery and tolerate more. A CPRG dye population has been run at 10 %.
 
 :::{attention} Source needed
-@Editor(london): cite the source for the 10% Optiprep figure of the CPRG dye population.
+@Editor(london): cite the source for the 10 % Optiprep figure of the CPRG dye population.
 :::
 
 :::{attention} Size is a threshold, not a distribution
@@ -138,7 +138,7 @@ Requires a membrane to encapsulate the cytosol (e.g. [Membrane: POPC](../membran
 
 # Processes
 
-The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100% POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolalities by measuring with a vapor-pressure osmometer. 
+The chassis is formed by encapsulating [S30 Lysate](../s30-lysate/spec.md) in a [100 % POPC membrane](../membrane-popc/spec.md) using  [emulsion phase transfer](../../processes/assemble-base-cell/main.md). Use this cell in outer solution at 920 mOsm, or empirically match your outer and inner solution osmolalities by measuring with a vapor-pressure osmometer. 
 
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) — sets this Cell in a thermally set gel
 

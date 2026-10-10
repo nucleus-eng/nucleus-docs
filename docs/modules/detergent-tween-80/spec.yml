@@ -19,7 +19,7 @@ process_steps: []
 open:
   - id: the-dose-is-unrecorded-at-every-step
     question: >
-      The supplied formulation is 0.02%, and every figure after that is missing: the
+      The supplied formulation is 0.2 mg/mL, and every figure after that is missing: the
       reconstitution volume, the dilution into the reaction, and the concentration at
       which the bilayer starts to leak. So this Module is declared by its route in and
       by its effect, with no number joining the two.

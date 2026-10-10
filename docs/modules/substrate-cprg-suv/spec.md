@@ -112,7 +112,7 @@ Quality control before combining with other components:
 
 ## Gels
 
-In ~1% alginate the yellow-to-purple change appears after about 16 h.
+In ~10 mg/mL alginate the yellow-to-purple change appears after about 16 h.
 
 # Requirements
 

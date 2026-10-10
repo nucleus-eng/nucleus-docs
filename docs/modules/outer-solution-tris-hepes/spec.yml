@@ -49,7 +49,7 @@ process_steps:
       id: outer-solution-tris-hepes
       title: "Outer Solution: Tris-HEPES"
       page: ../outer-solution-tris-hepes/spec.md
-    # SCALE-FREE. The page's "46.67% (v/v) in water" is already a volume fraction.
+    # SCALE-FREE. The page's "46.67 % (v/v) in water" is already a volume fraction.
     # Keyed by the operand id, `tris-hepes-stock`, rather than by `tris-hepes`. Which
     # Tris-HEPES stock this is, is an open question: see the page.
     fractions:

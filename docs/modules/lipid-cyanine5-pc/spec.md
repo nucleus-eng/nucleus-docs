@@ -22,8 +22,8 @@ This page is a work in progress and not yet ready for use.
 :::{table} What [Membrane: POPC](../membrane-popc/spec.md) records.
 | Quantity | Value | State |
 | --- | --- | --- |
-| In the bilayer | 0.1 mol% | The target for the labeled variant |
-| Stock | 1 mg/mL | **Disputed.** One record gives 25 mg/mL, which would put the dye at about 2.42 mol% |
+| In the bilayer | 1 mmol/mol | The target for the labeled variant |
+| Stock | 1 mg/mL | **Disputed.** One record gives 25 mg/mL, which would put the dye at about 24.2 mmol/mol |
 | Read at | not recorded | No page here states its excitation or emission |
 :::
 

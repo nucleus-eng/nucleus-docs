@@ -26,7 +26,7 @@ This page is a work in progress and not yet ready for use.
 | --- | --- | --- |
 | Molar mass | 1301.71 g/mol | [POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
 | Stock | 1 mg/mL | [POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
-| In the bilayer | 0.05 mol% to 0.1 mol% | [POPC/Chol (7:3)](../membrane-popc-chol/spec.md), [POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
+| In the bilayer | 0.5 mmol/mol to 1 mmol/mol | [POPC/Chol (7:3)](../membrane-popc-chol/spec.md), [POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) |
 | Read at | 540 nm excitation, 580 nm emission | [Dye Liposomes](../dye-liposomes/spec.md) |
 :::
 

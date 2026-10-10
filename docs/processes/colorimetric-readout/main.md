@@ -25,7 +25,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 - **Embedding: Thermal Setting → Colorimetric Readout is confirmed.** The ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
 - **Embedding: Photodevelopment → Colorimetric Readout is proposed and not demonstrated.** PEGDA-patterned gel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned gel has not been shown.
-- **Embedding: Ionic Crosslinking → Colorimetric Readout is confirmed for the unpatterned gel.** The unpatterned alginate-embedded readout ([SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~1% alginate, ~16 h color change) is a confirmed result. Alginate embedding also feeds PEGDA patterning, which is confirmed.
+- **Embedding: Ionic Crosslinking → Colorimetric Readout is confirmed for the unpatterned gel.** The unpatterned alginate-embedded readout ([SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~10 mg/mL alginate, ~16 h color change) is a confirmed result. Alginate embedding also feeds PEGDA patterning, which is confirmed.
 
 ::::::
 
@@ -65,7 +65,7 @@ Catechol 2,3-dioxygenase (C23DO, the *xylE* gene product) oxidizes colorless cat
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | ---- | -------- | ------- | ------------ | ------ | ----- | ------- | ---- |
 | CPRG | Reagent | Chlorophenol red-β-D-galactopyranoside | Roche | 10884308001 | $160.00 | -20 °C, in water at 10 mg/mL to 20 mg/mL | [link](https://www.sigmaaldrich.com/US/en/product/roche/10884308001) |
-| Catechol | Reagent | Catechol, 99% | TCI America | P0317 | $45.00 | RT, protect from light | [link](https://www.tcichemicals.com/US/en/p/P0317) |
+| Catechol | Reagent | Catechol, 99 % | TCI America | P0317 | $45.00 | RT, protect from light | [link](https://www.tcichemicals.com/US/en/p/P0317) |
 | β-galactosidase (LacZ), exogenous | Reagent | β-Galactosidase from *E. coli* | Sigma-Aldrich | G6008 | $95.00 | -20 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g6008) |
 | 96-well clear-bottom plate | Consumable | Corning 96-well clear flat-bottom polystyrene microplate | Corning | 3585 | $45.00 | RT | [link](https://www.sigmaaldrich.com/US/en/product/corning/cls3585) |
 | 384-well glass bottom plate | Consumable | 384 well glass bottom plate, 1.5 cover glass (20/case) | Cellvis | P384-1.5H-N | $423.00 | RT | [link](https://www.cellvis.com/_384-well-glass-bottom-plate-with-high-performance-number-1.5-cover-glass_/product_detail.php?product_id=53) |

@@ -13,7 +13,7 @@ site:
 **Position.** Refines [Gel](../gel/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-Alginate Gel is a ~1% (w/v) sodium alginate gel, crosslinked ionically by divalent calcium, used as the matrix that holds synthetic cells and reporter liposomes in fixed relation to one another. It is the format the Chicago colorimetric demo runs in. Compare to [ULGA Gel](../gel-ulga/spec.md), which reaches the same result through a thermal set rather than an ionic one, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.
+Alginate Gel is a ~10 mg/mL sodium alginate gel, crosslinked ionically by divalent calcium, used as the matrix that holds synthetic cells and reporter liposomes in fixed relation to one another. It is the format the Chicago colorimetric demo runs in. Compare to [ULGA Gel](../gel-ulga/spec.md), which reaches the same result through a thermal set rather than an ionic one, and to [PEGDA Gel](../gel-pegda/spec.md), whose geometry is set by projected light rather than by its container.
 
 Alginate is the gentlest of the four on its contents: it sets at room temperature, in the dark, with no radicals and no heat.
 
@@ -71,7 +71,7 @@ flowchart TD
 
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| Sodium alginate | ~1% (w/v) | dissolved in a buffer compatible with the liposomes being embedded — normally their own outer solution |
+| Sodium alginate | ~10 mg/mL | dissolved in a buffer compatible with the liposomes being embedded — normally their own outer solution |
 | Calcium chloride (CaCl₂) | 200 mM | applied as a separate crosslinking solution, not premixed |
 :::
 
@@ -79,7 +79,7 @@ flowchart TD
 
 :::::
 
-The alginate is dissolved in whatever outer solution the embedded populations already sit in. Osmolarity is additive, so the gel's is the sum of that solution's and the polymer's own — and at about 1% (w/v) the polymer's term is on the order of 0.1 mOsm/L, negligible against the roughly 1180 mOsm of the solution. The solution sets it. @Editor: 0.1 leaves out the sodium counterions. At 1% (w/v), 10 g/L of a 198 g/mol residue carries about 50 mM sodium. Counterions of a polyelectrolyte count for less than free ions, so the term is perhaps 10 to 25 mOsm/L. That is an estimate from general chemistry, not a recorded figure.
+The alginate is dissolved in whatever outer solution the embedded populations already sit in. Osmolarity is additive, so the gel's is the sum of that solution's and the polymer's own — and at about 10 mg/mL the polymer's term is on the order of 0.1 mOsm/L, negligible against the roughly 1180 mOsm of the solution. The solution sets it. @Editor: 0.1 leaves out the sodium counterions. At 10 mg/mL, a 198 g/mol residue carries about 50 mM sodium. Counterions of a polyelectrolyte count for less than free ions, so the term is perhaps 10 to 25 mOsm/L. That is an estimate from general chemistry, not a recorded figure.
 
 A multimaterial variant mixes 16 mg/mL alginate into a PEGDA precursor, then crosslinks each component by its own route. The mixture is the ingredient; the product is not a blended gel but **a PEGDA frame around an alginate core** — two regions with a boundary between them, demonstrated with reasonable structural integrity. The alginate step crosslinks in a **200 mM CaCl₂** bath after patterning. The PEGDA575-alginate frame is patterned for **30 s** and the PEG4Nb inset for **60 s**, both at 405 nm. See [PEGDA Gel](../gel-pegda/spec.md).
 
@@ -118,7 +118,7 @@ Prepared and set by [Embedding: Ionic Crosslinking](../../processes/embed-ionic-
 | Name | Category | Product | Manufacturer | Part # | Link |
 | --- | --- | --- | --- | --- | --- |
 | Sodium alginate | Chemical | Alginic acid sodium salt, low viscosity | Sigma-Aldrich | A0682 | [link](https://www.sigmaaldrich.com/US/en/product/sigma/a0682) |
-| Calcium chloride | Chemical | Calcium chloride, anhydrous, ≥97% | Sigma-Aldrich | C1016 | [link](https://www.sigmaaldrich.com/US/en/product/sigma/c1016) |
+| Calcium chloride | Chemical | Calcium chloride, anhydrous, ≥97 % | Sigma-Aldrich | C1016 | [link](https://www.sigmaaldrich.com/US/en/product/sigma/c1016) |
 :::
 
 # Credits

@@ -68,7 +68,7 @@ process_steps:
     parameters:
       # MOVED HERE 2026-10-03 from the Preparations table on
       # ../membrane-popc-chol-9-1/spec.md, which keyed its rows by the Modules
-      # that take the membrane. The membrane is 89.9/10/0.1 mol% whoever takes it;
+      # that take the membrane. The membrane is 899/100/1 mmol/mol whoever takes it;
       # the volumes are this chassis's dose of it, at 0.5 mM total lipid.
       #
       # THE THREE LIPID ROWS ARE REMOVED 2026-10-05 AS FULLY REDUNDANT. Their stocks

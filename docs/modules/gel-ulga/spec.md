@@ -73,7 +73,7 @@ flowchart TD
 
 | Component | Working concentration | Notes |
 | --- | --- | --- |
-| ULGA | 1% (w/v) in the prepared solution; 0.5% (w/v) once combined 1:1 with the cell suspension | dissolved into the outer solution below, not into water. Works from 0.2% to 0.5% in the set gel. **Lower gives faster kinetics; higher holds a better on-off state**, so the density is a dynamic-range lever rather than a preference. 0.2% immobilizes GUVs |
+| ULGA | 10 mg/mL in the prepared solution; 5 mg/mL once combined 1:1 with the cell suspension | dissolved into the outer solution below, not into water. Works from 2 mg/mL to 5 mg/mL in the set gel. **Lower gives faster kinetics; higher holds a better on-off state**, so the density is a dynamic-range lever rather than a preference. 2 mg/mL immobilizes GUVs |
 | Potassium L-glutamate | 578 mM | |
 | HEPES, pH 7.4 | 72 mM | |
 | Glucose | 300 mM | |
@@ -86,7 +86,7 @@ flowchart TD
 
 Unlike the other three gels, ULGA is specified together with its solution rather than as an additive to someone else's. The salts and sugar above are the [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) outer solution, which matches inner to outer at about 920 mOsm.
 
-**Osmolarity is additive.** The figure above is the sum of every component's contribution, the polymer included. At 1% (w/v) the ULGA itself adds on the order of 0.1 mOsm/L — negligible against 920, but not zero. The salts and sugar set it. @Editor: the components in the table above do not add to 920. See the note on that table's last row.
+**Osmolarity is additive.** The figure above is the sum of every component's contribution, the polymer included. At 10 mg/mL the ULGA itself adds on the order of 0.1 mOsm/L — negligible against 920, but not zero. The salts and sugar set it. @Editor: the components in the table above do not add to 920. See the note on that table's last row.
 
 A separate configuration replaces those three with 1200 mM glucose and 0.1 mM CaCl₂, used where the embedded cells carry [Base Cytosol](../base-cytosol/spec.md) rather than [S30 Lysate](../s30-lysate/spec.md). The 1200 mM figure is not arbitrary — above roughly 1200 mOsm, CPRG leakage from loaded liposomes drops sharply.
 
@@ -123,12 +123,12 @@ The gel point (8–17) °C and the melting point (≤ 50 °C) are the supplier's
 
 Expect a gel that stays liquid while warm, tolerates mixing with intact synthetic cells, and sets on cooling below its gel point without a crosslinker, a divalent load or any illumination.
 
-Two results are confirmed in this matrix. At 1.5%, the two-liposome PLA1/CPRG/LacZ chemistry gives a visible color change from about 3 h at 37 °C, easily discernible by 16 h — see [PLA1 Lysis Module](../effector-pla1/spec.md). At 1%, encapsulated cells give a GFP readout scored after 2.5 h.
+Two results are confirmed in this matrix. At 15 mg/mL, the two-liposome PLA1/CPRG/LacZ chemistry gives a visible color change from about 3 h at 37 °C, easily discernible by 16 h — see [PLA1 Lysis Module](../effector-pla1/spec.md). At 10 mg/mL, encapsulated cells give a GFP readout scored after 2.5 h.
 
 :::{note} The colorimetric result was measured outside the working range
-The 1.5% above is the condition that experiment ran at. The current concentration is 1% (w/v) in the prepared solution, which gives 0.5% (w/v) in the set gel.
+The 15 mg/mL above is the condition that experiment ran at. The current concentration is 10 mg/mL in the prepared solution, which gives 5 mg/mL in the set gel.
 
-Under the 1:1:2 combining ratio, 1.5% gives 0.75% (w/v) in the set gel, above the 0.2% to 0.5% working range, so the confirmed colorimetric result comes from a condition outside that range.
+Under the 1:1:2 combining ratio, 15 mg/mL gives 7.5 mg/mL in the set gel, above the 2 mg/mL to 5 mg/mL working range, so the confirmed colorimetric result comes from a condition outside that range.
 :::
 
 :::{attention} The temperatures are not established
@@ -147,7 +147,7 @@ Imposes no divalent load and no illumination on its contents.
 # Implementations
 
 - [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its gel — set by cooling.
-- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its gel — 1% (w/v), set by cooling.
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its gel — 10 mg/mL, set by cooling.
 
 # Processes
 
