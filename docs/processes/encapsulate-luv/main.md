@@ -75,7 +75,7 @@ Every wash is into the outer solution the implementation uses. Its formulations 
 :::
 
 :::{attention} The lipid film is only partly specified
-@Editor: record the vessel the film is made in and how it is dried.
+The source records a film procedure for the GUV population, which carries this same membrane at the same mol%: three lipid stocks combined in a 20 mL glass vial, chloroform removed under a gentle argon flow, then 30 min in a vacuum desiccator. **It does not say the LUV film is made the same way.** @Editor: confirm that it is, or record this route's own vessel and drying.
 :::
 
 ::::::
@@ -110,10 +110,6 @@ Every wash is into the outer solution the implementation uses. Its formulations 
 
 ## Prepare the Lipid Film
 
-:::{attention} Film preparation is only partly recorded
-@Editor: record the vessel and how the film is dried.
-:::
-
 - [ ] Combine the three lipid stocks in the volumes in the membrane table, and dry them to a thin film.
 
 :::{warning} Warning
@@ -128,8 +124,8 @@ Work inside a fume hood when handling chloroform.
 - [ ] Vortex until the film is no longer visible on the bottom of the vessel.
 - [ ] Sonicate for 10 min.
 
-:::{attention} Sonication is not specified
-@Editor: record the sonicator type (bath or probe), the power and the temperature.
+:::{attention} Sonication is only partly specified
+Ten minutes is as run. The source bath-sonicates the GUV population's lipid dispersion, so a bath is the likely instrument here too, and it does not say so. @Editor: confirm bath against probe, and record the power and the temperature.
 :::
 
 ## Freeze and Thaw
@@ -162,8 +158,8 @@ which is also what the equipment list gives as the microcentrifuge's maximum.
 the wash, which is the pellet figure in the wrong row. That page now points here
 instead of repeating a speed.
 
-@Editor: confirm 4,000 × g is the wash speed actually run. If it is not, this page is
-the one to correct, because it is the one a bench user follows.
+Both figures are as run: the source records ten washes at 4,000 × g for 10 min, and a
+single pellet spin at 10,000 × g.
 :::
 
 ## Wash

@@ -70,11 +70,14 @@ The sensing cells were made by an inverted-emulsion variant of phase transfer �
 The solution arm calls these arms pH 7.6 and pH 6.3. The gel route calls them pH 7.4 and pH 6.5, from the same stock and the same 1200 µL recipe. @Editor(chicago): one meter reading of an assembled well settles both pairs. See the note under Protocol as run.
 :::
 
-**The amounts in the gel.** The vesicles are 12% (v/v) of the set gel, 7.2 µL in 60 µL, which is the same fraction the solution arm gives them.
+**The amounts.** Both formats give the vesicles the same 12% (v/v), 7.2 µL in a 60 µL well. **The solution arm splits that slot per well** — the sample wells take 3 µL of sensing cells and 2.1 µL of CPRG-LUVs, with outer solution making up the rest, and the control wells take 1 µL of sensing cells and no LUVs. The table is under Protocol as run below.
 
-:::{attention} What the demo does not yet specify
-- **The split between the two populations.** The 12% (v/v) above is the sensing cells and the LUVs together. @Editor: record the two separately, and the LacZ Enzyme in the basic buffer.
-- **The color development conditions in the gel.** @Editor: confirm them. The one test on record ran in solution: pH 9.9 buffer, 37 °C, 3 h.
+:::{attention} The gel route states the slot and not its split
+The gel's composition gives the 12% (v/v) as one row, "GUVs, SUVs or substrates". @Editor: record the two populations separately for the gel, as the solution arm's conditions table does, and record the LacZ Enzyme in the basic buffer.
+:::
+
+:::{attention} The color development conditions in the gel
+@Editor: confirm them. The one test on record ran in solution: pH 9.9 buffer, 37 °C, 3 h. The source's own build diagram marks the color-development step as carrying no write-up at all.
 :::
 
 # Protocol as run
@@ -128,6 +131,10 @@ The acidic arm replaces the Tris-HEPES buffer stock row with a separate buffer m
 **The solution-phase arm, read by fluorescence microscopy at both pH values.**
 
 Cy5 stays in the sensing population at both pH values, so the two populations remain distinguishable for the length of the run. The fraction of sensing cells still holding Cy5 is markedly lower at pH 6.3 than at pH 7.6, which is lysis gated by pH.
+
+:::{warning} The GUV-only control is not dose-matched
+The sample wells take 3 µL of sensing cells; the sensing-cell-only control takes 1 µL. **That control therefore does not isolate the effect of the CPRG-LUVs**, because it differs from the samples in two things rather than one. The CPRG-LUV dose is matched at 2.1 µL.
+:::
 
 Acquisition is a two-channel z-stack, 1.5 µm between planes and 0.333 µm pixels, written as one OME-Zarr 0.5 store per well. The channel named for Alexa Fluor 647 reports the Cy5 signal; the microscope names a channel after a representative dye, not after the dye in the sample.
 

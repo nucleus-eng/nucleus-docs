@@ -142,7 +142,9 @@ No numeric threshold is defined for how low the noise floor must be.
 :::{attention} Sources for the noise-floor observations
 @Editor(london): cite the DevNote or data for the background PLA1 expression without 3OC6-HSL.
 
-@Editor(chicago): cite the DevNote or data for the GUV leak and the negative-control color, for the leaky function test on `pT7-toehold9-PLA1`, and for the statement that the detector, not the LacZ/CPRG reaction, fails the requirement. State whether that statement covers the GUV leak, which is not a detector failure.
+Two of these are sourced. The leaky function test on `pT7-toehold9-PLA1` is recorded in `DevCell_Materials_Tracker.xlsx`, which lists it as "Done/Leaky". The negative-control color is the gel attempt in which CPRG-loaded LUVs with β-galactosidase and no PLA1-expressing cells developed color on their own, which is a release of substrate rather than a detector failure.
+
+@Editor(chicago): cite the GUV leak, and the statement that the detector rather than the LacZ/CPRG reaction fails the requirement. State whether that statement is meant to cover the gel-driven release above, which is not a detector failure.
 :::
 
 Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis must be conditional. Expressed constitutively, PLA1 lyses on its own schedule.
