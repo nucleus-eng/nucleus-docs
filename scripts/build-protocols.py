@@ -33,6 +33,7 @@ Usage:
 """
 
 import csv
+import os
 import re
 import shutil
 import subprocess
@@ -238,6 +239,62 @@ def strip_cross_references(text: str) -> str:
     return re.sub(r"\{(?:ref|numref|eq)\}`([^`<]*?<)?([^`>]+)>?`", repl, text)
 
 
+SITE_CONFIG = Path("site.yml")
+
+# An inline Markdown link that is not an image: (text, target).
+LINK_RE = re.compile(r"(?<!!)\[([^\]]+)\]\(([^)\s]+)\)")
+# A target that already names a scheme: https:, mailto:, and so on.
+SCHEME_RE = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
+
+
+def site_url(config: Path = SITE_CONFIG) -> Optional[str]:
+    """The published site's base URL, `site.url` in site.yml, or None.
+
+    A line scan rather than a YAML parser: this script has no YAML dependency
+    and needs one key."""
+    if not config.is_file():
+        return None
+    in_site = False
+    for line in config.read_text(encoding="utf-8").splitlines():
+        if re.match(r"^site:\s*$", line):
+            in_site = True
+            continue
+        if in_site:
+            if line and not line[0].isspace():
+                break
+            m = re.match(r"^  url:\s*(\S+)\s*$", line)
+            if m:
+                return m.group(1).rstrip("/")
+    return None
+
+
+def absolutize_links(text: str, page: Path, base_url: Optional[str]) -> str:
+    """Rewrite a page's relative links so they still work in a downloaded PDF.
+
+    A relative link means nothing outside the site: `../assemble-base-cytosol/main.md`
+    in a PDF points at a path on the reader's own disk (#277). A link to another
+    page (.md or .ipynb) becomes the URL MyST publishes that page at: its path
+    from the repo root, without the extension, under `base_url`. Any other
+    relative target, such as a download, has no stable published URL, so the link
+    is reduced to its text. So is every relative link when `base_url` is None.
+    Absolute URLs, mailto: links and #anchors are left alone."""
+    def repl(m):
+        label, target = m.group(1), m.group(2)
+        if SCHEME_RE.match(target) or target.startswith("#"):
+            return m.group(0)
+        path, _, anchor = target.partition("#")
+        if path.startswith("/"):
+            resolved = Path(path.lstrip("/"))
+        else:
+            resolved = Path(os.path.relpath(os.path.normpath(page.parent / path)))
+        if (base_url is None or resolved.suffix not in (".md", ".ipynb")
+                or resolved.as_posix().startswith("..")):
+            return label
+        url = f"{base_url}/{resolved.with_suffix('').as_posix()}"
+        return f"[{label}]({url}{'#' + anchor if anchor else ''})"
+    return LINK_RE.sub(repl, text)
+
+
 def yaml_quote(value: str) -> str:
     """Double-quote a string for safe embedding as a YAML scalar, escaping
     backslashes and double quotes. Needed because page titles may contain a
@@ -249,8 +306,17 @@ def yaml_quote(value: str) -> str:
 
 
 def build_protocol_markdown(title: str, hazard: Optional[List[str]],
-                            checklist: List[str], slug: str) -> str:
-    """Assemble the intermediate markdown that MyST renders to the protocol PDF."""
+                            checklist: List[str], slug: str,
+                            page: Optional[Path] = None,
+                            base_url: Optional[str] = None) -> str:
+    """Assemble the intermediate markdown that MyST renders to the protocol PDF.
+    With `page`, its relative links are made absolute (see absolutize_links)."""
+    def clean(lines: List[str]) -> str:
+        text = "\n".join(lines)
+        if page is not None:
+            text = absolutize_links(text, page, base_url)
+        return strip_cross_references(text)
+
     fm = (
         "---\n"
         f"title: {yaml_quote(title)}\n"
@@ -263,9 +329,9 @@ def build_protocol_markdown(title: str, hazard: Optional[List[str]],
     parts = [fm]
     if hazard:
         parts.append(":::{danger} Hazardous Materials\n")
-        parts.append(strip_cross_references("\n".join(hazard)) + "\n")
+        parts.append(clean(hazard) + "\n")
         parts.append(":::\n\n")
-    parts.append(strip_cross_references("\n".join(checklist)) + "\n")
+    parts.append(clean(checklist) + "\n")
     return "".join(parts)
 
 
@@ -443,6 +509,7 @@ def main() -> int:
         print("No process pages with a '# Protocol' section or module BOM tables found.")
         return 0
 
+    base_url = site_url()
     render_failures = 0
     for page in pages:
         slug = slug_from_page(page)
@@ -469,7 +536,8 @@ def main() -> int:
 
         protocol_md = gen_dir / f"{slug}-protocol.md"
         protocol_md.write_text(
-            build_protocol_markdown(title, hazard, checklist, slug),
+            build_protocol_markdown(title, hazard, checklist, slug,
+                                    page=page, base_url=base_url),
             encoding="utf-8",
         )
         to_render.append(protocol_md)
