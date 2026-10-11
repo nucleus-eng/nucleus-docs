@@ -26,7 +26,7 @@
 # `illumination` IS DECLARED, as of 2026-10-07. It had no sensitivity to meet until
 # ../../modules/chromophore declared one, so the id was left out rather than invented
 # and the open item below said what it was waiting for. `uv-exposure` is still not it:
-# that id is the crosslinking dose ../embed-photodevelopment applies, and borrowing it
+# that id is the crosslinking dose ../embed-photocrosslinking applies, and borrowing it
 # would make two different things one.
 
 process: microscopy-readout

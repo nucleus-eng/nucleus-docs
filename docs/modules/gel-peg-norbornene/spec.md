@@ -58,8 +58,8 @@ flowchart TD
     class PEG_NORBORNENE_PRECURSOR,GEL_PEG_NORBORNENE composed;
     class P1_ASSEMBLE_PRECURSOR_0,P2_PHOTOPATTERN_0 process;
 
-    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/embed-photodevelopment/main"
-    click P2_PHOTOPATTERN_0 "/docs/processes/embed-photodevelopment/main"
+    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/embed-photocrosslinking/main"
+    click P2_PHOTOPATTERN_0 "/docs/processes/embed-photocrosslinking/main"
     click GEL_PEG_NORBORNENE "/docs/modules/gel-peg-norbornene/spec"
 ```
 
@@ -120,7 +120,7 @@ Requires the PEG4SH crosslinker, as the PEGDA route does.
 
 # Processes
 
-Formed by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md), which records this chemistry, the four steps both chemistries share, and the **Conflict** its UV exposure raises with CPRG. No precursor recipe or exposure conditions are established for the thiol-ene route.
+Formed by [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md), which records this chemistry, the four steps both chemistries share, and the **Conflict** its UV exposure raises with CPRG. No precursor recipe or exposure conditions are established for the thiol-ene route.
 
 # Materials
 

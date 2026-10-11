@@ -42,7 +42,7 @@ This is the one demo where the enzyme is inside the cell and the substrate outsi
 | 1 | [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) | the Tris-HEPES stock with an energy solution |
 | 2 | [Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) | the detector, PLA1 template and LacZ Enzyme into Base Cytosol |
 | 3 | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) | the synthetic cells |
-| 4 | [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md) | PEG-norbornene patterned at 405 nm |
+| 4 | [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md) | PEG-norbornene patterned at 405 nm |
 | 5 | [Colorimetric Readout](../../processes/colorimetric-readout/main.md) | absorbance, read against the undosed wells |
 | — | [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) | proposed to cut background; never run |
 

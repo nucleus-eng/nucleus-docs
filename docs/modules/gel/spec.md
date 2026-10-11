@@ -99,7 +99,7 @@ Requires a solvent phase to form in. Every member is cast into the outer solutio
 
 # Processes
 
-A member is set by one of the routes of [Embedding](../../processes/embed-gel/main.md): [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md), [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) or [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md).
+A member is set by one of the routes of [Embedding](../../processes/embed-gel/main.md): [Embedding: Ionic Crosslinking](../../processes/embed-ionic-crosslinking/main.md), [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) or [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md).
 
 # Credits
 

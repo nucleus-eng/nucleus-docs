@@ -94,7 +94,7 @@ sensitivities:
       has measured the per-read cost, so there is no bound to write and the severity is
       what carries the difference.
       A SEPARATE ID FROM `uv-exposure`, which is the crosslinking dose
-      ../../processes/embed-photodevelopment applies. Borrowing that one would make two
+      ../../processes/embed-photocrosslinking applies. Borrowing that one would make two
       different things one, which is the mistake
       ../../processes/microscopy-readout/spec.yml warned about while it had no
       sensitivity to meet.

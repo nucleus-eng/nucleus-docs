@@ -40,7 +40,7 @@ process_steps:
   - id: assemble-precursor
     process:
       title: "Embedding: Photodevelopment"
-      page: ../../processes/embed-photodevelopment/main.md
+      page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     operator: mixing
     operands: [peg4nb, peg4sh, lap, solvent]
@@ -62,7 +62,7 @@ process_steps:
   - id: photopattern
     process:
       title: "Embedding: Photodevelopment"
-      page: ../../processes/embed-photodevelopment/main.md
+      page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     operator: mixing
     operands: [peg-norbornene-precursor]

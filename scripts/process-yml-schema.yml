@@ -12,9 +12,9 @@
 # were declared on module steps, and EVERY ONE OF THEM TRACKS A PROCESS RATHER THAN A
 # MODULE:
 #
-#     uv-exposure                      3 declarations, all embed-photodevelopment
+#     uv-exposure                      3 declarations, all embed-photocrosslinking
 #     thermal-hold                     3 declarations, all embed-thermal-setting
-#     radical-acrylate-polymerization  1 declaration,     embed-photodevelopment
+#     radical-acrylate-polymerization  1 declaration,     embed-photocrosslinking
 #     proteolysis                      2 declarations, a process with no page
 #
 # Not one id spans two processes. So the step-level key has been holding a fact about

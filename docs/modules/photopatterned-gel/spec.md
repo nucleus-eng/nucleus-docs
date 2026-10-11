@@ -97,7 +97,7 @@ A photoinitiator is the constituent this class adds to the outer solution and po
 
 A Photopatterned Gel is expected to set only where the light falls, so the pattern is the projected image. That makes it a route to spatial separation: two populations set into separate regions of one piece stay apart, which is what a composition needs when each would otherwise act on the other.
 
-What an embedded payload survives depends on the chemistry. Radical acrylate polymerization is not compatible with lipid membranes, so [Gel: PEGDA](../gel-pegda/spec.md) is canceled as a cell-carrying gel. [Gel: PEG-Norbornene](../gel-peg-norbornene/spec.md) is the live chemistry, as [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md) records.
+What an embedded payload survives depends on the chemistry. Radical acrylate polymerization is not compatible with lipid membranes, so [Gel: PEGDA](../gel-pegda/spec.md) is canceled as a cell-carrying gel. [Gel: PEG-Norbornene](../gel-peg-norbornene/spec.md) is the live chemistry, as [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md) records.
 
 # Requirements
 
@@ -109,7 +109,7 @@ Requires that anything embedded tolerate the light exposure and the radicals the
 
 # Processes
 
-[Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md) is the one step: it mixes the outer solution, the polymer and the photoinitiator, and exposes the result as a pattern. Both members form by it.
+[Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md) is the one step: it mixes the outer solution, the polymer and the photoinitiator, and exposes the result as a pattern. Both members form by it.
 
 # Credits
 

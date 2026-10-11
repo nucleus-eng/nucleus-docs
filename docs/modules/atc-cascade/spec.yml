@@ -150,10 +150,10 @@ process_steps:
       title: "SensorCell[aTc ⟶ PLA1]"
       page: ../atc-sensing-cell/spec.md
 
-  - id: embed-photodevelopment
+  - id: embed-photocrosslinking
     process:
       title: "Embedding: Photodevelopment"
-      page: ../../processes/embed-photodevelopment/main.md
+      page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     operator: packing
     operator_pairs:

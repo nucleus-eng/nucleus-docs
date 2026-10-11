@@ -100,7 +100,7 @@ One spatial-patterning result is recorded. A block-pattern color change, first p
 
 <!-- vale nucleus.magnitude-unit-spacing = NO -->
 :::{table} Bill of Materials
-:label: bom-embed-photodevelopment
+:label: bom-embed-photocrosslinking
 :align: center
 
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |

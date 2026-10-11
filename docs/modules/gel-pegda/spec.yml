@@ -36,7 +36,7 @@ process_steps:
   - id: assemble-precursor
     process:
       title: "Embedding: Photodevelopment"
-      page: ../../processes/embed-photodevelopment/main.md
+      page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     operator: mixing
     operands: [pegda575, peg4sh, lap, pbs]
@@ -58,10 +58,10 @@ process_steps:
   - id: photopattern
     process:
       title: "Embedding: Photodevelopment"
-      page: ../../processes/embed-photodevelopment/main.md
+      page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     impositions:
-      # NOT MOVED TO ../../processes/embed-photodevelopment, and it was moved there and
+      # NOT MOVED TO ../../processes/embed-photocrosslinking, and it was moved there and
       # straight back on 2026-10-05. That process has TWO CHEMISTRIES and only this one
       # proceeds through acrylate radicals. Hoisting it made check-conflicts.py report
       # ../atc-cascade imposing acrylate radicals on its own membranes -- and that

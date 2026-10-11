@@ -253,7 +253,7 @@ orders:
       - hold
       embed-ionic-crosslinking:
       - embed-gel
-      embed-photodevelopment:
+      embed-photocrosslinking:
       - embed-gel
       embed-thermal-setting:
       - embed-gel

@@ -22,7 +22,7 @@
 # moved straight back, because hoisting it made the checker compute a conflict that is
 # FALSE:
 #
-#     atc-cascade/embed-photodevelopment imposes radical-acrylate-polymerization
+#     atc-cascade/embed-photocrosslinking imposes radical-acrylate-polymerization
 #     on atc-sensing-cell, which holds membrane-popc-chol-9-1
 #
 # ../../modules/membrane declares a sensitivity to it -- "not compatible with a lipid
@@ -45,7 +45,7 @@
 # not in how the operands combine, and no step that runs this process declares an
 # operator the other does not.
 
-process: embed-photodevelopment
+process: embed-photocrosslinking
 title: "Embedding: Photodevelopment"
 refines: embed-gel
 

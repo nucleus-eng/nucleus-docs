@@ -60,8 +60,8 @@ flowchart TD
     class PEGDA_PRECURSOR,GEL_PEGDA composed;
     class P1_ASSEMBLE_PRECURSOR_0,P2_PHOTOPATTERN_0 process;
 
-    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/embed-photodevelopment/main"
-    click P2_PHOTOPATTERN_0 "/docs/processes/embed-photodevelopment/main"
+    click P1_ASSEMBLE_PRECURSOR_0 "/docs/processes/embed-photocrosslinking/main"
+    click P2_PHOTOPATTERN_0 "/docs/processes/embed-photocrosslinking/main"
     click GEL_PEGDA "/docs/modules/gel-pegda/spec"
 ```
 
@@ -123,7 +123,7 @@ Requires that no UV-sensitive component is present during crosslinking. [CPRG](.
 
 # Processes
 
-Prepared and patterned by [Embedding: Photodevelopment](../../processes/embed-photodevelopment/main.md), which carries this chemistry as a canceled variant beside the live PEG-norbornene one, and the four steps they share. Vortex the precursor at 2000 rpm for (3–5) min.
+Prepared and patterned by [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md), which carries this chemistry as a canceled variant beside the live PEG-norbornene one, and the four steps they share. Vortex the precursor at 2000 rpm for (3–5) min.
 
 # Materials
 

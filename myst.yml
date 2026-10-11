@@ -283,7 +283,7 @@ project:
               hidden: true
             - file: ./docs/processes/embed-thermal-setting/main.md
               hidden: true
-            - file: ./docs/processes/embed-photodevelopment/main.md
+            - file: ./docs/processes/embed-photocrosslinking/main.md
               hidden: true
         - file: ./docs/processes/color-development/main.md
           hidden: true

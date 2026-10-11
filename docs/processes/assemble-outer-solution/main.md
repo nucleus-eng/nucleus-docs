@@ -45,4 +45,4 @@ Every process that takes an outer solution as an operand:
 
 - [Embedding: Thermal Setting](../embed-thermal-setting/main.md)
 - [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md)
-- [Embedding: Photodevelopment](../embed-photodevelopment/main.md)
+- [Embedding: Photodevelopment](../embed-photocrosslinking/main.md)
