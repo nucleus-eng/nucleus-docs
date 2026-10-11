@@ -92,7 +92,7 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 | Component | Concentration |
 | --------- | ------------- |
-| Glucose   | 1140 mM, a starting recipe: adjust it to read 100 mOsm/kg to 150 mOsm/kg below the inner solution |
+| Glucose   | 1140 mM, a starting recipe: adjust it until its osmotic concentration is 100 mOsm/kg to 150 mOsm/kg below the inner solution's |
 :::
 
 ::::
@@ -112,7 +112,7 @@ Combined green (488 nm) and red (561 nm) fluorescence channels. First time point
 
 # Process
 
-[Build a Base Cell](build.md) gives every step at the bench, in order, as one protocol. Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+[Build a Base Cell](../../processes/build-base-cell/main.md) gives every step at the bench, in order, as one protocol. Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
 # Constituent Modules
 

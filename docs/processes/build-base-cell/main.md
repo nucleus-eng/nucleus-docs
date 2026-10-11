@@ -1,12 +1,12 @@
 ---
 title: "Build a Base Cell"
-subtitle: "Protocol"
+subtitle: "Process"
 status: unvalidated-published
 ---
 
 # Overview
 
-This protocol takes you from starting materials to finished [Base Cells](spec.md) in one pass. It joins three parts that are documented on separate pages: the lipid–oil mixture for the [Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md), the outer solution, and an inner solution made of [Base Cytosol](../base-cytosol/spec.md). [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) then closes the membrane around the inner solution.
+This protocol takes you from starting materials to finished [Base Cells](../../modules/base-cell/spec.md) in one pass. It joins three parts that are documented on separate pages: the lipid–oil mixture for the [Base Membrane: POPC/Chol](../../modules/membrane-popc-chol/spec.md), the outer solution, and an inner solution made of [Base Cytosol](../../modules/base-cytosol/spec.md). [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) then closes the membrane around the inner solution.
 
 :::{attention} Not yet validated
 Every step comes from a validated protocol, but the outer-solution starting recipe (1140 mM glucose, with the RNase inhibitor in the inner solution) has not been measured against this inner solution. Part 3 has you measure both solutions and adjust before you encapsulate.
@@ -40,10 +40,10 @@ Please read this section carefully. It contains important notes, resources, and 
 
 The inner solution needs the Base Cytosol components. You can get them as a premade reagent kit from b.next, or make them by these protocols:
 
-- [Make Small Molecule Mix](../../processes/make-small-molecule-mix/main.md)
-- [Make tRNAs](../../processes/make-trna/main.md)
-- [Make Protein Mix](../../processes/make-36pot/main.md), or [Make OnePot Protein Mix](../../processes/make-1pot/main.md)
-- [Make Ribosomes](../../processes/make-ribosomes/main.md)
+- [Make Small Molecule Mix](../make-small-molecule-mix/main.md)
+- [Make tRNAs](../make-trna/main.md)
+- [Make Protein Mix](../make-36pot/main.md), or [Make OnePot Protein Mix](../make-1pot/main.md)
+- [Make Ribosomes](../make-ribosomes/main.md)
 
 ::::::
 
@@ -51,7 +51,7 @@ The inner solution needs the Base Cytosol components. You can get them as a prem
 :class: dropdown
 :icon: false
 
-The lipids, mineral oil, chloroform, glucose, Optiprep, glassware and imaging plate are listed in the Materials and Equipment table of [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). You also need the Base Cytosol components above, RNase inhibitor (optional), and a vapor-pressure osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
+The lipids, mineral oil, chloroform, glucose, Optiprep, glassware and imaging plate are listed in the Materials and Equipment table of [Encapsulation: Phase Transfer](../assemble-base-cell/main.md). You also need the Base Cytosol components above, RNase inhibitor (optional), and a vapor-pressure osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
 
 ::::::
 
@@ -120,12 +120,12 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 | Total         | 1000        |
 :::
 
-- [ ] Read the outer solution's osmolality on the osmometer, and record it.
+- [ ] Read the outer solution's osmotic concentration on the osmometer, and record it.
 
 :::{hint} Why the outer solution is measured, and not only mixed
 :class: simple
 :icon: false
-The outer solution must read 100 mOsm/kg to 150 mOsm/kg lower than the inner solution. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). A glucose concentration is not an osmometer reading. In that DevNote the inner solution read 1060 mOsm/kg and 850 mM glucose read 950 mOsm/kg, a gap of 110 mOsm/kg. That inner solution had no RNase inhibitor. The one in part 3 does, and the inhibitor is stored in glycerol, which raises the reading, so this page starts from a stronger outer solution: 1140 mM glucose, which reads about 1275 mOsm/kg. It is a starting point, not an answer, and you check your own gap in part 3.
+The outer solution must read 100 mOsm/kg to 150 mOsm/kg lower than the inner solution. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). A glucose concentration is not an osmometer reading. In that DevNote the inner solution read 1060 mOsm/kg and 850 mM glucose read 950 mOsm/kg, a gap of 110 mOsm/kg. That inner solution had no RNase inhibitor. The one in part 3 does, and the inhibitor is stored in glycerol, which raises its osmotic concentration, so this page starts from a stronger outer solution: 1140 mM glucose, which reads about 1275 mOsm/kg. It is a starting point, not an answer, and you check your own gap in part 3.
 :::
 
 ## 3. Assemble the Inner Solution
@@ -151,7 +151,7 @@ The inner solution is Base Cytosol with Optiprep. Each reaction is 40 µL: 10 µ
 :::{hint} What goes in the optional additions
 :class: simple
 :icon: false
-Base Cytosol leaves 2.5 µL of every 10 µL free for additions, which is 10 µL in this reaction. The Base Cell uses 1.33 µL of it for Optiprep, a density agent that lets the inner-solution droplets pellet through the oil–water interface in part 4. The other 8.67 µL takes whatever you add, such as template DNA, and water fills what you do not use. To see the cells express, add [`pOpen-deGFP`](../reporter-degfp/spec.md) to 3 nM: 0.95 µL of a 124 nM stock, with 7.72 µL of water. Keep the RNase inhibitor in: the outer-solution recipe in part 2 assumes it. Each choice here changes the inner solution's osmolality, so read it with everything in, as part 3 says.
+Base Cytosol leaves 2.5 µL of every 10 µL free for additions, which is 10 µL in this reaction. The Base Cell uses 1.33 µL of it for Optiprep, a density agent that lets the inner-solution droplets pellet through the oil–water interface in part 4. The other 8.67 µL takes whatever you add, such as template DNA, and water fills what you do not use. To see the cells express, add [`pOpen-deGFP`](../../modules/reporter-degfp/spec.md) to 3 nM: 0.95 µL of a 124 nM stock, with 7.72 µL of water. Keep the RNase inhibitor in: the outer-solution recipe in part 2 assumes it. Each choice here changes the inner solution's osmotic concentration, so read it with everything in, as part 3 says.
 :::
 
 - [ ] Thaw SMix, tRNA, PMix, ribosomes and RNase inhibitor on ice.
@@ -170,7 +170,7 @@ Prepare the reaction on ice or a cold block to prevent expression from starting 
     - [ ] **Do NOT vortex** ribosomes! *Gently* pipette mix or flick the tube.
 - [ ] Add each component to its chilled tube, in the order and volume of {ref}`base-cell-build-inner`.
 - [ ] Mix thoroughly by pipette (6-10x) until visibly homogeneous.
-- [ ] Take 10 µL of the inner solution and read its osmolality on the osmometer.
+- [ ] Take 10 µL of the inner solution and read its osmotic concentration on the osmometer.
 - [ ] Compare it with the outer solution's reading from part 2. The outer solution must read 100 mOsm/kg to 150 mOsm/kg lower. If it does not, adjust its glucose concentration and read it again.
 - [ ] Hold the inner solution on ice until part 4.
 
@@ -216,9 +216,21 @@ While handling liposomes, be gentle! Liposomes are fragile. Do not vortex and on
 
 - [ ] Hold liposomes on ice until you are prepared to begin measurement.
 - [ ] Transfer 5 µL liposomes and 20 µL of the outer solution onto a 384-well glass bottom plate (5x dilution). If the density of liposomes appears too high under the microscope, dilute them with outer solution to facilitate data analysis.
-- [ ] Observe liposomes by fluorescence microscopy. Base Cells have red fluorescent membranes. With `pOpen-deGFP` in the inner solution, green fluorescence rises over time; see [Base Cell](spec.md) for the expected kinetics.
+- [ ] Observe liposomes by fluorescence microscopy. Base Cells have red fluorescent membranes. With `pOpen-deGFP` in the inner solution, green fluorescence rises over time; see [Base Cell](../../modules/base-cell/spec.md) for the expected kinetics.
 
 ## 5. Return Reagents
 
 - [ ] Return the Base Cytosol components to their storage locations.
 - [ ] Mark the lid of each Base Cytosol component that you used. The number of dots indicates how many freeze–thaw cycles each component has gone through.
+
+# Downloads
+
+::::{grid} 1 1 1 1
+
+:::{card}
+:header: **Lab-ready Protocol**
+
+{button}`download <generated/build-base-cell-protocol.pdf>`
+:::
+
+::::
