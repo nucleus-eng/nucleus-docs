@@ -20,6 +20,7 @@
 # correction above.
 
 module: pore
+refines: membrane-components
 title: "Pore"
 
 inputs:

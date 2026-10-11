@@ -10,7 +10,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines nothing declared. Refined by [Lipid](../lipid/spec.md).
+**Position.** Refines nothing declared. Refined by [Lipid](../lipid/spec.md), [Pore](../pore/spec.md).
 <!-- /gen:position -->
 
 The molecules a bilayer is made from. **What makes a Module a member is what it does: it goes into a membrane.** They are not made by any process documented here — every one arrives as a purchased stock — and they share no formulation.

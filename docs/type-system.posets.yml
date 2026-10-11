@@ -165,6 +165,8 @@ orders:
       - sensor-cytosol
       photopatterned-gel:
       - gel
+      pore:
+      - membrane-components
       reporter-degfp:
       - fluorophore
       - reporter
