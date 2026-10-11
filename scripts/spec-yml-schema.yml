@@ -277,6 +277,13 @@ properties:
             unit pint reads; two intervals are compared after conversion. A requirement
             is MET BY CONTAINMENT: a provider's band must contain the interval asked for.
             Nothing compares them yet; a report is the plan, not a gate.
+            OMITTING `parameters` IS ALLOWED, and means the operation's parameters default
+            to what the operand's own page states: a requirement that writes no interval
+            takes the member's bands, and one that writes an interval narrows them. A
+            wavelength is written once, on the thing it describes. The `peak` form is how a
+            class says WHICH stated quantity the default reads, and it is the form that
+            can be checked, so a class that wants its members' bands read computably
+            writes it. Nothing computes the bare default yet.
           propertyNames:
             pattern: "^[a-z0-9_]+$"
           additionalProperties:
