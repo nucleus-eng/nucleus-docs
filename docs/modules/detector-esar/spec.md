@@ -99,14 +99,14 @@ Four of the seven have no sequence at all. One is the unrepressed control `T7-mN
 
 **Characterized on a fluorescent reporter, not on the cascade's own output.** `[EsaO]2-mNG` and `[EsaO]-mNG` were titrated against template at (0.1, 0.5, 1, 3, 6 and 9) nM, with and without 5 µM 3OC6-HSL, against a [fluorescein ladder](../standard-fluorescein/spec.md) at (0, 0.5, 1 and 2) µM. **Fold change is reported at the three lowest doses only.** **What the titration moves is the ratio of repressor to template, and only the template end of it is known.** The repressor was held at about a fifth of the reaction by volume, 14 µL of a pre-expressed reaction in 65 µL. That reaction has no measured protein concentration. So each step down in template raises the ratio, by an amount nothing here can state. **This is the same split the aTc detector uses** — characterized on a reporter, built with PLA1 — so the measurement does not make the demonstration fluorescent.
 
-:::{table} Repression against template concentration, at a held repressor dose and 15 min of contact between repressor and template before the reaction starts. Each row is a different repressor-to-template ratio.
+:::{table} Fold change, minus against plus 3OC6-HSL, against template concentration, for the one-operator (EsaO) and two-operator ([EsaO]2) constructs. The repressor dose was held and its concentration is not known, with 15 min of contact between repressor and template before the reaction starts. Each row is a different repressor-to-template ratio. Values are read from the figure below.
 :label: comp-detector-esar-repression
 
-| Template | Repressor | Fold change, minus against plus 3OC6-HSL |
+| Template | Fold change, EsaO | Fold change, [EsaO]2 |
 | --- | --- | --- |
-| 0.1 nM | fixed, concentration not known | ~1.5 |
-| 0.5 nM | fixed, concentration not known | ~2 |
-| 1 nM | fixed, concentration not known | ~1, the readout gone |
+| 0.1 nM | ~1.5 | ~2.0 |
+| 0.5 nM | ~1.0 | ~1.6 |
+| 1 nM | ~1.1 | ~1.1 |
 
 :::
 
@@ -130,8 +130,8 @@ The 20 mM arm was run and read nothing. Too much magnesium stops a [Base Cytosol
 The molar ratio of repressor to template decides whether this Module works, and it rests on an assumed repressor concentration. @Editor(london): measure the pre-expressed repressor, so the ratio stops being an estimate.
 :::
 
-:::{attention} No figure yet
-@Editor(london): the titration above has no plot on this page. Add it, with the dose that was fixed.
+:::{figure} fold-induction.png
+Steady-state fold change, plus against minus 3OC6-HSL, for EsaO and [EsaO]2 at 0.1, 0.5 and 1.0 nM template. The repressor dose was held and its concentration is not known.
 :::
 
 # Requirements
