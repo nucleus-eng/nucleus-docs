@@ -117,13 +117,13 @@ flowchart TD
 :::{note} The two forms are not interchangeable, and this page does not say which was used
 `nucleus-eng/DNA` `README.md` states that a linear cassette and its pOpen plasmid "share a cassette and are **functionally equivalent but not sequence-identical**, so a page citing one is not citing the other."
 
-**A rule exists and one page disagrees with it.** [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) gives the reason: **"S30 Lysate degrades linear DNA, so this route takes the plasmid."** This cascade is S30 Lysate, so that rule picks `pOpen-LuxR-deGFP`, 3890 bp. [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) nonetheless cites the linear form, 1952 bp, for a cell that is also S30.
+**A rule exists and sibling pages still cite the other form.** [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) gives the reason: **"S30 Lysate degrades linear DNA, so this route takes the plasmid."** This cascade is S30 Lysate, so it takes a plasmid, and `LuxR-mNeonGreen` is one. [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) cites the linear `LuxR-deGFP` form, 1952 bp, for a cell that is also S30. That is the deGFP construct this cascade no longer uses.
 
 **Both rows are kept, and this page does not apply the rule.** Choosing one is a claim about which molecule went into a reaction, and no run record states it. @Editor(london): confirm the form, here and on the SensorCell page, and the second row can go.
 :::
 
 :::{note} Two pages give two concentrations for this plasmid
-[SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) and [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) both say `LuxR-deGFP` at **40 ng/µL** final, from a 1056 ng/µL stock, 0.95 µL per reaction. [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) says **37 ng/µL**. The Cytosol tab carries 40 because that row states its stock and its volume, which is the stronger claim. The disagreement is recorded here rather than resolved.
+[SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md) and [SensorCytosol[3OC6-HSL ⟶ PLA1]](../ahsl-sensor-cytosol/spec.md) both say `LuxR-deGFP` at **40 ng/µL** final, from a 1056 ng/µL stock, 0.95 µL per reaction. [LuxR-LacZ Sensor Cascade](../luxr-lacz-cascade/spec.md) says **37 ng/µL**. This cascade carries 40 ng/µL from the source log, and the stock concentration of its `LuxR-mNeonGreen` plasmid is not recorded. The disagreement is recorded here rather than resolved.
 :::
 
 ::::
