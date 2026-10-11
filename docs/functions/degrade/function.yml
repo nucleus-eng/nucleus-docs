@@ -16,7 +16,9 @@ operations:
         key: "degrade[Protein]"
         refines: degrade
         docs_group: protein
-        realized_by: [s30-lysate]
+        reagent: proteinase K            # docs: the named instance, a reagent added in a process
+        process: degrade-exterior-lacz
+        realized_by: [s30-lysate]        # the Module that implements it, as baseline activity of its extract
       - id: rna
         key: "degrade[RNA]"
         refines: "degrade[NucleicAcid]"

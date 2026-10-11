@@ -33,7 +33,7 @@ Degrade takes the degrader and what it acts on, and returns the degrader unchang
 | Kind | Instance | Specificity | Realized by |
 | --- | --- | --- | --- |
 | Protein | tag-specific | only proteins carrying the ssrA tag, using ATP | [Control: ClpXP](../../modules/control-clpxp/spec.md), a member of [Control](../../modules/control/spec.md) |
-| Protein | nonspecific | any protein | proteinase K, added in [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md). The baseline protease activity of [S30 Lysate](../../modules/s30-lysate/spec.md) |
+| Protein | nonspecific | any protein | proteinase K, a reagent added in [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md), which is a process and not a Module. [S30 Lysate](../../modules/s30-lysate/spec.md) implements the same operation as the baseline protease activity of its extract |
 | RNA | nonspecific | any RNA | the baseline RNase activity of S30 Lysate |
 | DNA | linear only | any DNA with a free end, which is what an exonuclease needs; a circular molecule is spared | the baseline DNase activity of S30 Lysate |
 | Pyrophosphate | specific | only pyrophosphate | inorganic pyrophosphatase (PPiase), in [Base Cytosol](../../modules/base-cytosol/spec.md) and the sensor cytosols built on it: [SensorCytosol[aTc ⟶ PLA1]](../../modules/atc-sensor-cytosol/spec.md), [SensorCytosol[pH ⟶ PLA1]](../../modules/ph-sensor-cytosol/spec.md), [SensorCytosol[theophylline ⟶ LacZ]](../../modules/theophylline-sensor-cytosol/spec.md) |
