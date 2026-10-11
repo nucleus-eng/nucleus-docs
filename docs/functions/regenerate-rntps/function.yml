@@ -1,7 +1,7 @@
 # What the Regenerate rNTPs page says, as data. See ../transcribe/function.yml for the field marks.
 # The signature gives this process a net count and no species, so the species are the docs' own
 # and are checked only to sum to that net.
-signature_pin: a7c7a7a
+signature_pin: 40fe4e2
 processes:
   - process: regenerate[rNTP]  # checked
     refines: regenerate              # checked: implied by the stem

@@ -1,5 +1,5 @@
 # What the Translate page says, as data. See ../transcribe/function.yml for the field marks.
-signature_pin: a7c7a7a
+signature_pin: 40fe4e2
 processes:
   - process: translate  # checked
     refines: []                      # checked

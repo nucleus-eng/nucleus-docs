@@ -1,7 +1,7 @@
 # What the Transport page says, as data. See ../transcribe/function.yml for the field marks.
 # The signature has no change line for transport. Its refinement active_transport has one, per cargo, and
 # no attested Module does it, so it has no route here. A reader treats the change as unknown, never zero.
-signature_pin: a7c7a7a
+signature_pin: 40fe4e2
 processes:
   - process: transport  # checked
     refines: []                      # checked

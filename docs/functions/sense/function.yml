@@ -1,6 +1,6 @@
 # What the Sense page says, as data. See ../transcribe/function.yml for the field marks.
 # The signature has no change line for this process, so a reader treats its change as unknown, never zero.
-signature_pin: a7c7a7a
+signature_pin: 40fe4e2
 processes:
   - process: sense  # checked
     refines: []                      # checked
