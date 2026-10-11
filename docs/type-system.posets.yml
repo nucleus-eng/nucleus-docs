@@ -47,7 +47,7 @@ orders:
       cascade:
       - component
       cell:
-      - component
+      - vesicle
       cell-base-cytosol-popc-chol:
       - cell
       - guv

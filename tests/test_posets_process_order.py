@@ -75,9 +75,10 @@ def _orders(tmp_path):
 
 def test_every_module_root_is_under_component(tmp_path):
     edges = _orders(tmp_path)["module_refinement"]["edges"]
-    for root in ("analyte", "detergent", "substrate", "membrane-components", "cell"):
+    for root in ("analyte", "detergent", "substrate", "membrane-components", "container", "vesicle"):
         assert edges[root] == ["component"], root
     assert edges["pore"] == ["membrane-components"]
+    assert edges["cell"] == ["vesicle"]     # a Cell is a type of Vesicle
 
 
 def test_a_planned_module_is_in_the_order_and_stops_the_generator_when_it_gains_a_source(tmp_path, monkeypatch):

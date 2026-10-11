@@ -19,6 +19,7 @@
 # unsettled, and it is not settled here. Left a root, on the pore precedent.
 
 module: cell
+refines: vesicle
 title: "Cell"
 
 inputs:
