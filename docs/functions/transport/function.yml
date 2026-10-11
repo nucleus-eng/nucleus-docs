@@ -1,0 +1,16 @@
+# What the Transport page says, as data. See ../transcribe/function.yml for the field marks.
+# The signature has no change line for transport. Its refinement active_transport has one, per cargo, and
+# no attested Module does it, so it has no route here. A reader treats the change as unknown, never zero.
+signature_pin: a7c7a7a
+operations:
+  - operation: transport  # checked
+    refines: []                      # checked
+    type: >                          # docs
+      Transport takes a pore, a membrane and a cargo, and returns the membrane with the cargo now able to cross it.
+    routes:                          # docs: one per row of the page's Routes table
+      - id: size-3kda
+        realized_by: [membrane-pore-ahly]
+      - id: size-1kda
+        realized_by: [membrane-pore-cx43]
+      - id: charge
+        realized_by: [membrane-pore-gramicidin]

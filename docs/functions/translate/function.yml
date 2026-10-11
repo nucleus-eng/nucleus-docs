@@ -1,7 +1,7 @@
 # What the Translate page says, as data. See ../transcribe/function.yml for the field marks.
 signature_pin: a7c7a7a
 operations:
-  - operation: translate             # checked
+  - operation: translate  # checked
     refines: []                      # checked
     type: >                          # docs
       Takes a cytosol and an RNA, and returns the cytosol, changed, with a protein.

@@ -3,7 +3,7 @@
 # from the signature. `checked:` fields are compared with the signature at the pinned ref.
 signature_pin: a7c7a7a
 operations:
-  - operation: transcribe            # checked: a declared operation
+  - operation: transcribe  # checked: a declared operation
     refines: []                      # checked: the signature states no parent
     type: >                          # docs
       Takes a cytosol and a DNA template, and returns the cytosol, changed, with an RNA.

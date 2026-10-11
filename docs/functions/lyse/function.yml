@@ -1,0 +1,11 @@
+# What the Lyse page says, as data. See ../transcribe/function.yml for the field marks.
+# The signature has no change line for this operation, so a reader treats its change as unknown, never zero.
+signature_pin: a7c7a7a
+operations:
+  - operation: lyse  # checked
+    refines: []                      # checked
+    type: >                          # docs
+      Lyse takes the lysing Module and a membrane with something inside it, and returns the lysing Module with the contents now loose in the solution around them.
+    routes:                          # docs: one per row of the page's Routes table
+      - id: phospholipase
+        realized_by: [effector-pla1]

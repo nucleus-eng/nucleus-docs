@@ -2,7 +2,7 @@
 # A route with no `species:` has no declared change: a reader treats that as unknown, never zero.
 signature_pin: a7c7a7a
 operations:
-  - operation: degrade               # checked
+  - operation: degrade  # checked
     refines: []                      # checked
     type: >                          # docs
       Takes the degrader and what it acts on, and returns the degrader unchanged, with the target broken down.

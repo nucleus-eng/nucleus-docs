@@ -114,7 +114,7 @@ def check_entry(entry, valid, sp, modules, where):
         stem = name.split("[")[0]
         if parent not in valid:
             out.append(("⛔️", f"{where}: `refines: {parent}` names nothing declared"))
-        elif parent != stem and not states_refines(sp.get(name, []), parent):
+        elif parent not in {stem, *stem.split("_")} and not states_refines(sp.get(name, []), parent):
             out.append(("⛔️", f"{where}: `{name}` refines `{parent}` here, and the signature "
                               f"neither states it nor implies it by the stem"))
     declared_change = change_lines(sp.get(name, []))

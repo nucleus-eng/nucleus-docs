@@ -331,7 +331,7 @@ orders:
       - gel-ulga
       - membrane-popc
       - outer-solution-glutamate
-      - reporter-degfp
+      - reporter-mneongreen
       - s30-lysate
       luxr-lacz-cascade:
       - detector-3oc6-hsl
@@ -474,6 +474,8 @@ orders:
       - regenerate[rNTP]
       regenerate[rNTP]:
       - regenerate
+      report_color:
+      - report
 unreachable:
 - name: operation_poset
   lives_in: compositional-biology-theory

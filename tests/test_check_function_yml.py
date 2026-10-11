@@ -29,6 +29,9 @@ BLOCK = textwrap.dedent("""\
                 : D ⊞ RNA                     ⟶ D                        RNases; refines degrade[NucleicAcid]
     degrade[ssrA]
                 : Control ⊞ Protein[ssrA]     ⟶ Control                  ClpXP
+    passive_transport
+                : Pore ⊗ Membrane            ⟶ Membrane[permeable]       see below
+    transport   : Pore ⊗ Membrane            ⟶ Membrane                 abstract
     degrade[PPi]
                 : Cytosol ⊞ PPi               ⟶ Cytosol′                inorganic pyrophosphatase; refines degrade
                   Δ(Cytosol) per event : PPi −1, Pi +2
@@ -178,3 +181,9 @@ def test_species_that_sum_to_the_net_pass_and_others_fail(tmp_path):
 def test_a_net_claim_where_the_signature_has_none_fails(tmp_path):
     bad, _, _ = run_net(tmp_path, {"operations": [{"operation": "regenerate", "net": {"per_event": 0}}]})
     assert len(bad) == 1 and "no net line" in bad[0]
+
+
+def test_a_refinement_implied_by_an_underscore_stem_passes(tmp_path):
+    bad, _, _ = run(tmp_path, {"operations": [{"operation": "transport", "routes": [
+        {"id": "r", "key": "passive_transport", "refines": "transport"}]}]})
+    assert bad == []

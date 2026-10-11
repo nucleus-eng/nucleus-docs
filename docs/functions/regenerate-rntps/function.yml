@@ -3,7 +3,7 @@
 # and are checked only to sum to that net.
 signature_pin: a7c7a7a
 operations:
-  - operation: regenerate[rNTP]      # checked
+  - operation: regenerate[rNTP]  # checked
     refines: regenerate              # checked: implied by the stem
     type: >                          # docs
       Takes the regenerating enzymes and a spent nucleotide, and returns the enzymes with the nucleotide made usable again.

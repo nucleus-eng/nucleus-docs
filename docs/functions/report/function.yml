@@ -1,0 +1,15 @@
+# What the Report page says, as data. See ../transcribe/function.yml for the field marks.
+# The signature has no change line for this operation, so a reader treats its change as unknown, never zero.
+signature_pin: a7c7a7a
+operations:
+  - operation: report  # checked
+    refines: []                      # checked
+    type: >                          # docs
+      Report takes the reporter and returns it together with a signal.
+    routes:                          # docs: one per row of the page's Routes table
+      - id: fluorescent-protein
+        realized_by: [reporter-degfp, reporter-mneongreen]
+      - id: color-enzyme
+        key: "report_color"            # checked: a declared operation
+        refines: report               # checked
+        realized_by: [reporter-lacz, reporter-xyle]
