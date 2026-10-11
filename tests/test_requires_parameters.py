@@ -126,3 +126,37 @@ def test_parameters_take_either_shape_and_nothing_else():
 def test_optional_is_a_boolean():
     assert _validate({"id": "observe_fluorescence", "why": "x", "optional": True}) == []
     assert _validate({"id": "observe_fluorescence", "why": "x", "optional": "yes"}) != []
+
+
+def test_a_leaf_may_state_a_requirement_that_strengthens_its_classs():
+    chrom = ("docs/modules/chromophore/spec.yml", doc("chromophore", requires=[{"id": "observe", "why": "x"}]))
+    leaf = ("docs/modules/cprg/spec.yml", doc("cprg", refines="chromophore",
+                                                requires=[{"id": "observe_absorbance", "why": "x"}]))
+    assert css.requires_placement_findings([chrom, leaf]) == []
+
+
+def test_a_leaf_requirement_that_refines_nothing_above_it_is_reported():
+    chrom = ("docs/modules/chromophore/spec.yml", doc("chromophore", requires=[{"id": "observe", "why": "x"}]))
+    leaf = ("docs/modules/cprg/spec.yml", doc("cprg", refines="chromophore",
+                                                requires=[{"id": "transcribe", "why": "x"}]))
+    assert [f[1] for f in css.requires_placement_findings([chrom, leaf])] == ["requires-on-a-non-class"]
+
+
+def test_a_leaf_whose_ancestors_require_nothing_is_reported():
+    base = ("docs/modules/base/spec.yml", doc("base"))
+    leaf = ("docs/modules/cprg/spec.yml", doc("cprg", refines="base",
+                                                requires=[{"id": "observe_absorbance", "why": "x"}]))
+    assert [f[1] for f in css.requires_placement_findings([base, leaf])] == ["requires-on-a-non-class"]
+
+
+def test_a_class_may_state_any_requirement():
+    cls = ("docs/modules/cls/spec.yml", doc("cls", requires=[{"id": "transcribe", "why": "x"}]))
+    member = ("docs/modules/m/spec.yml", doc("m", refines="cls"))
+    assert css.requires_placement_findings([cls, member]) == []
+
+
+def test_refinement_is_the_parent_as_a_stem_and_a_bracket_is_not_one():
+    assert css._entails("observe_fluorescence", "observe")
+    assert css._entails("observe", "observe")
+    assert not css._entails("observe_fluorescence", "observe_absorbance")
+    assert not css._entails("observed", "observe")

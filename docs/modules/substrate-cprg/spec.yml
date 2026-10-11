@@ -21,6 +21,20 @@ refines:
   # TWO PARENTS, 2026-10-05. `chromophore` cuts across the tree: it is what the
   # uv-exposure sensitivity follows from, and it is shared with a member of a
   # different branch. `refines:` takes a list, so nothing moved to make room.
+# WHAT THE READER SEES IS THE PRODUCT, chlorophenol red, which absorbs at 570 nm. The
+# substrate itself absorbs at 412 nm. The colorimetric readout reads both in one pass.
+parameters:
+  absorption_peak: 570
+
+# A READ BY ABSORBANCE, which strengthens the class's `observe`. The interval is the
+# peak with the default 20 nm bandwidth for a chromophore, 570/20: 560 nm to 580 nm.
+requires:
+  - id: observe_absorbance
+    parameters:
+      lambda: {peak: absorption_peak, bandwidth: 20, unit: nm}
+    why: >
+      The color change this substrate is used for is read as absorbance of its product.
+
 inputs:
   cprg:
     title: "Chlorophenol red-beta-D-galactopyranoside"

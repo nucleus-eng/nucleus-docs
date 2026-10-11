@@ -41,6 +41,8 @@ Any member bleaches under enough ultraviolet light. How much is enough varies by
 
 # Requirements
 
+Every member requires being observed: `observe`, left abstract. Which read fits depends on what the member does with the light it absorbs, so each branch strengthens it. [Fluorophore](../fluorophore/spec.md) requires `observe_fluorescence`, and [Substrate: CPRG](../substrate-cprg/spec.md) requires `observe_absorbance`. Neither refines the other, so neither can stand at this level: a member has to meet everything its class requires.
+
 A member used as a readout requires that nothing in the path has already bleached it. A photopatterned gel is the case this corpus meets: the patterning step emits at 405 nm, and a member present during patterning is exposed before it is read.
 
 # Credits

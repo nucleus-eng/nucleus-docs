@@ -33,6 +33,8 @@ This page is a work in progress and not yet ready for use.
 
 # Requirements
 
+Requires a read by absorbance: `observe_absorbance` at the product's peak, 570 nm, with the default 20 nm bandwidth, so 560 nm to 580 nm. The substrate itself absorbs at 412 nm.
+
 Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — CPRG alone is inert and yellow.
 
 **CPRG is UV-sensitive**, so any photodeveloped format adds it after crosslinking rather than embedding it with everything else. That reordering makes it a free dye rather than an encapsulated one, which changes what the reporter is composed of.

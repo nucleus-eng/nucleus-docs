@@ -85,6 +85,7 @@ def requires_parameter_findings(doc):
     """
     out = []
     keys = {k for prop in (doc.get("member_properties") or []) for k in (prop.get("keys") or [])}
+    keys |= set((doc.get("parameters") or {}).keys())
     for entry in (doc.get("requires") or []):
         eid = entry.get("id", "<no id>")
         for name, val in (entry.get("parameters") or {}).items():
@@ -101,8 +102,50 @@ def requires_parameter_findings(doc):
                                 f'is closed and its low end must not exceed its high end'))
             if "peak" in val and val["peak"] not in keys:
                 out.append(("requires-parameter-peak", where,
-                            f'peak "{val["peak"]}" is not one of this module\'s '
-                            f'`member_properties` keys, so no member is asked to state it'))
+                            f'peak "{val["peak"]}" is neither one of this module\'s '
+                            f'`member_properties` keys nor stated in its `parameters:`'))
+    return out
+
+
+def _op_stem(op_id):
+    """The operation an id names, without its bracket: `degrade[PPi]` -> `degrade`."""
+    return op_id.split("[")[0]
+
+
+def _entails(q, p):
+    """Whether requirement operation `q` entails `p`: the same operation, or a
+    refinement of it. A refinement is spelled with the parent as a stem, joined by an
+    underscore, as `observe_fluorescence` refines `observe` and `report_color` refines
+    `report`. A bracket is a type and does not make a refinement of the operation."""
+    qs, ps = _op_stem(q), _op_stem(p)
+    return qs == ps or qs.startswith(ps + "_")
+
+
+def requires_placement_findings(docs):
+    """Where a `requires:` entry may sit.
+
+    On a class, as before: a module some other source refines. On a leaf only when it
+    STRENGTHENS an ancestor's requirement. Refinement adds axioms and never deletes
+    one, so a member entails everything its class requires, and a leaf may add a
+    stronger requirement by naming a refinement of the operation. A leaf's entry that
+    is no refinement of anything an ancestor requires is the old failure: a condition
+    on a thing nothing refines, with nothing above it to strengthen.
+    """
+    by_name, _ = _graph(docs)
+    classes = {p for _, d in docs for p in _parents(d)}
+    out = []
+    for m, (path, d) in sorted(by_name.items()):
+        entries = d.get("requires") or []
+        if not entries or m in classes:
+            continue
+        up = [a for lvl in _levels(m, lambda x: _parents(by_name[x][1]) if x in by_name else [])
+              for a in lvl if a in by_name]
+        inherited = [e["id"] for a in up for e in (by_name[a][1].get("requires") or [])]
+        for e in entries:
+            if not any(_entails(e["id"], p) for p in inherited):
+                out.append((path, "requires-on-a-non-class", f"requires/{e['id']}",
+                            f'"{m}" is not a class and no ancestor requires an operation '
+                            f'that {e["id"]} refines, so it strengthens nothing'))
     return out
 
 
@@ -155,10 +198,9 @@ def reference_findings(path, doc):
     # both total, and a total morphism has no condition under which it is defined.
     # Telling a stepped source to put a requirement on its step would be telling it to
     # state the condition in the one place that cannot mean it.
-    if doc.get("requires") and doc.get("module") not in _class_names():
-        out.append(("requires-on-a-non-class", "requires",
-                    f'"{doc.get("module")}" is a class-only key and no source refines '
-                    f'this module'))
+    # THE CLASS-ONLY TEST MOVED TO `requires_placement_findings`, which reads the whole
+    # corpus: a leaf may now state a requirement that strengthens an ancestor's, and
+    # whether it does is not a fact one document holds.
 
     out.extend(requires_parameter_findings(doc))
 
@@ -555,7 +597,8 @@ def main():
     scope = {p for p, _ in loaded}
     member_out, member_n = member_property_findings(context)
     substrate_out, substrate_n = substrate_findings(context)
-    for path, kind, where, msg in member_out + substrate_out:
+    placement_out = requires_placement_findings(context)
+    for path, kind, where, msg in member_out + substrate_out + placement_out:
         if path in scope:
             print(f"⛔️ {path} [{kind}] {where}: {msg}")
             total += 1

@@ -54,6 +54,19 @@
 module: chromophore
 title: "Chromophore"
 
+# EVERY CHROMOPHORE MUST BE OBSERVABLE, and that is all the class can say. It names the
+# abstract `observe` with no parameters, because which read applies, and over which
+# band, depends on what the member does with the light it absorbs. A refinement
+# strengthens it: a fluorophore to `observe_fluorescence`, a substrate read by color to
+# `observe_absorbance`. Neither refines the other, so neither can stand here: a member
+# has to entail everything its class requires, and a fluorophore does not entail an
+# absorbance read.
+requires:
+  - id: observe
+    why: >
+      A chromophore absorbs light, so it is seen by a read of that light. The read is
+      left abstract here and each member names the one that fits it.
+
 inputs: {}
 process_steps: []
 
