@@ -41,6 +41,9 @@ project:
           hidden: true
         - file: ./docs/modules/base-cell/spec.md
           hidden: true
+          children:
+            - file: ./docs/modules/base-cell/build.md
+              hidden: true
         - file: ./docs/modules/dye-liposomes/spec.md
           hidden: true
     - file: ./docs/processes/processes-main.md
