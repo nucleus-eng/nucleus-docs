@@ -101,7 +101,7 @@ The source gives the composition of the film and not the vessel or the drying. *
 | Tris base | Chemical | Tris base | — | — | — | RT | — |
 | HEPES | Chemical | HEPES | — | — | — | RT | — |
 | Liquid nitrogen | Consumable | Liquid nitrogen | — | — | — | Dewar | — |
-| Sonicator | Equipment | — | — | — | — | RT | — |
+| Sonicator | Equipment | Digital ultrasonic cleaner, 2 L, 40 kHz, 80 W | Creworks | PS-10A | — | RT | — |
 | Water bath | Equipment | Set to 35 °C | — | — | — | RT | — |
 | Microcentrifuge | Equipment | Reaches 10,000 × g | — | — | — | RT | — |
 | Vortex mixer | Equipment | — | — | — | — | RT | — |
@@ -126,8 +126,8 @@ Work inside a fume hood when handling chloroform.
 - [ ] Vortex until the film is no longer visible on the bottom of the vessel.
 - [ ] Sonicate for 10 min.
 
-:::{attention} Sonication: 10 min is recorded, and nothing else is
-Ten minutes is as run. **No source records the instrument, the power or the temperature for this step.** The only liposome sonication on record that names its instrument is the GUV route in this same source, a bath sonicator for 20 min, so a bath is the likely instrument here. That is one data point. The probe sonicator in [Lyse Bacteria by Sonication](../make-protein/lysis-sonication/main.md) is for cell lysis.
+:::{attention} Sonication: the bath is named, and its temperature is not recorded
+Ten minutes is as run, in a Creworks digital ultrasonic bath: 2 L, 40 kHz, 80 W, model label PS-10A. Its front panel sets and shows the bath temperature and counts a timer in minutes and seconds. **No source records the bath temperature for this step.** The probe sonicator in [Lyse Bacteria by Sonication](../make-protein/lysis-sonication/main.md) is for cell lysis and is not this instrument.
 :::
 
 ## Freeze and Thaw

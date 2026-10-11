@@ -38,7 +38,7 @@ This page is a work in progress and not yet ready for use. The steps below are o
 The [parent page's materials](./main.md#bom-assemble-base-cell) cover the lipids, the mineral oil, the chloroform and the glassware for handling them. This protocol also needs:
 
 - A 20 mL glass vial. The parent protocol's 4 mL vials do not hold 3 mL of oil with headroom to vortex.
-- A bath sonicator.
+- A bath sonicator. The lab's is a Creworks digital ultrasonic cleaner: 2 L, 40 kHz, 80 W, model label PS-10A.
 - A vacuum desiccator.
 - Argon, with a regulator and a line fine enough to play gently over a solvent surface.
 - A 60 °C incubator or dry bath.
