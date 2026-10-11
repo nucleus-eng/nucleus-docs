@@ -17,6 +17,8 @@ orders:
       - sensing-cell
       ahsl-sensor-cytosol:
       - sensor-cytosol
+      analyte:
+      - component
       analyte-3oc6-hsl:
       - analyte
       analyte-atc:
@@ -42,6 +44,10 @@ orders:
       - liposome
       base-cytosol:
       - cytosol
+      cascade:
+      - component
+      cell:
+      - component
       cell-base-cytosol-popc-chol:
       - cell
       - guv
@@ -50,14 +56,24 @@ orders:
       - cell
       - guv
       - liposome
+      chaperone:
+      - component
+      chromophore:
+      - component
       color-change:
       - reporter
+      container:
+      - component
+      control:
+      - component
       control-clpxp:
       - control
       craic-cascade:
       - cascade
       cytosol:
       - solution
+      detector:
+      - component
       detector-3oc6-hsl:
       - detector
       detector-esar:
@@ -70,6 +86,8 @@ orders:
       - repressor-detector
       detector-theophylline:
       - detector
+      detergent:
+      - component
       detergent-triton-x-100:
       - detergent
       detergent-tween-80:
@@ -83,9 +101,13 @@ orders:
       - liposome
       effector-pla1:
       - lysis
+      emitter:
+      - component
       emitter-ivhsl:
       - cytosol
       - emitter
+      energy:
+      - component
       energy-ppk:
       - energy
       - solution
@@ -111,6 +133,8 @@ orders:
       - guv
       - liposome
       - substrate-carrier
+      lacz:
+      - component
       lacz-dna:
       - dsdna
       - lacz
@@ -130,8 +154,12 @@ orders:
       - cascade
       luxr-lacz-cascade:
       - cascade
+      lysis:
+      - component
       membrane:
       - container
+      membrane-components:
+      - component
       membrane-popc:
       - membrane
       membrane-popc-chol:
@@ -144,6 +172,8 @@ orders:
       - pore
       membrane-pore-gramicidin:
       - pore
+      nucleic-acid:
+      - component
       outer-solution:
       - solution
       outer-solution-glucose-hepes:
@@ -167,6 +197,10 @@ orders:
       - gel
       pore:
       - membrane-components
+      protein:
+      - component
+      reporter:
+      - component
       reporter-degfp:
       - fluorophore
       - reporter
@@ -194,6 +228,8 @@ orders:
       - container
       ssdna:
       - dna
+      substrate:
+      - component
       substrate-carrier:
       - vesicle
       substrate-cprg:
@@ -221,6 +257,8 @@ orders:
       - sensor-cytosol
       thermal-gel:
       - gel
+      vesicle:
+      - component
       xyle-protein:
       - protein
   process_refinement:

@@ -40,6 +40,9 @@ properties:
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
     description: >
       The abstract Module or Modules this one refines, by directory name.
+      A Module with none is a root, and the published order (docs/type-system.posets.yml)
+      puts every root under `component`, which is not a module directory: every Module is a
+      Component.
       A LIST IS LEGAL AND MEANS TWO INCOMPARABLE PARENTS: a Module may refine more
       than one. The case that
       forced it is a sensor with two axes, what it senses and how -- an EsaR

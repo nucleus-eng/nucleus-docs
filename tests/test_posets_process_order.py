@@ -64,3 +64,26 @@ def test_encapsulate_and_embed_refine_hold(tmp_path):
     rp.emit_orders(tmp_path / "p.yml")
     edges = yaml.safe_load((tmp_path / "p.yml").read_text(encoding="utf-8"))["orders"]["process_refinement"]["edges"]
     assert edges["encapsulate"] == ["hold"] and edges["embed-gel"] == ["hold"]
+
+
+# ---- the module order ---------------------------------------------------------------
+
+def _orders(tmp_path):
+    rp.emit_orders(tmp_path / "p.yml")
+    return yaml.safe_load((tmp_path / "p.yml").read_text(encoding="utf-8"))["orders"]
+
+
+def test_every_module_root_is_under_component(tmp_path):
+    edges = _orders(tmp_path)["module_refinement"]["edges"]
+    for root in ("analyte", "detergent", "substrate", "membrane-components", "cell"):
+        assert edges[root] == ["component"], root
+    assert edges["pore"] == ["membrane-components"]
+
+
+def test_a_planned_module_is_in_the_order_and_stops_the_generator_when_it_gains_a_source(tmp_path, monkeypatch):
+    import pytest
+    assert _orders(tmp_path)["module_refinement"]["edges"]["chaperone"] == ["component"]
+    real = rp.sources
+    monkeypatch.setattr(rp, "sources", lambda: {**real(), "chaperone": {}})
+    with pytest.raises(SystemExit):
+        rp.emit_orders(tmp_path / "q.yml")

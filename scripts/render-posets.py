@@ -273,6 +273,19 @@ def emit_orders(path: pathlib.Path) -> str:
     import yaml
     S = sources()
     p1 = parents_all(S)
+    # EVERY MODULE IS A COMPONENT (glossary T03), and `component` is not a module directory, so
+    # it is named here and not in 19 sources: a module with no `refines:` is a root, and the
+    # published order puts it under `component`. Jon, 2026-10-10 (CP2).
+    for m in S:
+        p1.setdefault(m, ["component"])
+    # A PLANNED MODULE IS IN THE ORDER BEFORE IT HAS A PAGE. scripts/planned-modules.yml names it
+    # and the parent it will have; the moment a source exists the generator stops, so the entry
+    # cannot outlive the thing it stands in for. Jon, 2026-10-10 (CP3): "needs to be in the poset".
+    planned_file = pathlib.Path(__file__).resolve().parent / "planned-modules.yml"
+    for name, d in (yaml.safe_load(planned_file.read_text(encoding="utf-8")) or {}).items() if planned_file.is_file() else []:
+        if name in S:
+            raise SystemExit(f"planned-modules.yml names {name}, which now has a source: remove it from the file")
+        p1[name] = [d["refines"]]
     p2 = {}
     for f in sorted((pathlib.Path(__file__).resolve().parent.parent / "docs" / "processes").glob("*/spec.yml")):
         parent = (yaml.safe_load(f.read_text(encoding="utf-8")) or {}).get("refines")

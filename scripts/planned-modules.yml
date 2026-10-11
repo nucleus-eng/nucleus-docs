@@ -1,0 +1,9 @@
+# Modules that are planned and have no page or source yet, so the published module order can still
+# carry them. scripts/render-posets.py reads this and STOPS when a name here gains a source, so an
+# entry is removed the day its page is written.
+#
+# chaperone: modules-main.md lists "Chaperone: SecYEG" as Planned. A Chaperone is a Module
+# (rulings D196), and a Module is a Component.
+chaperone:
+  refines: component
+  why: "SecYEG is a planned row in docs/modules/modules-main.md; no page or source yet"
