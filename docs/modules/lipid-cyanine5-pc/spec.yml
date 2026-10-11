@@ -16,11 +16,23 @@ refines:
   - lipid
   - fluorophore
 
+# AN APPROXIMATION FROM FREE Cy5, 649 nm excitation and 670 nm emission. No source for
+# this lipid states its own peaks: the supplier's certificate for 850483 carries no
+# optical values, and the page records no catalog number. Confirm before relying on it.
+parameters:
+  excitation_peak: 649
+  emission_peak: 670
+
 inputs: {}
 
 process_steps: []
 
 open:
+  - id: peaks-are-free-cy5-not-this-lipid
+    question: >
+      The peaks are the usual figures for free Cy5, 649 nm and 670 nm, used as an
+      approximation. No source states them for this lipid. Confirm them against the
+      supplier or a measurement, and record the catalog number the page lacks.
   - id: pc-or-pe
     question: >
       CLOSED 2026-10-07. The dye is the PC form, a phosphatidylcholine, which is what

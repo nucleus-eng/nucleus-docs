@@ -13,7 +13,7 @@ site:
 **Position.** Refines [Reporter](../reporter/spec.md) and [Fluorophore](../fluorophore/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-The deGFP Reporter Module produces deGFP, a green fluorescent protein.
+The deGFP Reporter Module produces deGFP, a green fluorescent protein. Its peaks are taken as eGFP's, 488 nm excitation and about 509 nm emission, because no maxima are published for deGFP itself.
 
 :::{figure} schematic.png
 :width: 40%

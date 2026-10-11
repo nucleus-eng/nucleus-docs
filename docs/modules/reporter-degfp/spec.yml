@@ -34,6 +34,13 @@ refines:
   # protein and not of a chromophore generally.
 # Added 2026-09-21 with the Reporter class: the fluorescence half.
 
+# deGFP HAS NO PUBLISHED MAXIMA OF ITS OWN and is treated as equivalent to eGFP, which
+# is 488 nm excitation and about 509 nm emission. The 488 and 561 on the page are
+# imaging channels, not peaks.
+parameters:
+  excitation_peak: 488
+  emission_peak: 509
+
 inputs:
   base-cytosol:
     title: "Base Cytosol"
@@ -97,6 +104,11 @@ measured_by:
       # See the open item below.
 
 open:
+  - id: peaks-are-egfp-equivalent
+    question: >
+      The peaks are eGFP's, 488 nm and about 509 nm, because deGFP is treated as
+      equivalent to it and no maxima are published for deGFP itself. Confirm them
+      against a measurement of the reporter as it is used.
   - id: the-fluorescence-readout-has-no-process-page-and-should-not-get-one-to-order
     question: >
       OPENED AS `page: null` RATHER THAN AS A NEW PAGE. This

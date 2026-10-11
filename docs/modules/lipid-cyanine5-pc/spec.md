@@ -24,7 +24,7 @@ This page is a work in progress and not yet ready for use.
 | --- | --- | --- |
 | In the bilayer | 1 mmol/mol | The target for the labeled variant |
 | Stock | 1 mg/mL | **Disputed.** One record gives 25 mg/mL, which would put the dye at about 24.2 mmol/mol |
-| Read at | not recorded | No page here states its excitation or emission |
+| Peaks | 649 nm excitation, 670 nm emission | An approximation from free Cy5. No source states them for this lipid |
 :::
 
 # Expected Behavior

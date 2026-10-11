@@ -18,11 +18,23 @@ refines:
   - lipid
   - fluorophore
 
+# THE VENDOR'S SPECIFICATION, Avanti 810150: 560 nm excitation and 583 nm emission.
+# Measured lots read 560 to 561 nm and 579 to 580 nm. The 540 and 580 on ../dye-liposomes
+# are read settings and not peaks.
+parameters:
+  excitation_peak: 560
+  emission_peak: 583
+
 inputs: {}
 
 process_steps: []
 
 open:
+  - id: peaks-are-the-vendor-specification
+    question: >
+      The peaks are Avanti's specification for 810150, 560 nm and 583 nm. Measured lots
+      read emission at 579 to 580 nm. Which figure should the page carry, and is the
+      lot in use the one the specification describes?
   - id: the-membranes-still-hold-its-figures
     question: >
       ../membrane-popc-chol and ../membrane-popc-chol-9-1 each carry this dye's molar

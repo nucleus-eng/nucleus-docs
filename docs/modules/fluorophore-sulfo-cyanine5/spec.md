@@ -27,6 +27,7 @@ This page is a work in progress and not yet ready for use.
 | In the lumen | 2 µM, optional |
 | Supplier | Lumiprobe 13390 |
 | Read at | not recorded |
+| Peaks | 646 nm excitation, 662 nm emission | Lumiprobe's figures for sulfo-Cyanine5. The supplier number above is unconfirmed |
 :::
 
 # Expected Behavior
