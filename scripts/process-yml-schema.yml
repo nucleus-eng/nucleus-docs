@@ -55,7 +55,9 @@ properties:
       process poset inside a module source. 57 steps carry it and
       `scripts/render-posets.py` reads it to draw P2.
       A list is allowed because `refines:` on a Module already allows one and the two
-      relations are the same shape.
+      relations are the same shape. A parent is a directory under docs/processes/ or
+      under docs/functions/: `hold` is a Function page and a coarser Process than any one
+      Function, and encapsulate and embed-gel refine it.
     oneOf:
       - type: string
         pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"

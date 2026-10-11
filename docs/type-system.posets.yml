@@ -249,12 +249,16 @@ orders:
       - degrade[NucleicAcid]
       degrade[ssrA]:
       - degrade
+      embed-gel:
+      - hold
       embed-ionic-crosslinking:
       - embed-gel
       embed-photodevelopment:
       - embed-gel
       embed-thermal-setting:
       - embed-gel
+      encapsulate:
+      - hold
       encapsulate-luv:
       - encapsulate
       encapsulate-suv:

@@ -66,6 +66,12 @@ def main():
     dirs = {os.path.basename(os.path.dirname(p))
             for p in glob.glob(os.path.join(HERE, "docs/processes/*/"))
             if glob.glob(os.path.join(p, "*.md"))}
+    # A PARENT MAY BE A FUNCTION PAGE. `hold` is a coarser Process than any one Function, and
+    # encapsulate and embed refine it, so `refines: hold` names a directory under
+    # docs/functions/ and none under docs/processes/. Jon, 2026-10-10.
+    fdirs = {os.path.basename(os.path.dirname(p))
+             for p in glob.glob(os.path.join(HERE, "docs/functions/*/"))
+             if glob.glob(os.path.join(p, "main.md"))}
     step_imps = module_step_impositions()
     findings = 0
 
@@ -89,10 +95,10 @@ def main():
 
         parents = doc.get("refines")
         for parent in ([parents] if isinstance(parents, str) else (parents or [])):
-            if parent not in dirs:
+            if parent not in dirs and parent not in fdirs:
                 findings += 1
                 print(f"⛔️ {rel}: `refines: {parent}` names no directory under "
-                      f"docs/processes/.", file=sys.stderr)
+                      f"docs/processes/ or docs/functions/.", file=sys.stderr)
 
         for imp in doc.get("impositions") or []:
             dupes = [p for i, w, p in step_imps if i == imp["id"] and w == own]

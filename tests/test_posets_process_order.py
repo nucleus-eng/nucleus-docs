@@ -58,3 +58,9 @@ def test_no_module_step_names_a_parent_its_process_does_not():
                 if spec.get(child, [None])[0] != ab:
                     bad.append((f.parent.name, st["id"], child, ab, spec.get(child)))
     assert bad == []
+
+
+def test_encapsulate_and_embed_refine_hold(tmp_path):
+    rp.emit_orders(tmp_path / "p.yml")
+    edges = yaml.safe_load((tmp_path / "p.yml").read_text(encoding="utf-8"))["orders"]["process_refinement"]["edges"]
+    assert edges["encapsulate"] == ["hold"] and edges["embed-gel"] == ["hold"]

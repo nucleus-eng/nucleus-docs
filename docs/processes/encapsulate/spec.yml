@@ -18,6 +18,7 @@
 # a process source is for.
 #
 process: encapsulate
+refines: hold
 title: "Encapsulate"
 
 signature:
