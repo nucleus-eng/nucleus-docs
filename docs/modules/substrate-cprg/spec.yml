@@ -51,7 +51,7 @@ open:
   - id: three-formats-one-figure
     question: >
       SUV by film hydration and extrusion, 50 mM. GUV by phase transfer, not
-      documented. Free in the gel, not documented — the photodevelopment routes, where
+      documented. Free in the gel, not documented — the photocrosslinking routes, where
       UV would bleach encapsulated CPRG. **Two of the three formats in active use have
       no recorded loading.** The one figure that exists is carried by the Modules that
       consume it, ../substrate-cprg-suv/spec.yml and ../guv-cprg/spec.yml, rather than

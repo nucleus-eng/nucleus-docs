@@ -36,9 +36,9 @@ flowchart TD
     LAP["LAP photoinitiator"]
     SOLVENT["PBS, deionized water or buffer"]
 
-    P1_ASSEMBLE_PRECURSOR_0(["Embedding: Photodevelopment (mixing)"])
+    P1_ASSEMBLE_PRECURSOR_0(["Embedding: Photocrosslinking (mixing)"])
     PEG_NORBORNENE_PRECURSOR["PEG-norbornene precursor solution"]
-    P2_PHOTOPATTERN_0(["Embedding: Photodevelopment (mixing)"])
+    P2_PHOTOPATTERN_0(["Embedding: Photocrosslinking (mixing)"])
     GEL_PEG_NORBORNENE["Gel: PEG-Norbornene"]
 
     PEG4NB --> P1_ASSEMBLE_PRECURSOR_0
@@ -120,7 +120,7 @@ Requires the PEG4SH crosslinker, as the PEGDA route does.
 
 # Processes
 
-Formed by [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md), which records this chemistry, the four steps both chemistries share, and the **Conflict** its UV exposure raises with CPRG. No precursor recipe or exposure conditions are established for the thiol-ene route.
+Formed by [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md), which records this chemistry, the four steps both chemistries share, and the **Conflict** its UV exposure raises with CPRG. No precursor recipe or exposure conditions are established for the thiol-ene route.
 
 # Materials
 

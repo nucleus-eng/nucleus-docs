@@ -24,7 +24,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :icon: false
 
 - **Embedding: Thermal Setting → Colorimetric Readout is confirmed.** The ULGA-embedded PLA1/CPRG color-change module shows a clear color change observed after 16 h, reproduced across multiple days and repeats.
-- **Embedding: Photodevelopment → Colorimetric Readout is proposed and not demonstrated.** PEGDA-patterned gel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned gel has not been shown.
+- **Embedding: Photocrosslinking → Colorimetric Readout is proposed and not demonstrated.** PEGDA-patterned gel work has confirmed patterning feature-size control and PEGDA-frame/alginate-core structural integrity, but DevCell component volumes are too small to produce macroscopically visible QR-code pattern changes. A functional colorimetric readout from a PEGDA-patterned gel has not been shown.
 - **Embedding: Ionic Crosslinking → Colorimetric Readout is confirmed for the unpatterned gel.** The unpatterned alginate-embedded readout ([SensorCell[theophylline ⟶ LacZ]](../../modules/theophylline-sensing-cell/spec.md) + [CPRG-loaded SUV](../encapsulate-suv/main.md) + LacZ in ~10 mg/mL alginate, ~16 h color change) is a confirmed result. Alginate embedding also feeds PEGDA patterning, which is confirmed.
 
 ::::::
@@ -33,7 +33,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-CPRG pre-loaded into liposomes photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route. This does not affect agarose, alginate, or ULGA embedding, where CPRG is pre-loaded into liposomes as usual. For PEG-norbornene, add CPRG as a free dye *after* UV crosslinking, and pre-add LacZ to the gel rather than encapsulating it — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md#reporter-lacz-requirements) Requirements section for the confirmed four-condition comparison behind this workaround.
+CPRG pre-loaded into liposomes photobleaches under the UV exposure used to crosslink a photocrosslinked gel, by either route. This does not affect agarose, alginate, or ULGA embedding, where CPRG is pre-loaded into liposomes as usual. For PEG-norbornene, add CPRG as a free dye *after* UV crosslinking, and pre-add LacZ to the gel rather than encapsulating it — see the [LacZ Reporter Module](../../modules/reporter-lacz/spec.md#reporter-lacz-requirements) Requirements section for the confirmed four-condition comparison behind this workaround.
 
 ::::::
 

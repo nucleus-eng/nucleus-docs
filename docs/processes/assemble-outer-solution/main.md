@@ -37,7 +37,7 @@ Four formulations are attested, and they are not interchangeable — each is mat
 
 **Above roughly 1200 mOsm, CPRG stops leaking.** In glucose-based outer solutions, dye leakage from loaded liposomes falls sharply above that osmotic concentration. That is the reason for the high-glucose configuration: leaked CPRG meets external enzyme with no lysis and raises background before the cascade fires. See [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md).
 
-**Osmolarity is additive, and the solution sets it.** Every component contributes osmolytes, so a gel's osmolarity is the sum of the solution's and the polymer's own. A gel polymer — ULGA, alginate, or a photodevelopable precursor — is dissolved into this solution at a concentration whose contribution is negligible: about 10 mg/mL agarose adds on the order of 0.1 mOsm/L against a 920 mOsm background. So the polymer is not osmotically inert, only negligible, and changing the outer solution changes the gel. @Editor: PEGDA575 at 200 mg/mL is about 350 mOsm/L, which is not negligible. Which precursor does "a photodevelopable precursor" name? The sentence holds for PEG-norbornene and not for PEGDA575.
+**Osmolarity is additive, and the solution sets it.** Every component contributes osmolytes, so a gel's osmolarity is the sum of the solution's and the polymer's own. A gel polymer — ULGA, alginate, or a photocrosslinkable precursor — is dissolved into this solution at a concentration whose contribution is negligible: about 10 mg/mL agarose adds on the order of 0.1 mOsm/L against a 920 mOsm background. So the polymer is not osmotically inert, only negligible, and changing the outer solution changes the gel. @Editor: PEGDA575 at 200 mg/mL is about 350 mOsm/L, which is not negligible. Which precursor does "a photocrosslinkable precursor" name? The sentence holds for PEG-norbornene and not for PEGDA575.
 
 # Processes
 
@@ -45,4 +45,4 @@ Every process that takes an outer solution as an operand:
 
 - [Embedding: Thermal Setting](../embed-thermal-setting/main.md)
 - [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md)
-- [Embedding: Photodevelopment](../embed-photocrosslinking/main.md)
+- [Embedding: Photocrosslinking](../embed-photocrosslinking/main.md)

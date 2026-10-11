@@ -12,10 +12,10 @@ Its instances, grouped by formation route — what sets the gel:
 
 - **Set ionically.** [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md) — sodium alginate set by calcium.
 - **Set thermally.** [Embedding: Thermal Setting](../embed-thermal-setting/main.md) — agarose set by cooling: ultra-low-gelling (ULGA) or low-gelling (LGA).
-- **Set by light.** [Embedding: Photodevelopment](../embed-photocrosslinking/main.md) — PEG-norbornene, with PEGDA kept on the same page as a canceled chemistry. It carries the one confirmed conflict: the exposure bleaches CPRG.
+- **Set by light.** [Embedding: Photocrosslinking](../embed-photocrosslinking/main.md) — PEG-norbornene, with PEGDA kept on the same page as a canceled chemistry. It carries the one confirmed conflict: the exposure bleaches CPRG.
 
 :::{attention} Page hierarchy open
-@Editor: decide whether [Embedding: Photodevelopment](../embed-photocrosslinking/main.md) becomes a middle node for the light-set route under this page, or its content moves here and that page retires. It states what the two chemistries share and is the only page that carries the UV-and-CPRG conflict.
+@Editor: decide whether [Embedding: Photocrosslinking](../embed-photocrosslinking/main.md) becomes a middle node for the light-set route under this page, or its content moves here and that page retires. It states what the two chemistries share and is the only page that carries the UV-and-CPRG conflict.
 :::
 
 :::{attention} 🚧 Draft
@@ -30,7 +30,7 @@ This page is a work in progress and not yet ready for use.
 
 **The result keeps its parts' compartments, so this process packs.** A liposome embedded in a gel is still a liposome.
 
-**No instance illuminates its contents.** This is the distinction [Embedding: Photodevelopment](../embed-photocrosslinking/main.md) draws against itself: the photodeveloped routes impose UV on whatever is present at crosslinking, and neither route here does. A UV-sensitive payload can be embedded and cannot be photopatterned.
+**No instance illuminates its contents.** This is the distinction [Embedding: Photocrosslinking](../embed-photocrosslinking/main.md) draws against itself: the photocrosslinked routes impose UV on whatever is present at crosslinking, and neither route here does. A UV-sensitive payload can be embedded and cannot be photopatterned.
 
 # What the instances do not share
 

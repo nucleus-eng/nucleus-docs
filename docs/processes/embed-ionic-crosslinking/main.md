@@ -6,7 +6,7 @@ status: draft
 
 # Overview
 
-Alginate gel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~10 mg/mL sodium alginate gel, ionically crosslinked with 200 mM CaCl₂. The gel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific. It is fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeds into [Embedding: Photodevelopment](../embed-photocrosslinking/main.md).
+Alginate gel embedding co-encapsulates synthetic cell-format sensing cells and SUV-format reporter liposomes inside a shared ~10 mg/mL sodium alginate gel, ionically crosslinked with 200 mM CaCl₂. The gel holds both liposome populations together long enough for a lysis-triggered colorimetric handoff between them: a sensing synthetic cell lyses on cue and releases its contents to a neighboring CPRG-loaded SUV, and commercial β-galactosidase (LacZ) present in the gel converts the released CPRG from yellow to purple. This process is Chicago-specific. It is fed by [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) and [Encapsulation: Extrusion](../encapsulate-suv/main.md), and feeds into [Embedding: Photocrosslinking](../embed-photocrosslinking/main.md).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

@@ -152,7 +152,7 @@ process_steps:
 
   - id: embed-photocrosslinking
     process:
-      title: "Embedding: Photodevelopment"
+      title: "Embedding: Photocrosslinking"
       page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     operator: packing
@@ -220,7 +220,7 @@ process_steps:
       page: ../atc-cascade/spec.md
     notes: >
       After crosslinking, not before. UV bleaches CPRG, so this path cannot
-      carry the substrate through photodevelopment and cannot use a substrate
+      carry the substrate through photocrosslinking and cannot use a substrate
       liposome. That is why it differs from the pH path in where CPRG lives.
 
 measured_by:

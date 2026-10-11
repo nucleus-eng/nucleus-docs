@@ -130,7 +130,7 @@ Embedding holds compartments that already exist in place. The gel fixes a positi
 
 Beyond simple gel embedding, spatial patterning within the gel matrix can compartmentalize multiple sensing modules.
 
-- [Embedding: Photodevelopment](./embed-photocrosslinking/main.md) — what the two photocrosslinking routes share, and the table of what they do not.
-  - [Embedding: Photodevelopment](./embed-photocrosslinking/main.md) — 405 nm-crosslinked PEGDA gel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
-- [Embedding: Photodevelopment](./embed-photocrosslinking/main.md) — step-growth thiol-ene route (PEG-norbornene).
+- [Embedding: Photocrosslinking](./embed-photocrosslinking/main.md) — what the two photocrosslinking routes share, and the table of what they do not.
+  - [Embedding: Photocrosslinking](./embed-photocrosslinking/main.md) — 405 nm-crosslinked PEGDA gel; not yet demonstrated to link through to a macroscopically visible colorimetric readout.
+- [Embedding: Photocrosslinking](./embed-photocrosslinking/main.md) — step-growth thiol-ene route (PEG-norbornene).
 

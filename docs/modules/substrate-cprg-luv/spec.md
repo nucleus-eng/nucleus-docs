@@ -132,7 +132,7 @@ Requires an external β-galactosidase source in the surrounding matrix (e.g. [La
 Requires the wash solution to match the interior. The Tris-HEPES buffer contributes 1071 mOsm by dilution, but the whole inner solution, with its CPRG and OptiPrep, has no recorded reading. Measure it by [Osmometry Readout](../../processes/osmometry-readout/main.md), and match the wash to that reading: a wash below it swells the liposomes.
 
 :::{warning} Do not expose CPRG to UV light
-**CPRG photobleaches**, including under the 405 nm source used for photodevelopment. Any route that crosslinks a gel with UV while this Module is present will bleach the payload before it can be read. Thermal and ionic gelling involve no UV step and are compatible.
+**CPRG photobleaches**, including under the 405 nm source used for photocrosslinking. Any route that crosslinks a gel with UV while this Module is present will bleach the payload before it can be read. Thermal and ionic gelling involve no UV step and are compatible.
 :::
 
 # Implementations

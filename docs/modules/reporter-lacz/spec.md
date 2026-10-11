@@ -187,7 +187,7 @@ See [Theophylline Sensing Module § Requirements](../detector-theophylline/spec.
 :::
 
 :::{warning} Gels requiring UV crosslinking require post-exposure addition of CPRG
-CPRG is UV-sensitive: preloaded into liposomes it photobleaches under the UV exposure used to crosslink a photodeveloped gel, by either route — this does **not** affect agarose, alginate, or ULGA gel embedding, where the standard two-liposome preloaded-CPRG method works as expected. So this is a **Conflict** between a Process and a Component: photodevelopment imposes UV, and CPRG is sensitive to it. It is a property of CPRG under UV, which both photodevelopment routes impose.
+CPRG is UV-sensitive: preloaded into liposomes it photobleaches under the UV exposure used to crosslink a photocrosslinked gel, by either route — this does **not** affect agarose, alginate, or ULGA gel embedding, where the standard two-liposome preloaded-CPRG method works as expected. So this is a **Conflict** between a Process and a Component: photocrosslinking imposes UV, and CPRG is sensitive to it. It is a property of CPRG under UV, which both photocrosslinking routes impose.
 
 **Confirmed workaround:** for PEG-norbornene gels, add CPRG as a free dye *after* UV crosslinking, rather than preloading it into liposomes, and pre-add LacZ to the gel instead of encapsulating it. This gives a color change in PEG-4-NB where preloading does not. The gel it was demonstrated in is PEG4Nb 5 000 g/mol monomer, PEG4SH 2 000 g/mol crosslinker, and LAP 294.21 g/mol photoinitiator.
 :::

@@ -56,7 +56,7 @@ flowchart TD
     P3_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
     P3_ENCAPSULATE_1(["Degrade Exterior LacZ"])
     ATC_SENSING_CELL["SensorCell[aTc ⟶ PLA1]"]
-    P4_EMBED_PHOTOCROSSLINKING_0(["Embedding: Photodevelopment (packing, 2 pairs mixing)"])
+    P4_EMBED_PHOTOCROSSLINKING_0(["Embedding: Photocrosslinking (packing, 2 pairs mixing)"])
     ATC_GEL["aTc gel piece"]
     P5_ASSEMBLE_TRIGGER_SOLUTION_0(["Trigger Solution (mixing) — no page"])
     ATC_TRIGGER_SOLUTION["Trigger Solution"]
@@ -168,7 +168,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 
 ::::{tab-item} Substrate
 
-[CPRG](../substrate-cprg/spec.md) reaches this cascade as a **free dye dosed into the gel after crosslinking**, not inside a liposome. The photodeveloped gel this path uses imposes UV, which bleaches CPRG, so the substrate goes in once crosslinking is done.
+[CPRG](../substrate-cprg/spec.md) reaches this cascade as a **free dye dosed into the gel after crosslinking**, not inside a liposome. The photocrosslinked gel this path uses imposes UV, which bleaches CPRG, so the substrate goes in once crosslinking is done.
 
 :::{table} CPRG in the aTc path.
 | Component | Working concentration | Notes |
@@ -189,7 +189,7 @@ The sensing cell interior. It carries the enzyme but not its substrate — see t
 | aTc | 1 µM — the response saturates at or below this, so higher doses add nothing. See [Expected Behavior](#atc-cascade-expected-behavior) for the dose series. |
 :::
 
-In the photodeveloped format CPRG is added to the gel **after** crosslinking rather than pre-loaded, because the UV that crosslinks the gel bleaches it. This holds for both photodevelopment routes — see [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md).
+In the photocrosslinked format CPRG is added to the gel **after** crosslinking rather than pre-loaded, because the UV that crosslinks the gel bleaches it. This holds for both photocrosslinking routes — see [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md).
 
 ::::
 

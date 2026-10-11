@@ -14,7 +14,7 @@ This page is a work in progress and not yet ready for use.
 
 The aTc Demo turns anhydrotetracycline into a visible color change. [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md) synthetic cells carry TetR holding a `TetO-PLA1` construct off. aTc relieves the repression, the cells express phospholipase A1 (PLA1), and PLA1 breaks the membranes around it. [Reporter: LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md) is encapsulated with the sensing circuit, so lysis releases it to meet the [Substrate: CPRG](../../modules/substrate-cprg/spec.md) dosed into the gel, turning it from yellow to purple.
 
-What the photodevelopment step builds is [aTc Cascade](../../modules/atc-cascade/spec.md).
+What the photocrosslinking step builds is [aTc Cascade](../../modules/atc-cascade/spec.md).
 
 **The color change is confirmed in synthetic cells and has not been run in a gel.**
 
@@ -22,7 +22,7 @@ What the photodevelopment step builds is [aTc Cascade](../../modules/atc-cascade
 
 | Role | Module | In the demo |
 | --- | --- | --- |
-| Cascade | [aTc Cascade](../../modules/atc-cascade/spec.md) | what the photodevelopment step builds |
+| Cascade | [aTc Cascade](../../modules/atc-cascade/spec.md) | what the photocrosslinking step builds |
 | Sensing cell | [SensorCell[aTc ⟶ PLA1]](../../modules/atc-sensing-cell/spec.md) | set in the gel |
 | Detector | [Detector: tetR-aTc](../../modules/detector-tetr-atc/spec.md) | TetR, holding `TetO-PLA1` off until aTc arrives |
 | Lysis | [Lysis: PLA1](../../modules/effector-pla1/spec.md) | expressed from `TetO-PLA1` |
@@ -42,7 +42,7 @@ This is the one demo where the enzyme is inside the cell and the substrate outsi
 | 1 | [Assemble Outer Solution](../../processes/assemble-outer-solution/main.md) | the Tris-HEPES stock with an energy solution |
 | 2 | [Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) | the detector, PLA1 template and LacZ Enzyme into Base Cytosol |
 | 3 | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) | the synthetic cells |
-| 4 | [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md) | PEG-norbornene patterned at 405 nm |
+| 4 | [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md) | PEG-norbornene patterned at 405 nm |
 | 5 | [Colorimetric Readout](../../processes/colorimetric-readout/main.md) | absorbance, read against the undosed wells |
 | — | [Degrade Exterior LacZ](../../processes/degrade-exterior-lacz/main.md) | proposed to cut background; never run |
 

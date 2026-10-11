@@ -68,7 +68,7 @@ Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — 
 
 **Cannot be liposome-loaded.** X-Gal has limited aqueous solubility and is dissolved in DMSO, and DMSO ruins liposome formation — the SUVs made with it were poor. So X-Gal can only be the free half of the pair, which inverts the arrangement CPRG allows. Where CPRG can be held in a substrate liposome and released by lysis, X-Gal requires that the **enzyme** be the encapsulated half.
 
-**Expected to be light-sensitive**, as CPRG is, so a photodeveloped gel should add it after crosslinking rather than before. @Editor(chicago): this has not been tested — CPRG's UV bleaching is documented and X-Gal's is inferred from it.
+**Expected to be light-sensitive**, as CPRG is, so a photocrosslinked gel should add it after crosslinking rather than before. @Editor(chicago): this has not been tested — CPRG's UV bleaching is documented and X-Gal's is inferred from it.
 
 **X-Gal is half of an enzyme-substrate pair.** Its enzyme is [LacZ](../reporter-lacz-enzyme/spec.md), the same enzyme as [CPRG](../substrate-cprg/spec.md). The valid pairs are listed on the enzyme page. X-Gal does not pair with [XylE](../reporter-xyle/spec.md).
 

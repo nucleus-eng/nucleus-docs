@@ -120,7 +120,7 @@ Requires that no LacZ share a compartment with the CPRG before the trigger fires
 Requires an outer solution matched to the lumen. The [Cell: S30 Lysate, POPC](../cell-s30-popc/spec.md) outer solution sits at about 920 mOsm, and matching it keeps CPRG from being driven across the bilayer before the cascade fires.
 
 :::{warning} Do not expose CPRG to UV light
-CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules out any photodeveloped gel for this population. ULGA sets thermally and involves no illumination, so it is compatible — see [Gel: ULGA](../gel-ulga/spec.md).
+CPRG photobleaches under UV, including the UV a 405 nm source emits. This rules out any photocrosslinked gel for this population. ULGA sets thermally and involves no illumination, so it is compatible — see [Gel: ULGA](../gel-ulga/spec.md).
 :::
 
 # Processes

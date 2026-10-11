@@ -1,12 +1,12 @@
 ---
-title: "Embedding: Photodevelopment"
+title: "Embedding: Photocrosslinking"
 subtitle: "Process"
 status: draft
 ---
 
 # Overview
 
-Photodevelopment crosslinks a light-sensitive polymer precursor into a gel only where light falls, so the gel's geometry comes from a projected image rather than from its container. It is the route Nucleus uses when populations have to be held apart in defined regions rather than dispersed through one matrix.
+Photocrosslinking crosslinks a light-sensitive polymer precursor into a gel only where light falls, so the gel's geometry comes from a projected image rather than from its container. It is the route Nucleus uses when populations have to be held apart in defined regions rather than dispersed through one matrix.
 
 It is one of the three routes under [Embedding](../embed-gel/main.md), and the only one that illuminates what it sets. Neither [Embedding: Ionic Crosslinking](../embed-ionic-crosslinking/main.md) nor [Embedding: Thermal Setting](../embed-thermal-setting/main.md) exposes its contents to light at all.
 
@@ -66,7 +66,7 @@ The four shared steps are above, and the mixing steps are here. The precursor re
 - [ ] Vortex at 2000 rpm for (3–5) min. Keep the solution dark until it is patterned.
 - [ ] Load the precursor solution into the patterning setup.
 - [ ] Expose the desired pattern using a 405 nm DLP projector for 15 s to 30 s, adjusting exposure time for monomer concentration, feature size and layer thickness.
-- [ ] For multimaterial photodevelopment, combine 16 mg/mL alginate with the precursor solution to enable a combined ionic and photo-crosslinking system, producing a patterned PEGDA frame around an alginate core.
+- [ ] For multimaterial photocrosslinking, combine 16 mg/mL alginate with the precursor solution to enable a combined ionic and photo-crosslinking system, producing a patterned PEGDA frame around an alginate core.
 
 :::{attention} Two things were never established for this chemistry
 @Editor(chicago): the mold or patterning-chamber setup is not established, and neither is the ionic-crosslinking step for the alginate component of the multimaterial variant. The frame recipe and exposure times are on [Gel: Alginate](../../modules/gel-alginate/spec.md).

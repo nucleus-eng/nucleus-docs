@@ -1,4 +1,4 @@
-# Process source for Embedding: Photodevelopment.
+# Process source for Embedding: Photocrosslinking.
 #
 # THE FIRST PROCESS SOURCE IN THIS CORPUS, written against
 # ../../../scripts/process-yml-schema.yml rather than the other way round.
@@ -46,7 +46,7 @@
 # operator the other does not.
 
 process: embed-photocrosslinking
-title: "Embedding: Photodevelopment"
+title: "Embedding: Photocrosslinking"
 refines: embed-gel
 
 signature:

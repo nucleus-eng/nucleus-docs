@@ -39,7 +39,7 @@ inputs:
 process_steps:
   - id: assemble-precursor
     process:
-      title: "Embedding: Photodevelopment"
+      title: "Embedding: Photocrosslinking"
       page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     operator: mixing
@@ -61,7 +61,7 @@ process_steps:
 
   - id: photopattern
     process:
-      title: "Embedding: Photodevelopment"
+      title: "Embedding: Photocrosslinking"
       page: ../../processes/embed-photocrosslinking/main.md
       abstract: embed-gel
     operator: mixing

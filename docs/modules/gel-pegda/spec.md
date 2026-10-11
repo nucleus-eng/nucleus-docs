@@ -38,9 +38,9 @@ flowchart TD
     LAP["LAP photoinitiator"]
     PBS["PBS"]
 
-    P1_ASSEMBLE_PRECURSOR_0(["Embedding: Photodevelopment (mixing)"])
+    P1_ASSEMBLE_PRECURSOR_0(["Embedding: Photocrosslinking (mixing)"])
     PEGDA_PRECURSOR["PEGDA precursor solution"]
-    P2_PHOTOPATTERN_0(["Embedding: Photodevelopment (mixing)"])
+    P2_PHOTOPATTERN_0(["Embedding: Photocrosslinking (mixing)"])
     GEL_PEGDA["Gel: PEGDA"]
 
     PEGDA575 --> P1_ASSEMBLE_PRECURSOR_0
@@ -123,7 +123,7 @@ Requires that no UV-sensitive component is present during crosslinking. [CPRG](.
 
 # Processes
 
-Prepared and patterned by [Embedding: Photodevelopment](../../processes/embed-photocrosslinking/main.md), which carries this chemistry as a canceled variant beside the live PEG-norbornene one, and the four steps they share. Vortex the precursor at 2000 rpm for (3–5) min.
+Prepared and patterned by [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md), which carries this chemistry as a canceled variant beside the live PEG-norbornene one, and the four steps they share. Vortex the precursor at 2000 rpm for (3–5) min.
 
 # Materials
 

@@ -28,7 +28,7 @@ This page is a work in progress and not yet ready for use.
 | --- | --- | --- |
 | SUV, film hydration and extrusion | 50 mM | Chicago Node. 400 nm target size |
 | GUV, phase transfer | Not documented | London Node |
-| Free in the gel | Not documented | Photodevelopment routes, where UV would bleach encapsulated CPRG |
+| Free in the gel | Not documented | Photocrosslinking routes, where UV would bleach encapsulated CPRG |
 :::
 
 # Requirements
@@ -37,7 +37,7 @@ Requires a read by absorbance: `observe_absorbance` at the product's peak, 570 n
 
 Requires [LacZ Enzyme](../reporter-lacz-enzyme/spec.md) to produce a signal — CPRG alone is inert and yellow.
 
-**CPRG is UV-sensitive**, so any photodeveloped format adds it after crosslinking rather than embedding it with everything else. That reordering makes it a free dye rather than an encapsulated one, which changes what the reporter is composed of.
+**CPRG is UV-sensitive**, so any photocrosslinked format adds it after crosslinking rather than embedding it with everything else. That reordering makes it a free dye rather than an encapsulated one, which changes what the reporter is composed of.
 
 **CPRG is half of an enzyme-substrate pair.** Its enzyme is [LacZ](../reporter-lacz-enzyme/spec.md), which lists the valid pairs. CPRG does not pair with [XylE](../reporter-xyle/spec.md).
 
