@@ -279,6 +279,8 @@ orders:
       - assay
       degrade[ATP]:
       - degrade
+      degrade[NucleicAcid]:
+      - degrade
       degrade[PPi]:
       - degrade
       degrade[Protein]:

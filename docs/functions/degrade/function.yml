@@ -19,6 +19,11 @@ processes:
         reagent: proteinase K            # docs: the named instance, a reagent added in a process
         added_in: degrade-exterior-lacz
         realized_by: [s30-lysate]        # the Module that implements it, as baseline activity of its extract
+      - id: nucleic-acid
+        key: "degrade[NucleicAcid]"       # the abstract route that RNA and linear DNA refine
+        refines: degrade
+        docs_group: nucleic-acid
+        realized_by: []                   # no Module is attested at this level, only at RNA and linear DNA
       - id: rna
         key: "degrade[RNA]"
         refines: "degrade[NucleicAcid]"
