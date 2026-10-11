@@ -1,0 +1,73 @@
+# Composition source for Dye Liposomes.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. Both constituents are obtained.
+
+module: dye-liposomes
+title: Dye Liposomes
+
+refines:
+  - guv
+  - liposome
+  # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
+  # vesicle each refine liposomes, because each is built from lipids. Verified for this
+  # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
+  # not nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
+  # GUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  hpts:
+    title: "HPTS dye solution"
+    stock: {value: 4, unit: "mM"}
+    page: null            # 4 mM stock, 0.2 mM in the lumen
+  membrane-popc-chol:
+    title: "Membrane: POPC/Chol (7:3)"
+    page: ../membrane-popc-chol/spec.md
+
+process_steps:
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [hpts, membrane-popc-chol, outer-solution]
+    produces:
+      id: dye-liposomes
+      title: "Dye Liposomes"
+      page: ../dye-liposomes/spec.md
+    # SCALE-FREE, 2026-10-05. THE FRACTION IS NOT WRITTEN, because it would be a
+    # number the page's own table contradicts: 5 uL in 30 is 0.1667, and 0.1667 x 4 mM
+    # is 0.667 mM against the 0.2 mM stated beside it. Writing it would put an
+    # arithmetic error into a field a checker reads as fact.
+    #
+    # The Optiprep row on the same table WAS corrected: its
+    # volume was copied from a 40 uL recipe. See the admonition on ../dye-liposomes/spec.md.
+    finals:
+      hpts: {value: 0.2, unit: "mM", note: "in the lumen"}
+    notes: >
+      No cytosol — the lumen is dye in buffer. That is the point: a fast
+      positive control for encapsulation and microscopy with nothing in it that
+      can fail to express.

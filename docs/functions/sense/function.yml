@@ -1,0 +1,21 @@
+# What the Sense page says, as data. See ../transcribe/function.yml for the field marks.
+# The signature has no change line for this process, so a reader treats its change as unknown, never zero.
+signature_pin: 40fe4e2
+processes:
+  - process: sense  # checked
+    refines: []                      # checked
+    type: >                          # docs
+      Sense takes the detector and its analyte, and returns the detector with a gene's expression changed.
+    routes:                          # docs: one per row of the page's Routes table
+      - id: activator-3oc6-hsl
+        realized_by: [detector-3oc6-hsl]
+      - id: repressor-3oc6-hsl
+        realized_by: [detector-esar]
+      - id: repressor-iptg
+        realized_by: [detector-laci-iptg]
+      - id: repressor-atc
+        realized_by: [detector-tetr-atc]
+      - id: riboswitch-theophylline
+        realized_by: [detector-theophylline]
+      - id: toehold-ph
+        realized_by: [detector-ph]

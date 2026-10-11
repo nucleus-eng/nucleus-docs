@@ -16,7 +16,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :class: dropdown
 :icon: false
 
-Complete all of the following before beginning this protocol. Each of the thirty-six proteins must be individually purified and stored at -80 °C in Protein Buffer (30% glycerol).
+Complete all of the following before beginning this protocol. Each of the thirty-six proteins must be individually purified and stored at -80 °C in Protein Buffer (30 % glycerol).
 
 - [Prepare Protein Purification Buffers and Media](../make-protein/prep-consumables/main.md)
 - [Grow and Induce Expression Strains](../make-protein/grow-bacteria/main.md)
@@ -140,7 +140,7 @@ Washing the assembled mix before concentrating removes residual salts (Na⁺, Im
 
 ## Step 5: Dilute to Final Concentration
 
-- [ ] If concentration exceeds target, dilute PMix to 15 mg/mL in Protein Buffer (30% glycerol).
+- [ ] If concentration exceeds target, dilute PMix to 15 mg/mL in Protein Buffer (30 % glycerol).
     - [ ] Add the calculated volume to reach target concentration and mix gently.
 - [ ] If concentration is below target, return to Step 3 — concentrate further, then re-measure.
 

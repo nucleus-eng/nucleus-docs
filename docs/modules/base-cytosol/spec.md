@@ -8,6 +8,10 @@ site:
 
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines [Cytosol](../cytosol/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
 A molecular system with a defined set of components including T7 RNA Polymerase, ribosomes, and tRNA capable of transcription and translation. Base Cytosol builds on the [PURE system](https://doi.org/10.1038/90802), and is optimized for integration and extension. The Base Cell is formed by encapsulating Base Cytosol in a liposome.
 
 Plasmid designs for the PURE proteins are maintained as pET28a expression vectors in the [DNA Distribution](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression) repository.
@@ -24,6 +28,42 @@ Schematic of components in Cytosol and their function. Figure by [Ganesh and Mae
 Base Cytosol is assembled from four components — a protein mix (PMix), a small molecule mix (SMix), ribosomes, and tRNA. The tabs below give the composition of each component at its **stock** concentration, plus the **Final Reaction** composition with every component at its in-reaction concentration.
 
 :::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    PMIX["Protein Mix (PMix)"]
+    SMIX["Small Molecule Mix (SMix)"]
+    RIBOSOMES["Ribosomes"]
+    TRNA["tRNA"]
+    RNASE_INHIBITOR["RNase inhibitor"]
+
+    P1_ASSEMBLE_BASE_CYTOSOL_0(["Assemble Base Cytosol (mixing)"])
+    BASE_CYTOSOL["Base Cytosol"]
+
+    SMIX --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    TRNA --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    PMIX --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    RIBOSOMES --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    RNASE_INHIBITOR --> P1_ASSEMBLE_BASE_CYTOSOL_0
+    P1_ASSEMBLE_BASE_CYTOSOL_0 --> BASE_CYTOSOL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class PMIX,SMIX,RIBOSOMES,TRNA,RNASE_INHIBITOR leaf;
+    class BASE_CYTOSOL composed;
+    class P1_ASSEMBLE_BASE_CYTOSOL_0 process;
+
+    click P1_ASSEMBLE_BASE_CYTOSOL_0 "/docs/processes/assemble-base-cytosol/main"
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
 
 ::::{tab-item} PMix
 The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [Make PMix](../../processes/make-36pot/main.md) and [Make OnePot Protein Mix](../../processes/make-1pot/main.md) processes for preparation.
@@ -73,7 +113,7 @@ The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentrat
 :::
 
 :::{note} Molecular weight calculations
-Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state. See GitHub issue #160.
+Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state.
 
 \* **GlyRS, PheRS** — both are α₂β₂ heterotetramers of two different subunits (GlyRS: GlyQ 34.8 kDa + GlyS 76.8 kDa; PheRS: PheS 36.8 kDa + PheT 87.4 kDa). The Molecular Weight column reports the combined complex mass (2 × (α + β)); molarity is mass concentration ÷ this combined mass, since the two subunits cannot be reduced to one monomer MW times a single n.
 :::
@@ -161,6 +201,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 | | Folinic Acid | 0.02 | mM |
 | Ribonucleics | tRNA | 3.5 | µg/µL |
 | | Ribosomes | 1.8 | µM |
+| Optional | RNase inhibitor | 0 to 2000 | U/mL |
 | tRNA Synthetases | AlaRS | 130.3 | ng/µL |
 | | ArgRS | 3.6 | ng/µL |
 | | AsnRS | 40.9 | ng/µL |
@@ -198,6 +239,11 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 | | PPiase | 1.9 | ng/µL |
 | Transcription | T7RNAP | 18.7 | ng/µL |
 :::
+
+:::{note} RNase inhibitor is a range, not a fixed value
+Base Cytosol accepts RNase inhibitor anywhere from 0 to 2000 U/mL, so it can be left out entirely. [SensorCytosol[pH ⟶ PLA1]](../ph-sensor-cytosol/spec.md) uses 1000 U/mL, and [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) adds 0.5 µL per 10 µL reaction.
+:::
+
 ::::
 
 :::::
@@ -206,7 +252,13 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 
 The behavior of Base Cytosol is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module. 
 
-# Process
+# Implementations
+
+- [aTc Demo](../../implementations/devstudio-atc-demo/main.md): its cytosol — inside the synthetic cells.
+- [CRAIC Demo](../../implementations/devstudio-craic-demo/main.md): its cytosol — inside the synthetic cells.
+- [pH Demo](../../implementations/devstudio-ph-demo/main.md): its cytosol — inside the synthetic cells.
+
+# Processes
 
 Protocols for assembling Base Cytosol and making its components from scratch can be found on [Base Cytosol Processes](../../processes/processes-main.md#base-cytosol-processes).
 
@@ -215,4 +267,3 @@ Protocols for assembling Base Cytosol and making its components from scratch can
 Reformulated from the PURE system by Yemo Ku and Jon Calles (b.next).
 
 PURE was developed by the Ueda Lab ([Shimizu et al., 2001](https://doi.org/10.1038/90802)).
-

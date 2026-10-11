@@ -1,0 +1,18 @@
+# Composition source for Energy.
+#
+# A CLASS BY FUNCTION: a Module that turns a spent nucleotide back into a usable one.
+# ../energy-ppk refines it first and ../solution second. The functional parent leads,
+# which is the alignment rule ../substrate-cprg-suv/spec.yml states.
+#
+# ONE MEMBER, on ../lysis's precedent. A class is written when a Module needs its
+# functional parent, and it does not wait for a second member.
+#
+# ../base-cytosol IS NOT A MEMBER, though it makes ATP again from creatine phosphate. That
+# is one of a cytosol's own functions, and the pool and the enzymes are recorded on
+# Base Cytosol's own page. Its class is ../cytosol.
+
+module: energy
+title: "Energy"
+
+inputs: {}
+process_steps: []

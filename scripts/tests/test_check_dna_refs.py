@@ -354,3 +354,24 @@ def test_find_dna_repo_uses_env_override(tmp_path, monkeypatch):
 def test_find_dna_repo_returns_none_when_missing(tmp_path, monkeypatch):
     monkeypatch.setenv("NUCLEUS_DNA_REPO", str(tmp_path / "does-not-exist"))
     assert cdr.find_dna_repo() is None
+
+
+def test_env_override_wins_over_the_content_guard(tmp_path, monkeypatch):
+    """An override that exists is taken even with no sequence files in it.
+
+    The guard exists so a stray empty directory called DNA cannot win a GUESS.
+    Applying it to an override made the tool answer "could not find the repo,
+    set NUCLEUS_DNA_REPO" to someone who had set NUCLEUS_DNA_REPO.
+    """
+    monkeypatch.setenv("NUCLEUS_DNA_REPO", str(tmp_path))
+    assert not cdr._looks_like_dna_repo(tmp_path)
+    assert cdr.find_dna_repo() == tmp_path
+
+
+def test_main_refuses_an_override_holding_no_sequences(tmp_path, monkeypatch, capsys):
+    """Found and empty is a different failure from not found, and says so."""
+    monkeypatch.setenv("NUCLEUS_DNA_REPO", str(tmp_path))
+    assert cdr.main([str(tmp_path)]) == cdr.EXIT_CANNOT_RUN
+    err = capsys.readouterr().err
+    assert "holds no" in err
+    assert "could not find" not in err.lower()

@@ -13,7 +13,7 @@ Four content types. The distinction that matters is **definition versus report**
 
 ## Modules
 
-A Module is a component with specified Composition and Function, given certain Requirements. Compositions of Modules — chassis, sensing cells, cascades — are still Modules, and get a Module page.
+A Module is a component with specified Composition and Function, given certain Requirements. Compositions of Modules — chassis, sensing cells, cascades — are still Modules, and get a Module page. So does a class: an abstract Module that other Modules refine. Its sections are in [sections.md](sections.md#class-pages).
 
 ## Processes
 

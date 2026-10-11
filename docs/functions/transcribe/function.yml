@@ -1,0 +1,19 @@
+# What the Transcribe page says, as data. Read by scripts/check-function-yml.py and by
+# scripts/render-posets.py. `docs:` fields are this site's own words and are never copied
+# from the signature. `checked:` fields are compared with the signature at the pinned ref.
+signature_pin: 40fe4e2
+processes:
+  - process: transcribe  # checked: a declared process
+    refines: []                      # checked: the signature states no parent
+    type: >                          # docs
+      Takes a cytosol and a DNA template, and returns the cytosol, changed, with an RNA.
+    species:                         # docs, checked against the signature's change lines
+      per_residue: {NTP: -1, PPi: 1}
+      per_chain: {RNA: 1, PPi: -1}
+    routes:                          # docs: one per row of the page's Routes table
+      - id: T7
+        match_name: "transcribe[pT7]"        # not checked: the signature uses it only in prose
+        realized_by: [base-cytosol, atc-sensor-cytosol, ph-sensor-cytosol, theophylline-sensor-cytosol, emitter-ivhsl]
+      - id: sigma70
+        match_name: "transcribe[sigma70]"    # not checked: the signature does not use it
+        realized_by: [s30-lysate, ahsl-sensor-cytosol]

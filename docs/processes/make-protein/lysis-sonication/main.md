@@ -40,12 +40,12 @@ Please read this section carefully. It contains important notes, resources, and 
 | 15 mL centrifuge tubes | Consumables | Corning® 15 mL PP Centrifuge Tubes, Rack Packed with CentriStar™ Cap, Sterile, 50/Rack, 500/Case | Corning | 430790 | $230.44 | 4 °C to 30 °C | [link](https://ecatalog.corning.com/life-sciences/b2b/UK/en/Liquid-Handling/Tubes%2C-Liquid-Handling/Centrifuge-Tubes/Corning%C2%AE-15mL-Centrifuge-Tubes/p/430790) |
 | 10 mL Luer Lock Syringes | Consumables | Syringes with BD Luer-Lok® Tip, BD Medical, Syringe with Luer-Lok® Tip, Volume=10 mL | BD Industrial/Difco | 550-80620-PK | $102.40 | 4 °C to 30 °C | [link](https://www.spectrumchemical.com/bd-8482-sterile-luer-lok-8482-tip-general-purpose-syringes-320054) |
 | 0.45 µm syringe filters | Consumables | PES Syringe Filter, 0.45μm, 30mm, Sterile | CELLTREAT Scientific Products | 229749 | $84 | 4 °C to 30 °C | [link](https://www.celltreat.com/product/229749/) |
-| Potassium Hydroxide | Salts (for Buffers) | Potassium hydroxide - ACS reagent, ≥85%, pellets | Sigma-Aldrich | 221473-1KG | $99.90 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473) |
-| HEPES | Salts (for Buffers) | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
-| Ammonium Chloride | Salts (for Buffers) | Ammonium chloride, ACS reagent, ≥99.5% | Sigma-Aldrich | 213330-500G | $73.50 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330) |
-| Sodium Chloride | Salts (for Buffers) | Sodium Chloride, Redi-Dri™, anhydrous, free-flowing, ACS, ≥99% | Sigma-Aldrich | 746398-1KG | $133.00 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398) |
-| Magnesium Chloride hexahydrate | Salts (for Buffers) | BioXtra Magnesium chloride, Hexahydrate, Powder or Crystals, ≥99.0% | Sigma-Aldrich | M2670-100G | $50.50 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670) |
-| Lysozyme | Supplements (for Buffers) | Lysozyme from chicken egg white, protein ≥90%, ≥40 000 units/mg protein, lyophilized powder | Sigma-Aldrich | L6876-1G | $76.90 | -25 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876) |
+| Potassium Hydroxide | Salts (for Buffers) | Potassium hydroxide - ACS reagent, ≥85 %, pellets | Sigma-Aldrich | 221473-1KG | $99.90 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/221473) |
+| HEPES | Salts (for Buffers) | HEPES, Crystalline Powder, ≥99.5 % (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
+| Ammonium Chloride | Salts (for Buffers) | Ammonium chloride, ACS reagent, ≥99.5 % | Sigma-Aldrich | 213330-500G | $73.50 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/213330) |
+| Sodium Chloride | Salts (for Buffers) | Sodium Chloride, Redi-Dri™, anhydrous, free-flowing, ACS, ≥99 % | Sigma-Aldrich | 746398-1KG | $133.00 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/746398) |
+| Magnesium Chloride hexahydrate | Salts (for Buffers) | BioXtra Magnesium chloride, Hexahydrate, Powder or Crystals, ≥99.0 % | Sigma-Aldrich | M2670-100G | $50.50 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sial/m2670) |
+| Lysozyme | Supplements (for Buffers) | Lysozyme from chicken egg white, protein ≥90 %, ≥40 000 units/mg protein, lyophilized powder | Sigma-Aldrich | L6876-1G | $76.90 | -25 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/l6876) |
 | TCEP-HCl (0.5M; presuspended) | Supplements (for Buffers) | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific | 77720 | $175.65 | 4 °C to 30 °C | [link](https://www.thermofisher.com/order/catalog/product/77720) |
 | cOmplete Protease Inhibitor | Supplements (for Buffers) | cOmplete™ Protease Inhibitor Cocktail, EDTA-Free, Tablets | Roche | 11873580001 | $472 | 1 °C to 4 °C | [link](https://www.sigmaaldrich.com/US/en/product/roche/coedtafro) |
 :::
@@ -96,7 +96,7 @@ Please read this section carefully. It contains important notes, resources, and 
   :::
 
 - [ ] **Lyse cells by sonication.**
-  - [ ] Program your sonicator. We recommend 50% amplitude, 10 s on / 10 s off.
+  - [ ] Program your sonicator. We recommend 50 % amplitude, 10 s on / 10 s off.
   - [ ] Always use a Sound Enclosure during sonication.
 
   :::{hint} Note: Always use a Sound Enclosure during sonication.

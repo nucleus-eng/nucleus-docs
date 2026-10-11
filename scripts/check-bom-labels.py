@@ -54,7 +54,7 @@ PROCESSES_ROOT = Path("docs/processes")
 MODULES_ROOT = Path("docs/modules")
 
 BOM_LABEL_RE = re.compile(r"^\s*:label:\s*(bom-[A-Za-z0-9._-]+)\s*$")
-# Loose: any generated BOM-PDF download target, however (mis)named. Lets us
+# Loose: any generated BOM-PDF download target, however (mis)named. Lets us  # codespell:ignore mis
 # recognize a misnamed BOM button as a BOM button and flag it (rule 3).
 BOM_DOWNLOADISH_RE = re.compile(r"generated/[^>]*bom[^>]*\.pdf", re.IGNORECASE)
 # Any `download <target>` reference, to inspect the target.

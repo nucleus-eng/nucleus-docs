@@ -1,0 +1,18 @@
+# Composition source for Emitter.
+#
+# A CLASS BY FUNCTION: a Module that makes a signal molecule and releases it outside the
+# compartment it is made in. ../emitter-ivhsl refines it first and ../cytosol second.
+# The functional parent leads, which is the alignment rule ../substrate-cprg-suv/spec.yml
+# states.
+#
+# ONE MEMBER, on ../lysis's precedent. A class is written when a Module needs its
+# functional parent, and it does not wait for a second member.
+#
+# NO `impositions:`, unlike ../lysis. Nothing a member releases is declared to act on
+# anything it reaches.
+
+module: emitter
+title: "Emitter"
+
+inputs: {}
+process_steps: []

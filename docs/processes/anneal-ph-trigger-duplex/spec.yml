@@ -1,0 +1,35 @@
+# Process source for Anneal the pH-Trigger Duplex.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# FIVE STEPS RUN IT, ALL `mixing`, ALL WITH THE SAME TWO OPERANDS. The most
+# consistently used process in the corpus and the one with the least variation.
+#
+# BOTH ARGUMENTS ARE THE SAME TYPE AND THE ORDER MATTERS. ../../modules/detector-ph
+# states 14.4 uM and 4.8 uM, and ../../modules/ph-cascade-one-vesicle states the ratio
+# as 3:1, pH-responsive strand to trigger. A signature with two positions of one type
+# cannot say which is which; the ratio on the step does.
+#
+process: anneal-ph-trigger-duplex
+title: "Anneal the pH-Trigger Duplex"
+
+signature:
+  takes:
+    - type: ssdna
+      note: >
+        The pH-responsive strand.
+    - type: ssdna
+      note: >
+        The trigger strand.
+  produces:
+    type: dsdna
+    note: >
+      One duplex reagent. The duplex holds the trigger until acidic pH releases it.
+
+operator: mixing
+
+# TYPED `ssdna, ssdna -> dsdna`. Written `dna, dna -> dna` it matched the shape of `::` -- neither operand surviving as an object, both as factors -- against `::`'s own words, "joined in order into one polymer". A duplex is not one longer polymer.
+#
+# THE TYPES DISSOLVE THE MIXING-OR-STITCHING QUESTION RATHER THAN ANSWERING IT. The product is a DIFFERENT TYPE from
+# the operands, so this is not `::` making more of the same polymer. `mixing` stands and
+# the corpus's 0 `stitching` across 111 steps is not a gap.

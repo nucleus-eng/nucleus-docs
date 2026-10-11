@@ -1,0 +1,48 @@
+# Composition source for RNA.
+#
+# `rna-nucleolysis` IS AN ID, NOT A PAGE, and that was a correction. Three function
+# pages -- Proteolysis, Nucleolysis, RNA Nucleolysis -- were written under docs/modules/
+# and deleted the same hour, because they are functions. A Module is a thing in a
+# tube. A sensitivity's `to:` is a condition id and needs no Module behind it.
+#
+# ../lysis/spec.yml IS NOT THE SAME CASE and survives the test: it has a Module member,
+# ../effector-pla1, which is a thing in a tube whose Function is lysis. The three
+# deleted had no Module member and never would.
+#
+# GROUNDED BY COMPOSITION, as ../protein and ../dna are. Members share a ribose
+# backbone and not what they encode.
+#
+# NO MEMBER HAS A PAGE, AND THAT IS THE FINDING RATHER THAN A REASON TO WAIT. Fourteen
+# sources add an RNase inhibitor to protect transcripts this corpus never writes down as
+# Modules. The protection is documented and the thing protected is not.
+#
+# THE SENSITIVITY IS ATTESTED THROUGH THE INHIBITOR. Nobody ran an RNase and measured
+# the loss; everybody added the inhibitor, which is a stronger kind of evidence for the
+# claim being uncontroversial and a weaker kind for any bound. So `basis: rule` and no
+# bound: the mechanism is why RNases are blocked, and no figure is asserted.
+
+module: rna
+title: "RNA"
+refines: nucleic-acid
+
+inputs: {}
+process_steps: []
+
+sensitivities:
+  - id: rna-nucleolysis
+    to: rna-nucleolysis
+    basis: rule
+    why: >
+      A ribose backbone is what an RNase cleaves. Any member in a compartment an RNase
+      reaches is degraded, which is why 14 sources in this corpus add an inhibitor
+      rather than declaring a tolerance.
+    page: spec.md
+
+# ../dna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. NucleicAcid is refined by
+# DNA and RNA: ../nucleic-acid is written and both refine it.
+#
+# THE SENSITIVITY BELOW IS THE NARROW ONE AND STAYS HERE. ../nucleic-acid declares
+# `nucleolysis`, the function, over both children. `rna-nucleolysis` refines it and
+# names the RNase case this corpus attests. Declaring
+# the narrow one on a child whose parent declares the broad one is the shape the
+# refinement is for, and check-conflicts.py reads both.

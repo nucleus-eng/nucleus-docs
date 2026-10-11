@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Claims here about `compositional-biology-theory` are pinned on the line that makes them; that repo was read at `f59ce16`.
+
 ## About this repository
 
 Documentation for the [Nucleus Distribution](https://docs.nucleus.engineering) — a knowledge base of validated protocols and modular components for developing synthetic cells. Built with [MyST MD](https://mystmd.org/) (Jupyter Book).
@@ -45,6 +47,23 @@ CI runs on pushes to `main` via `.github/workflows/deploy.yml`, installing `myst
 
 **QA checks** (run locally before opening a PR):
 ```bash
+python3 scripts/check-dropdowns.py      # (CI) flag placeholder-only lists
+python3 scripts/check-file-placement.py # (CI) flag content files outside allowed dirs
+python3 scripts/check-toc.py            # (CI) validate myst.yml TOC entries
+python3 scripts/check-functions.py      # (CI) the Functions hub's rows; locally also each page's members and the signature's count
+python3 scripts/check-table-shape.py    # (CI) flag table rows whose column count differs from their header
+python3 scripts/check-composition.py    # (CI) if you touched a spec.yml or a Constituent Modules list
+python3 scripts/check-step-quantities.py # (CI) if you touched a unit, fraction, stock or final in a spec.yml
+python3 scripts/collate-conditions.py   # what every sensitivity and imposition id names, and which meet nothing
+python3 scripts/check-process-schema.py # (local) validate docs/processes/*/spec.yml
+python3 scripts/check-reference-voice.py # (CI) flag who-decided text in a .md or a spec.yml
+python3 scripts/check-spec-schema.py    # (local) validate spec.yml against scripts/spec-yml-schema.yml
+python3 scripts/check-anchors.py        # (CI) flag #anchors MyST binds to the wrong page, and one explicit label defined twice
+python3 scripts/check-page-layering.py  # (local) flag Module pages that explain themselves through what uses them
+python3 scripts/check-dna-refs.py       # (local) if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
+python3 scripts/check-protein-refs.py   # (local) if you cited a UniProt entry: verify the claim against the entry
+python3 <nucleus-skills>/scripts/check-citations.py . --repos=compositional-biology-theory  # (local) every cross-repo line citation carries a pin
+python3 <nucleus-skills>/scripts/check-pins.py . compositional-biology-theory=<path>  # (local) and that the pinned line still says it
 python3 scripts/check-dropdowns.py      # flag placeholder-only lists
 python3 scripts/check-file-placement.py # flag content files outside allowed dirs
 python3 scripts/check-toc.py            # validate myst.yml TOC entries
@@ -52,7 +71,17 @@ python3 scripts/check-reference-voice.py # flag who-decided text and pointers in
 python3 scripts/check-dna-refs.py       # if you touched a Designs table: verify construct/bp claims against nucleus-eng/DNA
 ```
 
-These run automatically on PRs via `.github/workflows/qa.yml` (which also runs Vale). Install pre-commit hooks to catch violations before pushing:
+**The ones marked `(CI)` run automatically on PRs** via `.github/workflows/qa.yml`, which
+also runs Vale and `check-composition-tabs.py`. **The ones marked `(local)` run in no
+workflow** — `check-citations.py` because it lives in `nucleus-skills` and is shared by
+three repos, so a commit there must not be able to turn a PR here red, which is
+`check-dna-refs.py`'s reason as well; `check-dna-refs.py` deliberately, because a commit in `nucleus-eng/DNA` could
+turn it red with no change here (see the DNA section below); **`check-process-schema.py` because neither it nor its subject is on `main`** — the script and all
+30 `docs/processes/*/spec.yml` exist only on the #231 lineage, so no workflow running from `main` has anything to
+run or anything to check, and it was marked `(CI)` while appearing in no workflow; `check-spec-schema.py` deliberately, per the ruling that the composition
+tooling is built before it is enforced; `check-protein-refs.py` because it needs the network
+and, with `--align`, a checkout of `nucleus-eng/DNA` — a UniProt outage must never turn a PR red — wiring it up needs `jsonschema` beside `pyyaml` in
+`qa.yml`; and `check-page-layering.py` because it reports rather than blocks and always exits 0, so a job running it would always be green — read its output instead. Run them by hand before opening a PR. Install pre-commit hooks to catch violations before pushing:
 ```bash
 pre-commit install        # installs hooks (done automatically by setup.sh)
 pre-commit run --all-files  # run all hooks manually
@@ -66,7 +95,20 @@ pre-commit run --all-files  # run all hooks manually
 
 **Name a staging file's dependencies.** One review pass can produce edits that land in several files, and applying them in the wrong order can make a correct proposal wrong — line numbers in particular are only valid against an unchanged file. This one is not in the skill.
 
+**Open questions go at the top of the file**, ahead of the drafted edits, each with space for a ruling written inline beside it. A reviewer reads a staging file once, top to bottom; with the questions last, they read every proposed edit before reaching the one thing the drafter needs from them, and a long file buries the ask. The block is a running ledger of decided versus open, updated as rulings arrive — and a ruling written beside its question is the record. See `nucleus-eng/nucleus-skills#24`.
+
 **Provenance stays off the page.** A staging file records who ruled and when, and so does the commit message that folds it in. The proposed page text does not: it states the result in the page's own voice. A page that says who decided reads as a decision log, not reference. `scripts/check-reference-voice.py` blocks the commonest forms.
+
+**It reads a `spec.yml` too, including its `#` headers** — a source file is a docs page's other half, and the rule has always applied to both. One rule is exempt there: `tooling`, because the word `spec.yml` inside a `spec.yml` is unavoidable. **`.py` is not read at all**, so a comment in `scripts/` is checked by nobody; keep who-decided text out of it by hand.
+
+**A source does not point into the theory repo, and `working-notes` is an error here.** 85 such pointers sat in 49 of 76 sources until 2026-10-04. The rewrite is the one the who-decided sweep used: state the claim, drop the pointer, and the sentence gets *shorter*. If deleting it loses content, it was not provenance.
+
+**A pinned pointer is exempt, and that is the whole allowance.** A hash on the line or the line either side satisfies it, using the same 90-character idea as `check-citations.py` so two rules reading one comment do not disagree about what counts as pinned. **Eight survive the sweep and every one is a verbatim formal expression or a recorded disagreement between two repos** — a quotation you can check is not a working note. Nothing else earns a pointer.
+
+**A cross-repo line citation carries a pin, and `check-citations.py` checks that it does.** The script is in `nucleus-skills` and shared by three repos; run it by hand with `--repos=compositional-biology-theory`, because its default list names this repo and would report every self-reference. **It checks presence, never resolution** — whether the hash is there, not whether the line still says what you quoted. **A pin is what makes a citation checkable at all:** `pore/spec.yml` and `membrane/spec.yml` both cite `signature.md:203` and both pin `e40f3de`, and both are correct at that pin while reading as drifted against the other repo's `main`. Ten sites with no pin had drifted by 2026-10-04. **`check-pins.py`, beside it in `nucleus-skills`, does the resolving half** — it opens the named repo at the named hash and checks the line still carries the quoted text, reporting `resolves` / `drifted` / `gone` / `norepo`. It needs the other repo checked out, so it can never be a guard and **its silence is not evidence**. **It reads tracked `.md` only, so the two `.yml` citations named above — the corpus's own exemplary pinned citations — are outside its scope**, and a clean run does not cover them.
+
+**Run it against a git ref, not against whatever branch that checkout happens to be on.** `compositional-biology-theory`'s `scripts/guards.sh:104` extracts `scripts/` from a named ref for exactly this reason, at `f59ce16`. A local `nucleus-skills` on an older branch has no `check-citations.py` at all, and a local `main` there can be weeks behind `origin/main` — which is how a first check of whether the script even existed returned the wrong answer. **`check-citations.py` today reads only `.md`, so it sees almost nothing here**; widening it is `nucleus-skills` work.
+
 
 ## Architecture
 
@@ -78,9 +120,9 @@ Sequence files for every plasmid and construct referenced in these docs live in 
 
 ### Terminology
 
-These definitions ground the module/implementation content model below (`docs/modules/`, `docs/implementations/`, and their `spec.md` files):
+These definitions ground the content model below — all four hierarchies: `docs/modules/`, `docs/functions/`, `docs/implementations/` and `docs/processes/`, and their `spec.md` and `main.md` files:
 
-- Composition (n): the physical make up of a system; typically concentration and spatial organization
+- Composition (n): the specified make up of a system; typically concentration and spatial organization. Composition is the design, not a completed run — see [sections.md](style-guide/sections.md#reference-composition).
 - Composing (v): the act of combining two or more systems and their associated functions
 - Component: an element (abstract or concrete) of Composition; a single part or piece of a larger whole. May be defined as having subcomponents.
 - Function: a designed behavior; defined by and emergent from Composition
@@ -91,18 +133,20 @@ These definitions ground the module/implementation content model below (`docs/mo
 
 ### Content model
 
-The documentation organizes content into three parallel hierarchies under `docs/`:
+The documentation organizes content into four parallel hierarchies under `docs/`:
 
 - **`docs/processes/`** — Step-by-step lab protocols. Each process lives in its own subdirectory with a `main.md` (or a named `*-main.md` for parent pages). Sub-protocols nest as children.
 - **`docs/modules/`** — Modular components that extend base cytosol functionality. Each module has a `spec.md` describing its design, compatible processes, and usage.
+- **`docs/functions/`** — One page per operation a Module performs, such as transcribing DNA, at `docs/functions/<operation>/main.md`. Each lists every Module that performs it, the routes it takes, and what it consumes and produces. A Function page is for what a Module does once built; a step you run at the bench is a process. The hub, `functions-main.md`, lists every declared operation with its page or the reason it has none.
 - **`docs/implementations/`** — Documented combinations of modules and processes that demonstrate a complete system behavior.
 
-**File placement rules.** All content files — `.md`, images, `.csv` resources — must live inside one of these three subdirectories. Never create content files or directories at the repo root or anywhere outside `docs/`.
+**File placement rules.** All content files — `.md`, images, `.csv` resources — must live inside one of these four subdirectories. Never create content files or directories at the repo root or anywhere outside `docs/`.
 
 | Content type | Correct location |
 | --- | --- |
 | New module | `docs/modules/<module-name>/` |
 | New process | `docs/processes/<process-name>/` |
+| New function | `docs/functions/<operation>/` |
 | New implementation | `docs/implementations/<implementation-name>/` |
 | Process sub-resources (BOMs, images) | `docs/processes/<process-name>/resources/` |
 | Module images | `docs/modules/<module-name>/` |
@@ -116,7 +160,7 @@ The documentation organizes content into three parallel hierarchies under `docs/
 
 The site TOC is defined entirely in `myst.yml`. When adding a new page, you must add it to the `toc:` section. Child pages that should not appear directly in the sidebar use `hidden: true`. The file `site.yml` holds site-wide settings (license, nav links, theme) that `myst.yml` extends.
 
-**Adding a module spec requires two table-of-contents updates, not one.** In addition to the `myst.yml` TOC entry, add a row to the table in `docs/modules/modules-main.md`. The table columns are `Module Class | Specification | Validation` — fill in the class name (e.g. `Detector`), a relative link to the spec (e.g. `[LacI-IPTG](./detector-laci_iptg/spec.md)`), and the validation star rating (use ★ to ★★★ following the validation key at the top of `modules-main.md`: ★ = preliminary/DevNote only, ★★ = validated in cells or in vitro, ★★★ = frequently used). Missing this step leaves the module off the main module index page.
+**Adding a module spec requires two table-of-contents updates, not one.** In addition to the `myst.yml` TOC entry, add a row to the table in `docs/modules/modules-main.md`. The table columns are `Module Class | Specification | Validation` — fill in the class name (e.g. `Detector`), a relative link to the spec (e.g. `[LacI-IPTG](./detector-laci-iptg/spec.md)`), and the validation star rating (use ★ to ★★★ following the validation key at the top of `modules-main.md`: ★ = preliminary/DevNote only, ★★ = validated in cells or in vitro, ★★★ = frequently used). Missing this step leaves the module off the main module index page.
 
 Note that `hidden: true` is used pervasively for *every* non-sidebar child page — it is a navigation setting, **not** a maturity signal. Page maturity is tracked separately via the `status:` frontmatter field, which the `author-myst-content` skill documents.
 
@@ -126,8 +170,10 @@ Note that `hidden: true` is used pervasively for *every* non-sidebar child page 
 - `process-template/process-make_template.md` — full example of a process page including admonition blocks, protocol steps with checkboxes, and a Downloads section
 - `module-template/spec-formulation.md` — for a module you **mix**: cytosols, membranes, chassis, cells. Sections: Overview / Reference Composition / Expected Behavior / Process / Materials / Credits
 - `module-template/spec-functional.md` — for a module you **add to someone else's recipe**: detectors, reporters, effectors, emitters, controls, pores, energy. Sections: Overview / Reference Composition / Expected Behavior (with per-context subsections) / Requirements / Implementations / Materials / Downloads / Credits
+- `module-template/spec-class.md` — for a **class**: an abstract Module that other Modules refine (Cell, Detector, Gel). Sections: Overview / Reference Composition or Members / Expected Behavior / Requirements / Constituent Modules / Processes / Credits
 
   Pick by what the page documents, not by where the module sits in the composition tree — Base Cell is a composed module but reads as a recipe, and a membrane pore is a membrane but reads as a function. Omit a section rather than stubbing it empty.
+- `function-template/function.md` — for a **Function**: one operation that Modules perform, across every Module that performs it. Sections: Overview / Type / Substrates and products / Routes / What selects a route / Not yet attested / Credits. `# Type` is written in the docs' own words and never quotes the signature.
 - `implementation-template/implementation-template.md` — combined implementation format
 - `typst/nucleus-protocols/` — the branded typst template used to render lab-ready protocol/BOM PDFs (vendored in-repo; pubmatter pinned to 0.2.2 — see its README)
 
@@ -176,6 +222,111 @@ The convention:
 ### Checking your work
 
 **Before opening a PR or committing content**, run Vale + codespell, and the link checker if you touched any URLs. Invoke the `lint-docs` skill for the exact commands and how to read each tool's output — including which Vale errors are real and which are false positives. It also covers `scripts/check-myst-build.py`, the strict MyST build that the `build-protocols` CI job gates on.
+
+### Composition sources
+
+A module may carry a `spec.yml` beside its `spec.md`: the machine-readable
+composition (#248), naming the process that performs each combination step and the operator it applies. `scripts/render-composition.py` draws the diagram from it and writes it into the `gen:composition-diagram` markers on that page.
+
+```bash
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml            # print the mermaid
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml --embed    # write it into spec.md
+python3 scripts/render-composition.py docs/modules/<module>/spec.yml --depth 2  # expand the leaves too
+```
+
+### Regenerating everything
+
+`python3 scripts/render-all.py` runs all four generators and reports what changed. Add `--check` to change nothing and exit 1 when an artifact is behind its source.
+
+| Generator | Writes | Where |
+| --- | --- | --- |
+| `render-composition.py` | `gen:composition-diagram` markers | one module page each |
+| `render-position.py` | `gen:position` markers | one module page each |
+| `render-meet.py` | the cross-demo meets | `tmp/generated/` |
+| `render-posets.py` | the poset draft | `tmp/generated/` |
+
+**The last two write to `tmp/` because their subject is not one module.** A meet spans several integration paths and the poset draft spans the corpus, so neither has a page to sit on. The cross-demo meet's outcome slot reports NO COMMON ANCESTOR over aTc Cascade, LuxR-LacZ Sensor Cascade and pH Cascade: the class that would hold them is deliberately unwritten, and giving the figure a home would settle that by making a generator convenient.
+
+**A meet over one integration path is the composition diagram restated.** Every cascade source has exactly one integration path, so a meet is asked for the paths it spans, by name. The set `render-all.py` renders is `atc-cascade` and `ph-cascade` alone, then those two with `luxr-lacz-cascade`, which is three integration paths and every detector in the corpus.
+
+**Run `render-all.py` after any `spec.yml` change.** A source change that leaves the rendered diagram behind is drift one level down.
+
+**Diagrams on module pages render at depth 1.** Anything you can obtain is a leaf; only what the module builds on the way to its own result is expanded. Base Cytosol is a leaf for the same reason S30 Lysate is — it is a thing you can have, and its own page says how. Having a page is *not* the test: `aTc Sensor Cytosol` has a page and is still expanded on the cascade that builds it. Deeper renders are for review material, never for a docs page. A module whose composition is a single box gets no diagram at all.
+
+**The composition steps are `process_steps:`.** Each entry applies one Process
+to named operands and yields a named product — *"`step` isn't the right language. These are
+Processes, are they not?"* Two entries may name the same Process, so an entry is an application of
+one, not the Process itself.
+
+**An input or a step may be `optional: true`,** and an input may carry a `range:` where one figure
+would be wrong. **Skipping an optional step rewires rather than removes**: whatever consumed its
+product consumes its operands instead. `check-composition.py` reports where that cannot work — a
+`packing` consumer expected one bounded thing and would get several loose ones. It reports rather
+than blocks, because no source marks a step optional yet and a rule with no corpus behind it is a
+rule nobody has tested. **A step whose process declares `keeps_boundary: true`, such as a wash,
+rewires onto its one bounded operand instead**, so the rule does not fire on it.
+
+**The schema is [`scripts/spec-yml-schema.yml`](scripts/spec-yml-schema.yml)**, with
+`python3 scripts/check-spec-schema.py` to validate against it. A key the schema does not allow is
+rejected, rather than merely being absent from a list — the key table this replaces was wrong
+about four things within four days of being written, and did not carry `abstract:` or
+`composed_of:` at all. The validator also checks what a schema cannot express: an operand naming
+nothing, a duplicated product id, an `abstract:` naming no process, and a `page:` that does not
+resolve.
+
+**A number belongs in `spec.yml` when it states a fact no single constituent page can
+state.** `headroom.provides` is a property of the Module that provides
+the slot, not of the process that filled it, and not of any additive. A combining `ratio`
+is a property of the step. An osmolarity that has to match across a membrane is a relation.
+Those belong here.
+
+**The test for a `parameters:` value, made operational 2026-09-15.** Delete it when the step names
+an operand that **has a page of its own**, and that page states the figure. Keep it otherwise. The
+audit that produced this rule removed three of thirteen values — `ulga` and `ulga_final`, both on
+[`gel-ulga`](docs/modules/gel-ulga/spec.md), and `riboswitch`, on
+[`detector-theophylline`](docs/modules/detector-theophylline/spec.md).
+
+**The ten that stayed, stayed for two reasons, and neither is laziness.** Four are `osmolarity`, a
+relation by the rule above. Six name an operand with **no page at all** — `agarose`, `hpts`,
+`tris-hepes-stock` — so no constituent page can state them, and deleting would lose the figure.
+**That `agarose` and HPTS have no module page is the finding**, not the duplication. `tris-hepes`
+is the one to watch: `processes/assemble-outer-solution/main.md` states it, but a process page is
+not a constituent page, so the rule leaves it in place.
+
+**Read the comment before deleting the key it sits on.** `ulga_final` carried
+`# in the set gel; 0.2-0.5% works` — a working range, not a restatement. It was safe to delete
+only because `gel-ulga`'s own page says *"Works from 0.2% to 0.5% in the set gel"*. A first search
+for that range missed it, because the page writes `0.2% to 0.5%` and the pattern allowed no `%`
+between. **A search that finds nothing is not evidence; widen it before you act on it.**
+
+**`# Constituent Modules` stays as prose and the yml is the contract for tooling.** Nothing makes the two agree, so `python3 scripts/check-composition.py` checks that they do not disagree. It blocks when the prose lists a module the source never names — the live failure was `luxr-lacz-cascade` claiming `Substrate: CPRG` where its source said `GUV: CPRG`, an hour after both existed — and reports without blocking when the final step has an operand the prose omits, which is a grain difference rather than an error.
+
+Two generators currently read two different sources into the same markers; see issue #250 before running the other one.
+
+### DNA reference checking
+
+**Run `python3 scripts/check-dna-refs.py` before opening a PR if you added or edited a Designs table** (any table with a `Length (bp)` / construct-name row linking into `nucleus-eng/DNA`). This is a different failure mode than link checking: a link can 404-free and still assert the wrong sequence — the motivating case was `reporter-degfp/spec.md` claiming 2789 bp for a construct that is actually 2812 bp after a correction in the DNA repo. `check-links.py` cannot see that; this script diffs the docs' bp claim against the target file's GenBank `LOCUS` line.
+
+```bash
+python3 scripts/check-dna-refs.py                       # all of docs/
+python3 scripts/check-dna-refs.py docs/modules/<module>/ # one module
+```
+
+Local-only — not run in CI, since CI has no DNA-repo checkout. Three levels: **blocking** (wrong bp, missing file, or a link into the legacy `bnext-bio/nucleus` repo — real errors), **warn** (construct name doesn't obviously relate to the target's `LOCUS` name or filename — often a benign alias, but exactly the shape of a greedy link, so confirm it's intentional before dismissing), **info** (nothing to verify — a `.dna` SnapGene file with no parseable length, or a row with no bp cell). It checks length, not sequence — a same-length, different-sequence swap is not detectable by this tool, and that blind spot is live: PLA1 is realized as two 963 bp coding sequences that differ at 77.6% nucleotide identity and encode the same protein.
+
+**It also flags stale absence claims — a page asserting a construct is *not* in `nucleus-eng/DNA` when a file of that name now is.** This is a second failure mode with the same cause as the first: the DNA repo moves independently, and nothing here watches it. Every other check in this script validates rows that *cite* a file, so a hook claiming absence was invisible to all of them — six such claims sat wrong for twelve days after `nucleus-eng/DNA` landed the constructs they said were missing.
+
+**It reports a finding, never a fix.** The message is *"a file of that name exists — verify it is the same construct"*, and it must stay that way. A filename match is not an identity claim: `LuxR-PLA1-linear.gb` (2237 bp) and `pOpen-LuxR-PLA1.gb` (4175 bp) share a cassette, differ by a whole backbone, and are not interchangeable — the linear form is for Base Cytosol, the circular one for S30, which degrades linear DNA. A check that said "closeable" here would automate the exact greedy-linking mistake it exists to catch. `tests/test_stale_absence_claims.py` pins that wording.
+
+It finds the DNA repo at `$NUCLEUS_DNA_REPO`, else beside this repo, else `~/src/nucleus-eng/DNA`, and accepts a candidate only if it actually contains sequence files — an empty directory named `DNA` would otherwise satisfy the search and produce a clean run over an index of nothing. It exits 2 and lists what it searched when it finds none, so a missing checkout never reads as a pass.
+
+### This branch is the reference set
+
+**`docs/devcells-integration-pages` does not merge as a whole.** It is the reference set: the place work is drafted and kept, in full, including pages that will never be published. **Specifications are generated on branches cut from `main`, which read this branch as their source, and only pages that are CRITICAL merge through them onto `main`.**
+
+**So discernment happens at the merge onto `main`, not here.** That is what makes it safe to keep a page here that nobody has decided about yet, and it is why nothing on this branch should be deleted for being unpublishable. Write it, keep it, and let the merge decide.
+
+**A new class page is written only when it carries prose a member page does not already have.** Until 2026-10-09 a class needed a page or the refinement order had a hole in it, because the page was the only place the edge lived. [`docs/type-system.posets.yml`](docs/type-system.posets.yml) now publishes the order as data, so **a page is no longer load-bearing for structure** and has to earn its keep as writing. This applies going forward and is not a reason to sweep existing pages: measured 2026-10-09, 24 of the 41 parent classes carry a composition and 6 more carry claims their members inherit, so most are real Modules rather than scaffolding.
 
 ### Pull request workflow
 

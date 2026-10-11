@@ -1,0 +1,21 @@
+# Composition source for Analyte.
+#
+# WRITTEN 2026-10-05 under T2. The five members already carried the defining sentence in
+# their own prose -- "an analyte is supplied to an assay rather than produced by a
+# Nucleus process" -- and `modules-main.md` has listed them under Analyte since it was
+# written. The class existed in the index and not in `refines:`.
+#
+# `process_steps: []` IS THE CLAIM, as on ../protein/spec.yml. It says a member is not
+# produced by anything in this corpus, which is the membership test rather than an
+# omission.
+#
+# ../analyte-ph IS THE MEMBER THAT TESTS THE DEFINITION. It is a condition of a
+# solution, not a substance, and it cannot be pipetted. It is still what the assay is
+# run against, so the class is grounded on the ROLE and not on being a molecule. Had it
+# been grounded on composition, pH would be outside and the index would be wrong.
+
+module: analyte
+title: "Analyte"
+
+inputs: {}
+process_steps: []

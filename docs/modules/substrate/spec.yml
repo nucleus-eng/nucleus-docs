@@ -1,0 +1,24 @@
+# Composition source for Substrate.
+#
+# The class is the payload, not the thing that carries it: `SubstrateCarrier` abbreviates
+# `Vesicle{Substrate}`, so the carrier is a Vesicle and this is what fills it.
+#
+# NO SENSITIVITY HERE, AND IT WAS WRONG TO PUT ONE HERE. `03df5735` declared
+# `uv-exposure` on this class, arguing a chromogenic substrate is a chromophore and so
+# the kind bleaches. But not all substrates are light sensitive; the two members happen
+# to be.
+#
+# THE GENERALIZATION WAS ONE LEVEL TOO WIDE. Substrate is not the kind that bleaches.
+# Chromophore is, and it cuts ACROSS this class rather than sitting under it: the same
+# claim covers ../reporter-degfp, a fluorescent protein with no substrate at all. A
+# class that collects what a page happens to be is not the same as a class that
+# collects what makes the claim true.
+#
+# The two members keep their own declarations until that class is written.
+
+module: substrate
+title: "Substrate"
+
+inputs: {}
+process_steps: []
+

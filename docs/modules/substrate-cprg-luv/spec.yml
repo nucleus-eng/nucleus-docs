@@ -1,0 +1,132 @@
+# Composition source for Substrate LUV: CPRG.
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# THE SIBLING OF ../substrate-cprg-suv/spec.yml AND NOT ITS REPLACEMENT. Both
+# pack a membrane with substrate-cprg, so both are substrate-carrier members, and
+# they differ only in the process that closes the membrane: extrusion there,
+# freeze-thaw here. Both routes are live, and the pH run used LUVs first and SUVs
+# second, so neither page can be retired in favor of the other.
+#
+# THE OPERATOR IS `packing`, as it is on every member of the class: each of the
+# two keeps its own compartment, which is what gives the readout an off state.
+
+module: substrate-cprg-luv
+title: "Substrate LUV: CPRG"
+refines:
+  - substrate-carrier
+  - luv
+  - liposome
+  # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
+  # vesicle each refine liposomes, because each is built from lipids. Verified for this
+  # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
+  # not nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
+  # LUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Freeze-Thaw. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: ../substrate-cprg/spec.md
+  optiprep:
+    title: "OptiPrep"
+    page: null
+  tris-hepes-buffer:
+    title: "Tris-HEPES buffer (1 M Tris, 1.15 M HEPES)"
+    page: null
+
+process_steps:
+  - id: assemble-inner-solution
+    process:
+      title: "Assemble the CPRG inner solution"
+      page: null
+    operator: mixing
+    # THE PAGE'S INNER SOLUTION TABLE, `comp-substrate-cprg-luv-inner`, in 500 µL: 237.5 µL
+    # CPRG, 50 µL OptiPrep and 212.5 µL Tris-HEPES buffer. The three fractions sum to 1, so
+    # there is no balance. OptiPrep is a density agent: it makes the loaded liposomes
+    # denser than the wash, so centrifugation pellets them.
+    operands: [substrate-cprg, optiprep, tris-hepes-buffer]
+    produces:
+      id: cprg-inner-solution
+      title: "CPRG inner solution"
+      page: null
+    # The CPRG row closes exactly: 0.475 x 30 mg/mL = 14.25 mg/mL, which the page states.
+    fractions:
+      substrate-cprg: 0.475
+      optiprep: 0.10
+      tris-hepes-buffer: 0.425
+    stocks:
+      substrate-cprg: {value: 30, unit: "mg/mL"}
+    finals:
+      substrate-cprg: {value: 14.25, unit: "mg/mL", note: "at hydration"}
+    total_volume: {value: 500, unit: "µL"}
+
+  - id: hydrate-and-freeze-thaw
+    process:
+      title: "Encapsulation: Freeze-Thaw"
+      page: ../../processes/encapsulate-luv/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [membrane-popc-chol-9-1, cprg-inner-solution, outer-solution]
+    produces:
+      id: substrate-cprg-luv
+      title: "Substrate LUV: CPRG"
+      page: ../substrate-cprg-luv/spec.md
+    # SCALE-FREE, 2026-10-05. The inner solution's fractions are on the step that
+    # makes it, above. What stays here is the film and the procedure.
+    #
+    # `lipid_in_film` HELD BOTH FORMS AND THE PAGE SAYS SO: "2 umol of lipid in 0.5 mL
+    # (4 mM)". 4 mM is the scale-free half and stays as `total_lipid`.
+    #
+    # ALL THREE METHOD CLAUSES ARE REMOVED AND NOTHING WAS MOVED TO CARRY THEM.
+    # All three were already on ../../processes/encapsulate-luv/main.md: :135 has
+    # the five freeze-thaw cycles with liquid nitrogen, :101 lists the 35 C water
+    # bath, and :155 has the ten washes.
+    parameters:
+      total_lipid: "4 mM"
+      freeze_thaw_cycles: 5
+      washes: 10
+    notes: >
+      The wash solution is the implementation's outer solution and this Module names
+      no formulation, because the choice belongs to whatever the liposomes are put
+      into. The Tris-HEPES buffer contributes 1071 mOsm of it by dilution. The whole inner
+      solution has no recorded reading, and the wash has to match that.
+
+measured_by:
+  - process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+
+open:
+  - id: the-name-luv-rests-on-the-route-not-a-measurement
+    question: >
+      No diameter, size distribution or lamellarity has been measured for this
+      route. The name says large unilamellar because the preparation has no
+      extrusion step and not because anything was sized. The sibling page states
+      400 nm for its own route and that figure does not carry across.
+  - id: free-substrate-after-the-last-wash-is-unmeasured
+    question: >
+      Ten washes are specified and no absorbance reading of the final supernatant
+      is on record. Residual free CPRG produces background color with no lysis, so
+      this is the figure that decides whether the off state holds. It is also what
+      a comparison against the extruded route would turn on, since the two use
+      different purification entirely.

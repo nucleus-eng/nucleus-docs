@@ -1,0 +1,58 @@
+# Process source for Prepare Lipids.
+#
+# THIS PROCESS EXISTS BECAUSE `prep_lipids` HAD NO PROCESS DIRECTORY, AND 25 ENCAPSULATION STEPS DEPEND ON IT. The signature makes `membrane_components` an input that something must produce, and nothing did.
+#
+# THE SIGNATURE IS `prep_lipids : [component, …] ⟶ membrane_components`.
+#
+# AND IT HAS A USER ALREADY, FOUND BY A DIFFERENT ROUTE. The process inventory reported
+# that `encapsulate` runs 6 `packing` steps and 1 `mixing` step, and an operator split
+# under a process that makes compartments is either a mislabel or a different process.
+# Nothing should be mixed by the time of encapsulation, because all the mixing steps (i.e., prep lipids, assemble inner solution, assemble outer solution) have already happened by then.
+#
+# The odd step is ../../modules/membrane/spec.yml's `close-the-bilayer`. It takes
+# `lipid` and `fluorescent-label` and produces a membrane. No payload, no inner
+# solution, no compartment -- it is not encapsulation by anyone's reading, and it
+# pointed at ../encapsulate/main.md. IT IS THIS PROCESS. The operator anomaly and the
+# missing process turned out to be one finding approached from two sides.
+
+process: prep-lipids
+title: "Prepare Lipids"
+
+signature:
+  takes:
+    - type: membrane-components
+      repeated: true
+      note: >
+        The molecules a bilayer is made from. Repeated because every attested mixture
+        has two or three, and the class ../../modules/membrane-components/spec.md
+        collects exactly these.
+  produces:
+    type: membrane-components
+    note: >
+      The mixture, in stated proportions. NOT a membrane and not a compartment: nothing
+      has been closed around anything yet.
+
+operator: mixing
+conserves: false
+
+measured_by:
+  - "Molar ratio: the amount-of-substance fractions on the producing Module sum to 1000 mmol/mol. scripts/check-step-quantities.py checks it."
+
+open:
+  - id: its-one-user-produces-a-membrane-not-components
+    kind: choice
+    question: >
+      ../../modules/membrane/spec.yml's step now points here, and it produces `membrane`
+      where this signature produces `membrane_components`. So the corpus goes from
+      components straight to a bilayer in one step, and the model has two:
+      components, then a mixture, then a route closes it.
+      Either that step is this process and its product type is wrong, or it is this
+      process FOLLOWED BY a closing operation nothing documents. The step is pointed
+      here because it is certainly not Encapsulation; which of the two readings is right
+      is not settled, and the product type is left as the source has it rather than
+      changed on an inference.
+  - id: no-protocol-is-recorded
+    question: >
+      The page carries no bench procedure. Three Module pages state their mixtures as
+      compositions and none states how the mixing is done -- solvent, order, drying.
+      The process exists so the signature has a producer; the protocol is a real gap.

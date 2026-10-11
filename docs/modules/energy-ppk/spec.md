@@ -23,6 +23,60 @@ This Module has not been validated in Nucleus Cytosol. Documentation can be foun
 
 :::::{tab-set}
 
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    HEPES["HEPES"]
+    POTASSIUM_GLUTAMATE["Potassium L-glutamate"]
+    MAGNESIUM_ACETATE["Magnesium acetate"]
+    RNTPS["rNTPs"]
+    TRNA["tRNA"]
+    TCEP["TCEP"]
+    FOLINIC_ACID["Folinic acid"]
+    SPERMIDINE["Spermidine"]
+    AMINO_ACID_SOLUTION["Amino acid solution"]
+    PPK2["Purified PPK2"]
+    POLYPHOSPHATE_100MER["100mer polyphosphate"]
+    WATER["Nuclease-free water"]
+
+    P1_PREPARE_CUSTOM_SMIX_0(["Prepare custom SMix without creatine phosphate (mixing) — no page"])
+    SMIX_MINUS_CP["Custom SMix (SMix -CP)"]
+    P2_ADD_THE_SUPPLIED_COMPONENTS_0(["Assemble the PPK Energy module (mixing) — no page"])
+    ENERGY_PPK["PPK Energy"]
+
+    HEPES --> P1_PREPARE_CUSTOM_SMIX_0
+    POTASSIUM_GLUTAMATE --> P1_PREPARE_CUSTOM_SMIX_0
+    MAGNESIUM_ACETATE --> P1_PREPARE_CUSTOM_SMIX_0
+    RNTPS --> P1_PREPARE_CUSTOM_SMIX_0
+    TRNA --> P1_PREPARE_CUSTOM_SMIX_0
+    TCEP --> P1_PREPARE_CUSTOM_SMIX_0
+    FOLINIC_ACID --> P1_PREPARE_CUSTOM_SMIX_0
+    SPERMIDINE --> P1_PREPARE_CUSTOM_SMIX_0
+    AMINO_ACID_SOLUTION --> P1_PREPARE_CUSTOM_SMIX_0
+    WATER --> P1_PREPARE_CUSTOM_SMIX_0
+    P1_PREPARE_CUSTOM_SMIX_0 --> SMIX_MINUS_CP
+
+    SMIX_MINUS_CP --> P2_ADD_THE_SUPPLIED_COMPONENTS_0
+    PPK2 --> P2_ADD_THE_SUPPLIED_COMPONENTS_0
+    POLYPHOSPHATE_100MER --> P2_ADD_THE_SUPPLIED_COMPONENTS_0
+    P2_ADD_THE_SUPPLIED_COMPONENTS_0 --> ENERGY_PPK
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class HEPES,POTASSIUM_GLUTAMATE,MAGNESIUM_ACETATE,RNTPS,TRNA,TCEP,FOLINIC_ACID,SPERMIDINE,AMINO_ACID_SOLUTION,PPK2,POLYPHOSPHATE_100MER,WATER leaf;
+    class SMIX_MINUS_CP,ENERGY_PPK composed;
+    class P1_PREPARE_CUSTOM_SMIX_0,P2_ADD_THE_SUPPLIED_COMPONENTS_0 process;
+
+    click ENERGY_PPK "/docs/modules/energy-ppk/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
+
 ::::{tab-item} Reaction Mechanism
 
 :::{figure} reaction-schematic.png
@@ -50,6 +104,8 @@ Where the PPK Energy module sits in the Developer Cell, raising expression capac
 The PPK Energy module consists of a purified protein, the bifunctional polyphosphate kinase (PPK2), and its substrate, the 100mer polyphosphate (PolyP). Here, bifunctionality refers to the module's ability to direct the synthesis of ATP and GTP from AMP and GDP, respectively
 
 When used alongside PURE's standard energy regeneration module based on creatine kinase and creatine phosphate (CP/CK), significant increases in protein expression yields can result.
+
+**Identity.** [UniProt P0A7B1](https://www.uniprot.org/uniprotkb/P0A7B1/entry) — Polyphosphate kinase, *Escherichia coli K12*, 688 residues.
 
 # Reference Composition
 
@@ -109,7 +165,7 @@ The following reaction table is a self-contained experiment for evaluating the p
 | [plamGFP DNA](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-plamGFP-PURE.gb) | 120                 | ng/µL |
 | Mg-Acetate                                                                                  | 200                 | mM    |
 | Creatine phosphate                                                                          | 1000                | mM    |
-| PEG4K 40%                                                                                   | 40                  | %     |
+| PEG4K 40 %                                                                                   | 40                  | %     |
 | PolyP                                                                                       | 500                 | mM    |
 | PPK2                                                                                        | 57.5                | µM    |
 
@@ -136,7 +192,7 @@ The following reaction table is a self-contained experiment for evaluating the p
 | [plamGFP DNA](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-plamGFP-PURE.gb) | 1.67           | 1.67               | 1.67                       | 1.67                            | 0.00                           |
 | Mg-Acetate                                                                                  | 1.40           | 3.15               | 3.15                       | 0.00                            | 0.00                           |
 | Creatine phosphate                                                                          | 0.70           | 0.00               | 0.70                       | 0.00                            | 0.00                           |
-| PEG4K 40%                                                                                   | 1.75           | 1.75               | 1.75                       | 0.00                            | 0.00                           |
+| PEG4K 40 %                                                                                   | 1.75           | 1.75               | 1.75                       | 0.00                            | 0.00                           |
 | PolyP                                                                                       | 0.00           | 2.10               | 2.10                   | 0.00                            | 0.00                           |
 | PPK2                                                                                        | 0.00           | 1.22               | 1.22                       | 0.00                            | 0.00                           |
 | Water                                                                                       | 7.30           | 2.93               | 2.23                       | 8.82                            | 10.49                          |
@@ -153,13 +209,13 @@ The following reaction table is a self-contained experiment for evaluating the p
 
 ::::{tab-item} Kinetics
 :::{figure} kinetics.png
-Translation kinetics of PURE reactions using different energy modules. The PPK2 module performed approximately 77% lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96% higher final protein yield than the CP/CK module alone.
+Translation kinetics of PURE reactions using different energy modules. The PPK2 module performed approximately 77 % lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96 % higher final protein yield than the CP/CK module alone.
 :::
 ::::
 
 ::::{tab-item} Endpoint
 :::{figure} endpoint.png
-Final protein yields of the reactions measured at steady state. The PPK2 module performed approximately 77% lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96% higher final protein yield than the CP/CK module alone.
+Final protein yields of the reactions measured at steady state. The PPK2 module performed approximately 77 % lower than the CP/CK module. However, the combination of PPK2 and CP/CK modules resulted in approximately 96 % higher final protein yield than the CP/CK module alone.
 :::
 ::::
 

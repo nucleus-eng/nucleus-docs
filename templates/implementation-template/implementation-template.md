@@ -80,7 +80,7 @@ Final protein yields of the three reactions measured at steady state.
 
 :::::
 
-# Process
+# Processes
 
 Link to the base Process this implementation follows. If this implementation deviates from the standard process (different volumes, modified steps, additional preparation), note that here.
 

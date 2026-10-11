@@ -1,0 +1,101 @@
+# Composition source for Color Change.
+#
+# THE INVARIANT IS SEPARATION AND THE OPERATOR CARRIES IT. An enzyme and its substrate
+# in one compartment react at once, which is a readout with no off state. Every member
+# holds them apart until the trigger, so the operator is `packing` and never `mixing`.
+# That is the class, and it is not a rule anyone writes separately: it follows from the
+# compartments.
+#
+# THIS CLASS HAS CONSTITUENTS AND ITS SIBLINGS DO NOT ALL HAVE THEM. A class has
+# constituents exactly when its own invariant names a composition. This one's
+# invariant names the operator, so it does.
+
+module: color-change
+title: "Color Change"
+refines: reporter
+# Added 2026-09-21 with the Reporter class: the color half, see the open item on ../reporter/spec.yml.
+
+inputs:
+  enzyme:
+    title: "Enzyme"
+    page: null            # an enzyme module; its own substrates: list says what it pairs with
+  substrate:
+    title: "Substrate"
+    page: null            # one of the enzyme's substrates:
+  trigger:
+    title: "Trigger"
+    page: null            # THE THIRD COORDINATE. What ends
+                          # the separation this class holds. It is NOT an operand of the step
+                          # below: `packing` is what creates the separation, and the trigger is
+                          # what later destroys it, so it enters at the cascade and not here.
+                          # It is declared on the class so that the coordinate exists at all.
+                          # Every cascade built so far supplies a gated PLA1 construct --
+                          # pT7-toehold9-PLA1, pT7-tetO-PLA1, pOpen-LuxR-PLA1, [EsaO]2-PLA1 --
+                          # which is one molecule carrying a detector's regulatory element and
+                          # PLA1, so the trigger is dual-membership DNA and not a Module of its
+                          # own. `nucleus-eng/DNA` records that membership in `manifest.tsv`'s
+                          # `modules` column: 12 of 17 constructs there name two modules.
+
+process_steps:
+  - id: separate-enzyme-and-substrate
+    process:
+      # FLAGGED, NOT CHANGED. This is the one encapsulation step of 26 that did not gain an
+      # outer solution under the `encapsulate` signature, because it does not fit the
+      # signature at all: its operands are an enzyme and a substrate, with no
+      # membrane and no inner solution. What it does is hold two things apart, which is
+      # `packing` and is real, but it is not `encapsulate`.
+      #
+      # SECOND STEP FOUND POINTING AT A PROCESS IT DOES NOT RUN, after
+      # ../membrane/spec.yml's `close-the-bilayer`. Both were found by the signature
+      # rather than by reading: a step that cannot take the arguments is not running
+      # that operation. Left pointing here because the right target is a process nothing
+      # documents, and inventing one to hold a pointer is worse than a flagged pointer.
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    operands: [enzyme, substrate]
+    requires:
+      - id: enzyme-and-substrate-in-different-compartments
+        of: color-change
+        why: >
+          The enzyme and its substrate must not share a compartment before the
+          trigger. In one compartment they react on contact, which is a readout
+          with no off state. THIS IS THE CLASS INVARIANT RESTATED AS A CONDITION
+          ON THE STEP, not a second rule: `packing` is what holds them apart, and
+          this says what `packing` has to achieve. It is declared here, once, so
+          that no member can forget it and a new enzyme inherits it.
+          IT DOES NOT SAY WHICH ONE IS INSIDE. That is
+          ../atc-cascade/spec.yml's `enzyme-encapsulated-substrate-outside`, which
+          is a different and narrower condition, true of the aTc path only because
+          *Degrade Exterior LacZ* is defined for that arrangement alone.
+        notation: "C₁{Enzyme} ⊞ C₂{Substrate} | C₁ ≠ C₂"
+    produces:
+      id: color-change
+      title: "Color Change"
+      page: ../color-change/spec.md
+    notes: >
+      `packing` is the invariant rather than a reading of one arrangement. Which of
+      the two is encapsulated is what varies across the members, and that choice does
+      not change the operator: each keeps its own compartment either way.
+
+open:
+  - id: pla1-location-is-a-third-coordinate-and-is-not-here
+    kind: choice
+    question: >
+      HALF CLOSED. A third input, not a tuple set. `trigger` is
+      declared above. A tuple set would assert that the valid (encapsulation, trigger
+      location) pairs are a restricted subset correlated by rule, and nothing in this
+      source asserts that correlation: the combinations nobody has built are untested
+      or designed, not forbidden. One of them is designed and recorded --
+      ../detector-ph/spec.md lists `T7-toehold-XylE-T7term` at 2 nM, status Designed --
+      so a tuple set would exclude a combination somebody drew.
+      WHAT IS STILL OPEN IS THE RECTANGLE, which that does not touch. Whether the
+      valid (encapsulation, trigger location) pairs form one has still never been
+      checked. Where the trigger sits is not free -- it lyses the substrate
+      compartment -- so the pairs could be correlated in fact while not being correlated
+      by any rule stated anywhere. Measuring it needs every cascade's encapsulation
+      choice read against its trigger's compartment, which no generator does today.
+      NEITHER MEMBER DECLARES A TRIGGER, which is not an omission. ../reporter-lacz/
+      and ../reporter-xyle/ are the two members and each is an enzyme-and-substrate
+      pair; the trigger arrives when a cascade composes one of them, which is why the
+      input is declared here and left out of the step.

@@ -1,0 +1,35 @@
+# Process source for Express.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# IT REFINES ../make, AND THIS FILE ARGUED THE OPPOSITE UNTIL 2026-10-05. The old
+# reason: "everything stays in one compartment ... nothing is moved, which is why this
+# refines assemble-solution rather than encapsulate."
+#
+# THAT IS A CHOICE BETWEEN TWO OPERATORS, AND THE OPERATOR ORDERS NOTHING --
+# ../../../scripts/render-posets.py Section 3 says so in as many words. The signature
+# settles it instead: the three real children of assemble-solution all NARROW its
+# codomain, and this one broadens it. `cytosol, dna ⟶ component` sits above
+# `component… ⟶ solution`, not below.
+#
+# What it shares with ../make-protein is the invariant: the product was not an operand.
+# A protein appears that no operand contained.
+#
+process: express
+title: "Express"
+refines: make
+
+signature:
+  takes:
+    - type: cytosol
+      note: >
+        Supplies the transcription and translation machinery.
+    - type: dna
+      note: >
+        Supplies the sequence. This is the requirement ../../modules/dna/spec.md states in prose and cannot yet declare.
+  produces:
+    type: component
+    note: >
+      The expressed protein, in the same compartment. A protein appears that no operand contained, which is the invariant this shares with ../make-protein.
+
+operator: mixing

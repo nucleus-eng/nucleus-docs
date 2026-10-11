@@ -1,0 +1,53 @@
+# Composition source for DNA.
+#
+# WRITTEN 2026-10-05 under T2, and it closes an asymmetry rather than adding a class for
+# its own sake. ../reporter-lacz-enzyme refines `[lacz, protein]`. ../lacz-dna refined
+# `lacz` and nothing else, because the kind it belongs to had no page. The trio --
+# the DNA, the protein, and the meet that abstracts over both -- was two thirds built.
+#
+# THE MEET IS A MODULE AND NOT A THIRD CLASS. `lacz` is a `refines:` parent that is NOT
+# a type: one identity with two supply forms. DNA and Protein are types. So
+# this page and ../protein/spec.yml are the classes, ../lacz/spec.yml stays a Module,
+# and the pattern repeats per molecule without a class page per molecule.
+#
+# GROUNDED BY COMPOSITION, as ../protein/spec.yml is. Members share what they are made
+# of, a nucleic acid polymer, and not what they encode.
+#
+# `inputs: {}` AND `process_steps: []` ARE CLAIMS. Nothing in this corpus produces a
+# DNA molecule as a step; templates are supplied.
+#
+# NO SENSITIVITY DECLARED, DELIBERATELY. ../protein/spec.yml earns one because
+# proteinase-k is attested against a member and the mechanism generalizes. The obvious
+# counterpart here is a nuclease, and no member declares one: the corpus's RNase
+# inhibitor protects transcripts rather than templates, so writing a DNase sensitivity
+# would be inventing the evidence rather than recording it.
+
+module: dna
+title: "DNA"
+refines: nucleic-acid
+
+inputs: {}
+process_steps: []
+
+# STRANDEDNESS HAS A DEFAULT AND SILENCE MEANS DOUBLE. DNA that is not explicitly
+# ssDNA is double-stranded. ../dsdna and ../ssdna both refine
+# this class, and they are not symmetric in what a page must say: a member that declares
+# nothing is double-stranded, and single-stranded is the case that must be declared.
+#
+# THAT CHANGES HOW A SILENT PAGE READS. ../lacz-dna says "template" and never says how
+# many strands. The first pass read that as an absence of evidence and left it on this
+# class rather than assigning one. It is not an absence -- it is the default, and
+# ../lacz-dna now refines ../dsdna.
+
+# ../rna AND THIS CLASS WERE UNRELATED ROOTS, AND NOW ARE NOT. NucleicAcid is refined by
+# DNA and RNA: ../nucleic-acid is written and both refine it.
+#
+# ONE SENTENCE OF THE NOTE THIS REPLACES WAS FALSE. It said `nucleolysis` was a
+# condition id "this corpus already uses". `grep -rn nucleolysis docs` returned
+# `rna-nucleolysis` on ../rna and that sentence itself, so the parent condition was
+# named only in the prose complaining that nothing named it. ../nucleic-acid declares it
+# now, which is the first use.
+#
+# THAT CLASS CARRIES THE NUCLEASE CLAIM AND THIS PAGE STILL DOES NOT. The sensitivity
+# there is to `nucleolysis`, the function. The refusal recorded above stands: a specific
+# DNase sensitivity needs an attested member and has none.

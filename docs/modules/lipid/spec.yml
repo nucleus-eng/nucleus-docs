@@ -1,0 +1,35 @@
+# Composition source for Lipid.
+#
+# GROUNDED ON FUNCTION, as its parent is, and on a narrower one. ../membrane-components
+# is grounded on "it goes into a membrane", which cholesterol satisfies. This class is
+# grounded on "it is amphiphilic, so it forms the bilayer", which cholesterol does not.
+#
+# IT IS THE SPLIT ../membrane-components/spec.yml ASKED FOR. That source carries
+# `the-two-kinds-are-not-distinguished`: "A bilayer-forming lipid, a sterol that
+# modulates one, and a label that only reports are three different roles, and this
+# class holds all three without saying which is which." This names the first role. The
+# third turned out not to be a third: a label is hung off a lipid and the lipid is
+# still a lipid, so the two membrane labels are members here AND of ../fluorophore.
+#
+# `process_steps: []`. Nothing here produces a lipid; every one is purchased.
+#
+# NOT EVERY MEMBER IS LABELED AND THAT IS WHY THE CLASS IS NOT `Fluorescent Lipid`.
+# POPC and DSPE-PEG2000 belong here and have no page yet, so the Members table is two
+# rows of five components. See the open item.
+
+module: lipid
+title: "Lipid"
+refines: membrane-components
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: the-unlabeled-lipids-still-have-no-pages
+    question: >
+      POPC and DSPE-PEG2000 are members of this class by its own ground and neither has
+      a page, so neither is listed. The two that do have pages got them because a dye
+      inherits nothing until it is a member, which is a reason to write a page and not
+      a reason to stop. ../membrane-components/spec.yml's `no-member-has-a-page`
+      narrows from five to three rather than closing.

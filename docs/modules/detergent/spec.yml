@@ -1,0 +1,31 @@
+# Composition source for Detergent.
+#
+# A CLASS GROUNDED ON FUNCTION. What every member shares is what it does to a bilayer:
+# it partitions into one and makes it leak. They are not produced by a common process --
+# every one is purchased -- and they satisfy no common axiom beyond that.
+#
+# `process_steps: []` IS A CLAIM AND NOT A GAP. No process here produces a detergent;
+# they arrive as stock solutions, or already dissolved in somebody else's stock. The
+# five analytes and ../membrane-components make the same claim for the same reason.
+#
+# THE CLASS IS WHAT ../membrane IS SENSITIVE TO, which is why it exists as a class
+# rather than as two unrelated entries. `detergent` is declared once there, with
+# `kind: presence`, and each member satisfies it through `refines:`. A third detergent
+# needs a page and no edit to the membrane.
+
+module: detergent
+title: "Detergent"
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: no-member-states-a-threshold
+    question: >
+      Both members are declared by what they do to a bilayer and neither says at what
+      concentration it does it. The Triton figure is a working lysis dose rather than a
+      measured threshold, and the Tween one is unrecorded at every step: the stock
+      concentration, the reconstitution volume and the dilution into the reaction are
+      none of them written down. So the class carries no bound and ../membrane reports
+      any presence.

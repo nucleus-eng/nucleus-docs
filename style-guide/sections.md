@@ -12,6 +12,10 @@ What the Module is and what it does. Mechanism and schematic figures go here. A 
 
 A tab-set: the generated `Module Dependencies` diagram, then one tab per part of the system.
 
+**A page draws its own step. A page with no step has nothing to draw.** Whether the Module is a class does not enter it: a class is a position in the refinement order, and the diagram draws composition, which is a different axis. A class that declares a step draws it, with its operands named as the class names them.
+
+**Drawing it is sometimes the only place a distinction is visible.** `vesicle`, `guv`, `suv` and `luv` share a step id, an operator and their operands; they differ only in the process their step names, and the diagram is where that stops being a word and becomes a route to a page.
+
 **Derive the tab set. Do not read it off the table that is already there.** Enumerate the transitive closure of `# Constituent Modules` — the generated diagram already computes it — and add anything the Requirements name. Every compartment and every genetically encoded part in that closure gets a tab.
 
 Requirements imply tabs too. A lysis Module requires a membrane, because there is nothing to lyse without one, so it carries a Membrane tab even though no membrane appears in its own constituent list.
@@ -58,9 +62,9 @@ Population tabs take the Module's real name. `AHL Sensing Cell`, not `Sensing Ce
 
 Each population tab carries captioned tables for its own compartments. Captioned tables are not pseudo-headings — the rule above forbids bold text standing in for structure, not multiple tables in one tab.
 
-Keying by location rather than by Module also removes rows that only ever existed to give each Module one. A component expressed from DNA already counted — PLA1 in the London Cascade — is not something the reader adds, so it has no location and needs no row. Its mechanism belongs in `# Overview`.
+Keying by location rather than by Module also removes rows that only ever existed to give each Module one. A component expressed from DNA already counted — PLA1 in the LuxR-LacZ Sensor Cascade — is not something the reader adds, so it has no location and needs no row. Its mechanism belongs in `# Overview`.
 
-**The `DNA` tab enumerates every construct in the closure, and says how each is supplied.** A construct can reach a reaction as a plasmid, as a linear cassette, or not at all — supplied instead as purified protein, as LacZ is in the London Cascade. Listing only the constructs someone happened to find reads as a complete list, and a missing row is indistinguishable from a Module that needs no DNA. Where the supply route is unrecorded, give the construct a row and say the route is unknown.
+**The `DNA` tab enumerates every construct in the closure, and says how each is supplied.** A construct can reach a reaction as a plasmid, as a linear cassette, or not at all — supplied instead as purified protein, as LacZ is in the LuxR-LacZ Sensor Cascade. Listing only the constructs someone happened to find reads as a complete list, and a missing row is indistinguishable from a Module that needs no DNA. Where the supply route is unrecorded, give the construct a row and say the route is unknown.
 
 **Supply route is not a footnote; it selects the sequence file.** S30 Lysate degrades linear DNA, so an S30 route takes the circular form of a construct and a Base Cytosol route takes the cassette — two files, differing by a whole backbone, for one design. A page that names a construct without its route has not said which sequence it means.
 
@@ -72,13 +76,13 @@ Keying by location rather than by Module also removes rows that only ever existe
 
 State a gap inside the tab it affects, in the row where the number would go. A tab holding no table is not a tab.
 
-**A composition tab carries a table, not a sentence pointing at another page.** Where a Module inherits its membrane or cytosol from a chassis, reproduce the table and name the source in the caption — a reader composing this Module should not have to open two more pages to learn its lipid fractions. The one exception is a Module whose composition is not specific to any one host: **Effector: PLA1** acts on any phospholipid membrane it reaches, so it names the membranes it has been used with instead of inventing a single table.
+**A composition tab carries a table, not a sentence pointing at another page.** Where a Module inherits its membrane or cytosol from a chassis, reproduce the table and name the source in the caption — a reader composing this Module should not have to open two more pages to learn its lipid fractions. The one exception is a Module whose composition is not specific to any one host: [Lysis: PLA1](../docs/modules/effector-pla1/spec.md) acts on any phospholipid membrane it reaches, so it names the membranes it has been used with instead of inventing a single table.
 
 ### The tables
 
 **One contributor means no line-item table.** A composed Module's tab lists each constituent that contributes to that compartment. Where exactly one does, the abstraction adds nothing — a union over a single set is that set — so give the constituent's own composition table instead of a row pointing at it. A tab whose only informative cell reads "unchanged from X" is a link wearing a table's clothes. Keep the line-item form only where two or more constituents genuinely combine.
 
-**Optional components do not change a Module's identity.** Two compositions that differ only in a component the spec marks optional are the same Module. The Chicago Membrane lists `(Optional) Liss Rhod PE` at 0.1%, so a membrane written as `89.9 / 10 / 0.1` and one written as `9:1 POPC:cholesterol` are the same membrane, not two formulations. Do not write a note distinguishing them.
+**Optional components do not change a Module's identity.** Two compositions that differ only in a component the spec marks optional are the same Module. The Chicago Membrane lists `(Optional) Liss Rhod PE` at 0.1 %, so a membrane written as `89.9 / 10 / 0.1` and one written as `9:1 POPC:cholesterol` are the same membrane, not two formulations. Do not write a note distinguishing them.
 
 More generally: deciding whether some material *is* a named Module is not a comparison of two tables for equality. It is a question of whether the material satisfies that Module's specification, and a specification tolerates what it marks optional. Comparing tables cell by cell forces an exact match the spec never asked for, and every optional row then reads as a difference.
 
@@ -119,9 +123,9 @@ Performance data is not its own heading; it lives inside the Context it was meas
 
 **Say what measured it.** Every result names the Process that produced it, as a link:
 
-> Color developed within 3 h at 37 °C, scored by eye — see **Colorimetric Readout**.
+> Color developed within 3 h at 37 °C, scored by eye — see [Colorimetric Readout](../docs/processes/colorimetric-readout/main.md).
 
-A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on **London Cascade**: the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimization, or a better assay.
+A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on [LuxR-LacZ Sensor Cascade](../docs/modules/luxr-lacz-cascade/spec.md): the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimization, or a better assay.
 
 Where no Process page exists for the readout, say what was used in prose and mark it `@Editor:`. Do not drop the detail because there is nowhere tidy to link.
 
@@ -141,7 +145,7 @@ There is no path dependence. Given a set of Modules to compose you get a set of 
 
 **Dependence on configuration is a different thing, and it is real.** A Module that ships two constructs has a Requirement per construct, and composing it picks one. Write the condition as a trailing clause so the line still reads as a single Requirement:
 
-> Requires sigma-70 transcription and translation, when using `P70lux-PLA1-term` (e.g. **S30 Lysate**).
+> Requires sigma-70 transcription and translation, when using `P70lux-PLA1-term` (e.g. [S30 Lysate](../docs/modules/s30-lysate/spec.md)).
 
 Not "Using `P70lux-PLA1-term` requires…", which buries the Requirement behind its condition. Order does not matter; which variant you built does. See the Known gap below — it is the same thing.
 
@@ -155,7 +159,7 @@ A requirement the reader must satisfy cannot live in a composition tab. **Nor in
 
 **An imposition belongs to a morphism.** Processes and Functions are both morphisms, split by agency — a Process is one you choose to apply, a Function is one the object entails — and either may impose a condition on what it acts on. A Module or a Component does not impose; it carries a sensitivity.
 
-So an incompatibility is written twice, each half on the object whose property it is. The Component states what it is sensitive to, the morphism states what it imposes, and the incompatibility is derived rather than asserted. CPRG is UV-sensitive; photodevelopment imposes UV on whatever it is applied to; together those entail that CPRG cannot be present during photodevelopment, without either statement naming the other. The Function case has the same shape — `effector-pla1` lyses any membrane in reach, so the imposition is the Function's and the sensitivity is the membrane's.
+So an incompatibility is written twice, each half on the object whose property it is. The Component states what it is sensitive to, the morphism states what it imposes, and the incompatibility is derived rather than asserted. CPRG is UV-sensitive; photocrosslinking imposes UV on whatever it is applied to; together those entail that CPRG cannot be present during photocrosslinking, without either statement naming the other. The Function case has the same shape — `effector-pla1` lyses any membrane in reach, so the imposition is the Function's and the sensitivity is the membrane's.
 
 Written the other way round, the same fact lands on every page that could ever trigger it: the CPRG incompatibility was independently asserted on nine pages, and two of those assertions were wrong in the same direction. Stated as a sensitivity plus an imposition, the exemption also falls out for free — alginate and ULGA need no exemption clause because no morphism producing them imposes UV, so the derivation never fires. The established name for this shape is assume-guarantee reasoning; a material neither emits nor resists, it is subjected to what a morphism does to it.
 
@@ -163,7 +167,7 @@ Written the other way round, the same fact lands on every page that could ever t
 
 **Say when the page already satisfies a Requirement it inherited.** A composed Module takes on its constituents' Requirements and can also meet them, and the reader cannot tell the two apart without being told. `atc-sensing-cell` writes the met case:
 
-> Requires pT7 transcription and translation (e.g. [Base Cytosol](../docs/modules/base-cytosol/spec.md)), supplied here by the **Chicago Chassis**.
+> Requires pT7 transcription and translation (e.g. [Base Cytosol](../docs/modules/base-cytosol/spec.md)), supplied here by the [Cell: Base Cytosol, POPC/Chol (9:1)](../docs/modules/cell-base-cytosol-popc-chol/spec.md).
 
 **A composed Module lists what a composer must still supply, not everything its parts require.** That follows from "say it once" and from writing for an unknown composer: the constituent pages already hold their own Requirements, and a reader who needs the full set gets it by following the links. Restating an inherited Requirement that this page satisfies makes the page look harder to use than it is; dropping one it does *not* satisfy makes it look easier. Neither is recoverable from the text today.
 
@@ -171,7 +175,7 @@ Every Nucleus construct uses a pT7 promoter unless the page says otherwise, beca
 
 State requirements; do not argue for them.
 
-**Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines, written with the trailing-clause form above. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. Nucleus has not adopted abstract Modules yet. Until it does, the one-page workaround is accepted.
+**Known gap.** A Module shipping two promoter variants — PLA1's `T7pro-PLA1-T7term` and `P70lux-PLA1-term` — currently carries both on one page with two Requirements lines, written with the trailing-clause form above. The intended resolution is abstract Functions: an abstract Module abstracts over both constructs and requires only *transcription*, while each concrete Module requires its own promoter. The intended resolution is a class page for PLA1 (see [Class pages](#class-pages)). Until PLA1 has one, the one-page workaround is accepted.
 
 ## Implementations
 
@@ -188,6 +192,24 @@ Link every Process page related to this Module, in the order a bench user meets 
 Include any preparation parameters that are not composition — target size, extrusion passes, purification method, storage before use. A number that describes *how you make it* is process data even when it sits in a table.
 
 If no Process page covers the combination, say so in one sentence and stop. "No process page documents assembling this cascade end to end." Do not explain what a reader should not assume, and do not leave instructions for a future editor — those go in `tmp/`.
+
+## Materials
+
+**Optional, and only where a Module is bought rather than made.** A Module whose constituents arrive as catalog items carries a Materials section naming them. A Module assembled from other Modules does not: its constituents have pages, and those pages carry their own materials.
+
+It sits after Processes and before Constituent Modules. Nine pages carry it.
+
+Give vendor, catalog number and storage where the source has them, and say which it does not have. A Materials section with a column of blanks and no statement reads as "not needed" rather than "not recorded".
+
+## Constituent Modules
+
+**The last section before Credits**, after Materials where a page has one.
+
+It is a bullet list, one line per Module this one is built from, each linking that Module's page. `scripts/check-composition.py` reads it and compares it against the composition source, so a Module in one and not the other is a finding.
+
+**Keep the heading exactly as it is.** `scripts/render-all.py` matches the string `# Constituent Modules`, as it matches the `<!-- gen:composition-diagram -->` markers, and a page missing either drops out of the generator with nothing reported.
+
+**Where this position came from.** The heading was used on 50 pages in nine different positions before it was written down here. Pages still marked draft scattered; of the pages not marked draft, six of the nine carrying it put it immediately before Credits, and each of the three that did not also carried an undocumented heading of its own or was out of order elsewhere.
 
 ## Credits
 
@@ -206,3 +228,16 @@ Adapted from [<source>](<URL>) ([Author et al., year](https://doi.org/...)).
 ```
 
 The DevNote author is the authoritative contributor. Never invent a name, Node, or Lab, and never cite an internal status document here.
+
+## Class pages
+
+A class is an abstract Module: other Modules refine it, and it states what they all share. Its page answers three questions — what the class is, what every member does, and which Modules are members — and nothing else.
+
+- **Overview.** One sentence that defines the class: "A class: …". Then what every member shares: the one thing every member is or does. Say it in plain words. Do not write "invariant" on the page. Do not count the members: the count changes when a member is added, and the page goes stale.
+- **Reference Composition.** Only when what the members share is a composition, as Cell's is: a Cytosol closed inside a Membrane. Give one tab per slot, each with a table of what each member puts in that slot. A class whose members share only an operation, such as Container's `hold`, has no composition, so omit the section.
+- **Members.** Only when there is no Reference Composition: a table, `Member | What makes it a member`. When there is one, the slot tables already list the members.
+- **Expected Behavior.** What every member does, as Function: what a reader will see from any member. A result belongs on the member that produced it.
+- **Requirements.** Only what every member requires. If the members share none, omit the section. Do not write "none stated".
+- **Constituent Modules** and **Processes.** As for any Module, when the class's composition source declares them.
+
+A class page does not say how the class was arrived at, why it exists, or which questions about its position are still open. Those belong in the theory corpus or in `tmp/`. The generated **Position** line already says what the class refines. A class that refines nothing says so there and nowhere else.

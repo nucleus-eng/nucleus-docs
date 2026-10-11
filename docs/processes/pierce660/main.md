@@ -98,10 +98,7 @@ An effective alternative is to _always_ reverse pipette your samples when using 
 :::{card}
 :header: **Manufacturer's Manual**
 
-<!-- TODO: host this PDF externally (e.g. S3 or vendor link) rather than
-     serving from the repo. Manufacturer PDFs should not be committed to
-     nucleus-docs. See Issue #87. -->
-{button}`download <resources/Private & Shared/Pierce660 Assay/Pierce660_Manual.pdf>`
+The manual ships with the reagent and is on the product page, [Thermo Scientific 22660](https://www.thermofisher.com/order/catalog/product/22660).
 :::
 
 ::::

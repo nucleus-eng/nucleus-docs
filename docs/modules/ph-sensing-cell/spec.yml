@@ -1,0 +1,106 @@
+# Composition source for the SensorCell[pH ⟶ PLA1].
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Constituent
+# Modules` prose stays for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# Depth 1. The sensor cytosol and the trigger duplex are expanded because this
+# Cell builds them.
+
+module: ph-sensing-cell
+title: SensorCell[pH ⟶ PLA1]
+refines:
+  # Two incomparable parents: the chassis is the cell without
+  # modules in it, and this is that chassis with a sensor module put into it.
+  # Which chassis is read off the constituents, not the demo name.
+  # FUNCTIONAL PARENT FIRST -- the meet renderer aligns on entry one.
+  - sensing-cell
+  - cell-base-cytosol-popc-chol
+  - guv
+  - liposome
+  # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
+  # vesicle each refine liposomes, because each is built from lipids. Verified for this
+  # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
+  # not nest -- ../vesicle/spec.md: "A GUV may be a liposome or a polymersome".
+  # GUV appended 2026-10-04: the class is determined by the process that
+  # produces this page, and that is Encapsulation: Phase Transfer. It is LAST because
+  # the first entry is the alignment parent and must be the FUNCTIONAL one;
+  # size is form, not function.
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  effector-pla1-toehold:
+    title: "Gated lysis DNA: pT7-toehold9-PLA1"
+    page: null            # pT7-toehold9-PLA1. The toehold switch stitched to the PLA1 coding
+                          # sequence, so the gate and the payload are ONE molecule and PLA1 is
+                          # not a separate addition. File: effectors/detector-ph/
+                          # pT7-toehold9-PLA1-linear.gb, 1203 bp, in nucleus-eng/DNA at f06e12c.
+  membrane-popc-chol-9-1:
+    title: "Membrane: POPC/Chol (9:1)"
+    page: ../membrane-popc-chol-9-1/spec.md
+
+process_steps:
+  - id: anneal-trigger-duplex
+    process:
+      title: "Anneal pH-Responsive Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: ../detector-ph/spec.md
+
+  - id: assemble-cytosol
+    process:
+      title: "Assemble Cytosol"
+      page: ../../processes/assemble-cytosol/assemble-cytosol-main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, effector-pla1-toehold]
+    produces:
+      id: ph-sensor-cytosol
+      title: "SensorCytosol[pH ⟶ PLA1]"
+      page: ../ph-sensor-cytosol/spec.md
+
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Phase Transfer"
+      page: ../../processes/assemble-base-cell/main.md
+      abstract: encapsulate
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [ph-sensor-cytosol, membrane-popc-chol-9-1, outer-solution]
+    produces:
+      id: ph-sensing-cell
+      title: "SensorCell[pH ⟶ PLA1]"
+      page: ../ph-sensing-cell/spec.md
+    notes: >
+      The cytosol is composed before encapsulation, not added to a closed
+      chassis. Optiprep is in the cytosol for this step's sake.
+
+# The analyte is not part of this composition — pH change reaches the Cell from
+# outside after encapsulation.

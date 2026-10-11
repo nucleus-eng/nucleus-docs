@@ -1,0 +1,73 @@
+# Composition source for Fluorophore.
+#
+# GROUNDED ON AN OPERATION ITS PARENT DOES NOT HAVE, which is the test a refinement has
+# to pass. ../chromophore is grounded on `emit_color`: a conjugated system absorbs, and
+# a reader measures what did not come back. A fluorophore absorbs AND EMITS, at a
+# longer wavelength, and a reader measures light the molecule produced. Two wavelengths
+# rather than one, and the second is a property of the member.
+#
+# ../chromophore/spec.yml SAID THIS SPLIT DID NOT EXIST YET, and it was right at the
+# time: "a refinement is real when it declares an operation its parent does not, and no
+# emitting operation is written yet." The operation above is that operation. Five
+# members now carry it, which is also what makes the class worth writing: a one-member
+# class is a rule nobody has tested.
+#
+# IT CUTS ACROSS THE TREE, as its parent does. Two members are Reporters, two are
+# Lipids, and one is neither. `refines:` takes a list, so nothing moves to make room.
+#
+# NO `sensitivities:` OF ITS OWN. Bleaching is declared on ../chromophore, because it
+# follows from the conjugated system rather than from re-emission, and every member
+# inherits it through `refines:`. Declaring it again here would be a second copy of one
+# claim with nothing keeping the two in agreement.
+
+module: fluorophore
+title: "Fluorophore"
+refines: chromophore
+
+# EACH MEMBER STATES ITS TWO PEAKS, in its own `parameters:`, and the requirement below
+# is read over them. The class names the quantities and the members state the values, so
+# no figure is written twice.
+member_properties:
+  - keys: [excitation_peak]
+    title: "Excitation peak"
+    unit: nm
+    why: >
+      Where the member absorbs most strongly, which is what a reader has to excite.
+  - keys: [emission_peak]
+    title: "Emission peak"
+    unit: nm
+    why: >
+      Where the member emits most strongly, which is what a reader has to collect.
+
+# A FLUOROPHORE IS SEEN BY A FLUORESCENCE READ, over its own bands. The parameters are
+# the member's peaks, each with the default 20 nm bandwidth for a chromophore, written
+# as a filter is: 506/20 is 496 nm to 516 nm. A reader meets this by containment: its
+# declared band has to contain the interval asked for.
+requires:
+  - id: observe_fluorescence
+    parameters:
+      ex: {peak: excitation_peak, bandwidth: 20, unit: nm}
+      em: {peak: emission_peak, bandwidth: 20, unit: nm}
+    why: >
+      A fluorophore absorbs and then emits, so observing it means exciting it and
+      collecting what it emits. Both bands are the member's own.
+
+inputs: {}
+
+process_steps: []
+
+open:
+  - id: four-members-state-no-peaks
+    question: >
+      The class now makes every member state `excitation_peak` and `emission_peak`, and
+      one of five does: `reporter-mneongreen`. The other four report as missing the
+      figures. Their pages give read settings and channels, not peaks -- 540 nm and
+      580 nm for the rhodamine lipid on ../dye-liposomes, a 488 nm channel for deGFP --
+      and a setting is not a peak, so none is copied across.
+  - id: the-channel-constraint-has-no-carrier
+    question: >
+      Two members whose bands overlap cannot be told apart in one sample, which is a
+      constraint on choosing a reporter rather than on building one. Nothing in this
+      schema expresses it: it is not a sensitivity, because nothing is done to the dye,
+      and it is not an imposition, because the other dye does not act on it. The
+      background a gel or an energy component emits is the same shape and the same gap.

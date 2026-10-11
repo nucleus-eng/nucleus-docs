@@ -1,0 +1,66 @@
+# Composition source for the Outer Solution: Glutamate-HEPES-Glucose.
+#
+# WRITTEN 2026-09-21 with ../outer-solution/spec.yml. This formulation had no page and
+# TWO produced ids: luxr-lacz-cascade called it `outer-solution` and gel-ulga called it
+# `london-outer-solution`, with the same three operands and the same osmotic concentration in both.
+# One formulation, two names, and nothing compared them, which is the membrane-popc-chol-9-1
+# alias in a second place.
+#
+# THE FIGURES COME FROM gel-ulga, which is the source that carried them. luxr-lacz-cascade
+# recorded only the osmotic concentration and left the three solutes to the page.
+
+module: outer-solution-glutamate
+title: "Outer Solution: Glutamate-HEPES-Glucose"
+refines: solution
+  # NOT ../outer-solution. OUTER IS A POSITION, NOT A KIND. It is where a solution
+  # sits in an encapsulation -- the one outside the membrane -- and a position is a
+  # role in an operation rather than a property of the thing filling it. The same
+  # solution is "outer" in one step and simply a solution in the next.
+  # ../outer-solution is still a Module you assemble, and 24 sources name it as an
+  # operand. BEING AN OPERAND IS NOT BEING A CLASS.
+
+# CARRIED FROM ../outer-solution, which this stopped refining. It was the ONLY thing
+# inherited from that parent, so dropping the parent without carrying this would have
+# silently removed the statement that an osmometer reads this solution.
+measured_by:
+  - process:
+      title: "Osmometry Readout"
+      page: ../../processes/osmometry-readout/main.md
+
+inputs:
+  potassium-glutamate:
+    title: "Potassium L-glutamate"
+    page: null
+  hepes:
+    title: "HEPES"
+    page: null
+  glucose:
+    title: "Glucose"
+    page: null
+
+process_steps:
+  - id: assemble-outer-solution
+    process:
+      title: "Assemble Outer Solution"
+      page: ../../processes/assemble-outer-solution/main.md
+      abstract: assemble-solution
+    operator: mixing
+    operands: [potassium-glutamate, hepes, glucose]
+    produces:
+      id: outer-solution-glutamate
+      title: "Outer Solution: Glutamate-HEPES-Glucose"
+      page: ../outer-solution-glutamate/spec.md
+    # SCALE-FREE, 2026-10-05, under R36/R37/R38.
+    # "Working concentration" on both pages' tables, so all three are finals.
+    finals:
+      potassium-glutamate: {value: 578, unit: "mM"}
+      hepes: {value: 72, unit: "mM", note: "pH 7.4"}
+      glucose: {value: 300, unit: "mM"}
+    parameters:
+      # A PROPERTY OF THE SOLUTION, not a component of it.
+      osmotic_concentration: "~920 mOsm"
+    notes: >
+      The osmolarity stays here even though each solute above is also stated, because it
+      is a relation rather than a property of any one of them: it has to match across
+      the membrane of whatever is suspended in it. Matched to the SensorCell[3OC6-HSL ⟶ PLA1] inner
+      solution.

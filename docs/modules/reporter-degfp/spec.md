@@ -9,7 +9,11 @@ site:
 
 # Overview
 
-The deGFP Reporter Module produces deGFP, a green fluorescent protein.
+<!-- gen:position -->
+**Position.** Refines [Reporter](../reporter/spec.md) and [Fluorophore](../fluorophore/spec.md). Refined by nothing on this branch.
+<!-- /gen:position -->
+
+The deGFP Reporter Module produces deGFP, a green fluorescent protein. Its peaks are taken as eGFP's, 488 nm excitation and about 509 nm emission, because no maxima are published for deGFP itself.
 
 :::{figure} schematic.png
 :width: 40%
@@ -21,6 +25,40 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 # Reference Composition
 
 :::::{tab-set}
+
+<!-- gen:composition-diagram -->
+::::{tab-item} Module Dependencies
+
+```mermaid
+flowchart TD
+    BASE_CYTOSOL["Base Cytosol"]
+    DEGFP_DNA["pOpen-deGFP"]
+    MAGNESIUM_ACETATE["Magnesium acetate"]
+    OPTIPREP["OptiPrep"]
+
+    P1_ASSEMBLE_INNER_SOLUTION_0(["Assemble the deGFP Reporter inner solution (mixing) — no page"])
+    REPORTER_DEGFP["deGFP Reporter"]
+
+    BASE_CYTOSOL --> P1_ASSEMBLE_INNER_SOLUTION_0
+    DEGFP_DNA --> P1_ASSEMBLE_INNER_SOLUTION_0
+    MAGNESIUM_ACETATE --> P1_ASSEMBLE_INNER_SOLUTION_0
+    OPTIPREP --> P1_ASSEMBLE_INNER_SOLUTION_0
+    P1_ASSEMBLE_INNER_SOLUTION_0 --> REPORTER_DEGFP
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class BASE_CYTOSOL,DEGFP_DNA,MAGNESIUM_ACETATE,OPTIPREP leaf;
+    class REPORTER_DEGFP composed;
+    class P1_ASSEMBLE_INNER_SOLUTION_0 process;
+
+    click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
+    click REPORTER_DEGFP "/docs/modules/reporter-degfp/spec"
+```
+
+::::
+<!-- /gen:composition-diagram -->
 
 ::::{tab-item} DNA
 :::{table}
@@ -47,7 +85,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 
 | Component | Input concentration | Unit | Final concentration | Unit | Volume for one reaction (µL) |
 | --- | --- | --- | --- | --- | --- |
-| SMix | 3.33 | × | 1 | × | 12 |
+| SMix | 3.33 | fold | 1 | fold | 12 |
 | PMix | 15 | mg/mL | 1.80 | mg/mL | 4.8 |
 | Ribosomes | 10 | µM | 1.8 | µM | 7.2 |
 | `pOpen-deGFP` DNA | 124 | nM | 3 | nM | 0.95 |
@@ -67,7 +105,7 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 | Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
 | POPC         | 70                    | 760.076                  | 25                          | 162.17             |
-| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
+| Cholesterol  | 29.95                 | 386.7                  | 50                          | 17.65              |
 | Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
 
 :::
@@ -167,6 +205,14 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 :::
 
 ::::
+
+# Implementations
+
+- [LuxR-GFP Demo](../../implementations/devstudio-luxr-gfp-demo/main.md): its reporter — the fluorescent output.
+
+# Constituent Modules
+
+- [Base Cytosol](../base-cytosol/spec.md) — transcription and translation, at 1×
 
 # Credits
 

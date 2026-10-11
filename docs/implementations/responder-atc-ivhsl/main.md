@@ -80,7 +80,7 @@ The responder module is assembled within a standard PURE reaction, following [As
 **Experimental Method**
 
 - [ ] Prepare M9 media containing cells and antibiotics:
-    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 0.2% casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 0.4% (w/v) glucose.
+    - [ ] Prepare M9 Media containing 1× M9 salts, 0.34 mg/mL 1-thiamine hydrochloride, 2 mg/mL casamino acids, 2 mM MgSO₄, 100 µM CaCl₂ and 4 mg/mL glucose.
     - [ ] Use a pipette tip to scrape some of the frozen bacteria off of the top and inoculate a 1.5 mL eppendorf containing the M9 media with 100 µg/mL carbenicillin.
     - [ ] Gently mix the tube by inverting 5 times. The solution in the tube will be named **M9-cell solution** in the following part.
 - [ ] Incubate samples and controls containing PURE reactions at 37 °C for 1.5 h.
@@ -173,16 +173,20 @@ Responder Cell sample timeseries (uninduced). EggPC liposomes containing PURE, r
 
 :::::::
 
-# Process
+# Processes
 
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md)
 
 # Modules
 
-- [Detector: TetR-aTc](../../modules/detector-tetr_atc/spec.md)
+- [Detector: tetR-aTc](../../modules/detector-tetr-atc/spec.md)
 - [Emitter: IV-HSL](../../modules/emitter-ivhsl/spec.md)
 
 # Credits
 
 - Jefferson Smith & Michael Booth (Oxford / UCL)
 - b.next
+
+:::{attention} Credits are draft
+Contributor attribution on this page has not been confirmed with the Node. Assign each credit explicitly before this page is merged to `main`.
+:::

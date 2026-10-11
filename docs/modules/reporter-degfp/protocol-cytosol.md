@@ -14,7 +14,7 @@ This protocol show you how to validate the functionality of the Reporter Module 
 ## Cytosol Reaction Setup
 
 :::{table} Reaction Setup.
-:name: rxn-setup
+:name: reporter-degfp-cytosol-rxn-setup
 
 | **Component** | **Cytosol + deGFP DNA [µL]** | **Cytosol - deGFP DNA [µL]** |
 | --- | --- | --- |

@@ -1,0 +1,87 @@
+# Composition source for Vesicle.
+#
+# THE UMBRELLA, AND TWO INDEPENDENT AXES SIT UNDER IT. Size and lamellarity give
+# ../guv, ../suv and ../luv. Material gives ../liposome, and a polymersome would be
+# its sibling. The axes do not nest: a GUV may be a liposome or a polymersome, so
+# neither axis is a parent of the other and a member may take one parent from each.
+#
+# NO `refines:` KEY, AND IT IS FLAGGED RATHER THAN GUESSED, on the precedent of
+# ../cell/spec.yml and ../substrate-carrier/spec.yml. A vesicle is a membrane with
+# something in it, and whether forming a boundary and holding something in it are one
+# operation is unsettled. THE QUESTION BELONGS HERE NOW. It used to sit on each of
+# the three size classes separately, which said the same thing three times about
+# three Modules that share one parent.
+#
+# THE COMPOSITION IS A MEMBRANE AROUND A PAYLOAD AND NOTHING MORE. Every narrowing
+# below this -- which route, which size, which material -- belongs to a child.
+
+module: vesicle
+title: "Vesicle"
+
+inputs:
+  outer-solution:
+    title: "Outer solution"
+    # THE CLASS AND NOT A MEMBER, deliberately. Which outer solution is the
+    # implementation's choice -- the same reason `total_volume` is an Implementation
+    # fact under R37 -- and an operand naming a class means any member satisfies it.
+    # ../craic-cascade/spec.yml already did this; it was the only one.
+    page: ../outer-solution/spec.md
+  membrane:
+    title: "Membrane"
+    page: ../membrane/spec.md
+  payload:
+    title: "Payload"
+    page: null            # it varies: a cytosol, a substrate, a dye
+
+process_steps:
+  - id: close-the-bilayer-around-the-payload
+    process:
+      title: "Encapsulation"
+      page: ../../processes/encapsulate/main.md
+    operator: packing
+    # THE THIRD ARGUMENT. The step's signature is:
+    #   encapsulate : membrane_components, inner_solution, outer_solution
+    #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
+    # The product's TYPE names what it is suspended in, so a step that leaves it out
+    # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
+    operands: [membrane, payload, outer-solution]
+    produces:
+      id: vesicle
+      title: "Vesicle"
+      page: ../vesicle/spec.md
+    notes: >
+      The abstract route. Each size class names one instance of it and they differ
+      in that line and in nothing else. `packing` because the payload keeps its own
+      compartment, which is what a vesicle is for, and the operator is declared on
+      the abstract process rather than chosen per route.
+
+# WHAT A VESICLE IS SENSITIVE TO, AND ONLY HALF OF IT. Sensitivity is a property of an
+# OBJECT and Imposition a property of a MORPHISM, so this sits here, and whatever
+# shifts the difference across the membrane declares the other half: a reaction
+# inside, or a change to the outside. Nothing declares that half yet, so this meets
+# nothing today, which is not a defect.
+#
+# NO BOUND AT THIS LEVEL, AND THAT IS THE CLAIM. A bound must carry a value, and no
+# tolerance or designed difference holds for every vesicle. A member that measured
+# its own states both, and a member stating a bound under a class that states none is
+# read as the member being more specific.
+sensitivities:
+  - id: osmotic-balance
+    to: osmotic-shift
+    basis: rule
+    why: >
+      A lipid bilayer lets water through and holds most solutes back, so an osmotic
+      difference across it moves water. Too small a difference, inside minus outside,
+      and the vesicle shrinks; too large, and it ruptures and its contents leak. The
+      requirement lasts as long as the membrane holds its lumen, not only while it
+      forms.
+    page: spec.md
+
+open:
+  - id: the-material-axis-has-one-value
+    question: >
+      Every vesicle in this corpus is a liposome. ../liposome/spec.md exists so the
+      axis is recorded and a polymersome has somewhere to attach, and it claims no
+      members for that reason: assigning eleven Modules a parent that distinguishes
+      them from nothing would report a distinction the corpus cannot yet make. The
+      same reasoning keeps `member_properties` unused on the size classes.

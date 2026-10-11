@@ -1,0 +1,15 @@
+# What the Hold page says, as data. See ../transcribe/function.yml for the field marks.
+# The signature has no change line for this process, so a reader treats its change as unknown, never zero.
+signature_pin: 40fe4e2
+processes:
+  - process: hold  # checked
+    refines: []                      # checked
+    type: >                          # docs
+      Hold takes a container and a thing, and returns the container with the thing inside it in a fixed relation.
+    routes:                          # docs: one per row of the page's Routes table
+      - id: membrane
+        realized_by: [membrane-popc, membrane-popc-chol, membrane-popc-chol-9-1]
+      - id: gel
+        realized_by: [gel-alginate, gel-lga, gel-peg-norbornene, gel-pegda, gel-ulga]
+      - id: solution
+        realized_by: [base-cytosol, s30-lysate, ahsl-sensor-cytosol, atc-sensor-cytosol, ph-sensor-cytosol, theophylline-sensor-cytosol, emitter-ivhsl, energy-ppk, outer-solution, outer-solution-glutamate, outer-solution-tris-hepes, outer-solution-glucose-hepes]

@@ -156,7 +156,7 @@ If you do not have these things please see the [Tutorial: getting started with N
 
 # Creating project from template
 
-- [ ] From the Launcher window select the button "Create" in the "Developer Notes" toolbar and follow the dialogue:
+- [ ] From the Launcher window select the button "Create" in the "Developer Notes" toolbar and follow the dialog:
   - [ ] Enter a directory name for the DevNote: `template`
   - [ ] Project title: `My first project`
   - [ ] Subtitle: `My first subtitle`
@@ -286,7 +286,7 @@ When your DevNote is ready for submission, you can preview how it will look on t
     :::
     ```
     
-    - [ ]  Option 2: reference the output of a labelled jupyter cell:
+    - [ ]  Option 2: reference the output of a labeled jupyter cell:
     
     ```markdown
     :::{figure} #fig:name-of-figure
@@ -328,7 +328,7 @@ When your DevNote is ready for submission, you can preview how it will look on t
     :::::
     ```
     
-    - [ ]  A table output can be included from a labelled jupyter cell as follows:
+    - [ ]  A table output can be included from a labeled jupyter cell as follows:
     
     ```markdown
     :::{figure} #tbl:name-of-table

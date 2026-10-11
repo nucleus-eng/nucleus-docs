@@ -1,0 +1,26 @@
+# Process source for Assemble Cytosol.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# 16 STEPS RUN THIS AND ALL 16 ARE `mixing`. One compartment in, one compartment out.
+# The cytosol stays a cytosol; what changes is what is dissolved in it.
+#
+process: assemble-cytosol
+title: "Assemble Cytosol"
+refines: assemble-solution
+
+signature:
+  takes:
+    - type: cytosol
+      note: >
+        The base the payload goes into. 15 of 16 steps that run this take one.
+    - type: component
+      repeated: true
+      note: >
+        The payload: a detector, an effector, a template, a reporter. Repeated because a sensor cytosol may carry several.
+  produces:
+    type: cytosol
+    note: >
+      A cytosol with a payload. The product refines its first operand, which is what makes this a narrowing rather than a mixture.
+
+operator: mixing

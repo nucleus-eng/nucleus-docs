@@ -1,0 +1,23 @@
+# Process source for Assemble Base Cytosol.
+#
+# Signature read from the steps that run it, not from the page's prose.
+#
+# THE ONE INSTANCE WITH NO PAYLOAD, which is why it is the base. Its siblings take a
+# cytosol and add to it; this one makes the cytosol there is nothing yet to add to.
+#
+process: assemble-base-cytosol
+title: "Assemble Base Cytosol"
+refines: assemble-cytosol
+
+signature:
+  takes:
+    - type: component
+      repeated: true
+      note: >
+        The kit fractions and the inhibitor: a solute mix, a protein mix, tRNA, ribosomes, an RNase inhibitor.
+  produces:
+    type: cytosol
+    note: >
+      Base Cytosol, with no payload. It is the thing ../assemble-cytosol/spec.yml's first operand usually is.
+
+operator: mixing
