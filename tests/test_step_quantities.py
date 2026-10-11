@@ -301,3 +301,55 @@ def test_an_optional_operand_needs_no_amount(tmp_path):
     """)
     assert code == 0
     assert "have no amount" not in out
+
+
+# ---- HEADROOM ----------------------------------------------------------------------
+
+SLOT = """
+    module: host
+    process_steps:
+      - id: make-host
+        operator: mixing
+        operands: [water]
+        produces: {{id: host}}
+        headroom:
+          provides: {{value: 2.0, unit: "µL", of: {{value: 10, unit: "µL"}}}}
+      - id: make-guest
+        operator: mixing
+        operands: [host]
+        produces: {{id: guest}}
+        headroom:
+          requires: {req}
+"""
+
+
+def test_a_requirement_that_fits_the_slot_passes(tmp_path):
+    rc, out = run(tmp_path, SLOT.format(req='{value: 2.0, unit: "µL", of: {value: 10, unit: "µL"}}'))
+    assert rc == 0 and "1 headroom slot(s) compared" in out
+
+
+def test_a_requirement_larger_than_the_slot_fails(tmp_path):
+    rc, out = run(tmp_path, SLOT.format(req='{value: 3.0, unit: "µL", of: {value: 10, unit: "µL"}}'))
+    assert rc == 1 and "requires 3 µL and host provides 2 µL" in out
+
+
+def test_a_different_total_fails(tmp_path):
+    rc, out = run(tmp_path, SLOT.format(req='{value: 2.0, unit: "µL", of: {value: 25, unit: "µL"}}'))
+    assert rc == 1 and "total of 25 µL" in out
+
+
+def test_the_same_slot_in_another_unit_passes(tmp_path):
+    rc, out = run(tmp_path, SLOT.format(req='{value: 0.002, unit: "mL", of: {value: 0.01, unit: "mL"}}'))
+    assert rc == 0 and "1 headroom slot(s) compared" in out
+
+
+def test_a_requirement_in_a_different_dimension_fails(tmp_path):
+    rc, out = run(tmp_path, SLOT.format(req='{value: 2.0, unit: "g", of: {value: 10, unit: "µL"}}'))
+    assert rc == 1 and "different dimensions" in out
+
+
+def test_a_requirement_no_operand_provides_is_reported_not_failed(tmp_path):
+    body = SLOT.format(req='{value: 2.0, unit: "µL", of: {value: 10, unit: "µL"}}').replace(
+        "operands: [host]", "operands: [elsewhere]")
+    rc, out = run(tmp_path, body)
+    assert rc == 0 and "no operand provides one that is typed" in out

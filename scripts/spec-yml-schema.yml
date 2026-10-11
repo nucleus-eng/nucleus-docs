@@ -709,6 +709,20 @@ properties:
             count them.
 
 $defs:
+  slot:
+    type: object
+    additionalProperties: false
+    required: [value, unit, of]
+    description: >
+      A RESERVED SLOT IN A PINNED TOTAL: `value` and `unit` are the capacity, `of` is the
+      total it is a share of, so 2.0 uL of 10 is `{value: 2.0, unit: "µL", of: {value: 10,
+      unit: "µL"}}`. It was the string "2.0 uL of 10", which cannot be added or compared.
+      check-step-quantities.py reads the units, and where a step `requires` a slot that
+      an operand `provides`, checks the share fits and the totals agree.
+    properties:
+      value: {type: number}
+      unit: {type: string}
+      of: {$ref: "#/$defs/quantity"}
   quantity:
     type: object
     additionalProperties: false
@@ -1087,12 +1101,12 @@ $defs:
           when it states a fact no single constituent page can state.
         properties:
           provides:
-            type: string
+            $ref: "#/$defs/slot"
             description: >
-              The capacity this module gives, e.g. "2.0 uL of 10". Named `provides`
+              The capacity this module gives, e.g. 2.0 uL of a 10 uL total. Named `provides`
               because the slot belongs to the module offering it, not to the process that fills it.
           requires:
-            type: string
+            $ref: "#/$defs/slot"
             description: >
               The capacity a module takes from a slot someone else provides.
               Reserved 2026-09-15, first used 2026-10-07 on ../../docs/modules/atc-sensor-cytosol,
@@ -1130,7 +1144,7 @@ $defs:
       # fraction x stock equals a stated final once both are in one unit, a lipid film's
       # mmol/mol finals sum to 1000, and every mixing step gives each operand an amount.
       #
-      # Quantities under `parameters`, `headroom`, `ratio` and `inputs[].range` are still
+      # Quantities under `parameters`, `ratio` and `inputs[].range` are still
       # strings, and nothing checks them.
       fractions:
         type: object

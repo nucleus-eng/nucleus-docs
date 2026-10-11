@@ -47,7 +47,7 @@ Seven checks. The first five fail the run. The last two report and do not fail.
              names nothing cannot be covered or compared, so the checks above pass it.
 
 WHAT THIS DOES NOT CHECK. `total_volume` is compared with nothing: on a converted step
-no other figure is a volume. Quantities still held as strings, under `parameters`, `headroom`, `ratio` and
+no other figure is a volume. Quantities still held as strings, under `parameters`, `ratio` and
 `inputs[].range`, are not read at all. The scope line at the end says how much was
 read, so a run over nothing cannot look like a clean run.
 
@@ -156,6 +156,64 @@ def corpus_index(files):
     return constituents, refined
 
 
+def slots(files):
+    """Module id -> the `headroom.provides` slot of the step that produces it."""
+    out = {}
+    for path in files:
+        with open(path, encoding="utf-8") as fh:
+            doc = yaml.safe_load(fh)
+        for step in (doc.get("process_steps") or []) if isinstance(doc, dict) else []:
+            prov = ((step or {}).get("headroom") or {}).get("provides")
+            mod = ((step or {}).get("produces") or {}).get("id")
+            if isinstance(prov, dict) and mod:
+                out[mod] = prov
+    return out
+
+
+def operand_module(operand, inputs):
+    """The module id an operand names: its own key, else the directory its input page is in."""
+    page = (inputs.get(operand) or {}).get("page") if isinstance(inputs.get(operand), dict) else None
+    return (page or "").rstrip("/").split("/")[-2] if page else operand
+
+
+def check_headroom(where, step, inputs, provided):
+    """(level, message) for a step that `requires` a slot, and 1 when one was compared.
+
+    A requirement is compared with the slot an operand provides: the share must fit and the
+    totals must agree. A requirement no operand provides is reported, not failed, because a
+    slot may be offered by a module whose source does not type it yet."""
+    req = ((step.get("headroom") or {}).get("requires"))
+    if not isinstance(req, dict):
+        return [], 0
+    for op in step.get("operands") or []:
+        slot = provided.get(operand_module(op, inputs))
+        if not slot:
+            continue
+        ru, rwhy = parse_unit(req["unit"])
+        pu, pwhy = parse_unit(slot["unit"])
+        ro, po = req["of"], slot["of"]
+        rou, _ = parse_unit(ro["unit"])
+        pou, _ = parse_unit(po["unit"])
+        if None in (ru, pu, rou, pou):
+            return [], 0     # UNITS reports it
+        mine = UREG.Quantity(req["value"], ru)
+        theirs = UREG.Quantity(slot["value"], pu)
+        if mine.dimensionality != theirs.dimensionality:
+            return [("fail", f"{where}: requires {req['value']:g} {req['unit']} of a slot that "
+                             f"{op} provides in {slot['unit']}, which are different dimensions")], 1
+        out = []
+        tot_r, tot_p = UREG.Quantity(ro["value"], rou), UREG.Quantity(po["value"], pou)
+        if tot_r.dimensionality != tot_p.dimensionality or abs(
+                tot_r.to(tot_p.units).magnitude - tot_p.magnitude) > TOLERANCE * max(abs(tot_p.magnitude), 1e-9):
+            out.append(("fail", f"{where}: requires a slot in a total of {ro['value']:g} {ro['unit']} "
+                                f"and {op} provides one in {po['value']:g} {po['unit']}"))
+        if mine.to(theirs.units).magnitude > theirs.magnitude * (1 + TOLERANCE):
+            out.append(("fail", f"{where}: requires {req['value']:g} {req['unit']} and {op} "
+                                f"provides {slot['value']:g} {slot['unit']}"))
+        return out, 1
+    return [("warn", f"{where}: requires a headroom slot and no operand provides one that is typed")], 0
+
+
 def check_step(where, step, inputs, constituents):
     """Every (level, message) for one step, and the number of rows compared."""
     finals = step.get("finals") or {}
@@ -246,6 +304,8 @@ def main():
     # THE INDEX READS THE WHOLE CORPUS EVEN WHEN FILES ARE NAMED. An operand's
     # constituents live in its own source, which is rarely among the files named.
     constituents, refined = corpus_index(sorted(glob.glob(pattern, recursive=True)) or files)
+    provided = slots(sorted(set(glob.glob(pattern, recursive=True)) | set(files)))
+    slots_compared = 0
     fails = steps = stating = compared = units = unstated = 0
     for path in files:
         with open(path, encoding="utf-8") as fh:
@@ -270,6 +330,9 @@ def main():
             where = f"{slug}/{step.get('id')}" + (" (class step)" if doc.get("module") in refined else "")
             out, n = check_step(where, step, inputs, constituents)
             compared += n
+            hout, hn = check_headroom(where, step, inputs, provided)
+            slots_compared += hn
+            out = out + hout
             for level, msg in out:
                 fails += level == "fail"
                 print(f"{ICON[level]} {msg}")
@@ -278,7 +341,8 @@ def main():
     print(f"\nsearched: {searched}")
     print(f"{len(files)} source(s), {units} unit(s) parsed, {steps} step(s), "
           f"{stating} stating a quantity, {compared} fraction x stock row(s) compared, "
-          f"{unstated} mixing step(s) with more than one operand stating no amount")
+          f"{unstated} mixing step(s) with more than one operand stating no amount, "
+          f"{slots_compared} headroom slot(s) compared")
     print("✅ no failing findings." if not fails else f"⛔️ {fails} failing finding(s).")
     return 1 if fails else 0
 

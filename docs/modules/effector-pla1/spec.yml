@@ -64,6 +64,7 @@ process_steps:
     fractions:
       optiprep: 0.05
     total_volume: {value: 20, unit: "µL"}
+    balance: base-cytosol   # at 1 fold it is the bulk; the DNA and the Optiprep are what is added to it
     notes: >
       Base Cytosol is at 1 fold, as the page states. Its own page states what it is
       made of; this step states only how much of it is here, which no constituent

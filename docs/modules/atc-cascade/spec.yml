@@ -119,6 +119,7 @@ process_steps:
       tetr: {value: 50, unit: "nM", note: "headline condition; also tested at 100 nM"}
       effector-pla1-teto: {value: 1, unit: "nM", note: "headline condition; also tested at 0.5 nM"}
     total_volume: {value: 25, unit: "µL"}
+    balance: base-cytosol   # at reaction concentration it is the bulk; the other three are added to it
 
   - id: encapsulate
     process:

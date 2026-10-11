@@ -46,7 +46,7 @@ process_steps:
       title: "SensorCytosol[aTc ⟶ PLA1]"
       page: ../atc-sensor-cytosol/spec.md
     headroom:
-      requires: "2.0 uL of 10"
+      requires: {value: 2.0, unit: "µL", of: {value: 10, unit: "µL"}}
       notes: >
         The slot is ../base-cytosol/spec.yml's `headroom.provides`, and this step
         is what spends it. Declared 2026-10-07 under R10, which had reserved the key

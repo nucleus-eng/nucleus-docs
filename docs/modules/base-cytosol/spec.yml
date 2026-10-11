@@ -76,7 +76,7 @@ process_steps:
       title: "Base Cytosol"
       page: ../base-cytosol/spec.md
     headroom:
-      provides: "2.0 uL of 10"
+      provides: {value: 2.0, unit: "µL", of: {value: 10, unit: "µL"}}
       balance: "Nuclease Free Water, 2.0 - X"
       notes: >
         Water is the unit. Filling the slot with water alone leaves every other

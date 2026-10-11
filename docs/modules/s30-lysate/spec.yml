@@ -67,7 +67,7 @@ process_steps:
       title: "S30 Lysate"
       page: ../s30-lysate/spec.md
     headroom:
-      provides: "3.75 uL of 25"
+      provides: {value: 3.75, unit: "µL", of: {value: 25, unit: "µL"}}
       balance: "Nuclease-free water, to 25"
       notes: >
         The four kit and inhibitor volumes come to 21.25 uL and water makes the
