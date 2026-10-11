@@ -281,7 +281,16 @@ def check_step(where, step, inputs, constituents):
     else:
         out.append(("ok", f"{where}: {len(fractions)} fraction(s) summing {total:.5f}"
                     + (f", balance {balance}" if balance else "")))
-        if balance is None and total < 1 - 0.0005 and "water" not in operands:
+        done_by = step.get("completed_by") or []
+        for c in done_by:
+            if c in operands:
+                out.append(("fail", f"{where}: completed_by names {c}, which is an operand of this step"))
+            elif not os.path.exists(os.path.join(REPO, "docs", "modules", c, "spec.md")):
+                out.append(("fail", f"{where}: completed_by names {c}, which is not a module under docs/modules/"))
+        if done_by and balance is None and total < 1 - 0.0005 and "water" not in operands:
+            out.append(("note", f"{where}: the fractions leave {1 - total:.5f}, completed by "
+                                f"{', '.join(done_by)}"))
+        elif balance is None and total < 1 - 0.0005 and "water" not in operands:
             out.append(("warn", f"{where}: the fractions leave {1 - total:.5f}, and the "
                         f"default balance, water, is not an operand — name the balance "
                         f"or give the other operands fractions"))

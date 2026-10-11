@@ -1186,6 +1186,18 @@ $defs:
           converted step is a volume and none can be compared with this one. It stays
           optional, as a record of the scale a source was run at.
 
+      completed_by:
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items: {type: string, pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"}
+        description: >
+          WHAT FINISHES THE STEP, WHERE THE REMAINDER IS NOT WATER AND NOT AN OPERAND. A
+          reaction made up to its total by an analyte added later leaves a share that no
+          operand takes, and `balance` cannot name it because `balance` names an operand.
+          Each entry is the directory of a module under docs/modules/, and none is an
+          operand of this step. check-step-quantities.py then reads the remainder as
+          accounted for rather than reporting it.
       balance:
         type: string
         description: >

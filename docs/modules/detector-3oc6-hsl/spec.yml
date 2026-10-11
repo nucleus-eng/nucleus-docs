@@ -60,6 +60,7 @@ process_steps:
     # THE KEYS ARE NOT OPERANDS and that is deliberate -- see `notes`. They are
     # constituents of ../s30-lysate/spec.md, repeated because `rnase-inhibitor`
     # disagrees with that page at 800 against 2000 U/mL.
+    completed_by: [analyte-3oc6-hsl]   # the 0.16 left is the analyte slot, and the page's water
     fractions:
       s30-premix: 0.40
       s30-extract: 0.30

@@ -71,6 +71,7 @@ process_steps:
     #
     # `laco-plamgfp-dna` GETS A STOCK AND A FRACTION AND NO FINAL. 0.05 x 10 nM is
     # 0.5 nM and no page states it, so it is not written.
+    completed_by: [analyte-iptg]   # the 0.15 left is what the analyte completes to 10 uL
     fractions:
       purexpress-solution-a: 0.40
       purexpress-solution-b: 0.30

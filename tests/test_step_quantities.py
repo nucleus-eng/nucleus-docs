@@ -353,3 +353,36 @@ def test_a_requirement_no_operand_provides_is_reported_not_failed(tmp_path):
         "operands: [host]", "operands: [elsewhere]")
     rc, out = run(tmp_path, body)
     assert rc == 0 and "no operand provides one that is typed" in out
+
+
+# ---- completed_by ------------------------------------------------------------------
+
+LEAVES = """
+    module: m
+    process_steps:
+      - id: s
+        operator: mixing
+        operands: [a, b]
+        fractions: {{a: 0.4, b: 0.4}}
+        {extra}
+"""
+
+
+def test_a_remainder_with_no_balance_is_reported(tmp_path):
+    rc, out = run(tmp_path, LEAVES.format(extra=""))
+    assert rc == 0 and "the default balance, water, is not an operand" in out
+
+
+def test_a_remainder_completed_by_a_module_is_accounted_for(tmp_path):
+    rc, out = run(tmp_path, LEAVES.format(extra="completed_by: [analyte-iptg]"))
+    assert rc == 0 and "completed by analyte-iptg" in out and "the default balance" not in out
+
+
+def test_completed_by_naming_an_operand_fails(tmp_path):
+    rc, out = run(tmp_path, LEAVES.format(extra="completed_by: [a]"))
+    assert rc == 1 and "which is an operand of this step" in out
+
+
+def test_completed_by_naming_nothing_fails(tmp_path):
+    rc, out = run(tmp_path, LEAVES.format(extra="completed_by: [not-a-module]"))
+    assert rc == 1 and "is not a module under docs/modules/" in out
