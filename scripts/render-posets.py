@@ -274,15 +274,10 @@ def emit_orders(path: pathlib.Path) -> str:
     S = sources()
     p1 = parents_all(S)
     p2 = {}
-    for m, d in S.items():
-        for s in d.get("process_steps") or []:
-            pr = s.get("process") or {}
-            if not (ab := pr.get("abstract")):
-                continue
-            page = pr.get("page") or ""
-            child = re.sub(r"/[^/]+$", "", page).rsplit("/", 1)[-1] if page else None
-            if child:
-                p2[child] = ab
+    for f in sorted((pathlib.Path(__file__).resolve().parent.parent / "docs" / "processes").glob("*/spec.yml")):
+        parent = (yaml.safe_load(f.read_text(encoding="utf-8")) or {}).get("refines")
+        if parent:
+            p2[f.parent.name] = [parent] if isinstance(parent, str) else list(parent)
     p3 = collections.defaultdict(set)
     p4 = {}
     for m, d in S.items():
@@ -306,9 +301,9 @@ def emit_orders(path: pathlib.Path) -> str:
                 "from": "refines:", "relation": "child refines parent",
                 "edges": {k: sorted(v) for k, v in sorted(p1.items())}},
             "process_refinement": {
-                "from": "process_steps[].process.abstract",
+                "from": "docs/processes/*/spec.yml refines:",
                 "relation": "child is an instance of parent",
-                "edges": {k: [v] for k, v in sorted(p2.items())}},
+                "edges": {k: v for k, v in sorted(p2.items())}},
             "module_containment": {
                 "from": "inputs[].page",
                 "relation": "module is built FROM constituent; NOT refinement",

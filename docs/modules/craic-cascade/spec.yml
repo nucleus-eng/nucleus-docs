@@ -67,7 +67,6 @@ process_steps:
     process:
       title: "Expression"
       page: ../../processes/express/main.md
-      abstract: assemble-solution
     operator: mixing
     operands: [base-cytosol, esar-dna]
     produces:

@@ -222,7 +222,7 @@ orders:
       xyle-protein:
       - protein
   process_refinement:
-    from: process_steps[].process.abstract
+    from: 'docs/processes/*/spec.yml refines:'
     relation: child is an instance of parent
     edges:
       assemble-base-cell:
@@ -233,6 +233,10 @@ orders:
       - assemble-solution
       assemble-outer-solution:
       - assemble-solution
+      colorimetric-readout:
+      - assay
+      embed-ionic-crosslinking:
+      - embed-gel
       embed-photodevelopment:
       - embed-gel
       embed-thermal-setting:
@@ -242,7 +246,29 @@ orders:
       encapsulate-suv:
       - encapsulate
       express:
-      - assemble-solution
+      - make
+      make-1pot:
+      - make
+      make-36pot:
+      - make
+      make-amino-acid-mix:
+      - make
+      make-protein:
+      - make
+      make-ribosomes:
+      - make
+      make-small-molecule-mix:
+      - make
+      make-trna:
+      - make
+      microscopy-readout:
+      - assay
+      osmometry-readout:
+      - assay
+      pierce660:
+      - assay
+      protein-gel:
+      - assay
   module_containment:
     from: inputs[].page
     relation: module is built FROM constituent; NOT refinement
