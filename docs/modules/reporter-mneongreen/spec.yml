@@ -33,6 +33,11 @@ refines:
   # Being the second member is what let `fluorophore` be written at all: a class with
   # one member is a rule nobody has tested.
 
+# The protein's own maxima, stated on its page: excites at 506 nm and emits at 517 nm.
+parameters:
+  excitation_peak: 506
+  emission_peak: 517
+
 inputs:
   base-cytosol:
     title: "Base Cytosol"

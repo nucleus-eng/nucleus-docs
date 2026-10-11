@@ -41,6 +41,8 @@ A member excited in its own band emits in another, and a reader that collects th
 
 # Requirements
 
+Every member requires a fluorescence read over its own bands: `observe_fluorescence`, with an excitation interval and an emission interval. Each interval is the member's peak with a bandwidth of 20 nm, written as a filter is, so 506/20 nm is 496 nm to 516 nm. A reader meets the requirement when its band contains the interval. Each member states its excitation and emission peaks, and so far only [mNeonGreen Reporter](../reporter-mneongreen/spec.md) does: 506 nm and 517 nm. The other four members' pages give read settings and channels, which are not peaks.
+
 A member used to tell two things apart requires that nothing else in the sample emits in its band. Where something does, the channel reports both and separates neither.
 
 # Credits

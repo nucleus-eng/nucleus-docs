@@ -244,13 +244,57 @@ properties:
             way. A bare name is met by any provider of that operation; a bracketed one
             only by a provider with the same bracket. Absence of a provider is reported
             by scripts/collate-conditions.py and never failed.
-          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
+          pattern: "^[a-z0-9]+([-_][a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
         why:
           type: string
         page:
           type: [string, "null"]
         bound:
           $ref: "#/$defs/bound"
+        optional:
+          type: boolean
+          description: >
+            TRUE WHEN THE CONDITION APPLIES ONLY IF THE THING IT IS ABOUT IS PRESENT. An
+            optional component of a Module does not make an observation a condition of
+            that Module. Absent means the condition is not optional. Mirrors `optional:`
+            on an input and on a step. Nothing in the corpus uses it yet: the one case
+            that wants it, a membrane dye, refines a class and `requires` is class-only,
+            so a member cannot override its class's entry.
+        parameters:
+          type: object
+          description: >
+            THE PARAMETERS OF THE OPERATION THIS ENTRY NAMES, BY THE SIGNATURE'S NAMES,
+            written as keys and not in the id's bracket. `observe_fluorescence` takes
+            `ex` and `em`, each an `Interval[nm]`; `observe_absorbance` takes `lambda`,
+            spelled in ASCII. THE ID STAYS A BARE NAME. Each value is either a literal
+            interval, `{low, high, unit}`, or a peak taken from each member of the class,
+            `{peak, bandwidth, unit}`, where `peak` names one of the class's
+            `member_properties` keys and the interval is the peak plus and minus half the
+            bandwidth. `X/Y nm`, as `485/20` is written for a filter, is peak X and
+            bandwidth Y; the default bandwidth for a chromophore is 20 nm. INTERVALS ARE
+            CLOSED, so `low` must not exceed `high`, and a one-sided range, such as a
+            long-pass filter, cannot be written until one is needed. `unit` is any length
+            unit pint reads; two intervals are compared after conversion. A requirement
+            is MET BY CONTAINMENT: a provider's band must contain the interval asked for.
+            Nothing compares them yet; a report is the plan, not a gate.
+          propertyNames:
+            pattern: "^[a-z0-9_]+$"
+          additionalProperties:
+            oneOf:
+              - type: object
+                additionalProperties: false
+                required: [low, high, unit]
+                properties:
+                  low: {type: number}
+                  high: {type: number}
+                  unit: {type: string}
+              - type: object
+                additionalProperties: false
+                required: [peak, bandwidth, unit]
+                properties:
+                  peak: {type: string, pattern: "^[a-z0-9_]+$"}
+                  bandwidth: {type: number, exclusiveMinimum: 0}
+                  unit: {type: string}
   provides:
     type: [array, "null"]
     description: >
@@ -346,7 +390,7 @@ properties:
             files, `σ70` in 1, and `sigma70` in exactly one place, which was this id.
             The pattern refuses `σ70`, deliberately, so the two can never converge by
             accident.
-          pattern: "^[a-z0-9]+(-[a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
+          pattern: "^[a-z0-9]+([-_][a-z0-9]+)*(\\[[A-Za-z0-9]+(,[A-Za-z0-9]+)*\\])?$"
         why:
           type: string
         basis:
@@ -537,6 +581,19 @@ properties:
           description: >
             The Node that supplies or maintains it. 1 of 196 inputs at `d611bda`,
             unchanged since it was 1 of 90. A key the corpus has decided not to use.
+  parameters:
+    type: object
+    description: >
+      QUANTITIES THIS MODULE STATES ABOUT ITSELF, for a module with no step to carry
+      them. A class's `member_properties` names a quantity and each member states its
+      value; until 2026-10-10 that value could only sit in a step's `parameters:`, which
+      a leaf with no steps, such as a fluorescent protein, does not have. A step's
+      `parameters:` is unchanged, and a value stated in a step wins over one stated
+      here. Keys are the names `member_properties` uses.
+    propertyNames:
+      pattern: "^[a-z0-9_]+$"
+    additionalProperties:
+      type: [number, string]
   member_properties:
     type: [array, "null"]
     description: >

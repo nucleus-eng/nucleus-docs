@@ -24,18 +24,46 @@ module: fluorophore
 title: "Fluorophore"
 refines: chromophore
 
+# EACH MEMBER STATES ITS TWO PEAKS, in its own `parameters:`, and the requirement below
+# is read over them. The class names the quantities and the members state the values, so
+# no figure is written twice.
+member_properties:
+  - keys: [excitation_peak]
+    title: "Excitation peak"
+    unit: nm
+    why: >
+      Where the member absorbs most strongly, which is what a reader has to excite.
+  - keys: [emission_peak]
+    title: "Emission peak"
+    unit: nm
+    why: >
+      Where the member emits most strongly, which is what a reader has to collect.
+
+# A FLUOROPHORE IS SEEN BY A FLUORESCENCE READ, over its own bands. The parameters are
+# the member's peaks, each with the default 20 nm bandwidth for a chromophore, written
+# as a filter is: 506/20 is 496 nm to 516 nm. A reader meets this by containment: its
+# declared band has to contain the interval asked for.
+requires:
+  - id: observe_fluorescence
+    parameters:
+      ex: {peak: excitation_peak, bandwidth: 20, unit: nm}
+      em: {peak: emission_peak, bandwidth: 20, unit: nm}
+    why: >
+      A fluorophore absorbs and then emits, so observing it means exciting it and
+      collecting what it emits. Both bands are the member's own.
+
 inputs: {}
 
 process_steps: []
 
 open:
-  - id: no-member-states-its-two-wavelengths
+  - id: four-members-state-no-peaks
     question: >
-      The class is grounded on the gap between excitation and emission and not one
-      member records both figures in its source. They exist in prose on the pages that
-      use them -- 480/520 and 540/580 on ../dye-liposomes -- which is the wrong place
-      for a property of the dye. A `wavelengths` key is the obvious shape and it is not
-      written, because the first thing that would read it does not exist either.
+      The class now makes every member state `excitation_peak` and `emission_peak`, and
+      one of five does: `reporter-mneongreen`. The other four report as missing the
+      figures. Their pages give read settings and channels, not peaks -- 540 nm and
+      580 nm for the rhodamine lipid on ../dye-liposomes, a 488 nm channel for deGFP --
+      and a setting is not a peak, so none is copied across.
   - id: the-channel-constraint-has-no-carrier
     question: >
       Two members whose bands overlap cannot be told apart in one sample, which is a

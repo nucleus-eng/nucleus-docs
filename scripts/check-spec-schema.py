@@ -61,6 +61,51 @@ def _class_names():
     return _CLASS_NAMES
 
 
+def _length_unit_problem(unit):
+    """Why `unit` is not a length unit pint can read, or None. Skipped without pint."""
+    try:
+        import pint
+    except ImportError:
+        return None
+    try:
+        q = pint.UnitRegistry().Quantity(1, unit)
+    except Exception:
+        return f'"{unit}" is not a unit pint can read'
+    if not q.check("[length]"):
+        return f'"{unit}" is not a length unit'
+    return None
+
+
+def requires_parameter_findings(doc):
+    """What the schema cannot say about a `requires:` entry's `parameters:`.
+
+    A literal interval has its low end at or below its high end. A peak names one of
+    this class's `member_properties` keys, so a class cannot ask for a quantity it
+    does not make its members state. Every unit is a length unit.
+    """
+    out = []
+    keys = {k for prop in (doc.get("member_properties") or []) for k in (prop.get("keys") or [])}
+    for entry in (doc.get("requires") or []):
+        eid = entry.get("id", "<no id>")
+        for name, val in (entry.get("parameters") or {}).items():
+            where = f"requires/{eid}/parameters/{name}"
+            if not isinstance(val, dict):
+                continue
+            problem = _length_unit_problem(val["unit"]) if isinstance(val.get("unit"), str) else None
+            if problem:
+                out.append(("requires-parameter-unit", where, problem))
+            if "low" in val and "high" in val:
+                if _is_number(val["low"]) and _is_number(val["high"]) and val["low"] > val["high"]:
+                    out.append(("requires-parameter-interval", where,
+                                f'low is {val["low"]} and high is {val["high"]}: an interval '
+                                f'is closed and its low end must not exceed its high end'))
+            if "peak" in val and val["peak"] not in keys:
+                out.append(("requires-parameter-peak", where,
+                            f'peak "{val["peak"]}" is not one of this module\'s '
+                            f'`member_properties` keys, so no member is asked to state it'))
+    return out
+
+
 def reference_findings(path, doc):
     """What the schema cannot say."""
     out = []
@@ -114,6 +159,8 @@ def reference_findings(path, doc):
         out.append(("requires-on-a-non-class", "requires",
                     f'"{doc.get("module")}" is a class-only key and no source refines '
                     f'this module'))
+
+    out.extend(requires_parameter_findings(doc))
 
     known = set((doc.get("inputs") or {}).keys())
     for i, s in enumerate(doc.get("process_steps") or []):
@@ -338,13 +385,17 @@ def member_property_findings(docs):
                     for k, v in (st.get("parameters") or {}).items():
                         if v is not None:
                             values.setdefault(k, v)
+                # A leaf with no step states its own quantities here. A step wins.
+                for k, v in (by_name[source][1].get("parameters") or {}).items():
+                    if v is not None:
+                        values.setdefault(k, v)
             for prop in declared:
                 keys = prop.get("keys") or []
                 missing = [k for k in keys if k not in values]
                 for k in missing:
                     out.append((path, "member-property", f"parameters/{k}",
                                 f"{m} refines {cls}, which requires {k}; "
-                                f"no step states it."))
+                                f"no step or module `parameters:` states it."))
                 if len(keys) == 2 and not missing:
                     lo, hi = values[keys[0]], values[keys[1]]
                     if _is_number(lo) and _is_number(hi) and lo > hi:
