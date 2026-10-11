@@ -13,7 +13,7 @@ site:
 **Position.** Refines [Cascade](../cascade/spec.md). Refined by nothing on this branch.
 <!-- /gen:position -->
 
-A sensing cascade that detects 3OC6-HSL in S30 lysate and reports fluorescence. LuxR binds the analyte and relieves repression of deGFP, which a spectrometer reads under a UV lamp.
+A sensing cascade that detects 3OC6-HSL in S30 lysate and reports fluorescence. LuxR binds the analyte and derepresses mNeonGreen, whose green fluorescence is observed.
 
 [CRAIC](../craic-cascade/spec.md) senses the same analyte in [Base Cytosol](../base-cytosol/spec.md) and reports color through LacZ and CPRG.
 
@@ -32,7 +32,7 @@ This page is a work in progress and not yet ready for use.
 flowchart TD
     S30_LYSATE["Cytosol: S30 Lysate"]
     DETECTOR_3OC6_HSL["Detector: 3OC6-HSL (LuxR)"]
-    REPORTER_DEGFP["Reporter: deGFP"]
+    REPORTER_MNEONGREEN["Reporter: mNeonGreen"]
     MEMBRANE_POPC["Membrane: POPC"]
     OUTER_SOLUTION_GLUTAMATE["Outer Solution: Glutamate-HEPES-Glucose"]
     ULGA_POWDER["ULGA powder"]
@@ -47,7 +47,7 @@ flowchart TD
     LUXR_GFP_CASCADE["LuxR-GFP Sensor Cascade"]
 
     DETECTOR_3OC6_HSL --> P1_ASSEMBLE_PLASMID_0
-    REPORTER_DEGFP --> P1_ASSEMBLE_PLASMID_0
+    REPORTER_MNEONGREEN --> P1_ASSEMBLE_PLASMID_0
     P1_ASSEMBLE_PLASMID_0 --> LUXR_GFP_PLASMID
 
     S30_LYSATE --> P2_ASSEMBLE_CYTOSOL_0
@@ -67,13 +67,13 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class S30_LYSATE,DETECTOR_3OC6_HSL,REPORTER_DEGFP,MEMBRANE_POPC,OUTER_SOLUTION_GLUTAMATE,ULGA_POWDER leaf;
+    class S30_LYSATE,DETECTOR_3OC6_HSL,REPORTER_MNEONGREEN,MEMBRANE_POPC,OUTER_SOLUTION_GLUTAMATE,ULGA_POWDER leaf;
     class LUXR_GFP_PLASMID,LUXR_GFP_SENSOR_CYTOSOL,LUXR_GFP_SENSING_CELL,LUXR_GFP_CASCADE composed;
     class P1_ASSEMBLE_PLASMID_0,P2_ASSEMBLE_CYTOSOL_0,P3_ENCAPSULATE_0,P4_EMBED_ULGA_0 process;
 
     click S30_LYSATE "/docs/modules/s30-lysate/spec"
     click DETECTOR_3OC6_HSL "/docs/modules/detector-3oc6-hsl/spec"
-    click REPORTER_DEGFP "/docs/modules/reporter-degfp/spec"
+    click REPORTER_MNEONGREEN "/docs/modules/reporter-mneongreen/spec"
     click MEMBRANE_POPC "/docs/modules/membrane-popc/spec"
     click OUTER_SOLUTION_GLUTAMATE "/docs/modules/outer-solution-glutamate/spec"
     click ULGA_POWDER "/docs/modules/gel-ulga/spec"
@@ -95,7 +95,7 @@ flowchart TD
 | --- | --- |
 | [Cytosol: S30 Lysate](../s30-lysate/spec.md) | Transcription and translation. Sigma-70, which this construct needs |
 | [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md) | Binds the analyte and activates `pLux` |
-| [Reporter: deGFP](../reporter-degfp/spec.md) | The payload `pLux` drives |
+| [Reporter: mNeonGreen](../reporter-mneongreen/spec.md) | The payload `pLux` drives |
 | [Membrane: POPC](../membrane-popc/spec.md) | Closes the cytosol in one encapsulation step |
 | [Outer Solution: Glutamate-HEPES-Glucose](../outer-solution-glutamate/spec.md) | The phase the cell is formed into |
 | [Gel: ULGA](../gel-ulga/spec.md) | Holds the cells. The board marks it `2x` against an unstated reference |
@@ -105,13 +105,12 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{table} Both forms exist in `nucleus-eng/DNA`. Which one this cascade ran is not recorded — see the note.
+:::{table} The construct for this cascade is not yet in `nucleus-eng/DNA`.
 :label: comp-luxr-gfp-cascade-dna
 
 | **Name** | **Length (bp)** | **File** | **Supply route** |
 | --- | --- | --- | --- |
-| `LuxR-deGFP-linear` | 1952 | [LuxR-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/LuxR-deGFP-linear.gb) | The linear cassette. One molecule: constitutive `BBa_J23101` driving `luxR`, plus `pLux` driving deGFP |
-| `pOpen-LuxR-deGFP` | 3890 | [pOpen-LuxR-deGFP.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/reporters/detector-3oc6-hsl/pOpen-LuxR-deGFP.gb) | The same cassette in the pOpen backbone, with `ori` and `AmpR` |
+| `LuxR-mNeonGreen` | not recorded | — | A circular plasmid, which S30 Lysate needs because it degrades linear DNA. It is on the shared Drive as `luxr-mneongreen.gb` and is not yet in `nucleus-eng/DNA`. @Editor(london): confirm the sequence, so it can be filed there. |
 | LuxR receiver | not documented | — | Not supplied separately. It is on the molecule above, under a constitutive promoter |
 :::
 
@@ -139,7 +138,7 @@ The sensing cell interior, one level deep.
 | Component | Working concentration | Notes |
 | --- | --- | --- |
 | [Cytosol: S30 Lysate](../s30-lysate/spec.md) | At reaction concentration | Not separately documented for this cascade |
-| `LuxR-deGFP` plasmid | 40 ng/µL final, from a 1056 ng/µL stock — 0.95 µL per reaction | Carries both the receiver and the payload. See the DNA tab for the disagreement with 37 ng/µL |
+| `LuxR-mNeonGreen` plasmid | 40 ng/µL final | Carries both the receiver and the payload. @Editor(london): confirm the plasmid stock concentration. |
 :::
 
 ::::
@@ -160,11 +159,11 @@ The sensing cell interior, one level deep.
 
 # Expected Behavior
 
-3OC6-HSL crosses the membrane, LuxR binds it, and deGFP is expressed. The readout is fluorescence rather than a color change.
+3OC6-HSL crosses the membrane, LuxR binds it, and mNeonGreen is expressed. The readout is fluorescence rather than a color change.
 
 # Requirements
 
-Requires a spectrometer reading of deGFP fluorescence under a UV lamp.
+Requires observing green fluorescence, which can be done by plate reader, by microscopy, or visually under a UV lamp.
 
 :::{attention} No process page documents the reading
 @Editor: add a process page for the spectrometer reading under a UV lamp and link it here. The reading is not yet a step in the composition above.

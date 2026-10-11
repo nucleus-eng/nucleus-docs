@@ -28,9 +28,9 @@ inputs:
   detector-3oc6-hsl:
     title: "Detector: 3OC6-HSL (LuxR)"
     page: ../detector-3oc6-hsl/spec.md
-  reporter-degfp:
-    title: "Reporter: deGFP"
-    page: ../reporter-degfp/spec.md
+  reporter-mneongreen:
+    title: "Reporter: mNeonGreen"
+    page: ../reporter-mneongreen/spec.md
   membrane-popc:
     title: "Membrane: POPC"
     page: ../membrane-popc/spec.md
@@ -49,7 +49,7 @@ process_steps:
       page: null
       abstract: assemble-solution
     operator: mixing
-    operands: [detector-3oc6-hsl, reporter-degfp]
+    operands: [detector-3oc6-hsl, reporter-mneongreen]
     produces:
       id: luxr-gfp-plasmid
       title: "Plasmid"

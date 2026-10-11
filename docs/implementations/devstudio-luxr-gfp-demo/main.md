@@ -12,7 +12,7 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
-The LuxR-GFP Demo detects a bacterial quorum-sensing signal and reports it as fluorescence from inside a gel. Synthetic cells built on [Cytosol: S30 Lysate](../../modules/s30-lysate/spec.md) carry a LuxR/pLux circuit. 3OC6-HSL released by bacteria outside the gel crosses the membrane, LuxR binds it, and the cells express [Reporter: deGFP](../../modules/reporter-degfp/spec.md).
+The LuxR-GFP Demo detects a bacterial quorum-sensing signal and reports it as fluorescence from inside a gel. Synthetic cells built on [Cytosol: S30 Lysate](../../modules/s30-lysate/spec.md) carry a LuxR/pLux circuit. 3OC6-HSL released by bacteria outside the gel crosses the membrane, LuxR binds it, and the cells express [Reporter: mNeonGreen](../../modules/reporter-mneongreen/spec.md).
 
 **The input is a living bacterial culture, not a dosed small molecule.** That makes this a bacteria-detection device rather than a chemical sensor, and it is what distinguishes it from the aTc and pH demos.
 
@@ -25,7 +25,7 @@ What the embedding step builds is [LuxR-GFP Sensor Cascade](../../modules/luxr-g
 | Cascade | [LuxR-GFP Sensor Cascade](../../modules/luxr-gfp-cascade/spec.md) | what the embedding step builds |
 | Cytosol | [Cytosol: S30 Lysate](../../modules/s30-lysate/spec.md) | inside the synthetic cells |
 | Detector | [Detector: 3OC6-HSL (LuxR)](../../modules/detector-3oc6-hsl/spec.md) | LuxR with its pLux promoter |
-| Reporter | [Reporter: deGFP](../../modules/reporter-degfp/spec.md) | the fluorescent output |
+| Reporter | [Reporter: mNeonGreen](../../modules/reporter-mneongreen/spec.md) | the fluorescent output |
 | Membrane | [Membrane: POPC](../../modules/membrane-popc/spec.md) | around the synthetic cells |
 | Chassis | [Cell: S30 Lysate, POPC](../../modules/cell-s30-popc/spec.md) | the empty chassis this builds on |
 | Outer solution | [Outer Solution: Glutamate-HEPES-Glucose](../../modules/outer-solution-glutamate/spec.md) | the phase the gel sets in |
@@ -39,7 +39,7 @@ What the embedding step builds is [LuxR-GFP Sensor Cascade](../../modules/luxr-g
 
 | Step | Process | In the demo |
 | --- | --- | --- |
-| 1 | Plasmid assemble | the LuxR and deGFP halves into one construct. **No Process page documents this step** |
+| 1 | Plasmid assemble | the LuxR and mNeonGreen halves into one construct. **No Process page documents this step** |
 | 2 | [Assemble Cytosol](../../processes/assemble-cytosol/assemble-cytosol-main.md) | the plasmid into S30 Lysate |
 | 3 | [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) | the synthetic cells |
 | 4 | [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) | ULGA at 10 mg/mL, set by cooling |
@@ -63,7 +63,7 @@ This is the readout furthest along of the four demos: it is the only one confirm
 :::
 
 :::{attention} No process documents the reading
-@Editor(london): the readout is a spectrometer reading of deGFP fluorescence under a UV lamp, and no Process page covers it.
+@Editor(london): the readout is observing green fluorescence, by plate reader, by microscopy or visually under a UV lamp, and no Process page covers it.
 :::
 
 # Credits
