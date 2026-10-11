@@ -222,8 +222,10 @@ orders:
       xyle-protein:
       - protein
   process_refinement:
-    from: 'docs/processes/*/spec.yml refines:'
-    relation: child is an instance of parent
+    from: docs/processes/*/spec.yml refines:, and docs/functions/*/function.yml processes[] refines and
+      processes[].routes[] key and refines
+    relation: child is an instance of parent; a Function is a Process a Module implements, so Functions
+      and process pages are one order
     edges:
       assemble-base-cell:
       - encapsulate
@@ -235,6 +237,18 @@ orders:
       - assemble-solution
       colorimetric-readout:
       - assay
+      degrade[ATP]:
+      - degrade
+      degrade[PPi]:
+      - degrade
+      degrade[Protein]:
+      - degrade
+      degrade[RNA]:
+      - degrade[NucleicAcid]
+      degrade[linearDNA]:
+      - degrade[NucleicAcid]
+      degrade[ssrA]:
+      - degrade
       embed-ionic-crosslinking:
       - embed-gel
       embed-photodevelopment:
@@ -269,6 +283,14 @@ orders:
       - assay
       protein-gel:
       - assay
+      regenerate[CP]:
+      - regenerate[rNTP]
+      regenerate[polyP]:
+      - regenerate[rNTP]
+      regenerate[rNTP]:
+      - regenerate
+      report_color:
+      - report
   module_containment:
     from: inputs[].page
     relation: module is built FROM constituent; NOT refinement
@@ -477,36 +499,12 @@ orders:
       - Promega E. coli S30 Extract System for Circular DNA, L1020
       s30-lysate::s30-premix:
       - Promega E. coli S30 Extract System for Circular DNA, L1020
-  function_refinement:
-    from: docs/functions/*/function.yml, operations[].routes[] with key and refines
-    relation: route refines its parent operation; each pair is stated or stem-implied in the signature,
-      which scripts/check-function-yml.py checks at the pin
-    edges:
-      degrade[ATP]:
-      - degrade
-      degrade[PPi]:
-      - degrade
-      degrade[Protein]:
-      - degrade
-      degrade[RNA]:
-      - degrade[NucleicAcid]
-      degrade[linearDNA]:
-      - degrade[NucleicAcid]
-      degrade[ssrA]:
-      - degrade
-      regenerate[CP]:
-      - regenerate[rNTP]
-      regenerate[polyP]:
-      - regenerate[rNTP]
-      regenerate[rNTP]:
-      - regenerate
-      report_color:
-      - report
 unreachable:
-- name: operation_poset
+- name: process_poset
   lives_in: compositional-biology-theory
-  why: transport is abstract and refined by passive_transport and active_transport; hold is refined by
-    encapsulate
+  why: the theory repo's one order of Processes, of which process_refinement above is the part this repo
+    can read. transport is abstract and refined by passive_transport and active_transport; hold is refined
+    by encapsulate
 - name: type_poset
   lives_in: compositional-biology-theory
   why: Container is refined by Gel and Membrane; Polymer by RNA, DNA and Protein. A parent, not a page

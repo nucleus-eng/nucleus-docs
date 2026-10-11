@@ -16,7 +16,7 @@ is not.
             subclass, and is not itself refined. A member the page leaves out on purpose
             is listed in that file with its reason. Reported and never failed, because a
             member list is prose and the author decides which side is wrong.
-  COVERAGE  The declared operations in the signature's Interface block are counted and
+  COVERAGE  The declared processes in the signature's Interface block are counted and
             compared with the hub's rows. A mismatch fails. Local only: CI has no
             checkout of compositional-biology-theory, and a commit there must not be
             able to turn a PR here red.
@@ -312,7 +312,7 @@ def main():
             print(f"ℹ️  COVERAGE not counted: {name} ({why})")
         ok = len(counted) == len(rows)
         fails += not ok
-        print(f"{'✅' if ok else '⛔️'} COVERAGE {len(counted)} declared operation(s) in "
+        print(f"{'✅' if ok else '⛔️'} COVERAGE {len(counted)} declared process(es) in "
               f"signature.md at {h} ({a.ref}), {len(rows)} row(s) in the hub"
               + ("" if ok else " — they must match; counts are compared, not names"))
 

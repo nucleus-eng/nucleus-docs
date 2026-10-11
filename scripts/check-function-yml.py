@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Check each docs/functions/<operation>/function.yml against the signature it pins.
+"""Check each docs/functions/<page>/function.yml against the signature it pins.
 
 Local only, like check-functions.py: it reads compositional-biology-theory at a commit, and
 a commit there must not be able to turn a PR here red.
 
 WHAT IS CHECKED, AND WHAT IS NOT. A function.yml holds the docs' own words and a few fields
 that the signature can confirm. Only the second kind is compared.
-  operation        must be a declared operation (or refinement) in the Interface block
+  process          must be a declared process (or refinement) in the Interface block
   routes[].key     must be declared there too, and `refines` must be the relation the
                    signature states ("refines X" in the profile) or the stem implies
                    (degrade[ssrA] has the stem degrade)
@@ -101,13 +101,13 @@ def states_refines(span, parent):
 
 
 def check_entry(entry, valid, sp, modules, where):
-    """Findings for one operation or route. `entry` has `key` or `operation`."""
+    """Findings for one process or route. `entry` has `key` or `process`."""
     out = []
-    name = entry.get("key") or entry.get("operation")
+    name = entry.get("key") or entry.get("process")
     if name is None:
-        return [("⛔️", f"{where}: no `key` or `operation`")]
+        return [("⛔️", f"{where}: no `key` or `process`")]
     if name not in valid:
-        out.append(("⛔️", f"{where}: `{name}` is not a declared operation in the signature"))
+        out.append(("⛔️", f"{where}: `{name}` is not a declared process in the signature"))
         return out
     parent = entry.get("refines")
     if parent:
@@ -166,10 +166,10 @@ def check_entry(entry, valid, sp, modules, where):
 def check_file(path, valid, sp, modules):
     data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     out, untaken = [], []
-    for op in data.get("operations") or []:
-        out += check_entry(op, valid, sp, modules, f"{path.parent.name} {op.get('operation')}")
+    for op in data.get("processes") or []:
+        out += check_entry(op, valid, sp, modules, f"{path.parent.name} {op.get('process')}")
         for r in op.get("routes") or []:
-            where = f"{path.parent.name} {op.get('operation')} route {r.get('id')}"
+            where = f"{path.parent.name} {op.get('process')} route {r.get('id')}"
             if "key" in r:
                 out += check_entry(r, valid, sp, modules, where)
             else:

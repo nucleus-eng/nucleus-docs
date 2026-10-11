@@ -1,8 +1,8 @@
 # What the Hold page says, as data. See ../transcribe/function.yml for the field marks.
-# The signature has no change line for this operation, so a reader treats its change as unknown, never zero.
+# The signature has no change line for this process, so a reader treats its change as unknown, never zero.
 signature_pin: a7c7a7a
-operations:
-  - operation: hold  # checked
+processes:
+  - process: hold  # checked
     refines: []                      # checked
     type: >                          # docs
       Hold takes a container and a thing, and returns the container with the thing inside it in a fixed relation.

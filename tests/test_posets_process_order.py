@@ -29,8 +29,21 @@ def declared():
 def test_every_declared_process_edge_is_in_the_published_order(tmp_path):
     rp.emit_orders(tmp_path / "p.yml")
     edges = yaml.safe_load((tmp_path / "p.yml").read_text(encoding="utf-8"))["orders"]["process_refinement"]["edges"]
-    assert edges == dict(sorted(declared().items()))
+    for child, parents in declared().items():
+        assert edges[child] == parents
     assert len(edges) >= 20
+
+
+def test_function_routes_sit_in_the_same_order_and_no_name_is_in_both(tmp_path):
+    rp.emit_orders(tmp_path / "p.yml")
+    doc = yaml.safe_load((tmp_path / "p.yml").read_text(encoding="utf-8"))["orders"]
+    assert "function_refinement" not in doc
+    edges = doc["process_refinement"]["edges"]
+    assert edges["degrade[ssrA]"] == ["degrade"] and edges["regenerate[CP]"] == ["regenerate[rNTP]"]
+    assert edges["express"] == ["make"]
+    pages = set(declared())
+    routes = {k for k in edges if k not in pages}
+    assert routes and not (routes & pages)
 
 
 def test_no_module_step_names_a_parent_its_process_does_not():

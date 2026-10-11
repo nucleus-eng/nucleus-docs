@@ -1,15 +1,15 @@
 ---
 title: Functions
-description: What Modules do. One page per operation, with every Module that performs it, the routes it takes, and what it consumes and produces.
+description: What Modules do. One page per Process that Modules implement, with every Module that implements it, the routes it takes, and what it consumes and produces.
 ---
 
 # Overview
 
-A Function page documents one operation that Modules perform, such as transcribing DNA. A Module page, listed under [Modules](../modules/modules-main.md), documents one thing. A Function page documents one operation across every Module that performs it: the routes the operation takes, what selects a route, and what the operation consumes and produces.
+A Function page documents one Process that Modules implement, such as transcribing DNA. A Module page, listed under [Modules](../modules/modules-main.md), documents one thing. A Function page documents one operation across every Module that performs it: the routes the operation takes, what selects a route, and what the operation consumes and produces.
 
 **Something a Module does, not something you do.** Encapsulating cells or reading a plate is a step you run at the bench, and it has a page under [Processes](../processes/processes-main.md). A Function is what a Module does once it is built: a cytosol transcribes, a pore lets cargo across, an enzyme breaks a membrane.
 
-**Every declared operation is listed here, with its page or the reason it has none.** A row with neither is a gap.
+**Every declared Process is listed here, with its page or the reason it has none.** A row with neither is a gap.
 
 # Functions
 

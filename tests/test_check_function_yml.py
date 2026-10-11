@@ -55,7 +55,7 @@ def run(tmp_path, doc, modules=("m1",)):
 
 
 def op(**kw):
-    return {"operations": [{"operation": "transcribe", **kw}]}
+    return {"processes": [{"process": "transcribe", **kw}]}
 
 
 def test_the_change_lines_are_read_in_both_forms():
@@ -82,25 +82,25 @@ def test_a_missing_species_fails(tmp_path):
     assert len(bad) == 1
 
 
-def test_an_unknown_operation_fails(tmp_path):
-    bad, _, _ = run(tmp_path, {"operations": [{"operation": "hydrolyse[PPi]"}]})
-    assert len(bad) == 1 and "not a declared operation" in bad[0]
+def test_an_unknown_process_fails(tmp_path):
+    bad, _, _ = run(tmp_path, {"processes": [{"process": "hydrolyse[PPi]"}]})
+    assert len(bad) == 1 and "not a declared process" in bad[0]
 
 
 def test_no_declared_change_is_unknown_and_never_zero(tmp_path):
-    bad, info, _ = run(tmp_path, {"operations": [{"operation": "degrade"}]})
+    bad, info, _ = run(tmp_path, {"processes": [{"process": "degrade"}]})
     assert bad == []
     assert any("UNKNOWN, not zero" in m for m in info)
 
 
 def test_species_stated_where_the_signature_has_none_fails(tmp_path):
-    bad, _, _ = run(tmp_path, {"operations": [{"operation": "degrade",
+    bad, _, _ = run(tmp_path, {"processes": [{"process": "degrade",
                                                "species": {"per_event": {"X": -1}}}]})
     assert len(bad) == 1 and "no change line" in bad[0]
 
 
 def route(**kw):
-    return {"operations": [{"operation": "degrade", "routes": [{"id": "r", **kw}]}]}
+    return {"processes": [{"process": "degrade", "routes": [{"id": "r", **kw}]}]}
 
 
 def test_a_refinement_by_the_stem_passes(tmp_path):
@@ -132,7 +132,7 @@ def test_a_module_that_does_not_exist_fails(tmp_path):
 
 
 def test_match_name_and_docs_group_are_listed_and_not_checked(tmp_path):
-    bad, _, untaken = run(tmp_path, {"operations": [{"operation": "transcribe", "routes": [
+    bad, _, untaken = run(tmp_path, {"processes": [{"process": "transcribe", "routes": [
         {"id": "T7", "match_name": "transcribe[pT7]", "docs_group": "g"}]}]})
     assert bad == []
     assert any("match_name" in u for u in untaken) and any("docs_group" in u for u in untaken)
@@ -166,24 +166,24 @@ def test_a_net_line_is_read():
 
 
 def test_species_that_sum_to_the_net_pass_and_others_fail(tmp_path):
-    good = {"operations": [{"operation": "regenerate[rNTP]", "net": {"per_event": 0}, "routes": [
+    good = {"processes": [{"process": "regenerate[rNTP]", "net": {"per_event": 0}, "routes": [
         {"id": "cp", "key": "regenerate[CP]", "refines": "regenerate[rNTP]",
          "species": {"per_event": {"CP": -1, "ADP": -1, "creatine": 1, "ATP": 1}}}]}]}
-    bad_route = {"operations": [{"operation": "regenerate[rNTP]", "routes": [
+    bad_route = {"processes": [{"process": "regenerate[rNTP]", "routes": [
         {"id": "cp", "key": "regenerate[CP]", "refines": "regenerate[rNTP]",
          "species": {"per_event": {"CP": -1, "ADP": -1, "ATP": 1}}}]}]}
-    bad_net = {"operations": [{"operation": "regenerate[rNTP]", "net": {"per_event": 1}}]}
+    bad_net = {"processes": [{"process": "regenerate[rNTP]", "net": {"per_event": 1}}]}
     assert run_net(tmp_path, good)[0] == []
     assert any("sum to -1" in m for m in run_net(tmp_path, bad_route)[0])
     assert any("net change differs" in m for m in run_net(tmp_path, bad_net)[0])
 
 
 def test_a_net_claim_where_the_signature_has_none_fails(tmp_path):
-    bad, _, _ = run_net(tmp_path, {"operations": [{"operation": "regenerate", "net": {"per_event": 0}}]})
+    bad, _, _ = run_net(tmp_path, {"processes": [{"process": "regenerate", "net": {"per_event": 0}}]})
     assert len(bad) == 1 and "no net line" in bad[0]
 
 
 def test_a_refinement_implied_by_an_underscore_stem_passes(tmp_path):
-    bad, _, _ = run(tmp_path, {"operations": [{"operation": "transport", "routes": [
+    bad, _, _ = run(tmp_path, {"processes": [{"process": "transport", "routes": [
         {"id": "r", "key": "passive_transport", "refines": "transport"}]}]})
     assert bad == []

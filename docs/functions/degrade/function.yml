@@ -1,14 +1,14 @@
 # What the Degrade page says, as data. See ../transcribe/function.yml for the field marks.
 # A route with no `species:` has no declared change: a reader treats that as unknown, never zero.
 signature_pin: a7c7a7a
-operations:
-  - operation: degrade  # checked
+processes:
+  - process: degrade  # checked
     refines: []                      # checked
     type: >                          # docs
       Takes the degrader and what it acts on, and returns the degrader unchanged, with the target broken down.
     routes:
       - id: protein-tag
-        key: "degrade[ssrA]"         # checked: a declared operation
+        key: "degrade[ssrA]"         # checked: a declared process
         refines: degrade             # checked: stated, or implied by the stem
         docs_group: protein          # docs only: a grouping the signature does not state
         realized_by: [control-clpxp]
@@ -17,7 +17,7 @@ operations:
         refines: degrade
         docs_group: protein
         reagent: proteinase K            # docs: the named instance, a reagent added in a process
-        process: degrade-exterior-lacz
+        added_in: degrade-exterior-lacz
         realized_by: [s30-lysate]        # the Module that implements it, as baseline activity of its extract
       - id: rna
         key: "degrade[RNA]"
