@@ -20,7 +20,7 @@
 
 module: membrane-pore-cx43
 title: "Membrane Pore: Cx43"
-type: pore
+type: Pore
 inputs:
   purexpress-solution-a:
     title: "NEB PURExpress Solution A"

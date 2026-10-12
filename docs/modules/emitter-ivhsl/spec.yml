@@ -17,8 +17,8 @@
 
 module: emitter-ivhsl
 title: "Emitter: IV-HSL"
-type: emitter
-refines: cytosol
+type: Emitter
+refines: Cytosol
   # ../cytosol IS THE COMPOSITION PARENT, as it is for ../control-clpxp. Its
   # operands are PURExpress Solutions A and B plus a template and two substrates, and it
   # expresses BjaI from that template, so it is a cell-free expression mix by

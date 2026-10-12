@@ -20,8 +20,7 @@
 
 module: reporter-degfp
 title: "deGFP Reporter"
-type: reporter
-refines: fluorophore
+type: Reporter
   # TWO PARENTS. `fluorophore` cuts across the tree: it is what the uv-exposure and
   # illumination sensitivities follow from, and it is shared with members of a
   # different branch. `refines:` takes a list, so nothing moved to make room.
@@ -103,6 +102,13 @@ measured_by:
       # See the open item below.
 
 open:
+  - id: fluorophore-is-not-a-type
+    question: >
+      This Module refined `fluorophore` until 2026-10-11, when `refines` began naming
+      types and none answered to it. The claim is real: deGFP fluoresces, and a
+      fluorophore is what the Reporter is made of rather than a kind of Reporter. No
+      type for it is declared anywhere, so the entry was dropped rather than invented
+      here.
   - id: peaks-are-egfp-equivalent
     question: >
       The peaks are eGFP's, 488 nm and about 509 nm, because deGFP is treated as

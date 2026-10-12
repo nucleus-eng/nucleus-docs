@@ -16,7 +16,7 @@
 
 module: membrane-popc-chol
 title: "Membrane: POPC/Chol (7:3)"
-type: membrane
+type: Membrane
 inputs:
   popc:
     title: "POPC"

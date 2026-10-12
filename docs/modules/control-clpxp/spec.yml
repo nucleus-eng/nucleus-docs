@@ -23,7 +23,7 @@
 
 module: control-clpxp
 title: "Control: ClpXP"
-type: control
+type: Control
 inputs:
   purexpress-solution-a:
     title: "NEB PURExpress Solution A"

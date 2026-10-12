@@ -19,8 +19,8 @@
 
 module: energy-ppk
 title: "Energy: PPK"
-type: energy
-refines: solution
+type: Energy
+refines: Solution
   # PLACED 2026-10-05. NOT a cytosol: it holds no expression machinery. Its operands are
   # solutes -- HEPES, potassium glutamate, rNTPs, tRNA, TCEP -- dissolved in one phase,
   # which is ../solution/spec.md exactly.

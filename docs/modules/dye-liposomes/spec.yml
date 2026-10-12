@@ -13,8 +13,8 @@
 module: dye-liposomes
 title: Dye Liposomes
 
-type: guv
-refines: liposome
+type: Vesicle[GUV]
+refines: Vesicle[liposome]
   # `liposome` is the material axis: a synthetic cell, a substrate vesicle and a dye
   # vesicle each refine liposomes, because each is built from lipids. Verified for this
   # Module: its membrane operand is a POPC bilayer. The size axis above and this one do
@@ -31,7 +31,7 @@ inputs:
     # implementation's choice -- the same reason `total_volume` is an Implementation
     # fact under R37 -- and an operand naming a class means any member satisfies it.
     # ../craic-cascade/spec.yml already did this; it was the only one.
-    type: outer-solution
+    type: Solution
   hpts:
     title: "HPTS dye solution"
     stock: {value: 4, unit: "mM"}

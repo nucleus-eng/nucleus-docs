@@ -17,7 +17,7 @@
 
 module: detector-tetr-atc
 title: "tetR-aTc Detector"
-type: repressor-detector
+type: Detector[repressor]
 inputs:
   base-cytosol:
     title: "Base Cytosol"

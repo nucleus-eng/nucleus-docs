@@ -16,7 +16,7 @@
 
 module: membrane-pore-ahly
 title: "Membrane Pore: alpha-hemolysin"
-type: pore
+type: Pore
 inputs:
   purexpress-solution-a:
     title: "NEB PURExpress Solution A"

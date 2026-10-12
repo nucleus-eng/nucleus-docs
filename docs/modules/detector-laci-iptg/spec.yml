@@ -22,7 +22,7 @@
 
 module: detector-laci-iptg
 title: "LacI/IPTG Detector"
-type: repressor-detector
+type: Detector[repressor]
 inputs:
   purexpress-solution-a:
     title: "NEB PURExpress Solution A"

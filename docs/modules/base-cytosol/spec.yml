@@ -9,7 +9,7 @@
 
 module: base-cytosol
 title: Base Cytosol
-type: cytosol
+type: Cytosol
 inputs:
   pmix:
     title: "Protein Mix (PMix)"

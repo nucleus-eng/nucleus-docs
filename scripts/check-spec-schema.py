@@ -53,17 +53,23 @@ def _order_nodes():
 
     A TYPE NEED NOT HAVE A PAGE, 2026-10-11. `container` is `Container`, `luv` is
     `Vesicle[LUV]`, and the gel classes are types with no directory at all. Resolving
-    `type` and `refines` against the filesystem was the old rule and it is wrong now:
-    the order is the authority. An absent order file degrades to accepting anything,
-    which is the same failure the filesystem check had when a page was simply missing.
+    `type` and `refines` against the filesystem was the old rule and it is wrong now.
+
+    THE AUTHORITY IS docs/type-order.yml, PUBLISHED FROM THE THEORY CORPUS, and not
+    docs/type-system.posets.yml. That file is generated from these sources' own
+    `refines:` keys, so checking a key against it is circular: a typo would invent its
+    own node and pass. Types are not derivable here, which is why they are imported.
+
+    An absent order file degrades to accepting anything, the same failure the
+    filesystem check had when a page was simply missing.
     """
     global _ORDER_CACHE
     if _ORDER_CACHE is None:
         nodes = set()
         try:
-            with open(os.path.join(REPO, "docs", "type-system.posets.yml")) as fh:
+            with open(os.path.join(REPO, "docs", "type-order.yml")) as fh:
                 edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("module_refinement", {}).get("edges") or {}
+                          .get("type_refinement", {}).get("edges") or {}
             for child, ps in edges.items():
                 nodes.add(str(child))
                 nodes.update(str(x) for x in (ps or []))
@@ -211,7 +217,7 @@ def reference_findings(path, doc):
     if own_type is not None and own_type not in _order_nodes():
         out.append(("type", "type",
                     f'names "{own_type}", which is not a node of '
-                    f"docs/type-system.posets.yml's module order"))
+                    f"docs/type-order.yml's type order"))
 
     # `refines:` MAY BE A LIST since 2026-09-24. Every entry is checked, because a
     # schema that only validates the first would let a typo through on the second.
@@ -230,7 +236,7 @@ def reference_findings(path, doc):
         elif parent not in _order_nodes():
             out.append(("refines", "refines",
                         f'names "{parent}", which is not a node of '
-                        f"docs/type-system.posets.yml's module order"))
+                        f"docs/type-order.yml's type order"))
     if len(parents) != len(set(parents)):
         out.append(("refines", "refines", "names the same parent twice"))
 
