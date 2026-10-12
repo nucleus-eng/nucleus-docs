@@ -134,3 +134,44 @@ def test_a_bare_provider_meets_only_a_bare_requirement():
 
 def test_different_operations_never_meet():
     assert not O.meets(ORDERS, "transcribe[pT7]", "degrade[pT7]")
+
+
+# --- the flat spelling ------------------------------------------------------
+# docs/type-order.yml gained `bracket_aliases` on 2026-10-12, because an operation
+# id matches `[A-Za-z0-9]+` and so cannot spell a type named `DNA[linear]`. Three
+# sources write `degrade[linearDNA]` and the order publishes `DNA[linear]`.
+
+ALIAS = {"linearDNA": "DNA[linear]"}
+
+BRACKETED = {
+    "type_refinement": {
+        "nodes": ["NucleicAcid", "DNA", "DNA[linear]", "DNA[circular]"],
+        "edges": {"DNA": ["NucleicAcid"], "DNA[linear]": ["DNA"],
+                  "DNA[circular]": ["DNA"]},
+    },
+}
+
+
+def test_the_fifth_example_fails_without_the_alias():
+    """The control. This is the state PR 293 found and the map fixes."""
+    assert not O.meets(BRACKETED, "degrade[DNA]", "degrade[linearDNA]")
+
+
+def test_the_fifth_example_passes_with_the_alias():
+    assert O.meets(BRACKETED, "degrade[DNA]", "degrade[linearDNA]", ALIAS)
+
+
+def test_the_alias_does_not_make_a_narrow_provider_wide():
+    """Resolving a spelling must not change the ORDER, only the name."""
+    assert not O.meets(BRACKETED, "degrade[linearDNA]", "degrade[DNA]", ALIAS)
+
+
+def test_an_unaliased_bracketed_type_is_still_unresolved():
+    """`DNA[circular]` has no alias because nothing writes one. It stays unmet,
+    and that is a finding for the caller rather than something to guess at."""
+    assert not O.meets(BRACKETED, "degrade[DNA]", "degrade[circularDNA]", ALIAS)
+
+
+def test_an_absent_alias_map_is_the_old_behaviour():
+    assert not O.meets(BRACKETED, "degrade[DNA]", "degrade[linearDNA]", {})
+    assert not O.meets(BRACKETED, "degrade[DNA]", "degrade[linearDNA]", None)

@@ -29,6 +29,7 @@ import os
 import yaml
 
 _CACHE = {}
+_ALIAS_CACHE = {}
 
 
 def load(repo):
@@ -47,6 +48,30 @@ def load(repo):
             doc = {}
         _CACHE[repo] = doc.get("orders", {}) or {}
     return _CACHE[repo]
+
+
+def aliases(repo):
+    """Flat spellings for type nodes whose own name carries a bracket.
+
+    AN OPERATION ID CANNOT SPELL A BRACKETED TYPE. scripts/spec-yml-schema.yml
+    matches a bracket against `[A-Za-z0-9]+(,[A-Za-z0-9]+)*`, so `degrade[DNA[linear]]`
+    is invalid by construction and a type named `DNA[linear]` has no spelling inside
+    an operation id. Three sources write `degrade[linearDNA]`; the order publishes
+    `DNA[linear]`. docs/type-order.yml carries the map that joins them.
+
+    Absent in an order published before the map existed, which degrades to the old
+    behaviour: the flat name resolves to nothing and the caller reports no node.
+    """
+    repo = os.path.abspath(repo)
+    if repo not in _ALIAS_CACHE:
+        path = os.path.join(repo, "docs", "type-order.yml")
+        try:
+            with open(path, encoding="utf-8") as fh:
+                doc = yaml.safe_load(fh) or {}
+        except FileNotFoundError:
+            doc = {}
+        _ALIAS_CACHE[repo] = {str(k): str(v) for k, v in (doc.get("bracket_aliases") or {}).items()}
+    return _ALIAS_CACHE[repo]
 
 
 def _one(orders, key):
@@ -96,7 +121,7 @@ def operation(name):
     return op, (rest.rstrip("]") or None)
 
 
-def meets(orders, provided, required):
+def meets(orders, provided, required, alias=None):
     """Whether a provider of `provided` meets a requirement for `required`.
 
     SATISFACTION IS CONTRAVARIANT, and this is the rule scripts/spec-yml-schema.yml
@@ -115,6 +140,7 @@ def meets(orders, provided, required):
     the only one that needs the order at all. The four that passed are decidable
     without ever opening a poset. A green run that was never the check.
     """
+    alias = alias or {}
     pop, pr = operation(provided)
     rop, rr = operation(required)
     if pop != rop:
@@ -123,4 +149,10 @@ def meets(orders, provided, required):
         return True
     if pr is None:
         return False
+    # A FLAT SPELLING IS RESOLVED BEFORE THE LOOKUP, 2026-10-12. `linearDNA` is how
+    # three sources write the node the order calls `DNA[linear]`, because an
+    # operation id may not nest a bracket. Resolving here rather than in each caller
+    # is the same argument this module exists for: four readers of one file each
+    # decided membership for itself and two of them were wrong.
+    pr, rr = alias.get(pr, pr), alias.get(rr, rr)
     return refines(orders, "type_refinement", rr, pr)
