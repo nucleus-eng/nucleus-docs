@@ -27,11 +27,11 @@ conserves: false
 
 signature:
   takes:
-    - type: component
+    - type: Component
       note: >
         A sample of whatever is being quantified.
   produces:
-    type: measurement
+    type: Measurement
     note: >
       A reading, not a Component. This corpus has no page for that type.
 

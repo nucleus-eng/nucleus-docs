@@ -16,12 +16,12 @@ refines: make
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         Thirty-six proteins, purified individually.
   produces:
-    type: component
+    type: Component
     note: >
       Protein Mix. With Small Molecule Mix it implements ../../modules/base-cytosol/spec.md.
 

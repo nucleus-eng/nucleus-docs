@@ -214,6 +214,13 @@ def reference_findings(path, doc):
                     f'is "{doc.get("module")}" but the directory is "{expect}"'))
 
     own_type = doc.get("type")
+    for i, (key, val) in enumerate((doc.get("inputs") or {}).items()):
+        t = (val or {}).get("type")
+        if t is not None and t not in _order_nodes():
+            out.append(("type", f"inputs/{key}/type",
+                        f'names "{t}", which is not a node of '
+                        f"docs/type-order.yml's type order"))
+
     if own_type is not None and own_type not in _order_nodes():
         out.append(("type", "type",
                     f'names "{own_type}", which is not a node of '

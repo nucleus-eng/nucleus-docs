@@ -19,13 +19,13 @@ refines: make
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         A bacterial culture carrying the expression construct, and the consumables the
         purification needs.
   produces:
-    type: protein
+    type: Protein
     note: >
       A purified protein. The page's own framing: "Proteins are commonly used as
       components in modules. These protocols describe how to prepare your own proteins."

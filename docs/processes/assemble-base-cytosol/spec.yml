@@ -11,12 +11,12 @@ refines: assemble-cytosol
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         The kit fractions and the inhibitor: a solute mix, a protein mix, tRNA, ribosomes, an RNase inhibitor.
   produces:
-    type: cytosol
+    type: Cytosol
     note: >
       Base Cytosol, with no payload. It is the thing ../assemble-cytosol/spec.yml's first operand usually is.
 

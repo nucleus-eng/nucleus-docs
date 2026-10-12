@@ -16,12 +16,12 @@ refines: make
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         Bulk tRNA, extracted rather than synthesized.
   produces:
-    type: component
+    type: Component
     note: >
       tRNA, which carries amino acids to the ribosome. An operand of ../assemble-base-cytosol.
 

@@ -16,12 +16,12 @@ refines: make
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         The 20 canonical amino acids, as individual stock solutions.
   produces:
-    type: component
+    type: Component
     note: >
       An equimolar 3.25 mM mix. ../../modules/detector-3oc6-hsl doses it at 1x final from a 10x stock.
 

@@ -67,6 +67,19 @@ def main():
             for p in glob.glob(os.path.join(HERE, "docs/processes/*/"))
             if glob.glob(os.path.join(p, "*.md"))}
     # A PARENT MAY BE A FUNCTION PAGE. `hold` is a coarser Process than any one Function, and
+    # THE PUBLISHED TYPE ORDER, imported from the theory corpus: types are not
+    # derivable here, so they are checked against what that corpus exports.
+    type_nodes = set()
+    try:
+        with open(os.path.join(HERE, "docs/type-order.yml")) as fh:
+            tedges = (yaml.safe_load(fh) or {}).get("orders", {}) \
+                       .get("type_refinement", {}).get("edges") or {}
+        for child, ps in tedges.items():
+            type_nodes.add(str(child))
+            type_nodes.update(str(x) for x in (ps or []))
+    except FileNotFoundError:
+        pass
+
     # THE PUBLISHED PROCESS ORDER, read so that an abstraction with no page still
     # resolves. Empty if the file is absent, which degrades to the old behaviour.
     order_nodes = set()
@@ -105,6 +118,21 @@ def main():
                   f"directory `{own}`. A step's `process.abstract` resolves by "
                   f"directory, so this source would be matched by nothing.",
                   file=sys.stderr)
+
+        # SIGNATURE TYPES RESOLVE AGAINST THE PUBLISHED TYPE ORDER, 2026-10-11. The
+        # pattern that used to constrain them came off when the order's spelling stopped
+        # being lowercase; this is what replaces it, rather than nothing.
+        sig = doc.get("signature") or {}
+        positions = [("takes", i, t) for i, t in enumerate(sig.get("takes") or [])]
+        if sig.get("produces"):
+            positions.append(("produces", None, sig["produces"]))
+        for where, idx, pos in positions:
+            t = (pos or {}).get("type")
+            at = f"signature/{where}" + (f"[{idx}]" if idx is not None else "")
+            if t is not None and t not in type_nodes:
+                findings += 1
+                print(f"⛔️ {rel}: `{at}/type: {t}` is not a node of "
+                      f"docs/type-order.yml's type order.", file=sys.stderr)
 
         parents = doc.get("refines")
         for parent in ([parents] if isinstance(parents, str) else (parents or [])):

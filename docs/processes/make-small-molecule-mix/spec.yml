@@ -16,12 +16,12 @@ refines: make
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         Thirty-one small molecules -- rNTPs, amino acids, buffering salts -- that fuel transcription and translation.
   produces:
-    type: component
+    type: Component
     note: >
       Small Molecule Mix. One of the three things ../assemble-base-cytosol mixes.
 

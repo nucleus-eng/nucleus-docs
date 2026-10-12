@@ -21,11 +21,11 @@ conserves: false
 
 signature:
   takes:
-    - type: component
+    - type: Component
       note: >
         A sample of the mixture being separated.
   produces:
-    type: observation
+    type: Observation
     note: >
       THE PAGE CALLS ITS OWN RESULT QUALITATIVE. `main.md:67`: "You should now be able
       to see protein bands by naked eye, which is sufficient to get a qualitative

@@ -16,12 +16,12 @@ refines: make
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         The source material the complexes are purified from.
   produces:
-    type: component
+    type: Component
     note: >
       Ribosomes, ~2.7 MDa complexes of RNA and protein. The site of translation, and an operand of ../assemble-base-cytosol.
 

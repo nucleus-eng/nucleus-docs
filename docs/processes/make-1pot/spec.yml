@@ -16,12 +16,12 @@ refines: make
 
 signature:
   takes:
-    - type: component
+    - type: Component
       repeated: true
       note: >
         The thirty-six proteins, co-expressed rather than purified one at a time.
   produces:
-    type: component
+    type: Component
     note: >
       The same Protein Mix ../make-36pot produces, by a route that does not purify each protein separately.
 
