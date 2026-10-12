@@ -30,4 +30,4 @@ Use a 3 kDa Amicon filter. <!-- vale-clean -->
 
 See the Slide-A-Lyzer cassette, 3.5K MWCO, for an example. <!-- vale-clean -->
 
-Add PEG4K to 40% final concentration. <!-- vale-clean -->
+Add PEG4K to 40 % final concentration. <!-- vale-clean -->

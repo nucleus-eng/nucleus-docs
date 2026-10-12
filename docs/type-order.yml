@@ -1,0 +1,245 @@
+# PUBLISHED FROM compositional-biology-theory. Do not edit.
+#
+# The type order, which this repo cannot derive: a Module's `type:` names a type,
+# and types live in that corpus's signature.md. Generated there by
+# scripts/emit-posets.py and copied here at 8f177d1, 2026-10-11.
+#
+# This is the MIRROR of docs/type-system.posets.yml, which publishes the orders
+# THIS repo derives -- module refinement, process refinement, containment -- for
+# that corpus to read. Each repo exports what the other cannot compute.
+#
+# `module_slugs` maps a docs slug to its type: `outer-solution` is `Solution`.
+# Run `python3 scripts/emit-posets.py` to refresh and `--check` to verify; guard 12 runs the check.
+#
+# The refinement orders signature.md states and nucleus-docs cannot read: the type order and the
+# Process order. Edges are as STATED, not reduced; an edge a longer path already implies is kept.
+# `unparsed` lists every row or profile that mentions a refinement and gave no edge.
+orders:
+  type_refinement:
+    from: "signature.md type table: a row's own refines, and the parent-side phrases"
+    relation: child refines parent
+    edges:
+      Analyte:
+      - Component
+      Article:
+      - Document
+      Cascade:
+      - Module
+      Cell:
+      - Vesicle
+      - Module
+      Chaperone:
+      - Module
+      Code:
+      - Document
+      Color:
+      - Signal
+      ColorReporter:
+      - Reporter
+      Component:
+      - Object
+      Container:
+      - Set
+      - Component
+      Control:
+      - Module
+      Cytosol:
+      - Solution
+      DNA:
+      - Polymer
+      - NucleicAcid
+      Detector:
+      - Module
+      'Detector[repressor]':
+      - Detector
+      Detergent:
+      - Component
+      DevNote:
+      - Document
+      Document:
+      - Object
+      Emitter:
+      - Module
+      - Effector
+      Energy:
+      - Module
+      Fluorescence:
+      - Color
+      - Signal
+      FluorescenceMicroscope:
+      - Fluorometer
+      - Microscope
+      Fluorometer:
+      - Instrument
+      Gel:
+      - Container
+      'Gel[ionically-set]':
+      - Gel
+      'Gel[photocrosslinked]':
+      - Gel
+      'Gel[thermally-set]':
+      - Gel
+      Guide:
+      - Document
+      Instrument:
+      - Object
+      Interval:
+      - Object
+      Lysis:
+      - Module
+      - Effector
+      Measurement:
+      - Observation
+      Membrane:
+      - Container
+      MembraneComponent:
+      - Component
+      Microscope:
+      - Instrument
+      Module:
+      - Component
+      NucleicAcid:
+      - Component
+      - Polymer
+      Paper:
+      - Document
+      PlateReader:
+      - Spectrophotometer
+      - Fluorometer
+      Pore:
+      - MembraneComponent
+      Protease:
+      - Protein
+      Protein:
+      - Polymer
+      - Component
+      RNA:
+      - Polymer
+      - NucleicAcid
+      RNASignal:
+      - Signal
+      RNase:
+      - Protein
+      Reporter:
+      - Module
+      Solution:
+      - Container
+      SpecMd:
+      - SpecPage
+      SpecPage:
+      - Document
+      SpecYml:
+      - SpecPage
+      Spectrophotometer:
+      - Instrument
+      Substrate:
+      - Component
+      Tutorial:
+      - Document
+      Vesicle:
+      - Component
+      'Vesicle[GUV]':
+      - Vesicle
+      'Vesicle[LUV]':
+      - Vesicle
+      'Vesicle[SUV]':
+      - Vesicle
+      'Vesicle[liposome]':
+      - Vesicle
+      VisualFluorometer:
+      - VisualInstrument
+      - Fluorometer
+      VisualInstrument:
+      - Instrument
+      dsDNA:
+      - DNA
+      ssDNA:
+      - DNA
+  process_refinement:
+    from: "signature.md ## Processes: refines in a profile"
+    relation: child refines parent
+    edges:
+      active_transport:
+      - transport
+      crosslink_ionic:
+      - embed
+      'degrade[ATP]':
+      - degrade
+      'degrade[NucleicAcid]':
+      - degrade
+      'degrade[PPi]':
+      - degrade
+      'degrade[Protein]':
+      - degrade
+      'degrade[RNA]':
+      - 'degrade[NucleicAcid]'
+      'degrade[linearDNA]':
+      - 'degrade[NucleicAcid]'
+      embed:
+      - hold
+      encapsulate:
+      - hold
+      'encapsulate[GUV]':
+      - encapsulate
+      'encapsulate[LUV]':
+      - encapsulate
+      'encapsulate[SUV]':
+      - encapsulate
+      observe_absorbance:
+      - observe
+      observe_fluorescence:
+      - observe
+      passive_transport:
+      - transport
+      photocrosslink:
+      - embed
+      'regenerate[CP]':
+      - 'regenerate[rNTP]'
+      'regenerate[polyP]':
+      - 'regenerate[rNTP]'
+      'regenerate[rNTP]':
+      - regenerate
+      report_color:
+      - report
+      set_thermal:
+      - embed
+module_slugs:
+  cell: Cell
+  cell-base-cytosol-popc-chol: null
+    # not types
+  cell-s30-popc: null
+    # not types
+  color-change: ColorReporter
+  container: Container
+  control: Control
+  cytosol: Cytosol
+  detector: Detector
+  emitter: Emitter
+  energy: Energy
+  gel: Gel
+  guv: 'Vesicle[GUV]'
+  lacz: null
+    # not a type
+  liposome: 'Vesicle[liposome]'
+  luv: 'Vesicle[LUV]'
+  membrane: Membrane
+  outer-solution: Solution
+  ph-cascade: null
+    # not types
+  photopatterned-gel: 'Gel[photocrosslinked]'
+  pore: Pore
+  reporter: Reporter
+  repressor-detector: 'Detector[repressor]'
+  sensing-cell: null
+    # abbreviations, not types
+  sensor-cytosol: null
+    # abbreviations, not types
+  solution: Solution
+  substrate-carrier: null
+    # abbreviations, not types
+  suv: 'Vesicle[SUV]'
+  thermal-gel: 'Gel[thermally-set]'
+  vesicle: Vesicle
+unparsed:
+  types: []
+  processes: []

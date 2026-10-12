@@ -30,6 +30,12 @@ repos:
         language: python
         types_or: [markdown, yaml]
         files: ^docs/
+        # GENERATED DATA IS NOT PROSE. type-system.posets.yml is emitted by
+        # render-posets.py and its header names the repo it was generated from, which
+        # this check reads as pointing into working notes. For a page that is the right
+        # complaint; for a generated order it is the provenance the file is required to
+        # carry. Added 2026-10-11 with the spec.yml port.
+        exclude: ^docs/(type-system\.posets|type-order)\.yml$
 
       - id: vale
         name: Vale lint
