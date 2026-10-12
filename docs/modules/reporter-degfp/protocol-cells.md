@@ -35,7 +35,7 @@ This protocol show you how to validate the functionality of the Reporter Module 
 ### Prepare Stock Solutions
 
 **Prepare lipids in mineral oil**
-- [ ]  Add 1 mL of mineral oil to a 1.8 mL to 4 mL glass vial using a 1 mL pipette.
+- [ ]  Add 1 mL of mineral oil to a 4 mL glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple
