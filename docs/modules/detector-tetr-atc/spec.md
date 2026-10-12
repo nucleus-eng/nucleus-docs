@@ -179,7 +179,7 @@ Giant unilamellar vesicles (GUVs) were formed by inverted emulsion transfer ([En
 
 @Editor: The membrane label is a rhodamine dye, and the stored channels are GFP and Alexa Fluor 647, with no rhodamine channel. Give the channel that imaged the vesicles. Also give the objective, exposure, gain and laser power of the fluorescence readout. No Process page documents it.
 
-In solution, no-DNA vesicles stayed dark throughout, unrepressed vesicles became strongly fluorescent, the 0 µM aTc condition remained repressed, and lumen deGFP increased with aTc concentration up to 1 µM, the highest dose tested. aTc is autofluorescent in the GFP channel and raises background in proportion to dose, so the second figure subtracts the matched no-DNA control at each dose from every condition.
+In solution, unrepressed vesicles became strongly fluorescent and the 0 µM aTc condition remained repressed. aTc is autofluorescent in the GFP channel, so no-DNA vesicles also brighten with dose: their median intensity at 4 h is 1,401, 2,129, 3,014 and 4,430 at 0, 0.25, 0.5 and 1 µM aTc. After subtracting the matched no-DNA control at each dose, the repressed vesicles read 262, 1,836, 1,858 and 1,908: a step at 0.25 µM, then about 4 % more up to 1 µM, the highest dose tested.
 
 GUVs embedded in PEG-NB hydrogel were imaged alongside. Light scattering from the gel dominates those images, and expression could not be read from them.
 
