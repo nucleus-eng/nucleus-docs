@@ -89,7 +89,7 @@ Endpoint GFP fluorescence at 6 h in Nucleus Base Cytosol, for 1 nM `pT7-tetO-pla
 
 @Editor: No Process page documents the plate reader kinetic read. Link one here when it exists.
 
-TetR at 1000 nM holds deGFP to about a tenth of the unrepressed level, and the no-DNA floor is under 1 % of it. aTc at 0.25 µM raises expression about 3.3-fold over the repressed reaction, to about a third of the unrepressed level. Above 0.25 µM the titration is not monotonic: 1 µM reads below 0.25 µM, and the two wells at 0.5 µM differ 2.3-fold, the widest disagreement of any condition. aTc does not inhibit the reaction: unrepressed wells at 1 µM aTc read within 6 % of unrepressed wells at 0 µM. Every condition reaches 95 % of its 6 h value within about 4 h.
+TetR at 1000 nM holds deGFP to about a tenth of the unrepressed level, and the no-DNA floor is under 1 % of it. aTc at 0.25 µM raises expression about 3.3-fold over the repressed reaction, to about a third of the unrepressed level. Above 0.25 µM the titration is not monotonic: 1 µM reads below 0.25 µM, and the two wells at 0.5 µM differ 2.3-fold, the widest disagreement of any condition. aTc does not inhibit the reaction: unrepressed wells at 1 µM aTc read within 6 % of unrepressed wells at 0 µM. Every reaction that carries DNA reaches 95 % of its 6 h value within 2.4 to 3.8 h. The no-DNA wells carry no signal: they read under 1 % of the unrepressed level and drift upward by about 0.4 % of it over 6 h.
 
 :::{figure} cytosol-degfp-atc-titration-kinetics.png
 :name: fig-tetr-atc-titration-kinetics
