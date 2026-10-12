@@ -1,0 +1,33 @@
+# Process source for Anneal pH Trigger Duplex, drafted from the page beside it.
+#
+# BOTH ARGUMENTS ARE ONE TYPE, AND THEIR ORDER MATTERS. The two strands are told apart by their
+# ratio, 3:1 by mole with the pH-responsive strand in excess, which a signature cannot state.
+# The two strands end in one compartment, so the operator is mixing.
+
+process: anneal-ph-trigger-duplex
+title: "Anneal pH Trigger Duplex"
+refines: anneal
+
+signature:
+  takes:
+    - type: ssDNA
+      note: >
+        The pH-responsive strand, at 14.4 µM in the reaction.
+    - type: ssDNA
+      note: >
+        The trigger strand, at 4.8 µM in the reaction.
+  produces:
+    type: dsDNA
+    note: >
+      The duplex that holds the trigger strand until acidic pH releases it. It is the sensing element
+      of the pH-Sensing Detector.
+
+operator: mixing
+
+open:
+  - id: excess-strand-after-annealing
+    kind: question
+    question: >
+      The strands are at 3:1 with the pH-responsive strand in excess. The product type names the
+      duplex, and the page does not say whether the unpaired strand left over is removed or stays in
+      the mix, so this source does not say what else the product holds.

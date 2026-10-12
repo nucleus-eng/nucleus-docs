@@ -1,0 +1,36 @@
+# Process source for Encapsulation: Freeze-Thaw, drafted from the page beside it.
+#
+# The signature is the one the routes under encapsulate share: a membrane, an inner solution and
+# an outer solution go in, and a closed compartment with the payload inside comes out.
+
+process: encapsulate-freeze-thaw
+title: "Encapsulation: Freeze-Thaw"
+refines: encapsulate
+
+signature:
+  takes:
+    - type: Membrane
+      note: >
+        The bilayer that becomes the boundary: a dried lipid film, hydrated directly with the inner solution.
+    - type: Solution
+      note: >
+        The inner solution that is encapsulated.
+    - type: Solution
+      note: >
+        What the product is suspended in.
+  produces:
+    type: Container
+    note: >
+      A closed compartment with the payload inside. Large unilamellar vesicles come from the route as
+      written; an extra extrusion through a 400 nm membrane gives small unilamellar vesicles.
+
+operator: packing
+
+open:
+  - id: two-products-two-keys
+    kind: choice
+    question: >
+      The page makes two products, large and small unilamellar vesicles, and the published Process
+      order has a key for each, `encapsulate[LUV]` and `encapsulate[SUV]`. This source refines their
+      parent, `encapsulate`. Whether the two products are two sources, or one source with the
+      extrusion as an optional step, is not decided.
