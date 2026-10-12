@@ -43,6 +43,19 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
 :::
 
+## Gels
+
+Modules that hold a sample in a polymer network set in an outer solution.
+
+:::{table}
+
+| Module Class | Specification | Validation |
+| --- | --- | --- |
+| Gel (Thermal) | [Gel: ULGA](./gel-ulga/spec.md) | ★ |
+| Gel (Thermal) | [Gel: LGA](./gel-lga/spec.md) | ★ |
+| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | ★ |
+:::
+
 # Contributing a Module
 
 Modules specifications are derived from DevNotes that follow the adhere to the [Module Contribution Guidelines](../../guides/contribution-guide.md).
