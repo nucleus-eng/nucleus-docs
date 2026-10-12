@@ -101,3 +101,53 @@ jobs:
 
       - name: Check reference voice
         run: python3 scripts/check-reference-voice.py
+
+  spec-schema:
+    # Does every docs/modules/*/spec.yml match scripts/spec-yml-schema.yml, and do
+    # its `type:` and `refines:` values name nodes of the PUBLISHED type order?
+    #
+    # NOTHING RAN THIS UNTIL 2026-10-12. No spec.yml on main had ever been checked
+    # by CI, and the checker was passing for a reason that was not the check: it
+    # resolved `refines:` against docs/type-system.posets.yml, a file generated
+    # from the very values it was validating, so a typo invented its own node and
+    # passed. It could reject something new and never anything already committed.
+    # Both halves are fixed; this is what makes the fix hold.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Check module sources
+        run: python3 scripts/check-spec-schema.py
+
+  process-schema:
+    # The same for docs/processes/*/spec.yml, against scripts/process-yml-schema.yml.
+    #
+    # Its unknown-parent check was a warning "UNTIL `make` AND `assay` ARE RULED ON",
+    # which meant it could not reject a misspelled parent at all. Jon ruled on
+    # 2026-10-12, the count reached zero, and it fails again. Wiring it in is what
+    # keeps the count there.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Test the shared order loader
+        run: |
+          pip install pytest
+          python3 -m pytest scripts/tests/test_orders.py -q
+
+      - name: Check process sources
+        run: python3 scripts/check-process-schema.py
