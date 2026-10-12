@@ -255,6 +255,8 @@ orders:
     - observe_fluorescence
     - passive_transport
     - photocrosslink
+    - prepare
+    - purify
     - rc
     - regenerate
     - 'regenerate[CP]'
@@ -303,6 +305,8 @@ orders:
       - transport
       photocrosslink:
       - embed
+      purify:
+      - prepare
       'regenerate[CP]':
       - 'regenerate[rNTP]'
       'regenerate[polyP]':
