@@ -35,6 +35,7 @@ flowchart TB
 ```
 
 - [Encapsulation: Phase Transfer](./assemble-base-cell/main.md)
+    - [Protocol: Inverted Emulsion](./assemble-base-cell/protocol-guv.md), a second protocol for giant unilamellar vesicles
 
 ## Base Cytosol Processes
 
@@ -86,3 +87,10 @@ flowchart LR
 - [Protein Gel](./protein-gel/main.md)
 - [Pierce660 Assay](./pierce660/main.md)
 
+## Cascade Processes
+
+Cascade Processes make the parts of a two-liposome cascade and read the result. The gel is set by [Embedding: Thermal Setting](./embed-thermal-setting/main.md).
+
+- [Anneal pH Trigger Duplex](./anneal-ph-trigger-duplex/main.md)
+- [Encapsulation: Freeze-Thaw](./encapsulate-freeze-thaw/main.md)
+- [Colorimetric Readout](./colorimetric-readout/main.md)
