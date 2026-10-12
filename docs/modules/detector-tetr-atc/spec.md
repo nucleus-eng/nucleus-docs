@@ -28,6 +28,12 @@ Schematic of the TetR inducible expression module. TetR represses expression fro
 | `pT7-tetR` | 2877 | [pOpen-tetR.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-tetR.gb) |
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
 :::
+
+:::{attention} `pOpen-TetO-deGFP` is not in `nucleus-eng/DNA`
+The titration and GUV results below use `pOpen-TetO-deGFP`, a 2855 bp plasmid that places the tetO operator between the T7 promoter and deGFP. No file in `nucleus-eng/DNA` has this sequence. The closest is [pOpen-deGFP](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk), the same plasmid without the 43 bp operator region (2812 bp).
+
+@Editor: Submit the sequence file to `nucleus-eng/DNA`, then add a row to the table above.
+:::
 ::::
 
 ::::{tab-item} Cytosol
@@ -113,6 +119,28 @@ aTc relieves repression in both reactions, and the dose needed rises with the am
 Endpoint GFP fluorescence at 6 h in Nucleus Base Cytosol, for 1 nM `pT7-tetO-plamGFP` with 0, 500 or 1000 nM TetR across 0 to 10 µM aTc, with a no-DNA control at each dose. Mean ± standard deviation of three wells; gain 75.
 :::
 
+### aTc titration at 1000 nM TetR
+
+`pOpen-TetO-deGFP` is a plasmid, purified by maxiprep, that places the tetO operator between the T7 promoter and deGFP. Each 10 µL reaction is in the same cytosol as the section above and holds the plasmid at 1 nM, purified His-tagged TetR at 1000 nM, and the OnePot sub-mixes (Smix, tRNA, Pmix, ribosomes and RNase inhibitor). aTc was added in a further 1 µL at 0, 0.25, 0.5 and 1 µM. Fluorescence was read every 5 min for 6 h at 37 °C (485/20 nm excitation, 528/20 nm emission, gain 50), with two wells per condition.
+
+@Editor: No Process page documents the plate reader kinetic read. Link one here when it exists.
+
+TetR at 1000 nM holds deGFP to about a tenth of the unrepressed level, and the no-DNA floor is under 1 % of it. aTc at 0.25 µM raises expression about 3.3-fold over the repressed reaction, to about a third of the unrepressed level. Above 0.25 µM the titration is not monotonic: 1 µM reads below 0.25 µM, and the two wells at 0.5 µM differ 2.3-fold, the widest disagreement of any condition. aTc does not inhibit the reaction: unrepressed wells at 1 µM aTc read within 6 % of unrepressed wells at 0 µM. Every condition reaches 95 % of its 6 h value within about 4 h.
+
+:::{figure} cytosol-degfp-atc-titration-kinetics.png
+:name: fig-tetr-atc-titration-kinetics
+:align: center
+
+Kinetics of deGFP expression from `pOpen-TetO-deGFP` in bulk reactions: no DNA, unrepressed (1 nM plasmid), and 1 nM plasmid with 1000 nM TetR across 0 to 1 µM aTc. Fluorescence at gain 50, read every 5 min for 6 h at 37 °C. n = 2 wells per condition.
+:::
+
+:::{figure} cytosol-degfp-atc-titration-endpoint.png
+:name: fig-tetr-atc-titration-endpoint
+:align: center
+
+Endpoint deGFP fluorescence at 6 h, from the run in the kinetics figure. Individual replicates are shown; n = 2 wells per condition.
+:::
+
 ## Cells
 
 :::{figure} detector-overview.png
@@ -139,6 +167,30 @@ GFP expression within synthetic cells when induced with 312.5 nM anhydrotetracyc
 
 The TetR detector cell functions when induced with low-nanomolar aTc concentrations. Higher concentrations begin to inhibit expression or confound analysis due to background aTc fluorescence and membrane localization.
 
+### `pOpen-TetO-deGFP` in GUVs
+
+Giant unilamellar vesicles (GUVs) were formed by inverted emulsion transfer ([Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md)) from POPC and cholesterol at 9:1 with 18:1 Liss Rhod PE at 1 mmol/mol. Sucrose, at 8.8 % of the reaction, is the density agent in the inner solution, and glucose is the outer solution. The inner solution is the reaction in the previous section plus that sucrose: no DNA, unrepressed (`pOpen-TetO-deGFP` at 1 nM), or repressed (1 nM plasmid with 1000 nM TetR). aTc was added outside the vesicles at 0, 0.25, 0.5 and 1 µM. The vesicles were imaged over 4 h in a BSA-blocked 384-well glass-bottom plate on a Cephla Squid microscope, in a GFP channel and an Alexa Fluor 647 channel. GFP was scored only inside objects with a continuous membrane label.
+
+@Editor: The membrane label is a rhodamine dye, and the stored channels are GFP and Alexa Fluor 647, with no rhodamine channel. Give the channel that imaged the vesicles. Also give the objective, exposure, gain and laser power of the fluorescence readout. No Process page documents it.
+
+In solution, no-DNA vesicles stayed dark throughout, unrepressed vesicles became strongly fluorescent, the 0 µM aTc condition remained repressed, and lumen deGFP increased with aTc concentration up to 1 µM, the highest dose tested. aTc is autofluorescent in the GFP channel and raises background in proportion to dose, so the second figure subtracts the matched no-DNA control at each dose from every condition.
+
+GUVs embedded in PEG-NB hydrogel were imaged alongside. Light scattering from the gel dominates those images, and expression could not be read from them.
+
+:::{figure} cell-guv-degfp-atc-raw.png
+:name: fig-tetr-atc-guv-raw
+:align: center
+
+Lumen deGFP fluorescence in solution-phase GUVs over 4 h, by aTc dose. Bands show the median, interquartile range, 10th to 90th percentile and 99th percentile of the mean intensity of each vesicle. Two technical replicates per condition.
+:::
+
+:::{figure} cell-guv-degfp-atc-background-subtracted.png
+:name: fig-tetr-atc-guv-subtracted
+:align: center
+
+The same data after subtracting the matched no-DNA control at each aTc dose.
+:::
+
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
@@ -146,6 +198,10 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Implementations
 
 - [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): aTc relieves TetR repression to drive BjaI expression.
+
+# Processes
+
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md): makes the GUVs by inverted emulsion transfer.
 
 # Credits
 
