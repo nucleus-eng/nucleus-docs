@@ -35,7 +35,7 @@ This protocol show you how to validate the functionality of the Reporter Module 
 ### Prepare Stock Solutions
 
 **Prepare lipids in mineral oil**
-- [ ]  Add 1 mL of mineral oil to the 1.8 mL glass vial using a 1 mL pipette.
+- [ ]  Add 1 mL of mineral oil to a 1.8 mL to 4 mL glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple
@@ -127,7 +127,7 @@ Adjust the outer solution concentration so its osmolarity is 100–120 units low
     - [ ]  **L**—liposomes
 - [ ]  Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**.
 - [ ]  Add 150 µL of the lipid-oil mixture (at room temperature) on top of each assembled Cytosol reaction.
-- [ ]  Emulsify the lipid-oil and Cytosol reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Run it down 20–30 times until the solution forms a stable emulsion with an even milky color.
+- [ ]  Emulsify the lipid-oil and Cytosol reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Run it down at least 50 times until the solution forms a stable emulsion with an even milky color.
 
 :::{hint} Tip
 :class: simple

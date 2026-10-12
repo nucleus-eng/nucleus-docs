@@ -75,7 +75,7 @@ See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membr
 
 ## Prepare Lipids in Mineral Oil
 
-- [ ] Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
+- [ ] Add 1 mL of mineral oil to a 1.8 mL to 4 mL glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple

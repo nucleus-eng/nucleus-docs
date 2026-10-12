@@ -62,7 +62,7 @@ The inner solution encapsulated into the Base Cell is [Base Cytosol](/docs/modul
 | Ribosomes         | 10 µM               | 1.8 µM              | 7.2                          |
 | tRNA              | 35 mg/mL            | 3.5 mg/ml           | 4                            |
 | RNase Inhibitor   | 40 000 U/mL         | 2000 U/mL           | 2                            |
-| Optiprep          | 1.32 mg/µL          | 0.044 mg/µL         | 1.33                         |
+| Optiprep          | 1.32 mg/µL          | 0.043 mg/µL         | 1.33                         |
 | Template DNA (optional), e.g. `pOpen-deGFP` | 124 nM | 3 nM     | X, e.g. 0.95                 |
 | Water             |                     |                     | 8.67 − X                     |
 | Total volume (µL) |                     |                     | 40                           |

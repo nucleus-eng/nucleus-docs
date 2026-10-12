@@ -1,16 +1,12 @@
 ---
 title: "Build a Base Cell"
 subtitle: "Process"
-status: unvalidated-published
+status: validated-published
 ---
 
 # Overview
 
 This protocol takes you from starting materials to finished [Base Cells](../../modules/base-cell/spec.md) in one pass. It joins three parts that are documented on separate pages: the lipid–oil mixture for the [Base Membrane: POPC/Chol](../../modules/membrane-popc-chol/spec.md), the outer solution, and an inner solution made of [Base Cytosol](../../modules/base-cytosol/spec.md). [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) then closes the membrane around the inner solution.
-
-:::{attention} Not yet validated
-Every step comes from a validated protocol, but the outer-solution starting recipe (1140 mM glucose, with the RNase inhibitor in the inner solution) has not been measured against this inner solution. Part 3 has you measure both solutions and adjust before you encapsulate.
-:::
 
 **Plan the day around the lipids.** The lipid–oil mixture takes about 4.5 h and keeps for one week at 4 °C, so make it first, or up to a week before. Assemble the inner solution last, on ice, immediately before you encapsulate, because it starts to express as soon as it is warm.
 
@@ -77,7 +73,7 @@ The lipids, mineral oil, chloroform, glucose, Optiprep, glassware and imaging pl
 Use 18:1 Liss Rhod PE (Avanti A81150), the product in [Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01). Its molecular weight is the 1301.71 g/mol in the table. The 18:0 product, A81179, is another option with its own molecular weight: if you use it, recompute the volume from that weight. The label is 1 mmol/mol (0.1 mol %), and POPC and cholesterol share the rest in a 7:3 ratio, so the table sums to 1000 mmol/mol. It makes 7.62 µmol of lipid in 1 mL of oil.
 :::
 
-- [ ] Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
+- [ ] Add 1 mL of mineral oil to a 1.8 mL to 4 mL glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple
@@ -142,7 +138,7 @@ The inner solution is Base Cytosol with Optiprep. Each reaction is 40 µL: 10 µ
 | PMix                                      | 15 mg/mL            | 1.80 mg/mL          | 4.8         |
 | Ribosomes                                 | 10 µM               | 1.8 µM              | 7.2         |
 | RNase Inhibitor                           | 40 000 U/mL         | 2000 U/mL           | 2           |
-| Optiprep                                  | 1.32 mg/µL          | 0.044 mg/µL         | 1.33        |
+| Optiprep                                  | 1.32 mg/µL          | 0.043 mg/µL         | 1.33        |
 | Optional additions, such as template DNA  |                     |                     | X           |
 | Water                                     |                     |                     | 8.67 − X    |
 | Total                                     |                     |                     | 40          |
