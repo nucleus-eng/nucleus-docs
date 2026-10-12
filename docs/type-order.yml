@@ -6,8 +6,13 @@
 #
 # IT IS NOT DERIVED HERE. This repo's own orders come from the sources themselves and
 # are published in docs/type-system.posets.yml; a type order cannot be read off them,
-# so it is generated upstream and copied in. Which commit it came from is in this
-# file's git history, where a reader can follow it.
+# so it is generated upstream and copied in by scripts/publish-type-order.py. Which
+# commit it came from is in this file's git history, where a reader can follow it.
+#
+# `type_requires` is what a TYPE demands, as against what a module demands. It is
+# here because a type need not have a page, and a type with no page has no spec.yml
+# to carry a claim about itself -- so without this section the order says which types
+# exist and nothing about what they need.
 #
 # `module_slugs` maps a page slug to its type: `outer-solution` is `Solution`.
 orders:
@@ -199,6 +204,8 @@ orders:
       - report
       set_thermal:
       - embed
+type_requires:
+  'Gel[thermally-set]': "a temperature above the gel point while the sample is mixed in"
 module_slugs:
   cell: Cell
   cell-base-cytosol-popc-chol: null
