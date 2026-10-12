@@ -98,6 +98,21 @@ Induction of `pT7-tetO-plamGFP` by aTc at steady state. TetR repressor protein i
 
 :::::
 
+### aTc titration in Nucleus Base Cytosol
+
+`pT7-tetO-plamGFP` was titrated with aTc against purified His-tagged TetR (MedChemExpress, HY-P71520A) in [Nucleus Base Cytosol](../../processes/assemble-base-cytosol/main.md). Per 10 µL, the reaction holds 3.0 µL SMix, 1.0 µL tRNA, 1.2 µL PMix, 1.8 µL ribosomes and 0.5 µL RNase inhibitor. The plasmid is at 1 nM and TetR at 0, 500 or 1000 nM, before the aTc is added. Plasmid, TetR and water were incubated at 37 °C for 10 min so TetR could bind the operator, and the master mix was then added. Reactions were dispensed at 10 µL per well into a 384-well plate and 1 µL of aTc added, to final aTc concentrations of 0, 0.25, 0.35, 0.5, 1, 5 and 10 µM, with three wells per condition. A no-DNA reaction at each aTc concentration served as the background. Fluorescence (485 nm excitation, 528 nm emission, gain 75) was read every 5 min for 6 h at 37 °C on a BioTek Cytation 3.
+
+Without aTc, TetR holds expression to 541 RFU at 500 nM (40-fold below the unrepressed reaction) and 399 RFU at 1000 nM (54-fold). The no-DNA background stays between 43 and 87 RFU across the titration and rises with aTc dose, from 47 RFU at 0 µM to 69 RFU at 5 µM and 87 RFU at 10 µM, which is under 0.5 % of the unrepressed signal. aTc does not change the unrepressed reaction: it reads between 21,662 and 22,871 RFU from 0 to 10 µM, so aTc neither quenches nor inhibits expression at these doses.
+
+aTc relieves repression in both reactions, and the dose needed rises with the amount of TetR. At 500 nM TetR, expression reaches 30 % of the unrepressed level at 0.25 µM aTc, 86 % at 1 µM and 91 % at 5 µM. At 1000 nM TetR it is 4 % at 0.25 µM, 22 % at 0.5 µM, 63 % at 1 µM and 88 % at 5 µM. Half of the unrepressed level is reached at about 0.4 µM aTc with 500 nM TetR and about 0.8 µM with 1000 nM, so doubling TetR moves the induction curve about two-fold to higher aTc. Neither reaction reaches the unrepressed level by 10 µM, where they read 87 % and 93 %. The titration has no points between 1 and 5 µM, so these half-maximal doses are read from the measured points.
+
+:::{figure} cytosol-nucleus-atc-titration-endpoint.png
+:name: fig-tetr-atc-nucleus-cytosol-endpoint
+:align: center
+
+Endpoint GFP fluorescence at 6 h in Nucleus Base Cytosol, for 1 nM `pT7-tetO-plamGFP` with 0, 500 or 1000 nM TetR across 0 to 10 µM aTc, with a no-DNA control at each dose. Mean ± standard deviation of three wells; gain 75.
+:::
+
 ## Cells
 
 :::{figure} detector-overview.png
@@ -135,3 +150,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Credits
 
 Developed by Yen-Yu Hsu (b.next).
+
+Bulk titration in Nucleus Base Cytosol by Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node).
+
+GUV deGFP characterization by Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node).
