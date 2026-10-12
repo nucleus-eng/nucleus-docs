@@ -100,9 +100,19 @@ def main():
     order_nodes = set()
     try:
         with open(os.path.join(HERE, "docs/type-order.yml")) as fh:
-            edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                      .get("process_refinement", {}).get("edges") or {}
-        for child, ps in edges.items():
+            order = (yaml.safe_load(fh) or {}).get("orders", {}) \
+                      .get("process_refinement", {}) or {}
+        # `nodes` IS THE MEMBERSHIP; `edges` IS THE ORDER. 2026-10-12.
+        # edges is keyed by child, so a Process that refines nothing and is refined
+        # by nothing is absent from it. SEVEN OF NINETEEN were invisible that way:
+        # anneal, emit, lyse, sense, transcribe, translate, translocate. Building a
+        # membership set out of edges rejected `anneal` as unknown, and on that
+        # basis a source here was told to carry no `refines:` at all -- `anneal`
+        # has been profiled upstream since 2026-10-05 and was exactly its parent.
+        # The published file now states its nodes. Edges are still read, so this
+        # keeps working against a published file written before `nodes` existed.
+        order_nodes.update(str(x) for x in (order.get("nodes") or []))
+        for child, ps in (order.get("edges") or {}).items():
             order_nodes.add(str(child))
             order_nodes.update(str(x) for x in (ps or []))
     except FileNotFoundError:
