@@ -12,7 +12,7 @@ key disagreeing with its own directory.
 Prints the paths searched and the file count, because a validator that reports zero
 findings over zero files looks identical to a clean run.
 """
-import sys, glob, os, argparse
+import sys, glob, os, re, argparse
 
 try:
     import yaml
@@ -682,6 +682,41 @@ def main():
             print(f"⛔️ {path} [{kind}] {where}: {msg}")
             total += 1
 
+    # EVERY RELATIVE PAGE CITATION, RESOLVED. NEW 2026-10-12.
+    #
+    # A spec.yml cites sibling pages by relative path, in `page:` fields and in
+    # prose comments, and NOTHING READ THOSE UNTIL TODAY. check-links.py walks
+    # Markdown and never opens a .yml -- a gap this repo's CLAUDE.md names and
+    # nothing closed.
+    #
+    # MEASURED ON e724d566: 11 of the 43 citations across all sources did not
+    # resolve. They name the class pages J20 dropped -- ../vesicle/spec.md,
+    # ../solution/spec.md, ../cytosol/spec.md, ../analyte-atc/spec.md -- carried in
+    # by the port rather than written fresh. The control that makes this a finding
+    # about the port and not about the corpus: the pH demo session swept its own
+    # ten sources, written fresh against the published order, and 19 of 20 resolved,
+    # the one failure being a page still on an open PR.
+    #
+    # REPORT-ONLY, COUNTING TOWARD ZERO. Each dangling citation needs a decision
+    # about what it should point at instead -- usually a type, now that the class
+    # page is gone -- and the page's owner is the one who can make it. Failing the
+    # build would block every PR on a decision none of them is making.
+    #
+    # IT SWEEPS BOTH TREES, not just the module pattern this script otherwise reads,
+    # because a dangling pointer is the same defect wherever it sits and splitting it
+    # across two checkers is how it stayed invisible.
+    dangling = 0
+    swept = sorted(glob.glob(os.path.join(REPO, "docs/*/*/spec.yml")))
+    if a.paths:
+        swept = [f for f in swept if os.path.relpath(f, REPO) in scope]
+    for f in swept:
+        here, rel = os.path.dirname(f), os.path.relpath(f, REPO)
+        for m in re.finditer(r"\.\.?/[\w./-]*\.md",
+                             open(f, encoding="utf-8").read()):
+            if not os.path.isfile(os.path.normpath(os.path.join(here, m.group(0)))):
+                dangling += 1
+                print(f"⚠️  {rel}: cites `{m.group(0)}`, which is not a page here.")
+
     # scope, always — a clean run over the wrong scope reads the same as a clean run
     print(f"\nsearched: {searched}")
     print(f"{checked} source(s) checked against {os.path.relpath(SCHEMA, REPO)}")
@@ -689,6 +724,8 @@ def main():
           f"{len(restated_out)} disagree")
     print(f"{member_n} member(s) checked against a class's member_properties; "
           f"{substrate_n} pairing member(s) checked against an enzyme's substrates")
+    print(f"{len(swept)} source(s) swept for relative page citations; "
+          f"{dangling} do not resolve. REPORTED, NOT FAILED.")
     if no_jsonschema:
         print("⚠️  jsonschema not installed — shape pass SKIPPED, reference pass ran")
     print("✅ no findings." if total == 0 else f"⛔️ {total} finding(s).")
