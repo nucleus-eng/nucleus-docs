@@ -32,7 +32,11 @@ properties:
     type: string
     description: >
       THE MODULE'S OWN POSITION, resolved against the published type order
-      (signature.posets.yml in compositional-biology-theory), not against docs/modules/.
+      (docs/type-system.posets.yml), not against docs/modules/.
+      THE ORDER IS SLUG-CASED HERE. This repo's published order names `solution`,
+      `outer-solution`, `thermal-gel`. The theory repo's signature.posets.yml names the
+      same things `Solution`, `Gel[thermally-set]`, and the two are mapped by
+      scripts/docs-name-map.yml there. A source in this repo uses THIS repo's spelling.
       It fully determines the type-level ancestry, so a Module NEVER names its own type
       in `refines`. Promoted 2026-10-11 from the first element of `refines`, which
       ../modules/base-cell/spec.yml already marked as special: "the first entry is the
@@ -51,11 +55,10 @@ properties:
           type: string
     description: >
       RESOLVED AGAINST THE PUBLISHED TYPE ORDER, not against docs/modules/, from
-      2026-10-11. Each entry must be a key of signature.posets.yml.
+      2026-10-11. Each entry must be a node of docs/type-system.posets.yml's module order.
       THE PATTERN CAME OFF rather than widening. A regex cannot express that namespace --
-      `Container`, `Vesicle[LUV]`, `Gel[thermally-set]`, and `ssDNA`, whose lowercase first
-      letter defeats any capitalisation rule -- and we hold the enumerated list, so
-      membership is the check.
+      a class slug whose page was dropped is still a node -- and we hold the enumerated
+      list, so membership is the check rather than a pattern.
       NAMING `type`'s OWN VALUE HERE IS AN ERROR, not a redundancy. `type` fully determines
       the type-level ancestry; `refines` holds only the remaining incomparable axes.
       The abstract Module or Modules this one refines.
