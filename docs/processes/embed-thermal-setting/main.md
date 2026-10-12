@@ -69,7 +69,7 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix.
 :::
 
 :::{attention} Two stocks have two recipes
-@Editor: confirm the ULGA outer solution and the LGA stock. The DevNote's supplement gives the ULGA outer solution as 1057 Osm of glucose, against about 1200 mOsm here. It gives the LGA stock as 27 mg/mL in ultrapure water (40.5 mg in 1500 µL), against 28 mg/mL in the outer solution here.
+@Editor: confirm the ULGA outer solution and the LGA stock. The DevNote's supplement gives the ULGA outer solution as 1057 Osm of glucose, against about 1200 mOsm here. It gives the LGA stock as 2.70 % in ultrapure water (40.5 mg in 1500 µL), which is 27 mg/mL, against 28 mg/mL in the outer solution here.
 :::
 
 ## Prepare the ULGA Stock

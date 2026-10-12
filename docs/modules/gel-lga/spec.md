@@ -69,6 +69,8 @@ flowchart TD
 
 The final concentration is for a stock diluted 1:1 with outer solution and then mixed 1:1 with the sample.
 
+The supplier and part number of the LGA are in the Materials and Equipment section of [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
+
 :::{attention} Dilution per well is inferred
 @Editor: confirm that the stock is diluted 1:1 with outer solution before it is mixed with the sample. The DevNote gives the final LGA concentration as 7 mg/mL with the parenthetical 7.5 µL and 7.5 µL of outer solution, and no step describes the dilution.
 :::
