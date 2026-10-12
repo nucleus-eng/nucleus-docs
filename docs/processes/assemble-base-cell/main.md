@@ -109,7 +109,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 - [ ] Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
 - [ ] Prepare outer solution by mixing glucose stock solution and water. The table is a starting recipe; the target is a reading, set in the note below:
 
-:::{table} Outer solution, starting recipe: 1140 mM glucose. A glucose concentration is not a reading of osmotic concentration: this solution is expected to read about 1275 mOsm/kg, scaled from one DevNote reading and not measured. Adjust it to your inner solution's reading, as the note below says.
+:::{table} Outer solution, starting recipe: 1140 mM glucose. A glucose concentration is not a reading of osmotic concentration: this solution is expected to read about 1275 mOsm/kg, scaled from one reading in [Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01) and not measured. Adjust it to your inner solution's reading, as the note below says.
 :name: os-prep
 
 | **Component**     | **Outer Solution (µL)** |
