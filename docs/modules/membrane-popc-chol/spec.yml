@@ -54,9 +54,9 @@ process_steps:
     # `molar_mass` and `stock` moved onto the reagents, by C72: neither varies
     # across the steps that use the lipid, and both are needed to recover a volume.
     finals:
-      popc: {value: 700, unit: "mmol/mol"}
-      cholesterol: {value: 299.5, unit: "mmol/mol"}
-      liss-rhod-pe: {value: 0.5, unit: "mmol/mol"}
+      popc: {value: 699.3, unit: "mmol/mol"}
+      cholesterol: {value: 299.7, unit: "mmol/mol"}
+      liss-rhod-pe: {value: 1, unit: "mmol/mol"}
     notes: >
       The three percentages are mole fractions of the lipid film, not of the
       finished cell. The page gives stock concentrations and volumes beside them
@@ -68,7 +68,7 @@ open:
   - id: liss-rhod-pe-is-a-tracer
     question: >
       Liss-Rhod PE is marked optional here because it is a fluorescent tracer at
-      0.05 %, not a structural lipid, and a membrane without it is still this
+      0.1 % (1 mmol/mol), not a structural lipid, and a membrane without it is still this
       Module. The page does not say that. If the Node considers the tracer part
       of the specification rather than an instrument, the `optional` key should
       come off.

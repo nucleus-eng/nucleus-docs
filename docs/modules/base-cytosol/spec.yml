@@ -75,12 +75,14 @@ process_steps:
       title: "Base Cytosol"
       page: ../base-cytosol/spec.md
     headroom:
-      provides: {value: 2.0, unit: "µL", of: {value: 10, unit: "µL"}}
-      balance: "Nuclease Free Water, 2.0 - X"
+      provides: {value: 2.5, unit: "µL", of: {value: 10, unit: "µL"}}
+      balance: "Nuclease Free Water, 2.5 - X"
       notes: >
         Water is the unit. Filling the slot with water alone leaves every other
         component at its reference concentration, which is what makes this the
-        X = 0 case of Assemble Cytosol.
+        X = 0 case of Assemble Cytosol. The slot is what the five operands leave
+        of 10 µL: 3.0 + 1.0 + 1.2 + 1.8 + 0.5 = 7.5. Template DNA and Optiprep
+        for phase transfer are what it takes.
     notes: >
       RNase inhibitor is a range, 0 to 2000 U/mL, so it can be left out
       entirely. The protocol adds 0.5 uL per 10 uL reaction.
