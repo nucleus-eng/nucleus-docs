@@ -33,11 +33,21 @@ def _process_order_nodes():
     global _PROC_ORDER_CACHE
     if _PROC_ORDER_CACHE is None:
         nodes = set()
+        # THE AUTHORITY IS docs/type-order.yml, AND `nodes`, NOT `edges`. 2026-10-12.
+        # This read docs/type-system.posets.yml until today, which is GENERATED from
+        # the sources this function validates -- the circular check fixed one file
+        # over, in the same commit, and left standing here. The docstring of
+        # _order_nodes() below has said the posets file is the wrong authority the
+        # whole time. Writing the rule and not applying it 25 lines later is how a
+        # half-fixed defect survives: the fix removes the reason to look.
+        # `edges` is keyed by child, so a node that refines nothing and is refined by
+        # nothing is absent from it. `nodes` states membership; `edges` states order.
         try:
-            with open(os.path.join(REPO, "docs", "type-system.posets.yml")) as fh:
-                edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("process_refinement", {}).get("edges") or {}
-            for child, ps in edges.items():
+            with open(os.path.join(REPO, "docs", "type-order.yml")) as fh:
+                order = (yaml.safe_load(fh) or {}).get("orders", {}) \
+                          .get("process_refinement", {}) or {}
+            nodes.update(str(x) for x in (order.get("nodes") or []))
+            for child, ps in (order.get("edges") or {}).items():
                 nodes.add(str(child))
                 nodes.update(str(x) for x in (ps or []))
         except FileNotFoundError:
@@ -334,7 +344,7 @@ def reference_findings(path, doc):
                and ab not in _process_order_nodes():
             out.append(("abstract", f"process_steps/{sid}/process/abstract",
                         f'"{ab}" names no directory under docs/processes/ and is not '
-                        f"a node of docs/type-system.posets.yml's process order"))
+                        f"a node of docs/type-order.yml's process order"))
         own = [l["page"].split("/")[-2]
                for l in (proc.get("composed_of") or [proc]) if l.get("page")]
         if ab and ab in own:
@@ -689,10 +699,15 @@ def main():
     # Markdown and never opens a .yml -- a gap this repo's CLAUDE.md names and
     # nothing closed.
     #
-    # MEASURED ON e724d566: 11 of the 43 citations across all sources did not
-    # resolve. They name the class pages J20 dropped -- ../vesicle/spec.md,
-    # ../solution/spec.md, ../cytosol/spec.md, ../analyte-atc/spec.md -- carried in
-    # by the port rather than written fresh. The control that makes this a finding
+    # RE-MEASURED 2026-10-12 ON THIS BRANCH: 9 of the 42 citations across all
+    # sources did not resolve. They name the class pages J20 dropped --
+    # ../vesicle/spec.md, ../solution/spec.md, ../cytosol/spec.md,
+    # ../analyte-atc/spec.md -- carried in by the port rather than written fresh.
+    # THE FIGURE READ "11 of the 43" UNTIL TODAY, measured on e724d566. Two of
+    # those eleven were retracted text, and this comment was not re-measured when
+    # the retraction landed -- the PR body was corrected and the comment was not.
+    # A count in a comment is a claim about a tree, and it goes stale the way any
+    # other one does. Take it from the run, which prints both numbers every time. The control that makes this a finding
     # about the port and not about the corpus: the pH demo session swept its own
     # ten sources, written fresh against the published order, and 19 of 20 resolved,
     # the one failure being a page still on an open PR.
