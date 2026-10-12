@@ -23,6 +23,9 @@ import sys
 
 import yaml
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import orders as ORDERS  # the one published-order loader; see scripts/orders.py
+
 try:
     import jsonschema
 except ImportError:
@@ -67,56 +70,31 @@ def main():
             for p in glob.glob(os.path.join(HERE, "docs/processes/*/"))
             if glob.glob(os.path.join(p, "*.md"))}
     # A PARENT MAY BE A FUNCTION PAGE. `hold` is a coarser Process than any one Function, and
-    # THE PUBLISHED TYPE ORDER, imported from the theory corpus: types are not
-    # derivable here, so they are checked against what that corpus exports.
-    type_nodes = set()
-    try:
-        with open(os.path.join(HERE, "docs/type-order.yml")) as fh:
-            tedges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                       .get("type_refinement", {}).get("edges") or {}
-        for child, ps in tedges.items():
-            type_nodes.add(str(child))
-            type_nodes.update(str(x) for x in (ps or []))
-    except FileNotFoundError:
-        pass
+    # THE PUBLISHED ORDERS, through the one loader. scripts/orders.py, 2026-10-12.
+    #
+    # These two blocks each opened docs/type-order.yml and decided for themselves
+    # what membership meant. Both were wrong at different times and in different
+    # ways, and each fix landed in one place and not the other:
+    #   the generated file  -- this read docs/type-system.posets.yml, which
+    #                          render-posets.py builds FROM the `refines:` values
+    #                          this check validates. Ten of eleven process sources
+    #                          named a parent that is neither a page nor a
+    #                          published Process, measured on e724d566, and all ten
+    #                          passed because the generated file listed them and it
+    #                          listed them because they named them. It rejected
+    #                          `embed`, which is real, and accepted `assay`, which
+    #                          is not: it taught authors the wrong value.
+    #   edges, not nodes    -- edges is keyed by child, so a Process that refines
+    #                          nothing and is refined by nothing never appeared.
+    #                          Nine of forty-one at 15bcb95. On that basis a source
+    #                          here was told to carry no `refines:` at all, when
+    #                          `anneal` had been profiled upstream since 2026-10-05
+    #                          and was exactly its parent.
+    # Both rules now live in one module with tests that can fail.
+    orders = ORDERS.load(HERE)
+    type_nodes = ORDERS.type_nodes(orders)
+    order_nodes = ORDERS.process_nodes(orders)
 
-    # THE PUBLISHED PROCESS ORDER, read so that an abstraction with no page still
-    # resolves. Empty if the file is absent, which degrades to the old behavior.
-    #
-    # IT IS docs/type-order.yml AND NOT docs/type-system.posets.yml, FIXED 2026-10-12.
-    # This block read the posets file until today. That file is GENERATED from the
-    # `refines:` values in the sources, by scripts/render-posets.py -- so this check
-    # validated those values against an order built out of them. Circular, and the
-    # same defect Jon caught on the module side, which was fixed there and left
-    # standing here.
-    #
-    # WHAT THE CIRCULARITY DID, measured on e724d566. Ten of the eleven process
-    # sources name a parent that is neither a page nor a published Process: `make`,
-    # `assay` and `assemble-cytosol` have no directory anywhere. They passed because
-    # the generated file listed them, and it listed them because they named them. So
-    # the check could never reject anything already committed and could only reject
-    # something new. It rejected `embed`, a real published Process, and accepted
-    # `assay`, which is not one -- it was teaching authors the wrong value.
-    order_nodes = set()
-    try:
-        with open(os.path.join(HERE, "docs/type-order.yml")) as fh:
-            order = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                      .get("process_refinement", {}) or {}
-        # `nodes` IS THE MEMBERSHIP; `edges` IS THE ORDER. 2026-10-12.
-        # edges is keyed by child, so a Process that refines nothing and is refined
-        # by nothing is absent from it. SEVEN OF NINETEEN were invisible that way:
-        # anneal, emit, lyse, sense, transcribe, translate, translocate. Building a
-        # membership set out of edges rejected `anneal` as unknown, and on that
-        # basis a source here was told to carry no `refines:` at all -- `anneal`
-        # has been profiled upstream since 2026-10-05 and was exactly its parent.
-        # The published file now states its nodes. Edges are still read, so this
-        # keeps working against a published file written before `nodes` existed.
-        order_nodes.update(str(x) for x in (order.get("nodes") or []))
-        for child, ps in (order.get("edges") or {}).items():
-            order_nodes.add(str(child))
-            order_nodes.update(str(x) for x in (ps or []))
-    except FileNotFoundError:
-        pass
 
     # encapsulate and embed refine it, so `refines: hold` names a directory under
     # docs/functions/ and none under docs/processes/. Jon, 2026-10-10.
@@ -125,7 +103,6 @@ def main():
              if glob.glob(os.path.join(p, "main.md"))}
     step_imps = module_step_impositions()
     findings = 0
-    legacy = 0
 
     for path in sources:
         rel = os.path.relpath(path, HERE)
@@ -168,15 +145,26 @@ def main():
             # that forced this, an abstraction whose page was dropped with the gel class
             # pages. The order is the authority; the filesystem is not.
             if parent not in dirs and parent not in fdirs and parent not in order_nodes:
-                # REPORTED, NOT FAILED, UNTIL `make` AND `assay` ARE RULED ON.
-                # Ten sources inherited these parents from the port, and they are
-                # abstract process pages that J20 and J54 say should not exist.
-                # Whether they become real Processes upstream or those ten repoint
-                # is Jon's call, and failing the build cannot make it for him.
-                # This counts toward zero; it does not gate. Same standing as the
-                # corpus's own report-only guard.
-                legacy += 1
-                print(f"⚠️  {rel}: `refines: {parent}` names no directory under "
+                # FAILS AGAIN FROM 2026-10-12. This was downgraded to a warning
+                # "UNTIL `make` AND `assay` ARE RULED ON", and Jon ruled on
+                # 2026-10-12: the make-* sources repoint to `prepare` and
+                # `purify`, `assay` to `observe` and `observe_absorbance`, and
+                # `assemble-cytosol` became a real Process upstream. The
+                # antecedent is spent.
+                #
+                # THE COUNT REACHED ZERO FIRST, which is the condition this repo
+                # uses for every report-only check. Measured 2026-10-12 against
+                # the republished order on #293: 0 findings of this kind. On THIS
+                # branch alone it is 10, because this branch carries main's old
+                # docs/type-order.yml, which predates the ruling -- so this check
+                # is red here and green the moment #293 lands. Merge order is
+                # #293 then this PR, and no workflow runs this checker either
+                # way; the PR that wires it into CI lands last, after both.
+                #
+                # LEFT AS A WARNING THE CHECK COULD NOT REJECT A TYPO AT ALL. Any
+                # misspelled parent counted toward a number nobody was gating on.
+                findings += 1
+                print(f"⛔️ {rel}: `refines: {parent}` names no directory under "
                       f"docs/processes/ or docs/functions/, and is not a node of "
                       f"docs/type-order.yml's published process order.",
                       file=sys.stderr)
@@ -196,9 +184,6 @@ def main():
           f"scripts/process-yml-schema.yml")
     print(f"{len(dirs)} process director(ies); "
           f"{len(dirs) - len(sources)} still have no source.")
-    if legacy:
-        print(f"{legacy} `refines:` value(s) name neither a page nor a published "
-              f"Process. REPORTED, NOT FAILED -- see the note at order_nodes.")
     if not findings:
         print("✅ no findings.")
     else:

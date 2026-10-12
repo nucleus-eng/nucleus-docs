@@ -19,43 +19,18 @@ try:
 except ImportError:
     sys.exit("needs pyyaml: pip install pyyaml")
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import orders as ORDERS  # the one published-order loader; see scripts/orders.py
+
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEMA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spec-yml-schema.yml")
 
 
 
 
-_PROC_ORDER_CACHE = None
-
-
 def _process_order_nodes():
     """Nodes of the published process order. See _order_nodes."""
-    global _PROC_ORDER_CACHE
-    if _PROC_ORDER_CACHE is None:
-        nodes = set()
-        # THE AUTHORITY IS docs/type-order.yml, AND `nodes`, NOT `edges`. 2026-10-12.
-        # This read docs/type-system.posets.yml until today, which is GENERATED from
-        # the sources this function validates -- the circular check fixed one file
-        # over, in the same commit, and left standing here. The docstring of
-        # _order_nodes() below has said the posets file is the wrong authority the
-        # whole time. Writing the rule and not applying it 25 lines later is how a
-        # half-fixed defect survives: the fix removes the reason to look.
-        # `edges` is keyed by child, so a node that refines nothing and is refined by
-        # nothing is absent from it. `nodes` states membership; `edges` states order.
-        try:
-            with open(os.path.join(REPO, "docs", "type-order.yml")) as fh:
-                order = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("process_refinement", {}) or {}
-            nodes.update(str(x) for x in (order.get("nodes") or []))
-            for child, ps in (order.get("edges") or {}).items():
-                nodes.add(str(child))
-                nodes.update(str(x) for x in (ps or []))
-        except FileNotFoundError:
-            pass
-        _PROC_ORDER_CACHE = nodes
-    return _PROC_ORDER_CACHE
-
-_ORDER_CACHE = None
+    return ORDERS.process_nodes(ORDERS.load(REPO))
 
 
 def _order_nodes():
@@ -70,23 +45,20 @@ def _order_nodes():
     `refines:` keys, so checking a key against it is circular: a typo would invent its
     own node and pass. Types are not derivable here, which is why they are imported.
 
+    BOTH NOW GO THROUGH scripts/orders.py, 2026-10-12, which is also what fixes a
+    latent defect here: this function read `edges` alone, and `edges` is keyed by
+    child, so a type that refines nothing and is refined by nothing would have been
+    invisible. IT BITES NOTHING TODAY -- measured against main's published order,
+    #293's and the upstream file, every type has at least one edge, so the count is
+    68, 76 and 76 either way and no type is missing. The same mistake on the PROCESS
+    side hid nine of forty-one, because a Process can stand alone and a type in this
+    corpus currently cannot. Fixed here as a rule rather than as a bug.
+
     An absent order file degrades to accepting anything, the same failure the
     filesystem check had when a page was simply missing.
     """
-    global _ORDER_CACHE
-    if _ORDER_CACHE is None:
-        nodes = set()
-        try:
-            with open(os.path.join(REPO, "docs", "type-order.yml")) as fh:
-                edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("type_refinement", {}).get("edges") or {}
-            for child, ps in edges.items():
-                nodes.add(str(child))
-                nodes.update(str(x) for x in (ps or []))
-        except FileNotFoundError:
-            pass
-        _ORDER_CACHE = nodes
-    return _ORDER_CACHE
+    return ORDERS.type_nodes(ORDERS.load(REPO))
+
 
 def schema_findings(doc, schema):
     try:
