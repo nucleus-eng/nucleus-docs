@@ -69,9 +69,8 @@ Please read this section carefully. It contains important notes, resources, and 
 | Protein Mix (PMix)        | 1.2                              |
 | Ribosomes                 | 1.8                              |
 | RNase Inhibitor           | 0.5                              |
-| `pOpen-deGFP`             | 0.5                              |
-| User Additives            | X                                |
-| Nuclease Free Water       | 2.0 - X                          |
+| Optional additions, such as template DNA (e.g. `pOpen-deGFP`) or Optiprep for encapsulation by phase transfer | X |
+| Nuclease Free Water       | 2.5 - X                          |
 | Total                     | 10                               |
 
 :::

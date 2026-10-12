@@ -58,11 +58,11 @@ flowchart TD
 :::{table}
 :label: comp-dye-liposomes-membrane
 
-| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
+| Component    | Target (mmol/mol)     | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
-| POPC         | 70                    | 760.076                  | 25                          | 162.17             |
-| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
-| Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
+| POPC         | 699.3                 | 760.076                  | 25                          | 162.01             |
+| Cholesterol  | 299.7                 | 386.654                  | 50                          | 17.66              |
+| Liss-Rhod PE | 1                     | 1301.71                  | 1                           | 9.92               |
 
 :::
 
@@ -103,7 +103,7 @@ Dye Liposomes are assembled and encapsulated using [Encapsulation: Phase Transfe
 | HEPES pH 7.6             | Chemical   | HEPES, Free Acid                            | Fisher BioReagents     | NC1584172   | $85.90  | RT      | [link](https://www.fishersci.com/shop/products/hepes-free-acid-fisher-bioreagents-3/NC1584172)             |
 | Optiprep                 | Reagent    | OptiPrep™                                   | STEMCELL Technologies  | 07820       | $289.00 | RT      | [link](https://www.stemcell.com/products/optipreptm.html)                                                  |
 | POPC                     | Lipid      | 16:0-18:1 PC 25 mg/mL                       | Avanti Lipids          | A80557      | $435.00 | -20 °C   | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc)                       |
-| Liss-Rhod PE             | Lipid      | 18:0 Liss Rhod PE 1 mg/mL                   | Avanti Lipids          | A81179      | $273.47 | -20 °C   | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe)                      |
+| Liss-Rhod PE             | Lipid      | 18:1 Liss Rhod PE                           | Avanti Research        | A81150      | —       | -20 °C   | —                                                                                                          |
 | Glucose                  | Chemical   | D-(+)-Glucose, 99%                          | Thermo Scientific      | A16828-36   | $41.65  | RT      | [link](https://www.thermofisher.com/order/catalog/product/A16828.36)                                       |
 | Mineral oil              | Chemical   | Mineral oil, mixed weight                   | Thermo Scientific      | AC415080010 | $53.40  | RT      | [link](https://www.thermofisher.com/order/catalog/product/AC415080010)                                     |
 | Glass syringe 250 µL     | Equipment  | Hamilton glass syringe                      | Hamilton               | 14-815-238  | $150.15 | RT      | [link](https://www.fishersci.com/shop/products/800-microliter-syringes-rn-termination/14815238)            |
