@@ -23,11 +23,11 @@ Schematic of a POPC/Chol liposome.
 :::{table}
 :label: comp-membrane-popc-chol
 
-| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
+| Component    | Target (mmol/mol)     | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
-| POPC         | 69.93                 | 760.076                  | 25                          | 162.01             |
-| Cholesterol  | 29.97                 | 386.654                  | 50                          | 17.66              |
-| Liss-Rhod PE | 0.1                   | 1301.71                  | 1                           | 9.92               |
+| POPC         | 699.3                 | 760.076                  | 25                          | 162.01             |
+| Cholesterol  | 299.7                 | 386.654                  | 50                          | 17.66              |
+| Liss-Rhod PE | 1                     | 1301.71                  | 1                           | 9.92               |
 
 :::
 
