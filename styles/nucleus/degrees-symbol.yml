@@ -2,4 +2,4 @@ extends: existence
 message: "Use the degree symbol: '°C' instead of '%s'."
 level: error
 raw:
-  - '(?<!%)\d+\s*C\b'
+  - '(?<!%)(?<![Ff]igure )(?<![Ss]tep )(?<![Ll]ane )(?<![Pp]anel )(?<![Ww]ell )\d+\s*C\b'
