@@ -11,7 +11,7 @@ thumbnail: cell-insertion-sample.png
 
 The Cx43 Module expresses connexin 43 (Cx43), a mammalian gap junction protein, that self-assembles into hexameric hemichannels (connexons) that spontaneously integrate into the membrane of synthetic cells and permit the passage of molecules up to ~1 kDa. Cx43 provides an alternative to α-hemolysin: its status as a non-select agent makes it easier to distribute, and its capacity to form gap junctions between neighboring cells represents a new function that opens a path toward tissue-like assemblies.
 
-This Module was contributed to the Nucleus Community by Ahmed Sihorwala (Belardi Lab, UT Austin), based on the construct design from the Stachowiak Lab and the publication [Sihorwala et al., 2023](https://doi.org/10.1021/jacs.2c12491). Validation data is presented in the DevNote [Cx43 Cell: DNA Validation](https://doi.org/10.63765/xvxu3274).
+The construct design is from the Stachowiak Lab ([Sihorwala et al., 2023](https://doi.org/10.1021/jacs.2c12491)). Validation data is presented in the DevNote [Cx43 Cell: DNA Validation](https://doi.org/10.63765/xvxu3274).
 
 :::{attention} Not yet validated
 This Module has not been validated in Nucleus Cytosol. Expected performance data below is from PURExpress cells.
@@ -36,13 +36,44 @@ Depiction of connexin and its relationship to a connexon: (left) Connexins are m
 ::::{tab-item} DNA
 
 :::{attention}
-Design files for the constructs below are available [Nucleus DNA repository](https://github.com/nucleus-eng/DNA) and in the [DevNote](https://doi.org/10.63765/xvxu3274).
+Design files for the constructs below are available in the [Nucleus DNA repository](https://github.com/nucleus-eng/DNA) and in the [DevNote](https://doi.org/10.63765/xvxu3274).
 :::
 
-| Construct             | Size    | Description                                                            | **File**                                                                                 |
+| Construct | Size | Description | File |
 | --------------------- | ------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `pOpen-pT7-Cx43`      | 3320 bp | Expresses wild-type Cx43 under T7 promoter in pOpen backbone           | [pOpen-Cx43.gb](https://github.com/nucleus-eng/DNA/blob/main/pores/pOpen-Cx43.gb)        |
-| `pOpen-pT7-Cx43-eGFP` | 3996 bp | Expresses Cx43-eGFP fusion protein under T7 promoter in pOpen backbone | [pOpen-Cx43-eGFP](https://github.com/nucleus-eng/DNA/blob/main/pores/pOpen-Cx43-eGFP.gb) |
+| `pOpen-pT7-Cx43` | 3320 bp | Circular plasmid that expresses wild-type Cx43 under T7 promoter in pOpen backbone | [pOpen-Cx43.gb](https://github.com/nucleus-eng/DNA/blob/main/pores/pOpen-Cx43.gb) |
+| `pOpen-pT7-Cx43-eGFP` | 3996 bp | Circular plasmid that expresses Cx43-eGFP fusion protein under T7 promoter in pOpen backbone | [pOpen-Cx43-eGFP.gb](https://github.com/nucleus-eng/DNA/blob/main/pores/pOpen-Cx43-eGFP.gb) |
+
+::::
+
+::::{tab-item} Cytosol
+
+The Insertion Assay reaction in NEB PURExpress, 20 µL.
+
+| Component | Volume (µL) |
+| --- | --- |
+| NEB PURExpress Solution A | 8 |
+| NEB PURExpress Solution B | 6 |
+| RNase inhibitor | 1 |
+| `pOpen-pT7-Cx43-eGFP` (100 ng/µL) | 2 |
+| (Optional) OptiPrep | 0.67 |
+| Nuclease-free water | 2.33 |
+
+:::{attention}
+@Editor: the pore passes cargo down its gradient (Pore ⊗ Membrane ⊗ Cargo[φₚ] ⟶ Membrane[permeable]); this member's cutoff φₚ is ~1 kDa. State the outer solution as a requirement: it holds every species of Cargo[φₚ] the interior needs at working concentration.
+:::
+
+::::
+
+::::{tab-item} Membrane
+
+[Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md) at its default composition.
+
+| Component | Target (mmol/mol) |
+| --- | --- |
+| POPC | 699.3 |
+| Cholesterol | 299.7 |
+| (Optional) Fluorescent lipid label | 1 |
 
 ::::
 
@@ -50,14 +81,25 @@ Design files for the constructs below are available [Nucleus DNA repository](htt
 
 # Expected Behavior
 
-**Insertion Assay** — Liposomes encapsulating NEB PURExpress and `pOpen-pT7-Cx43-eGFP` were incubated at 37 °C for 6 h. Green fluorescent rings around liposomes confirm membrane localization of Cx43-eGFP. Control liposomes lacking the Cx43 plasmid show no rings.
+## Cells
+
+**Insertion Assay** — The Cx43 Module is expected to localize to the membrane of the synthetic cells that express it. Synthetic cells encapsulating NEB PURExpress and `pOpen-pT7-Cx43-eGFP`, incubated at 37 °C for 6 h, show green fluorescent rings around the synthetic cells, which confirm membrane localization of Cx43-eGFP. Control synthetic cells lacking the Cx43 plasmid show no rings. Imaging used a Squid+ (Cephla) with an Olympus UPLXAPO40X 40x objective, at 80 ms for the 561 channel and 200 ms for the 488 channel ([Hsu, 2025](https://doi.org/10.63765/xvxu3274)).
+
+| Component | +Cx43 (µL) | -Cx43 (µL) |
+| --- | --- | --- |
+| NEB PURExpress Solution A | 8 | 8 |
+| NEB PURExpress Solution B | 6 | 6 |
+| RNase inhibitor | 1 | 1 |
+| `pOpen-pT7-Cx43-eGFP` (100 ng/µL) | 2 | 0 |
+| (Optional) OptiPrep | 0.67 | 0.67 |
+| Nuclease-free water | 2.33 | 4.33 |
 
 :::::{tab-set}
 
 ::::{tab-item} +Cx43
 
 :::{figure} cell-insertion-sample.png
-Liposomes expressing Cx43-eGFP. Green fluorescent rings surrounding liposomes indicate successful membrane localization of Cx43-eGFP hemichannels. 488 nm (green, Cx43-eGFP) and 561 nm (red, membrane label) channels overlaid.
+Fluorescence micrograph of synthetic cells expressing Cx43-eGFP. Green fluorescent rings surrounding the synthetic cells indicate successful membrane localization of Cx43-eGFP hemichannels. 488 nm (green, Cx43-eGFP) and 561 nm (red, membrane label) channels overlaid.
 :::
 
 ::::
@@ -65,7 +107,7 @@ Liposomes expressing Cx43-eGFP. Green fluorescent rings surrounding liposomes in
 ::::{tab-item} -Cx43
 
 :::{figure} cell-insertion-control.png
-Control liposomes without Cx43 plasmid. No green fluorescent rings are observed. Faint green signal within liposomes is encapsulated PURE.
+Fluorescence micrograph of control synthetic cells without Cx43 plasmid. No green fluorescent rings are observed. Faint green signal within the synthetic cells is encapsulated PURE.
 :::
 
 ::::
@@ -73,13 +115,27 @@ Control liposomes without Cx43 plasmid. No green fluorescent rings are observed.
 :::::
 
 :::{note} Additional focus views
-Higher-magnification views of individual Cx43-eGFP-expressing liposomes are available in the [DevNote](https://doi.org/10.63765/xvxu3274).
+Higher-magnification views of individual Cx43-eGFP-expressing synthetic cells are available in the [DevNote](https://doi.org/10.63765/xvxu3274).
 :::
 
-**Leakage Assay** — Liposomes co-encapsulating NEB PURExpress, `pOpen-pT7-Cx43`, and Alexa Fluor 647 dye were incubated at 37 °C for 6 h and imaged by confocal microscopy every 10 min.
+**Leakage Assay** — The Cx43 Module is expected to let encapsulated dye leave the synthetic cells that express it. Synthetic cells co-encapsulating NEB PURExpress, `pOpen-pT7-Cx43`, and Alexa Fluor 647 dye, incubated at 37 °C for 6 h and imaged by confocal microscopy every 10 min, lose encapsulated fluorescence over time. Control synthetic cells without the Cx43 plasmid retain it. Imaging used an Operetta confocal microscope at 40x, at 80 ms for the 561 channel and 20 ms for the 647 channel ([Hsu, 2025](https://doi.org/10.63765/xvxu3274)).
+
+| Component | +Cx43 (µL) | -Cx43 (µL) |
+| --- | --- | --- |
+| NEB PURExpress Solution A | 8 | 8 |
+| NEB PURExpress Solution B | 6 | 6 |
+| RNase inhibitor | 1 | 1 |
+| `pOpen-pT7-Cx43` (100 ng/µL) | 2 | 0 |
+| Alexa Fluor 647 (1 mM) | 0.1 | 0.1 |
+| (Optional) OptiPrep | 0.67 | 0.67 |
+| Nuclease-free water | 2.23 | 4.23 |
+
+:::{attention}
+@Editor: the imaging readout has no Process page to link. Link the readout.
+:::
 
 :::{figure} cell-leakage-kinetics.png
-Background-subtracted Alexa Fluor 647 fluorescence intensity over 6 h at 37 °C. Liposomes containing Cx43 show a progressive decrease in encapsulated dye fluorescence relative to controls, consistent with pore-mediated dye leakage.
+Plot of background-subtracted Alexa Fluor 647 fluorescence intensity over 6 h at 37 °C. Synthetic cells containing Cx43 show a progressive decrease in encapsulated dye fluorescence relative to controls, consistent with pore-mediated dye leakage.
 :::
 
 :::::{tab-set}
@@ -87,7 +143,7 @@ Background-subtracted Alexa Fluor 647 fluorescence intensity over 6 h at 37 °C.
 ::::{tab-item} +Cx43
 
 :::{figure} cell-leakage-timeseries-sample.png
-Time series of Cx43-reconstituted liposomes encapsulating Alexa Fluor 647 over 6 h at 37 °C (images every 10 min, starting 40 min after preparation). Progressive loss of fluorescence is observed as dye leaks through Cx43 channels. Scale bar: 500 µm.
+Confocal time series of synthetic cells expressing Cx43 and encapsulating Alexa Fluor 647 over 6 h at 37 °C (images every 10 min, starting 40 min after preparation). Progressive loss of fluorescence is observed as dye leaks through Cx43 channels. Scale bar: 500 µm.
 :::
 
 ::::
@@ -95,7 +151,7 @@ Time series of Cx43-reconstituted liposomes encapsulating Alexa Fluor 647 over 6
 ::::{tab-item} -Cx43
 
 :::{figure} cell-leakage-timeseries-control.png
-Time series of control liposomes encapsulating Alexa Fluor 647 over 6 h at 37 °C. Dye fluorescence is maintained throughout, confirming that leakage requires Cx43 expression. Scale bar: 500 µm.
+Confocal time series of control synthetic cells encapsulating Alexa Fluor 647 over 6 h at 37 °C. Dye fluorescence is maintained throughout, confirming that leakage requires Cx43 expression. Scale bar: 500 µm.
 :::
 
 ::::
@@ -107,7 +163,7 @@ Time series of control liposomes encapsulating Alexa Fluor 647 over 6 h at 37 °
 ::::{tab-item} +Cx43 (start)
 
 :::{figure} cell-leakage-startpoint-sample.png
-Confocal image of Cx43-reconstituted liposomes at the start point, 40 min after preparation. Some liposomes already show reduced fluorescence, consistent with early dye leakage at room temperature. Scale bar: 500 µm.
+Confocal image of synthetic cells expressing Cx43 at the start point, 40 min after preparation. Some synthetic cells already show reduced fluorescence, consistent with early dye leakage at room temperature. Scale bar: 500 µm.
 :::
 
 ::::
@@ -115,7 +171,7 @@ Confocal image of Cx43-reconstituted liposomes at the start point, 40 min after 
 ::::{tab-item} +Cx43 (endpoint)
 
 :::{figure} cell-leakage-endpoint-sample.png
-Endpoint confocal image (6 h 40 min) of Cx43-reconstituted liposomes. A higher proportion of non-fluorescent liposomes is observed relative to controls. Scale bar: 500 µm.
+Confocal endpoint image (6 h 40 min) of synthetic cells expressing Cx43. A higher proportion of non-fluorescent synthetic cells is observed relative to controls. Scale bar: 500 µm.
 :::
 
 ::::
@@ -123,7 +179,7 @@ Endpoint confocal image (6 h 40 min) of Cx43-reconstituted liposomes. A higher p
 ::::{tab-item} -Cx43 (start)
 
 :::{figure} cell-leakage-startpoint-control.png
-Confocal image of control liposomes at the start point, 40 min after preparation. Liposomes remain fluorescent, confirming dye retention in the absence of Cx43. Scale bar: 500 µm.
+Confocal image of control synthetic cells at the start point, 40 min after preparation. The synthetic cells remain fluorescent, confirming dye retention in the absence of Cx43. Scale bar: 500 µm.
 :::
 
 ::::
@@ -131,7 +187,7 @@ Confocal image of control liposomes at the start point, 40 min after preparation
 ::::{tab-item} -Cx43 (endpoint)
 
 :::{figure} cell-leakage-endpoint-control.png
-Endpoint confocal image (6 h 40 min) of control liposomes. Most liposomes remain fluorescent throughout the experiment. Scale bar: 500 µm.
+Confocal endpoint image (6 h 40 min) of control synthetic cells. Most synthetic cells remain fluorescent throughout the experiment. Scale bar: 500 µm.
 :::
 
 ::::
@@ -140,7 +196,14 @@ Endpoint confocal image (6 h 40 min) of control liposomes. Most liposomes remain
 
 # Requirements
 
-Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)). If using DNA components, additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). 
+- Requires a membrane (e.g. [Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md)).
+- Requires pT7 transcription and translation, when expressing from DNA (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+- Requires that molecules passing through the pore be about 1 kDa or smaller ([Sihorwala et al., 2023](https://doi.org/10.1021/jacs.2c12491); [Hsu, 2025](https://doi.org/10.63765/xvxu3274)).
+- Requires, when the interior reaction must keep running after the pore is open, that the outer solution hold every species the pore passes that the interior needs, at working concentration: SMix at 1x for a [Base Cytosol](../base-cytosol/spec.md) interior, or NEB Solution A at 1x (the stock is 2.5x) for an NEB PURExpress interior. Ribosomes, polymerase and plasmid stay in. An assay that reads what leaks out of the interior needs no outer-solution supply ([Sihorwala et al., 2023](https://doi.org/10.1021/jacs.2c12491); [Hsu, 2025](https://doi.org/10.63765/xvxu3274)).
+
+# Processes
+
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — prepares synthetic cells by encapsulating an inner solution in a membrane.
 
 # Credits
 
