@@ -109,7 +109,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 - [ ] Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
 - [ ] Prepare outer solution by mixing glucose stock solution and water. The table is a starting recipe; the target is a reading, set in the note below:
 
-:::{table} Outer solution, starting recipe: 1140 mM glucose. A glucose concentration is not a reading of osmotic concentration: this solution reads about 1275 mOsm/kg. Adjust it to your inner solution's reading, as the note below says.
+:::{table} Outer solution, starting recipe: 1140 mM glucose. A glucose concentration is not a reading of osmotic concentration: this solution is expected to read about 1275 mOsm/kg, scaled from one DevNote reading and not measured. Adjust it to your inner solution's reading, as the note below says.
 :name: os-prep
 
 | **Component**     | **Outer Solution (µL)** |
@@ -123,7 +123,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 :::{hint} Note
 :class: simple
 :icon: false
-Measure the osmotic concentration of your inner solution, and adjust the outer solution's glucose concentration until the outer solution reads 100 mOsm/kg to 150 mOsm/kg lower. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). **Measure the outer solution as well, because its glucose concentration is not its reading.** In that DevNote the inner solution read 1060 mOsm/kg, and 850 mM glucose read 950 mOsm/kg. At that ratio the recipe above reads about 1275 mOsm/kg, which suits an inner solution that reads about 1375 mOsm/kg to 1425 mOsm/kg. Measure both on a vapor-pressure osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
+Measure the osmotic concentration of your inner solution, and adjust the outer solution's glucose concentration until the outer solution reads 100 mOsm/kg to 150 mOsm/kg lower. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). **Measure the outer solution as well, because its glucose concentration is not its reading.** In that DevNote the inner solution read 1060 mOsm/kg, and 850 mM glucose read 950 mOsm/kg. Scaled by glucose concentration from that pair, the recipe above would read about 1275 mOsm/kg, which would suit an inner solution of about 1375 mOsm/kg to 1425 mOsm/kg. Both figures are computed, not measured, and concentrated glucose does not scale exactly. Measure both on a vapor-pressure osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
 :::
 
 ## Encapsulate Inner Solution
