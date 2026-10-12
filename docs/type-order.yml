@@ -19,6 +19,75 @@ orders:
   type_refinement:
     from: "the upstream type table: a row's own refines, and the parent-side phrases"
     relation: child refines parent
+    nodes:
+    - Analyte
+    - Article
+    - Cascade
+    - Cell
+    - Chaperone
+    - Code
+    - Color
+    - ColorReporter
+    - Component
+    - Container
+    - Control
+    - Cytosol
+    - DNA
+    - Detector
+    - 'Detector[repressor]'
+    - Detergent
+    - DevNote
+    - Document
+    - Effector
+    - Emitter
+    - Energy
+    - Fluorescence
+    - FluorescenceMicroscope
+    - Fluorometer
+    - Gel
+    - 'Gel[ionically-set]'
+    - 'Gel[photocrosslinked]'
+    - 'Gel[thermally-set]'
+    - Guide
+    - Instrument
+    - Interval
+    - Lysis
+    - Measurement
+    - Membrane
+    - MembraneComponent
+    - Microscope
+    - Module
+    - NucleicAcid
+    - Object
+    - Observation
+    - Paper
+    - PlateReader
+    - Polymer
+    - Pore
+    - Protease
+    - Protein
+    - RNA
+    - RNASignal
+    - RNase
+    - Reporter
+    - Set
+    - Signal
+    - Solution
+    - SpecMd
+    - SpecPage
+    - SpecYml
+    - Spectrophotometer
+    - Substrate
+    - Tutorial
+    - Vesicle
+    - 'Vesicle[GUV]'
+    - 'Vesicle[LUV]'
+    - 'Vesicle[SUV]'
+    - 'Vesicle[liposome]'
+    - VisualFluorometer
+    - VisualInstrument
+    - dsDNA
+    - ssDNA
     edges:
       Analyte:
       - Component
@@ -159,6 +228,46 @@ orders:
   process_refinement:
     from: "the upstream Process profiles: refines in a profile"
     relation: child refines parent
+    nodes:
+    - active_transport
+    - anneal
+    - crosslink_ionic
+    - degrade
+    - 'degrade[ATP]'
+    - 'degrade[NucleicAcid]'
+    - 'degrade[PPi]'
+    - 'degrade[Protein]'
+    - 'degrade[RNA]'
+    - 'degrade[linearDNA]'
+    - 'degrade[ssrA]'
+    - embed
+    - emit
+    - encapsulate
+    - 'encapsulate[GUV]'
+    - 'encapsulate[LUV]'
+    - 'encapsulate[SUV]'
+    - express
+    - hold
+    - lyse
+    - 'multiplex[Cascade]'
+    - observe
+    - observe_absorbance
+    - observe_fluorescence
+    - passive_transport
+    - photocrosslink
+    - rc
+    - regenerate
+    - 'regenerate[CP]'
+    - 'regenerate[polyP]'
+    - 'regenerate[rNTP]'
+    - report
+    - report_color
+    - sense
+    - set_thermal
+    - transcribe
+    - translate
+    - translocate
+    - transport
     edges:
       active_transport:
       - transport
