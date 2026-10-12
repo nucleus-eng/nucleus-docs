@@ -6,14 +6,103 @@
 #
 # IT IS NOT DERIVED HERE. This repo's own orders come from the sources themselves and
 # are published in docs/type-system.posets.yml; a type order cannot be read off them,
-# so it is generated upstream and copied in. Which commit it came from is in this
-# file's git history, where a reader can follow it.
+# so it is generated upstream and copied in by scripts/publish-type-order.py. Which
+# commit it came from is in this file's git history, where a reader can follow it.
+#
+# `type_requires` is what a TYPE demands, as against what a module demands. It is
+# here because a type need not have a page, and a type with no page has no spec.yml
+# to carry a claim about itself -- so without this section the order says which types
+# exist and nothing about what they need.
 #
 # `module_slugs` maps a page slug to its type: `outer-solution` is `Solution`.
+#
+# `bracket_aliases` maps a flat spelling to the type node it means, for the one place
+# a type name cannot be written as it is spelled. An operation id in a spec.yml is
+# `op[Type]`, and scripts/spec-yml-schema.yml matches the bracket against
+# `[A-Za-z0-9]+(,[A-Za-z0-9]+)*` -- no nesting. So `degrade[DNA[linear]]` is invalid
+# by construction, and a type whose own name carries a bracket has no spelling inside
+# an operation id. The alias is how a checker resolves one.
 orders:
   type_refinement:
     from: "the upstream type table: a row's own refines, and the parent-side phrases"
     relation: child refines parent
+    nodes:
+    - Analyte
+    - Article
+    - Cascade
+    - Cell
+    - Chaperone
+    - Chromophore
+    - Code
+    - Color
+    - ColorReporter
+    - Component
+    - Container
+    - Control
+    - Cytosol
+    - DNA
+    - 'DNA[circular]'
+    - 'DNA[linear]'
+    - Detector
+    - 'Detector[3OC6HSL, activator]'
+    - 'Detector[3OC6HSL, repressor]'
+    - 'Detector[3OC6HSL]'
+    - 'Detector[activator]'
+    - 'Detector[repressor]'
+    - Detergent
+    - DevNote
+    - Document
+    - Effector
+    - Emitter
+    - Energy
+    - Fluorescence
+    - FluorescenceMicroscope
+    - Fluorometer
+    - Fluorophore
+    - Gel
+    - 'Gel[ionically-set]'
+    - 'Gel[photocrosslinked]'
+    - 'Gel[thermally-set]'
+    - Guide
+    - Instrument
+    - Interval
+    - Lysis
+    - Measurement
+    - Membrane
+    - MembraneComponent
+    - Microscope
+    - Module
+    - NucleicAcid
+    - Object
+    - Observation
+    - Paper
+    - PlateReader
+    - Polymer
+    - Pore
+    - Protease
+    - Protein
+    - RNA
+    - RNASignal
+    - RNase
+    - Reporter
+    - Set
+    - Signal
+    - Solution
+    - SpecMd
+    - SpecPage
+    - SpecYml
+    - Spectrophotometer
+    - Substrate
+    - Tutorial
+    - Vesicle
+    - 'Vesicle[GUV]'
+    - 'Vesicle[LUV]'
+    - 'Vesicle[SUV]'
+    - 'Vesicle[liposome]'
+    - VisualFluorometer
+    - VisualInstrument
+    - dsDNA
+    - ssDNA
     edges:
       Analyte:
       - Component
@@ -26,6 +115,8 @@ orders:
       - Module
       Chaperone:
       - Module
+      Chromophore:
+      - Component
       Code:
       - Document
       Color:
@@ -44,8 +135,22 @@ orders:
       DNA:
       - Polymer
       - NucleicAcid
+      'DNA[circular]':
+      - DNA
+      'DNA[linear]':
+      - DNA
       Detector:
       - Module
+      'Detector[3OC6HSL, activator]':
+      - 'Detector[3OC6HSL]'
+      - 'Detector[activator]'
+      'Detector[3OC6HSL, repressor]':
+      - 'Detector[3OC6HSL]'
+      - 'Detector[repressor]'
+      'Detector[3OC6HSL]':
+      - Detector
+      'Detector[activator]':
+      - Detector
       'Detector[repressor]':
       - Detector
       Detergent:
@@ -54,6 +159,8 @@ orders:
       - Document
       Document:
       - Object
+      Effector:
+      - Module
       Emitter:
       - Module
       - Effector
@@ -67,6 +174,8 @@ orders:
       - Microscope
       Fluorometer:
       - Instrument
+      Fluorophore:
+      - Chromophore
       Gel:
       - Container
       'Gel[ionically-set]':
@@ -118,6 +227,7 @@ orders:
       - Protein
       Reporter:
       - Module
+      - Effector
       Solution:
       - Container
       SpecMd:
@@ -154,9 +264,58 @@ orders:
   process_refinement:
     from: "the upstream Process profiles: refines in a profile"
     relation: child refines parent
+    nodes:
+    - active_transport
+    - anneal
+    - assemble-cytosol
+    - assemble-solution
+    - crosslink_ionic
+    - degrade
+    - 'degrade[ATP]'
+    - 'degrade[NucleicAcid]'
+    - 'degrade[PPi]'
+    - 'degrade[Protein]'
+    - 'degrade[RNA]'
+    - 'degrade[linearDNA]'
+    - 'degrade[ssrA]'
+    - embed
+    - emit
+    - emit_color
+    - emit_fluorescence
+    - emit_molecule
+    - encapsulate
+    - 'encapsulate[GUV]'
+    - 'encapsulate[LUV]'
+    - 'encapsulate[SUV]'
+    - hold
+    - lyse
+    - 'multiplex[Cascade]'
+    - observe
+    - observe_absorbance
+    - observe_fluorescence
+    - passive_transport
+    - photocrosslink
+    - prepare
+    - purify
+    - regenerate
+    - 'regenerate[CP]'
+    - 'regenerate[polyP]'
+    - 'regenerate[rNTP]'
+    - report
+    - report_color
+    - sense
+    - set_thermal
+    - transcribe
+    - translate
+    - translocate
+    - transport
     edges:
       active_transport:
       - transport
+      assemble-cytosol:
+      - assemble-solution
+      assemble-solution:
+      - hold
       crosslink_ionic:
       - embed
       'degrade[ATP]':
@@ -173,6 +332,12 @@ orders:
       - 'degrade[NucleicAcid]'
       embed:
       - hold
+      emit_color:
+      - emit
+      emit_fluorescence:
+      - emit_color
+      emit_molecule:
+      - emit
       encapsulate:
       - hold
       'encapsulate[GUV]':
@@ -189,6 +354,8 @@ orders:
       - transport
       photocrosslink:
       - embed
+      purify:
+      - prepare
       'regenerate[CP]':
       - 'regenerate[rNTP]'
       'regenerate[polyP]':
@@ -199,6 +366,486 @@ orders:
       - report
       set_thermal:
       - embed
+type_requires:
+  'Gel[thermally-set]': "a temperature above the gel point while the sample is mixed in"
+process_operands:
+  anneal:
+    positions: ["ssDNA[\u03c3(d)]", "ssDNA[\u03c4(d)]"]
+    needs_roles: false
+    fate: {"ssDNA[σ(d)]": "consumed", "ssDNA[τ(d)]": "consumed"}
+  assemble-cytosol:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  assemble-solution:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  crosslink_ionic:
+    positions: ["Precursor[alginate]", "Ca\u00b2\u207a[200 mM]", "X"]
+    needs_roles: false
+    fate: {"Precursor[alginate]": "consumed", "Ca²⁺[200 mM]": "consumed", "X": "persists"}
+  degrade:
+    positions: ["D", "X"]
+    needs_roles: false
+    fate: {"D": "persists", "X": "consumed"}
+  'degrade[ATP]':
+    positions: ["Cytosol", "ATP"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "ATP": "consumed"}
+  'degrade[NucleicAcid]':
+    positions: ["D", "NucleicAcid"]
+    needs_roles: false
+    fate: {"D": "persists", "NucleicAcid": "consumed"}
+  'degrade[PPi]':
+    positions: ["Cytosol", "PPi"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "PPi": "consumed"}
+  'degrade[Protein]':
+    positions: ["D", "Protein"]
+    needs_roles: false
+    fate: {"D": "persists", "Protein": "persists"}
+  'degrade[RNA]':
+    positions: ["D", "RNA"]
+    needs_roles: false
+    fate: {"D": "persists", "RNA": "consumed"}
+  'degrade[linearDNA]':
+    positions: ["D", "DNA[linear]"]
+    needs_roles: false
+    fate: {"D": "persists", "DNA[linear]": "consumed"}
+  'degrade[ssrA]':
+    positions: ["Control", "Protein[ssrA]"]
+    needs_roles: false
+    fate: {"Control": "persists", "Protein[ssrA]": "consumed"}
+  embed:
+    positions: ["Precursor", "X"]
+    needs_roles: false
+    fate: {"Precursor": "consumed", "X": "persists"}
+  emit:
+    positions: ["X"]
+    needs_roles: false
+    fate: {"X": "persists"}
+    binds: {"X": "Component"}
+  emit_color:
+    positions: ["Chromophore"]
+    needs_roles: false
+    fate: {"Chromophore": "persists"}
+  emit_fluorescence:
+    positions: ["Fluorophore"]
+    needs_roles: false
+    fate: {"Fluorophore": "persists"}
+  emit_molecule:
+    positions: ["Emitter"]
+    needs_roles: false
+    fate: {"Emitter": "persists"}
+  encapsulate:
+    positions: ["L", "S\u1d62", "S\u2092"]
+    needs_roles: true
+    fate: {"L": "persists", "Sᵢ": "persists", "Sₒ": "persists"}
+    profiled_twice: true
+    binds: {"L": "MembraneComponent", "S\u1d62": "Solution", "S\u2092": "Solution"}
+  hold:
+    positions: ["C", "X"]
+    needs_roles: false
+    fate: {"C": "persists", "X": "persists"}
+    binds: {"C": "Container"}
+  lyse:
+    positions: ["Lysis", "Membrane{X}"]
+    needs_roles: false
+    fate: {"Lysis": "persists", "Membrane{X}": "consumed"}
+    binds: {"Lysis": "Effector"}
+  'multiplex[Cascade]':
+    positions: ["Cascade", "Cascade"]
+    needs_roles: true
+    fate: {"Cascade": "persists"}
+  observe:
+    positions: ["X", "Instrument"]
+    needs_roles: false
+    fate: {"X": "persists", "Instrument": "persists"}
+  observe_absorbance:
+    positions: ["X", "Spectrophotometer"]
+    needs_roles: false
+    fate: {"X": "persists", "Spectrophotometer": "persists"}
+  observe_fluorescence:
+    positions: ["X", "Fluorometer"]
+    needs_roles: false
+    fate: {"X": "persists", "Fluorometer": "persists"}
+  passive_transport:
+    positions: ["Pore", "Membrane", "Cargo[\u03c6\u209a]"]
+    needs_roles: false
+    fate: {"Pore": "consumed", "Membrane": "persists", "Cargo[φₚ]": "persists"}
+  photocrosslink:
+    positions: ["Precursor[PEG]", "X"]
+    needs_roles: false
+    fate: {"Precursor[PEG]": "consumed", "X": "persists"}
+  prepare:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  purify:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  regenerate:
+    positions: ["R", "X\u2032"]
+    needs_roles: false
+    fate: {"R": "persists", "X′": "changed"}
+  'regenerate[CP]':
+    positions: ["Cytosol", "ADP"]
+    needs_roles: false
+    fate: {"Cytosol": "persists", "ADP": "consumed"}
+  'regenerate[polyP]':
+    positions: ["Energy", "AMP|GDP"]
+    needs_roles: false
+    fate: {"Energy": "persists", "AMP|GDP": "consumed"}
+  'regenerate[rNTP]':
+    positions: ["R", "rNMP|rNDP"]
+    needs_roles: false
+    fate: {"R": "persists", "rNMP|rNDP": "consumed"}
+  report:
+    positions: ["Reporter"]
+    needs_roles: false
+    fate: {"Reporter": "persists"}
+  report_color:
+    positions: ["report_color: ColorReporter", "Substrate"]
+    needs_roles: false
+    fate: {"report_color: ColorReporter": "persists", "Substrate": "consumed"}
+  sense:
+    positions: ["Detector", "Analyte"]
+    needs_roles: false
+    fate: {"Detector": "persists", "Analyte": "persists"}
+  set_thermal:
+    positions: ["Precursor[agarose]", "X"]
+    needs_roles: false
+    fate: {"Precursor[agarose]": "consumed", "X": "persists"}
+  transcribe:
+    positions: ["Cytosol", "DNA[p]"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "DNA[p]": "consumed"}
+  translate:
+    positions: ["Cytosol", "RNA"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "RNA": "consumed"}
+  transport:
+    positions: ["Pore", "Membrane", "Cargo[\u03c6]"]
+    needs_roles: false
+    fate: {"Pore": "consumed", "Membrane": "persists", "Cargo[φ]": "persists"}
+type_declares:
+  Analyte:
+    kind: none
+    names: []
+    cell: "**none** \u2014 like `Substrate` it sits in an argument position, `sense`'s domain. *It read \"like `Substrate` and `Solution`\" until 2026-10-12, when `Solution` moved to Ground `Function`.*"
+  Cascade:
+    kind: declares
+    names: ["multiplex[Cascade]"]
+    cell: "domain and codomain of `multiplex[Cascade]`. **`build` was deleted 2026-09-25**, so one Process with one attestation. **The row stays**: cascades are being proposed and built, so the missing things get represented rather than the type cut"
+  Cell:
+    kind: position
+    names: ["encapsulate"]
+    cell: "codomain of `encapsulate` with `S\u1d62 \u22a2 Cytosol`"
+  Chaperone:
+    kind: none
+    names: []
+    cell: "**none**"
+  Chromophore:
+    kind: declares
+    names: ["emit_color"]
+    cell: "`emit_color`, refining `emit`'s \u2014 *2026-10-12.* **`observe_absorbance` requires it**, where that profile guarded `X \u22a2 Color` until the same day"
+  Color:
+    kind: position
+    names: ["report_color"]
+    cell: "codomain of `report_color`"
+  ColorReporter:
+    kind: declares
+    names: ["report_color"]
+    cell: "`report_color`"
+  Container:
+    kind: declares
+    names: ["hold"]
+    cell: "`hold`"
+  Control:
+    kind: declares
+    names: ["degrade[ssrA]"]
+    cell: "`degrade[ssrA]`, refining `degrade`"
+  Cytosol:
+    kind: declares
+    names: ["transcribe", "translate"]
+    cell: "`transcribe`, `translate`"
+  DNA:
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `NucleicAcid`'s; argument of `degrade[RNA]`'s sibling"
+  'DNA[circular]':
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `DNA`'s"
+  'DNA[linear]':
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `DNA`'s"
+  Detector:
+    kind: declares
+    names: ["sense"]
+    cell: "`sense`"
+  'Detector[3OC6HSL, activator]':
+    kind: declares
+    names: ["sense"]
+    cell: "`sense`, refining both parents'"
+  'Detector[3OC6HSL, repressor]':
+    kind: declares
+    names: ["sense"]
+    cell: "`sense`, refining both parents'"
+  'Detector[3OC6HSL]':
+    kind: declares
+    names: ["sense"]
+    cell: "`sense`, refining `Detector`'s, with the analyte fixed"
+  'Detector[activator]':
+    kind: declares
+    names: ["sense"]
+    cell: "`sense`, refining `Detector`'s; **the analyte makes an activator competent to recruit RNA polymerase to the promoter.** *The regulator is off by default*"
+  'Detector[repressor]':
+    kind: declares
+    names: ["sense[repress]"]
+    cell: "`sense[repress]`: a repressor protein binds an operator until the analyte binds it"
+  Detergent:
+    kind: none
+    names: []
+    cell: "nothing; no profile takes one"
+  Effector:
+    kind: none
+    names: []
+    cell: "**none of its own** \u2014 its children declare `lyse`, `emit` and `report`, which share no parent Process"
+  Emitter:
+    kind: declares
+    names: ["emit"]
+    cell: "`emit`"
+  Energy:
+    kind: declares
+    names: ["regenerate"]
+    cell: "`regenerate`"
+  Fluorometer:
+    kind: none
+    names: []
+    cell: "**none** \u2014 it sits in an argument position, `observe_fluorescence`'s second"
+  Fluorophore:
+    kind: declares
+    names: ["emit_fluorescence"]
+    cell: "`emit_fluorescence`, refining `emit_color`'s \u2014 *2026-10-12.* **Two wavelengths where a `Color` states one**, and `observe_fluorescence` requires it"
+  Gel:
+    kind: declares
+    names: ["hold"]
+    cell: "`hold`, refining `Container`'s"
+  'Gel[ionically-set]':
+    kind: declares
+    names: ["crosslink_ionic"]
+    cell: "`crosslink_ionic`"
+  'Gel[photocrosslinked]':
+    kind: declares
+    names: ["photodevelop"]
+    cell: "`photodevelop`"
+  'Gel[thermally-set]':
+    kind: declares
+    names: ["set_thermal"]
+    cell: "`set_thermal`"
+  Instrument:
+    kind: none
+    names: []
+    cell: "**none** \u2014 it sits in an argument position, `observe`'s second"
+  Lysis:
+    kind: declares
+    names: ["lyse"]
+    cell: "`lyse`"
+  Measurement:
+    kind: position
+    names: ["observe"]
+    cell: "codomain factor of `observe`, whose `Instrument` is an operand"
+  Membrane:
+    kind: position
+    names: ["encapsulate"]
+    cell: "codomain of `encapsulate`, which forms it from `MembraneComponent`"
+  MembraneComponent:
+    kind: none
+    names: []
+    cell: "**none** \u2014 it sits in `encapsulate`'s argument position, `L`, like `Solution`"
+  NucleicAcid:
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `Polymer`'s, and the argument of `degrade[NucleicAcid]`"
+  Observation:
+    kind: position
+    names: ["observe"]
+    cell: "codomain factor of `observe`"
+  Polymer:
+    kind: declares
+    names: ["::"]
+    cell: "`::` \u2014 **stitching**"
+  Pore:
+    kind: declares
+    names: ["passive_transport", "active_transport"]
+    cell: "`passive_transport` / `active_transport`, refining `transport` \u2014 see below"
+  Protease:
+    kind: declares
+    names: ["degrade[Protein]", "proteolysis"]
+    cell: "`degrade[Protein]`, synonym `proteolysis`, refining `degrade`"
+  Protein:
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `Polymer`'s"
+  RNA:
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `NucleicAcid`'s; argument of `degrade[RNA]`"
+  RNase:
+    kind: declares
+    names: ["degrade[RNA]", "rna_nucleolysis"]
+    cell: "`degrade[RNA]`, synonym `rna_nucleolysis`, refining `degrade[NucleicAcid]`"
+  Reporter:
+    kind: declares
+    names: ["report"]
+    cell: "`report`"
+  Signal:
+    kind: position
+    names: ["sense", "report", "emit"]
+    cell: "codomain of `sense`, `report` and `emit`"
+  Solution:
+    kind: declares
+    names: ["hold"]
+    cell: "`hold`, refining `Container`'s, and done by mixing: `S \u229e X` is an `S{X}`. **Every container declares `hold` and `Solution` refines `Container`** \u2014 Jon, 2026-10-12. *This cell read \"**none** \u2014 like `Substrate` it sits in an argument position, `encapsulate`'s payload at `:200`. **Asserted 2026-09-25**, not by a Process of its own\" until then, while the `Codim` cell beside it stated this Process.* ***Sitting in an argument position is still true and was never the whole row***: a type can be an operand somewhere and declare a Process of its own, which is what `Gel` already does."
+  Spectrophotometer:
+    kind: none
+    names: []
+    cell: "**none** \u2014 it sits in an argument position, `observe_absorbance`'s second"
+  Substrate:
+    kind: none
+    names: []
+    cell: "**none** \u2014 a substrate is *held*, not holding; it sits in `report`'s domain and is consumed"
+  Vesicle:
+    kind: declares
+    names: ["encapsulate"]
+    cell: "`encapsulate`'s first output, `M[L]{S\u2081}`: a membrane closed around a solution"
+  'Vesicle[GUV]':
+    kind: declares
+    names: ["encapsulate[GUV]"]
+    cell: "`encapsulate[GUV]`"
+  'Vesicle[LUV]':
+    kind: declares
+    names: ["encapsulate[LUV]"]
+    cell: "`encapsulate[LUV]`"
+  'Vesicle[SUV]':
+    kind: declares
+    names: ["encapsulate[SUV]"]
+    cell: "`encapsulate[SUV]`"
+  'Vesicle[liposome]':
+    kind: declares
+    names: ["encapsulate"]
+    cell: "`encapsulate` with every `L` a lipid"
+  dsDNA:
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `DNA`'s; the codomain of `anneal`"
+  ssDNA:
+    kind: declares
+    names: ["::"]
+    cell: "`::`, refining `DNA`'s; both arguments of `anneal`, as its strand projections"
+type_codim:
+  Analyte:
+    at: spans
+    cell: "\u2014 **spans**, per instance: the `[aTc]` platemap column described above the table is interior in 1 well of 26 and exterior in 25"
+  Cascade:
+    at: compartments
+    cell: "**compartments**"
+  Cell:
+    at: compartments
+    cell: "**compartments** \u2014 three strata: the lumen, the bilayer, and the exterior the boundary implies. *Plural, like `Cascade`, 2026-09-24.* *Read `boundary` until 2026-09-24, which put it in `Membrane`'s group where [codimension-is-a-coordinate.md](codimension-is-a-coordinate.md) has always had it in `Substrate`'s*"
+  Chaperone:
+    at: undetermined
+    cell: "**undetermined**"
+  Color:
+    at: spans
+    cell: "\u2014 **spans**, with `Signal`"
+  ColorReporter:
+    at: interior
+    cell: "interior"
+  Container:
+    at: spans
+    cell: "\u2014 **spans**, see below"
+  Control:
+    at: interior
+    cell: "interior"
+  Cytosol:
+    at: interior
+    cell: "interior"
+  Detector:
+    at: interior
+    cell: "interior"
+  'Detector[repressor]':
+    at: interior
+    cell: "interior"
+  Effector:
+    at: interior
+    cell: "interior"
+  Emitter:
+    at: interior
+    cell: "interior"
+  Energy:
+    at: interior
+    cell: "interior"
+  Fluorescence:
+    at: spans
+    cell: "\u2014 **spans**, with `Signal`"
+  Gel:
+    at: exterior
+    cell: "exterior"
+  'Gel[ionically-set]':
+    at: exterior
+    cell: "exterior"
+  'Gel[photocrosslinked]':
+    at: exterior
+    cell: "exterior"
+  'Gel[thermally-set]':
+    at: exterior
+    cell: "exterior"
+  Lysis:
+    at: interior
+    cell: "interior"
+  Membrane:
+    at: boundary
+    cell: "boundary"
+  MembraneComponent:
+    at: boundary
+    cell: "boundary"
+  Polymer:
+    at: spans
+    cell: "\u2014 **spans**, like `Container`"
+  Pore:
+    at: boundary
+    cell: "boundary"
+  RNASignal:
+    at: spans
+    cell: "\u2014 **spans**, with `Signal`"
+  Reporter:
+    at: interior
+    cell: "interior"
+  Signal:
+    at: spans
+    cell: "\u2014 **spans**, by Process"
+  Solution:
+    at: spans
+    cell: "\u2014 **spans**, like `Container`: it fills `encapsulate`'s `S\u2081` or `S\u2082`, and inner and outer are those positions, not types. *This cell held a `Declares` claim until 2026-10-12, so `Solution` published no codim at all \u2014 the only unparsed row of 76 when `type_codim` was first emitted, `894a3b3`.*"
+  Substrate:
+    at: interior
+    cell: "interior"
+  Vesicle:
+    at: compartments
+    cell: "**compartments**, like `Cell`"
+  'Vesicle[GUV]':
+    at: compartments
+    cell: "**compartments**"
+  'Vesicle[LUV]':
+    at: compartments
+    cell: "**compartments**"
+  'Vesicle[SUV]':
+    at: compartments
+    cell: "**compartments**"
+  'Vesicle[liposome]':
+    at: compartments
+    cell: "**compartments**"
 module_slugs:
   cell: Cell
   cell-base-cytosol-popc-chol: null
@@ -239,3 +886,6 @@ module_slugs:
 unparsed:
   types: []
   processes: []
+  codim: []
+bracket_aliases:
+  linearDNA: 'DNA[linear]'

@@ -12,7 +12,7 @@
 
 process: make-trna
 title: "Make tRNA"
-refines: make
+refines: purify
 
 signature:
   takes:
