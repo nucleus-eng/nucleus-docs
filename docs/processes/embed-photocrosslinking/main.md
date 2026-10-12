@@ -33,12 +33,10 @@ Photograph of photopatterning in a 96-well plate: a digital light processing pro
 The precursor materials are listed under Materials on [Gel: PEG-nb](../../modules/gel-peg-nb/spec.md).
 
 :::{table} Equipment.
-:label: materials-embed-photocrosslinking
-
-| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| DLP projector | Equipment | Digital light processing projector | Zwants Supplies Engineering | PRO4500-92-405 | — | — | — |
-| Well plate | Equipment | 96-well or 384-well plate | — | — | — | — | — |
+| Item | Used for |
+| --- | --- |
+| DLP projector (Zwants Supplies Engineering, PRO4500-92-405) | Exposure |
+| 96-well or 384-well plate | Plating |
 :::
 
 :::{attention} Plate vendor and exposure dose are not stated
