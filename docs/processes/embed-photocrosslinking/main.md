@@ -40,6 +40,10 @@ Photograph of photopatterning in a 96-well plate: a digital light processing pro
 | Well plate | 384-well plate | | | | |
 :::
 
+:::{attention} The photograph shows a 96-well plate and the protocol says 384-well
+@Editor: say which plate held the gels during exposure. The photograph and the DevNote's own step show a 96-well plate. The plate-reader data are 384-well reads.
+:::
+
 :::{attention} Part number, plate vendor and exposure dose are not stated
 @Editor: give the catalog number of the PEG-nb, the vendor of the plate, and the irradiance of the projector at the sample.
 :::

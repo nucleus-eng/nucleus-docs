@@ -8,6 +8,7 @@ inputs:
   lga-powder:
     title: "Low gelling agarose"
     page: null
+    stock: {value: 28, unit: "mg/mL", note: "the prepared stock, before either dilution"}
   outer-solution:
     title: "Outer solution"
     type: Solution
@@ -25,7 +26,7 @@ process_steps:
       page: ../gel-lga/spec.md
     ratio: "stock diluted 1:1 with outer solution, then 1:1 with the sample"
     finals:
-      lga-powder: {value: 28, unit: "mg/mL", note: "in the prepared stock, before either dilution"}
+      lga-powder: {value: 7, unit: "mg/mL", note: "after the dilution and the 1:1 combination with the sample"}
     parameters:
       gel_point_min_c: 24
       gel_point_max_c: 28

@@ -8,6 +8,7 @@ inputs:
   ulga-powder:
     title: "Ultra-low gelling agarose"
     page: null
+    stock: {value: 10, unit: "mg/mL", note: "the prepared solution, before the 1:1 combination with the sample"}
   outer-solution:
     title: "Outer solution"
     type: Solution
@@ -25,7 +26,7 @@ process_steps:
       page: ../gel-ulga/spec.md
     ratio: "1:1 with the sample, halving the ULGA to its final figure"
     finals:
-      ulga-powder: {value: 10, unit: "mg/mL", note: "in the prepared solution, before the 1:1 combination"}
+      ulga-powder: {value: 5, unit: "mg/mL", note: "after the 1:1 combination with the sample"}
     parameters:
       gel_point_min_c: 8
       gel_point_max_c: 15

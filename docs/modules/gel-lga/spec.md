@@ -69,6 +69,10 @@ flowchart TD
 
 The final concentration is for a stock diluted 1:1 with outer solution and then mixed 1:1 with the sample.
 
+:::{attention} Dilution per well is inferred
+@Editor: confirm that the stock is diluted 1:1 with outer solution before it is mixed with the sample. The DevNote gives the final LGA concentration as 7 mg/mL with the parenthetical 7.5 µL and 7.5 µL of outer solution, and no step describes the dilution.
+:::
+
 :::{attention} LGA supplier is not stated
 @Editor: give the supplier and catalog number of the LGA.
 :::
