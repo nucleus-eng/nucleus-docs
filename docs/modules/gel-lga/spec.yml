@@ -32,8 +32,3 @@ process_steps:
       gel_point_max_c: 28
       dissolve_temperature_c: 95
       hold_temperature_c: 45
-
-open:
-  - id: lga-has-no-supplier
-    question: >
-      The supplier and catalog number of the LGA are not stated.

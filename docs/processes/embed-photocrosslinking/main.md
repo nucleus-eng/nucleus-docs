@@ -37,11 +37,7 @@ Photograph of photopatterning in a 96-well plate: a digital light processing pro
 | PEG-thiol crosslinker | 4-arm PEG-thiol | Creative Pegworks | `PSB-440-5g` | 2000 Da | −20 °C, dark |
 | LAP photoinitiator | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G | 294.21 g/mol | 2 °C to 8 °C, dark |
 | DLP projector | Digital light processing projector | Zwants Supplies Engineering | PRO4500-92-405 | | |
-| Well plate | 384-well plate | | | | |
-:::
-
-:::{attention} The photograph shows a 96-well plate and the protocol says 384-well
-@Editor: say which plate held the gels during exposure. The photograph and the DevNote's own step show a 96-well plate. The plate-reader data are 384-well reads.
+| Well plate | 96-well or 384-well plate | | | | |
 :::
 
 :::{attention} Part number, plate vendor and exposure dose are not stated
@@ -58,18 +54,22 @@ Prepare the precursor in a dark room, and wrap the vial in foil for storage.
 :::
 
 - [ ] **Dissolve the components.**
-    - [ ] Dissolve the PEG-nb, the PEG-thiol and the LAP in 1 mL of PBS, deionized water or another buffer.
+    - [ ] Dissolve the PEG-nb, the PEG-thiol and the LAP in 1 mL of the outer solution the liposomes were prepared in.
 - [ ] **Mix until clear.**
     - [ ] Vortex at 2000 rpm for 1 min, then leave at room temperature for 3 to 5 min.
     - [ ] Vortex again for 2 to 4 min and check that every component has dissolved.
     - [ ] Repeat until the solution is clear.
+
+:::{attention} The precursor solvent is not settled
+@Editor: confirm the solvent used for the precursor. The DevNote's step names PBS, deionized water or another buffer. Its supplement carries a stock-sheet note that PBS did not work in one set of GUVs, and its reagent table names glucose in 50 mM HEPES.
+:::
 
 ## Mix with the Sample and Plate
 
 - [ ] **Mix the sample with the precursor.**
     - [ ] Combine 15 µL of sample with 15 µL of precursor.
 - [ ] **Plate the mixture.**
-    - [ ] Dispense 30 µL per well into a 384-well plate. Plate each sample in duplicate.
+    - [ ] Dispense 30 µL per well into a 96-well or 384-well plate. Plate each sample in duplicate.
     - [ ] Plate the sample in its outer solution, with no gel, as a reference.
 
 ## Expose

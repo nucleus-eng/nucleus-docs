@@ -64,7 +64,7 @@ flowchart TD
 | Solvent | | Solution |
 :::
 
-The precursor is mixed 1:1 with the sample.
+The precursor is mixed 1:1 with the sample. Final after the 1:1 mix: PEG-nb 40 mM.
 
 ::::
 

@@ -36,6 +36,8 @@ process_steps:
       title: "Gel: PEG-nb"
       page: ../gel-peg-nb/spec.md
     ratio: "precursor mixed 1:1 with the sample"
+    finals:
+      peg4nb: {value: 40, unit: "mM", note: "molecules, after the 1:1 mix with the sample"}
     parameters:
       exposure_wavelength_nm: 405
       exposure_time_s: 60

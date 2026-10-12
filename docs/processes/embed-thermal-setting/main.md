@@ -38,8 +38,8 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix.
 | --- | --- | --- |
 | Ultra-low gelling agarose | Gel: ULGA | Not stated |
 | Low gelling agarose | Gel: LGA | Sigma-Aldrich A9414-5G |
-| Glucose | Outer solution | Not stated |
-| HEPES | Outer solution | Not stated |
+| Glucose | Outer solution | Sigma-Aldrich |
+| HEPES | Outer solution | Sigma-Aldrich |
 :::
 
 :::{table} Equipment.
@@ -48,13 +48,13 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix.
 | Microwave | Dissolving ULGA |
 | 95 °C heat block | Dissolving LGA |
 | 55 °C bead bath | Holding ULGA |
-| 45 °C heat block or bath | Holding LGA |
+| Not stated | Holding LGA at 45 °C |
 | Vortex mixer | Dissolving LGA |
-| 384-well plate | Plating |
+| 96-well or 384-well plate | Plating |
 :::
 
-:::{attention} Supplier and part numbers are not stated
-@Editor: give the supplier and catalog number of the ULGA, the glucose and the HEPES, and say which instrument holds the 45 °C temperature.
+:::{attention} Some suppliers, part numbers and instruments are not stated
+@Editor: give the supplier and catalog number of the ULGA, the catalog numbers of the glucose and the HEPES, and say which instrument holds the 45 °C temperature.
 :::
 
 # Protocol
@@ -66,6 +66,10 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix.
 
 :::{attention} Glucose concentration is not stated
 @Editor: give the glucose concentration of the outer solution and how its osmolarity is measured and adjusted. Link the step to `assemble-solution` (Layer 1), with the outer solution's components as its inputs, once it is on `main`.
+:::
+
+:::{attention} Two stocks have two recipes
+@Editor: confirm the ULGA outer solution and the LGA stock. The DevNote's supplement gives the ULGA outer solution as 1057 Osm of glucose, against about 1200 mOsm here. It gives the LGA stock as 27 mg/mL in ultrapure water (40.5 mg in 1500 µL), against 28 mg/mL in the outer solution here.
 :::
 
 ## Prepare the ULGA Stock
@@ -102,7 +106,7 @@ Keeping the stock warm prevents it from setting before it is mixed with the samp
     - [ ] For ULGA, combine 15 µL of sample with 15 µL of the ULGA stock.
     - [ ] For LGA, combine 15 µL of sample with the 15 µL of diluted LGA stock at 45 °C.
 - [ ] **Plate the mixture.**
-    - [ ] Dispense 30 µL per well into a 384-well plate. Plate each sample in duplicate.
+    - [ ] Dispense 30 µL per well into a 96-well or 384-well plate. Plate each sample in duplicate.
     - [ ] Plate the sample in its outer solution, with no gel, as a reference.
 
 :::{attention} Mixing and setting are not described for ULGA
