@@ -87,7 +87,14 @@ sensitivities:
       value: 0.5
     why: >
       Above about 0.5 uM aTc in this cytosol the response stops being graded.
-      THE EVIDENCE IS THE TITRATION ON THIS PAGE AND NOTHING ELSE. At 500 nM TetR it
+      THE BOUND ITSELF IS UNVERIFIED AND IS THE NEXT THING TO SETTLE, 2026-10-12.
+      This retraction removed a fabricated window from around a 0.5 uM bound and
+      left the bound where it was. It may not survive: PR #290 adds a second
+      titration to this page whose useful range runs to 1 uM at either TetR
+      concentration, and whose GUV lumen signal rises with dose up to 1 uM, the
+      highest tested. Whoever settles this reads BOTH titrations on the page, not
+      the one below.
+      THE EVIDENCE BELOW IS THE NUCLEUS BASE CYTOSOL TITRATION. At 500 nM TetR it
       reads 30 % of the unrepressed level at 0.25 uM aTc, 86 % at 1 uM and 91 % at
       5 uM; at 1000 nM TetR, 4 %, 63 % and 88 % at the same doses. Half of the
       unrepressed level falls near 0.4 uM at 500 nM TetR and near 0.8 uM at 1000 nM.
