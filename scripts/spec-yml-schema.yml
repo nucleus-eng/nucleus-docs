@@ -55,10 +55,18 @@ properties:
           type: string
     description: >
       RESOLVED AGAINST THE PUBLISHED TYPE ORDER, not against docs/modules/, from
-      2026-10-11. Each entry must be a node of docs/type-system.posets.yml's module order.
+      2026-10-11. Each entry must be a node of docs/type-order.yml's type order.
       THE PATTERN CAME OFF rather than widening. A regex cannot express that namespace --
       a class slug whose page was dropped is still a node -- and we hold the enumerated
       list, so membership is the check rather than a pattern.
+      IT NAMED docs/type-system.posets.yml UNTIL 2026-10-12, which is GENERATED from the
+      `refines:` values in these sources, so a reader following this description would
+      have checked a key against a file built out of that key. Circular, and the same
+      defect the two schema checkers carried until the same day. docs/type-order.yml is
+      published from the theory corpus and is not derived from anything here.
+      A LIST STAYS LEGAL and still means incomparable parents. What changes is that the
+      FUNCTIONAL parent moved to `type`, so `refines` now holds only the remaining axes.
+      Naming `type`'s own value here is an error rather than a redundancy.
       NAMING `type`'s OWN VALUE HERE IS AN ERROR, not a redundancy. `type` fully determines
       the type-level ancestry; `refines` holds only the remaining incomparable axes.
       The abstract Module or Modules this one refines.
@@ -1094,8 +1102,36 @@ $defs:
         description: >
           Ids from inputs, or the produces.id of an earlier step. Referential
           integrity is checked by the validator, not expressible here.
+          AN ITEM MAY CARRY ITS ROLE, from 2026-10-12. A profile names its operands by
+          ROLE and the role is carried by POSITION -- `encapsulate : L (x) Si (x) So`
+          says which is the lipid, which the inner solution, which the outer. This list
+          is unordered and type cannot recover the roles, because Si and So are both
+          `Solution`: base-cell lists them [inner, membrane, outer] while the profile
+          lists [membrane, inner, outer], and nothing notices.
+          A LABEL IS REQUIRED EXACTLY WHERE TYPE CANNOT SEPARATE THE POSITIONS, which is
+          a fact the published order states rather than a list anyone maintains:
+          `process_operands.<process>.needs_roles` in docs/type-order.yml. Two of
+          thirty-nine profiles are true -- `encapsulate` and `multiplex[Cascade]` -- and
+          everywhere else a bare id is complete. Report-only, counting toward zero.
+          THIS IS NOT THE GAP PUBLISHING FIXES. `type_requires`, `type_codim` and
+          `type_declares` were each a claim in a cell that nothing published, and
+          publishing closed them. A positional role is stated in a NOTATION this schema
+          cannot express, so the key had to be added here as well.
         items:
-          type: string
+          oneOf:
+            - type: string
+            - type: object
+              additionalProperties: false
+              required: [id, as]
+              properties:
+                id: {type: string}
+                as:
+                  type: string
+                  description: >
+                    WHICH OPERAND POSITION THIS FILLS, named as the upstream profile
+                    names it: `L`, `Si`, `So` for `encapsulate`. The symbol and not a
+                    word, ruled 2026-10-12 -- a word would need a second map, and a
+                    checker compares against `process_operands.<p>.positions` directly.
       produces:
         type: object
         additionalProperties: false
