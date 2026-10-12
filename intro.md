@@ -24,7 +24,7 @@ Nucleus Documentation is the protocol and specification library for the Nucleus 
 
 :::{card}
 :header: 🧱 **Modules**
-- [tetR-aTc Detector](docs/modules/detector-tetr_atc/spec.md)
+- [tetR-aTc Detector](docs/modules/detector-tetr-atc/spec.md)
 - [ClpXP Control Module](docs/modules/control-clpxp/spec.md)
 - [Cx43 Membrane Pore](docs/modules/membrane-pore-cx43/spec.md)
 :::
