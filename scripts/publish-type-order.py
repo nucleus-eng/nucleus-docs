@@ -16,9 +16,13 @@ is in another repository. So --check is for whoever has both trees, and the
 honest statement of its standing is that it is a tool, not a guard.
 
 WHAT IS COPIED: the orders, type_requires, module_slugs and unparsed, as data.
-The two files carried identical node sets when this was written -- 68 type nodes,
-28 process nodes, same module_slugs -- so no name mapping is applied. IF A MAPPING
-IS EVER NEEDED IT GOES HERE AND IS STATED, rather than being done once by hand.
+The two files carry identical node sets -- re-measured 2026-10-12 against theory
+15bcb95 at 76 type nodes and 41 process nodes, same module_slugs -- so no name
+mapping is applied. IF A MAPPING IS EVER NEEDED IT GOES HERE AND IS STATED, rather
+than being done once by hand. THE FIGURES READ "68 type nodes, 28 process nodes"
+when this was written and were stale within a day; the identity is what the claim
+rests on, not the size, so the identity is what --check tests. Do not trust the
+numbers in this paragraph over a run.
 
 WHAT IS REWRITTEN: the header, and the two `from:` fields. Both name `signature.md`
 upstream, a file a reader of this repo cannot open -- the defect #285 fixed BY HAND
