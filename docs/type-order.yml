@@ -368,6 +368,164 @@ orders:
       - embed
 type_requires:
   'Gel[thermally-set]': "a temperature above the gel point while the sample is mixed in"
+process_operands:
+  anneal:
+    positions: ["ssDNA[\u03c3(d)]", "ssDNA[\u03c4(d)]"]
+    needs_roles: false
+    fate: {"ssDNA[σ(d)]": "consumed", "ssDNA[τ(d)]": "consumed"}
+  assemble-cytosol:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  assemble-solution:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  crosslink_ionic:
+    positions: ["Precursor[alginate]", "Ca\u00b2\u207a[200 mM]", "X"]
+    needs_roles: false
+    fate: {"Precursor[alginate]": "consumed", "Ca²⁺[200 mM]": "consumed", "X": "persists"}
+  degrade:
+    positions: ["D", "X"]
+    needs_roles: false
+    fate: {"D": "persists", "X": "consumed"}
+  'degrade[ATP]':
+    positions: ["Cytosol", "ATP"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "ATP": "consumed"}
+  'degrade[NucleicAcid]':
+    positions: ["D", "NucleicAcid"]
+    needs_roles: false
+    fate: {"D": "persists", "NucleicAcid": "consumed"}
+  'degrade[PPi]':
+    positions: ["Cytosol", "PPi"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "PPi": "consumed"}
+  'degrade[Protein]':
+    positions: ["D", "Protein"]
+    needs_roles: false
+    fate: {"D": "persists", "Protein": "persists"}
+  'degrade[RNA]':
+    positions: ["D", "RNA"]
+    needs_roles: false
+    fate: {"D": "persists", "RNA": "consumed"}
+  'degrade[linearDNA]':
+    positions: ["D", "DNA[linear]"]
+    needs_roles: false
+    fate: {"D": "persists", "DNA[linear]": "consumed"}
+  'degrade[ssrA]':
+    positions: ["Control", "Protein[ssrA]"]
+    needs_roles: false
+    fate: {"Control": "persists", "Protein[ssrA]": "consumed"}
+  embed:
+    positions: ["Precursor", "X"]
+    needs_roles: false
+    fate: {"Precursor": "consumed", "X": "persists"}
+  emit:
+    positions: ["X"]
+    needs_roles: false
+    fate: {"X": "persists"}
+    binds: {"X": "Component"}
+  emit_color:
+    positions: ["Chromophore"]
+    needs_roles: false
+    fate: {"Chromophore": "persists"}
+  emit_fluorescence:
+    positions: ["Fluorophore"]
+    needs_roles: false
+    fate: {"Fluorophore": "persists"}
+  emit_molecule:
+    positions: ["Emitter"]
+    needs_roles: false
+    fate: {"Emitter": "persists"}
+  encapsulate:
+    positions: ["L", "S\u1d62", "S\u2092"]
+    needs_roles: true
+    fate: {"L": "persists", "Sᵢ": "persists", "Sₒ": "persists"}
+    profiled_twice: true
+    binds: {"L": "MembraneComponent", "S\u1d62": "Solution", "S\u2092": "Solution"}
+  hold:
+    positions: ["C", "X"]
+    needs_roles: false
+    fate: {"C": "persists", "X": "persists"}
+    binds: {"C": "Container"}
+  lyse:
+    positions: ["Lysis", "Membrane{X}"]
+    needs_roles: false
+    fate: {"Lysis": "persists", "Membrane{X}": "consumed"}
+    binds: {"Lysis": "Effector"}
+  'multiplex[Cascade]':
+    positions: ["Cascade", "Cascade"]
+    needs_roles: true
+    fate: {"Cascade": "persists"}
+  observe:
+    positions: ["X", "Instrument"]
+    needs_roles: false
+    fate: {"X": "persists", "Instrument": "persists"}
+  observe_absorbance:
+    positions: ["X", "Spectrophotometer"]
+    needs_roles: false
+    fate: {"X": "persists", "Spectrophotometer": "persists"}
+  observe_fluorescence:
+    positions: ["X", "Fluorometer"]
+    needs_roles: false
+    fate: {"X": "persists", "Fluorometer": "persists"}
+  passive_transport:
+    positions: ["Pore", "Membrane", "Cargo[\u03c6\u209a]"]
+    needs_roles: false
+    fate: {"Pore": "consumed", "Membrane": "persists", "Cargo[φₚ]": "persists"}
+  photocrosslink:
+    positions: ["Precursor[PEG]", "X"]
+    needs_roles: false
+    fate: {"Precursor[PEG]": "consumed", "X": "persists"}
+  prepare:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  purify:
+    positions: ["\u1d62 X\u1d62"]
+    needs_roles: false
+  regenerate:
+    positions: ["R", "X\u2032"]
+    needs_roles: false
+    fate: {"R": "persists", "X′": "changed"}
+  'regenerate[CP]':
+    positions: ["Cytosol", "ADP"]
+    needs_roles: false
+    fate: {"Cytosol": "persists", "ADP": "consumed"}
+  'regenerate[polyP]':
+    positions: ["Energy", "AMP|GDP"]
+    needs_roles: false
+    fate: {"Energy": "persists", "AMP|GDP": "consumed"}
+  'regenerate[rNTP]':
+    positions: ["R", "rNMP|rNDP"]
+    needs_roles: false
+    fate: {"R": "persists", "rNMP|rNDP": "consumed"}
+  report:
+    positions: ["Reporter"]
+    needs_roles: false
+    fate: {"Reporter": "persists"}
+  report_color:
+    positions: ["report_color: ColorReporter", "Substrate"]
+    needs_roles: false
+    fate: {"report_color: ColorReporter": "persists", "Substrate": "consumed"}
+  sense:
+    positions: ["Detector", "Analyte"]
+    needs_roles: false
+    fate: {"Detector": "persists", "Analyte": "persists"}
+  set_thermal:
+    positions: ["Precursor[agarose]", "X"]
+    needs_roles: false
+    fate: {"Precursor[agarose]": "consumed", "X": "persists"}
+  transcribe:
+    positions: ["Cytosol", "DNA[p]"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "DNA[p]": "consumed"}
+  translate:
+    positions: ["Cytosol", "RNA"]
+    needs_roles: false
+    fate: {"Cytosol": "changed", "RNA": "consumed"}
+  transport:
+    positions: ["Pore", "Membrane", "Cargo[\u03c6]"]
+    needs_roles: false
+    fate: {"Pore": "consumed", "Membrane": "persists", "Cargo[φ]": "persists"}
 type_declares:
   Analyte:
     kind: none

@@ -15,7 +15,13 @@ assume a sibling checkout and must not guess one. CI cannot run this: the source
 is in another repository. So --check is for whoever has both trees, and the
 honest statement of its standing is that it is a tool, not a guard.
 
-WHAT IS COPIED: the orders, type_requires, module_slugs and unparsed, as data.
+WHAT IS COPIED: THE WHOLE BODY, from the first non-comment line, with the
+FROM_FIELDS substitutions applied. Not a chosen set of keys. This line read
+"the orders, type_requires, module_slugs and unparsed" until 2026-10-12,
+when the published file had SEVEN top-level keys and the upstream had gained
+two more that this script was already copying. A description of what a
+generator copies drifts; the code does not, so the code is what is stated.
+Re-run it whenever upstream changes -- `--check` says when that is due.
 The two files carry identical node sets -- re-measured 2026-10-12 against theory
 15bcb95 at 76 type nodes and 41 process nodes, same module_slugs -- so no name
 mapping is applied. IF A MAPPING IS EVER NEEDED IT GOES HERE AND IS STATED, rather
