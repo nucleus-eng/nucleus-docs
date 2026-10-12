@@ -1,22 +1,18 @@
-# PUBLISHED FROM compositional-biology-theory. Do not edit.
+# GENERATED. Do not edit.
 #
-# The type order, which this repo cannot derive: a Module's `type:` names a type,
-# and types live in that corpus's signature.md. Generated there by
-# scripts/emit-posets.py and copied here at 8f177d1, 2026-10-11.
+# The type order: which type refines which, and which page slug names which type.
+# A Module's `type:` and `refines:` are checked against this file, and a type here
+# need not have a page -- `Container` and `Vesicle[LUV]` have none.
 #
-# This is the MIRROR of docs/type-system.posets.yml, which publishes the orders
-# THIS repo derives -- module refinement, process refinement, containment -- for
-# that corpus to read. Each repo exports what the other cannot compute.
+# IT IS NOT DERIVED HERE. This repo's own orders come from the sources themselves and
+# are published in docs/type-system.posets.yml; a type order cannot be read off them,
+# so it is generated upstream and copied in. Which commit it came from is in this
+# file's git history, where a reader can follow it.
 #
-# `module_slugs` maps a docs slug to its type: `outer-solution` is `Solution`.
-# Run `python3 scripts/emit-posets.py` to refresh and `--check` to verify; guard 12 runs the check.
-#
-# The refinement orders signature.md states and nucleus-docs cannot read: the type order and the
-# Process order. Edges are as STATED, not reduced; an edge a longer path already implies is kept.
-# `unparsed` lists every row or profile that mentions a refinement and gave no edge.
+# `module_slugs` maps a page slug to its type: `outer-solution` is `Solution`.
 orders:
   type_refinement:
-    from: "signature.md type table: a row's own refines, and the parent-side phrases"
+    from: "the upstream type table: a row's own refines, and the parent-side phrases"
     relation: child refines parent
     edges:
       Analyte:
@@ -156,7 +152,7 @@ orders:
       ssDNA:
       - DNA
   process_refinement:
-    from: "signature.md ## Processes: refines in a profile"
+    from: "the upstream Process profiles: refines in a profile"
     relation: child refines parent
     edges:
       active_transport:

@@ -243,27 +243,6 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
 # the same who-decided text in `question:`, `notes:` and `why:` values that the
 # schema defines and `check-spec-schema.py` validates. Content, not a note to the
 # next editor.
-def _is_generated(path) -> bool:
-    """A generated data file is not prose, so this check does not read it.
-
-    Two published orders live under docs/ and are emitted by a script, not written:
-    type-system.posets.yml, which this repo generates for the theory corpus, and
-    type-order.yml, which that corpus generates for this one. Each carries a header
-    naming where it came from, which `working-notes` reads as a pointer into somebody's
-    notes. For a page that is the right complaint. For a generated order the header is
-    the provenance the file exists to carry, and dropping it would make the file
-    unverifiable to keep a prose rule happy.
-
-    Detected by the header rather than by a path list, so a third one needs no edit here.
-    """
-    try:
-        with open(path, encoding="utf-8") as fh:
-            head = fh.read(200)
-    except OSError:
-        return False
-    return head.startswith("# GENERATED") or head.startswith("# PUBLISHED FROM")
-
-
 SUFFIXES = (".md", ".yml")
 
 
@@ -272,8 +251,7 @@ def iter_pages(paths: list[Path]):
         if p.is_file() and p.suffix in SUFFIXES:
             yield p
         elif p.is_dir():
-            yield from sorted(q for q in p.rglob("*")
-                              if q.suffix in SUFFIXES and not _is_generated(q))
+            yield from sorted(q for q in p.rglob("*") if q.suffix in SUFFIXES)
 
 
 def main(argv=None) -> int:
