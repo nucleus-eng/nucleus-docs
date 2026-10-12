@@ -81,7 +81,7 @@ def main():
         pass
 
     # THE PUBLISHED PROCESS ORDER, read so that an abstraction with no page still
-    # resolves. Empty if the file is absent, which degrades to the old behaviour.
+    # resolves. Empty if the file is absent, which degrades to the old behavior.
     order_nodes = set()
     try:
         with open(os.path.join(HERE, "docs/type-system.posets.yml")) as fh:

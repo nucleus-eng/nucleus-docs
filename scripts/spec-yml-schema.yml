@@ -581,7 +581,7 @@ properties:
             Present on all 90 inputs measured; null is the normal value for a
             component the corpus does not give a page.
             A NULL PAGE AND A `type` ARE NOT THE SAME THING. A null page is a real
-            material nobody wrote up, such as a catalogue reagent. A `type` is a class
+            material nobody wrote up, such as a catalog reagent. A `type` is a class
             with members, which was never owed a page.
         type:
           type: string

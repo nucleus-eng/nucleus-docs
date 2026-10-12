@@ -95,7 +95,7 @@ properties:
                 RESOLVED AGAINST THE PUBLISHED TYPE ORDER from 2026-10-11, not by regex.
                 The pattern came off because the order's spelling is not lowercase and is
                 not uniform: `Component`, `Solution`, `Gel[thermally-set]`, and `ssDNA`,
-                whose lowercase first letter defeats any capitalisation rule.
+                whose lowercase first letter defeats any capitalization rule.
             repeated:
               type: boolean
               description: >
