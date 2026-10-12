@@ -66,15 +66,15 @@ The lipids, mineral oil, chloroform, glucose, Optiprep, glassware and imaging pl
 
 | Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
-| POPC         | 70                    | 760.076                  | 25                          | 162.17             |
-| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
-| Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
+| POPC         | 69.93                 | 760.076                  | 25                          | 162.01             |
+| Cholesterol  | 29.97                 | 386.654                  | 50                          | 17.66              |
+| Liss-Rhod PE | 0.1                   | 1301.71                  | 1                           | 9.92               |
 :::
 
 :::{hint} Which Liss-Rhod PE
 :class: simple
 :icon: false
-Use 18:1 Liss Rhod PE (Avanti A81150), the product in [Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01). Its molecular weight is the 1301.71 g/mol in the table. The 18:0 product, A81179, is a different lipid and is gel-phase at 37 °C. The table makes 7.62 µmol of lipid in 1 mL of oil.
+Use 18:1 Liss Rhod PE (Avanti A81150), the product in [Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01). Its molecular weight is the 1301.71 g/mol in the table. The 18:0 product, A81179, is another option with its own molecular weight: if you use it, recompute the volume from that weight. The label is 0.1 mol % (1 mmol/mol), and POPC and cholesterol share the rest in a 7:3 ratio. The table makes 7.62 µmol of lipid in 1 mL of oil.
 :::
 
 - [ ] Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
