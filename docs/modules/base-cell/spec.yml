@@ -39,8 +39,39 @@ inputs:
   membrane-popc-chol:
     title: "Membrane: POPC/Chol (7:3)"
     page: ../membrane-popc-chol/spec.md
+  optiprep:
+    stock: {value: 1.32, unit: "mg/µL"}
+    title: "OptiPrep"
+    page: null            # a density agent: it lets the inner-solution droplets pellet through the oil-water interface
 
 process_steps:
+  # THE INNER SOLUTION IS BASE CYTOSOL WITH OPTIPREP, and nothing else is required of it.
+  # Base Cytosol leaves 2.5 uL of every 10 uL free for additions, and this step spends
+  # part of that slot on Optiprep. What else the user puts in the slot, template DNA for
+  # one, is the user's and is not part of this Module.
+  - id: assemble-inner-solution
+    process:
+      title: "Assemble Base Cytosol"
+      page: ../../processes/assemble-base-cytosol/main.md
+      abstract: assemble-cytosol
+    operator: mixing
+    operands: [base-cytosol, optiprep]
+    produces:
+      id: base-cell-inner-solution
+      title: "Base Cell inner solution"
+      page: null
+    headroom:
+      requires: {value: 0.33, unit: "µL", of: {value: 10, unit: "µL"}}
+      notes: >
+        The slot is ../base-cytosol/spec.yml's `headroom.provides`, 2.5 uL of 10.
+        Optiprep takes 1.33 uL of a 40 uL reaction, which is 0.33 uL of 10.
+    finals:
+      base-cytosol: {value: 1, unit: "fold"}
+      optiprep: {value: 0.043, unit: "mg/µL"}
+    total_volume: {value: 40, unit: "µL"}
+    notes: >
+      40 uL: 10 uL goes to the osmometer and 30 uL to one encapsulation.
+
   - id: encapsulate
     process:
       title: "Encapsulation: Phase Transfer"
@@ -52,14 +83,21 @@ process_steps:
     #                   -> outer_solution{Membrane[membrane_components]{inner_solution}}
     # The product's TYPE names what it is suspended in, so a step that leaves it out
     # describes a compartment hanging in nothing. 23 of 26 encapsulation steps did.
-    operands: [base-cytosol, membrane-popc-chol, outer-solution]
+    operands: [base-cell-inner-solution, membrane-popc-chol, outer-solution]
     produces:
       id: base-cell
       title: "Base Cell"
       page: ../base-cell/spec.md
+    # A DESIGNED STARTING CONCENTRATION, NOT A MEASUREMENT. The outer solution is the class
+    # `Solution` on purpose, so no page of an operand states this figure, and it stays here.
+    # What it reads on an osmometer is a different quantity and has not been measured for
+    # this inner solution.
+    parameters:
+      outer_solution_glucose: "1140 mM"
     notes: >
-      Base Cytosol at reaction concentration, closed in a 70:30
-      POPC:cholesterol bilayer.
+      The inner solution closed in a 70:30 POPC:cholesterol bilayer, in a glucose
+      outer solution that starts at 1140 mM and is adjusted to read 100 mOsm/kg to
+      150 mOsm/kg below the inner solution.
 
 # THIS CELL'S OWN WINDOW, sharpening the Requirement ../vesicle states with no bound.
 # Measured on one route, as the vesicles formed, in the unit the osmometer reads.
