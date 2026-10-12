@@ -151,6 +151,6 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Developed by Yen-Yu Hsu (b.next).
 
-Bulk titration in Nucleus Base Cytosol by Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node) and Madison Briggs (Kamat Lab, Northwestern University, DevCells Chicago Node).
+Bulk titration in Nucleus Base Cytosol by Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node).
 
 GUV deGFP characterization by Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node).
