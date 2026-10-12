@@ -33,6 +33,7 @@ Usage:
 """
 
 import csv
+import os
 import re
 import shutil
 import subprocess
@@ -53,6 +54,14 @@ from bom_common import (  # noqa: E402  (sibling module, resolved via sys.path[0
 # absolute path is written into each intermediate's `exports.template` so MyST
 # resolves it regardless of the intermediate's location.
 TYPST_TEMPLATE_DIR = Path("templates/typst/nucleus-protocols")
+
+# Mirrors site.yml's `site.url`. Intermediate markdown lives one directory
+# deeper than its source page (in `generated/`), so a page-relative link
+# copied verbatim (e.g. `../assemble-base-cytosol/main.md`) points one level
+# short once it is standalone-exported to PDF — and a relative link has no
+# working "current directory" in a PDF viewer regardless (#276). Internal
+# links are rewritten to absolute site URLs instead; see resolve_internal_links.
+SITE_URL = "https://docs.nucleus.engineering"
 
 PROCESSES_ROOT = Path("docs/processes")
 MODULES_ROOT = Path("docs/modules")
@@ -238,6 +247,33 @@ def strip_cross_references(text: str) -> str:
     return re.sub(r"\{(?:ref|numref|eq)\}`([^`<]*?<)?([^`>]+)>?`", repl, text)
 
 
+# A markdown link, excluding images (no leading `!`): [text](href).
+MD_LINK_RE = re.compile(r"(?<!!)\[([^\]]*)\]\(([^)\s]+)\)")
+
+
+def resolve_internal_links(text: str, page: Path) -> str:
+    """Rewrite internal page links (href ending in ``.md``) to absolute site
+    URLs, resolved relative to the *source* page's directory. A relative link
+    copied verbatim into a standalone-exported PDF has no working "current
+    directory" to resolve against, and even a correctly-rebased relative path
+    would need the generated file's extra nesting undone — so links are made
+    absolute instead (#276)."""
+    def repl(m):
+        link_text, href = m.group(1), m.group(2)
+        if "://" in href or href.startswith(("#", "mailto:")):
+            return m.group(0)
+        path, _, fragment = href.partition("#")
+        if not path.endswith(".md"):
+            return m.group(0)
+        base = Path(path[1:]) if path.startswith("/") else (page.parent / path)
+        target = Path(os.path.normpath(base)).with_suffix("")
+        url = f"{SITE_URL}/{target.as_posix()}/"
+        if fragment:
+            url += f"#{fragment}"
+        return f"[{link_text}]({url})"
+    return MD_LINK_RE.sub(repl, text)
+
+
 def yaml_quote(value: str) -> str:
     """Double-quote a string for safe embedding as a YAML scalar, escaping
     backslashes and double quotes. Needed because page titles may contain a
@@ -249,7 +285,7 @@ def yaml_quote(value: str) -> str:
 
 
 def build_protocol_markdown(title: str, hazard: Optional[List[str]],
-                            checklist: List[str], slug: str) -> str:
+                            checklist: List[str], slug: str, page: Path) -> str:
     """Assemble the intermediate markdown that MyST renders to the protocol PDF."""
     fm = (
         "---\n"
@@ -263,13 +299,13 @@ def build_protocol_markdown(title: str, hazard: Optional[List[str]],
     parts = [fm]
     if hazard:
         parts.append(":::{danger} Hazardous Materials\n")
-        parts.append(strip_cross_references("\n".join(hazard)) + "\n")
+        parts.append(resolve_internal_links(strip_cross_references("\n".join(hazard)), page) + "\n")
         parts.append(":::\n\n")
-    parts.append(strip_cross_references("\n".join(checklist)) + "\n")
+    parts.append(resolve_internal_links(strip_cross_references("\n".join(checklist)), page) + "\n")
     return "".join(parts)
 
 
-def build_bom_markdown(title: str, bom_rows: List[str], slug: str) -> str:
+def build_bom_markdown(title: str, bom_rows: List[str], slug: str, page: Path) -> str:
     """Assemble the intermediate markdown that MyST renders to the BOM PDF."""
     fm = (
         "---\n"
@@ -280,7 +316,7 @@ def build_bom_markdown(title: str, bom_rows: List[str], slug: str) -> str:
         f"    output: {slug}-bom.pdf\n"
         "---\n\n"
     )
-    return fm + "\n".join(bom_rows) + "\n"
+    return fm + resolve_internal_links("\n".join(bom_rows), page) + "\n"
 
 
 def resolve_bom_source(page: Path, body: str, slug: str) -> Tuple[Optional[List[str]], str]:
@@ -469,7 +505,7 @@ def main() -> int:
 
         protocol_md = gen_dir / f"{slug}-protocol.md"
         protocol_md.write_text(
-            build_protocol_markdown(title, hazard, checklist, slug),
+            build_protocol_markdown(title, hazard, checklist, slug, page),
             encoding="utf-8",
         )
         to_render.append(protocol_md)
@@ -481,7 +517,7 @@ def main() -> int:
             )
             bom_md = gen_dir / f"{slug}-bom.md"
             bom_md.write_text(
-                build_bom_markdown(title, bom_rows, slug), encoding="utf-8"
+                build_bom_markdown(title, bom_rows, slug, page), encoding="utf-8"
             )
             to_render.append(bom_md)
             bom_note = f" + BOM/CSV (from {bom_source})"
@@ -513,7 +549,7 @@ def main() -> int:
             table_to_csv(bom_rows), encoding="utf-8"
         )
         bom_md = gen_dir / f"{slug}-bom.md"
-        bom_md.write_text(build_bom_markdown(title, bom_rows, slug), encoding="utf-8")
+        bom_md.write_text(build_bom_markdown(title, bom_rows, slug, page), encoding="utf-8")
 
         print(f"✓ {page}  →  {slug}-bom.md (BOM only, from {bom_source})")
 
