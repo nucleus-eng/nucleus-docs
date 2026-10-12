@@ -30,18 +30,19 @@ Photograph of photopatterning in a 96-well plate: a digital light processing pro
 
 # Materials and Equipment
 
-:::{table} Materials and equipment.
-| Item | Product | Supplier | Part number | Molecular weight | Storage |
-| --- | --- | --- | --- | --- | --- |
-| PEG-nb | 4-arm PEG-norbornene | Creative Pegworks | Not recorded | 5000 Da | −20 °C, dark |
-| PEG-thiol crosslinker | 4-arm PEG-thiol | Creative Pegworks | `PSB-440-5g` | 2000 Da | −20 °C, dark |
-| LAP photoinitiator | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G | 294.21 g/mol | 2 °C to 8 °C, dark |
-| DLP projector | Digital light processing projector | Zwants Supplies Engineering | PRO4500-92-405 | | |
-| Well plate | 96-well or 384-well plate | | | | |
+The precursor materials are listed under Materials on [Gel: PEG-nb](../../modules/gel-peg-nb/spec.md).
+
+:::{table} Equipment.
+:label: materials-embed-photocrosslinking
+
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| DLP projector | Equipment | Digital light processing projector | Zwants Supplies Engineering | PRO4500-92-405 | — | — | — |
+| Well plate | Equipment | 96-well or 384-well plate | — | — | — | — | — |
 :::
 
-:::{attention} Part number, plate vendor and exposure dose are not stated
-@Editor: give the catalog number of the PEG-nb, the vendor of the plate, and the irradiance of the projector at the sample.
+:::{attention} Plate vendor and exposure dose are not stated
+@Editor: give the vendor of the plate and the irradiance of the projector at the sample.
 :::
 
 # Protocol

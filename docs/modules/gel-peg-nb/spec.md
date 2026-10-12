@@ -94,6 +94,22 @@ Requires an outer solution to dissolve into. For liposomes, use the outer soluti
 
 [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md) prepares the precursor and sets the gel.
 
+# Materials
+
+:::{table} Materials of Gel: PEG-nb.
+:label: materials-gel-peg-nb
+
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 4-arm PEG-norbornene | Polymer | 4-arm PEG-norbornene | Creative Pegworks | — | — | −20 °C, dark | — |
+| 4-arm PEG-thiol | Crosslinker | 4-arm PEG-thiol | Creative Pegworks | `PSB-440-5g` | — | −20 °C, dark | — |
+| LAP | Photoinitiator | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G | — | 2 °C to 8 °C, dark | — |
+:::
+
+:::{attention} PEG-nb part number is not stated
+@Editor: give the catalog number of the PEG-nb.
+:::
+
 # Constituent Modules
 
 - 4-arm PEG-norbornene — the polymer
@@ -103,8 +119,4 @@ Requires an outer solution to dissolve into. For liposomes, use the outer soluti
 
 # Credits
 
-Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node) and Manuel Bibrowski (Imperial College London, DevCells London Node).
-
-:::{attention} Credits need a Lab
-@Editor: add each contributor's Lab.
-:::
+Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).

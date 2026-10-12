@@ -69,8 +69,6 @@ flowchart TD
 
 The final concentration is for a stock diluted 1:1 with outer solution and then mixed 1:1 with the sample.
 
-The supplier and part number of the LGA are in the Materials and Equipment section of [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
-
 :::{attention} Dilution per well is inferred
 @Editor: confirm that the stock is diluted 1:1 with outer solution before it is mixed with the sample. The DevNote gives the final LGA concentration as 7 mg/mL with the parenthetical 7.5 µL and 7.5 µL of outer solution, and no step describes the dilution.
 :::
@@ -93,6 +91,16 @@ Requires that a sample tolerate mixing at 45 °C.
 
 [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) prepares the stock and sets the gel.
 
+# Materials
+
+:::{table} Materials of Gel: LGA.
+:label: materials-gel-lga
+
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Low gelling agarose | Polymer | Low gelling agarose | Sigma-Aldrich | A9414-5G | — | — | — |
+:::
+
 # Constituent Modules
 
 - Outer solution — the solution the polymer dissolves into
@@ -100,8 +108,4 @@ Requires that a sample tolerate mixing at 45 °C.
 
 # Credits
 
-Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node) and Manuel Bibrowski (Imperial College London, DevCells London Node).
-
-:::{attention} Credits need a Lab
-@Editor: add each contributor's Lab.
-:::
+Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).

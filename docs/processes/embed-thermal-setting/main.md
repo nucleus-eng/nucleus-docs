@@ -33,13 +33,15 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix.
 
 # Materials and Equipment
 
+The agarose is listed under Materials on [Gel: ULGA](../../modules/gel-ulga/spec.md) and [Gel: LGA](../../modules/gel-lga/spec.md).
+
 :::{table} Reagents.
-| Item | Used for | Supplier and part number |
-| --- | --- | --- |
-| Ultra-low gelling agarose | Gel: ULGA | Not stated |
-| Low gelling agarose | Gel: LGA | Sigma-Aldrich A9414-5G |
-| Glucose | Outer solution | Sigma-Aldrich |
-| HEPES | Outer solution | Sigma-Aldrich |
+:label: materials-embed-thermal-setting
+
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Glucose | Outer solution | Glucose | Sigma-Aldrich | — | — | — | — |
+| HEPES | Outer solution | HEPES | Sigma-Aldrich | — | — | — | — |
 :::
 
 :::{table} Equipment.
@@ -53,8 +55,8 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix.
 | 96-well or 384-well plate | Plating |
 :::
 
-:::{attention} Some suppliers, part numbers and instruments are not stated
-@Editor: give the supplier and catalog number of the ULGA, the catalog numbers of the glucose and the HEPES, and say which instrument holds the 45 °C temperature.
+:::{attention} Part numbers and an instrument are not stated
+@Editor: give the catalog numbers of the glucose and the HEPES, and say which instrument holds the 45 °C temperature.
 :::
 
 # Protocol

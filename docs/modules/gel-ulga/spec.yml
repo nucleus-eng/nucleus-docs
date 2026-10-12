@@ -37,6 +37,6 @@ open:
     question: >
       The temperature at which the ULGA stock, held at 55 °C, is mixed with the sample is not
       stated, and neither is how the mixture is cooled to its gel point.
-  - id: ulga-has-no-supplier
+  - id: ulga-part-number-unconfirmed
     question: >
-      The supplier and catalog number of the ULGA are not stated.
+      The ULGA is taken to be Sigma-Aldrich A5030, which is unconfirmed. A2576 may have been used instead.

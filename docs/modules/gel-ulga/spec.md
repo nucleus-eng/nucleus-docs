@@ -69,10 +69,6 @@ flowchart TD
 
 The final concentration is for a stock mixed 1:1 with the sample.
 
-:::{attention} ULGA supplier is not stated
-@Editor: give the supplier and catalog number of the ULGA.
-:::
-
 ::::
 
 :::::
@@ -95,6 +91,20 @@ Requires that a sample tolerate the temperature at which it is mixed with the st
 
 [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) prepares the stock and sets the gel.
 
+# Materials
+
+:::{table} Materials of Gel: ULGA.
+:label: materials-gel-ulga
+
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Ultra-low gelling agarose | Polymer | Ultra-low gelling agarose | Sigma-Aldrich | A5030 | — | — | — |
+:::
+
+:::{attention} ULGA part number is unconfirmed
+@Editor: confirm that the ULGA is Sigma-Aldrich A5030 and not A2576, and give its storage conditions.
+:::
+
 # Constituent Modules
 
 - Outer solution — the solution the polymer dissolves into
@@ -102,8 +112,4 @@ Requires that a sample tolerate the temperature at which it is mixed with the st
 
 # Credits
 
-Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node) and Manuel Bibrowski (Imperial College London, DevCells London Node).
-
-:::{attention} Credits need a Lab
-@Editor: add each contributor's Lab.
-:::
+Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
