@@ -152,6 +152,8 @@ orders:
       - Document
       Document:
       - Object
+      Effector:
+      - Module
       Emitter:
       - Module
       - Effector
@@ -218,6 +220,7 @@ orders:
       - Protein
       Reporter:
       - Module
+      - Effector
       Solution:
       - Container
       SpecMd:
