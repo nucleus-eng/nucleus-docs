@@ -246,7 +246,6 @@ orders:
     - 'encapsulate[GUV]'
     - 'encapsulate[LUV]'
     - 'encapsulate[SUV]'
-    - express
     - hold
     - lyse
     - 'multiplex[Cascade]'
@@ -257,7 +256,6 @@ orders:
     - photocrosslink
     - prepare
     - purify
-    - rc
     - regenerate
     - 'regenerate[CP]'
     - 'regenerate[polyP]'
