@@ -53,6 +53,13 @@ HEADER = """# GENERATED. Do not edit.
 # exist and nothing about what they need.
 #
 # `module_slugs` maps a page slug to its type: `outer-solution` is `Solution`.
+#
+# `bracket_aliases` maps a flat spelling to the type node it means, for the one place
+# a type name cannot be written as it is spelled. An operation id in a spec.yml is
+# `op[Type]`, and scripts/spec-yml-schema.yml matches the bracket against
+# `[A-Za-z0-9]+(,[A-Za-z0-9]+)*` -- no nesting. So `degrade[DNA[linear]]` is invalid
+# by construction, and a type whose own name carries a bracket has no spelling inside
+# an operation id. The alias is how a checker resolves one.
 """
 
 
@@ -63,6 +70,59 @@ FROM_FIELDS = {
     '    from: "signature.md ## Processes: refines in a profile"':
     '    from: "the upstream Process profiles: refines in a profile"',
 }
+
+
+# A FLAT SPELLING FOR A BRACKETED TYPE, 2026-10-12. STATED, NOT DERIVED.
+#
+# WHY IT EXISTS. `DNA[linear]` became a type node on 2026-10-12, when topology was
+# made a refinement axis over `DNA`. Three sources already wrote `degrade[linearDNA]`
+# -- docs/functions/degrade/function.yml, docs/modules/s30-lysate/spec.yml and a
+# comment in docs/modules/nucleic-acid/spec.yml -- and `linearDNA` is not a node, so
+# the schema's own worked example, `degrade[DNA]` meets `degrade[linearDNA]` because
+# DNA is wider, resolves to "no node" and the comparison silently falls back to
+# exact match.
+#
+# THE SCHEMA PREDICTED THIS DAY AND NAMED THE CONDITION. spec-yml-schema.yml under
+# `provides:`: "A type with no node compares only to itself, which is why `linearDNA`
+# is exact today and A TOPOLOGY AXIS WOULD CHANGE THAT." The axis landed. The
+# condition has occurred.
+#
+# WHY A MAP AND NOT A RENAME. The three sources cannot write `DNA[linear]` -- the id
+# pattern forbids a bracket inside a bracket. Upstream cannot rename the node either:
+# the bracket form is how a parameter axis is written there, ruled on the day the
+# rows were added. Neither side is wrong and neither can move, which is exactly when
+# a mapping is the answer rather than a workaround.
+#
+# ONE ENTRY, NOT A SCHEME. `DNA[circular]` gets no alias because nothing writes one,
+# and inventing a spelling for a type nobody references is how `make` and `assay`
+# reached ten sources. An operation id naming a bracketed type with no alias here is
+# a finding for whatever checker reads this file, not something to guess at.
+BRACKET_ALIASES = {
+    "linearDNA": "DNA[linear]",
+}
+
+
+def alias_block(src):
+    """The alias map, with every target checked against the order being published."""
+    import yaml
+    nodes = set()
+    doc = yaml.safe_load(open(src, encoding="utf-8")) or {}
+    for key in ("type_refinement", "process_refinement"):
+        o = ((doc.get("orders") or {}).get(key) or {})
+        nodes.update(str(x) for x in (o.get("nodes") or []))
+    out = ["bracket_aliases:"]
+    for flat in sorted(BRACKET_ALIASES):
+        node = BRACKET_ALIASES[flat]
+        if node not in nodes:
+            # LOUD, NOT SILENT, for the reason the FROM_FIELDS warning gives: an
+            # alias pointing at a node the order does not have is worse than none.
+            print(f"warning: alias {flat} -> {node}: no such node upstream, "
+                  f"so it is not published", file=sys.stderr)
+            continue
+        out.append("  %s: '%s'" % (flat, node))
+    if len(out) == 1:
+        out = ["bracket_aliases: {}"]
+    return "\n".join(out) + "\n"
 
 
 def body(src):
@@ -92,7 +152,7 @@ def main(argv):
     if not os.path.isfile(src):
         print(f"no such file: {src}", file=sys.stderr)
         return 2
-    text = HEADER + body(src)
+    text = HEADER + body(src) + alias_block(src)
     if check:
         have = open(OUT, encoding="utf-8").read() if os.path.isfile(OUT) else None
         if have != text:
