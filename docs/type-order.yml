@@ -25,6 +25,7 @@ orders:
     - Cascade
     - Cell
     - Chaperone
+    - Chromophore
     - Code
     - Color
     - ColorReporter
@@ -33,7 +34,13 @@ orders:
     - Control
     - Cytosol
     - DNA
+    - 'DNA[circular]'
+    - 'DNA[linear]'
     - Detector
+    - 'Detector[3OC6HSL, activator]'
+    - 'Detector[3OC6HSL, repressor]'
+    - 'Detector[3OC6HSL]'
+    - 'Detector[activator]'
     - 'Detector[repressor]'
     - Detergent
     - DevNote
@@ -44,6 +51,7 @@ orders:
     - Fluorescence
     - FluorescenceMicroscope
     - Fluorometer
+    - Fluorophore
     - Gel
     - 'Gel[ionically-set]'
     - 'Gel[photocrosslinked]'
@@ -100,6 +108,8 @@ orders:
       - Module
       Chaperone:
       - Module
+      Chromophore:
+      - Component
       Code:
       - Document
       Color:
@@ -118,8 +128,22 @@ orders:
       DNA:
       - Polymer
       - NucleicAcid
+      'DNA[circular]':
+      - DNA
+      'DNA[linear]':
+      - DNA
       Detector:
       - Module
+      'Detector[3OC6HSL, activator]':
+      - 'Detector[3OC6HSL]'
+      - 'Detector[activator]'
+      'Detector[3OC6HSL, repressor]':
+      - 'Detector[3OC6HSL]'
+      - 'Detector[repressor]'
+      'Detector[3OC6HSL]':
+      - Detector
+      'Detector[activator]':
+      - Detector
       'Detector[repressor]':
       - Detector
       Detergent:
@@ -141,6 +165,8 @@ orders:
       - Microscope
       Fluorometer:
       - Instrument
+      Fluorophore:
+      - Chromophore
       Gel:
       - Container
       'Gel[ionically-set]':
@@ -231,6 +257,8 @@ orders:
     nodes:
     - active_transport
     - anneal
+    - assemble-cytosol
+    - assemble-solution
     - crosslink_ionic
     - degrade
     - 'degrade[ATP]'
@@ -271,6 +299,10 @@ orders:
     edges:
       active_transport:
       - transport
+      assemble-cytosol:
+      - assemble-solution
+      assemble-solution:
+      - hold
       crosslink_ionic:
       - embed
       'degrade[ATP]':
