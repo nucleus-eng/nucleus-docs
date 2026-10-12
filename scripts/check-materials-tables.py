@@ -129,8 +129,36 @@ def iter_header_rows(lines: List[str]) -> Iterator[tuple]:
 
 
 def has_materials_label(lines: List[str], header_idx: int) -> bool:
-    start = max(0, header_idx - LABEL_LOOKBACK)
-    return any(MATERIALS_LABEL.match(l) for l in lines[start:header_idx])
+    """True when THIS table carries a materials label.
+
+    THE LOOKBACK MUST STOP AT A BLOCK BOUNDARY. Scanning a flat window of lines
+    above the header lets an unlabelled table inherit the label of a labelled
+    table that happens to sit close above it -- and a `Reagents.` table
+    immediately followed by an `Equipment.` table is the common page layout, so
+    this is not a corner. Found by the Gel Control Experiments session against
+    docs/processes/embed-thermal-setting/main.md, whose Equipment table sits 9
+    lines below the Reagents label and was being audited as a materials table.
+
+    The fixture that missed it tested an Equipment table ON ITS OWN, which is
+    the only arrangement where the flat window is right. A partial check does
+    not leave a gap, it fills one.
+
+    So: walk up, and stop at the first thing that proves we have left this
+    table's own directive block -- a previous table's rows, a closing fence, or
+    this table's own `:::{...}` opener reached without a label.
+    """
+    for k in range(header_idx - 1, max(-1, header_idx - LABEL_LOOKBACK - 1), -1):
+        line = lines[k]
+        if MATERIALS_LABEL.match(line):
+            return True
+        s = line.strip()
+        if s.startswith("|"):        # rows of the table before this one
+            return False
+        if s.startswith(":::{"):     # this table's own opener, and no label above it
+            return False
+        if s.startswith(":::"):      # a closing fence: this header is outside that block
+            return False
+    return False
 
 
 def is_candidate(header: str, labelled: bool) -> bool:

@@ -220,6 +220,61 @@ def test_an_unlabelled_equipment_table_is_not_audited(tmp_path):
     assert run(tmp_path, EQUIPMENT) == []
 
 
+LABELLED_THEN_EQUIPMENT = """\
+:::{table} Reagents.
+:label: materials-embed-thermal-setting
+
+| Name | Manufacturer | Part # |
+| --- | --- | --- |
+| ULGA | Sigma-Aldrich | A5030 |
+:::
+
+:::{table} Equipment.
+| Item | Used for |
+| --- | --- |
+| Projector | Photocrosslinking |
+:::
+"""
+
+
+def test_an_equipment_table_below_a_labelled_one_does_not_inherit_its_label(tmp_path):
+    """THE FIXTURE THAT WAS MISSING, and the reason it was missing.
+
+    test_an_unlabelled_equipment_table_is_not_audited tests an Equipment table
+    ON ITS OWN -- the one arrangement where a flat lookback window is right. The
+    real page puts a `Reagents.` table immediately above an `Equipment.` one,
+    and the Equipment header sat 9 lines below the Reagents label, inside
+    LABEL_LOOKBACK, so it inherited that label and was audited as a materials
+    table. Found by the Gel Control Experiments session against
+    docs/processes/embed-thermal-setting/main.md, with its own three controls:
+    adjacent fires, 14 filler lines between does not, alone does not.
+
+    A partial check does not leave a gap, it fills one.
+    """
+    assert run(tmp_path, LABELLED_THEN_EQUIPMENT) == []
+
+
+def test_the_labelled_table_above_it_is_still_audited(tmp_path):
+    """The control for the fix. Stopping the lookback at a block boundary must
+    not stop it finding a label that really is this table's own -- a fix that
+    silences the false positive by seeing no labels at all would pass the test
+    above and break the checker."""
+    text = LABELLED_THEN_EQUIPMENT.replace("| Name | Manufacturer | Part # |",
+                                           "| Material | Manufacturer | Part # |")
+    found = [f for f in run(tmp_path, text) if f.job == 2]
+    assert len(found) == 1
+    assert "retired spelling of 'Name'" in found[0].message
+
+
+def test_distance_alone_does_not_decide_it(tmp_path):
+    """Gel Control's second control, kept: with the two tables far enough apart
+    the old code also passed, which is exactly why distance was the wrong
+    predicate. The boundary is, at any distance."""
+    far = LABELLED_THEN_EQUIPMENT.replace(":::\n\n:::{table} Equipment.",
+                                          ":::\n" + "\nfiller" * 14 + "\n\n:::{table} Equipment.")
+    assert run(tmp_path, far) == []
+
+
 def test_a_labelled_table_is_audited_even_with_no_known_column(tmp_path):
     """The label is the other way in. Without it, `Item | Used for | Supplier
     and part number` is indistinguishable from a recipe table."""
