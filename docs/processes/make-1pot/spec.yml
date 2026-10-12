@@ -12,7 +12,10 @@
 
 process: make-1pot
 title: "Make Protein Mix (1-pot)"
-refines: make
+# A COMPOSITE REFINES NOTHING, 2026-10-12. This runs other Processes in
+# order; it is not a restricted case of one. A composite is a PRODUCT, not a
+# RESTRICTION, so asking which node it refines is the wrong question. It read
+# `refines: make`, and `make` is not a Process.
 
 signature:
   takes:

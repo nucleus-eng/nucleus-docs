@@ -7,7 +7,7 @@
 #
 process: assemble-base-cytosol
 title: "Assemble Base Cytosol"
-refines: assemble-cytosol
+refines: hold
 
 signature:
   takes:
