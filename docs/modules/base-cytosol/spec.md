@@ -130,39 +130,39 @@ PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: 
 
 | Category | Molecule | Molecular Weight | Concentration (molar) | Concentration (mass) |
 |----------|----------|------------------|-----------------------|----------------------|
-| Buffers | HEPES-KOH | 238.3 g/mol | 50 mM | 11.9 mg/mL |
-| | Potassium Glutamate | 203.23 g/mol | 100 mM | 20.3 mg/mL |
-| | Magnesium Acetate | 214.45 g/mol | 7.5 mM | 1.61 mg/mL |
+| Buffers | HEPES-KOH | 238.3 g/mol | 50 mM | 11.9 µg/µL |
+| | Potassium Glutamate | 203.23 g/mol | 100 mM | 20.3 µg/µL |
+| | Magnesium Acetate | 214.45 g/mol | 7.5 mM | 1.61 µg/µL |
 | Nucleotides | rATP |  | 2 mM |  |
 | | rGTP | | 2 mM | |
 | | rCTP | | 1 mM | |
 | | rUTP | | 1 mM | |
-| Amino Acids | Alanine (Ala) | 89.1 g/mol | 0.3 mM | 0.0267 mg/mL |
-| | Arginine (Arg) | 210.66 g/mol | 0.3 mM | 0.0632 mg/mL |
-| | Asparagine (Asn) | 132.1 g/mol | 0.3 mM | 0.0396 mg/mL |
-| | Aspartic Acid (Asp) | 133.1 g/mol | 0.3 mM | 0.0399 mg/mL |
-| | Cysteine (Cys) | 157.62 g/mol | 0.3 mM | 0.0473 mg/mL |
-| | Glutamic Acid (Glu) | 147.1 g/mol | 0.3 mM | 0.0441 mg/mL |
-| | Glutamine (Gln) | 146.2 g/mol | 0.3 mM | 0.0439 mg/mL |
-| | Glycine (Gly) | 75.1 g/mol | 0.3 mM | 0.0225 mg/mL |
-| | Histidine (His) | 209.63 g/mol | 0.3 mM | 0.0629 mg/mL |
-| | Isoleucine (Ile) | 131.2 g/mol | 0.3 mM | 0.0394 mg/mL |
-| | Leucine (Leu) | 131.2 g/mol | 0.3 mM | 0.0394 mg/mL |
-| | Lysine (Lys) | 182.65 g/mol | 0.3 mM | 0.0548 mg/mL |
-| | Methionine (Met) | 149.2 g/mol | 0.3 mM | 0.0448 mg/mL |
-| | Phenylalanine (Phe) | 165.2 g/mol | 0.3 mM | 0.0496 mg/mL |
-| | Proline (Pro) | 115.1 g/mol | 0.3 mM | 0.0345 mg/mL |
-| | Serine (Ser) | 105.1 g/mol | 0.3 mM | 0.0315 mg/mL |
-| | Threonine (Thr) | 119.1 g/mol | 0.3 mM | 0.0357 mg/mL |
-| | Tryptophan (Trp) | 204.2 g/mol | 0.3 mM | 0.0613 mg/mL |
-| | Tyrosine (Tyr) | 181.2 g/mol | 0.3 mM | 0.0544 mg/mL |
-| | Valine (Val) | 117.1 g/mol | 0.3 mM | 0.0351 mg/mL |
-| Stabilizers | Spermidine | 145.25 g/mol | 2 mM | 0.29 mg/mL |
-| | TCEP-HCl | 286.65 g/mol | 1 mM | 0.287 mg/mL |
-| Cofactors | Creatine Phosphate | 327.14 g/mol | 20 mM | 6.54 mg/mL |
-| | Folinic Acid | 511.5 g/mol | 0.02 mM | 0.0102 mg/mL |
+| Amino Acids | Alanine (Ala) | 89.1 g/mol | 0.3 mM | 26.7 ng/µL |
+| | Arginine (Arg) | 210.66 g/mol | 0.3 mM | 63.2 ng/µL |
+| | Asparagine (Asn) | 132.1 g/mol | 0.3 mM | 39.6 ng/µL |
+| | Aspartic Acid (Asp) | 133.1 g/mol | 0.3 mM | 39.9 ng/µL |
+| | Cysteine (Cys) | 157.62 g/mol | 0.3 mM | 47.3 ng/µL |
+| | Glutamic Acid (Glu) | 147.1 g/mol | 0.3 mM | 44.1 ng/µL |
+| | Glutamine (Gln) | 146.2 g/mol | 0.3 mM | 43.9 ng/µL |
+| | Glycine (Gly) | 75.1 g/mol | 0.3 mM | 22.5 ng/µL |
+| | Histidine (His) | 209.63 g/mol | 0.3 mM | 62.9 ng/µL |
+| | Isoleucine (Ile) | 131.2 g/mol | 0.3 mM | 39.4 ng/µL |
+| | Leucine (Leu) | 131.2 g/mol | 0.3 mM | 39.4 ng/µL |
+| | Lysine (Lys) | 182.65 g/mol | 0.3 mM | 54.8 ng/µL |
+| | Methionine (Met) | 149.2 g/mol | 0.3 mM | 44.8 ng/µL |
+| | Phenylalanine (Phe) | 165.2 g/mol | 0.3 mM | 49.6 ng/µL |
+| | Proline (Pro) | 115.1 g/mol | 0.3 mM | 34.5 ng/µL |
+| | Serine (Ser) | 105.1 g/mol | 0.3 mM | 31.5 ng/µL |
+| | Threonine (Thr) | 119.1 g/mol | 0.3 mM | 35.7 ng/µL |
+| | Tryptophan (Trp) | 204.2 g/mol | 0.3 mM | 61.3 ng/µL |
+| | Tyrosine (Tyr) | 181.2 g/mol | 0.3 mM | 54.4 ng/µL |
+| | Valine (Val) | 117.1 g/mol | 0.3 mM | 35.1 ng/µL |
+| Stabilizers | Spermidine | 145.25 g/mol | 2 mM | 290 ng/µL |
+| | TCEP-HCl | 286.65 g/mol | 1 mM | 287 ng/µL |
+| Cofactors | Creatine Phosphate | 327.14 g/mol | 20 mM | 6.54 µg/µL |
+| | Folinic Acid | 511.5 g/mol | 0.02 mM | 10.2 ng/µL |
 | Ribonucleics | tRNA |  |  | 3.5 µg/µL |
-| | Ribosomes | ~2.7 MDa | 1.8 µM | 4.9 mg/mL |
+| | Ribosomes | ~2.7 MDa | 1.8 µM | 4.9 µg/µL |
 | tRNA Synthetases | AlaRS | 384.0 kDa | 0.340 µM | 130.3 ng/µL |
 | | ArgRS | 64.7 kDa | 0.0557 µM | 3.6 ng/µL |
 | | AsnRS | 105.2 kDa | 0.389 µM | 40.9 ng/µL |
