@@ -1,0 +1,575 @@
+<title>Module Integration Map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --bg: #f4f6f2;
+    --surface: #ffffff;
+    --surface-2: #eceee6;
+    --ink: #1c2b28;
+    --ink-dim: #52645f;
+    --line: #cdd8ce;
+    --accent-purex: #CC79A7;
+    --accent-shared: #D55E00;
+    --danger: #a3403a;
+    --warn-bg: #f6e9db;
+    --warn-ink: #7a4a1f;
+    --shadow: rgba(28, 43, 40, 0.08);
+    --toolbar-bg: #eceee6;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1613;
+      --surface: #152420;
+      --surface-2: #1b2b26;
+      --ink: #e8efe9;
+      --ink-dim: #9fb3ac;
+      --line: #2c3f38;
+      --accent-purex: #e3a3c4;
+      --accent-shared: #e8a06b;
+      --danger: #d97a72;
+      --warn-bg: #2e2415;
+      --warn-ink: #e2b878;
+      --shadow: rgba(0, 0, 0, 0.4);
+      --toolbar-bg: #1b2b26;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0e1613;
+    --surface: #152420;
+    --surface-2: #1b2b26;
+    --ink: #e8efe9;
+    --ink-dim: #9fb3ac;
+    --line: #2c3f38;
+    --accent-purex: #e3a3c4;
+    --accent-shared: #e8a06b;
+    --danger: #d97a72;
+    --warn-bg: #2e2415;
+    --warn-ink: #e2b878;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --toolbar-bg: #1b2b26;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px 72px;
+  }
+
+  header.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-shared);
+  }
+
+  h1 {
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(32px, 4.4vw, 46px);
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  h2.section-title {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-dim);
+    margin: 56px 0 6px;
+  }
+
+  .lede {
+    max-width: 70ch;
+    color: var(--ink-dim);
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .lede strong { color: var(--ink); font-weight: 600; }
+  .lede code {
+    font-family: "IBM Plex Mono", monospace;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--ink);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+
+  .chip .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex: none;
+  }
+
+  .dot.purex { background: var(--accent-purex); }
+  .dot.shared { background: var(--accent-shared); }
+  .dot.danger { background: var(--danger); }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 1px 2px var(--shadow);
+    padding: 24px 24px 20px;
+    margin-bottom: 22px;
+  }
+
+  .panel h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 19px;
+    margin: 0 0 3px;
+  }
+
+  .panel .sub {
+    color: var(--ink-dim);
+    font-size: 13.5px;
+    margin: 0 0 16px;
+  }
+
+  .callout {
+    display: flex;
+    gap: 10px;
+    background: var(--warn-bg);
+    color: var(--warn-ink);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+
+  .callout b { color: inherit; }
+
+  /* --- diagram frame: toolbar + pan/zoom viewport --- */
+  .diagram-frame {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .diagram-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--toolbar-bg);
+    border-bottom: 1px solid var(--line);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    color: var(--ink-dim);
+  }
+
+  .diagram-toolbar button {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    line-height: 1;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .diagram-toolbar button:hover { background: var(--surface-2); }
+
+  .diagram-toolbar .hint {
+    margin-left: auto;
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .diagram-viewport {
+    overflow: hidden;
+    touch-action: none;
+    cursor: grab;
+    height: 340px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    overscroll-behavior: contain;
+  }
+
+  .diagram-viewport.short { height: 200px; }
+
+  .diagram-viewport.grabbing { cursor: grabbing; }
+
+  /* This wrapper, not mermaid's own output, is what gets transformed --
+     mermaid is free to replace its own pre/svg internals without ever
+     invalidating the pan/zoom target. */
+  .diagram-inner {
+    display: inline-block;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+
+  .diagram-viewport pre.mermaid {
+    margin: 0;
+  }
+
+  .key-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .key-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13.5px;
+    color: var(--ink-dim);
+  }
+
+  .key-item .swatch {
+    flex: none;
+    width: 30px;
+    height: 3px;
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+
+  .swatch.solid { background: var(--ink-dim); }
+  .swatch.bold { background: var(--ink-dim); height: 4px; }
+  .swatch.dotted {
+    background: repeating-linear-gradient(to right, var(--accent-shared) 0 3px, transparent 3px 6px);
+  }
+  .swatch.ext {
+    background: repeating-linear-gradient(to right, var(--ink-dim) 0 4px, transparent 4px 7px);
+    height: 2px;
+    border: none;
+  }
+  .swatch.status {
+    height: 2px;
+    border-top: 2px dashed var(--danger);
+  }
+
+  .key-item b { color: var(--ink); font-weight: 600; }
+
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
+  }
+
+  .note h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-shared);
+    margin: 0 0 8px;
+  }
+
+  .note p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-dim);
+  }
+
+  .note code {
+    font-family: "IBM Plex Mono", monospace;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    color: var(--ink);
+  }
+
+  footer {
+    color: var(--ink-dim);
+    font-size: 12.5px;
+    text-align: center;
+    margin-top: 8px;
+  }
+</style>
+
+<div class="page">
+  <header class="hero">
+    <div class="eyebrow">Nucleus Distribution &middot; docs/modules</div>
+    <h1>Module Integration Map</h1>
+    <p class="lede">
+      Every module spec under <code>docs/modules/</code>, and how they actually
+      connect &mdash; generated, not hand-drawn. Composition and requirement edges
+      come straight from each module's own <code>modules-main.md</code> entry and
+      the <code>mermaid-diagrams</code> skill's parsing rules; anything that
+      needed reading prose to decide (status, substitutions, conflicts) is a
+      separate, hand-curated layer on top. See
+      <code>scripts/generate-module-graph.py</code>,
+      <code>scripts/module-graph-annotations.yaml</code>, and
+      <code>scripts/render-module-graph.py</code> for the pipeline that built this page.
+    </p>
+    <div class="legend">
+      <span class="chip"><span class="dot shared"></span> Shared &amp; Base</span>
+      <span class="chip"><span class="dot purex"></span> PURExpress</span>
+      <span class="chip"><span class="dot danger"></span> Unsupported</span>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h2>System map</h2>
+    <p class="sub">Two families today. Scroll to either section below for the full breakdown.</p>
+    <div class="diagram-frame">
+      <div class="diagram-toolbar">
+        <button data-zoom="out" aria-label="Zoom out">&minus;</button>
+        <button data-zoom="in" aria-label="Zoom in">+</button>
+        <button data-zoom="reset" aria-label="Reset view">Reset</button>
+        <span class="hint">scroll to zoom &middot; drag to pan</span>
+      </div>
+      <div class="diagram-viewport short">
+        <div class="diagram-inner">
+<pre class="mermaid">
+{{MERMAID:system_map}}
+</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title">Family 1 of 2</h2>
+  <section class="panel">
+    <h2>Shared &amp; base modules</h2>
+    <p class="sub">Validated in Nucleus Cytosol: the cytosol, membrane, cell, dye, and reporter that everything else in this table builds on or borrows from.</p>
+    <div class="diagram-frame">
+      <div class="diagram-toolbar">
+        <button data-zoom="out" aria-label="Zoom out">&minus;</button>
+        <button data-zoom="in" aria-label="Zoom in">+</button>
+        <button data-zoom="reset" aria-label="Reset view">Reset</button>
+        <span class="hint">scroll to zoom &middot; drag to pan</span>
+      </div>
+      <div class="diagram-viewport">
+        <div class="diagram-inner">
+<pre class="mermaid">
+{{MERMAID:shared}}
+</pre>
+        </div>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:14px;">
+      No composition edges are drawn here yet &mdash; Base Cell is genuinely composed
+      of Base Cytosol + Base Membrane (its Reference Composition table says so),
+      but that isn't yet in the machine-readable <code>&num; Constituent Modules</code>
+      bullet-list form the pipeline reads. Rather than infer it, the diagram
+      shows exactly what's currently declared: nothing. See
+      <code>generate-module-graph.py</code>'s <code>FAMILY_CONFIG</code> for
+      the reasoning.
+    </p>
+  </section>
+
+  <h2 class="section-title">Family 2 of 2</h2>
+  <section class="panel">
+    <h2>PURExpress &mdash; the flat kit</h2>
+    <p class="sub">Modules validated in NEB PURExpress directly. None of these are assembled into a named cell in the docs &mdash; each is its own standalone reaction. Dashed circles are Shared-family modules shown again for context.</p>
+    <div class="diagram-frame">
+      <div class="diagram-toolbar">
+        <button data-zoom="out" aria-label="Zoom out">&minus;</button>
+        <button data-zoom="in" aria-label="Zoom in">+</button>
+        <button data-zoom="reset" aria-label="Reset view">Reset</button>
+        <span class="hint">scroll to zoom &middot; drag to pan</span>
+      </div>
+      <div class="diagram-viewport">
+        <div class="diagram-inner">
+<pre class="mermaid">
+{{MERMAID:purex}}
+</pre>
+        </div>
+      </div>
+    </div>
+    <div class="key-grid">
+      <div class="key-item"><span class="swatch ext"></span> <span><b>Dashed circle</b> &mdash; a module that lives in the Shared family, shown here only because a PURExpress module requires it</span></div>
+      <div class="key-item"><span class="swatch status"></span> <span><b>Dashed node border</b> &mdash; a documented status, not a family (Membrane Pore: &alpha;-Hemolysin is BSL-2 and "not actively supported" per its own spec)</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Reading the edges</h2>
+    <p class="sub">What each connection is actually backed by in the docs.</p>
+    <div class="key-grid">
+      <div class="key-item"><span class="swatch solid"></span> <span><b>Solid arrow</b> &mdash; confirmed composition (points from constituent into what contains it)</span></div>
+      <div class="key-item"><span class="swatch bold"></span> <span><b>Bold arrow</b> &mdash; only known to co-occur inside a documented implementation</span></div>
+      <div class="key-item"><span class="swatch dotted"></span> <span><b>Dotted arrow</b> &mdash; requirement, substitution, or indirect readout &mdash; not a build dependency</span></div>
+    </div>
+    <div class="notes" style="margin-top:22px;">
+      <div class="note">
+        <h3>Cx43 needs a bilayer</h3>
+        <p><code>membrane-pore-cx43/spec.md</code> states it "cannot be functionally deployed in Nucleus Cytosol alone" &mdash; it needs the POPC/Chol membrane for pore assembly. Same constraint applies to &alpha;-Hemolysin.</p>
+      </div>
+      <div class="note">
+        <h3>&alpha;-Hemolysin &rarr; Cx43 is a stated substitution</h3>
+        <p>The &alpha;-Hemolysin spec names Cx43 as "a functionally comparable alternative" without the BSL-2 handling requirement, and flags itself as not actively supported.</p>
+      </div>
+      <div class="note">
+        <h3>tetR-aTc + IV-HSL only met in one page</h3>
+        <p>Nothing in either module's own spec links them. They appear together only in <code>implementations/responder-atc-ivhsl/main.md</code>, which cites both specs directly.</p>
+      </div>
+      <div class="note">
+        <h3>ClpXP's readout is borrowed</h3>
+        <p>ClpXP's own reaction tables run on purified <code>deGFP-ssrA</code> as the degradation reporter &mdash; it doesn't compose deGFP as a module, it consumes it as an assay reagent.</p>
+      </div>
+      <div class="note">
+        <h3>LacI-IPTG isn't in the index yet</h3>
+        <p>It has a full <code>spec.md</code> but doesn't appear in either table in <code>modules-main.md</code>.</p>
+      </div>
+      <div class="note">
+        <h3>PPK stands alone</h3>
+        <p>Energy/PPK is listed in the PURExpress table but its spec makes no cross-reference to any other module &mdash; no composition or substitution claim found.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Generated from docs/modules/*/spec.md and docs/modules/modules-main.md by scripts/assemble-module-graph-artifact.py &middot; edges reflect explicit text, not name-similarity</footer>
+</div>
+
+<script>
+(function () {
+  function initFrame(frame) {
+    if (frame.dataset.pzInit) return;
+    var viewport = frame.querySelector('.diagram-viewport');
+    var target = frame.querySelector('.diagram-inner');
+    if (!viewport || !target) return;
+
+    var state = { scale: 1, x: 16, y: 16 };
+
+    function apply() {
+      target.style.transform = 'translate(' + state.x + 'px,' + state.y + 'px) scale(' + state.scale + ')';
+    }
+
+    function clampScale(s) {
+      return Math.max(0.3, Math.min(4, s));
+    }
+
+    function zoomBy(factor, cx, cy) {
+      var rect = viewport.getBoundingClientRect();
+      var px = (cx !== undefined ? cx - rect.left : rect.width / 2);
+      var py = (cy !== undefined ? cy - rect.top : rect.height / 2);
+      var newScale = clampScale(state.scale * factor);
+      var ratio = newScale / state.scale;
+      state.x = px - (px - state.x) * ratio;
+      state.y = py - (py - state.y) * ratio;
+      state.scale = newScale;
+      apply();
+    }
+
+    function reset() {
+      state.scale = 1;
+      state.x = 16;
+      state.y = 16;
+      apply();
+    }
+
+    target.style.transformOrigin = '0 0';
+    apply();
+
+    viewport.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+      zoomBy(factor, e.clientX, e.clientY);
+    }, { passive: false });
+
+    var dragging = false, moved = false, lastX = 0, lastY = 0;
+    viewport.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      moved = false;
+      lastX = e.clientX;
+      lastY = e.clientY;
+      viewport.classList.add('grabbing');
+      if (viewport.setPointerCapture) {
+        try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
+      }
+    });
+    viewport.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dx = e.clientX - lastX;
+      var dy = e.clientY - lastY;
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) moved = true;
+      state.x += dx;
+      state.y += dy;
+      lastX = e.clientX;
+      lastY = e.clientY;
+      apply();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+      viewport.addEventListener(ev, function () {
+        dragging = false;
+        viewport.classList.remove('grabbing');
+      });
+    });
+    // Suppress accidental link/click activation inside the diagram after a drag.
+    viewport.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+
+    frame.querySelectorAll('.diagram-toolbar button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var action = btn.getAttribute('data-zoom');
+        if (action === 'in') zoomBy(1.25);
+        else if (action === 'out') zoomBy(1 / 1.25);
+        else reset();
+      });
+    });
+
+    frame.dataset.pzInit = '1';
+  }
+
+  function initAll() {
+    document.querySelectorAll('.diagram-frame').forEach(initFrame);
+  }
+
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAll();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAll);
+  }
+  window.addEventListener('load', initAll);
+})();
+</script>

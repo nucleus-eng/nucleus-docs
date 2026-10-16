@@ -1,0 +1,93 @@
+# module-graph-annotations.yaml — Layer 3 of the module-integration-map pipeline.
+#
+# Everything in this file required reading prose to decide. None of it is
+# re-derivable by re-running generate-module-graph.py against a changed
+# module set — when modules change, a human (or an agent reading the new
+# prose) re-checks and edits this file by hand. That is the point of
+# splitting it out: Layers 1-2 are safe to regenerate blindly; this layer
+# never is.
+#
+# Schema mirrors the mermaid-diagrams skill's own status conventions
+# (SKILL.md: confirmed --> / proposed -.-> / blocked --x) plus two edge
+# kinds the skill's generators don't draw at all (substitute, assay) that
+# came up reading these specific pages.
+#
+# Scoped to the 12 modules on `main` as of this writing. If a branch with
+# more modules (e.g. one adding a demo cascade) merges, this file needs
+# new entries for whatever it adds -- it will not silently cover new
+# content on its own.
+
+# LEFT requires RIGHT, same direction/meaning as gen-subsystem-tree.py's
+# `--requires LEFT:RIGHT` flag. Drawn as RIGHT -.->|requires| LEFT.
+#
+# `family` says which family's diagram draws this edge -- always the
+# family LEFT (the requiring module) actually belongs to, even when RIGHT
+# is a member of a different family too (declared, not inferred: base-
+# cytosol and membrane-popc-chol are each members of "shared", but the
+# edge belongs to "purex", the family of the module doing the requiring).
+requires:
+  - {left: detector-tetr_atc,   right: base-cytosol,        family: purex, why: "assembled in a standard PURE reaction"}
+  - {left: emitter-ivhsl,       right: base-cytosol,        family: purex, why: "assembled in a standard PURE reaction"}
+  - {left: membrane-pore-ahly,  right: base-cytosol,        family: purex, why: "assembled following Assemble Base Cytosol"}
+  - {left: membrane-pore-ahly,  right: membrane-popc-chol,  family: purex, why: "pore insertion needs a lipid bilayer"}
+  - {left: membrane-pore-cx43,  right: membrane-popc-chol,  family: purex, why: "cannot be functionally deployed in Nucleus Cytosol alone (spec's own words)"}
+
+# Not composition, not a build requirement -- a claim about the modules'
+# relationship that's still worth drawing, with its own edge style. Same
+# "one home diagram, declared not inferred" rule as requires.
+extra_edges:
+  - from: membrane-pore-ahly
+    to: membrane-pore-cx43
+    family: purex
+    style: substitute
+    label: "safer alternative"
+    why: "aHly spec names Cx43 as functionally comparable without the BSL-2 handling requirement, and flags itself as not actively supported"
+  - from: detector-tetr_atc
+    to: emitter-ivhsl
+    family: purex
+    style: implementation
+    label: "combined in responder-atc-ivhsl"
+    why: "nothing in either module's own spec links them -- they only co-occur in implementations/responder-atc-ivhsl/main.md"
+  - from: control-clpxp
+    to: reporter-degfp
+    family: purex
+    style: assay
+    label: "reads out via deGFP-ssrA"
+    why: "ClpXP's own reaction tables run on purified deGFP-ssrA as the degradation reporter -- an assay reagent, not a composed module"
+
+# No status overrides on `main` -- both real composition edges here
+# (Base Membrane/Base Cytosol -> Base Cell, -> deGFP) are validated ★★★
+# per modules-main.md, and Base Cell has no Constituent Modules section
+# yet anyway (see generate-module-graph.py's FAMILY_CONFIG), so there is
+# currently no composition edge in the graph to override.
+edge_status: []
+
+# `--x` per the skill's convention: the strongest available claim
+# (something does NOT work), so it needs the strongest evidence -- see
+# SKILL.md's "Evidence proportional to claim". None found on `main` --
+# no module page here documents a blocked combination.
+conflicts: []
+
+# fill/stroke for a node beyond the skill's default leaf/composed
+# greyscale -- reserved for a real distinction: not supported, or shelved
+# out of active use. Values: unsupported | shelved
+node_status:
+  membrane-pore-ahly: unsupported          # BSL-2, "not actively supported" per its own spec
+
+# Display title overrides where the frontmatter title carries doc
+# boilerplate a diagram shouldn't repeat. None needed on `main` -- every
+# title here is already the concise form (e.g. "Detector: tetR-aTc").
+title_overrides: {}
+
+# Page-level callouts that apply to the whole map, not one edge. None
+# needed on `main` -- the AHL/aHly/IV-HSL naming trap only becomes live
+# once a LuxR/pLux "AHL" detector module exists (it doesn't here); aHly
+# and IV-HSL alone don't collide on the word "AHL".
+disambiguation_notes: []
+
+# Coarse edges for the top-level system-map (family boxes, not individual
+# modules). Not derivable from the module graph -- it's a summary of
+# which families reach into the Shared bucket, decided by a human reading
+# what each family's modules actually use.
+system_map_edges:
+  - {from: shared, to: purex, label: "assembly + reporters"}
