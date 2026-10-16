@@ -41,7 +41,7 @@ The repressor reaches the reaction as protein, not as a template to transcribe. 
 The operator `[EsaO]2` is two EsaO sites in tandem, one base apart. Each site is the same 19 bp box, `CCTGTACTATAGTGCAGGT`, at positions 62–80 and 82–100. The single-site construct carries one copy of that box at 62–80. The two reporters carry the same mNeonGreen coding sequence, so the 20 bp of length between them is the second operator plus the base that separates the pair.
 
 :::{attention} No sequence files yet
-None of the three constructs has a file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). The lengths above are read from the sequences held with the source Developer Note. @Developer: land the three there so each length can be checked against its `LOCUS` line.
+None of the three constructs has a file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). The lengths above are read from the sequences held with the DevNote. @Developer: land the three there so each length can be checked against its `LOCUS` line.
 :::
 
 ::::
@@ -77,7 +77,7 @@ The repressor arrives as about a fifth of the reaction by volume, and that volum
 
 :::{attention} Three quantities are open
 - The pre-expressed repressor has **no measured protein concentration**, so the ratio of repressor to reporter — the parameter that decides whether the Module works — cannot be computed from any recorded number.
-- The source Developer Note states the reporter dose two ways, as 12.2 nM (10 ng/µL) and as 320.5 ng in 65 µL, which differ about two-fold. Its own composition table gives 10 ng/µL, which is the figure used above.
+- The DevNote states the reporter dose two ways, as 12.2 nM (10 ng/µL) and as 320.5 ng in 65 µL, which differ about two-fold. Its own composition table gives 10 ng/µL, which is the figure used above.
 - The source states the added repressor template as both an 87-fold and a 77-fold excess over the reporter.
 
 @Developer: settle all three with the authors before this page leaves draft.
@@ -110,7 +110,7 @@ GUVs were made by emulsion transfer. POPC was dried under nitrogen, dried furthe
 For this run the repressor was pre-expressed from template at 24 nM, double the usual, giving a final repressor-reaction concentration of 5 nM. The reporter was held with the pre-expressed repressor for about 1 h at 37 °C before encapsulation.
 
 :::{attention} Two values in the encapsulation method are open
-The source Developer Note gives the imaging time as both a six-hour incubation and as overnight, and gives the pellet resuspension volume as 100 mL where every other volume in that method is in µL. @Developer: confirm both with the authors. This page states neither.
+The DevNote gives the imaging time as both a six-hour incubation and as overnight, and gives the pellet resuspension volume as 100 mL where every other volume in that method is in µL. @Developer: confirm both with the authors. This page states neither.
 :::
 
 # Requirements
@@ -133,10 +133,10 @@ Requires the analyte to reach the repressor. 3-oxo-C6-HSL crosses a POPC membran
 | Name | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- |
 | AHSL | N-(3-Oxohexanoyl)-L-homoserine lactone | Sigma-Aldrich | K3007 | — | — | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/k3007) |
-| Magnesium | Magnesium acetate tetrahydrate | Sigma-Aldrich | M0631-100G | $34.80 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631) |
+| Magnesium acetate | Magnesium acetate tetrahydrate | Sigma-Aldrich | M0631-100G | $34.80 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/m0631) |
 | POPC | 16:0-18:1 PC (POPC), 25 mg/mL | Avanti Research | A80557 | $435.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc) |
 | Mineral oil | Mineral oil, light, BioReagent, for molecular biology | Sigma-Aldrich | M5904 | — | Room temperature | [link](https://www.sigmaaldrich.com/US/en/product/sigma/m5904) |
-| RNase inhibitor | RNase Inhibitor, Murine | NEB | M0314S | $87.00 | -25 °C to -15 °C | [link](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
+| RNase Inhibitor, Murine | RNase Inhibitor, Murine | NEB | M0314S | $87.00 | -25 °C to -15 °C | [link](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
 | Fluorescein | Fluorescein, NIST-Traceable Standard (50 µM nominal) | Invitrogen | F36915 | $554.00 | 2 °C to 8 °C, protect from light | [link](https://www.thermofisher.com/order/catalog/product/F36915) |
 
 :::
@@ -145,4 +145,4 @@ Requires the analyte to reach the repressor. 3-oxo-C6-HSL crosses a POPC membran
 
 Developed by Charlie Newell, Manuel Bibrowski, Jonah McDonald, Niall McIntyre and Julia Purrinos De Oliveira.
 
-Drawn from the Developer Note *Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation*.
+Drawn from the DevNote [Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a).
