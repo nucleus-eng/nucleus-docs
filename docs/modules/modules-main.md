@@ -41,6 +41,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
 | Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
+| Detector | [3OC6-HSL (EsaR)](./detector-esar/spec.md) | ★ |
 :::
 
 # Contributing a Module

@@ -1,0 +1,197 @@
+# Composition source for Detector: 3OC6-HSL (EsaR).
+#
+# Machine-readable companion to spec.md — see issue #248. The `# Reference
+# Composition` tabs stay for humans; this file is the contract for tooling, and
+# scripts/check-composition.py checks the two do not disagree.
+#
+# Operators.
+#   mixing   both at once, in one compartment, sharing its resources
+#   packing  both at once, each keeping its own compartment
+#
+# The step is `mixing`: additions into Base Cytosol, one tube, one phase. The GUV form
+# the page describes under Cells is a `packing` step and it belongs to the Cell that
+# encapsulates this Module, not here — so nothing in this file depends on whether
+# forming a boundary and holding something in it are one operation, which is unsettled.
+#
+# THE OFF STATE IS SUPPLIED AND NAMED. A `mixing` step that puts an enzyme with its
+# substrate produces a readout with no off state. Here the gate is the repressor: EsaR
+# occupies the EsaO operator before transcription can start, which is why the repressor
+# is pre-expressed and held with the reporter rather than co-expressed with it.
+#
+# THE TYPE CARRIES TWO ARGUMENTS AND `refines:` IS ABSENT ON PURPOSE. `type` fully
+# determines type-level ancestry, so a Module never names its own type in `refines:`
+# and check-spec-schema.py makes a `refines` entry equal to `type` an error.
+# `Detector[3OC6HSL, repressor]` IS NOT A NODE OF THE PUBLISHED ORDER ON MAIN. It is
+# published by PR #293, so check-spec-schema.py reports this type as unknown until that
+# lands. That report is the dependency showing and not a defect, and the type must not
+# be weakened to `Detector[repressor]` to silence it.
+#
+# THE REPRESSOR IS A POINT MUTANT, D91G, carried everywhere it is named.
+#
+# THE REPRESSOR IS AN OPERAND, NOT A TEMPLATE TO TRANSCRIBE. It is expressed in its own
+# cell-free reaction first and enters this one as protein. That ordering is the Module:
+# expressing the repressor alongside the reporter gives a much weaker switch, because
+# the operator is not occupied before transcription starts.
+#
+# 3-oxo-C6-HSL IS EXCLUDED. It is the analyte this Module detects, not a constituent.
+# The page adds it to one half of the reaction AFTER the reaction is split, and its
+# 65 µL column states in its own caption that the analyte is not in that column. Same
+# exclusion as ../detector-laci-iptg, which excludes IPTG for the same reason.
+#
+# THE BASE IS BASE CYTOSOL, NOT PURExpress, and this Module does NOT follow the LacI
+# precedent on that point. ../detector-laci-iptg writes two opaque PURExpress solutions
+# as operands with `page: null`; this one names ../base-cytosol/spec.md. The page's own
+# figures settle it: its table gives ribosomes as "10 µM (5.55-fold)" to 1.8 µM and tRNA
+# as "35 µg/µL (10-fold)" to 3.5 µg/µL, which are ../base-cytosol/spec.md's stock and
+# reaction figures for those two components, and its caption reads "in Nucleus Cytosol".
+#
+# THE PAGE WRITES THE BASE COMPONENT-WISE AND THIS FILE NAMES THE MODULE. Four of the
+# page's eight rows — small molecule mix 19.70 µL, tRNA 6.50 µL, protein mix 7.80 µL,
+# ribosomes 11.82 µL — are Base Cytosol's own four components, each at 1-fold, so they
+# are one operand here and `base-cytosol`'s fraction below is their sum, 45.82 of 65.
+# Their individual stocks and finals are deleted rather than restated, because
+# ../base-cytosol/spec.md states them. See the questions at the foot of this file.
+#
+# RNASE INHIBITOR IS A FIFTH OPERAND AND NOT PART OF THE BASE. ../base-cytosol/spec.md
+# is "assembled from four components" and ../base-cytosol/spec.yml carries RNase
+# inhibitor as an OPTIONAL input over a range, 0 to 2000 U/mL. This page gives it its
+# own row at 1 U/µL, which is 1000 U/mL and inside that range. Writing it separately
+# keeps the page's row visible and asserts one addition, not two.
+
+module: detector-esar
+title: "Detector: 3OC6-HSL (EsaR)"
+type: 'Detector[3OC6HSL, repressor]'
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  rnase-inhibitor:
+    title: "RNase inhibitor"
+    stock: {value: 40, unit: "U/µL"}
+    page: null
+  esao2-mng-dna:
+    title: "T7-[EsaO]2-mNG-T7term"
+    stock: {value: 10, unit: "ng/µL"}
+    page: null            # 1118 bp, a linear template amplified by PCR and cleaned up.
+                          # Two EsaO sites in tandem, one base apart, each the same 19 bp
+                          # box CCTGTACTATAGTGCAGGT, at 62..80 and 82..100.
+                          # [EsaO]2 IS THE REFERENCE REPORTER. A single-site version,
+                          # `T7-[EsaO]-mNG-T7term` at 1098 bp, ran beside it for
+                          # comparison and is not part of this composition.
+                          # No sequence file is in nucleus-eng/DNA for either.
+  pre-expressed-esar:
+    title: "Pre-expressed EsaR(D91G) reaction"
+    page: null            # expressed from `T7-EsaR(D91G)-T7term`, 1118 bp, in its own
+                          # cell-free reaction before this one.
+                          # NO STOCK AND NO FINAL, AND THE ROW IS NOT DROPPED. The page
+                          # writes "—" in both the stock and the final column for this
+                          # row and states outright that the reaction has no measured
+                          # protein concentration. Its 14.00 µL of 65 is a volume share
+                          # and it is written below as one; a concentration is the one
+                          # number this Module most needs and no source states it, so
+                          # none is invented here. See the questions at the foot of this
+                          # file.
+                          # TWO PREPARATIONS EXIST AND ARE NOT INTERCHANGEABLE: 3 h at
+                          # 37 °C is the reference; 17 h at 30 °C holds the fold change
+                          # and lowers the yield.
+  water:
+    title: "Nuclease-free water"
+    page: null
+
+process_steps:
+  - id: assemble-the-detector
+    process:
+      title: "Assemble the EsaR Detector reaction"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, rnase-inhibitor, esao2-mng-dna, pre-expressed-esar, water]
+    produces:
+      id: detector-esar
+      title: "Detector: 3OC6-HSL (EsaR)"
+      page: ../detector-esar/spec.md
+    # SCALE-FREE, under R36/R37/R38: a volume fraction per component, against the 65 µL
+    # the page states. 45.82/65, 1.62/65, 0.43/65, 14.00/65, and water takes the rest.
+    # `base-cytosol`'s 45.82 is the sum of the page's four base rows, named above.
+    #
+    # THE PAGE'S VOLUMES AND ITS FOLD LABELS DO NOT AGREE EXACTLY, by about one percent
+    # on three rows: 19.70/65 is 0.3031 where 1/3.33 is 0.3003, 11.82/65 is 0.1818 where
+    # 1/5.55 is 0.1802, and 1.62/65 is 0.0249 where 1/40 is 0.0250. The volumes are what
+    # is transcribed, because the volumes are what a reaction receives.
+    fractions:
+      base-cytosol: 0.7049
+      rnase-inhibitor: 0.0249
+      esao2-mng-dna: 0.0066
+      pre-expressed-esar: 0.2154
+    balance: water
+    # THE BASE'S PER-COMPONENT FINALS ARE DELETED, NOT MISSING. tRNA at 3.5 µg/µL and
+    # ribosomes at 1.8 µM are stated on ../base-cytosol/spec.md, which is an operand
+    # with a page, so restating them here would be a second copy that can drift.
+    finals:
+      base-cytosol: {value: 1, unit: "fold"}
+      rnase-inhibitor: {value: 1, unit: "U/µL"}
+      esao2-mng-dna: {value: 0.1, unit: "nM"}
+    parameters:
+      repressor_reporter_hold: "1 h at 37 C"
+    total_volume: {value: 65, unit: "µL", note: "before the reaction is split and the analyte added to one half"}
+    notes: >
+      The hold is part of the composition rather than a handling detail: the repressor
+      and the reporter template are mixed and held before the rest of the reaction is
+      added, and the page records 15 min giving about 2-fold against 1 h giving about
+      5-fold at every reporter dose tested. It is written as a step parameter rather
+      than as a step of its own, because the page states one composition table for the
+      whole 65 µL and splitting it would put a derived figure on each half.
+      The reporter must be held at or below 0.5 nM. Above 1 nM it is in excess of the
+      repressor and no repression is seen, which is what the first titration found
+      before the titration was reversed.
+
+measured_by:
+  - process:
+      title: "Fluorescence Readout"
+      page: null
+      # mNeonGreen read against a fluorescein ladder. NOT a colorimetric readout: this
+      # Module carries no chromogenic substrate and no reporter enzyme, which is the
+      # mistake ../reporter-degfp/spec.yml recorded and corrected.
+
+open:
+  - id: the-repressor-has-no-measured-concentration
+    question: >
+      The ratio of repressor to reporter decides whether this Module works, and the
+      repressor enters as a volume of a pre-expressed reaction with no measured protein
+      concentration. So the ratio is not computable from anything recorded, and the row
+      above carries a volume fraction and no concentration of any kind. Measuring the
+      pre-expressed repressor is what turns this file's reference composition from a
+      volume recipe into a composition. The page flags this in its own words.
+  - id: the-reporter-dose-is-stated-two-ways
+    question: >
+      The page reports its source stating the reporter dose both as 12.2 nM (10 ng/µL)
+      and as 320.5 ng in 65 µL, which differ about two-fold. The 10 ng/µL figure is used
+      above because the page's own composition table states it. Not resolved here.
+  - id: the-repressor-template-excess-is-stated-two-ways
+    question: >
+      The page reports its source stating the added repressor template as both an
+      87-fold and a 77-fold excess over the reporter. No figure for it is written above,
+      because the template-competition condition is not the reference composition.
+  - id: no-sequence-file-resolves
+    question: >
+      None of the three constructs has a file in nucleus-eng/DNA, so every length named
+      above is read from the sequences held with the page's source rather than from a
+      `LOCUS` line this corpus can check. scripts/check-dna-refs.py has nothing to
+      verify until those files land.
+  - id: the-base-is-named-at-a-different-grain-than-the-page
+    question: >
+      The page's table writes the base component-wise, as four rows with their own
+      stocks and finals; this file names ../base-cytosol/spec.md as one operand. A
+      reader comparing the two row by row will find five rows here against eight there,
+      and `base-cytosol`'s fraction is a sum of four page rows rather than a figure the
+      page states. The grain is the judgment; the arithmetic is written out above so it
+      can be checked.
+  - id: the-encapsulated-form-is-described-and-not-composed
+    question: >
+      The page's Cells section encapsulates this Module in POPC GUVs with the analyte
+      supplied in the outer solution at 5 µM, and that is a Cell rather than this
+      Module: the `packing` step and its membrane belong to the composing page, which
+      does not exist yet. Two values in that method are open on the page as well — the
+      imaging time is given both as six hours and as overnight, and a resuspension
+      volume is given in mL where every other volume in the method is in µL. Neither is
+      written anywhere above.
