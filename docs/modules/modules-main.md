@@ -41,6 +41,13 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
 | Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
 | Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
+| Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
+| Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
+| Cell (Sensing) | [pH Sensing Cell](./ph-sensing-cell/spec.md) | ★ |
+| Cell (Substrate) | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | ★ |
+| Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | ★ |
+| Cascade | [pH Cascade](./ph-cascade/spec.md) | ★ |
+| Reporter | [Color Change](./color-change/spec.md) | ★ |
 :::
 
 # Contributing a Module

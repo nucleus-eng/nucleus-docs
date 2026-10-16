@@ -1,0 +1,45 @@
+# Composition source, drafted from the page.
+# `type:` names the module's own type in the published type order.
+# Operators: mixing = one compartment; packing = each keeps its own.
+
+module: detector-ph
+title: "Detector: pH-Sensing"
+type: Detector
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-responsive-ssdna:
+    title: "pH-responsive ssDNA"
+    page: null
+  trigger-ssdna:
+    title: "Trigger ssDNA"
+    page: null
+  toehold-switch-dna:
+    title: "Toehold-switch DNA template, pT7-toehold9-PLA1-linear"
+    page: null
+
+process_steps:
+  - id: anneal-duplex
+    process:
+      title: "Anneal pH Trigger Duplex"
+      page: ../../processes/anneal-ph-trigger-duplex/main.md
+    operator: mixing
+    operands: [ph-responsive-ssdna, trigger-ssdna]
+    produces:
+      id: ph-trigger-duplex
+      title: "pH trigger duplex"
+      page: null
+
+  # No process page covers adding the duplex and the template to a cytosol.
+  - id: add-to-cytosol
+    process:
+      title: "Add the Detector to a cytosol"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, ph-trigger-duplex, toehold-switch-dna]
+    produces:
+      id: ph-detector-cytosol
+      title: "Detector: pH-Sensing in a cytosol"
+      page: null
