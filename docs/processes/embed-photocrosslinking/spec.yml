@@ -1,0 +1,35 @@
+# Process source for Embedding: Photocrosslinking.
+#
+# Written against PR 231's scripts/process-yml-schema.yml, from the page beside it. The type names
+# use the spelling of the published type order (Solution, Container, Gel[photocrosslinked]).
+# That schema's pattern accepts lowercase only, so it rejects them until the staged edit lands.
+# `refines` names embed, a key of the published Process order, and embed has no page.
+
+process: embed-photocrosslinking
+title: "Embedding: Photocrosslinking"
+refines: embed
+operator: mixing
+
+signature:
+  takes:
+    - type: Solution
+      note: >
+        The precursor: 4-arm PEG-norbornene, 4-arm PEG-thiol and LAP photoinitiator in a solution.
+        It stays liquid until it is exposed.
+    - type: Container
+      repeated: true
+      note: >
+        The sample to be held, 15 µL per well, mixed 1:1 with the precursor.
+  produces:
+    type: Gel[photocrosslinked]
+    note: >
+      A gel set by 405 nm light, with the sample held where it was when the network set.
+
+open:
+  - id: impositions-undeclared
+    kind: question
+    question: >
+      No impositions are declared. The page states a 60 s exposure to 405 nm light from a projector,
+      and does not state the irradiance. Declaring the existing uv-exposure imposition id here would be
+      a claim about the process that the DevNote does not make, and a wrong declaration computes a
+      false Conflict, so none is declared.

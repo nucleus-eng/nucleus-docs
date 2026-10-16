@@ -87,3 +87,9 @@ flowchart LR
 - [Protein Gel](./protein-gel/main.md)
 - [Pierce660 Assay](./pierce660/main.md)
 
+## Embedding Processes
+
+Embedding holds a sample in a gel. The route depends on what sets the gel.
+
+- [Embedding: Thermal Setting](./embed-thermal-setting/main.md)
+- [Embedding: Photocrosslinking](./embed-photocrosslinking/main.md)
