@@ -21,7 +21,7 @@ This page is a work in progress and not yet ready for use. Several quantities be
 
 # Reference Composition
 
-The repressor reaches the reaction as protein, not as a template to transcribe. It is expressed first in its own cell-free reaction, then mixed with the reporter construct and held before that mixture enters the working reaction. Occupying the operator before transcription can start is what makes the "off" state deep; co-expressing repressor and reporter together gives a much weaker switch.
+The repressor reaches the reaction as protein, not as a template to transcribe. It is expressed first in its own cell-free reaction, 3 h at 37 °C, then held at 4 °C until use. It is then mixed with the reporter construct and held again before that mixture enters the working reaction. Occupying the operator before transcription can start is what makes the "off" state deep; co-expressing repressor and reporter together gives a much weaker switch.
 
 :::::{tab-set}
 
