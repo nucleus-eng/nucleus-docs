@@ -37,7 +37,7 @@ check-reference-voice caught it, which is the whole argument for both: a hand-fi
 a generated file survives exactly until the next generation, and the check is what
 noticed. REWRITES BELONG IN THE GENERATOR.
 """
-import sys, os
+import sys, os, re
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(HERE, "docs/type-order.yml")
@@ -131,11 +131,29 @@ def alias_block(src):
     return "\n".join(out) + "\n"
 
 
+# `cell:` DOES NOT CROSS THE REPO BOUNDARY, 2026-10-19. Every reference-voice
+# finding in the published file came from a `cell:` value and nowhere else:
+# those are verbatim upstream prose, and the upstream REQUIRES who-caught-what
+# attribution that this repo's reference-voice rule forbids. Dropping them is
+# cheap because nothing in either repo reads `cell:` -- searched both, zero
+# readers. It is provenance, and the place to read it is the upstream file this
+# file's own header already names.
+#
+# FOUR SPACES, NOT ANY `cell:`. `module_slugs` carries `  cell: Cell` at two
+# spaces: the module slug `cell` mapping to the type `Cell`. A rule that matched
+# any `cell:` would delete that mapping, and the slug table would lose an entry
+# with nothing to say so. 88 prose values sit at four spaces; that one does not.
+CELL = re.compile(r"^    cell: ")
+
+
 def body(src):
     lines = open(src, encoding="utf-8").read().split("\n")
     i = next(i for i, l in enumerate(lines) if l and not l.startswith("#"))
-    out, seen = [], set()
+    out, seen, dropped = [], set(), 0
     for l in lines[i:]:
+        if CELL.match(l):
+            dropped += 1
+            continue
         if l in FROM_FIELDS:
             seen.add(l)
             l = FROM_FIELDS[l]
@@ -147,6 +165,10 @@ def body(src):
         for m in sorted(missing):
             print(f"warning: expected upstream line not found, so not rewritten:\n"
                   f"  {m.strip()}", file=sys.stderr)
+    # LOUD, like the warning above. A silent drop would make a shrinking
+    # published file look like an upstream deletion.
+    print(f"dropped {dropped} `cell:` value(s): upstream prose, not published here",
+          file=sys.stderr)
     return "\n".join(out)
 
 
