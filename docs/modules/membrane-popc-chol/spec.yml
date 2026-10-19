@@ -12,8 +12,8 @@
 # go into one film and end in one phase; nothing here keeps its own compartment.
 # `packing` arises when this membrane closes around a cytosol, which is a step on
 # ../base-cell/spec.yml and not here. `packing` and `hold` are different things. `hold`
-# is a capability of the Container, declared under `provides`. `packing` is the step
-# that builds the Container, by putting its contents inside.
+# is a capability of the Container. `packing` is the step that builds the Container, by
+# putting its contents inside.
 
 module: membrane-popc-chol
 title: "Membrane: POPC/Chol (7:3)"
