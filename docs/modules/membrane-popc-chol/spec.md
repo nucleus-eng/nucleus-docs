@@ -7,9 +7,10 @@ site:
     numbered_references: false
 ---
 
+(membrane-popc-chol-overview)=
 # Overview
 
-The Base Membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and a fluorescent lipid label. Liss-Rhod PE or 18:1 Cy5-PC can serve as the label. The Base Membrane is our recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+The Base Membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and a fluorescent lipid label. Liss-Rhod PE or 18:1 Cy5-PC can serve as the label. The Base Membrane is the recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
 :::{figure} schematic.png
 :width: 50%
@@ -18,6 +19,7 @@ The Base Membrane specifies a phospholipid bilayer composed of POPC, cholesterol
 Schematic of a POPC/Chol liposome.
 :::
 
+(membrane-popc-chol-reference-composition)=
 # Reference Composition
 
 :::{table}
@@ -41,8 +43,6 @@ Schematic of a POPC/Chol liposome.
 | 18:1 Cy5-PC | Avanti A85483 | 1316.26 | 1 | 10.03 |
 :::
 
-@Editor: Confirm the 18:1 Cy5-PC stock concentration, 1 mg/mL assumed, which sets its volume to add.
-
 :::{table} Recipes of the Base Membrane. The default is the first row.
 :label: comp-membrane-popc-chol-recipes
 :align: center
@@ -51,19 +51,31 @@ Schematic of a POPC/Chol liposome.
 | --- | --- | --- | --- | --- |
 | Default | 699.3 | 299.7 | 1 | [Base Cell](../base-cell/spec.md) |
 | 9:1 | 899.1 | 99.9 | 1 | GUVs by inverted emulsion transfer, with the [tetR-aTc Detector](../detector-tetr-atc/spec.md) |
-| Pure POPC | 999 | 0 | 1 | London Node |
+| Pure POPC | 999 | 0 | 1 | Cells with the EsaR detector or the LuxR detector, including the LuxR demo |
 :::
 
-Cholesterol sets bilayer order and permeability, so a recipe with a different cholesterol fraction can differ in permeability.
+@Editor: link the Implementations that use the pure POPC recipe once their pages exist.
 
+(membrane-popc-chol-expected-behavior)=
 # Expected Behavior
 
-The behavior of Base Membrane is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module in [Base Cell](../base-cell/spec.md).
+(membrane-popc-chol-cells)=
+## Cells
 
-# Process
+The Base Membrane Module is expected to hold an inner solution (the "cytosol") separate from an outer solution.
 
-Protocols for assembling Base Cell and making its components from scratch are described in the Process [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
+A recipe with a different cholesterol fraction is expected to differ in bilayer permeability.
 
+@Editor: cite a source for the cholesterol and permeability claim.
+
+(membrane-popc-chol-processes)=
+# Processes
+
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — prepares synthetic cells by encapsulating an inner solution in a membrane.
+
+(membrane-popc-chol-credits)=
 # Credits
 
-Developed by b.next.
+Developed by b.next, with dye menu and recipes from Mary Kelly (Chicago Node, Kamat Lab).
+
+@Editor: name the authors of the membrane comparison DevNote, "London Exchange Meeting: Liposome Protocol Survey", which lists its authors only as "London Exchange Meeting Participants", or confirm it is not a source of the recipes.
