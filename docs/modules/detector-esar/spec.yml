@@ -176,7 +176,7 @@ open:
     question: >
       None of the three constructs has a file in nucleus-eng/DNA, so every length named
       above is read from the sequences held with the page's source rather than from a
-      `LOCUS` line this corpus can check. scripts/check-dna-refs.py has nothing to
+      `LOCUS` line that can be checked here. scripts/check-dna-refs.py has nothing to
       verify until those files land.
   - id: the-base-is-named-at-a-different-grain-than-the-page
     question: >

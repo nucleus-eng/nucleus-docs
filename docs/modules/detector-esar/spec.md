@@ -50,7 +50,7 @@ None of the three constructs has a file in [nucleus-eng/DNA](https://github.com/
 
 The reference condition is the two-operator reporter at 0.1 nM against a fixed dose of pre-expressed repressor. Mix the repressor with the reporter template and hold the mixture at 37 °C for 1 h, then add it to the rest of the reaction. Split the assembled reaction in two and add 3-oxo-C6-HSL to one half, to 5 µM final.
 
-:::{table} Composition of the Module in Nucleus Cytosol, per 65 µL before the reaction is split. 3-oxo-C6-HSL is added after splitting, so it is not in this column.
+:::{table} Composition of the Module in Nucleus Cytosol, per 65 µL before the reaction is split, from the reporter titration. That titration used a 15 min hold; 1 h is the reference and gives the fold changes under Expected Behavior. 3-oxo-C6-HSL is added after splitting, so it is not in this column.
 :label: comp-detector-esar-cytosol
 
 | Component | Stock concentration | Final concentration | Volume (µL) |
@@ -87,15 +87,23 @@ The repressor arrives as about a fifth of the reaction by volume, and that volum
 
 3-oxo-C6-HSL binds EsaR and relieves repression of the gene behind the operator. The Module was characterized on a fluorescent reporter, mNeonGreen, read against a fluorescein ladder.
 
-**Repression fails when the reporter template is in excess, not because the repressor is dead.** The first titration moved the repressor against a reporter held at 10 ng/µL and found no difference between the induced and uninduced states, at either operator count. Reversing the titration — moving the reporter against a fixed repressor dose — recovers repression. Above 1 nM reporter there is no repression. At 0.5 nM and 0.1 nM the fold change is about 2-fold and about 1.5-fold.
+:::{figure} xref:devnote-esar#fig-20260925-fold
+:name: fig-detector-esar-fold
+:align: center
+:width: 70%
+
+Steady-state fold change, plus against minus 3-oxo-C6-HSL, for the one-operator and two-operator reporters at 0.1, 0.5, 1 and 3 nM. At 0.5 nM the value is n = 2, after one low outlier in the induced wells was excluded for each construct.
+:::
+
+**Repression fails when the reporter template is in excess, not because the repressor is dead.** The first titration moved the repressor against a reporter held at 10 ng/µL and found no difference between the induced and uninduced states, at either operator count. Reversing the titration — moving the reporter against a fixed repressor dose — recovers repression. Above 1 nM reporter there is no repression. At 0.1 nM the two-operator reporter gives about 2-fold and the one-operator reporter about 1.5-fold. Each gives less at 0.5 nM than at 0.1 nM.
 
 **Yield does not fall when the reporter is cut.** Reactions at roughly a tenth of the usual template reach fluorescence yields comparable to the constitutively expressed control. The likely reason is that each dose of pre-expressed repressor also carries over unspent energy and transcription and translation factors, so adding repressor adds capacity as well.
 
-**Contact time between repressor and reporter is what moves the fold change.** Holding the two together for 15 min before the reaction starts gives about 2-fold. Extending that hold to 1 h raises it to about 5-fold at every reporter dose tested. This is the single largest improvement recorded.
+**The Module is expected to switch more deeply the longer the repressor and the reporter are held together before the reaction starts.** A 15 min hold gives about 2-fold. Extending it to 1 h gives about 3-fold, with individual replicates between 2.2 and 4.2.
 
-**Magnesium does not help.** Supplementing the repressor–reporter hold with 0, 5, 10 or 20 mM magnesium changes the dynamic range at none of those levels. The 20 mM arm markedly reduced overall yield. The gain in that experiment came from the longer hold, not from the added salt.
+**Magnesium is not expected to improve the dynamic range, and too much reduces it.** Supplementing the repressor–reporter hold with 0, 5 or 10 mM magnesium changes the dynamic range at none of those levels. At 20 mM the dynamic range roughly halves, and the loss falls almost entirely on the induced state.
 
-**More repressor template deepens the "off" state and costs yield.** Carrying over pre-expressed repressor also carries over its template, to about 3.4 nM. Diluting the reporter stock in repressor template rather than water adds a further 5.3 nM, bringing the total to 8.7 nM. The fold change almost doubles. Overall fluorescence falls, because expressing more repressor diverts resources away from the reporter.
+**More repressor template deepens the "off" state and costs yield.** Carrying over pre-expressed repressor also carries over its template, to about 3.4 nM. Diluting the reporter stock in repressor template rather than water adds a further 5.3 nM, bringing the total to 8.7 nM. The fold change rises from 2.8 to about 3.8. Overall fluorescence falls roughly four-fold in the induced state, because expressing more repressor diverts resources away from the reporter.
 
 **A lower reaction temperature gives the strongest switch recorded.** Running the reaction at 25 °C overnight in a thermocycler instead of at 37 °C gives about 5.8-fold, from 19,800 against 3,400 RFU. The reasoning is that a lower temperature both strengthens EsaR–DNA binding and slows T7, which limits expression from any template that is not fully repressed.
 
@@ -119,7 +127,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 Requires the repressor to be supplied as protein, expressed in a separate reaction beforehand. Expressing the repressor and the reporter together in one reaction gives a much weaker switch, because the operator is not occupied before transcription begins.
 
-Requires the repressor and the reporter template to be held together before the reaction starts. One hour at 37 °C is the reference; 15 min gives roughly half the fold change.
+Requires the repressor and the reporter template to be held together at 37 °C for 1 h before the reaction starts.
 
 Requires the reporter template to be held at or below 0.5 nM. Above 1 nM the reporter is in excess of the repressor and no repression is seen.
 

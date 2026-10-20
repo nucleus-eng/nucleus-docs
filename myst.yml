@@ -149,6 +149,7 @@ project:
     devnote-deGFP-cells: https://devnotes.nucleus.engineering/articles/base-cell-01
     devnote-cx43: https://devnotes.nucleus.engineering/articles/cx43-cell-01
     devnote-devcell-plan: https://devnotes.nucleus.engineering/articles/developer-cell-introduction
+    devnote-esar: https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a
   resources:
     - docs/**/*
     - cdk/**/*
