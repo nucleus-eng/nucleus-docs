@@ -48,10 +48,12 @@ inputs:
     title: "IV-CoA"
     stock: {value: 5, unit: "mM"}
     page: null            # substrate for IV-HSL production
-  optiprep:
-    title: "OptiPrep"
-    page: null
+  density-reagent:
+    title: "Density reagent"
+    # THE CLASS AND NOT A MEMBER. Any density reagent satisfies this slot; which one
+    # is the implementation's choice. OptiPrep is the preferred density reagent.
     optional: true        # density for phase transfer — see the questions below
+    type: DensityReagent
   rnase-inhibitor:
     title: "RNase inhibitor"
     stock: {value: 40000, unit: "U/mL"}
@@ -80,7 +82,7 @@ process_steps:
       - bjai-dna
       - sam
       - iv-coa
-      - optiprep
+      - density-reagent
       - rnase-inhibitor
       - water
     produces:
@@ -99,7 +101,7 @@ process_steps:
       bjai-dna: 0.05
       sam: 0.06
       iv-coa: 0.016
-      optiprep: 0.05
+      density-reagent: 0.05
       rnase-inhibitor: 0.05
     finals:
       bjai-dna: {value: 10, unit: "ng/µL"}

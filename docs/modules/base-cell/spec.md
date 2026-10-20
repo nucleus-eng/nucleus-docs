@@ -30,7 +30,7 @@ flowchart TD
     OUTER_SOLUTION["Outer solution"]
     BASE_CYTOSOL["Base Cytosol"]
     MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
-    OPTIPREP["OptiPrep"]
+    DENSITY_REAGENT["Density reagent"]
 
     P1_ASSEMBLE_INNER_SOLUTION_0(["Assemble Base Cytosol (mixing)"])
     BASE_CELL_INNER_SOLUTION["Base Cell inner solution"]
@@ -38,7 +38,7 @@ flowchart TD
     BASE_CELL["Base Cell"]
 
     BASE_CYTOSOL --> P1_ASSEMBLE_INNER_SOLUTION_0
-    OPTIPREP --> P1_ASSEMBLE_INNER_SOLUTION_0
+    DENSITY_REAGENT --> P1_ASSEMBLE_INNER_SOLUTION_0
     P1_ASSEMBLE_INNER_SOLUTION_0 --> BASE_CELL_INNER_SOLUTION
 
     BASE_CELL_INNER_SOLUTION --> P2_ENCAPSULATE_0
@@ -50,7 +50,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class OUTER_SOLUTION,BASE_CYTOSOL,MEMBRANE_POPC_CHOL,OPTIPREP leaf;
+    class OUTER_SOLUTION,BASE_CYTOSOL,MEMBRANE_POPC_CHOL,DENSITY_REAGENT leaf;
     class BASE_CELL_INNER_SOLUTION,BASE_CELL composed;
     class P1_ASSEMBLE_INNER_SOLUTION_0,P2_ENCAPSULATE_0 process;
 
