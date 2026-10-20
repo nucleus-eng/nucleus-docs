@@ -86,37 +86,16 @@ sensitivities:
       unit: "µM"
       value: 0.5
     why: >
-      Above about 0.5 uM aTc in this cytosol the response stops being graded.
-      THE BOUND ITSELF IS UNVERIFIED AND IS THE NEXT THING TO SETTLE, 2026-10-12.
-      This retraction removed a fabricated window from around a 0.5 uM bound and
-      left the bound where it was. It may not survive: PR #290 adds a second
-      titration to this page whose useful range runs to 1 uM at either TetR
-      concentration, and whose GUV lumen signal rises with dose up to 1 uM, the
-      highest tested. Whoever settles this reads BOTH titrations on the page, not
-      the one below.
-      THE EVIDENCE BELOW IS THE NUCLEUS BASE CYTOSOL TITRATION. At 500 nM TetR it
-      reads 30 % of the unrepressed level at 0.25 uM aTc, 86 % at 1 uM and 91 % at
-      5 uM; at 1000 nM TetR, 4 %, 63 % and 88 % at the same doses. Half of the
-      unrepressed level falls near 0.4 uM at 500 nM TetR and near 0.8 uM at 1000 nM.
-      THE PLATE'S LOWEST NON-ZERO DOSE IS 0.25 uM, so this page measures no lower end
-      and none is asserted here.
-      RETRACTED 2026-10-12: this field read "the window is 0.1 uM to 0.5 uM with an
-      optimum near 0.25 to 0.35 uM", carried in from the longer PR 231 draft of this
-      page. Neither figure is measured. 0.1 uM appears in the DevNote only as
-      proposed future spacing, and the "optimum" restated two of the seven plate
-      columns as a finding. Caught by the Mary GUV session, confirmed by the session
-      that wrote the titration.
-      THIS IS A WINDOW IN THIS CYTOSOL AND NOT A PROPERTY OF THE DETECTOR ALONE.
-      Lysate wants 2.5 uM to 5 uM, roughly ten times more. A bound written without
-      its cytosol would be false in the other one.
-      NOTHING COMPUTES AGAINST THIS YET, AND THAT IS THE FINDING. `atc-dose` is not
-      declared as an imposition anywhere in the corpus. Nine impositions exist across
-      all sources and they are `thermal-hold`, `uv-exposure` and `proteinase-k`;
-      `temperature` is the only quantity any of them declares. The step that would
-      raise `atc-dose` is the aTc trigger, and IT CANNOT BE WRITTEN, because the dose
-      the demo uses is unrecorded — the page says so in its own words. So this entry
-      is a declared half waiting on a figure from the bench, not on a schema change.
-
+      Above about 0.5 uM aTc in this cytosol the response stops being graded. In the
+      Nucleus Base Cytosol titration, 500 nM TetR reads 30 % of the unrepressed level
+      at 0.25 uM aTc, 86 % at 1 uM and 91 % at 5 uM; 1000 nM TetR reads 4 %, 63 % and
+      88 % at the same doses. Half the unrepressed level falls near 0.4 uM at 500 nM
+      TetR and near 0.8 uM at 1000 nM. The plate's lowest non-zero dose is 0.25 uM, so
+      this page measures no lower end and asserts none.
+      The bound is specific to this cytosol and is not a property of the Detector
+      alone: lysate wants 2.5 uM to 5 uM, roughly ten times more.
+      It is unverified against the second titration on this page, whose useful range
+      runs to 1 uM at either TetR concentration. Read both before relying on it.
 open:
   - id: three-tetr-formats-are-not-interchangeable
     question: >
@@ -128,19 +107,10 @@ open:
       than only the provenance. Same "one of these" shape as ../detector-ph/spec.yml.
   - id: the-atc-window-is-the-nodes-not-the-figures
     question: >
-      RETRACTED 2026-10-12, SECOND COPY. This item asserted that the page gives a
-      0.1 uM to 0.5 uM aTc window with an optimum near 0.25 to 0.35 uM and "states
-      plainly" that it is the Node's working window. The page says none of it. Its
-      titration doses are 0, 0.25, 0.35, 0.5, 1, 5 and 10 uM, so 0.1 uM is measured
-      nowhere, and the "optimum" restated two plate columns as a finding.
-      THE FIRST COPY WAS RETRACTED IN THE `why:` FIELD ABOVE AND THIS ONE SURVIVED
-      TWENTY-EIGHT LINES BELOW IT. The author grepped the field being fixed and not
-      the file. A retraction that leaves a second copy is the partial check this
-      corpus already has a name for: it does not leave a gap, it fills one.
-      WHAT IS GENUINELY OPEN: the dose used in the figures is unrecorded, and a
-      reader composing this Module needs it. Lysate and Base Cytosol want different
-      doses, and aTc is excluded from the operands above as the analyte, so this
-      file carries no figure either way.
+      The aTc dose used in the figures is unrecorded, and a reader composing this
+      Module needs it. Base Cytosol and lysate want different doses, and aTc is
+      excluded from the operands above as the analyte, so this file carries no
+      figure either way.
   - id: the-reference-figures-used-purexpress
     question: >
       The composition above is in Base Cytosol. The figures the page shows were
