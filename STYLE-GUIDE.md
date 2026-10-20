@@ -26,7 +26,7 @@ Every rule lives in exactly one file under [`style-guide/`](style-guide/). Nothi
 | [`sections.md`](style-guide/sections.md) | Every section of a Module spec, in order |
 | [`conventions.md`](style-guide/conventions.md) | Terminology, figures, citations, what never appears, mechanics |
 
-**MyST mechanics are not here.** Fence and tab-set depth, cross-reference anchors, `.md`-not-`.html` links and figure placement are properties of MyST rather than of this repo, and live in the `author-myst-content` skill. Invoke it when writing a page.
+**MyST mechanics are not here.** Fence and tab-set depth, `.md`-not-`.html` links and figure placement are properties of MyST rather than of this repo, and live in the `author-myst-content` skill. Heading labels and the links that use them are a rule of this repo: see [`conventions.md`](style-guide/conventions.md#headings-and-captions). Invoke it when writing a page.
 
 If those four disagree with each other, `principles.md` wins and the other file is wrong.
 
