@@ -12,6 +12,14 @@
 
 process: make-36pot
 title: "Make Protein Mix (36-pot)"
+# A COMPOSITE REFINES `make`, 2026-10-19. This runs other Processes in order,
+# assembling AND running, so it spans the bench route and the function route and
+# its parent sits above both. `make` is that parent: what it produces is in the
+# result and was not in the domain.
+#
+# It read "A COMPOSITE REFINES NOTHING ... and `make` is not a Process" from
+# 2026-10-12 until 2026-10-19. No node then sat above both routes, and that gap
+# in the order was read as a fact about the composite.
 refines: make
 
 signature:
