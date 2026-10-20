@@ -212,9 +212,17 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 
 The behavior of Base Cytosol is characterized using the [Reporter: deGFP](../reporter-degfp/spec.md) Module.
 
+@Editor: State the validation data for Base Cytosol. Tracked in [nucleus-eng/nucleus-docs#306](https://github.com/nucleus-eng/nucleus-docs/issues/306).
+
 # Processes
 
-- [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md)
+- [Make Protein Mix](../../processes/make-36pot/main.md): makes PMix, the 36 purified PURE proteins at set molar ratios.
+- [Make OnePot Protein Mix](../../processes/make-1pot/main.md): makes OnePot Protein Mix, which has the same proteins as PMix but at molar ratios that cannot be controlled. It is a functional equivalent of PMix, with less control.
+- [Make Small Molecule Mix](../../processes/make-small-molecule-mix/main.md): makes SMix.
+- [Make Amino Acid Mix](../../processes/make-amino-acid-mix/main.md): makes the equimolar mix of the 20 canonical amino acids that SMix uses.
+- [Make Ribosomes](../../processes/make-ribosomes/main.md): makes the ribosomes.
+- [Make tRNAs](../../processes/make-trna/main.md): makes the tRNA.
+- [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md): combines the mixes into the reaction.
 
 # Credits
 
