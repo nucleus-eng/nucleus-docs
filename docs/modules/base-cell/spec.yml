@@ -37,7 +37,7 @@ inputs:
     title: "Base Cytosol"
     page: ../base-cytosol/spec.md
   membrane-popc-chol:
-    title: "Membrane: POPC/Chol (7:3)"
+    title: "Base Membrane: POPC/Chol"
     page: ../membrane-popc-chol/spec.md
   optiprep:
     stock: {value: 1.32, unit: "mg/µL"}
