@@ -9,11 +9,7 @@ site:
 
 # Overview
 
-Base Cytosol is a molecular system with a defined set of components, including T7 RNA Polymerase, ribosomes, and tRNA, capable of transcription and translation. It builds on the [PURE system](https://doi.org/10.1038/90802) and is optimized for integration and extension. The [Base Cell](../base-cell/spec.md) is formed by encapsulating Base Cytosol in a liposome.
-
-Base Cytosol transcribes a DNA template that carries a T7 promoter, and no other promoter, because it supplies T7 RNA polymerase; a template without a T7 promoter is not transcribed. It translates the transcript into protein. It splits the pyrophosphate (PPi) that transcription and translation release into two phosphates, using inorganic pyrophosphatase. It returns spent nucleotides to their triphosphate form from creatine phosphate, using creatine kinase together with adenylate kinase and nucleoside diphosphate kinase.
-
-Plasmid designs for the PURE proteins are maintained as pET28a expression vectors in the [DNA Distribution](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression) repository.
+Base Cytosol is a molecular system with a defined set of components, including purified proteins and _E. coli_ ribosomes and tRNAs that together can perform transcription and translation. It builds on the [PURE system](https://doi.org/10.1038/90802) and is optimized for integration and extension. The [Base Cell](../base-cell/spec.md) is formed by encapsulating Base Cytosol in a liposome. Base Cytosol transcribes a DNA template that carries a T7 promoter and translates a transcript encoding an _E. coli_ ribosome binding site (RBS) and a coding sequence (CDS). It also recycles energetic molecules (rNTPs) from creatine phosphate (CP) and processes waste products (PPi) with a simple energy module (PPiase, Creatine Kinase, adenylate kinase and nucleoside diphosphate kinase). Plasmid designs for the PURE proteins are maintained as pET28a expression vectors in the [DNA Distribution](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression) repository.
 
 :::{figure} schematic.png
 :width: 100%
