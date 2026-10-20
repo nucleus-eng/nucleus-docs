@@ -72,11 +72,11 @@ Keying by location rather than by Module also removes rows that only ever existe
 
 State a gap inside the tab it affects, in the row where the number would go. A tab holding no table is not a tab.
 
-**A composition tab carries a table, not a sentence pointing at another page.** Where a Module inherits its membrane or cytosol from a chassis, reproduce the table and name the source in the caption — a reader composing this Module should not have to open two more pages to learn its lipid fractions. The one exception is a Module whose composition is not specific to any one host: **Effector: PLA1** acts on any phospholipid membrane it reaches, so it names the membranes it has been used with instead of inventing a single table.
+**A composition tab carries a table, not a sentence pointing at another page.** Where a constituent has its own Module page, its tab carries a summary row (the constituent, its stock concentration and its reaction concentration) and a link to that page; the full composition lives on the constituent's page. Where a constituent has no page, the tab reproduces its table and names the source in the caption. The one exception is a Module whose composition is not specific to any one host: **Effector: PLA1** acts on any phospholipid membrane it reaches, so it names the membranes it has been used with instead of inventing a single table.
 
 ### The tables
 
-**One contributor means no line-item table.** A composed Module's tab lists each constituent that contributes to that compartment. Where exactly one does, the abstraction adds nothing — a union over a single set is that set — so give the constituent's own composition table instead of a row pointing at it. A tab whose only informative cell reads "unchanged from X" is a link wearing a table's clothes. Keep the line-item form only where two or more constituents genuinely combine.
+**One contributor means no line-item table, unless it has its own page.** A composed Module's tab lists each constituent that contributes to that compartment. Where exactly one does and it has no page of its own, give the constituent's own composition table instead of a row pointing at it. Where it has its own page, a summary row plus a link is the table. A row with no numbers in it, whose only informative cell reads "unchanged from X", is still a link wearing a table's clothes. Keep the line-item form where two or more constituents genuinely combine.
 
 **Optional components do not change a Module's identity.** Two compositions that differ only in a component the spec marks optional are the same Module. The Chicago Membrane lists `(Optional) Liss Rhod PE` at 0.1%, so a membrane written as `89.9 / 10 / 0.1` and one written as `9:1 POPC:cholesterol` are the same membrane, not two formulations. Do not write a note distinguishing them.
 
@@ -105,6 +105,8 @@ Keep both `<!-- gen:composition-diagram -->` markers and the `# Constituent Modu
 
 What the reader will see if they follow the page. Write "X Module is expected to…".
 
+Write in the present tense and the active voice: "The X Module is expected to fluoresce at Y level when induced with Z molecule, read at W exposure settings." A claim names what the Module does, the level, what triggers it, and the instrument settings it was read at. A claim missing one of those four is not yet a claim about the Module.
+
 Subdivide by Context: `# Expected Behavior` → `## <Context>`. Contexts in use today are Cytosols, Cells and Gels.
 
 > That list is a template convention, not an ontology. No claim is made that it is complete or principled. Do not write a rule that depends on the set being closed.
@@ -120,6 +122,8 @@ Performance data is not its own heading; it lives inside the Context it was meas
 **Say what measured it.** Every result names the Process that produced it, as a link:
 
 > Color developed within 3 h at 37 °C, scored by eye — see **Colorimetric Readout**.
+
+Cite the DevNote that holds the data as the source of the claim, and state the claim itself without telling the story of the run. Plate layout and well counts are run detail: leave them in the DevNote. Preparation steps belong on the Process page. A Module's own settings, the values that describe how it is made, are not run detail: they go under the Module page's own `# Processes` section.
 
 A result with no named readout is not yet a claim about the Module. "Only slightly discernible" describes the instrument as much as the biology, and nothing on the page tells a reader which. That is the live case on **London Cascade**: the +AHL/−AHL gap may be a weak signal or a weak readout, and the two call for opposite work — more optimization, or a better assay.
 
@@ -185,7 +189,7 @@ Every Module link inside this section reads as a claim, prose included. Naming t
 
 Link every Process page related to this Module, in the order a bench user meets them. That means both directions: the processes that **build** the Module, and the processes that **use** it — an assay that reads it, a downstream step it feeds. A page listing only its own preparation hides half of what a reader came for. Where the relation is not obvious from the title, gloss it in a few words.
 
-Include any preparation parameters that are not composition — target size, extrusion passes, purification method, storage before use. A number that describes *how you make it* is process data even when it sits in a table.
+Include any preparation parameters that are not composition — target size, extrusion passes, purification method, storage before use. A number that describes *how you make it* is a preparation parameter and goes here, even when it sits in a table. A Process page names the parameters a run needs, and each Module page supplies its own values for them. The bill of materials stays on the Process page. Plate layout and well counts are run detail and stay in the DevNote.
 
 If no Process page covers the combination, say so in one sentence and stop. "No process page documents assembling this cascade end to end." Do not explain what a reader should not assume, and do not leave instructions for a future editor — those go in `tmp/`.
 
