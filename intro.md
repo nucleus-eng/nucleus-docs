@@ -24,7 +24,7 @@ Nucleus Documentation is the protocol and specification library for the Nucleus 
 
 :::{card}
 :header: 🧱 **Modules**
-- [tetR-aTc Detector](docs/modules/detector-tetr_atc/spec.md)
+- [tetR-aTc Detector](docs/modules/detector-tetr-atc/spec.md)
 - [ClpXP Control Module](docs/modules/control-clpxp/spec.md)
 - [Cx43 Membrane Pore](docs/modules/membrane-pore-cx43/spec.md)
 :::
@@ -81,8 +81,8 @@ Physical materials that are used to implement Processes and Modules.
 
 :::{card}
 :header: 🛠️ **Cell Development Kit**
-:link: https://pypi.org/project/nucleus-cdk/
-Software tools for working with the Nucleus Distribution. Available via PyPI: `pip install nucleus-cdk`.
+:link: cdk/cdk-main.md
+Python library for analyzing synthetic cell experiments, from raw instrument output to reportable statistics. Available via PyPI: `pip install nucleus-cdk`.
 :::
 
 :::{card}

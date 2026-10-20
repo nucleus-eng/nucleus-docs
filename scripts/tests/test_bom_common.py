@@ -140,19 +140,63 @@ def test_enrich_fillable_agrees_with_placeholder_set():
 # Header-aware row parsing
 # --------------------------------------------------------------------------- #
 
-def test_parse_table_header_maps_legacy_aliases():
-    cols = parse_table_header("| Reagent | Vendor | Cat # | Storage Conditions |")
+def test_clean_cell_strips_a_code_span():
+    """A part number whose pack-size suffix is lowercase -- `PSB-440-5g` --
+    trips `nucleus.magnitude-unit-spacing`, so a page writes it as a code span
+    to keep Vale quiet. `norm_key` only collapses whitespace and casefolds, so
+    before 2026-10-12 the backticks survived into the dedup key and the same
+    part number keyed two ways. Bold was stripped here from the start and
+    backticks were not. Found by the Gel Control Experiments session.
+    """
+    assert _clean_cell("`PSB-440-5g`") == "PSB-440-5g"
+    assert bc.norm_key(_clean_cell("`PSB-440-5g`")) == bc.norm_key("PSB-440-5g")
+    assert bc.norm_key(_clean_cell("**PSB-440-5g**")) == bc.norm_key("PSB-440-5g")
+    # A code span inside prose loses its markup and keeps its words.
+    assert _clean_cell("`a` and `b`") == "a and b"
+
+
+def test_parse_table_header_maps_retired_aliases():
+    """The parser stays permissive where the allowlist is strict.
+
+    Jon ruled one allowed title per column on 2026-10-12. Deleting a spelling a
+    page still uses would drop that column from the reference -- the opposite of
+    what the ruling is for -- so a retired spelling keeps parsing and
+    check-materials-tables.py reports it. Measured on main the same day over 131
+    table headers in 44 files: `reagent` 21, `material` 4, `storage conditions`
+    1. The aliases go when that count reaches zero.
+    """
+    cols = parse_table_header("| Reagent | Supplier | Part number | Storage Conditions |")
     assert cols is not None
     assert cols["name"] == 0          # Reagent -> name
-    assert cols["manufacturer"] == 1  # Vendor -> manufacturer
-    assert cols["part"] == 2          # Cat # -> part
+    assert cols["manufacturer"] == 1  # Supplier -> manufacturer
+    assert cols["part"] == 2          # Part number -> part
     assert cols["storage"] == 3       # Storage Conditions -> storage
 
+    cols = parse_table_header("| Material | Manufacturer | Part # |")
+    assert cols is not None and cols["name"] == 0   # Material -> name
 
-def test_parse_table_header_maps_product_name_alias():
-    cols = parse_table_header("| Product Name | Manufacturer | Part # |")
-    assert cols is not None
-    assert cols["product"] == 0
+    cols = parse_table_header("| Item | Manufacturer | Part # |")
+    assert cols is not None and cols["name"] == 0   # Item -> name
+
+
+def test_deleted_aliases_are_gone():
+    """DELETED 2026-10-12: `vendor`, `product name`, `part#`, `cat #`,
+    `catalog #`, `catalog number`.
+
+    Swept every ref in the repo -- 39 of them, origin branches plus the local
+    pH demo -- counting only a pipe row followed by a `| --- |` separator.
+    Zero header uses of all six. Removing a spelling nothing writes costs no
+    page edit, and that is the whole of what "collapse most of them" can do for
+    free. If one of these ever comes back, it should come back as a page edit
+    rather than as an alias.
+    """
+    for spelling in ("Vendor", "Product Name", "Part#", "Cat #",
+                     "Catalog #", "Catalog Number"):
+        assert bc._header_field(spelling) is None, spelling
+
+    # The deleted part-number spellings mean this header no longer parses --
+    # which is the point: check-materials-tables.py reports it as job 1.
+    assert parse_table_header("| Reagent | Vendor | Cat # |") is None
 
 
 def test_parse_table_header_requires_manufacturer_and_part():

@@ -22,11 +22,11 @@ Each [Module specification](../../modules/modules-main.md) gives its own referen
 :::{table}
 :label: comp-membrane-default
 
-| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
+| Component    | Target (mmol/mol)     | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
-| POPC         | 70                    | 760.076                  | 25                          | 162.17             |
-| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
-| Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
+| POPC         | 699.3                 | 760.076                  | 25                          | 162.01             |
+| Cholesterol  | 299.7                 | 386.654                  | 50                          | 17.66              |
+| Liss-Rhod PE | 1                     | 1301.71                  | 1                           | 9.92               |
 :::
 
 See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membrane spec.
@@ -60,7 +60,7 @@ See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membr
 | Optiprep                        | Reagent    | OptiPrep™                                                                                                                              | STEMCELL Technologies | 07820       | $289.00 | RT                      | [link](https://www.stemcell.com/products/optipreptm.html)                                                                                                                                                                 |
 | POPC                            | Lipid      | 16:0-18:1 PC 25 mg/mL                                                                                                                  | Avanti Lipids         | A80557      | $435.00 | -20 °C                  | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc)                                                                                                                                      |
 | Cholesterol                     | Lipid      | Cholesterol (plant)                                                                                                                    | Avanti Research       | A80100      | $261.00 | -20 °C                  | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant)                                                                                                                                    |
-| Liss-Rhod PE                    | Lipid      | 18:0 Liss Rhod PE 1 mg/mL                                                                                                              | Avanti Lipids         | A81179      | $273.47 | -20 °C                  | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe)                                                                                                                                     |
+| Liss-Rhod PE                    | Lipid      | 18:1 Liss Rhod PE                                                                                                                      | Avanti Research       | A81150      | —       | -20 °C                  | —                                                                                                                                                                                                                         |
 | Glucose                         | Chemical   | D-(+)-Glucose, 99%                                                                                                                     | Thermo Scientific     | A16828-36   | $41.65  | RT                      | [link](https://www.thermofisher.com/order/catalog/product/A16828.36)                                                                                                                                                      |
 | Chloroform                      | Chemical   | Chloroform, suitable for HPLC, ≥99.8%, contains 0.5-1.0% ethanol as stabilizer                                                         | Sigma-Aldrich         | 366927      | $94.30  | RT (flammables cabinet) | [link](https://www.sigmaaldrich.com/US/en/product/sigald/366927)                                                                                                                                                          |
 | Mineral oil                     | Chemical   | Mineral oil, mixed weight                                                                                                              | Thermo Scientific     | AC415080010 | $53.40  | RT                      | [link](https://www.thermofisher.com/order/catalog/product/AC415080010)                                                                                                                                                    |
@@ -75,7 +75,7 @@ See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membr
 
 ## Prepare Lipids in Mineral Oil
 
-- [ ] Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
+- [ ] Add 1 mL of mineral oil to a 4 mL glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple
@@ -107,9 +107,9 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 ## Assemble Outer Solutions
 
 - [ ] Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
-- [ ] Prepare outer solution by mixing glucose stock solution and water to reach your target osmolarity:
+- [ ] Prepare outer solution by mixing glucose stock solution and water. The table is a starting recipe; the target is a reading, set in the note below:
 
-:::{table} Preparation of outer solutions. These values are approximates and may vary based on the measured osmolarity of your inner solution (here: targeting 1140 mOsm).
+:::{table} Outer solution, starting recipe: 1140 mM glucose. A glucose concentration is not a reading of osmotic concentration: this solution is expected to read about 1275 mOsm/kg, scaled from one reading in [Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01) and not measured. Adjust it to your inner solution's reading, as the note below says.
 :name: os-prep
 
 | **Component**     | **Outer Solution (µL)** |
@@ -123,7 +123,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 :::{hint} Note
 :class: simple
 :icon: false
-The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol/spec.md). Measure the osmolarity of your inner solution and adjust the outer solution's glucose concentration so its osmolarity is 100 mOsm to 120 mOsm lower than the inner solution. Check the osmolarity of your inner solution by measuring with an Osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
+Measure the osmotic concentration of your inner solution, and adjust the outer solution's glucose concentration until the outer solution reads 100 mOsm/kg to 150 mOsm/kg lower. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). **Measure the outer solution as well, because its glucose concentration is not its reading.** In that DevNote the inner solution read 1060 mOsm/kg, and 850 mM glucose read 950 mOsm/kg. Scaled by glucose concentration from that pair, the recipe above would read about 1275 mOsm/kg, which would suit an inner solution of about 1375 mOsm/kg to 1425 mOsm/kg. Both figures are computed, not measured, and concentrated glucose does not scale exactly. Measure both on a vapor-pressure osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
 :::
 
 ## Encapsulate Inner Solution
@@ -133,7 +133,7 @@ The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol
     - [ ] **T**—transfer
     - [ ] **L**—liposomes
 - [ ] Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**. Vortex thoroughly and spin down.
-- [ ] Assemble at least 30 µL of your inner solution per reaction (see [Assemble Base Cytosol](../assemble-base-cytosol/main.md) for an example).
+- [ ] Assemble at least 30 µL of your inner solution per reaction. For the Base Cell, [Build a Base Cell](../build-base-cell/main.md) gives the inner solution and every other step in order.
 - [ ] Once at room temperature, add 150 µL of the lipid-oil mixture on top of each assembled inner solution reaction.
 - [ ] Emulsify the lipid-oil and inner solution reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Drag your tube across empty slots at least 50 times until you form a stable emulsion with a homogeneous milky appearance.
 

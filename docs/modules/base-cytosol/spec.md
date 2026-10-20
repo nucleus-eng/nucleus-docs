@@ -1,6 +1,7 @@
 ---
 title: "Base Cytosol"
 subtitle: "Module Specification"
+status: validated-published
 site:
     hide-toc: true
     numbered_references: false
@@ -8,25 +9,23 @@ site:
 
 # Overview
 
-A molecular system with a defined set of components including T7 RNA Polymerase, ribosomes, and tRNA capable of transcription and translation. Base Cytosol builds on the [PURE system](https://doi.org/10.1038/90802), and is optimized for integration and extension. The Base Cell is formed by encapsulating Base Cytosol in a liposome.
-
-Plasmid designs for the PURE proteins are maintained as pET28a expression vectors in the [DNA Distribution](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression) repository.
+Base Cytosol is a molecular system with a defined set of components, including purified proteins and _E. coli_ ribosomes and tRNAs that together can perform transcription and translation. It builds on the [PURE system](https://doi.org/10.1038/90802) and is optimized for integration and extension. The [Base Cell](../base-cell/spec.md) is formed by encapsulating Base Cytosol in a liposome. Base Cytosol transcribes a DNA template that carries a T7 promoter and translates a transcript encoding an _E. coli_ ribosome binding site (RBS) and a coding sequence (CDS). It also recycles energetic molecules (rNTPs) from creatine phosphate (CP) and processes waste products (PPi) with a simple energy module (PPiase, Creatine Kinase, adenylate kinase and nucleoside diphosphate kinase). Plasmid designs for the PURE proteins are maintained as pET28a expression vectors in the [DNA Distribution](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression) repository.
 
 :::{figure} schematic.png
 :width: 100%
 :align: center
 
-Schematic of components in Cytosol and their function. Figure by [Ganesh and Maerkl, 2024](https://doi.org/10.1101/2024.04.03.587879) used under CC-BY-4.0 / cropped from original with numerical annotations removed.
+Schematic of components in Base Cytosol and their function. Figure by [Ganesh and Maerkl, 2024](https://doi.org/10.1101/2024.04.03.587879) used under CC-BY-4.0 / cropped from original with numerical annotations removed.
 :::
 
-## Reference Composition
+# Reference Composition
 
-Base Cytosol is assembled from four components — a protein mix (PMix), a small molecule mix (SMix), ribosomes, and tRNA. The tabs below give the composition of each component at its **stock** concentration, plus the **Final Reaction** composition with every component at its in-reaction concentration.
+Base Cytosol is assembled from five components — a protein mix (PMix), a small molecule mix (SMix), ribosomes, tRNA, and an optional RNase inhibitor. The tabs below give the composition of PMix, SMix, ribosomes and tRNA at their **stock** concentration, plus the **Final Reaction** composition with every component at its in-reaction concentration.
 
 :::::{tab-set}
 
 ::::{tab-item} PMix
-The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL. Per-protein stock concentrations are shown below; see the [Make PMix](../../processes/make-36pot/main.md) and [Make OnePot Protein Mix](../../processes/make-1pot/main.md) processes for preparation.
+The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL.
 
 :::{table} Composition of the Protein Mix (PMix) at stock concentration. Molecular weight, stoichiometry, and molarity are computed as described in the note below.
 :label: comp-pmix
@@ -73,16 +72,16 @@ The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentrat
 :::
 
 :::{note} Molecular weight calculations
-Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state. See GitHub issue #160.
+Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state.
 
 \* **GlyRS, PheRS** — both are α₂β₂ heterotetramers of two different subunits (GlyRS: GlyQ 34.8 kDa + GlyS 76.8 kDa; PheRS: PheS 36.8 kDa + PheT 87.4 kDa). The Molecular Weight column reports the combined complex mass (2 × (α + β)); molarity is mass concentration ÷ this combined mass, since the two subunits cannot be reduced to one monomer MW times a single n.
 :::
 ::::
 
 ::::{tab-item} SMix
-The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, stabilizers, and cofactors. Concentrations below are in the assembled SMix; see the [Make SMix](../../processes/make-small-molecule-mix/main.md) process for preparation.
+The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, stabilizers, and cofactors. Concentrations below are in the assembled SMix.
 
-:::{table} Composition of the Small Molecule Mix (SMix) at stock concentration. 
+:::{table} Composition of the Small Molecule Mix (SMix) at stock concentration.
 :label: comp-smix
 
 | Category    | Molecule            | Concentration | Units |
@@ -96,7 +95,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 |             | rUTP                | 2.5           | mM    |
 | Amino Acids | Each (Ala–Val)      | 0.75          | mM    |
 | Stabilizers | Spermidine          | 5             | mM    |
-|             | TCEP                | 2.5           | mM    |
+|             | TCEP-HCl            | 2.5           | mM    |
 | Cofactors   | Creatine Phosphate  | 50            | mM    |
 |             | Folinic Acid        | 0.05          | mM    |
 :::
@@ -113,7 +112,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 ::::
 
 ::::{tab-item} tRNA
-:::{table} tRNA stock concentration. 
+:::{table} tRNA stock concentration.
 :label: comp-trna
 
 | Component | Stock Concentration | Reaction Concentration |
@@ -128,37 +127,37 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 
 | Category | Molecule | Concentration | Units |
 |----------|----------|----------------------|-------|
-| Buffers | HEPES-KOH | 50 | mM |
-| | Potassium Glutamate | 100 | mM |
-| | Magnesium Acetate | 7.5 | mM |
-| Nucleotides | rATP | 2 | mM |
-| | rGTP | 2 | mM |
-| | rCTP | 1 | mM |
-| | rUTP | 1 | mM |
-| Amino Acids  | Alanine (Ala) | 0.3 | mM |
-| | Arginine (Arg) | 0.3 | mM |
-| | Asparagine (Asn) | 0.3 | mM |
-| | Aspartic Acid (Asp) | 0.3 | mM |
-| | Cysteine (Cys) | 0.3 | mM |
-| | Glutamic Acid (Glu) | 0.3 | mM |
-| | Glutamine (Gln) | 0.3 | mM |
-| | Glycine (Gly) | 0.3 | mM |
-| | Histidine (His) | 0.3 | mM |
-| | Isoleucine (Ile) | 0.3 | mM |
-| | Leucine (Leu) | 0.3 | mM |
-| | Lysine (Lys) | 0.3 | mM |
-| | Methionine (Met) | 0.3 | mM |
-| | Phenylalanine (Phe) | 0.3 | mM |
-| | Proline (Pro) | 0.3 | mM |
-| | Serine (Ser) | 0.3 | mM |
-| | Threonine (Thr) | 0.3 | mM |
-| | Tryptophan (Trp) | 0.3 | mM |
-| | Tyrosine (Tyr) | 0.3 | mM |
-| | Valine (Val) | 0.3 | mM |
-| Stabilizers | Spermidine | 2 | mM |
-| | TCEP-HCl | 1 | mM |
-| Cofactors | Creatine Phosphate | 20 | mM |
-| | Folinic Acid | 0.02 | mM |
+| Buffers | HEPES-KOH | 37.5 | mM |
+| | Potassium Glutamate | 75 | mM |
+| | Magnesium Acetate | 5.6 | mM |
+| Nucleotides | rATP | 1.5 | mM |
+| | rGTP | 1.5 | mM |
+| | rCTP | 0.75 | mM |
+| | rUTP | 0.75 | mM |
+| Amino Acids  | Alanine (Ala) | 0.225 | mM |
+| | Arginine (Arg) | 0.225 | mM |
+| | Asparagine (Asn) | 0.225 | mM |
+| | Aspartic Acid (Asp) | 0.225 | mM |
+| | Cysteine (Cys) | 0.225 | mM |
+| | Glutamic Acid (Glu) | 0.225 | mM |
+| | Glutamine (Gln) | 0.225 | mM |
+| | Glycine (Gly) | 0.225 | mM |
+| | Histidine (His) | 0.225 | mM |
+| | Isoleucine (Ile) | 0.225 | mM |
+| | Leucine (Leu) | 0.225 | mM |
+| | Lysine (Lys) | 0.225 | mM |
+| | Methionine (Met) | 0.225 | mM |
+| | Phenylalanine (Phe) | 0.225 | mM |
+| | Proline (Pro) | 0.225 | mM |
+| | Serine (Ser) | 0.225 | mM |
+| | Threonine (Thr) | 0.225 | mM |
+| | Tryptophan (Trp) | 0.225 | mM |
+| | Tyrosine (Tyr) | 0.225 | mM |
+| | Valine (Val) | 0.225 | mM |
+| Stabilizers | Spermidine | 1.5 | mM |
+| | TCEP-HCl | 0.75 | mM |
+| Cofactors | Creatine Phosphate | 15 | mM |
+| | Folinic Acid | 0.015 | mM |
 | Ribonucleics | tRNA | 3.5 | µg/µL |
 | | Ribosomes | 1.8 | µM |
 | tRNA Synthetases | AlaRS | 130.3 | ng/µL |
@@ -197,15 +196,31 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 | | NDK | 1.9 | ng/µL |
 | | PPiase | 1.9 | ng/µL |
 | Transcription | T7RNAP | 18.7 | ng/µL |
+| Inhibitors | RNase Inhibitor (optional) | 0 to 2000 | U/mL |
 :::
+
+@Editor: confirm the RNase inhibitor stock concentration. `Base Cell` and `Reporter: deGFP` give 40 000 U/mL, which makes 0.5 µL in 10 µL equal to 2000 U/mL; no Make page or bill of materials states it.
 ::::
 
 :::::
 
-## Expected Behavior
+# Expected Behavior
 
-The behavior of Base Cytosol is characterized using the [deGFP Reporter](../reporter-degfp/spec.md) Module. 
+The behavior of Base Cytosol is characterized using the [Reporter: deGFP](../reporter-degfp/spec.md) Module.
 
-## Protocols
+@Editor: State the validation data for Base Cytosol. Tracked in [nucleus-eng/nucleus-docs#306](https://github.com/nucleus-eng/nucleus-docs/issues/306).
 
-Protocols for assembling Base Cytosol and making its components from scratch can be found on [Base Cytosol Processes](../../processes/processes-main.md#base-cytosol-processes).
+# Processes
+
+- [Make Protein Mix](../../processes/make-36pot/main.md): makes PMix, the 36 purified PURE proteins at set molar ratios.
+- [Make OnePot Protein Mix](../../processes/make-1pot/main.md): makes OnePot Protein Mix, which has the same proteins as PMix but at molar ratios that cannot be controlled. It is a functional equivalent of PMix, with less control.
+- [Make Small Molecule Mix](../../processes/make-small-molecule-mix/main.md): makes SMix.
+- [Make Amino Acid Mix](../../processes/make-amino-acid-mix/main.md): makes the equimolar mix of the 20 canonical amino acids that SMix uses.
+- [Make Ribosomes](../../processes/make-ribosomes/main.md): makes the ribosomes.
+- [Make tRNAs](../../processes/make-trna/main.md): makes the tRNA.
+- [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md): combines the mixes into the reaction.
+
+# Credits
+
+Reformulated by Yemo Ku and Jon Calles (b.next) from the PURE system, developed by the Ueda Lab ([Shimizu et al., 2001](https://doi.org/10.1038/90802)).
+

@@ -46,13 +46,15 @@ Exit codes:
 """
 
 import json
+import pathlib
+import re
 import shutil
 import socket
 import subprocess
 import sys
 from collections import Counter, defaultdict
 from functools import lru_cache
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 LYCHEE_CONFIG = ".lychee.toml"
 
@@ -66,6 +68,8 @@ DEAD_CODES = {404, 410}
 # Verdicts
 HARD_FAIL = "hard_fail"
 TOLERATED = "tolerated"
+# Not a finding at all: a fragment lychee cannot see but MyST will generate.
+IGNORE = "ignore"
 
 
 class CannotRun(Exception):
@@ -82,6 +86,11 @@ def _run_lychee(args: list[str], offline: bool) -> dict:
     cmd = ["lychee", "--config", LYCHEE_CONFIG, "--format", "json", "--no-progress"]
     if offline:
         cmd.append("--offline")
+        # Fragment checking is worth having only on the internal pass: a remote
+        # page's anchors are its owner's business, and checking them turns every
+        # JS-rendered target into noise. Rejected fragments are re-tested against
+        # MyST's slug rule in _fragment_verdict before anything is reported.
+        cmd.append("--include-fragments=anchor-only")
     cmd += args
 
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -128,6 +137,95 @@ def host_resolves(host: str) -> bool:
     return True
 
 
+# --- MyST fragment resolution -------------------------------------------------
+#
+# lychee slugs headings the GitHub way; MyST does not, and the two disagree.
+# GitHub deletes punctuation and then turns spaces into hyphens, so " / " leaves
+# two spaces and becomes "--". MyST turns every non-alphanumeric into a hyphen
+# and then collapses runs, so the same heading becomes "-". Any heading with
+# spaced or doubled punctuation slugs differently under the two tools.
+#
+# The deployed site is built by MyST, so MyST is the authority. We ask lychee to
+# check fragments because it is the only thing that checks them at all, then
+# re-test every fragment it rejects against MyST's own rule and drop the ones
+# MyST would have resolved. Without this, turning fragment checking on reports
+# working links as broken — and "fixing" them would break the live site.
+
+_INLINE_MD = [
+    (re.compile(r"`+"), ""),                       # code spans
+    (re.compile(r"\*\*|__"), ""),                  # bold
+    (re.compile(r"\[([^\]]*)\]\([^)]*\)"), r"\1"),  # links -> text
+    (re.compile(r"\{[a-z-]+\}"), ""),               # roles, e.g. {ref}
+]
+
+
+def myst_html_id(text: str) -> str:
+    """Port of myst-common's normalizeLabel + createHtmlId.
+
+    Mirrors myst-common/dist/utils.js. Keep the steps in this order — the
+    collapse of repeated hyphens is what makes MyST disagree with lychee.
+    """
+    ident = re.sub(r"[\t\n\r ]+", " ", text)
+    ident = re.sub(r"['\u2018\u2019\"\u201c\u201d]+", "", ident)
+    ident = ident.strip().lower()
+    ident = re.sub(r"[^a-z0-9-]", "-", ident)
+    ident = re.sub(r"^([0-9-])", r"id-\1", ident)
+    ident = re.sub(r"-[-]+", "-", ident)
+    ident = re.sub(r"(?:^[-]+)|(?:[-]+$)", "", ident)
+    return ident
+
+
+@lru_cache(maxsize=None)
+def myst_anchors(path: str) -> frozenset:
+    """Every fragment MyST will generate for a source file.
+
+    Headings, explicit `:label:`/`:name:` options, and `(target)=` blocks.
+    """
+    try:
+        text = pathlib.Path(path).read_text(encoding="utf-8")
+    except OSError:
+        return frozenset()
+
+    found = set()
+    for line in text.splitlines():
+        stripped = line.strip()
+
+        heading = re.match(r"^#{1,6}\s+(.*?)\s*#*$", stripped)
+        if heading:
+            title = heading.group(1)
+            for pattern, repl in _INLINE_MD:
+                title = pattern.sub(repl, title)
+            found.add(myst_html_id(title))
+            continue
+
+        option = re.match(r"^:(?:label|name):\s+(\S+)\s*$", stripped)
+        if option:
+            found.add(myst_html_id(option.group(1)))
+            continue
+
+        target = re.match(r"^\(([^)]+)\)=\s*$", stripped)
+        if target:
+            found.add(myst_html_id(target.group(1)))
+
+    found.discard("")
+    return frozenset(found)
+
+
+def _fragment_verdict(url: str) -> tuple[str, str]:
+    """Judge a fragment lychee could not resolve, using MyST's slug rule."""
+    split = urlsplit(url)
+    fragment = unquote(split.fragment or "")
+    target = unquote(split.path or "")
+
+    if not fragment or not target:
+        return HARD_FAIL, "fragment not found"
+
+    if myst_html_id(fragment) in myst_anchors(target):
+        return IGNORE, "MyST resolves this fragment"
+
+    return HARD_FAIL, f"no heading or label '#{fragment}' in target"
+
+
 def classify(entry: dict) -> tuple[str, str]:
     """Classify one lychee error entry as (verdict, reason).
 
@@ -145,6 +243,10 @@ def classify(entry: dict) -> tuple[str, str]:
 
     url = entry.get("url", "")
     split = urlsplit(url)
+
+    text = (status.get("text") or "") + " " + (status.get("details") or "")
+    if "cannot find fragment" in text.lower():
+        return _fragment_verdict(url)
 
     if split.scheme == "file":
         # A relative or root-relative link that resolves to nothing on disk.
@@ -210,6 +312,8 @@ def collect_findings(report: dict) -> list[dict]:
             verdict_by_url[url] = HARD_FAIL
         elif verdict == TOLERATED:
             verdict_by_url.setdefault(url, TOLERATED)
+        elif verdict == IGNORE:
+            verdict_by_url.setdefault(url, IGNORE)
 
         classified.append((filepath, entry, verdict, reason))
 
@@ -225,6 +329,8 @@ def collect_findings(report: dict) -> list[dict]:
             reason = f"{reason} (inherited: {verdict})"
         elif known == HARD_FAIL:
             verdict = HARD_FAIL
+        if verdict == IGNORE:
+            continue
         findings.append(
             {
                 "file": filepath,

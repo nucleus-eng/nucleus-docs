@@ -1,0 +1,107 @@
+name: DNA Reference Sweep
+
+# Whole-corpus DNA-claim check against main, on a schedule rather than per-PR.
+#
+# check-dna-refs.py verifies that a construct named beside a DNA-repo link is
+# actually the sequence that link points at — the name, the length in bp, and
+# the filename. check-links.py only confirms the URL returns 200, which a link
+# asserting a false identity does too.
+#
+# It reads nucleus-eng/DNA directly. That repo is public, so the checkout below
+# costs nothing — but it means a commit *there* can turn this red with no change
+# here. That is the same failure profile as external link rot, so it gets the
+# same treatment link-rot.yml gives it: off the PR gate, run on a schedule, and
+# tracked in a single issue kept up to date. Blocking a PR on someone else's
+# repo renaming a file is the problem issues #193 and #199 were about.
+#
+# The DNA repo is checked out at its default branch on purpose. Pinning a ref
+# would make the check pass while the claims quietly went stale, which is the
+# thing it exists to catch.
+
+on:
+  schedule:
+    # Mondays, 07:00 UTC — an hour after the link sweep, so the two do not
+    # file their issues in the same minute.
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      LABEL: dna-drift
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out the DNA repo
+        uses: actions/checkout@v4
+        with:
+          repository: nucleus-eng/DNA
+          path: .dna-repo
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Sweep DNA references
+        id: sweep
+        env:
+          NUCLEUS_DNA_REPO: ${{ github.workspace }}/.dna-repo
+        run: |
+          set +e
+          python3 scripts/check-dna-refs.py docs/ 2>&1 | tee sweep.txt
+          echo "status=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Ensure tracking label exists
+        run: gh label create "$LABEL" --color B60205 --description "Docs claims that no longer match nucleus-eng/DNA" --force
+
+      - name: File or update the tracking issue
+        if: steps.sweep.outputs.status == '1'
+        run: |
+          set -euo pipefail
+          {
+            echo "The weekly DNA sweep found claims on \`main\` that do not match [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)."
+            echo
+            echo "These are hard failures — a missing file or directory, a stated length that"
+            echo "disagrees with the target's LOCUS, or a link into the legacy bnext-bio/nucleus"
+            echo "repo. Name-similarity cases are reported as WARN and do not file anything;"
+            echo "see \`scripts/check-dna-refs.py\`."
+            echo
+            echo "A finding here means either the docs are wrong or the DNA repo moved. Both"
+            echo "need a person."
+            echo
+            echo "Updated by [run #${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) — this issue is edited in place, so it always reflects the latest sweep."
+            echo
+            echo '```'
+            cat sweep.txt
+            echo '```'
+          } > body.md
+
+          existing=$(gh issue list --label "$LABEL" --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file body.md
+            echo "Updated issue #$existing"
+          else
+            gh issue create --title "DNA reference claims out of date on main" --label "$LABEL" --body-file body.md
+          fi
+
+      - name: Close the tracking issue when clean
+        if: steps.sweep.outputs.status == '0'
+        run: |
+          set -euo pipefail
+          existing=$(gh issue list --label "$LABEL" --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "The weekly sweep now passes — every DNA claim matches its target. Closing automatically."
+          fi
+
+      - name: Fail if the sweep could not run
+        if: steps.sweep.outputs.status == '2'
+        run: |
+          echo "::error::check-dna-refs.py could not run (exit 2) — the DNA checkout is missing, not a stale claim."
+          cat sweep.txt
+          exit 1

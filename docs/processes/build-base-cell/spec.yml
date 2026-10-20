@@ -1,0 +1,49 @@
+# Process source for Build a Base Cell.
+#
+# THE PAGE JOINS FOUR PROCESSES IN THE ORDER A BENCH USER RUNS THEM, and this source
+# states what the whole is as a morphism: raw lipids and kit components in, a Base Cell
+# out. The four are ../prep-lipids, ../assemble-outer-solution, ../assemble-base-cytosol
+# and ../assemble-base-cell, which is the encapsulation. This is the one process here whose
+# instances are several operations, so the parts are named on the page and not as steps
+# in this file: the schema says a process is not composed of Modules, and a protocol's
+# numbered steps are prose on main.md.
+#
+# NO `operator:`. The parts disagree: three of them mix and the encapsulation packs. A
+# process whose instances disagree declares none, and the omission is not an error.
+#
+# NO `refines:`. Nothing in the published process order is a coarser version of
+# "make a cell from raw materials", and `encapsulate` is the last four steps of it and
+# not the whole. The question is open below rather than answered by picking the nearest
+# parent.
+process: build-base-cell
+title: "Build a Base Cell"
+
+signature:
+  takes:
+    - type: MembraneComponent
+      repeated: true
+      note: >
+        The lipids: POPC, cholesterol and Liss-Rhod PE, as the Base Membrane specifies them.
+    - type: Component
+      repeated: true
+      note: >
+        The Base Cytosol components and Optiprep, which make the inner solution.
+    - type: Component
+      repeated: true
+      note: >
+        Glucose and water, which make the outer solution.
+  produces:
+    type: Cell
+    note: >
+      Base Cells in a glucose outer solution: the inner solution closed in the membrane
+      and suspended in the outer solution.
+
+open:
+  - id: what-a-whole-build-refines
+    kind: question
+    question: >
+      This process composes four others and refines none of them: encapsulation is its
+      last part and not its whole. Is there a process in the published order that a
+      build of a cell from raw materials refines, or is a composite of this kind a
+      process with no parent? Left unanswered here, so that no parent is named only
+      because the check wants one.
