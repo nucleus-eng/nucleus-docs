@@ -1,0 +1,42 @@
+# Composition source for Gel: ULGA.
+
+module: gel-ulga
+title: "Gel: ULGA"
+type: Gel[thermally-set]
+
+inputs:
+  ulga-powder:
+    title: "Ultra-low gelling agarose"
+    page: null
+    stock: {value: 10, unit: "mg/mL", note: "the prepared solution, before the 1:1 combination with the sample"}
+  outer-solution:
+    title: "Outer solution"
+    type: Solution
+
+process_steps:
+  - id: set-thermal
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+    operator: mixing
+    operands: [ulga-powder, outer-solution]
+    produces:
+      id: gel-ulga
+      title: "Gel: ULGA"
+      page: ../gel-ulga/spec.md
+    ratio: "1:1 with the sample, halving the ULGA to its final figure"
+    finals:
+      ulga-powder: {value: 5, unit: "mg/mL", note: "after the 1:1 combination with the sample"}
+    parameters:
+      gel_point_min_c: 8
+      gel_point_max_c: 15
+      hold_temperature_c: 55
+
+open:
+  - id: mixing-and-setting-temperatures
+    question: >
+      The temperature at which the ULGA stock, held at 55 °C, is mixed with the sample is not
+      stated, and neither is how the mixture is cooled to its gel point.
+  - id: ulga-part-number-unconfirmed
+    question: >
+      The ULGA is taken to be Sigma-Aldrich A5030, which is unconfirmed. A2576 may have been used instead.
