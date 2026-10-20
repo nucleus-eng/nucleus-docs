@@ -289,6 +289,7 @@ orders:
     - 'encapsulate[SUV]'
     - hold
     - lyse
+    - make
     - 'multiplex[Cascade]'
     - observe
     - observe_absorbance
@@ -354,6 +355,8 @@ orders:
       - transport
       photocrosslink:
       - embed
+      prepare:
+      - make
       purify:
       - prepare
       'regenerate[CP]':
@@ -366,6 +369,10 @@ orders:
       - report
       set_thermal:
       - embed
+      transcribe:
+      - make
+      translate:
+      - make
 type_requires:
   'Gel[thermally-set]': "a temperature above the gel point while the sample is mixed in"
 process_operands:
@@ -452,6 +459,10 @@ process_operands:
     needs_roles: false
     fate: {"Lysis": "persists", "Membrane{X}": "consumed"}
     binds: {"Lysis": "Effector"}
+  make:
+    positions: ["X"]
+    needs_roles: false
+    fate: {"X": "changed"}
   'multiplex[Cascade]':
     positions: ["Cascade", "Cascade"]
     needs_roles: true
@@ -797,7 +808,8 @@ module_slugs:
   vesicle: Vesicle
 unparsed:
   types: []
-  processes: []
+  processes:
+  - make
   codim: []
 bracket_aliases:
   linearDNA: 'DNA[linear]'
