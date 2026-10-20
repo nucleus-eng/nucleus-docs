@@ -12,12 +12,15 @@ key disagreeing with its own directory.
 Prints the paths searched and the file count, because a validator that reports zero
 findings over zero files looks identical to a clean run.
 """
-import sys, glob, os, argparse
+import sys, glob, os, re, argparse
 
 try:
     import yaml
 except ImportError:
     sys.exit("needs pyyaml: pip install pyyaml")
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import orders as ORDERS  # the one published-order loader; see scripts/orders.py
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEMA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spec-yml-schema.yml")
@@ -25,27 +28,9 @@ SCHEMA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spec-yml-sche
 
 
 
-_PROC_ORDER_CACHE = None
-
-
 def _process_order_nodes():
     """Nodes of the published process order. See _order_nodes."""
-    global _PROC_ORDER_CACHE
-    if _PROC_ORDER_CACHE is None:
-        nodes = set()
-        try:
-            with open(os.path.join(REPO, "docs", "type-system.posets.yml")) as fh:
-                edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("process_refinement", {}).get("edges") or {}
-            for child, ps in edges.items():
-                nodes.add(str(child))
-                nodes.update(str(x) for x in (ps or []))
-        except FileNotFoundError:
-            pass
-        _PROC_ORDER_CACHE = nodes
-    return _PROC_ORDER_CACHE
-
-_ORDER_CACHE = None
+    return ORDERS.process_nodes(ORDERS.load(REPO))
 
 
 def _order_nodes():
@@ -60,23 +45,20 @@ def _order_nodes():
     `refines:` keys, so checking a key against it is circular: a typo would invent its
     own node and pass. Types are not derivable here, which is why they are imported.
 
+    BOTH NOW GO THROUGH scripts/orders.py, 2026-10-12, which is also what fixes a
+    latent defect here: this function read `edges` alone, and `edges` is keyed by
+    child, so a type that refines nothing and is refined by nothing would have been
+    invisible. IT BITES NOTHING TODAY -- measured against main's published order,
+    #293's and the upstream file, every type has at least one edge, so the count is
+    68, 76 and 76 either way and no type is missing. The same mistake on the PROCESS
+    side hid nine of forty-one, because a Process can stand alone and a type in this
+    corpus currently cannot. Fixed here as a rule rather than as a bug.
+
     An absent order file degrades to accepting anything, the same failure the
     filesystem check had when a page was simply missing.
     """
-    global _ORDER_CACHE
-    if _ORDER_CACHE is None:
-        nodes = set()
-        try:
-            with open(os.path.join(REPO, "docs", "type-order.yml")) as fh:
-                edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("type_refinement", {}).get("edges") or {}
-            for child, ps in edges.items():
-                nodes.add(str(child))
-                nodes.update(str(x) for x in (ps or []))
-        except FileNotFoundError:
-            pass
-        _ORDER_CACHE = nodes
-    return _ORDER_CACHE
+    return ORDERS.type_nodes(ORDERS.load(REPO))
+
 
 def schema_findings(doc, schema):
     try:
@@ -334,7 +316,7 @@ def reference_findings(path, doc):
                and ab not in _process_order_nodes():
             out.append(("abstract", f"process_steps/{sid}/process/abstract",
                         f'"{ab}" names no directory under docs/processes/ and is not '
-                        f"a node of docs/type-system.posets.yml's process order"))
+                        f"a node of docs/type-order.yml's process order"))
         own = [l["page"].split("/")[-2]
                for l in (proc.get("composed_of") or [proc]) if l.get("page")]
         if ab and ab in own:
@@ -682,6 +664,46 @@ def main():
             print(f"⛔️ {path} [{kind}] {where}: {msg}")
             total += 1
 
+    # EVERY RELATIVE PAGE CITATION, RESOLVED. NEW 2026-10-12.
+    #
+    # A spec.yml cites sibling pages by relative path, in `page:` fields and in
+    # prose comments, and NOTHING READ THOSE UNTIL TODAY. check-links.py walks
+    # Markdown and never opens a .yml -- a gap this repo's CLAUDE.md names and
+    # nothing closed.
+    #
+    # RE-MEASURED 2026-10-12 ON THIS BRANCH: 9 of the 42 citations across all
+    # sources did not resolve. They name the class pages J20 dropped --
+    # ../vesicle/spec.md, ../solution/spec.md, ../cytosol/spec.md,
+    # ../analyte-atc/spec.md -- carried in by the port rather than written fresh.
+    # THE FIGURE READ "11 of the 43" UNTIL TODAY, measured on e724d566. Two of
+    # those eleven were retracted text, and this comment was not re-measured when
+    # the retraction landed -- the PR body was corrected and the comment was not.
+    # A count in a comment is a claim about a tree, and it goes stale the way any
+    # other one does. Take it from the run, which prints both numbers every time. The control that makes this a finding
+    # about the port and not about the corpus: the pH demo session swept its own
+    # ten sources, written fresh against the published order, and 19 of 20 resolved,
+    # the one failure being a page still on an open PR.
+    #
+    # REPORT-ONLY, COUNTING TOWARD ZERO. Each dangling citation needs a decision
+    # about what it should point at instead -- usually a type, now that the class
+    # page is gone -- and the page's owner is the one who can make it. Failing the
+    # build would block every PR on a decision none of them is making.
+    #
+    # IT SWEEPS BOTH TREES, not just the module pattern this script otherwise reads,
+    # because a dangling pointer is the same defect wherever it sits and splitting it
+    # across two checkers is how it stayed invisible.
+    dangling = 0
+    swept = sorted(glob.glob(os.path.join(REPO, "docs/*/*/spec.yml")))
+    if a.paths:
+        swept = [f for f in swept if os.path.relpath(f, REPO) in scope]
+    for f in swept:
+        here, rel = os.path.dirname(f), os.path.relpath(f, REPO)
+        for m in re.finditer(r"\.\.?/[\w./-]*\.md",
+                             open(f, encoding="utf-8").read()):
+            if not os.path.isfile(os.path.normpath(os.path.join(here, m.group(0)))):
+                dangling += 1
+                print(f"⚠️  {rel}: cites `{m.group(0)}`, which is not a page here.")
+
     # scope, always — a clean run over the wrong scope reads the same as a clean run
     print(f"\nsearched: {searched}")
     print(f"{checked} source(s) checked against {os.path.relpath(SCHEMA, REPO)}")
@@ -689,6 +711,8 @@ def main():
           f"{len(restated_out)} disagree")
     print(f"{member_n} member(s) checked against a class's member_properties; "
           f"{substrate_n} pairing member(s) checked against an enzyme's substrates")
+    print(f"{len(swept)} source(s) swept for relative page citations; "
+          f"{dangling} do not resolve. REPORTED, NOT FAILED.")
     if no_jsonschema:
         print("⚠️  jsonschema not installed — shape pass SKIPPED, reference pass ran")
     print("✅ no findings." if total == 0 else f"⛔️ {total} finding(s).")

@@ -8,7 +8,7 @@
 | Node (proper noun) | node | Chicago Node, London Node |
 | DevCells | — | the program |
 | DevStudio | DevCell Studio | the three-week hackathon |
-| liposome | vesicle | never an umbrella term; GUV, SUV and LUV are distinct and must not collapse |
+| liposome | — | use it when the thing is a liposome; "vesicle" is the umbrella term, and not every vesicle is a liposome; GUV, SUV and LUV are distinct and must not collapse |
 | synthetic cell | liposome | wherever the liposome can reasonably be called a synthetic cell |
 | integration path | leg | |
 | colorimetric | colormetric | |
@@ -25,13 +25,19 @@
 
 One item, one name (STE 1.11). American English. Renaming a shared term needs collaborator consent — a rename that reaches other Nodes is not an editorial decision.
 
+Spell a term out at its first use on a page, then use the acronym: "giant unilamellar vesicle (GUV)" once, "GUV" after that. Define each acronym the project uses in the `abbreviations` map under `project` in `site.yml`, so that MyST shows the definition on hover wherever the acronym appears. Plurals take the same entry: "GUVs" needs no entry of its own.
+
 ## Headings and captions
 
 No hedge words. "Preparations", not "Documented Preparations".
 
 Figure captions name the figure type: "Schematic representation of X in the Base Cell", not "X in the Base Cell".
 
-Renaming *or removing* a heading is a link change, because inbound anchors do not follow it. Deleting a section this guide bans — revision history, future work — is the common case. The `author-myst-content` skill says which anchors are safe to write in the first place.
+Every heading on a page under `docs/` has a unique label on the line above it, written `(<page-directory>-<section-slug>)=`. For example, `(reporter-degfp-requirements)=` sits above the `# Requirements` heading of the `reporter-degfp` page.
+
+Every internal link to a section uses that label, as `#<page-directory>-<section-slug>`, and never a bare `#slug`. A heading name such as Overview, Requirements or Expected Behavior is shared across many pages, MyST resolves a fragment by its global identifier and ignores the file path, and so a bare slug can land on a different page without any warning. A link to a whole page needs no fragment: `[Reporter: deGFP](../reporter-degfp/spec.md)`. Same-page links follow the same rule.
+
+Renaming *or removing* a heading is a link change, because inbound anchors do not follow it. Deleting a section this guide bans — revision history, future work — is the common case.
 
 
 ## Diagrams

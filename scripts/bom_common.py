@@ -35,9 +35,20 @@ LABEL_RE = re.compile(r"^\s*:label:\s*(\S+)\s*$")
 
 def _clean_cell(cell: str) -> str:
     """Strip markdown markup from a table cell for clean CSV output:
-    bold (`**x**` -> `x`) and links (`[text](url)` -> `url`)."""
+    bold (`**x**` -> `x`), links (`[text](url)` -> `url`) and code spans
+    (```x``` -> `x`).
+
+    The code span is not cosmetic. A part number whose pack-size suffix is
+    lowercase -- ``PSB-440-5g`` -- trips ``nucleus.magnitude-unit-spacing``, so
+    the page writes it as a code span to keep Vale quiet. ``norm_key`` only
+    collapses whitespace and casefolds, so before 2026-10-12 the backticks
+    survived into the dedup key and ``` `psb-440-5g` ``` did not match
+    ``psb-440-5g``; they were also copied verbatim into the reference's Part #
+    cell. Bold was handled here from the start and backticks were not.
+    Found by the Gel Control Experiments session."""
     cell = re.sub(r"\[[^\]]*\]\(([^)]+)\)", r"\1", cell)  # link -> url
     cell = re.sub(r"\*\*(.+?)\*\*", r"\1", cell)          # **bold** -> bold
+    cell = re.sub(r"`([^`]*)`", r"\1", cell)              # `code` -> code
     return cell.strip()
 
 
@@ -152,28 +163,72 @@ def norm_name(value: str) -> str:
 # Header-aware row parsing
 # --------------------------------------------------------------------------- #
 
-# Map a normalized header cell to a canonical field name. Covers both the
-# pipeline's 8-col schema and the legacy "Critical Reagents" schema.
-_HEADER_ALIASES = {
-    "name": "name",
-    "reagent": "name",
-    "category": "category",
-    "product": "product",
-    "product name": "product",
-    "manufacturer": "manufacturer",
-    "vendor": "manufacturer",
-    "part #": "part",
-    "part#": "part",
-    "part number": "part",
-    "cat #": "part",
-    "catalog #": "part",
-    "catalog number": "part",
-    "price": "price",
-    "storage": "storage",
-    "storage conditions": "storage",
-    "link": "link",
+# THE ONE ALLOWED SPELLING OF EACH COLUMN TITLE. Jon ruled this on 2026-10-12:
+# "it should ideally be one allowed title per column, with a bunch of optional
+# columns and a set of required ones", then "required three is fine" on the set
+# below, then "go with recommend" on keeping `description`, `used for` and
+# `molecular weight` allowed on a page and OUT of the distribution-wide
+# reference. ``check-materials-tables.py`` enforces this; the parser below does
+# not, and the split is deliberate -- see RETIRED_ALIASES.
+ALLOWED_TITLES = {
+    # required
+    "name": "Name",
+    "manufacturer": "Manufacturer",
+    "part": "Part #",
+    # optional, aggregated into the reference
+    "category": "Category",
+    "product": "Product",
+    "price": "Price",
+    "storage": "Storage",
+    "link": "Link",
+    # optional, allowed on a page and deliberately NOT aggregated
+    "description": "Description",
+    "used for": "Used for",
+    "molecular weight": "Molecular weight",
 }
 
+REQUIRED_FIELDS = ("name", "manufacturer", "part")
+
+# Spellings the PARSER still accepts and the CHECKER reports. Deleting them here
+# would drop a column on every page still using one, which lowers the reference
+# row count -- the opposite of what this change is for. So the map stays
+# permissive, the allowlist stays strict, and the aliases go when the checker's
+# count reaches zero. Same shape as the report-only guards in
+# compositional-biology-theory: a rule runs before it blocks.
+#
+# Measured on main 2026-10-12 over 131 table headers in 44 files, counting only
+# a row followed by a `| --- |` separator: `reagent` 21, `description` 16,
+# `material` 4, `storage conditions` 1, and `item`, `supplier`, `part number`,
+# `used for`, `molecular weight` all 0.
+#
+# `reagent` at 21 is why the map stays permissive. Most of those are recipe
+# tables with no Manufacturer or Part # column, which `parse_table_header`
+# rejects anyway -- but the count is a migration either way, not a tidy-up.
+# `part number` is 0 here and 1 on the demo tree, where `embed-photocrosslinking`
+# uses it; it is kept so a branch carrying that page does not break on merge.
+RETIRED_ALIASES = {
+    "reagent": "name",
+    "material": "name",
+    "item": "name",
+    "supplier": "manufacturer",
+    "part number": "part",
+    "storage conditions": "storage",
+}
+
+# Map a normalized header cell to a canonical field name.
+#
+# DELETED 2026-10-12: `vendor`, `product name`, `part#`, `cat #`, `catalog #`,
+# `catalog number`. Six spellings, zero header uses on main and zero on the demo
+# tree, so removing them costs no page edit. That is the whole of what
+# "collapse most of them" can do for free; the rest is RETIRED_ALIASES above.
+_HEADER_ALIASES = {
+    **{title.lower(): field for field, title in ALLOWED_TITLES.items()},
+    **RETIRED_ALIASES,
+}
+
+# Carried into the distribution-wide reference. `description`, `used for` and
+# `molecular weight` are allowed on a page and absent here on purpose: Q2,
+# ruled 2026-10-12. Adding one means growing a table every Node reads.
 CANON_FIELDS = ["name", "category", "product", "manufacturer",
                 "part", "price", "storage", "link"]
 
