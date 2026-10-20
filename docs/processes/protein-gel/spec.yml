@@ -15,7 +15,7 @@
 
 process: protein-gel
 title: "Protein Gel (SDS-PAGE)"
-refines: assay
+refines: observe
 
 conserves: false
 

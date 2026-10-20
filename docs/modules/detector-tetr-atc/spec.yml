@@ -86,24 +86,16 @@ sensitivities:
       unit: "µM"
       value: 0.5
     why: >
-      Above about 0.5 uM aTc in this cytosol the response stops being graded.
-      ../atc-sensing-cell/spec.md reports its own configuration saturating at or
-      below 1 uM with no resolvable dose-dependence from 1 uM to 10 uM, which is the
-      one observation the corpus has of this end being crossed.
-      THE LOWER END IS IN PROSE AND NOT HERE, same discipline as ../cell/spec.yml:
-      a single bound carries one sense, and the end an imposition can cross is the
-      upper one. The window is 0.1 uM to 0.5 uM with an optimum near 0.25 to 0.35 uM.
-      THIS IS A WINDOW IN THIS CYTOSOL AND NOT A PROPERTY OF THE DETECTOR ALONE.
-      Lysate wants 2.5 uM to 5 uM, roughly ten times more. A bound written without
-      its cytosol would be false in the other one.
-      NOTHING COMPUTES AGAINST THIS YET, AND THAT IS THE FINDING. `atc-dose` is not
-      declared as an imposition anywhere in the corpus. Nine impositions exist across
-      all sources and they are `thermal-hold`, `uv-exposure` and `proteinase-k`;
-      `temperature` is the only quantity any of them declares. The step that would
-      raise `atc-dose` is the aTc trigger, and IT CANNOT BE WRITTEN, because the dose
-      the demo uses is unrecorded — the page says so in its own words. So this entry
-      is a declared half waiting on a figure from the bench, not on a schema change.
-
+      Above about 0.5 uM aTc in this cytosol the response stops being graded. In the
+      Nucleus Base Cytosol titration, 500 nM TetR reads 30 % of the unrepressed level
+      at 0.25 uM aTc, 86 % at 1 uM and 91 % at 5 uM; 1000 nM TetR reads 4 %, 63 % and
+      88 % at the same doses. Half the unrepressed level falls near 0.4 uM at 500 nM
+      TetR and near 0.8 uM at 1000 nM. The plate's lowest non-zero dose is 0.25 uM, so
+      this page measures no lower end and asserts none.
+      The bound is specific to this cytosol and is not a property of the Detector
+      alone: lysate wants 2.5 uM to 5 uM, roughly ten times more.
+      It is unverified against the second titration on this page, whose useful range
+      runs to 1 uM at either TetR concentration. Read both before relying on it.
 open:
   - id: three-tetr-formats-are-not-interchangeable
     question: >
@@ -115,12 +107,10 @@ open:
       than only the provenance. Same "one of these" shape as ../detector-ph/spec.yml.
   - id: the-atc-window-is-the-nodes-not-the-figures
     question: >
-      The page gives 0.1 uM to 0.5 uM aTc with an optimum near 0.25 to 0.35 uM, and
-      states plainly that this is the Node's working window in this cytosol and NOT
-      the dose used in the figures, which is unrecorded. Lysate wants 2.5 uM to 5 uM
-      — a different cytosol, a different window. aTc is excluded from the operands
-      above as the analyte, so this file does not carry either figure, but a reader
-      composing this Module needs both facts and they live on ../analyte-atc/spec.md.
+      The aTc dose used in the figures is unrecorded, and a reader composing this
+      Module needs it. Base Cytosol and lysate want different doses, and aTc is
+      excluded from the operands above as the analyte, so this file carries no
+      figure either way.
   - id: the-reference-figures-used-purexpress
     question: >
       The composition above is in Base Cytosol. The figures the page shows were
