@@ -208,33 +208,27 @@ def _entails(q, p):
     return qs == ps or qs.startswith(ps + "_")
 
 
-def requires_placement_findings(docs):
-    """Where a `requires:` entry may sit.
-
-    On a class, as before: a module some other source refines. On a leaf only when it
-    STRENGTHENS an ancestor's requirement. Refinement adds axioms and never deletes
-    one, so a member entails everything its class requires, and a leaf may add a
-    stronger requirement by naming a refinement of the operation. A leaf's entry that
-    is no refinement of anything an ancestor requires is the old failure: a condition
-    on a thing nothing refines, with nothing above it to strengthen.
-    """
-    by_name, _ = _graph(docs)
-    classes = {p for _, d in docs for p in _parents(d)}
-    out = []
-    for m, (path, d) in sorted(by_name.items()):
-        entries = d.get("requires") or []
-        if not entries or m in classes:
-            continue
-        up = [a for lvl in _levels(m, lambda x: _parents(by_name[x][1]) if x in by_name else [])
-              for a in lvl if a in by_name]
-        inherited = [e["id"] for a in up for e in (by_name[a][1].get("requires") or [])]
-        for e in entries:
-            if not any(_entails(e["id"], p) for p in inherited):
-                out.append((path, "requires-on-a-non-class", f"requires/{e['id']}",
-                            f'"{m}" is not a class and no ancestor requires an operation '
-                            f'that {e["id"]} refines, so it strengthens nothing'))
-    return out
-
+# `requires:` IS NOT CLASS-ONLY, 2026-10-20 -- rulings.md D209. This held
+# `requires_placement_findings`, which allowed a module-level `requires:` only on a
+# class, or on a leaf naming a refinement of an ancestor's entry.
+#
+# Jon: "this is a misconception. a Module requiring `transcribe[pT7]` must be composed
+# with a module that PROVIDES that function, not refines that 'module' (transcribe is
+# a function not a module)". A requirement is discharged by COMPOSITION with a provider,
+# not by inheritance from a class, so who may state one was never the question.
+#
+# IT WAS NEVER A RULING. rulings.md has no row on it and retracted.md none either; it
+# was a session's reasoning written into a checker and into the schema, where the pair
+# then read as corroboration.
+#
+# IT HAD FLAGGED NOTHING, EVER, AND PLAUSIBLY CAUSED THAT. Measured on main bf9b98cd
+# before deletion: 12 sources, 0 with a module-level `requires:`, 0 findings. The rule
+# governed a key with no instances -- and by forbidding it everywhere but a class, it
+# is the likeliest reason the key has none.
+#
+# check-requirements.py already does the real work: R3 "DISCHARGE IN A COMPOSITE", and
+# its entry reader takes "Entries of `requires` or `provides` this module has: its own,
+# then its classes'" -- a module's own entries, whether or not anything refines it.
 
 def reference_findings(path, doc):
     """What the schema cannot say."""
@@ -305,9 +299,8 @@ def reference_findings(path, doc):
     # both total, and a total morphism has no condition under which it is defined.
     # Telling a stepped source to put a requirement on its step would be telling it to
     # state the condition in the one place that cannot mean it.
-    # THE CLASS-ONLY TEST MOVED TO `requires_placement_findings`, which reads the whole
-    # corpus: a leaf may now state a requirement that strengthens an ancestor's, and
-    # whether it does is not a fact one document holds.
+    # THERE IS NO PLACEMENT TEST, 2026-10-20. Any Module may state a requirement; it
+    # is discharged by composition with a provider. See the note above D209.
 
     out.extend(requires_parameter_findings(doc))
 
@@ -708,8 +701,7 @@ def main():
     scope = {p for p, _ in loaded}
     member_out, member_n = member_property_findings(context)
     substrate_out, substrate_n = substrate_findings(context)
-    placement_out = requires_placement_findings(context)
-    for path, kind, where, msg in member_out + substrate_out + placement_out:
+    for path, kind, where, msg in member_out + substrate_out:
         if path in scope:
             print(f"⛔️ {path} [{kind}] {where}: {msg}")
             total += 1

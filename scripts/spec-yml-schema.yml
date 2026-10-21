@@ -294,9 +294,18 @@ properties:
       what it inflicts, and none of them is the Function itself. Until that field
       exists this key holds the condition where it can be read, which is better than
       the alternative of holding it nowhere.
-      IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that: a class is a
-      module some other source names in `refines:`, which is not a fact this document
-      holds and so not a shape this file can express.
+      ANY MODULE MAY STATE ONE, 2026-10-20 -- rulings.md D209. A requirement is
+      DISCHARGED BY COMPOSITION with a source that `provides:` the operation, not by
+      inheritance from a class, so who may state one was never the question. Jon: "a
+      Module requiring `transcribe[pT7]` must be composed with a module that PROVIDES
+      that function, not refines that 'module' (transcribe is a function not a module)".
+      check-requirements.py R3 does the discharge and has always read a module's own
+      entries whether or not anything refines it.
+      IT READ "IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that" until
+      then, and that checker held a rule no ruling ever made. Measured at deletion, on
+      main bf9b98cd: 12 sources, 0 carrying this key, 0 findings from the rule. It
+      governed a key with no instances, and by forbidding it outside a class it is the
+      likeliest reason the key had none.
       THE TEST IS NOT `impositions`'s TEST, and reusing that one here would be wrong.
       22 of the 36 modules named as a parent carry a real step, `repressor-detector`
       among them, and it is the case this key was written for. An imposition can move
