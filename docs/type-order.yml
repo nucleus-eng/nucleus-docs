@@ -35,6 +35,7 @@ orders:
     - Chromophore
     - Code
     - Color
+    - ColorChangeEnzyme
     - ColorReporter
     - Component
     - Container
@@ -43,6 +44,7 @@ orders:
     - DNA
     - 'DNA[circular]'
     - 'DNA[linear]'
+    - DensityReagent
     - Detector
     - 'Detector[3OC6HSL, activator]'
     - 'Detector[3OC6HSL, repressor]'
@@ -55,6 +57,7 @@ orders:
     - Effector
     - Emitter
     - Energy
+    - Enzyme
     - Fluorescence
     - FluorescenceMicroscope
     - Fluorometer
@@ -96,7 +99,9 @@ orders:
     - Tutorial
     - Vesicle
     - 'Vesicle[GUV]'
+    - 'Vesicle[LUV, liposome]'
     - 'Vesicle[LUV]'
+    - 'Vesicle[SUV, liposome]'
     - 'Vesicle[SUV]'
     - 'Vesicle[liposome]'
     - VisualFluorometer
@@ -121,6 +126,8 @@ orders:
       - Document
       Color:
       - Signal
+      ColorChangeEnzyme:
+      - Enzyme
       ColorReporter:
       - Reporter
       Component:
@@ -139,6 +146,8 @@ orders:
       - DNA
       'DNA[linear]':
       - DNA
+      DensityReagent:
+      - Component
       Detector:
       - Module
       'Detector[3OC6HSL, activator]':
@@ -166,6 +175,8 @@ orders:
       - Effector
       Energy:
       - Module
+      Enzyme:
+      - Component
       Fluorescence:
       - Color
       - Signal
@@ -214,7 +225,7 @@ orders:
       Pore:
       - MembraneComponent
       Protease:
-      - Protein
+      - Enzyme
       Protein:
       - Polymer
       - Component
@@ -224,7 +235,7 @@ orders:
       RNASignal:
       - Signal
       RNase:
-      - Protein
+      - Enzyme
       Reporter:
       - Module
       - Effector
@@ -246,8 +257,14 @@ orders:
       - Component
       'Vesicle[GUV]':
       - Vesicle
+      'Vesicle[LUV, liposome]':
+      - 'Vesicle[LUV]'
+      - 'Vesicle[liposome]'
       'Vesicle[LUV]':
       - Vesicle
+      'Vesicle[SUV, liposome]':
+      - 'Vesicle[SUV]'
+      - 'Vesicle[liposome]'
       'Vesicle[SUV]':
       - Vesicle
       'Vesicle[liposome]':
@@ -556,6 +573,9 @@ type_declares:
   Color:
     kind: position
     names: ["report_color"]
+  ColorChangeEnzyme:
+    kind: none
+    names: []
   ColorReporter:
     kind: declares
     names: ["report_color"]
@@ -577,6 +597,9 @@ type_declares:
   'DNA[linear]':
     kind: declares
     names: ["::"]
+  DensityReagent:
+    kind: none
+    names: []
   Detector:
     kind: declares
     names: ["sense"]
@@ -607,6 +630,9 @@ type_declares:
   Energy:
     kind: declares
     names: ["regenerate"]
+  Enzyme:
+    kind: none
+    names: []
   Fluorometer:
     kind: none
     names: []
@@ -685,9 +711,15 @@ type_declares:
   'Vesicle[GUV]':
     kind: declares
     names: ["encapsulate[GUV]"]
+  'Vesicle[LUV, liposome]':
+    kind: declares
+    names: []
   'Vesicle[LUV]':
     kind: declares
     names: ["encapsulate[LUV]"]
+  'Vesicle[SUV, liposome]':
+    kind: declares
+    names: []
   'Vesicle[SUV]':
     kind: declares
     names: ["encapsulate[SUV]"]
@@ -763,7 +795,11 @@ type_codim:
     at: compartments
   'Vesicle[GUV]':
     at: compartments
+  'Vesicle[LUV, liposome]':
+    at: compartments
   'Vesicle[LUV]':
+    at: compartments
+  'Vesicle[SUV, liposome]':
     at: compartments
   'Vesicle[SUV]':
     at: compartments
