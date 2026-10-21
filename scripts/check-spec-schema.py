@@ -33,6 +33,55 @@ def _process_order_nodes():
     return ORDERS.process_nodes(ORDERS.load(REPO))
 
 
+# A CONTENTS TYPE IS READ, NOT LOOKED UP, 2026-10-20 -- rulings.md D207.
+# `Vesicle[liposome]{Substrate}` is a liposome carrying a substrate. The braces are
+# the containment this corpus writes throughout signature.md -- `Membrane{Cytosol}`,
+# `Gel{CPRG}`, `Solution{X}` -- and a bare `Vesicle[liposome]` under-specifies a slot
+# that wants a loaded one: an EMPTY liposome satisfies it.
+#
+# THE ORDER DOES NOT HOLD THESE AND MUST NOT. One node per payload does not scale
+# against 81 published names. Both halves resolve against the order separately and
+# the whole is never looked up, which is why this is a reader and not a longer list.
+#
+# NESTING IS ALLOWED, because containment nests: `Gel{Vesicle[liposome]{CPRG}}` is a
+# gel holding loaded liposomes, which is the pH demo's own arrangement.
+_CONTENTS = re.compile(r"^(.+?)\{(.+)\}$")
+
+
+def _type_resolves(name, nodes=None):
+    """True when `name` is a node, or is `A{B}` with both halves resolving."""
+    nodes = _order_nodes() if nodes is None else nodes
+    if name in nodes:
+        return True
+    m = _CONTENTS.match(name)
+    return bool(m) and all(_type_resolves(h, nodes) for h in m.groups())
+
+
+def _type_refines(a, b):
+    """`a` refines `b`. COVARIANT IN THE PAYLOAD, which signature.md has published
+    since the `Cell` row gave its reason for refining `Vesicle`: "because
+    `Membrane{Cytosol}` <= `Membrane{Solution}`".
+
+    THE ASYMMETRY IS THE POINT. A loaded container refines a bare one -- a liposome
+    carrying a substrate IS a liposome -- and a bare one does NOT refine a loaded
+    one, because an empty liposome is not a liposome carrying anything. That second
+    direction is what makes a contents type worth writing at all.
+
+    NOTHING CALLS THIS YET. Nothing in this repo compares two types for refinement:
+    check-requirements.py's contravariance is on an OPERATION bracket,
+    `transcribe[pT7]`, and that is the whole of it. Built on a ruling of
+    2026-10-20 and tested in both directions, so it can fail before it has a caller.
+    """
+    ma, mb = _CONTENTS.match(a), _CONTENTS.match(b)
+    if ma and mb:
+        return all(_type_refines(x, y) for x, y in zip(ma.groups(), mb.groups()))
+    if ma:
+        return _type_refines(ma.group(1), b)
+    if mb:
+        return False
+    return ORDERS.refines(ORDERS.load(REPO), "type_refinement", a, b)
+
+
 def _order_nodes():
     """Nodes of the published module order.
 
@@ -198,12 +247,12 @@ def reference_findings(path, doc):
     own_type = doc.get("type")
     for i, (key, val) in enumerate((doc.get("inputs") or {}).items()):
         t = (val or {}).get("type")
-        if t is not None and t not in _order_nodes():
+        if t is not None and not _type_resolves(t):
             out.append(("type", f"inputs/{key}/type",
                         f'names "{t}", which is not a node of '
                         f"docs/type-order.yml's type order"))
 
-    if own_type is not None and own_type not in _order_nodes():
+    if own_type is not None and not _type_resolves(own_type):
         out.append(("type", "type",
                     f'names "{own_type}", which is not a node of '
                     f"docs/type-order.yml's type order"))
@@ -222,7 +271,7 @@ def reference_findings(path, doc):
             # refine its own type."
             out.append(("refines", "refines",
                         f'repeats `type: {parent}`; refines holds only the other axes'))
-        elif parent not in _order_nodes():
+        elif not _type_resolves(parent):
             out.append(("refines", "refines",
                         f'names "{parent}", which is not a node of '
                         f"docs/type-order.yml's type order"))
