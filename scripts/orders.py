@@ -24,6 +24,7 @@ computed from the step graph, never written down -- scripts/spec-yml-schema.yml
 says so under `provides:`, and says there must be no key for it. This module
 answers questions about the ORDER. Dispatch is the caller's.
 """
+import re
 import os
 
 import yaml
@@ -113,6 +114,20 @@ def ancestors(orders, key, t, _seen=None):
 def refines(orders, key, a, b):
     """True when `a` is `b` or refines it, transitively."""
     return a == b or b in ancestors(orders, key, a)
+
+
+CONTENTS = re.compile(r"^(.+?)\{(.+)\}$")
+
+
+def contents(name):
+    """`A{B}` -> (A, B); None when the name carries no payload.
+
+    ONE COPY, because two checkers read it now: check-spec-schema.py resolves and
+    orders contents types (D207), and check-conflicts.py asks whether an operand is
+    encapsulated (D208). A second regex is a second thing to keep in step.
+    """
+    m = CONTENTS.match(name)
+    return m.groups() if m else None
 
 
 def operation(name):
