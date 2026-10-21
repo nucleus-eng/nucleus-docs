@@ -591,6 +591,29 @@ properties:
             A NULL PAGE AND A `type` ARE NOT THE SAME THING. A null page is a real
             material nobody wrote up, such as a catalog reagent. A `type` is a class
             with members, which was never owed a page.
+        binds:
+          type: object
+          description: >
+            WHICH MEMBER FILLS A CONSTITUENT'S CLASS SLOT, 2026-10-20 -- rulings.md D210.
+            Keys are input ids OF THE CONSTITUENT this entry names; values are a type or
+            a page.
+            IT SITS ON THE INPUT THAT NAMES THE CONSTITUENT, not at module level, because
+            a binding is about THAT constituent and one source may name two constituents
+            whose slots share a name.
+            A MODULE BINDS A TYPE, AN IMPLEMENTATION BINDS A PAGE -- Jon, 2026-10-20: "i
+            think it's okay for a Module to bind a type. an implementation likely should
+            always bind a specific page though." A composing Module narrows the class; an
+            Implementation names the member. Both are checked the same way, because a
+            page resolves to its module's own `type:`.
+            ONE CHAIN, NOT TWO RULES. The slot's class >= a Module's bound type >= an
+            Implementation's member type, every link `_type_refines`. His rule for an
+            Implementation -- "if it further refines the cascade. not if not" -- is then
+            "strictly below the link above you", and restating is an error rather than a
+            redundancy, the same reading `refines:` repeating `type:` already gets.
+            NOTHING TO BIND ON A CONCRETE SLOT. A constituent's input that carries `page:`
+            already names one thing; binding it would be a second statement of one fact.
+          additionalProperties:
+            type: string
         type:
           type: string
           description: >

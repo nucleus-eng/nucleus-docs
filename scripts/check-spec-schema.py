@@ -82,6 +82,65 @@ def _type_refines(a, b):
     return ORDERS.refines(ORDERS.load(REPO), "type_refinement", a, b)
 
 
+# A BINDING SAYS WHICH MEMBER FILLS A CLASS SLOT -- rulings.md D210, 2026-10-20.
+# This is `_type_refines`' FIRST CALLER. It shipped in #312 with none, because
+# nothing in this repo compared two types for refinement and no source recorded
+# which member filled a slot: six class slots existed and not one binding.
+#
+# THE CHAIN IS ONE RULE. slot's class >= a Module's bound type >= an
+# Implementation's member type, every link the same comparison. Jon's "if it
+# further refines the cascade. not if not" is then "strictly below the link
+# above you", so restating a binding is an error and not a redundancy -- the
+# reading `refines:` repeating `type:` already gets.
+def _bound_type(value, docs):
+    """A binding's value as a type: a type outright, or the type of the page it names."""
+    if value.endswith("spec.md"):
+        slug = value.strip("./").split("/")[-2]
+        for path, d in docs:
+            if d.get("module") == slug:
+                return d.get("type")
+        return None
+    return value
+
+
+def binding_findings(docs):
+    """Every `binds:` entry, against the slot it claims to fill."""
+    by_slug = {d.get("module"): d for _, d in docs}
+    out = []
+    for path, doc in docs:
+        for key, val in (doc.get("inputs") or {}).items():
+            binds = (val or {}).get("binds") or {}
+            if not binds:
+                continue
+            page = (val or {}).get("page")
+            slug = page.strip("./").split("/")[-2] if isinstance(page, str) and page.endswith("spec.md") else key
+            target = by_slug.get(slug)
+            if target is None:
+                out.append((path, "binds-unknown-constituent", f"inputs/{key}/binds",
+                            f'"{slug}" names no source here, so its slots cannot be read'))
+                continue
+            for slot, value in binds.items():
+                tslot = ((target.get("inputs") or {}).get(slot) or {})
+                if not tslot:
+                    out.append((path, "binds-unknown-slot", f"inputs/{key}/binds/{slot}",
+                                f'"{slug}" has no input "{slot}"'))
+                    continue
+                if not tslot.get("type"):
+                    out.append((path, "binds-a-concrete-slot", f"inputs/{key}/binds/{slot}",
+                                f'"{slug}"\'s "{slot}" already names one thing; there is '
+                                f"nothing to bind"))
+                    continue
+                member = _bound_type(value, docs)
+                if member is None:
+                    out.append((path, "binds-unresolvable", f"inputs/{key}/binds/{slot}",
+                                f'"{value}" resolves to no type'))
+                elif not _type_refines(member, tslot["type"]):
+                    out.append((path, "binds-does-not-fit", f"inputs/{key}/binds/{slot}",
+                                f'"{member}" does not refine the slot\'s '
+                                f'"{tslot["type"]}"'))
+    return out
+
+
 def _order_nodes():
     """Nodes of the published module order.
 
@@ -706,9 +765,10 @@ def main():
     context = loaded if not a.paths else _load_corpus(pattern)
     scope = {p for p, _ in loaded}
     member_out, member_n = member_property_findings(context)
+    binding_out = binding_findings(context)
     substrate_out, substrate_n = substrate_findings(context)
     placement_out = requires_placement_findings(context)
-    for path, kind, where, msg in member_out + substrate_out + placement_out:
+    for path, kind, where, msg in member_out + substrate_out + placement_out + binding_out:
         if path in scope:
             print(f"⛔️ {path} [{kind}] {where}: {msg}")
             total += 1
