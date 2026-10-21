@@ -151,3 +151,32 @@ jobs:
 
       - name: Check process sources
         run: python3 scripts/check-process-schema.py
+
+  composition-diagrams:
+    # Every page with a `gen:composition-diagram` block must match a fresh render
+    # of its spec.yml. render-composition.py --check exits 1 on a stale block and
+    # writes nothing. Before this ran, two committed diagrams drifted from their
+    # sources unnoticed until a regeneration found them (fixed in #308).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Check generated composition diagrams
+        run: |
+          status=0
+          pages=$(grep -rl 'gen:composition-diagram' docs --include=spec.md)
+          if [ -z "$pages" ]; then
+            echo "No page carries a gen:composition-diagram block; nothing checked."
+            exit 1
+          fi
+          for page in $pages; do
+            python3 scripts/render-composition.py "${page%spec.md}spec.yml" --check || status=1
+          done
+          exit $status
