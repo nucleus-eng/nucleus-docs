@@ -21,7 +21,7 @@
 
 process: pierce660
 title: "Pierce660"
-refines: assay
+refines: observe_absorbance
 
 conserves: false
 

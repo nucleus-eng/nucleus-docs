@@ -26,23 +26,39 @@ Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spe
 ::::{tab-item} Module Dependencies
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
 flowchart TD
-    BASE_CELL["Base Cell"]
+    OUTER_SOLUTION["Outer solution"]
     BASE_CYTOSOL["Base Cytosol"]
     MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
+    DENSITY_REAGENT["Density reagent"]
 
-    BASE_CYTOSOL --> BASE_CELL
-    MEMBRANE_POPC_CHOL --> BASE_CELL
+    P1_ASSEMBLE_INNER_SOLUTION_0(["Assemble Base Cytosol (mixing)"])
+    BASE_CELL_INNER_SOLUTION["Base Cell inner solution"]
+    P2_ENCAPSULATE_0(["Encapsulation: Phase Transfer (packing)"])
+    BASE_CELL["Base Cell"]
 
-    classDef constituent fill:#6B7280,color:#ffffff,stroke:#4B5563;
-    classDef this fill:#374151,color:#ffffff,stroke:#111827;
-    class BASE_CYTOSOL,MEMBRANE_POPC_CHOL constituent;
-    class BASE_CELL this;
+    BASE_CYTOSOL --> P1_ASSEMBLE_INNER_SOLUTION_0
+    DENSITY_REAGENT --> P1_ASSEMBLE_INNER_SOLUTION_0
+    P1_ASSEMBLE_INNER_SOLUTION_0 --> BASE_CELL_INNER_SOLUTION
 
-    click BASE_CELL "/docs/modules/base-cell/spec"
+    BASE_CELL_INNER_SOLUTION --> P2_ENCAPSULATE_0
+    MEMBRANE_POPC_CHOL --> P2_ENCAPSULATE_0
+    OUTER_SOLUTION --> P2_ENCAPSULATE_0
+    P2_ENCAPSULATE_0 --> BASE_CELL
+
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class OUTER_SOLUTION,BASE_CYTOSOL,MEMBRANE_POPC_CHOL,DENSITY_REAGENT leaf;
+    class BASE_CELL_INNER_SOLUTION,BASE_CELL composed;
+    class P1_ASSEMBLE_INNER_SOLUTION_0,P2_ENCAPSULATE_0 process;
+
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
     click MEMBRANE_POPC_CHOL "/docs/modules/membrane-popc-chol/spec"
+    click P1_ASSEMBLE_INNER_SOLUTION_0 "/docs/processes/assemble-base-cytosol/main"
+    click P2_ENCAPSULATE_0 "/docs/processes/assemble-base-cell/main"
+    click BASE_CELL "/docs/modules/base-cell/spec"
 ```
 
 ::::
