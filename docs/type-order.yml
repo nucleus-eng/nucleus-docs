@@ -82,6 +82,7 @@ orders:
     - PlateReader
     - Polymer
     - Pore
+    - Promoter
     - Protease
     - Protein
     - RNA
@@ -107,6 +108,8 @@ orders:
     - VisualFluorometer
     - VisualInstrument
     - dsDNA
+    - pT7
+    - sigma70
     - ssDNA
     edges:
       Analyte:
@@ -224,6 +227,8 @@ orders:
       - Fluorometer
       Pore:
       - MembraneComponent
+      Promoter:
+      - Component
       Protease:
       - Enzyme
       Protein:
@@ -276,6 +281,10 @@ orders:
       - Instrument
       dsDNA:
       - DNA
+      pT7:
+      - Promoter
+      sigma70:
+      - Promoter
       ssDNA:
       - DNA
   process_refinement:
@@ -678,6 +687,9 @@ type_declares:
   Pore:
     kind: declares
     names: ["passive_transport", "active_transport"]
+  Promoter:
+    kind: none
+    names: []
   Protease:
     kind: declares
     names: ["degrade[Protein]", "proteolysis"]
@@ -729,6 +741,12 @@ type_declares:
   dsDNA:
     kind: declares
     names: ["::"]
+  pT7:
+    kind: declares
+    names: []
+  sigma70:
+    kind: declares
+    names: []
   ssDNA:
     kind: declares
     names: ["::"]
