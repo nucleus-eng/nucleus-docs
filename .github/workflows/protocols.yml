@@ -42,8 +42,16 @@ jobs:
       # The alternative, pytest.importorskip("yaml") in the test file, buys a
       # green that is not the check: the tests skip silently and nothing says
       # so. Install the dependency and let them run.
-      - name: Install pytest and pyyaml
-        run: pip install pytest pyyaml
+      # AND jsonschema, 2026-10-20, for the same reason and the same way. Without
+      # it check-spec-schema.py prints "jsonschema not installed -- shape pass
+      # SKIPPED" and then "no findings", so a test asserting that a MALFORMED
+      # source is rejected passes against a checker that rejected nothing. That is
+      # the failure above wearing a green: the control in
+      # tests/test_requires_placement.py could not fail here, and could not pass
+      # for the reason it was written. qa.yml's spec-schema job already installs
+      # both, which is why it stayed green while this one went red.
+      - name: Install pytest, pyyaml and jsonschema
+        run: pip install pytest pyyaml jsonschema
       - name: Run bom_common test suite
         run: python3 -m pytest scripts/tests/ -q
 
