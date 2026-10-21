@@ -317,6 +317,25 @@ properties:
       additionalProperties: false
       required: [id, why]
       properties:
+        from:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          description: >
+            AN INPUT OF THIS SOURCE WHOSE TYPE SUPPLIES THE BRACKET, 2026-10-20 --
+            rulings.md D211. `{id: transcribe, from: gated-pla1-dna}` requires
+            `transcribe[P]` where `P` is the promoter in THAT operand's own type,
+            `DNA[linear, pT7]`. The checker takes the bracket member that refines
+            `Promoter` and compares `transcribe[pT7]` against providers as usual.
+            WHY NOT WRITE THE PROMOTER. A system may carry two constructs on two
+            promoters, and each Module must meet the provider of ITS OWN -- Jon: "you
+            can imagine systems requiring two (or many) distinct promoters and have the
+            modules match the correct `P1` vs `P2`". Naming the operand says that; a
+            literal bracket restates a fact the operand already holds, and the two then
+            drift.
+            IT IS NOT A WILDCARD. `transcribe[Promoter]` would demand ANY promoter,
+            which is contravariant and which no provider in this corpus meets. This
+            resolves to a concrete bracket before any comparison happens.
+            GIVE `from` OR A BRACKET ON `id`, NOT BOTH.
         id:
           type: string
           description: >

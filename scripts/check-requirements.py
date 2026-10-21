@@ -676,6 +676,46 @@ class Corpus:
     def refines_graph(self, kind):
         return {s.slug: self.parents(kind, s.slug)[0] for s in self.of(kind)}
 
+    def _resolve_from(self, entry, slug):
+        """`{id: transcribe, from: dna-a}` -> `{id: transcribe[pT7], ...}` -- D211.
+
+        THE BRACKET IS THE OPERAND'S, NOT A CONSTANT. A system may carry two
+        constructs on two promoters, and each Module must meet the provider of its
+        own. Naming the operand says that; a literal bracket restates a fact the
+        operand already holds, and the two then drift.
+
+        An unresolvable `from` leaves the id bare, so the requirement is compared as
+        `transcribe` and reported if nothing provides it. SILENTLY DROPPING IT WOULD
+        TURN A BROKEN REFERENCE INTO A PASS.
+        """
+        src = entry.get("from")
+        if not src:
+            return entry
+        here = self.get("module", slug)
+        # A MISSING SOURCE IS NOT A CRASH. `get` returns None for a slug this corpus
+        # does not hold, and a `from` is resolved before anything validates the module
+        # it sits in.
+        if here is None:
+            return entry
+        val = (here.doc.get("inputs") or {}).get(src) or {}
+        t = val.get("type")
+        if not t:
+            page = val.get("page")
+            if isinstance(page, str) and page.endswith("spec.md"):
+                target = self.get("module", page.strip("./").split("/")[-2])
+                t = (target.doc or {}).get("type") if target else None
+        if not isinstance(t, str) or "[" not in t:
+            return entry
+        members = [m.strip() for m in t[t.index("[") + 1:t.rindex("]")].split(",")]
+        for m in members:
+            # A KNOWN NODE THAT REFINES `Promoter`, AND NOTHING ELSE. cmp_type is
+            # permissive on a name the order does not hold, so without the membership
+            # test `DNA[linear]` resolves to `transcribe[linear]`. Caught by its own
+            # test, which is why that test exists.
+            if m in (self.order.type_nodes or ()) and cmp_type(m, "Promoter", self.order):
+                return {**entry, "id": f"{entry['id']}[{m}]"}
+        return entry
+
     def effective(self, slug, key):
         """Entries of `requires` or `provides` this module has: its own, then its classes'.
 
@@ -683,7 +723,8 @@ class Corpus:
         restate. `optional` is carried on the entry.
         """
         ok = lambda e: isinstance(e, dict) and isinstance(e.get("id"), str)
-        out = [(e, slug) for e in as_list(self.get("module", slug).doc.get(key)) if ok(e)]
+        out = [(self._resolve_from(e, slug), slug)
+               for e in as_list(self.get("module", slug).doc.get(key)) if ok(e)]
         for ancestor in self.ancestors("module", slug):
             out += [(e, ancestor) for e in as_list(self.get("module", ancestor).doc.get(key)) if ok(e)]
         return out
