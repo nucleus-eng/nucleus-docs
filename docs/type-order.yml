@@ -43,6 +43,7 @@ orders:
     - DNA
     - 'DNA[circular]'
     - 'DNA[linear]'
+    - DensityReagent
     - Detector
     - 'Detector[3OC6HSL, activator]'
     - 'Detector[3OC6HSL, repressor]'
@@ -139,6 +140,8 @@ orders:
       - DNA
       'DNA[linear]':
       - DNA
+      DensityReagent:
+      - Component
       Detector:
       - Module
       'Detector[3OC6HSL, activator]':
@@ -577,6 +580,9 @@ type_declares:
   'DNA[linear]':
     kind: declares
     names: ["::"]
+  DensityReagent:
+    kind: none
+    names: []
   Detector:
     kind: declares
     names: ["sense"]
