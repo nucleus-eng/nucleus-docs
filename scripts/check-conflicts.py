@@ -52,6 +52,8 @@ import sys
 
 import yaml
 
+import orders as ORDERS
+
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
 SRC = {}
@@ -83,6 +85,67 @@ def constituents(mod, seen=None):
 
 SENS = {m: {x["to"]: x for x in (d.get("sensitivities") or [])}
         for m, d in SRC.items()}
+
+# A PRESENCE SENSITIVITY IS NOT MATCHED AGAINST AN IMPOSITION, 2026-10-20 -- D208.
+# `kind: presence` is described in the schema as "a predicate over a composition ...
+# the component is only there", so its `to:` names a COMPONENT and not an imposition
+# id. Keying it into SENS above and walking the imposition loop would mean it never
+# meets anything, which is how it has behaved since the kind was added.
+#
+# NO SOURCE ON `main` CARRIES ONE TODAY. Three do at `docs/devcells-integration-pages`
+# and none here, measured 2026-10-20. So this reader starts with nothing to read, and
+# that is the honest state: the first one written is the first one checked.
+PRESENCE = {m: [x for x in (d.get("sensitivities") or [])
+                if x.get("kind") == "presence"]
+            for m, d in SRC.items()}
+
+
+def presence_rows():
+    """A module is sensitive to a component merely being there; report where it is."""
+    out = []
+    for mod, d in SRC.items():
+        for step in d.get("process_steps") or []:
+            reach = set()
+            for operand in operand_ids(step):
+                reach |= constituents(operand)
+            for operand in operand_ids(step):
+                for sens in PRESENCE.get(operand, []):
+                    if sens["to"] in reach:
+                        out.append((mod, step["id"], operand, sens))
+    return out
+
+
+# A PREDICATE IS DECIDED, NOT MATCHED -- D208. `encapsulated(x)` asks whether input
+# `x`'s type carries a payload, `A{B}`, which orders.contents reads. The disjunction
+# states what IS allowed; its negation is the prohibition. See the schema's
+# `predicates:` for why a disjunction rather than a list of arrangements.
+def _input_type(d, key):
+    """The declared type of an input: its own `type:`, or the type of the page it names."""
+    val = (d.get("inputs") or {}).get(key) or {}
+    if val.get("type"):
+        return val["type"]
+    page = val.get("page")
+    if isinstance(page, str) and page.endswith("spec.md"):
+        slug = page.strip("./").split("/")[-2]
+        return (SRC.get(slug) or {}).get("type")
+    return None
+
+
+def predicate_rows():
+    out = []
+    for mod, d in SRC.items():
+        for p in d.get("predicates") or []:
+            terms = [t.strip()[len("encapsulated("):-1]
+                     for t in p["expr"].split(" OR ")]
+            held = []
+            for key in terms:
+                t = _input_type(d, key)
+                # UNKNOWN IS NOT SATISFIED. An input with no resolvable type cannot be
+                # shown encapsulated, and reporting it is the point of the check.
+                held.append(bool(t) and ORDERS.contents(t) is not None)
+            if not any(held):
+                out.append((mod, p, dict(zip(terms, held))))
+    return out
 
 rows, tally = [], collections.Counter()
 for mod, d in SRC.items():
@@ -124,12 +187,29 @@ for mod, sid, r in req_rows:
     print(f"          requires {r['of']}, not reachable from its operands")
     print(f"          {r['why'].strip()[:96]}\n")
 
+pres_rows = presence_rows()
+for mod, sid, operand, sens in pres_rows:
+    print(f"PRESENCE  {mod}/{sid}")
+    print(f"          {operand} is sensitive to {sens['to']} merely being present, and it is")
+    print(f"          {sens['basis']}: {sens['why'].strip()[:96]}\n")
+
+pred_rows = predicate_rows()
+for mod, p, held in pred_rows:
+    print(f"PREDICATE {mod}")
+    print(f"          {p['expr']} is false: " +
+          ", ".join(f"{k}={'yes' if v else 'no'}" for k, v in held.items()))
+    print(f"          {p['why'].strip()[:96]}\n")
+
 declared = sum(1 for m in SRC if SRC[m].get("sensitivities"))
 steps = sum(len(d.get("process_steps") or []) for d in SRC.values())
 print(f"{len(SRC)} sources: {declared} declare a sensitivity, {len(SRC) - declared} silent")
 print(f"{steps} steps: {tally['impositions']} impositions declared")
+pred_total = sum(len(d.get("predicates") or []) for d in SRC.values())
+pres_total = sum(len(v) for v in PRESENCE.values())
 print(f"conflicts {tally['CONFLICT']} | reach {tally['reach']} | "
       f"requires {req_total} declared, {len(req_rows)} unsatisfied")
+print(f"presence {pres_total} declared, {len(pres_rows)} met | "
+      f"predicates {pred_total} declared, {len(pred_rows)} false")
 print("\nSilence is not safety: an undeclared Module makes no claim that it has "
       "no sensitivity,\nso a zero here counts what was declared and nothing else.")
 

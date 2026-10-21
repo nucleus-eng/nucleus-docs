@@ -45,7 +45,8 @@ def _process_order_nodes():
 #
 # NESTING IS ALLOWED, because containment nests: `Gel{Vesicle[liposome]{CPRG}}` is a
 # gel holding loaded liposomes, which is the pH demo's own arrangement.
-_CONTENTS = re.compile(r"^(.+?)\{(.+)\}$")
+# The reader lives in orders.py now: two checkers use it. See D208.
+_CONTENTS = ORDERS.CONTENTS
 
 
 def _type_resolves(name, nodes=None):
