@@ -19,6 +19,18 @@
   #tip-type { color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
   #tip-name { color: #f1f5f9; margin-top: 3px; font-weight: 500; line-height: 1.4; }
   #tip-hint { color: #64748b; font-size: 10px; margin-top: 4px; }
+  .leg-dot.planned { background: transparent; border: 1.5px dashed #94a3b8; }
+  #panel { position: fixed; top: 54px; right: 0; bottom: 0; width: 260px; background: #171a2b; border-left: 1px solid #252840; padding: 16px; display: none; overflow-y: auto; z-index: 9; }
+  #panel.open { display: block; }
+  #panel .close { position: absolute; top: 10px; right: 12px; cursor: pointer; color: #64748b; font-size: 16px; background: none; border: none; }
+  #panel .kind { color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
+  #panel .name { color: #f1f5f9; font-size: 15px; font-weight: 500; margin-top: 4px; }
+  #panel .example-tag { display: inline-block; margin-top: 6px; font-size: 10px; color: #0f1117; background: #facc15; padding: 1px 6px; border-radius: 4px; }
+  #panel .rows { margin-top: 16px; border-top: 1px solid #252840; padding-top: 12px; }
+  #panel .row { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; color: #94a3b8; }
+  #panel .row span:last-child { color: #e2e8f0; text-align: right; }
+  #panel a { color: #7dd3fc; text-decoration: none; }
+  #panel .issue-badge { background: #3b2f12; color: #facc15; padding: 1px 7px; border-radius: 10px; font-size: 11px; }
 </style>
 </head>
 <body>
@@ -34,183 +46,518 @@
   <div id="tip-name"></div>
   <div id="tip-hint"></div>
 </div>
+<div id="panel">
+  <button class="close" onclick="closePanel()">&times;</button>
+  <div class="kind" id="panel-type"></div>
+  <div class="name" id="panel-name"></div>
+  <div id="panel-example"></div>
+  <div class="rows">
+    <div class="row"><span>Validation</span><span id="panel-validation"></span></div>
+    <div class="row"><span>DevNote</span><span id="panel-devnote"></span></div>
+    <div class="row"><span>Open issues</span><span id="panel-issues"></span></div>
+  </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
 <script>
 const GRAPH  = {
   "nodes": [
     {
-      "id": "modules/base-cytosol/spec.md",
-      "label": "Base: Cytosol",
+      "id": "modules/base-cell/spec.md",
+      "label": "Base Cell",
       "type": "module",
-      "slug": "base-cytosol"
+      "slug": "base-cell",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
+    },
+    {
+      "id": "modules/base-cytosol/spec.md",
+      "label": "Base Cytosol",
+      "type": "module",
+      "slug": "base-cytosol",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "modules/control-clpxp/spec.md",
       "label": "Control: ClpXP",
       "type": "module",
-      "slug": "control-clpxp"
+      "slug": "control-clpxp",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
-      "id": "modules/detector-laci_iptg/spec.md",
+      "id": "modules/detector-laci-iptg/spec.md",
       "label": "Detector: LacI-IPTG",
       "type": "module",
-      "slug": "detector-laci_iptg"
+      "slug": "detector-laci-iptg",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
-      "id": "modules/detector-tetr_atc/spec.md",
+      "id": "modules/detector-tetr-atc/spec.md",
       "label": "Detector: tetR-aTc",
       "type": "module",
-      "slug": "detector-tetr_atc"
+      "slug": "detector-tetr-atc",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
+    },
+    {
+      "id": "modules/dye-liposomes/spec.md",
+      "label": "Dye Liposomes",
+      "type": "module",
+      "slug": "dye-liposomes",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "modules/emitter-ivhsl/spec.md",
       "label": "Emitter: IV-HSL",
       "type": "module",
-      "slug": "emitter-ivhsl"
+      "slug": "emitter-ivhsl",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "modules/energy-ppk/spec.md",
       "label": "Energy: PPK",
       "type": "module",
-      "slug": "energy-ppk"
+      "slug": "energy-ppk",
+      "planned": false,
+      "example": false,
+      "devnote": "https://doi.org/10.63765/mwur3749",
+      "validation": "\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "modules/membrane-popc-chol/spec.md",
       "label": "Base Membrane: POPC/Chol",
       "type": "module",
-      "slug": "membrane-popc-chol"
+      "slug": "membrane-popc-chol",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "modules/membrane-pore-ahly/spec.md",
       "label": "Membrane Pore: \u03b1-Hemolysin",
       "type": "module",
-      "slug": "membrane-pore-ahly"
+      "slug": "membrane-pore-ahly",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": "\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "modules/membrane-pore-cx43/spec.md",
       "label": "Membrane Pore: Cx43",
       "type": "module",
-      "slug": "membrane-pore-cx43"
+      "slug": "membrane-pore-cx43",
+      "planned": false,
+      "example": false,
+      "devnote": "https://doi.org/10.63765/xvxu3274",
+      "validation": "\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "modules/reporter-degfp/spec.md",
       "label": "Reporter: deGFP",
       "type": "module",
-      "slug": "reporter-degfp"
+      "slug": "reporter-degfp",
+      "planned": false,
+      "example": false,
+      "devnote": "https://doi.org/10.63765/fppr8928",
+      "validation": "\u2605\u2605\u2605",
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/assemble-base-cell/main.md",
-      "label": "Assemble Base Cell",
+      "label": "Encapsulation: Phase Transfer",
       "type": "process",
-      "slug": "assemble-base-cell"
+      "slug": "assemble-base-cell",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/assemble-base-cytosol/main.md",
       "label": "Assemble Base Cytosol",
       "type": "process",
-      "slug": "assemble-base-cytosol"
+      "slug": "assemble-base-cytosol",
+      "planned": false,
+      "example": false,
+      "devnote": "https://doi.org/10.63765/fppr8928",
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
+    },
+    {
+      "id": "processes/build-base-cell/main.md",
+      "label": "Build a Base Cell",
+      "type": "process",
+      "slug": "build-base-cell",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-1pot/main.md",
       "label": "Make OnePot Protein Mix",
       "type": "process",
-      "slug": "make-1pot"
+      "slug": "make-1pot",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-36pot/main.md",
-      "label": "Make Protein Mix (36-pot)",
+      "label": "Make Protein Mix",
       "type": "process",
-      "slug": "make-36pot"
+      "slug": "make-36pot",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-amino-acid-mix/main.md",
       "label": "Make Amino Acid Mix",
       "type": "process",
-      "slug": "make-amino-acid-mix"
+      "slug": "make-amino-acid-mix",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-protein/buff-ex-spin-filters/main.md",
       "label": "Exchange Buffers and Concentrate by Spin Filtration",
       "type": "process",
-      "slug": "buff-ex-spin-filters"
+      "slug": "buff-ex-spin-filters",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-protein/grow-bacteria/main.md",
       "label": "Grow and Induce Expression Strains",
       "type": "process",
-      "slug": "grow-bacteria"
+      "slug": "grow-bacteria",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-protein/lysis-sonication/main.md",
       "label": "Lyse Bacteria by Sonication",
       "type": "process",
-      "slug": "lysis-sonication"
+      "slug": "lysis-sonication",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-protein/make-protein-main.md",
       "label": "Protein Purification Processes",
       "type": "process",
-      "slug": "make-protein"
+      "slug": "make-protein",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-protein/prep-consumables/main.md",
       "label": "Prepare Protein Purification Buffers and Media",
       "type": "process",
-      "slug": "prep-consumables"
+      "slug": "prep-consumables",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-protein/purify-proteins-grav-column/main.md",
       "label": "Purify Proteins by Ni\u00b2\u207a Gravity Column",
       "type": "process",
-      "slug": "purify-proteins-grav-column"
+      "slug": "purify-proteins-grav-column",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-ribosomes/main.md",
       "label": "Make Ribosomes",
       "type": "process",
-      "slug": "make-ribosomes"
+      "slug": "make-ribosomes",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-small-molecule-mix/main.md",
       "label": "Make Small Molecule Mix",
       "type": "process",
-      "slug": "make-small-molecule-mix"
+      "slug": "make-small-molecule-mix",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/make-trna/main.md",
       "label": "Make tRNAs",
       "type": "process",
-      "slug": "make-trna"
+      "slug": "make-trna",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/pierce660/main.md",
       "label": "Pierce660 Assay",
       "type": "process",
-      "slug": "pierce660"
+      "slug": "pierce660",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "processes/protein-gel/main.md",
       "label": "Protein Gel",
       "type": "process",
-      "slug": "protein-gel"
+      "slug": "protein-gel",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "implementations/emitter-ivhsl/main.md",
       "label": "Emitter: IV-HSL Cell",
       "type": "implementation",
-      "slug": "emitter-ivhsl"
+      "slug": "emitter-ivhsl",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
     },
     {
       "id": "implementations/responder-atc-ivhsl/main.md",
       "label": "Responder: aTc \u2192 IV-HSL",
       "type": "implementation",
-      "slug": "responder-atc-ivhsl"
+      "slug": "responder-atc-ivhsl",
+      "planned": false,
+      "example": false,
+      "devnote": null,
+      "validation": null,
+      "issues": 0,
+      "issue_url": null
+    },
+    {
+      "id": "ghost/example-atp-regen",
+      "label": "ATP regen",
+      "type": "module",
+      "slug": "example-atp-regen",
+      "planned": true,
+      "example": true,
+      "devnote": null,
+      "issues": 3,
+      "issue_url": null,
+      "validation": null
+    },
+    {
+      "id": "ghost/example-new-pore",
+      "label": "New pore",
+      "type": "module",
+      "slug": "example-new-pore",
+      "planned": true,
+      "example": true,
+      "devnote": null,
+      "issues": 1,
+      "issue_url": null,
+      "validation": null
     }
   ],
   "edges": [
     {
+      "source": "modules/base-cell/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "modules/base-cell/spec.md",
+      "target": "modules/membrane-popc-chol/spec.md"
+    },
+    {
+      "source": "modules/base-cell/spec.md",
+      "target": "processes/assemble-base-cell/main.md"
+    },
+    {
+      "source": "modules/base-cell/spec.md",
+      "target": "processes/build-base-cell/main.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "modules/base-cell/spec.md"
+    },
+    {
       "source": "modules/base-cytosol/spec.md",
       "target": "modules/reporter-degfp/spec.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "processes/make-36pot/main.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "processes/make-1pot/main.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "processes/make-small-molecule-mix/main.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "processes/make-amino-acid-mix/main.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "processes/make-ribosomes/main.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "processes/make-trna/main.md"
+    },
+    {
+      "source": "modules/base-cytosol/spec.md",
+      "target": "processes/assemble-base-cytosol/main.md"
+    },
+    {
+      "source": "modules/control-clpxp/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "modules/detector-laci-iptg/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "modules/detector-laci-iptg/spec.md",
+      "target": "modules/membrane-pore-cx43/spec.md"
+    },
+    {
+      "source": "modules/detector-tetr-atc/spec.md",
+      "target": "processes/assemble-base-cytosol/main.md"
+    },
+    {
+      "source": "modules/detector-tetr-atc/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "modules/detector-tetr-atc/spec.md",
+      "target": "implementations/responder-atc-ivhsl/main.md"
+    },
+    {
+      "source": "modules/dye-liposomes/spec.md",
+      "target": "modules/membrane-popc-chol/spec.md"
+    },
+    {
+      "source": "modules/dye-liposomes/spec.md",
+      "target": "processes/assemble-base-cell/main.md"
+    },
+    {
+      "source": "modules/emitter-ivhsl/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "modules/emitter-ivhsl/spec.md",
+      "target": "implementations/emitter-ivhsl/main.md"
+    },
+    {
+      "source": "modules/emitter-ivhsl/spec.md",
+      "target": "implementations/responder-atc-ivhsl/main.md"
+    },
+    {
+      "source": "modules/energy-ppk/spec.md",
+      "target": "modules/base-cytosol/spec.md"
     },
     {
       "source": "modules/membrane-popc-chol/spec.md",
@@ -218,7 +565,11 @@ const GRAPH  = {
     },
     {
       "source": "modules/membrane-popc-chol/spec.md",
-      "target": "modules/reporter-degfp/spec.md"
+      "target": "modules/base-cell/spec.md"
+    },
+    {
+      "source": "modules/membrane-popc-chol/spec.md",
+      "target": "modules/detector-tetr-atc/spec.md"
     },
     {
       "source": "modules/membrane-pore-ahly/spec.md",
@@ -227,6 +578,50 @@ const GRAPH  = {
     {
       "source": "modules/membrane-pore-ahly/spec.md",
       "target": "processes/assemble-base-cytosol/main.md"
+    },
+    {
+      "source": "modules/membrane-pore-ahly/spec.md",
+      "target": "modules/membrane-popc-chol/spec.md"
+    },
+    {
+      "source": "modules/membrane-pore-ahly/spec.md",
+      "target": "processes/protein-gel/main.md"
+    },
+    {
+      "source": "modules/membrane-pore-ahly/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "modules/membrane-pore-ahly/spec.md",
+      "target": "processes/assemble-base-cell/main.md"
+    },
+    {
+      "source": "modules/membrane-pore-cx43/spec.md",
+      "target": "modules/membrane-popc-chol/spec.md"
+    },
+    {
+      "source": "modules/membrane-pore-cx43/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "modules/membrane-pore-cx43/spec.md",
+      "target": "processes/assemble-base-cell/main.md"
+    },
+    {
+      "source": "modules/reporter-degfp/spec.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "processes/assemble-base-cell/main.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "processes/assemble-base-cell/main.md",
+      "target": "modules/membrane-popc-chol/spec.md"
+    },
+    {
+      "source": "processes/assemble-base-cell/main.md",
+      "target": "processes/build-base-cell/main.md"
     },
     {
       "source": "processes/assemble-base-cytosol/main.md",
@@ -251,6 +646,46 @@ const GRAPH  = {
     {
       "source": "processes/assemble-base-cytosol/main.md",
       "target": "processes/make-ribosomes/main.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "modules/base-cell/spec.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "modules/membrane-popc-chol/spec.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "modules/base-cytosol/spec.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "processes/assemble-base-cell/main.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "processes/make-small-molecule-mix/main.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "processes/make-trna/main.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "processes/make-36pot/main.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "processes/make-1pot/main.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "processes/make-ribosomes/main.md"
+    },
+    {
+      "source": "processes/build-base-cell/main.md",
+      "target": "modules/reporter-degfp/spec.md"
     },
     {
       "source": "processes/make-1pot/main.md",
@@ -358,7 +793,7 @@ const GRAPH  = {
     },
     {
       "source": "implementations/responder-atc-ivhsl/main.md",
-      "target": "modules/detector-tetr_atc/spec.md"
+      "target": "modules/detector-tetr-atc/spec.md"
     },
     {
       "source": "implementations/responder-atc-ivhsl/main.md",
@@ -383,6 +818,17 @@ Object.entries(COLORS).forEach(([type, color]) => {
   });
   legendEl.appendChild(el);
 });
+{
+  const el = document.createElement('div');
+  el.className = 'leg';
+  el.innerHTML = `<div class="leg-dot planned"></div>planned (DevNote)`;
+  el.addEventListener('click', () => {
+    hidden['planned'] = !hidden['planned'];
+    el.classList.toggle('dimmed', hidden['planned']);
+    cy.nodes('[?planned]').toggleClass('hidden', !!hidden['planned']);
+  });
+  legendEl.appendChild(el);
+}
 
 // --- cytoscape ---
 const cy = cytoscape({
@@ -396,8 +842,13 @@ const cy = cytoscape({
       selector: 'node',
       style: {
         'background-color': ele => COLORS[ele.data('type')] || '#888',
-        'label': 'data(label)',
-        'color': '#cbd5e1',
+        'background-opacity': ele => ele.data('planned') ? 0.12 : 1,
+        'border-style': ele => ele.data('planned') ? 'dashed' : 'solid',
+        'border-width': ele => ele.data('planned') ? 1.5 : 0,
+        'border-color': ele => COLORS[ele.data('type')] || '#888',
+        'label': ele => ele.data('label') + (ele.data('issues') ? ` (${ele.data('issues')})` : ''),
+        'color': ele => ele.data('planned') ? '#94a3b8' : '#cbd5e1',
+        'font-style': ele => ele.data('planned') ? 'italic' : 'normal',
         'font-size': ele => Math.max(9, 8 + ele.degree() * 0.6) + 'px',
         'text-valign': 'bottom',
         'text-halign': 'center',
@@ -474,17 +925,37 @@ cy.on('mousemove', e => {
 });
 cy.on('mouseout', 'node', () => { tip.style.display = 'none'; });
 
-// --- click to highlight neighbourhood ---
+// --- click to highlight neighbourhood + open detail panel ---
+const panel = document.getElementById('panel');
+function closePanel() { panel.classList.remove('open'); }
+
 cy.on('tap', 'node', e => {
   const n = e.target;
   const hood = n.closedNeighborhood();
   cy.elements().not(hood).addClass('faded').removeClass('highlighted');
   hood.edges().addClass('highlighted').removeClass('faded');
   n.removeClass('faded');
+
+  document.getElementById('panel-type').textContent = n.data('type') + (n.data('planned') ? ' · planned' : '');
+  document.getElementById('panel-name').textContent = n.data('label');
+  document.getElementById('panel-example').innerHTML = n.data('example')
+    ? '<span class="example-tag">example — no issue label exists yet</span>' : '';
+  document.getElementById('panel-validation').textContent = n.data('validation') || '—';
+  const devnote = n.data('devnote');
+  document.getElementById('panel-devnote').innerHTML = devnote
+    ? `<a href="${devnote}" target="_blank" rel="noopener">view ↗</a>` : '—';
+  const issues = n.data('issues') || 0;
+  const issueUrl = n.data('issue_url');
+  document.getElementById('panel-issues').innerHTML = issues
+    ? (issueUrl ? `<a class="issue-badge" href="${issueUrl}" target="_blank" rel="noopener">${issues}</a>`
+                : `<span class="issue-badge">${issues}</span>`)
+    : '0';
+  panel.classList.add('open');
 });
 cy.on('tap', e => {
   if (e.target === cy) {
     cy.elements().removeClass('faded highlighted');
+    closePanel();
   }
 });
 </script>

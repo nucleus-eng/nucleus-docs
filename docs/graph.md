@@ -6,15 +6,10 @@ site:
 
 # Documentation Graph
 
-An interactive map of how modules, processes, and implementations relate to one another in the Distribution. Nodes are colored by type: **modules** (blue), **processes** (green), **implementations** (orange). Edges follow the direction of cross-links in the source pages.
+An interactive map of how modules, processes, and implementations relate to one another in the Distribution. Nodes are colored by type: **modules** (blue), **processes** (green), **implementations** (orange). A dashed node marks content that is planned but not yet written, sourced from open GitHub issues.
 
-**Click a node** to highlight its immediate connections. **Click the background** to reset. **Click a legend label** to show or hide that node type.
+**Click a node** to highlight its immediate connections and open its detail panel. **Click the background** to reset. **Click a legend label** to show or hide that node type.
 
 To regenerate after adding or editing pages: `python3 scripts/build-graph.py`
 
-:::{raw} html
-<iframe src="graph-data.html"
-        style="width:100%; height:78vh; border:none; border-radius:4px; display:block;"
-        title="Nucleus Distribution documentation relationship graph">
-</iframe>
-:::
+[Open the interactive graph ↗](graph-data.html)

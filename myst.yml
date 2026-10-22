@@ -86,6 +86,7 @@ project:
           hidden: true
         - file: ./docs/implementations/emitter-ivhsl/main.md
           hidden: true
+    - file: ./docs/graph.md
     - file: ./cdk/cdk-main.md
       children:
         - file: ./cdk/install.md
