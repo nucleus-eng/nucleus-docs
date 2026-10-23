@@ -159,7 +159,8 @@ GUV deGFP characterization by Mary Kelly (Kamat Lab, Northwestern University, De
 
 DevNotes that reference this spec, not curated attribution; see Credits for that.
 
-::::{grid} 1 1 2 2
+::::{grid} 1 1 1 1
+:class: devnote-cards
 
 :::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
 :link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
