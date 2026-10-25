@@ -7,24 +7,22 @@ description: A catalog of validated biochemical modules — detectors, reporters
 
 A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
 
-**Validation key:** ★★★ frequently used, ★★ validated (cells or in vitro),  ★ preliminary / DevNote only
-
 ## PURExpress
 
 Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit).
 
 :::{table}
 
-| Module Class    | Specification                               | Validation | DevNotes |
-| --------------- | ------------------------------------------- | ---------- | -------- |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        | 0        |
-| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | ★★         | 0        |
-|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | ★★         | 0        |
-| Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         | 0        |
-| Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         | 0        |
-| Energy          | [PPK](./energy-ppk/spec.md)                 | ★          | 2        |
-| Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          | 0        |
-|                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          | 1        |
+| Module Class    | Specification                               | DevNotes |
+| --------------- | ------------------------------------------- | -------- |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | 4        |
+| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | 3        |
+|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | 0        |
+| Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | 1        |
+| Control         | [ClpXP](./control-clpxp/spec.md)            | 4        |
+| Energy          | [PPK](./energy-ppk/spec.md)                 | 4        |
+| Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | 0        |
+|                 | [Cx43](./membrane-pore-cx43/spec.md)        | 2        |
 
 :::
 
@@ -34,13 +32,13 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 
 :::{table}
 
-| Module Class    | Specification                             | Validation | DevNotes |
-| --------------- | ----------------------------------------- | ---------- | -------- |
-| Cytosol (Base)  | [Cytosol](./base-cytosol/spec.md)         | ★★★        | 0        |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★        | 0        |
-| Reporter        | [deGFP](./reporter-degfp/spec.md)         | ★★★        | 1        |
-| Cell (Base)     | [Base Cell](./base-cell/spec.md)          | ★★★        | 0        |
-| Cell (Dye)      | [Dye Liposomes](./dye-liposomes/spec.md)  | ★★★        | 0        |
+| Module Class    | Specification                             | DevNotes |
+| --------------- | ----------------------------------------- | -------- |
+| Cytosol (Base)  | [Cytosol](./base-cytosol/spec.md)         | 10       |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | 4        |
+| Reporter        | [deGFP](./reporter-degfp/spec.md)         | 7        |
+| Cell (Base)     | [Base Cell](./base-cell/spec.md)          | 6        |
+| Cell (Dye)      | [Dye Liposomes](./dye-liposomes/spec.md)  | 0        |
 :::
 
 # Contributing a Module

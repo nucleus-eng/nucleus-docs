@@ -79,3 +79,47 @@ A recipe with a different cholesterol fraction is expected to differ in bilayer 
 Developed by b.next, with dye menu and recipes from Mary Kelly (Chicago Node, Kamat Lab).
 
 @Editor: name the authors of the membrane comparison DevNote, "London Exchange Meeting: Liposome Protocol Survey", which lists its authors only as "London Exchange Meeting Participants", or confirm it is not a source of the recipes.
+
+# Supported by
+
+DevNotes that reference this spec, not curated attribution; see Credits for that.
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} ClpXP Control Module: Deployment in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019b613d-4a47-7d62-a262-77a667467a57
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-9199-7ac0-bacf-3ac935c46856/public/control-module-bcdff4929cf964ead1956fd124d8d9d9.webp)
+:::
+
+:::{card} Double emulsion optimization: inner solution, lipid concentration, and composition
+:link: https://devnotes.nucleus.engineering/articles/019d64b1-f6b1-7d50-ba0d-7419f01c0141
+:footer: Mary Kelly · Node: Chicago
+
+![](https://pub.curvenote.com/01a08cd0-f69b-7910-8672-62565bc4a3cf/public/021026_Sucrose200_0T-a8401e73112bea5a69c71ef8b3d9d868.webp)
+:::
+
+:::{card} IV-HSL Emitter Cell
+:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
+:::
+
+:::{card} London Exchange Meeting: Liposome Protocol Survey
+:link: https://devnotes.nucleus.engineering/articles/019de275-d95d-7773-8622-59c333b056a9
+:footer: London Exchange Meeting Participants · Workshops and Courses
+
+![](https://pub.curvenote.com/01a08bf0-438a-7f89-8da9-7e1682f18642/public/thumbnail-5e1ebd3aefe4386efbd2de0f12b74635.webp)
+:::
+
+:::{card} The Developer Cell Control Module: Protein Degradation by ClpXP
+:link: https://devnotes.nucleus.engineering/articles/01981a5d-64c2-72f2-8055-5634d2824ede
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd0-f496-7ee2-b08c-1c7e00240c3d/public/clpXP-85886080fd564ecd4e0aa3e9d696803a.webp)
+:::
+
+::::

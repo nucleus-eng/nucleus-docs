@@ -134,3 +134,19 @@ Packed and loaded columns can harbor bacterial growth, even at 4 °C. Storing in
 # Acknowledgments
 
 Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
+
+# Supported by
+
+DevNotes that reference this page, not curated attribution.
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} MphR Sensing Module
+:link: https://devnotes.nucleus.engineering/articles/01a164e7-be0b-7829-add4-3fb78769e041
+:footer: Stemloop · Nucleus Community Contributions
+
+![](https://pub.curvenote.com/01a16517-458c-7633-acd6-69039e2b741e/public/ery_kinetics_12_5uM-4d91c99c93eb947c8e1998f93e115e78.webp)
+:::
+
+::::

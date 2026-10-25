@@ -323,3 +323,19 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 
 ::::
 :::::
+
+# Supported by
+
+DevNotes that reference this page, not curated attribution.
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Expressing Cell-Free TetO-GFP in Solution with aTc Titration
+:link: https://devnotes.nucleus.engineering/articles/01a12d61-686f-7790-8068-f3638be6d7d2
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650b-08b5-76a5-a679-ac13b0944c15/public/fig2-endpoint-gfp-at-09c04f5579c52340f211668c43f87209.webp)
+:::
+
+::::

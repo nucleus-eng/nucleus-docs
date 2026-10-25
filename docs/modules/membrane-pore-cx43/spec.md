@@ -198,3 +198,26 @@ Confocal endpoint image (6 h 40 min) of control synthetic cells. Most synthetic 
 # Credits
 
 Module contributed by Ahmed Sihorwala (Belardi Lab, UT Austin). Validation data by Yen-Yu Hsu (b.next).
+
+# Supported by
+
+DevNotes that reference this spec, not curated attribution; see Credits for that.
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Cx43 Cell
+:link: https://devnotes.nucleus.engineering/articles/01981aae-9d06-7e65-a9cb-75d1e33aca0a
+:footer: Ahmed Z. Sihorwala · Nucleus Community Contributions
+
+![](https://pub.curvenote.com/01a08cd1-f9f8-7377-87c8-52e5595e4ff3/public/connexin-scheme-24865409a27b2c4e1ee3cc69b71e8f11.webp)
+:::
+
+:::{card} Cx43 Cell: DNA Validation
+:link: https://devnotes.nucleus.engineering/articles/019a7496-0498-7d89-bebb-58cdc15caf54
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/019fcdbe-7594-764f-8f74-a30b0d33c5f0/public/connexin-scheme-b450f3089e14dd00c84860c035003545.png)
+:::
+
+::::

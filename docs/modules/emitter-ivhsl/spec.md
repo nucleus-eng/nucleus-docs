@@ -108,3 +108,19 @@ The emitter component (`pOpen-pT7-bjaI`) requires pT7 transcription and translat
 # Credits
 
 Developed by Yen-Yu Hsu (b.next).
+
+# Supported by
+
+DevNotes that reference this spec, not curated attribution; see Credits for that.
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} IV-HSL Emitter Cell
+:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
+:::
+
+::::
