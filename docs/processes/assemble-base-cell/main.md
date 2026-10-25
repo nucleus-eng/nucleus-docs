@@ -191,7 +191,7 @@ While handling liposomes, be gentle! Liposomes are fragile. Do not vortex and on
 
 # Supported by
 
-DevNotes that reference this page, not curated attribution.
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards

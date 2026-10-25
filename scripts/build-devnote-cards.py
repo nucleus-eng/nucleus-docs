@@ -57,8 +57,9 @@ DOCS_ROOT = REPO_ROOT / "docs"
 ASSOCIATIONS_FILE = Path(__file__).parent / "devnote-associations.yml"
 
 SECTION_HEADING = "# Supported by"
-SECTION_INTRO = "DevNotes that reference this spec, not curated attribution; see Credits for that."
-SECTION_INTRO_NO_CREDITS = "DevNotes that reference this page, not curated attribution."
+DEVNOTES_SITE = "https://devnotes.nucleus.engineering"
+SECTION_INTRO_MODULE = f"[DevNotes]({DEVNOTES_SITE}) that support this specification include:"
+SECTION_INTRO_PAGE = f"[DevNotes]({DEVNOTES_SITE}) that support this page include:"
 
 # docs/<content-type> -> the devnote-associations.yml field naming it
 CONTENT_TYPES = {"modules": "modules", "processes": "processes", "implementations": "implementations"}
@@ -139,7 +140,9 @@ def fetch_all_notes() -> tuple[dict[str, list[dict]], dict[str, dict]]:
         # note) or other characters that break an unescaped URL outright.
         thumbnail = f"{cdn}{cdn_key}/public{quote(thumb_path, safe='/')}" if thumb_path else None
 
+        canonical_key = sanitize_key(work.get("slug") or work["id"])
         card = {
+            "key": canonical_key,  # matches a devnote-associations.yml entry's own key
             "title": work.get("title", "Untitled"),
             "authors": [a.get("name") for a in (work.get("authors") or []) if a.get("name")],
             "collection": ((work.get("collection") or {}).get("content") or {}).get("title"),
@@ -187,10 +190,24 @@ def render_cards(cards: list[dict]) -> str:
 # Mapping-driven sync across every module/process/implementation page
 # --------------------------------------------------------------------------- #
 
-def load_associations() -> dict:
+def load_raw_associations() -> dict:
     if not ASSOCIATIONS_FILE.exists():
         return {}
     return yaml.safe_load(ASSOCIATIONS_FILE.read_text(encoding="utf-8")) or {}
+
+
+def load_associations() -> dict:
+    """Every DevNote entry (keyed by its Curvenote slug/id), excluding the
+    file's own `exclude:` key."""
+    return {k: v for k, v in load_raw_associations().items() if k != "exclude"}
+
+
+def load_exclusions() -> dict[str, set[str]]:
+    """page key ("<content-type>/<slug>") -> DevNote keys whose live-detected
+    backlink to that page a human has judged not to belong in its
+    "# Supported by" section."""
+    raw = load_raw_associations().get("exclude") or {}
+    return {page: set(keys or []) for page, keys in raw.items()}
 
 
 def target_pages() -> dict[Path, str]:
@@ -217,22 +234,27 @@ def devnote_keys_for(slug: str, field: str, associations: dict) -> set[str]:
     }
 
 
-def insert_section(text: str, body: str) -> str:
-    """Replace an existing "# Supported by" section (it's always last) or
-    append a new one, preserving a single trailing newline."""
-    text = text.rstrip("\n")
+def strip_section(text: str) -> str:
+    """Remove an existing "# Supported by" section (it's always last),
+    preserving a single trailing newline; a no-op if there is none."""
     heading_re = re.compile(rf"^{re.escape(SECTION_HEADING)}\s*$", re.MULTILINE)
     m = heading_re.search(text)
-    if m:
-        text = text[: m.start()].rstrip("\n")
-    has_credits = re.search(r"^# Credits\s*$", text, re.MULTILINE) is not None
-    intro = SECTION_INTRO if has_credits else SECTION_INTRO_NO_CREDITS
+    if not m:
+        return text
+    return text[: m.start()].rstrip("\n") + "\n"
+
+
+def insert_section(text: str, body: str, intro: str) -> str:
+    """Replace an existing "# Supported by" section (it's always last) or
+    append a new one, preserving a single trailing newline."""
+    text = strip_section(text).rstrip("\n")
     new_section = f"{SECTION_HEADING}\n\n{intro}\n\n{body}"
     return text + "\n\n" + new_section + "\n"
 
 
 def sync_all(dry_run: bool) -> None:
     associations = load_associations()
+    exclusions = load_exclusions()
     by_page_backlinks, cards_by_key = fetch_all_notes()
 
     # The live backlink crawl's keys are URL paths (e.g. "/docs/modules/x/");
@@ -245,8 +267,13 @@ def sync_all(dry_run: bool) -> None:
     for md_path, slug in sorted(target_pages().items()):
         content_type = md_path.relative_to(DOCS_ROOT).parts[0]
         field = CONTENT_TYPES[content_type]
+        page_key = f"{content_type}/{slug}"
+        excluded = exclusions.get(page_key, set())
         manual_keys = devnote_keys_for(slug, field, associations)
-        backlink_cards = by_page_backlinks.get(as_docs_path(md_path), [])
+        backlink_cards = [
+            c for c in by_page_backlinks.get(as_docs_path(md_path), [])
+            if c.get("key") not in excluded
+        ]
 
         cards_by_title: dict[str, dict] = {c["title"]: c for c in backlink_cards}
         missing = []
@@ -259,17 +286,21 @@ def sync_all(dry_run: bool) -> None:
 
         if missing:
             print(f"warning: {slug}: no card data fetched for {sorted(missing)}", file=sys.stderr)
-        if not cards_by_title:
-            continue
 
-        cards = sorted(cards_by_title.values(), key=lambda c: c["title"])
-        body = render_cards(cards)
         text = md_path.read_text(encoding="utf-8")
-        new_text = insert_section(text, body)
+        if not cards_by_title:
+            new_text = strip_section(text)
+            action = "remove section ->"
+        else:
+            cards = sorted(cards_by_title.values(), key=lambda c: c["title"])
+            body = render_cards(cards)
+            intro = SECTION_INTRO_MODULE if content_type == "modules" else SECTION_INTRO_PAGE
+            new_text = insert_section(text, body, intro)
+            action = f"{len(cards)} card(s) ->"
         if new_text == text:
             continue
         updated += 1
-        print(f"{'(dry run) ' if dry_run else ''}{len(cards)} card(s) -> {md_path.relative_to(REPO_ROOT)}")
+        print(f"{'(dry run) ' if dry_run else ''}{action} {md_path.relative_to(REPO_ROOT)}")
         if not dry_run:
             md_path.write_text(new_text, encoding="utf-8")
 

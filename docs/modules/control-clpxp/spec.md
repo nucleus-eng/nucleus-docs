@@ -151,7 +151,7 @@ Developed by [Yen-Yu Hsu](https://orcid.org/0000-0003-0866-6184) (b.next).
 
 # Supported by
 
-DevNotes that reference this spec, not curated attribution; see Credits for that.
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards

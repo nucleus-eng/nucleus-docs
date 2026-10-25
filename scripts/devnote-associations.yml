@@ -16,6 +16,18 @@
 #
 # After editing this file by hand, re-run both scripts for the affected pages.
 
+# A DevNote's own content can link to a docs page in passing (e.g. citing a
+# process as a methods step) without that page being something the DevNote
+# demonstrates or validates. `build-devnote-cards.py`'s live backlink
+# detection can't tell the difference; this list overrides it for a
+# (page, DevNote) pair a human has judged not to belong in that page's
+# "# Supported by" section. It does not affect the manual modules/processes/
+# implementations tags above, which are already curated.
+exclude:
+  processes/make-ribosomes: [01a12d61-686f-7790-8068-f3638be6d7d2]
+  processes/make-small-molecule-mix: [01a12d61-686f-7790-8068-f3638be6d7d2]
+  processes/make-trna: [01a12d61-686f-7790-8068-f3638be6d7d2]
+
 019deb4f-0af9-7e76-ae90-6149fe2afc11:
   title: 'Meta DevNote: a DevNote about creating DevNotes'
   doi: null
@@ -132,6 +144,7 @@
   doi: null
   html: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
   modules:
+  - detector-tetr-atc
   - emitter-ivhsl
   - membrane-popc-chol
   - purexpress

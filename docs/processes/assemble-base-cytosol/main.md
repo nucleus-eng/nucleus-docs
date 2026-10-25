@@ -151,7 +151,7 @@ To avoid introducing bubbles, use reverse pipetting to array your samples. With 
 
 # Supported by
 
-DevNotes that reference this page, not curated attribution.
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards

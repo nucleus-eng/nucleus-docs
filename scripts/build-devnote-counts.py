@@ -47,9 +47,13 @@ OLD_COLUMN = "Validation"
 
 
 def load_associations() -> dict:
+    """Every DevNote entry (keyed by its Curvenote slug/id), excluding the
+    file's own `exclude:` key — see build-devnote-cards.py, which is what
+    reads that one."""
     if not ASSOCIATIONS_FILE.exists():
         return {}
-    return yaml.safe_load(ASSOCIATIONS_FILE.read_text(encoding="utf-8")) or {}
+    data = yaml.safe_load(ASSOCIATIONS_FILE.read_text(encoding="utf-8")) or {}
+    return {k: v for k, v in data.items() if k != "exclude"}
 
 
 def fetch_nucleus_core_dois() -> set[str]:

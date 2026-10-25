@@ -141,16 +141,16 @@ Developed by Surendra Yadav (b.next).
 
 # Supported by
 
-DevNotes that reference this spec, not curated attribution; see Credits for that.
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards
 
 :::{card} DevCells: Kickoff Workshop
-:link: https://devnotes.nucleus.engineering/articles/019c3f08-25a7-752c-8821-cd4634bde800
-:footer: DevCells Kickoff Workshop · Developer Cells
+:link: https://devnotes.nucleus.engineering/articles/019b286c-a610-70b5-af71-648d569e650b
+:footer: DevCells Kickoff Workshop · Workshops and Courses
 
-![](https://pub.curvenote.com/019c3f08-11b4-7285-9e08-de469c094495/public/devcells-b208c3b985734c1e5ca43f66e4b787dd.webp)
+![](https://pub.curvenote.com/019fd5ca-4c24-7770-b729-48979db36122/public/devcells-2b40a8a3f1dbd3889b2872ba14c99fb9.webp)
 :::
 
 :::{card} Double emulsion optimization: inner solution, lipid concentration, and composition

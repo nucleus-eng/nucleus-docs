@@ -201,7 +201,7 @@ Module contributed by Ahmed Sihorwala (Belardi Lab, UT Austin). Validation data 
 
 # Supported by
 
-DevNotes that reference this spec, not curated attribution; see Credits for that.
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards

@@ -157,7 +157,7 @@ GUV deGFP characterization by Mary Kelly (Kamat Lab, Northwestern University, De
 
 # Supported by
 
-DevNotes that reference this spec, not curated attribution; see Credits for that.
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards

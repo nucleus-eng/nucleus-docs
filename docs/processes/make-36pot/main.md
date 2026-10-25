@@ -171,7 +171,7 @@ Washing the assembled mix before concentrating removes residual salts (Na⁺, Im
 
 # Supported by
 
-DevNotes that reference this page, not curated attribution.
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards

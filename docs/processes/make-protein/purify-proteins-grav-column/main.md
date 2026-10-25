@@ -137,7 +137,7 @@ Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
 
 # Supported by
 
-DevNotes that reference this page, not curated attribution.
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards
