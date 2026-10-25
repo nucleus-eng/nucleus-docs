@@ -24,6 +24,7 @@
 # "# Supported by" section. It does not affect the manual modules/processes/
 # implementations tags above, which are already curated.
 exclude:
+  processes/make-36pot: [01a12d61-686f-7790-8068-f3638be6d7d2]
   processes/make-ribosomes: [01a12d61-686f-7790-8068-f3638be6d7d2]
   processes/make-small-molecule-mix: [01a12d61-686f-7790-8068-f3638be6d7d2]
   processes/make-trna: [01a12d61-686f-7790-8068-f3638be6d7d2]
