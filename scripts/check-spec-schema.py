@@ -12,12 +12,15 @@ key disagreeing with its own directory.
 Prints the paths searched and the file count, because a validator that reports zero
 findings over zero files looks identical to a clean run.
 """
-import sys, glob, os, argparse
+import sys, glob, os, re, argparse
 
 try:
     import yaml
 except ImportError:
     sys.exit("needs pyyaml: pip install pyyaml")
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import orders as ORDERS  # the one published-order loader; see scripts/orders.py
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEMA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spec-yml-schema.yml")
@@ -25,27 +28,118 @@ SCHEMA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spec-yml-sche
 
 
 
-_PROC_ORDER_CACHE = None
-
-
 def _process_order_nodes():
     """Nodes of the published process order. See _order_nodes."""
-    global _PROC_ORDER_CACHE
-    if _PROC_ORDER_CACHE is None:
-        nodes = set()
-        try:
-            with open(os.path.join(REPO, "docs", "type-system.posets.yml")) as fh:
-                edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("process_refinement", {}).get("edges") or {}
-            for child, ps in edges.items():
-                nodes.add(str(child))
-                nodes.update(str(x) for x in (ps or []))
-        except FileNotFoundError:
-            pass
-        _PROC_ORDER_CACHE = nodes
-    return _PROC_ORDER_CACHE
+    return ORDERS.process_nodes(ORDERS.load(REPO))
 
-_ORDER_CACHE = None
+
+# A CONTENTS TYPE IS READ, NOT LOOKED UP, 2026-10-20 -- rulings.md D207.
+# `Vesicle[liposome]{Substrate}` is a liposome carrying a substrate. The braces are
+# the containment this corpus writes throughout signature.md -- `Membrane{Cytosol}`,
+# `Gel{CPRG}`, `Solution{X}` -- and a bare `Vesicle[liposome]` under-specifies a slot
+# that wants a loaded one: an EMPTY liposome satisfies it.
+#
+# THE ORDER DOES NOT HOLD THESE AND MUST NOT. One node per payload does not scale
+# against 81 published names. Both halves resolve against the order separately and
+# the whole is never looked up, which is why this is a reader and not a longer list.
+#
+# NESTING IS ALLOWED, because containment nests: `Gel{Vesicle[liposome]{CPRG}}` is a
+# gel holding loaded liposomes, which is the pH demo's own arrangement.
+# The reader lives in orders.py now: two checkers use it. See D208.
+_CONTENTS = ORDERS.CONTENTS
+
+
+def _type_resolves(name, nodes=None):
+    """True when `name` is a node, or is `A{B}` with both halves resolving."""
+    nodes = _order_nodes() if nodes is None else nodes
+    if name in nodes:
+        return True
+    m = _CONTENTS.match(name)
+    return bool(m) and all(_type_resolves(h, nodes) for h in m.groups())
+
+
+def _type_refines(a, b):
+    """`a` refines `b`. COVARIANT IN THE PAYLOAD, which signature.md has published
+    since the `Cell` row gave its reason for refining `Vesicle`: "because
+    `Membrane{Cytosol}` <= `Membrane{Solution}`".
+
+    THE ASYMMETRY IS THE POINT. A loaded container refines a bare one -- a liposome
+    carrying a substrate IS a liposome -- and a bare one does NOT refine a loaded
+    one, because an empty liposome is not a liposome carrying anything. That second
+    direction is what makes a contents type worth writing at all.
+
+    NOTHING CALLS THIS YET. Nothing in this repo compares two types for refinement:
+    check-requirements.py's contravariance is on an OPERATION bracket,
+    `transcribe[pT7]`, and that is the whole of it. Built on a ruling of
+    2026-10-20 and tested in both directions, so it can fail before it has a caller.
+    """
+    ma, mb = _CONTENTS.match(a), _CONTENTS.match(b)
+    if ma and mb:
+        return all(_type_refines(x, y) for x, y in zip(ma.groups(), mb.groups()))
+    if ma:
+        return _type_refines(ma.group(1), b)
+    if mb:
+        return False
+    return ORDERS.refines(ORDERS.load(REPO), "type_refinement", a, b)
+
+
+# A BINDING SAYS WHICH MEMBER FILLS A CLASS SLOT -- rulings.md D210, 2026-10-20.
+# This is `_type_refines`' FIRST CALLER. It shipped in #312 with none, because
+# nothing in this repo compared two types for refinement and no source recorded
+# which member filled a slot: six class slots existed and not one binding.
+#
+# THE CHAIN IS ONE RULE. slot's class >= a Module's bound type >= an
+# Implementation's member type, every link the same comparison. Jon's "if it
+# further refines the cascade. not if not" is then "strictly below the link
+# above you", so restating a binding is an error and not a redundancy -- the
+# reading `refines:` repeating `type:` already gets.
+def _bound_type(value, docs):
+    """A binding's value as a type: a type outright, or the type of the page it names."""
+    if value.endswith("spec.md"):
+        slug = value.strip("./").split("/")[-2]
+        for path, d in docs:
+            if d.get("module") == slug:
+                return d.get("type")
+        return None
+    return value
+
+
+def binding_findings(docs):
+    """Every `binds:` entry, against the slot it claims to fill."""
+    by_slug = {d.get("module"): d for _, d in docs}
+    out = []
+    for path, doc in docs:
+        for key, val in (doc.get("inputs") or {}).items():
+            binds = (val or {}).get("binds") or {}
+            if not binds:
+                continue
+            page = (val or {}).get("page")
+            slug = page.strip("./").split("/")[-2] if isinstance(page, str) and page.endswith("spec.md") else key
+            target = by_slug.get(slug)
+            if target is None:
+                out.append((path, "binds-unknown-constituent", f"inputs/{key}/binds",
+                            f'"{slug}" names no source here, so its slots cannot be read'))
+                continue
+            for slot, value in binds.items():
+                tslot = ((target.get("inputs") or {}).get(slot) or {})
+                if not tslot:
+                    out.append((path, "binds-unknown-slot", f"inputs/{key}/binds/{slot}",
+                                f'"{slug}" has no input "{slot}"'))
+                    continue
+                if not tslot.get("type"):
+                    out.append((path, "binds-a-concrete-slot", f"inputs/{key}/binds/{slot}",
+                                f'"{slug}"\'s "{slot}" already names one thing; there is '
+                                f"nothing to bind"))
+                    continue
+                member = _bound_type(value, docs)
+                if member is None:
+                    out.append((path, "binds-unresolvable", f"inputs/{key}/binds/{slot}",
+                                f'"{value}" resolves to no type'))
+                elif not _type_refines(member, tslot["type"]):
+                    out.append((path, "binds-does-not-fit", f"inputs/{key}/binds/{slot}",
+                                f'"{member}" does not refine the slot\'s '
+                                f'"{tslot["type"]}"'))
+    return out
 
 
 def _order_nodes():
@@ -60,23 +154,20 @@ def _order_nodes():
     `refines:` keys, so checking a key against it is circular: a typo would invent its
     own node and pass. Types are not derivable here, which is why they are imported.
 
+    BOTH NOW GO THROUGH scripts/orders.py, 2026-10-12, which is also what fixes a
+    latent defect here: this function read `edges` alone, and `edges` is keyed by
+    child, so a type that refines nothing and is refined by nothing would have been
+    invisible. IT BITES NOTHING TODAY -- measured against main's published order,
+    #293's and the upstream file, every type has at least one edge, so the count is
+    68, 76 and 76 either way and no type is missing. The same mistake on the PROCESS
+    side hid nine of forty-one, because a Process can stand alone and a type in this
+    corpus currently cannot. Fixed here as a rule rather than as a bug.
+
     An absent order file degrades to accepting anything, the same failure the
     filesystem check had when a page was simply missing.
     """
-    global _ORDER_CACHE
-    if _ORDER_CACHE is None:
-        nodes = set()
-        try:
-            with open(os.path.join(REPO, "docs", "type-order.yml")) as fh:
-                edges = (yaml.safe_load(fh) or {}).get("orders", {}) \
-                          .get("type_refinement", {}).get("edges") or {}
-            for child, ps in edges.items():
-                nodes.add(str(child))
-                nodes.update(str(x) for x in (ps or []))
-        except FileNotFoundError:
-            pass
-        _ORDER_CACHE = nodes
-    return _ORDER_CACHE
+    return ORDERS.type_nodes(ORDERS.load(REPO))
+
 
 def schema_findings(doc, schema):
     try:
@@ -176,33 +267,27 @@ def _entails(q, p):
     return qs == ps or qs.startswith(ps + "_")
 
 
-def requires_placement_findings(docs):
-    """Where a `requires:` entry may sit.
-
-    On a class, as before: a module some other source refines. On a leaf only when it
-    STRENGTHENS an ancestor's requirement. Refinement adds axioms and never deletes
-    one, so a member entails everything its class requires, and a leaf may add a
-    stronger requirement by naming a refinement of the operation. A leaf's entry that
-    is no refinement of anything an ancestor requires is the old failure: a condition
-    on a thing nothing refines, with nothing above it to strengthen.
-    """
-    by_name, _ = _graph(docs)
-    classes = {p for _, d in docs for p in _parents(d)}
-    out = []
-    for m, (path, d) in sorted(by_name.items()):
-        entries = d.get("requires") or []
-        if not entries or m in classes:
-            continue
-        up = [a for lvl in _levels(m, lambda x: _parents(by_name[x][1]) if x in by_name else [])
-              for a in lvl if a in by_name]
-        inherited = [e["id"] for a in up for e in (by_name[a][1].get("requires") or [])]
-        for e in entries:
-            if not any(_entails(e["id"], p) for p in inherited):
-                out.append((path, "requires-on-a-non-class", f"requires/{e['id']}",
-                            f'"{m}" is not a class and no ancestor requires an operation '
-                            f'that {e["id"]} refines, so it strengthens nothing'))
-    return out
-
+# `requires:` IS NOT CLASS-ONLY, 2026-10-20 -- rulings.md D209. This held
+# `requires_placement_findings`, which allowed a module-level `requires:` only on a
+# class, or on a leaf naming a refinement of an ancestor's entry.
+#
+# Jon: "this is a misconception. a Module requiring `transcribe[pT7]` must be composed
+# with a module that PROVIDES that function, not refines that 'module' (transcribe is
+# a function not a module)". A requirement is discharged by COMPOSITION with a provider,
+# not by inheritance from a class, so who may state one was never the question.
+#
+# IT WAS NEVER A RULING. rulings.md has no row on it and retracted.md none either; it
+# was a session's reasoning written into a checker and into the schema, where the pair
+# then read as corroboration.
+#
+# IT HAD FLAGGED NOTHING, EVER, AND PLAUSIBLY CAUSED THAT. Measured on main bf9b98cd
+# before deletion: 12 sources, 0 with a module-level `requires:`, 0 findings. The rule
+# governed a key with no instances -- and by forbidding it everywhere but a class, it
+# is the likeliest reason the key has none.
+#
+# check-requirements.py already does the real work: R3 "DISCHARGE IN A COMPOSITE", and
+# its entry reader takes "Entries of `requires` or `provides` this module has: its own,
+# then its classes'" -- a module's own entries, whether or not anything refines it.
 
 def reference_findings(path, doc):
     """What the schema cannot say."""
@@ -216,12 +301,12 @@ def reference_findings(path, doc):
     own_type = doc.get("type")
     for i, (key, val) in enumerate((doc.get("inputs") or {}).items()):
         t = (val or {}).get("type")
-        if t is not None and t not in _order_nodes():
+        if t is not None and not _type_resolves(t):
             out.append(("type", f"inputs/{key}/type",
                         f'names "{t}", which is not a node of '
                         f"docs/type-order.yml's type order"))
 
-    if own_type is not None and own_type not in _order_nodes():
+    if own_type is not None and not _type_resolves(own_type):
         out.append(("type", "type",
                     f'names "{own_type}", which is not a node of '
                     f"docs/type-order.yml's type order"))
@@ -240,7 +325,7 @@ def reference_findings(path, doc):
             # refine its own type."
             out.append(("refines", "refines",
                         f'repeats `type: {parent}`; refines holds only the other axes'))
-        elif parent not in _order_nodes():
+        elif not _type_resolves(parent):
             out.append(("refines", "refines",
                         f'names "{parent}", which is not a node of '
                         f"docs/type-order.yml's type order"))
@@ -273,9 +358,8 @@ def reference_findings(path, doc):
     # both total, and a total morphism has no condition under which it is defined.
     # Telling a stepped source to put a requirement on its step would be telling it to
     # state the condition in the one place that cannot mean it.
-    # THE CLASS-ONLY TEST MOVED TO `requires_placement_findings`, which reads the whole
-    # corpus: a leaf may now state a requirement that strengthens an ancestor's, and
-    # whether it does is not a fact one document holds.
+    # THERE IS NO PLACEMENT TEST, 2026-10-20. Any Module may state a requirement; it
+    # is discharged by composition with a provider. See the note above D209.
 
     out.extend(requires_parameter_findings(doc))
 
@@ -334,7 +418,7 @@ def reference_findings(path, doc):
                and ab not in _process_order_nodes():
             out.append(("abstract", f"process_steps/{sid}/process/abstract",
                         f'"{ab}" names no directory under docs/processes/ and is not '
-                        f"a node of docs/type-system.posets.yml's process order"))
+                        f"a node of docs/type-order.yml's process order"))
         own = [l["page"].split("/")[-2]
                for l in (proc.get("composed_of") or [proc]) if l.get("page")]
         if ab and ab in own:
@@ -675,12 +759,52 @@ def main():
     context = loaded if not a.paths else _load_corpus(pattern)
     scope = {p for p, _ in loaded}
     member_out, member_n = member_property_findings(context)
+    binding_out = binding_findings(context)
     substrate_out, substrate_n = substrate_findings(context)
-    placement_out = requires_placement_findings(context)
-    for path, kind, where, msg in member_out + substrate_out + placement_out:
+    for path, kind, where, msg in member_out + substrate_out + binding_out:
         if path in scope:
             print(f"⛔️ {path} [{kind}] {where}: {msg}")
             total += 1
+
+    # EVERY RELATIVE PAGE CITATION, RESOLVED. NEW 2026-10-12.
+    #
+    # A spec.yml cites sibling pages by relative path, in `page:` fields and in
+    # prose comments, and NOTHING READ THOSE UNTIL TODAY. check-links.py walks
+    # Markdown and never opens a .yml -- a gap this repo's CLAUDE.md names and
+    # nothing closed.
+    #
+    # RE-MEASURED 2026-10-12 ON THIS BRANCH: 9 of the 42 citations across all
+    # sources did not resolve. They name the class pages J20 dropped --
+    # ../vesicle/spec.md, ../solution/spec.md, ../cytosol/spec.md,
+    # ../analyte-atc/spec.md -- carried in by the port rather than written fresh.
+    # THE FIGURE READ "11 of the 43" UNTIL TODAY, measured on e724d566. Two of
+    # those eleven were retracted text, and this comment was not re-measured when
+    # the retraction landed -- the PR body was corrected and the comment was not.
+    # A count in a comment is a claim about a tree, and it goes stale the way any
+    # other one does. Take it from the run, which prints both numbers every time. The control that makes this a finding
+    # about the port and not about the corpus: the pH demo session swept its own
+    # ten sources, written fresh against the published order, and 19 of 20 resolved,
+    # the one failure being a page still on an open PR.
+    #
+    # REPORT-ONLY, COUNTING TOWARD ZERO. Each dangling citation needs a decision
+    # about what it should point at instead -- usually a type, now that the class
+    # page is gone -- and the page's owner is the one who can make it. Failing the
+    # build would block every PR on a decision none of them is making.
+    #
+    # IT SWEEPS BOTH TREES, not just the module pattern this script otherwise reads,
+    # because a dangling pointer is the same defect wherever it sits and splitting it
+    # across two checkers is how it stayed invisible.
+    dangling = 0
+    swept = sorted(glob.glob(os.path.join(REPO, "docs/*/*/spec.yml")))
+    if a.paths:
+        swept = [f for f in swept if os.path.relpath(f, REPO) in scope]
+    for f in swept:
+        here, rel = os.path.dirname(f), os.path.relpath(f, REPO)
+        for m in re.finditer(r"\.\.?/[\w./-]*\.md",
+                             open(f, encoding="utf-8").read()):
+            if not os.path.isfile(os.path.normpath(os.path.join(here, m.group(0)))):
+                dangling += 1
+                print(f"⚠️  {rel}: cites `{m.group(0)}`, which is not a page here.")
 
     # scope, always — a clean run over the wrong scope reads the same as a clean run
     print(f"\nsearched: {searched}")
@@ -689,6 +813,8 @@ def main():
           f"{len(restated_out)} disagree")
     print(f"{member_n} member(s) checked against a class's member_properties; "
           f"{substrate_n} pairing member(s) checked against an enzyme's substrates")
+    print(f"{len(swept)} source(s) swept for relative page citations; "
+          f"{dangling} do not resolve. REPORTED, NOT FAILED.")
     if no_jsonschema:
         print("⚠️  jsonschema not installed — shape pass SKIPPED, reference pass ran")
     print("✅ no findings." if total == 0 else f"⛔️ {total} finding(s).")

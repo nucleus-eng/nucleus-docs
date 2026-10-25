@@ -101,3 +101,111 @@ jobs:
 
       - name: Check reference voice
         run: python3 scripts/check-reference-voice.py
+
+  spec-schema:
+    # Does every docs/modules/*/spec.yml match scripts/spec-yml-schema.yml, and do
+    # its `type:` and `refines:` values name nodes of the PUBLISHED type order?
+    #
+    # NOTHING RAN THIS UNTIL 2026-10-12. No spec.yml on main had ever been checked
+    # by CI, and the checker was passing for a reason that was not the check: it
+    # resolved `refines:` against docs/type-system.posets.yml, a file generated
+    # from the very values it was validating, so a typo invented its own node and
+    # passed. It could reject something new and never anything already committed.
+    # Both halves are fixed; this is what makes the fix hold.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Check module sources
+        run: python3 scripts/check-spec-schema.py
+
+  conflicts:
+    # Layer C: Conflicts computed, presence sensitivities met, predicates decided.
+    #
+    # NOTHING RAN THIS UNTIL 2026-10-20. scripts/check-conflicts.py reached main in
+    # #307, cited eleven times by a schema that had been documenting it for weeks,
+    # and no job called it. A checker nothing runs is the shape this repo kept
+    # finding in itself this month; this is the one it found in its own Conflict
+    # machinery.
+    #
+    # IT REPORTS AND RETURNS 0 BY DESIGN, so this job passes on a clean corpus and
+    # on a silent one alike. Its own output says why that is not a pass: "an
+    # undeclared Module makes no claim that it has no sensitivity". What this job
+    # buys is that the report is PRODUCED, read and kept honest -- a crash, an
+    # unparsable predicate or a source it cannot load now fails here instead of
+    # being discovered the next time somebody types the command.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Compute conflicts, presence and predicates
+        run: python3 scripts/check-conflicts.py
+
+  process-schema:
+    # The same for docs/processes/*/spec.yml, against scripts/process-yml-schema.yml.
+    #
+    # Its unknown-parent check was a warning "UNTIL `make` AND `assay` ARE RULED ON",
+    # which meant it could not reject a misspelled parent at all. Jon ruled on
+    # 2026-10-12, the count reached zero, and it fails again. Wiring it in is what
+    # keeps the count there.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Test the shared order loader
+        run: |
+          pip install pytest
+          python3 -m pytest scripts/tests/test_orders.py -q
+
+      - name: Check process sources
+        run: python3 scripts/check-process-schema.py
+
+  composition-diagrams:
+    # Every page with a `gen:composition-diagram` block must match a fresh render
+    # of its spec.yml. render-composition.py --check exits 1 on a stale block and
+    # writes nothing. Before this ran, two committed diagrams drifted from their
+    # sources unnoticed until a regeneration found them (fixed in #308).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Check generated composition diagrams
+        run: |
+          status=0
+          pages=$(grep -rl 'gen:composition-diagram' docs --include=spec.md)
+          if [ -z "$pages" ]; then
+            echo "No page carries a gen:composition-diagram block; nothing checked."
+            exit 1
+          fi
+          for page in $pages; do
+            python3 scripts/render-composition.py "${page%spec.md}spec.yml" --check || status=1
+          done
+          exit $status

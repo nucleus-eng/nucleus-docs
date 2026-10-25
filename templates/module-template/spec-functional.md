@@ -192,12 +192,29 @@ TODO: Requirements, one per paragraph or bullet.
 <!-- Critical materials and purchased reagents. Keep vendor links in their own Link column
 rather than wrapping the manufacturer name — see docs/processes/make-trna/main.md for a
 well-formatted example. If this table is a lab-ready BOM, its `:label:` must be
-`bom-<directory-name>` (check-bom-labels.py rule 1). -->
+`bom-<directory-name>` (check-bom-labels.py rule 1).
+
+REQUIRED COLUMNS — `Name`, `Manufacturer`, `Part #`. Jon ruled the set on 2026-10-12.
+Three columns is a conformant table; do not invent a cell you cannot source.
+
+OPTIONAL COLUMNS, one allowed spelling each — `Category`, `Product`, `Price`, `Storage`,
+`Link`, `Description`, `Used for`, `Molecular weight`. Add the ones this module needs and
+delete the rest. `Description` and `Product` are two different things and both are allowed:
+`Product` is the vendor's catalogue string, `Description` is prose about the material.
+`Description`, `Used for` and `Molecular weight` stay on the page and are deliberately not
+carried into the distribution-wide materials reference.
+
+THIS HEADER SAID `Material | Description | ...` UNTIL 2026-10-12, and neither `Material` nor
+`Description` was a title bom_common.py could read, so every page written from this template
+lost its name column into the reference and nothing reported it. `Material` is now read as
+`Name` and the checker asks for `Name`. Unknown cells are an em dash, never prose: a part
+number reading "Not stated" is indexed as a real material under the key
+('not stated', 'not stated'), where an em dash is skipped. -->
 
 :::{table}
 :label: critical-materials
 
-| Material | Description | Manufacturer | Part # | Storage | Link |
+| Name | Description | Manufacturer | Part # | Storage | Link |
 | --- | --- | --- | --- | --- | --- |
 | TODO | TODO | TODO | TODO | TODO | [link](TODO) |
 :::
