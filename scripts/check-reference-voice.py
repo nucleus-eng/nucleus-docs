@@ -16,7 +16,13 @@ Tier 1 — errors, exit 1:
                 citing "(Group Meeting, contributor, date)" or "personal
                 communication" passes this rule and the date rule: those
                 forms are an Editor's choice, and an agent must not write
-                them (see style-guide/principles.md).
+                them (see style-guide/principles.md). A card's `:footer:`
+                field (a DevNote's own author byline, e.g. in a
+                "# Supported by" block) passes this rule too: it is
+                attribution metadata, not a claim about who decided
+                anything, and a byline's name may be an external author
+                who only coincidentally shares a first or last name with
+                a contributor registered under a different full name.
   ruling        "ruled" or "ruling". "ruled out" is fine.
   working-notes a pointer into our working notes: compositional-biology-theory,
                 "the theory corpus", open.md / rulings.md / glossary.md /
@@ -104,6 +110,10 @@ TIER2 = {
 
 # The two citation forms an Editor may choose for a fact with no document behind it.
 EDITOR_CITATION = re.compile(r"\(Group Meeting,|personal communication")
+
+# A card's byline field: a DevNote's own author list, not a claim about who
+# decided something. See the `person` tier's docstring entry above.
+CARD_BYLINE_FIELD = re.compile(r"^:footer:")
 
 PERSON_MESSAGE = "says who decided or who said so. State the result; the commit message records who decided."
 
@@ -231,6 +241,8 @@ def check_file(path: Path, person: re.Pattern) -> list[tuple[int, str, str, str,
                 if rule == "working-notes" and pinned & {lineno - 1, lineno, lineno + 1}:
                     continue
                 if rule in ("person", "date") and EDITOR_CITATION.search(line):
+                    continue
+                if rule == "person" and CARD_BYLINE_FIELD.match(line.lstrip()):
                     continue
                 for m in pattern.finditer(line):
                     findings.append((lineno, level, rule, m.group(0), message))

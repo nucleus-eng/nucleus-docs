@@ -188,3 +188,68 @@ While handling liposomes, be gentle! Liposomes are fragile. Do not vortex and on
 :::
 
 ::::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} ClpXP Control Module: Deployment in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019b613d-4a47-7d62-a262-77a667467a57
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-9199-7ac0-bacf-3ac935c46856/public/control-module-bcdff4929cf964ead1956fd124d8d9d9.webp)
+:::
+
+:::{card} IV-HSL Emitter Cell
+:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
+:::
+
+:::{card} Integrating PPK Module in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019926c4-3341-76fc-8f36-eb96fd77c170
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-f2cb-77ef-be8a-94b6945522ba/public/Developer_Cell-PPK_M-0437e9bcfcc9583145022782575f6b7b.webp)
+:::
+
+:::{card} London Exchange Meeting: Liposome Protocol Survey
+:link: https://devnotes.nucleus.engineering/articles/019de275-d95d-7773-8622-59c333b056a9
+:footer: London Exchange Meeting Participants · Workshops and Courses
+
+![](https://pub.curvenote.com/01a08bf0-438a-7f89-8da9-7e1682f18642/public/thumbnail-5e1ebd3aefe4386efbd2de0f12b74635.webp)
+:::
+
+:::{card} Nucleus Base Cell Testing
+:link: https://devnotes.nucleus.engineering/articles/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-8d9d-7f8f-96e1-2eefb52a607d/public/Image1-97e36bb3a38f167a4409ef588837c5fa.webp)
+:::
+
+:::{card} SecYEG-Based Membrane Translation Module in Synthetic Cells
+:link: https://devnotes.nucleus.engineering/articles/019eae62-056c-7285-a994-aeb800ecdaa5
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd2-12e5-77f7-ae0b-ffdbecb813d5/public/%20Schematic-SecYEG%20tr-8e0db9f6dcac44b44e156fbccbbaed6f.webp)
+:::
+
+:::{card} Synthetic Cells Course Lab Manual: Cell-free Gene Expression and Liposome Encapsulation
+:link: https://devnotes.nucleus.engineering/articles/019f7d1d-98b9-7fa0-a691-ea286ab8a96f
+:footer: Maia Grace Lambson, Clara Lillie, Grace Nicole Montgomery, Sunayana Nguyen, Javin P Oza · Workshops and Courses
+
+![](https://pub.curvenote.com/01a14b4a-c04a-7d1b-ace2-50afec134578/public/grace-0306-fluoresce-17622626d5e8d521e944e518fe250407.png)
+:::
+
+:::{card} The Developer Cell Control Module: Protein Degradation by ClpXP
+:link: https://devnotes.nucleus.engineering/articles/01981a5d-64c2-72f2-8055-5634d2824ede
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd0-f496-7ee2-b08c-1c7e00240c3d/public/clpXP-85886080fd564ecd4e0aa3e9d696803a.webp)
+:::
+
+::::

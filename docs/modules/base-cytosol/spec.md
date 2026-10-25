@@ -224,3 +224,88 @@ The behavior of Base Cytosol is characterized using the [Reporter: deGFP](../rep
 
 Reformulated by Yemo Ku and Jon Calles (b.next) from the PURE system, developed by the Ueda Lab ([Shimizu et al., 2001](https://doi.org/10.1038/90802)).
 
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Characterizing the Limited Operational Lifetime of Cytosol Reactions
+:link: https://devnotes.nucleus.engineering/articles/019ef6d5-3a27-787f-9ebd-fe80645b1068
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0bda-777d-90ea-ef62ac077bf8/public/kinetics-normalized-8268e61917aa794a036d5761bad675cd.webp)
+:::
+
+:::{card} ClpXP Control Module: Deployment in Nucleus Cytosol
+:link: https://devnotes.nucleus.engineering/articles/019f05cb-6be8-7189-8c0d-f8f51d170541
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a15336-ad4c-7145-b48c-b467190898c0/public/control-module-456a08ae6157de8014ea7b8b5895035f.webp)
+:::
+
+:::{card} DevCells: Kickoff Workshop
+:link: https://devnotes.nucleus.engineering/articles/019b286c-a610-70b5-af71-648d569e650b
+:footer: DevCells Kickoff Workshop · Workshops and Courses
+
+![](https://pub.curvenote.com/019fd5ca-4c24-7770-b729-48979db36122/public/devcells-2b40a8a3f1dbd3889b2872ba14c99fb9.webp)
+:::
+
+:::{card} Developer Studio
+:link: https://devnotes.nucleus.engineering/articles/01a0588e-dcf0-7ff3-b7d6-852cdac2734a
+:footer: Developer Studio Workshop Participants · Workshops and Courses
+
+![](https://pub.curvenote.com/01a10d00-b216-7d54-9a79-7163b3d8a2e5/public/thumbnail-7701ce0b0d15b06de49caf4609224388.webp)
+:::
+
+:::{card} Double Vesicle Lysis System Leveraging deGFP CFPE
+:link: https://devnotes.nucleus.engineering/articles/01a16026-42c1-71ad-842a-463d52fae7d8
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f37b-7cd9-ac05-7f491b920d6e/public/fig1-two-vesicle-kin-b2f2e21461dd910150fd25955247d4e8.webp)
+:::
+
+:::{card} First Nucleus Cytosol Testing
+:link: https://devnotes.nucleus.engineering/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/019fcdbd-d48a-7319-be07-15b772037c88/public/illustration2-63bd8a34b4a90292a066abf875d462eb.png)
+:::
+
+:::{card} Nucleus Base Cell Testing
+:link: https://devnotes.nucleus.engineering/articles/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-8d9d-7f8f-96e1-2eefb52a607d/public/Image1-97e36bb3a38f167a4409ef588837c5fa.webp)
+:::
+
+:::{card} Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
+:link: https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a
+:footer: Charlie Newell, Manuel Bibrowski, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650a-b201-7bf1-8f59-f37bce646feb/public/EsaR-sensing-6354ffdd322f6b6aca0909ed8f894e30.png)
+:::
+
+:::{card} Synthetic Cells Course Lab Manual: Cell-free Gene Expression and Liposome Encapsulation
+:link: https://devnotes.nucleus.engineering/articles/019f7d1d-98b9-7fa0-a691-ea286ab8a96f
+:footer: Maia Grace Lambson, Clara Lillie, Grace Nicole Montgomery, Sunayana Nguyen, Javin P Oza · Workshops and Courses
+
+![](https://pub.curvenote.com/01a14b4a-c04a-7d1b-ace2-50afec134578/public/grace-0306-fluoresce-17622626d5e8d521e944e518fe250407.png)
+:::
+
+:::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
+:link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig7-patterned-gel-5fc6273fa124c69e6d78ac4caafe3ce4.webp)
+:::
+
+:::{card} What is a Cytosol Landscape?
+:link: https://devnotes.nucleus.engineering/articles/01a08c2d-2898-7f60-8f62-6bee069fddca
+:footer: Sharon Newman · Nucleus Core
+
+![](https://pub.curvenote.com/01a14c37-92c9-709e-91b5-af7303081a95/public/thumbnail-223faeab72d3f8699de21fbcfcf44279.webp)
+:::
+
+::::

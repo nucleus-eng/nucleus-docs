@@ -157,16 +157,30 @@ GUV deGFP characterization by Mary Kelly (Kamat Lab, Northwestern University, De
 
 # Supported by
 
-DevNotes that reference this spec, not curated attribution; see Credits for that.
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards
 
-:::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
-:link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
+:::{card} Expressing Cell-Free TetO-GFP in Solution with aTc Titration
+:link: https://devnotes.nucleus.engineering/articles/01a12d61-686f-7790-8068-f3638be6d7d2
 :footer: Mary Kelly, Madison Briggs · DevStudio 2026
 
-![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig7-patterned-gel-5fc6273fa124c69e6d78ac4caafe3ce4.webp)
+![](https://pub.curvenote.com/01a1650b-08b5-76a5-a679-ac13b0944c15/public/fig2-endpoint-gfp-at-09c04f5579c52340f211668c43f87209.webp)
+:::
+
+:::{card} GUV Encapsulation of a TetR/aTc-Inducible deGFP Cell-Free Sensor
+:link: https://devnotes.nucleus.engineering/articles/01a12ce3-b57e-7986-8786-d64ff5b6e936
+:footer: Mary Kelly · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650b-081a-7258-a515-7ca0766174f5/public/fig1-bulk-kinetics-abc1dc43cd2229418420caf2908bdad1.webp)
+:::
+
+:::{card} IV-HSL Emitter Cell
+:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
 :::
 
 :::{card} Implementing of a bulk color change module into bacterial quorum sensing
@@ -176,18 +190,11 @@ DevNotes that reference this spec, not curated attribution; see Credits for that
 ![](https://pub.curvenote.com/01a1650a-90b4-729f-875b-e4f1ddce3bec/public/colorchange-overnigh-520d47ff723d53997b42c0e1c8c68cdc.webp)
 :::
 
-:::{card} Expressing Cell-Free TetO-GFP in Solution with aTc Titration
-:link: https://devnotes.nucleus.engineering/articles/01a12d61-686f-7790-8068-f3638be6d7d2
+:::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
+:link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
 :footer: Mary Kelly, Madison Briggs · DevStudio 2026
 
-![](https://pub.curvenote.com/01a1650b-08b5-76a5-a679-ac13b0944c15/public/fig2-endpoint-gfp-at-09c04f5579c52340f211668c43f87209.webp)
-:::
-
-:::{card} IV-HSL Emitter Cell
-:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
-:footer: Yen-Yu Hsu · Nucleus Core
-
-![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
+![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig7-patterned-gel-5fc6273fa124c69e6d78ac4caafe3ce4.webp)
 :::
 
 ::::
