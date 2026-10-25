@@ -40,7 +40,7 @@ import sys
 import urllib.error
 import urllib.request
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 try:
     import yaml
@@ -135,7 +135,9 @@ def fetch_all_notes() -> tuple[dict[str, list[dict]], dict[str, dict]]:
         # a static page with; a note with neither gets rendered with no
         # thumbnail rather than a card the build can't actually produce.
         thumb_path = project.get("thumbnailOptimized") or project.get("thumbnail")
-        thumbnail = f"{cdn}{cdn_key}/public{thumb_path}" if thumb_path else None
+        # A thumbnail filename can contain a raw space (seen on at least one
+        # note) or other characters that break an unescaped URL outright.
+        thumbnail = f"{cdn}{cdn_key}/public{quote(thumb_path, safe='/')}" if thumb_path else None
 
         card = {
             "title": work.get("title", "Untitled"),

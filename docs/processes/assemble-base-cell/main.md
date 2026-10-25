@@ -235,7 +235,7 @@ DevNotes that reference this page, not curated attribution.
 :link: https://devnotes.nucleus.engineering/articles/019eae62-056c-7285-a994-aeb800ecdaa5
 :footer: Yen-Yu Hsu · Nucleus Core
 
-![](https://pub.curvenote.com/01a08cd2-12e5-77f7-ae0b-ffdbecb813d5/public/ Schematic-SecYEG tr-8e0db9f6dcac44b44e156fbccbbaed6f.webp)
+![](https://pub.curvenote.com/01a08cd2-12e5-77f7-ae0b-ffdbecb813d5/public/%20Schematic-SecYEG%20tr-8e0db9f6dcac44b44e156fbccbbaed6f.webp)
 :::
 
 :::{card} Synthetic Cells Course Lab Manual: Cell-free Gene Expression and Liposome Encapsulation
