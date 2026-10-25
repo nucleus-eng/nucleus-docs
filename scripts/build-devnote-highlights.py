@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-build-devnote-highlights.py — write the "Recent DevNotes" section on the
-homepage (intro.md), showing the 5 most recently published DevNotes.
+build-devnote-highlights.py — write the "Documentation comes from DevNotes"
+section on the homepage (intro.md), showing the 5 most recently published
+DevNotes.
 
 Queries the same Curvenote SCMS API as build-devnote-cards.py and
 build-devnote-counts.py (see those for the request shape), sorts by

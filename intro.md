@@ -99,7 +99,7 @@ Tutorials, how-tos, and workshop materials for using the Nucleus Distribution an
 
 ::::
 
-### 🧪 Recent DevNotes
+### Documentation comes from DevNotes
 
 Modules, Processes, Implementations, and the resources above all grow from DevNotes the community contributes. The five most recent are shown here; browse the full collection at [DevNotes](https://devnotes.nucleus.engineering).
 
