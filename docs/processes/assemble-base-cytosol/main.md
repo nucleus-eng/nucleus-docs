@@ -69,9 +69,8 @@ Please read this section carefully. It contains important notes, resources, and 
 | Protein Mix (PMix)        | 1.2                              |
 | Ribosomes                 | 1.8                              |
 | RNase Inhibitor           | 0.5                              |
-| `pOpen-deGFP`             | 0.5                              |
-| User Additives            | X                                |
-| Nuclease Free Water       | 2.0 - X                          |
+| Optional additions, such as template DNA (e.g. `pOpen-deGFP`) or Optiprep for encapsulation by phase transfer | X |
+| Nuclease Free Water       | 2.5 - X                          |
 | Total                     | 10                               |
 
 :::
@@ -149,3 +148,33 @@ To avoid introducing bubbles, use reverse pipetting to array your samples. With 
 
 ::::
 :::::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Expressing Cell-Free TetO-GFP in Solution with aTc Titration
+:link: https://devnotes.nucleus.engineering/articles/01a12d61-686f-7790-8068-f3638be6d7d2
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650b-08b5-76a5-a679-ac13b0944c15/public/fig2-endpoint-gfp-at-09c04f5579c52340f211668c43f87209.webp)
+:::
+
+:::{card} Implementing of a bulk color change module into bacterial quorum sensing
+:link: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
+:footer: Manuel Bibrowski, Charlie Newell, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650a-90b4-729f-875b-e4f1ddce3bec/public/colorchange-overnigh-520d47ff723d53997b42c0e1c8c68cdc.webp)
+:::
+
+:::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
+:link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig7-patterned-gel-5fc6273fa124c69e6d78ac4caafe3ce4.webp)
+:::
+
+::::

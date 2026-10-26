@@ -71,6 +71,7 @@ flowchart LR
 ```
 
 - [Assemble Base Cytosol](./assemble-base-cytosol/main.md)
+- [Build a Base Cell](./build-base-cell/main.md) — the lipids, an outer solution and an inner solution of Base Cytosol, in order, through to finished Base Cells.
 
 ### Make Base Cytosol Components
 

@@ -186,3 +186,40 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Credits
 
 Developed by Surendra Yadav (b.next).
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Combining Class I & Class II PPK2 in Synthetic Cells
+:link: https://devnotes.nucleus.engineering/articles/01a166a7-127b-7b5f-acc9-1a6d8b99ec8c
+:footer: Jillian Yujuico, Zach Peterson · Workshops and Courses
+
+![](https://pub.curvenote.com/01a166b6-14c8-7d8b-a4f5-dd98fa087583/public/fig1-sds-page-6cf7f246878feb8843be6a87edea3d08.webp)
+:::
+
+:::{card} Integrating PPK Module in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019926c4-3341-76fc-8f36-eb96fd77c170
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-f2cb-77ef-be8a-94b6945522ba/public/Developer_Cell-PPK_M-0437e9bcfcc9583145022782575f6b7b.webp)
+:::
+
+:::{card} PPK Module testing in PURE
+:link: https://devnotes.nucleus.engineering/articles/01981160-aaa4-7f80-b3e4-d8179077b8fe
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-9809-7919-8e1f-210b5d8baa9a/public/PPK-illustration-936ef9c4b4429aec2c8a933c9fcc8103.webp)
+:::
+
+:::{card} Supplementation and Encapsulation of PPK2 Enzymes in PURExpress Systems
+:link: https://devnotes.nucleus.engineering/articles/01a166a8-645c-7748-aed7-b3e7ec381fc7
+:footer: Sunayana Nguyen · Developer Cells
+
+![](https://pub.curvenote.com/01a166af-20f5-7f92-83aa-d75e2a12eb79/public/fig1-control-sfgfp-k-dc770221fc3c5fd1eb766e251a626867.webp)
+:::
+
+::::

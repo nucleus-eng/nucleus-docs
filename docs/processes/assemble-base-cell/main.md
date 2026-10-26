@@ -22,11 +22,11 @@ Each [Module specification](../../modules/modules-main.md) gives its own referen
 :::{table}
 :label: comp-membrane-default
 
-| Component    | Target Percentage (%) | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
+| Component    | Target (mmol/mol)     | Molecular Weight (g/mol) | Stock concentration (mg/mL) | Volume to add (µL) |
 | ------------ | --------------------- | ------------------------ | --------------------------- | ------------------ |
-| POPC         | 70                    | 760.076                  | 25                          | 162.17             |
-| Cholesterol  | 29.95                 | 386.654                  | 50                          | 17.65              |
-| Liss-Rhod PE | 0.05                  | 1301.71                  | 1                           | 4.96               |
+| POPC         | 699.3                 | 760.076                  | 25                          | 162.01             |
+| Cholesterol  | 299.7                 | 386.654                  | 50                          | 17.66              |
+| Liss-Rhod PE | 1                     | 1301.71                  | 1                           | 9.92               |
 :::
 
 See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membrane spec.
@@ -60,7 +60,7 @@ See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membr
 | Optiprep                        | Reagent    | OptiPrep™                                                                                                                              | STEMCELL Technologies | 07820       | $289.00 | RT                      | [link](https://www.stemcell.com/products/optipreptm.html)                                                                                                                                                                 |
 | POPC                            | Lipid      | 16:0-18:1 PC 25 mg/mL                                                                                                                  | Avanti Lipids         | A80557      | $435.00 | -20 °C                  | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc)                                                                                                                                      |
 | Cholesterol                     | Lipid      | Cholesterol (plant)                                                                                                                    | Avanti Research       | A80100      | $261.00 | -20 °C                  | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant)                                                                                                                                    |
-| Liss-Rhod PE                    | Lipid      | 18:0 Liss Rhod PE 1 mg/mL                                                                                                              | Avanti Lipids         | A81179      | $273.47 | -20 °C                  | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe)                                                                                                                                     |
+| Liss-Rhod PE                    | Lipid      | 18:1 Liss Rhod PE                                                                                                                      | Avanti Research       | A81150      | —       | -20 °C                  | —                                                                                                                                                                                                                         |
 | Glucose                         | Chemical   | D-(+)-Glucose, 99%                                                                                                                     | Thermo Scientific     | A16828-36   | $41.65  | RT                      | [link](https://www.thermofisher.com/order/catalog/product/A16828.36)                                                                                                                                                      |
 | Chloroform                      | Chemical   | Chloroform, suitable for HPLC, ≥99.8%, contains 0.5-1.0% ethanol as stabilizer                                                         | Sigma-Aldrich         | 366927      | $94.30  | RT (flammables cabinet) | [link](https://www.sigmaaldrich.com/US/en/product/sigald/366927)                                                                                                                                                          |
 | Mineral oil                     | Chemical   | Mineral oil, mixed weight                                                                                                              | Thermo Scientific     | AC415080010 | $53.40  | RT                      | [link](https://www.thermofisher.com/order/catalog/product/AC415080010)                                                                                                                                                    |
@@ -75,7 +75,7 @@ See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membr
 
 ## Prepare Lipids in Mineral Oil
 
-- [ ] Add 1 mL of mineral oil to the glass vial using a 1 mL pipette.
+- [ ] Add 1 mL of mineral oil to a 4 mL glass vial using a 1 mL pipette.
 
 :::{warning} Warning
 :class: simple
@@ -107,9 +107,9 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 ## Assemble Outer Solutions
 
 - [ ] Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
-- [ ] Prepare outer solution by mixing glucose stock solution and water to reach your target osmolarity:
+- [ ] Prepare outer solution by mixing glucose stock solution and water. The table is a starting recipe; the target is a reading, set in the note below:
 
-:::{table} Preparation of outer solutions. These values are approximates and may vary based on the measured osmolarity of your inner solution (here: targeting 1140 mOsm).
+:::{table} Outer solution, starting recipe: 1140 mM glucose. A glucose concentration is not a reading of osmotic concentration: this solution is expected to read about 1275 mOsm/kg, scaled from one reading in [Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01) and not measured. Adjust it to your inner solution's reading, as the note below says.
 :name: os-prep
 
 | **Component**     | **Outer Solution (µL)** |
@@ -123,7 +123,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 :::{hint} Note
 :class: simple
 :icon: false
-The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol/spec.md). Measure the osmolarity of your inner solution and adjust the outer solution's glucose concentration so its osmolarity is 100 mOsm to 120 mOsm lower than the inner solution. Check the osmolarity of your inner solution by measuring with an Osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
+Measure the osmotic concentration of your inner solution, and adjust the outer solution's glucose concentration until the outer solution reads 100 mOsm/kg to 150 mOsm/kg lower. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). **Measure the outer solution as well, because its glucose concentration is not its reading.** In that DevNote the inner solution read 1060 mOsm/kg, and 850 mM glucose read 950 mOsm/kg. Scaled by glucose concentration from that pair, the recipe above would read about 1275 mOsm/kg, which would suit an inner solution of about 1375 mOsm/kg to 1425 mOsm/kg. Both figures are computed, not measured, and concentrated glucose does not scale exactly. Measure both on a vapor-pressure osmometer (e.g., Wescor EliTech Vapro 5600 Vapor Pressure Osmometer).
 :::
 
 ## Encapsulate Inner Solution
@@ -133,7 +133,7 @@ The values shown are for encapsulating [Base Cytosol](../../modules/base-cytosol
     - [ ] **T**—transfer
     - [ ] **L**—liposomes
 - [ ] Add 300 µL of the appropriate glucose outer solution to each of the tubes labeled **T**. Vortex thoroughly and spin down.
-- [ ] Assemble at least 30 µL of your inner solution per reaction (see [Assemble Base Cytosol](../assemble-base-cytosol/main.md) for an example).
+- [ ] Assemble at least 30 µL of your inner solution per reaction. For the Base Cell, [Build a Base Cell](../build-base-cell/main.md) gives the inner solution and every other step in order.
 - [ ] Once at room temperature, add 150 µL of the lipid-oil mixture on top of each assembled inner solution reaction.
 - [ ] Emulsify the lipid-oil and inner solution reaction by running the tube along a row of empty slots on the 1.5 mL tube rack. Drag your tube across empty slots at least 50 times until you form a stable emulsion with a homogeneous milky appearance.
 
@@ -185,6 +185,71 @@ While handling liposomes, be gentle! Liposomes are fragile. Do not vortex and on
 :header: **Bill of Materials**
 
 {button}`download <generated/assemble-base-cell-bom.pdf>`
+:::
+
+::::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} ClpXP Control Module: Deployment in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019b613d-4a47-7d62-a262-77a667467a57
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-9199-7ac0-bacf-3ac935c46856/public/control-module-bcdff4929cf964ead1956fd124d8d9d9.webp)
+:::
+
+:::{card} IV-HSL Emitter Cell
+:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
+:::
+
+:::{card} Integrating PPK Module in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019926c4-3341-76fc-8f36-eb96fd77c170
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-f2cb-77ef-be8a-94b6945522ba/public/Developer_Cell-PPK_M-0437e9bcfcc9583145022782575f6b7b.webp)
+:::
+
+:::{card} London Exchange Meeting: Liposome Protocol Survey
+:link: https://devnotes.nucleus.engineering/articles/019de275-d95d-7773-8622-59c333b056a9
+:footer: London Exchange Meeting Participants · Workshops and Courses
+
+![](https://pub.curvenote.com/01a08bf0-438a-7f89-8da9-7e1682f18642/public/thumbnail-5e1ebd3aefe4386efbd2de0f12b74635.webp)
+:::
+
+:::{card} Nucleus Base Cell Testing
+:link: https://devnotes.nucleus.engineering/articles/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-8d9d-7f8f-96e1-2eefb52a607d/public/Image1-97e36bb3a38f167a4409ef588837c5fa.webp)
+:::
+
+:::{card} SecYEG-Based Membrane Translation Module in Synthetic Cells
+:link: https://devnotes.nucleus.engineering/articles/019eae62-056c-7285-a994-aeb800ecdaa5
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd2-12e5-77f7-ae0b-ffdbecb813d5/public/%20Schematic-SecYEG%20tr-8e0db9f6dcac44b44e156fbccbbaed6f.webp)
+:::
+
+:::{card} Synthetic Cells Course Lab Manual: Cell-free Gene Expression and Liposome Encapsulation
+:link: https://devnotes.nucleus.engineering/articles/019f7d1d-98b9-7fa0-a691-ea286ab8a96f
+:footer: Maia Grace Lambson, Clara Lillie, Grace Nicole Montgomery, Sunayana Nguyen, Javin P Oza · Workshops and Courses
+
+![](https://pub.curvenote.com/01a14b4a-c04a-7d1b-ace2-50afec134578/public/grace-0306-fluoresce-17622626d5e8d521e944e518fe250407.png)
+:::
+
+:::{card} The Developer Cell Control Module: Protein Degradation by ClpXP
+:link: https://devnotes.nucleus.engineering/articles/01981a5d-64c2-72f2-8055-5634d2824ede
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd0-f496-7ee2-b08c-1c7e00240c3d/public/clpXP-85886080fd564ecd4e0aa3e9d696803a.webp)
 :::
 
 ::::

@@ -7,24 +7,22 @@ description: A catalog of validated biochemical modules — detectors, reporters
 
 A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
 
-**Validation key:** ★★★ frequently used, ★★ validated (cells or in vitro),  ★ preliminary / DevNote only
-
 ## PURExpress
 
 Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit).
 
 :::{table}
 
-| Module Class    | Specification                               | Validation |
-| --------------- | ------------------------------------------- | ---------- |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | ★★★        |
-| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | ★★         |
-|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | ★★         |
-| Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | ★★         |
-| Control         | [ClpXP](./control-clpxp/spec.md)            | ★★         |
-| Energy          | [PPK](./energy-ppk/spec.md)                 | ★          |
-| Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | ★          |
-|                 | [Cx43](./membrane-pore-cx43/spec.md)        | ★          |
+| Module Class    | Specification                               | DevNotes |
+| --------------- | ------------------------------------------- | -------- |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | 4        |
+| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | 4        |
+|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | 0        |
+| Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | 1        |
+| Control         | [ClpXP](./control-clpxp/spec.md)            | 4        |
+| Energy          | [PPK](./energy-ppk/spec.md)                 | 4        |
+| Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | 0        |
+|                 | [Cx43](./membrane-pore-cx43/spec.md)        | 2        |
 
 :::
 
@@ -34,20 +32,20 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 
 :::{table}
 
-| Module Class | Specification | Validation |
-| --- | --- | --- |
-| Cytosol (Base) | [Cytosol](./base-cytosol/spec.md) | ★★★ |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | ★★★ |
-| Reporter | [deGFP](./reporter-degfp/spec.md) | ★★★ |
-| Cell (Base) | [Base Cell](./base-cell/spec.md) | ★★★ |
-| Cell (Dye) | [Dye Liposomes](./dye-liposomes/spec.md) | ★★★ |
-| Detector | [pH-Sensing](./detector-ph/spec.md) | ★ |
-| Reporter | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md) | ★ |
-| Cell (Sensing) | [pH Sensing Cell](./ph-sensing-cell/spec.md) | ★ |
-| Cell (Substrate) | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | ★ |
-| Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | ★ |
-| Cascade | [pH Cascade](./ph-cascade/spec.md) | ★ |
-| Reporter | [Color Change](./color-change/spec.md) | ★ |
+| Module Class     | Specification                                       | DevNotes |
+| ---------------- | --------------------------------------------------- | -------- |
+| Cytosol (Base)   | [Cytosol](./base-cytosol/spec.md)                   | 10       |
+| Membrane (Base)  | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
+| Reporter         | [deGFP](./reporter-degfp/spec.md)                   | 7        |
+| Cell (Base)      | [Base Cell](./base-cell/spec.md)                    | 6        |
+| Cell (Dye)       | [Dye Liposomes](./dye-liposomes/spec.md)            | 0        |
+| Detector         | [pH-Sensing](./detector-ph/spec.md)                 | 0        |
+| Reporter         | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 0        |
+| Cell (Sensing)   | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 0        |
+| Cell (Substrate) | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 0        |
+| Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 0        |
+| Cascade          | [pH Cascade](./ph-cascade/spec.md)                  | 0        |
+| Reporter         | [Color Change](./color-change/spec.md)              | 0        |
 :::
 
 # Contributing a Module

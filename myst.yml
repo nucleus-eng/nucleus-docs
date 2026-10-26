@@ -78,6 +78,8 @@ project:
           hidden: true
         - file: ./docs/processes/assemble-base-cytosol/main.md
           hidden: true
+        - file: ./docs/processes/build-base-cell/main.md
+          hidden: true
         - file: ./docs/processes/protein-gel/main.md
           hidden: true
         - file: ./docs/processes/pierce660/main.md

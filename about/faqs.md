@@ -20,7 +20,7 @@ Open source describes content — of any kind, not just software — that is doc
 
 ### How do I get started with Nucleus?
 
-Most people will contribute to Nucleus by submitting a Developer Note (DevNote), a way to share ideas, specifications, processes, and results with the developer community. This can ultimately result in changes to Nucleus Docs including the introduction of new modules. Nucleus Docs and technical tools are maintained in several repositories across GitHub. We use GitHub’s pull request system to support review and acceptance of changes to these systems. For more information see our Get Started guide. 
+Most people will contribute to Nucleus by submitting a Developer Note (DevNote), a way to share ideas, specifications, processes, and results with the developer community. This can ultimately result in changes to Nucleus Docs including the introduction of new modules. Nucleus Docs and technical tools are maintained in several repositories across GitHub. We use GitHub’s pull request system to support review and acceptance of changes to these systems. For more information see our [Getting Started](../start/first-guide.md) guide. 
 
 ### What license applies to my DevNote?
 

@@ -255,3 +255,26 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 :::
 
 ::::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Nucleus OnePot PURE
+:link: https://devnotes.nucleus.engineering/articles/019d1d1d-2e2d-7839-b0e3-d5cee50231ee
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/019fcdbd-a372-743b-8b57-d0ebaa1a6268/public/platemap-514bf7f199c29f91df73fe2b3e9135bc.jpg)
+:::
+
+:::{card} Nucleus OnePot PURE Replication
+:link: https://devnotes.nucleus.engineering/articles/0198595d-3ccc-7d1f-8307-db4046a43569
+:footer: Anton Molina, Anton Jackson-Smith · Nucleus Core
+
+![](https://pub.curvenote.com/019fcdbd-ef3f-70b6-929e-8889a94de92c/public/20250701-cell-transf-44e0b1c53a79f98668725dfe60ed7c24.png)
+:::
+
+::::

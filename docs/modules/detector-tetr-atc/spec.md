@@ -98,6 +98,21 @@ Induction of `pT7-tetO-plamGFP` by aTc at steady state. TetR repressor protein i
 
 :::::
 
+### aTc titration in Nucleus Base Cytosol
+
+`pT7-tetO-plamGFP` was titrated with aTc against purified His-tagged TetR (MedChemExpress, HY-P71520A) in [Nucleus Base Cytosol](../../processes/assemble-base-cytosol/main.md). Per 10 µL, the reaction holds 3.0 µL SMix, 1.0 µL tRNA, 1.2 µL PMix, 1.8 µL ribosomes and 0.5 µL RNase inhibitor. The plasmid is at 1 nM and TetR at 0, 500 or 1000 nM, before the aTc is added. Plasmid, TetR and water were incubated at 37 °C for 10 min so TetR could bind the operator, and the master mix was then added. Reactions were dispensed at 10 µL per well into a 384-well plate and 1 µL of aTc added, to final aTc concentrations of 0, 0.25, 0.35, 0.5, 1, 5 and 10 µM, with three wells per condition. A no-DNA reaction at each aTc concentration served as the background. Fluorescence (485 nm excitation, 528 nm emission, gain 75) was read every 5 min for 6 h at 37 °C on a BioTek Cytation 3.
+
+Without aTc, TetR holds expression to 541 RFU at 500 nM (40-fold below the unrepressed reaction) and 399 RFU at 1000 nM (54-fold). The no-DNA background stays between 43 and 87 RFU across the titration and rises with aTc dose, from 47 RFU at 0 µM to 69 RFU at 5 µM and 87 RFU at 10 µM, which is under 0.5 % of the unrepressed signal. aTc does not change the unrepressed reaction: it reads between 21,662 and 22,871 RFU from 0 to 10 µM, so aTc neither quenches nor inhibits expression at these doses.
+
+aTc relieves repression in both reactions, and the dose needed rises with the amount of TetR. At 500 nM TetR, expression reaches 30 % of the unrepressed level at 0.25 µM aTc, 86 % at 1 µM and 91 % at 5 µM. At 1000 nM TetR it is 4 % at 0.25 µM, 22 % at 0.5 µM, 63 % at 1 µM and 88 % at 5 µM. Half of the unrepressed level is reached at about 0.4 µM aTc with 500 nM TetR and about 0.8 µM with 1000 nM, so doubling TetR moves the induction curve about two-fold to higher aTc. Neither reaction reaches the unrepressed level by 10 µM, where they read 87 % and 93 %. The titration has no points between 1 and 5 µM, so these half-maximal doses are read from the measured points.
+
+:::{figure} cytosol-nucleus-atc-titration-endpoint.png
+:name: fig-tetr-atc-nucleus-cytosol-endpoint
+:align: center
+
+Endpoint GFP fluorescence at 6 h in Nucleus Base Cytosol, for 1 nM `pT7-tetO-plamGFP` with 0, 500 or 1000 nM TetR across 0 to 10 µM aTc, with a no-DNA control at each dose. Mean ± standard deviation of three wells; gain 75.
+:::
+
 ## Cells
 
 :::{figure} detector-overview.png
@@ -135,3 +150,51 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Credits
 
 Developed by Yen-Yu Hsu (b.next).
+
+Bulk titration in Nucleus Base Cytosol by Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node).
+
+GUV deGFP characterization by Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node).
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Expressing Cell-Free TetO-GFP in Solution with aTc Titration
+:link: https://devnotes.nucleus.engineering/articles/01a12d61-686f-7790-8068-f3638be6d7d2
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650b-08b5-76a5-a679-ac13b0944c15/public/fig2-endpoint-gfp-at-09c04f5579c52340f211668c43f87209.webp)
+:::
+
+:::{card} GUV Encapsulation of a TetR/aTc-Inducible deGFP Cell-Free Sensor
+:link: https://devnotes.nucleus.engineering/articles/01a12ce3-b57e-7986-8786-d64ff5b6e936
+:footer: Mary Kelly · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650b-081a-7258-a515-7ca0766174f5/public/fig1-bulk-kinetics-abc1dc43cd2229418420caf2908bdad1.webp)
+:::
+
+:::{card} IV-HSL Emitter Cell
+:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
+:::
+
+:::{card} Implementing of a bulk color change module into bacterial quorum sensing
+:link: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
+:footer: Manuel Bibrowski, Charlie Newell, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650a-90b4-729f-875b-e4f1ddce3bec/public/colorchange-overnigh-520d47ff723d53997b42c0e1c8c68cdc.webp)
+:::
+
+:::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
+:link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig7-patterned-gel-5fc6273fa124c69e6d78ac4caafe3ce4.webp)
+:::
+
+::::
