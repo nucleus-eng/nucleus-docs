@@ -43,7 +43,8 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
   modules:
   - gel-lga
-  processes: []
+  processes:
+  - embed-thermal-setting
   implementations: []
   skipped: false
 01a108c6-4719-7833-92af-daf6f91ed06a:
@@ -66,6 +67,7 @@ exclude:
   - gel-peg-nb
   processes:
   - embed-photocrosslinking
+  - embed-thermal-setting
   implementations: []
   skipped: false
 01a1121a-7513-7ec7-8378-0326c6b3630b:
@@ -74,7 +76,8 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b
   modules:
   - gel-ulga
-  processes: []
+  processes:
+  - embed-thermal-setting
   implementations: []
   skipped: false
 01a12ce3-b57e-7986-8786-d64ff5b6e936:
