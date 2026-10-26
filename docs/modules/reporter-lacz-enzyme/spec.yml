@@ -1,0 +1,42 @@
+# Composition source, drafted from the page.
+# `type:` names the module's own type in the published type order.
+# Operators: mixing = one compartment; packing = each keeps its own.
+
+module: reporter-lacz-enzyme
+title: "Reporter: LacZ Enzyme"
+type: ColorReporter
+refines: Protein
+
+inputs:
+  beta-galactosidase:
+    title: "β-galactosidase, 1000 U/mL stock"
+    page: null            # Source organism, manufacturer and part number are open on the page.
+  tris-base:
+    title: "Tris base, 1 M"
+    page: null
+  hydrochloric-acid:
+    title: "HCl, 37 %"
+    page: null
+
+process_steps:
+  - id: prepare-basic-buffer
+    process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+    operator: mixing
+    operands: [tris-base, hydrochloric-acid]
+    produces:
+      id: basic-buffer
+      title: "Basic buffer, pH 9.9"
+      page: null
+
+  - id: prepare-enzyme-solution
+    process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+    operator: mixing
+    operands: [beta-galactosidase, basic-buffer]
+    produces:
+      id: enzyme-solution-3x
+      title: "β-galactosidase, 3× solution"
+      page: null

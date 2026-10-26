@@ -1,0 +1,36 @@
+# Composition source, drafted from the page.
+# `type:` names the module's own type in the published type order.
+# Operators: mixing = one compartment; packing = each keeps its own.
+
+module: color-change
+title: "Color Change"
+type: ColorReporter
+
+inputs:
+  gated-pla1-dna:
+    title: "Gated PLA1 template, pT7-toehold9-PLA1-linear in the pH implementation"
+    page: null
+  substrate-liposome-luv:
+    title: "Substrate LUV: CPRG"
+    page: ../substrate-cprg-luv/spec.md
+  substrate-liposome-suv:
+    title: "Substrate SUV: CPRG"
+    page: ../substrate-cprg-suv/spec.md
+  reporter-lacz-enzyme:
+    title: "Reporter: LacZ Enzyme"
+    page: ../reporter-lacz-enzyme/spec.md
+
+process_steps:
+  # report_color is mixing: the enzyme and the substrate share one compartment when the color fires.
+  # In every implementation something delivers the substrate first (lysis here, a pore elsewhere),
+  # so the implementations differ in the delivery, not in this step.
+  - id: report-color
+    process:
+      title: "Colorimetric Readout"
+      page: ../../processes/colorimetric-readout/main.md
+    operator: mixing
+    operands: [reporter-lacz-enzyme, substrate-liposome-luv, gated-pla1-dna]
+    produces:
+      id: color
+      title: "Color: CPR"
+      page: null

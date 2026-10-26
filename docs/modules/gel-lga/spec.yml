@@ -1,0 +1,34 @@
+# Composition source for Gel: LGA.
+
+module: gel-lga
+title: "Gel: LGA"
+type: Gel[thermally-set]
+
+inputs:
+  lga-powder:
+    title: "Low gelling agarose"
+    page: null
+    stock: {value: 28, unit: "mg/mL", note: "the prepared stock, before either dilution"}
+  outer-solution:
+    title: "Outer solution"
+    type: Solution
+
+process_steps:
+  - id: set-thermal
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+    operator: mixing
+    operands: [lga-powder, outer-solution]
+    produces:
+      id: gel-lga
+      title: "Gel: LGA"
+      page: ../gel-lga/spec.md
+    ratio: "stock diluted 1:1 with outer solution, then 1:1 with the sample"
+    finals:
+      lga-powder: {value: 7, unit: "mg/mL", note: "after the dilution and the 1:1 combination with the sample"}
+    parameters:
+      gel_point_min_c: 24
+      gel_point_max_c: 28
+      dissolve_temperature_c: 95
+      hold_temperature_c: 45

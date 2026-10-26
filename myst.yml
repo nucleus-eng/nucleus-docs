@@ -43,12 +43,35 @@ project:
           hidden: true
         - file: ./docs/modules/dye-liposomes/spec.md
           hidden: true
+        - file: ./docs/modules/detector-ph/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-sensing-cell/spec.md
+          hidden: true
+        - file: ./docs/modules/reporter-lacz-enzyme/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-cprg-luv/spec.md
+          hidden: true
+        - file: ./docs/modules/substrate-cprg-suv/spec.md
+          hidden: true
+        - file: ./docs/modules/ph-cascade/spec.md
+          hidden: true
+        - file: ./docs/modules/color-change/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-ulga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-lga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-peg-nb/spec.md
+          hidden: true
         - file: ./docs/modules/detector-esar/spec.md
           hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/assemble-base-cell/main.md
           hidden: true
+          children:
+            - file: ./docs/processes/assemble-base-cell/protocol-guv.md
+              hidden: true
         - file: ./docs/processes/make-amino-acid-mix/main.md
           hidden: true
         - file: ./docs/processes/make-small-molecule-mix/main.md
@@ -69,6 +92,15 @@ project:
           hidden: true
         - file: ./docs/processes/pierce660/main.md
           hidden: true
+        - file: ./docs/processes/anneal-ph-trigger-duplex/main.md
+          hidden: true
+        - file: ./docs/processes/encapsulate-freeze-thaw/main.md
+          hidden: true
+        - file: ./docs/processes/colorimetric-readout/main.md
+        - file: ./docs/processes/embed-thermal-setting/main.md
+          hidden: true
+        - file: ./docs/processes/embed-photocrosslinking/main.md
+          hidden: true
         - file: ./docs/processes/make-protein/make-protein-main.md
           hidden: true
           children:
@@ -87,6 +119,8 @@ project:
         - file: ./docs/implementations/responder-atc-ivhsl/main.md
           hidden: true
         - file: ./docs/implementations/emitter-ivhsl/main.md
+          hidden: true
+        - file: ./docs/implementations/colorimetric-ph-sensor/main.md
           hidden: true
     - file: ./cdk/cdk-main.md
       children:

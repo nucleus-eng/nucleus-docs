@@ -1,0 +1,49 @@
+# Composition source, drafted from the page.
+# `type:` names the module's own type in the published type order.
+# Operators: mixing = one compartment; packing = each keeps its own.
+
+module: ph-sensing-cell
+title: "pH Sensing Cell"
+type: Cell
+refines: 'Vesicle[GUV]'
+
+inputs:
+  base-cytosol:
+    title: "Base Cytosol"
+    page: ../base-cytosol/spec.md
+  ph-detector:
+    title: "Detector: pH-Sensing"
+    page: ../detector-ph/spec.md
+  inner-solution-additions:
+    title: "Optiprep, RNase inhibitor and Cy5"
+    page: null
+  membrane:
+    title: "Membrane: POPC / cholesterol / Rhod-PE, 899.1 / 99.9 / 1 mmol/mol"
+    page: null            # Not the Base Membrane, which has a different ratio.
+  outer-solution:
+    title: "Outer solution: Tris1M-HEPES1.15M buffer stock, 466.7 mL/L"
+    page: null
+
+process_steps:
+  # No process page covers assembling this inner solution on its own.
+  - id: assemble-inner-solution
+    process:
+      title: "Assemble the inner solution"
+      page: null
+    operator: mixing
+    operands: [base-cytosol, ph-detector, inner-solution-additions]
+    produces:
+      id: inner-solution
+      title: "Inner solution of the pH Sensing Cell"
+      page: null
+
+  - id: encapsulate
+    process:
+      title: "Protocol: Inverted Emulsion"
+      page: ../../processes/assemble-base-cell/protocol-guv.md
+    operator: packing
+    operands: [inner-solution, membrane, outer-solution]
+    produces:
+      id: ph-sensing-cell
+      title: "pH Sensing Cell"
+      page: ./spec.md

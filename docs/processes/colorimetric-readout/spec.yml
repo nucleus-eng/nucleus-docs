@@ -1,0 +1,46 @@
+# Process source for Colorimetric Readout, drafted from the page beside it.
+#
+# THE ENZYME GOES IN HERE, AND THE COLOR IS READ HERE. The reporter enzyme is added to the sample as a
+# 3x solution in a basic buffer, so the operands end in one compartment and the operator is mixing.
+# The substrate is already in the system and is not an argument of this process.
+
+process: colorimetric-readout
+title: "Colorimetric Readout"
+refines: report_color
+
+signature:
+  takes:
+    - type: Container
+      note: >
+        Any system that holds a color reporter once the reporter is added. Here, a 60 µL gel or a 60 µL
+        solution that holds the substrate, CPRG, in its outer solution.
+    - type: ColorReporter
+      note: >
+        The enzyme, as a 3x beta-galactosidase solution in a basic buffer at pH 9.9. Adding 30 µL to 60 µL
+        of sample gives 1.2 U/mL.
+  produces:
+    type: Observation
+    note: >
+      The color of the sample after incubation at 37 °C, read by eye and recorded by photograph.
+
+operator: mixing
+
+open:
+  - id: input-is-a-guard-not-a-type
+    kind: choice
+    question: >
+      The input is any system that holds a color reporter. The signature has no key for a guard, so this
+      source writes the position as a Container and states the condition in its note. Whether the
+      condition is written in the signature, and how, is not decided here.
+  - id: no-number-is-returned
+    kind: choice
+    question: >
+      The read on this page is by eye and by photograph, and returns a color, so the product is typed
+      Observation. A colorimetric readout that returns a number, such as an absorbance read on a plate
+      reader, would produce a Measurement. The page does not describe that read.
+  - id: impositions-undeclared
+    kind: question
+    question: >
+      No impositions and no `conserves` are declared. The page does not state whether the basic buffer
+      or the incubation changes what a later read of the same sample would show, and a wrong
+      declaration computes a false Conflict, so none is declared.

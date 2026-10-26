@@ -32,14 +32,34 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 
 :::{table}
 
-| Module Class    | Specification                              | DevNotes |
-| --------------- | ------------------------------------------ | -------- |
-| Cytosol (Base)  | [Cytosol](./base-cytosol/spec.md)          | 10       |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)  | 4        |
-| Reporter        | [deGFP](./reporter-degfp/spec.md)          | 7        |
-| Cell (Base)     | [Base Cell](./base-cell/spec.md)           | 6        |
-| Cell (Dye)      | [Dye Liposomes](./dye-liposomes/spec.md)   | 0        |
-| Detector        | [3OC6-HSL (EsaR)](./detector-esar/spec.md) | 0        |
+| Module Class     | Specification                                       | DevNotes |
+| ---------------- | --------------------------------------------------- | -------- |
+| Cytosol (Base)   | [Cytosol](./base-cytosol/spec.md)                   | 10       |
+| Membrane (Base)  | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
+| Reporter         | [deGFP](./reporter-degfp/spec.md)                   | 7        |
+| Cell (Base)      | [Base Cell](./base-cell/spec.md)                    | 6        |
+| Cell (Dye)       | [Dye Liposomes](./dye-liposomes/spec.md)            | 0        |
+| Detector         | [pH-Sensing](./detector-ph/spec.md)                 | 0        |
+| Reporter         | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 0        |
+| Cell (Sensing)   | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 0        |
+| Cell (Substrate) | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 0        |
+| Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 0        |
+| Cascade          | [pH Cascade](./ph-cascade/spec.md)                  | 0        |
+| Reporter         | [Color Change](./color-change/spec.md)              | 0        |
+| Detector         | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 0        |
+:::
+
+## Gels
+
+Modules that hold a sample in a polymer network set in an outer solution.
+
+:::{table}
+
+| Module Class | Specification | Validation |
+| --- | --- | --- |
+| Gel (Thermal) | [Gel: ULGA](./gel-ulga/spec.md) | ★ |
+| Gel (Thermal) | [Gel: LGA](./gel-lga/spec.md) | ★ |
+| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | ★ |
 :::
 
 # Contributing a Module
