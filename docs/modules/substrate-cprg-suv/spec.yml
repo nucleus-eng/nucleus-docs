@@ -1,0 +1,40 @@
+# Composition source, drafted from the page.
+# `type:` names the module's own type in the published type order.
+# Operators: mixing = one compartment; packing = each keeps its own.
+
+module: substrate-cprg-suv
+title: "Substrate SUV: CPRG"
+type: 'Vesicle[SUV]'
+
+inputs:
+  suv-inner-solution:
+    title: "Inner solution of the SUV, 1 mL"
+    page: null            # Composition not documented; open on the page.
+  membrane:
+    title: "Membrane: POPC / cholesterol / Rhod-PE, 899.1 / 99.9 / 1 mmol/mol"
+    page: null
+  outer-solution:
+    title: "Outer solution: Tris1M-HEPES1.15M buffer stock, 466.7 mL/L"
+    page: null
+
+process_steps:
+  - id: encapsulate
+    process:
+      title: "Encapsulation: Freeze-Thaw, with 400 nm extrusion"
+      page: ../../processes/encapsulate-freeze-thaw/main.md
+    operator: packing
+    operands: [suv-inner-solution, membrane, outer-solution]
+    produces:
+      id: substrate-suv
+      title: "Substrate SUV: CPRG"
+      page: ./spec.md
+
+open:
+  - id: no-functional-type-for-a-substrate-carrier
+    kind: choice
+    question: >
+      The type order has no functional type for a vesicle that holds a substrate until
+      lysis. Substrate is a material type, and a substrate carrier is not a type in the
+      order. This file names the form, Vesicle[SUV], which says what the Module is shaped like
+      and not what it is for. If a functional type is added for this class of Module,
+      name it in `type:` and move Vesicle[SUV] to `refines:`.

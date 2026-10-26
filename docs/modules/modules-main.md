@@ -16,7 +16,7 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 | Module Class    | Specification                               | DevNotes |
 | --------------- | ------------------------------------------- | -------- |
 | Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | 4        |
-| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | 3        |
+| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | 4        |
 |                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | 0        |
 | Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | 1        |
 | Control         | [ClpXP](./control-clpxp/spec.md)            | 4        |
@@ -32,13 +32,20 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 
 :::{table}
 
-| Module Class    | Specification                             | DevNotes |
-| --------------- | ----------------------------------------- | -------- |
-| Cytosol (Base)  | [Cytosol](./base-cytosol/spec.md)         | 10       |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md) | 4        |
-| Reporter        | [deGFP](./reporter-degfp/spec.md)         | 7        |
-| Cell (Base)     | [Base Cell](./base-cell/spec.md)          | 6        |
-| Cell (Dye)      | [Dye Liposomes](./dye-liposomes/spec.md)  | 0        |
+| Module Class     | Specification                                       | DevNotes |
+| ---------------- | --------------------------------------------------- | -------- |
+| Cytosol (Base)   | [Cytosol](./base-cytosol/spec.md)                   | 10       |
+| Membrane (Base)  | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
+| Reporter         | [deGFP](./reporter-degfp/spec.md)                   | 7        |
+| Cell (Base)      | [Base Cell](./base-cell/spec.md)                    | 6        |
+| Cell (Dye)       | [Dye Liposomes](./dye-liposomes/spec.md)            | 0        |
+| Detector         | [pH-Sensing](./detector-ph/spec.md)                 | 0        |
+| Reporter         | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 0        |
+| Cell (Sensing)   | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 0        |
+| Cell (Substrate) | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 0        |
+| Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 0        |
+| Cascade          | [pH Cascade](./ph-cascade/spec.md)                  | 0        |
+| Reporter         | [Color Change](./color-change/spec.md)              | 0        |
 :::
 
 ## Gels

@@ -1,0 +1,46 @@
+# Composition source, drafted from the page.
+# `type:` names the module's own type in the published type order.
+# Operators: mixing = one compartment; packing = each keeps its own.
+
+module: ph-cascade
+title: "pH Cascade"
+type: Cascade
+
+inputs:
+  ph-sensing-cell:
+    title: "pH Sensing Cell"
+    page: ../ph-sensing-cell/spec.md
+  color-change:
+    title: "Color Change"
+    page: ../color-change/spec.md
+  outer-solution:
+    title: "Outer solution: energy solution, water, buffer and suspension"
+    page: null
+  lga-gel:
+    title: "Low-gelling agarose"
+    page: null
+
+process_steps:
+  # The populations share one exterior and each keeps its own compartment, so this is packing.
+  - id: assemble-assay
+    process:
+      title: "Assemble the assay"
+      page: null
+    operator: packing
+    operands: [ph-sensing-cell, color-change, outer-solution]
+    produces:
+      id: ph-cascade-solution-assay
+      title: "pH Cascade, solution assay"
+      page: null
+
+  - id: embed-in-gel
+    process:
+      title: "Embedding: Thermal Setting"
+      page: ../../processes/embed-thermal-setting/main.md
+    optional: true
+    operator: packing
+    operands: [ph-cascade-solution-assay, lga-gel]
+    produces:
+      id: ph-cascade
+      title: "pH Cascade"
+      page: ./spec.md
