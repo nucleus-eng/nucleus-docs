@@ -64,7 +64,8 @@ exclude:
   - gel-ulga
   - gel-lga
   - gel-peg-nb
-  processes: []
+  processes:
+  - embed-photocrosslinking
   implementations: []
   skipped: false
 01a1121a-7513-7ec7-8378-0326c6b3630b:
@@ -126,7 +127,8 @@ exclude:
   - base-cytosol
   - detector-tetr-atc
   - gel-peg-nb
-  processes: []
+  processes:
+  - embed-photocrosslinking
   implementations: []
   skipped: false
 01a16026-42c1-71ad-842a-463d52fae7d8:

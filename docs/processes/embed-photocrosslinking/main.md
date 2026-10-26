@@ -59,8 +59,8 @@ Prepare the precursor in a dark room, and wrap the vial in foil for storage.
     - [ ] Vortex again for 2 to 4 min and check that every component has dissolved.
     - [ ] Repeat until the solution is clear.
 
-:::{attention} The precursor solvent is not settled
-@Editor: confirm the solvent used for the precursor. The DevNote's step names PBS, deionized water or another buffer. Its supplement carries a stock-sheet note that PBS did not work in one set of GUVs, and its reagent table names glucose in 50 mM HEPES.
+:::{attention} Best starting solvent is not settled
+@Editor: state which solvent is the best starting point for the precursor. The choice being flexible is not enough. The protocol step allows PBS, deionized water or any buffer. A stock-sheet note records that PBS did not work in one set of GUVs. The reagent table instead names glucose in 50 mM HEPES. Name every solvent that was tried, what happened with each, and recommend one.
 :::
 
 ## Mix with the Sample and Plate
@@ -80,3 +80,26 @@ Prepare the precursor in a dark room, and wrap the vial in foil for storage.
 :class: dropdown
 When a lower concentration is needed, dilute the precursor 1:1 in the well, for example 50 µL of precursor with 50 µL of buffer.
 :::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Understanding Liposome Behaviour in Hydrogel Matrices
+:link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7#hydrogel-preparation
+:footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
+:::
+
+:::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
+:link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig1-guv-gfp-gel-vs--e6f9429ea276453e88a78e854168033e.png)
+:::
+
+::::
