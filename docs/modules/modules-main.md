@@ -46,6 +46,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 0        |
 | Cascade          | [pH Cascade](./ph-cascade/spec.md)                  | 0        |
 | Reporter         | [Color Change](./color-change/spec.md)              | 0        |
+| Detector         | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 0        |
 :::
 
 ## Gels
@@ -54,11 +55,11 @@ Modules that hold a sample in a polymer network set in an outer solution.
 
 :::{table}
 
-| Module Class | Specification | Validation |
-| --- | --- | --- |
-| Gel (Thermal) | [Gel: ULGA](./gel-ulga/spec.md) | ★ |
-| Gel (Thermal) | [Gel: LGA](./gel-lga/spec.md) | ★ |
-| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | ★ |
+| Module Class         | Specification                       | DevNotes |
+| -------------------- | ----------------------------------- | -------- |
+| Gel (Thermal)        | [Gel: ULGA](./gel-ulga/spec.md)     | 0        |
+| Gel (Thermal)        | [Gel: LGA](./gel-lga/spec.md)       | 0        |
+| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | 0        |
 :::
 
 # Contributing a Module
