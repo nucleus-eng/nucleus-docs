@@ -56,6 +56,11 @@ project:
         - file: ./docs/modules/ph-cascade/spec.md
           hidden: true
         - file: ./docs/modules/color-change/spec.md
+        - file: ./docs/modules/gel-ulga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-lga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-peg-nb/spec.md
           hidden: true
     - file: ./docs/processes/processes-main.md
       children:
@@ -89,6 +94,9 @@ project:
         - file: ./docs/processes/encapsulate-freeze-thaw/main.md
           hidden: true
         - file: ./docs/processes/colorimetric-readout/main.md
+        - file: ./docs/processes/embed-thermal-setting/main.md
+          hidden: true
+        - file: ./docs/processes/embed-photocrosslinking/main.md
           hidden: true
         - file: ./docs/processes/make-protein/make-protein-main.md
           hidden: true
