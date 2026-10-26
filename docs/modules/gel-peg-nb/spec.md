@@ -86,8 +86,8 @@ Requires a light source at 405 nm (e.g. a digital light processing projector).
 
 Requires an outer solution to dissolve into. For liposomes, use the outer solution used to prepare the liposomes.
 
-:::{attention} Osmotic match has no published result
-@Editor: cite the result that shows what happens to liposomes embedded in a solvent that does not match their outer solution, once it is published.
+:::{attention} Outer-solution framing is not settled for this gel
+@Editor: confirm that the precursor solvent must match the sample's own outer solution, not a generic compatible buffer. This page's source describes the solvent as PBS, deionized water or any buffer. A stock-sheet note records that PBS failed in one set of GUVs. That reads as a looser rule than matching the sample's own outer solution. Unlike ULGA, the DevNote does not state the matching rule directly for PEG-nb. The wording above, and the Outer solution entries in Reference Composition and Constituent Modules, follow the ULGA and LGA convention. Say whether that convention applies here. Once a published result exists showing what happens with a mismatched solvent, cite it. See also the matching open question on [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md).
 :::
 
 # Processes
