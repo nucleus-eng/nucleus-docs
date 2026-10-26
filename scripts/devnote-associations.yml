@@ -63,6 +63,7 @@ exclude:
   - base-cell
   - gel-ulga
   - gel-lga
+  - gel-peg-nb
   processes: []
   implementations: []
   skipped: false
@@ -124,6 +125,7 @@ exclude:
   modules:
   - base-cytosol
   - detector-tetr-atc
+  - gel-peg-nb
   processes: []
   implementations: []
   skipped: false

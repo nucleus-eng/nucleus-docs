@@ -59,7 +59,7 @@ Modules that hold a sample in a polymer network set in an outer solution.
 | -------------------- | ----------------------------------- | -------- |
 | Gel (Thermal)        | [Gel: ULGA](./gel-ulga/spec.md)     | 2        |
 | Gel (Thermal)        | [Gel: LGA](./gel-lga/spec.md)       | 2        |
-| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | 0        |
+| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | 2        |
 :::
 
 # Contributing a Module
