@@ -117,6 +117,42 @@ properties:
       check-spec-schema.py RESOLVES EVERY VALUE, as of 2026-09-21. It fails a
       Module that names itself and one that names a directory holding no spec.md.
       It does not walk the chain, so nothing here catches a cycle.
+  predicates:
+    type: [array, "null"]
+    description: >
+      A CONDITION OVER THIS MODULE'S OWN COMPOSITION, written as a disjunction and
+      evaluated by check-conflicts.py. Ruled 2026-10-20 -- rulings.md D208.
+      WHY A DISJUNCTION AND NOT A LIST OF ARRANGEMENTS. Color Change works with the
+      enzyme encapsulated, or the substrate encapsulated, or both separately, and not
+      with both free. Three permitted arrangements and one forbidden. A list of the
+      three goes stale the first time a fourth is tried and a reader cannot tell a
+      missing row from a forbidden one; the disjunction states the freedom AND implies
+      the prohibition in one line, and it does not grow with the operand count.
+      `OR` IS UPPERCASE, by Jon's ruling, so that nobody reads it as English.
+      THE ONLY PREDICATE IS `encapsulated(<input id>)`, because it is the only one a
+      checker can decide: an operand is encapsulated when its type carries a payload,
+      `A{B}`, which is exactly what orders.contents reads. A predicate this file cannot
+      decide would be prose wearing a key's clothes.
+      IT IS NOT A CONFLICT. A Conflict is a meet of two declared halves and can only say
+      two things must not co-occur. This says at least one of several things must hold,
+      which has no second half to meet.
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, expr, why]
+      properties:
+        id:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        expr:
+          type: string
+          description: >
+            `encapsulated(a)`, or several joined by ` OR `. Each name is an input id of
+            this source. Uppercase `OR`, single spaces.
+          pattern: "^encapsulated\\([a-z0-9]+(-[a-z0-9]+)*\\)( OR encapsulated\\([a-z0-9]+(-[a-z0-9]+)*\\))*$"
+        why:
+          type: string
+          description: The condition in prose, and why it holds.
   sensitivities:
     type: [array, "null"]
     description: >
@@ -172,9 +208,13 @@ properties:
             Teaching the imposition walk to find it would catch this case and miss the
             next. It is a Component predicate: of the three kinds of condition, the one
             that ranges over a composition rather than over a morphism or a budget.
-            THREE IDS CARRY IT and two of them meet nothing today. `dmso` on
-            ../../docs/modules/membrane, `theophylline` on ../../docs/modules/reporter-lacz,
-            and `detergent`, added 2026-10-07. collate-conditions.py already grouped the
+            THREE IDS CARRY IT AT `docs/devcells-integration-pages`, AND NONE ON
+            `main`, measured 2026-10-20. `dmso`, `theophylline` and `detergent`, the last
+            added 2026-10-07; their pages are that branch's `modules/membrane` and
+            `modules/reporter-lacz`, which `main` does not have under those names.
+            A COUNT HERE NAMES ITS REF, which the `operator` description below already
+            says and this line did not: it read "THREE IDS CARRY IT ... today" in the
+            present tense, measured on a branch, until `main` was checked and had none. collate-conditions.py already grouped the
             first two by inferring from the id; this key states it instead.
             A SENSITIVITY THAT MEETS NOTHING IS NOT A DEFECT. It says what would happen
             if somebody built with that component. `dmso` is reachable only through a
@@ -254,9 +294,18 @@ properties:
       what it inflicts, and none of them is the Function itself. Until that field
       exists this key holds the condition where it can be read, which is better than
       the alternative of holding it nowhere.
-      IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that: a class is a
-      module some other source names in `refines:`, which is not a fact this document
-      holds and so not a shape this file can express.
+      ANY MODULE MAY STATE ONE, 2026-10-20 -- rulings.md D209. A requirement is
+      DISCHARGED BY COMPOSITION with a source that `provides:` the operation, not by
+      inheritance from a class, so who may state one was never the question. Jon: "a
+      Module requiring `transcribe[pT7]` must be composed with a module that PROVIDES
+      that function, not refines that 'module' (transcribe is a function not a module)".
+      check-requirements.py R3 does the discharge and has always read a module's own
+      entries whether or not anything refines it.
+      IT READ "IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that" until
+      then, and that checker held a rule no ruling ever made. Measured at deletion, on
+      main bf9b98cd: 12 sources, 0 carrying this key, 0 findings from the rule. It
+      governed a key with no instances, and by forbidding it outside a class it is the
+      likeliest reason the key had none.
       THE TEST IS NOT `impositions`'s TEST, and reusing that one here would be wrong.
       22 of the 36 modules named as a parent carry a real step, `repressor-detector`
       among them, and it is the case this key was written for. An imposition can move
@@ -268,6 +317,25 @@ properties:
       additionalProperties: false
       required: [id, why]
       properties:
+        from:
+          type: string
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          description: >
+            AN INPUT OF THIS SOURCE WHOSE TYPE SUPPLIES THE BRACKET, 2026-10-20 --
+            rulings.md D211. `{id: transcribe, from: gated-pla1-dna}` requires
+            `transcribe[P]` where `P` is the promoter in THAT operand's own type,
+            `DNA[linear, pT7]`. The checker takes the bracket member that refines
+            `Promoter` and compares `transcribe[pT7]` against providers as usual.
+            WHY NOT WRITE THE PROMOTER. A system may carry two constructs on two
+            promoters, and each Module must meet the provider of ITS OWN -- Jon: "you
+            can imagine systems requiring two (or many) distinct promoters and have the
+            modules match the correct `P1` vs `P2`". Naming the operand says that; a
+            literal bracket restates a fact the operand already holds, and the two then
+            drift.
+            IT IS NOT A WILDCARD. `transcribe[Promoter]` would demand ANY promoter,
+            which is contravariant and which no provider in this corpus meets. This
+            resolves to a concrete bracket before any comparison happens.
+            GIVE `from` OR A BRACKET ON `id`, NOT BOTH.
         id:
           type: string
           description: >
@@ -591,6 +659,29 @@ properties:
             A NULL PAGE AND A `type` ARE NOT THE SAME THING. A null page is a real
             material nobody wrote up, such as a catalog reagent. A `type` is a class
             with members, which was never owed a page.
+        binds:
+          type: object
+          description: >
+            WHICH MEMBER FILLS A CONSTITUENT'S CLASS SLOT, 2026-10-20 -- rulings.md D210.
+            Keys are input ids OF THE CONSTITUENT this entry names; values are a type or
+            a page.
+            IT SITS ON THE INPUT THAT NAMES THE CONSTITUENT, not at module level, because
+            a binding is about THAT constituent and one source may name two constituents
+            whose slots share a name.
+            A MODULE BINDS A TYPE, AN IMPLEMENTATION BINDS A PAGE -- Jon, 2026-10-20: "i
+            think it's okay for a Module to bind a type. an implementation likely should
+            always bind a specific page though." A composing Module narrows the class; an
+            Implementation names the member. Both are checked the same way, because a
+            page resolves to its module's own `type:`.
+            ONE CHAIN, NOT TWO RULES. The slot's class >= a Module's bound type >= an
+            Implementation's member type, every link `_type_refines`. His rule for an
+            Implementation -- "if it further refines the cascade. not if not" -- is then
+            "strictly below the link above you", and restating is an error rather than a
+            redundancy, the same reading `refines:` repeating `type:` already gets.
+            NOTHING TO BIND ON A CONCRETE SLOT. A constituent's input that carries `page:`
+            already names one thing; binding it would be a second statement of one fact.
+          additionalProperties:
+            type: string
         type:
           type: string
           description: >

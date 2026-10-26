@@ -171,3 +171,61 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 # Credits
 
 Developed by Surendra Yadav (b.next).
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Characterizing the Limited Operational Lifetime of Cytosol Reactions
+:link: https://devnotes.nucleus.engineering/articles/019ef6d5-3a27-787f-9ebd-fe80645b1068
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0bda-777d-90ea-ef62ac077bf8/public/kinetics-normalized-8268e61917aa794a036d5761bad675cd.webp)
+:::
+
+:::{card} ClpXP Control Module: Deployment in Nucleus Cytosol
+:link: https://devnotes.nucleus.engineering/articles/019f05cb-6be8-7189-8c0d-f8f51d170541
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a15336-ad4c-7145-b48c-b467190898c0/public/control-module-456a08ae6157de8014ea7b8b5895035f.webp)
+:::
+
+:::{card} ClpXP Control Module: Deployment in PURE
+:link: https://devnotes.nucleus.engineering/articles/019b3969-570f-7d88-b998-48ca97f0306c
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0d1e-7663-b612-b11a47b09f60/public/clpXP-eeff4ebcb83656de9cf8c31ccc8ad782.webp)
+:::
+
+:::{card} First Nucleus Cytosol Testing
+:link: https://devnotes.nucleus.engineering/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/019fcdbd-d48a-7319-be07-15b772037c88/public/illustration2-63bd8a34b4a90292a066abf875d462eb.png)
+:::
+
+:::{card} Integrating PPK Module in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019926c4-3341-76fc-8f36-eb96fd77c170
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-f2cb-77ef-be8a-94b6945522ba/public/Developer_Cell-PPK_M-0437e9bcfcc9583145022782575f6b7b.webp)
+:::
+
+:::{card} Nucleus Base Cell Testing
+:link: https://devnotes.nucleus.engineering/articles/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-8d9d-7f8f-96e1-2eefb52a607d/public/Image1-97e36bb3a38f167a4409ef588837c5fa.webp)
+:::
+
+:::{card} What is a Cytosol Landscape?
+:link: https://devnotes.nucleus.engineering/articles/01a08c2d-2898-7f60-8f62-6bee069fddca
+:footer: Sharon Newman · Nucleus Core
+
+![](https://pub.curvenote.com/01a14c37-92c9-709e-91b5-af7303081a95/public/thumbnail-223faeab72d3f8699de21fbcfcf44279.webp)
+:::
+
+::::

@@ -30,7 +30,7 @@ flowchart TD
     OUTER_SOLUTION["Outer solution"]
     BASE_CYTOSOL["Base Cytosol"]
     MEMBRANE_POPC_CHOL["Base Membrane: POPC/Chol"]
-    OPTIPREP["OptiPrep"]
+    DENSITY_REAGENT["Density reagent"]
 
     P1_ASSEMBLE_INNER_SOLUTION_0(["Assemble Base Cytosol (mixing)"])
     BASE_CELL_INNER_SOLUTION["Base Cell inner solution"]
@@ -38,7 +38,7 @@ flowchart TD
     BASE_CELL["Base Cell"]
 
     BASE_CYTOSOL --> P1_ASSEMBLE_INNER_SOLUTION_0
-    OPTIPREP --> P1_ASSEMBLE_INNER_SOLUTION_0
+    DENSITY_REAGENT --> P1_ASSEMBLE_INNER_SOLUTION_0
     P1_ASSEMBLE_INNER_SOLUTION_0 --> BASE_CELL_INNER_SOLUTION
 
     BASE_CELL_INNER_SOLUTION --> P2_ENCAPSULATE_0
@@ -50,7 +50,7 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class OUTER_SOLUTION,BASE_CYTOSOL,MEMBRANE_POPC_CHOL,OPTIPREP leaf;
+    class OUTER_SOLUTION,BASE_CYTOSOL,MEMBRANE_POPC_CHOL,DENSITY_REAGENT leaf;
     class BASE_CELL_INNER_SOLUTION,BASE_CELL composed;
     class P1_ASSEMBLE_INNER_SOLUTION_0,P2_ENCAPSULATE_0 process;
 
@@ -139,3 +139,53 @@ Combined green (488 nm) and red (561 nm) fluorescence channels. First time point
 
 Developed by Surendra Yadav (b.next).
 
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} DevCells: Kickoff Workshop
+:link: https://devnotes.nucleus.engineering/articles/019c3f08-25a7-752c-8821-cd4634bde800
+:footer: DevCells Kickoff Workshop · Developer Cells
+
+![](https://pub.curvenote.com/019c3f08-11b4-7285-9e08-de469c094495/public/devcells-b208c3b985734c1e5ca43f66e4b787dd.webp)
+:::
+
+:::{card} Double emulsion optimization: inner solution, lipid concentration, and composition
+:link: https://devnotes.nucleus.engineering/articles/019d64b1-f6b1-7d50-ba0d-7419f01c0141
+:footer: Mary Kelly · Node: Chicago
+
+![](https://pub.curvenote.com/01a08cd0-f69b-7910-8672-62565bc4a3cf/public/021026_Sucrose200_0T-a8401e73112bea5a69c71ef8b3d9d868.webp)
+:::
+
+:::{card} IV-HSL Emitter Cell
+:link: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0fa0-703d-902e-ade36c88739c/public/emitter-cell-schemat-41d2837d97b57df934b8bf6cbf9f0d3b.webp)
+:::
+
+:::{card} Liposome encapsulation: A tractable and reproducible approach
+:link: https://devnotes.nucleus.engineering/articles/019f7d5b-f635-7e77-b7fc-c2e7d8d09f8a
+:footer: Chris Falcon, Katie Drew · Workshops and Courses
+
+![](https://pub.curvenote.com/019fd5ca-1b63-72a0-8114-3da28983a0b5/public/fig1-timecourse-a4cbaed41b7f5c4852fa6e1e409b5180.webp)
+:::
+
+:::{card} Nucleus Base Cell Testing
+:link: https://devnotes.nucleus.engineering/articles/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0
+:footer: Surendra Yadav · Nucleus Core
+
+![](https://pub.curvenote.com/01a04676-8d9d-7f8f-96e1-2eefb52a607d/public/Image1-97e36bb3a38f167a4409ef588837c5fa.webp)
+:::
+
+:::{card} Understanding Liposome Behaviour in Hydrogel Matrices
+:link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
+:footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
+:::
+
+::::

@@ -1,0 +1,664 @@
+# Manual DevNote <-> Module/Process/Implementation mapping.
+#
+# Built by reviewing every published DevNote (nucleus-core and other
+# collections) by hand with the "Module x DevNote Map" tool -- a Claude
+# artifact, not checked in here -- because most DevNotes have no DOI yet
+# to cite from a spec page, and most do not link back to their docs page
+# either, so neither automatic signal catches them.
+#
+# Keyed by the DevNote's Curvenote slug (stable; titles get edited).
+# `skipped: true` means a human reviewed it and found no match -- keep
+# the record so a future pass does not start over from zero.
+#
+# Consumers:
+#   scripts/build-devnote-counts.py  -- the DevNotes column on docs/modules/modules-main.md
+#   scripts/build-devnote-cards.py   -- the "# Supported by" section on module/process/implementation pages
+#
+# After editing this file by hand, re-run both scripts for the affected pages.
+
+# A DevNote's own content can link to a docs page in passing (e.g. citing a
+# process as a methods step) without that page being something the DevNote
+# demonstrates or validates. `build-devnote-cards.py`'s live backlink
+# detection can't tell the difference; this list overrides it for a
+# (page, DevNote) pair a human has judged not to belong in that page's
+# "# Supported by" section. It does not affect the manual modules/processes/
+# implementations tags above, which are already curated.
+exclude:
+  processes/make-36pot: [01a12d61-686f-7790-8068-f3638be6d7d2]
+  processes/make-ribosomes: [01a12d61-686f-7790-8068-f3638be6d7d2]
+  processes/make-small-molecule-mix: [01a12d61-686f-7790-8068-f3638be6d7d2]
+  processes/make-trna: [01a12d61-686f-7790-8068-f3638be6d7d2]
+
+019deb4f-0af9-7e76-ae90-6149fe2afc11:
+  title: 'Meta DevNote: a DevNote about creating DevNotes'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019deb4f-0af9-7e76-ae90-6149fe2afc11
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+01a0ea82-2101-7fed-82f9-1d8ef9258009:
+  title: Two Vesicle Colorimetric pH Sensor System
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+01a108c6-4719-7833-92af-daf6f91ed06a:
+  title: Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a
+  modules:
+  - base-cytosol
+  processes: []
+  implementations: []
+  skipped: false
+01a10dfe-c1df-7c2d-ba5a-035280a349f7:
+  title: Understanding Liposome Behaviour in Hydrogel Matrices
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
+  modules:
+  - base-cell
+  processes: []
+  implementations: []
+  skipped: false
+01a1121a-7513-7ec7-8378-0326c6b3630b:
+  title: Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Dependent Transcriptional Regulation
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+01a12ce3-b57e-7986-8786-d64ff5b6e936:
+  title: GUV Encapsulation of a TetR/aTc-Inducible deGFP Cell-Free Sensor
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a12ce3-b57e-7986-8786-d64ff5b6e936
+  modules:
+  - detector-tetr-atc
+  processes: []
+  implementations: []
+  skipped: false
+01a12d42-ca2e-70e7-b78b-66fcf11c400a:
+  title: Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a12d42-ca2e-70e7-b78b-66fcf11c400a
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+01a12d61-686f-7790-8068-f3638be6d7d2:
+  title: Expressing Cell-Free TetO-GFP in Solution with aTc Titration
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a12d61-686f-7790-8068-f3638be6d7d2
+  modules:
+  - detector-tetr-atc
+  processes: []
+  implementations: []
+  skipped: false
+01a12e24-46dc-761d-b020-f1f77cce78ba:
+  title: Co-Encapsulated Cell-Free PLA1 Expression in beta-Galactosidase GUVs
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a12e24-46dc-761d-b020-f1f77cce78ba
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+01a12e6c-b511-7d30-aa95-002d386f751e:
+  title: Implementing of a bulk color change module into bacterial quorum sensing
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+01a1304b-1c56-7352-a082-ba84a2684f82:
+  title: 'TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
+  modules:
+  - base-cytosol
+  - detector-tetr-atc
+  processes: []
+  implementations: []
+  skipped: false
+01a16026-42c1-71ad-842a-463d52fae7d8:
+  title: Double Vesicle Lysis System Leveraging deGFP CFPE
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a16026-42c1-71ad-842a-463d52fae7d8
+  modules:
+  - base-cytosol
+  processes: []
+  implementations: []
+  skipped: false
+01a164e7-be0b-7829-add4-3fb78769e041:
+  title: MphR Sensing Module
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a164e7-be0b-7829-add4-3fb78769e041
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+2024-hsu-emitter:
+  title: IV-HSL Emitter Cell
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa
+  modules:
+  - detector-tetr-atc
+  - emitter-ivhsl
+  - membrane-popc-chol
+  - purexpress
+  processes:
+  - assemble-base-cell
+  implementations: []
+  skipped: false
+Bhasin-20260421:
+  title: Using platemaps to analyze and share data
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019d8b18-db94-72b9-8a4d-90c069f363c8
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+IV-HSL-emitter-cell:
+  title: IV-HSL Emitter Cell
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01948ff1-6dfd-7ce0-9e89-a2aa1c9b30b7
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+Newman-20260421:
+  title: Intro to Kinetics Analysis of Plate Reader Experiments
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019db3ce-f142-792e-b237-3933098752db
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+aria-d2:
+  title: 'Defining AI Scientific Workflows: Using IGOR for Optimization of PURE'
+  doi: 10.63765/kxfm6388
+  html: https://devnotes.nucleus.engineering/articles/019f90b5-f520-7b93-84db-69d21b73726b
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+bac-wg1-260406:
+  title: 'Energy Metabolism Working Group at Build-a-Cell #15'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019d0c82-677c-76ce-9d3d-3e623990393f
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+base-cell-01:
+  title: Nucleus Base Cell Testing
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0
+  modules:
+  - base-cell
+  - base-cytosol
+  - reporter-degfp
+  processes:
+  - assemble-base-cell
+  implementations: []
+  skipped: false
+bnext-devnotes-:
+  title: Combining Class I & Class II PPK2 in Synthetic Cells
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a166a7-127b-7b5f-acc9-1a6d8b99ec8c
+  modules:
+  - energy-ppk
+  processes: []
+  implementations: []
+  skipped: false
+cfkd-20260720:
+  title: 'Liposome encapsulation: A tractable and reproducible approach'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019f7d5b-f635-7e77-b7fc-c2e7d8d09f8a
+  modules:
+  - base-cell
+  processes: []
+  implementations: []
+  skipped: false
+chicago-demo-1:
+  title: Biochromatic Materials
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b251e-21e1-7150-b2a5-415fd56b45e0
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m1-1-1:
+  title: Validation of colorimetric reporter sensors in Nucleus Cytosol
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b140b-4888-74fd-b8c9-c2b79a64601e
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m1-2-1:
+  title: Environmentally Responsive Materials via Integration of DevCells
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1405-fc5c-7460-9f92-eb8d37409eb1
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m1-3-1:
+  title: Matrix Design for Stable Liposomes and Efficient Cell-Free Protein Synthesis
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1404-556d-79d2-80db-c0b78eb8e5e8
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m1-4-1:
+  title: In Vitro Reporter Validation
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1403-d5f0-7493-8798-43e474b9e49f
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m1-5-1:
+  title: 'Module Development Plan: DevCell-based pH sensor'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1403-d9f6-7e25-9f77-21bbc4bd2998
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m1-5-2:
+  title: Toehold switch-enabled translation regulation verified in Nucleus Cytosol
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019bdd1d-8bf9-77e1-abaf-44b5b0f7a9d5
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m2-1:
+  title: Colorimetric Sensing Module Development Plan
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1403-263a-7083-b08e-bc84bdc31b95
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+chicago-m3-1:
+  title: Photopatterned Hydrogels with DevCells
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1405-099d-751a-91e2-ca0e74fe28ea
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+clpxp-in-pure-01:
+  title: 'ClpXP Control Module: Deployment in PURE'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b3969-570f-7d88-b998-48ca97f0306c
+  modules:
+  - control-clpxp
+  - reporter-degfp
+  processes: []
+  implementations: []
+  skipped: false
+clpxp-module-plan:
+  title: 'The Developer Cell Control Module: Protein Degradation by ClpXP'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01981a5d-64c2-72f2-8055-5634d2824ede
+  modules:
+  - control-clpxp
+  - membrane-popc-chol
+  - purexpress
+  processes:
+  - assemble-base-cell
+  implementations: []
+  skipped: false
+clpxp-pure-cells-01:
+  title: 'ClpXP Control Module: Deployment in PURE Cells'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b613d-4a47-7d62-a262-77a667467a57
+  modules:
+  - control-clpxp
+  - membrane-popc-chol
+  - purexpress
+  processes:
+  - assemble-base-cell
+  implementations: []
+  skipped: false
+contrib-cx43-cell:
+  title: Cx43 Cell
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01981aae-9d06-7e65-a9cb-75d1e33aca0a
+  modules:
+  - membrane-pore-cx43
+  processes: []
+  implementations: []
+  skipped: false
+cshl-week1:
+  title: CSHL Synthetic Biology 2026 – Week 1 DevCells Module
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a01ba5-128d-71d4-9f13-854ec907049c
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+cx43-cell-01:
+  title: 'Cx43 Cell: DNA Validation'
+  doi: 10.63765/xvxu3274
+  html: https://devnotes.nucleus.engineering/articles/019a7496-0498-7d89-bebb-58cdc15caf54
+  modules:
+  - membrane-pore-cx43
+  processes: []
+  implementations: []
+  skipped: false
+cytosol-module-mthfs:
+  title: MTHFS - an Unexpected Enzyme in PURE
+  doi: 10.63765/hrvh2868
+  html: https://devnotes.nucleus.engineering/articles/01978526-a76b-748b-85d0-f63036faf88b
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+d1-20260426:
+  title: 'AI Scientist: Base Module Report'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019dccd5-c2f7-7fa3-bf7e-0af99a413c62
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+dckw-19122026:
+  title: 'DevCells: Kickoff Workshop'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019c3f08-25a7-752c-8821-cd4634bde800
+  modules:
+  - base-cell
+  - base-cytosol
+  processes: []
+  implementations: []
+  skipped: false
+devcells-kickoff-workshop:
+  title: 'DevCells: Kickoff Workshop'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b286c-a610-70b5-af71-648d569e650b
+  modules:
+  - base-cell
+  - base-cytosol
+  processes: []
+  implementations: []
+  skipped: false
+developer-cell-introduction:
+  title: 'Developer Cell: Project Introduction'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01981a1b-59a0-7dc7-9cb1-9abda4f5fd34
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+devstudio:
+  title: Developer Studio
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a0588e-dcf0-7ff3-b7d6-852cdac2734a
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+dg-20260805:
+  title: BCECF pH Sensor
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019fcfc9-7f0b-7bb3-b9e6-50e16d71b49f
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+dg-28072026:
+  title: BCECF pH Sensor
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019d661b-db3c-7529-b657-6eb5ae7918fc
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+fppr8928:
+  title: First Nucleus Cytosol Testing
+  doi: 10.63765/fppr8928
+  html: https://devnotes.nucleus.engineering/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2
+  modules:
+  - base-cytosol
+  - reporter-degfp
+  processes: []
+  implementations: []
+  skipped: false
+igor-260324:
+  title: 'IGOR PPK Optimization: Round 1'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019d1dfa-ab2f-7e7f-b501-226607aa4688
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+igor-260422:
+  title: 'IGOR PPK Optimization: Round 2'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019dc1f5-db16-78a9-a8e3-41d7f9210a74
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+lex-20260501:
+  title: 'London Exchange Meeting: Liposome Protocol Survey'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019de275-d95d-7773-8622-59c333b056a9
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+london-demo-1:
+  title: The colourimetric bacterial contamination sensing device.
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019baeb7-7e56-7ce0-9d0c-7925b98115e7
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+london-m2-1:
+  title: LacZ/XylE colour change module
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+london-m3-1:
+  title: Quorum Sensing Polymersome
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b13f8-9a25-7553-a88d-fa4f19790d13
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+london-m4-1:
+  title: Bioprinting Synthetic Cells Within a Hydrogel Matrix
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019c0e3e-8523-76e9-92a0-7b9ede31b9ca
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+london-m5-1:
+  title: Hydrogel-Embedded GUV Developer Cells
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1403-e941-7d0d-a147-1fe086617dad
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+london-m6-1:
+  title: Diffusion Kinetics
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b1410-b907-7bd1-b1c2-2325489a3c36
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+lozier-2026-batch-bayesian-optimization:
+  title: Batch Bayesian Optimization
+  doi: 10.63765/mkjg5795
+  html: https://devnotes.nucleus.engineering/articles/019fa23a-5b13-7cb5-bde2-521cae27ecfb
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+mk0407:
+  title: 'Double emulsion optimization: inner solution, lipid concentration, and composition'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019d64b1-f6b1-7d50-ba0d-7419f01c0141
+  modules:
+  - base-cell
+  - membrane-popc-chol
+  processes: []
+  implementations: []
+  skipped: false
+mn-260508-01:
+  title: TetO-Catecholase sensor validation in Nucleus Cytosol
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019e0429-3749-72ce-a062-7d2a7cf18c20
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+mn-260508-02:
+  title: Theophylline-LacZ sensor validation in Nucleus Cytosol
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+newell-2026-terminators:
+  title: DNA toolkit - The T7 terminator collection
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019e6a31-8786-7e53-8146-ba7d1bc3d209
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+onepot-0407:
+  title: Nucleus OnePot PURE
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019d1d1d-2e2d-7839-b0e3-d5cee50231ee
+  modules: []
+  processes:
+  - make-1pot
+  implementations: []
+  skipped: false
+onepot-pure-replication:
+  title: Nucleus OnePot PURE Replication
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/0198595d-3ccc-7d1f-8307-db4046a43569
+  modules: []
+  processes:
+  - make-1pot
+  implementations: []
+  skipped: false
+ppk-module-test:
+  title: PPK Module testing in PURE
+  doi: 10.63765/djnv7772
+  html: https://devnotes.nucleus.engineering/articles/01981160-aaa4-7f80-b3e4-d8179077b8fe
+  modules:
+  - energy-ppk
+  - purexpress
+  processes: []
+  implementations: []
+  skipped: false
+ppk-pure-cell-01:
+  title: Integrating PPK Module in PURE Cells
+  doi: 10.63765/mwur3749
+  html: https://devnotes.nucleus.engineering/articles/019926c4-3341-76fc-8f36-eb96fd77c170
+  modules:
+  - energy-ppk
+  - purexpress
+  - reporter-degfp
+  processes:
+  - assemble-base-cell
+  implementations: []
+  skipped: false
+pure-workshop-2025:
+  title: Nucleus OnePot PURE workshop
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01996046-b641-7f4e-8cb3-c928a618509b
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+sn-20260910:
+  title: What is a Cytosol Landscape?
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a08c2d-2898-7f60-8f62-6bee069fddca
+  modules:
+  - base-cytosol
+  - reporter-degfp
+  processes: []
+  implementations: []
+  skipped: false
+sn-22102026:
+  title: Supplementation and Encapsulation of PPK2 Enzymes in PURExpress Systems
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/01a166a8-645c-7748-aed7-b3e7ec381fc7
+  modules:
+  - energy-ppk
+  - purexpress
+  processes: []
+  implementations: []
+  skipped: false
+ss-20260712:
+  title: Tunable protein expression strength with toehold exchange riboregulators
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019f5a06-13cf-7246-a672-675042edf591
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+sy-20260624:
+  title: Characterizing the Limited Operational Lifetime of Cytosol Reactions
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019ef6d5-3a27-787f-9ebd-fe80645b1068
+  modules:
+  - base-cytosol
+  - reporter-degfp
+  processes: []
+  implementations: []
+  skipped: false
+t7-promoter:
+  title: DNA toolkit - The T7 promoter collection
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019b75df-878d-7a5d-8ff2-220963bd940c
+  modules: []
+  processes: []
+  implementations: []
+  skipped: true
+yh-20260612-01:
+  title: SecYEG-Based Membrane Translation Module in Synthetic Cells
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019eae62-056c-7285-a994-aeb800ecdaa5
+  modules:
+  - purexpress
+  processes:
+  - assemble-base-cell
+  implementations: []
+  skipped: false
+yh-20260626-01:
+  title: 'ClpXP Control Module: Deployment in Nucleus Cytosol'
+  doi: null
+  html: https://devnotes.nucleus.engineering/articles/019f05cb-6be8-7189-8c0d-f8f51d170541
+  modules:
+  - base-cytosol
+  - control-clpxp
+  - reporter-degfp
+  processes: []
+  implementations: []
+  skipped: false

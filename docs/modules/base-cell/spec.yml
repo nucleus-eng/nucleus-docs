@@ -39,15 +39,22 @@ inputs:
   membrane-popc-chol:
     title: "Base Membrane: POPC/Chol"
     page: ../membrane-popc-chol/spec.md
-  optiprep:
-    stock: {value: 1.32, unit: "mg/µL"}
-    title: "OptiPrep"
-    page: null            # a density agent: it lets the inner-solution droplets pellet through the oil-water interface
+  density-reagent:
+    title: "Density reagent"
+    # THE CLASS AND NOT A MEMBER. Any density reagent satisfies this slot. What the
+    # Module needs is that the inner solution out-weighs the outer, so the droplets
+    # pellet through the oil-water interface; which reagent does that is the
+    # implementation's choice. Same reading as `outer-solution` above.
+    #
+    # OptiPrep is the preferred density reagent. Stock 1.32 mg/uL, 0.043 mg/uL in the
+    # inner solution -- OptiPrep's figures, not the class's, since another reagent
+    # reaches the same density at a different concentration.
+    type: DensityReagent
 
 process_steps:
-  # THE INNER SOLUTION IS BASE CYTOSOL WITH OPTIPREP, and nothing else is required of it.
+  # THE INNER SOLUTION IS BASE CYTOSOL WITH A DENSITY REAGENT, and nothing else is
   # Base Cytosol leaves 2.5 uL of every 10 uL free for additions, and this step spends
-  # part of that slot on Optiprep. What else the user puts in the slot, template DNA for
+  # part of that slot on it. What else the user puts in the slot, template DNA for
   # one, is the user's and is not part of this Module.
   - id: assemble-inner-solution
     process:
@@ -55,7 +62,7 @@ process_steps:
       page: ../../processes/assemble-base-cytosol/main.md
       abstract: assemble-cytosol
     operator: mixing
-    operands: [base-cytosol, optiprep]
+    operands: [base-cytosol, density-reagent]
     produces:
       id: base-cell-inner-solution
       title: "Base Cell inner solution"
@@ -64,10 +71,10 @@ process_steps:
       requires: {value: 0.33, unit: "µL", of: {value: 10, unit: "µL"}}
       notes: >
         The slot is ../base-cytosol/spec.yml's `headroom.provides`, 2.5 uL of 10.
-        Optiprep takes 1.33 uL of a 40 uL reaction, which is 0.33 uL of 10.
+        The reference build spends 1.33 uL of a 40 uL reaction on it, 0.33 uL of 10.
     finals:
       base-cytosol: {value: 1, unit: "fold"}
-      optiprep: {value: 0.043, unit: "mg/µL"}
+      density-reagent: {value: 0.043, unit: "mg/µL"}
     total_volume: {value: 40, unit: "µL"}
     notes: >
       40 uL: 10 uL goes to the osmometer and 30 uL to one encapsulation.

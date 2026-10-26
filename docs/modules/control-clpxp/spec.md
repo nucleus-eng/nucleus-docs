@@ -148,3 +148,40 @@ Requires ATP and ssrA-tagged protein targets. Using DNA components additionally 
 # Credits
 
 Developed by [Yen-Yu Hsu](https://orcid.org/0000-0003-0866-6184) (b.next).
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} ClpXP Control Module: Deployment in Nucleus Cytosol
+:link: https://devnotes.nucleus.engineering/articles/019f05cb-6be8-7189-8c0d-f8f51d170541
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a15336-ad4c-7145-b48c-b467190898c0/public/control-module-456a08ae6157de8014ea7b8b5895035f.webp)
+:::
+
+:::{card} ClpXP Control Module: Deployment in PURE
+:link: https://devnotes.nucleus.engineering/articles/019b3969-570f-7d88-b998-48ca97f0306c
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-0d1e-7663-b612-b11a47b09f60/public/clpXP-eeff4ebcb83656de9cf8c31ccc8ad782.webp)
+:::
+
+:::{card} ClpXP Control Module: Deployment in PURE Cells
+:link: https://devnotes.nucleus.engineering/articles/019b613d-4a47-7d62-a262-77a667467a57
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd1-9199-7ac0-bacf-3ac935c46856/public/control-module-bcdff4929cf964ead1956fd124d8d9d9.webp)
+:::
+
+:::{card} The Developer Cell Control Module: Protein Degradation by ClpXP
+:link: https://devnotes.nucleus.engineering/articles/01981a5d-64c2-72f2-8055-5634d2824ede
+:footer: Yen-Yu Hsu · Nucleus Core
+
+![](https://pub.curvenote.com/01a08cd0-f496-7ee2-b08c-1c7e00240c3d/public/clpXP-85886080fd564ecd4e0aa3e9d696803a.webp)
+:::
+
+::::
