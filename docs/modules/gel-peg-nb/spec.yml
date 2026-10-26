@@ -1,0 +1,48 @@
+# Composition source for Gel: PEG-nb.
+
+module: gel-peg-nb
+title: "Gel: PEG-nb"
+type: Gel[photocrosslinked]
+
+inputs:
+  peg4nb:
+    title: "4-arm PEG-norbornene"
+    page: null
+    molar_mass: {value: 5000, unit: "g/mol"}
+    stock: {value: 80, unit: "mM", note: "molecules, in the precursor before the 1:1 mix"}
+  peg4sh:
+    title: "4-arm PEG-thiol"
+    page: null
+    molar_mass: {value: 2000, unit: "g/mol"}
+    stock: {value: 20, unit: "mM", note: "molecules, in the precursor before the 1:1 mix"}
+  lap:
+    title: "LAP photoinitiator"
+    page: null
+    molar_mass: {value: 294.21, unit: "g/mol"}
+    stock: {value: 16.9, unit: "mM", note: "in the precursor before the 1:1 mix"}
+  precursor-solvent:
+    title: "Precursor solvent"
+    page: null
+
+process_steps:
+  - id: photocrosslink
+    process:
+      title: "Embedding: Photocrosslinking"
+      page: ../../processes/embed-photocrosslinking/main.md
+    operator: mixing
+    operands: [peg4nb, peg4sh, lap, precursor-solvent]
+    produces:
+      id: gel-peg-nb
+      title: "Gel: PEG-nb"
+      page: ../gel-peg-nb/spec.md
+    ratio: "precursor mixed 1:1 with the sample"
+    finals:
+      peg4nb: {value: 40, unit: "mM", note: "molecules, after the 1:1 mix with the sample"}
+    parameters:
+      exposure_wavelength_nm: 405
+      exposure_time_s: 60
+
+open:
+  - id: exposure-dose
+    question: >
+      The irradiance of the projector at the sample is not stated, so the dose in 60 s is not known.

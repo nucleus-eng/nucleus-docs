@@ -1,0 +1,39 @@
+# Process source for Embedding: Thermal Setting.
+#
+# Written against PR 231's scripts/process-yml-schema.yml, from the page beside it. The type names
+# use the spelling of the published type order (Solution, Component, Container, Gel[thermally-set]).
+# That schema's pattern accepts lowercase only, so it rejects them until the staged edit lands.
+# `refines` names embed, a key of the published Process order, and embed has no page.
+
+process: embed-thermal-setting
+title: "Embedding: Thermal Setting"
+refines: embed
+operator: mixing
+
+signature:
+  takes:
+    - type: Solution
+      note: >
+        The outer solution the agarose is dissolved into: glucose and 50 mM HEPES at about 1200 mOsm.
+        For liposomes, the outer solution used to prepare them.
+    - type: Component
+      note: >
+        An agarose grade, ultra-low gelling (ULGA) or low gelling (LGA). The grade sets the hold
+        temperature, 55 °C for ULGA and 45 °C for LGA, and the gel point.
+    - type: Container
+      repeated: true
+      note: >
+        The sample to be held, 15 µL per well. In the source DevNote it is liposomes in their outer solution.
+  produces:
+    type: Gel[thermally-set]
+    note: >
+      A gel set by cooling, with the sample held where it was when the network set.
+
+open:
+  - id: impositions-undeclared
+    kind: question
+    question: >
+      No impositions are declared. The page states that the stock is held above its gel point until
+      the sample is mixed in, and that a sample must tolerate the mixing temperature. Declaring the
+      existing thermal-hold imposition id here would be a claim about the process that the DevNote
+      does not make, and a wrong declaration computes a false Conflict, so none is declared.

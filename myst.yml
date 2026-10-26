@@ -43,6 +43,12 @@ project:
           hidden: true
         - file: ./docs/modules/dye-liposomes/spec.md
           hidden: true
+        - file: ./docs/modules/gel-ulga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-lga/spec.md
+          hidden: true
+        - file: ./docs/modules/gel-peg-nb/spec.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/assemble-base-cell/main.md
@@ -66,6 +72,10 @@ project:
         - file: ./docs/processes/protein-gel/main.md
           hidden: true
         - file: ./docs/processes/pierce660/main.md
+          hidden: true
+        - file: ./docs/processes/embed-thermal-setting/main.md
+          hidden: true
+        - file: ./docs/processes/embed-photocrosslinking/main.md
           hidden: true
         - file: ./docs/processes/make-protein/make-protein-main.md
           hidden: true
