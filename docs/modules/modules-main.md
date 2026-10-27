@@ -46,7 +46,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 0        |
 | Cascade          | [pH Cascade](./ph-cascade/spec.md)                  | 0        |
 | Reporter         | [Color Change](./color-change/spec.md)              | 0        |
-| Detector         | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 0        |
+| Detector         | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 1        |
 :::
 
 ## Gels

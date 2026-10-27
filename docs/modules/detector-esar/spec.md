@@ -160,7 +160,9 @@ Drawn from the DevNote [Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transc
 
 :::{card} Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
 :link: https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a
-:footer: Charlie Newell, Manuel Bibrowski, Jonah McDonald, Niall McIntyre, Julia Purrinos De Oliveira · DevStudio 2026
+:footer: Charlie Newell, Manuel Bibrowski, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
 
 ![](https://pub.curvenote.com/01a1650a-b201-7bf1-8f59-f37bce646feb/public/EsaR-sensing-6354ffdd322f6b6aca0909ed8f894e30.png)
 :::
+
+::::
