@@ -80,8 +80,8 @@ inputs:
                           # `T7-[EsaO]-mNG-T7term` at 1098 bp, ran beside it for
                           # comparison and is not part of this composition.
                           # Both now have files in nucleus-eng/DNA, under
-                          # detectors/quorum-sensing/: t7-esao2-mng-t7term.gb and
-                          # t7-esao-mng-t7term.gb.
+                          # detectors/detector-esar/: pT7-EsaO-EsaO-mNG-linear.gb and
+                          # pT7-EsaO-mNG-linear.gb.
   pre-expressed-esar:
     title: "Pre-expressed EsaR(D91G) reaction"
     page: null            # expressed from `T7-EsaR(D91G)-T7term`, 1118 bp, in its own

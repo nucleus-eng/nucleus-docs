@@ -32,9 +32,9 @@ The repressor reaches the reaction as protein, not as a template to transcribe. 
 
 | **Name** | **Length (bp)** | **Role** | **File** |
 | --- | --- | --- | --- |
-| `T7-EsaR(D91G)-T7term` | 1118 | Expresses the repressor. The repressor is the point mutant D91G | [t7-esar-d91g-t7term.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/t7-esar-d91g-t7term.gb) |
-| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter | [t7-esao2-mng-t7term.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/t7-esao2-mng-t7term.gb) |
-| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. Run alongside the two-site construct for comparison | [t7-esao-mng-t7term.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/t7-esao-mng-t7term.gb) |
+| `T7-EsaR(D91G)-T7term` | 1118 | Expresses the repressor. The repressor is the point mutant D91G | [pT7-EsaR-D91G-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaR-D91G-linear.gb) |
+| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter | [pT7-EsaO-EsaO-mNG-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaO-EsaO-mNG-linear.gb) |
+| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. Run alongside the two-site construct for comparison | [pT7-EsaO-mNG-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaO-mNG-linear.gb) |
 
 :::
 
