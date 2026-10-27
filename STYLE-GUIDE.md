@@ -24,7 +24,7 @@ Every rule lives in exactly one file under [`style-guide/`](style-guide/). Nothi
 | [`principles.md`](style-guide/principles.md) | What these documents are, and what the other rules follow from. **Read this one first.** |
 | [`page-types.md`](style-guide/page-types.md) | What belongs on each page type, and where displaced content goes |
 | [`sections.md`](style-guide/sections.md) | Every section of a Module spec, in order |
-| [`conventions.md`](style-guide/conventions.md) | Terminology, figures, citations, what never appears, mechanics |
+| [`conventions.md`](style-guide/conventions.md) | Terminology, units, figures, citations, what never appears, mechanics |
 
 **MyST mechanics are not here.** Fence and tab-set depth, `.md`-not-`.html` links and figure placement are properties of MyST rather than of this repo, and live in the `author-myst-content` skill. Heading labels and the links that use them are a rule of this repo: see [`conventions.md`](style-guide/conventions.md#headings-and-captions). Invoke it when writing a page.
 

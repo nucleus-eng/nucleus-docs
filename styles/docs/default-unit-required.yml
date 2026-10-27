@@ -1,0 +1,20 @@
+# Local to nucleus-docs. Not vendored from nucleus-skills.
+#
+# THE DEFAULT UNIT IS REQUIRED, THE PARENTHETICAL IS OPTIONAL (style-guide/conventions.md, Units).
+# This flags a percent weight per volume that stands alone: '1.0 % w/v', '1.0 % (w/v)', '1.0%w/v'.
+# It stays quiet when the number sits right after an opening parenthesis, '10 mg/mL (1.0 % w/v)',
+# because RE2 has no lookbehind and the parenthesis is the only cue the pattern can see.
+# It cannot tell that a parenthetical has no mg/mL before it: '(1.0 % w/v)' alone passes.
+#
+# TWO ALTERNATIVES IN ONE `raw:` ENTRY, as in space-before-percent.yml: two list entries made
+# Vale flag nothing, with no error. The second alternative takes a match at the start of a block.
+# A decimal at the very start of a block, followed by more text, is not matched: '1.5 % w/v is
+# the stock.' is clean. Measured on Vale 3.24.0. '25 % w/v is ...' is matched.
+#
+# Vale places a match by searching for its text, so two identical matched strings in one file can
+# land on the wrong line. Every fixture line uses a different number for this reason.
+extends: existence
+message: "Give the default unit mg/mL. Put '%s' only in parentheses after it: '7 mg/mL (0.7 %% w/v)'."
+level: warning
+raw:
+  - '[^(\d.]\d[\d.]*\s?%\s?\(?w/v\)?|(?:^|\n)\d[\d.]*\s?%\s?\(?w/v\)?'

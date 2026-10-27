@@ -64,7 +64,7 @@ flowchart TD
 :::{table} Polymer of Gel: ULGA.
 | Component | Stock concentration | Final concentration |
 | --- | --- | --- |
-| Ultra-low gelling agarose | 10 mg/mL | 5 mg/mL |
+| Ultra-low gelling agarose | 10 mg/mL (1.0 % w/v) | 5 mg/mL (0.5 % w/v) |
 :::
 
 The final concentration is for a stock mixed 1:1 with the sample.
@@ -75,10 +75,10 @@ The final concentration is for a stock mixed 1:1 with the sample.
 
 # Expected Behavior
 
-Gel: ULGA is expected to set when the mixture cools to its gel point, about 8 °C to 15 °C. It is easy to pipette as a stock.
+Gel: ULGA has a gel point of about 8 °C to 15 °C. The mixture sets at this temperature. The stock is easy to pipette. The ULGA stock is held at 55 °C until use.
 
-:::{attention} Setting is not described
-@Editor: state the temperature at which the ULGA stock, held at 55 °C, is mixed with a sample, and how the mixture is cooled to its gel point.
+:::{attention} Mixing temperature is not confirmed
+@Editor: state the temperature at which the sample is mixed with the ULGA stock. The stock is held at 55 °C. Confirm whether the sample is also mixed in at 55 °C, or state the correct temperature. State how the mixture then cools to its gel point.
 :::
 
 # Requirements
@@ -98,11 +98,7 @@ Requires that a sample tolerate the temperature at which it is mixed with the st
 
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Ultra-low gelling agarose | Polymer | Ultra-low gelling agarose | Sigma-Aldrich | A5030 | — | — | — |
-:::
-
-:::{attention} ULGA part number is unconfirmed
-@Editor: confirm that the ULGA is Sigma-Aldrich A5030 and not A2576, and give its storage conditions.
+| Ultra-low gelling agarose | Polymer | Ultra-low gelling agarose | Sigma-Aldrich | A5030 | — | Room temperature | [Sigma-Aldrich A5030](https://www.sigmaaldrich.com/US/en/product/sial/a5030) |
 :::
 
 # Constituent Modules
@@ -113,3 +109,26 @@ Requires that a sample tolerate the temperature at which it is mixed with the st
 # Credits
 
 Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Dependent Transcriptional Regulation
+:link: https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b#guv-embedding-in-gels-for-synthetic-ahl-experiment
+:footer: Julia Purrinos de Oliveira, Niall McIntyre, Manuel Bibrowski, Charlie Newell, Jonah McDonald · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659f-0760-755b-84e0-9a6fab2b60e4/public/overview-fac6c68e96a967785c623ca3bb266c61.png)
+:::
+
+:::{card} Understanding Liposome Behaviour in Hydrogel Matrices
+:link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7#hydrogel-preparation
+:footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
+:::
+
+::::

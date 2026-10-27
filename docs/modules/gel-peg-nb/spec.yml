@@ -20,9 +20,9 @@ inputs:
     page: null
     molar_mass: {value: 294.21, unit: "g/mol"}
     stock: {value: 16.9, unit: "mM", note: "in the precursor before the 1:1 mix"}
-  precursor-solvent:
-    title: "Precursor solvent"
-    page: null
+  outer-solution:
+    title: "Outer solution"
+    type: Solution
 
 process_steps:
   - id: photocrosslink
@@ -30,7 +30,7 @@ process_steps:
       title: "Embedding: Photocrosslinking"
       page: ../../processes/embed-photocrosslinking/main.md
     operator: mixing
-    operands: [peg4nb, peg4sh, lap, precursor-solvent]
+    operands: [peg4nb, peg4sh, lap, outer-solution]
     produces:
       id: gel-peg-nb
       title: "Gel: PEG-nb"

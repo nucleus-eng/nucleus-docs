@@ -41,10 +41,12 @@ exclude:
   title: Two Vesicle Colorimetric pH Sensor System
   doi: null
   html: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
-  modules: []
-  processes: []
+  modules:
+  - gel-lga
+  processes:
+  - embed-thermal-setting
   implementations: []
-  skipped: true
+  skipped: false
 01a108c6-4719-7833-92af-daf6f91ed06a:
   title: Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
   doi: null
@@ -60,17 +62,24 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
   modules:
   - base-cell
-  processes: []
+  - gel-ulga
+  - gel-lga
+  - gel-peg-nb
+  processes:
+  - embed-photocrosslinking
+  - embed-thermal-setting
   implementations: []
   skipped: false
 01a1121a-7513-7ec7-8378-0326c6b3630b:
   title: Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Dependent Transcriptional Regulation
   doi: null
   html: https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b
-  modules: []
-  processes: []
+  modules:
+  - gel-ulga
+  processes:
+  - embed-thermal-setting
   implementations: []
-  skipped: true
+  skipped: false
 01a12ce3-b57e-7986-8786-d64ff5b6e936:
   title: GUV Encapsulation of a TetR/aTc-Inducible deGFP Cell-Free Sensor
   doi: null
@@ -120,7 +129,9 @@ exclude:
   modules:
   - base-cytosol
   - detector-tetr-atc
-  processes: []
+  - gel-peg-nb
+  processes:
+  - embed-photocrosslinking
   implementations: []
   skipped: false
 01a16026-42c1-71ad-842a-463d52fae7d8:
