@@ -81,6 +81,7 @@ exclude:
   processes:
   - embed-photocrosslinking
   - embed-thermal-setting
+  - encapsulate-freeze-thaw
   implementations: []
   skipped: false
 01a1121a-7513-7ec7-8378-0326c6b3630b:
@@ -133,7 +134,8 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
   modules:
   - substrate-cprg-luv
-  processes: []
+  processes:
+  - encapsulate-freeze-thaw
   implementations: []
   skipped: false
 01a1304b-1c56-7352-a082-ba84a2684f82:

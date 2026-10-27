@@ -79,9 +79,7 @@ The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2
 
 ## Solution
 
-:::{warning} Not yet validated
-This page does not report color development of Substrate LUV: CPRG in solution.
-:::
+Substrate LUV: CPRG is expected to keep CPRG inside at neutral pH and release it when a lytic enzyme such as PLA1 disrupts the membrane. In solution, pH Sensing Cells with Substrate LUV: CPRG gave a visible color change at pH 6.3 and stayed yellow at pH 7.6. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
 ## Gels
 
