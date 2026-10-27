@@ -1,0 +1,276 @@
+# Composition source for Small Molecule Mix (SMix).
+#
+# Machine-readable companion to spec.md. ../base-cytosol/spec.yml names this
+# Module as its `smix` input, so a cascade rendered at `--depth 2` or deeper
+# can expand Base Cytosol down to each small molecule.
+#
+# Two steps, one per process page: the 20 amino acids are made into Amino Acid
+# Mix first, and SMix then takes that mix as one reagent. Walking the two steps
+# gives each amino acid its own concentration in SMix.
+#
+# Stocks and molar masses are those of Make Small Molecule Mix, and the amino
+# acid molar masses those of the Amino Acid Mix worksheet on Make Amino Acid
+# Mix. Each is the formula weight of the form that is weighed out, which for
+# several reagents is a salt or a hydrate.
+
+module: smix
+title: "Small Molecule Mix (SMix)"
+type: Solution
+
+inputs:
+  alanine:
+    title: "Alanine (Ala)"
+    molar_mass: {value: 89.1, unit: "g/mol"}
+    page: null
+  arginine:
+    title: "Arginine (Arg)"
+    molar_mass: {value: 210.66, unit: "g/mol"}
+    page: null
+  asparagine:
+    title: "Asparagine (Asn)"
+    molar_mass: {value: 132.1, unit: "g/mol"}
+    page: null
+  aspartic-acid:
+    title: "Aspartic Acid (Asp)"
+    molar_mass: {value: 133.1, unit: "g/mol"}
+    page: null
+  cysteine:
+    title: "Cysteine (Cys)"
+    molar_mass: {value: 157.62, unit: "g/mol"}
+    page: null
+  glutamic-acid:
+    title: "Glutamic Acid (Glu)"
+    molar_mass: {value: 147.1, unit: "g/mol"}
+    page: null
+  glutamine:
+    title: "Glutamine (Gln)"
+    molar_mass: {value: 146.2, unit: "g/mol"}
+    page: null
+  glycine:
+    title: "Glycine (Gly)"
+    molar_mass: {value: 75.1, unit: "g/mol"}
+    page: null
+  histidine:
+    title: "Histidine (His)"
+    molar_mass: {value: 209.63, unit: "g/mol"}
+    page: null
+  isoleucine:
+    title: "Isoleucine (Ile)"
+    molar_mass: {value: 131.2, unit: "g/mol"}
+    page: null
+  leucine:
+    title: "Leucine (Leu)"
+    molar_mass: {value: 131.2, unit: "g/mol"}
+    page: null
+  lysine:
+    title: "Lysine (Lys)"
+    molar_mass: {value: 182.65, unit: "g/mol"}
+    page: null
+  methionine:
+    title: "Methionine (Met)"
+    molar_mass: {value: 149.2, unit: "g/mol"}
+    page: null
+  phenylalanine:
+    title: "Phenylalanine (Phe)"
+    molar_mass: {value: 165.2, unit: "g/mol"}
+    page: null
+  proline:
+    title: "Proline (Pro)"
+    molar_mass: {value: 115.1, unit: "g/mol"}
+    page: null
+  serine:
+    title: "Serine (Ser)"
+    molar_mass: {value: 105.1, unit: "g/mol"}
+    page: null
+  threonine:
+    title: "Threonine (Thr)"
+    molar_mass: {value: 119.1, unit: "g/mol"}
+    page: null
+  tryptophan:
+    title: "Tryptophan (Trp)"
+    molar_mass: {value: 204.2, unit: "g/mol"}
+    page: null
+  tyrosine:
+    title: "Tyrosine (Tyr)"
+    molar_mass: {value: 181.2, unit: "g/mol"}
+    page: null
+  valine:
+    title: "Valine (Val)"
+    molar_mass: {value: 117.1, unit: "g/mol"}
+    page: null
+  hepes:
+    title: "HEPES-KOH (pH 7.6)"
+    stock: {value: 1000, unit: "mM"}
+    molar_mass: {value: 238.3, unit: "g/mol"}
+    page: null
+  potassium-glutamate:
+    title: "Potassium glutamate"
+    stock: {value: 2500, unit: "mM"}
+    molar_mass: {value: 203.23, unit: "g/mol"}
+    page: null
+  magnesium-acetate:
+    title: "Magnesium acetate"
+    stock: {value: 1000, unit: "mM"}
+    molar_mass: {value: 214.45, unit: "g/mol"}
+    page: null
+  ratp:
+    title: "rATP"
+    stock: {value: 100, unit: "mM"}
+    molar_mass: {value: 551.14, unit: "g/mol"}
+    page: null
+  rgtp:
+    title: "rGTP"
+    stock: {value: 100, unit: "mM"}
+    molar_mass: {value: 523.18, unit: "g/mol"}
+    page: null
+  rctp:
+    title: "rCTP"
+    stock: {value: 100, unit: "mM"}
+    molar_mass: {value: 527.12, unit: "g/mol"}
+    page: null
+  rutp:
+    title: "rUTP"
+    stock: {value: 100, unit: "mM"}
+    molar_mass: {value: 550.09, unit: "g/mol"}
+    page: null
+  creatine-phosphate:
+    title: "Creatine phosphate"
+    stock: {value: 500, unit: "mM"}
+    molar_mass: {value: 327.14, unit: "g/mol"}
+    page: null
+  tcep:
+    title: "TCEP"
+    stock: {value: 500, unit: "mM"}
+    molar_mass: {value: 286.65, unit: "g/mol"}
+    page: null
+  folinic-acid:
+    title: "Folinic acid"
+    stock: {value: 5, unit: "mM"}
+    molar_mass: {value: 511.50, unit: "g/mol"}
+    page: null
+  spermidine:
+    title: "Spermidine"
+    stock: {value: 500, unit: "mM"}
+    molar_mass: {value: 145.25, unit: "g/mol"}
+    page: null
+  water:
+    title: "Ultrapure water"
+    page: null
+
+process_steps:
+  - id: make-amino-acid-mix
+    process:
+      title: "Make Amino Acid Mix"
+      page: ../../processes/make-amino-acid-mix/main.md
+    operator: mixing
+    operands:
+      - alanine
+      - arginine
+      - asparagine
+      - aspartic-acid
+      - cysteine
+      - glutamic-acid
+      - glutamine
+      - glycine
+      - histidine
+      - isoleucine
+      - leucine
+      - lysine
+      - methionine
+      - phenylalanine
+      - proline
+      - serine
+      - threonine
+      - tryptophan
+      - tyrosine
+      - valine
+      - water
+    produces:
+      id: amino-acid-mix
+      title: "Amino Acid Mix"
+      page: null
+    finals:
+      alanine: {value: 3.25, unit: "mM"}
+      arginine: {value: 3.25, unit: "mM"}
+      asparagine: {value: 3.25, unit: "mM"}
+      aspartic-acid: {value: 3.25, unit: "mM"}
+      cysteine: {value: 3.25, unit: "mM"}
+      glutamic-acid: {value: 3.25, unit: "mM"}
+      glutamine: {value: 3.25, unit: "mM"}
+      glycine: {value: 3.25, unit: "mM"}
+      histidine: {value: 3.25, unit: "mM"}
+      isoleucine: {value: 3.25, unit: "mM"}
+      leucine: {value: 3.25, unit: "mM"}
+      lysine: {value: 3.25, unit: "mM"}
+      methionine: {value: 3.25, unit: "mM"}
+      phenylalanine: {value: 3.25, unit: "mM"}
+      proline: {value: 3.25, unit: "mM"}
+      serine: {value: 3.25, unit: "mM"}
+      threonine: {value: 3.25, unit: "mM"}
+      tryptophan: {value: 3.25, unit: "mM"}
+      tyrosine: {value: 3.25, unit: "mM"}
+      valine: {value: 3.25, unit: "mM"}
+    balance: water
+    notes: >
+      Equimolar. Nineteen amino acids are added from stock solutions and
+      tyrosine is weighed straight into the final volume, so tyrosine has no
+      stock. The stock concentrations and volumes are in the Amino Acid Mix
+      worksheet on the process page.
+
+  - id: make-smix
+    process:
+      title: "Make Small Molecule Mix"
+      page: ../../processes/make-small-molecule-mix/main.md
+    operator: mixing
+    operands:
+      - hepes
+      - potassium-glutamate
+      - magnesium-acetate
+      - ratp
+      - rgtp
+      - rctp
+      - rutp
+      - amino-acid-mix
+      - creatine-phosphate
+      - tcep
+      - folinic-acid
+      - spermidine
+      - water
+    produces:
+      id: smix
+      title: "Small Molecule Mix (SMix)"
+      page: ../smix/spec.md
+    concentration: {value: 3.33, unit: "fold", approx: true, note: "3 uL of SMix per 10 uL of reaction"}
+    finals:
+      hepes: {value: 166.67, unit: "mM"}
+      potassium-glutamate: {value: 333.33, unit: "mM"}
+      magnesium-acetate: {value: 25, unit: "mM"}
+      ratp: {value: 6.67, unit: "mM"}
+      rgtp: {value: 6.67, unit: "mM"}
+      rctp: {value: 3.33, unit: "mM"}
+      rutp: {value: 3.33, unit: "mM"}
+      creatine-phosphate: {value: 66.67, unit: "mM"}
+      tcep: {value: 3.33, unit: "mM"}
+      folinic-acid: {value: 0.067, unit: "mM"}
+      spermidine: {value: 6.67, unit: "mM"}
+    fractions:
+      hepes: 0.16667
+      potassium-glutamate: 0.13333
+      magnesium-acetate: 0.025
+      ratp: 0.06667
+      rgtp: 0.06667
+      rctp: 0.03333
+      rutp: 0.03333
+      creatine-phosphate: 0.13333
+      tcep: 0.00667
+      folinic-acid: 0.01333
+      spermidine: 0.01333
+      amino-acid-mix: 0.30769
+    balance: water
+    notes: >
+      SMix is a 3.33x concentration of the small molecules in Base Cytosol:
+      3 uL of SMix go into each 10 uL reaction. Each fraction is the SMix
+      concentration over the stock concentration, and reproduces the volumes
+      Make Small Molecule Mix gives for 500 uL at the stocks on that page.
+      Amino Acid Mix at 0.30769 puts each amino acid at 1.00 mM. The fractions
+      sum to 0.9994, which leaves about 0.3 uL of water in 500 uL.

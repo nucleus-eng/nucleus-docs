@@ -74,16 +74,13 @@ flowchart TD
 
 | Name | Length | Supply | File |
 | --- | --- | --- | --- |
-| `pT7-toehold9-PLA1-linear` | 1203 bp | Linear DNA template, added to the cell cytosol at 2 nM | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
-| `pH-responsive-ssDNA-2` | 49 nt | Single-stranded oligo, annealed with the trigger strand | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/detectors/detector-ph/pH-responsive-ssDNA-2.gb) |
-| `trigger-ssDNA-3` | 36 nt | Single-stranded oligo, annealed with the pH-responsive strand | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/detectors/detector-ph/trigger-ssDNA-3.gb) |
+| `pT7-toehold9-PLA1-linear` | 1203 bp | Linear DNA template, added to the cell cytosol at 2 nM | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
+| `pH-responsive-ssDNA-2` | 49 nt | Single-stranded oligo, annealed with the trigger strand | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/detectors/detector-ph/pH-responsive-ssDNA-2.gb) |
+| `trigger-ssDNA-3` | 36 nt | Single-stranded oligo, annealed with the pH-responsive strand | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/detectors/detector-ph/trigger-ssDNA-3.gb) |
 :::
 
 β-galactosidase is added as purified enzyme and has no DNA construct.
 
-:::{attention}
-@Editor: These files are on the `devcells/devstudio-constructs` branch of `nucleus-eng/DNA`, and the links are pinned to a commit on that branch. Point the links at `main` when the branch is merged.
-:::
 ::::
 
 ::::{tab-item} pH Sensing Cell

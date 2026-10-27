@@ -113,12 +113,9 @@ flowchart TB
 
 | Name | Length | Supply | File |
 | --- | --- | --- | --- |
-| `pT7-toehold9-PLA1-linear` | 1203 bp | Linear DNA template, added to the cytosol at 2 nM | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
+| `pT7-toehold9-PLA1-linear` | 1203 bp | Linear DNA template, added to the cytosol at 2 nM | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
 :::
 
-:::{attention}
-@Editor: This file is on the `devcells/devstudio-constructs` branch of `nucleus-eng/DNA`, and the link is pinned to a commit on that branch. Point the link at `main` when the branch is merged.
-:::
 ::::
 
 :::::

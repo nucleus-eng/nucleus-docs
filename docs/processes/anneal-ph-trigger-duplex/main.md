@@ -25,8 +25,8 @@ Anneal pH Trigger Duplex hybridizes the pH-responsive strand (`pH-responsive-ssD
 
 | Name | Length (nt) | Sequence (5′ to 3′) | File |
 | --- | --- | --- | --- |
-| `pH-responsive-ssDNA-2` | 49 | TTCTCTTCTCGTTTGCTCTTCTCTTGTGTGGTATTGTCCAAGAGAAGAG | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/detectors/detector-ph/pH-responsive-ssDNA-2.gb) |
-| `trigger-ssDNA-3` | 36 | TATGCAAACAAGACAATACCACACAATTTTTTTTTT | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/detectors/detector-ph/trigger-ssDNA-3.gb) |
+| `pH-responsive-ssDNA-2` | 49 | TTCTCTTCTCGTTTGCTCTTCTCTTGTGTGGTATTGTCCAAGAGAAGAG | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/detectors/detector-ph/pH-responsive-ssDNA-2.gb) |
+| `trigger-ssDNA-3` | 36 | TATGCAAACAAGACAATACCACACAATTTTTTTTTT | [trigger-ssDNA-3.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/detectors/detector-ph/trigger-ssDNA-3.gb) |
 :::
 ::::
 

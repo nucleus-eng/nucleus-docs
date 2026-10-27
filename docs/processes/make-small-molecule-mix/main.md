@@ -31,18 +31,18 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | **Reagent** | **Concentration in Small Molecule Mix (mM)** | **Concentration in Final Reaction (mM)** |
 | --- | --- | --- |
-| HEPES-KOH (pH 7.6) | 125 | 50 |
-| Potassium glutamate | 250 | 100 |
-| Magnesium acetate | 18.75 | 7.5 |
-| rATP  | 5 | 2 |
-| rGTP | 5 | 2 |
-| rCTP | 2.5 | 1 |
-| rUTP | 2.5 | 1 |
-| Amino Acids (each) | 0.75 | 0.3 |
-| Creatine phosphate | 50 | 20 |
-| Folinic acid | 0.05 | 0.02 |
-| Spermidine | 5 | 2 |
-| TCEP | 2.5 | 1 |
+| HEPES-KOH (pH 7.6) | 166.67 | 50 |
+| Potassium glutamate | 333.33 | 100 |
+| Magnesium acetate | 25 | 7.5 |
+| rATP  | 6.67 | 2 |
+| rGTP | 6.67 | 2 |
+| rCTP | 3.33 | 1 |
+| rUTP | 3.33 | 1 |
+| Amino Acids (each) | 1.00 | 0.3 |
+| Creatine phosphate | 66.67 | 20 |
+| Folinic acid | 0.067 | 0.02 |
+| Spermidine | 6.67 | 2 |
+| TCEP | 3.33 | 1 |
 
 :::
 
@@ -71,7 +71,6 @@ Please read this section carefully. It contains important notes, resources, and 
 | Folinic acid            | Reagent  | Folinic acid calcium salt hydrate                                      | Sigma-Aldrich     | F7878-100MG | $108    | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sial/f7878)                        |
 | BME                     | Reagent  | 2-Mercaptoethanol                                                      | Sigma-Aldrich     | M6250-100ML | $65.50  | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/m6250)                     |
 | Spermidine              | Reagent  | Spermidine, ≥99% (GC)                                                  | Sigma-Aldrich     | S2626-5G    | $176    | -25 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/s2626)                       |
-| tRNA                    | Biologic | Nucleus Total tRNA (50 µg/µL)                                          | b.next            | —           | —       | -25 °C to -15 °C | [Make tRNAs](../make-trna/main.md)                                                   |
 | Amino Acids             | Biologic | Amino Acid Mix (3.25 mM)                                               | b.next            | —           | —       | -80 °C to -20 °C | [Make Amino Acid Mix](../make-amino-acid-mix/main.md)                                |
 :::
 
@@ -111,22 +110,23 @@ Please read this section carefully. It contains important notes, resources, and 
 
 | **Reagent** | **Stock Concentration (mM)** | **Concentration in Small Molecule Mix (mM)** | **Volume to Add (uL)** |
 | --- | --- | --- | --- |
-| HEPES-KOH (pH 7.6) | 1000 | 125 | 62.5 |
-| Potassium glutamate | 2500 | 250 | 50.0 |
-| Magnesium acetate | 1000 | 18.75 | 9.38 |
-| rATP | 100 | 5 | 25.0 |
-| rGTP | 100 | 5 | 25.0 |
-| rCTP | 100 | 2.5 | 12.5 |
-| rUTP | 100 | 2.5 | 12.5 |
-| Creatine phosphate | 500 | 50 | 50.0 |
-| TCEP | 500 | 2.5 | 2.5 |
-| Folinic acid | 5 | 0.05 | 5.0 |
-| Spermidine | 500 | 5 | 5.0 |
-| Amino Acid Mix | 3.25 | 0.75 | 115.4 |
-| Ultrapure water |  n/a |  n/a | 15.82 |
+| HEPES-KOH (pH 7.6) | 1000 | 166.67 | 83.33 |
+| Potassium glutamate | 2500 | 333.33 | 66.67 |
+| Magnesium acetate | 1000 | 25 | 12.5 |
+| rATP | 100 | 6.67 | 33.33 |
+| rGTP | 100 | 6.67 | 33.33 |
+| rCTP | 100 | 3.33 | 16.67 |
+| rUTP | 100 | 3.33 | 16.67 |
+| Creatine phosphate | 500 | 66.67 | 66.67 |
+| TCEP | 500 | 3.33 | 3.33 |
+| Folinic acid | 5 | 0.067 | 6.67 |
+| Spermidine | 500 | 6.67 | 6.67 |
+| Amino Acid Mix | 3.25 | 1.00 | 153.85 |
 | **Total** |  |  | 500 |
 
 :::
+
+The stocks fill the batch: the volumes above add up to 499.7 µL, which is 500 µL within pipetting error. Add no water.
 
 ## Storage
 - [ ]  Aliquot Small Molecule Mix into 1.5 mL microfuge tubes (between 50 µL and 100 µL per aliquot) and store at -80 °C.

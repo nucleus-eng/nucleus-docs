@@ -13,10 +13,10 @@ type: Cytosol
 inputs:
   pmix:
     title: "Protein Mix (PMix)"
-    page: null            # 36 PURE proteins, 15 ug/uL total
+    page: ../pmix/spec.md
   smix:
     title: "Small Molecule Mix (SMix)"
-    page: null            # buffers, nucleotides, amino acids, cofactors
+    page: ../smix/spec.md
   ribosomes:
     title: "Ribosomes"
     page: null
