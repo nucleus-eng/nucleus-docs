@@ -30,19 +30,15 @@ The repressor reaches the reaction as protein, not as a template to transcribe. 
 :::{table} Linear templates. All three are amplified by PCR and cleaned up before use.
 :label: comp-detector-esar-constructs
 
-| **Name** | **Length (bp)** | **Role** |
-| --- | --- | --- |
-| `T7-EsaR(D91G)-T7term` | 1118 | Expresses the repressor. The repressor is the point mutant D91G |
-| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter |
-| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. Run alongside the two-site construct for comparison |
+| **Name** | **Length (bp)** | **Role** | **File** |
+| --- | --- | --- | --- |
+| `T7-EsaR(D91G)-T7term` | 1118 | Expresses the repressor. The repressor is the point mutant D91G | [t7-esar-d91g-t7term.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/t7-esar-d91g-t7term.gb) |
+| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter | [t7-esao2-mng-t7term.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/t7-esao2-mng-t7term.gb) |
+| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. Run alongside the two-site construct for comparison | [t7-esao-mng-t7term.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/quorum-sensing/t7-esao-mng-t7term.gb) |
 
 :::
 
 The operator `[EsaO]2` is two EsaO sites in tandem, one base apart. Each site is the same 19 bp box, `CCTGTACTATAGTGCAGGT`, at positions 62–80 and 82–100. The single-site construct carries one copy of that box at 62–80. The two reporters carry the same mNeonGreen coding sequence, so the 20 bp of length between them is the second operator plus the base that separates the pair.
-
-:::{attention} No sequence files yet
-None of the three constructs has a file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). The lengths above are read from the sequences held with the DevNote. @Developer: land the three there so each length can be checked against its `LOCUS` line.
-:::
 
 ::::
 

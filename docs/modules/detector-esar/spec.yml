@@ -79,7 +79,9 @@ inputs:
                           # [EsaO]2 IS THE REFERENCE REPORTER. A single-site version,
                           # `T7-[EsaO]-mNG-T7term` at 1098 bp, ran beside it for
                           # comparison and is not part of this composition.
-                          # No sequence file is in nucleus-eng/DNA for either.
+                          # Both now have files in nucleus-eng/DNA, under
+                          # detectors/quorum-sensing/: t7-esao2-mng-t7term.gb and
+                          # t7-esao-mng-t7term.gb.
   pre-expressed-esar:
     title: "Pre-expressed EsaR(D91G) reaction"
     page: null            # expressed from `T7-EsaR(D91G)-T7term`, 1118 bp, in its own
@@ -172,12 +174,6 @@ open:
       The page reports its source stating the added repressor template as both an
       87-fold and a 77-fold excess over the reporter. No figure for it is written above,
       because the template-competition condition is not the reference composition.
-  - id: no-sequence-file-resolves
-    question: >
-      None of the three constructs has a file in nucleus-eng/DNA, so every length named
-      above is read from the sequences held with the page's source rather than from a
-      `LOCUS` line that can be checked here. scripts/check-dna-refs.py has nothing to
-      verify until those files land.
   - id: the-base-is-named-at-a-different-grain-than-the-page
     question: >
       The page's table writes the base component-wise, as four rows with their own
