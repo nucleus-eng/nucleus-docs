@@ -292,3 +292,19 @@ Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Ch
 :::{attention}
 @Editor: Add the Node and Lab to this credit.
 :::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+::::

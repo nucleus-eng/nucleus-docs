@@ -39,3 +39,19 @@ Colorimetric Readout develops and reads the color of a system that holds a color
 :::{attention}
 @Developer: Give the recommended incubation time, and the lighting and camera settings for the photographs.
 :::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+::::

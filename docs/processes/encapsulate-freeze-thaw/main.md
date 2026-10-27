@@ -102,3 +102,19 @@ Alternating the orientation moves the pellet to the opposite side of the tube. T
 :::{attention}
 @Developer: Reconcile the pooling volumes. Six tubes at 15 µL give 90 µL, which fits the LUV route (90 µL + 160 µL = 250 µL). The SUV route also states six tubes, but 75 µL + 175 µL = 250 µL needs five tubes. The pooled pellets go into two tubes, and each tube is brought to 250 µL: say how the 90 µL or 75 µL divides between them. The LUV dilution step uses 12 tubes of 50 µL, which need 600 µL, while the CPRG LUV preparation is 500 µL. Give the number of tubes for each route.
 :::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+::::

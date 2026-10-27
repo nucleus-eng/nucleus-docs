@@ -43,9 +43,20 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
   modules:
   - gel-lga
+  - detector-ph
+  - ph-sensing-cell
+  - reporter-lacz-enzyme
+  - substrate-cprg-luv
+  - substrate-cprg-suv
+  - ph-cascade
+  - color-change
   processes:
   - embed-thermal-setting
-  implementations: []
+  - anneal-ph-trigger-duplex
+  - encapsulate-freeze-thaw
+  - colorimetric-readout
+  implementations:
+  - colorimetric-ph-sensor
   skipped: false
 01a108c6-4719-7833-92af-daf6f91ed06a:
   title: Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
