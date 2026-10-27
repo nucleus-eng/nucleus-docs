@@ -14,10 +14,10 @@ Colorimetric Readout develops and reads the color of a system that holds a color
 
 # Materials and Equipment
 
-β-galactosidase at 1000 U/mL, 1 M Tris base, and 37 % HCl are required. The sample is a 60 µL gel or a 60 µL solution.
+β-galactosidase at 1000 U/mL, 1 M Tris base, and 37 % HCl are required. The sample is a 60 µL gel or a 60 µL solution. The β-galactosidase is from *Escherichia coli* (Sigma-Aldrich G5635, Grade VIII, lyophilized powder, ≥500 units/mg protein).
 
 :::{attention}
-@Developer: Give the source and catalog number of the β-galactosidase and of the Tris base.
+@Developer: Give the manufacturer and catalog number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc, the distribution's materials reference, or any supporting DevNote names a vendor for it.
 :::
 
 # Protocol
@@ -37,8 +37,12 @@ Colorimetric Readout develops and reads the color of a system that holds a color
 - [ ] **Read the color by eye and photograph the wells.** CPRG is yellow, and CPR is purple.
 
 :::{attention}
-@Developer: Give the recommended incubation time, and the lighting and camera settings for the photographs.
+@Developer: Give the recommended incubation time.
 :::
+
+# Credits
+
+Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
 
 # Supported by
 
