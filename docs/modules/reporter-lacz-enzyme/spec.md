@@ -76,13 +76,22 @@ Requires CPRG in the outer solution (e.g. CPRG released from [Substrate LUV: CPR
 
 # Materials
 
+:::{table}
+:label: bom-reporter-lacz-enzyme
+:align: center
+
+| Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
+| ---- | -------- | ------- | ------------ | ------ | ----- | ------- | ---- |
+| β-galactosidase | Reagent | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | | −20 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
+:::
+
 :::{attention}
-@Developer: Give the source organism, manufacturer and part number of the β-galactosidase, and the manufacturer and part number of the Tris base.
+@Developer: Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc, the distribution's materials reference, or any of this page's supporting DevNotes names a vendor for it.
 :::
 
 # Credits
 
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
+Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan), Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
 
 :::{attention}
 @Editor: Add the Node and Lab to this credit.
@@ -94,6 +103,34 @@ Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Ch
 
 ::::{grid} 1 1 1 1
 :class: devnote-cards
+
+:::{card} Co-Encapsulated Cell-Free PLA1 Expression in beta-Galactosidase GUVs
+:link: https://devnotes.nucleus.engineering/articles/01a12e24-46dc-761d-b020-f1f77cce78ba
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659c-0b14-7107-9490-170bb5b0dc82/public/fig8-endpoint-abs-15-fa8ff33abe1e637358abcbe415f6130e.webp)
+:::
+
+:::{card} Implementing of a bulk color change module into bacterial quorum sensing
+:link: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
+:footer: Manuel Bibrowski, Charlie Newell, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650a-90b4-729f-875b-e4f1ddce3bec/public/colorchange-overnigh-520d47ff723d53997b42c0e1c8c68cdc.webp)
+:::
+
+:::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
+:link: https://devnotes.nucleus.engineering/articles/01a1304b-1c56-7352-a082-ba84a2684f82
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig7-patterned-gel-5fc6273fa124c69e6d78ac4caafe3ce4.webp)
+:::
+
+:::{card} Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1
+:link: https://devnotes.nucleus.engineering/articles/01a12d42-ca2e-70e7-b78b-66fcf11c400a
+:footer: Mary Kelly · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659c-0cd1-7f71-b8ee-df80a98ce1f8/public/fig1-pla1-guv-lysis--b9cba8b401d09e1f3b6124e89a713123.webp)
+:::
 
 :::{card} Two Vesicle Colorimetric pH Sensor System
 :link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
