@@ -274,11 +274,11 @@ Requires that gramicidin A is not added (see Expected Behavior).
 | Amino acid mix | Reagent | RTS Amino Acid Sampler | Biotechrabbit | BR1401801 | | | |
 | HEPES | Salts | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
 | Hydrochloric acid | Chemical | Hydrochloric acid, ACS reagent, 37% | Millipore Sigma | 320331-500ML | $106.00 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/320331) |
-| β-galactosidase | Reagent | β-Galactosidase, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | | | [link](https://www.sigmaaldrich.com/GB/en/product/sigma/g5635) |
+| β-galactosidase | Reagent | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | | −20 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
 :::
 
 :::{attention}
-@Developer: Give the price, storage and link of Creatine phosphate (10621714001), Magnesium acetate tetrahydrate (M5661), ATP, GTP, CTP, UTP and the amino acid mix. Give the price and storage of β-galactosidase. Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc or the distribution's materials reference names a vendor for Tris base.
+@Developer: Give the price, storage and link of Creatine phosphate (10621714001), Magnesium acetate tetrahydrate (M5661), ATP, GTP, CTP, UTP and the amino acid mix. Give the price of β-galactosidase. Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc or the distribution's materials reference names a vendor for Tris base.
 :::
 
 # Constituent Modules
