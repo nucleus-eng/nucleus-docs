@@ -30,19 +30,15 @@ The repressor reaches the reaction as protein, not as a template to transcribe. 
 :::{table} Linear templates. All three are amplified by PCR and cleaned up before use.
 :label: comp-detector-esar-constructs
 
-| **Name** | **Length (bp)** | **Role** |
-| --- | --- | --- |
-| `T7-EsaR(D91G)-T7term` | 1118 | Expresses the repressor. The repressor is the point mutant D91G |
-| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter |
-| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. Run alongside the two-site construct for comparison |
+| **Name** | **Length (bp)** | **Role** | **File** |
+| --- | --- | --- | --- |
+| `T7-EsaR(D91G)-T7term` | 1118 | Expresses the repressor. The repressor is the point mutant D91G | [pT7-EsaR-D91G-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaR-D91G-linear.gb) |
+| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter | [pT7-EsaO-EsaO-mNG-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaO-EsaO-mNG-linear.gb) |
+| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. Run alongside the two-site construct for comparison | [pT7-EsaO-mNG-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaO-mNG-linear.gb) |
 
 :::
 
 The operator `[EsaO]2` is two EsaO sites in tandem, one base apart. Each site is the same 19 bp box, `CCTGTACTATAGTGCAGGT`, at positions 62–80 and 82–100. The single-site construct carries one copy of that box at 62–80. The two reporters carry the same mNeonGreen coding sequence, so the 20 bp of length between them is the second operator plus the base that separates the pair.
-
-:::{attention} No sequence files yet
-None of the three constructs has a file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). The lengths above are read from the sequences held with the DevNote. @Developer: land the three there so each length can be checked against its `LOCUS` line.
-:::
 
 ::::
 
@@ -154,3 +150,19 @@ Requires the analyte to reach the repressor. 3-oxo-C6-HSL crosses a POPC membran
 Developed by Charlie Newell, Manuel Bibrowski, Jonah McDonald, Niall McIntyre and Julia Purrinos De Oliveira.
 
 Drawn from the DevNote [Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a).
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
+:link: https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a
+:footer: Charlie Newell, Manuel Bibrowski, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650a-b201-7bf1-8f59-f37bce646feb/public/EsaR-sensing-6354ffdd322f6b6aca0909ed8f894e30.png)
+:::
+
+::::
