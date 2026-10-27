@@ -14,6 +14,14 @@
 
 Spell a term out at its first use on a page, then use the acronym: "giant unilamellar vesicle (GUV)" once, "GUV" after that. Define each acronym the project uses in the `abbreviations` map under `project` in `site.yml`, so that MyST shows the definition on hover wherever the acronym appears. Plurals take the same entry: "GUVs" needs no entry of its own.
 
+## Units
+
+**State every quantity in its default unit. Add the alternate forms your community uses in parentheses if you want to.** The default is required. The parenthetical is optional, and it can go anywhere the quantity appears: "7 mg/mL (0.7 % w/v)". Never give only the alternate.
+
+Mass concentration is the first case. The default is mg/mL. NIST SP 811 §7.10.2 says it is not meaningful to attach information to the percent sign, and recommends ratio forms such as 3 g/kg. Percent weight per volume (% w/v) is the alternate, because the polymer community prefers it.
+
+Put a space between a number and its unit, including `%` and `°C`. A `spec.yml` states only the default unit.
+
 ## Headings and captions
 
 No hedge words. "Preparations", not "Documented Preparations".

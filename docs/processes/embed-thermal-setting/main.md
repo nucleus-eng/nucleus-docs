@@ -23,11 +23,11 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix. Fig
 :::{table} Parameters of each gel.
 | Parameter | Gel: ULGA | Gel: LGA |
 | --- | --- | --- |
-| Stock concentration | 10 mg/mL | 28 mg/mL |
+| Stock concentration | 10 mg/mL (1.0 % w/v) | 28 mg/mL (2.8 % w/v) |
 | Dissolve | Microwave | 95 °C heat block |
 | Hold until use | 55 °C bead bath | 45 °C dry bath |
 | Stock per well, before mixing | 15 µL of stock | 7.5 µL of stock and 7.5 µL of outer solution |
-| Final concentration | 5 mg/mL | 7 mg/mL |
+| Final concentration | 5 mg/mL (0.5 % w/v) | 7 mg/mL (0.7 % w/v) |
 | Gel point | About 8 °C to 15 °C | About 24 °C to 28 °C |
 :::
 
@@ -69,7 +69,7 @@ The agarose is listed under Materials on [Gel: ULGA](../../modules/gel-ulga/spec
 ## Prepare the ULGA Stock
 
 - [ ] **Dissolve the ULGA.**
-    - [ ] Prepare ULGA at 10 mg/mL in the outer solution.
+    - [ ] Prepare ULGA at 10 mg/mL (1.0 % w/v) in the outer solution.
     - [ ] Microwave in 10 s bursts, 5–7 times, until the ULGA is fully dissolved.
 - [ ] **Hold the stock.**
     - [ ] Keep the stock on a 55 °C bead bath until use.
@@ -77,7 +77,7 @@ The agarose is listed under Materials on [Gel: ULGA](../../modules/gel-ulga/spec
 ## Prepare the LGA Stock
 
 - [ ] **Dissolve the LGA.**
-    - [ ] Dissolve LGA at 28 mg/mL in the outer solution, adjusting to a final osmolarity of about 1200 mOsm.
+    - [ ] Dissolve LGA at 28 mg/mL (2.8 % w/v) in the outer solution, adjusting to a final osmolarity of about 1200 mOsm.
     - [ ] Heat the solution in a 95 °C heat block until the LGA is fully dissolved. Vortex occasionally to help it dissolve.
 - [ ] **Hold the stock.**
     - [ ] Transfer an aliquot to a tube and keep it on a 45 °C dry bath until use.

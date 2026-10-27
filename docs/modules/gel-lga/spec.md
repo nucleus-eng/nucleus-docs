@@ -64,13 +64,13 @@ flowchart TD
 :::{table} Polymer of Gel: LGA.
 | Component | Stock concentration | Final concentration |
 | --- | --- | --- |
-| Low gelling agarose | 2.8% (w/v) | 0.7% (w/v) |
+| Low gelling agarose | 28 mg/mL (2.8 % w/v) | 7 mg/mL (0.7 % w/v) |
 :::
 
 The final concentration is for a stock diluted 1:1 with outer solution and then mixed 1:1 with the sample.
 
 :::{attention} Dilution per well is inferred
-@Editor: confirm that the stock is diluted 1:1 with outer solution before it is mixed with the sample. The DevNote gives the final LGA concentration as 0.7% (w/v) with the parenthetical 7.5 µL and 7.5 µL of outer solution, and no step describes the dilution.
+@Editor: confirm that the stock is diluted 1:1 with outer solution before it is mixed with the sample. The DevNote gives the final LGA concentration as 7 mg/mL (0.7 % w/v) with the parenthetical 7.5 µL and 7.5 µL of outer solution, and no step describes the dilution.
 :::
 
 ::::

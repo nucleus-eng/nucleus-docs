@@ -64,7 +64,7 @@ flowchart TD
 :::{table} Polymer of Gel: ULGA.
 | Component | Stock concentration | Final concentration |
 | --- | --- | --- |
-| Ultra-low gelling agarose | 10 mg/mL | 5 mg/mL |
+| Ultra-low gelling agarose | 10 mg/mL (1.0 % w/v) | 5 mg/mL (0.5 % w/v) |
 :::
 
 The final concentration is for a stock mixed 1:1 with the sample.

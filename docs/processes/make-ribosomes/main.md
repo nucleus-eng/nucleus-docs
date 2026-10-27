@@ -160,7 +160,7 @@ Make these buffers *in advance* and store at 4 °C. Add all components **except 
 
 | Reagent            | Final Concentration (mM) | Stock Concentration (mM) | Volume to Add (mL) |
 | ------------------ | ------------------------ | ------------------------ | ------------------ |
-| Sucrose            | 30% (w/v)                | n/a (dry)                | 300 g              |
+| Sucrose            | 300 mg/mL (30 % w/v)     | n/a (dry)                | 300 g              |
 | HEPES-KOH (pH 7.6) | 20                       | 1000                     | 20                 |
 | Ammonium Chloride  | 30                       | 1000                     | 30                 |
 | Magnesium Acetate  | 10                       | 1000                     | 10                 |
