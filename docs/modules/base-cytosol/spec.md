@@ -122,81 +122,82 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 ::::
 
 ::::{tab-item} Final Reaction
+PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: the 15 000 ng/µL total in the PMix tab becomes 1800 ng/µL, and each protein is at 0.12 times its PMix stock concentration. Protein molecular weights are those of the assembled complex (monomer weight × oligomeric state, as listed in the PMix tab), and molar concentrations are of that complex. See [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) for the volumes of every component.
+
 :::{table} Composition of Base Cytosol at reaction concentration.
 :label: comp-base-cytosol
 
-| Category | Molecule | Concentration | Units |
-|----------|----------|----------------------|-------|
-| Buffers | HEPES-KOH | 37.5 | mM |
-| | Potassium Glutamate | 75 | mM |
-| | Magnesium Acetate | 5.6 | mM |
-| Nucleotides | rATP | 1.5 | mM |
-| | rGTP | 1.5 | mM |
-| | rCTP | 0.75 | mM |
-| | rUTP | 0.75 | mM |
-| Amino Acids  | Alanine (Ala) | 0.225 | mM |
-| | Arginine (Arg) | 0.225 | mM |
-| | Asparagine (Asn) | 0.225 | mM |
-| | Aspartic Acid (Asp) | 0.225 | mM |
-| | Cysteine (Cys) | 0.225 | mM |
-| | Glutamic Acid (Glu) | 0.225 | mM |
-| | Glutamine (Gln) | 0.225 | mM |
-| | Glycine (Gly) | 0.225 | mM |
-| | Histidine (His) | 0.225 | mM |
-| | Isoleucine (Ile) | 0.225 | mM |
-| | Leucine (Leu) | 0.225 | mM |
-| | Lysine (Lys) | 0.225 | mM |
-| | Methionine (Met) | 0.225 | mM |
-| | Phenylalanine (Phe) | 0.225 | mM |
-| | Proline (Pro) | 0.225 | mM |
-| | Serine (Ser) | 0.225 | mM |
-| | Threonine (Thr) | 0.225 | mM |
-| | Tryptophan (Trp) | 0.225 | mM |
-| | Tyrosine (Tyr) | 0.225 | mM |
-| | Valine (Val) | 0.225 | mM |
-| Stabilizers | Spermidine | 1.5 | mM |
-| | TCEP-HCl | 0.75 | mM |
-| Cofactors | Creatine Phosphate | 15 | mM |
-| | Folinic Acid | 0.015 | mM |
-| Ribonucleics | tRNA | 3.5 | µg/µL |
-| | Ribosomes | 1.8 | µM |
-| tRNA Synthetases | AlaRS | 130.3 | ng/µL |
-| | ArgRS | 3.6 | ng/µL |
-| | AsnRS | 40.9 | ng/µL |
-| | AspRS | 15.0 | ng/µL |
-| | CysRS | 2.2 | ng/µL |
-| | GlnRS | 7.0 | ng/µL |
-| | GluRS | 23.5 | ng/µL |
-| | GlyRS | 17.9 | ng/µL |
-| | HisRS | 1.5 | ng/µL |
-| | IleRS | 74.6 | ng/µL |
-| | LeuRS | 7.5 | ng/µL |
-| | LysRS | 11.9 | ng/µL |
-| | MetRS | 4.4 | ng/µL |
-| | PheRS | 31.7 | ng/µL |
-| | ProRS | 18.7 | ng/µL |
-| | SerRS | 3.6 | ng/µL |
-| | ThrRS | 11.6 | ng/µL |
-| | TrpRS | 11.6 | ng/µL |
-| | TyrRS | 1.2 | ng/µL |
-| | ValRS | 3.4 | ng/µL |
-| Initiation Factors | IF1 | 18.7 | ng/µL |
-| | IF2 | 74.6 | ng/µL |
-| | IF3 | 18.7 | ng/µL |
-| Elongation Factors | EF-G | 93.3 | ng/µL |
-| | EF-Tu | 931.7 | ng/µL |
-| | EF-Ts | 93.3 | ng/µL |
-| Release Factors | RF1 | 18.7 | ng/µL |
-| | RF2 | 18.7 | ng/µL |
-| | RF3 | 18.7 | ng/µL |
-| | RRF | 18.7 | ng/µL |
-| Metabolism | MTF | 37.3 | ng/µL |
-| | CK | 7.5 | ng/µL |
-| | AK | 5.6 | ng/µL |
-| | NDK | 1.9 | ng/µL |
-| | PPiase | 1.9 | ng/µL |
-| Transcription | T7RNAP | 18.7 | ng/µL |
-| Inhibitors | RNase Inhibitor (optional) | 0 to 2000 | U/mL |
+| Category | Molecule | Molecular Weight | Concentration (molar) | Concentration (mass) |
+|----------|----------|------------------|-----------------------|----------------------|
+| Buffers | HEPES-KOH | 238.3 g/mol | 50 mM | 11.9 µg/µL |
+| | Potassium Glutamate | 203.23 g/mol | 100 mM | 20.3 µg/µL |
+| | Magnesium Acetate | 214.45 g/mol | 7.5 mM | 1.61 µg/µL |
+| Nucleotides | rATP |  | 2 mM |  |
+| | rGTP | | 2 mM | |
+| | rCTP | | 1 mM | |
+| | rUTP | | 1 mM | |
+| Amino Acids | Alanine (Ala) | 89.1 g/mol | 0.3 mM | 26.7 ng/µL |
+| | Arginine (Arg) | 210.66 g/mol | 0.3 mM | 63.2 ng/µL |
+| | Asparagine (Asn) | 132.1 g/mol | 0.3 mM | 39.6 ng/µL |
+| | Aspartic Acid (Asp) | 133.1 g/mol | 0.3 mM | 39.9 ng/µL |
+| | Cysteine (Cys) | 157.62 g/mol | 0.3 mM | 47.3 ng/µL |
+| | Glutamic Acid (Glu) | 147.1 g/mol | 0.3 mM | 44.1 ng/µL |
+| | Glutamine (Gln) | 146.2 g/mol | 0.3 mM | 43.9 ng/µL |
+| | Glycine (Gly) | 75.1 g/mol | 0.3 mM | 22.5 ng/µL |
+| | Histidine (His) | 209.63 g/mol | 0.3 mM | 62.9 ng/µL |
+| | Isoleucine (Ile) | 131.2 g/mol | 0.3 mM | 39.4 ng/µL |
+| | Leucine (Leu) | 131.2 g/mol | 0.3 mM | 39.4 ng/µL |
+| | Lysine (Lys) | 182.65 g/mol | 0.3 mM | 54.8 ng/µL |
+| | Methionine (Met) | 149.2 g/mol | 0.3 mM | 44.8 ng/µL |
+| | Phenylalanine (Phe) | 165.2 g/mol | 0.3 mM | 49.6 ng/µL |
+| | Proline (Pro) | 115.1 g/mol | 0.3 mM | 34.5 ng/µL |
+| | Serine (Ser) | 105.1 g/mol | 0.3 mM | 31.5 ng/µL |
+| | Threonine (Thr) | 119.1 g/mol | 0.3 mM | 35.7 ng/µL |
+| | Tryptophan (Trp) | 204.2 g/mol | 0.3 mM | 61.3 ng/µL |
+| | Tyrosine (Tyr) | 181.2 g/mol | 0.3 mM | 54.4 ng/µL |
+| | Valine (Val) | 117.1 g/mol | 0.3 mM | 35.1 ng/µL |
+| Stabilizers | Spermidine | 145.25 g/mol | 2 mM | 290 ng/µL |
+| | TCEP-HCl | 286.65 g/mol | 1 mM | 287 ng/µL |
+| Cofactors | Creatine Phosphate | 327.14 g/mol | 20 mM | 6.54 µg/µL |
+| | Folinic Acid | 511.5 g/mol | 0.02 mM | 10.2 ng/µL |
+| Ribonucleics | tRNA |  |  | 3.5 µg/µL |
+| | Ribosomes | ~2.7 MDa | 1.8 µM | 4.9 µg/µL |
+| tRNA Synthetases | AlaRS | 384.0 kDa | 0.340 µM | 130.3 ng/µL |
+| | ArgRS | 64.7 kDa | 0.0557 µM | 3.6 ng/µL |
+| | AsnRS | 105.2 kDa | 0.389 µM | 40.9 ng/µL |
+| | AspRS | 131.8 kDa | 0.114 µM | 15.0 ng/µL |
+| | CysRS | 52.2 kDa | 0.0414 µM | 2.2 ng/µL |
+| | GlnRS | 63.5 kDa | 0.111 µM | 7.0 ng/µL |
+| | GluRS | 53.8 kDa | 0.437 µM | 23.5 ng/µL |
+| | GlyRS | 223.2 kDa | 0.0802 µM | 17.9 ng/µL |
+| | HisRS | 94.0 kDa | 0.0154 µM | 1.5 ng/µL |
+| | IleRS | 104.4 kDa | 0.715 µM | 74.6 ng/µL |
+| | LeuRS | 97.2 kDa | 0.0778 µM | 7.5 ng/µL |
+| | LysRS | 115.2 kDa | 0.103 µM | 11.9 ng/µL |
+| | MetRS | 152.6 kDa | 0.0283 µM | 4.4 ng/µL |
+| | PheRS | 248.4 kDa | 0.127 µM | 31.7 ng/µL |
+| | ProRS | 127.4 kDa | 0.146 µM | 18.7 ng/µL |
+| | SerRS | 96.8 kDa | 0.0372 µM | 3.6 ng/µL |
+| | ThrRS | 148.0 kDa | 0.0786 µM | 11.6 ng/µL |
+| | TrpRS | 74.8 kDa | 0.156 µM | 11.6 ng/µL |
+| | TyrRS | 95.0 kDa | 0.0126 µM | 1.2 ng/µL |
+| | ValRS | 108.2 kDa | 0.0311 µM | 3.4 ng/µL |
+| Initiation Factors | IF1 | 8.2 kDa | 2.27 µM | 18.7 ng/µL |
+| | IF2 | 97.3 kDa | 0.767 µM | 74.6 ng/µL |
+| | IF3 | 20.6 kDa | 0.902 µM | 18.7 ng/µL |
+| Elongation Factors | EF-G | 77.6 kDa | 1.2 µM | 93.3 ng/µL |
+| | EF-Tu | 43.3 kDa | 21.5 µM | 931.7 ng/µL |
+| | EF-Ts | 30.4 kDa | 3.07 µM | 93.3 ng/µL |
+| Release Factors | RF1 | 40.5 kDa | 0.46 µM | 18.7 ng/µL |
+| | RF2 | 41.3 kDa | 0.45 µM | 18.7 ng/µL |
+| | RF3 | 59.6 kDa | 0.312 µM | 18.7 ng/µL |
+| | RRF | 20.6 kDa | 0.902 µM | 18.7 ng/µL |
+| Metabolism | MTF | 34.2 kDa | 1.09 µM | 37.3 ng/µL |
+| | CK | 86.6 kDa | 0.0872 µM | 7.5 ng/µL |
+| | AK | 23.6 kDa | 0.234 µM | 5.6 ng/µL |
+| | NDK | 93.0 kDa | 0.0206 µM | 1.9 ng/µL |
+| | PPiase | 118.2 kDa | 0.0162 µM | 1.9 ng/µL |
+| Transcription | T7RNAP | 98.9 kDa | 0.188 µM | 18.7 ng/µL |
 :::
 
 @Editor: confirm the RNase inhibitor stock concentration. `Base Cell` and `Reporter: deGFP` give 40 000 U/mL, which makes 0.5 µL in 10 µL equal to 2000 U/mL; no Make page or bill of materials states it.
