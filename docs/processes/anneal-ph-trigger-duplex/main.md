@@ -10,11 +10,7 @@ This page is a work in progress and not yet ready for use.
 
 # Overview
 
-Anneal pH Trigger Duplex hybridizes the pH-responsive strand (`pH-responsive-ssDNA-2`) and the trigger strand (`trigger-ssDNA-3`) in IDT duplex buffer, at a ratio of 3:1 by mole (pH-responsive : trigger). The design concentrations in the reaction are 14.4 µM pH-responsive strand and 4.8 µM trigger strand, so the pH-responsive strand is in excess ([Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1)). The duplex is the sensing element of the [pH-Sensing Detector](../../modules/detector-ph/spec.md), which the [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md) carries: acidification releases the trigger strand, which activates a toehold switch RNA ([Hwang et al., 2025](https://doi.org/10.1101/2025.11.16.688650)). The cooling program runs from 95 °C to 25 °C in about 7 h. The pH Sensing Cell uses the annealed duplex at a stock concentration of 25 µM. This is the concentration of the trigger strand.
-
-:::{attention}
-@Developer: Give the concentration and volume of each strand in the annealing mix.
-:::
+Anneal pH Trigger Duplex hybridizes the pH-responsive strand (`pH-responsive-ssDNA-2`) and the trigger strand (`trigger-ssDNA-3`) in IDT duplex buffer. Each strand is dissolved to 100 µM in IDT duplex buffer, and the two stocks are mixed at a 3:1 volume ratio (pH-responsive : trigger), giving 75 µM pH-responsive strand and 25 µM trigger strand before annealing. An earlier design target called for 14.4 µM pH-responsive strand and 4.8 µM trigger strand ([Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1)); the executed protocol used the higher concentrations given here. The duplex is the sensing element of the [pH-Sensing Detector](../../modules/detector-ph/spec.md), which the [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md) carries: acidification releases the trigger strand, which activates a toehold switch RNA ([Hwang et al., 2025](https://doi.org/10.1101/2025.11.16.688650)). The cooling program runs from 95 °C to 25 °C in about 7 h. The pH Sensing Cell uses the annealed duplex at a stock concentration of 25 µM. This is the concentration of the trigger strand.
 
 ::::{attention} Genetically Encoded Components
 :class: dropdown
@@ -48,7 +44,8 @@ The two oligonucleotides, a thermocycler, and nuclease-free tubes are also requi
 ## Anneal the Strands
 
 - [ ] **Combine the strands in IDT duplex buffer.**
-    - [ ] Mix `pH-responsive-ssDNA-2` and `trigger-ssDNA-3` at a ratio of 3:1 by mole (pH-responsive : trigger). The design concentrations in the reaction are 14.4 µM pH-responsive strand and 4.8 µM trigger strand, so the pH-responsive strand is in excess ([Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1)).
+    - [ ] Dissolve `pH-responsive-ssDNA-2` and `trigger-ssDNA-3` separately to 100 µM each in IDT duplex buffer.
+    - [ ] Mix the two stocks at a 3:1 volume ratio (pH-responsive : trigger). This gives 75 µM pH-responsive strand and 25 µM trigger strand.
 - [ ] **Anneal in a thermocycler.** Cool in steps of 1 °C, with this program:
 
 :::{table} Annealing program. Tm is the melting temperature of the duplex, 52 °C.
@@ -63,3 +60,23 @@ The two oligonucleotides, a thermocycler, and nuclease-free tubes are also requi
 :::
 
 - [ ] **Store the annealed duplex at −20 °C.**
+
+# Credits
+
+Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+::::

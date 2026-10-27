@@ -83,3 +83,19 @@ A 20 mL glass vial, argon gas, a vacuum desiccator, a bath sonicator, a 60 °C h
 :::{attention}
 @Developer: Give the maximum time between assembling the inner solution and starting the 37 °C incubation, and the volume for the final resuspension.
 :::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+::::
