@@ -20,84 +20,31 @@ Schematic of components in Base Cytosol and their function. Figure by [Ganesh an
 
 # Reference Composition
 
-Base Cytosol is assembled from five components — a protein mix (PMix), a small molecule mix (SMix), ribosomes, tRNA, and an optional RNase inhibitor. The tabs below give the composition of PMix, SMix, ribosomes and tRNA at their **stock** concentration, plus the **Final Reaction** composition with every component at its in-reaction concentration.
+Base Cytosol is assembled from five components — [Protein Mix (PMix)](../pmix/spec.md), [Small Molecule Mix (SMix)](../smix/spec.md), ribosomes, tRNA, and an optional RNase inhibitor. The tabs below give each component at its **stock** concentration, plus the **Final Reaction** composition with every component at its in-reaction concentration.
 
 :::::{tab-set}
 
 ::::{tab-item} PMix
-The Protein Mix (PMix) contains all 36 PURE proteins at a total stock concentration of 15 µg/µL.
+PMix contains all 36 PURE proteins.
 
-:::{table} Composition of the Protein Mix (PMix) at stock concentration. Molecular weight, stoichiometry, and molarity are computed as described in the note below.
-:label: comp-pmix
+:::{table} Protein Mix (PMix) stock concentration.
+:label: comp-base-cytosol-pmix
 
-| Category           | Protein | Concentration (ng/µL) | Molecular Weight (kDa) | Stoichiometry         | Molarity (µM) |
-| ------------------ | ------- | --------------------- | ---------------------- | --------------------- | ------------- |
-| tRNA Synthetases   | AlaRS   | 1086                  | 96.0                   | Homotetramer          | 2.83          |
-|                    | ArgRS   | 30                    | 64.7                   | Monomer               | 0.464         |
-|                    | AsnRS   | 341                   | 52.6                   | Homodimer             | 3.24          |
-|                    | AspRS   | 125                   | 65.9                   | Homodimer             | 0.948         |
-|                    | CysRS   | 18                    | 52.2                   | Monomer               | 0.345         |
-|                    | GlnRS   | 59                    | 63.5                   | Monomer               | 0.929         |
-|                    | GluRS   | 196                   | 53.8                   | Monomer               | 3.64          |
-|                    | GlyRS\* | 149                   | 223.2                  | Heterotetramer (α₂β₂) | 0.668         |
-|                    | HisRS   | 12                    | 47.0                   | Homodimer             | 0.128         |
-|                    | IleRS   | 622                   | 104.4                  | Monomer               | 5.96          |
-|                    | LeuRS   | 63                    | 97.2                   | Monomer               | 0.648         |
-|                    | LysRS   | 99                    | 57.6                   | Homodimer             | 0.859         |
-|                    | MetRS   | 36                    | 76.3                   | Homodimer             | 0.236         |
-|                    | PheRS\* | 264                   | 248.4                  | Heterotetramer (α₂β₂) | 1.06          |
-|                    | ProRS   | 155                   | 63.7                   | Homodimer             | 1.22          |
-|                    | SerRS   | 30                    | 48.4                   | Homodimer             | 0.310         |
-|                    | ThrRS   | 97                    | 74.0                   | Homodimer             | 0.655         |
-|                    | TrpRS   | 97                    | 37.4                   | Homodimer             | 1.30          |
-|                    | TyrRS   | 10                    | 47.5                   | Homodimer             | 0.105         |
-|                    | ValRS   | 28                    | 108.2                  | Monomer               | 0.259         |
-| Initiation Factors | IF1     | 155                   | 8.2                    | Monomer               | 18.9          |
-|                    | IF2     | 622                   | 97.3                   | Monomer               | 6.39          |
-|                    | IF3     | 155                   | 20.6                   | Monomer               | 7.52          |
-| Elongation Factors | EF-G    | 777                   | 77.6                   | Monomer               | 10.0          |
-|                    | EF-Tu   | 7764                  | 43.3                   | Monomer               | 179           |
-|                    | EF-Ts   | 777                   | 30.4                   | Monomer               | 25.6          |
-| Release Factors    | RF1     | 155                   | 40.5                   | Monomer               | 3.83          |
-|                    | RF2     | 155                   | 41.3                   | Monomer               | 3.75          |
-|                    | RF3     | 155                   | 59.6                   | Monomer               | 2.60          |
-|                    | RRF     | 155                   | 20.6                   | Monomer               | 7.52          |
-| Metabolism         | MTF     | 311                   | 34.2                   | Monomer               | 9.09          |
-|                    | CK      | 63                    | 43.3                   | Homodimer             | 0.727         |
-|                    | AK      | 46                    | 23.6                   | Monomer               | 1.95          |
-|                    | NDK     | 16                    | 15.5                   | Homohexamer           | 0.172         |
-|                    | PPiase  | 16                    | 19.7                   | Homohexamer           | 0.135         |
-| Transcription      | T7RNAP  | 155                   | 98.9                   | Monomer               | 1.57          |
-| **Total**          |         | **15 000**            |                        |                       |               |
-:::
-
-:::{note} Molecular weight calculations
-Molarity is computed as monomer molarity (µM) = mass concentration (ng/µL) ÷ monomer MW (kDa); for an assembled complex the monomer molarity is then divided by the oligomeric state.
-
-\* **GlyRS, PheRS** — both are α₂β₂ heterotetramers of two different subunits (GlyRS: GlyQ 34.8 kDa + GlyS 76.8 kDa; PheRS: PheS 36.8 kDa + PheT 87.4 kDa). The Molecular Weight column reports the combined complex mass (2 × (α + β)); molarity is mass concentration ÷ this combined mass, since the two subunits cannot be reduced to one monomer MW times a single n.
+| Component | Stock Concentration | Reaction Concentration |
+| --------- | ------------------- | ---------------------- |
+| [Protein Mix (PMix)](../pmix/spec.md) | 15 µg/µL (8.33×) | 1.8 µg/µL |
 :::
 ::::
 
 ::::{tab-item} SMix
-The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, stabilizers, and cofactors. Concentrations below are in the assembled SMix.
+SMix contains the buffers, rNTPs, amino acids, stabilizers, and cofactors.
 
-:::{table} Composition of the Small Molecule Mix (SMix) at stock concentration.
-:label: comp-smix
+:::{table} Small Molecule Mix (SMix) stock concentration.
+:label: comp-base-cytosol-smix
 
-| Category    | Molecule            | Concentration | Units |
-| ----------- | ------------------- | ------------- | ----- |
-| Buffers     | HEPES-KOH (pH 7.6)  | 125           | mM    |
-|             | Potassium Glutamate | 250           | mM    |
-|             | Magnesium Acetate   | 18.75         | mM    |
-| Nucleotides | rATP                | 5             | mM    |
-|             | rGTP                | 5             | mM    |
-|             | rCTP                | 2.5           | mM    |
-|             | rUTP                | 2.5           | mM    |
-| Amino Acids | Each (Ala–Val)      | 0.75          | mM    |
-| Stabilizers | Spermidine          | 5             | mM    |
-|             | TCEP-HCl            | 2.5           | mM    |
-| Cofactors   | Creatine Phosphate  | 50            | mM    |
-|             | Folinic Acid        | 0.05          | mM    |
+| Component | Stock Concentration | Reaction Concentration |
+| --------- | ------------------- | ---------------------- |
+| [Small Molecule Mix (SMix)](../smix/spec.md) | 3.33× | 1× |
 :::
 ::::
 
@@ -122,7 +69,7 @@ The Small Molecule Mix (SMix) contains the buffers, nucleotides, amino acids, st
 ::::
 
 ::::{tab-item} Final Reaction
-PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: the 15 000 ng/µL total in the PMix tab becomes 1800 ng/µL, and each protein is at 0.12 times its PMix stock concentration. Protein molecular weights are those of the assembled complex (monomer weight × oligomeric state, as listed in the PMix tab), and molar concentrations are of that complex. See [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) for the volumes of every component.
+PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: the 15 000 ng/µL total of [Protein Mix (PMix)](../pmix/spec.md) becomes 1800 ng/µL, and each protein is at 0.12 times its PMix stock concentration. Protein molecular weights are those of the assembled complex (monomer weight × oligomeric state, as listed for PMix), and molar concentrations are of that complex. See [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) for the volumes of every component.
 
 :::{table} Composition of Base Cytosol at reaction concentration.
 :label: comp-base-cytosol
@@ -220,6 +167,11 @@ The behavior of Base Cytosol is characterized using the [Reporter: deGFP](../rep
 - [Make Ribosomes](../../processes/make-ribosomes/main.md): makes the ribosomes.
 - [Make tRNAs](../../processes/make-trna/main.md): makes the tRNA.
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md): combines the mixes into the reaction.
+
+# Constituent Modules
+
+- [Protein Mix (PMix)](../pmix/spec.md) — the 36 PURE proteins in Protein Buffer
+- [Small Molecule Mix (SMix)](../smix/spec.md) — the buffers, rNTPs, amino acids, stabilizers, and cofactors
 
 # Credits
 

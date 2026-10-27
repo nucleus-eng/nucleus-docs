@@ -1,0 +1,324 @@
+# Composition source for Protein Mix (PMix).
+#
+# Machine-readable companion to spec.md. ../base-cytosol/spec.yml names this
+# Module as its `pmix` input, so a cascade rendered at `--depth 2` or deeper
+# can expand Base Cytosol down to each protein.
+#
+# One input per protein. `molar_mass` is the mass of the assembled complex:
+# the monomer mass times the oligomeric state given in the spec.md table, and
+# for GlyRS and PheRS the combined alpha2-beta2 mass the table already gives.
+# A molar concentration computed from it is the concentration of the complex,
+# which is what the table's Molarity column reports.
+
+module: pmix
+title: "Protein Mix (PMix)"
+type: Solution
+
+inputs:
+  alars:
+    title: "AlaRS"
+    molar_mass: {value: 384.0, unit: "kDa", note: "homotetramer, 4 × 96.0 kDa"}
+    page: null
+  argrs:
+    title: "ArgRS"
+    molar_mass: {value: 64.7, unit: "kDa"}
+    page: null
+  asnrs:
+    title: "AsnRS"
+    molar_mass: {value: 105.2, unit: "kDa", note: "homodimer, 2 × 52.6 kDa"}
+    page: null
+  asprs:
+    title: "AspRS"
+    molar_mass: {value: 131.8, unit: "kDa", note: "homodimer, 2 × 65.9 kDa"}
+    page: null
+  cysrs:
+    title: "CysRS"
+    molar_mass: {value: 52.2, unit: "kDa"}
+    page: null
+  glnrs:
+    title: "GlnRS"
+    molar_mass: {value: 63.5, unit: "kDa"}
+    page: null
+  glurs:
+    title: "GluRS"
+    molar_mass: {value: 53.8, unit: "kDa"}
+    page: null
+  glyrs:
+    title: "GlyRS"
+    molar_mass: {value: 223.2, unit: "kDa", note: "α₂β₂ heterotetramer, combined mass"}
+    page: null
+  hisrs:
+    title: "HisRS"
+    molar_mass: {value: 94.0, unit: "kDa", note: "homodimer, 2 × 47.0 kDa"}
+    page: null
+  ilers:
+    title: "IleRS"
+    molar_mass: {value: 104.4, unit: "kDa"}
+    page: null
+  leurs:
+    title: "LeuRS"
+    molar_mass: {value: 97.2, unit: "kDa"}
+    page: null
+  lysrs:
+    title: "LysRS"
+    molar_mass: {value: 115.2, unit: "kDa", note: "homodimer, 2 × 57.6 kDa"}
+    page: null
+  metrs:
+    title: "MetRS"
+    molar_mass: {value: 152.6, unit: "kDa", note: "homodimer, 2 × 76.3 kDa"}
+    page: null
+  phers:
+    title: "PheRS"
+    molar_mass: {value: 248.4, unit: "kDa", note: "α₂β₂ heterotetramer, combined mass"}
+    page: null
+  prors:
+    title: "ProRS"
+    molar_mass: {value: 127.4, unit: "kDa", note: "homodimer, 2 × 63.7 kDa"}
+    page: null
+  serrs:
+    title: "SerRS"
+    molar_mass: {value: 96.8, unit: "kDa", note: "homodimer, 2 × 48.4 kDa"}
+    page: null
+  thrrs:
+    title: "ThrRS"
+    molar_mass: {value: 148.0, unit: "kDa", note: "homodimer, 2 × 74.0 kDa"}
+    page: null
+  trprs:
+    title: "TrpRS"
+    molar_mass: {value: 74.8, unit: "kDa", note: "homodimer, 2 × 37.4 kDa"}
+    page: null
+  tyrrs:
+    title: "TyrRS"
+    molar_mass: {value: 95.0, unit: "kDa", note: "homodimer, 2 × 47.5 kDa"}
+    page: null
+  valrs:
+    title: "ValRS"
+    molar_mass: {value: 108.2, unit: "kDa"}
+    page: null
+  if1:
+    title: "IF1"
+    molar_mass: {value: 8.2, unit: "kDa"}
+    page: null
+  if2:
+    title: "IF2"
+    molar_mass: {value: 97.3, unit: "kDa"}
+    page: null
+  if3:
+    title: "IF3"
+    molar_mass: {value: 20.6, unit: "kDa"}
+    page: null
+  ef-g:
+    title: "EF-G"
+    molar_mass: {value: 77.6, unit: "kDa"}
+    page: null
+  ef-tu:
+    title: "EF-Tu"
+    molar_mass: {value: 43.3, unit: "kDa"}
+    page: null
+  ef-ts:
+    title: "EF-Ts"
+    molar_mass: {value: 30.4, unit: "kDa"}
+    page: null
+  rf1:
+    title: "RF1"
+    molar_mass: {value: 40.5, unit: "kDa"}
+    page: null
+  rf2:
+    title: "RF2"
+    molar_mass: {value: 41.3, unit: "kDa"}
+    page: null
+  rf3:
+    title: "RF3"
+    molar_mass: {value: 59.6, unit: "kDa"}
+    page: null
+  rrf:
+    title: "RRF"
+    molar_mass: {value: 20.6, unit: "kDa"}
+    page: null
+  mtf:
+    title: "MTF"
+    molar_mass: {value: 34.2, unit: "kDa"}
+    page: null
+  ck:
+    title: "CK"
+    molar_mass: {value: 86.6, unit: "kDa", note: "homodimer, 2 × 43.3 kDa"}
+    page: null
+  ak:
+    title: "AK"
+    molar_mass: {value: 23.6, unit: "kDa"}
+    page: null
+  ndk:
+    title: "NDK"
+    molar_mass: {value: 93.0, unit: "kDa", note: "homohexamer, 6 × 15.5 kDa"}
+    page: null
+  ppiase:
+    title: "PPiase"
+    molar_mass: {value: 118.2, unit: "kDa", note: "homohexamer, 6 × 19.7 kDa"}
+    page: null
+  t7rnap:
+    title: "T7RNAP"
+    molar_mass: {value: 98.9, unit: "kDa"}
+    page: null
+  hepes-koh:
+    title: "HEPES-KOH (pH 7.6)"
+    stock: {value: 1000, unit: "mM"}
+    page: null
+  potassium-chloride:
+    title: "Potassium chloride"
+    stock: {value: 1000, unit: "mM"}
+    page: null
+  magnesium-chloride:
+    title: "Magnesium chloride"
+    stock: {value: 1000, unit: "mM"}
+    page: null
+  tcep:
+    title: "TCEP"
+    stock: {value: 500, unit: "mM"}
+    page: null
+  glycerol:
+    title: "Glycerol"
+    stock: {value: 1000, unit: "mL/L", note: "neat glycerol"}
+    page: null
+  water:
+    title: "Ultrapure water"
+    page: null
+
+process_steps:
+  - id: make-protein-buffer
+    process:
+      title: "Prepare Protein Purification Buffers and Media"
+      page: ../../processes/make-protein/prep-consumables/main.md
+    operator: mixing
+    operands:
+      - hepes-koh
+      - potassium-chloride
+      - magnesium-chloride
+      - tcep
+      - glycerol
+      - water
+    produces:
+      id: protein-buffer
+      title: "Protein Buffer (30 % glycerol)"
+      page: null
+    finals:
+      hepes-koh: {value: 50, unit: "mM"}
+      potassium-chloride: {value: 100, unit: "mM"}
+      magnesium-chloride: {value: 10, unit: "mM"}
+      tcep: {value: 1, unit: "mM"}
+      glycerol: {value: 300, unit: "mL/L"}
+    balance: water
+    notes: >
+      The page makes Protein Buffer and Protein Buffer (60% glycerol) as two
+      buffers that carry the same four salts at the same concentrations. A
+      sample in Protein Buffer is mixed 1:1 with the 60% glycerol buffer, which
+      leaves the salts as they are and halves the glycerol to 30 % v/v, so the
+      buffer PMix is brought up in has the composition above.
+
+  - id: make-pmix
+    process:
+      title: "Make Protein Mix"
+      page: ../../processes/make-36pot/main.md
+    operator: mixing
+    operands:
+      - alars
+      - argrs
+      - asnrs
+      - asprs
+      - cysrs
+      - glnrs
+      - glurs
+      - glyrs
+      - hisrs
+      - ilers
+      - leurs
+      - lysrs
+      - metrs
+      - phers
+      - prors
+      - serrs
+      - thrrs
+      - trprs
+      - tyrrs
+      - valrs
+      - if1
+      - if2
+      - if3
+      - ef-g
+      - ef-tu
+      - ef-ts
+      - rf1
+      - rf2
+      - rf3
+      - rrf
+      - mtf
+      - ck
+      - ak
+      - ndk
+      - ppiase
+      - t7rnap
+      - protein-buffer
+    produces:
+      id: pmix
+      title: "Protein Mix (PMix)"
+      page: ../pmix/spec.md
+    concentration: {value: 15, unit: "µg/µL", note: "nominal total protein"}
+    finals:
+      alars: {value: 1086, unit: "ng/µL"}
+      argrs: {value: 30, unit: "ng/µL"}
+      asnrs: {value: 341, unit: "ng/µL"}
+      asprs: {value: 125, unit: "ng/µL"}
+      cysrs: {value: 18, unit: "ng/µL"}
+      glnrs: {value: 59, unit: "ng/µL"}
+      glurs: {value: 196, unit: "ng/µL"}
+      glyrs: {value: 149, unit: "ng/µL"}
+      hisrs: {value: 12, unit: "ng/µL"}
+      ilers: {value: 622, unit: "ng/µL"}
+      leurs: {value: 63, unit: "ng/µL"}
+      lysrs: {value: 99, unit: "ng/µL"}
+      metrs: {value: 36, unit: "ng/µL"}
+      phers: {value: 264, unit: "ng/µL"}
+      prors: {value: 155, unit: "ng/µL"}
+      serrs: {value: 30, unit: "ng/µL"}
+      thrrs: {value: 97, unit: "ng/µL"}
+      trprs: {value: 97, unit: "ng/µL"}
+      tyrrs: {value: 10, unit: "ng/µL"}
+      valrs: {value: 28, unit: "ng/µL"}
+      if1: {value: 155, unit: "ng/µL"}
+      if2: {value: 622, unit: "ng/µL"}
+      if3: {value: 155, unit: "ng/µL"}
+      ef-g: {value: 777, unit: "ng/µL"}
+      ef-tu: {value: 7764, unit: "ng/µL"}
+      ef-ts: {value: 777, unit: "ng/µL"}
+      rf1: {value: 155, unit: "ng/µL"}
+      rf2: {value: 155, unit: "ng/µL"}
+      rf3: {value: 155, unit: "ng/µL"}
+      rrf: {value: 155, unit: "ng/µL"}
+      mtf: {value: 311, unit: "ng/µL"}
+      ck: {value: 63, unit: "ng/µL"}
+      ak: {value: 46, unit: "ng/µL"}
+      ndk: {value: 16, unit: "ng/µL"}
+      ppiase: {value: 16, unit: "ng/µL"}
+      t7rnap: {value: 155, unit: "ng/µL"}
+    balance: protein-buffer
+    notes: >
+      Each protein is purified on its own and stored in Protein Buffer with
+      glycerol. The proteins are mixed, washed in Protein Buffer, concentrated,
+      and brought to a total of 15 ug/uL with Protein Buffer that carries
+      glycerol at 300 mL/L (30 % v/v). Glycerol and the buffer salts enter the
+      reaction only through PMix, so at 1.2 uL of PMix per 10 uL glycerol is
+      36 mL/L and magnesium chloride is 1.2 mM there. The 36 finals
+      above add up to 14 994 ng/uL against the 15 000 total that spec.md
+      states, a difference the size of the rounding in the per-protein figures.
+      Make OnePot Protein Mix (../../processes/make-1pot/main.md) co-expresses
+      and co-purifies the 36 proteins instead of purifying each one.
+
+open:
+  - id: onepot-route
+    kind: question
+    question: >
+      Whether Make OnePot Protein Mix makes this Module. Its page adds the
+      product at 2.4 mg/mL in the reaction, against 1.8 mg/mL for this Module
+      in Base Cytosol. It finishes the product in a different buffer, and it
+      states no per-protein concentrations. If its product is a different
+      composition, it is a variant with a directory of its own and not a second
+      route to this one.

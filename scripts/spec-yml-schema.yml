@@ -1358,6 +1358,18 @@ $defs:
           agreed. The conversion then removed every per-component volume, so no figure on a
           converted step is a volume and none can be compared with this one. It stays
           optional, as a record of the scale a source was run at.
+      concentration:
+        $ref: "#/$defs/quantity"
+        description: >
+          THE CONCENTRATION OF THE PRODUCT AS A STOCK, in one quantity. OPTIONAL. In a mass
+          or molar unit it is the nominal total, such as 15 ug/uL of protein; `approx` marks
+          a rounded figure. In `fold` it is the factor by which the product is more
+          concentrated than the reaction it is added to, so 3.33 fold means 3 uL go into
+          10 uL. THIS IS NOT THE MEANING OF A `fold` UNDER `finals`, which reads against
+          the operand as made. A fold here and the parent's `fractions` entry for this
+          product state one fact twice, and fold x fraction is 1 within rounding.
+          check-step-quantities.py compares them, and compares the sum of the step's
+          `finals` in one mass unit with a mass concentration stated here.
 
       completed_by:
         type: array

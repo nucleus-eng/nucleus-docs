@@ -35,6 +35,8 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Module Class     | Specification                                       | DevNotes |
 | ---------------- | --------------------------------------------------- | -------- |
 | Cytosol (Base)   | [Cytosol](./base-cytosol/spec.md)                   | 10       |
+| Protein Mix      | [PMix](./pmix/spec.md)                              | 0        |
+| Small Molecule Mix | [SMix](./smix/spec.md)                            | 0        |
 | Membrane (Base)  | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
 | Reporter         | [deGFP](./reporter-degfp/spec.md)                   | 7        |
 | Cell (Base)      | [Base Cell](./base-cell/spec.md)                    | 6        |

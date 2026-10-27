@@ -6,9 +6,8 @@
 # than a Module anybody encapsulates, which is why no module step names it: the corpus
 # documents how to make the cytosol's parts and then treats the cytosol as bought.
 #
-# `produces: component` RATHER THAN A NAMED TYPE, because the thing it makes has no
-# module page. That is the honest shape and it is also the finding: this process's
-# output is an input id on ../assemble-base-cytosol's step and nothing else.
+# What it makes is Protein Mix, the Module at ../../modules/pmix, whose own source
+# takes this process as the step that makes it.
 
 process: make-36pot
 title: "Make Protein Mix (36-pot)"
