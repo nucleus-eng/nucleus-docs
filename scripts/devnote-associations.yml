@@ -77,6 +77,7 @@ exclude:
   - gel-ulga
   - gel-lga
   - gel-peg-nb
+  - substrate-cprg-luv
   processes:
   - embed-photocrosslinking
   - embed-thermal-setting
@@ -130,10 +131,11 @@ exclude:
   title: Implementing of a bulk color change module into bacterial quorum sensing
   doi: null
   html: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
-  modules: []
+  modules:
+  - substrate-cprg-luv
   processes: []
   implementations: []
-  skipped: true
+  skipped: false
 01a1304b-1c56-7352-a082-ba84a2684f82:
   title: 'TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning'
   doi: null

@@ -125,7 +125,7 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 
 # Credits
 
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
+Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090) (University of Michigan) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
 
 :::{attention}
 @Editor: Add the Node and Lab to this credit.
@@ -138,11 +138,25 @@ Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Ch
 ::::{grid} 1 1 1 1
 :class: devnote-cards
 
+:::{card} Implementing of a bulk color change module into bacterial quorum sensing
+:link: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
+:footer: Manuel Bibrowski, Charlie Newell, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650a-90b4-729f-875b-e4f1ddce3bec/public/colorchange-overnigh-520d47ff723d53997b42c0e1c8c68cdc.webp)
+:::
+
 :::{card} Two Vesicle Colorimetric pH Sensor System
-:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009#cprg-suv-preparation
 :footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
 
 ![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+:::{card} Understanding Liposome Behaviour in Hydrogel Matrices
+:link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
+:footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
 :::
 
 ::::
