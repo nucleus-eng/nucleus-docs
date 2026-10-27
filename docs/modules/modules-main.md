@@ -45,7 +45,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Reporter           | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 5        |
 | Cell (Sensing)     | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 1        |
 | Cell (Substrate)   | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 3        |
-| Cell (Substrate)   | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 1        |
+| Cell (Substrate)   | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 2        |
 | Cascade            | [pH Cascade](./ph-cascade/spec.md)                  | 1        |
 | Reporter           | [Color Change](./color-change/spec.md)              | 1        |
 | Detector           | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 1        |

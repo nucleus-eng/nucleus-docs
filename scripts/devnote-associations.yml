@@ -78,6 +78,7 @@ exclude:
   - gel-lga
   - gel-peg-nb
   - substrate-cprg-luv
+  - substrate-cprg-suv
   processes:
   - embed-photocrosslinking
   - embed-thermal-setting

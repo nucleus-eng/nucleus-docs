@@ -117,16 +117,12 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 :::
 
 :::{attention}
-@Developer: Give the manufacturer and part number of Tris base.
+@Developer: Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc, the distribution's materials reference, or any supporting DevNote names a vendor for it.
 :::
 
 # Credits
 
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
-
-:::{attention}
-@Editor: Add the Node and Lab to this credit.
-:::
+Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090) (University of Michigan) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
 
 # Supported by
 
@@ -140,6 +136,13 @@ Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Ch
 :footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
 
 ![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+:::{card} Understanding Liposome Behaviour in Hydrogel Matrices
+:link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
+:footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
 :::
 
 ::::
