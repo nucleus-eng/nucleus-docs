@@ -32,23 +32,23 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 
 :::{table}
 
-| Module Class     | Specification                                       | DevNotes |
-| ---------------- | --------------------------------------------------- | -------- |
-| Cytosol (Base)   | [Cytosol](./base-cytosol/spec.md)                   | 10       |
-| Protein Mix      | [PMix](./pmix/spec.md)                              | 0        |
-| Small Molecule Mix | [SMix](./smix/spec.md)                            | 0        |
-| Membrane (Base)  | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
-| Reporter         | [deGFP](./reporter-degfp/spec.md)                   | 7        |
-| Cell (Base)      | [Base Cell](./base-cell/spec.md)                    | 6        |
-| Cell (Dye)       | [Dye Liposomes](./dye-liposomes/spec.md)            | 0        |
-| Detector         | [pH-Sensing](./detector-ph/spec.md)                 | 0        |
-| Reporter         | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 0        |
-| Cell (Sensing)   | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 0        |
-| Cell (Substrate) | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 0        |
-| Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 0        |
-| Cascade          | [pH Cascade](./ph-cascade/spec.md)                  | 0        |
-| Reporter         | [Color Change](./color-change/spec.md)              | 0        |
-| Detector         | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 1        |
+| Module Class       | Specification                                       | DevNotes |
+| ------------------ | --------------------------------------------------- | -------- |
+| Cytosol (Base)     | [Cytosol](./base-cytosol/spec.md)                   | 10       |
+| Protein Mix        | [PMix](./pmix/spec.md)                              | 0        |
+| Small Molecule Mix | [SMix](./smix/spec.md)                              | 0        |
+| Membrane (Base)    | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
+| Reporter           | [deGFP](./reporter-degfp/spec.md)                   | 7        |
+| Cell (Base)        | [Base Cell](./base-cell/spec.md)                    | 6        |
+| Cell (Dye)         | [Dye Liposomes](./dye-liposomes/spec.md)            | 0        |
+| Detector           | [pH-Sensing](./detector-ph/spec.md)                 | 1        |
+| Reporter           | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 5        |
+| Cell (Sensing)     | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 1        |
+| Cell (Substrate)   | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 3        |
+| Cell (Substrate)   | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 2        |
+| Cascade            | [pH Cascade](./ph-cascade/spec.md)                  | 1        |
+| Reporter           | [Color Change](./color-change/spec.md)              | 1        |
+| Detector           | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 1        |
 :::
 
 ## Gels

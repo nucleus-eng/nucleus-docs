@@ -43,9 +43,20 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
   modules:
   - gel-lga
+  - detector-ph
+  - ph-sensing-cell
+  - reporter-lacz-enzyme
+  - substrate-cprg-luv
+  - substrate-cprg-suv
+  - ph-cascade
+  - color-change
   processes:
   - embed-thermal-setting
-  implementations: []
+  - anneal-ph-trigger-duplex
+  - encapsulate-freeze-thaw
+  - colorimetric-readout
+  implementations:
+  - colorimetric-ph-sensor
   skipped: false
 01a108c6-4719-7833-92af-daf6f91ed06a:
   title: Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
@@ -66,9 +77,12 @@ exclude:
   - gel-ulga
   - gel-lga
   - gel-peg-nb
+  - substrate-cprg-luv
+  - substrate-cprg-suv
   processes:
   - embed-photocrosslinking
   - embed-thermal-setting
+  - encapsulate-freeze-thaw
   implementations: []
   skipped: false
 01a1121a-7513-7ec7-8378-0326c6b3630b:
@@ -94,10 +108,11 @@ exclude:
   title: Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1
   doi: null
   html: https://devnotes.nucleus.engineering/articles/01a12d42-ca2e-70e7-b78b-66fcf11c400a
-  modules: []
+  modules:
+  - reporter-lacz-enzyme
   processes: []
   implementations: []
-  skipped: true
+  skipped: false
 01a12d61-686f-7790-8068-f3638be6d7d2:
   title: Expressing Cell-Free TetO-GFP in Solution with aTc Titration
   doi: null
@@ -111,18 +126,22 @@ exclude:
   title: Co-Encapsulated Cell-Free PLA1 Expression in beta-Galactosidase GUVs
   doi: null
   html: https://devnotes.nucleus.engineering/articles/01a12e24-46dc-761d-b020-f1f77cce78ba
-  modules: []
+  modules:
+  - reporter-lacz-enzyme
   processes: []
   implementations: []
-  skipped: true
+  skipped: false
 01a12e6c-b511-7d30-aa95-002d386f751e:
   title: Implementing of a bulk color change module into bacterial quorum sensing
   doi: null
   html: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
-  modules: []
-  processes: []
+  modules:
+  - substrate-cprg-luv
+  - reporter-lacz-enzyme
+  processes:
+  - encapsulate-freeze-thaw
   implementations: []
-  skipped: true
+  skipped: false
 01a1304b-1c56-7352-a082-ba84a2684f82:
   title: 'TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning'
   doi: null
@@ -131,6 +150,7 @@ exclude:
   - base-cytosol
   - detector-tetr-atc
   - gel-peg-nb
+  - reporter-lacz-enzyme
   processes:
   - embed-photocrosslinking
   implementations: []

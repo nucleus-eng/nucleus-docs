@@ -14,11 +14,7 @@ This page is a work in progress and not yet ready for use.
 
 The Colorimetric pH Sensor Implementation combines the [pH Cascade](../../modules/ph-cascade/spec.md), which is made of [pH Sensing Cells](../../modules/ph-sensing-cell/spec.md), substrate liposomes ([Substrate LUV: CPRG](../../modules/substrate-cprg-luv/spec.md) and [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md)) and the [LacZ enzyme](../../modules/reporter-lacz-enzyme/spec.md), with [Colorimetric Readout](../../processes/colorimetric-readout/main.md). It produces a visible color change at pH 6.3 and none at pH 7.6, in solution and in 3.5 mg/mL low-gelling agarose. Acidic pH makes the cells express phospholipase A1 (PLA1). PLA1 lyses the CPRG liposomes, and β-galactosidase converts the released CPRG from yellow to purple. Wells hold 60 µL and are incubated at 37 °C.
 
-The data are from the DevNote *Two Vesicle Colorimetric pH Sensor System* by Sung-Won Hwang, Samuel Chen and Allen P. Liu.
-
-:::{attention}
-@Editor: Link the DevNote here once it is published.
-:::
+The data are from the DevNote [Two Vesicle Colorimetric pH Sensor System](https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009) by Sung-Won Hwang, Samuel Chen and Allen P. Liu.
 
 # Protocol
 
@@ -242,3 +238,19 @@ Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Ch
 :::{attention}
 @Editor: Add the Node and Lab to this credit.
 :::
+
+# Supported by
+
+[DevNotes](https://devnotes.nucleus.engineering) that support this page include:
+
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+::::
