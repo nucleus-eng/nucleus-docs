@@ -191,4 +191,5 @@ project:
   resources:
     - docs/**/*
     - cdk/**/*
+    - about/**/*
 
