@@ -200,7 +200,7 @@ Three columns is a conformant table; do not invent a cell you cannot source.
 OPTIONAL COLUMNS, one allowed spelling each — `Category`, `Product`, `Price`, `Storage`,
 `Link`, `Description`, `Used for`, `Molecular weight`. Add the ones this module needs and
 delete the rest. `Description` and `Product` are two different things and both are allowed:
-`Product` is the vendor's catalogue string, `Description` is prose about the material.
+`Product` is the vendor's catalog string, `Description` is prose about the material.
 `Description`, `Used for` and `Molecular weight` stay on the page and are deliberately not
 carried into the distribution-wide materials reference.
 

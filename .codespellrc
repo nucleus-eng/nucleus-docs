@@ -1,4 +1,5 @@
 [codespell]
-skip = ./.git,./_build,*/generated/*,*.svg,*.png,*.pdf,*.gb,*.ipynb
+# DevNote titles are copied verbatim from external authors, so their spelling is not ours to fix.
+skip = ./.git,./_build,*/generated/*,*.svg,*.png,*.pdf,*.gb,*.ipynb,*/devnote-associations.yml
 builtin = clear,rare,en-GB_to_en-US
 ignore-words = .codespell-ignore

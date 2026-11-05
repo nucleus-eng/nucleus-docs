@@ -78,7 +78,7 @@ def test_a_design_that_satisfies_the_predicate_is_not_reported(tmp_path):
 
 
 def test_a_design_that_fails_it_is_reported(tmp_path):
-    """THE CONTROL. Both operands free, so the colour fires before any signal."""
+    """THE CONTROL. Both operands free, so the color fires before any signal."""
     out = run(tmp_path, {"empty": EMPTY,
                          "reporter": reporter("encapsulated(a) OR encapsulated(b)",
                                               {"a": "empty", "b": "empty"})})
@@ -116,7 +116,7 @@ def test_a_presence_sensitivity_meets_a_component_that_is_there(tmp_path):
                 to: cprg
                 kind: presence
                 basis: rule
-                why: Free substrate with the enzyme turns the colour over early.
+                why: Free substrate with the enzyme turns the color over early.
             """,
         "mix": """\
             module: mix
@@ -150,7 +150,7 @@ def test_a_presence_sensitivity_that_meets_nothing_is_not_reported(tmp_path):
                 to: cprg
                 kind: presence
                 basis: rule
-                why: Free substrate with the enzyme turns the colour over early.
+                why: Free substrate with the enzyme turns the color over early.
             """})
     assert "PRESENCE" not in out
     assert "presence 1 declared, 0 met" in out
