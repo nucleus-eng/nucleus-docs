@@ -68,6 +68,18 @@ SMix contains the buffers, rNTPs, amino acids, stabilizers, and cofactors.
 :::
 ::::
 
+::::{tab-item} RNase inhibitor
+The RNase inhibitor is optional. It is [murine RNase inhibitor from NEB (M0314)](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine), supplied at 40 000 U/mL. At 0.5 µL per 10 µL reaction it gives 2000 U/mL, the top of the range for Base Cytosol.
+
+:::{table} RNase inhibitor stock concentration.
+:label: comp-rnase-inhibitor
+
+| Component | Stock Concentration | Reaction Concentration |
+| --------- | ------------------- | ---------------------- |
+| RNase inhibitor | 40 000 U/mL (20×) | 2000 U/mL |
+:::
+::::
+
 ::::{tab-item} Final Reaction
 PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: the 15 000 ng/µL total of [Protein Mix (PMix)](../pmix/spec.md) becomes 1800 ng/µL, and each protein is at 0.12 times its PMix stock concentration. Protein molecular weights are those of the assembled complex (monomer weight × oligomeric state, as listed for PMix), and molar concentrations are of that complex. See [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md) for the volumes of every component.
 
@@ -146,8 +158,6 @@ PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: 
 | | PPiase | 118.2 kDa | 0.0162 µM | 1.9 ng/µL |
 | Transcription | T7RNAP | 98.9 kDa | 0.188 µM | 18.7 ng/µL |
 :::
-
-@Editor: confirm the RNase inhibitor stock concentration. `Base Cell` and `Reporter: deGFP` give 40 000 U/mL, which makes 0.5 µL in 10 µL equal to 2000 U/mL; no Make page or bill of materials states it.
 ::::
 
 :::::
