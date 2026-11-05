@@ -24,59 +24,20 @@ Base Cytosol is assembled from five components — [Protein Mix (PMix)](../pmix/
 
 :::::{tab-set}
 
-::::{tab-item} PMix
-PMix contains all 36 PURE proteins.
+::::{tab-item} Reaction Assembly
 
-:::{table} Protein Mix (PMix) stock concentration.
-:label: comp-base-cytosol-pmix
+:::{table} Reaction Assembly.
+:label: comp-base-cytosol-assembly
 
 | Component | Stock Concentration | Reaction Concentration |
 | --------- | ------------------- | ---------------------- |
 | [Protein Mix (PMix)](../pmix/spec.md) | 15 µg/µL (8.33×) | 1.8 µg/µL |
-:::
-::::
-
-::::{tab-item} SMix
-SMix contains the buffers, rNTPs, amino acids, stabilizers, and cofactors.
-
-:::{table} Small Molecule Mix (SMix) stock concentration.
-:label: comp-base-cytosol-smix
-
-| Component | Stock Concentration | Reaction Concentration |
-| --------- | ------------------- | ---------------------- |
 | [Small Molecule Mix (SMix)](../smix/spec.md) | 3.33× | 1× |
-:::
-::::
-
-::::{tab-item} Ribosomes
-:::{table} Ribosome stock concentration.
-:label: comp-ribosomes
-
-| Component | Stock Concentration | Reaction Concentration |
-| --------- | ------------------- | ---------------------- |
 | Ribosomes | 10 µM (5.55×)       | 1.8 µM                 |
-:::
-::::
-
-::::{tab-item} tRNA
-:::{table} tRNA stock concentration.
-:label: comp-trna
-
-| Component | Stock Concentration | Reaction Concentration |
-| --------- | ------------------- | ---------------------- |
 | tRNA      | 35 µg/µL (10×)      | 3.5 µg/µL              |
-:::
-::::
+| (optional) RNase Inhibitor | 40 000 U/mL (20×) | 2000 U/mL |
 
-::::{tab-item} RNase inhibitor
-The RNase inhibitor is optional. It is [murine RNase inhibitor from NEB (M0314)](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine), supplied at 40 000 U/mL. At 0.5 µL per 10 µL reaction it gives 2000 U/mL, the top of the range for Base Cytosol.
-
-:::{table} RNase inhibitor stock concentration.
-:label: comp-rnase-inhibitor
-
-| Component | Stock Concentration | Reaction Concentration |
-| --------- | ------------------- | ---------------------- |
-| RNase inhibitor | 40 000 U/mL (20×) | 2000 U/mL |
+The RNase inhibitor is optional, but recommended.
 :::
 ::::
 
@@ -165,8 +126,6 @@ PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: 
 # Expected Behavior
 
 The behavior of Base Cytosol is characterized using the [Reporter: deGFP](../reporter-degfp/spec.md) Module.
-
-@Editor: State the validation data for Base Cytosol. Tracked in [nucleus-eng/nucleus-docs#306](https://github.com/nucleus-eng/nucleus-docs/issues/306).
 
 # Processes
 
