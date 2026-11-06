@@ -72,7 +72,7 @@ pre-commit run --all-files  # run all hooks manually
 
 ### Companion DNA repository
 
-Sequence files for every plasmid and construct referenced in these docs live in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)** (local path: `~/src/bnext/nucleus-eng/DNA`). Never create or store `.gb` files here, and never link a construct into the legacy `bnext-bio/nucleus` repo.
+Sequence files for every plasmid and construct referenced in these docs live in a separate repository: **[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA)** (local clone: set `NUCLEUS_DNA_REPO` to its path; `scripts/check-dna-refs.py` reads it and has no default). Never create or store `.gb` files here, and never link a construct into the legacy `bnext-bio/nucleus` repo.
 
 **Naming a construct, or adding a Designs-table row?** Invoke the `verify-dna-constructs` skill first. A Designs-table row is an identity claim, not a name match — the skill has the repo layout, the verification steps, the Nucleus-equivalent attention block, and `scripts/check-dna-refs.py`.
 

@@ -63,7 +63,7 @@ properties:
       `refines:` values in these sources, so a reader following this description would
       have checked a key against a file built out of that key. Circular, and the same
       defect the two schema checkers carried until the same day. docs/type-order.yml is
-      published from the theory corpus and is not derived from anything here.
+      published from the theory repository and is not derived from anything here.
       A LIST STAYS LEGAL and still means incomparable parents. What changes is that the
       FUNCTIONAL parent moved to `type`, so `refines` now holds only the remaining axes.
       Naming `type`'s own value here is an error rather than a redundancy.
@@ -121,14 +121,14 @@ properties:
     type: [array, "null"]
     description: >
       A CONDITION OVER THIS MODULE'S OWN COMPOSITION, written as a disjunction and
-      evaluated by check-conflicts.py. Ruled 2026-10-20 -- rulings.md D208.
+      evaluated by check-conflicts.py.
       WHY A DISJUNCTION AND NOT A LIST OF ARRANGEMENTS. Color Change works with the
       enzyme encapsulated, or the substrate encapsulated, or both separately, and not
       with both free. Three permitted arrangements and one forbidden. A list of the
       three goes stale the first time a fourth is tried and a reader cannot tell a
       missing row from a forbidden one; the disjunction states the freedom AND implies
       the prohibition in one line, and it does not grow with the operand count.
-      `OR` IS UPPERCASE, by Jon's ruling, so that nobody reads it as English.
+      `OR` IS UPPERCASE so that nobody reads it as English.
       THE ONLY PREDICATE IS `encapsulated(<input id>)`, because it is the only one a
       checker can decide: an operand is encapsulated when its type carries a payload,
       `A{B}`, which is exactly what orders.contents reads. A predicate this file cannot
@@ -294,15 +294,15 @@ properties:
       what it inflicts, and none of them is the Function itself. Until that field
       exists this key holds the condition where it can be read, which is better than
       the alternative of holding it nowhere.
-      ANY MODULE MAY STATE ONE, 2026-10-20 -- rulings.md D209. A requirement is
-      DISCHARGED BY COMPOSITION with a source that `provides:` the operation, not by
-      inheritance from a class, so who may state one was never the question. Jon: "a
-      Module requiring `transcribe[pT7]` must be composed with a module that PROVIDES
-      that function, not refines that 'module' (transcribe is a function not a module)".
+      ANY MODULE MAY STATE ONE. A requirement is DISCHARGED BY COMPOSITION with a
+      source that `provides:` the operation, not by inheritance from a class, so who
+      may state one was never the question. A Module requiring `transcribe[pT7]` must
+      be composed with a module that PROVIDES that function, not one that refines it,
+      because transcribe is a function and not a module.
       check-requirements.py R3 does the discharge and has always read a module's own
       entries whether or not anything refines it.
-      IT READ "IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that" until
-      then, and that checker held a rule no ruling ever made. Measured at deletion, on
+      IT ONCE READ "IT IS ONLY FOR A CLASS, and check-spec-schema.py enforces that", and
+      that checker held a rule nothing required. Measured at deletion, on
       main bf9b98cd: 12 sources, 0 carrying this key, 0 findings from the rule. It
       governed a key with no instances, and by forbidding it outside a class it is the
       likeliest reason the key had none.
@@ -321,15 +321,14 @@ properties:
           type: string
           pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
           description: >
-            AN INPUT OF THIS SOURCE WHOSE TYPE SUPPLIES THE BRACKET, 2026-10-20 --
-            rulings.md D211. `{id: transcribe, from: gated-pla1-dna}` requires
+            AN INPUT OF THIS SOURCE WHOSE TYPE SUPPLIES THE BRACKET.
+            `{id: transcribe, from: gated-pla1-dna}` requires
             `transcribe[P]` where `P` is the promoter in THAT operand's own type,
             `DNA[linear, pT7]`. The checker takes the bracket member that refines
             `Promoter` and compares `transcribe[pT7]` against providers as usual.
             WHY NOT WRITE THE PROMOTER. A system may carry two constructs on two
-            promoters, and each Module must meet the provider of ITS OWN -- Jon: "you
-            can imagine systems requiring two (or many) distinct promoters and have the
-            modules match the correct `P1` vs `P2`". Naming the operand says that; a
+            promoters, and each Module must meet the provider of ITS OWN, so the
+            modules match the correct `P1` vs `P2`. Naming the operand says that; a
             literal bracket restates a fact the operand already holds, and the two then
             drift.
             IT IS NOT A WILDCARD. `transcribe[Promoter]` would demand ANY promoter,
@@ -638,7 +637,7 @@ properties:
               unit:
                 type: string
                 description: >
-                  THE VOCABULARY, ruled 2026-10-11: mM, mg/mL, mmol/mol, mL/L.
+                  THE VOCABULARY: mM, mg/mL, mmol/mol, mL/L.
                   `mol%` becomes `mmol/mol`. `v/v%` becomes `mL/L`.
                   `w/v%` IS NOT A UNIT: mass over volume is not a ratio of like
                   quantities, so there is no dimensionless quantity for a percent to
@@ -662,16 +661,14 @@ properties:
         binds:
           type: object
           description: >
-            WHICH MEMBER FILLS A CONSTITUENT'S CLASS SLOT, 2026-10-20 -- rulings.md D210.
+            WHICH MEMBER FILLS A CONSTITUENT'S CLASS SLOT.
             Keys are input ids OF THE CONSTITUENT this entry names; values are a type or
             a page.
             IT SITS ON THE INPUT THAT NAMES THE CONSTITUENT, not at module level, because
             a binding is about THAT constituent and one source may name two constituents
             whose slots share a name.
-            A MODULE BINDS A TYPE, AN IMPLEMENTATION BINDS A PAGE -- Jon, 2026-10-20: "i
-            think it's okay for a Module to bind a type. an implementation likely should
-            always bind a specific page though." A composing Module narrows the class; an
-            Implementation names the member. Both are checked the same way, because a
+            A MODULE BINDS A TYPE, AN IMPLEMENTATION BINDS A PAGE. A composing Module
+            narrows the class; an Implementation names the member. Both are checked the same way, because a
             page resolves to its module's own `type:`.
             ONE CHAIN, NOT TWO RULES. The slot's class >= a Module's bound type >= an
             Implementation's member type, every link `_type_refines`. His rule for an
@@ -1221,7 +1218,7 @@ $defs:
                   description: >
                     WHICH OPERAND POSITION THIS FILLS, named as the upstream profile
                     names it: `L`, `Si`, `So` for `encapsulate`. The symbol and not a
-                    word, ruled 2026-10-12 -- a word would need a second map, and a
+                    word, because a word would need a second map, and a
                     checker compares against `process_operands.<p>.positions` directly.
       produces:
         type: object

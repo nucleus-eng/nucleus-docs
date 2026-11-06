@@ -132,7 +132,7 @@ def has_materials_label(lines: List[str], header_idx: int) -> bool:
     """True when THIS table carries a materials label.
 
     THE LOOKBACK MUST STOP AT A BLOCK BOUNDARY. Scanning a flat window of lines
-    above the header lets an unlabelled table inherit the label of a labelled
+    above the header lets an unlabeled table inherit the label of a labeled
     table that happens to sit close above it -- and a `Reagents.` table
     immediately followed by an `Equipment.` table is the common page layout, so
     this is not a corner. Found by the Gel Control Experiments session against
@@ -161,17 +161,17 @@ def has_materials_label(lines: List[str], header_idx: int) -> bool:
     return False
 
 
-def is_candidate(header: str, labelled: bool) -> bool:
+def is_candidate(header: str, labeled: bool) -> bool:
     """A table worth auditing: it says it is a materials table, or it names a
     manufacturer or a part number. Anything else is a recipe table."""
-    if labelled:
+    if labeled:
         return True
     fields = {_header_field(c) for c in split_row(header)}
     return "manufacturer" in fields or "part" in fields
 
 
 def check_table(path: str, idx: int, header: str, rows: List[str],
-                labelled: bool) -> List[Finding]:
+                labeled: bool) -> List[Finding]:
     out: List[Finding] = []
     line = idx + 1
     cells = split_row(header)
@@ -231,10 +231,10 @@ def check_file(path: Path) -> List[Finding]:
         return []
     out: List[Finding] = []
     for idx, header, rows in iter_header_rows(lines):
-        labelled = has_materials_label(lines, idx)
-        if not is_candidate(header, labelled):
+        labeled = has_materials_label(lines, idx)
+        if not is_candidate(header, labeled):
             continue
-        out.extend(check_table(str(path), idx, header, rows, labelled))
+        out.extend(check_table(str(path), idx, header, rows, labeled))
     return out
 
 
