@@ -38,8 +38,9 @@ Severity:
 This is a *local, author-time* check, not a CI gate: nucleus-docs CI has no
 checkout of the DNA repo, and a committed manifest of construct names would
 drift from the source repo the moment either side changed. It reads the DNA
-repo directly, defaulting to ~/src/nucleus-eng/DNA (override with
-NUCLEUS_DNA_REPO).
+repo directly. Set NUCLEUS_DNA_REPO to the path of your local clone (once, in
+your shell profile). There is no default location: a guessed path can index a
+stale clone without saying so.
 
 It verifies *length*, not *sequence*. Two constructs of identical length but
 different content are indistinguishable to this check — same blind spot
@@ -131,7 +132,9 @@ class Claim:
 
 def find_dna_repo() -> Path | None:
     env = os.environ.get("NUCLEUS_DNA_REPO")
-    candidate = Path(env) if env else Path.home() / "src" / "nucleus-eng" / "DNA"
+    if not env:
+        return None
+    candidate = Path(env).expanduser()
     return candidate if candidate.is_dir() else None
 
 
@@ -432,8 +435,8 @@ def main(argv=None) -> int:
     dna_repo = find_dna_repo()
     if dna_repo is None:
         print(
-            "ERROR: could not find the nucleus-eng/DNA repo. Clone it to "
-            "~/src/nucleus-eng/DNA, or set NUCLEUS_DNA_REPO to its path.",
+            "ERROR: NUCLEUS_DNA_REPO is not set, or is not a directory. Set it to "
+            "the path of your local clone of nucleus-eng/DNA.",
             file=sys.stderr,
         )
         return EXIT_CANNOT_RUN
