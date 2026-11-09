@@ -209,10 +209,6 @@ Photographs and schematic of the patterned hydrogel test. **(A)** The patterned 
 @Developer: The text describes a QR-code pattern, and the figure shows a cross. Confirm the pattern.
 :::
 
-## Gramicidin A
-
-The colorimetric runs contain no gramicidin A, which the [earlier description of this pH sensor](https://doi.org/10.1101/2025.11.16.688650) uses. Gramicidin A ruptured part of the CPRG liposomes early, and this gave color without PLA1. Its absence may reduce the efficiency of pH sensing. PLA1 expression, probably driven by proton entry into a subset of cells with relatively permeable membranes, appeared to be enough to start the lysis cascade.
-
 # Process
 
 - [Anneal pH Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) makes the gate duplex of the pH Sensing Cell.

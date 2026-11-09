@@ -78,7 +78,8 @@ exclude:
   - gel-lga
   - gel-peg-nb
   - substrate-cprg-luv
-  - substrate-cprg-suv
+  - reporter-lacz-enzyme
+  - color-change
   processes:
   - embed-photocrosslinking
   - embed-thermal-setting
@@ -110,6 +111,7 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a12d42-ca2e-70e7-b78b-66fcf11c400a
   modules:
   - reporter-lacz-enzyme
+  - color-change
   processes: []
   implementations: []
   skipped: false
@@ -128,6 +130,7 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a12e24-46dc-761d-b020-f1f77cce78ba
   modules:
   - reporter-lacz-enzyme
+  - color-change
   processes: []
   implementations: []
   skipped: false
@@ -138,6 +141,7 @@ exclude:
   modules:
   - substrate-cprg-luv
   - reporter-lacz-enzyme
+  - color-change
   processes:
   - encapsulate-freeze-thaw
   implementations: []
@@ -151,6 +155,7 @@ exclude:
   - detector-tetr-atc
   - gel-peg-nb
   - reporter-lacz-enzyme
+  - color-change
   processes:
   - embed-photocrosslinking
   implementations: []

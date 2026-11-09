@@ -138,11 +138,4 @@ Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090) (University
 ![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
 :::
 
-:::{card} Understanding Liposome Behaviour in Hydrogel Matrices
-:link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
-:footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
-
-![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
-:::
-
 ::::
