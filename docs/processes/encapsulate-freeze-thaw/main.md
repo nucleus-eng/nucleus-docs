@@ -103,10 +103,6 @@ Alternating the orientation moves the pellet to the opposite side of the tube. T
 @Developer: Reconcile the pooling volumes. Six tubes at 15 µL give 90 µL, which fits the LUV route (90 µL + 160 µL = 250 µL). The SUV route also states six tubes, but 75 µL + 175 µL = 250 µL needs five tubes. The pooled pellets go into two tubes, and each tube is brought to 250 µL: say how the 90 µL or 75 µL divides between them. The LUV dilution step uses 12 tubes of 50 µL, which need 600 µL, while the CPRG LUV preparation is 500 µL. Give the number of tubes for each route.
 :::
 
-# Credits
-
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090) (University of Michigan) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
-
 # Supported by
 
 [DevNotes](https://devnotes.nucleus.engineering) that support this page include:

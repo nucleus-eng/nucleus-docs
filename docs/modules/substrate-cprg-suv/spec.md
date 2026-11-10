@@ -120,10 +120,6 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 @Developer: Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc, the distribution's materials reference, or any supporting DevNote names a vendor for it.
 :::
 
-# Credits
-
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090) (University of Michigan) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
-
 # Supported by
 
 [DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
