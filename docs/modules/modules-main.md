@@ -7,25 +7,6 @@ description: A catalog of validated biochemical modules — detectors, reporters
 
 A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
 
-## PURExpress
-
-Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit).
-
-:::{table}
-
-| Module Class    | Specification                               | DevNotes |
-| --------------- | ------------------------------------------- | -------- |
-| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | 4        |
-| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | 4        |
-|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | 0        |
-| Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | 1        |
-| Control         | [ClpXP](./control-clpxp/spec.md)            | 4        |
-| Energy          | [PPK](./energy-ppk/spec.md)                 | 4        |
-| Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | 0        |
-|                 | [Cx43](./membrane-pore-cx43/spec.md)        | 2        |
-
-:::
-
 ## Nucleus Cytosol
 
 Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
@@ -63,6 +44,26 @@ Modules that hold a sample in a polymer network set in an outer solution.
 | Gel (Thermal)        | [Gel: LGA](./gel-lga/spec.md)       | 2        |
 | Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | 2        |
 :::
+
+## PURExpress
+
+Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit).
+
+:::{table}
+
+| Module Class    | Specification                               | DevNotes |
+| --------------- | ------------------------------------------- | -------- |
+| Membrane (Base) | [POPC/Chol](./membrane-popc-chol/spec.md)   | 4        |
+| Detector        | [tetR-aTc](./detector-tetr-atc/spec.md)     | 4        |
+|                 | [LacI-IPTG](./detector-laci-iptg/spec.md)   | 0        |
+| Emitter         | [IV-HSL](./emitter-ivhsl/spec.md)           | 1        |
+| Control         | [ClpXP](./control-clpxp/spec.md)            | 4        |
+| Energy          | [PPK](./energy-ppk/spec.md)                 | 4        |
+| Membrane Pore   | [α-Hemolysin](./membrane-pore-ahly/spec.md) | 0        |
+|                 | [Cx43](./membrane-pore-cx43/spec.md)        | 2        |
+
+:::
+
 
 # Contributing a Module
 
