@@ -210,10 +210,20 @@ def test_parse_table_header_requires_manufacturer_and_part():
 # row_to_material — placeholder nullification & part-# gating
 # --------------------------------------------------------------------------- #
 
-def test_row_to_material_drops_rows_with_placeholder_part():
+def test_row_to_material_drops_rows_nobody_has_filled_in():
     cols = parse_table_header("| Name | Manufacturer | Part # |")
     assert row_to_material(split_row("| Tris | Sigma | TODO |"), cols) is None
-    assert row_to_material(split_row("| Tris | Sigma | — |"), cols) is None
+    assert row_to_material(split_row("| LGA | — | — |"), cols) is None
+
+
+def test_row_to_material_keeps_an_in_house_row():
+    """A named maker with no catalog number is the in-house convention, not a
+    TODO. Dropping it hid tRNA and ribosomes from the reference."""
+    cols = parse_table_header("| Name | Manufacturer | Part # |")
+    mat = row_to_material(split_row("| tRNA | b.next | — |"), cols)
+    assert mat is not None
+    assert mat["manufacturer"] == "b.next"
+    assert mat["part"] == ""
 
 
 def test_row_to_material_nullifies_placeholder_cells():
@@ -262,3 +272,17 @@ def test_index_materials_without_exclude_sees_both_pages(tmp_path):
     index, _ = index_materials(tmp_path)
     key = (bc.norm_key("Sigma"), bc.norm_key("T1503"))
     assert sorted(index[key]["used_in"]) == ["pagea", "pageb"]
+
+def test_item_hash_is_a_part_column_and_item_is_not():
+    """`Item #` is detector-ph's spelling for a catalog number; `Item` is
+    membrane-pore-gramicidin's spelling for a name. _header_field keeps the
+    `#`, so the two never collide. Neither page is on main, which is why this
+    is asserted here rather than measured against the corpus."""
+    cols = parse_table_header("| Material | Description | Manufacturer | Item # |")
+    assert cols is not None, "a Manufacturer + Item # table must be read"
+    assert cols["part"] == 3
+    mat = row_to_material(split_row("| CPRG | substrate | Roche | 10884308001 |"), cols)
+    assert mat["part"] == "10884308001"
+
+    named = parse_table_header("| Item | Purpose | Supplier | Part number |")
+    assert named["name"] == 0 and named["part"] == 3

@@ -354,3 +354,12 @@ def test_find_dna_repo_uses_env_override(tmp_path, monkeypatch):
 def test_find_dna_repo_returns_none_when_missing(tmp_path, monkeypatch):
     monkeypatch.setenv("NUCLEUS_DNA_REPO", str(tmp_path / "does-not-exist"))
     assert cdr.find_dna_repo() is None
+
+
+def test_find_dna_repo_has_no_default_location(tmp_path, monkeypatch):
+    """With the variable unset there is nothing to find, even if a clone sits at a conventional path."""
+    (tmp_path / "src" / "nucleus-eng" / "DNA").mkdir(parents=True)
+    (tmp_path / "src" / "bnext" / "nucleus-eng" / "DNA").mkdir(parents=True)
+    monkeypatch.setenv("HOME", str(tmp_path))
+    monkeypatch.delenv("NUCLEUS_DNA_REPO", raising=False)
+    assert cdr.find_dna_repo() is None
