@@ -28,8 +28,6 @@ TODO: One sentence describing what the schematic shows. If the figure is not ori
 
 The protocol section contains the step-by-step procedure for building this implementation. Write it so someone can follow it at the bench. State volumes, concentrations, incubation times, and temperatures as concrete values, not ranges, unless the range is intentional. If a step depends on a Process documented elsewhere, link to it rather than repeating it. Include a composition table if the implementation requires assembling multiple components.
 
-*Under Construction*
-
 ::::{grid} 1 1 2 3
 
 :::{card}
@@ -95,7 +93,6 @@ List the modules used in this implementation. Link each to its spec page. If a m
 
 # Credits
 
-<!-- List the people who developed or validated this implementation.
-Link to ORCID or personal pages where available. -->
+List the people who developed or validated this implementation. Link to ORCID or personal pages where available. 
 
 - [TODO: Name](https://orcid.org/TODO)
