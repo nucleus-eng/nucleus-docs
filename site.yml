@@ -5,6 +5,9 @@ project:
     content: CC-BY-4.0
   abbreviations:
     PURE: protein synthesis using recombinant elements
+    GUV: giant unilamellar vesicle
+    LUV: large unilamellar vesicle
+    SUV: small unilamellar vesicle
 site:
   url: https://docs.nucleus.engineering
   template: book-theme
