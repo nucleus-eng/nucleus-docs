@@ -101,6 +101,7 @@ project:
         - file: ./docs/processes/encapsulate-freeze-thaw/main.md
           hidden: true
         - file: ./docs/processes/colorimetric-readout/main.md
+          hidden: true
         - file: ./docs/processes/embed-thermal-setting/main.md
           hidden: true
         - file: ./docs/processes/embed-photocrosslinking/main.md

@@ -117,13 +117,21 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 :::
 
 :::{attention}
-@Developer: Give the manufacturer and part number of Tris base.
+@Developer: Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc, the distribution's materials reference, or any supporting DevNote names a vendor for it.
 :::
 
-# Credits
+# Supported by
 
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
 
-:::{attention}
-@Editor: Add the Node and Lab to this credit.
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
 :::
+
+::::

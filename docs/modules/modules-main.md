@@ -7,6 +7,44 @@ description: A catalog of validated biochemical modules — detectors, reporters
 
 A Module is a useful biochemical formulation, often incorporating a genetically encoded component, that performs a particular function. Modules Specifications answer the questions 1) "What is it?" and 2) "What should I expect when I implement it?".
 
+## Nucleus Cytosol
+
+Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
+
+:::{table}
+
+| Module Class       | Specification                                       | DevNotes |
+| ------------------ | --------------------------------------------------- | -------- |
+| Cytosol (Base)     | [Cytosol](./base-cytosol/spec.md)                   | 10       |
+| Protein Mix        | [PMix](./pmix/spec.md)                              | 0        |
+| Small Molecule Mix | [SMix](./smix/spec.md)                              | 0        |
+| Membrane (Base)    | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
+| Reporter           | [deGFP](./reporter-degfp/spec.md)                   | 7        |
+| Cell (Base)        | [Base Cell](./base-cell/spec.md)                    | 6        |
+| Cell (Dye)         | [Dye Liposomes](./dye-liposomes/spec.md)            | 0        |
+| Detector           | [pH-Sensing](./detector-ph/spec.md)                 | 1        |
+| Reporter           | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 6        |
+| Cell (Sensing)     | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 1        |
+| Cell (Substrate)   | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 3        |
+| Cell (Substrate)   | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 1        |
+| Cascade            | [pH Cascade](./ph-cascade/spec.md)                  | 1        |
+| Reporter           | [Color Change](./color-change/spec.md)              | 6        |
+| Detector           | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 1        |
+:::
+
+## Gels
+
+Modules that hold a sample in a polymer network set in an outer solution.
+
+:::{table}
+
+| Module Class         | Specification                       | DevNotes |
+| -------------------- | ----------------------------------- | -------- |
+| Gel (Thermal)        | [Gel: ULGA](./gel-ulga/spec.md)     | 2        |
+| Gel (Thermal)        | [Gel: LGA](./gel-lga/spec.md)       | 2        |
+| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | 2        |
+:::
+
 ## PURExpress
 
 Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-purexpress-invitro-protein-synthesis-kit).
@@ -26,43 +64,6 @@ Modules validated in [NEB PURExpress](https://www.neb.com/en-us/products/e6800-p
 
 :::
 
-## Nucleus Cytosol
-
-Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
-
-:::{table}
-
-| Module Class     | Specification                                       | DevNotes |
-| ---------------- | --------------------------------------------------- | -------- |
-| Cytosol (Base)   | [Cytosol](./base-cytosol/spec.md)                   | 10       |
-| Protein Mix      | [PMix](./pmix/spec.md)                              | 0        |
-| Small Molecule Mix | [SMix](./smix/spec.md)                            | 0        |
-| Membrane (Base)  | [POPC/Chol](./membrane-popc-chol/spec.md)           | 4        |
-| Reporter         | [deGFP](./reporter-degfp/spec.md)                   | 7        |
-| Cell (Base)      | [Base Cell](./base-cell/spec.md)                    | 6        |
-| Cell (Dye)       | [Dye Liposomes](./dye-liposomes/spec.md)            | 0        |
-| Detector         | [pH-Sensing](./detector-ph/spec.md)                 | 0        |
-| Reporter         | [LacZ Enzyme](./reporter-lacz-enzyme/spec.md)       | 0        |
-| Cell (Sensing)   | [pH Sensing Cell](./ph-sensing-cell/spec.md)        | 0        |
-| Cell (Substrate) | [Substrate LUV: CPRG](./substrate-cprg-luv/spec.md) | 0        |
-| Cell (Substrate) | [Substrate SUV: CPRG](./substrate-cprg-suv/spec.md) | 0        |
-| Cascade          | [pH Cascade](./ph-cascade/spec.md)                  | 0        |
-| Reporter         | [Color Change](./color-change/spec.md)              | 0        |
-| Detector         | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 1        |
-:::
-
-## Gels
-
-Modules that hold a sample in a polymer network set in an outer solution.
-
-:::{table}
-
-| Module Class         | Specification                       | DevNotes |
-| -------------------- | ----------------------------------- | -------- |
-| Gel (Thermal)        | [Gel: ULGA](./gel-ulga/spec.md)     | 2        |
-| Gel (Thermal)        | [Gel: LGA](./gel-lga/spec.md)       | 2        |
-| Gel (Photopatterned) | [Gel: PEG-nb](./gel-peg-nb/spec.md) | 2        |
-:::
 
 # Contributing a Module
 

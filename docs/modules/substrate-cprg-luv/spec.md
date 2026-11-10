@@ -13,7 +13,7 @@ This page is a work in progress and not yet ready for use.
 
 # Overview
 
-Substrate LUV: CPRG encapsulates the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) in large unilamellar vesicles (LUVs) with a POPC/cholesterol membrane. It is a substrate population of the [pH Cascade](../ph-cascade/spec.md). Intact LUVs keep CPRG inside. A lytic enzyme such as phospholipase A1 (PLA1) disrupts the membrane, and CPRG is released into the outer solution. There, [β-galactosidase](../reporter-lacz-enzyme/spec.md) converts the yellow CPRG into the purple chlorophenol red (CPR). The LUVs are made by [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) without extrusion. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is the extruded alternative.
+`Substrate LUV: CPRG` encapsulates the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) in large unilamellar vesicles (LUVs) with a POPC/cholesterol membrane. It is a substrate population of the [pH Cascade](../ph-cascade/spec.md). Intact LUVs keep CPRG inside. A lytic enzyme such as phospholipase A1 (PLA1) disrupts the membrane, and CPRG is released into the outer solution. There, [β-galactosidase](../reporter-lacz-enzyme/spec.md) converts the yellow CPRG into the purple chlorophenol red (CPR). The LUVs are made by [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) without extrusion. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is the extruded alternative.
 
 :::{attention}
 @Developer: Give the measured size and the lamellarity of the LUVs, which are made without extrusion.
@@ -79,9 +79,7 @@ The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2
 
 ## Solution
 
-:::{warning} Not yet validated
-This page does not report color development of Substrate LUV: CPRG in solution.
-:::
+Substrate LUV: CPRG is expected to keep CPRG inside at neutral pH and release it when a lytic enzyme such as PLA1 disrupts the membrane. In solution, pH Sensing Cells with Substrate LUV: CPRG gave a visible color change at pH 6.3 and stayed yellow at pH 7.6. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
 ## Gels
 
@@ -123,10 +121,32 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 @Developer: Give the manufacturer and part number of Tris base.
 :::
 
-# Credits
+# Supported by
 
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
+[DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
 
-:::{attention}
-@Editor: Add the Node and Lab to this credit.
+::::{grid} 1 1 1 1
+:class: devnote-cards
+
+:::{card} Implementing of a bulk color change module into bacterial quorum sensing
+:link: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
+:footer: Manuel Bibrowski, Charlie Newell, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1650a-90b4-729f-875b-e4f1ddce3bec/public/colorchange-overnigh-520d47ff723d53997b42c0e1c8c68cdc.webp)
 :::
+
+:::{card} Two Vesicle Colorimetric pH Sensor System
+:link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009#cprg-suv-preparation
+:footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+:::
+
+:::{card} Understanding Liposome Behaviour in Hydrogel Matrices
+:link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
+:footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
+:::
+
+::::
