@@ -263,22 +263,18 @@ Requires that gramicidin A is not added (see Expected Behavior).
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | ---- | -------- | ------- | ------------ | ------ | ----- | ------- | ---- |
 | Spermidine | Chemical | Spermidine, ≥99% (GC) | Sigma-Aldrich | S2626-5G | $176 | -25 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/s2626) |
-| Creatine phosphate | Chemical | Creatine phosphate | Millipore Sigma | 10621714001 | | | |
-| Magnesium acetate tetrahydrate | Chemical | Magnesium acetate tetrahydrate | Millipore Sigma | M5661 | | | |
+| Creatine phosphate | Chemical | Creatine phosphate | Millipore Sigma | 10621714001 | | | [link](https://www.sigmaaldrich.com/US/en/product/roche/crphoro) |
+| Magnesium acetate tetrahydrate | Chemical | Magnesium acetate tetrahydrate | Millipore Sigma | M5661 | | -85 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/m5661) |
 | Potassium glutamate | Chemical | L-Glutamic acid potassium salt monohydrate | Sigma-Aldrich | G1501-100G | $74.80 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g1501) |
 | Folinic acid | Chemical | Folinic acid calcium salt hydrate | Sigma-Aldrich | F7878-100MG | $108 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sial/f7878) |
-| ATP | Chemical | ATP | Millipore Sigma | A6419-1G or 5G | | | |
-| GTP | Chemical | GTP | Millipore Sigma | G8877-250MG | | | |
-| CTP | Chemical | CTP | Millipore Sigma | C1506-250MG | | | |
-| UTP | Chemical | UTP | Millipore Sigma | U6750-1G or 500MG | | | |
-| Amino acid mix | Reagent | RTS Amino Acid Sampler | Biotechrabbit | BR1401801 | | | |
+| ATP | Chemical | ATP | Millipore Sigma | A6419-1G or 5G | | -85 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/a6419) |
+| GTP | Chemical | GTP | Millipore Sigma | G8877-250MG | | -85 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g8877) |
+| CTP | Chemical | CTP | Millipore Sigma | C1506-250MG | | -85 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/c1506) |
+| UTP | Chemical | UTP | Millipore Sigma | U6750-1G or 500MG | | -85 °C to -15 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/u6750) |
+| Amino acid mix | Reagent | RTS Amino Acid Sampler | Biotechrabbit | BR1401801 | €395.00 | -85 °C to -15 °C | [link](https://www.biotechrabbit.com/products/cell-free-protein-synthesis/rapid-translation-systems-rts/supplements-and-accessories/rts-amino-acid-sampler-469.html) |
 | HEPES | Salts | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
 | Hydrochloric acid | Chemical | Hydrochloric acid, ACS reagent, 37% | Millipore Sigma | 320331-500ML | $106.00 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigald/320331) |
 | β-galactosidase | Reagent | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | | −20 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
-:::
-
-:::{attention}
-@Developer: Give the price, storage and link of Creatine phosphate (10621714001), Magnesium acetate tetrahydrate (M5661), ATP, GTP, CTP, UTP and the amino acid mix. Give the price of β-galactosidase. Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc or the distribution's materials reference names a vendor for Tris base.
 :::
 
 # Constituent Modules
