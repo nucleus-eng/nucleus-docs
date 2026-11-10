@@ -13,7 +13,7 @@ This page is a work in progress and not yet ready for use.
 
 # Overview
 
-Substrate LUV: CPRG encapsulates the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) in large unilamellar vesicles (LUVs) with a POPC/cholesterol membrane. It is a substrate population of the [pH Cascade](../ph-cascade/spec.md). Intact LUVs keep CPRG inside. A lytic enzyme such as phospholipase A1 (PLA1) disrupts the membrane, and CPRG is released into the outer solution. There, [β-galactosidase](../reporter-lacz-enzyme/spec.md) converts the yellow CPRG into the purple chlorophenol red (CPR). The LUVs are made by [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) without extrusion. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is the extruded alternative.
+`Substrate LUV: CPRG` encapsulates the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) in large unilamellar vesicles (LUVs) with a POPC/cholesterol membrane. It is a substrate population of the [pH Cascade](../ph-cascade/spec.md). Intact LUVs keep CPRG inside. A lytic enzyme such as phospholipase A1 (PLA1) disrupts the membrane, and CPRG is released into the outer solution. There, [β-galactosidase](../reporter-lacz-enzyme/spec.md) converts the yellow CPRG into the purple chlorophenol red (CPR). The LUVs are made by [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) without extrusion. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is the extruded alternative.
 
 :::{attention}
 @Developer: Give the measured size and the lamellarity of the LUVs, which are made without extrusion.
