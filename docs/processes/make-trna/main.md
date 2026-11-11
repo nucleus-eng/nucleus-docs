@@ -3,6 +3,7 @@ title: "Make tRNAs"
 subtitle: "Process"
 ---
 
+(make-trna-overview)=
 # Overview
 
 Transfer RNAs (tRNAs) are small RNA molecules (76 - 90) nt that carry amino acids to ribosomes during protein synthesis. They are essential for translation and can be readily purified following this protocol, which covers bacterial growth, purification, dialysis, and quality assurance. 
@@ -59,6 +60,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::::
 
+(make-trna-materials-and-equipment)=
 # Materials and Equipment
 
 <!-- vale nucleus.magnitude-unit-spacing = NO -->
@@ -92,8 +94,10 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
+(make-trna-protocol)=
 # Protocol
 
+(make-trna-prepare-stock-buffers)=
 ## Prepare Stock Buffers
 
 - [ ] Make the following stock solutions from solid. Use ultrapure water (18.2 MΩ, e.g., Milli-Q) and keep everything RNase-free.
@@ -105,6 +109,7 @@ Please read this section carefully. It contains important notes, resources, and 
 | NaCl (5 M)        | 5000                     | 58.44      | 292.2           | 1000           | room temp    |
 | NaCl (1 M)        | 1000                     | 58.44      | 11.688          | 200            | room temp    |
 
+(make-trna-prepare-buffers)=
 ## Prepare Buffers
 
 Adjust pH to 5.0 with glacial acetic acid, then bring to final volume with water.
@@ -128,6 +133,7 @@ Adjust pH to 5.0 with glacial acetic acid, then bring to final volume with water
 | Ultrapure water       | —                        | —                        | to 100             |
 | **Total**             |                          |                          | **100**            |
 
+(make-trna-prepare-working-buffers)=
 ## Prepare Working Buffers
 
 Make this wash solution as needed; dilute from ~100% (200 proof) ethanol.
@@ -140,6 +146,7 @@ Make this wash solution as needed; dilute from ~100% (200 proof) ethanol.
 | Ultrapure water | —                   | —                   | 300                |
 | **Total**       |                     |                     | **1000**           |
 
+(make-trna-cell-culture)=
 ## Cell culture
 
 :::{tip} Note: you can work from glycerol stocks OR colonies.
@@ -169,6 +176,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ] Transfer pellets by spatula into a tared bag weigh and record the mass.
 - [ ] Flash freeze pellet in liquid nitrogen and store at -80 °C.
 
+(make-trna-nucleus-acid-extraction-by-precipitation)=
 ## Nucleus acid extraction by precipitation
 
 **First Nucleic Acid Extraction:**
@@ -218,6 +226,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ] Wash the pellet with EtOH (70%) as above.
 - [ ] Resuspend the tRNA pellet in 1.5 mL of nuclease-free water and keep on ice.
 
+(make-trna-dialysis)=
 ## Dialysis
 :::{tip} Note: we use dialysis cassettes
 :class: dropdown
@@ -233,6 +242,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 	- [ ] Float cassette in 500 mL nuclease-free water in a large (>600 mL) beaker and gently stir at 4 °C / 2 h. We do this by putting our beaker in a bucket of ice on a stir plate. 
 	- [ ] Change the dialysis buffer and continue dialyzing overnight.
 
+(make-trna-concentrate)=
 ## Concentrate
 
 - [ ] Pipette dialyzed tRNAs to the upper chamber of an Amicon® Ultra-0.5 mL Centrifugal Filter, 3 kDa MWCO.
@@ -243,6 +253,7 @@ We typically use dialysis cassettes rather than dialysis membranes for ease of u
 From our experience, a good rule of thumb is to target a final volume around 100 µL per 1 g of biomass used (e.g., 3.6 gDCM → concentrate to ~360 µL (~40 µg/µL tRNAs)).
 :::
 
+(make-trna-quality-control)=
 ## Quality control
 
 **Estimate concentration by UV-Vis Spectroscopy (Nanodrop).**
@@ -282,14 +293,17 @@ If your sample is contaminated with RNases, your sample quality will decrease as
 
 If your samples appear as a smear on your gel, consider testing your input buffers and final prep for RNase activity. You can use the [Invitrogen RNaseAlert™ Lab Test Kit](https://www.thermofisher.com/order/catalog/product/AM1964) (Cat. No. AM1964). We recommend diluting your tRNAs by adding 2 µL to 40 µL of provided sample buffer. 
 :::
+(make-trna-formulation)=
 ## Formulation
 
 - [ ] Dilute your tRNA stocks in nuclease-free water to 35 µg/µL, which is 10x working concentration for cytosol reactions. 
 
+(make-trna-storage)=
 ## Storage
 
 - [ ] Aliquot your tRNAs to reduce freeze / thaw cycles and store at -80 °C.
 
+(make-trna-downloads)=
 # Downloads
 
 :::::{card}

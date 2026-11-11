@@ -4,6 +4,7 @@ subtitle: "Process"
 status: draft
 ---
 
+(embed-photocrosslinking-overview)=
 # Overview
 
 Embedding: Photocrosslinking holds a sample in a PEG-nb gel that sets under 405 nm light. The precursor stays liquid until it is exposed, so the sample can be loaded and checked before the gel forms. This page covers [Gel: PEG-nb](../../modules/gel-peg-nb/spec.md). A digital light processing (DLP) projector exposes the plate at 405 nm for 60 s.
@@ -28,6 +29,7 @@ Photograph of photopatterning in a 96-well plate: a digital light processing pro
 | LAP | 16.9 mM | 4.97 mg |
 :::
 
+(embed-photocrosslinking-materials-and-equipment)=
 # Materials and Equipment
 
 The precursor materials are listed under Materials on [Gel: PEG-nb](../../modules/gel-peg-nb/spec.md).
@@ -43,8 +45,10 @@ The precursor materials are listed under Materials on [Gel: PEG-nb](../../module
 @Editor: give the vendor of the plate and the irradiance of the projector at the sample.
 :::
 
+(embed-photocrosslinking-protocol)=
 # Protocol
 
+(embed-photocrosslinking-prepare-the-precursor)=
 ## Prepare the Precursor
 
 :::{hint} The precursor is photosensitive
@@ -63,6 +67,7 @@ Prepare the precursor in a dark room, and wrap the vial in foil for storage.
 @Editor: state which solvent is the best starting point for the precursor. The choice being flexible is not enough. The protocol step allows PBS, deionized water or any buffer. A stock-sheet note records that PBS did not work in one set of GUVs. The reagent table instead names glucose in 50 mM HEPES. Name every solvent that was tried, what happened with each, and recommend one.
 :::
 
+(embed-photocrosslinking-mix-with-the-sample-and-plate)=
 ## Mix with the Sample and Plate
 
 - [ ] **Mix the sample with the precursor.**
@@ -71,6 +76,7 @@ Prepare the precursor in a dark room, and wrap the vial in foil for storage.
     - [ ] Dispense 30 µL per well into a 96-well or 384-well plate. Plate each sample in duplicate.
     - [ ] Plate the sample in its outer solution, with no gel, as a reference.
 
+(embed-photocrosslinking-expose)=
 ## Expose
 
 - [ ] **Photopattern the gel.**

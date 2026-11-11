@@ -8,6 +8,7 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
+(anneal-ph-trigger-duplex-overview)=
 # Overview
 
 Anneal pH Trigger Duplex hybridizes the pH-responsive strand (`pH-responsive-ssDNA-2`) and the trigger strand (`trigger-ssDNA-3`) in IDT duplex buffer. Each strand is dissolved to 100 µM in IDT duplex buffer, and the two stocks are mixed at a 3:1 volume ratio (pH-responsive : trigger), giving 75 µM pH-responsive strand and 25 µM trigger strand before annealing. An earlier design target called for 14.4 µM pH-responsive strand and 4.8 µM trigger strand ([Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1)); the executed protocol used the higher concentrations given here. The duplex is the sensing element of the [pH-Sensing Detector](../../modules/detector-ph/spec.md), which the [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md) carries: acidification releases the trigger strand, which activates a toehold switch RNA ([Hwang et al., 2025](https://doi.org/10.1101/2025.11.16.688650)). The cooling program runs from 95 °C to 25 °C in about 7 h. The pH Sensing Cell uses the annealed duplex at a stock concentration of 25 µM. This is the concentration of the trigger strand.
@@ -26,6 +27,7 @@ Anneal pH Trigger Duplex hybridizes the pH-responsive strand (`pH-responsive-ssD
 :::
 ::::
 
+(anneal-ph-trigger-duplex-materials-and-equipment)=
 # Materials and Equipment
 
 :::{table} Bill of Materials
@@ -39,8 +41,10 @@ Anneal pH Trigger Duplex hybridizes the pH-responsive strand (`pH-responsive-ssD
 
 The two oligonucleotides, a thermocycler, and nuclease-free tubes are also required.
 
+(anneal-ph-trigger-duplex-protocol)=
 # Protocol
 
+(anneal-ph-trigger-duplex-anneal-the-strands)=
 ## Anneal the Strands
 
 - [ ] **Combine the strands in IDT duplex buffer.**
@@ -61,6 +65,7 @@ The two oligonucleotides, a thermocycler, and nuclease-free tubes are also requi
 
 - [ ] **Store the annealed duplex at −20 °C.**
 
+(anneal-ph-trigger-duplex-credits)=
 # Credits
 
 Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).

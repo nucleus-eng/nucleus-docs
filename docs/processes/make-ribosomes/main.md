@@ -3,6 +3,7 @@ title: Make Ribosomes
 subtitle: Process
 ---
 
+(make-ribosomes-overview)=
 # Overview
 
 Ribosomes are large complexes of RNA and proteins (MW ~2.7 MDa) that are the sites of protein synthesis. Ribosomes coordinate the decoding of mRNA transcripts by tRNA and catalyze the formation of each peptide bond in new proteins, making ribosomes a key component of any protein synthesis system. Ribosomes can be purified from E. coli biomass by a variety of methods (e.g., His-tagged ribosomes can be purified by Ni-His chromatography), but we recommend a two step process: (1) initial, tag-free purification by hydrophobic interaction chromatography (HIC) and (2) size-selective precipitation by ultracentrifugation. This protocol will show you how to grow E. coli A19 biomass and purify ribosomes by HIC followed by ultracentrifugation.
@@ -48,6 +49,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::::
 
+(make-ribosomes-materials-and-equipment)=
 # Materials and Equipment
 
 <!-- vale nucleus.magnitude-unit-spacing = NO -->
@@ -84,8 +86,10 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
+(make-ribosomes-protocol)=
 # Protocol
 
+(make-ribosomes-prepare-stock-buffers)=
 ## Prepare Stock Buffers
 
 - [ ] Make the following stock solutions. Use ultrapure water (18.2 MΩ, e.g., Milli-Q) and keep everything RNase-free.
@@ -108,6 +112,7 @@ Ammonium sulfate and sucrose are **added dry** directly to the buffers (masses g
 
 :::
 
+(make-ribosomes-prepare-stable-buffers)=
 ## Prepare Stable Buffers
 
 Make these buffers *in advance* and store at 4 °C. Add all components **except TCEP**, which you must add fresh on the day of use.
@@ -179,6 +184,7 @@ Make these buffers *in advance* and store at 4 °C. Add all components **except 
 | Ultrapure water    | —                        | —                        | 471                |
 | **Total**          |                          |                          | **500**            |
 
+(make-ribosomes-prepare-working-buffers)=
 ## Prepare Working Buffers
 
 Make these column-cleaning solutions as needed for the FPLC step.
@@ -199,6 +205,7 @@ Make these column-cleaning solutions as needed for the FPLC step.
 | Ultrapure water | —                   | —                   | 800                |
 | **Total**       |                     |                     | **1000**           |
 
+(make-ribosomes-cell-culture)=
 ## Cell culture
 
 :::{hint} Note: you can work from glycerol stocks OR colonies.
@@ -229,6 +236,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ]  Transfer pellets by spatula into a tared bag weigh and record the mass.
 - [ ]  Flash freeze pellet in liquid nitrogen and store at -80 °C.
 
+(make-ribosomes-lysis)=
 ## Lysis
 
 - [ ]  Resuspend (2-5) g cell pellet in 25 mL of Ribosome Lysis buffer & lyse cells using 130-watt probe sonicator (probe tip diameter: 6 mm) on ice with following parameters: 50% amplitude, 15 s on/ 30 s off for 2 min on-time. The amount of energy delivered via sonication will vary depending on the amount of cells resuspended.
@@ -237,6 +245,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ]  Remove precipitate by centrifugation at 16 000 rcf / 4 °C / 10 min.
 - [ ]  Filter supernatant using a 0.22 µm syringe filter and keep cold (4 °C).
 
+(make-ribosomes-fplc-purification)=
 ## FPLC purification
         
 ::::{hint} Note: line configuration on FPLC.
@@ -276,6 +285,7 @@ Optionally, you can work from individual colonies by streaking out your bacteria
 - [ ]  Pump wash with water and wash column with 2 CV filtered MilliQ water.
 - [ ]  Place all inlets into EtOH (20% v/v). Perform a pump wash, then wash columns with 3 CV EtOH (20% v/v). Store columns at 4 °C in EtOH (20% v/v) until ready for use.
 
+(make-ribosomes-ultracentrifugation)=
 ## Ultracentrifugation
 
 - [ ]  Gently overlay recovered fractions (should correspond to second peak) onto 35 mL of Cushion Buffer in a polycarbonate ultracentrifuge bottle (70 mL).
@@ -295,16 +305,19 @@ First, find the pellet. Next, wash the pellet by gently pipetting Ribosome Buffe
 - [ ]  Resuspend the clear pellets in 100 µL of Ribosome Buffer on ice using a magnetic stir bar (3 mm diameter, 10 mm length) on a magnetic stirrer set at the lowest possible speed. Collect resuspended ribosomes.
 - [ ]  Wash tubes with an additional 50 µL of Ribosome Buffer to resuspend any remaining ribosomes.
 
+(make-ribosomes-quality-control)=
 ## Quality Control
 
 - [ ]  Determine the ribosome concentration by measuring the absorbance at 260 nm at a 100x dilution in Ribosome Buffer. 10 units of A₂₆₀ from a 100x dilution corresponds to 23 µM of undiluted solution.
 - [ ]  Dilute to final stock of 10 µM. To adjust the concentration, dilute the ribosomes with ribosome buffer or concentrate further via centrifugation at 4000 rcf in a 100 kDa centrifugal filter at 4 °C.
 - [ ]  Protein gel: dilute 10 µM sample by 4x (Add 2.5 µL of sample with 7.5 µL water) and mix with 2 µL of 6x Laemmli loading buffer. Boil samples at 90 °C for 10 min and load 5 µL and 2.5 µL onto 4-20% tris-glycine gel. Run gel at 200 V / 30 min to 45 min or until the loading dye line reaches the bottom of the gel.
 
+(make-ribosomes-storage)=
 ## Storage
 
 - [ ] Aliquot your ribosomes to reduce freeze / thaw cycles and store at -80 °C.
 
+(make-ribosomes-downloads)=
 # Downloads
 
 :::::{card}

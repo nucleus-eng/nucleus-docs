@@ -5,6 +5,7 @@ status: unvalidated-published
 site:
     hide-toc: true
 ---
+(responder-atc-ivhsl-overview)=
 # Overview
 
 The aTc → IV-HSL Responder Implementation combines the TetR-aTc Detector Module and the IV-HSL Emitter Module ([Smith, Hartmann, and Booth., 2023](https://doi.org/10.1038/s41589-023-01374-7)) to produce a synthetic cell that generates isovaleryl-l-homoserine lactone (IV-HSL; [Lindemann et al., 2011](https://doi.org/10.1073/pnas.1114125108)) in response to anhydrotetracycline (aTc; [Lutz and Bujard, 1997](https://doi.org/10.1093/nar/25.6.1203)). The module is implemented as a single genetic construct encoding the BjaI enzyme under control of the tet operator. A co-cultured *E. coli* receiver strain carrying `bjaR-GFP-native` reports IV-HSL production by expressing GFP.
@@ -27,10 +28,12 @@ aTc activates BjaI expression by relieving TetR repression. BjaI converts SAM an
 The aTc → IV-HSL Responder in the Base Cell. aTc enters the cell and releases TetR from the tetO operator, allowing BjaI expression. BjaI produces IV-HSL from SAM and IV-CoA; IV-HSL diffuses to neighboring *E. coli* receiver cells.
 :::
 
+(responder-atc-ivhsl-cytosols)=
 ## Cytosols
 
 Three construct variants were evaluated: `pT7-tetO-bjaI` (single operator), `tetO-pT7-tetO-bjaI` (sandwich operator), and `pT7-tetO-tetO-bjaI` (train operator). `pT7-tetO-bjaI` has poor dynamic range — leaky expression in the off state produces sufficient IV-HSL to induce receiving *E. coli* cells. `tetO-pT7-tetO-bjaI` and `pT7-tetO-tetO-bjaI` resolve this by providing tight repression in the off state ([Lutz and Bujard, 1997](https://doi.org/10.1093/nar/25.6.1203)). We chose to move forward with `pT7-tetO-tetO-bjaI`.
 
+(responder-atc-ivhsl-usage)=
 ### Usage
 
 The responder module is assembled within a standard PURE reaction, following [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md). Add the substrates SAM and IV-CoA at 0.3 mM and 0.08 mM final concentration, respectively. The source states these as 300 µM and 80 µM ([Smith, Hartmann, and Booth, 2023](https://doi.org/10.1038/s41589-023-01374-7)). The two are not equimolar: SAM is dosed at nearly four times IV-CoA.
@@ -130,6 +133,7 @@ Endpoint GFP expression in *E. coli* receiver cells for each construct variant w
 - Positive controls (samples without any TetR) exhibited similar GFP fluorescence, indicating that all DNA constructs (`pT7-tetO-tetO-bjaI`, `tetO-pT7-tetO-bjaI`, and `pT7-tetO-bjaI`) are effective for BjaI expression.
 - Repression efficiency follows the order: `pT7-tetO-tetO-bjaI` > `tetO-pT7-tetO-bjaI` > `pT7-tetO-bjaI`. Based on this, `pT7-tetO-tetO-bjaI` was selected for use in the subsequent liposome experiment to construct the responder cells.
 
+(responder-atc-ivhsl-cells)=
 ## Cells
 
 Responder Cells were constructed and co-cultured with *E. coli* containing the `bjaR-GFP-native` IV-HSL receiver plasmid. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 6 h / collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15 min intervals.
@@ -173,15 +177,18 @@ Responder Cell sample timeseries (uninduced). EggPC liposomes containing PURE, r
 
 :::::::
 
+(responder-atc-ivhsl-process)=
 # Process
 
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md)
 
+(responder-atc-ivhsl-modules)=
 # Modules
 
 - [Detector: TetR-aTc](../../modules/detector-tetr-atc/spec.md)
 - [Emitter: IV-HSL](../../modules/emitter-ivhsl/spec.md)
 
+(responder-atc-ivhsl-credits)=
 # Credits
 
 - Jefferson Smith & Michael Booth (Oxford / UCL)

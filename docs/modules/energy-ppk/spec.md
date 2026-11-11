@@ -8,6 +8,7 @@ site:
     numbered_references: false
 ---
 
+(energy-ppk-overview)=
 # Overview
 
 The PPK energy Module generates ATP and GTP from AMP and GDP, respectively, using inorganic polyphosphate (100mer) as a phosphate donor. This module complements the default energy module in Nucleus Cytosol.
@@ -51,6 +52,7 @@ The PPK Energy module consists of a purified protein, the bifunctional polyphosp
 
 When used alongside PURE's standard energy regeneration module based on creatine kinase and creatine phosphate (CP/CK), significant increases in protein expression yields can result.
 
+(energy-ppk-reference-composition)=
 # Reference Composition
 
 The PPK energy module is implemented by preparing a custom energy mix and adding in purified PPK2 protein. The module is supplied as two components: purified PPK2 protein, and the 100mer polyphosphate substrate. No additional cell components are required.
@@ -145,8 +147,10 @@ The following reaction table is a self-contained experiment for evaluating the p
 
 :::::
 
+(energy-ppk-expected-behavior)=
 # Expected Behavior
 
+(energy-ppk-cytosols)=
 ## Cytosols
 
 :::::{tab-set}
@@ -171,18 +175,21 @@ The PPK energy module is highly sensitive to [Mg²⁺]. Final protein yields of 
 
 :::::
 
+(energy-ppk-cells)=
 ## Cells
 
 :::{warning} Not yet validated
 This Module has not been validated in synthetic cells.
 :::
 
+(energy-ppk-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). Requires an additional 10 mM Mg²⁺ (see below).
 
 **Highly sensitive to Mg²⁺.** PolyP acts as a magnesium chelator, so this module is highly sensitive to the amount of Mg²⁺ in the Cytosol. The reactions above raise optimal Mg²⁺ from 8 mM to 18 mM; see the Mg Sensitivity figure for the dose-response.
 
+(energy-ppk-credits)=
 # Credits
 
 Developed by Surendra Yadav (b.next).

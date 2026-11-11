@@ -18,6 +18,7 @@ The deGFP Reporter Module produces deGFP, a green fluorescent protein.
 A schematic representation of PURE converting template DNA into a fluorescent reporter.
 :::
 
+(reporter-degfp-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -86,8 +87,10 @@ A schematic representation of PURE converting template DNA into a fluorescent re
 
 :::::
 
+(reporter-degfp-expected-behavior)=
 # Expected Behavior
 
+(reporter-degfp-cytosols)=
 ## Cytosols
 
 <!-- :::::{tab-set}
@@ -118,6 +121,7 @@ Final protein yields of the reactions measured at steady state. Data from [DevNo
 ::::
 :::::
 
+(reporter-degfp-cells)=
 ## Cells
 
 :::::{tab-set}
@@ -134,10 +138,12 @@ Combined green (488 nm) and red (561 nm) fluorescence channels. Timepoint 0 (t =
 ::::
 :::::
 
+(reporter-degfp-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
+(reporter-degfp-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -168,6 +174,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 ::::
 
+(reporter-degfp-credits)=
 # Credits
 
 Developed by Surendra Yadav (b.next).

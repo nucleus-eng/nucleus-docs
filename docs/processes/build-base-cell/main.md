@@ -4,6 +4,7 @@ subtitle: "Process"
 status: validated-published
 ---
 
+(build-base-cell-overview)=
 # Overview
 
 This protocol takes you from starting materials to finished [Base Cells](../../modules/base-cell/spec.md) in one pass. It joins three parts that are documented on separate pages: the lipid–oil mixture for the [Base Membrane: POPC/Chol](../../modules/membrane-popc-chol/spec.md), the outer solution, and an inner solution made of [Base Cytosol](../../modules/base-cytosol/spec.md). [Encapsulation: Phase Transfer](../assemble-base-cell/main.md) then closes the membrane around the inner solution.
@@ -53,8 +54,10 @@ The lipids, mineral oil, chloroform, glucose, Optiprep, glassware and imaging pl
 
 :::::::
 
+(build-base-cell-protocol)=
 # Protocol
 
+(build-base-cell-1-prepare-lipids-in-mineral-oil)=
 ## 1. Prepare Lipids in Mineral Oil
 
 :::{table} Lipids for 1 mL of mineral oil.
@@ -102,6 +105,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 - [ ] Return the plungers to the syringes and store them in their designated location.
 - [ ] Dispose of chloroform waste following applicable chemical safety guidelines.
 
+(build-base-cell-2-assemble-the-outer-solution)=
 ## 2. Assemble the Outer Solution
 
 - [ ] Mix 2 M glucose and water as below. This makes 1 mL of 1140 mM glucose, which is enough for three encapsulations.
@@ -124,6 +128,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 The outer solution must read 100 mOsm/kg to 150 mOsm/kg lower than the inner solution. That gap keeps the liposomes intact as they form: a larger gap ruptures them and their contents leak, and a smaller one lets them shrink ([Nucleus Base Cell Testing](https://devnotes.nucleus.engineering/articles/base-cell-01)). A glucose concentration is not an osmometer reading. In that DevNote the inner solution read 1060 mOsm/kg and 850 mM glucose read 950 mOsm/kg, a gap of 110 mOsm/kg. That inner solution had no RNase inhibitor. The one in part 3 does, and the inhibitor is stored in glycerol, which raises its osmotic concentration, so this page starts from a stronger outer solution: 1140 mM glucose. Scaled from the DevNote's pair, that would read about 1275 mOsm/kg, a computed figure that no one has measured. It is a starting point, not an answer, and you check your own gap in part 3.
 :::
 
+(build-base-cell-3-assemble-the-inner-solution)=
 ## 3. Assemble the Inner Solution
 
 The inner solution is Base Cytosol with Optiprep. Each reaction is 40 µL: 10 µL goes to the osmometer, and the remaining 30 µL is what one encapsulation takes.
@@ -170,6 +175,7 @@ Prepare the reaction on ice or a cold block to prevent expression from starting 
 - [ ] Compare it with the outer solution's reading from part 2. The outer solution must read 100 mOsm/kg to 150 mOsm/kg lower. If it does not, adjust its glucose concentration and read it again.
 - [ ] Hold the inner solution on ice until part 4.
 
+(build-base-cell-4-encapsulate)=
 ## 4. Encapsulate
 
 - [ ] Allow the lipid-oil mixture to come to room temperature as you perform these next steps.
@@ -214,11 +220,13 @@ While handling liposomes, be gentle! Liposomes are fragile. Do not vortex and on
 - [ ] Transfer 5 µL liposomes and 20 µL of the outer solution onto a 384-well glass bottom plate (5x dilution). If the density of liposomes appears too high under the microscope, dilute them with outer solution to facilitate data analysis.
 - [ ] Observe liposomes by fluorescence microscopy. Base Cells have red fluorescent membranes. With `pOpen-deGFP` in the inner solution, green fluorescence rises over time; see [Base Cell](../../modules/base-cell/spec.md) for the expected kinetics.
 
+(build-base-cell-5-return-reagents)=
 ## 5. Return Reagents
 
 - [ ] Return the Base Cytosol components to their storage locations.
 - [ ] Mark the lid of each Base Cytosol component that you used. The number of dots indicates how many freeze–thaw cycles each component has gone through.
 
+(build-base-cell-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 1

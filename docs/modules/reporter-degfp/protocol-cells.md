@@ -32,6 +32,7 @@ This protocol show you how to validate the functionality of the Reporter Module 
 
 ## Protocol
 
+(reporter-degfp-prepare-stock-solutions)=
 ### Prepare Stock Solutions
 
 **Prepare lipids in mineral oil**
@@ -66,6 +67,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 - [ ]  Return the plungers to the syringes and store them in their designated location.
 - [ ]  Dispose of chloroform waste following applicable chemical safety guidelines.
 
+(reporter-degfp-assemble-outer-solutions)=
 ### Assemble Outer Solutions
 
 - [ ]  Prepare 1.5 mL microcentrifuge tubes labeled with the appropriate reaction.
@@ -120,6 +122,7 @@ Adjust the outer solution concentration so its osmolarity is 100–120 units low
 
 - [ ]  Hold assembled reactions on ice until ready for encapsulation.
 
+(reporter-degfp-encapsulate-cytosols-into-liposomes)=
 ### Encapsulate Cytosols into Liposomes
 
 - [ ]  Set up a 1.5 mL tube rack with two 1.5 mL microcentrifuge tubes for each liposome encapsulation. Number the tubes according to the number of reactions assembled. Label the two tubes for each reaction:

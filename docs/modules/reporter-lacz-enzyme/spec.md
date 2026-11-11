@@ -11,6 +11,7 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(reporter-lacz-enzyme-overview)=
 # Overview
 
 The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer solution in a basic buffer. It converts the yellow substrate chlorophenol red-β-D-galactopyranoside (CPRG) into the purple chlorophenol red (CPR). It reads out CPRG that was released from liposomes, such as [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) and [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md). It is the reporter of the [pH Cascade](../ph-cascade/spec.md). The basic buffer raises the pH of the assay so that β-galactosidase can act.
@@ -19,6 +20,7 @@ The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer 
 @Developer: The DevNote calls the color of CPR purple in its overview and pink in its figure captions. Give the color name to use.
 :::
 
+(reporter-lacz-enzyme-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -52,28 +54,35 @@ The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer 
 
 :::::
 
+(reporter-lacz-enzyme-expected-behavior)=
 # Expected Behavior
 
+(reporter-lacz-enzyme-solution)=
 ## Solution
 
 The LacZ Enzyme Reporter is expected to turn released CPRG from yellow to purple in solution. At 1.2 U/mL the color was visible by eye after 5.5 h at 37 °C. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
+(reporter-lacz-enzyme-gels)=
 ## Gels
 
 The LacZ Enzyme Reporter is expected to do the same in 3.5 mg/mL low-gelling agarose, where 1.2 U/mL gave a visible color after 5.5 h at 37 °C. In 7 mg/mL low-gelling agarose, 2 U/mL gave a visible color after 2 h in all wells, including the control without pH Sensing Cells. The leakage is described on [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
 
+(reporter-lacz-enzyme-requirements)=
 # Requirements
 
 Requires CPRG in the outer solution (e.g. CPRG released from [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)).
 
+(reporter-lacz-enzyme-implementations)=
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
 
+(reporter-lacz-enzyme-processes)=
 # Processes
 
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) adds the enzyme after the substrate is released, and reads the color.
 
+(reporter-lacz-enzyme-materials)=
 # Materials
 
 :::{table}

@@ -11,12 +11,14 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(detector-ph-overview)=
 # Overview
 
 The pH-Sensing Detector turns acidic pH into expression of a downstream gene. Its design target is a drop in pH to about 6.5 ([Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1)). Two oligonucleotides do the sensing. The pH-responsive ssDNA is a triplex-forming strand: it releases the trigger ssDNA on acidification, and the annealing length between the two strands sets the pH at which the trigger is released ([Hwang et al., 2025](https://doi.org/10.1101/2025.11.16.688650)). At neutral pH the pH-responsive strand holds the trigger ([Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1)). A toehold switch RNA blocks translation of the downstream gene until the free trigger strand binds its toehold ([Module Development Plan: DevCell-based pH sensor](https://devnotes.nucleus.engineering/articles/chicago-m1-5-1)). A linear DNA template carries the toehold switch and the gene. In the documented instance the gene is phospholipase A1 (PLA1), on the same molecule as the toehold switch. The Detector is a constituent of the [pH Sensing Cell](../ph-sensing-cell/spec.md).
 
 The signal that the Detector passes on is the released trigger strand. Protein expression downstream of the toehold switch is the output.
 
+(detector-ph-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -54,8 +56,10 @@ The signal that the Detector passes on is the released trigger strand. Protein e
 
 :::::
 
+(detector-ph-expected-behavior)=
 # Expected Behavior
 
+(detector-ph-cytosols)=
 ## Cytosols
 
 The toehold switch is expected to express the downstream gene only when the trigger strand is present. In Nucleus Cytosol at neutral pH, a linear toehold-pHtdGFP template at 2 nM expressed pHtdGFP gated by the presence of the trigger ssDNA, which was at 4.8 nM. GFP fluorescence was read in a plate reader over 6 h at 37 °C ([Toehold switch-enabled translation regulation verified in Nucleus Cytosol](https://devnotes.nucleus.engineering/articles/chicago-m1-5-2)).
@@ -68,18 +72,22 @@ The test was preliminary and was done at neutral pH. Expression in response to a
 @Editor: No Process page documents the plate-reader GFP readout.
 :::
 
+(detector-ph-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
+(detector-ph-implementations)=
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
 
+(detector-ph-processes)=
 # Processes
 
 - [Anneal pH Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) anneals the pH-responsive strand and the trigger strand.
 
+(detector-ph-credits)=
 # Credits
 
 Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).

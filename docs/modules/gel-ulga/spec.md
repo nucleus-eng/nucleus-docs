@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(gel-ulga-overview)=
 # Overview
 
 Gel: ULGA is a physical hydrogel of ultra-low gelling agarose (ULGA) in an outer solution. The network sets on cooling, at about 8 °C to 15 °C. It is set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
@@ -15,6 +16,7 @@ Gel: ULGA is a physical hydrogel of ultra-low gelling agarose (ULGA) in an outer
 This page is a work in progress and not yet ready for use.
 :::
 
+(gel-ulga-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -73,6 +75,7 @@ The final concentration is for a stock mixed 1:1 with the sample.
 
 :::::
 
+(gel-ulga-expected-behavior)=
 # Expected Behavior
 
 Gel: ULGA has a gel point of about 8 °C to 15 °C. The mixture sets at this temperature. The stock is easy to pipette. The ULGA stock is held at 55 °C until use.
@@ -81,16 +84,19 @@ Gel: ULGA has a gel point of about 8 °C to 15 °C. The mixture sets at this tem
 @Editor: state the temperature at which the sample is mixed with the ULGA stock. The stock is held at 55 °C. Confirm whether the sample is also mixed in at 55 °C, or state the correct temperature. State how the mixture then cools to its gel point.
 :::
 
+(gel-ulga-requirements)=
 # Requirements
 
 Requires an outer solution to dissolve into. For liposomes, use the outer solution used to prepare the liposomes.
 
 Requires that a sample tolerate the temperature at which it is mixed with the stock.
 
+(gel-ulga-processes)=
 # Processes
 
 [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) prepares the stock and sets the gel.
 
+(gel-ulga-materials)=
 # Materials
 
 :::{table} Materials of Gel: ULGA.
@@ -101,11 +107,13 @@ Requires that a sample tolerate the temperature at which it is mixed with the st
 | Ultra-low gelling agarose | Polymer | Ultra-low gelling agarose | Sigma-Aldrich | A5030 | — | Room temperature | [Sigma-Aldrich A5030](https://www.sigmaaldrich.com/US/en/product/sial/a5030) |
 :::
 
+(gel-ulga-constituent-modules)=
 # Constituent Modules
 
 - Outer solution — the solution the polymer dissolves into
 - Ultra-low gelling agarose — the polymer
 
+(gel-ulga-credits)=
 # Credits
 
 Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).

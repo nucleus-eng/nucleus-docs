@@ -11,12 +11,14 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(ph-sensing-cell-overview)=
 # Overview
 
 The pH Sensing Cell is a synthetic cell that expresses phospholipase A1 (PLA1) when its outer solution is acidic, at about pH 6.0 to 6.5. The [pH-Sensing Detector](../detector-ph/spec.md) gates the expression: acidification releases a trigger strand, and the free trigger strand opens the toehold switch in front of the PLA1 gene. PLA1 disrupts phospholipid membranes: the membrane of the cell that expresses it, and the membranes of neighboring liposomes, which then release their contents. Cy5 in the inner solution marks the cell. A cell with an intact membrane is bright in the Cy5 channel.
 
 The cell is [Base Cytosol](../base-cytosol/spec.md) with the pH-Sensing Detector added, encapsulated in a POPC/cholesterol membrane by [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md). The membrane has its own ratio of lipids, given in the Membrane tab, and it differs from the ratio of the [Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md).
 
+(ph-sensing-cell-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -138,8 +140,10 @@ The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2
 
 :::::
 
+(ph-sensing-cell-expected-behavior)=
 # Expected Behavior
 
+(ph-sensing-cell-cells)=
 ## Cells
 
 The pH Sensing Cell is expected to keep its Cy5 at pH 7.6 and to lose it at pH 6.3. In solution after 13 h at 37 °C, cells at pH 7.6 kept Cy5, and cells at pH 6.3 lost it, which is consistent with PLA1 expression disrupting the membrane. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by fluorescence microscopy in the Rhodamine and Alexa Fluor 647 channels.
@@ -150,20 +154,24 @@ The pH Sensing Cell is expected to keep its Cy5 at pH 7.6 and to lose it at pH 6
 @Developer: Name the microscope, and give the objective, exposure, gain and laser power of the fluorescence readout. Give the control that shows the loss of Cy5 at pH 6.3 comes from PLA1 expression and not from acid alone, and say what the Rhodamine channel shows in well D5, which holds cells and no liposomes: intact vesicles that lost Cy5, or no vesicles.
 :::
 
+(ph-sensing-cell-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)), supplied here by the Base Cytosol in the cell.
 
+(ph-sensing-cell-implementations)=
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
 
+(ph-sensing-cell-processes)=
 # Processes
 
 - [Anneal pH Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) makes the duplex of the pH-responsive strand and the trigger strand.
 - [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md) makes the cells, from 5 mL of lipid-in-oil at 0.5 mM total lipid.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places the cells in a gel.
 
+(ph-sensing-cell-materials)=
 # Materials
 
 :::{table}
@@ -187,11 +195,13 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 @Developer: Give the manufacturer and part number of Tris base.
 :::
 
+(ph-sensing-cell-constituent-modules)=
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — inner solution, encapsulated at reaction concentration
 - [Detector: pH-Sensing](../detector-ph/spec.md) — turns acidic pH into PLA1 expression
 
+(ph-sensing-cell-credits)=
 # Credits
 
 Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).

@@ -11,10 +11,12 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(color-change-overview)=
 # Overview
 
 Color Change turns a gating signal into a visible color. Phospholipase A1 (PLA1) is expressed only when a signal is present. PLA1 lyses a membrane that holds the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG), and the released CPRG meets β-galactosidase (LacZ), which converts the yellow CPRG into the purple chlorophenol red (CPR). The Module is two operations in order: lysis, then color reporting. Where each component sits, and how many membranes lysis has to cross, depends on the implementation. The documented implementation is the [pH Cascade](../ph-cascade/spec.md), with PLA1 expressed in a [pH Sensing Cell](../ph-sensing-cell/spec.md), CPRG in separate liposomes, and the enzyme in the outer solution.
 
+(color-change-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -120,8 +122,10 @@ flowchart TB
 
 :::::
 
+(color-change-expected-behavior)=
 # Expected Behavior
 
+(color-change-cells)=
 ## Cells
 
 In the pH implementation, Color Change is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added at the readout. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
@@ -130,6 +134,7 @@ In the pH implementation, Color Change is expected to stay yellow when the gatin
 Gating of PLA1 by a signal other than pH is not reported on this page.
 :::
 
+(color-change-requirements)=
 # Requirements
 
 Requires a signal that gates PLA1 expression, built into the DNA of the PLA1 source (e.g. [Detector: pH-Sensing](../detector-ph/spec.md)).
@@ -138,10 +143,12 @@ Requires pT7 transcription and translation where PLA1 is expressed (e.g. [Base C
 
 Requires a control that separates sensing-driven color from CPRG leakage (see [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md)).
 
+(color-change-implementations)=
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
 
+(color-change-processes)=
 # Processes
 
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the substrate liposomes.
@@ -149,6 +156,7 @@ Requires a control that separates sensing-driven color from CPRG leakage (see [S
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places both in a gel.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) adds the enzyme and reads the color.
 
+(color-change-constituent-modules)=
 # Constituent Modules
 
 - [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — converts released CPRG from yellow to purple

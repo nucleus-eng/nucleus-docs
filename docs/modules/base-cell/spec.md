@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(base-cell-overview)=
 # Overview
 
 The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Base Membrane](../membrane-popc-chol/spec.md) via [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md). The Base Cell is deployed in a glucose outer solution and represents the default synthetic cell for the Nucleus distribution. Base Cells have red fluorescent membranes (Liss-Rhod PE). With `pOpen-deGFP` as their template DNA, they express GFP over time if functioning correctly.
@@ -18,6 +19,7 @@ The Base Cell is [Base Cytosol](../base-cytosol/spec.md) encapsulated in [Base M
 Overview of Base Cell, composed of [Base Cytosol](/docs/modules/base-cytosol/spec.md) encapsulated with [Base Membrane](/docs/modules/membrane-popc-chol/spec.md). Constitutive components of each module schematically depicted.
 :::
 
+(base-cell-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -115,6 +117,7 @@ See [Base Membrane](../membrane-popc-chol/spec.md) for the full membrane spec.
 
 :::::
 
+(base-cell-expected-behavior)=
 # Expected Behavior
 
 With `pOpen-deGFP` as their template DNA, Base Cells express deGFP over time, starting dark and increasing in green fluorescence as translation proceeds. Kinetics data are reported in [DevNote bnext-devnotes-base-cell-01](https://devnotes.nucleus.engineering/articles/bnext-devnotes-base-cell-01).
@@ -126,15 +129,18 @@ With `pOpen-deGFP` as their template DNA, Base Cells express deGFP over time, st
 Combined green (488 nm) and red (561 nm) fluorescence channels. First time point (labeled "t = 0") corresponds to 30 min after preparation of the inner solution, reflecting the time required to prepare liposomes.
 :::
 
+(base-cell-process)=
 # Process
 
 [Build a Base Cell](../../processes/build-base-cell/main.md) gives every step at the bench, in order, as one protocol. Base Cells are assembled and encapsulated using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
+(base-cell-constituent-modules)=
 # Constituent Modules
 
 - [Base Cytosol](../base-cytosol/spec.md) — inner solution, encapsulated at reaction concentration
 - [Base Membrane](../membrane-popc-chol/spec.md) — 70:30 POPC:cholesterol bilayer
 
+(base-cell-credits)=
 # Credits
 
 Developed by Surendra Yadav (b.next).

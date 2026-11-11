@@ -10,12 +10,15 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(colorimetric-ph-sensor-overview)=
 # Overview
 
 The Colorimetric pH Sensor Implementation combines the [pH Cascade](../../modules/ph-cascade/spec.md), which is made of [pH Sensing Cells](../../modules/ph-sensing-cell/spec.md), substrate liposomes ([Substrate LUV: CPRG](../../modules/substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md)) and the [LacZ enzyme](../../modules/reporter-lacz-enzyme/spec.md). It produces a visible color change at pH 6.3 and none at pH 7.6, in solution and in 3.5 mg/mL low-gelling agarose, which is read with [Colorimetric Readout](../../processes/colorimetric-readout/main.md). Acidic pH triggers expression of phospholipase A1 (PLA1), which lyses the CPRG liposomes, allowing β-galactosidase to convert released CPRG from yellow to purple. Wells hold 60 µL and are incubated at 37 °C.
 
+(colorimetric-ph-sensor-protocol)=
 # Protocol
 
+(colorimetric-ph-sensor-solution-assay)=
 ## Solution Assay
 
 The solution assay runs in a 384-well square plate with 60 µL per well. The pH 7.6 arm is plate column 4, and the pH 6.3 arm is plate column 5. The pH 6.3 arm replaces the Tris1M-HEPES1.15M buffer stock with a buffer mix for pH 6.3. The composition of the buffer mix is in the Outer Solution tab of the [pH Cascade](../../modules/ph-cascade/spec.md).
@@ -50,6 +53,7 @@ The last row of the table above is a 7.2 µL slot that holds the cells, the lipo
 
 The cells-only wells take 1 µL of cells, and the sample wells take 3 µL, so the two differ in cell dose as well as in liposomes. The four wells are imaged by fluorescence microscopy after 13 h at 37 °C.
 
+(colorimetric-ph-sensor-gel-assay)=
 ## Gel Assay
 
 The gel assay uses 60 µL of low-gelling agarose gel per well, set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md). It is the solution well with the 15.6 µL of ultrapure water replaced by 15.6 µL of a 27 mg/mL low-gelling agarose stock, which gives a final agarose concentration of 7 mg/mL. The pH 6.3 arm takes the same buffer mix as in the solution assay.
@@ -76,12 +80,15 @@ The 7.2 µL slot holds 3 µL of pH Sensing Cells, 3 µL of CPRG liposomes and 1.
 @Developer: Give the steps that dispense the gel into the well and set it, with the time and temperature.
 :::
 
+(colorimetric-ph-sensor-readout)=
 ## Readout
 
 Color is developed with [Colorimetric Readout](../../processes/colorimetric-readout/main.md), which adds 30 µL of a 3× β-galactosidase solution to 60 µL of gel or solution. The 30 µL of 3× solution gives 1.2 U/mL, as in the run in 3.5 mg/mL agarose. The first gel run used 2 U/mL, and its preparation is not given.
 
+(colorimetric-ph-sensor-performance)=
 # Performance
 
+(colorimetric-ph-sensor-validation-in-solution)=
 ## Validation in Solution
 
 In solution, acidic pH gave a visible color change.
@@ -135,6 +142,7 @@ Fluorescence micrograph of CPRG liposomes with pH Sensing Cells at pH 6.3 after 
 
 :::::
 
+(colorimetric-ph-sensor-validation-in-gels)=
 ## Validation in Gels
 
 CPRG LUVs in 7 mg/mL [low-gelling agarose](../../modules/gel-lga/spec.md) showed a visible color change at pH 6.3, but was barely distinguishable from the negative control lacking pH Sensing Cells, which also developed color. The only difference from the solution assay was the gel, implying that gel embedding caused CPRG to leak from the LUVs, even without PLA1.
@@ -167,6 +175,7 @@ Photograph of color development after 5.5 h at 37 °C with 1.2 U/mL β-galactosi
 
 The starting volume of the SUV preparation was raised to increase the yield. More washes were done to lower the background color change. The agarose concentration was lowered from 7 mg/mL to 3.5 mg/mL to reduce liposome lysis during gel embedding. A solution assay was run in parallel as a control. Color change was visible in both gel and in solution.
 
+(colorimetric-ph-sensor-process)=
 # Process
 
 - [Anneal pH Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) makes the gate duplex of the pH Sensing Cell.
@@ -175,6 +184,7 @@ The starting volume of the SUV preparation was raised to increase the yield. Mor
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places the cells and liposomes in a gel.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) develops and reads the color.
 
+(colorimetric-ph-sensor-modules)=
 # Modules
 
 - [pH Cascade](../../modules/ph-cascade/spec.md)
@@ -185,6 +195,7 @@ The starting volume of the SUV preparation was raised to increase the yield. Mor
 - [Reporter: LacZ Enzyme](../../modules/reporter-lacz-enzyme/spec.md)
 - [Color Change](../../modules/color-change/spec.md)
 
+(colorimetric-ph-sensor-credits)=
 # Credits
 
 Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).

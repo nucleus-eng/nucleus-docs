@@ -4,6 +4,7 @@ subtitle: "Process"
 status: draft
 ---
 
+(embed-thermal-setting-overview)=
 # Overview
 
 Embedding: Thermal Setting holds a sample in an agarose gel that sets on cooling. The agarose is dissolved hot in the outer solution and kept warm until the sample is mixed in. This page covers [Gel: ULGA](../../modules/gel-ulga/spec.md) and [Gel: LGA](../../modules/gel-lga/spec.md), which share the steps and differ in the parameters below.
@@ -31,6 +32,7 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix. Fig
 | Gel point | About 8 °C to 15 °C | About 24 °C to 28 °C |
 :::
 
+(embed-thermal-setting-materials-and-equipment)=
 # Materials and Equipment
 
 The agarose is listed under Materials on [Gel: ULGA](../../modules/gel-ulga/spec.md) and [Gel: LGA](../../modules/gel-lga/spec.md).
@@ -55,8 +57,10 @@ The agarose is listed under Materials on [Gel: ULGA](../../modules/gel-ulga/spec
 | 96-well or 384-well plate | Plating |
 :::
 
+(embed-thermal-setting-protocol)=
 # Protocol
 
+(embed-thermal-setting-prepare-the-outer-solution)=
 ## Prepare the Outer Solution
 
 - [ ] **Prepare the outer solution.**
@@ -66,6 +70,7 @@ The agarose is listed under Materials on [Gel: ULGA](../../modules/gel-ulga/spec
 @Editor: the DevNote's supplement gives the ULGA outer solution as 1057 Osm of glucose. That is against the about 1200 mOsm stated here. It gives the LGA stock as 2.70 % in ultrapure water, 40.5 mg in 1500 µL, which is 27 mg/mL. That is against the 28 mg/mL stated here. Confirm which figures are right. Also link this step to `assemble-solution` (Layer 1), with the outer solution's components as its inputs, once it is on `main`.
 :::
 
+(embed-thermal-setting-prepare-the-ulga-stock)=
 ## Prepare the ULGA Stock
 
 - [ ] **Dissolve the ULGA.**
@@ -74,6 +79,7 @@ The agarose is listed under Materials on [Gel: ULGA](../../modules/gel-ulga/spec
 - [ ] **Hold the stock.**
     - [ ] Keep the stock on a 55 °C bead bath until use.
 
+(embed-thermal-setting-prepare-the-lga-stock)=
 ## Prepare the LGA Stock
 
 - [ ] **Dissolve the LGA.**
@@ -94,6 +100,7 @@ Keeping the stock warm prevents it from setting before it is mixed with the samp
 @Editor: confirm that the 15 µL of gel stock per well is 7.5 µL of LGA stock and 7.5 µL of outer solution. The DevNote gives the final LGA concentration as 7 mg/mL with the parenthetical 7.5 µL and 7.5 µL of outer solution.
 :::
 
+(embed-thermal-setting-mix-with-the-sample-and-plate)=
 ## Mix with the Sample and Plate
 
 - [ ] **Mix the sample with the gel precursor.**
