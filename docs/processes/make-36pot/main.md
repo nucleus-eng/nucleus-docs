@@ -2,6 +2,7 @@
 title: Make Protein Mix
 ---
 
+(make-36pot-overview)=
 # Overview
 Protein Mix (PMix) is a combination of thirty-six (36) proteins that collectively implement [Nucleus Cytosol](../../modules/base-cytosol/spec.md) along with Small Molecule Mix (SMix), tRNAs, and Ribosomes. These proteins include all 20 canonical aminoacyl-tRNA synthetases (AlaRS, ArgRS, AsnRS, etc) and methionyl-tRNA formyltransferase (MTF); *E. coli* translation initiation factors (IF1, IF2, IF3), elongation factors (EF-G, EF-Ts, EF-Tu), and release factors (RF1, RF2, RF3, RRF); energy regeneration enzymes (AK, CK, NDK, PPiase), and T7 phage RNA polymerase (T7RNAP). This protocol explains how to prepare PMix once each of these proteins has been individually prepared (see [Making Individual Proteins](../make-protein/make-protein-main.md) for protocols describing how to purify each protein). See methods from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)) for comparison.
 
@@ -96,12 +97,15 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 
 :::::::
 
+(make-36pot-materials-and-equipment)=
 # Materials and Equipment
 
 This process purifies the 36 PURE proteins using the Make Protein workflow rather than introducing new reagents; its materials are itemized in the Bills of Materials of the [Make Protein](../make-protein/make-protein-main.md) sub-processes (Prepare Consumables, Grow Bacteria, Lysis & Sonication, Purify Proteins, Buffer Exchange). See the consolidated [Materials Reference](../../../guides/materials-reference.md).
 
+(make-36pot-protocol)=
 # Protocol
 
+(make-36pot-step-1-compute-mix-volumes)=
 ## Step 1: Compute Mix Volumes
 
 - [ ] Open the [Protein Mix Assembly Calculator](https://docs.google.com/spreadsheets/d/1OLFNVuiL5-f6FAD-eY3rEHRrYya3oPlh2JK1UhwY7qs/edit?usp=sharing) and follow the directions therein.
@@ -114,6 +118,7 @@ This process purifies the 36 PURE proteins using the Make Protein workflow rathe
 Combining components dilutes each one, thus your assembled PMix may be too dilute even if the molar ratios of each protein are correct. You can concentrate the final PMix after assembly using a 3 kDa Amicon centrifugal filter (see [Exchange Buffers and Concentrate by Spin Filtration](../make-protein/buff-ex-spin-filters/main.md)). We routinely design assembly reactions at low target concentration and concentrate afterward.
 :::
 
+(make-36pot-step-2-assemble-protein-mix)=
 ## Step 2: Assemble Protein Mix
 
 - [ ] Thaw protein stocks on ice.
@@ -121,6 +126,7 @@ Combining components dilutes each one, thus your assembled PMix may be too dilut
     - [ ] Pipette each protein into a single microfuge tube in the order listed on the calculator sheet.
     - [ ] Mix gently by pipetting after all proteins have been added.
 
+(make-36pot-step-3-wash-and-concentrate)=
 ## Step 3: Wash and Concentrate
 
 - [ ] Wash assembled PMix by diluting 10x in Protein Buffer (e.g., 2.4 mL Protein Buffer for 240 µL PMix).
@@ -132,23 +138,27 @@ Washing the assembled mix before concentrating removes residual salts (Na⁺, Im
 
 - [ ] Concentrate using a 3 kDa Amicon centrifugal filter until the mix is at or above your target final concentration.
 
+(make-36pot-step-4-measure-total-protein-concentration)=
 ## Step 4: Measure Total Protein Concentration
 
 - [ ] Prepare 10x dilutions of Protein Mix in triplicate (1 µL Protein Mix + 9 µL ultrapure water per replicate).
 - [ ] Measure total protein concentration by [Pierce660 Assay](../pierce660/main.md) on the diluted triplicates.
 - [ ] Calculate total protein concentration: average the three replicates and multiply by 10.
 
+(make-36pot-step-5-dilute-to-final-concentration)=
 ## Step 5: Dilute to Final Concentration
 
 - [ ] If concentration exceeds target, dilute PMix to 15 mg/mL in Protein Buffer (30% glycerol).
     - [ ] Add the calculated volume to reach target concentration and mix gently.
 - [ ] If concentration is below target, return to Step 3 — concentrate further, then re-measure.
 
+(make-36pot-step-6-aliquot-and-store)=
 ## Step 6: Aliquot and Store
 
 - [ ] Aliquot PMix into PCR tubes or microcentrifuge tubes.
 - [ ] Store aliquots at -80 °C.
 
+(make-36pot-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 2

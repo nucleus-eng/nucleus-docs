@@ -11,6 +11,7 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(ph-cascade-overview)=
 # Overview
 
 The pH Cascade turns an acidic outer solution into a visible color change with two liposome populations. Acidic pH makes the [pH Sensing Cells](../ph-sensing-cell/spec.md) express phospholipase A1 (PLA1). PLA1 lyses the neighboring substrate liposomes ([Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)), which release chlorophenol red-β-D-galactopyranoside (CPRG) into the outer solution. [β-galactosidase](../reporter-lacz-enzyme/spec.md) (LacZ) in the outer solution converts the yellow CPRG into the purple chlorophenol red (CPR). The cascade senses acidic pH, about 6.0 to 6.5.
@@ -22,6 +23,7 @@ The pH Cascade turns an acidic outer solution into a visible color change with t
 Schematic representation of the pH Cascade. A pH Sensing Cell with its DNA sits next to a substrate liposome (Substrate LUV: CPRG or Substrate SUV: CPRG), with β-galactosidase in the outer solution. The cell expresses PLA1, and PLA1 lyses the substrate liposome. The released CPRG is converted by β-galactosidase into CPR.
 :::
 
+(ph-cascade-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -222,16 +224,20 @@ In a solution assay the 120 mL/L is 3 µL of cells (50 mL/L), 2.1 µL of substra
 
 :::::
 
+(ph-cascade-expected-behavior)=
 # Expected Behavior
 
+(ph-cascade-cells)=
 ## Cells
 
 The pH Cascade is expected to turn from yellow to purple in solution in the pH 6.3 arm, and to stay yellow in the pH 7.6 arm, when β-galactosidase is added at the readout in the basic buffer (pH 9.9), which raises the pH so that the enzyme can act. The color was visible by eye after 5.5 h at 37 °C with 1.2 U/mL β-galactosidase. A run with 2 U/mL was read after 2 h. Gramicidin A is not part of the composition: it caused a portion of the CPRG-loaded liposomes to rupture prematurely, which gave nonspecific color, and PLA1 expression driven by proton diffusion into a subset of liposomes with relatively permeable membranes appeared to be sufficient to start lysis. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
+(ph-cascade-gels)=
 ## Gels
 
 The pH Cascade with Substrate SUV: CPRG in 3.5 mg/mL low-gelling agarose is expected to show the same color pattern as in solution. In 7 mg/mL low-gelling agarose with 2 U/mL β-galactosidase, color developed without PLA1 (see [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md)). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
+(ph-cascade-requirements)=
 # Requirements
 
 Requires a control that separates sensing-driven color from CPRG leakage. A control without pH Sensing Cells shows leakage that happens without PLA1 (see [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md)).
@@ -242,10 +248,12 @@ Requires that gramicidin A is not added (see Expected Behavior).
 @Developer: State whether the outer solution osmolarity of 1170 mOsm/kg to 1180 mOsm/kg for the liposome suspension is a requirement, and give its tolerance.
 :::
 
+(ph-cascade-implementations)=
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
 
+(ph-cascade-processes)=
 # Processes
 
 - [Anneal pH Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) makes the duplex of the pH Sensing Cell.
@@ -254,6 +262,7 @@ Requires that gramicidin A is not added (see Expected Behavior).
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places both populations in a gel.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) develops and reads the color.
 
+(ph-cascade-materials)=
 # Materials
 
 :::{table}
@@ -277,11 +286,13 @@ Requires that gramicidin A is not added (see Expected Behavior).
 | β-galactosidase | Reagent | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | | −20 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
 :::
 
+(ph-cascade-constituent-modules)=
 # Constituent Modules
 
 - [pH Sensing Cell](../ph-sensing-cell/spec.md) — population that expresses PLA1 at acidic pH
 - [Color Change](../color-change/spec.md) — lyses the substrate liposomes when PLA1 is present and reports the released CPRG as a color, through [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) and [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md)
 
+(ph-cascade-credits)=
 # Credits
 
 Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).

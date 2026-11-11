@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(detector-esar-overview)=
 # Overview
 
 The EsaR Detector Module senses the bacterial quorum signal 3-oxo-C6-HSL and starts transcription in response. EsaR is a repressor. It binds the EsaO operator, which sits between a T7 promoter and the gene behind it, and blocks T7 RNA polymerase from transcribing that gene. Adding 3-oxo-C6-HSL releases EsaR from the DNA, and expression recovers. The Module therefore detects its analyte by derepression: the regulator is bound by default, and the analyte removes it.
@@ -19,6 +20,7 @@ This page is a work in progress and not yet ready for use. Several quantities be
 
 **EsaR is a repressor, despite what the database entry is called.** [UniProt P54293](https://www.uniprot.org/uniprotkb/P54293/entry) titles the entry "Transcriptional activator protein EsaR" for the *Pantoea stewartii* subsp. *stewartii* protein, 249 residues. The protein represses, and every result below is a repression result. Read the entry for the sequence, not for the mechanism.
 
+(detector-esar-reference-composition)=
 # Reference Composition
 
 The repressor reaches the reaction as protein, not as a template to transcribe. It is expressed first in its own cell-free reaction, 3 h at 37 °C, then held at 4 °C until use. It is then mixed with the reporter construct and held again before that mixture enters the working reaction. Occupying the operator before transcription can start is what makes the "off" state deep; co-expressing repressor and reporter together gives a much weaker switch.
@@ -69,6 +71,7 @@ The repressor arrives as about a fifth of the reaction by volume, and that volum
 
 :::::
 
+(detector-esar-expected-behavior)=
 # Expected Behavior
 
 :::{attention} Three quantities are open
@@ -79,6 +82,7 @@ The repressor arrives as about a fifth of the reaction by volume, and that volum
 @Developer: settle all three with the authors before this page leaves draft.
 :::
 
+(detector-esar-cytosols)=
 ## Cytosols
 
 3-oxo-C6-HSL binds EsaR and relieves repression of the gene behind the operator. The Module was characterized on a fluorescent reporter, mNeonGreen, read against a fluorescein ladder.
@@ -105,6 +109,7 @@ Steady-state fold change, plus against minus 3-oxo-C6-HSL, for the one-operator 
 
 **How the repressor is prepared changes the result, so the two preparations are not interchangeable.** Expressing the repressor for 3 h at 37 °C and for 17 h at 30 °C give the same fold change at each reporter dose, but the longer preparation lowers overall yield. The likely cause is byproducts accumulating over the longer incubation, inorganic phosphate among them. The 3 h preparation is the reference.
 
+(detector-esar-cells)=
 ## Cells
 
 The Module works inside a synthetic cell. The two-operator reporter was encapsulated in GUVs at 0.1 nM with pre-expressed repressor, and 3-oxo-C6-HSL was supplied in the outer solution at 5 µM. GUVs in the induced wells are markedly brighter than the uninduced ones, so the encapsulated Module senses an analyte that starts outside the membrane.
@@ -117,6 +122,7 @@ For this run the repressor was pre-expressed from template at 24 nM, double the 
 The DevNote gives the imaging time as both a six-hour incubation and as overnight, and gives the pellet resuspension volume as 100 mL where every other volume in that method is in µL. @Developer: confirm both with the authors. This page states neither.
 :::
 
+(detector-esar-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
@@ -129,6 +135,7 @@ Requires the reporter template to be held at or below 0.5 nM. Above 1 nM the rep
 
 Requires the analyte to reach the repressor. 3-oxo-C6-HSL crosses a POPC membrane well enough to induce an encapsulated reaction from the outer solution, so no membrane pore is needed.
 
+(detector-esar-materials)=
 # Materials
 
 :::{table}
@@ -145,6 +152,7 @@ Requires the analyte to reach the repressor. 3-oxo-C6-HSL crosses a POPC membran
 
 :::
 
+(detector-esar-credits)=
 # Credits
 
 Developed by Charlie Newell, Manuel Bibrowski, Jonah McDonald, Niall McIntyre and Julia Purrinos De Oliveira.

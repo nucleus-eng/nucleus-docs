@@ -8,6 +8,7 @@ site:
     numbered_references: false
 ---
 
+(detector-tetr-atc-overview)=
 # Overview
 
 The TetR inducible expression module is a set of two genetic constructs that encode tetracycline-inducible gene expression: `pT7-tetR`, encoding the TetR repressor protein, and `pT7-tetO-plamGFP`, encoding a reporter gene under an inducible T7 promoter.
@@ -18,6 +19,7 @@ The TetR inducible expression module is a set of two genetic constructs that enc
 Schematic of the TetR inducible expression module. TetR represses expression from `pT7-tetO-plamGFP`; aTc relieves repression by binding TetR and causing its release from the tetO operator.
 :::
 
+(detector-tetr-atc-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -64,10 +66,13 @@ In NEB PURExpress, assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Su
 
 :::::
 
+(detector-tetr-atc-expected-behavior)=
 # Expected Behavior
 
+(detector-tetr-atc-cytosols)=
 ## Cytosols
 
+(detector-tetr-atc-atc-titration-in-nucleus-base-cytosol)=
 ### aTc titration in Nucleus Base Cytosol
 
 `pT7-tetO-plamGFP` was titrated with aTc against purified His-tagged TetR (MedChemExpress, HY-P71520A) in [Nucleus Base Cytosol](../../processes/assemble-base-cytosol/main.md). Per 10 µL, the reaction holds 3.0 µL SMix, 1.0 µL tRNA, 1.2 µL PMix, 1.8 µL ribosomes and 0.5 µL RNase inhibitor. The plasmid is at 1 nM and TetR at 0, 500 or 1000 nM, before the aTc is added. Plasmid, TetR and water were incubated at 37 °C for 10 min so TetR could bind the operator, and the master mix was then added. Reactions were dispensed at 10 µL per well into a 384-well plate and 1 µL of aTc added, to final aTc concentrations of 0, 0.25, 0.35, 0.5, 1, 5 and 10 µM, with three wells per condition. A no-DNA reaction at each aTc concentration served as the background. Fluorescence (485 nm excitation, 528 nm emission, gain 75) was read every 5 min for 6 h at 37 °C on a BioTek Cytation 3.
@@ -83,6 +88,7 @@ aTc relieves repression in both reactions, and the dose needed rises with the am
 Endpoint GFP fluorescence at 6 h in Nucleus Base Cytosol, for 1 nM `pT7-tetO-plamGFP` with 0, 500 or 1000 nM TetR across 0 to 10 µM aTc, with a no-DNA control at each dose. Mean ± standard deviation of three wells; gain 75.
 :::
 
+(detector-tetr-atc-atc-titration-at-1000-nm-tetr)=
 ### aTc titration at 1000 nM TetR
 
 `pOpen-TetO-deGFP` is a plasmid, purified by maxiprep, that places the tetO operator between the T7 promoter and deGFP. Each 10 µL reaction is in the same cytosol as the section above and holds the plasmid at 1 nM, purified His-tagged TetR at 1000 nM, and the OnePot sub-mixes (Smix, tRNA, Pmix, ribosomes and RNase inhibitor). aTc was added in a further 1 µL at 0, 0.25, 0.5 and 1 µM. Fluorescence was read every 5 min for 6 h at 37 °C (485/20 nm excitation, 528/20 nm emission, gain 50), with two wells per condition.
@@ -105,12 +111,14 @@ Kinetics of deGFP expression from `pOpen-TetO-deGFP` in bulk reactions: no DNA, 
 Endpoint deGFP fluorescence at 6 h, from the run in the kinetics figure. Individual replicates are shown; n = 2 wells per condition.
 :::
 
+(detector-tetr-atc-neb-purexpress)=
 ### NEB PURExpress
 
 The TetR module is validated in NEB PURExpress reactions. Purified repressor protein and anhydrotetracycline inducer are added at the final concentrations indicated. `pT7-tetO-plamGFP` plasmid DNA is added at 0.5 nM.
 
 Repression follows a roughly linear trend between 125 and 750 nM TetR and saturates around 500 nM, though it can be further improved up to 2000 nM. An inducer concentration of 2.5 µM to 5 µM provides effective induction well below saturating or toxic aTc levels. Note that aTc's yellow color overwhelms GFP fluorescence at concentrations greater than 50 µM to 100 µM, and high concentrations may negatively affect expression generally.
 
+(detector-tetr-atc-in-vitro-repression-with-tetr)=
 ### *In vitro* repression with TetR
 
 :::::{tab-set}
@@ -129,6 +137,7 @@ Repression of `pT7-tetO-plamGFP` by TetR at steady state.
 
 :::::
 
+(detector-tetr-atc-in-vitro-induction-with-atc)=
 ### *In vitro* induction with aTc
 
 :::::{tab-set}
@@ -147,6 +156,7 @@ Induction of `pT7-tetO-plamGFP` by aTc at steady state. TetR repressor protein i
 
 :::::
 
+(detector-tetr-atc-cells)=
 ## Cells
 
 :::{figure} detector-overview.png
@@ -173,6 +183,7 @@ GFP expression within synthetic cells when induced with 312.5 nM anhydrotetracyc
 
 The TetR detector cell functions when induced with aTc at 312.5 nM to 2500 nM. Higher concentrations begin to inhibit expression or confound analysis due to background aTc fluorescence and membrane localization.
 
+(detector-tetr-atc-popen-teto-degfp-in-guvs)=
 ### `pOpen-TetO-deGFP` in GUVs
 
 Giant unilamellar vesicles (GUVs) were formed by inverted emulsion transfer ([Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md)) from POPC and cholesterol at 9:1 with 18:1 Liss Rhod PE at 1 mmol/mol. Sucrose, at 8.8 % of the reaction, is the density agent in the inner solution, and glucose is the outer solution. The inner solution is the reaction in the previous section plus that sucrose: no DNA, unrepressed (`pOpen-TetO-deGFP` at 1 nM), or repressed (1 nM plasmid with 1000 nM TetR). aTc was added outside the vesicles at 0, 0.25, 0.5 and 1 µM. The vesicles were imaged over 4 h in a BSA-blocked 384-well glass-bottom plate on a Cephla Squid microscope, in a GFP channel and an Alexa Fluor 647 channel (the membrane label was read in the Alexa Fluor 647 channel). GFP was scored only inside objects with a continuous membrane label.
@@ -197,18 +208,22 @@ Lumen deGFP fluorescence in solution-phase GUVs over 4 h, by aTc dose. Bands sho
 The same data after subtracting the matched no-DNA control at each aTc dose.
 :::
 
+(detector-tetr-atc-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
+(detector-tetr-atc-implementations)=
 # Implementations
 
 - [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): aTc relieves TetR repression to drive BjaI expression.
 
+(detector-tetr-atc-processes)=
 # Processes
 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md): makes the GUVs by inverted emulsion transfer.
 
+(detector-tetr-atc-materials)=
 # Materials
 
 :::{table}
@@ -220,6 +235,7 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 | Anhydrotetracycline (aTc) | Inducer | Cayman Chemical | 10009542 | |
 :::
 
+(detector-tetr-atc-credits)=
 # Credits
 
 Developed by Yen-Yu Hsu (b.next).

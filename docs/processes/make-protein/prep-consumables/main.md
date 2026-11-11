@@ -2,12 +2,14 @@
 title: Prepare Protein Purification Buffers and Media
 ---
 
+(prep-consumables-overview)=
 # Overview
 
 Here, we make media used to grow up an expression strain to use for subsequent protein purification. We also make buffers used to purify those proteins using nickel histidine affinity chromatography.
 
 This protocol is derived from the original PURE system ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and from the OnePot PURE method ([Lavickova & Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427); [Grasemann et al., 2021](https://doi.org/10.3791/62625)). 
 
+(prep-consumables-materials-and-equipment)=
 # Materials and Equipment
 
 <!-- vale nucleus.magnitude-unit-spacing = NO -->
@@ -39,8 +41,10 @@ This protocol is derived from the original PURE system ([Shimizu et al., 2001](h
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
+(prep-consumables-protocol)=
 # Protocol
 
+(prep-consumables-prepare-stock-buffers-and-media)=
 ## Prepare Stock Buffers and Media
 
 - [ ] Make or buy the following stock solutions. Use ultrapure water (18.2 MΩ, e.g., Milli-Q).
@@ -80,6 +84,7 @@ First, resuspend HEPES or Imidazole in half the required volume of water. Next, 
 HEPES and Imidazole are light sensitive compounds! Keep stock solutions in the dark. Either wrap bottles in aluminum foil OR store bottles in a cabinet.
 :::
 
+(prep-consumables-prepare-stable-buffers)=
 ## Prepare Stable Buffers
 
 Make the following buffers *in advance* and store at 4 °C. Add all components *except* TCEP, which you MUST add fresh the day of use.
@@ -141,6 +146,7 @@ Protein Buffer (with and without glycerol) use K⁺ as a cation instead of Na⁺
 :::
 
 
+(prep-consumables-prepare-working-buffers)=
 ## Prepare Working Buffers
 
 Make the following buffers on the same day as use.
@@ -164,6 +170,7 @@ Make the following buffers on the same day as use.
   We've observed Lysis Buffer stored at 4 °C becoming cloudy over the span of one week. We believe this is due to lysozyme aggregating in solution. We suspect this affects the activity of the lysozyme, so we recommend preparing Lysis Buffer fresh for use the same day.
   :::
 
+(prep-consumables-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -182,6 +189,7 @@ Make the following buffers on the same day as use.
 
 ::::
 
+(prep-consumables-acknowledgments)=
 # Acknowledgments
 
 Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

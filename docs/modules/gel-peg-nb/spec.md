@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(gel-peg-nb-overview)=
 # Overview
 
 Gel: PEG-nb is a poly(ethylene glycol) hydrogel made from 4-arm PEG-norbornene (PEG-nb) and a 4-arm PEG-thiol crosslinker, with the photoinitiator lithium phenyl-2,4,6-trimethylbenzoylphosphinate (LAP). The precursor does not set in response to temperature. The network sets when the precursor is exposed to 405 nm light, so a sample can be loaded and checked before the gel forms. It is set by [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md).
@@ -15,6 +16,7 @@ Gel: PEG-nb is a poly(ethylene glycol) hydrogel made from 4-arm PEG-norbornene (
 This page is a work in progress and not yet ready for use.
 :::
 
+(gel-peg-nb-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -70,6 +72,7 @@ The precursor is mixed 1:1 with the sample. Final after the 1:1 mix: PEG-nb 40 m
 
 :::::
 
+(gel-peg-nb-expected-behavior)=
 # Expected Behavior
 
 Gel: PEG-nb is expected to stay liquid until it is exposed to 405 nm light, and to set under a 60 s exposure from a projector. It is easy to pipette as a precursor.
@@ -80,6 +83,7 @@ Gel: PEG-nb shows higher autofluorescence than [Gel: ULGA](../gel-ulga/spec.md) 
 @Editor: link the imaging Process page, `microscopy-readout` (Layer 1), once it is on `main`.
 :::
 
+(gel-peg-nb-requirements)=
 # Requirements
 
 Requires a light source at 405 nm (e.g. a digital light processing projector).
@@ -90,10 +94,12 @@ Requires an outer solution to dissolve into. For liposomes, use the outer soluti
 @Editor: confirm that the precursor solvent must match the sample's own outer solution, not a generic compatible buffer. This page's source describes the solvent as PBS, deionized water or any buffer. A stock-sheet note records that PBS failed in one set of GUVs. That reads as a looser rule than matching the sample's own outer solution. Unlike ULGA, the DevNote does not state the matching rule directly for PEG-nb. The wording above, and the Outer solution entries in Reference Composition and Constituent Modules, follow the ULGA and LGA convention. Say whether that convention applies here. Once a published result exists showing what happens with a mismatched solvent, cite it. See also the matching open question on [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md).
 :::
 
+(gel-peg-nb-processes)=
 # Processes
 
 [Embedding: Photocrosslinking](../../processes/embed-photocrosslinking/main.md) prepares the precursor and sets the gel.
 
+(gel-peg-nb-materials)=
 # Materials
 
 :::{table} Materials of Gel: PEG-nb.
@@ -106,6 +112,7 @@ Requires an outer solution to dissolve into. For liposomes, use the outer soluti
 | LAP | Photoinitiator | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | 900889-1G | — | 2 °C to 8 °C, dark | [Sigma-Aldrich 900889](https://www.sigmaaldrich.com/US/en/product/aldrich/900889) |
 :::
 
+(gel-peg-nb-constituent-modules)=
 # Constituent Modules
 
 - 4-arm PEG-norbornene — the polymer
@@ -113,6 +120,7 @@ Requires an outer solution to dissolve into. For liposomes, use the outer soluti
 - LAP — the photoinitiator
 - Outer solution — the solution the precursor dissolves into
 
+(gel-peg-nb-credits)=
 # Credits
 
 Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).

@@ -3,6 +3,7 @@ title: "Make OnePot Protein Mix"
 subtitle: "Process"
 ---
 
+(make-1pot-overview)=
 # Overview
 
 Making PURE requires making Protein Mix, which contains the thirty-six (36) proteins in the PURE system. If you want to purify each protein individually, you can follow our [36-pot protocol](../make-36pot/main.md). However, if you want working protein mix with less time and effort, you can co-express and co-purify all 36 proteins at once in OnePot. This protocol shows you how. This protocol has been established to grow, purify, and characterize OnePot PURE proteins following [Lavickova’s OnePot PURE protocol](https://doi.org/10.3791/62625) with a few deviations. 
@@ -27,6 +28,7 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 
 ::::::
 
+(make-1pot-materials-and-equipment)=
 # Materials and Equipment
 
 :::{table} Bill of Materials
@@ -67,10 +69,12 @@ All thirty-six PURE system expression constructs (pET28a backbone, T7 promoter, 
 | SealPlate film                                    | Consumables | SealPlate® film                                                                                                                                                      | Excel Scientific    | Z369659-100EA | $72.20   | 4 °C to 30 °C    | [link](https://www.sigmaaldrich.com/US/en/product/sigma/z369659)                                                                                |
 :::
 
+(make-1pot-protocol)=
 # Protocol
 
 *E. coli* BL21(DE3) was used as the expression strain for all 36 PURE proteins in this protocol.
 
+(make-1pot-starter-plate-preparation)=
 ## Starter Plate Preparation
 
 - [ ] Prepare a OnePot PURE starter plate containing each of the 36 strains, stored as 25% glycerol stocks at an OD₆₀₀ = 0.5. Each well of the starter glycerol stock plate should contain 40 µL of the corresponding strain at OD₆₀₀ = 0.5 and be stored at −80 °C.
@@ -82,10 +86,12 @@ Plate layout of 40 µL PCR plate aliquots for the Nucleus OnePot PURE protocol.
 :::
 
 
+(make-1pot-buffer-preparation)=
 ## Buffer Preparation
 
 The following stock buffers are required for preparing the working buffers used in PURE production. At this stage, the solutions are not pH-adjusted, as pH adjustment will be performed during preparation of the working buffers (see below).
 
+(make-1pot-1m-hepes-250-ml)=
 ### 1M HEPES (250 mL)
 
 - [ ] Dissolve 59.6 g HEPES (MW 238.3 g/mol) in 200 mL ddH₂O.
@@ -93,6 +99,7 @@ The following stock buffers are required for preparing the working buffers used 
 - [ ] Sterilize by autoclaving or filter sterilization.
 - [ ] Store at 4 °C with the bottle wrapped in foil to protect from light. Avoid storing HEPES for longer than one week; prepare only the amount required for the intended number of preparations.
 
+(make-1pot-1m-magnesium-chloride-250-ml)=
 ### 1M Magnesium Chloride (250 mL)
 
 - [ ] Dissolve 50.8 g MgCl₂ (MW 203.3 g/mol) in 200 mL ddH₂O.
@@ -100,6 +107,7 @@ The following stock buffers are required for preparing the working buffers used 
 - [ ] Sterilize by autoclaving or filter sterilization.
 - [ ] Store at 4 °C for up to 6 mo.
 
+(make-1pot-2m-potassium-chloride-250-ml)=
 ### 2M Potassium Chloride (250 mL)
 
 - [ ] Dissolve 37.3 g KCl (MW 74.55 g/mol) in 200 mL ddH₂O.
@@ -109,6 +117,7 @@ The following stock buffers are required for preparing the working buffers used 
 
 Following are the working buffers required for PURE protein production:
 
+(make-1pot-buffer-a-1-l)=
 ### Buffer A (1 L)
 
 - [ ] Add 53.5 g NH₄Cl to a 1 L bottle and dissolve in 500 mL ddH₂O.
@@ -119,6 +128,7 @@ Following are the working buffers required for PURE protein production:
 - [ ] Filter sterilize.
 - [ ] Store at 4 °C, wrapped in foil to protect from light; suitable for multiple preparations.
 
+(make-1pot-buffer-b-500-ml)=
 ### Buffer B (500 mL)
 
 - [ ] Add 17 g Imidazole to a 500 mL Duran bottle and dissolve in 300 mL ddH₂O.
@@ -131,6 +141,7 @@ Following are the working buffers required for PURE protein production:
 - [ ] Filter sterilize.
 - [ ] Store at 4 °C, wrapped in foil to protect from light; suitable for multiple preparations.
 
+(make-1pot-buffer-ht-2-l)=
 ### Buffer HT (2 L)
 
 - [ ] Use a sterile 2 L bottle and sterile (filtered) HEPES, MgCl₂, KCl, and water to avoid the need for filter sterilization.
@@ -140,6 +151,7 @@ Following are the working buffers required for PURE protein production:
 - [ ] Add 1780 mL sterile ddH₂O.
 - [ ] Store at 4 °C, wrapped in foil to protect from light; suitable for multiple preparations.
 
+(make-1pot-stock-60-100-ml)=
 ### Stock 60 (100 mL)
 
 - [ ] Add 5 mL of 1 M HEPES (filtered) to a sterile 100 mL Duran bottle.
@@ -150,12 +162,14 @@ Following are the working buffers required for PURE protein production:
 - [ ] Store at 4 °C, wrapped in foil to protect from light; suitable for multiple preparations.
 - [ ] Prepare Stock 30 using Stock 60 before adding any reducing agent to Stock 60.
 
+(make-1pot-stock-30-50-ml)=
 ### Stock 30 (50 mL)
 
 - [ ] Add 25 mL of filtered Buffer HT (without reducing agent) to a sterile 100 mL Duran bottle.
 - [ ] Add 25 mL of filtered Stock 60 (without reducing agent).
 - [ ] Store at 4 °C, wrapped in foil to protect from light; suitable for multiple preparations.
 
+(make-1pot-procedure)=
 ## Procedure
 
 A single OnePot PURE system preparation requires processing 500 mL of liquid culture. It is recommended to process two 500 mL cultures simultaneously to generate two independent PURE batches in a single run. These can be quantified separately and combined if their activity levels are comparable.
@@ -163,6 +177,7 @@ A single OnePot PURE system preparation requires processing 500 mL of liquid cul
 This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purified PURE proteins per batch. The final stock concentration is 15 mg/mL.
 
 
+(make-1pot-day-1-starter-culture)=
 ### Day 1: Starter Culture
 
 - [ ] Starter culture incubation needs to begin at 6 pm. As such begin subsequent steps at 5 pm to allow sufficient time to start incubation at 6 pm. 
@@ -176,6 +191,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Start incubation at 6 pm. Check OD₆₀₀ at 10 am the next day (16 h incubation).
 - [ ] Place 1.5 L of sterile LB in 37 °C static incubator to prewarm overnight.
 
+(make-1pot-day-2-main-growth)=
 ### Day 2: Main Growth
 
 - [ ] The next day, measure the OD₆₀₀ of the starter plate using a 96 well plate by adding 30 µL of each starter  to the bottom of each well and 270 µL of  LB + Kan on top (10x dilution). Measure EF-Tu culture density at this time too. Expected OD₆₀₀ with 10x dilution is 0.2 - 0.3.
@@ -206,6 +222,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Centrifuge Falcon tubes again at 2000 g / 4 °C / 2 min, remove residual supernatant by pipetting.
 - [ ] The pellets can be flash frozen in liquid nitrogen and stored at -80 °C for up to 3 d until protein purification.
 
+(make-1pot-day-3-protein-purification)=
 ### Day 3: Protein Purification
 
 - [ ] Thaw cell pellets on ice.
@@ -227,6 +244,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Store eluted protein on ice.
 - [ ] Remove dialysis cassette from beaker and add 5 mL of eluted protein into the dialysis cassette. Remove as much air as possible from cassette before putting the lid back on. Dialyze according to protocol stated below to remove imidazole. 5 mL of eluted protein is dialyzed against 1L of buffer HT (without TCEP) at 4 °C for 12 h / overnight. In instances when elutions can be combined, 10 mL of elution can be dialyzed against 2 L of buffer HT.
 
+(make-1pot-day-4-protein-concentration)=
 ### Day 4: Protein Concentration
 
 - [ ] After dialysis is complete, remove dialyzed sample from cassette and add to a 3 kDa MWCO Amicon Ultra 15 and top up volume with 10 mL of fresh buffer HT + TCEP.
@@ -240,6 +258,7 @@ This protocol processes two 500 mL OnePot PURE cultures, yielding ~600 µL purif
 - [ ] Determine final protein concentration using [Pierce660 Assay](../pierce660/main.md) and dilute samples with Stock 30 + TCEP as required to reach correct final concentration of 15 mg/mL.
 - [ ] Aliquot 50 µL into PCR tubes, snap freeze using liquid nitrogen, and store at -80 °C.
 
+(make-1pot-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 2

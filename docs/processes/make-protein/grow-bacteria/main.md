@@ -2,6 +2,7 @@
 title: Grow and Induce Expression Strains
 ---
 
+(grow-bacteria-overview)=
 # Overview
 
 You want to purify proteins. First, you're going to have to make some. We make proteins using bacterial strains that carry our protein of interest on an expression plasmid (here: pET28a). These expression plasmids put a gene of interest under the transcription of an inducible promoter (e.g., pT7). This allows us to first (1) grow our bacteria quickly to a high density, without the metabolic load of making a lot of proteins, then to (2) induce the overexpression of our protein of interest. Making so much protein is toxic to the cells, so we only want to induce expression once our culture is grown out (OD₆₀₀ ~0.5).
@@ -23,6 +24,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::::
 
+(grow-bacteria-materials-and-equipment)=
 # Materials and Equipment
 
 
@@ -46,6 +48,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
+(grow-bacteria-protocol)=
 # Protocol
 
 - [ ] **Prep overnight cultures.**
@@ -89,6 +92,7 @@ Bacteria need breathing room! Oxygenation matters, plus shaking can spill overfi
 Frozen bacterial pellets can be stored at -80 °C for extended periods (up to at least 3 mo). There is no need to rush directly into purifying proteins from these pellets. We find that a nice workflow for making PURE proteins is to take two weeks to make 36 bacterial pellets, then purify those pellets at a later point.
 :::
 
+(grow-bacteria-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -107,6 +111,7 @@ Frozen bacterial pellets can be stored at -80 °C for extended periods (up to at
 
 ::::
 
+(grow-bacteria-acknowledgments)=
 # Acknowledgments
 
 Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

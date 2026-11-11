@@ -2,6 +2,7 @@
 title: Purify Proteins by Ni²⁺ Gravity Column
 ---
 
+(purify-proteins-grav-column-overview)=
 # Overview
 
 You have a protein that you want to purify out of a complicated mixture. This protein has a 6xHis purification tag, which chelates Ni²⁺ ions. You can use a Ni-His resin to bind proteins with 6xHis tags. This resin is a suspension of microscopic gel beads with Ni ions covalently linked. Bound proteins can then be washed to remove non-tagged proteins, then eluted in a buffer with high concentration (~ 500 mM) Imidazole. Imidazole competes with 6xHis to bind the Ni ions, ultimately displacing your target proteins and releasing them from the affinity resin.
@@ -34,6 +35,7 @@ Please read this section carefully. It contains important notes, resources, and 
 :::::::
 
 
+(purify-proteins-grav-column-materials-and-equipment)=
 # Materials and Equipment
 
 
@@ -56,8 +58,10 @@ Please read this section carefully. It contains important notes, resources, and 
 | TCEP-HCl (0.5M; presuspended)  | Buffers     | Thermo Scientific, Bond-Breaker® Tris[2-Carboxyethyl]phosphine Neutral Solution (TCEP), Application=Water-Soluble Reducing Agent, Molecular Weight=286.65, Size=5 mL | Thermo Scientific   | 77720       | $175.65 | 4 °C to 30 °C | [link](https://www.thermofisher.com/order/catalog/product/77720)                                                                                                    |
 :::
 
+(purify-proteins-grav-column-protocol)=
 # Protocol
 
+(purify-proteins-grav-column-prepare-columns)=
 ## Prepare Columns
 
 - [ ] **Prepare buffers:** Prepare the following buffers; chill at 4 °C:
@@ -87,6 +91,7 @@ One "Column Volume" (CV) is the settled resin bed volume. Our 2 mL of 50% v/v re
 
 :::
 
+(purify-proteins-grav-column-purify-protein)=
 ## Purify Protein
 
 - [ ] **Load lysate:** Load up to 10 CV (10 mL) clarified lysate per column. Optionally capture flowthrough for later analysis.
@@ -101,6 +106,7 @@ If you have more than 10 mL of clarified lysate, you can load your sample in tra
 - [ ] **Wash:** Wash each column with ≥ 10 CV (10 mL) cold Wash Buffer. Allow buffer to flow through. Optionally capture flowthrough for later analysis.
 - [ ] **Elute:** Elute sample with 6 CV (6 mL) cold Elution Buffer. Capture flowthrough in a 15 mL centrifuge tube.
 
+(purify-proteins-grav-column-storing-columns)=
 ## Storing Columns
 
 - [ ] **Short-term (up to 48 h):** Seal each column with a cap and bung and store at 4 °C.
@@ -113,6 +119,7 @@ Packed and loaded columns can harbor bacterial growth, even at 4 °C. Storing in
 
 :::
 
+(purify-proteins-grav-column-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -131,6 +138,7 @@ Packed and loaded columns can harbor bacterial growth, even at 4 °C. Storing in
 
 ::::
 
+(purify-proteins-grav-column-acknowledgments)=
 # Acknowledgments
 
 Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

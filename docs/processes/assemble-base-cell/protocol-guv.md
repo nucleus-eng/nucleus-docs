@@ -49,6 +49,7 @@ A 20 mL glass vial, argon gas, a vacuum desiccator, a bath sonicator, a 60 °C h
 
 # Protocol
 
+(assemble-base-cell-prepare-the-lipid-in-oil-dispersion)=
 ## Prepare the Lipid-in-Oil Dispersion
 
 - [ ] **Combine the three lipid stocks in a 20 mL glass vial.** Use the volumes in the lipid table in the Overview. All three stocks are in chloroform.
@@ -61,17 +62,20 @@ A 20 mL glass vial, argon gas, a vacuum desiccator, a bath sonicator, a 60 °C h
     - [ ] Vortex for 2 min.
     - [ ] Bath sonicate for 20 min.
 
+(assemble-base-cell-form-the-oil-water-interface)=
 ## Form the Oil–Water Interface
 
 - [ ] **Layer 300 µL of the lipid-in-oil dispersion gently over 400 µL of outer solution in a 1.5 mL tube.**
 - [ ] **Incubate the tube at room temperature for 10 min to 20 min.**
 
+(assemble-base-cell-form-the-emulsion)=
 ## Form the Emulsion
 
 - [ ] **Prepare the inner solution in a separate 1.5 mL tube.** Do this during the incubation. The pH Sensing Cell uses 20 µL.
 - [ ] **Add 600 µL of the lipid-in-oil dispersion to the inner solution.**
 - [ ] **Pipette up and down thoroughly for 3 min.** This forms water-in-oil monolayer emulsion droplets.
 
+(assemble-base-cell-transfer-and-collect-the-guvs)=
 ## Transfer and Collect the GUVs
 
 - [ ] **Add the droplets on top of the oil–water interface.**
