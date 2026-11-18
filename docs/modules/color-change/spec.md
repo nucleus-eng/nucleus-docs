@@ -25,8 +25,16 @@ Color Change turns a gating signal into a visible color. Phospholipase A1 (PLA1)
 ```mermaid
 flowchart TD
     GATED_PLA1_DNA["Gated PLA1 template, pT7-toehold9-PLA1-linear in the pH implementation"]
-    SUBSTRATE_LIPOSOME_LUV["Substrate LUV: CPRG"]
-    SUBSTRATE_LIPOSOME_SUV["Substrate SUV: CPRG"]
+
+    ---
+    @Claude: within `---` are three different versions of CPRG dye. ALL of these work IF the lacZ enzyme is encapsulated (ie in Mem{LacZ}). If LacZ is NOT encapsulated, then only encapsulated CPRG (ie SUV{CPRG} or LUV{CPRG}) are allowed. as in, there is a constraint that LacZ and CPRG MUST NOT be in the same compartment until triggered by signal. 
+
+    SUBSTRATE["CPRG"] // case where CPRG dye is included directly in outer solution or gel
+    SUBSTRATE_LIPOSOME_LUV["Substrate LUV: CPRG"] // case where CPRG is encapsulated (in LUV)
+    SUBSTRATE_LIPOSOME_SUV["Substrate SUV: CPRG"] // case where CPRG is encapsulated (in SUV)
+
+    ---
+
     REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
 
     P1_REPORT_COLOR_0(["Colorimetric Readout (mixing)"])
