@@ -10,11 +10,11 @@ site:
 
 The Overview says what this implementation is and what it does. Nothing else. A reader should be able to tell in a few seconds whether they're on the right page. An implementation combines one or more Module specs with a Process — the overview should name both and state what the combination produces. Include key parameters that define scope. Use precise terms. Don't explain what a ribosome does. The reader knows. Skip preamble. Just start:
 
-"The IV-HSL Emitter implementation combines the IV-HSL Emitter Module with the Assemble Base Cell process to produce synthetic cells that secrete N-(3-hydroxybutanoyl)-L-homoserine lactone (IV-HSL) and activate GFP expression in neighboring E. coli reporter cells."
+"The CRAIC Demo detects a bacterial quorum-sensing signal and reports it as a visible color change from inside a gel."
 
-"The PPK energy implementation combines the PPK energy Module with the Assemble Base Cytosol process to produce a CP/CK-free cell-free transcription–translation system powered by inorganic polyphosphate regeneration."
+"The aTc Demo combines the aTc Sensing Cell with Embed: Thermal Setting to produce gel-embedded synthetic cells that turn yellow to red when anhydrotetracycline reaches them."
 
-When in doubt, read the existing Implementation specs.
+When in doubt, read the existing Implementation pages. The four DevStudio demos — aTc, CRAIC, LuxR-GFP and pH — all follow the shape below.
 
 :::{figure} ./resources/schematic-example-2.png
 :name: fig-schematic
@@ -24,34 +24,34 @@ When in doubt, read the existing Implementation specs.
 TODO: One sentence describing what the schematic shows. If the figure is not original, credit the source and include the license (e.g. "Figure by Author et al. used under CC-BY-4.0 / cropped from original.").
 :::
 
-# Protocol
+# Modules
 
-The protocol section contains the step-by-step procedure for building this implementation. Write it so someone can follow it at the bench. State volumes, concentrations, incubation times, and temperatures as concrete values, not ranges, unless the range is intentional. If a step depends on a Process documented elsewhere, link to it rather than repeating it. Include a composition table if the implementation requires assembling multiple components.
+List the modules used in this implementation. Link each to its spec page. If a module is used in a non-standard configuration (different concentration, modified construct), note that here.
+
+Modules come before Processes: a reader follows the parts to the operations performed on them.
+
+- [TODO: Module Name](../../modules/TODO/spec.md)
+- [TODO: Module Name](../../modules/TODO/spec.md)
+
+# Processes
+
+Link to the base Process this implementation follows. If this implementation deviates from the standard process (different volumes, modified steps, additional preparation), note that here.
+
+- [TODO: Process Name](../../processes/TODO/main.md)
+
+# Protocol as run
+
+What was actually done, and what deviated from the Process pages linked above. This is a record of the procedure that was followed, not a procedure to follow — a reader who wants to run the protocol goes to the Process page. State the deviations: a substituted reagent, a changed incubation, a step skipped, an unplanned repeat.
+
+A run that matched the linked Processes exactly can say so in one line. Do not restate the Process steps here.
 
 *Under Construction*
 
-::::{grid} 1 1 2 3
-
-:::{card}
-:header: **Bill of Materials**
-{button}`Download BOM <TODO: bom.pdf>`
-:::
-
-:::{card}
-:header: **Lab-Ready Protocol**
-:align: center
-{button}`Download Protocol <TODO: protocol.pdf>`
-:::
-
-:::{card}
-:header: **Platemap Template**
-{button}`Download Platemap <TODO: platemap.pdf>`
-:::
-::::
-
-# Performance
+# Observed Performance
 
 Show what this implementation actually did in practice. Include representative data: time series, endpoint measurements, dose-response curves, or whatever characterizes the system's behavior. Each figure should have a caption that states the experimental conditions and links to the source DevNote. If performance varies across conditions (temperature, concentration, cytosol batch), show that. The goal is to let a reader judge whether this implementation fits their use case without having to reproduce the experiment first.
+
+The boundary with the section above: `Protocol as run` is what was done, `Observed Performance` is what happened. A deviation from the planned protocol goes in the first; a number that came off an instrument goes in the second.
 
 :::::{tab-set}
 
@@ -79,19 +79,6 @@ Final protein yields of the three reactions measured at steady state.
 ::::
 
 :::::
-
-# Process
-
-Link to the base Process this implementation follows. If this implementation deviates from the standard process (different volumes, modified steps, additional preparation), note that here.
-
-- [TODO: Process Name](../../processes/TODO/main.md)
-
-# Modules
-
-List the modules used in this implementation. Link each to its spec page. If a module is used in a non-standard configuration (different concentration, modified construct), note that here.
-
-- [TODO: Module Name](../../modules/TODO/spec.md)
-- [TODO: Module Name](../../modules/TODO/spec.md)
 
 # Credits
 
