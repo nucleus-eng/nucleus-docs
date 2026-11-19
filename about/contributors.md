@@ -7,6 +7,7 @@ The following have contributed to the content on this site:
 - Adriana Hudyma — University of Minnesota
 - Ahmed Sihorwala — University of Texas at Austin
 - Akshay Maheshwari — b.next
+- Allen P. Liu — University of Michigan
 - Anton Jackson-Smith — b.next
 - Anton Molina — b.next
 - Charlie Newell — University College London
@@ -19,17 +20,26 @@ The following have contributed to the content on this site:
 - Jefferson Smith — University College London
 - Jenny Molloy — University of Cambridge
 - Jon Calles — b.next
+- Jonah McDonald — King's College London
+- Julia Purrinos De Oliveira — Imperial College London
 - Kate Adamala — University of Minnesota
 - Leon Elcock — b.next
+- Madison Briggs — Northwestern University
+- Manuel Bibrowski — Imperial College London
+- Mary Kelly — Northwestern University
 - Matas Deveikis — Imperial College London
 - Michael Booth — University College London
 - Miki Yun — Caltech
+- Niall McIntyre — Imperial College London
+- Ojaswita Pant — Northwestern University
 - Parsa Parivizian — University of Michigan
 - Paul Freemont — Imperial College London
 - Richard Murray — Caltech
 - Riku Nagai — University of Florida
+- Samuel Chen — University of Michigan
 - Severine Cazaux — Pontifical Catholic University of Chile
 - Sharon Newman — b.next
+- Sung-Won Hwang — University of Michigan
 - Surendra Yadav — b.next
 - Tyler Goshia — J. Craig Venter Institute
 - Viktoriia Belousova — Max Planck Institute of Biochemistry
