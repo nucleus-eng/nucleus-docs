@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-ULGA (ultra-low gelling agarose) is a hydrogel in which synthetic cells can be embedded. ULGAsets upon on cooling to between 8 °C and 15 °C. See [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) for a description of the embedding process.
+ULGA (ultra-low gelling agarose) is a hydrogel in which synthetic cells can be embedded. ULGA sets upon cooling to between 8 °C and 15 °C. See [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) for a description of the embedding process.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.

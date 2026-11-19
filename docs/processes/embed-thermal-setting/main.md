@@ -58,7 +58,7 @@ The agarose is listed under Materials on [LGA](../../modules/gel-lga/spec.md) an
 
 # Protocol
 
-- [ ] **Prepare the outer solution.** Use the same outer solution that the syntheic cells were prepared in. 
+- [ ] **Prepare the outer solution.** Use the same outer solution that the synthetic cells were prepared in.
 - [ ] **Melt the agarose (ULGA).**
     - [ ] Add ULGA powder to 10 mg/mL (1.0 % w/v) in the outer solution.
     - [ ] Microwave in 10 s bursts, 5–7 times, until the ULGA is fully dissolved.
@@ -69,10 +69,11 @@ The agarose is listed under Materials on [LGA](../../modules/gel-lga/spec.md) an
     - [ ] Transfer an aliquot to a microfuge tube and keep it at temperature (45 °C) on a dry bath until use.
     - [ ] Transfer an aliquot of outer solution to a microfuge tube and heat it to the same temperature (45 °C) on the same block.
 
-:class: dropdown
 :::{warning} Keep agarose stocks above gelling temperature.
+:class: dropdown
 Agarose can set at room temperature. Keeping the stock warm prevents it from setting before it is mixed with the sample.
 :::
+
 - [ ] **Mix the sample with the gel precursor.**
     - [ ] For ULGA, combine 15 µL of sample with 15 µL of the ULGA stock.
     - [ ] For LGA, combine 15 µL of sample with 7.5 µL LGA stock and 7.5 µL outer solution.
