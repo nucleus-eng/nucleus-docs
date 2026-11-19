@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nucleus Docs — Contributors Graph</title>
+<style>
+  :root {
+    --bg: #ffffff; --panel: #f2f6f1; --ink: #11271c;
+    --accent: #006837; --text: #26302a; --muted: #4b564e;
+    --faint: #6e7a71; --divider: #c9d3c9;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--sans); }
+  #app { display: grid; grid-template-columns: 250px 1fr 0px; height: 100vh; transition: grid-template-columns 150ms; }
+  #app.panel-open { grid-template-columns: 250px 1fr 360px; }
+
+  #rail { border-right: 1px solid var(--divider); padding: 1rem; overflow-y: auto; }
+  #rail h1 { font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; }
+  #rail .subtitle { font-size: .78rem; color: var(--muted); margin-bottom: 1.4rem; }
+  .rail-label { font-size: .74rem; text-transform: uppercase; letter-spacing: .035em; color: var(--muted); font-weight: 600; margin: 1.1rem 0 .5rem; }
+  .rail-label:first-of-type { margin-top: 0; }
+  .legend-row { display: flex; align-items: center; gap: .55rem; padding: .3rem 0; cursor: pointer; user-select: none; font-size: .86rem; }
+  .legend-row.dimmed { opacity: .35; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+  #rail p.help { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+  #rail p.regen { font-size: .74rem; color: var(--faint); line-height: 1.5; }
+  #rail code { font: 500 .78em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--panel); border-radius: 4px; padding: .1em .35em; }
+
+  #stage { position: relative; background: var(--bg); overflow: hidden; }
+  #cy { position: absolute; inset: 0; }
+  #label-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .node-name-label { position: absolute; transform: translate(-50%, 0); font-size: .76rem; color: var(--text); white-space: nowrap; font-weight: 500; }
+  .node-name-label.hover-label { font-weight: 600; }
+
+  #panel { border-left: 1px solid var(--divider); padding: 1rem; overflow-y: auto; position: relative; }
+  #app:not(.panel-open) #panel { padding: 0; border-left: none; }
+  #panel .close { position: absolute; top: .7rem; right: .8rem; background: none; border: none; color: var(--muted); font-size: 1.1rem; cursor: pointer; line-height: 1; }
+  #panel .kind { font-size: .74rem; text-transform: uppercase; letter-spacing: .035em; color: var(--muted); font-weight: 600; }
+  #panel .name { font-size: 1rem; font-weight: 700; color: var(--ink); margin: .35rem 0 1rem; line-height: 1.35; }
+  #panel a.open-link { display: inline-block; font-size: .86rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+  #panel a.open-link:hover { text-decoration: underline; }
+
+  @media (max-width: 760px) {
+    #app { grid-template-columns: 1fr; grid-template-rows: auto 1fr 0px; height: 100vh; }
+    #app.panel-open { grid-template-columns: 1fr; grid-template-rows: auto 1fr 260px; }
+    #rail { border-right: none; border-bottom: 1px solid var(--divider); max-height: 40vh; }
+    #panel { border-left: none; border-top: 1px solid var(--divider); }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="rail">
+    <h1>Contributors Graph</h1>
+    <div class="subtitle">Nucleus Distribution</div>
+    <div class="rail-label">Node types</div>
+    <div id="legend"></div>
+    <div class="rail-label">How to use it</div>
+    <p class="help">Click a node for details. Click the background to clear. Click a type below to show or hide it.</p>
+    <div class="rail-label">Maintaining</div>
+    <p class="regen">Regenerate after new DevNotes are published or <code>devnote-associations.yml</code> changes:<br><code>python3 scripts/build-contributors-graph.py</code></p>
+  </aside>
+  <main id="stage">
+    <div id="cy"></div>
+    <div id="label-layer"></div>
+  </main>
+  <aside id="panel">
+    <button class="close" aria-label="Close">&times;</button>
+    <div class="kind"></div>
+    <div class="name"></div>
+    <a class="open-link" target="_blank" rel="noopener" style="display:none;">Open DevNote ↗</a>
+  </aside>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+<script>
+const GRAPH = {
+  "nodes": [
+    {
+      "id": "devnote/01a12e6c-b511-7d30-aa95-002d386f751e",
+      "label": "Implementing of a bulk color change module into bacterial quorum sensing",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e",
+      "initials": "IO"
+    },
+    {
+      "id": "contributor/Charlie-Newell",
+      "label": "Charlie Newell",
+      "type": "contributor",
+      "url": null,
+      "initials": "CN"
+    },
+    {
+      "id": "devnote/01a108c6-4719-7833-92af-daf6f91ed06a",
+      "label": "Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a",
+      "initials": "QS"
+    },
+    {
+      "id": "devnote/01a1121a-7513-7ec7-8378-0326c6b3630b",
+      "label": "Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Dependent Transcriptional Regulation",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b",
+      "initials": "BS"
+    },
+    {
+      "id": "devnote/01a08c2d-2898-7f60-8f62-6bee069fddca",
+      "label": "What is a Cytosol Landscape?",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01a08c2d-2898-7f60-8f62-6bee069fddca",
+      "initials": "WI"
+    },
+    {
+      "id": "contributor/Sharon-Newman",
+      "label": "Sharon Newman",
+      "type": "contributor",
+      "url": null,
+      "initials": "SN"
+    },
+    {
+      "id": "devnote/019f05cb-6be8-7189-8c0d-f8f51d170541",
+      "label": "ClpXP Control Module: Deployment in Nucleus Cytosol",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019f05cb-6be8-7189-8c0d-f8f51d170541",
+      "initials": "CC"
+    },
+    {
+      "id": "contributor/Yen-Yu-Hsu",
+      "label": "Yen-Yu Hsu",
+      "type": "contributor",
+      "url": null,
+      "initials": "YH"
+    },
+    {
+      "id": "devnote/019ef6d5-3a27-787f-9ebd-fe80645b1068",
+      "label": "Characterizing the Limited Operational Lifetime of Cytosol Reactions",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019ef6d5-3a27-787f-9ebd-fe80645b1068",
+      "initials": "CT"
+    },
+    {
+      "id": "contributor/Surendra-Yadav",
+      "label": "Surendra Yadav",
+      "type": "contributor",
+      "url": null,
+      "initials": "SY"
+    },
+    {
+      "id": "devnote/019eae62-056c-7285-a994-aeb800ecdaa5",
+      "label": "SecYEG-Based Membrane Translation Module in Synthetic Cells",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019eae62-056c-7285-a994-aeb800ecdaa5",
+      "initials": "SB"
+    },
+    {
+      "id": "devnote/019e6a31-8786-7e53-8146-ba7d1bc3d209",
+      "label": "DNA toolkit - The T7 terminator collection",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019e6a31-8786-7e53-8146-ba7d1bc3d209",
+      "initials": "DT"
+    },
+    {
+      "id": "devnote/019d8b18-db94-72b9-8a4d-90c069f363c8",
+      "label": "Using platemaps to analyze and share data",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019d8b18-db94-72b9-8a4d-90c069f363c8",
+      "initials": "UP"
+    },
+    {
+      "id": "contributor/Jay-Bhasin",
+      "label": "Jay Bhasin",
+      "type": "contributor",
+      "url": null,
+      "initials": "JB"
+    },
+    {
+      "id": "devnote/019db3ce-f142-792e-b237-3933098752db",
+      "label": "Intro to Kinetics Analysis of Plate Reader Experiments",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019db3ce-f142-792e-b237-3933098752db",
+      "initials": "IT"
+    },
+    {
+      "id": "devnote/019d1d1d-2e2d-7839-b0e3-d5cee50231ee",
+      "label": "Nucleus OnePot PURE",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019d1d1d-2e2d-7839-b0e3-d5cee50231ee",
+      "initials": "NO"
+    },
+    {
+      "id": "devnote/019baeb7-7e56-7ce0-9d0c-7925b98115e7",
+      "label": "The colourimetric bacterial contamination sensing device.",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019baeb7-7e56-7ce0-9d0c-7925b98115e7",
+      "initials": "TC"
+    },
+    {
+      "id": "contributor/Michael-Booth",
+      "label": "Michael Booth",
+      "type": "contributor",
+      "url": null,
+      "initials": "MB"
+    },
+    {
+      "id": "devnote/019b613d-4a47-7d62-a262-77a667467a57",
+      "label": "ClpXP Control Module: Deployment in PURE Cells",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019b613d-4a47-7d62-a262-77a667467a57",
+      "initials": "CC"
+    },
+    {
+      "id": "devnote/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0",
+      "label": "Nucleus Base Cell Testing",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0",
+      "initials": "NB"
+    },
+    {
+      "id": "devnote/019b3969-570f-7d88-b998-48ca97f0306c",
+      "label": "ClpXP Control Module: Deployment in PURE",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019b3969-570f-7d88-b998-48ca97f0306c",
+      "initials": "CC"
+    },
+    {
+      "id": "devnote/019b1403-bfd4-7694-820f-9e9f0e732e13",
+      "label": "LacZ/XylE colour change module",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13",
+      "initials": "LX"
+    },
+    {
+      "id": "devnote/019b75df-878d-7a5d-8ff2-220963bd940c",
+      "label": "DNA toolkit - The T7 promoter collection",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019b75df-878d-7a5d-8ff2-220963bd940c",
+      "initials": "DT"
+    },
+    {
+      "id": "devnote/019a7511-0b68-702b-8909-0fe96ef8d5d2",
+      "label": "First Nucleus Cytosol Testing",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019a7511-0b68-702b-8909-0fe96ef8d5d2",
+      "initials": "FN"
+    },
+    {
+      "id": "devnote/019a7496-0498-7d89-bebb-58cdc15caf54",
+      "label": "Cx43 Cell: DNA Validation",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019a7496-0498-7d89-bebb-58cdc15caf54",
+      "initials": "CC"
+    },
+    {
+      "id": "devnote/019926c4-3341-76fc-8f36-eb96fd77c170",
+      "label": "Integrating PPK Module in PURE Cells",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/019926c4-3341-76fc-8f36-eb96fd77c170",
+      "initials": "IP"
+    },
+    {
+      "id": "devnote/0198595d-3ccc-7d1f-8307-db4046a43569",
+      "label": "Nucleus OnePot PURE Replication",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/0198595d-3ccc-7d1f-8307-db4046a43569",
+      "initials": "NO"
+    },
+    {
+      "id": "contributor/Anton-Molina",
+      "label": "Anton Molina",
+      "type": "contributor",
+      "url": null,
+      "initials": "AM"
+    },
+    {
+      "id": "contributor/Anton-Jackson-Smith",
+      "label": "Anton Jackson-Smith",
+      "type": "contributor",
+      "url": null,
+      "initials": "AJ"
+    },
+    {
+      "id": "devnote/01981a5d-64c2-72f2-8055-5634d2824ede",
+      "label": "The Developer Cell Control Module: Protein Degradation by ClpXP",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01981a5d-64c2-72f2-8055-5634d2824ede",
+      "initials": "TD"
+    },
+    {
+      "id": "devnote/01981160-aaa4-7f80-b3e4-d8179077b8fe",
+      "label": "PPK Module testing in PURE",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01981160-aaa4-7f80-b3e4-d8179077b8fe",
+      "initials": "PM"
+    },
+    {
+      "id": "devnote/01981a1b-59a0-7dc7-9cb1-9abda4f5fd34",
+      "label": "Developer Cell: Project Introduction",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01981a1b-59a0-7dc7-9cb1-9abda4f5fd34",
+      "initials": "DC"
+    },
+    {
+      "id": "contributor/Akshay-Maheshwari",
+      "label": "Akshay Maheshwari",
+      "type": "contributor",
+      "url": null,
+      "initials": "AM"
+    },
+    {
+      "id": "devnote/01978526-a76b-748b-85d0-f63036faf88b",
+      "label": "MTHFS - an Unexpected Enzyme in PURE",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01978526-a76b-748b-85d0-f63036faf88b",
+      "initials": "MA"
+    },
+    {
+      "id": "contributor/Yemo-Ku",
+      "label": "Yemo Ku",
+      "type": "contributor",
+      "url": null,
+      "initials": "YK"
+    },
+    {
+      "id": "devnote/01945265-b728-7938-aab0-1ce134f4dffa",
+      "label": "IV-HSL Emitter Cell",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01945265-b728-7938-aab0-1ce134f4dffa",
+      "initials": "IH"
+    },
+    {
+      "id": "devnote/01948ff1-6dfd-7ce0-9e89-a2aa1c9b30b7",
+      "label": "IV-HSL Emitter Cell",
+      "type": "devnote",
+      "url": "https://devnotes.nucleus.engineering/articles/01948ff1-6dfd-7ce0-9e89-a2aa1c9b30b7",
+      "initials": "IH"
+    },
+    {
+      "id": "modules/base-cytosol",
+      "label": "Base Cytosol",
+      "type": "modules",
+      "url": null,
+      "initials": "BC"
+    },
+    {
+      "id": "modules/detector-tetr-atc",
+      "label": "Detector: tetR-aTc",
+      "type": "modules",
+      "url": null,
+      "initials": "DT"
+    },
+    {
+      "id": "modules/emitter-ivhsl",
+      "label": "Emitter: IV-HSL",
+      "type": "modules",
+      "url": null,
+      "initials": "EI"
+    },
+    {
+      "id": "modules/membrane-popc-chol",
+      "label": "Base Membrane: POPC/Chol",
+      "type": "modules",
+      "url": null,
+      "initials": "BM"
+    },
+    {
+      "id": "modules/purexpress",
+      "label": "purexpress",
+      "type": "modules",
+      "url": null,
+      "initials": "PU"
+    },
+    {
+      "id": "processes/assemble-base-cell",
+      "label": "Encapsulation: Phase Transfer",
+      "type": "processes",
+      "url": null,
+      "initials": "EP"
+    },
+    {
+      "id": "modules/base-cell",
+      "label": "Base Cell",
+      "type": "modules",
+      "url": null,
+      "initials": "BC"
+    },
+    {
+      "id": "modules/reporter-degfp",
+      "label": "Reporter: deGFP",
+      "type": "modules",
+      "url": null,
+      "initials": "RD"
+    },
+    {
+      "id": "modules/control-clpxp",
+      "label": "Control: ClpXP",
+      "type": "modules",
+      "url": null,
+      "initials": "CC"
+    },
+    {
+      "id": "modules/membrane-pore-cx43",
+      "label": "Membrane Pore: Cx43",
+      "type": "modules",
+      "url": null,
+      "initials": "MP"
+    },
+    {
+      "id": "processes/make-1pot",
+      "label": "Make OnePot Protein Mix",
+      "type": "processes",
+      "url": null,
+      "initials": "MO"
+    },
+    {
+      "id": "modules/energy-ppk",
+      "label": "Energy: PPK",
+      "type": "modules",
+      "url": null,
+      "initials": "EP"
+    }
+  ],
+  "edges": [
+    {
+      "source": "contributor/Charlie-Newell",
+      "target": "devnote/01a12e6c-b511-7d30-aa95-002d386f751e"
+    },
+    {
+      "source": "contributor/Charlie-Newell",
+      "target": "devnote/01a108c6-4719-7833-92af-daf6f91ed06a"
+    },
+    {
+      "source": "contributor/Charlie-Newell",
+      "target": "devnote/01a1121a-7513-7ec7-8378-0326c6b3630b"
+    },
+    {
+      "source": "contributor/Sharon-Newman",
+      "target": "devnote/01a08c2d-2898-7f60-8f62-6bee069fddca"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/019f05cb-6be8-7189-8c0d-f8f51d170541"
+    },
+    {
+      "source": "contributor/Surendra-Yadav",
+      "target": "devnote/019ef6d5-3a27-787f-9ebd-fe80645b1068"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/019eae62-056c-7285-a994-aeb800ecdaa5"
+    },
+    {
+      "source": "contributor/Charlie-Newell",
+      "target": "devnote/019e6a31-8786-7e53-8146-ba7d1bc3d209"
+    },
+    {
+      "source": "contributor/Jay-Bhasin",
+      "target": "devnote/019d8b18-db94-72b9-8a4d-90c069f363c8"
+    },
+    {
+      "source": "contributor/Sharon-Newman",
+      "target": "devnote/019db3ce-f142-792e-b237-3933098752db"
+    },
+    {
+      "source": "contributor/Surendra-Yadav",
+      "target": "devnote/019d1d1d-2e2d-7839-b0e3-d5cee50231ee"
+    },
+    {
+      "source": "contributor/Charlie-Newell",
+      "target": "devnote/019baeb7-7e56-7ce0-9d0c-7925b98115e7"
+    },
+    {
+      "source": "contributor/Michael-Booth",
+      "target": "devnote/019baeb7-7e56-7ce0-9d0c-7925b98115e7"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/019b613d-4a47-7d62-a262-77a667467a57"
+    },
+    {
+      "source": "contributor/Surendra-Yadav",
+      "target": "devnote/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/019b3969-570f-7d88-b998-48ca97f0306c"
+    },
+    {
+      "source": "contributor/Charlie-Newell",
+      "target": "devnote/019b1403-bfd4-7694-820f-9e9f0e732e13"
+    },
+    {
+      "source": "contributor/Michael-Booth",
+      "target": "devnote/019b1403-bfd4-7694-820f-9e9f0e732e13"
+    },
+    {
+      "source": "contributor/Charlie-Newell",
+      "target": "devnote/019b75df-878d-7a5d-8ff2-220963bd940c"
+    },
+    {
+      "source": "contributor/Surendra-Yadav",
+      "target": "devnote/019a7511-0b68-702b-8909-0fe96ef8d5d2"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/019a7496-0498-7d89-bebb-58cdc15caf54"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/019926c4-3341-76fc-8f36-eb96fd77c170"
+    },
+    {
+      "source": "contributor/Anton-Molina",
+      "target": "devnote/0198595d-3ccc-7d1f-8307-db4046a43569"
+    },
+    {
+      "source": "contributor/Anton-Jackson-Smith",
+      "target": "devnote/0198595d-3ccc-7d1f-8307-db4046a43569"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/01981a5d-64c2-72f2-8055-5634d2824ede"
+    },
+    {
+      "source": "contributor/Surendra-Yadav",
+      "target": "devnote/01981160-aaa4-7f80-b3e4-d8179077b8fe"
+    },
+    {
+      "source": "contributor/Anton-Jackson-Smith",
+      "target": "devnote/01981a1b-59a0-7dc7-9cb1-9abda4f5fd34"
+    },
+    {
+      "source": "contributor/Akshay-Maheshwari",
+      "target": "devnote/01981a1b-59a0-7dc7-9cb1-9abda4f5fd34"
+    },
+    {
+      "source": "contributor/Yemo-Ku",
+      "target": "devnote/01978526-a76b-748b-85d0-f63036faf88b"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/01945265-b728-7938-aab0-1ce134f4dffa"
+    },
+    {
+      "source": "contributor/Yen-Yu-Hsu",
+      "target": "devnote/01948ff1-6dfd-7ce0-9e89-a2aa1c9b30b7"
+    },
+    {
+      "source": "devnote/01a108c6-4719-7833-92af-daf6f91ed06a",
+      "target": "modules/base-cytosol"
+    },
+    {
+      "source": "devnote/01945265-b728-7938-aab0-1ce134f4dffa",
+      "target": "modules/detector-tetr-atc"
+    },
+    {
+      "source": "devnote/01945265-b728-7938-aab0-1ce134f4dffa",
+      "target": "modules/emitter-ivhsl"
+    },
+    {
+      "source": "devnote/01945265-b728-7938-aab0-1ce134f4dffa",
+      "target": "modules/membrane-popc-chol"
+    },
+    {
+      "source": "devnote/01945265-b728-7938-aab0-1ce134f4dffa",
+      "target": "modules/purexpress"
+    },
+    {
+      "source": "devnote/01945265-b728-7938-aab0-1ce134f4dffa",
+      "target": "processes/assemble-base-cell"
+    },
+    {
+      "source": "devnote/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0",
+      "target": "modules/base-cell"
+    },
+    {
+      "source": "devnote/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0",
+      "target": "modules/base-cytosol"
+    },
+    {
+      "source": "devnote/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0",
+      "target": "modules/reporter-degfp"
+    },
+    {
+      "source": "devnote/019b13f9-1ec6-757c-b5ed-68cdd8e91fb0",
+      "target": "processes/assemble-base-cell"
+    },
+    {
+      "source": "devnote/019b3969-570f-7d88-b998-48ca97f0306c",
+      "target": "modules/control-clpxp"
+    },
+    {
+      "source": "devnote/019b3969-570f-7d88-b998-48ca97f0306c",
+      "target": "modules/reporter-degfp"
+    },
+    {
+      "source": "devnote/01981a5d-64c2-72f2-8055-5634d2824ede",
+      "target": "modules/control-clpxp"
+    },
+    {
+      "source": "devnote/01981a5d-64c2-72f2-8055-5634d2824ede",
+      "target": "modules/membrane-popc-chol"
+    },
+    {
+      "source": "devnote/01981a5d-64c2-72f2-8055-5634d2824ede",
+      "target": "modules/purexpress"
+    },
+    {
+      "source": "devnote/01981a5d-64c2-72f2-8055-5634d2824ede",
+      "target": "processes/assemble-base-cell"
+    },
+    {
+      "source": "devnote/019b613d-4a47-7d62-a262-77a667467a57",
+      "target": "modules/control-clpxp"
+    },
+    {
+      "source": "devnote/019b613d-4a47-7d62-a262-77a667467a57",
+      "target": "modules/membrane-popc-chol"
+    },
+    {
+      "source": "devnote/019b613d-4a47-7d62-a262-77a667467a57",
+      "target": "modules/purexpress"
+    },
+    {
+      "source": "devnote/019b613d-4a47-7d62-a262-77a667467a57",
+      "target": "processes/assemble-base-cell"
+    },
+    {
+      "source": "devnote/019a7496-0498-7d89-bebb-58cdc15caf54",
+      "target": "modules/membrane-pore-cx43"
+    },
+    {
+      "source": "devnote/019a7511-0b68-702b-8909-0fe96ef8d5d2",
+      "target": "modules/base-cytosol"
+    },
+    {
+      "source": "devnote/019a7511-0b68-702b-8909-0fe96ef8d5d2",
+      "target": "modules/reporter-degfp"
+    },
+    {
+      "source": "devnote/019d1d1d-2e2d-7839-b0e3-d5cee50231ee",
+      "target": "processes/make-1pot"
+    },
+    {
+      "source": "devnote/0198595d-3ccc-7d1f-8307-db4046a43569",
+      "target": "processes/make-1pot"
+    },
+    {
+      "source": "devnote/01981160-aaa4-7f80-b3e4-d8179077b8fe",
+      "target": "modules/energy-ppk"
+    },
+    {
+      "source": "devnote/01981160-aaa4-7f80-b3e4-d8179077b8fe",
+      "target": "modules/purexpress"
+    },
+    {
+      "source": "devnote/019926c4-3341-76fc-8f36-eb96fd77c170",
+      "target": "modules/energy-ppk"
+    },
+    {
+      "source": "devnote/019926c4-3341-76fc-8f36-eb96fd77c170",
+      "target": "modules/purexpress"
+    },
+    {
+      "source": "devnote/019926c4-3341-76fc-8f36-eb96fd77c170",
+      "target": "modules/reporter-degfp"
+    },
+    {
+      "source": "devnote/019926c4-3341-76fc-8f36-eb96fd77c170",
+      "target": "processes/assemble-base-cell"
+    },
+    {
+      "source": "devnote/01a08c2d-2898-7f60-8f62-6bee069fddca",
+      "target": "modules/base-cytosol"
+    },
+    {
+      "source": "devnote/01a08c2d-2898-7f60-8f62-6bee069fddca",
+      "target": "modules/reporter-degfp"
+    },
+    {
+      "source": "devnote/019ef6d5-3a27-787f-9ebd-fe80645b1068",
+      "target": "modules/base-cytosol"
+    },
+    {
+      "source": "devnote/019ef6d5-3a27-787f-9ebd-fe80645b1068",
+      "target": "modules/reporter-degfp"
+    },
+    {
+      "source": "devnote/019eae62-056c-7285-a994-aeb800ecdaa5",
+      "target": "modules/purexpress"
+    },
+    {
+      "source": "devnote/019eae62-056c-7285-a994-aeb800ecdaa5",
+      "target": "processes/assemble-base-cell"
+    },
+    {
+      "source": "devnote/019f05cb-6be8-7189-8c0d-f8f51d170541",
+      "target": "modules/base-cytosol"
+    },
+    {
+      "source": "devnote/019f05cb-6be8-7189-8c0d-f8f51d170541",
+      "target": "modules/control-clpxp"
+    },
+    {
+      "source": "devnote/019f05cb-6be8-7189-8c0d-f8f51d170541",
+      "target": "modules/reporter-degfp"
+    }
+  ]
+};
+const COLORS = {"contributor": "#006837", "devnote": "#6a3d9a", "modules": "#1f78b4", "processes": "#b15928", "implementations": "#ff7f00"};
+const LABELS = {"contributor": "Contributor", "devnote": "DevNote", "modules": "Module", "processes": "Process", "implementations": "Implementation"};
+const SURFACE = {"bg": "#ffffff", "panel": "#f2f6f1", "ink": "#11271c", "accent": "#006837", "text": "#26302a", "muted": "#4b564e", "faint": "#6e7a71", "divider": "#c9d3c9"};
+const LABEL_RADIUS_THRESHOLD = 20;
+
+const app = document.getElementById('app');
+const legendEl = document.getElementById('legend');
+const hiddenTypes = {};
+Object.keys(LABELS).forEach(type => {
+  const row = document.createElement('div');
+  row.className = 'legend-row';
+  row.innerHTML = `<div class="legend-dot" style="background:${COLORS[type]}"></div>${LABELS[type]}`;
+  row.addEventListener('click', () => {
+    hiddenTypes[type] = !hiddenTypes[type];
+    row.classList.toggle('dimmed', hiddenTypes[type]);
+    cy.nodes(`[type="${type}"]`).toggleClass('hidden', !!hiddenTypes[type]);
+    refreshPersistentLabels();
+  });
+  legendEl.appendChild(row);
+});
+
+const cy = cytoscape({
+  container: document.getElementById('cy'),
+  elements: [
+    ...GRAPH.nodes.map(n => ({ data: n })),
+    ...GRAPH.edges.map(e => ({ data: e })),
+  ],
+  style: [
+    {
+      selector: 'node',
+      style: {
+        'background-color': ele => COLORS[ele.data('type')] || '#888',
+        'shape': 'ellipse',
+        'label': 'data(initials)',
+        'color': '#ffffff',
+        'font-weight': 600,
+        'text-valign': 'center',
+        'text-halign': 'center',
+        'font-size': ele => Math.max(8, radius(ele) * 0.62) + 'px',
+        'width': ele => radius(ele) * 2,
+        'height': ele => radius(ele) * 2,
+        'border-width': 0,
+        'transition-property': 'opacity, border-width, border-color',
+        'transition-duration': '120ms',
+      },
+    },
+    { selector: 'node.hidden', style: { 'opacity': 0, 'events': 'no' } },
+    { selector: 'node.dimmed', style: { 'opacity': 0.35 } },
+    { selector: 'node.hovered', style: { 'border-width': 2.5, 'border-color': SURFACE.ink, 'border-opacity': 1 } },
+    { selector: 'node.selected', style: { 'border-width': 2.5, 'border-color': SURFACE.accent, 'border-opacity': 1 } },
+    {
+      selector: 'edge',
+      style: {
+        'width': 1.5,
+        'line-color': 'rgba(0,0,0,0.15)',
+        'curve-style': 'bezier',
+        'transition-property': 'line-color, width, opacity',
+        'transition-duration': '120ms',
+      },
+    },
+    { selector: 'edge.dimmed', style: { 'line-color': 'rgba(0,0,0,0.05)' } },
+    { selector: 'edge.active', style: { 'line-color': SURFACE.accent, 'width': 2.5 } },
+    { selector: '.hidden', style: { 'opacity': 0, 'events': 'no' } },
+  ],
+  layout: { name: 'cose', animate: false, padding: 40, nodeRepulsion: 9000, idealEdgeLength: 70 },
+  wheelSensitivity: 0.2,
+});
+
+function radius(ele) {
+  return Math.max(10, Math.min(34, Math.sqrt(Math.max(ele.degree(), 1)) * 7));
+}
+
+// ---- persistent name labels (above a size threshold), DOM-overlaid so the
+// in-circle initials and the below-circle name can use different styles ----
+const labelLayer = document.getElementById('label-layer');
+const labelEls = new Map();
+
+function ensureLabel(node) {
+  let div = labelEls.get(node.id());
+  if (!div) {
+    div = document.createElement('div');
+    div.className = 'node-name-label';
+    div.textContent = node.data('label');
+    labelLayer.appendChild(div);
+    labelEls.set(node.id(), div);
+  }
+  return div;
+}
+function removeLabel(id) {
+  const div = labelEls.get(id);
+  if (div) { div.remove(); labelEls.delete(id); }
+}
+function updateLabelPositions() {
+  labelEls.forEach((div, id) => {
+    const n = cy.getElementById(id);
+    if (!n || n.empty() || n.hasClass('hidden')) { div.style.display = 'none'; return; }
+    div.style.display = '';
+    const pos = n.renderedPosition();
+    div.style.left = pos.x + 'px';
+    div.style.top = (pos.y + n.renderedHeight() / 2 + 4) + 'px';
+  });
+}
+function refreshPersistentLabels() {
+  cy.nodes().forEach(n => {
+    if (radius(n) >= LABEL_RADIUS_THRESHOLD && !n.hasClass('hidden')) ensureLabel(n);
+    else if (!n.hasClass('hovered')) removeLabel(n.id());
+  });
+  updateLabelPositions();
+}
+cy.on('layoutstop', refreshPersistentLabels);
+cy.on('pan zoom position drag', updateLabelPositions);
+
+// ---- hover: dim everything not touching the hovered node, ink ring ----
+cy.on('mouseover', 'node', evt => {
+  const n = evt.target;
+  const neighborhood = n.closedNeighborhood();
+  cy.elements().difference(neighborhood).addClass('dimmed');
+  neighborhood.edges().addClass('active');
+  n.addClass('hovered');
+  ensureLabel(n).classList.add('hover-label');
+  updateLabelPositions();
+});
+cy.on('mouseout', 'node', evt => {
+  const n = evt.target;
+  cy.elements().removeClass('dimmed active');
+  n.removeClass('hovered');
+  if (radius(n) < LABEL_RADIUS_THRESHOLD) removeLabel(n.id());
+  else { const div = labelEls.get(n.id()); if (div) div.classList.remove('hover-label'); }
+});
+
+// ---- click: select a node, show its detail panel ----
+const panelKind = document.querySelector('#panel .kind');
+const panelName = document.querySelector('#panel .name');
+const panelLink = document.querySelector('#panel a.open-link');
+
+function selectNode(n) {
+  cy.nodes('.selected').removeClass('selected');
+  n.addClass('selected');
+  panelKind.textContent = LABELS[n.data('type')] || n.data('type');
+  panelName.textContent = n.data('label');
+  if (n.data('url')) {
+    panelLink.href = n.data('url');
+    panelLink.textContent = n.data('type') === 'devnote' ? 'Open DevNote ↗' : 'Open ↗';
+    panelLink.style.display = 'inline-block';
+  } else {
+    panelLink.style.display = 'none';
+  }
+  app.classList.add('panel-open');
+  afterLayoutChange();
+}
+function closePanel() {
+  cy.nodes('.selected').removeClass('selected');
+  app.classList.remove('panel-open');
+  afterLayoutChange();
+}
+function afterLayoutChange() {
+  // The rail/stage/panel grid just changed #cy's pixel size; cytoscape
+  // only knows its canvas size when told, and CSS transitions it over
+  // 150ms, so resize across a few frames rather than once immediately.
+  const start = performance.now();
+  function tick(now) {
+    cy.resize();
+    if (now - start < 200) requestAnimationFrame(tick);
+    else updateLabelPositions();
+  }
+  requestAnimationFrame(tick);
+}
+cy.on('tap', 'node', evt => selectNode(evt.target));
+cy.on('tap', evt => { if (evt.target === cy) closePanel(); });
+document.querySelector('#panel .close').addEventListener('click', closePanel);
+window.addEventListener('resize', () => { cy.resize(); updateLabelPositions(); });
+</script>
+</body>
+</html>
