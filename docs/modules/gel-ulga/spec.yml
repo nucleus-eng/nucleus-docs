@@ -24,7 +24,7 @@ process_steps:
       id: gel-ulga
       title: "Gel: ULGA"
       page: ../gel-ulga/spec.md
-    ratio: "1:1 with the sample, halving the ULGA to its final figure"
+    ratio: "Mix gel stock and sample at 1:1 (volume)"
     finals:
       ulga-powder: {value: 5, unit: "mg/mL", note: "after the 1:1 combination with the sample"}
     parameters:
