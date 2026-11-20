@@ -10,16 +10,16 @@ site:
 (lysis-pla1-overview)=
 # Overview
 
-The PLA1 Lysis Module uses phospholipase A1 (PLA1) to encode lysis genetically. Once expressed, PLA1 degrades the phospholipid membrane and lyses the cell that made it and its neighbors. Lysis releases chemical payloads from neighboring liposomes (e.g. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)) into an external solution (e.g. one that contains [Reporter: LacZ](../reporter-lacz/spec.md), which triggers a [colorimetric signal](../../processes/colorimetric-readout/main.md)). PLA1 can sit downstream of a sensing circuit that controls when it is expressed (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) and upstream of a reporter that requires lysis (e.g. [Reporter: LacZ](../reporter-lacz/spec.md)).
+The PLA1 Lysis Module uses phospholipase A1 (PLA1) to genetically encode lysis. Once expressed, PLA1 degrades phospholipid membranes and lyses cells, including its neighbors. Lysis releases chemical payloads from neighboring liposomes (e.g. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)) into an external solution. An example is a solution that contains [Reporter: LacZ](../reporter-lacz/spec.md), which triggers a [colorimetric signal](../../processes/colorimetric-readout/main.md). PLA1 can sit downstream of a sensing circuit that controls when it is expressed (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
 :::{attention} PLA1 is characterized only through a color readout
-One configuration removes the sensing circuit: constitutive expression in Base Cytosol, described under Expected Behavior. It supplies the only DNA dose and timing figures attributable to PLA1 alone. Every other result on this page comes from a cascade, where the sensing circuit and PLA1 cannot be separated.
+One configuration removes the sensing circuit: constitutive expression in Base Cytosol, described under Expected Behavior. It supplies the only DNA dose and timing figures attributable to PLA1 alone.
 
-No result isolates PLA1 from the CPRG/LacZ readout. Every lysis result is scored by the color it releases. None comes from a direct measure of membrane rupture or of enzyme activity. No efficiency figure exists for PLA1 in any configuration.
+No result isolates PLA1 from the CPRG/LacZ readout. Every lysis result is scored by the color it releases. No result comes from a direct measure of membrane rupture or of enzyme activity. No efficiency figure exists for PLA1 in any configuration.
 :::
 
 (lysis-pla1-reference-composition)=
@@ -61,20 +61,24 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{table}
+:::{table} DNA constructs that express PLA1, with their supply route.
+:label: comp-pla1-dna
+
 | Name | Length (bp) | File | Supply route |
 | --- | --- | --- | --- |
-| `T7pro-PLA1-T7term` | not yet determined | None | pT7. Used in the Chicago theophylline cascade and the ungated London run. Also written `T7-PLA1-T7term` in the linear-template batch prepared alongside the [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md) constructs. |
-| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | Constitutive `BBa_J23101`→`luxR` with `pLux`-driven PLA1 on one molecule. Used in the London 3OC6-HSL cascade. Also referred to as `P70lux-PLA1-term`. |
+| `T7pro-PLA1-T7term` | Not yet determined | Not yet in `nucleus-eng/DNA` | pT7 (constitutive). Supply form unknown. |
+| `pT7-tetO-PLA1-linear` | 1202 | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) | Linear template with `T7`, `TetO`, an RBS, the `T7hyb6` terminator and PLA1 on one molecule. aTc-gated configuration. |
+| `pOpen-T7-tetO-PLA1` | 3140 | [pOpen-T7-tetO-PLA1.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-tetr-atc/pOpen-T7-tetO-PLA1.gb) | Circular plasmid in the pOpen backbone, carrying the `T7`, `TetO`, RBS and PLA1 elements of `pT7-tetO-PLA1-linear`. |
+| `LuxR-PLA1-linear` | 2237 | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) | `BBa_J23101`→`luxR` (constitutive σ70) with `pLux`-driven PLA1 on one molecule. Used in the London 3OC6-HSL cascade. Also referred to as `P70lux-PLA1-term`. |
+| `pOpen-LuxR-PLA1` | 4175 | [pOpen-LuxR-PLA1.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb) | Circular plasmid in the pOpen backbone, carrying the `BBa_J23101`→`luxR` and `pLux`-driven PLA1 elements of `LuxR-PLA1-linear`. |
+| `pT7-toehold9-PLA1-linear` | 1203 | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) | Linear template with `T7`, `toehold 9`, PLA1 and the `T7hyb6` terminator on one molecule. pH-gated configuration. |
 :::
 
 :::{attention} `T7pro-PLA1-T7term` is not in `nucleus-eng/DNA`
 @Editor: `T7pro-PLA1-T7term` has no confirmed sequence file in [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA). b.next to add the file there. Then confirm that it matches the construct by `LOCUS` length, not by name, and add its length and file to the table above.
 :::
 
-The enzyme has two coding sequences. Every construct that carries PLA1 carries 963 bp of coding sequence, and all of them encode the same protein. They do not all use the same DNA. Chicago's two gated constructs, `pT7-tetO-PLA1` and `pT7-toehold9-PLA1`, are identical across the whole coding sequence. London's `LuxR-PLA1` agrees with them at 77.6 % of nucleotides and 100 % of residues, so it is a separate codon optimization of the same enzyme.
-
-The two sequences are interchangeable at the protein level and distinct at the DNA level. Codon usage is tuned to a host, and the two Nodes use different cytosols. Substituting one sequence for the other changes the construct, although the enzyme stays the same. Length cannot tell them apart.
+The two sequences are interchangeable at the protein level and distinct at the DNA level (codon usage). Substituting one sequence for the other changes the construct, but not the resulting enzyme or behavior. Length cannot tell them apart.
 
 ::::
 
@@ -87,14 +91,13 @@ PLA1 is expressed from one of the constructs above rather than added as a reagen
 
 | Configuration | Construct | Working concentration |
 | --- | --- | --- |
-| Constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL, in Base Cytosol at 1× in a 20 µL reaction with 5 % OptiPrep |
-| aTc-gated | `TetO-PLA1` | 1 nM (also tested at 0.5 nM) |
+| Constitutive, ungated | `T7pro-PLA1-T7term` | 14 ng/µL |
+| aTc-gated | `TetO-PLA1` | 1 nM |
 | 3OC6-HSL-gated | `LuxR-PLA1` | 15 ng/µL |
 | pH-gated | Toehold-switch-gated PLA1 template | 2 nM |
-| Theophylline-gated | `T7pro-PLA1-T7term` | Not documented |
 :::
 
-The cytosol is whichever the host configuration uses: [Base Cytosol](../base-cytosol/spec.md) for the aTc-gated, pH-gated and theophylline-gated cascades and for the ungated run, and [S30 Lysate](../s30-lysate/spec.md) for the London 3OC6-HSL cascade.
+The cytosol depends on the host configuration. The aTc-gated, pH-gated and theophylline-gated cascades and the ungated run use [Base Cytosol](../base-cytosol/spec.md). The London 3OC6-HSL cascade uses [S30 Lysate](../s30-lysate/spec.md).
 
 ::::
 
@@ -103,7 +106,7 @@ The cytosol is whichever the host configuration uses: [Base Cytosol](../base-cyt
 
 PLA1 lyses a membrane, so a membrane is part of every configuration that uses it. No lipid composition is specific to this Module. The membranes used with it are [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) and [Membrane: POPC](../membrane-popc/spec.md).
 
-Every configuration needs a self-lysis target. The two-liposome cascades also need the membrane of a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+The two-liposome cascades also use the membrane of a neighboring [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
 
 ::::
 
@@ -117,16 +120,12 @@ Every configuration needs a self-lysis target. The two-liposome cascades also ne
 
 The PLA1 Lysis Module is expected to lyse the synthetic cell that expresses PLA1 and the synthetic cells near it. One documented configuration reports on PLA1 rather than on a cascade, because nothing gates it.
 
-In the London constitutive configuration, `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes drives the two-liposome CPRG/LacZ handoff with no sensing circuit. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run. The result was reproduced across multiple days, so a visible result is expected on that timescale at this dose. The recorded outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 15 mg/mL ultra-low-gelling agarose (ULGA), so this is the gel format (see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)).
+In the London constitutive configuration, `T7pro-PLA1-T7term` at 14 ng/µL in [Base Cytosol](../base-cytosol/spec.md) liposomes drives the two-liposome CPRG/LacZ handoff with no sensing circuit. Color appears from about 3 h at 37 °C and is easily discernible by 16 h, against a minus-DNA control in the same run (read as in [Colorimetric Readout](../../processes/colorimetric-readout/main.md)). The result was reproduced across multiple days, so a visible result is expected on that timescale at this dose. The outer solution is 1200 mM glucose and 0.1 mM CaCl₂ with 15 mg/mL ultra-low-gelling agarose (ULGA), which makes this the gel format (see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)).
 
-Every other configuration on record puts a sensing circuit in front of PLA1, so PLA1 and its gate cannot be told apart. A weak result there can come from either. Those results belong to the cascades that produced them, and each cascade's own page carries them.
+Every other configuration on record puts a sensing circuit in front of PLA1, so PLA1 and its gate cannot be told apart. A weak result there can come from either.
 
-:::{attention} Premature lysis has two independent causes
-Gramicidin A causes premature lysis. Used as a proton channel for the pH cascade's GFP-expression result, it was left out of the colorimetric demonstration. It ruptured a portion of the CPRG-loaded liposomes and produced nonspecific color. Its absence can reduce pH-sensing efficiency, but proton diffusion into the more permeable liposomes was enough to drive PLA1 expression and start the lysis cascade.
-
-Acidic conditions alone rupture some CPRG-loaded liposomes, independent of PLA1. This confounds attributing a color change to the sensing pathway.
-
-Account for both routes, and do not assume that a liposome stays intact until the intended trigger.
+:::{attention} Source for the constitutive result
+@Editor: Cite the DevNote or data for the constitutive timing and for the reproduction across days.
 :::
 
 (lysis-pla1-requirements)=
@@ -134,15 +133,15 @@ Account for both routes, and do not assume that a liposome stays intact until th
 
 Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md)).
 
-PLA1 imposes lysis on any phospholipid membrane in reach. It cannot distinguish the membrane that expressed it from a neighbor's, or one population from another that shares its composition. Take a sensing cell and a substrate carrier that share one membrane formulation. PLA1 reaching the carrier is the intended path. PLA1 reaching another sensing cell is not. Nothing in the chemistry separates them. A composition that needs them separated states that requirement itself.
+PLA1 imposes lysis on any phospholipid membrane in reach. It cannot distinguish the membrane that expressed it from a neighbor's, or one population from another that shares its composition. Take a sensing cell and a substrate carrier that share one membrane formulation. PLA1 reaching the carrier is the intended path. PLA1 reaching another sensing cell is not. Nothing in the chemistry separates them. A composition that needs them separated must state that requirement itself.
 
-PLA1 requires a low noise floor in whatever drives it, and any color change module built on PLA1 inherits that requirement. It fails that requirement today for three separate reasons:
+PLA1 requires a low noise floor in whatever drives it, and any color change module built on PLA1 inherits that requirement. Three separate causes break that requirement:
 
 1. Leaky promoter. In [SensorCell[3OC6-HSL ⟶ PLA1]](../ahsl-sensing-cell/spec.md), PLA1 is expressed without 3OC6-HSL. It colors nearly as much as the induced state, so the dynamic range is gone.
 2. Membrane that does not outlive the reaction. In [Cell: Base Cytosol, POPC/Chol (9:1)](../cell-base-cytosol-popc-chol/spec.md) GUVs, PLA1 takes 10 to 12 h to lyse them, and the GUVs leak on their own over that window. The negative control also colors: slightly purple against slightly more purple when induced.
 3. Leaky gate. The pH path's own template is leaky. The function test for `pT7-toehold9-PLA1` is recorded as leaky, so the toehold gate passes some transcription with no trigger present.
 
-The detector is the component that currently fails this requirement. The LacZ/CPRG reaction does not fail it. No numeric threshold is defined for how low the noise floor has to be.
+The detector is the component that fails this requirement. The LacZ/CPRG reaction does not fail it. No numeric threshold is defined for how low the noise floor has to be.
 
 :::{attention} Sources for the noise-floor observations
 @Editor: The London Node to cite the DevNote or data for the background PLA1 expression without 3OC6-HSL.
