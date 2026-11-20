@@ -28,13 +28,26 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    # The theme (site.yml's `template: book-theme`) is fetched unpinned from
+    # the tip of its main branch, so our Node floor can move again with no
+    # change here. A timeout turns a future break into a fast failure
+    # instead of a multi-hour hang holding the `pages` concurrency group.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          # mystmd's book-theme server launches with `node --env-file=...`,
+          # a flag Node only supports from v20.6 onward. On 18.x that
+          # subprocess exits with "node: bad option", and the rest of
+          # `myst build --html` hangs rather than failing — see the
+          # multi-hour "cancelled" deploy runs this caused. 20.x would
+          # clear that flag but is already past its 2026-04-30 end of
+          # life; use the current LTS (24.x), matching environment.yml
+          # and the Node upstream myst-theme builds its own releases with.
+          node-version: 24.x
       - name: Install MyST
         run: npm install -g mystmd@1.9.1
       - name: Install typst
