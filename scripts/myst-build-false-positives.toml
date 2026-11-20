@@ -16,3 +16,10 @@ substring = 'Cannot find image "./Figure/connexin-scheme.png"'
 # (see spec.md line ~24). myst resolves the xref's own relative figure path
 # and checks for it on local disk, but the file only exists in the remote
 # DevNote repo — it renders correctly in the browser. See issue #176.
+
+[[image_exists]]
+file = "docs/modules/detector-esar/spec.md"
+substring = 'Cannot find image "figures/EsaR-sensing.png"'
+# Figure 1 sourced from the remote DevNote via `xref:devnote-esar#fig-esar-sensing`.
+# Same cause as the cx43 entry above: myst checks the xref's relative image path on
+# local disk, and the file exists only in the DevNote repo. See issue #176.
