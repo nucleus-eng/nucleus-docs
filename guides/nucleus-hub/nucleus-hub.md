@@ -14,5 +14,3 @@ In the meantime, the CDK is [here](https://pypi.org/project/nucleus-cdk/). Insta
 ## Write a DevNote
 
 Want to write a DevNote? Contact the Nucleus team at build@bnext.bio.
-
-For reference, the original Nucleus Hub walkthrough is still here: [Nucleus Hub (Archived Tutorial)](./nucleus-hub-dep.md).
