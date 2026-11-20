@@ -10,7 +10,12 @@ project:
     SUV: small unilamellar vesicle
 site:
   url: https://docs.nucleus.engineering
-  template: book-theme
+  # Pinned, not the bare name `book-theme`: that resolves against the
+  # unpinned tip of the theme's main branch, which is how a theme release
+  # with no change in this repo hung every deploy (see #345). mystmd@1.9.1
+  # (pinned in deploy.yml, protocols.yml and setup.sh) supports theme
+  # versions through 1.4.1; pin to that release until mystmd is upgraded.
+  template: https://github.com/jupyter-book/myst-theme/releases/download/myst-to-react%401.4.1/book-theme.zip
   nav:
     - title: Documentation
       url: https://docs.nucleus.engineering/
