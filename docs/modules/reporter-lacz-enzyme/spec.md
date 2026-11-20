@@ -60,11 +60,11 @@ The LacZ Enzyme Reporter is expected to turn released CPRG from yellow to purple
 
 ## Gels
 
-The LacZ Enzyme Reporter is expected to do the same in 3.5 mg/mL low-gelling agarose, where 1.2 U/mL gave a visible color after 5.5 h at 37 °C. In 7 mg/mL low-gelling agarose, 2 U/mL gave a visible color after 2 h in all wells, including the control without pH Sensing Cells. The leakage is described on [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
+The LacZ Enzyme Reporter is expected to do the same in 3.5 mg/mL low-gelling agarose. At 1.2 U/mL, this gave a visible color after 5.5 h at 37 °C. In 7 mg/mL low-gelling agarose, 2 U/mL gave a visible color after 2 h in all wells, including the control without pH Sensing Cells. The leakage is described on [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
 
 # Requirements
 
-Requires CPRG in the outer solution (e.g. CPRG released from [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)).
+Requires CPRG in the outer solution, for example CPRG released from [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
 
 # Implementations
 
@@ -91,7 +91,7 @@ Requires CPRG in the outer solution (e.g. CPRG released from [Substrate LUV: CPR
 
 # Credits
 
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan), Mary Kelly (Kamat Lab, Northwestern University, DevCells Chicago Node) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
+Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
 
 :::{attention}
 @Editor: Add the Node and Lab to this credit.

@@ -122,7 +122,11 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 
 # Credits
 
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090) (University of Michigan) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
+Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
+
+:::{attention}
+@Editor: Add the Node and Lab to this credit.
+:::
 
 # Supported by
 

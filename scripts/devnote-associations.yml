@@ -161,6 +161,7 @@ exclude:
   html: https://devnotes.nucleus.engineering/articles/01a16026-42c1-71ad-842a-463d52fae7d8
   modules:
   - base-cytosol
+  - reporter-lacz-enzyme
   processes: []
   implementations: []
   skipped: false
@@ -501,10 +502,11 @@ london-m2-1:
   title: LacZ/XylE colour change module
   doi: null
   html: https://devnotes.nucleus.engineering/articles/019b1403-bfd4-7694-820f-9e9f0e732e13
-  modules: []
+  modules:
+  - reporter-lacz-enzyme
   processes: []
   implementations: []
-  skipped: true
+  skipped: false
 london-m3-1:
   title: Quorum Sensing Polymersome
   doi: null
@@ -567,10 +569,11 @@ mn-260508-02:
   title: Theophylline-LacZ sensor validation in Nucleus Cytosol
   doi: null
   html: https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd
-  modules: []
+  modules:
+  - reporter-lacz-enzyme
   processes: []
   implementations: []
-  skipped: true
+  skipped: false
 newell-2026-terminators:
   title: DNA toolkit - The T7 terminator collection
   doi: null
