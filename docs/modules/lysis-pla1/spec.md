@@ -118,12 +118,6 @@ PLA1 lyses a phospholipid membrane, but is not specific to a particular lipid co
 
 The PLA1 Lysis Module is expected to lyse synthetic cells expressesing PLA1 as well as any nearby neighbors.
 
-Constitutive expression (`T7pro-PLA1-T7term` at 14 ng/µL) in [Base Cell](../base-cell/spec.md) drives the two-vessicle [Color Change Reporter](../color-change/spec.md) system. Color begins to form at about 3 h at 37 °C and is easily discernible by 16 h, against a no-DNA control. The outer solution was 1200 mM glucose and 0.1 mM CaCl₂ with 15 mg/mL ultra-low-gelling agarose ([ULGA](../gel-ulga/spec.md)).
-
-:::{attention} Source for the constitutive result
-@Editor: Cite the DevNote or data for the constitutive timing and for the reproduction across days.
-:::
-
 (lysis-pla1-requirements)=
 # Requirements
 

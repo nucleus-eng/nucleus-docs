@@ -53,19 +53,6 @@ flowchart TD
 
 ::::
 <!-- /gen:composition-diagram -->
-
-::::{tab-item} Substrate
-
-:::{table} Where the substrate is held until lysis.
-:label: comp-color-change-substrate
-
-| Substrate | Held in | Module |
-| --- | --- | --- |
-| CPRG | Inner solution of the LUV | [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) |
-| CPRG | Inner solution of the SUV | [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
-:::
-::::
-
 ::::{tab-item} Membrane
 
 :::{table} The membrane that PLA1 lyses.
@@ -101,7 +88,7 @@ Constructs that express PLA1 under each signal gate. The gate is the regulatory 
 
 ## Cells
 
-In the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), color is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added during [color development](../../processes/colorimetric-readout/main.md)
+In the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), color is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added during [color development](../../processes/colorimetric-readout/main.md).
 
 # Requirements
 
