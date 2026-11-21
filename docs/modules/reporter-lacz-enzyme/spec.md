@@ -60,11 +60,11 @@ The LacZ Enzyme Reporter is expected to turn released CPRG from yellow to purple
 
 ## Gels
 
-The LacZ Enzyme Reporter is expected to do the same in 3.5 mg/mL low-gelling agarose, where 1.2 U/mL gave a visible color after 5.5 h at 37 °C. In 7 mg/mL low-gelling agarose, 2 U/mL gave a visible color after 2 h in all wells, including the control without pH Sensing Cells. The leakage is described on [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
+The LacZ Enzyme Reporter is expected to do the same in 3.5 mg/mL low-gelling agarose. At 1.2 U/mL, this gave a visible color after 5.5 h at 37 °C. In 7 mg/mL low-gelling agarose, 2 U/mL gave a visible color after 2 h in all wells, including the control without pH Sensing Cells. The leakage is described on [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
 
 # Requirements
 
-Requires CPRG in the outer solution (e.g. CPRG released from [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)).
+Requires CPRG in the outer solution, for example CPRG released from [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
 
 # Implementations
 
@@ -103,11 +103,18 @@ Requires CPRG in the outer solution (e.g. CPRG released from [Substrate LUV: CPR
 ![](https://pub.curvenote.com/01a1659c-0b14-7107-9490-170bb5b0dc82/public/fig8-endpoint-abs-15-fa8ff33abe1e637358abcbe415f6130e.webp)
 :::
 
+:::{card} Double Vesicle Lysis System Leveraging deGFP CFPE
+:link: https://devnotes.nucleus.engineering/articles/01a16026-42c1-71ad-842a-463d52fae7d8
+:footer: Mary Kelly, Madison Briggs · DevStudio 2026
+
+![](https://pub.curvenote.com/01a1659b-f37b-7cd9-ac05-7f491b920d6e/public/fig1-two-vesicle-kin-b2f2e21461dd910150fd25955247d4e8.webp)
+:::
+
 :::{card} Implementing of a bulk color change module into bacterial quorum sensing
 :link: https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e
 :footer: Manuel Bibrowski, Charlie Newell, Jonah McDonald, Niall McIntyre, Julia Purrinos de Oliveira · DevStudio 2026
 
-![](https://pub.curvenote.com/01a1650a-90b4-729f-875b-e4f1ddce3bec/public/colorchange-overnigh-520d47ff723d53997b42c0e1c8c68cdc.webp)
+![](https://pub.curvenote.com/01a1f78f-6527-7c06-80eb-b0485a63f76a/public/colorchange-overnigh-125e6d1330fca3c802037638204f8e8d.webp)
 :::
 
 :::{card} TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning
@@ -117,25 +124,32 @@ Requires CPRG in the outer solution (e.g. CPRG released from [Substrate LUV: CPR
 ![](https://pub.curvenote.com/01a1659b-ebfe-71b5-b20a-66b33af95dfb/public/fig7-patterned-gel-5fc6273fa124c69e6d78ac4caafe3ce4.webp)
 :::
 
+:::{card} Theophylline-LacZ sensor validation in Nucleus Cytosol
+:link: https://devnotes.nucleus.engineering/articles/019e0431-5045-7f14-a4f9-d3795e22bcdd
+:footer: Maram Naji · Node: Chicago
+
+![](https://pub.curvenote.com/01a08cd1-07b4-7981-8cf4-f888604c5608/public/pT7_theo_lacZ-7c737c9e5acb683ca9afe1c51feb6185.webp)
+:::
+
 :::{card} Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1
 :link: https://devnotes.nucleus.engineering/articles/01a12d42-ca2e-70e7-b78b-66fcf11c400a
-:footer: Mary Kelly · DevStudio 2026
+:footer: Mary Kelly, Ojaswita Pant · DevStudio 2026
 
-![](https://pub.curvenote.com/01a1659c-0cd1-7f71-b8ee-df80a98ce1f8/public/fig1-pla1-guv-lysis--b9cba8b401d09e1f3b6124e89a713123.webp)
+![](https://pub.curvenote.com/01a1fa13-9345-7c96-896f-ffdcf93f8541/public/fig1-pla1-guv-lysis--613413e22e49b3c705ea9d1a77dc733c.webp)
 :::
 
 :::{card} Two Vesicle Colorimetric pH Sensor System
 :link: https://devnotes.nucleus.engineering/articles/01a0ea82-2101-7fed-82f9-1d8ef9258009
 :footer: Sung-Won Hwang, Samuel Chen, Allen P. Liu · DevStudio 2026
 
-![](https://pub.curvenote.com/01a1659e-fe19-7cd1-8542-37ff98753726/public/overview-schematic-a686967b8ee4691359ab0bc0bd9be620.webp)
+![](https://pub.curvenote.com/01a1fa13-c6fb-7f9a-a1a1-632d636726e0/public/overview-schematic-08a74743b9e6c2c2111bc4685b549640.webp)
 :::
 
 :::{card} Understanding Liposome Behaviour in Hydrogel Matrices
 :link: https://devnotes.nucleus.engineering/articles/01a10dfe-c1df-7c2d-ba5a-035280a349f7
 :footer: Ojaswita Pant, Manuel Bibrowski · DevStudio 2026
 
-![](https://pub.curvenote.com/01a1659b-f2a7-7372-93d6-8ea9f387f61d/public/schematic-hydrogel-o-d7d3affce66c5490e22c9a76d4696445.webp)
+![](https://pub.curvenote.com/01a1fa13-851d-7654-8d9e-eff684aa3093/public/schematic-hydrogel-o-54702d2804d2bec09c5e6e3bbd4cd0cd.webp)
 :::
 
 ::::
