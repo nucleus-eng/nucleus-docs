@@ -40,10 +40,6 @@ Colorimetric Readout develops and reads the color of a system that holds a color
 @Developer: Give the recommended incubation time.
 :::
 
-# Credits
-
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
-
 # Supported by
 
 [DevNotes](https://devnotes.nucleus.engineering) that support this page include:
