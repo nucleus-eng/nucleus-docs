@@ -7,10 +7,12 @@ exports:
     output: module-protocol-cells-degfp.pdf
 ---
 
+(reporter-degfp-protocol-cells-overview)=
 # Overview
 
 This protocol show you how to validate the functionality of the Reporter Module `pOpen-deGFP` in cells using the POPC:cholesterol Membrane Module.
 
+(reporter-degfp-protocol-cells-cytosol-reaction-setup)=
 ## Cytosol Reaction Setup
 
 :::{table} Reaction setup.
@@ -30,6 +32,7 @@ This protocol show you how to validate the functionality of the Reporter Module 
 
 :::
 
+(reporter-degfp-protocol-cells-protocol)=
 ## Protocol
 
 (reporter-degfp-prepare-stock-solutions)=
@@ -90,6 +93,7 @@ The lipid–oil mixture can be used immediately after cooling to room temperatur
 These outer solution concentrations may vary and should be based on the measured osmolarity of your inner solution.
 :::
 
+(reporter-degfp-protocol-cells-assemble-cytosol-reactions)=
 ### Assemble Cytosol Reactions
 
 - [ ]  Remove all components listed in the Reaction Setup table above from appropriate cold storage.

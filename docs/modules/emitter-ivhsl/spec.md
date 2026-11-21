@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(emitter-ivhsl-overview)=
 # Overview
 
 The IV-HSL Emitter module produces and releases N-isovaleryl-L-homoserine lactone (IV-HSL), a branched acyl-homoserine lactone, enabling enzymatic small-molecule production, molecule release as a reporter output, inter-cell communication, and co-culture of synthetic cells with living bacteria. The module is based on work by [Smith, Hartmann, and Booth, 2023](https://doi.org/10.1038/s41589-023-01374-7).

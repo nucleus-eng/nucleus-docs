@@ -7,10 +7,12 @@ exports:
     output: module-protocol-cytosol-degfp.pdf
 ---
 
+(reporter-degfp-protocol-cytosol-overview)=
 # Overview
 
 This protocol show you how to validate the functionality of the Reporter Module `pOpen-deGFP`.
 
+(reporter-degfp-protocol-cytosol-cytosol-reaction-setup)=
 ## Cytosol Reaction Setup
 
 :::{table} Reaction Setup.
@@ -30,10 +32,12 @@ This protocol show you how to validate the functionality of the Reporter Module 
 :::
 
 
+(reporter-degfp-protocol-cytosol-protocol)=
 # Protocol
 
 <!-- ### Prepare Stock Solutions -->
 
+(reporter-degfp-protocol-cytosol-assemble-cytosol-reactions)=
 ### Assemble Cytosol Reactions
 - [ ]  Remove all components listed in the Reaction Setup table above from appropriate cold storage.
 - [ ]  Thaw reagents on ice.

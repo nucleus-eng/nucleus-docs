@@ -89,6 +89,7 @@ The responder module is assembled within a standard PURE reaction, following [As
 - [ ] Incubate samples and controls containing PURE reactions at 37 °C for 1.5 h.
 - [ ] Mix varying amounts of samples or controls (between 1 µL and 2 µL) with 100 µL of the M9-cell solution.
 
+(responder-atc-ivhsl-cytosols-expected-performance)=
 ### Expected Performance
 
 **Induction of receiver *E. coli***
@@ -138,6 +139,7 @@ Endpoint GFP expression in *E. coli* receiver cells for each construct variant w
 
 Responder Cells were constructed and co-cultured with *E. coli* containing the `bjaR-GFP-native` IV-HSL receiver plasmid. Time-series confocal microscopy (Revvity Operetta CLS) was performed over 6 h / collecting red (Rhodamine-B), green (GFP), and brightfield images at 40× magnification across multiple fields per well at approximately 15 min intervals.
 
+(responder-atc-ivhsl-cells-expected-performance)=
 ### Expected Performance
 
 :::{figure} cell-performance-endpoint.png

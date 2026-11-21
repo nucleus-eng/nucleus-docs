@@ -3,6 +3,7 @@ title: "Encapsulation: Phase Transfer"
 subtitle: "Process"
 ---
 
+(assemble-base-cell-overview)=
 # Overview
 
 Emulsion phase transfer is a general method for encapsulating an aqueous inner solution (e.g., [Cytosol](../../modules/base-cytosol/spec.md)) inside a lipid bilayer to form liposomes. In this protocol, you will prepare your lipid mixture, form a water-in-oil emulsion from your inner solution and lipid mixture, and transfer that emulsion across an oil–water interface into an outer solution, yielding liposomes.
@@ -49,6 +50,7 @@ See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membr
 
 :::::
 
+(assemble-base-cell-materials-and-equipment)=
 # Materials and Equipment
 
 :::{table}
@@ -71,6 +73,7 @@ See [Base Membrane](../../modules/membrane-popc-chol/spec.md) for the full membr
 
 :::
 
+(assemble-base-cell-protocol)=
 # Protocol
 
 (assemble-base-cell-prepare-lipids-in-mineral-oil)=

@@ -5,6 +5,7 @@ site:
     hide-toc: true
 ---
 
+(emitter-ivhsl-implementation-overview)=
 # Overview
 
 The IV-HSL Emitter Cell produces IV-HSL, an acyl-homoserine lactone, which is detected by E. coli in co-culture with the Emitter Cells.
