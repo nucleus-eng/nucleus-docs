@@ -1,5 +1,5 @@
 ---
-title: "Color Change"
+title: "Reporter: Color Change"
 subtitle: "Module Specification"
 status: draft
 site:
@@ -13,7 +13,7 @@ This page is a work in progress and not yet ready for use.
 
 # Overview
 
-Color Change turns a gating signal into a visible color. Phospholipase A1 (PLA1) is expressed only when a signal is present. PLA1 lyses a membrane that holds the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG), and the released CPRG meets β-galactosidase (LacZ), which converts the yellow CPRG into the purple chlorophenol red (CPR). The Module is two operations in order: lysis, then color reporting. Where each component sits, and how many membranes lysis has to cross, depends on the implementation. The documented implementation is the [pH Cascade](../ph-cascade/spec.md), with PLA1 expressed in a [pH Sensing Cell](../ph-sensing-cell/spec.md), CPRG in separate liposomes, and the enzyme in the outer solution.
+Reporter: Color Change outputs a visible color change in response to a signal. As designed, Phospholipase A1 (PLA1) is expressed in the presence of a signal, which then lyses a membrane holding chlorophenol red-β-D-galactopyranoside (CPRG, yellow), which is then catalyzed by β-galactosidase (LacZ) and converted to chlorophenol red (CPR, purple). Where each component is localized (e.g., "one vessicle" has dye OR enzyme in the synthetic cell and the other component in outer solution, "two vessicle" has dye in one liposome and enzyme in another") depends on the implementation. See the [pH Cascade](../ph-cascade/spec.md), with PLA1 expressed in a [pH Sensing Cell](../ph-sensing-cell/spec.md), CPRG in separate liposomes, and the enzyme in the outer solution, for a concrete implementation.
 
 # Reference Composition
 
@@ -24,16 +24,17 @@ Color Change turns a gating signal into a visible color. Phospholipase A1 (PLA1)
 
 ```mermaid
 flowchart TD
-    GATED_PLA1_DNA["Gated PLA1 template, pT7-toehold9-PLA1-linear in the pH implementation"]
-    SUBSTRATE_LIPOSOME_LUV["Substrate LUV: CPRG"]
-    SUBSTRATE_LIPOSOME_SUV["Substrate SUV: CPRG"]
+    GATED_PLA1_DNA["PLA1 template"]
+    SUBSTRATE_CPRG["Substrate: CPRG"]
+    MEMBRANE["Base Membrane: POPC/Chol"]
     REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
 
     P1_REPORT_COLOR_0(["Colorimetric Readout (mixing)"])
     COLOR["Color: CPR"]
 
     REPORTER_LACZ_ENZYME --> P1_REPORT_COLOR_0
-    SUBSTRATE_LIPOSOME_LUV --> P1_REPORT_COLOR_0
+    SUBSTRATE_CPRG --> P1_REPORT_COLOR_0
+    MEMBRANE --> P1_REPORT_COLOR_0
     GATED_PLA1_DNA --> P1_REPORT_COLOR_0
     P1_REPORT_COLOR_0 --> COLOR
 
@@ -41,12 +42,11 @@ flowchart TD
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
     classDef process  fill:#ffffff,stroke:#374151,color:#111827;
-    class GATED_PLA1_DNA,SUBSTRATE_LIPOSOME_LUV,SUBSTRATE_LIPOSOME_SUV,REPORTER_LACZ_ENZYME leaf;
+    class GATED_PLA1_DNA,SUBSTRATE_CPRG,MEMBRANE,REPORTER_LACZ_ENZYME leaf;
     class COLOR composed;
     class P1_REPORT_COLOR_0 process;
 
-    click SUBSTRATE_LIPOSOME_LUV "/docs/modules/substrate-cprg-luv/spec"
-    click SUBSTRATE_LIPOSOME_SUV "/docs/modules/substrate-cprg-suv/spec"
+    click MEMBRANE "/docs/modules/membrane-popc-chol/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
     click P1_REPORT_COLOR_0 "/docs/processes/colorimetric-readout/main"
 ```
@@ -54,49 +54,9 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Containers
-
-Container diagram of the pH implementation: each box is a compartment, and each arrow is an operation that crosses a membrane.
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
-flowchart TB
-    subgraph OUTER["Outer solution"]
-        LACZ["β-galactosidase (LacZ)"]
-        subgraph CELL["pH Sensing Cell"]
-            DNA["Gated PLA1 template and trigger duplex"]
-            PLA1["PLA1, expressed"]
-        end
-        subgraph LIPOSOME["Substrate liposome"]
-            CPRG["CPRG"]
-        end
-    end
-
-    DNA -->|"gating signal: expression"| PLA1
-    PLA1 -->|"lysis"| LIPOSOME
-    CPRG -->|"released into the outer solution"| LACZ
-    LACZ -->|"converts CPRG to CPR"| CPR["CPR, purple"]
-```
-
-:::{table} Where each component sits in the pH implementation.
-:label: comp-color-change-containers
-
-| Component | Compartment | Module |
-| --- | --- | --- |
-| Gated PLA1 template, `pT7-toehold9-PLA1-linear` | Cytosol of the pH Sensing Cell | [Detector: pH-Sensing](../detector-ph/spec.md), [pH Sensing Cell](../ph-sensing-cell/spec.md) |
-| PLA1 | Made in the pH Sensing Cell; acts on membranes | [pH Sensing Cell](../ph-sensing-cell/spec.md) |
-| CPRG | Inner solution of a substrate liposome, until lysis; then the outer solution | [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md), [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
-| β-galactosidase | Outer solution | [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md) |
-:::
-
-:::{attention}
-@Editor: Add one row of this table, and one diagram, for each other implementation when its data are public: the multi-gel study and the LuxR to PLA1 demo.
-:::
-::::
-
 ::::{tab-item} Substrate
 
-:::{table} Where the substrate is held until lysis in the pH implementation.
+:::{table} Where the substrate is held until lysis.
 :label: comp-color-change-substrate
 
 | Substrate | Held in | Module |
@@ -106,14 +66,31 @@ flowchart TB
 :::
 ::::
 
+::::{tab-item} Membrane
+
+:::{table} The membrane that PLA1 lyses.
+:label: comp-color-change-membrane
+
+| Membrane | Holds | Module |
+| --- | --- | --- |
+| POPC/cholesterol bilayer | CPRG, until PLA1 lyses it | [Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md) |
+:::
+::::
+
 ::::{tab-item} DNA
 
-:::{table} Gated PLA1 construct of the pH implementation. Other implementations gate PLA1 with a different signal and a different regulatory DNA.
+Constructs that express PLA1 under each signal gate. The gate is the regulatory DNA that the construct carries.
+
+:::{table} DNA constructs that express PLA1, by signal gate.
 :label: comp-color-change-dna
 
-| Name | Length | Supply | File |
-| --- | --- | --- | --- |
-| `pT7-toehold9-PLA1-linear` | 1203 bp | Linear DNA template, added to the cytosol at 2 nM | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
+| Name | Length | Gate | Format | File |
+| --- | --- | --- | --- | --- |
+| `pT7-toehold9-PLA1-linear` | 1203 bp | pH (toehold9) | Linear template, added to the cytosol at 2 nM in the pH implementation | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
+| `pT7-tetO-PLA1-linear` | 1202 bp | aTc, through TetR | Linear template | [pT7-tetO-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/bd9574151d1e2c15878ce30fb05b320a8a0a5936/effectors/detector-tetr-atc/pT7-tetO-PLA1-linear.gb) |
+| `pOpen-T7-tetO-PLA1` | 3140 bp | aTc, through TetR | Circular plasmid (pOpen) | [pOpen-T7-tetO-PLA1.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/effectors/detector-tetr-atc/pOpen-T7-tetO-PLA1.gb) |
+| `LuxR-PLA1-linear` | 2237 bp | 3OC6-HSL, through LuxR | Linear template | [LuxR-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/bd9574151d1e2c15878ce30fb05b320a8a0a5936/effectors/detector-3oc6-hsl/LuxR-PLA1-linear.gb) |
+| `pOpen-LuxR-PLA1` | 4175 bp | 3OC6-HSL, through LuxR | Circular plasmid (pOpen) | [pOpen-LuxR-PLA1.gb](https://github.com/nucleus-eng/DNA/blob/f06e12cbc43da77dbb3c9d2d9a4ecc790fdd75b9/effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb) |
 :::
 
 ::::
@@ -124,30 +101,19 @@ flowchart TB
 
 ## Cells
 
-In the pH implementation, Color Change is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added at the readout. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
-
-:::{warning} Not yet validated
-Gating of PLA1 by a signal other than pH is not reported on this page.
-:::
+In the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), color is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added during [color development](../../processes/colorimetric-readout/main.md)
 
 # Requirements
 
-Requires a signal that gates PLA1 expression, built into the DNA of the PLA1 source (e.g. [Detector: pH-Sensing](../detector-ph/spec.md)).
+Requires pT7 transcription and translation to express PLA1 (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
-Requires pT7 transcription and translation where PLA1 is expressed (e.g. [Base Cytosol](../base-cytosol/spec.md)).
+Requires a signal that gates PLA1 expression (e.g. [Detector: pH-Sensing](../detector-ph/spec.md)) with a low noise floor. 
 
-Requires a control that separates sensing-driven color from CPRG leakage (see [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md)).
+Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)) with low leakiness.
 
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
-
-# Processes
-
-- [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the substrate liposomes.
-- [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md) makes the cell that expresses PLA1.
-- [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places both in a gel.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) adds the enzyme and reads the color.
 
 # Constituent Modules
 

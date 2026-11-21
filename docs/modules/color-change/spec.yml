@@ -8,14 +8,16 @@ type: ColorReporter
 
 inputs:
   gated-pla1-dna:
-    title: "Gated PLA1 template, pT7-toehold9-PLA1-linear in the pH implementation"
+    title: "PLA1 template"
     page: null
-  substrate-liposome-luv:
-    title: "Substrate LUV: CPRG"
-    page: ../substrate-cprg-luv/spec.md
-  substrate-liposome-suv:
-    title: "Substrate SUV: CPRG"
-    page: ../substrate-cprg-suv/spec.md
+  # The abstract meet of Substrate LUV: CPRG and Substrate SUV: CPRG. It has no page of its own;
+  # the page lists the two populations under Constituent Modules.
+  substrate-cprg:
+    title: "Substrate: CPRG"
+    page: null
+  membrane:
+    title: "Base Membrane: POPC/Chol"
+    page: ../membrane-popc-chol/spec.md
   reporter-lacz-enzyme:
     title: "Reporter: LacZ Enzyme"
     page: ../reporter-lacz-enzyme/spec.md
@@ -29,7 +31,7 @@ process_steps:
       title: "Colorimetric Readout"
       page: ../../processes/colorimetric-readout/main.md
     operator: mixing
-    operands: [reporter-lacz-enzyme, substrate-liposome-luv, gated-pla1-dna]
+    operands: [reporter-lacz-enzyme, substrate-cprg, membrane, gated-pla1-dna]
     produces:
       id: color
       title: "Color: CPR"
