@@ -128,7 +128,7 @@ Fold change (+3-oxo-C6-HSL / −3-oxo-C6-HSL) at 0.1 nM sensor DNA, with and wit
 Background-corrected fluorescence for 0.1 nM two-operator reporter DNA after overnight incubation at 25 °C, with and without 5 µM 3-oxo-C6-HSL (n = 3 wells).
 :::
 
-**How the repressor is prepared changes the result.** Pre-expressing the repressor for 3 h at 37 °C versus for 17 h at 30 °C give the same fold change at each reporter dose, but the longer preparation lowers yield for both ON and OFF states. The likely cause is byproducts accumulating over the longer incubation (e.g., inorganic phosphate).
+**How the repressor is prepared changes the total yield.** Pre-expressing the repressor for 3 h at 37 °C versus for 17 h at 30 °C give the same fold change at each reporter dose, but the longer preparation lowers yield for both ON and OFF states. The likely cause is byproducts accumulating over the longer incubation (e.g., inorganic phosphate).
 
 ## Cells
 
