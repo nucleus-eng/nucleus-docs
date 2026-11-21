@@ -2,7 +2,6 @@
 title: Exchange Buffers and Concentrate by Spin Filtration
 ---
 
-(buff-ex-spin-filters-overview)=
 # Overview
 
 You have a sample of a biomolecule (e.g., T7RNAP, tRNA, ribosomes, plasmid, etc.) that is either (1) in the wrong buffer (e.g., has 500 mM Imidazole) or (2) is too dilute.
@@ -12,7 +11,6 @@ This protocol is derived from the original PURE system ([Shimizu et al., 2001](h
 You can use centrifugal spin filters to concentrate your sample and change its buffer. These filters allow buffer and small molecules to flow through them, retaining large molecules bigger than the filter's specified molecular weight.
 
 
-(buff-ex-spin-filters-materials-and-equipment)=
 # Materials and Equipment
 
 We use two different volume spin filters, depending on how much sample volume we need to process: 15 mL or 0.5 mL.
@@ -27,7 +25,6 @@ We use two different volume spin filters, depending on how much sample volume we
 | 0.5 mL spin filters (3 kDa cutoff) | Consumables | Amicon® Ultra Centrifugal Filter, 3 kDa MWCO | Millipore Sigma | UFC5003 | $63 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/mm/ufc5003) |
 :::
 
-(buff-ex-spin-filters-protocol)=
 # Protocol
 
 - [ ] Dilute your sample ~10x with your new buffer (e.g., add 54 mL Protein Buffer to 6 mL eluted protein).
@@ -79,7 +76,10 @@ If your protein precipitates out in any of the concentration steps, dilute the p
 
 :::
 
-(buff-ex-spin-filters-downloads)=
+# Credits
+
+Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
+
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -97,8 +97,3 @@ If your protein precipitates out in any of the concentration steps, dilute the p
 :::
 
 ::::
-
-(buff-ex-spin-filters-acknowledgments)=
-# Acknowledgments
-
-Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

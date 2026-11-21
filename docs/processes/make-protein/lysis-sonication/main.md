@@ -2,7 +2,6 @@
 title: Lyse Bacteria by Sonication
 ---
 
-(lysis-sonication-overview)=
 # Overview
 
 You have bacterial cultures and you want to extract something inside of them (e.g., overexpressed protein, plasmid DNA, tRNAs, total lysate, etc.). You're going to need to lyse this culture. You can use a sonicator to do so, disrupting bacterial walls and membranes using ultrasonic frequencies pumped into the bacterial culture. This protocol shows you how to use a sonicator to mechanically lyse cells.
@@ -25,7 +24,6 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::::
 
-(lysis-sonication-materials-and-equipment)=
 # Materials and Equipment
 
 
@@ -53,7 +51,6 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 <!-- vale nucleus.magnitude-unit-spacing = YES -->
 
-(lysis-sonication-protocol)=
 # Protocol
 
 - [ ] **Prepare Stock Solutions.**
@@ -131,7 +128,10 @@ Please read this section carefully. It contains important notes, resources, and 
   Your target protein is not stable in clarified lysate, even if clarification reduces proteolytic activity. You should immediately proceed to purification. Your samples will only continue to degrade until they've been purified and stored at -80 °C. Work smoothly and quickly from here on out!
   :::
 
-(lysis-sonication-downloads)=
+# Credits
+
+Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)
+
 # Downloads
 
 ::::{grid} 1 1 1 2
@@ -149,8 +149,3 @@ Please read this section carefully. It contains important notes, resources, and 
 :::
 
 ::::
-
-(lysis-sonication-acknowledgments)=
-# Acknowledgments
-
-Yan Zhang, Zoila Jurado, and Miki Yun (Richard Murray Lab, Caltech)

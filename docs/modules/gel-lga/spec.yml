@@ -24,7 +24,7 @@ process_steps:
       id: gel-lga
       title: "Gel: LGA"
       page: ../gel-lga/spec.md
-    ratio: "stock diluted 1:1 with outer solution, then 1:1 with the sample"
+    ratio: "Mix gel stock, outer solution, and sample at 1:1:2 (volume)"
     finals:
       lga-powder: {value: 7, unit: "mg/mL", note: "after the dilution and the 1:1 combination with the sample"}
     parameters:

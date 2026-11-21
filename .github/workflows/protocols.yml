@@ -61,7 +61,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          # Match deploy.yml: the theme's book-theme server needs Node
+          # >=20.6 for the --env-file flag it launches with. Use the
+          # current LTS (24.x), matching environment.yml, since 20.x is
+          # already past its end of life.
+          node-version: 24.x
       - name: Install MyST
         run: npm install -g mystmd@1.9.1
       - name: Install typst
