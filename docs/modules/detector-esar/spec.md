@@ -9,14 +9,14 @@ site:
 
 # Overview
 
-The EsaR Detector Module senses the bacterial quorum signal 3-oxo-C6-HSL and starts transcription of a downstream gene in response. EsaR is a repressor that binds the EsaO operator, which sits between a T7 promoter and the target gene. EsaR blocks T7 RNA polymerase from transcribing. Adding 3-oxo-C6-HSL releases EsaR from the DNA, initiating gene expression by derepressing transcription. 
+The EsaR Detector Module initiates transcription of a target gene in response to the bacterial quorum signal 3-oxo-C6-HSL. EsaR is a repressor that binds the EsaO operator, which when placed sits between a promoter and the target gene can reversibly repress transcription. When EsaR binds the operator sequence, it blocks T7 RNA polymerase from transcribing. When EsaR allosterically binds 3-oxo-C6-HSL, it releases from the DNA and derepresses transcription of the target gene. 
 
 :::{figure} xref:devnote-esar#fig-esar-sensing
 :name: fig-detector-esar-mechanism
 :align: center
 :width: 70%
 
-Schematic representation of EsaO/EsaR-dependent transcriptional regulation. EsaR binds the EsaO box and blocks T7 RNA polymerase from transcribing an mNeonGreen reporter. When 3-oxo-C6-HSL binds, EsaR leaves the DNA and transcription resumes.
+Schematic representation of EsaO/EsaR-dependent transcriptional regulation. EsaR binds the EsaO box and blocks T7 RNA polymerase from transcribing an mNeonGreen reporter. When 3-oxo-C6-HSL binds, EsaR leaves the DNA and transcription resumes. Figure from [Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a).
 :::
 
 :::{note} EsaR is a repressor, despite its entry in UniProt.
@@ -29,7 +29,7 @@ This page is a work in progress and not yet ready for use. Several quantities be
 
 # Reference Composition
 
-EsaR is added to the reaction as a protein. It is first expressed in its own cell-free reaction (3 h at 37 °C, held at 4 °C until use) then pre-incubated with the EsaO-containing template before being added to the working reaction. 
+EsaR is added to the reaction as a protein. It is first expressed from DNA in its own cell-free reaction (3 h at 37 °C, held at 4 °C until use) then pre-incubated with the EsaO-containing DNA template before being added to the working reaction to allow the repressor to bind the operator site. 
 
 :::::{tab-set}
 
@@ -42,7 +42,7 @@ The operator `[EsaO]2` is two EsaO sites in tandem, one base apart. Each site is
 
 | **Name** | **Length (bp)** | **Role** | **File** |
 | --- | --- | --- | --- |
-| `T7-EsaR(D91G)-T7term` | 1118 | Expresses the repressor. The repressor is the point mutant D91G which is shown to have stronger repression than wild type. | [pT7-EsaR-D91G-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaR-D91G-linear.gb) |
+| `T7-EsaR(D91G)-T7term` | 1118 | Expresses EsaR. Contains a single amino acid substitution (D91G) shown to give stronger repression than wild type. | [pT7-EsaR-D91G-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaR-D91G-linear.gb) |
 | `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter | [pT7-EsaO-EsaO-mNG-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaO-EsaO-mNG-linear.gb) |
 | `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. | [pT7-EsaO-mNG-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaO-mNG-linear.gb) |
 
@@ -65,7 +65,7 @@ Annotated sequence maps are in the DevNote: [T7-EsaR(D91G)-T7term](https://devno
 | Ribosomes | 10 µM (5.55×)       | 1.8 µM                 | 11.82 |
 | tRNA      | 35 µg/µL (10×)      | 3.5 µg/µL              |6.50 |
 | RNase Inhibitor | 40 000 U/mL (20×) | 2000 U/mL | 1.62 |
-| `T7-[EsaO]2-mNG-T7term` | 10 ng/µL | 0.1 nM | 0.43 |
+| `T7-[EsaO]2-mNG-T7term` | 14.5 nM (10 ng/µL) | 0.1 nM | 0.43 |
 | Pre-expressed EsaR(D91G) reaction | — | — | 14.00 |
 | Nuclease-free water | — | — | 3.13 |
 | **Total** | | | **65.00** |
@@ -90,25 +90,25 @@ Annotated sequence maps are in the DevNote: [T7-EsaR(D91G)-T7term](https://devno
 Steady-state fold change (with versus without 3-oxo-C6-HSL), for the one-operator and two-operator DNA templates at (0.1, 0.5, 1, and 3) nM. At 0.5 nM the ON state is ~ 1.8-fold higher than the OFF state.
 :::
 
-**Repression fails when the reporter template is in excess.** Titrating repressor (volume of pre-reaction) with a fixed DNA template (10 ng/µL) found no difference between the induced and uninduced states. Reversing the titration, i.e., titrating the DNA template with a fixed repressor, recovers repression. This system does not show repression above 1 nM DNA template. At 0.1 nM the two-operator reporter gives about 2-fold and the one-operator reporter about 1.5-fold.
+**Repression fails when the reporter template is in excess.** Titrating repressor (volume of pre-reaction) with a fixed DNA template (10 ng/µL) found no difference in output signal ([mNeonGreen](../reporter-mneongreen/spec.md) between the ON and OFF states. Reversing the titration, i.e., varying the DNA template concentration with a fixed repressor, recovers repression below 1 nM DNA template. At 0.1 nM the two-operator reporter gives about 2-fold and the one-operator reporter about 1.5-fold.
 
-**Yield does not fall when the DNA template is reduced.** Reactions at roughly a tenth of the usual DNA template concentration reach fluorescence yields comparable to the constitutively expressed control. The likely reason is that each dose of pre-expressed repressor also carries over unspent energy and transcription and translation factors, so adding repressor adds capacity as well.
+**Expression level does not fall when the DNA template is reduced.** Sensor DNA at (0.5, 1 and 3) nM matches or exceeds the fluorescence of the constitutive [mNeonGreen](../reporter-mneongreen/spec.md) control at 15.6 nM, a 5- to 30-fold lower template concentration. Carryover of unspent energy components and transcription and translation factors from the pre-expressed repressor reaction may supply the extra capacity.
 
-**Longer pre-incubation of the repressor and the DNA template increases difference in ON and OFF states.** A 15 min incubation gives about 2-fold in the titration experiments. Extending it to 1 h gives about 3-fold in the magnesium sweep, with individual replicates between 2.2 and 4.2 (see [the magnesium figure](#fig-detector-esar-mg-fold)).
+**Longer pre-incubation of the repressor and the DNA template increases difference in ON and OFF states.** A 15 min pre-incubation gives about 2-fold dynamic range between states in the titration experiments, whereas a 1 h pre-incubation gives about 3-fold, with individual replicates between 2.2- and 4.2-fold (see [below](#fig-detector-esar-mg-fold)).
 
-**Magnesium does not improve dynamic range, and too much reduces it.** Supplementing the repressor–reporter incubation step with (0, 5, or 10) mM magnesium does not change the dynamic range of the detector. At 20 mM, the dynamic range roughly halves due almost entirely to a lower induced state.
+**Magnesium does not improve dynamic range, and too much reduces it.** Supplementing the repressor–reporter pre-incubation step with (0, 5, or 10) mM magnesium does not change the dynamic range of the detector. At 20 mM, the dynamic range roughly halves due almost entirely to a lower induced state.
 
 :::{figure} xref:devnote-esar#fig-20261001-mg-sweep-fold
 :name: fig-detector-esar-mg-fold
 :align: center
 :width: 55%
 
-Fold change (+3-oxo-C6-HSL / −3-oxo-C6-HSL) for the two-operator reporter at 0, 5 and 10 mM added magnesium, after a 1 h pre-incubation of repressor and DNA at 37 °C. Error bars show standard deviation across two replicate wells.
+Fold change (+3-oxo-C6-HSL / −3-oxo-C6-HSL) for the two-operator reporter at (0, 5 and 10) mM added magnesium, after a 1 h pre-incubation of repressor and DNA at 37 °C. Error bars show standard deviation across two replicate wells.
 :::
 
-@Editor: the 20 mM arm was run but is not plotted, and the DevNote text says Mg did not alter the dynamic range at any concentration tested. Plot the 20 mM arm and correct that sentence. The raw file gives a fold change of 1.75 at 20 mM against 3.0 to 3.4 at 0, 5 and 10 mM.
+@Editor: the 20 mM arm was run but is not plotted, and the DevNote text says Mg did not alter the dynamic range at any concentration tested. Plot the 20 mM arm and correct that sentence. The raw file gives a fold change of 1.75-fold at 20 mM against 3.0- to 3.4-fold at (0, 5 and 10) mM.
 
-**More repressor template lowers the OFF state but costs yield in the ON state.** Pre-expressed repressor carries over its own template at about 3.4 nM. Adding 5.3 nM more EsaR template, for 8.7 nM in total, raises the fold change from 2.8 to about 3.8. The induced state falls roughly four-fold, because expressing more repressor diverts resources away from the reporter.
+**More repressor template lowers the OFF state but costs yield in the ON state.** Pre-expressed repressor carries over its own template at about 3.4 nM. Adding 5.3 nM more EsaR template, for 8.7 nM in total, raises the fold change from 2.8 to about 3.8. The induced state falls roughly four-fold, likely because expressing more repressor diverts resources away from expressing the reporter.
 
 :::{figure} xref:devnote-esar#fig-20261007-fold
 :name: fig-detector-esar-template-competition
@@ -118,9 +118,7 @@ Fold change (+3-oxo-C6-HSL / −3-oxo-C6-HSL) for the two-operator reporter at 0
 Fold change (+3-oxo-C6-HSL / −3-oxo-C6-HSL) at 0.1 nM sensor DNA, with and without 5.3 nM added EsaR template (n = 3 wells). Error bars show standard deviation.
 :::
 
-@Editor: the DevNote's figure and platemap name the single-operator reporter, and its composition table names the two-operator one. State which construct this result is for.
-
-**A lower reaction temperature increases the dynamic range.** Running the reaction at 25 °C overnight in a thermocycler instead of at 37 °C for 3 h gives about 5.8-fold, after a 1 h pre-incubation of repressor and DNA. The likely reason is that at a lower temperature both EsaR–DNA binding is strengthened and T7 transcription is slowed, which limits expression from any repressed template.
+**A lower reaction temperature increases the dynamic range.** Running the final cytosol reaction at 25 °C overnight in a thermocycler instead of at 37 °C for 3 h gives about 5.8-fold, using a 1 h pre-incubation of repressor and DNA. Likely both EsaR–DNA binding is strengthened and T7 transcription is slowed at a lower temperature, which would lower the OFF state.
 
 :::{figure} xref:devnote-esar#fig-20261008-overnight
 :name: fig-detector-esar-overnight
@@ -130,17 +128,16 @@ Fold change (+3-oxo-C6-HSL / −3-oxo-C6-HSL) at 0.1 nM sensor DNA, with and wit
 Background-corrected fluorescence for 0.1 nM two-operator reporter DNA after overnight incubation at 25 °C, with and without 5 µM 3-oxo-C6-HSL (n = 3 wells).
 :::
 
-@Editor: the three replicate values behind this figure are typed into the notebook cell and no raw file for the overnight read is in the DevNote folder. Add the raw file.
-
-**How the repressor is prepared changes the result, so the two preparations are not interchangeable.** Expressing the repressor for 3 h at 37 °C and for 17 h at 30 °C give the same fold change at each reporter dose, but the longer preparation lowers yield in both ON and OFF states. The likely cause is byproducts accumulating over the longer incubation (e.g., inorganic phosphate).
+**How the repressor is prepared changes the result.** Pre-expressing the repressor for 3 h at 37 °C versus for 17 h at 30 °C give the same fold change at each reporter dose, but the longer preparation lowers yield for both ON and OFF states. The likely cause is byproducts accumulating over the longer incubation (e.g., inorganic phosphate).
 
 ## Cells
 
-This module works inside a synthetic cell. The two-operator reporter was encapsulated in GUVs at 0.1 nM with pre-expressed repressor, and 3-oxo-C6-HSL was supplied in the outer solution at 5 µM. GUVs in the induced wells are noticeably brighter than the uninduced ones.
+The two-operator reporter was encapsulated in GUVs at 0.1 nM with pre-expressed repressor. 3-oxo-C6-HSL was supplied in the outer solution at 5 µM. GUVs in the induced wells are noticeably brighter than the uninduced ones.
 
-GUVs were made by emulsion transfer. POPC was dried under nitrogen, dried further under vacuum for at least two hours, resuspended in 500 µL mineral oil and sonicated at room temperature for about 20 min. The inner solution was 20 µL. 200 µL of the lipid-in-oil mixture was added onto it and pipetted up and down nine times, and the emulsion was layered onto 250 µL of outer solution. GUVs were spun at 9000 g for 20 min at 15 °C.
+The repressor was pre-expressed from 24 nM DNA template, double the typical concentration. The reporter DNA template was then added and the mixture was incubated for about 1 h at 37 °C before encapsulation.
 
-For this run the repressor was pre-expressed from template at 24 nM, double the usual, giving a final repressor-reaction concentration of 5 nM. The reporter was held with the pre-expressed repressor for about 1 h at 37 °C before encapsulation.
+GUVs were made by emulsion transfer. POPC was dried under nitrogen, dried further under vacuum for at least 2 h, resuspended in 500 µL mineral oil and sonicated at room temperature for about 20 min. 200 µL of the lipid-in-oil mixture was added onto 20 µL inner solution and mixed by pipetting (9x) to emulsify. The emulsion was layered onto 250 µL of outer solution and centrifuged at 9000 g for 20 min at 15 °C.
+
 
 # Requirements
 
@@ -151,6 +148,10 @@ Requires the repressor to be supplied as protein, e.g., expressed in a separate 
 Requires the DNA template at or below 0.5 nM. Above 1 nM the reporter is in excess of the repressor and no repression is seen.
 
 Requires the analyte to reach the repressor. 3-oxo-C6-HSL crosses a POPC membrane well enough to induce an encapsulated reaction from the outer solution, so no membrane pore is needed.
+
+# Processes
+
+- [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md): makes the GUVs by emulsion transfer.
 
 # Materials
 
