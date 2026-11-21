@@ -80,14 +80,6 @@ Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/
 
 - [Anneal pH Trigger Duplex](../../processes/anneal-ph-trigger-duplex/main.md) anneals the pH-responsive strand and the trigger strand.
 
-# Credits
-
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
-
-:::{attention}
-@Editor: Add the Node and Lab to this credit.
-:::
-
 # Supported by
 
 [DevNotes](https://devnotes.nucleus.engineering) that support this specification include:
