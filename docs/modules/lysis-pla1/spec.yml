@@ -30,7 +30,7 @@
 
 module: lysis-pla1
 title: "Lysis: PLA1"
-refines: lysis
+type: Lysis
 
 inputs:
   base-cytosol:

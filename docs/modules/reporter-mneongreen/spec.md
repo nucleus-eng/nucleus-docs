@@ -11,7 +11,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Reporter](../reporter/spec.md) and [Fluorophore](../fluorophore/spec.md). Refined by nothing declared.
+**Position.** Refines Reporter and Fluorophore. Refined by nothing declared.
 <!-- /gen:position -->
 
 The mNeonGreen Reporter Module produces mNeonGreen, a monomeric green fluorescent protein derived from the lancelet *Branchiostoma lanceolatum* that can be read directly on a green fluorescence channel.
@@ -35,7 +35,7 @@ flowchart TD
     BASE_CYTOSOL["Base Cytosol"]
     MNEONGREEN_DNA["mNeonGreen template"]
 
-    P1_EXPRESS_THE_REPORTER_0(["Expression (mixing)"])
+    P1_EXPRESS_THE_REPORTER_0(["Expression (mixing) — no page"])
     REPORTER_MNEONGREEN["mNeonGreen Reporter"]
 
     BASE_CYTOSOL --> P1_EXPRESS_THE_REPORTER_0
@@ -51,7 +51,6 @@ flowchart TD
     class P1_EXPRESS_THE_REPORTER_0 process;
 
     click BASE_CYTOSOL "/docs/modules/base-cytosol/spec"
-    click P1_EXPRESS_THE_REPORTER_0 "/docs/processes/express/main"
     click REPORTER_MNEONGREEN "/docs/modules/reporter-mneongreen/spec"
 ```
 
@@ -105,7 +104,7 @@ The mNeonGreen Reporter Module is expected to give green fluorescence that rises
 (reporter-mneongreen-cytosols)=
 ## Cytosols
 
-The Module runs in both [Base Cytosol](../base-cytosol/spec.md) and [S30 Lysate](../s30-lysate/spec.md). In Base Cytosol, fluorescence was read on a Synergy 2 plate reader as a 6 h kinetic at 37 °C with a reading every 5 min. The readings were made against a fluorescein ladder at (0, 0.5, 1 and 2) µM. No reaction yield or kinetics, or DNA template concentration is recorded.
+The Module runs in both [Base Cytosol](../base-cytosol/spec.md) and S30 Lysate. In Base Cytosol, fluorescence was read on a Synergy 2 plate reader as a 6 h kinetic at 37 °C with a reading every 5 min. The readings were made against a fluorescein ladder at (0, 0.5, 1 and 2) µM. No reaction yield or kinetics, or DNA template concentration is recorded.
 
 :::{attention} mNeonGreen fluorescence is at the blue end of the standard green channel.
 Every reading reported here was recorded on the standard green channel: 485/20 excitation, 528/20 emission. mNeonGreen own maxima (ex: 506 nm, em: 517 nm) sit on the blue end of the filter's range. Monochromators set to the specific excitation and emission peaks of mNeonGreen may collect more of the signal. 
@@ -125,7 +124,7 @@ This Module has not been demonstrated in a synthetic cell. Every reading on reco
 (reporter-mneongreen-requirements)=
 # Requirements
 
-Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md), [S30 Lysate](../s30-lysate/spec.md)).
+Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md), S30 Lysate).
 
 Requires a reader that can excite near 506 nm and collect near 517 nm (e.g. a standard green channel, which collects the protein at the blue edge of its range).
 
@@ -134,5 +133,5 @@ mNeonGreen is sensitive to acid. Its reported pKa is 5.7, so fluorescence falls 
 (reporter-mneongreen-processes)=
 # Processes
 
-- [Expression](../../processes/express/main.md): makes the protein from the template, in the compartment that reads it.
+- Expression: makes the protein from the template, in the compartment that reads it.
 

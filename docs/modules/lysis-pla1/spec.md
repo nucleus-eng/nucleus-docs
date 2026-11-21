@@ -10,7 +10,7 @@ site:
 (lysis-pla1-overview)=
 # Overview
 
-The PLA1 Lysis Module uses phospholipase A1 (PLA1) to genetically encode lysis. Once expressed, PLA1 degrades phospholipid membranes and lyses cells, including its neighbors. Lysis releases chemical payloads from neighboring liposomes (e.g. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)) into an external solution. An example is a solution that contains [Reporter: LacZ](../reporter-lacz/spec.md), which triggers a [colorimetric signal](../../processes/colorimetric-readout/main.md). PLA1 can sit downstream of a sensing circuit that controls when it is expressed (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)).
+The PLA1 Lysis Module uses phospholipase A1 (PLA1) to genetically encode lysis. Once expressed, PLA1 degrades phospholipid membranes and lyses cells, including its neighbors. Lysis releases chemical payloads from neighboring liposomes (e.g. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)) into an external solution. An example is a solution that contains Reporter: LacZ, which triggers a [colorimetric signal](../../processes/colorimetric-readout/main.md). PLA1 can sit downstream of a sensing circuit that controls when it is expressed (e.g. [Detector: tetR-aTc](../detector-tetr-atc/spec.md)).
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -97,14 +97,14 @@ PLA1 is expressed from one of the DNA constructs listed rather than added as a p
 | pH induced | Toehold-switch-gated PLA1 template | 2 nM |
 :::
 
-The cytosol depends on the host configuration. The aTc-gated, pH-gated and theophylline-gated cascades and the ungated run use [Base Cytosol](../base-cytosol/spec.md). 3OC6-HSL cascade uses [S30 Lysate](../s30-lysate/spec.md).
+The cytosol depends on the host configuration. The aTc-gated, pH-gated and theophylline-gated cascades and the ungated run use [Base Cytosol](../base-cytosol/spec.md). 3OC6-HSL cascade uses S30 Lysate.
 
 ::::
 
 <!-- composition-tabs -->
 ::::{tab-item} Membrane
 
-PLA1 lyses a phospholipid membrane, but is not specific to a particular lipid composition. The membranes validated with this module are [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md) and [Membrane: POPC](../membrane-popc/spec.md).
+PLA1 lyses a phospholipid membrane, but is not specific to a particular lipid composition. The membranes validated with this module are Membrane: POPC/Chol (9:1) and Membrane: POPC.
 
 ::::
 
@@ -121,22 +121,22 @@ The PLA1 Lysis Module is expected to lyse synthetic cells expressesing PLA1 as w
 (lysis-pla1-requirements)=
 # Requirements
 
-Requires a phospholipid membrane to lyse (e.g. [Membrane: POPC](../membrane-popc/spec.md), [Membrane: POPC/Chol (9:1)](../membrane-popc-chol-9-1/spec.md)).
+Requires a phospholipid membrane to lyse (e.g. Membrane: POPC, Membrane: POPC/Chol (9:1)).
 
 PLA1 imposes lysis on any phospholipid membrane in reach. It cannot distinguish the membrane that expressed it from a neighbor's. 
 
-Requires an upstream sensing circuit (e.g. [Detector: 3OC6-HSL (LuxR)](../detector-3oc6-hsl/spec.md), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis needs to be conditional. Expressed constitutively, PLA1 lyses vesicles as it is expressed.
+Requires an upstream sensing circuit (e.g. Detector: 3OC6-HSL (LuxR), [Detector: tetR-aTc](../detector-tetr-atc/spec.md)) only where lysis needs to be conditional. Expressed constitutively, PLA1 lyses vesicles as it is expressed.
 
 Requires pT7 transcription and translation, when using `T7pro-PLA1-T7term` (e.g. [Base Cytosol](../base-cytosol/spec.md)).
 
-Requires σ70 transcription and translation, when using `LuxR-PLA1` (e.g. [S30 Lysate](../s30-lysate/spec.md)).
+Requires σ70 transcription and translation, when using `LuxR-PLA1` (e.g. S30 Lysate).
 
 Do not add Gramicidin A to a colorimetric cascade. See [Expected Behavior](#lysis-pla1-expected-behavior) for why.
 
 (lysis-pla1-implementations)=
 # Implementations
 
-- [pH Demo](../../implementations/devstudio-ph-demo/main.md): the lysis step, expressed from the `pT7-toehold9-PLA1` template.
+- pH Demo: the lysis step, expressed from the `pT7-toehold9-PLA1` template.
 
 # Supported by
 
