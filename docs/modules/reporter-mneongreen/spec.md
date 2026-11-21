@@ -11,7 +11,7 @@ site:
 # Overview
 
 <!-- gen:position -->
-**Position.** Refines [Reporter](../reporter/spec.md) and [Fluorophore](../fluorophore/spec.md). Refined by nothing on this branch.
+**Position.** Refines [Reporter](../reporter/spec.md) and [Fluorophore](../fluorophore/spec.md). Refined by nothing declared.
 <!-- /gen:position -->
 
 The mNeonGreen Reporter Module produces mNeonGreen, a monomeric green fluorescent protein derived from the lancelet *Branchiostoma lanceolatum* that can be read directly on a green fluorescence channel.
@@ -70,9 +70,9 @@ flowchart TD
 | `T7-[EsaO]-mNG-T7term` | 1098 | [pT7-EsaO-mNG-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaO-mNG-linear.gb) |
 :::
 
-`T7-mNG-T7term` is this Module's own template: the coding sequence with nothing in front of it. It is the unrepressed reference that gated readings are scaled against. The other two carry the same coding sequence behind two tandem `EsaO` operator sites and behind one `EsaO` site, and belong to [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md).
+The coding sequence is mNeonGreen as published (711 bp, 236 amino acids plus a stop codon).
 
-The coding sequence is mNeonGreen as published, with nothing added to it (711 bp, 236 amino acids plus a stop codon).
+`T7-mNG-T7term` contains the coding sequence of mNeonGreen under constituitive expression. The other two constructs carry the same coding sequence under control of an operator site (`EsaO` belonging to [Detector: 3OC6-HSL (EsaR)](../detector-esar/spec.md).
 
 :::{attention} The sequence file for `T7-mNG-T7term` is not in `nucleus-eng/DNA`
 The DevNote holds the sequence. Every gated reading is scaled against this template, so its file is the one to add first.
@@ -105,16 +105,14 @@ The mNeonGreen Reporter Module is expected to give green fluorescence that rises
 (reporter-mneongreen-cytosols)=
 ## Cytosols
 
-The Module runs in both [Base Cytosol](../base-cytosol/spec.md) and [S30 Lysate](../s30-lysate/spec.md). In Base Cytosol, fluorescence was read on a Synergy 2 plate reader as a 6 h kinetic at 37 °C with a reading every 5 min. The readings were made against a fluorescein ladder at (0, 0.5, 1 and 2) µM. No yield, time to half-maximum or template dose is recorded for it, so how bright the reaction gets and how fast it gets there is not known.
+The Module runs in both [Base Cytosol](../base-cytosol/spec.md) and [S30 Lysate](../s30-lysate/spec.md). In Base Cytosol, fluorescence was read on a Synergy 2 plate reader as a 6 h kinetic at 37 °C with a reading every 5 min. The readings were made against a fluorescein ladder at (0, 0.5, 1 and 2) µM. No reaction yield or kinetics, or DNA template concentration is recorded.
 
-In S30 Lysate, the Module expresses and fluoresces as well. No trace, yield, template dose or reader setting is recorded, so every figure and setting above belongs to Base Cytosol alone.
-
-:::{attention} mNeonGreen fluorescence is at the blue edge of the standard green channel.
-Every reading reported here was recorded on the standard green channel: 485/20 excitation, 528/20 emission. mNeonGreen own maxima (ex: 506 nm, em: 517 nm) sit on the blue end of the filter's range. Monochromators set to the specific excitation and emission peaks of mNeonGreen would collect more of the signal. 
+:::{attention} mNeonGreen fluorescence is at the blue end of the standard green channel.
+Every reading reported here was recorded on the standard green channel: 485/20 excitation, 528/20 emission. mNeonGreen own maxima (ex: 506 nm, em: 517 nm) sit on the blue end of the filter's range. Monochromators set to the specific excitation and emission peaks of mNeonGreen may collect more of the signal. 
 :::
 
 :::{attention} Missing primary data.
-No plot of this Module alone exists. Every reading on record is the unrepressed arm of a gated titration, where this Module is the reference, not the subject.
+No plot of this Module alone exists. 
 :::
 
 (reporter-mneongreen-cells)=
