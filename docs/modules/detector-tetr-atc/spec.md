@@ -41,7 +41,7 @@ The titration and GUV results below use `pOpen-TetO-deGFP`, a 2855 bp plasmid th
 
 ::::{tab-item} Cytosol
 
-The reference composition is [Base Cytosol](../base-cytosol/spec.md), with `pT7-tetO-plamGFP` at 1 nM and purified TetR at 500 nM or 1000 nM, induced with aTc at 0.25 µM to 10 µM; the titration is under [aTc titration in Nucleus Base Cytosol](#atc-titration-in-nucleus-base-cytosol). The useful aTc range in Base Cytosol is 0.25 µM to 1 µM at either TetR concentration ([Expressing Cell-Free TetO-GFP in Solution with aTc Titration](https://github.com/nucleus-eng/devstudio-board/pull/12)). The NEB PURExpress build follows.
+The reference composition is [Base Cytosol](../base-cytosol/spec.md), with `pT7-tetO-plamGFP` at 1 nM and purified TetR at 500 nM or 1000 nM, induced with aTc at 0.25 µM to 10 µM; the titration is under [aTc titration in Nucleus Base Cytosol](#detector-tetr-atc-atc-titration-in-nucleus-base-cytosol). The useful aTc range in Base Cytosol is 0.25 µM to 1 µM at either TetR concentration ([Expressing Cell-Free TetO-GFP in Solution with aTc Titration](https://github.com/nucleus-eng/devstudio-board/pull/12)). The NEB PURExpress build follows.
 
 In NEB PURExpress, assemble `pT7-tetO-plamGFP` into a standard PURE reaction. Supply TetR in one of three ways: as purified protein, added to a final concentration of 500 nM; expressed in situ from the `pT7-tetR` plasmid, used as a DNA template in the same reaction; or expressed in a separate Cytosol reaction, whose total reaction is added as a component of this one. Add aTc inducer at 2.5 µM to 5 µM for effective induction. Volumes in µL.
 
