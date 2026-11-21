@@ -9,7 +9,7 @@ site:
 
 # Overview
 
-Gel: ULGA is a physical hydrogel of ultra-low gelling agarose (ULGA) in an outer solution. The network sets on cooling, at about 8 °C to 15 °C. It is set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
+ULGA (ultra-low gelling agarose) is a hydrogel in which synthetic cells can be embedded. ULGA sets upon cooling to between 8 °C and 15 °C. See [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) for a description of the embedding process.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
@@ -32,7 +32,7 @@ flowchart TD
 
     ULGA_POWDER --> P1_SET_THERMAL_0
     OUTER_SOLUTION --> P1_SET_THERMAL_0
-    P1_SET_THERMAL_0 -->|"1:1 with the sample, halving the ULGA to its final figure"| GEL_ULGA
+    P1_SET_THERMAL_0 -->|"Mix gel stock and sample at 1:1 (volume)"| GEL_ULGA
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
@@ -49,43 +49,26 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Outer Solution
+::::{tab-item} Composition
 
-:::{table} Outer solution of Gel: ULGA.
-| Component | Type |
-| --- | --- |
-| Outer solution | Solution |
-:::
-
-::::
-
-::::{tab-item} Polymer
-
-:::{table} Polymer of Gel: ULGA.
-| Component | Stock concentration | Final concentration |
-| --- | --- | --- |
+:::{table} Composition of ULGA.
+| Component |  Stock concentration | Final concentration |
+| --- | --- |  --- |
+| Outer solution | - | - |
 | Ultra-low gelling agarose | 10 mg/mL (1.0 % w/v) | 5 mg/mL (0.5 % w/v) |
 :::
-
-The final concentration is for a stock mixed 1:1 with the sample.
-
 ::::
-
 :::::
 
 # Expected Behavior
 
-Gel: ULGA has a gel point of about 8 °C to 15 °C. The mixture sets at this temperature. The stock is easy to pipette. The ULGA stock is held at 55 °C until use.
-
-:::{attention} Mixing temperature is not confirmed
-@Editor: state the temperature at which the sample is mixed with the ULGA stock. The stock is held at 55 °C. Confirm whether the sample is also mixed in at 55 °C, or state the correct temperature. State how the mixture then cools to its gel point.
-:::
+ULGA is expected to set when cooled to its gel point between 8 °C and 15 °C. The gel stock is held at 55 °C until use.
 
 # Requirements
 
 Requires an outer solution to dissolve into. For liposomes, use the outer solution used to prepare the liposomes.
 
-Requires that a sample tolerate the temperature at which it is mixed with the stock.
+Requires that a sample tolerate the temperature at which the gel stock is held (55 °C).
 
 # Processes
 
@@ -100,15 +83,6 @@ Requires that a sample tolerate the temperature at which it is mixed with the st
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Ultra-low gelling agarose | Polymer | Ultra-low gelling agarose | Sigma-Aldrich | A5030 | — | Room temperature | [Sigma-Aldrich A5030](https://www.sigmaaldrich.com/US/en/product/sial/a5030) |
 :::
-
-# Constituent Modules
-
-- Outer solution — the solution the polymer dissolves into
-- Ultra-low gelling agarose — the polymer
-
-# Credits
-
-Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
 
 # Supported by
 
