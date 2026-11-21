@@ -48,8 +48,9 @@ inputs:
 process_steps:
   - id: assemble-pla1-inner-solution
     process:
-      title: "Assemble the ungated PLA1 inner solution"
+      title: "Assemble Cytosol"
       page: null
+      abstract: assemble-cytosol
     operator: mixing
     operands: [base-cytosol, pla1-dna, optiprep]
     produces:
