@@ -152,6 +152,8 @@ python3 scripts/check-formatting.py docs/    # check a specific directory
 
 **Writing or editing a page under `docs/`?** Invoke the `author-myst-content` skill. It covers fence and tab-set nesting depth, `.md`-not-`.html` internal links, secondary-figure dropdowns, system-context figure placement, composition-table depth, the `status:` frontmatter values and their banners, and the empty-dropdown policy that `scripts/check-dropdowns.py` enforces.
 
+**The Position line is generated.** A Module page can carry a `<!-- gen:position -->` block under `# Overview` that states what the Module refines and what refines it. It is built from the `type:` and `refines:` keys of `spec.yml` and from `docs/type-order.yml`. Never edit the text between the markers. Run `conda run -n nucleus-docs python scripts/render-position.py --embed` to refresh it, `--check` to test it, or `--insert` to add the markers to a page that has none. It needs the conda environment because it reads YAML.
+
 ### Content migration
 
 **Migrating Notion or DevNote content?** Invoke the `migrate-content` skill — it has the full checklist: table indentation, aside/toggle conversion, DOI citation format, data-discrepancy flagging, scope boundary (spec vs. process), and more.
