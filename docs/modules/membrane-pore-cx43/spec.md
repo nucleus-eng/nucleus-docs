@@ -10,6 +10,10 @@ thumbnail: cell-insertion-sample.png
 (membrane-pore-cx43-overview)=
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines `Pore`. Refined by nothing declared.
+<!-- /gen:position -->
+
 The Cx43 Module expresses connexin 43 (Cx43), a mammalian gap junction protein, that self-assembles into hexameric hemichannels (connexons) that spontaneously integrate into the membrane of synthetic cells and permit the passage of molecules up to ~1 kDa ([Sihorwala et al., 2023](https://doi.org/10.1021/jacs.2c12491)).
 
 :::{attention} Not yet validated

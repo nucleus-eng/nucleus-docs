@@ -10,6 +10,10 @@ site:
 (smix-overview)=
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines `Solution`. Refined by nothing declared.
+<!-- /gen:position -->
+
 Small Molecule Mix (SMix) contains the 31 small molecules of Base Cytosol: buffers and salts, the four rNTPs, the 20 canonical amino acids, stabilizers, and cofactors. With [Protein Mix (PMix)](../pmix/spec.md), ribosomes, and tRNA, it makes [Base Cytosol](../base-cytosol/spec.md).
 
 (smix-reference-composition)=

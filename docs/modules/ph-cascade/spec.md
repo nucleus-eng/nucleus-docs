@@ -292,15 +292,6 @@ Requires that gramicidin A is not added (see Expected Behavior).
 - [pH Sensing Cell](../ph-sensing-cell/spec.md) — population that expresses PLA1 at acidic pH
 - [Color Change](../color-change/spec.md) — lyses the substrate liposomes when PLA1 is present and reports the released CPRG as a color, through [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) and [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md)
 
-(ph-cascade-credits)=
-# Credits
-
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
-
-:::{attention}
-@Editor: Add the Node and Lab to this credit.
-:::
-
 # Supported by
 
 [DevNotes](https://devnotes.nucleus.engineering) that support this specification include:

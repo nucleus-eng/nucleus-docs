@@ -65,11 +65,6 @@ The two oligonucleotides, a thermocycler, and nuclease-free tubes are also requi
 
 - [ ] **Store the annealed duplex at −20 °C.**
 
-(anneal-ph-trigger-duplex-credits)=
-# Credits
-
-Developed by [Sung-Won Hwang](https://orcid.org/0000-0003-1686-7090), [Samuel Chen](https://orcid.org/0000-0001-8501-7175) and [Allen P. Liu](https://orcid.org/0000-0002-0309-7018) (University of Michigan).
-
 # Supported by
 
 [DevNotes](https://devnotes.nucleus.engineering) that support this page include:
