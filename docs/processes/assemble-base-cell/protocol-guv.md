@@ -8,6 +8,7 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
+(assemble-base-cell-protocol-guv-overview)=
 # Overview
 
 Protocol: Inverted Emulsion is a second protocol for [Encapsulation: Phase Transfer](./main.md). It encapsulates an aqueous inner solution, such as a [Cytosol](../../modules/base-cytosol/spec.md) with DNA, inside giant unilamellar vesicles (GUVs). Sonication and heat disperse the lipids in mineral oil. This lipid-in-oil dispersion rests on the outer solution for 10 min to 20 min to form the oil–water interface. The inner solution is emulsified in the dispersion by pipetting for 3 min. The droplets are layered on the interface and centrifuged through it at 2500 g and 15 °C. Use this protocol for the [pH Sensing Cell](../../modules/ph-sensing-cell/spec.md). The Module specification gives the inner solution, the membrane and the outer solution.
@@ -31,6 +32,7 @@ Protocol: Inverted Emulsion is a second protocol for [Encapsulation: Phase Trans
 | Liss-Rhod PE | 1 | 1.95 | 1 |
 :::
 
+(assemble-base-cell-protocol-guv-materials-and-equipment)=
 # Materials and Equipment
 
 :::{table} Materials for the lipid-in-oil dispersion.
@@ -47,8 +49,10 @@ Protocol: Inverted Emulsion is a second protocol for [Encapsulation: Phase Trans
 
 A 20 mL glass vial, argon gas, a vacuum desiccator, a bath sonicator, a 60 °C heat block, 1.5 mL tubes, 0.2 mL PCR tubes, and a refrigerated centrifuge are also required. The inner solution and the outer solution come from the Module specification.
 
+(assemble-base-cell-protocol-guv-protocol)=
 # Protocol
 
+(assemble-base-cell-prepare-the-lipid-in-oil-dispersion)=
 ## Prepare the Lipid-in-Oil Dispersion
 
 - [ ] **Combine the three lipid stocks in a 20 mL glass vial.** Use the volumes in the lipid table in the Overview. All three stocks are in chloroform.
@@ -61,17 +65,20 @@ A 20 mL glass vial, argon gas, a vacuum desiccator, a bath sonicator, a 60 °C h
     - [ ] Vortex for 2 min.
     - [ ] Bath sonicate for 20 min.
 
+(assemble-base-cell-form-the-oil-water-interface)=
 ## Form the Oil–Water Interface
 
 - [ ] **Layer 300 µL of the lipid-in-oil dispersion gently over 400 µL of outer solution in a 1.5 mL tube.**
 - [ ] **Incubate the tube at room temperature for 10 min to 20 min.**
 
+(assemble-base-cell-form-the-emulsion)=
 ## Form the Emulsion
 
 - [ ] **Prepare the inner solution in a separate 1.5 mL tube.** Do this during the incubation. The pH Sensing Cell uses 20 µL.
 - [ ] **Add 600 µL of the lipid-in-oil dispersion to the inner solution.**
 - [ ] **Pipette up and down thoroughly for 3 min.** This forms water-in-oil monolayer emulsion droplets.
 
+(assemble-base-cell-transfer-and-collect-the-guvs)=
 ## Transfer and Collect the GUVs
 
 - [ ] **Add the droplets on top of the oil–water interface.**

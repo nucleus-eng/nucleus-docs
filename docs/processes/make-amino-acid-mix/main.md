@@ -3,10 +3,12 @@ title: Make Amino Acid Mix
 subtitle: Process
 ---
 
+(make-amino-acid-mix-overview)=
 # Overview
 
 Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. Here, we make stock solutions for each amino acid and assemble them into Amino Acid Mix for use in downstream protocols. The assembly worksheet is adapted, with edits, from [OnePot PURE (2019)](https://doi.org/10.1021/acssynbio.8b00427).
 
+(make-amino-acid-mix-materials-and-equipment)=
 # Materials and Equipment
 
 :::{table} Bill of Materials
@@ -17,10 +19,12 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
 | Amino Acids | Reagent | L-Amino acids, analytical standard | Sigma-Aldrich | LAA21-1KT | $558 | 1 °C to 4 °C | [link](https://www.sigmaaldrich.com/US/en/product/sial/laa21) |
 :::
 
+(make-amino-acid-mix-protocol)=
 # Protocol
 
 <!-- ## Prepare Amino Acid Stock Solutions. -->
 
+(make-amino-acid-mix-prepare-amino-acid-stock-solutions)=
 ## Prepare Amino Acid Stock Solutions.
 - [ ] Use the included Amino Acid Mix worksheet included as a resource for this protocol to calculate required masses and volumes.
 - [ ] Weigh `Tyr` into the cap of a 15 mL conical tube. Note mass and recalculate required final volume of AA mix to bring `Tyr` to 3.25 mM.
@@ -35,6 +39,7 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
     - [ ] Check for complete resuspension every 30 min (should take ≤ 1 h). Keep stocks at 65 °C for next step.
 
 
+(make-amino-acid-mix-assemble-amino-acid-master-mix)=
 ## Assemble Amino Acid Master Mix.
 - [ ] Put `Tyr` 15 mL tubes in hot water bath sonicator set to 65 °C. Keep other 19x amino acid stocks on heater shaker at 65 °C.
 - [ ] For each amino acid stock other than `Tyr`, add the calculated volume to `Tyr` 15 mL tube. Keep the `Tyr` tube in 65 °C sonicator bath to maintain temperature and facilitate resuspension.
@@ -44,9 +49,11 @@ Amino Acid Mix is an equimolar (3.25 mM) mix of the 20 canonical amino acids. He
     - [ ]  Check for complete resuspension every 30 min (should take ~ 30 min).
 - [ ]  Syringe filter using 0.22 µm filter.
 
+(make-amino-acid-mix-storage)=
 ## Storage
 - [ ]  Aliquot and store at -20 °C.
 
+(make-amino-acid-mix-downloads)=
 # Downloads
 
 ::::{grid} 1 1 1 2

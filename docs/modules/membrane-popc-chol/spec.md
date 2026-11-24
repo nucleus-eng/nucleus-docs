@@ -10,6 +10,10 @@ site:
 (membrane-popc-chol-overview)=
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines `Membrane`. Refined by nothing declared.
+<!-- /gen:position -->
+
 The Base Membrane specifies a phospholipid bilayer composed of POPC, cholesterol, and a fluorescent lipid label. Liss-Rhod PE or 18:1 Cy5-PC can serve as the label. The Base Membrane is the recommended default membrane for making synthetic cells by using [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md).
 
 :::{figure} schematic.png

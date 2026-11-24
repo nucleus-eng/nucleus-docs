@@ -10,6 +10,10 @@ site:
 (pmix-overview)=
 # Overview
 
+<!-- gen:position -->
+**Position.** Refines `Solution`. Refined by nothing declared.
+<!-- /gen:position -->
+
 Protein Mix (PMix) contains the 36 proteins of the PURE system at a total of 15 µg/µL in Protein Buffer: the 20 aminoacyl-tRNA synthetases, three initiation factors, three elongation factors, four release factors, five metabolic enzymes (MTF, CK, AK, NDK, PPiase), and T7 RNA polymerase (T7RNAP). With [Small Molecule Mix (SMix)](../smix/spec.md), ribosomes, and tRNA, it makes [Base Cytosol](../base-cytosol/spec.md).
 
 (pmix-reference-composition)=

@@ -3,6 +3,7 @@ title: "Make Small Molecule Mix"
 subtitle: "Process"
 ---
 
+(make-small-molecule-mix-overview)=
 # Overview
 
 Small Molecule Mix (SMix) is a combination of thirty-one (31) small molecules (*e.g.*, rNTPs, amino acids, buffering salts, etc.) needed to fuel transcription and translation. Here, we describe the components of SMix, how to make it, and how to store it properly.
@@ -50,6 +51,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::::::
 
+(make-small-molecule-mix-materials-and-equipment)=
 # Materials and Equipment
 
 :::{table} Bill of Materials
@@ -74,13 +76,16 @@ Please read this section carefully. It contains important notes, resources, and 
 | Amino Acids             | Biologic | Amino Acid Mix (3.25 mM)                                               | b.next            | —           | —       | -80 °C to -20 °C | [Make Amino Acid Mix](../make-amino-acid-mix/main.md)                                |
 :::
 
+(make-small-molecule-mix-protocol)=
 # Protocol
 
+(make-small-molecule-mix-prepare-folinic-acid-stock-5-mm)=
 ## Prepare Folinic Acid Stock (5 mM).
 - [ ]  Weigh 12.5 mg folinic acid.
 - [ ]  Dissolve to a final volume of 4.89 mL.
 - [ ]  Aliquot and freeze at -20 °C.
 
+(make-small-molecule-mix-make-all-other-stock-solutions)=
 ## Make All Other Stock Solutions.
 - [ ] Use the table below to prepare the specified stock solutions: 
 
@@ -101,6 +106,7 @@ Please read this section carefully. It contains important notes, resources, and 
 
 :::
 
+(make-small-molecule-mix-assemble-small-molecule-mix-components)=
 ## Assemble Small Molecule Mix Components.
 - [ ] Use the table below to combine the previously prepared stock solutions into Small Molecule Mix:
 
@@ -128,10 +134,12 @@ Please read this section carefully. It contains important notes, resources, and 
 
 The stocks fill the batch: the volumes above add up to 499.7 µL, which is 500 µL within pipetting error. Add no water.
 
+(make-small-molecule-mix-storage)=
 ## Storage
 - [ ]  Aliquot Small Molecule Mix into 1.5 mL microfuge tubes (between 50 µL and 100 µL per aliquot) and store at -80 °C.
 
 
+(make-small-molecule-mix-downloads)=
 # Downloads
 
 :::::{card}

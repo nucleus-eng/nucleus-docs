@@ -11,10 +11,12 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(color-change-overview)=
 # Overview
 
 Reporter: Color Change outputs a visible color change in response to a signal. As designed, Phospholipase A1 (PLA1) is expressed in the presence of a signal, which then lyses a membrane holding chlorophenol red-β-D-galactopyranoside (CPRG, yellow), which is then catalyzed by β-galactosidase (LacZ) and converted to chlorophenol red (CPR, purple). Where each component is localized (e.g., "one vessicle" has dye OR enzyme in the synthetic cell and the other component in outer solution, "two vessicle" has dye in one liposome and enzyme in another") depends on the implementation. See the [pH Cascade](../ph-cascade/spec.md), with PLA1 expressed in a [pH Sensing Cell](../ph-sensing-cell/spec.md), CPRG in separate liposomes, and the enzyme in the outer solution, for a concrete implementation.
 
+(color-change-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -84,12 +86,15 @@ Constructs that express PLA1 under each signal gate. The gate is the regulatory 
 
 :::::
 
+(color-change-expected-behavior)=
 # Expected Behavior
 
+(color-change-cells)=
 ## Cells
 
 In the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), color is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added during [color development](../../processes/colorimetric-readout/main.md).
 
+(color-change-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation to express PLA1 (e.g. [Base Cytosol](../base-cytosol/spec.md)).
@@ -98,10 +103,12 @@ Requires a signal that gates PLA1 expression (e.g. [Detector: pH-Sensing](../det
 
 Requires a membrane (e.g., [Base Membrane](../membrane-popc-chol/spec.md)) with low leakiness.
 
+(color-change-implementations)=
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
 
+(color-change-constituent-modules)=
 # Constituent Modules
 
 - [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md) — converts released CPRG from yellow to purple

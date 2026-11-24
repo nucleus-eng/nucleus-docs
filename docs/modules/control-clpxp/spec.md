@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(control-clpxp-overview)=
 # Overview
 
 The ClpXP control module enables the ATP-dependent, targeted degradation of ssrA-tagged proteins [McGinness, Baker, and Sauer, 2006](https://doi.org/10.1016/j.molcel.2006.04.027). It is based on the complex formed by the AAA+ ATPase ClpX and the tetradecameric peptidase ClpP. The module can be implemented using purified protein, *in situ* expressed proteins from DNA templates, or combinations thereof.
@@ -15,6 +16,7 @@ The ClpXP control module enables the ATP-dependent, targeted degradation of ssrA
 Cartoon of the general mechanism of protein degradation by ClpXP, an ATP-dependent protease. Adapted from  [R. Wedam, et al.](https://doi.org/10.3390/cancers15071936)
 :::
 
+(control-clpxp-reference-composition)=
 # Reference Composition
 
 The module can be implemented from purified proteins alone, from *in situ* expressed proteins encoded on DNA templates, or from combinations thereof.
@@ -63,8 +65,10 @@ The module can be implemented from purified proteins alone, from *in situ* expre
 
 :::::
 
+(control-clpxp-expected-behavior)=
 # Expected Behavior
 
+(control-clpxp-cytosols)=
 ## Cytosols
 
 Module performance in PURE is documented in the DevNote [ClpXP Module Validation in PURE](https://devnotes.nucleus.engineering/articles/bnext-devnotes-clpx-in-pure-01).
@@ -85,6 +89,7 @@ GFP fluorescence signal produced using pT7-deGFP-ssrA DNA in PURE reactions incu
 
 :::::
 
+(control-clpxp-cells)=
 ## Cells
 
 :::{figure} clpxp-overview.png
@@ -141,10 +146,12 @@ Quantifying single-liposome GFP intensity as time-resolved histograms reproduces
 ::::
 :::::
 
+(control-clpxp-requirements)=
 # Requirements
 
 Requires ATP and ssrA-tagged protein targets. Using DNA components additionally requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). 
 
+(control-clpxp-credits)=
 # Credits
 
 Developed by [Yen-Yu Hsu](https://orcid.org/0000-0003-0866-6184) (b.next).

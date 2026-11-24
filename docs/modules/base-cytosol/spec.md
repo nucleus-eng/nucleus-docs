@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(base-cytosol-overview)=
 # Overview
 
 Base Cytosol is a molecular system with a defined set of components, including purified proteins and _E. coli_ ribosomes and tRNAs that together can perform transcription and translation. It builds on the [PURE system](https://doi.org/10.1038/90802) and is optimized for integration and extension. The [Base Cell](../base-cell/spec.md) is formed by encapsulating Base Cytosol in a liposome. Base Cytosol transcribes a DNA template that carries a T7 promoter and translates a transcript encoding an _E. coli_ ribosome binding site (RBS) and a coding sequence (CDS). It also recycles energetic molecules (rNTPs) from creatine phosphate (CP) and processes waste products (PPi) with a simple energy module (PPiase, Creatine Kinase, adenylate kinase and nucleoside diphosphate kinase). Plasmid designs for the PURE proteins are maintained as pET28a expression vectors in the [DNA Distribution](https://github.com/nucleus-eng/DNA/tree/main/PURE/expression) repository.
@@ -18,6 +19,7 @@ Base Cytosol is a molecular system with a defined set of components, including p
 Schematic of components in Base Cytosol and their function. Figure by [Ganesh and Maerkl, 2024](https://doi.org/10.1101/2024.04.03.587879) used under CC-BY-4.0 / cropped from original with numerical annotations removed.
 :::
 
+(base-cytosol-reference-composition)=
 # Reference Composition
 
 Base Cytosol is assembled from five components — [Protein Mix (PMix)](../pmix/spec.md), [Small Molecule Mix (SMix)](../smix/spec.md), ribosomes, tRNA, and an optional RNase inhibitor. The tabs below give each component at its **stock** concentration, plus the **Final Reaction** composition with every component at its in-reaction concentration.
@@ -123,10 +125,12 @@ PMix is added at 1.2 µL per 10 µL reaction, a 0.12× dilution from its stock: 
 
 :::::
 
+(base-cytosol-expected-behavior)=
 # Expected Behavior
 
 The behavior of Base Cytosol is characterized using the [Reporter: deGFP](../reporter-degfp/spec.md) Module.
 
+(base-cytosol-processes)=
 # Processes
 
 - [Make Protein Mix](../../processes/make-36pot/main.md): makes PMix, the 36 purified PURE proteins at set molar ratios.
@@ -137,11 +141,13 @@ The behavior of Base Cytosol is characterized using the [Reporter: deGFP](../rep
 - [Make tRNAs](../../processes/make-trna/main.md): makes the tRNA.
 - [Assemble Base Cytosol](../../processes/assemble-base-cytosol/main.md): combines the mixes into the reaction.
 
+(base-cytosol-constituent-modules)=
 # Constituent Modules
 
 - [Protein Mix (PMix)](../pmix/spec.md) — the 36 PURE proteins in Protein Buffer
 - [Small Molecule Mix (SMix)](../smix/spec.md) — the buffers, rNTPs, amino acids, stabilizers, and cofactors
 
+(base-cytosol-credits)=
 # Credits
 
 Reformulated by Yemo Ku and Jon Calles (b.next) from the PURE system, developed by the Ueda Lab ([Shimizu et al., 2001](https://doi.org/10.1038/90802)).

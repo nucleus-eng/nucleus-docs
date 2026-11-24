@@ -7,14 +7,16 @@ site:
     numbered_references: false
 ---
 
+(gel-lga-overview)=
 # Overview
 
-Gel: LGA is a physical hydrogel of low gelling agarose (LGA) in an outer solution. The network sets on cooling, at about 24 °C to 28 °C, so the stock is held at 45 °C until it is mixed with a sample. It is set by [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md).
+LGA (low gelling agarose) is a hydrogel in which synthetic cells can be embedded. LGA sets upon cooling to between 24 °C and 28 °C, so the agarose stock is held at 45 °C until it is mixed with a sample. See [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) for a description of the embedding process.
 
 :::{attention} 🚧 Draft
 This page is a work in progress and not yet ready for use.
 :::
 
+(gel-lga-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -32,7 +34,7 @@ flowchart TD
 
     LGA_POWDER --> P1_SET_THERMAL_0
     OUTER_SOLUTION --> P1_SET_THERMAL_0
-    P1_SET_THERMAL_0 -->|"stock diluted 1:1 with outer solution, then 1:1 with the sample"| GEL_LGA
+    P1_SET_THERMAL_0 -->|"Mix gel stock, outer solution, and sample at 1:1:2 (volume)"| GEL_LGA
 
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
@@ -49,48 +51,35 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
-::::{tab-item} Outer Solution
+::::{tab-item} Composition
 
-:::{table} Outer solution of Gel: LGA.
-| Component | Type |
-| --- | --- |
-| Outer solution | Solution |
-:::
-
-::::
-
-::::{tab-item} Polymer
-
-:::{table} Polymer of Gel: LGA.
+:::{table} Composition of LGA.
 | Component | Stock concentration | Final concentration |
-| --- | --- | --- |
+| --- | --- |  --- |
+| Outer solution | - | - |
 | Low gelling agarose | 28 mg/mL (2.8 % w/v) | 7 mg/mL (0.7 % w/v) |
 :::
-
-The final concentration is for a stock diluted 1:1 with outer solution and then mixed 1:1 with the sample.
-
-:::{attention} Dilution per well is inferred
-@Editor: confirm that the stock is diluted 1:1 with outer solution before it is mixed with the sample. The DevNote gives the final LGA concentration as 7 mg/mL (0.7 % w/v) with the parenthetical 7.5 µL and 7.5 µL of outer solution, and no step describes the dilution.
-:::
-
 ::::
-
 :::::
 
+(gel-lga-expected-behavior)=
 # Expected Behavior
 
-Gel: LGA is expected to set when the mixture cools to its gel point, about 24 °C to 28 °C. It can set at room temperature, so the stock is kept warm until the mixture is dispensed.
+LGA is expected to set when cooled to its gel point between 24 °C and 28 °C. The gel can set at room temperature, so keep the stock warm until ready for use.
 
+(gel-lga-requirements)=
 # Requirements
 
 Requires an outer solution to dissolve into. For liposomes, use the outer solution used to prepare the liposomes.
 
-Requires that a sample tolerate mixing at 45 °C.
+Requires that a sample tolerate the temperature at which the gel stock is held (45 °C).
 
+(gel-lga-processes)=
 # Processes
 
 [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) prepares the stock and sets the gel.
 
+(gel-lga-materials)=
 # Materials
 
 :::{table} Materials of Gel: LGA.
@@ -100,15 +89,6 @@ Requires that a sample tolerate mixing at 45 °C.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Low gelling agarose | Polymer | Low gelling agarose | Sigma-Aldrich | A9414-5G | — | Room temperature | [Sigma-Aldrich A9414](https://www.sigmaaldrich.com/US/en/product/sigma/a9414) |
 :::
-
-# Constituent Modules
-
-- Outer solution — the solution the polymer dissolves into
-- Low gelling agarose — the polymer
-
-# Credits
-
-Developed by Ojaswita Pant (Northwestern University, DevCells Chicago Node, Truby Lab) and Manuel Bibrowski (Imperial College London, DevCells London Node, Elani Lab).
 
 # Supported by
 

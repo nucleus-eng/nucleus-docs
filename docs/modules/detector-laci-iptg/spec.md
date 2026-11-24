@@ -6,6 +6,7 @@ site:
     hide-toc: true
     numbered_references: false
 ---
+(detector-laci-iptg-overview)=
 # Overview
 
 The LacI-IPTG Detector Module is a set of two genetic constructs that encode IPTG-inducible gene expression. `pT7-lacI` encodes the lac operon repressor protein LacI. `pT7-lacO-plamGFP` is a GFP reporter construct under a T7 promoter controlled by a lacO operator site. In the absence of LacI, `pT7-lacO-plamGFP` expresses plamGFP. Adding LacI — either as a purified protein or by expressing it off of `pT7-lacI` — binds the lacO operator site and represses transcription by sterically occluding the promoter from its polymerase. Isopropyl β-d-1-thiogalactopyranoside (IPTG) recovers expression by allosterically binding LacI and causing it to release lacO. The `pT7-lacO` promoter is also a MoClo Level 0 'P' part and may be assembled into a Level 1 transcription unit with other MoClo-compatible genes.
@@ -14,6 +15,7 @@ The LacI-IPTG Detector Module is a set of two genetic constructs that encode IPT
 Schematic of the LacI-IPTG detector module. IPTG relieves LacI repression of `pT7-lacO-plamGFP`, recovering GFP expression.
 :::
 
+(detector-laci-iptg-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -50,8 +52,10 @@ Assemble `pT7-lacO-plamGFP` into a standard PURE reaction. Add purified LacI pro
 
 :::::
 
+(detector-laci-iptg-expected-behavior)=
 # Expected Behavior
 
+(detector-laci-iptg-cytosols)=
 ## Cytosols
 
 We've validated the LacI-IPTG module in NEB PURExpress reactions by adding purified LacI repressor protein (MedChemExpress HY-P70247) at the final concentrations indicated, with `pT7-lacO-plamGFP` plasmid DNA at 5 nM to 10 nM.
@@ -94,6 +98,7 @@ Induction of `pT7-lacO-plamGFP` by IPTG at steady state. LacI repressor protein 
 
 :::::
 
+(detector-laci-iptg-cells)=
 ## Cells
 
 :::{figure} cell-overview.png
@@ -102,10 +107,12 @@ Schematic representation of LacI-IPTG Detector module in the Base Cell.
 
 Cell performance data is not yet available for this module.
 
+(detector-laci-iptg-requirements)=
 # Requirements
 
 Requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). If used in a synthetic cell, requires IPTG transport across membrane (e.g., [Cx43 pore](../membrane-pore-cx43/spec.md)).
 
+(detector-laci-iptg-credits)=
 # Credits
 
 Developed by b.next.

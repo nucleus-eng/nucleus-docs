@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(detector-esar-overview)=
 # Overview
 
 The EsaR Detector Module initiates transcription of a target gene in response to the bacterial quorum signal 3-oxo-C6-HSL. EsaR is a repressor that binds the EsaO operator, which when placed sits between a promoter and the target gene can reversibly repress transcription. When EsaR binds the operator sequence, it blocks T7 RNA polymerase from transcribing. When EsaR allosterically binds 3-oxo-C6-HSL, it releases from the DNA and derepresses transcription of the target gene. 
@@ -27,6 +28,7 @@ Schematic representation of EsaO/EsaR-dependent transcriptional regulation. EsaR
 This page is a work in progress and not yet ready for use. Several quantities below are still open — see the note under Expected Behavior.
 :::
 
+(detector-esar-reference-composition)=
 # Reference Composition
 
 EsaR is added to the reaction as a protein. It is first expressed from DNA in its own cell-free reaction (3 h at 37 °C, held at 4 °C until use) then pre-incubated with the EsaO-containing DNA template before being added to the working reaction to allow the repressor to bind the operator site. 
@@ -76,6 +78,7 @@ Annotated sequence maps are in the DevNote: [T7-EsaR(D91G)-T7term](https://devno
 
 :::::
 
+(detector-esar-expected-behavior)=
 # Expected Behavior
 
 ## Cytosols
