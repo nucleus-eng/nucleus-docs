@@ -179,19 +179,27 @@ def myst_html_id(text: str) -> str:
 def myst_anchors(path: str) -> frozenset:
     """Every fragment MyST will generate for a source file.
 
-    Headings, explicit `:label:`/`:name:` options, and `(target)=` blocks.
+    Headings, explicit `:label:`/`:name:` options, and `(target)=` blocks. An
+    explicit `(target)=` on the line directly above a heading (the convention
+    in style-guide/conventions.md:31) replaces that heading's own
+    text-derived anchor rather than adding to it — MyST resolves the label,
+    not the old implicit slug, once one is given.
     """
     try:
         text = pathlib.Path(path).read_text(encoding="utf-8")
     except OSError:
         return frozenset()
 
+    lines = text.splitlines()
     found = set()
-    for line in text.splitlines():
+    for i, line in enumerate(lines):
         stripped = line.strip()
 
         heading = re.match(r"^#{1,6}\s+(.*?)\s*#*$", stripped)
         if heading:
+            prev = lines[i - 1].strip() if i > 0 else ""
+            if re.match(r"^\([^)]+\)=\s*$", prev):
+                continue
             title = heading.group(1)
             for pattern, repl in _INLINE_MD:
                 title = pattern.sub(repl, title)

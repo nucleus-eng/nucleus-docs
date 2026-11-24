@@ -22,6 +22,7 @@ stubbed for the end-to-end exit-code tests.
 
 import importlib.util
 import socket
+import tempfile
 from pathlib import Path
 
 import pytest
@@ -253,6 +254,49 @@ def test_orphan_cached_entry_defaults_to_tolerated():
     """With no evidence anywhere for the URL, do not invent a failure."""
     rep = report({"a.md": [cached(CYTIVA)]})
     assert verdicts(rep)[CYTIVA] == cl.TOLERATED
+
+
+# --- myst_anchors: explicit labels override implicit heading slugs ---------
+
+
+def _anchors(markdown):
+    with tempfile.NamedTemporaryFile("w", suffix=".md", delete=False) as f:
+        f.write(markdown)
+        path = f.name
+    cl.myst_anchors.cache_clear()
+    try:
+        return cl.myst_anchors(path)
+    finally:
+        Path(path).unlink()
+
+
+def test_unlabeled_heading_resolves_to_its_implicit_slug():
+    assert _anchors("# Overview\n") == frozenset({"overview"})
+
+
+def test_labeled_heading_resolves_only_to_its_label():
+    """A label is where MyST's real anchor points, once one is given.
+
+    This was issue #341's gap: before this fix, an old link to the heading's
+    own text-derived slug kept validating here even after a label overrode it,
+    so a broken anchor only surfaced in the real `myst build`, not in CI.
+    """
+    md = "(widget-overview)=\n# Overview\n"
+    assert _anchors(md) == frozenset({"widget-overview"})
+    assert "overview" not in _anchors(md)
+
+
+def test_label_not_directly_above_heading_does_not_suppress_the_slug():
+    """Only a label on the line immediately above a heading overrides it.
+
+    Per style-guide/conventions.md:31. A `(target)=` elsewhere on the page
+    (e.g. above a figure) is still a valid anchor in its own right, and does
+    not touch the next heading it happens to precede at a distance.
+    """
+    md = "(some-figure)=\n\n# Overview\n"
+    anchors = _anchors(md)
+    assert "overview" in anchors
+    assert "some-figure" in anchors
 
 
 # --- end-to-end exit codes -------------------------------------------------
