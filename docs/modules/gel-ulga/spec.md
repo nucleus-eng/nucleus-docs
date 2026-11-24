@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(gel-ulga-overview)=
 # Overview
 
 ULGA (ultra-low gelling agarose) is a hydrogel in which synthetic cells can be embedded. ULGA sets upon cooling to between 8 °C and 15 °C. See [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) for a description of the embedding process.
@@ -15,6 +16,7 @@ ULGA (ultra-low gelling agarose) is a hydrogel in which synthetic cells can be e
 This page is a work in progress and not yet ready for use.
 :::
 
+(gel-ulga-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -60,20 +62,24 @@ flowchart TD
 ::::
 :::::
 
+(gel-ulga-expected-behavior)=
 # Expected Behavior
 
 ULGA is expected to set when cooled to its gel point between 8 °C and 15 °C. The gel stock is held at 55 °C until use.
 
+(gel-ulga-requirements)=
 # Requirements
 
 Requires an outer solution to dissolve into. For liposomes, use the outer solution used to prepare the liposomes.
 
 Requires that a sample tolerate the temperature at which the gel stock is held (55 °C).
 
+(gel-ulga-processes)=
 # Processes
 
 [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) prepares the stock and sets the gel.
 
+(gel-ulga-materials)=
 # Materials
 
 :::{table} Materials of Gel: ULGA.

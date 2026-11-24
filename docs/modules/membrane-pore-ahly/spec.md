@@ -7,6 +7,7 @@ site:
     numbered_references: false
 thumbnail: cell-gfp-quench.png
 ---
+(membrane-pore-ahly-overview)=
 # Overview
 
 The α-Hemolysin (aHly) Module produces a self-inserting membrane pore that allows passive transport of small molecules between the cytosol of a synthetic cell and its external environment ([Noireaux and Libchaber, 2004](https://doi.org/10.1073/pnas.0408236101), [Harjung et al., 2023](https://doi.org/10.1101/2023.10.06.561148)). The pore is assembled from seven monomers (33.2 kDa each, 293 amino acids) with an outer diameter of 10 nm and an inner diameter of (1.6–4.6) nm — sufficient for molecules up to ~3 kDa. The height of the 3 nm hydrophobic patch along the pore matches the thickness of the non-polar layer of a typical phospholipid membrane, making aHly a useful tool for confirming bilayer (as opposed to multilayer) formation in synthetic cells ([Song et al., 1996](https://doi.org/10.1126/science.274.5294.1859)).
@@ -27,6 +28,7 @@ aHly can be used in two ways: expressed directly from `pT7-aHly` within the PURE
 The working concentration of purified aHly is not specified. The Reference Composition below covers the expression route.
 :::
 
+(membrane-pore-ahly-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -76,8 +78,10 @@ aHly is expressed in PURE by including `pT7-aHly` as a template. Reactions use t
 
 :::::
 
+(membrane-pore-ahly-expected-behavior)=
 # Expected Behavior
 
+(membrane-pore-ahly-cytosols)=
 ## Cytosols
 
 aHly Module is expected to be expressed from `pT7-aHly` in PURE as a monomer band at ~33 kDa (red arrows), read by [Protein Gel](../../processes/protein-gel/main.md), which shows expression of the product, not leakage. Two loading volumes are shown (5 µL and 2.5 µL) alongside a no-template control (-).
@@ -86,6 +90,7 @@ aHly Module is expected to be expressed from `pT7-aHly` in PURE as a monomer ban
 Protein gel showing aHly expression in PURE. Lanes labeled "hly" and "(-)" correspond to reactions with and without `pT7-aHly`. Red arrows indicate the aHly band at ~33 kDa. Left pair: 5 µL; right pair: 2.5 µL per lane.
 :::
 
+(membrane-pore-ahly-cells)=
 ## Cells
 
 aHly Module is expected to quench GFP production in synthetic cells that co-express it with `pT7-eGFP`: inserted pores let the small molecules needed for transcription and translation leak into the outer solution. In the absence of `pT7-aHly`, GFP is produced in a subpopulation of cells. Samples were incubated at 37 °C for 7.5 h and imaged by epifluorescence microscopy, which shows the leakage. @Editor: the epifluorescence imaging readout has no Process page to link. Link or name the readout.
@@ -112,6 +117,7 @@ The outer solution is an osmolarity-matched buffer without energy molecules (10 
 Epifluorescence microscopy of synthetic cells. (Left) GFP + aHly: GFP production is quenched when aHly is co-expressed, as small molecules leak through the inserted pores. (Right) GFP only: GFP is produced in a subpopulation of cells in the absence of aHly. Red channel: membrane label; green channel: GFP. Scale bar: 100 µm.
 :::
 
+(membrane-pore-ahly-requirements)=
 # Requirements
 
 Requires a membrane (e.g. [Base Membrane: POPC/Chol](../membrane-popc-chol/spec.md)).
@@ -124,10 +130,12 @@ Requires controlled material handling.
 
 Requires, when the interior reaction must keep running after the pore is open, that the outer solution holds, at working concentration, every species the pore passes that the interior needs. For a PURExpress interior these are the small substrates; ribosomes, polymerase and plasmid stay in. An assay that reads what leaks out of the interior needs no outer-solution supply.
 
+(membrane-pore-ahly-processes)=
 # Processes
 
 - [Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md) — prepares synthetic cells by encapsulating an inner solution in a membrane.
 
+(membrane-pore-ahly-materials)=
 # Materials
 
 We recommend purchasing aHly as purified protein and resuspending to 10 µM in ultrapure water. Introduce purified protein to the outer solution of synthetic cells rather than expressing from DNA to avoid variability in expression efficiency.
@@ -141,6 +149,7 @@ We recommend purchasing aHly as purified protein and resuspending to 10 µM in u
 High concentrations of purified aHly (>100 nM) are more likely to aggregate. Keep your working concentrations below this threshold.
 :::
 
+(membrane-pore-ahly-credits)=
 # Credits
 
 Module developed by the [Devaraj Lab](https://www.devarajgroup.com/).

@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(emitter-ivhsl-overview)=
 # Overview
 
 The IV-HSL Emitter module produces and releases N-isovaleryl-L-homoserine lactone (IV-HSL), a branched acyl-homoserine lactone, enabling enzymatic small-molecule production, molecule release as a reporter output, inter-cell communication, and co-culture of synthetic cells with living bacteria. The module is based on work by [Smith, Hartmann, and Booth, 2023](https://doi.org/10.1038/s41589-023-01374-7).
@@ -17,6 +18,7 @@ IV-HSL offers several advantages: it crosses synthetic cell membranes; its uncom
 Design schematic of the IV-HSL Emitter module. `pT7-bjaI` expresses the BjaI enzyme, which converts SAM and IV-CoA substrates into IV-HSL. IV-HSL diffuses across the lipid bilayer and activates GFP expression in *E. coli* receiver cells via the BjaR transcription factor.
 :::
 
+(emitter-ivhsl-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -52,8 +54,10 @@ Add equimolar amounts of SAM and IV-CoA at 0.3 µM and 0.08 µM final concentrat
 
 :::::
 
+(emitter-ivhsl-expected-behavior)=
 # Expected Behavior
 
+(emitter-ivhsl-cytosols)=
 ## Cytosols
 
 PURE reactions were incubated for 4 h, then added to log-phase *E. coli* receiver cell cultures containing `bjaR-GFP-native`. GFP fluorescence was measured over 6 h at 5-minute timepoints using a BioTek Cytation 5 plate reader. Expression in XL-10 Gold cells containing `bjaR-GFP-native` is equivalent for bulk PURE reactions with `pT7-bjaI` and substrates and for emitter cells containing IV-HSL without plasmid DNA — both show a significant response over the negative control.
@@ -74,6 +78,7 @@ Expression of *E. coli* receiver cells modified with `bjaR-GFP-native` at steady
 
 :::::
 
+(emitter-ivhsl-cells)=
 ## Cells
 
 :::{figure} emitter-overview.png
@@ -96,15 +101,18 @@ Emitter Cells were constructed and co-cultured with *E. coli* containing `bjaR-G
 :::
 :::::
 
+(emitter-ivhsl-requirements)=
 # Requirements
 
 The emitter component (`pOpen-pT7-bjaI`) requires pT7 transcription and translation (e.g. [Base Cytosol](../base-cytosol/spec.md)). The receiver component (`pOpen-bjaR-GFP-native`) requires sigma-70 promoter transcription (e.g. *E. coli* RNA polymerase) and translation.
 
+(emitter-ivhsl-implementations)=
 # Implementations
 
 - [Emitter: IV-HSL Cell](../../implementations/emitter-ivhsl/main.md): the module encapsulated as a synthetic cell co-cultured with *E. coli* receivers.
 - [Responder: aTc → IV-HSL](../../implementations/responder-atc-ivhsl/main.md): BjaI expression placed under tetO control so IV-HSL emission responds to aTc.
 
+(emitter-ivhsl-credits)=
 # Credits
 
 Developed by Yen-Yu Hsu (b.next).

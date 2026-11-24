@@ -4,6 +4,7 @@ subtitle: "Process"
 status: draft
 ---
 
+(embed-thermal-setting-overview)=
 # Overview
 
 Embedding: Thermal Setting puts a sample in an agarose gel that then sets upon cooling. Agarose powder is mixed in the outer solution then melted and kept warm until the sample is added. This protocol applies to [LGA](../../modules/gel-lga/spec.md) and [ULGA](../../modules/gel-ulga/spec.md), which differ primarily in melting and gelling temperature.
@@ -31,6 +32,7 @@ Schematic representation of unilamellar liposomes held in a hydrogel matrix. Fig
 | Agarose stock per well, before sample | 15 µL of stock | 7.5 µL of stock and 7.5 µL of outer solution |
 :::
 
+(embed-thermal-setting-materials-and-equipment)=
 # Materials and Equipment
 
 The agarose is listed under Materials on [LGA](../../modules/gel-lga/spec.md) and [ULGA](../../modules/gel-ulga/spec.md).
@@ -56,6 +58,7 @@ The agarose is listed under Materials on [LGA](../../modules/gel-lga/spec.md) an
 | 96-well or 384-well plate | Plating |
 :::
 
+(embed-thermal-setting-protocol)=
 # Protocol
 
 - [ ] **Prepare the outer solution.** Use the same outer solution that the synthetic cells were prepared in.

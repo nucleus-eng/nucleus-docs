@@ -3,6 +3,7 @@ title: "Assemble Base Cytosol"
 subtitle: "Process"
 ---
 
+(assemble-base-cytosol-overview)=
 # Overview
 
 
@@ -80,12 +81,15 @@ Please read this section carefully. It contains important notes, resources, and 
 :::::::
 
 
+(assemble-base-cytosol-materials-and-equipment)=
 # Materials and Equipment
 
 This is an assembly process: it combines components produced by other Nucleus processes (Small Molecule Mix, Protein Mix, ribosomes, tRNAs, and the genetically encoded components listed above) rather than introducing new reagents. Its materials are itemized in those component processes' Bills of Materials — see the consolidated [Materials Reference](../../../guides/materials-reference.md).
 
+(assemble-base-cytosol-protocol)=
 # Protocol
 
+(assemble-base-cytosol-cytosol-reaction-setup)=
 ## Cytosol Reaction Setup
 
 :::{table} Reaction Setup.
@@ -104,6 +108,7 @@ This is an assembly process: it combines components produced by other Nucleus pr
 
 :::
 
+(assemble-base-cytosol-assemble-cytosol-reactions)=
 ## Assemble Cytosol Reactions
 - [ ] Thaw reagents above on ice.
 - [ ] Chill two (2) PCR tubes on ice to assemble reaction master mixes.
@@ -132,9 +137,11 @@ To avoid introducing bubbles, use reverse pipetting to array your samples. With 
 
 - [ ] In a plate reader set to 37 °C, measure deGFP expression using the standard green fluorescence channel (ex: 485 nm, em: 515 nm).
   
+(assemble-base-cytosol-return-reagents-to-their-appropriate-storage-locations)=
 ## Return reagents to their appropriate storage locations
 - [ ] Mark the lid of each Cytosol component that you used. The number of dots indicates how many freeze–thaw cycles each component has gone through.
 
+(assemble-base-cytosol-downloads)=
 # Downloads
 
 :::::{card}

@@ -7,6 +7,7 @@ site:
     numbered_references: false
 ---
 
+(gel-lga-overview)=
 # Overview
 
 LGA (low gelling agarose) is a hydrogel in which synthetic cells can be embedded. LGA sets upon cooling to between 24 °C and 28 °C, so the agarose stock is held at 45 °C until it is mixed with a sample. See [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) for a description of the embedding process.
@@ -15,6 +16,7 @@ LGA (low gelling agarose) is a hydrogel in which synthetic cells can be embedded
 This page is a work in progress and not yet ready for use.
 :::
 
+(gel-lga-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -60,20 +62,24 @@ flowchart TD
 ::::
 :::::
 
+(gel-lga-expected-behavior)=
 # Expected Behavior
 
 LGA is expected to set when cooled to its gel point between 24 °C and 28 °C. The gel can set at room temperature, so keep the stock warm until ready for use.
 
+(gel-lga-requirements)=
 # Requirements
 
 Requires an outer solution to dissolve into. For liposomes, use the outer solution used to prepare the liposomes.
 
 Requires that a sample tolerate the temperature at which the gel stock is held (45 °C).
 
+(gel-lga-processes)=
 # Processes
 
 [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) prepares the stock and sets the gel.
 
+(gel-lga-materials)=
 # Materials
 
 :::{table} Materials of Gel: LGA.

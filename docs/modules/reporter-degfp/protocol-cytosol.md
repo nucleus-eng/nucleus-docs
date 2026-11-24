@@ -7,10 +7,12 @@ exports:
     output: module-protocol-cytosol-degfp.pdf
 ---
 
+(reporter-degfp-protocol-cytosol-overview)=
 # Overview
 
 This protocol show you how to validate the functionality of the Reporter Module `pOpen-deGFP`.
 
+(reporter-degfp-protocol-cytosol-cytosol-reaction-setup)=
 ## Cytosol Reaction Setup
 
 :::{table} Reaction Setup.
@@ -30,10 +32,12 @@ This protocol show you how to validate the functionality of the Reporter Module 
 :::
 
 
+(reporter-degfp-protocol-cytosol-protocol)=
 # Protocol
 
 <!-- ### Prepare Stock Solutions -->
 
+(reporter-degfp-protocol-cytosol-assemble-cytosol-reactions)=
 ### Assemble Cytosol Reactions
 - [ ]  Remove all components listed in the Reaction Setup table above from appropriate cold storage.
 - [ ]  Thaw reagents on ice.
@@ -67,5 +71,6 @@ Set the P20 pipette to 10.1 µL to draw the master mix, then dispense into the p
 
 - [ ]  Measure deGFP fluorescence in the plate reader while incubating at 37 °C.
   
+(reporter-degfp-return-reagents-to-their-appropriate-storage-locations)=
 ### Return reagents to their appropriate storage locations
 - [ ]  Add a black dot to the lid of each of Cytosol component. The number of dots indicates freeze–thaw cycles.

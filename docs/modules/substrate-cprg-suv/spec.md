@@ -11,6 +11,7 @@ site:
 This page is a work in progress and not yet ready for use.
 :::
 
+(substrate-cprg-suv-overview)=
 # Overview
 
 Substrate SUV: CPRG encapsulates the chromogenic substrate chlorophenol red-β-D-galactopyranoside (CPRG) in small unilamellar vesicles (SUVs) with a POPC/cholesterol membrane. It is a substrate population of the [pH Cascade](../ph-cascade/spec.md). The SUVs are made by [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) with an extra extrusion through a 400 nm membrane. Intact SUVs keep CPRG inside. A lytic enzyme such as phospholipase A1 (PLA1) disrupts the membrane, and CPRG is released into the outer solution. There, [β-galactosidase](../reporter-lacz-enzyme/spec.md) converts the yellow CPRG into the purple chlorophenol red (CPR).
@@ -19,6 +20,7 @@ Substrate SUV: CPRG encapsulates the chromogenic substrate chlorophenol red-β-D
 @Developer: The DevNote calls liposomes extruded through a 400 nm membrane SUVs. Confirm the size term, or give the measured size.
 :::
 
+(substrate-cprg-suv-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
@@ -72,32 +74,39 @@ The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2
 
 :::::
 
+(substrate-cprg-suv-expected-behavior)=
 # Expected Behavior
 
+(substrate-cprg-suv-solution)=
 ## Solution
 
 Substrate SUV: CPRG is expected to stay yellow in solution when pH Sensing Cells are present at pH 7.6, 5.5 h after β-galactosidase is added. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
+(substrate-cprg-suv-gels)=
 ## Gels
 
 Substrate SUV: CPRG is expected to stay yellow in 3.5 mg/mL low-gelling agarose when pH Sensing Cells are present at pH 7.6, 5.5 h after β-galactosidase is added. In 7 mg/mL low-gelling agarose, the color difference between the pH arms and the control was not visible by eye, and the yields of SUVs and cells were lower. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
 
+(substrate-cprg-suv-requirements)=
 # Requirements
 
 Requires a membrane-lytic activity to release CPRG (e.g. the [pH Sensing Cell](../ph-sensing-cell/spec.md), which expresses PLA1).
 
 Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md)).
 
+(substrate-cprg-suv-implementations)=
 # Implementations
 
 - [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md)
 
+(substrate-cprg-suv-processes)=
 # Processes
 
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the SUVs: the lipid film is hydrated in 1 mL of inner solution, and the suspension is extruded through a 400 nm membrane in 13 passes.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places them in a gel.
 - [Colorimetric Readout](../../processes/colorimetric-readout/main.md) develops the color of released CPRG.
 
+(substrate-cprg-suv-materials)=
 # Materials
 
 :::{table}

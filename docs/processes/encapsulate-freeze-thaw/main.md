@@ -8,6 +8,7 @@ status: draft
 This page is a work in progress and not yet ready for use.
 :::
 
+(encapsulate-freeze-thaw-overview)=
 # Overview
 
 Encapsulation: Freeze-Thaw encapsulates an aqueous inner solution in liposomes. A dried lipid film is hydrated directly with the inner solution. The suspension is then sonicated and freeze-thawed. Repeated centrifugation washes away the solution that was not encapsulated. The route gives large unilamellar vesicles (LUVs). An extra extrusion through a 400 nm membrane gives small unilamellar vesicles (SUVs). Use this process for liposomes that carry a substrate, such as [Substrate LUV: CPRG](../../modules/substrate-cprg-luv/spec.md) and [Substrate SUV: CPRG](../../modules/substrate-cprg-suv/spec.md). Each [Module specification](../../modules/modules-main.md) gives its own lipid composition, inner solution and outer solution.
@@ -36,6 +37,7 @@ Encapsulation: Freeze-Thaw encapsulates an aqueous inner solution in liposomes. 
 | Centrifugation per wash | 4000 g, 10 min | 10 000 g, 10 min |
 :::
 
+(encapsulate-freeze-thaw-materials-and-equipment)=
 # Materials and Equipment
 
 :::{table} Bill of Materials
@@ -54,14 +56,17 @@ Encapsulation: Freeze-Thaw encapsulates an aqueous inner solution in liposomes. 
 
 A 1 mL glass vial, argon or nitrogen gas, a vacuum desiccator, a bath sonicator, liquid nitrogen, a 35 °C water bath, and a centrifuge for 1.5 mL tubes are also required. The inner solution and outer solution come from the Module specification.
 
+(encapsulate-freeze-thaw-protocol)=
 # Protocol
 
+(encapsulate-freeze-thaw-prepare-the-lipid-film)=
 ## Prepare the Lipid Film
 
 - [ ] **Add the lipids from chloroform stocks to the bottom of a 1 mL glass vial.** The Module specification gives the lipids and volumes.
 - [ ] **Dry the lipids under argon or N₂ gas.**
 - [ ] **Dry the film under vacuum for 20 min.**
 
+(encapsulate-freeze-thaw-hydrate-and-freeze-thaw)=
 ## Hydrate and Freeze-Thaw
 
 - [ ] **Add the inner solution directly to the dried lipid film.** Use the volume for your route in the route table in the Overview.
@@ -72,11 +77,13 @@ A 1 mL glass vial, argon or nitrogen gas, a vacuum desiccator, a bath sonicator,
     - [ ] Thaw in a 35 °C water bath.
     - [ ] Vortex for 30 s.
 
+(encapsulate-freeze-thaw-extrude-suv-only)=
 ## Extrude (SUV Only)
 
 - [ ] **Assemble a liposome extruder with a 400 nm pore size membrane filter.**
 - [ ] **Pass the lipid suspension through the extruder 13 times.**
 
+(encapsulate-freeze-thaw-wash-the-liposomes)=
 ## Wash the Liposomes
 
 - [ ] **LUV only: dilute the suspension in outer solution.**
