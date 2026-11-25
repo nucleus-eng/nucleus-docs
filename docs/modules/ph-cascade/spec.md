@@ -14,13 +14,13 @@ This page is a work in progress and not yet ready for use.
 (ph-cascade-overview)=
 # Overview
 
-The pH Cascade turns an acidic outer solution into a visible color change with two liposome populations. Acidic pH makes the [pH Sensing Cells](../ph-sensing-cell/spec.md) express phospholipase A1 (PLA1). PLA1 lyses the neighboring substrate liposomes ([Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)), which release chlorophenol red-β-D-galactopyranoside (CPRG) into the outer solution. [β-galactosidase](../reporter-lacz-enzyme/spec.md) (LacZ) in the outer solution converts the yellow CPRG into the purple chlorophenol red (CPR). The cascade senses acidic pH, about 6.0 to 6.5.
+The pH Cascade uses two liposome populations to detect acidic pH (about 6.0 to 6.5) in the outer solution and visibly change color change color in response. Acidic pH triggers the [pH Sensing Cells](../ph-sensing-cell/spec.md) to express phospholipase A1 (PLA1), which then lyses the [neighboring substrate liposomes](../substrate-cprg-suv/spec.md), releasing chlorophenol red-β-D-galactopyranoside (CPRG) into the outer solution. [β-galactosidase](../reporter-lacz-enzyme/spec.md) (LacZ) in the outer solution then converts the yellow CPRG into the purple chlorophenol red (CPR).
 
 :::{figure} schematic.png
 :align: center
 :width: 75%
 
-Schematic representation of the pH Cascade. A pH Sensing Cell with its DNA sits next to a substrate liposome (Substrate LUV: CPRG or Substrate SUV: CPRG), with β-galactosidase in the outer solution. The cell expresses PLA1, and PLA1 lyses the substrate liposome. The released CPRG is converted by β-galactosidase into CPR.
+Schematic representation of the pH Cascade. A pH Sensing Cell with its DNA sits next to a substrate liposome and β-galactosidase in the outer solution. The pH Sensing Cell expresses PLA1 that then lyses the substrate liposome, releasing CPRG, which is then converted by β-galactosidase into CPR.
 :::
 
 (ph-cascade-reference-composition)=
@@ -35,7 +35,7 @@ Schematic representation of the pH Cascade. A pH Sensing Cell with its DNA sits 
 flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     COLOR_CHANGE["Color Change"]
-    OUTER_SOLUTION["Outer solution: energy solution, water, buffer and suspension"]
+    OUTER_SOLUTION["Outer solution: energy solution, water, buffer and suspension"] @Claude: everything after the colon is unnecessary; cut it
     LGA_GEL["Low-gelling agarose"]
 
     P1_ASSEMBLE_ASSAY_0(["Assemble the assay (packing) — no page"])
@@ -71,10 +71,10 @@ flowchart TD
 
 ::::{tab-item} DNA
 
-:::{table} DNA of the pH Cascade. All three constructs are in the pH Sensing Cell.
+:::{table} DNA used in the pH Cascade. All three constructs are in the pH Sensing Cell.
 :label: comp-ph-cascade-dna
 
-| Name | Length | Supply | File |
+| Name | Length | Form | File |
 | --- | --- | --- | --- |
 | `pT7-toehold9-PLA1-linear` | 1203 bp | Linear DNA template, added to the cell cytosol at 2 nM | [pT7-toehold9-PLA1-linear.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb) |
 | `pH-responsive-ssDNA-2` | 49 nt | Single-stranded oligo, annealed with the trigger strand | [pH-responsive-ssDNA-2.gb](https://github.com/nucleus-eng/DNA/blob/bf3d5aeea79c652b3f7af08f32409dbc7b3431b0/detectors/detector-ph/pH-responsive-ssDNA-2.gb) |
@@ -87,7 +87,7 @@ flowchart TD
 
 ::::{tab-item} pH Sensing Cell
 
-The [pH Sensing Cell](../ph-sensing-cell/spec.md) is 50 mL/L of a 60 µL assay.
+The [pH Sensing Cell](../ph-sensing-cell/spec.md) is 50 mL/L (5 %) of a 60 µL assay.
 
 :::{table} Inner solution of the pH Sensing Cell.
 :label: comp-ph-cascade-cell-cytosol
@@ -119,7 +119,7 @@ The [pH Sensing Cell](../ph-sensing-cell/spec.md) is 50 mL/L of a 60 µL assay.
 
 ::::{tab-item} Substrate LUV: CPRG
 
-The [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) is 35 mL/L of a 60 µL solution assay and 50 mL/L of a 60 µL gel assay.
+The [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) is 35 mL/L (3.5 %) of a 60 µL solution assay and 50 mL/L (5 %) of a 60 µL gel assay.
 
 :::{table} Inner solution of Substrate LUV: CPRG.
 :label: comp-ph-cascade-luv-inner-solution
@@ -128,7 +128,7 @@ The [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) is 35 mL/L of a 60 µL 
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
 | Optiprep | 1000 mL/L | 100 mL/L | 50 |
-| Tris1M-HEPES1.15M buffer stock | 2520 mOsm | 1071 mOsm | 212.5 |
+| Tris 1 M, HEPES 1.15 M buffer stock | 2520 mOsm/kg | 1071 mOsm/kg | 212.5 | @Claude: confirm this is mOsm/kg and not mOsm/L
 | Total volume (µL) | | | 500 |
 :::
 
@@ -159,32 +159,33 @@ The [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is used in place of the
 
 :::{attention}
 @Developer: Give the composition of the SUV inner solution.
+@Claude: likely this composition is in the devnote; go pull: https://devnotes.nucleus.engineering/articles/sh-20261011
 :::
 ::::
 
 ::::{tab-item} Outer Solution
 
-:::{table} Outer solution of the pH Cascade, as a fraction of the assay volume. The pH 7.6 arm takes the Tris1M-HEPES1.15M buffer stock, and the pH 6.3 arm takes the buffer mix for pH 6.3.
+:::{table} Outer solution of the pH Cascade, as a fraction of the assay volume. The pH 7.6 arm takes the Tris 1M, HEPES 1.15 M buffer stock, and the pH 6.3 arm takes the buffer mix for pH 6.3.
 :label: comp-ph-cascade-outer-solution
 
 | Component | Fraction (mL/L) |
 | --- | --- |
 | Energy solution (2×) | 500 |
 | Ultrapure water | 260 |
-| Tris1M-HEPES1.15M buffer stock, or buffer mix for pH 6.3 | 120 |
+| Tris 1M, HEPES 1.15 M buffer stock; or buffer mix for pH 6.3 | 120 |
 | pH Sensing Cells and substrate liposomes in suspension buffer | 120 |
 | Total | 1000 |
 :::
 
-In a solution assay the 120 mL/L is 3 µL of cells (50 mL/L), 2.1 µL of substrate liposomes (35 mL/L) and 2.1 µL of suspension buffer (35 mL/L) in 60 µL. In a gel assay it is 3 µL of cells (50 mL/L), 3 µL of substrate liposomes (50 mL/L) and 1.2 µL of suspension buffer (20 mL/L).
+In a solution assay the 120 mL/L is 3 µL of cells (50 mL/L), 2.1 µL of substrate liposomes (35 mL/L) and 2.1 µL of suspension buffer (35 mL/L) in 60 µL. In a gel assay it is 3 µL of cells (50 mL/L), 3 µL of substrate liposomes (50 mL/L) and 1.2 µL of suspension buffer (20 mL/L)
 
-:::{table} Buffer mix for pH 6.3. It replaces the Tris1M-HEPES1.15M buffer stock in the acidic arm.
+:::{table} Buffer mix for pH 6.3. It replaces the Tris 1M, HEPES 1.15 M buffer stock in the acidic arm.
 :label: comp-ph-cascade-buffer-mix
 
 | Component | Fraction (mL/L) | Volume (µL) |
 | --- | --- | --- |
-| Tris1M-HEPES1.15M buffer stock | 388.9 | 466.67 |
-| 2 M HEPES stock | 480.2 | 576.19 |
+| Tris 1M, HEPES 1.15 M buffer stock | 388.9 | 466.67 |
+| 2 M HEPES stock | 480.2 | 576.19 | @Claude: check the devnote; did Sung Won really use both Tris 1M, HEPES 1.15 M AND also 2 M HEPES? 
 | 37 % HCl | 66.7 | 80 |
 | Ultrapure water | 64.3 | 77.14 |
 | Total volume (µL) | 1000 | 1200 |

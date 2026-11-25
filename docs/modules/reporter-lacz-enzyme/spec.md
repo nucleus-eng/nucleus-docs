@@ -14,21 +14,19 @@ This page is a work in progress and not yet ready for use.
 (reporter-lacz-enzyme-overview)=
 # Overview
 
-The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer solution in a basic buffer. It converts the yellow substrate chlorophenol red-β-D-galactopyranoside (CPRG) into the purple chlorophenol red (CPR). It reads out CPRG that was released from liposomes, such as [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) and [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md). It is the reporter of the [pH Cascade](../ph-cascade/spec.md). The basic buffer raises the pH of the assay so that β-galactosidase can act.
-
-:::{attention}
-@Developer: The DevNote calls the color of CPR purple in its overview and pink in its figure captions. Give the color name to use.
-:::
+The LacZ Enzyme Reporter uses β-galactosidase (LacZ) to convert the substrate chlorophenol red-β-D-galactopyranoside (CPRG, yellow) into chlorophenol red (CPR, purple). It can be used to read out either expression level (by expressing LacZ) or presence of CPRG (e.g., as released from lysed liposomes such as [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md)). 
 
 (reporter-lacz-enzyme-reference-composition)=
 # Reference Composition
 
 :::::{tab-set}
 
-::::{tab-item} Enzyme Solution
+::::{tab-item} Reaction Composition
 
-:::{table} Enzyme solution, a 3× solution made from the 1000 U/mL stock in the basic buffer of the next tab. Adding 30 µL of it to 60 µL of assay gives 1.2 U/mL.
-:label: comp-reporter-lacz-enzyme-solution
+:::{table} Reaction composition
+:label: comp-reporter-lacz-enzyme-solution @Claude: update label
+
+@Claude: this tab should show the final reaction composition (enzyme conc, typical CPRG conc) instead of the 3x enzyme solution. change the column names and pull the details from the devnote: https://devnotes.nucleus.engineering/articles/sh-20261011
 
 | Component | Stock concentration | 3× concentration | Final concentration |
 | --- | --- | --- | --- |
@@ -37,7 +35,7 @@ The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer 
 ::::
 
 ::::{tab-item} Basic Buffer
-
+@Claude: this tab-item should be pulled to the pH Cascade page. this is specific to the pH Cascade because beta galactosidase only works at neutral or basic pH and the pH sensor is naturally detecting acidic conditions. general forms of this module do not require the basic buffer
 :::{table} Basic buffer that carries the enzyme. Its pH is 9.9, and its osmolarity is 1165 mOsm/kg, measured.
 :label: comp-reporter-lacz-enzyme-buffer
 
@@ -47,9 +45,6 @@ The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer 
 | HCl, 37 % | 2.5 µL |
 :::
 
-:::{attention}
-@Developer: State whether the color of CPR depends on pH.
-:::
 ::::
 
 :::::
@@ -60,17 +55,21 @@ The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer 
 (reporter-lacz-enzyme-solution)=
 ## Solution
 
-The LacZ Enzyme Reporter is expected to turn released CPRG from yellow to purple in solution. At 1.2 U/mL the color was visible by eye after 5.5 h at 37 °C. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+The LacZ Enzyme Reporter is expected to convert yellow CPRG to purple CPR in solution. At 1.2 U/mL β-galactosidase (@Claude: and how much CPRG?), the color was visible by eye after 5.5 h at 37 °C. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
+
+@Claude: is there a graph that you can pull out? perhaps from the DevNote? or maybe on the google drive: https://drive.google.com/drive/u/0/folders/1b1vQ-C-WWDaZEjJ2DJHVX6vJHmtNCiR0
 
 (reporter-lacz-enzyme-gels)=
 ## Gels
 
-The LacZ Enzyme Reporter is expected to do the same in 3.5 mg/mL low-gelling agarose. At 1.2 U/mL, this gave a visible color after 5.5 h at 37 °C. In 7 mg/mL low-gelling agarose, 2 U/mL gave a visible color after 2 h in all wells, including the control without pH Sensing Cells. The leakage is described on [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
+The LacZ Enzyme Reporter is expected to show a visible color change in 3.5 mg/mL [low-gelling agarose](../../modules/gel-lga/spec.md). 1.2 U/mL β-galactosidase gave a visible color change after 5.5 h at 37 °C. In 7 mg/mL low-gelling agarose, 2 U/mL gave a visible color after 2 h in all wells, including the negative control. The leakage is described on [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
 
 (reporter-lacz-enzyme-requirements)=
 # Requirements
 
-Requires CPRG in the outer solution, for example CPRG released from [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) or [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md).
+Requires CPRG in the outer solution, for example free CPRG, or released from substrate [LUVs](../substrate-cprg-luv/spec.md) or [SUVs](../substrate-cprg-suv/spec.md).
+
+Requires the outer solution to be neutral or basic (> pH 7.0) in order for β-galactosidase to catalyze its reaction.
 
 (reporter-lacz-enzyme-implementations)=
 # Implementations
@@ -80,7 +79,7 @@ Requires CPRG in the outer solution, for example CPRG released from [Substrate L
 (reporter-lacz-enzyme-processes)=
 # Processes
 
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) adds the enzyme after the substrate is released, and reads the color.
+- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) for acidic reactions, neutralizes outer solution adds the enzyme after the substrate is released, and reads the color.
 
 (reporter-lacz-enzyme-materials)=
 # Materials
@@ -92,10 +91,6 @@ Requires CPRG in the outer solution, for example CPRG released from [Substrate L
 | Name | Category | Product | Manufacturer | Part # | Price | Storage | Link |
 | ---- | -------- | ------- | ------------ | ------ | ----- | ------- | ---- |
 | β-galactosidase | Reagent | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | | −20 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
-:::
-
-:::{attention}
-@Developer: Give the manufacturer and part number of Tris base. None of the DevCell_Materials_Tracker sheet, the Chicago demo-status doc, the distribution's materials reference, or any of this page's supporting DevNotes names a vendor for it.
 :::
 
 # Supported by
