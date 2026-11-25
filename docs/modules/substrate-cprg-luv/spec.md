@@ -107,7 +107,7 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the LUVs, with the lipid film hydrated in 0.5 mL (4 mM total lipid).
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places them in a gel.
-- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops the color of released CPRG.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops the color of released CPRG in the pH Cascade.
 
 (substrate-cprg-luv-materials)=
 # Materials
