@@ -26,12 +26,7 @@ Nucleus includes a set of two DNA sequences that implement this module in DNA: `
 | --- | --- | --- |
 | `pT7-tetR` | 2877 | [pOpen-tetR.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-tetR.gb) |
 | `pT7-tetO-plamGFP` | 2954 | [pOpen-pT7-tetO.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/pOpen-pT7-tetO.gb) |
-:::
-
-:::{attention} `pOpen-TetO-deGFP` is not in `nucleus-eng/DNA`
-The titration and GUV results below use `pOpen-TetO-deGFP`, a 2855 bp plasmid that places the tetO operator between the T7 promoter and deGFP. No file in `nucleus-eng/DNA` has this sequence. The closest is [pOpen-deGFP](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk), the same plasmid without the 43 bp operator region (2812 bp).
-
-@Editor: Submit the sequence file to `nucleus-eng/DNA`, then add a row to the table above.
+| `pT7-tetO-deGFP-linear` | 917 | [pT7-tetO-deGFP-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/reporters/detector-tetr-atc/pT7-tetO-deGFP-linear.gb) |
 :::
 ::::
 
@@ -100,7 +95,7 @@ Endpoint GFP fluorescence at 6 h in Nucleus Base Cytosol, for 1 nM `pT7-tetO-pla
 (detector-tetr-atc-atc-titration-at-1000-nm-tetr)=
 ### aTc titration at 1000 nM TetR
 
-aTc at (0, 0.25, 0.5 and 1) µM was titrated again against fixed `pOpen-TetO-deGFP` (1 nM) and His-tagged TetR (1000 nM). Fluorescence was read every 5 min for 6 h at 37 °C (485/20 nm excitation, 528/20 nm emission, gain 50), with two replicates per condition.
+aTc at (0, 0.25, 0.5 and 1) µM was titrated again against fixed `pT7-tetO-deGFP-linear` (1 nM) and His-tagged TetR (1000 nM). Fluorescence was read every 5 min for 6 h at 37 °C (485/20 nm excitation, 528/20 nm emission, gain 50), with two replicates per condition.
 
 1000 nM TetR holds deGFP expression to about 10 % of the unrepressed level. 0.25 µM aTc induces expression about 3.3-fold over the repressed reaction, to about 33% of the unrepressed level. Above 0.25 µM aTc, the titration does not monotonically increase expression: 1 µM aTc shows lower expression than 0.25 µM aTc. The two replicates at 0.5 µM aTc differ by 2.3-fold. Again, we found that aTc does not inhibit the reaction. Unrepressed wells at 1 µM aTc showed expression within 6 % of unrepressed wells at 0 µM. Every reaction with DNA reaches 95 % of its expression level at endpoint (6 h) within (2.4 to 3.8) h. The no-DNA conditions read under 1 % of the unrepressed level and drift upward by about 0.4 % of it over 6 h.
 
@@ -110,7 +105,7 @@ aTc at (0, 0.25, 0.5 and 1) µM was titrated again against fixed `pOpen-TetO-deG
 :name: fig-tetr-atc-titration-kinetics
 :align: center
 
-Kinetics of deGFP expression from `pOpen-TetO-deGFP` in bulk reactions: no DNA, unrepressed (1 nM plasmid), and 1 nM plasmid with 1000 nM TetR across (0 to 1) µM aTc. Fluorescence at gain 50, read every 5 min for 6 h at 37 °C. n = 2 replicates per condition.
+Kinetics of deGFP expression from `pT7-tetO-deGFP-linear` in bulk reactions: no DNA, unrepressed (1 nM DNA), and 1 nM DNA with 1000 nM TetR across (0 to 1) µM aTc. Fluorescence at gain 50, read every 5 min for 6 h at 37 °C. n = 2 replicates per condition.
 :::
 ::::
 
@@ -207,15 +202,15 @@ GFP expression within synthetic cells when induced with 312.5 nM aTc.
 
 aTc at 312.5 nM to 2500 nM induces expression in synthetic cells. Higher concentrations begin to inhibit expression or confound analysis due to background aTc fluorescence and membrane localization.
 
-(detector-tetr-atc-popen-teto-degfp-in-guvs)=
-### `pOpen-TetO-deGFP` in GUVs
+(detector-tetr-atc-pt7-teto-degfp-linear-in-guvs)=
+### `pT7-tetO-deGFP-linear` in GUVs
 
-Giant unilamellar vesicles (GUVs) were formed by ([Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md)) from POPC:cholesterol at 9:1 with Liss Rhod PE at 1 mmol/mol final. Sucrose was used as the density reagent at 136 mg/mL (about 400 mM) final reaction concentration. Glucose was used the outer solution to match osmolarity. The following conditions were tested: no DNA, unrepressed (`pOpen-TetO-deGFP` at 1 nM), or repressed (1 nM plasmid with 1000 nM TetR). aTc was added outside the vesicles at (0, 0.25, 0.5 and 1) µM. The vesicles were imaged over 4 h in a BSA-blocked 384-well glass-bottom plate on a Cephla Squid microscope, in a GFP channel and an Alexa Fluor 647 channel. GFP expression was scored only inside objects with a continuous membrane.
+Giant unilamellar vesicles (GUVs) were formed by ([Encapsulation: Phase Transfer](../../processes/assemble-base-cell/main.md)) from POPC:cholesterol at 9:1 with Liss Rhod PE at 1 mmol/mol final. Sucrose was used as the density reagent at 136 mg/mL (about 400 mM) final reaction concentration. Glucose was used the outer solution to match osmolarity. The following conditions were tested: no DNA, unrepressed (`pT7-tetO-deGFP-linear` at 1 nM), or repressed (1 nM DNA with 1000 nM TetR). aTc was added outside the vesicles at (0, 0.25, 0.5 and 1) µM. The vesicles were imaged over 4 h in a BSA-blocked 384-well glass-bottom plate on a Cephla Squid microscope, in a GFP channel and an Alexa Fluor 647 channel. GFP expression was scored only inside objects with a continuous membrane.
 
 Unrepressed synthetic cells became strongly fluorescent and the 0 µM aTc condition remained repressed. aTc is autofluorescent in the GFP channel, so no-DNA vesicles also brighten with aTc concentration: their median intensity at 4 h is 14.7 %, 22.3 %, 31.5 % and 46.4 % of the unrepressed control at 0, 0.25, 0.5 and 1 µM aTc. The unrepressed control is the unrepressed vesicles at 0 µM aTc, with a median intensity of 9,557 before subtraction. After subtracting the matched no-DNA control at each dose, the repressed vesicles read 3.2 %, 22.5 %, 22.8 % and 23.4 % of the unrepressed control subtracted the same way (median intensity 8,156). The signal steps up at 0.25 µM, then rises about 1 percentage point more up to 1 µM, the highest dose tested.
 
 :::::{tab-set}
-::::{tab-item} TetR and `pOpen-TetO-deGFP` in GUVs (raw)
+::::{tab-item} TetR and `pT7-tetO-deGFP-linear` in GUVs (raw)
 :::{figure} cell-guv-degfp-atc-raw.png
 :name: fig-tetr-atc-guv-raw
 :align: center
@@ -224,7 +219,7 @@ deGFP fluorescence in GUVs over 4 h, by aTc dose. Bands show the median, interqu
 :::
 ::::
 
-::::{tab-item} TetR and `pOpen-TetO-deGFP` in GUVs (background subtracted)
+::::{tab-item} TetR and `pT7-tetO-deGFP-linear` in GUVs (background subtracted)
 :::{figure} cell-guv-degfp-atc-background-subtracted.png
 :name: fig-tetr-atc-guv-subtracted
 :align: center
