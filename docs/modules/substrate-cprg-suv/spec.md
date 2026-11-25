@@ -80,12 +80,12 @@ The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2
 (substrate-cprg-suv-solution)=
 ## Solution
 
-Substrate SUV: CPRG is expected to stay yellow in solution when pH Sensing Cells are present at pH 7.6, 5.5 h after β-galactosidase is added. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+Substrate SUV: CPRG is expected to stay yellow in solution when pH Sensing Cells are present at pH 7.6, 5.5 h after β-galactosidase is added. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 (substrate-cprg-suv-gels)=
 ## Gels
 
-Substrate SUV: CPRG is expected to stay yellow in 3.5 mg/mL low-gelling agarose when pH Sensing Cells are present at pH 7.6, 5.5 h after β-galactosidase is added. In 7 mg/mL low-gelling agarose, the color difference between the pH arms and the control was not visible by eye, and the yields of SUVs and cells were lower. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+Substrate SUV: CPRG is expected to stay yellow in 3.5 mg/mL low-gelling agarose when pH Sensing Cells are present at pH 7.6, 5.5 h after β-galactosidase is added. In 7 mg/mL low-gelling agarose, the color difference between the pH arms and the control was not visible by eye, and the yields of SUVs and cells were lower. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 (substrate-cprg-suv-requirements)=
 # Requirements
@@ -104,7 +104,7 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the SUVs: the lipid film is hydrated in 1 mL of inner solution, and the suspension is extruded through a 400 nm membrane in 13 passes.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places them in a gel.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) develops the color of released CPRG.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops the color of released CPRG.
 
 (substrate-cprg-suv-materials)=
 # Materials

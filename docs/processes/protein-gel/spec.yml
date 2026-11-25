@@ -34,7 +34,7 @@ signature:
       SO THIS IS NOT A MEASUREMENT, AND IT READ `measurement` UNTIL 2026-10-05. A
       Measurement is the quantitative case of an Observation. A band at the right
       molecular weight is the visual-score case exactly, and unlike
-      ../colorimetric-readout there is no quantitative protocol beside it to fall back
+      ../color-change-neutralization there is no quantitative protocol beside it to fall back
       on. ../pierce660 is the one instance here that does carry one.
       A READING, NOT A COMPONENT. No module page carries this type, as none carries
       `component`.
@@ -47,5 +47,5 @@ open:
       PART OF THIS IS NOW ANSWERED. `conserves:` says whether the input survives, which
       is the half that made a conservative assay look like it returned two things. What
       is still open is what type a reading IS -- no module page carries `measurement`,
-      and ../colorimetric-readout now returns an `observation`, which is the
+      and ../color-change-neutralization now returns an `observation`, which is the
       supertype: that page has a route scored by eye and this one does not.

@@ -60,7 +60,7 @@ The LacZ Enzyme Reporter is purified β-galactosidase (LacZ) added to the outer 
 (reporter-lacz-enzyme-solution)=
 ## Solution
 
-The LacZ Enzyme Reporter is expected to turn released CPRG from yellow to purple in solution. At 1.2 U/mL the color was visible by eye after 5.5 h at 37 °C. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+The LacZ Enzyme Reporter is expected to turn released CPRG from yellow to purple in solution. At 1.2 U/mL the color was visible by eye after 5.5 h at 37 °C. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 (reporter-lacz-enzyme-gels)=
 ## Gels
@@ -80,7 +80,7 @@ Requires CPRG in the outer solution, for example CPRG released from [Substrate L
 (reporter-lacz-enzyme-processes)=
 # Processes
 
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) adds the enzyme after the substrate is released, and reads the color.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) adds the enzyme after the substrate is released, and reads the color.
 
 (reporter-lacz-enzyme-materials)=
 # Materials

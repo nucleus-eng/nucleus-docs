@@ -94,7 +94,7 @@ Cascade Processes make the parts of a two-liposome cascade and read the result. 
 
 - [Anneal pH Trigger Duplex](./anneal-ph-trigger-duplex/main.md)
 - [Encapsulation: Freeze-Thaw](./encapsulate-freeze-thaw/main.md)
-- [Colorimetric Readout](./colorimetric-readout/main.md)
+- [Color Change: Neutralization](./color-change-neutralization/main.md)
 ## Embedding Processes
 
 Embedding holds a sample in a gel. The route depends on what sets the gel.

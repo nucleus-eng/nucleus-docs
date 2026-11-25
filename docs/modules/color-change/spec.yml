@@ -26,8 +26,8 @@ process_steps:
   # so the implementations differ in the delivery, not in this step.
   - id: report-color
     process:
-      title: "Colorimetric Readout"
-      page: ../../processes/colorimetric-readout/main.md
+      title: "Color Change: Neutralization"
+      page: ../../processes/color-change-neutralization/main.md
     operator: mixing
     operands: [reporter-lacz-enzyme, substrate-liposome-luv, gated-pla1-dna]
     produces:
