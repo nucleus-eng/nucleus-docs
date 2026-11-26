@@ -31,7 +31,7 @@ flowchart TD
     SUBSTRATE_LIPOSOME_SUV["Substrate SUV: CPRG"]
     REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
 
-    P1_REPORT_COLOR_0(["Color Change: Neutralization (mixing)"])
+    P1_REPORT_COLOR_0(["Colorimetric Readout (mixing) — no page"])
     COLOR["Color: CPR"]
 
     REPORTER_LACZ_ENZYME --> P1_REPORT_COLOR_0
@@ -50,7 +50,6 @@ flowchart TD
     click SUBSTRATE_LIPOSOME_LUV "/docs/modules/substrate-cprg-luv/spec"
     click SUBSTRATE_LIPOSOME_SUV "/docs/modules/substrate-cprg-suv/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click P1_REPORT_COLOR_0 "/docs/processes/color-change-neutralization/main"
 ```
 
 ::::
@@ -154,7 +153,7 @@ Requires a control that separates sensing-driven color from CPRG leakage (see [S
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the substrate liposomes.
 - [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md) makes the cell that expresses PLA1.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places both in a gel.
-- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) adds the enzyme and reads the color.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) adds the enzyme and reads the color in the pH implementation.
 
 (color-change-constituent-modules)=
 # Constituent Modules

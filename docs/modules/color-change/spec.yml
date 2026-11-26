@@ -26,8 +26,8 @@ process_steps:
   # so the implementations differ in the delivery, not in this step.
   - id: report-color
     process:
-      title: "Color Change: Neutralization"
-      page: ../../processes/color-change-neutralization/main.md
+      title: "Colorimetric Readout"
+      page: null            # No generic page. The pH implementation runs ../../processes/color-change-neutralization/main.md.
     operator: mixing
     operands: [reporter-lacz-enzyme, substrate-liposome-luv, gated-pla1-dna]
     produces:
