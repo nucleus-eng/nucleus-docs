@@ -12,8 +12,8 @@ signature:
   takes:
     - type: Container
       note: >
-        Any system that holds a color reporter once the reporter is added. Here, a 60 µL gel or a 60 µL
-        solution that holds the substrate, CPRG, in its outer solution.
+        A pH Cascade sample: a 60 µL gel or a 60 µL solution that holds the substrate, CPRG, in its outer
+        solution.
     - type: ColorReporter
       note: >
         The enzyme, as a 3x beta-galactosidase solution in a basic buffer at pH 9.9. Adding 30 µL to 60 µL
@@ -26,18 +26,12 @@ signature:
 operator: mixing
 
 open:
-  - id: input-is-a-guard-not-a-type
-    kind: choice
-    question: >
-      The input is any system that holds a color reporter. The signature has no key for a guard, so this
-      source writes the position as a Container and states the condition in its note. Whether the
-      condition is written in the signature, and how, is not decided here.
   - id: no-number-is-returned
     kind: choice
     question: >
       The read on this page is by eye and by photograph, and returns a color, so the product is typed
-      Observation. A colorimetric readout that returns a number, such as an absorbance read on a plate
-      reader, would produce a Measurement. The page does not describe that read.
+      Observation. A read that returns a number, such as an absorbance read on a plate reader, would
+      produce a Measurement. The page does not describe that read.
   - id: impositions-undeclared
     kind: question
     question: >

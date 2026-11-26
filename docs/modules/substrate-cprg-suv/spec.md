@@ -104,7 +104,7 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the SUVs: the lipid film is hydrated in 1 mL of inner solution, and the suspension is extruded through a 400 nm membrane in 13 passes.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places them in a gel.
-- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops the color of released CPRG.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops the color of released CPRG in the pH Cascade.
 
 (substrate-cprg-suv-materials)=
 # Materials
