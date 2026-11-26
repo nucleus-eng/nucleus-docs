@@ -34,11 +34,11 @@ This page is a work in progress and not yet ready for use.
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
 | Optiprep | 1000 mL/L | 100 mL/L | 50 |
-| Tris1M-HEPES1.15M buffer stock | 2520 mOsm | 1071 mOsm | 212.5 |
+| Tris1M-HEPES1.15M buffer stock | 2520 mOsm/kg | 1071 mOsm/kg | 212.5 |
 | Total volume (µL) | | | 500 |
 :::
 
-The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2520 mOsm/kg, measured. The 1071 mOsm is the contribution of the buffer stock to the inner solution.
+The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2520 mOsm/kg, measured. The 1071 mOsm/kg is the contribution of the buffer stock to the inner solution.
 
 :::{attention}
 @Developer: The storage of CPRG is given as 20 mg/mL in water, and this table uses a 30 mg/mL stock. Confirm the stock concentration.
