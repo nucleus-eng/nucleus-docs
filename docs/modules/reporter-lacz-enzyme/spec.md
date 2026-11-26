@@ -79,7 +79,7 @@ Requires the outer solution to be neutral or basic (> pH 7.0) in order for β-ga
 (reporter-lacz-enzyme-processes)=
 # Processes
 
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) for acidic reactions, neutralizes outer solution adds the enzyme after the substrate is released, and reads the color.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) for acidic reactions, neutralizes outer solution adds the enzyme after the substrate is released, and reads the color.
 
 (reporter-lacz-enzyme-materials)=
 # Materials

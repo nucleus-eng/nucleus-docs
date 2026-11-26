@@ -13,7 +13,7 @@ This page is a work in progress and not yet ready for use.
 (colorimetric-ph-sensor-overview)=
 # Overview
 
-The Colorimetric pH Sensor is an Implementation that combines [pH Sensing Cells](../../modules/ph-sensing-cell/spec.md) with [liposomes containing a substrate](../../modules/substrate-cprg-suv/spec.md) and [LacZ enzyme](../../modules/reporter-lacz-enzyme/spec.md). The Sensor detects acidic conditions (pH 6.3) and produces a visible color change. This signaling cascade is demonstrated in solution and in 3.5 mg/mL [low-gelling agarose](../../modules/gel-lga/spec.md) upon [color development](../../processes/colorimetric-readout/main.md). Acidic pH triggers expression of phospholipase A1 (PLA1), which lyses the CPRG liposomes, allowing β-galactosidase to convert released CPRG from yellow to purple. Wells hold 60 µL of sample and are incubated at 37 °C.
+The Colorimetric pH Sensor is an Implementation that combines [pH Sensing Cells](../../modules/ph-sensing-cell/spec.md) with [liposomes containing a substrate](../../modules/substrate-cprg-suv/spec.md) and [LacZ enzyme](../../modules/reporter-lacz-enzyme/spec.md). The Sensor detects acidic conditions (pH 6.3) and produces a visible color change. This signaling cascade is demonstrated in solution and in 3.5 mg/mL [low-gelling agarose](../../modules/gel-lga/spec.md) upon [color development](../../processes/color-change-neutralization/main.md). Acidic pH triggers expression of phospholipase A1 (PLA1), which lyses the CPRG liposomes, allowing β-galactosidase to convert released CPRG from yellow to purple. Wells hold 60 µL of sample and are incubated at 37 °C.
 
 (colorimetric-ph-sensor-protocol)=
 # Protocol
@@ -82,7 +82,7 @@ The 7.2 µL slot holds 3 µL of pH Sensing Cells, 3 µL of CPRG liposomes and 1.
 (colorimetric-ph-sensor-readout)=
 ## Readout
 
-Color is developed with [@Claude: rename this appropriately](../../processes/colorimetric-readout/main.md), which adds 30 µL of a 3× β-galactosidase solution to 60 µL of gel or solution. The 30 µL of 3× solution gives 1.2 U/mL, as in the run in 3.5 mg/mL agarose. 
+Color is developed with [@Claude: rename this appropriately](../../processes/color-change-neutralization/main.md), which adds 30 µL of a 3× β-galactosidase solution to 60 µL of gel or solution. The 30 µL of 3× solution gives 1.2 U/mL, as in the run in 3.5 mg/mL agarose. 
 
 (colorimetric-ph-sensor-performance)=
 # Performance
@@ -181,7 +181,7 @@ The starting volume of the SUV preparation was raised to increase the yield. Mor
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the CPRG liposomes as LUVs, and as SUVs from the second gel run onward.
 - [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md) makes the pH Sensing Cells.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places the cells and liposomes in a gel.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) develops and reads the color. @Claude: this may be stale now
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops and reads the color. @Claude: this may be stale now
 
 (colorimetric-ph-sensor-modules)=
 # Modules

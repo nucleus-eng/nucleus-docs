@@ -231,12 +231,12 @@ In a solution assay the 120 mL/L is 3 µL of cells (50 mL/L), 2.1 µL of substra
 (ph-cascade-cells)=
 ## Cells
 
-The pH Cascade is expected to turn from yellow to purple in solution in the pH 6.3 arm, and to stay yellow in the pH 7.6 arm, when β-galactosidase is added at the readout in the basic buffer (pH 9.9), which raises the pH so that the enzyme can act. The color was visible by eye after 5.5 h at 37 °C with 1.2 U/mL β-galactosidase. A run with 2 U/mL was read after 2 h. Gramicidin A is not part of the composition: it caused a portion of the CPRG-loaded liposomes to rupture prematurely, which gave nonspecific color, and PLA1 expression driven by proton diffusion into a subset of liposomes with relatively permeable membranes appeared to be sufficient to start lysis. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+The pH Cascade is expected to turn from yellow to purple in solution in the pH 6.3 arm, and to stay yellow in the pH 7.6 arm, when β-galactosidase is added at the readout in the basic buffer (pH 9.9), which raises the pH so that the enzyme can act. The color was visible by eye after 5.5 h at 37 °C with 1.2 U/mL β-galactosidase. A run with 2 U/mL was read after 2 h. Gramicidin A is not part of the composition: it caused a portion of the CPRG-loaded liposomes to rupture prematurely, which gave nonspecific color, and PLA1 expression driven by proton diffusion into a subset of liposomes with relatively permeable membranes appeared to be sufficient to start lysis. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 (ph-cascade-gels)=
 ## Gels
 
-The pH Cascade with Substrate SUV: CPRG in 3.5 mg/mL low-gelling agarose is expected to show the same color pattern as in solution. In 7 mg/mL low-gelling agarose with 2 U/mL β-galactosidase, color developed without PLA1 (see [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md)). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+The pH Cascade with Substrate SUV: CPRG in 3.5 mg/mL low-gelling agarose is expected to show the same color pattern as in solution. In 7 mg/mL low-gelling agarose with 2 U/mL β-galactosidase, color developed without PLA1 (see [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md)). Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 (ph-cascade-requirements)=
 # Requirements
@@ -261,7 +261,7 @@ Requires that gramicidin A is not added (see Expected Behavior).
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the substrate liposomes, as LUVs or SUVs.
 - [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md) makes the pH Sensing Cells.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places both populations in a gel.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) develops and reads the color.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops and reads the color.
 
 (ph-cascade-materials)=
 # Materials

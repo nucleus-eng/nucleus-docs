@@ -21,8 +21,8 @@ inputs:
 process_steps:
   - id: prepare-basic-buffer
     process:
-      title: "Colorimetric Readout"
-      page: ../../processes/colorimetric-readout/main.md
+      title: "Color Change: Neutralization"
+      page: ../../processes/color-change-neutralization/main.md
     operator: mixing
     operands: [tris-base, hydrochloric-acid]
     produces:
@@ -32,8 +32,8 @@ process_steps:
 
   - id: prepare-enzyme-solution
     process:
-      title: "Colorimetric Readout"
-      page: ../../processes/colorimetric-readout/main.md
+      title: "Color Change: Neutralization"
+      page: ../../processes/color-change-neutralization/main.md
     operator: mixing
     operands: [beta-galactosidase, basic-buffer]
     produces:

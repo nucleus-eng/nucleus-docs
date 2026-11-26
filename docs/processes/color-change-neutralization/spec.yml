@@ -1,11 +1,11 @@
-# Process source for Colorimetric Readout, drafted from the page beside it.
+# Process source for Color Change: Neutralization, drafted from the page beside it.
 #
 # THE ENZYME GOES IN HERE, AND THE COLOR IS READ HERE. The reporter enzyme is added to the sample as a
 # 3x solution in a basic buffer, so the operands end in one compartment and the operator is mixing.
 # The substrate is already in the system and is not an argument of this process.
 
-process: colorimetric-readout
-title: "Colorimetric Readout"
+process: color-change-neutralization
+title: "Color Change: Neutralization"
 refines: report_color
 
 signature:

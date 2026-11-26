@@ -31,7 +31,7 @@ flowchart TD
     SUBSTRATE_LIPOSOME_SUV["Substrate SUV: CPRG"]
     REPORTER_LACZ_ENZYME["Reporter: LacZ Enzyme"]
 
-    P1_REPORT_COLOR_0(["Colorimetric Readout (mixing)"])
+    P1_REPORT_COLOR_0(["Color Change: Neutralization (mixing)"])
     COLOR["Color: CPR"]
 
     REPORTER_LACZ_ENZYME --> P1_REPORT_COLOR_0
@@ -50,7 +50,7 @@ flowchart TD
     click SUBSTRATE_LIPOSOME_LUV "/docs/modules/substrate-cprg-luv/spec"
     click SUBSTRATE_LIPOSOME_SUV "/docs/modules/substrate-cprg-suv/spec"
     click REPORTER_LACZ_ENZYME "/docs/modules/reporter-lacz-enzyme/spec"
-    click P1_REPORT_COLOR_0 "/docs/processes/colorimetric-readout/main"
+    click P1_REPORT_COLOR_0 "/docs/processes/color-change-neutralization/main"
 ```
 
 ::::
@@ -128,7 +128,7 @@ flowchart TB
 (color-change-cells)=
 ## Cells
 
-In the pH implementation, Color Change is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added at the readout. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+In the pH implementation, Color Change is expected to stay yellow when the gating signal is absent (pH 7.6) and to turn purple when it is present (pH 6.3), after β-galactosidase is added at the readout. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 :::{warning} Not yet validated
 Gating of PLA1 by a signal other than pH is not reported on this page.
@@ -154,7 +154,7 @@ Requires a control that separates sensing-driven color from CPRG leakage (see [S
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the substrate liposomes.
 - [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md) makes the cell that expresses PLA1.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places both in a gel.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) adds the enzyme and reads the color.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) adds the enzyme and reads the color.
 
 (color-change-constituent-modules)=
 # Constituent Modules

@@ -54,7 +54,7 @@ exclude:
   - embed-thermal-setting
   - anneal-ph-trigger-duplex
   - encapsulate-freeze-thaw
-  - colorimetric-readout
+  - color-change-neutralization
   implementations:
   - colorimetric-ph-sensor
   skipped: false

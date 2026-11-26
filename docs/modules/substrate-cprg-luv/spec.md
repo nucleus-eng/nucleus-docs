@@ -83,12 +83,12 @@ The Tris1M-HEPES1.15M buffer stock is 1 M Tris and 1.15 M HEPES at pH 8, about 2
 (substrate-cprg-luv-solution)=
 ## Solution
 
-Substrate LUV: CPRG is expected to keep CPRG inside at neutral pH and release it when a lytic enzyme such as PLA1 disrupts the membrane. In solution, pH Sensing Cells with Substrate LUV: CPRG gave a visible color change at pH 6.3 and stayed yellow at pH 7.6. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+Substrate LUV: CPRG is expected to keep CPRG inside at neutral pH and release it when a lytic enzyme such as PLA1 disrupts the membrane. In solution, pH Sensing Cells with Substrate LUV: CPRG gave a visible color change at pH 6.3 and stayed yellow at pH 7.6. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 (substrate-cprg-luv-gels)=
 ## Gels
 
-Substrate LUV: CPRG is expected to keep CPRG inside until a lytic enzyme such as PLA1 disrupts the membrane. In 7 mg/mL low-gelling agarose it does not: LUVs develop color without PLA1, which points to CPRG leakage. The control without pH Sensing Cells turned pink after β-galactosidase was added. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Colorimetric Readout](../../processes/colorimetric-readout/main.md).
+Substrate LUV: CPRG is expected to keep CPRG inside until a lytic enzyme such as PLA1 disrupts the membrane. In 7 mg/mL low-gelling agarose it does not: LUVs develop color without PLA1, which points to CPRG leakage. The control without pH Sensing Cells turned pink after β-galactosidase was added. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md), read by [Color Change: Neutralization](../../processes/color-change-neutralization/main.md).
 
 (substrate-cprg-luv-requirements)=
 # Requirements
@@ -107,7 +107,7 @@ Requires β-galactosidase in the outer solution to convert released CPRG (e.g. [
 
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the LUVs, with the lipid film hydrated in 0.5 mL (4 mM total lipid).
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places them in a gel.
-- [Colorimetric Readout](../../processes/colorimetric-readout/main.md) develops the color of released CPRG.
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops the color of released CPRG.
 
 (substrate-cprg-luv-materials)=
 # Materials
