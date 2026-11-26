@@ -83,7 +83,7 @@ Annotated sequence maps are in the DevNote: [T7-EsaR(D91G)-T7term](https://devno
 
 ## Cytosols
 
-3-oxo-C6-HSL binds EsaR and turns on expression of the target gene. This module was characterized using a fluorescent reporter ([mNeonGreen](../reporter-mneongreen/spec.md)).
+3-oxo-C6-HSL binds EsaR and turns on expression of the target gene. This module was characterized using a fluorescent reporter, mNeonGreen.
 
 :::{figure} xref:devnote-esar#fig-20260925-fold
 :name: fig-detector-esar-fold
@@ -93,9 +93,9 @@ Annotated sequence maps are in the DevNote: [T7-EsaR(D91G)-T7term](https://devno
 Steady-state fold change (with versus without 3-oxo-C6-HSL), for the one-operator and two-operator DNA templates at (0.1, 0.5, 1, and 3) nM. At 0.5 nM the ON state is ~ 1.8-fold higher than the OFF state.
 :::
 
-**Repression fails when the reporter template is in excess.** Titrating repressor (volume of pre-reaction) with a fixed DNA template (10 ng/µL) found no difference in output signal ([mNeonGreen](../reporter-mneongreen/spec.md) between the ON and OFF states. Reversing the titration, i.e., varying the DNA template concentration with a fixed repressor, recovers repression below 1 nM DNA template. At 0.1 nM the two-operator reporter gives about 2-fold and the one-operator reporter about 1.5-fold.
+**Repression fails when the reporter template is in excess.** Titrating repressor (volume of pre-reaction) with a fixed DNA template (10 ng/µL) found no difference in output signal (mNeonGreen) between the ON and OFF states. Reversing the titration, i.e., varying the DNA template concentration with a fixed repressor, recovers repression below 1 nM DNA template. At 0.1 nM the two-operator reporter gives about 2-fold and the one-operator reporter about 1.5-fold.
 
-**Expression level does not fall when the DNA template is reduced.** Sensor DNA at (0.5, 1 and 3) nM matches or exceeds the fluorescence of the constitutive [mNeonGreen](../reporter-mneongreen/spec.md) control at 15.6 nM, a 5- to 30-fold lower template concentration. Carryover of unspent energy components and transcription and translation factors from the pre-expressed repressor reaction may supply the extra capacity.
+**Expression level does not fall when the DNA template is reduced.** Sensor DNA at (0.5, 1 and 3) nM matches or exceeds the fluorescence of the constitutive mNeonGreen control at 15.6 nM, a 5- to 30-fold lower template concentration. Carryover of unspent energy components and transcription and translation factors from the pre-expressed repressor reaction may supply the extra capacity.
 
 **Longer pre-incubation of the repressor and the DNA template increases difference in ON and OFF states.** A 15 min pre-incubation gives about 2-fold dynamic range between states in the titration experiments, whereas a 1 h pre-incubation gives about 3-fold, with individual replicates between 2.2- and 4.2-fold (see [below](#fig-detector-esar-mg-fold)).
 
@@ -151,6 +151,10 @@ Requires the repressor to be supplied as protein, e.g., expressed in a separate 
 Requires the DNA template at or below 0.5 nM. Above 1 nM the reporter is in excess of the repressor and no repression is seen.
 
 Requires the analyte to reach the repressor. 3-oxo-C6-HSL crosses a POPC membrane well enough to induce an encapsulated reaction from the outer solution, so no membrane pore is needed.
+
+:::{note} mNeonGreen is patented
+The reporter used to characterize this Module, mNeonGreen, is covered by a United States patent.
+:::
 
 # Processes
 
