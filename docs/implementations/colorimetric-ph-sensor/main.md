@@ -37,23 +37,7 @@ The solution assay runs in a 384-well square plate with 60 µL per well. The pH 
 | Total | 60 | 60 |
 :::
 
-The last row of the table above is a 7.2 µL slot that holds the liposomes and suspension buffer. 
-
-:::{table} Conditions of the four imaged wells. The suspension buffer is 466.7 mL/L Tris 1 M, HEPES 1.15 M.
-:label: tbl-colorimetric-ph-sensor-conditions
-:align: center
-@Claude: this table is better served by the data that it represents in the Performance / Results section
-
-@Claude: on nomenclature, the cells are liposomes too. make the distinction between pH Sensing Cells and CPRG liposomes in the "Name" column
-| Well | Name | Type | pH | pH Sensing Cells (µL) | CPRG liposomes (µL) | Suspension buffer (µL) |
-| --- | --- | --- | --- | --- | --- | --- |
-| D4 | pH 7.6, cells only | Control | 7.6 | 1 | 0 | 6.2 |
-| D5 | pH 6.3, cells only | Control | 6.3 | 1 | 0 | 6.2 |
-| E4 | pH 7.6, cells and liposomes | Sample | 7.6 | 3 | 2.1 | 2.1 |
-| E5 | pH 6.3, cells and liposomes | Sample | 6.3 | 3 | 2.1 | 2.1 |
-:::
-
-@Claude: copy edit this line too given what I said above: The cells-only wells take 1 µL of cells, and the sample wells take 3 µL, so the two differ in cell dose as well as in liposomes. The four wells are imaged by fluorescence microscopy after 13 h at 37 °C.
+The row "pH Sensing Cells, CPRG liposomes and suspension buffer" is 7.2 µL. In a sample well it holds 3 µL of pH Sensing Cells, 2.1 µL of CPRG liposomes and 2.1 µL of suspension buffer. The control wells take other volumes, which {ref}`tbl-colorimetric-ph-sensor-conditions` lists.
 
 (colorimetric-ph-sensor-gel-assay)=
 ## Gel Assay
@@ -68,21 +52,40 @@ The gel assay uses 60 µL of low-gelling agarose gel per well, set by [Embedding
 | --- | --- | --- |
 | Energy solution (2×) | 30 | 30 |
 | 27 mg/mL agarose stock in ultrapure water | 15.6 | 15.6 |
-| Tris 1 M, HEPES 1.15 M buffer stock | 7.2 | - | | Buffer mix for pH 6.3 | - | 7.2 |
+| Tris 1 M, HEPES 1.15 M buffer stock | 7.2 | - |
+| Buffer mix for pH 6.3 | - | 7.2 |
 | pH Sensing Cells, CPRG liposomes and suspension buffer | 7.2 | 7.2 |
 | Total | 60 | 60 |
-
-@Claude: pull the Energy solution (2x) table in here too
 :::
 
-The agarose stock is 40.5 mg of low-gelling agarose (Sigma-Aldrich A9414-5G) in 1500 µL of ultrapure water. It is dissolved in a heat block at 85 °C to 95 °C with occasional vortexing, then cooled to 65 °C. The stock is mixed with the Energy Solution and the buffer (either Tris 1 M, HEPES 1.5 M; or Buffer mix), then cooled to 45 °C before adding liposomes. For 3.5 mg/mL agarose, half of the stock is replaced with ultrapure water: 7.8 µL of stock and 7.8 µL of water in place of the 15.6 µL gel stock.
+:::{table} Energy solution (2×), a sub-mix of ten components made up to 4000 µL, adapted from the PURE formulation ([Shimizu et al., 2001](https://doi.org/10.1038/90802)) and the OnePot PURE method ([Lavickova and Maerkl, 2019](https://doi.org/10.1021/acssynbio.8b00427)). The final concentration is the concentration in the assay.
+:label: tbl-colorimetric-ph-sensor-energy-solution
+:align: center
 
-The 7.2 µL slot holds 3 µL of pH Sensing Cells, 3 µL of CPRG liposomes and 1.2 µL of suspension buffer. The suspension buffer is at 1175 mOsm/kg and pH 8. @Claude: what is the "7.2 slot"? use the name in the line in the appropriate table instead, be explicit
+| Component | Stock concentration | Volume (µL) | Final concentration |
+| --- | --- | --- | --- |
+| Spermidine | 1 M | 12 | 1.5 mM |
+| Creatine phosphate | 1 M | 200 | 25 mM |
+| Magnesium acetate tetrahydrate | 1 M | 144 | 18 mM |
+| L-Glutamic acid potassium salt monohydrate | 2 M | 1120 | 280 mM |
+| Folinic acid calcium salt hydrate | 332 mM | 9.2 | 0.3818 mM |
+| ATP | 100 mM | 300 | 3.75 mM |
+| GTP | 100 mM | 200 | 2.5 mM |
+| CTP | 100 mM | 100 | 1.25 mM |
+| UTP | 100 mM | 100 | 1.25 mM |
+| Amino acid mix (RTS Amino Acid Sampler) | 6 mM | 400 | 0.3 mM |
+| Ultrapure water | | 1414.8 | |
+| Total volume (µL) | | 4000 | |
+:::
+
+The agarose stock is 40.5 mg of low-gelling agarose (Sigma-Aldrich A9414-5G) in 1500 µL of ultrapure water. It is dissolved in a heat block at 85 °C to 95 °C with occasional vortexing, then cooled to 65 °C. The stock is mixed with the Energy Solution and the buffer (either Tris 1 M, HEPES 1.15 M; or Buffer mix), then cooled to 45 °C before adding liposomes. For 3.5 mg/mL agarose, half of the stock is replaced with ultrapure water: 7.8 µL of stock and 7.8 µL of water in place of the 15.6 µL gel stock.
+
+The row "pH Sensing Cells, CPRG liposomes and suspension buffer" is 7.2 µL: 3 µL of pH Sensing Cells, 3 µL of CPRG liposomes and 1.2 µL of suspension buffer. The suspension buffer is at 1175 mOsm/kg and pH 8.
 
 (colorimetric-ph-sensor-readout)=
 ## Readout
 
-Color is developed with [@Claude: rename this appropriately](../../processes/color-change-neutralization/main.md), which adds 30 µL of a 3× β-galactosidase solution to 60 µL of gel or solution. The 30 µL of 3× solution gives 1.2 U/mL, as in the run in 3.5 mg/mL agarose. 
+Color is developed with [Color Change: Neutralization](../../processes/color-change-neutralization/main.md), which adds 30 µL of a 3× β-galactosidase solution to 60 µL of gel or solution. The 30 µL of 3× solution gives 1.2 U/mL, as in the run in 3.5 mg/mL agarose.
 
 (colorimetric-ph-sensor-performance)=
 # Performance
@@ -99,7 +102,21 @@ In solution, acidic pH gave a visible color change.
 Photograph of the two-liposome system in solution at pH 7.6 (left) and pH 6.3 (right).
 :::
 
-Fluorescence microscopy shows the cells in four wells after 13 h at 37 °C. Note: The wells lacking CPRG liposomes (D4 and D5) hold approximately 30% of the number of cells in the sample wells (E4 and E5), so brightness of samples at the same pH are not directly comparable.
+Fluorescence microscopy shows the pH Sensing Cells in four wells after 13 h at 37 °C. {ref}`tbl-colorimetric-ph-sensor-conditions` lists the wells.
+
+:::{table} Conditions of the four imaged wells. The suspension buffer is 466.7 mL/L Tris 1 M, HEPES 1.15 M.
+:label: tbl-colorimetric-ph-sensor-conditions
+:align: center
+
+| Well | Name | Type | pH | pH Sensing Cells (µL) | CPRG liposomes (µL) | Suspension buffer (µL) |
+| --- | --- | --- | --- | --- | --- | --- |
+| D4 | pH 7.6, pH Sensing Cells only | Control | 7.6 | 1 | 0 | 6.2 |
+| D5 | pH 6.3, pH Sensing Cells only | Control | 6.3 | 1 | 0 | 6.2 |
+| E4 | pH 7.6, pH Sensing Cells and CPRG liposomes | Sample | 7.6 | 3 | 2.1 | 2.1 |
+| E5 | pH 6.3, pH Sensing Cells and CPRG liposomes | Sample | 6.3 | 3 | 2.1 | 2.1 |
+:::
+
+The wells with pH Sensing Cells only take 1 µL of pH Sensing Cells, and the sample wells take 3 µL, so the two differ in cell dose as well as in CPRG liposomes. The wells lacking CPRG liposomes (D4 and D5) hold approximately 30% of the number of cells in the sample wells (E4 and E5), so brightness of samples at the same pH is not directly comparable.
 
 :::::{tab-set}
 
@@ -181,7 +198,7 @@ The starting volume of the SUV preparation was raised to increase the yield. Mor
 - [Encapsulation: Freeze-Thaw](../../processes/encapsulate-freeze-thaw/main.md) makes the CPRG liposomes as LUVs, and as SUVs from the second gel run onward.
 - [Protocol: Inverted Emulsion](../../processes/assemble-base-cell/protocol-guv.md) makes the pH Sensing Cells.
 - [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md) places the cells and liposomes in a gel.
-- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops and reads the color. @Claude: this may be stale now
+- [Color Change: Neutralization](../../processes/color-change-neutralization/main.md) develops and reads the color.
 
 (colorimetric-ph-sensor-modules)=
 # Modules

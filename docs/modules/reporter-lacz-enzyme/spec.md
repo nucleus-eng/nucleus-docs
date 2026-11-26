@@ -19,35 +19,16 @@ The LacZ Enzyme Reporter uses β-galactosidase (LacZ) to convert the substrate c
 (reporter-lacz-enzyme-reference-composition)=
 # Reference Composition
 
-:::::{tab-set}
+:::{table} Reaction composition. The final concentration is the concentration after the enzyme is added to a 60 µL sample, which gives 90 µL.
+:label: comp-reporter-lacz-enzyme-reaction
 
-::::{tab-item} Reaction Composition
-
-:::{table} Reaction composition
-:label: comp-reporter-lacz-enzyme-solution @Claude: update label
-
-@Claude: this tab should show the final reaction composition (enzyme conc, typical CPRG conc) instead of the 3x enzyme solution. change the column names and pull the details from the devnote: https://devnotes.nucleus.engineering/articles/sh-20261011
-
-| Component | Stock concentration | 3× concentration | Final concentration |
-| --- | --- | --- | --- |
-| β-galactosidase | 1000 U/mL | 3.6 U/mL | 1.2 U/mL |
-:::
-::::
-
-::::{tab-item} Basic Buffer
-@Claude: this tab-item should be pulled to the pH Cascade page. this is specific to the pH Cascade because beta galactosidase only works at neutral or basic pH and the pH sensor is naturally detecting acidic conditions. general forms of this module do not require the basic buffer
-:::{table} Basic buffer that carries the enzyme. Its pH is 9.9, and its osmolarity is 1165 mOsm/kg, measured.
-:label: comp-reporter-lacz-enzyme-buffer
-
-| Component | Amount |
+| Component | Final concentration |
 | --- | --- |
-| Tris base, 1 M | 1 mL |
-| HCl, 37 % | 2.5 µL |
+| β-galactosidase | 1.2 U/mL |
+| CPRG | at most 0.33 mg/mL |
 :::
 
-::::
-
-:::::
+CPRG enters the reaction inside liposomes, so its concentration depends on how many liposomes lyse. The 0.33 mg/mL is computed for [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). The liposomes hold 14.25 mg/mL CPRG, a 60 µL solution assay takes 2.1 µL of them, and the enzyme dilutes the sample to 90 µL. The value assumes that every liposome lyses. The CPRG concentration inside [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is not documented.
 
 (reporter-lacz-enzyme-expected-behavior)=
 # Expected Behavior
@@ -55,9 +36,9 @@ The LacZ Enzyme Reporter uses β-galactosidase (LacZ) to convert the substrate c
 (reporter-lacz-enzyme-solution)=
 ## Solution
 
-The LacZ Enzyme Reporter is expected to convert yellow CPRG to purple CPR in solution. At 1.2 U/mL β-galactosidase (@Claude: and how much CPRG?), the color was visible by eye after 5.5 h at 37 °C. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
+The LacZ Enzyme Reporter is expected to convert yellow CPRG to purple CPR in solution. At 1.2 U/mL β-galactosidase, with CPRG released from [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md), the color was visible by eye after 5.5 h at 37 °C. The CPRG concentration in that run is not documented. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
 
-@Claude: is there a graph that you can pull out? perhaps from the DevNote? or maybe on the google drive: https://drive.google.com/drive/u/0/folders/1b1vQ-C-WWDaZEjJ2DJHVX6vJHmtNCiR0
+@Developer: Provide a plot or image of LacZ converting CPRG released from Substrate SUV: CPRG in solution. The DevNotes and the Drive folder (https://drive.google.com/drive/u/0/folders/1b1vQ-C-WWDaZEjJ2DJHVX6vJHmtNCiR0) hold no such figure, so this section has none.
 
 (reporter-lacz-enzyme-gels)=
 ## Gels

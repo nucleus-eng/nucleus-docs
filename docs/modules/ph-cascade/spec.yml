@@ -14,7 +14,7 @@ inputs:
     title: "Color Change"
     page: ../color-change/spec.md
   outer-solution:
-    title: "Outer solution: energy solution, water, buffer and suspension"
+    title: "Outer solution"
     page: null
   lga-gel:
     title: "Low-gelling agarose"

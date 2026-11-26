@@ -35,7 +35,7 @@ Schematic representation of the pH Cascade. A pH Sensing Cell with its DNA sits 
 flowchart TD
     PH_SENSING_CELL["pH Sensing Cell"]
     COLOR_CHANGE["Color Change"]
-    OUTER_SOLUTION["Outer solution: energy solution, water, buffer and suspension"] @Claude: everything after the colon is unnecessary; cut it
+    OUTER_SOLUTION["Outer solution"]
     LGA_GEL["Low-gelling agarose"]
 
     P1_ASSEMBLE_ASSAY_0(["Assemble the assay (packing) — no page"])
@@ -128,7 +128,7 @@ The [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) is 35 mL/L (3.5 %) of a
 | --- | --- | --- | --- |
 | CPRG | 30 mg/mL | 14.25 mg/mL | 237.5 |
 | Optiprep | 1000 mL/L | 100 mL/L | 50 |
-| Tris 1 M, HEPES 1.15 M buffer stock | 2520 mOsm/kg | 1071 mOsm/kg | 212.5 | @Claude: confirm this is mOsm/kg and not mOsm/L
+| Tris 1 M, HEPES 1.15 M buffer stock | 2520 mOsm/kg | 1071 mOsm/kg | 212.5 |
 | Total volume (µL) | | | 500 |
 :::
 
@@ -159,7 +159,6 @@ The [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is used in place of the
 
 :::{attention}
 @Developer: Give the composition of the SUV inner solution.
-@Claude: likely this composition is in the devnote; go pull: https://devnotes.nucleus.engineering/articles/sh-20261011
 :::
 ::::
 
@@ -185,7 +184,7 @@ In a solution assay the 120 mL/L is 3 µL of cells (50 mL/L), 2.1 µL of substra
 | Component | Fraction (mL/L) | Volume (µL) |
 | --- | --- | --- |
 | Tris 1M, HEPES 1.15 M buffer stock | 388.9 | 466.67 |
-| 2 M HEPES stock | 480.2 | 576.19 | @Claude: check the devnote; did Sung Won really use both Tris 1M, HEPES 1.15 M AND also 2 M HEPES? 
+| 2 M HEPES stock | 480.2 | 576.19 |
 | 37 % HCl | 66.7 | 80 |
 | Ultrapure water | 64.3 | 77.14 |
 | Total volume (µL) | 1000 | 1200 |
@@ -210,7 +209,7 @@ In a solution assay the 120 mL/L is 3 µL of cells (50 mL/L), 2.1 µL of substra
 | Total volume (µL) | | 4000 | |
 :::
 
-:::{table} Enzyme added for the readout. β-galactosidase is added as a 3× solution in the [basic buffer](../reporter-lacz-enzyme/spec.md) at pH 9.9, and dilutes the assay volume from 60 µL to 90 µL.
+:::{table} Enzyme added for the readout. β-galactosidase is added as a 3× solution in the basic buffer at pH 9.9 (see the Basic Buffer tab), and dilutes the assay volume from 60 µL to 90 µL.
 :label: comp-ph-cascade-enzyme
 
 | Component | Stock concentration | 3× concentration | Final concentration |
@@ -220,6 +219,20 @@ In a solution assay the 120 mL/L is 3 µL of cells (50 mL/L), 2.1 µL of substra
 
 :::{attention}
 @Editor: The gel configuration adds low-gelling agarose to the outer solution (see [Embedding: Thermal Setting](../../processes/embed-thermal-setting/main.md)). No Module page for the gel is part of this set, so the gel has no tab here.
+:::
+::::
+
+::::{tab-item} Basic Buffer
+
+β-galactosidase acts only at neutral or basic pH, and the pH Cascade senses acidic pH, so the enzyme is added in a basic buffer.
+
+:::{table} Basic buffer that carries the enzyme. Its pH is 9.9, and its osmolarity is 1165 mOsm/kg, measured.
+:label: comp-ph-cascade-basic-buffer
+
+| Component | Amount |
+| --- | --- |
+| Tris base, 1 M | 1 mL |
+| HCl, 37 % | 2.5 µL |
 :::
 ::::
 
