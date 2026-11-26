@@ -9,7 +9,7 @@ type: 'Vesicle[SUV]'
 inputs:
   suv-inner-solution:
     title: "Inner solution of the SUV, 1 mL"
-    page: null            # Composition not documented; open on the page.
+    page: null            # Composition taken from Substrate LUV: CPRG, scaled to 1 mL; see the page.
   membrane:
     title: "Membrane: POPC / cholesterol / Rhod-PE, 899.1 / 99.9 / 1 mmol/mol"
     page: null

@@ -17,6 +17,9 @@ inputs:
   hydrochloric-acid:
     title: "HCl, 37 %"
     page: null
+  cprg:
+    title: "CPRG, released into the outer solution of the sample"
+    page: null            # Supplied by a substrate Module after lysis; see the page.
 
 process_steps:
   - id: prepare-basic-buffer
@@ -39,4 +42,17 @@ process_steps:
     produces:
       id: enzyme-solution-3x
       title: "β-galactosidase, 3× solution"
+      page: null
+
+  # The enzyme meets its substrate on contact, so this step has no off state of its own.
+  # The membrane of the substrate Module supplies it: CPRG is in the outer solution only after lysis.
+  - id: develop-color
+    process:
+      title: "Color Change: Neutralization"
+      page: ../../processes/color-change-neutralization/main.md
+    operator: mixing
+    operands: [enzyme-solution-3x, cprg]
+    produces:
+      id: lacz-reaction
+      title: "LacZ reaction, CPRG to CPR"
       page: null

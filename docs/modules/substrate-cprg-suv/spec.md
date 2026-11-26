@@ -30,16 +30,15 @@ Substrate SUV: CPRG encapsulates the chromogenic substrate chlorophenol red-β-D
 :::{table} Inner solution of Substrate SUV: CPRG.
 :label: comp-substrate-cprg-suv-inner-solution
 
-| Component | Final concentration | Volume for one preparation (µL) |
-| --- | --- | --- |
-| CPRG | not documented | not documented |
-| Other components | not documented | not documented |
-| Total volume (µL) | | 1000 |
+| Component | Stock concentration | Final concentration | Volume for one preparation (µL) |
+| --- | --- | --- | --- |
+| CPRG | 30 mg/mL | 14.25 mg/mL | 475 |
+| Optiprep | 1000 mL/L | 100 mL/L | 100 |
+| Tris1M-HEPES1.15M buffer stock | 2520 mOsm/kg | 1071 mOsm/kg | 425 |
+| Total volume (µL) | | | 1000 |
 :::
 
-:::{attention}
-@Developer: Give the composition of the SUV inner solution.
-:::
+The final concentrations are taken from [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) and the volumes are scaled to 1 mL. The 1071 mOsm/kg is the contribution of the buffer stock to the inner solution.
 ::::
 
 ::::{tab-item} Membrane

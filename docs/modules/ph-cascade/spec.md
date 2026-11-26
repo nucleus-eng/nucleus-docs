@@ -145,20 +145,17 @@ The [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) is 35 mL/L (3.5 %) of a
 
 ::::{tab-item} Substrate SUV: CPRG
 
-The [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is used in place of the LUV. Its membrane is the same as the LUV's.
+The [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is used in place of the LUV. Its membrane is the same as the LUV's. Its inner solution is taken to have the LUV's final concentrations, scaled to 1 mL.
 
 :::{table} Inner solution of Substrate SUV: CPRG.
 :label: comp-ph-cascade-suv-inner-solution
 
-| Component | Final concentration | Volume for one preparation (µL) |
-| --- | --- | --- |
-| CPRG | not documented | not documented |
-| Other components | not documented | not documented |
-| Total volume (µL) | | 1000 |
-:::
-
-:::{attention}
-@Developer: Give the composition of the SUV inner solution.
+| Component | Stock concentration | Final concentration | Volume for one preparation (µL) |
+| --- | --- | --- | --- |
+| CPRG | 30 mg/mL | 14.25 mg/mL | 475 |
+| Optiprep | 1000 mL/L | 100 mL/L | 100 |
+| Tris 1 M, HEPES 1.15 M buffer stock | 2520 mOsm/kg | 1071 mOsm/kg | 425 |
+| Total volume (µL) | | | 1000 |
 :::
 ::::
 

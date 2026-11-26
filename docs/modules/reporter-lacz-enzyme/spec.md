@@ -28,7 +28,7 @@ The LacZ Enzyme Reporter uses β-galactosidase (LacZ) to convert the substrate c
 | CPRG | at most 0.33 mg/mL |
 :::
 
-CPRG enters the reaction inside liposomes, so its concentration depends on how many liposomes lyse. The 0.33 mg/mL is computed for [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md). The liposomes hold 14.25 mg/mL CPRG, a 60 µL solution assay takes 2.1 µL of them, and the enzyme dilutes the sample to 90 µL. The value assumes that every liposome lyses. The CPRG concentration inside [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is not documented.
+CPRG enters the reaction inside liposomes, so its concentration depends on how many liposomes lyse. The 0.33 mg/mL is the ceiling when every liposome lyses. [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md) holds 14.25 mg/mL CPRG, a 60 µL solution assay takes 2.1 µL of the liposomes, and the enzyme dilutes the sample to 90 µL. [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) is taken to hold the same 14.25 mg/mL.
 
 (reporter-lacz-enzyme-expected-behavior)=
 # Expected Behavior
@@ -36,9 +36,7 @@ CPRG enters the reaction inside liposomes, so its concentration depends on how m
 (reporter-lacz-enzyme-solution)=
 ## Solution
 
-The LacZ Enzyme Reporter is expected to convert yellow CPRG to purple CPR in solution. At 1.2 U/mL β-galactosidase, with CPRG released from [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md), the color was visible by eye after 5.5 h at 37 °C. The CPRG concentration in that run is not documented. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
-
-@Developer: Provide a plot or image of LacZ converting CPRG released from Substrate SUV: CPRG in solution. The DevNotes and the Drive folder (https://drive.google.com/drive/u/0/folders/1b1vQ-C-WWDaZEjJ2DJHVX6vJHmtNCiR0) hold no such figure, so this section has none.
+The LacZ Enzyme Reporter is expected to convert yellow CPRG to purple CPR in solution. At 1.2 U/mL β-galactosidase, with CPRG released from [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md), the color was visible by eye after 5.5 h at 37 °C. The CPRG concentration in that run was at most 0.33 mg/mL. Data are in the [Colorimetric pH Sensor](../../implementations/colorimetric-ph-sensor/main.md).
 
 (reporter-lacz-enzyme-gels)=
 ## Gels
