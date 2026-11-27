@@ -42,19 +42,17 @@ EsaR is added to the reaction as a protein. It is first expressed from DNA in it
 
 The operator `[EsaO]2` is two EsaO sites in tandem, one base apart. Each site is the same 19 bp box, `CCTGTACTATAGTGCAGGT`, at positions 62–80 and 82–100. The single-site construct carries one copy of that box at 62–80. 
 
-| **Name** | **Length (bp)** | **Role** | **File** |
-| --- | --- | --- | --- |
-| `T7-EsaR(D91G)-T7term` | 1118 | Expresses EsaR. Contains a single amino acid substitution (D91G) shown to give stronger repression than wild type. | [pT7-EsaR-D91G-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaR-D91G-linear.gb) |
-| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter | [pT7-EsaO-EsaO-mNG-linear.gb](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esao2-mng) |
-| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. | [pT7-EsaO-mNG-linear.gb](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esao-mng) |
+| **Name** | **Length (bp)** | **Role** | **File** | **DevNote** |
+| --- | --- | --- | --- | --- |
+| `T7-EsaR(D91G)-T7term` | 1118 | Expresses EsaR. Contains a single amino acid substitution (D91G) shown to give stronger repression than wild type. | [pT7-EsaR-D91G-linear.gb](https://github.com/nucleus-eng/DNA/blob/main/detectors/detector-esar/pT7-EsaR-D91G-linear.gb) | [link](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esar-d91g) |
+| `T7-[EsaO]2-mNG-T7term` | 1118 | Reporter with two operator sites. The reference reporter | `pT7-EsaO-EsaO-mNG-linear.gb` | [link](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esao2-mng) |
+| `T7-[EsaO]-mNG-T7term` | 1098 | Reporter with one operator site. | `pT7-EsaO-mNG-linear.gb` | [link](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esao-mng) |
 
 :::
 
 :::{note} mNeonGreen may be patented
 The reporter used in the templates above, mNeonGreen, may be covered by a United States patent.
 :::
-
-An annotated sequence map for `T7-EsaR(D91G)-T7term` is in the DevNote: [T7-EsaR(D91G)-T7term](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esar-d91g).
 
 ::::
 
