@@ -50,8 +50,8 @@ The operator `[EsaO]2` is two EsaO sites in tandem, one base apart. Each site is
 
 :::
 
-:::{note} mNeonGreen is patented
-The reporter used in the templates above, mNeonGreen, is covered by a United States patent.
+:::{note} mNeonGreen may be patented
+The reporter used in the templates above, mNeonGreen, may be covered by a United States patent.
 :::
 
 Annotated sequence maps are in the DevNote: [T7-EsaR(D91G)-T7term](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esar-d91g), [T7-[EsaO]2-mNG-T7term](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esao2-mng) and [T7-[EsaO]-mNG-T7term](https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a#seq-esao-mng).
