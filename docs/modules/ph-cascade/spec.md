@@ -69,6 +69,42 @@ flowchart TD
 ::::
 <!-- /gen:composition-diagram -->
 
+::::{tab-item} Containers
+
+Container diagram of the pH Cascade: each box is a compartment, and each arrow is an operation that crosses a membrane.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#555555', 'edgeLabelBackground': '#ffffff'}}}%%
+flowchart TB
+    subgraph OUTER["Outer solution"]
+        LACZ["β-galactosidase (LacZ)"]
+        subgraph CELL["pH Sensing Cell"]
+            DNA["Gated PLA1 template and trigger duplex"]
+            PLA1["PLA1, expressed"]
+        end
+        subgraph LIPOSOME["Substrate liposome"]
+            CPRG["CPRG"]
+        end
+    end
+
+    DNA -->|"gating signal: expression"| PLA1
+    PLA1 -->|"lysis"| LIPOSOME
+    CPRG -->|"released into the outer solution"| LACZ
+    LACZ -->|"converts CPRG to CPR"| CPR["CPR, purple"]
+```
+
+:::{table} Where each component sits in the pH Cascade.
+:label: comp-ph-cascade-containers
+
+| Component | Compartment | Module |
+| --- | --- | --- |
+| Gated PLA1 template, `pT7-toehold9-PLA1-linear` | Cytosol of the pH Sensing Cell | [Detector: pH-Sensing](../detector-ph/spec.md), [pH Sensing Cell](../ph-sensing-cell/spec.md) |
+| PLA1 | Made in the pH Sensing Cell; acts on membranes | [pH Sensing Cell](../ph-sensing-cell/spec.md) |
+| CPRG | Inner solution of a substrate liposome, until lysis; then the outer solution | [Substrate LUV: CPRG](../substrate-cprg-luv/spec.md), [Substrate SUV: CPRG](../substrate-cprg-suv/spec.md) |
+| β-galactosidase | Outer solution | [Reporter: LacZ Enzyme](../reporter-lacz-enzyme/spec.md) |
+:::
+::::
+
 ::::{tab-item} DNA
 
 :::{table} DNA of the pH Cascade. All three constructs are in the pH Sensing Cell.

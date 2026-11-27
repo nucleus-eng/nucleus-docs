@@ -75,6 +75,8 @@ project:
           hidden: true
         - file: ./docs/modules/detector-esar/spec.md
           hidden: true
+        - file: ./docs/modules/lysis-pla1/spec.md
+          hidden: true
     - file: ./docs/processes/processes-main.md
       children:
         - file: ./docs/processes/assemble-base-cell/main.md

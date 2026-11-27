@@ -30,6 +30,7 @@ Modules validated in [Nucleus Cytosol](./base-cytosol/spec.md).
 | Cascade            | [pH Cascade](./ph-cascade/spec.md)                  | 1        |
 | Reporter           | [Color Change](./color-change/spec.md)              | 6        |
 | Detector           | [3OC6-HSL (EsaR)](./detector-esar/spec.md)          | 1        |
+| Lysis              | [PLA1](./lysis-pla1/spec.md)                        | 0        |
 :::
 
 ## Gels
